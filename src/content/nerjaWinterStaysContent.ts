@@ -10,34 +10,33 @@ const playa = vacationRentalEntitiesByKey['amara-playa'];
 const hasPlayaAmenity = (name: string) =>
   playa.amenityFeatures.some((feature) => feature.name === name && feature.value === true);
 
-if (!['wifi', 'washingMachine', 'kitchen', 'balcony', 'elevator'].every(hasPlayaAmenity)) {
+if (!['wifi', 'washingMachine', 'kitchen', 'balcony', 'elevator', 'heating'].every(hasPlayaAmenity)) {
   throw new Error('[Nerja Winter Stays] AMARA Playa copy is out of sync with vacationRentalEntities.');
 }
 
 const article = {
   datePublished: '2026-08-21',
-  dateModified: '2026-08-21',
+  dateModified: '2026-08-29',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorSlug: 'amara-about-us'
 };
 
 export const nerjaWinterStaysSeo: AmaraAuthoringSeo = {
-  version: '2026-08-21-nerja-winter-stays-v1.0',
+  version: '2026-08-29-nerja-winter-stays-v2.0',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
   languages: {
-    en: { title: 'Nerja in Winter: Winter Sun, Coast & Longer Stays', description: 'Plan a winter stay in Nerja around coastal walks, town life, all-weather culture and AMARA Playa — with honest limits on weather and seasonal beach services.', robots: 'index, follow', canonical: 'auto' },
-    de: { title: 'Nerja im Winter: Wintersonne, Küste & längere Aufenthalte', description: 'Plant Nerja im Winter mit Küstenspaziergängen, Stadtleben, wetterfesten Kulturzielen und AMARA Playa – ohne falsche Wetter- oder Strandversprechen.', robots: 'index, follow', canonical: 'auto' },
-    es: { title: 'Nerja en invierno: sol, costa y estancias más largas', description: 'Planificad Nerja en invierno con paseos costeros, vida urbana, cultura para días variables y AMARA Playa, sin promesas falsas de tiempo o playa.', robots: 'index, follow', canonical: 'auto' },
-    nl: { title: 'Nerja in de winter: winterzon, kust & langer verblijf', description: 'Plan Nerja in de winter rond kustwandelingen, stadsleven, cultuur voor wisselweer en AMARA Playa — met eerlijke grenzen rond weer en stranddiensten.', robots: 'index, follow', canonical: 'auto' },
-    sv: { title: 'Nerja på vintern: vintersol, kust & längre vistelser', description: 'Planera Nerja på vintern med kustpromenader, stadsliv, kultur för skiftande dagar och AMARA Playa — utan falska väder- eller strandlöften.', robots: 'index, follow', canonical: 'auto' }
+    en: { title: 'Nerja in Winter: What Is Open and What Is Not', description: 'Winter in Nerja: an emptier promenade, the cave and the museum open through the year, no lifeguards on the beach, and AMARA Playa 200 metres from Torrecilla.', robots: 'index, follow', canonical: 'auto' },
+    de: { title: 'Nerja im Winter: Was offen hat und was nicht', description: 'Winter in Nerja: leerere Promenade, Höhle und Museum ganzjährig geöffnet, keine Strandwache und AMARA Playa 200 Meter vom Torrecilla.', robots: 'index, follow', canonical: 'auto' },
+    es: { title: 'Nerja en invierno: qué abre y qué no', description: 'Invierno en Nerja: paseo marítimo más vacío, cueva y museo abiertos todo el año, sin socorristas en la playa y AMARA Playa a 200 metros de Torrecilla.', robots: 'index, follow', canonical: 'auto' },
+    nl: { title: 'Nerja in de winter: wat open is en wat niet', description: 'Winter in Nerja: een legere boulevard, grot en museum het hele jaar open, geen strandwacht en AMARA Playa op 200 meter van Torrecilla.', robots: 'index, follow', canonical: 'auto' },
+    sv: { title: 'Nerja på vintern: vad som har öppet och inte', description: 'Vinter i Nerja: tommare strandpromenad, grottan och museet öppna året runt, ingen livräddare på stranden och AMARA Playa 200 meter från Torrecilla.', robots: 'index, follow', canonical: 'auto' }
   }
 };
 
 const sourceHrefs = {
-  travelIntent: 'https://etc-corporate.org/reports/monitoring-sentiment-for-intra-european-travel-autumn-25-winter-2026/',
   cave: 'https://cuevadenerja.es/',
   museum: 'https://cuevadenerja.es/museodenerja/',
   lifeguards: 'https://www.nerja.es/el-servicio-de-vigilancia-y-socorrismo-de-playas-se-amplia-hasta-los-50-efectivos/'
@@ -47,172 +46,269 @@ export const nerjaWinterStaysContent = {
   navLabel: l("Winter Stays", "Winteraufenthalte", "Estancias de invierno", "Winterverblijven", "Vintervistelser"),
   hero: {
     eyebrow: l("Winter stays · Nerja", "Winteraufenthalte · Nerja", "Estancias de invierno · Nerja", "Winterverblijven · Nerja", "Vintervistelser · Nerja"),
-    title: l("Winter by the sea, with a town around you", "Winter am Meer – mit einer Stadt drum herum", "Invierno junto al mar, con una ciudad alrededor", "Winter aan zee, met een stad eromheen", "Vinter vid havet, med en stad omkring er"),
-    standfirst: l("Nerja in winter is more than a search for a warmer number on a weather app. The coast remains part of everyday life, the town gives you alternatives when conditions change, and places such as the Cueva de Nerja and Museo de Nerja add genuine all-weather depth. The trade-off is important: the sea is not a heated pool, beach services are seasonal and no climate average guarantees your week.", "Nerja im Winter ist mehr als die Suche nach einer wärmeren Zahl in der Wetter-App. Die Küste bleibt Teil des Alltags, die Stadt bietet Alternativen bei wechselnden Bedingungen und Orte wie die Cueva de Nerja und das Museo de Nerja geben auch unbeständigen Tagen Substanz. Der wichtige Gegenpol: Das Meer ist kein beheizter Pool, Strandservices sind saisonal und kein Klimamittelwert garantiert eure Woche.", "Nerja en invierno es más que buscar una cifra más alta en la aplicación del tiempo. La costa sigue presente en la vida diaria, la ciudad ofrece alternativas cuando cambian las condiciones y la Cueva de Nerja y el Museo de Nerja aportan contenido real para cualquier tiempo. La contrapartida importa: el mar no es una piscina climatizada, los servicios de playa son estacionales y ninguna media garantiza vuestra semana.", "Nerja in de winter is meer dan zoeken naar een warmer getal in een weerapp. De kust blijft deel van het dagelijks leven, de stad biedt alternatieven wanneer omstandigheden veranderen en de Cueva de Nerja en het Museo de Nerja geven wisselende dagen echte inhoud. De keerzijde telt: de zee is geen verwarmd zwembad, stranddiensten zijn seizoensgebonden en geen klimaatgemiddelde garandeert jullie week.", "Nerja på vintern är mer än att leta efter en varmare siffra i en väderapp. Kusten är kvar i vardagen, staden ger alternativ när villkoren skiftar och Cueva de Nerja samt Museo de Nerja ger verkligt innehåll för alla väder. Motvikten är viktig: havet är ingen uppvärmd pool, strandtjänster är säsongsbundna och inget klimatmedel garanterar er vecka."),
-    note: l("This guide separates published opening patterns and seasonal services from general impressions. Always check current hours, sea conditions and forecasts.", "Dieser Guide trennt veröffentlichte Öffnungsmuster und saisonale Services von allgemeinen Eindrücken. Prüft Öffnungszeiten, Meer und Vorhersage aktuell.", "La guía separa horarios publicados y servicios estacionales de impresiones generales. Comprobad horarios, mar y previsión actual.", "De gids scheidt gepubliceerde openingstijden en seizoensdiensten van algemene indrukken. Controleer actuele uren, zee en verwachting.", "Guiden skiljer publicerade öppningsmönster och säsongstjänster från allmänna intryck. Kontrollera aktuella tider, hav och prognos."),
-    updated: l("Research and destination sources reviewed August 2026", "Recherche und Ortsquellen geprüft im August 2026", "Investigación y fuentes revisadas en agosto de 2026", "Onderzoek en bronnen gecontroleerd in augustus 2026", "Research och platskällor granskade i augusti 2026"),
+    title: l(
+      "Winter in Nerja: the coast without the crowd",
+      "Winter in Nerja: die Küste ohne den Andrang",
+      "Invierno en Nerja: la costa sin la multitud",
+      "Winter in Nerja: de kust zonder de drukte",
+      "Vinter i Nerja: kusten utan trängseln"
+    ),
+    standfirst: l(
+      "In winter Nerja keeps working while the promenade empties out. The Cueva de Nerja and the Museo de Nerja are open through the year, so a grey day still has somewhere to go. The beach is for walking, not for swimming: the municipal lifeguard service runs in summer only. AMARA Playa sits about 200 metres from Torrecilla beach and 500 from the Balcón de Europa, with heating, a full kitchen, a washing machine and the largest bed we have. Send us your dates and we will check current opening hours before you arrive.",
+      "Im Winter arbeitet Nerja weiter, während sich die Promenade leert. Die Cueva de Nerja und das Museo de Nerja haben ganzjährig geöffnet — ein grauer Tag hat also trotzdem ein Ziel. Der Strand ist zum Gehen da, nicht zum Baden: Der städtische Wachdienst läuft nur im Sommer. AMARA Playa liegt rund 200 Meter vom Strand Torrecilla und 500 Meter vom Balcón de Europa, mit Heizung, voll ausgestatteter Küche, Waschmaschine und unserem größten Bett. Schickt uns eure Reisedaten, dann prüfen wir vorab die aktuellen Öffnungszeiten.",
+      "En invierno Nerja sigue funcionando mientras el paseo marítimo se vacía. La Cueva de Nerja y el Museo de Nerja abren todo el año, así que un día gris también tiene destino. La playa es para caminar, no para bañarse: el servicio municipal de socorrismo funciona solo en verano. AMARA Playa está a unos 200 metros de la playa de Torrecilla y a 500 del Balcón de Europa, con calefacción, cocina completa, lavadora y nuestra cama más grande. Escribidnos vuestras fechas y comprobamos los horarios actuales antes de que lleguéis.",
+      "In de winter draait Nerja door terwijl de boulevard leegloopt. De Cueva de Nerja en het Museo de Nerja zijn het hele jaar open, dus ook een grijze dag heeft een bestemming. Het strand is om te wandelen, niet om te zwemmen: de gemeentelijke strandwacht draait alleen in de zomer. AMARA Playa ligt op ongeveer 200 meter van het Torrecilla-strand en 500 meter van het Balcón de Europa, met verwarming, een volledige keuken, wasmachine en ons grootste bed. Stuur ons jullie data, dan checken we vooraf de actuele openingstijden.",
+      "På vintern fortsätter Nerja att fungera medan strandpromenaden töms. Cueva de Nerja och Museo de Nerja har öppet året runt, så även en grå dag har ett mål. Stranden är till för promenader, inte för bad: den kommunala livräddartjänsten går bara på sommaren. AMARA Playa ligger cirka 200 meter från Torrecillastranden och 500 meter från Balcón de Europa, med värme, fullt utrustat kök, tvättmaskin och vår största säng. Skicka era datum, så kontrollerar vi aktuella öppettider innan ni kommer."
+    ),
+    note: l(
+      "If one detail decides it for you, ask us before you book. We know the apartment.",
+      "Wenn ein Detail für euch den Ausschlag gibt, fragt uns vor der Buchung. Wir kennen die Wohnung.",
+      "Si hay un detalle que os decide, preguntadnos antes de reservar. Conocemos el apartamento.",
+      "Als één detail de doorslag geeft, vraag het ons vóór het boeken. We kennen het appartement.",
+      "Om en detalj avgör för er, fråga oss innan ni bokar. Vi känner lägenheten."
+    ),
+    updated: l(
+      "Last checked in August 2026",
+      "Zuletzt im August 2026 nachgesehen",
+      "Revisado por última vez en agosto de 2026",
+      "Voor het laatst nagekeken in augustus 2026",
+      "Senast kontrollerat i augusti 2026"
+    ),
     mark: l("WINTER", "WINTER", "INVIERNO", "WINTER", "VINTER")
   },
   facts: [
     {
-      label: l("The appeal", "Der Reiz", "El atractivo", "De aantrekkingskracht", "Lockelsen"),
-      value: l("Coast, daylight and everyday town life", "Küste, Tageslicht und städtischer Alltag", "Costa, luz y vida cotidiana", "Kust, daglicht en dagelijks stadsleven", "Kust, dagsljus och vardagligt stadsliv")
-    },
-    {
-      label: l("All-weather anchors", "Bei jedem Wetter", "Para cualquier tiempo", "Voor elk weer", "För alla väder"),
+      label: l("Whatever the weather", "Bei jedem Wetter", "Llueva o no", "Wat het weer ook doet", "Oavsett väder"),
       value: l("Cueva de Nerja · Museo de Nerja", "Cueva de Nerja · Museo de Nerja", "Cueva de Nerja · Museo de Nerja", "Cueva de Nerja · Museo de Nerja", "Cueva de Nerja · Museo de Nerja")
     },
     {
-      label: l("Remember", "Wichtig", "Recordad", "Onthoud", "Kom ihåg"),
-      value: l("Sea conditions and beach services are seasonal", "Meer und Strandservices bleiben saisonabhängig", "Mar y servicios de playa son estacionales", "Zee en stranddiensten zijn seizoensgebonden", "Hav och strandtjänster är säsongsbundna")
+      label: l("On foot", "Zu Fuß", "A pie", "Te voet", "Till fots"),
+      value: l("About 200 m to Torrecilla, 500 m to the Balcón", "Rund 200 m zum Torrecilla, 500 m zum Balcón", "Unos 200 m a Torrecilla, 500 m al Balcón", "Ongeveer 200 m naar Torrecilla, 500 m naar het Balcón", "Cirka 200 m till Torrecilla, 500 m till Balcón")
     },
     {
       label: l("At AMARA Playa", "In AMARA Playa", "En AMARA Playa", "In AMARA Playa", "I AMARA Playa"),
-      value: l("Kitchen · washing machine · Wi-Fi · lift · balcony", "Küche · Waschmaschine · WLAN · Aufzug · Balkon", "Cocina · lavadora · wifi · ascensor · balcón", "Keuken · wasmachine · wifi · lift · balkon", "Kök · tvättmaskin · wifi · hiss · balkong")
+      value: l("Heating · kitchen · washing machine · lift", "Heizung · Küche · Waschmaschine · Aufzug", "Calefacción · cocina · lavadora · ascensor", "Verwarming · keuken · wasmachine · lift", "Värme · kök · tvättmaskin · hiss")
+    },
+    {
+      label: l("Not on offer", "Nicht dabei", "Lo que no hay", "Wat er niet is", "Det som inte ingår"),
+      value: l("Lifeguards — a summer service", "Strandwache — die gibt es nur im Sommer", "Socorristas: solo en verano", "Strandwacht — alleen in de zomer", "Livräddare — bara på sommaren")
     }
   ],
   sections: [
     {
-      id: "when-summer-leaves",
-      eyebrow: l("01 · Why winter", "01 · Warum Winter", "01 · Por qué invierno", "01 · Waarom winter", "01 · Varför vinter"),
-      title: l("Why Nerja works beyond the beach season", "Warum Nerja jenseits der Strandsaison funktioniert", "Por qué Nerja funciona fuera de la temporada de playa", "Waarom Nerja buiten het strandseizoen werkt", "Varför Nerja fungerar utanför strandsäsongen"),
+      id: "emptier-promenade",
+      eyebrow: l("The town", "Die Stadt", "El pueblo", "De stad", "Staden"),
+      title: l(
+        "The promenade is yours again",
+        "Die Promenade gehört euch wieder",
+        "El paseo vuelve a ser vuestro",
+        "De boulevard is weer van jullie",
+        "Strandpromenaden är er igen"
+      ),
       paragraphs: [
-        l("Winter travel can be motivated by brighter days, fewer crowds, better value and avoiding peak heat. Nerja adds a practical advantage: coast and town sit together, so a stay does not depend on one perfect beach forecast.", "Winterreisen können durch hellere Tage, weniger Andrang, bessere Preise und das Vermeiden großer Hitze motiviert sein. Nerja verbindet Küste und Stadt, sodass der Aufenthalt nicht von einer perfekten Strandvorhersage abhängt.", "Los días luminosos, menos aglomeraciones, el valor y evitar el calor intenso pueden motivar el viaje. Nerja une costa y ciudad, de modo que la estancia no depende de una previsión perfecta.", "Lichtere dagen, minder drukte, waarde en het vermijden van hitte kunnen motieven zijn. Nerja combineert kust en stad, zodat het verblijf niet van één perfecte stranddag afhangt.", "Ljusare dagar, färre folkmassor, värde och att undvika stark värme kan motivera resan. Nerja kombinerar kust och stad så vistelsen inte beror på en perfekt strandprognos."),
-        l("Winter is an invitation to use the coast differently — for walks, light, views and an ordinary daily rhythm — with cultural and indoor options alongside.", "Das bedeutet nicht, dass Winter wie Sommer ist. Die Küste wird anders genutzt: für Spaziergänge, Licht, Ausblicke und Alltag, ergänzt durch kulturelle und wetterfeste Optionen.", "No significa que el invierno sea verano: la costa sirve para pasear, mirar y vivir el día a día, con opciones culturales cuando cambia el tiempo.", "Winter is geen zomer: gebruik de kust voor wandelen, licht en uitzicht, met cultuur als het weer verandert.", "Vintern är inte sommar: använd kusten för promenader, ljus och utsikt, med kultur när vädret skiftar.")
+        l(
+          "In winter the seafront and the Balcón de Europa are far emptier than in July. From AMARA Playa it is roughly 500 metres to the Balcón and about 200 to Torrecilla beach.",
+          "Im Winter sind die Uferpromenade und der Balcón de Europa deutlich leerer als im Juli. Von AMARA Playa sind es rund 500 Meter zum Balcón und etwa 200 zum Strand Torrecilla.",
+          "En invierno el paseo marítimo y el Balcón de Europa están mucho más vacíos que en julio. Desde AMARA Playa hay unos 500 metros al Balcón y unos 200 a la playa de Torrecilla.",
+          "In de winter zijn de boulevard en het Balcón de Europa veel leger dan in juli. Vanaf AMARA Playa is het ongeveer 500 meter naar het Balcón en zo'n 200 naar het Torrecilla-strand.",
+          "På vintern är strandpromenaden och Balcón de Europa betydligt tommare än i juli. Från AMARA Playa är det cirka 500 meter till Balcón och omkring 200 till Torrecillastranden."
+        ),
+        l(
+          "What is not there in winter is the lifeguard. **Nerja's municipal beach surveillance runs as a summer service**, so outside the season the beach is unsupervised. It is a place to walk, not to swim.",
+          "Was im Winter fehlt, ist die Strandwache. **Der städtische Wachdienst in Nerja ist ein Sommerservice**; außerhalb der Saison ist der Strand unbeaufsichtigt. Er ist zum Spazieren da, nicht zum Baden.",
+          "Lo que no hay en invierno es socorrista. **La vigilancia municipal de playas de Nerja funciona como servicio de verano**, así que fuera de temporada la playa no está supervisada. Es sitio para pasear, no para bañarse.",
+          "Wat er in de winter niet is, is de strandwacht. **De gemeentelijke strandbewaking van Nerja draait als zomerdienst**, dus buiten het seizoen is het strand onbewaakt. Het is een plek om te wandelen, niet om te zwemmen.",
+          "Det som saknas på vintern är livräddaren. **Nerjas kommunala strandbevakning är en sommartjänst**, så utanför säsong är stranden obevakad. Den är till för promenader, inte för bad."
+        )
       ]
     },
     {
-      id: "northern-winter",
-      eyebrow: l("02 · Local winter", "02 · Lokaler Winter", "02 · Invierno local", "02 · Lokale winter", "02 · Lokal vinter"),
-      title: l("A coastal town, not a resort switched off for the season", "Eine Küstenstadt – kein Ferienort mit ausgeschaltetem Schalter", "Una ciudad costera, no un complejo apagado", "Een kuststad, geen resort dat wordt uitgeschakeld", "En kuststad, inte en avstängd semesterort"),
+      id: "all-weather",
+      eyebrow: l("Whatever the weather", "Bei jedem Wetter", "Llueva o no", "Wat het weer ook doet", "Oavsett väder"),
+      title: l(
+        "Two places that work on a grey day",
+        "Zwei Ziele, die auch bei Regen funktionieren",
+        "Dos sitios que funcionan en un día gris",
+        "Twee plekken die op een grijze dag werken",
+        "Två platser som fungerar en grå dag"
+      ),
       paragraphs: [
-        l("Nerja keeps its residents, streets, shops and cultural life through the winter, though opening hours and individual businesses change with the season.", "Nerja behält im Winter seine Bewohner, Straßen, Geschäfte und Kulturorte – Öffnungszeiten und einzelne Betriebe ändern sich allerdings mit der Saison.", "Nerja mantiene en invierno sus residentes, calles, comercios y vida cultural, aunque los horarios y algunos negocios cambian con la temporada.", "Nerja houdt bewoners, straten en cultuur, maar we zeggen niet dat alles precies als in de zomer draait. Uren veranderen.", "Nerja behåller sina boende, gator, butiker och sitt kulturliv på vintern – öppettider och enskilda verksamheter ändras dock med säsongen."),
-        l("What can be stated more precisely is that the Cueva de Nerja publishes a year-round 2026 opening pattern with closure dates, while Museo de Nerja publishes regular opening through the year and describes an ongoing cultural programme. Check again for your dates.", "Konkreter ist: Die Cueva de Nerja veröffentlicht für 2026 ein ganzjähriges Öffnungsmuster mit Schließtagen. Das Museo de Nerja nennt regelmäßige Öffnung über das Jahr und ein fortlaufendes Kulturprogramm. Prüft beides für eure Daten.", "La Cueva publica un patrón anual 2026 con cierres concretos; el Museo publica horarios regulares y actividad cultural durante el año. Comprobad las fechas.", "De grot publiceert voor 2026 een jaarpatroon met sluitingsdagen; het museum regelmatige uren en een cultureel programma. Controleer jullie data.", "Grottan publicerar ett årsmönster för 2026 med stängningsdagar; museet regelbundna tider och kulturprogram. Kontrollera era datum.")
+        l(
+          "The Cueva de Nerja publishes opening times for the whole year, with a few closure dates. The Museo de Nerja opens Tuesday to Sunday and runs cultural events across the year.",
+          "Die Cueva de Nerja veröffentlicht Öffnungszeiten für das ganze Jahr, mit einzelnen Schließtagen. Das Museo de Nerja öffnet Dienstag bis Sonntag und hat ganzjährig ein Kulturprogramm.",
+          "La Cueva de Nerja publica horarios para todo el año, con algunos días de cierre. El Museo de Nerja abre de martes a domingo y mantiene un programa cultural durante todo el año.",
+          "De Cueva de Nerja publiceert openingstijden voor het hele jaar, met enkele sluitingsdagen. Het Museo de Nerja is open van dinsdag tot en met zondag en heeft het hele jaar een cultureel programma.",
+          "Cueva de Nerja publicerar öppettider för hela året, med några stängda dagar. Museo de Nerja har öppet tisdag till söndag och har kulturprogram året runt."
+        ),
+        l(
+          "Both change their hours from time to time, and the museum's programme is fixed only close to the date. **Tell us when you are coming and we will look it up before you travel.**",
+          "Beide ändern ihre Zeiten gelegentlich, und das Museumsprogramm steht erst kurzfristig fest. **Sagt uns, wann ihr kommt — wir schauen vor eurer Anreise nach.**",
+          "Ambos cambian sus horarios de vez en cuando, y el programa del museo se fija poco antes. **Decidnos cuándo venís y lo consultamos antes de vuestro viaje.**",
+          "Beide passen hun tijden af en toe aan, en het museumprogramma ligt pas kort van tevoren vast. **Laat ons weten wanneer jullie komen, dan zoeken we het vooraf op.**",
+          "Båda ändrar sina tider ibland, och museets program spikas först nära inpå. **Säg när ni kommer, så kollar vi upp det före er resa.**"
+        )
       ]
     },
     {
-      id: "winter-light",
-      eyebrow: l("03 · A realistic day", "03 · Ein realistischer Tag", "03 · Un día realista", "03 · Een realistische dag", "03 · En realistisk dag"),
-      title: l("Coast when it is inviting, culture when it is not", "Küste, wenn sie einlädt – Kultur, wenn nicht", "Costa cuando invita, cultura cuando no", "Kust wanneer het uitnodigt, cultuur wanneer niet", "Kust när den lockar, kultur när den inte gör det"),
+      id: "inside-playa",
+      eyebrow: l("In the evening", "Abends", "Por la tarde", "'s Avonds", "På kvällen"),
+      title: l(
+        "What AMARA Playa gives you in winter",
+        "Was euch AMARA Playa im Winter gibt",
+        "Lo que os da AMARA Playa en invierno",
+        "Wat AMARA Playa jullie in de winter geeft",
+        "Vad AMARA Playa ger er på vintern"
+      ),
       paragraphs: [
-        l("A winter day can begin with a walk near Torrecilla or through the centre, continue with lunch in town and use the cave or museum when conditions make a longer coast plan less attractive.", "Ein Wintertag kann mit einem Spaziergang bei Torrecilla oder durch das Zentrum beginnen, mit Mittagessen weitergehen und Höhle oder Museum einbauen, wenn längere Küstenpläne weniger attraktiv sind.", "Podéis empezar cerca de Torrecilla o en el centro, comer en la ciudad y recurrir a la cueva o al museo si la costa no invita a un plan largo.", "Begin bij Torrecilla of in het centrum, lunch in de stad en kies grot of museum wanneer een lang kustplan minder aantrekkelijk is.", "Börja vid Torrecilla eller i centrum, ät lunch i stan och välj grotta eller museum när en lång kustplan känns mindre bra."),
-        l("Leave space in the schedule. You may get a bright terrace afternoon, a cloudy walking day or weather that makes time at home the better choice. A flexible sequence is more realistic than a list of guaranteed outdoor experiences.", "Lasst Spielraum: sonniger Terrassennachmittag, bewölkter Wandertag oder Zeit zuhause sind alles realistische Varianten.", "Dejad margen para terraza, paseo nublado o tiempo en casa. La flexibilidad es más realista que garantizar experiencias exteriores.", "Laat ruimte voor terras, bewolkte wandeling of thuisblijven. Flexibiliteit is realistischer dan garanties.", "Lämna utrymme för terrass, molnig promenad eller tid hemma. Flexibilitet är mer realistisk än garantier.")
+        l(
+          "The apartment has heating, a full kitchen and a washing machine — the things that matter once a stay runs past a week. The bed measures 200 × 200 cm, the largest at AMARA, and the balcony has a side view of the sea.",
+          "Die Wohnung hat Heizung, eine voll ausgestattete Küche und eine Waschmaschine — genau das, was ab der zweiten Woche zählt. Das Bett misst 200 × 200 cm, das größte bei AMARA, und der Balkon hat seitlichen Meerblick.",
+          "El apartamento tiene calefacción, cocina completa y lavadora: lo que importa cuando la estancia pasa de una semana. La cama mide 200 × 200 cm, la más grande de AMARA, y el balcón tiene vistas laterales al mar.",
+          "Het appartement heeft verwarming, een volledige keuken en een wasmachine — precies wat telt zodra een verblijf langer dan een week duurt. Het bed meet 200 × 200 cm, het grootste bij AMARA, en het balkon heeft zijdelings zeezicht.",
+          "Lägenheten har värme, fullt utrustat kök och tvättmaskin — det som betyder något när vistelsen passerar en vecka. Sängen mäter 200 × 200 cm, den största hos AMARA, och balkongen har havsutsikt åt sidan."
+        ),
+        l(
+          "Playa is on the fifth floor and there is a lift. **Before the lift there are five steps outside the building and five more inside** — worth knowing if you arrive with heavy luggage.",
+          "Playa liegt im fünften Stock, ein Aufzug ist vorhanden. **Vor dem Aufzug liegen fünf Stufen vor dem Gebäude und fünf weitere im Haus** — gut zu wissen, wenn ihr mit schwerem Gepäck ankommt.",
+          "Playa está en el quinto piso y hay ascensor. **Antes del ascensor hay cinco escalones delante del edificio y otros cinco dentro**, conviene saberlo si llegáis con maletas pesadas.",
+          "Playa ligt op de vijfde verdieping en er is een lift. **Vóór de lift liggen vijf treden buiten het gebouw en nog eens vijf binnen** — handig om te weten als jullie met zware bagage aankomen.",
+          "Playa ligger på femte våningen och det finns hiss. **Före hissen finns fem trappsteg utanför huset och fem till inne i huset** — bra att veta om ni kommer med tungt bagage."
+        )
       ]
     },
     {
-      id: "changing-days",
-      eyebrow: l("04 · Weather boundary", "04 · Wettergrenze", "04 · Límite meteorológico", "04 · Weersgrens", "04 · Vädergräns"),
-      title: l("Milder is not the same as predictable", "Milder bedeutet nicht vorhersehbar", "Más suave no significa previsible", "Zachter is niet hetzelfde als voorspelbaar", "Mildare betyder inte förutsägbart"),
+      id: "staying-longer",
+      eyebrow: l("Everyday life", "Alltag", "Día a día", "Dagelijks leven", "Vardag"),
+      title: l(
+        "Staying longer means cooking for yourselves",
+        "Länger bleiben heißt: selbst kochen",
+        "Quedarse más tiempo significa cocinar",
+        "Langer blijven betekent zelf koken",
+        "Att stanna längre betyder att laga mat själva"
+      ),
       paragraphs: [
-        l("Nerja’s Climate & Seasons guide explains the coastal setting, seasonal rain and sea temperatures. Use it for long-term orientation, then use the current official forecast and sea information for the dates of your stay.", "Der Klima-Guide erklärt Küstenlage, Regenverteilung und Wassertemperaturen. Danach zählen die offizielle Vorhersage und aktuelle Meerinformationen für eure Reisedaten.", "La guía climática explica costa, lluvia y mar. Para vuestras fechas importan la previsión oficial y la información marítima actual.", "De klimaatgids legt kust, regen en zee uit. Gebruik daarna actuele officiële verwachting en zee-informatie.", "Klimatguiden förklarar kust, regn och hav. Använd sedan aktuell officiell prognos och havsinformation."),
-        l("We do not borrow Málaga Airport values as if they were measured in Nerja, and we do not transfer Torrox’s historic climate superlative. Winter planning should stay useful and local without pretending the future week is known.", "Wir geben Málaga-Flughafenwerte nicht als Nerja-Messung aus und übertragen den historischen Torrox-Superlativ nicht. Nützliche Planung braucht keine falsche Sicherheit.", "No presentamos datos del aeropuerto de Málaga como mediciones de Nerja ni trasladamos el superlativo histórico de Torrox.", "We presenteren Málaga Airport niet als Nerja-meting en nemen Torrox’ historische superlatief niet over.", "Vi presenterar inte Málaga flygplats som Nerja-mätning och överför inte Torrox historiska superlativ.")
+        l(
+          "A Carrefour Express is on the same street. Mercadona and Mas cover the centre, and Lidl and Aldi sit out on the N-340 for a bigger shop.",
+          "Ein Carrefour Express liegt in derselben Straße. Mercadona und Mas decken das Zentrum ab, für den Großeinkauf gibt es Lidl und Aldi an der N-340.",
+          "Hay un Carrefour Express en la misma calle. Mercadona y Mas cubren el centro, y Lidl y Aldi están en la N-340 para la compra grande.",
+          "Een Carrefour Express ligt in dezelfde straat. Mercadona en Mas dekken het centrum, en Lidl en Aldi liggen aan de N-340 voor de grote boodschappen.",
+          "En Carrefour Express ligger på samma gata. Mercadona och Mas täcker centrum, och Lidl och Aldi ligger vid N-340 för storhandling."
+        ),
+        l(
+          "In winter that mix works well: eat out when the evening invites it, cook at home when it does not. **From eight nights a direct booking includes one cleaning around the middle of the stay.**",
+          "Im Winter passt diese Mischung gut: essen gehen, wenn der Abend danach ist, und zu Hause kochen, wenn nicht. **Ab acht Nächten ist bei Direktbuchung eine Reinigung zur Mitte des Aufenthalts dabei.**",
+          "En invierno esa mezcla funciona bien: salir a cenar cuando apetece y cocinar en casa cuando no. **A partir de ocho noches, la reserva directa incluye una limpieza a mitad de estancia.**",
+          "In de winter werkt die mix goed: uit eten als de avond ernaar is, thuis koken als dat niet zo is. **Vanaf acht nachten hoort bij een directe boeking één schoonmaak halverwege het verblijf.**",
+          "På vintern fungerar den mixen bra: ät ute när kvällen inbjuder till det, laga hemma när den inte gör det. **Från åtta nätter ingår en städning mitt i vistelsen vid direktbokning.**"
+        )
       ]
     },
     {
-      id: "quieter-tarifa",
-      eyebrow: l("05 · Stay longer", "05 · Länger bleiben", "05 · Quedarse más", "05 · Langer blijven", "05 · Stanna längre"),
-      title: l("What changes when a holiday becomes a routine", "Was sich ändert, wenn Urlaub zur Routine wird", "Cuando las vacaciones se convierten en rutina", "Wanneer vakantie routine wordt", "När semester blir rutin"),
+      id: "what-winter-is-not",
+      eyebrow: l("Honestly", "Ehrlich gesagt", "Con franqueza", "Eerlijk gezegd", "Ärligt talat"),
+      title: l(
+        "What winter here is, and what it is not",
+        "Was der Winter hier ist — und was nicht",
+        "Qué es aquí el invierno y qué no",
+        "Wat de winter hier is en wat niet",
+        "Vad vintern här är och inte är"
+      ),
       paragraphs: [
-        l("A longer stay changes the questions. Grocery shopping, laundry, cooking, Wi-Fi and an easy route home matter more than fitting every landmark into two days.", "Bei längeren Aufenthalten werden Einkaufen, Wäsche, Kochen, WLAN und der einfache Heimweg wichtiger als ein dichtes Sehenswürdigkeitenprogramm.", "En una estancia larga importan compra, colada, cocina, wifi y regreso sencillo más que acumular visitas.", "Boodschappen, wassen, koken, wifi en eenvoudig thuiskomen worden belangrijker dan elk hoogtepunt in twee dagen.", "Matinköp, tvätt, matlagning, wifi och enkel väg hem blir viktigare än att pressa in allt på två dagar."),
-        l("Searches for “winter rental” can imply monthly or residential stays. AMARA Playa is presented here as a holiday home; the actual duration, price and conditions are those shown in the current booking process.", "„Winter Rental“ kann Monats- oder Wohnmiete erwarten lassen. AMARA Playa wird als Ferienwohnung angeboten; Dauer, Preis und Konditionen zeigt der aktuelle Buchungsprozess.", "“Winter rental” puede sugerir alquiler mensual. AMARA Playa es vivienda turística; duración, precio y condiciones son los del proceso de reserva actual.", "“Winter rental” kan maandhuur suggereren. AMARA Playa is vakantieverblijf; actuele boeking toont duur, prijs en voorwaarden.", "“Winter rental” kan antyda månadshyra. AMARA Playa är semesterboende; aktuell bokning visar längd, pris och villkor.")
-      ]
-    },
-    {
-      id: "winter-day",
-      eyebrow: l("06 · Home comfort", "06 · Wohnkomfort", "06 · Confort en casa", "06 · Comfort thuis", "06 · Komfort hemma"),
-      title: l("AMARA Playa as a compact everyday base", "AMARA Playa als kompakte Alltagsbasis", "AMARA Playa como base cotidiana compacta", "AMARA Playa als compacte dagelijkse basis", "AMARA Playa som kompakt vardagsbas"),
-      paragraphs: [
-        l("AMARA Playa is a 37 m² fifth-floor apartment for two with a lift. Current property records include a kitchen, washing machine, Wi-Fi and balcony — practical features when you stay long enough to develop a routine.", "AMARA Playa ist ein 37 m² großes Apartment für zwei im fünften Stock mit Aufzug. Die aktuellen Objektdaten nennen Küche, Waschmaschine, WLAN und Balkon.", "AMARA Playa es un apartamento de 37 m² para dos, en la quinta planta con ascensor. Los registros actuales incluyen cocina, lavadora, wifi y balcón.", "AMARA Playa is 37 m² voor twee op de vijfde verdieping met lift. Actuele objectdata noemt keuken, wasmachine, wifi en balkon.", "AMARA Playa är 37 m² för två på femte våningen med hiss. Aktuell objektdata omfattar kök, tvättmaskin, wifi och balkong."),
-        l("Winter suitability is not reduced to an amenity list. If temperature control, workspace or a particular sun orientation is decisive, confirm it before booking rather than relying on a general destination page.", "Wenn Temperaturregelung, Arbeitsplatz oder eine bestimmte Sonnenausrichtung entscheidend sind, bestätigt diese Punkte vor der Buchung.", "Si climatización, espacio de trabajo u orientación solar son decisivos, confirmadlos antes de reservar.", "Bevestig klimaatregeling, werkplek of zonligging als die beslissend zijn.", "Bekräfta temperaturkontroll, arbetsplats eller solläge om det är avgörande.")
-      ]
-    },
-    {
-      id: "home-matters",
-      eyebrow: l("07 · Fit and non-fit", "07 · Passt – oder passt nicht", "07 · Encaja o no", "07 · Past wel of niet", "07 · Passar eller inte"),
-      title: l("Who will enjoy Nerja in winter — and who may not", "Wer Nerja im Winter genießen wird", "Quién disfrutará Nerja en invierno", "Wie Nerja in de winter waardeert", "Vem uppskattar Nerja på vintern?"),
-      paragraphs: [
-        l("It can suit couples who want the coast close, everyday town life and alternatives to beach time. It also works for guests who prefer a compact base and like to move through the destination on foot.", "Nerja kann zu Paaren passen, die Küste, städtischen Alltag und Alternativen zum Strand suchen und eine kompakte Basis bevorzugen.", "Puede encajar con parejas que quieren costa, vida urbana y alternativas a la playa desde una base compacta.", "Het past bij stellen die kust, stadsleven en alternatieven voor strandtijd vanuit een compacte basis zoeken.", "Det kan passa par som vill ha kust, stadsliv och alternativ till strandtid från en kompakt bas."),
-        l("It may not fit guests seeking guaranteed swimming weather, full summer beach services, a large apartment or a residential monthly let. Winter is a coastal stay with variation, not a substitute for July.", "Weniger passend ist es bei garantiertem Badewetter, vollständigem Sommer-Strandservice, viel Wohnfläche oder dem Wunsch nach offener Monatsmiete.", "Encaja menos si necesitáis baño garantizado, todos los servicios estivales, una vivienda grande o alquiler mensual residencial.", "Minder bij gegarandeerd zwemweer, volledige zomerdiensten, veel woonruimte of residentiële maandhuur.", "Mindre för garanterat badväder, alla sommartjänster, stor bostad eller bostadsmånadshyra.")
-      ]
-    },
-    {
-      id: "who-enjoys-winter",
-      eyebrow: l("08 · Plan with local context", "08 · Mit Ortskenntnis planen", "08 · Planificar con contexto", "08 · Plannen met context", "08 · Planera med sammanhang"),
-      title: l("Check what changes with the season", "Prüft, was sich mit der Saison verändert", "Comprobad lo que cambia con la temporada", "Controleer wat per seizoen verandert", "Kontrollera vad som ändras med säsongen"),
-      paragraphs: [
-        l("Municipal lifeguard and surveillance services are described as seasonal summer operations. That does not mean the coast is closed; it means winter swimming and sea access require current conditions and personal judgement.", "Kommunale Überwachungs- und Rettungsdienste am Strand werden als saisonale Sommerangebote beschrieben. Das bedeutet nicht geschlossene Küste, sondern mehr Verantwortung für aktuelle Bedingungen.", "La vigilancia y el socorrismo municipal se describen como servicios estivales. La costa no está cerrada, pero exige condiciones actuales y criterio personal.", "Gemeentelijke strandbewaking en redding worden als zomerdienst beschreven. De kust is niet dicht, maar actuele omstandigheden tellen.", "Kommunal strandbevakning och räddning beskrivs som sommartjänster. Kusten är inte stängd, men aktuella villkor styr."),
-        l("Use the weather, geography and where-to-stay guides for stable orientation. Recheck museum hours, transport, businesses and official safety information close to travel.", "Nutzt Wetter, Geografie und Wo übernachten für stabile Orientierung. Öffnungszeiten, Verkehr, Betriebe und Sicherheit prüft ihr kurz vor der Reise.", "Usad clima, geografía y zonas para lo estable; revisad horarios, transporte y seguridad cerca del viaje.", "Gebruik weer, geografie en verblijfszones voor vaste context; controleer uren, vervoer en veiligheid kort voor vertrek.", "Använd väder, geografi och områden för stabil kontext; kontrollera tider, transport och säkerhet nära resan.")
-      ]
-    },
-    {
-      id: "amara-la-marina",
-      eyebrow: l("09 · Your winter base", "09 · Eure Winterbasis", "09 · Vuestra base", "09 · Jullie basis", "09 · Er bas"),
-      title: l("Choose Nerja for the coast-and-town combination", "Wählt Nerja für die Verbindung aus Küste und Stadt", "Elegid Nerja por la combinación de costa y ciudad", "Kies Nerja voor kust én stad", "Välj Nerja för kust och stad tillsammans"),
-      paragraphs: [
-        l("AMARA Playa places two guests close to Torrecilla and central Nerja while providing the everyday basics of an apartment. Its winter value is the combination of location and routine, not an invented promise about permanent sun.", "AMARA Playa liegt für zwei Gäste nahe Torrecilla und dem Zentrum und bietet die praktischen Grundlagen eines Apartments. Der Winterwert liegt in Lage und Routine, nicht in einem Sonnengarantie-Versprechen.", "AMARA Playa acerca a dos huéspedes a Torrecilla y al centro con los básicos cotidianos de un apartamento. Su valor está en esa combinación cotidiana.", "AMARA Playa brengt twee gasten dicht bij Torrecilla en het centrum met dagelijkse appartementbasis. De waarde is ligging en routine, geen zonbelofte.", "AMARA Playa placerar två gäster nära Torrecilla och centrum med lägenhetens vardagsgrunder. Värdet är läge och rutin, inte solgaranti."),
-        l("First decide whether that coastal-town model fits your trip. Then view the apartment and current booking conditions. If village atmosphere and a historic home matter more, compare Frigiliana before choosing.", "Entscheidet zuerst, ob dieses Aufenthaltsmodell passt. Danach seht ihr euch Apartment und aktuelle Buchungsbedingungen an; für Dorfatmosphäre vergleicht ihr Frigiliana.", "Decidid si encaja el modelo costero y urbano; después consultad apartamento y condiciones. Comparad Frigiliana si preferís pueblo histórico.", "Bepaal eerst of dit model past; bekijk dan appartement en voorwaarden. Vergelijk Frigiliana voor historische dorpssfeer.", "Avgör om modellen passar; se sedan lägenhet och villkor. Jämför Frigiliana för historisk bykänsla.")
+        l(
+          "Conditions change from day to day, and sea and beach services follow the season rather than the calendar you are looking at. Nothing here is a forecast.",
+          "Die Bedingungen wechseln von Tag zu Tag, und Meer wie Strandservices richten sich nach der Saison, nicht nach dem Kalender, in den ihr gerade schaut. Nichts hiervon ist eine Vorhersage.",
+          "Las condiciones cambian de un día a otro, y el mar y los servicios de playa siguen la temporada, no el calendario que estáis mirando. Nada de esto es una previsión.",
+          "De omstandigheden wisselen per dag, en zee en stranddiensten volgen het seizoen, niet de kalender waar jullie nu naar kijken. Niets hiervan is een verwachting.",
+          "Förhållandena växlar från dag till dag, och havet och strandtjänsterna följer säsongen snarare än kalendern ni tittar i. Inget av det här är en prognos."
+        ),
+        l(
+          "**What stays: light, the coast and a town that keeps working through the winter.** What is missing: beach days like the ones in July.",
+          "**Was bleibt: Licht, die Küste und eine Stadt, die auch im Winter weiterarbeitet.** Was fehlt: Strandtage wie im Juli.",
+          "**Lo que queda: luz, la costa y un pueblo que sigue funcionando en invierno.** Lo que falta: días de playa como los de julio.",
+          "**Wat blijft: licht, de kust en een stad die ook in de winter doorwerkt.** Wat ontbreekt: stranddagen zoals in juli.",
+          "**Det som finns kvar: ljuset, kusten och en stad som fortsätter fungera på vintern.** Det som saknas: stranddagar som i juli."
+        )
       ]
     }
   ],
   related: {
-    eyebrow: l("Continue planning", "Weiter planen", "Seguir planificando", "Verder plannen", "Planera vidare"),
-    title: l("Connect the winter idea to the real place", "Die Winteridee mit dem echten Ort verbinden", "Conectad el invierno con el lugar real", "Verbind het winteridee met de echte plek", "Koppla vinteridén till den verkliga platsen"),
+    eyebrow: l("Keep reading", "Weiterlesen", "Seguir leyendo", "Verder lezen", "Läs vidare"),
+    title: l(
+      "Climate, neighbourhoods and everyday Nerja",
+      "Klima, Stadtteile und der Alltag in Nerja",
+      "Clima, barrios y el día a día en Nerja",
+      "Klimaat, wijken en het dagelijks leven in Nerja",
+      "Klimat, stadsdelar och vardagen i Nerja"
+    ),
     links: [
       {
         token: "nerja_weather" as LinkToken,
         label: l("Weather & Seasons", "Wetter & Jahreszeiten", "Clima y estaciones", "Weer & seizoenen", "Väder & årstider"),
-        text: l("Coastal climate, sea temperature and current-forecast boundaries.", "Küstenklima, Wassertemperatur und Grenzen der Vorhersage.", "Clima costero, mar y límites de la previsión.", "Kustklimaat, zee en voorspellingsgrenzen.", "Kustklimat, hav och prognosgränser.")
+        text: l("What the year looks like on this coast, and where the forecast takes over.", "Wie das Jahr an dieser Küste aussieht — und ab wann die Vorhersage zählt.", "Cómo es el año en esta costa y dónde empieza la previsión.", "Hoe het jaar er aan deze kust uitziet en waar de verwachting het overneemt.", "Hur året ser ut vid den här kusten och var prognosen tar vid.")
       },
       {
         token: "nerja_where_to_stay" as LinkToken,
         label: l("Where to Stay", "Wo übernachten", "Dónde alojarse", "Waar verblijven", "Var ska man bo"),
-        text: l("Areas, routes and the practical meaning of staying near the coast or centre.", "Lagen, Wege und die praktische Bedeutung von Küsten- oder Zentrumsnähe.", "Zonas, recorridos y significado práctico de costa o centro.", "Gebieden, routes en kust- of centrumligging.", "Områden, vägar och kust- eller centrumläge.")
+        text: l("Old Town, Torrecilla, Carabeo, Burriana or the hills — what each is like to live in.", "Altstadt, Torrecilla, Carabeo, Burriana oder die Hanglagen — wie es sich dort jeweils wohnt.", "Casco antiguo, Torrecilla, Carabeo, Burriana o las colinas: cómo se vive en cada zona.", "Oude centrum, Torrecilla, Carabeo, Burriana of de heuvels — hoe het is om er te wonen.", "Gamla stan, Torrecilla, Carabeo, Burriana eller höjderna — hur det är att bo i varje del.")
       },
       {
         token: "nerja_geography" as LinkToken,
         label: l("Geography & Orientation", "Geografie & Orientierung", "Geografía y orientación", "Geografie & oriëntatie", "Geografi & orientering"),
-        text: l("Cliffs, beaches, town and the landscape around Nerja.", "Klippen, Strände, Stadt und Landschaft.", "Acantilados, playas, ciudad y paisaje.", "Kliffen, stranden, stad en landschap.", "Klippor, stränder, stad och landskap.")
+        text: l("How the town sits between the Sierra and the sea.", "Wie die Stadt zwischen Sierra und Meer liegt.", "Cómo se sitúa el pueblo entre la sierra y el mar.", "Hoe de stad tussen de sierra en de zee ligt.", "Hur staden ligger mellan sierran och havet.")
       },
       {
         token: "nerja_daily_life" as LinkToken,
-        label: l("Daily Life & Essentials", "Alltag & Versorgung", "Vida diaria y servicios", "Dagelijks leven", "Vardag & service"),
-        text: l("Shopping, services and ordinary practical planning.", "Einkaufen, Services und praktische Planung.", "Compras, servicios y planificación.", "Winkels, diensten en planning.", "Inköp, tjänster och planering.")
+        label: l("Daily Life & Essentials", "Alltag & Versorgung", "Vida diaria y servicios", "Dagelijks leven & voorzieningen", "Vardag & service"),
+        text: l("Shops, pharmacies and the practical side of a longer stay.", "Geschäfte, Apotheken und die praktische Seite eines längeren Aufenthalts.", "Tiendas, farmacias y la parte práctica de una estancia larga.", "Winkels, apotheken en de praktische kant van een langer verblijf.", "Butiker, apotek och det praktiska kring en längre vistelse.")
       }
     ]
   },
   sources: {
     eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
-    title: l("Where these facts come from", "Woher diese Angaben stammen", "De dónde salen estos datos", "Waar deze gegevens vandaan komen", "Varifrån uppgifterna kommer"),
-    intro: l("Published opening patterns and seasonal beach services come from official destination sources; the general winter travel motives from European research.", "Öffnungsmuster und saisonale Strandservices stammen aus offiziellen Quellen, die allgemeinen Reisemotive im Winter aus europäischer Forschung.", "Los horarios y los servicios estacionales proceden de fuentes oficiales; los motivos generales de viaje, de la investigación europea.", "Openingstijden en seizoensdiensten komen uit officiële bronnen, de algemene winterse reismotieven uit Europees onderzoek.", "Öppettider och säsongstjänster kommer från officiella källor, de allmänna vintermotiven från europeisk forskning."),
-    checked: l("Sources reviewed 21 August 2026", "Quellen geprüft am 21. August 2026", "Fuentes revisadas el 21 de agosto de 2026", "Bronnen gecontroleerd op 21 augustus 2026", "Källor granskade 21 augusti 2026"),
+    title: l("Where these details come from", "Woher diese Angaben kommen", "De dónde salen estos datos", "Waar deze gegevens vandaan komen", "Varifrån uppgifterna kommer"),
+    intro: l(
+      "Opening times come from the cave, the museum and the town hall. Everything about AMARA Playa comes from us.",
+      "Die Öffnungszeiten stammen von der Höhle, dem Museum und der Stadtverwaltung. Alles zu AMARA Playa kommt von uns.",
+      "Los horarios proceden de la cueva, el museo y el ayuntamiento. Todo lo relativo a AMARA Playa viene de nosotros.",
+      "De openingstijden komen van de grot, het museum en de gemeente. Alles over AMARA Playa komt van ons.",
+      "Öppettiderna kommer från grottan, museet och kommunen. Allt om AMARA Playa kommer från oss."
+    ),
+    checked: l("Last checked in August 2026", "Zuletzt im August 2026 nachgesehen", "Revisado por última vez en agosto de 2026", "Voor het laatst nagekeken in augustus 2026", "Senast kontrollerat i augusti 2026"),
     links: [
       {
-        label: l("European Travel Commission · winter travel sentiment", "European Travel Commission · Reisestimmung im Winter", "European Travel Commission · invierno", "European Travel Commission · winter", "European Travel Commission · vinter"),
-        text: l("European intentions and the boundary between survey plans and bookings.", "Absichten und Grenze zwischen Befragungsplan und Buchung.", "Intenciones y diferencia entre planes y reservas.", "Intenties versus boekingen.", "Avsikter jämfört med bokningar."),
-        href: sourceHrefs.travelIntent
-      },
-      {
-        label: l("Cueva de Nerja · 2026 opening information", "Cueva de Nerja · Öffnungszeiten 2026", "Cueva de Nerja · horarios 2026", "Cueva de Nerja · uren 2026", "Cueva de Nerja · tider 2026"),
-        text: l("Published year-round pattern with specified closure dates.", "Veröffentlichtes Jahresmuster mit benannten Schließtagen.", "Patrón anual publicado con cierres.", "Gepubliceerd jaarpatroon.", "Publicerat årsmönster."),
+        label: l("Cueva de Nerja · opening information", "Cueva de Nerja · Öffnungszeiten", "Cueva de Nerja · horarios", "Cueva de Nerja · openingstijden", "Cueva de Nerja · öppettider"),
+        text: l("The published pattern for the year, including closure dates.", "Der veröffentlichte Jahresplan mit den Schließtagen.", "El calendario publicado del año, con los días de cierre.", "Het gepubliceerde jaarschema, inclusief sluitingsdagen.", "Det publicerade årsschemat, inklusive stängda dagar."),
         href: sourceHrefs.cave
       },
       {
-        label: l("Museo de Nerja · opening and programme", "Museo de Nerja · Öffnung und Programm", "Museo de Nerja · horarios y programa", "Museo de Nerja · uren en programma", "Museo de Nerja · tider och program"),
-        text: l("Published hours and cultural activity information.", "Veröffentlichte Zeiten und Kulturinformationen.", "Información cultural publicada.", "Gepubliceerde cultuurinformatie.", "Publicerad kulturinformation."),
+        label: l("Museo de Nerja · hours and programme", "Museo de Nerja · Zeiten und Programm", "Museo de Nerja · horarios y programa", "Museo de Nerja · tijden en programma", "Museo de Nerja · tider och program"),
+        text: l("Tuesday to Sunday through the year, plus the cultural programme.", "Dienstag bis Sonntag im ganzen Jahr, dazu das Kulturprogramm.", "De martes a domingo todo el año, más el programa cultural.", "Dinsdag tot en met zondag het hele jaar, plus het culturele programma.", "Tisdag till söndag året runt, plus kulturprogrammet."),
         href: sourceHrefs.museum
       },
       {
-        label: l("Ayuntamiento de Nerja · beach surveillance", "Ayuntamiento de Nerja · Strandüberwachung", "Ayuntamiento · vigilancia de playas", "Gemeente · strandbewaking", "Kommunen · strandbevakning"),
-        text: l("Municipal description of the seasonal summer service.", "Kommunale Beschreibung des saisonalen Sommerdienstes.", "Descripción del servicio estival.", "Beschrijving zomerdienst.", "Beskrivning av sommartjänst."),
+        label: l("Ayuntamiento de Nerja · beach surveillance", "Ayuntamiento de Nerja · Strandwache", "Ayuntamiento de Nerja · vigilancia de playas", "Ayuntamiento de Nerja · strandbewaking", "Ayuntamiento de Nerja · strandbevakning"),
+        text: l("The municipal lifeguard operation, described as a summer service.", "Der städtische Rettungsdienst, beschrieben als Sommerservice.", "El operativo municipal de socorrismo, descrito como servicio de verano.", "De gemeentelijke strandwacht, beschreven als zomerdienst.", "Den kommunala livräddarinsatsen, beskriven som en sommartjänst."),
         href: sourceHrefs.lifeguards
       }
     ]
   },
   closing: {
-    eyebrow: l("Winter on the coast, honestly explained", "Winter an der Küste, ehrlich erklärt", "Invierno en la costa, explicado con honestidad", "Winter aan de kust, eerlijk uitgelegd", "Vinter vid kusten, ärligt förklarad"),
-    title: l("Choose Nerja for the life around the sea", "Wählt Nerja für das Leben rund um das Meer", "Elegid Nerja por la vida alrededor del mar", "Kies Nerja voor het leven rond de zee", "Välj Nerja för livet kring havet"),
-    body: l("Nerja can make winter feel more open without turning it into guaranteed summer. If coast, town and a compact apartment routine are the right combination, continue to AMARA Playa and check the current conditions for your stay.", "Nerja kann den Winter offener wirken lassen, ohne ihn zum garantierten Sommer zu erklären. Wenn Küste, Stadt und kompakter Apartmentalltag passen, geht weiter zu AMARA Playa.", "Nerja abre el invierno sin fingir que es verano. Si encajan costa, ciudad y un apartamento compacto, continuad a AMARA Playa.", "Nerja kan winter opener maken zonder gegarandeerde zomer te beloven. Past kust, stad en compact appartementleven, ga dan door naar AMARA Playa.", "Nerja kan göra vintern öppnare utan att lova garanterad sommar. Om kust, stad och kompakt lägenhetsliv passar, fortsätt till AMARA Playa."),
+    eyebrow: l("Winter at AMARA", "Winter bei AMARA", "Invierno en AMARA", "Winter bij AMARA", "Vinter hos AMARA"),
+    title: l(
+      "Tell us when you want to come",
+      "Sagt uns, wann ihr kommen möchtet",
+      "Contadnos cuándo queréis venir",
+      "Vertel ons wanneer jullie willen komen",
+      "Berätta när ni vill komma"
+    ),
+    body: l(
+      "If coast, daylight and a town that keeps its own rhythm sound right, winter in Nerja works. Send us your dates and we will check what is open that week.",
+      "Wenn Küste, Tageslicht und eine Stadt mit eigenem Rhythmus für euch passen, funktioniert der Winter in Nerja. Schickt uns eure Reisedaten, dann prüfen wir, was in der Woche offen hat.",
+      "Si os encajan la costa, la luz y un pueblo con su propio ritmo, el invierno en Nerja funciona. Enviadnos vuestras fechas y comprobamos qué abre esa semana.",
+      "Als de kust, daglicht en een stad met een eigen ritme goed klinken, werkt de winter in Nerja. Stuur ons jullie data, dan kijken we wat er die week open is.",
+      "Om kusten, dagsljuset och en stad med egen rytm låter rätt fungerar vintern i Nerja. Skicka era datum, så kollar vi vad som har öppet den veckan."
+    ),
     locationLabel: l("Explore Nerja", "Nerja entdecken", "Descubrir Nerja", "Ontdek Nerja", "Upptäck Nerja"),
-    propertyLabel: l("View AMARA Playa", "AMARA Playa ansehen", "Ver AMARA Playa", "Bekijk AMARA Playa", "Visa AMARA Playa")
+    propertyLabel: l("View AMARA Playa", "AMARA Playa ansehen", "Ver AMARA Playa", "Bekijk AMARA Playa", "Se AMARA Playa")
   }
 };
