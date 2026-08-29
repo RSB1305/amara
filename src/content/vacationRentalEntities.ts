@@ -409,46 +409,46 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Lounis: historisk lägenhet med terrass i Frigiliana | AMARA'
     },
     seoDescription: {
-      en: 'Lounis, the house’s largest apartment for 2: private terrace with an eight-metre historic well, Moorish walls and original floor tiles.',
-      de: 'Lounis, das größte Apartment im Haus für 2: private Terrasse mit einem acht Meter tiefen historischen Brunnen, maurische Mauern und Originalfliesen.',
-      es: 'Lounis, el apartamento más grande de la casa para 2: terraza privada con pozo histórico de ocho metros, muros andalusíes y baldosas originales.',
-      nl: 'Lounis, het grootste appartement in huis voor 2: privéterras met acht meter diepe historische put, Moorse muren en originele vloertegels.',
-      sv: 'Lounis, husets största lägenhet för 2: privat terrass med åtta meter djup historisk brunn, moriska murar och ursprungliga golvplattor.'
+      en: 'Lounis in Frigiliana for 2: 70 m² inside, a 39 m² private terrace with hammock, a double rain shower and views over the groves towards the sea.',
+      de: 'Lounis in Frigiliana für 2: 70 m² innen, 39 m² private Terrasse mit Hängematte, Doppeldusche und Blick über die Plantagen bis zum Meer.',
+      es: 'Lounis en Frigiliana para 2: 70 m² interiores, terraza privada de 39 m² con hamaca, ducha doble y vistas sobre el campo hacia el mar.',
+      nl: 'Lounis in Frigiliana voor 2: 70 m² binnen, een privéterras van 39 m² met hangmat, dubbele regendouche en uitzicht richting zee.',
+      sv: 'Lounis i Frigiliana för 2: 70 m² inomhus, 39 m² privat terrass med hängmatta, dubbeldusch och utsikt över odlingarna mot havet.'
     },
     eyebrow: {
-      en: 'Historic apartment',
-      de: 'Historisches Apartment',
-      es: 'Apartamento histórico',
-      nl: 'Historisch appartement',
-      sv: 'Historisk lägenhet'
+      en: 'Plenty of room for two',
+      de: 'Viel Raum für zwei',
+      es: 'Mucho espacio para dos',
+      nl: 'Veel ruimte voor twee',
+      sv: 'Gott om plats för två'
     },
     headline: {
-      en: '70 m², a private terrace and historic walls',
-      de: '70 m², private Terrasse und historische Mauern',
-      es: '70 m², terraza privada y muros históricos',
-      nl: '70 m², een privéterras en historische muren',
-      sv: '70 m², privat terrass och historiska murar'
+      en: 'Private terrace, double rain shower and plenty of room',
+      de: 'Private Terrasse, Doppeldusche und viel Platz',
+      es: 'Terraza privada, ducha doble y mucho espacio',
+      nl: 'Privéterras, dubbele regendouche en veel ruimte',
+      sv: 'Privat terrass, dubbeldusch och gott om plats'
     },
     lead: {
-      en: 'Lounis is the largest apartment at Casa AMARA: 70 m² inside and a 39 m² private terrace. It has a full kitchen, historic walls and a secured eight-metre well.',
-      de: 'Lounis ist die größte Wohnung in Casa AMARA: 70 m² innen und eine 39 m² große private Terrasse. Dazu kommen eine voll ausgestattete Küche, historische Mauern und ein gesicherter acht Meter tiefer Brunnen.',
-      es: 'Lounis es el apartamento más grande de Casa AMARA: 70 m² interiores y una terraza privada de 39 m². Tiene cocina completa, muros históricos y un pozo protegido de ocho metros.',
-      nl: 'Lounis is het grootste appartement van Casa AMARA: 70 m² binnen en een privéterras van 39 m². Het heeft een volledige keuken, historische muren en een beveiligde put van acht meter diep.',
-      sv: 'Lounis är den största lägenheten i Casa AMARA: 70 m² inomhus och en privat terrass på 39 m². Här finns ett fullt kök, historiska murar och en säkrad åtta meter djup brunn.'
+      en: 'Choose Lounis if you want to spend more than just the night in your apartment. It is the largest stay at Casa AMARA, with 70 m² inside, a 39 m² private terrace, a 160 × 200 cm bed, double rain shower and full kitchen.',
+      de: 'Lounis passt zu euch, wenn ihr in der Unterkunft nicht nur schlafen möchtet. Es ist mit 70 m² innen das größte Apartment in Casa AMARA; dazu kommen 39 m² private Terrasse, ein 160 × 200 cm großes Bett, Doppeldusche und voll ausgestattete Küche.',
+      es: 'Elegid Lounis si queréis disfrutar del apartamento y no utilizarlo solo para dormir. Es el más grande de Casa AMARA, con 70 m² interiores, terraza privada de 39 m², cama de 160 × 200 cm, ducha doble y cocina completa.',
+      nl: 'Kies Lounis als jullie meer in het appartement willen doen dan alleen slapen. Met 70 m² binnen is dit het grootste verblijf in Casa AMARA; daarnaast hebben jullie een privéterras van 39 m², een bed van 160 × 200 cm, een dubbele regendouche en een volledige keuken.',
+      sv: 'Välj Lounis om ni vill göra mer i lägenheten än att bara sova. Det är Casa AMARAs största boende, med 70 m² inomhus, 39 m² privat terrass, en säng på 160 × 200 cm, dubbeldusch och fullt kök.'
     },
     description: {
-      en: 'The **private terrace** overlooks the mango and avocado groves towards the sea. It is shaded in the morning and sunny from around midday; outside you have a hammock, two loungers and a Moroccan-style shower.\n\nThe secured historic well still holds water but is not used as domestic or drinking water. During the 2020–2022 restoration, Moorish masonry and original floor tiles were uncovered and preserved.',
-      de: 'Von der **privaten Terrasse** blickt ihr über Mango- und Avocadoplantagen bis zum Meer. Morgens liegt sie im Schatten, ab etwa Mittag in der Sonne; draußen stehen eine Hängematte, zwei Liegen und eine marokkanisch gestaltete Dusche bereit.\n\nDer gesicherte historische Brunnen führt noch Wasser, wird aber nicht als Haus- oder Trinkwasser genutzt. Bei der Restaurierung von 2020 bis 2022 kamen maurisches Mauerwerk und Originalfliesen zum Vorschein, die wir erhalten haben.',
-      es: 'La **terraza privada** mira sobre las plantaciones de mango y aguacate hacia el mar. Por la mañana está en sombra y desde alrededor del mediodía recibe el sol; fuera tenéis hamaca, dos tumbonas y una ducha de estilo marroquí.\n\nEl pozo histórico protegido todavía contiene agua, pero no se utiliza como agua doméstica ni potable. Durante la restauración de 2020 a 2022 aparecieron muros andalusíes y baldosas originales que conservamos.',
-      nl: 'Vanaf het **privéterras** kijken jullie over de mango- en avocadoplantages richting zee. ’s Ochtends ligt het in de schaduw en vanaf ongeveer het middaguur in de zon; buiten staan een hangmat, twee ligstoelen en een Marokkaans vormgegeven douche.\n\nDe beveiligde historische put bevat nog water, maar wordt niet gebruikt als huishoud- of drinkwater. Bij de restauratie van 2020 tot 2022 kwamen Moors metselwerk en originele vloertegels tevoorschijn, die we hebben behouden.',
-      sv: 'Från den **privata terrassen** ser ni över mango- och avokadoodlingarna mot havet. På morgonen ligger den i skugga och från omkring middagstid i sol; ute finns en hängmatta, två solsängar och en marockanskt utformad dusch.\n\nDen säkrade historiska brunnen innehåller fortfarande vatten men används inte som hushålls- eller dricksvatten. Vid restaureringen 2020–2022 kom moriskt murverk och ursprungliga golvplattor fram, som vi bevarade.'
+      en: 'Have breakfast in the shade on your **private terrace**; from around midday, the sun stays with you into the afternoon. A hammock, two loungers and a Moroccan-style outdoor shower sit above the mango and avocado groves, with the sea beyond.\n\nLounis also carries the oldest part of the house. During the 2020–2022 restoration, we uncovered and kept Moorish masonry and original floor tiles. The secured eight-metre well still holds water, but is not used as domestic or drinking water.',
+      de: 'Auf eurer **privaten Terrasse** frühstückt ihr morgens im Schatten; ab etwa Mittag bleibt die Sonne bis in den Nachmittag. Hängematte, zwei Liegen und eine marokkanisch gestaltete Außendusche stehen über den Mango- und Avocadoplantagen, dahinter seht ihr das Meer.\n\nIn Lounis steckt auch der älteste Teil des Hauses. Bei der Restaurierung von 2020 bis 2022 haben wir maurisches Mauerwerk und Originalfliesen freigelegt und erhalten. Der gesicherte acht Meter tiefe Brunnen führt noch Wasser, wird aber nicht als Haus- oder Trinkwasser genutzt.',
+      es: 'En vuestra **terraza privada** podéis desayunar a la sombra; desde alrededor del mediodía, el sol se queda hasta la tarde. La hamaca, dos tumbonas y una ducha exterior de estilo marroquí están sobre las plantaciones de mango y aguacate, con el mar al fondo.\n\nLounis conserva también la parte más antigua de la casa. Durante la restauración de 2020 a 2022 descubrimos y mantuvimos muros andalusíes y baldosas originales. El pozo protegido de ocho metros todavía contiene agua, pero no se utiliza como agua doméstica ni potable.',
+      nl: 'Op jullie **privéterras** ontbijten jullie ’s ochtends in de schaduw; vanaf ongeveer het middaguur blijft de zon tot in de namiddag. De hangmat, twee ligbedden en Marokkaans vormgegeven buitendouche liggen boven de mango- en avocadoplantages, met daarachter de zee.\n\nIn Lounis vinden jullie ook het oudste deel van het huis. Tijdens de restauratie van 2020 tot 2022 legden we Moors metselwerk en originele vloertegels bloot en behielden die. De beveiligde put van acht meter diep bevat nog water, maar wordt niet gebruikt als huishoud- of drinkwater.',
+      sv: 'På er **privata terrass** äter ni frukost i skuggan; från omkring middagstid stannar solen till eftermiddagen. Hängmattan, två solsängar och en marockanskt utformad utedusch ligger ovanför mango- och avokadoodlingarna, med havet bortom.\n\nI Lounis finns också husets äldsta del. Under restaureringen 2020–2022 tog vi fram och bevarade moriskt murverk och ursprungliga golvplattor. Den säkrade åtta meter djupa brunnen innehåller fortfarande vatten, men används inte som hushålls- eller dricksvatten.'
     },
     highlights: {
-      en: ['Eight-metre private well and sheltered “cave” nook', 'Moorish walls and rediscovered original floor tiles', 'Sun from midday, cafés close by along Calle Real'],
-      de: ['Acht Meter tiefer Privatbrunnen und geschützte „Höhle“', 'Maurische Mauern und wiederentdeckte Originalfliesen', 'Sonne ab Mittag, Cafés direkt an der Calle Real'],
-      es: ['Pozo privado de ocho metros y rincón resguardado que llamamos «cueva»', 'Muros andalusíes y baldosas originales redescubiertas', 'Sol desde el mediodía y cafés muy cerca en la calle Real'],
-      nl: ['Acht meter diepe privéput en beschutte “grot”', 'Moorse muren en teruggevonden originele vloertegels', 'Zon vanaf de middag, cafés vlakbij aan Calle Real'],
-      sv: ['Åtta meter djup privat brunn och skyddad “grotta”', 'Moriska murar och återfunna ursprungliga golvplattor', 'Sol från middagstid, kaféer nära längs Calle Real']
+      en: ['39 m² private terrace with hammock', 'Double rain shower and 70 m² inside', 'Sun from midday, views towards the sea'],
+      de: ['39 m² private Terrasse mit Hängematte', 'Doppeldusche und 70 m² Innenfläche', 'Sonne ab Mittag, Blick Richtung Meer'],
+      es: ['Terraza privada de 39 m² con hamaca', 'Ducha doble y 70 m² interiores', 'Sol desde el mediodía y vistas hacia el mar'],
+      nl: ['Privéterras van 39 m² met hangmat', 'Dubbele regendouche en 70 m² binnen', 'Zon vanaf de middag, uitzicht richting zee'],
+      sv: ['39 m² privat terrass med hängmatta', 'Dubbeldusch och 70 m² inomhus', 'Sol från middagstid, utsikt mot havet']
     },
     accessFacts: {
       outsideStepsBeforeEntrance: 0,
@@ -589,46 +589,46 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Zaid: lägenhet i gamla Frigiliana, kingsize-säng | AMARA'
     },
     seoDescription: {
-      en: 'Frigiliana old-town apartment for 2, one floor up: a wider view over the groves, private terrace, and a king bed at 180 × 200. Six steps from the door.',
-      de: 'Apartment in Frigilianas Altstadt für 2, eine Etage höher: weiter Blick über die Plantagen, Terrasse und Kingsize-Bett 180 × 200. Sechs Stufen.',
-      es: 'Apartamento en el casco antiguo de Frigiliana para 2, una planta más arriba: vistas más amplias, terraza y cama de 180 × 200. Seis escalones.',
-      nl: 'Appartement in de oude kern van Frigiliana voor 2, een verdieping hoger: ruimer uitzicht, terras en kingsize bed 180 × 200. Zes treden.',
-      sv: 'Lägenhet i gamla Frigiliana för 2, en våning upp: vidare utsikt över odlingarna, terrass och kingsize-säng 180 × 200. Sex trappsteg.'
+      en: 'Zaid in Frigiliana for 2: 180 × 200 cm bed, double rain shower and a 20 m² private terrace with hammock and views towards the sea. Six steps up.',
+      de: 'Zaid in Frigiliana für 2: 180 × 200 cm großes Bett, Doppeldusche und 20 m² private Terrasse mit Hängematte und Blick Richtung Meer. Sechs Stufen.',
+      es: 'Zaid en Frigiliana para 2: cama de 180 × 200 cm, ducha doble y terraza privada de 20 m² con hamaca y vistas hacia el mar. Seis escalones.',
+      nl: 'Zaid in Frigiliana voor 2: bed van 180 × 200 cm, dubbele regendouche en privéterras van 20 m² met hangmat en uitzicht richting zee. Zes treden.',
+      sv: 'Zaid i Frigiliana för 2: säng på 180 × 200 cm, dubbeldusch och 20 m² privat terrass med hängmatta och utsikt mot havet. Sex trappsteg.'
     },
     eyebrow: {
-      en: 'Private terrace, one floor higher',
-      de: 'Private Terrasse, eine Etage höher',
-      es: 'Terraza privada, una planta más arriba',
-      nl: 'Privéterras, één verdieping hoger',
-      sv: 'Privat terrass, en våning upp'
+      en: 'Large bed · wide view',
+      de: 'Großes Bett · weiter Blick',
+      es: 'Cama grande · vistas abiertas',
+      nl: 'Groot bed · weids uitzicht',
+      sv: 'Stor säng · vid utsikt'
     },
     headline: {
-      en: 'King bed and private terrace, one floor higher',
-      de: 'Kingsize-Bett und private Terrasse, eine Etage höher',
-      es: 'Cama king y terraza privada, una planta más arriba',
-      nl: 'Kingsize bed en privéterras, één verdieping hoger',
-      sv: 'Kingsize-säng och privat terrass, en våning upp'
+      en: 'Large bed, double rain shower and a wide view',
+      de: 'Großes Bett, Doppeldusche und weiter Blick',
+      es: 'Cama grande, ducha doble y vistas abiertas',
+      nl: 'Groot bed, dubbele regendouche en weids uitzicht',
+      sv: 'Stor säng, dubbeldusch och vid utsikt'
     },
     lead: {
-      en: 'Zaid sits one floor above Lounis. You have a 180 × 200 bed, a full kitchen and a private terrace overlooking the groves towards the sea. Six steps lead up to the apartment.',
-      de: 'Zaid liegt eine Etage über Lounis. Ihr habt ein 180 × 200 cm großes Bett, eine voll ausgestattete Küche und eine private Terrasse mit Blick über die Plantagen bis zum Meer. Zur Wohnung führen sechs Stufen.',
-      es: 'Zaid está una planta por encima de Lounis. Tenéis una cama de 180 × 200 cm, cocina completa y terraza privada con vistas sobre el campo hacia el mar. Seis escalones llevan hasta el apartamento.',
-      nl: 'Zaid ligt één verdieping boven Lounis. Jullie hebben een bed van 180 × 200 cm, een volledige keuken en een privéterras met uitzicht over de plantages richting zee. Zes treden leiden naar het appartement.',
-      sv: 'Zaid ligger en våning ovanför Lounis. Ni har en säng på 180 × 200 cm, ett fullt kök och en privat terrass med utsikt över odlingarna mot havet. Sex trappsteg leder upp till lägenheten.'
+      en: 'Choose Zaid if a wide bed and your own outdoor space matter more than lots of room inside. You have 33 m² inside, a 20 m² private terrace, a 180 × 200 cm bed, double rain shower and full kitchen. Six steps lead up to the apartment.',
+      de: 'Zaid passt zu euch, wenn euch ein großes Bett und ein eigener Außenbereich wichtiger sind als besonders viel Platz innen. Ihr habt 33 m² innen, 20 m² private Terrasse, ein 180 × 200 cm großes Bett, Doppeldusche und voll ausgestattete Küche. Zur Wohnung führen sechs Stufen.',
+      es: 'Elegid Zaid si os importan más una cama grande y vuestro propio espacio exterior que muchos metros dentro. Tenéis 33 m² interiores, terraza privada de 20 m², cama de 180 × 200 cm, ducha doble y cocina completa. Seis escalones llevan hasta el apartamento.',
+      nl: 'Kies Zaid als een groot bed en een eigen buitenruimte belangrijker zijn dan veel ruimte binnen. Jullie hebben 33 m² binnen, een privéterras van 20 m², een bed van 180 × 200 cm, een dubbele regendouche en een volledige keuken. Zes treden leiden naar het appartement.',
+      sv: 'Välj Zaid om en stor säng och en egen uteplats betyder mer än gott om plats inne. Ni har 33 m² inomhus, 20 m² privat terrass, en säng på 180 × 200 cm, dubbeldusch och fullt kök. Sex trappsteg leder upp till lägenheten.'
     },
     description: {
-      en: 'From the terrace, the same view as the floor below, only further: the mango and avocado groves of Frigiliana Campo, the sea behind them. Sun arrives around midday and stays until evening — mornings the terrace is in shade. Zaid was built onto Lounis centuries later, and part of that older structure is still in its walls.',
-      de: 'Von der Terrasse derselbe Blick wie eine Etage tiefer, nur weiter: die Mango- und Avocadoplantagen des Frigiliana Campo, dahinter das Meer. Die Sonne kommt gegen zwölf und bleibt bis zum Abend – morgens liegt die Terrasse im Schatten. Zaid wurde Jahrhunderte nach Lounis auf dessen Mauern gesetzt; ein Teil der alten Bausubstanz steckt noch darin.',
-      es: 'Desde la terraza, la misma vista que un piso más abajo, solo que más lejos: las plantaciones de mango y aguacate del campo de Frigiliana, y el mar al fondo. El sol llega hacia el mediodía y se queda hasta la tarde; por la mañana la terraza está en sombra. Zaid se construyó sobre Lounis siglos después, y parte de aquella fábrica antigua sigue en sus muros.',
-      nl: 'Vanaf het terras hetzelfde uitzicht als een verdieping lager, alleen verder: de mango- en avocadoplantages van het Frigiliana Campo, met de zee daarachter. De zon komt rond het middaguur en blijft tot de avond; ’s ochtends ligt het terras in de schaduw. Zaid werd eeuwen later op Lounis gebouwd, en een deel van dat oude metselwerk zit nog in de muren.',
-      sv: 'Från terrassen samma utsikt som våningen under, fast längre: mango- och avokadoodlingarna i Frigiliana Campo, med havet bakom. Solen kommer vid tolvtiden och stannar till kvällen; på morgonen ligger terrassen i skugga. Zaid byggdes ovanpå Lounis århundraden senare, och en del av det gamla murverket finns kvar i väggarna.'
+      en: 'Have breakfast in the morning shade, then move to the hammock or one of the two loungers when the sun reaches the **private terrace** around midday. The view runs over the mango and avocado groves of Frigiliana Campo to the sea, and the outdoor shower is there for hot afternoons.\n\nZaid was built on top of Lounis centuries later. Part of that older structure still remains in its walls.',
+      de: 'Frühstückt morgens im Schatten und wechselt in die Hängematte oder auf eine der beiden Liegen, wenn die Sonne gegen Mittag die **private Terrasse** erreicht. Der Blick geht über die Mango- und Avocadoplantagen des Frigiliana Campo bis zum Meer; für heiße Nachmittage gibt es die Außendusche.\n\nZaid wurde Jahrhunderte später auf Lounis gesetzt. Ein Teil der älteren Bausubstanz steckt noch heute in seinen Mauern.',
+      es: 'Desayunad por la mañana a la sombra y pasad a la hamaca o a una de las dos tumbonas cuando el sol llega a la **terraza privada** hacia el mediodía. Las vistas recorren las plantaciones de mango y aguacate del campo de Frigiliana hasta el mar, y para las tardes calurosas tenéis la ducha exterior.\n\nZaid se construyó siglos después sobre Lounis. Parte de aquella estructura más antigua sigue todavía en sus muros.',
+      nl: 'Ontbijt ’s ochtends in de schaduw en verhuis naar de hangmat of een van de twee ligbedden wanneer de zon rond het middaguur het **privéterras** bereikt. Het uitzicht loopt over de mango- en avocadoplantages van het Frigiliana Campo naar zee; voor warme middagen is er de buitendouche.\n\nZaid werd eeuwen later boven op Lounis gebouwd. Een deel van die oudere constructie zit nog altijd in de muren.',
+      sv: 'Ät frukost i morgonskuggan och flytta sedan till hängmattan eller en av de två solsängarna när solen når den **privata terrassen** vid middagstid. Utsikten sträcker sig över mango- och avokadoodlingarna i Frigiliana Campo mot havet, och för varma eftermiddagar finns uteduschen.\n\nZaid byggdes ovanpå Lounis flera århundraden senare. En del av den äldre konstruktionen finns fortfarande kvar i väggarna.'
     },
     highlights: {
-      en: ['One floor up, further view', 'Widest bed in the house, 180 × 200', 'Terrace over the groves'],
-      de: ['Eine Etage höher, weiterer Blick', 'Breitestes Bett im Haus, 180 × 200', 'Terrasse über den Plantagen'],
-      es: ['Una planta más arriba, vista más amplia', 'La cama más ancha de la casa, 180 × 200', 'Terraza sobre el campo'],
-      nl: ['Een verdieping hoger, verder uitzicht', 'Breedste bed van het huis, 180 × 200', 'Terras boven de plantages'],
-      sv: ['En våning upp, vidare utsikt', 'Husets bredaste säng, 180 × 200', 'Terrass över odlingarna']
+      en: ['Widest bed in the house, 180 × 200 cm', '20 m² private terrace with hammock', 'Double rain shower and outdoor shower'],
+      de: ['Breitestes Bett im Haus, 180 × 200 cm', '20 m² private Terrasse mit Hängematte', 'Doppeldusche und Außendusche'],
+      es: ['La cama más ancha de la casa, 180 × 200 cm', 'Terraza privada de 20 m² con hamaca', 'Ducha doble y ducha exterior'],
+      nl: ['Breedste bed van het huis, 180 × 200 cm', 'Privéterras van 20 m² met hangmat', 'Dubbele regendouche en buitendouche'],
+      sv: ['Husets bredaste säng, 180 × 200 cm', '20 m² privat terrass med hängmatta', 'Dubbeldusch och utedusch']
     },
     accessFacts: {
       outsideStepsBeforeEntrance: 0,
