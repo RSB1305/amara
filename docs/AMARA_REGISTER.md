@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.45.0
+version: 1.46.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-29T21:58:00+02:00
+last_modified: 2026-08-29T22:20:00+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -22,11 +22,11 @@ The AMARA Register is the single source for active documents, authority classes,
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
 | 02 | AMARA Astro & Design Architecture Contract | 4.18.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
-| 03 | AMARA Runtime, SEO & Data Contract | 4.4.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
+| 03 | AMARA Runtime, SEO & Data Contract | 4.4.1 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.45.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.46.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.2.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.7.1 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -190,6 +190,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-08-29T22:20:00+02:00 | CSP image origin correction | Added YouTube's image host to the CSP image origins after a preview check against the real origins found the click-to-load trailer still being blocked. The still is served from a different origin than the player, so `frame-src` alone did not cover it. Runtime Standard 4.4.1, Register 1.46.0. | DR-SEC-001 | this revision |
 | 2026-08-29T21:58:00+02:00 | Security-hardening integration | Integrated the security-hardening workstream, which had been developed in parallel from Register 1.41.0 and had assigned 1.42.0–1.44.0 while `main` independently published 1.42.0–1.42.1. Its three revisions were renumbered to 1.43.0–1.45.0 so that no already-published version number changes meaning; the original decision timestamps are preserved unchanged. | DR-EXEC-011, DR-DOC-005 | this revision |
 | 2026-08-29T07:01:07+02:00 | Enforced Content Security Policy | Promoted the validated Cloudflare Pages CSP from report-only to enforcement after representative Public, Guest, consent/analytics, weather, YouTube, legal and booking-entry flows completed without violations. Runtime Standard 4.4.0, Register 1.45.0. | DR-SEC-001 | this revision |
 | 2026-08-29T06:45:33+02:00 | Codex Cloud implementation handoff | Made a dedicated remote branch and open pull request mandatory for every Codex Cloud implementation, prohibited manual artifact-transfer fallbacks and authorized the single handoff push/PR without a separate cost-approval round. Governance 5.8.0, Register 1.44.0. | DR-EXEC-011, DR-EXEC-006, DR-EXEC-007 | this revision |
@@ -318,3 +319,4 @@ Separate controlled workstreams remain for:
 | 1.43.0 | 2026-08-28T18:00:00Z | Activated the anonymous-link Guest Utility content boundary and the standard Cloudflare Pages security headers, with CSP remaining report-only. Guest Utility 2.2.0 and Runtime Standard 4.3.0. | this revision |
 | 1.44.0 | 2026-08-29T06:45:33+02:00 | Registered Governance 5.8.0 and made remote branch plus pull request the mandatory Codex Cloud implementation handoff, replacing manual artifact transfer. | this revision |
 | 1.45.0 | 2026-08-29T07:01:07+02:00 | Registered Runtime Standard 4.4.0 and promoted the validated Cloudflare Pages CSP from report-only observation to enforcement. | this revision |
+| 1.46.0 | 2026-08-29T22:20:00+02:00 | Registered Runtime Standard 4.4.1 and added YouTube's image host to the enforced CSP image origins. | this revision |

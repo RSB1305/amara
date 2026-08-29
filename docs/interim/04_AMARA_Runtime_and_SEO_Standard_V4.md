@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-RUNTIME-004
 title: AMARA Runtime & SEO Standard V4
-version: 4.4.0
+version: 4.4.1
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF
@@ -9,7 +9,7 @@ source_attachment: "04_AMARA_Runtime_and_SEO_Standard_V4(1).pdf"
 source_sha256: 65e3a3312c1c56a3c096800d3a267dc85e57c6e60f16b81eecc3cbce089eb621
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-29T07:01:07+02:00
+last_modified: 2026-08-29T22:20:00+02:00
 ---
 
 # AMARA Runtime & SEO Standard V4 — Interim Markdown Snapshot
@@ -216,3 +216,4 @@ AMARA Runtime & SEO Standard V4 is binding.
 | 4.2.0 | 2026-08-28T06:28:44+02:00 | Extended the fixed server-side AEMET forecast boundary to the static Weather pages for Frigiliana, Nerja and Tarifa. |
 | 4.3.0 | 2026-08-28T18:00:00Z | Added the Cloudflare Pages security-header contract and introduced CSP strictly in report-only mode. |
 | 4.4.0 | 2026-08-29T07:01:07+02:00 | Enforced the validated CSP origin inventory after representative Public, Guest, consent/analytics, weather, YouTube, legal and booking-entry browser flows completed without violations. |
+| 4.4.1 | 2026-08-29T22:20:00+02:00 | Added YouTube's image host to the CSP image origins. The click-to-load trailer still is served from a separate origin to the player, so enforcing 4.4.0 blocked it; a preview check against the real origins found the gap that the pre-enforcement flows had not. |

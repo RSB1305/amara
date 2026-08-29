@@ -24,6 +24,9 @@ test('CSP is enforced and uses only the reviewed resource origins', () => {
   expect(csp).toContain('https://www.googletagmanager.com');
   expect(csp).toContain('https://api.open-meteo.com');
   expect(csp).toContain('https://www.youtube-nocookie.com');
+  // The click-to-load trailer pulls its still from YouTube's image host, which is a
+  // separate origin from the player itself.
+  expect(csp).toContain('https://i.ytimg.com');
   expect(csp).not.toContain(' *');
   expect(csp).not.toContain('report-uri');
   expect(csp).not.toContain('report-to');
