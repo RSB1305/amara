@@ -16,7 +16,7 @@ export const frigilianaOldTownExternalLinks = {
 } as const;
 
 export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
-  version: '2026-08-19-frigiliana-old-town-v1.0-B',
+  version: '2026-08-29-frigiliana-old-town-v1.1-B',
   pageType: 'B',
   entityKey: 'amara-brand',
   /* og:image is emitted as an absolute URL, so it must stay inside the published image contract. */
@@ -244,11 +244,11 @@ export const frigilianaOldTownCopy = {
           'Enkel barock, sent 1600-tal'
         ),
         text: l(
-          'Frequently called Renaissance in visitor material, the church is classified in the heritage decree as a plain Baroque building from the last third of the 17th century. Whitewashed brick pilasters, a dome with a lantern and a timber roof structure — modest by cathedral standards, and the natural centre of village life during the June feria.',
-          'In Besuchermaterial oft als Renaissance bezeichnet, wird die Kirche im Denkmalschutzdekret als schlichter Barockbau aus dem letzten Drittel des 17. Jahrhunderts geführt. Gekalkte Ziegelpilaster, eine Kuppel mit Laterne und eine hölzerne Dachkonstruktion — nach Kathedralenmaßstab bescheiden und im Juni während der Feria der natürliche Mittelpunkt des Dorflebens.',
-          'A menudo descrita como renacentista en los folletos, la iglesia figura en el decreto de protección como un edificio barroco sobrio del último tercio del siglo XVII. Pilastras de ladrillo encaladas, cúpula con linterna y armadura de madera: modesta para lo que es una catedral, y el centro natural de la vida del pueblo durante la feria de junio.',
-          'In bezoekersmateriaal vaak renaissance genoemd, wordt de kerk in het beschermingsbesluit aangeduid als een sober barok gebouw uit het laatste derde deel van de 17e eeuw. Gekalkte bakstenen pilasters, een koepel met lantaarn en een houten dakconstructie — bescheiden naar kathedraalmaatstaven, en tijdens de feria in juni het natuurlijke middelpunt van het dorpsleven.',
-          'Ofta kallad renässans i turistmaterial klassas kyrkan i skyddsdekretet som en enkel barockbyggnad från 1600-talets sista tredjedel. Vitkalkade tegelpilastrar, en kupol med lanternin och en trätakstol – blygsam med katedralmått mätt, och under juniferian byns naturliga mittpunkt.'
+          'The present church was completed in 1676 under the direction of Bernardo de Godoy and altered about a century later. Its whitewashed brick pilasters, lantern dome and timber roof structure make it a simple landmark beside Calle Real.',
+          'Die heutige Kirche wurde 1676 unter der Leitung von Bernardo de Godoy fertiggestellt und etwa ein Jahrhundert später umgebaut. Mit gekalkten Ziegelpilastern, einer Kuppel mit Laterne und ihrer hölzernen Dachkonstruktion ist sie ein schlichter Orientierungspunkt an der Calle Real.',
+          'La iglesia actual se terminó en 1676 bajo la dirección de Bernardo de Godoy y se reformó aproximadamente un siglo después. Sus pilastras de ladrillo encaladas, la cúpula con linterna y la armadura de madera la convierten en una referencia sencilla junto a la calle Real.',
+          'De huidige kerk werd in 1676 voltooid onder leiding van Bernardo de Godoy en ongeveer een eeuw later verbouwd. Met haar witgekalkte bakstenen pilasters, koepel met lantaarn en houten dakconstructie is ze een eenvoudig herkenningspunt aan Calle Real.',
+          'Den nuvarande kyrkan färdigställdes 1676 under ledning av Bernardo de Godoy och byggdes om ungefär ett sekel senare. Med vitkalkade tegelpilastrar, kupol med lanternin och takkonstruktion i trä är den ett enkelt landmärke vid Calle Real.'
         )
       },
       {

@@ -121,12 +121,12 @@ export interface FrigilianaLocationPageCopy {
 }
 
 export const frigilianaLocationSeo: AmaraAuthoringSeo = {
-  version: '2026-08-27-frigiliana-location-v2.2',
+  version: '2026-08-29-frigiliana-location-v2.3',
   pageType: 'A',
   entityKey: 'amara-brand',
   article: {
     datePublished: '2026-08-18',
-    dateModified: '2026-08-27',
+    dateModified: '2026-08-29',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person' as const,
     authorSlug: 'amara-about-us'
@@ -197,7 +197,7 @@ export const frigilianaLocationCopy = {
     "introPullLine": "Morgens seid ihr schon im Dorf, abends müsst ihr nach dem Essen nicht mehr hinunterfahren.",
     "orientation": { "eyebrow": "LAGE UND ORIENTIERUNG", "title": "Wo liegt Frigiliana?", "paragraphs": ["Frigiliana liegt in der Axarquía im Osten der Provinz Málaga am Südhang der Sierra de Almijara. Der historische Kern steigt mit dem Gelände an; El Ingenio markiert einen Übergang zwischen der Calle-Real-Achse und höher gelegenen Gassen.", "Casa AMARA liegt an der Calle Chorruelo, der Fortsetzung der Calle Real. Für Anreisezeiten und den konkreten letzten Weg nutzt ihr den Anreise-Guide statt pauschaler Entfernungsangaben."], "facts": [{ "value": "Axarquía", "label": "östliche Provinz Málaga" }, { "value": "Historischer Kern", "label": "vom Gelände geprägte Gassen" }, { "value": "Sierra", "label": "geschützte Berglandschaft oberhalb des Dorfes" }], "mapLabel": "Schematische Orientierung von Málaga über Nerja nach Frigiliana und Casa AMARA", "mapNote": "Orientierungskarte · nicht maßstabsgetreu", "geographyLabel": "Geografie und Orientierung", "arrivalLabel": "Anreise planen", "routeLabel": "Route ab Flughafen öffnen" },
     "evening": { "title": "Frigiliana am Abend – ein anderer Rhythmus als beim Tagesbesuch", "paragraphs": ["Nach dem stärkeren Tagesbetrieb hat unser Gastgeberteam wiederholt ruhigere Abende im Dorf beobachtet. Das ist eine begrenzte Beobachtung, keine Garantie für Stille an jedem Datum.", "Für einen mehrtägigen Aufenthalt ist dieser Wechsel praktisch: Ihr müsst nach dem Abend nicht weiterreisen, sondern beginnt auch den nächsten Morgen bereits in Frigiliana."], "subsections": [], "ctas": [] },
-    "history": { "title": "Historischer Kontext gehört in den Rundgang", "paragraphs": ["Der historische Kern ist im Straßenverlauf und in seiner Baukultur sichtbar. Für Geschichte, einzelne Bauwerke und einen aufmerksamen Weg durch die Altstadt führt der Old-Town-Guide weiter."], "subsections": [{ "title": "Altstadtwissen gezielt vertiefen", "paragraphs": ["Der Location Hub bereitet die Orientierung vor; die vollständige historische Erzählung bleibt beim Old-Town-Guide."], "ctas": [] }], "ctas": [] },
+    "history": { "title": "Ein altes Dorfhaus, das mit Frigiliana gewachsen ist", "paragraphs": ["Nur wenige Schritte von Casa AMARA entfernt steht die Kirche San Antonio de Padua. Ihr heutiges Gebäude wurde 1676 unter der Leitung von Bernardo de Godoy fertiggestellt. Rundherum liegt der alte Dorfkern – ein über Jahrhunderte gewachsenes Geflecht aus weißen Häusern, schmalen Gassen und Treppen.", "Auch Casa AMARA lässt sich nicht auf ein einzelnes Baujahr festlegen. Das Haus wurde über Generationen erweitert, verbunden und verändert. Deshalb sind die Räume unterschiedlich geschnitten, die Mauern unregelmäßig und keine Etage gleicht der anderen. Genau das macht den Charakter dieses alten Dorfhauses aus."], "subsections": [{ "title": "Behutsam für heute saniert", "paragraphs": ["Von 2020 bis 2022 haben wir Casa AMARA behutsam saniert. Die unregelmäßigen Räume, alten Oberflächen und Spuren des gewachsenen Hauses sind geblieben; ergänzt haben wir zeitgemäßen Komfort für euren Aufenthalt."], "ctas": [] }], "ctas": [] },
     "villageLife": { "title": "Mitten in der Altstadt – und trotzdem bleibt es ein Hangdorf", "paragraphs": ["Von Casa AMARA geht ihr durch die Calle Chorruelo direkt zur Kirche San Antonio, zur Calle Real und weiter in die Altstadt. Restaurants, Bars, Bäckerei und kleine Geschäfte liegen im Dorf und sind zu Fuß erreichbar.", "Der Weg von der Hauptstraße zur Haustür ist kurz, aber steil: etwa 150 Meter bergauf, rund 30 Höhenmeter, Pflaster und ungefähr 30 Stufen. Wir gehen ihn selbst mehrmals am Tag; mit eingeschränkter Mobilität oder schwerem Gepäck sollte man ihn vorher realistisch einschätzen."], "subsections": [{ "title": "Einfach die Tür öffnen und losgehen", "paragraphs": ["Für Frühstück, Abendessen oder eine Runde durch die Gassen braucht ihr im Dorf kein Auto. Gerade am frühen Morgen und später am Abend fühlt sich Frigiliana anders an als während der Besuchszeit."], "ctas": [] }, { "title": "Parken gehört nicht zur Unterkunft", "paragraphs": ["Casa AMARA hat keinen privaten Stellplatz. Später Nachmittag und Abend sind nach unserer Erfahrung oft entspannter als die Hauptzeit der Tagesbesucher; im Sommer, an Wochenenden und bei Festen kann es trotzdem voll sein."], "ctas": [{ "token": "PARKING", "label": "Parken in Frigiliana" }] }], "ctas": [] },
     "coast": { "title": "Im Dorf wohnen und trotzdem schnell ans Meer", "paragraphs": ["Nerja liegt rund sechs Kilometer entfernt. So kann ein Tag am Strand enden, ohne dass ihr auf die Abende in Frigiliana verzichten müsst."], "subsections": [{ "title": "Bus, Taxi oder Mietwagen", "paragraphs": ["Für einen einfachen Tag in Nerja funktionieren Bus oder Taxi. Ein Mietwagen ist bequemer, wenn ihr verschiedene Strände, Maro oder weitere Orte der Region miteinander verbinden möchtet."], "ctas": [] }, { "title": "Lieber direkt am Meer wohnen?", "paragraphs": ["Wenn Strand und Küstenstadt jeden Tag bestimmen sollen, passt Nerja besser. Frigiliana ist die schönere Wahl, wenn ihr morgens und abends im Dorf sein möchtet."], "ctas": [{ "token": "COMPARISON", "label": "Frigiliana und Nerja vergleichen" }] }], "ctas": [] },
     "arrival": { "title": "Die Ankunft", "steps": [{ "num": "01", "headline": "Anreise festlegen", "text": "Wählt das Verkehrsmittel nach eurer gesamten Reise, nicht nach einer pauschalen Zeitangabe." }, { "num": "02", "headline": "Gelände mitdenken", "text": "Im historischen Hangdorf können Steigungen, Pflaster und Stufen zum letzten Weg gehören." }, { "num": "03", "headline": "Details vorab prüfen", "text": "Der Anreise-Guide bündelt den aktuellen Ablauf; Parken und Unterkunftszugang bleiben bei ihren spezialisierten Seiten." }], "detailLabel": "Ausführlicher Anreise-Guide" },
@@ -267,19 +267,16 @@ export const frigilianaLocationCopy = {
       "ctas": []
     },
     "history": {
-      "title": "Living in a village whose history remains inside its houses",
+      "title": "An old village house shaped along with Frigiliana",
       "paragraphs": [
-        "Frigiliana's close, irregular old town developed over centuries; its levels and houses follow no modern grid. Casa AMARA stands about 15 metres from San Antonio church, within that historic fabric.",
-        "Parts of the building are probably several centuries old; some walls may date back around 800 years. Their exact age can no longer be determined.",
-        "That history becomes tangible in walls that do not always meet at right angles, rooms shaped by the old structure and the private historic well still on the property."
+        "Just a few steps from Casa AMARA stands the church of San Antonio de Padua. The present building was completed in 1676 under the direction of Bernardo de Godoy. Around it lies the old village: white houses, narrow lanes and steps that have grown together over centuries.",
+        "Casa AMARA cannot be tied to a single year of construction either. The house was extended, joined and altered over generations. That is why the rooms have different shapes, the walls are irregular and no two floors feel the same. This is the character of the old village house."
       ],
       "subsections": [
         {
-          "title": "Historic fabric, carefully restored for today",
+          "title": "Carefully restored for today",
           "paragraphs": [
-            "From 2020 to 2022, we carefully restored Casa AMARA. Old surfaces, irregular rooms and the structure shaped over generations remain visible throughout the house.",
-            "Today, fast Wi-Fi, air conditioning and heating sit within the old walls. Generous bathrooms and large showers – including double showers in several apartments – bring the comfort that matters during a holiday.",
-            "For a few days, Casa AMARA becomes your home within part of Frigiliana's history."
+            "From 2020 to 2022, we carefully restored Casa AMARA. The irregular rooms, old surfaces and traces of the house's gradual growth remain; we added the modern comfort you need for your stay."
           ],
           "ctas": []
         }
@@ -464,19 +461,16 @@ export const frigilianaLocationCopy = {
       "ctas": []
     },
     "history": {
-      "title": "Vivir en un pueblo cuya historia sigue dentro de las casas",
+      "title": "Una casa de pueblo que creció con Frigiliana",
       "paragraphs": [
-        "El casco antiguo, estrecho e irregular, se formó a lo largo de los siglos; sus niveles y casas no siguen una cuadrícula moderna. Casa AMARA está a unos 15 metros de la iglesia de San Antonio, dentro de ese tejido histórico.",
-        "Parte de la construcción probablemente tiene varios siglos; algunos muros podrían remontarse unos 800 años. Hoy ya no es posible determinar su edad exacta.",
-        "Esa historia se vuelve tangible en paredes que no siempre forman ángulos rectos, estancias que siguen la estructura antigua y el pozo histórico privado que aún se conserva en la propiedad."
+        "A pocos pasos de Casa AMARA está la iglesia de San Antonio de Padua. El edificio actual se terminó en 1676 bajo la dirección de Bernardo de Godoy. A su alrededor se extiende el casco antiguo: casas blancas, callejuelas y escaleras que han ido creciendo juntas durante siglos.",
+        "Casa AMARA tampoco se puede fechar en un único año. La casa se amplió, se unió y se transformó a lo largo de generaciones. Por eso cada estancia tiene una forma distinta, los muros son irregulares y ninguna planta se parece a otra. Ese es el carácter de esta antigua casa de pueblo."
       ],
       "subsections": [
         {
-          "title": "Una historia conservada para vivirla hoy",
+          "title": "Restaurada con cuidado para el presente",
           "paragraphs": [
-            "Entre 2020 y 2022 restauramos Casa AMARA con cuidado. Las superficies antiguas, las estancias irregulares y la estructura formada a lo largo del tiempo siguen visibles y dan forma a la casa.",
-            "Entre esos muros hay hoy wifi rápido, aire acondicionado y calefacción. Los baños amplios y las duchas grandes —dobles en varios apartamentos— aportan el confort que cuenta durante las vacaciones.",
-            "Durante unos días, Casa AMARA se convierte en vuestra casa dentro de la historia de Frigiliana."
+            "Entre 2020 y 2022 restauramos Casa AMARA con cuidado. Conservamos las estancias irregulares, las superficies antiguas y las huellas de una casa que creció poco a poco; añadimos el confort actual para vuestra estancia."
           ],
           "ctas": []
         }
@@ -661,19 +655,16 @@ export const frigilianaLocationCopy = {
       "ctas": []
     },
     "history": {
-      "title": "Wonen in een dorp waarvan de geschiedenis nog in de huizen zit",
+      "title": "Een oud dorpshuis dat met Frigiliana meegroeide",
       "paragraphs": [
-        "De compacte, onregelmatige oude kern van Frigiliana groeide door de eeuwen heen; de niveaus en huizen volgen geen modern stratenplan. Casa AMARA staat op ongeveer 15 meter van de kerk van San Antonio, midden in die historische structuur.",
-        "Delen van het gebouw zijn vermoedelijk eeuwenoud; sommige muren kunnen ongeveer 800 jaar oud zijn. Hun precieze leeftijd is vandaag niet meer vast te stellen.",
-        "Die geschiedenis wordt tastbaar in muren die niet altijd haaks staan, kamers die de oude bouwstructuur volgen en de eigen historische waterput die nog op het terrein aanwezig is."
+        "Op een paar stappen van Casa AMARA staat de kerk van San Antonio de Padua. Het huidige gebouw werd in 1676 voltooid onder leiding van Bernardo de Godoy. Daaromheen ligt de oude dorpskern: witte huizen, smalle straatjes en trappen die in de loop van eeuwen met elkaar zijn vergroeid.",
+        "Ook Casa AMARA is niet aan één bouwjaar te koppelen. Het huis werd door generaties heen uitgebreid, samengevoegd en veranderd. Daardoor heeft elke kamer een andere vorm, lopen de muren onregelmatig en voelt geen verdieping hetzelfde. Dat is het karakter van dit oude dorpshuis."
       ],
       "subsections": [
         {
-          "title": "Historische bouwstructuur, zorgvuldig gerestaureerd voor een verblijf van nu",
+          "title": "Zorgvuldig gerestaureerd voor nu",
           "paragraphs": [
-            "Van 2020 tot 2022 hebben we Casa AMARA zorgvuldig gerestaureerd. Oude oppervlakken, onregelmatige kamers en de structuur die in de loop van generaties ontstond, zijn door het hele huis zichtbaar gebleven.",
-            "Achter de oude muren vinden jullie nu snelle wifi, airconditioning en verwarming. Ruime badkamers en grote douches – in meerdere appartementen dubbele douches – bieden het comfort dat tijdens een vakantie telt.",
-            "Een paar dagen lang wordt Casa AMARA jullie thuis midden in de geschiedenis van Frigiliana."
+            "Van 2020 tot 2022 hebben we Casa AMARA zorgvuldig gerestaureerd. De onregelmatige kamers, oude oppervlakken en sporen van de geleidelijke groei zijn gebleven; we voegden het hedendaagse comfort voor jullie verblijf toe."
           ],
           "ctas": []
         }
@@ -858,19 +849,16 @@ export const frigilianaLocationCopy = {
       "ctas": []
     },
     "history": {
-      "title": "Bo i en by där historien finns kvar i husen",
+      "title": "Ett gammalt byhus som har vuxit med Frigiliana",
       "paragraphs": [
-        "Frigilianas täta, oregelbundna gamla stad växte fram under århundraden. Nivåerna, gränderna och husen följer inget modernt rutnät. Casa AMARA ligger omkring 15 meter från kyrkan San Antonio, mitt i den historiska strukturen.",
-        "Delar av byggnaden är troligen flera hundra år gamla; vissa murar kan vara omkring 800 år gamla. Deras exakta ålder går inte längre att fastställa.",
-        "Historien blir påtaglig i väggar som inte alltid möts i räta vinklar, rum som följer den gamla byggnaden och den egna historiska brunnen som fortfarande finns på tomten."
+        "Bara några steg från Casa AMARA står kyrkan San Antonio de Padua. Den nuvarande byggnaden färdigställdes 1676 under ledning av Bernardo de Godoy. Runt den ligger den gamla bykärnan: vita hus, smala gränder och trappor som har vuxit samman under århundraden.",
+        "Casa AMARA går inte heller att knyta till ett enda byggår. Huset har byggts ut, fogats samman och förändrats under generationer. Därför har rummen olika former, väggarna är oregelbundna och ingen våning är den andra lik. Det är det som ger det gamla byhuset sin karaktär."
       ],
       "subsections": [
         {
-          "title": "Historisk karaktär, varsamt restaurerad för livet i dag",
+          "title": "Varsamt restaurerat för i dag",
           "paragraphs": [
-            "Mellan 2020 och 2022 restaurerade vi Casa AMARA omsorgsfullt. Äldre ytor, oregelbundna rum och den struktur som vuxit fram under generationer är fortfarande tydliga i hela huset.",
-            "Bakom de gamla murarna finns nu snabbt wifi, luftkonditionering och uppvärmning. Rymliga badrum och stora duschar – dubbelduschar i flera lägenheter – ger den komfort som betyder mest under semestern.",
-            "Under några dagar blir Casa AMARA ert hem mitt i en del av Frigilianas historia."
+            "Mellan 2020 och 2022 restaurerade vi Casa AMARA varsamt. De oregelbundna rummen, äldre ytorna och spåren av hur huset har vuxit fram finns kvar; vi lade till den moderna komfort som behövs under vistelsen."
           ],
           "ctas": []
         }
