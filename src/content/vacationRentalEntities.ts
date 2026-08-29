@@ -246,46 +246,46 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Farah: kompakt svit i Frigiliana | AMARA'
     },
     seoDescription: {
-      en: 'AMARA Farah in historic Frigiliana: a compact suite for 2 with a separate bedroom and tea kitchen. One step at the entrance and none after that.',
-      de: 'AMARA Farah in Frigilianas Altstadt: eine kompakte Suite für 2 mit separatem Schlafzimmer und Teeküche. Eine Stufe am Eingang, danach keine mehr.',
-      es: 'AMARA Farah en el casco antiguo de Frigiliana: una suite compacta para 2 con dormitorio separado y zona de café y té. Un escalón en la entrada y ninguno más.',
-      nl: 'AMARA Farah in het oude Frigiliana: een compacte suite voor 2 met aparte slaapkamer en kitchenette. Eén trede bij de ingang en daarna geen meer.',
-      sv: 'AMARA Farah i gamla Frigiliana: en kompakt svit för 2 med separat sovrum och pentry. Ett trappsteg vid entrén, inga fler därefter.'
+      en: 'AMARA Farah in Frigiliana for 2: a compact suite with separate bedroom, 160 × 200 cm bed, rain shower and tea kitchen. One step, then level throughout.',
+      de: 'AMARA Farah in Frigiliana für 2: kompakte Suite mit separatem Schlafzimmer, 160 × 200 cm großem Bett, Regendusche und Teeküche. Eine Stufe, danach ebenerdig.',
+      es: 'AMARA Farah en Frigiliana para 2: suite compacta con dormitorio separado, cama de 160 × 200 cm, ducha de lluvia y zona de café y té. Un escalón y después todo al mismo nivel.',
+      nl: 'AMARA Farah in Frigiliana voor 2: compacte suite met aparte slaapkamer, bed van 160 × 200 cm, regendouche en kitchenette. Eén trede, daarna alles gelijkvloers.',
+      sv: 'AMARA Farah i Frigiliana för 2: kompakt svit med separat sovrum, säng på 160 × 200 cm, regndusch och pentry. Ett trappsteg, sedan allt på samma plan.'
     },
     eyebrow: {
-      en: 'Frigiliana old town',
-      de: 'Altstadt Frigiliana',
-      es: 'Casco antiguo de Frigiliana',
-      nl: 'Oude kern van Frigiliana',
-      sv: 'Frigilianas gamla stad'
+      en: 'Simple stay · in the old town',
+      de: 'Einfach wohnen · mitten in der Altstadt',
+      es: 'Una estancia sencilla · en el casco antiguo',
+      nl: 'Eenvoudig verblijven · midden in de oude stad',
+      sv: 'Enkelt boende · mitt i gamla stan'
     },
     headline: {
-      en: 'A compact suite for short stays in the old town',
-      de: 'Kompakte Suite für kurze Aufenthalte in der Altstadt',
-      es: 'Una suite compacta para estancias cortas en el casco antiguo',
-      nl: 'Een compacte suite voor korte verblijven in de oude kern',
-      sv: 'En kompakt svit för kortare vistelser i gamla stan'
+      en: 'Two rooms, rain shower and just one step',
+      de: 'Zwei Räume, Regendusche und nur eine Stufe',
+      es: 'Dos estancias, ducha de lluvia y un solo escalón',
+      nl: 'Twee ruimtes, regendouche en maar één trede',
+      sv: 'Två rum, regndusch och bara ett trappsteg'
     },
     lead: {
-      en: 'Farah is a compact, self-contained suite in Frigiliana’s historic centre, with a separate bedroom and tea kitchen for coffee and light meals.',
-      de: 'Farah ist eine kompakte, abgeschlossene Suite im historischen Zentrum von Frigiliana – mit separatem Schlafzimmer und Teeküche für Kaffee und kleine Mahlzeiten.',
-      es: 'Farah es una suite compacta e independiente en el centro histórico de Frigiliana, con dormitorio separado y zona de café y té para preparar bebidas y comidas ligeras.',
-      nl: 'Farah is een compacte, zelfstandige suite in het historische centrum van Frigiliana, met aparte slaapkamer en kitchenette voor koffie en lichte maaltijden.',
-      sv: 'Farah är en kompakt, självständig svit i Frigilianas historiska centrum, med separat sovrum och pentry för kaffe och enklare måltider.'
+      en: 'Choose Farah if you want a simple base in Frigiliana and plan to eat out rather than cook. The 19 m² suite has a separate bedroom, a 160 × 200 cm bed, rain shower with bathroom underfloor heating and a tea kitchen with refrigerator. There is no full kitchen or private outdoor space.',
+      de: 'Farah passt zu euch, wenn ihr Frigiliana von einer einfachen Basis aus erleben und lieber essen gehen als selbst kochen möchtet. Die 19 m² große Suite hat ein separates Schlafzimmer, ein 160 × 200 cm großes Bett, Regendusche mit Fußbodenheizung im Bad und eine Teeküche mit Kühlschrank. Eine vollwertige Küche und einen privaten Außenbereich gibt es nicht.',
+      es: 'Elegid Farah si queréis una base sencilla en Frigiliana y preferís salir a comer antes que cocinar. La suite de 19 m² tiene dormitorio separado, cama de 160 × 200 cm, ducha de lluvia con suelo radiante en el baño y zona de café y té con frigorífico. No hay cocina completa ni espacio exterior privado.',
+      nl: 'Kies Farah als jullie een eenvoudige uitvalsbasis in Frigiliana willen en liever uit eten gaan dan zelf koken. De suite van 19 m² heeft een aparte slaapkamer, een bed van 160 × 200 cm, regendouche met vloerverwarming in de badkamer en een kitchenette met koelkast. Er is geen volledige keuken of eigen buitenruimte.',
+      sv: 'Välj Farah om ni vill ha en enkel bas i Frigiliana och hellre äter ute än lagar mat själva. Sviten på 19 m² har separat sovrum, en säng på 160 × 200 cm, regndusch med golvvärme i badrummet och pentry med kylskåp. Fullt kök och privat uteplats saknas.'
     },
     description: {
-      en: 'Farah has two separate rooms: the bedroom and a tea kitchen with a refrigerator. A stool at the worktop can also serve as a small desk. The compact setup is designed for shorter stays; there is no full kitchen or private outdoor space.',
-      de: 'Farah besteht aus zwei getrennten Räumen: dem Schlafzimmer und der Teeküche mit Kühlschrank. Ein Hocker an der Arbeitsplatte dient bei Bedarf als kleiner Arbeitsplatz. Die kompakte Ausstattung ist auf kürzere Aufenthalte ausgerichtet; eine voll ausgestattete Küche und einen privaten Außenbereich gibt es nicht.',
-      es: 'Farah se distribuye en dos estancias separadas: el dormitorio y una zona de café y té con frigorífico. Un taburete junto a la encimera también puede servir como pequeño espacio de trabajo. El equipamiento compacto está pensado para estancias cortas; no hay cocina completa ni espacio exterior privado.',
-      nl: 'Farah bestaat uit twee aparte ruimtes: de slaapkamer en een kleine kitchenette met koelkast. Een kruk aan het werkblad kan ook als kleine werkplek dienen. De compacte uitrusting is gericht op kortere verblijven; er is geen volledige keuken of eigen buitenruimte.',
-      sv: 'Farah består av två separata rum: sovrummet och ett pentry med kylskåp. En pall vid bänkskivan kan också fungera som en liten arbetsplats. Den kompakta utrustningen är anpassad för kortare vistelser; fullt kök och privat uteplats saknas.'
+      en: 'Make coffee in the tea kitchen, then step straight into the old town for breakfast or dinner. The bedroom is separate, so bags and breakfast things do not have to share the same room as the bed. A stool at the worktop can also serve as a small desk.\n\nFarah works best for shorter stays and for guests who value easy access over a terrace or a full kitchen. There is one step at the main entrance; after that, the suite is on one level.',
+      de: 'Macht euch einen Kaffee in der Teeküche und geht zum Frühstück oder Abendessen direkt in die Altstadt. Das Schlafzimmer ist getrennt, sodass Gepäck und Frühstückssachen nicht im selben Raum wie das Bett stehen müssen. Ein Hocker an der Arbeitsplatte kann auch als kleiner Arbeitsplatz dienen.\n\nFarah passt am besten zu kürzeren Aufenthalten und zu Gästen, denen ein einfacher Zugang wichtiger ist als Terrasse oder vollwertige Küche. Am Haupteingang gibt es eine Stufe, danach liegt die Suite komplett auf einer Ebene.',
+      es: 'Preparaos un café en la pequeña zona de cocina y salid directamente al casco antiguo para desayunar o cenar. El dormitorio está separado, así que el equipaje y las cosas del desayuno no tienen que compartir espacio con la cama. Un taburete junto a la encimera también puede servir como pequeño escritorio.\n\nFarah funciona mejor para estancias cortas y para quien valora un acceso sencillo más que una terraza o una cocina completa. Hay un escalón en la entrada principal; después, toda la suite está en una sola planta.',
+      nl: 'Maak koffie in de kitchenette en stap daarna zo de oude stad in voor ontbijt of diner. De slaapkamer is apart, zodat bagage en ontbijtspullen niet in dezelfde ruimte als het bed hoeven te staan. Een kruk aan het werkblad kan ook als kleine werkplek dienen.\n\nFarah past het best bij kortere verblijven en bij gasten die gemakkelijke toegang belangrijker vinden dan een terras of volledige keuken. Bij de hoofdingang is één trede; daarna ligt de hele suite op één niveau.',
+      sv: 'Gör kaffe i pentryt och gå sedan rakt ut i gamla stan för frukost eller middag. Sovrummet är separat, så bagage och frukostsaker behöver inte dela rum med sängen. En pall vid bänkskivan kan också fungera som ett litet skrivbord.\n\nFarah passar bäst för kortare vistelser och för gäster som värdesätter enkel tillgång mer än terrass eller fullt kök. Vid huvudentrén finns ett trappsteg; därefter ligger hela sviten på samma plan.'
     },
     highlights: {
-      en: ['Just one step at the entrance', 'Two separate rooms', 'Tea kitchen with refrigerator'],
-      de: ['Nur eine Stufe am Eingang', 'Zwei getrennte Räume', 'Teeküche mit Kühlschrank'],
-      es: ['Un único escalón en la entrada', 'Dos estancias separadas', 'Zona de café y té con frigorífico'],
-      nl: ['Slechts één trede bij de ingang', 'Twee aparte ruimtes', 'Kleine kitchenette met koelkast'],
-      sv: ['Bara ett trappsteg vid entrén', 'Två separata rum', 'Pentry med kylskåp']
+      en: ['Separate bedroom with 160 × 200 cm bed', 'Rain shower and warm bathroom floor', 'One step at the entrance, none after that'],
+      de: ['Separates Schlafzimmer mit 160 × 200 cm Bett', 'Regendusche und warmer Badezimmerboden', 'Eine Stufe am Eingang, danach keine mehr'],
+      es: ['Dormitorio separado con cama de 160 × 200 cm', 'Ducha de lluvia y suelo cálido en el baño', 'Un escalón en la entrada y ninguno más'],
+      nl: ['Aparte slaapkamer met bed van 160 × 200 cm', 'Regendouche en warme badkamervloer', 'Eén trede bij de ingang, daarna geen meer'],
+      sv: ['Separat sovrum med säng på 160 × 200 cm', 'Regndusch och varmt badrumsgolv', 'Ett trappsteg vid entrén, inga fler därefter']
     },
     accessFacts: {
       outsideStepsBeforeEntrance: 0,
@@ -1148,46 +1148,46 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Family & Surf: Tarifa med pool och garage | AMARA'
     },
     seoDescription: {
-      en: 'A spacious Tarifa stay for two or parents with younger children, with Atlantic terrace, shared pool and underground parking. Kitesurfing can be arranged before arrival.',
-      de: 'Großzügige Tarifa-Unterkunft für zwei oder Eltern mit jüngeren Kindern, mit Atlantikterrasse, Gemeinschaftspool und Tiefgarage. Kitesurfen kann vorab organisiert werden.',
-      es: 'Alojamiento amplio en Tarifa para dos o para padres con niños pequeños, con terraza al Atlántico, piscina comunitaria y garaje. El kitesurf puede organizarse antes de llegar.',
-      nl: 'Ruim verblijf in Tarifa voor twee of ouders met jonge kinderen, met Atlantisch terras, gedeeld zwembad en eigen garage. Kitesurfen kan vooraf worden geregeld.',
-      sv: 'Rymligt boende i Tarifa för två eller föräldrar med yngre barn, med Atlantterrass, gemensam pool och eget garage. Kitesurfing kan ordnas före ankomsten.'
+      en: 'Family & Surf in Tarifa: 75 m² for two or a small family, with private Atlantic terrace, two bathrooms, shared pool and reserved underground parking.',
+      de: 'Family & Surf in Tarifa: 75 m² für zwei oder eine kleine Familie, mit privater Atlantikterrasse, zwei Bädern, Gemeinschaftspool und reservierter Tiefgarage.',
+      es: 'Family & Surf en Tarifa: 75 m² para dos o una familia pequeña, con terraza privada al Atlántico, dos baños, piscina comunitaria y garaje reservado.',
+      nl: 'Family & Surf in Tarifa: 75 m² voor twee of een klein gezin, met privéterras aan de Atlantische Oceaan, twee badkamers, gedeeld zwembad en eigen garageplaats.',
+      sv: 'Family & Surf i Tarifa: 75 m² för två eller en liten familj, med privat terrass mot Atlanten, två badrum, gemensam pool och reserverad garageplats.'
     },
     eyebrow: {
-      en: 'Tarifa · Atlantic terrace and pool',
-      de: 'Tarifa · Atlantikterrasse und Pool',
-      es: 'Tarifa · Terraza atlántica y piscina',
-      nl: 'Tarifa · Atlantisch terras en zwembad',
-      sv: 'Tarifa · Atlantterrass och pool'
+      en: 'Tarifa · for two or a small family',
+      de: 'Tarifa · für zwei oder eine kleine Familie',
+      es: 'Tarifa · para dos o una familia pequeña',
+      nl: 'Tarifa · voor twee of een klein gezin',
+      sv: 'Tarifa · för två eller en liten familj'
     },
     headline: {
-      en: 'Two bedrooms, pool and garage in Tarifa',
-      de: 'Zwei Schlafzimmer, Pool und Garage in Tarifa',
-      es: 'Dos dormitorios, piscina y garaje en Tarifa',
-      nl: 'Twee slaapkamers, zwembad en garage in Tarifa',
-      sv: 'Två sovrum, pool och garage i Tarifa'
+      en: 'Plenty of room, an Atlantic terrace and a pool',
+      de: 'Viel Platz, Atlantikterrasse und Pool',
+      es: 'Mucho espacio, terraza al Atlántico y piscina',
+      nl: 'Veel ruimte, een terras aan de oceaan en een zwembad',
+      sv: 'Gott om plats, Atlantterrass och pool'
     },
     lead: {
-      en: '75 m² over two levels, with two bedrooms, two bathrooms, a private Atlantic-facing terrace, shared pool and reserved underground parking. The layout works best for two adults with one or two younger children.',
-      de: '75 m² auf zwei Ebenen, mit zwei Schlafzimmern, zwei Bädern, privater Terrasse zum Atlantik, Gemeinschaftspool und reserviertem Tiefgaragenplatz. Die Aufteilung passt am besten für zwei Erwachsene mit einem oder zwei jüngeren Kindern.',
-      es: '75 m² en dos niveles, con dos dormitorios, dos baños, terraza privada orientada al Atlántico, piscina comunitaria y plaza reservada en el garaje. La distribución funciona mejor para dos adultos con uno o dos niños pequeños.',
-      nl: '75 m² over twee niveaus, met twee slaapkamers, twee badkamers, een privéterras aan de Atlantische Oceaan, een gedeeld zwembad en een gereserveerde garageplaats. De indeling past het best bij twee volwassenen met een of twee jonge kinderen.',
-      sv: '75 m² i två plan, med två sovrum, två badrum, privat terrass mot Atlanten, gemensam pool och reserverad garageplats. Planlösningen passar bäst för två vuxna med ett eller två yngre barn.'
+      en: 'Choose Family & Surf if you want more room in Tarifa and do not want to search for parking each day. The 75 m² apartment has a private Atlantic-facing terrace, two bedrooms, two bathrooms, a shared pool and a reserved underground space. It is generous for two and works best for two adults with one or two younger children.',
+      de: 'Family & Surf passt zu euch, wenn ihr in Tarifa mehr Platz möchtet und nicht jeden Tag einen Parkplatz suchen wollt. Das 75 m² große Apartment hat eine private Terrasse zum Atlantik, zwei Schlafzimmer, zwei Bäder, Gemeinschaftspool und einen reservierten Tiefgaragenplatz. Zu zweit wohnt ihr hier sehr großzügig; mit Kindern passt die Aufteilung am besten für zwei Erwachsene und ein oder zwei jüngere Kinder.',
+      es: 'Elegid Family & Surf si queréis más espacio en Tarifa y no os apetece buscar aparcamiento cada día. El apartamento de 75 m² tiene terraza privada orientada al Atlántico, dos dormitorios, dos baños, piscina comunitaria y plaza reservada en el garaje. Para dos es muy amplio; con niños, la distribución funciona mejor para dos adultos y uno o dos pequeños.',
+      nl: 'Kies Family & Surf als jullie in Tarifa meer ruimte willen en niet elke dag naar een parkeerplek willen zoeken. Het appartement van 75 m² heeft een privéterras aan de Atlantische Oceaan, twee slaapkamers, twee badkamers, een gedeeld zwembad en een gereserveerde garageplaats. Voor twee is het bijzonder ruim; met kinderen past de indeling het best bij twee volwassenen en een of twee jonge kinderen.',
+      sv: 'Välj Family & Surf om ni vill ha mer utrymme i Tarifa och slippa leta parkering varje dag. Lägenheten på 75 m² har privat terrass mot Atlanten, två sovrum, två badrum, gemensam pool och reserverad garageplats. För två är den mycket rymlig; med barn passar planlösningen bäst för två vuxna och ett eller två yngre barn.'
     },
     description: {
-      en: 'The main bedroom has a 150 × 200 cm double bed; the second bedroom has a bunk bed with two single sleeping places. Both bedrooms are upstairs. The apartment also has two bathrooms, a large kitchen and lift access to the front door.',
-      de: 'Im Hauptschlafzimmer steht ein 150 × 200 cm großes Doppelbett, im zweiten Schlafzimmer ein Hochbett mit zwei einzelnen Schlafplätzen. Beide Schlafzimmer liegen oben. Außerdem gibt es zwei Bäder, eine große Küche und einen Aufzug bis vor die Wohnungstür.',
-      es: 'El dormitorio principal tiene una cama doble de 150 × 200 cm; el segundo, una litera con dos camas individuales. Ambos dormitorios están arriba. El apartamento también cuenta con dos baños, cocina amplia y ascensor hasta la puerta.',
-      nl: 'In de hoofdslaapkamer staat een tweepersoonsbed van 150 × 200 cm; de tweede slaapkamer heeft een stapelbed met twee aparte slaapplaatsen. Beide slaapkamers liggen boven. Verder zijn er twee badkamers, een ruime keuken en een lift tot aan de voordeur.',
-      sv: 'I huvudsovrummet finns en dubbelsäng på 150 × 200 cm; det andra sovrummet har en våningssäng med två separata sovplatser. Båda sovrummen ligger på övervåningen. Lägenheten har också två badrum, ett stort kök och hiss fram till dörren.'
+      en: 'Have breakfast on the private terrace facing the Atlantic, then walk around 500 metres to Los Lances or about 10–15 minutes to Tarifa’s Old Town. Back at the apartment, the shared pool and large kitchen make an unhurried day easy. The lift reaches the front door without outside or building steps.\n\nBoth bedrooms are upstairs. The main room has a 150 × 200 cm double bed; the second has a bunk bed with two single sleeping places. Internal stairs and that bunk-bed layout are why we recommend the apartment to couples or parents with younger children rather than four adults.',
+      de: 'Frühstückt auf der privaten Terrasse mit Blick zum Atlantik und geht danach rund 500 Meter zum Strand Los Lances oder etwa 10–15 Minuten in Tarifas Altstadt. Zurück in der Wohnung machen Gemeinschaftspool und große Küche auch einen ruhigen Tag unkompliziert. Der Aufzug fährt ohne Stufen draußen oder im Haus bis vor die Wohnungstür.\n\nBeide Schlafzimmer liegen oben. Im Hauptschlafzimmer steht ein 150 × 200 cm großes Doppelbett, im zweiten ein Hochbett mit zwei einzelnen Schlafplätzen. Wegen der Treppe in der Wohnung und dieser Aufteilung empfehlen wir das Apartment eher Paaren oder Eltern mit jüngeren Kindern als vier Erwachsenen.',
+      es: 'Desayunad en la terraza privada con vistas al Atlántico y caminad después unos 500 metros hasta Los Lances o alrededor de 10–15 minutos hasta el casco antiguo de Tarifa. Al volver, la piscina comunitaria y la cocina amplia facilitan también un día tranquilo. El ascensor llega hasta la puerta sin escalones fuera ni en el edificio.\n\nLos dos dormitorios están arriba. El principal tiene una cama doble de 150 × 200 cm y el segundo, una litera con dos camas individuales. Por la escalera interior y esta distribución, recomendamos el apartamento más para parejas o padres con niños pequeños que para cuatro adultos.',
+      nl: 'Ontbijt op het privéterras met uitzicht op de Atlantische Oceaan en loop daarna ongeveer 500 meter naar Los Lances of circa 10–15 minuten naar de oude stad van Tarifa. Terug in het appartement maken het gedeelde zwembad en de ruime keuken ook een rustige dag eenvoudig. De lift komt zonder treden buiten of in het gebouw tot aan de voordeur.\n\nBeide slaapkamers liggen boven. De hoofdslaapkamer heeft een tweepersoonsbed van 150 × 200 cm; in de tweede staat een stapelbed met twee aparte slaapplaatsen. Vanwege de trap binnen en deze indeling raden we het appartement eerder aan stellen of ouders met jonge kinderen aan dan vier volwassenen.',
+      sv: 'Ät frukost på den privata terrassen med utsikt mot Atlanten och gå sedan cirka 500 meter till Los Lances eller omkring 10–15 minuter till Tarifas gamla stad. Tillbaka i lägenheten gör den gemensamma poolen och det stora köket även en lugn dag enkel. Hissen går utan trappsteg ute eller i huset ända fram till dörren.\n\nBåda sovrummen ligger på övervåningen. Huvudsovrummet har en dubbelsäng på 150 × 200 cm och det andra en våningssäng med två separata sovplatser. På grund av trappan inne och den här planlösningen rekommenderar vi lägenheten hellre för par eller föräldrar med yngre barn än för fyra vuxna.'
     },
     highlights: {
-      en: ['75 m² over two levels', 'Two bedrooms and two bathrooms', 'Shared pool and underground parking'],
-      de: ['75 m² auf zwei Ebenen', 'Zwei Schlafzimmer und zwei Bäder', 'Gemeinschaftspool und Tiefgarage'],
-      es: ['75 m² en dos niveles', 'Dos dormitorios y dos baños', 'Piscina comunitaria y garaje'],
-      nl: ['75 m² over twee niveaus', 'Twee slaapkamers en twee badkamers', 'Gedeeld zwembad en parkeergarage'],
-      sv: ['75 m² i två plan', 'Två sovrum och två badrum', 'Gemensam pool och garage']
+      en: ['Private Atlantic terrace, around 500 m to Los Lances', '75 m² with two bedrooms and two bathrooms', 'Shared pool and reserved underground parking'],
+      de: ['Private Atlantikterrasse, rund 500 m zu Los Lances', '75 m² mit zwei Schlafzimmern und zwei Bädern', 'Gemeinschaftspool und reservierter Tiefgaragenplatz'],
+      es: ['Terraza privada al Atlántico, unos 500 m a Los Lances', '75 m² con dos dormitorios y dos baños', 'Piscina comunitaria y plaza reservada en el garaje'],
+      nl: ['Privéterras aan de Atlantische Oceaan, circa 500 m naar Los Lances', '75 m² met twee slaapkamers en twee badkamers', 'Gedeeld zwembad en gereserveerde garageplaats'],
+      sv: ['Privat Atlantterrass, cirka 500 m till Los Lances', '75 m² med två sovrum och två badrum', 'Gemensam pool och reserverad garageplats']
     },
     accessFacts: {
       outsideStepsBeforeEntrance: 0,
