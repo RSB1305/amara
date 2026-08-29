@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.41.0
+version: 1.42.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-28T07:08:21+02:00
+last_modified: 2026-08-29T08:47:07+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,9 +26,9 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.7.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.41.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.42.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.1.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
-| 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
+| 09 | AMARA Content Production & Localization Playbook | 1.7.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
 
 ### Transition rule
@@ -147,6 +147,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | TR-CONTENT-005 | New and materially revised public editorial copy uses **experiential authority**: it places guests in a concrete, truthful situation and connects the relevant scene or condition to movement, choice, stay consequence and a useful next step. Active verbs and specific verified detail are preferred to distant category language, but the technique is calibrated to the page job and must not weaken direct answers, evidence, caveats, safety, provenance or native-language quality. It does not authorize invented atmosphere, guest behaviour or first-party observation. Utility, legal, system and safety-critical copy prioritizes instruction clarity, and a micro correction does not trigger an adjacent rewrite. | ACTIVE |
 | TR-CONTENT-006 | A public page whose dominant job answers a clear search intent opens with a **self-contained direct answer**: one block of approximately 60–130 words placed immediately after the H1, before hero media and before any section. It must be understandable without the rest of the page and must carry the decision-relevant values the page holds where `knowledge/` evidence supports them; it states no value the evidence does not carry, and an unsupported value is omitted rather than estimated. The word range is an authoring target, not a validated threshold: each locale writes it natively and TR-CONTENT-002 continues to govern meaning depth, so locales may differ in length. Utility, legal, system, entry and safety-critical surfaces are out of scope, as are pages whose dominant job is not a question. | ACTIVE |
 | TR-CONTENT-007 | Where a public page compares two or more options, places, routes or objects across the **same named attributes**, that comparison is emitted as a table or an identified list — one entry per option, one attribute per column or field — rather than as running prose. The rule governs the comparison itself, not the surrounding editorial copy, and it creates no obligation to invent coverage: an attribute the evidence does not support is omitted or marked unknown, never estimated to complete a row. Presentation ownership remains with the page families, and DR-CONTENT-STRUCT-002 governs the identity of the resulting units. | ACTIVE |
+| TR-CONTENT-008 | New and materially revised public editorial copy passes a **people-first host-language gate**: it answers the concrete guest question in plain, natural host language and keeps only a new verified fact, practical stay consequence, truthful scene, material limitation or useful action. Repeated decision rhetoric, content-strategy terms, guide/hub metasprache and imperatives without a real guest action fail the gate. AMARA has no minimum editorial word count. A visually dominant section or separate presentation stage requires a correspondingly important content idea, and approval includes a read-aloud check plus inspection of the rendered desktop and mobile page. Required information, evidence, caveats, safety, page job and cross-language meaning depth remain protected. | ACTIVE |
 | DR-EVIDENCE-001 | `knowledge/` is AMARA's durable, non-public Evidence & Knowledge owner for research dossiers, atomic facts, sources, claim boundaries, review state and open questions. Public authoring in `src/content/` is a curated projection of that knowledge; presentation remains owned by page families and components. | ACTIVE |
 | DR-EVIDENCE-002 | Redesigning, shortening or removing public copy must not delete its underlying evidence. New research updates knowledge records through explicit verification or supersession; it does not silently overwrite history or publish itself. | ACTIVE |
 | DR-EVIDENCE-003 | Google Drive is AMARA's immutable archive for timestamped raw research inputs; Git `knowledge/` is the canonical versioned evaluation and page-coverage layer. Stable Drive folder IDs are recorded in run/page manifests. Raw uploads never publish directly, and later research uses a new run instead of overwriting an earlier one. | ACTIVE |
@@ -193,6 +194,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 | 2026-08-27T14:18:49+02:00 | Official Frigiliana short-term forecast | Added a fixed, cached server-side AEMET gateway and progressive three-day forecast to the otherwise static Frigiliana Weather page. Runtime Standard 4.1.0, Register 1.39.0. | DR-PLATFORM-001, DR-WEATHER-001 | this revision |
 | 2026-08-28T06:28:44+02:00 | Official destination short-term forecasts | Corrected the Cloudflare function route boundary and extended the fixed, cached AEMET gateway and progressive three-day forecast to Frigiliana, Nerja and Tarifa. Runtime Standard 4.2.0, Register 1.40.0. | DR-PLATFORM-001, DR-WEATHER-001 | this revision |
 | 2026-08-28T07:08:21+02:00 | Parallel worktree and release integration | Required one branch/worktree per active parallel implementation task, reserved the primary `main` worktree for integration, included visible Codex Cloud handoffs in a mandatory pre-push inventory and established one centralized integrated release. Governance 5.7.0, Register 1.41.0. | DR-EXEC-011, DR-EXEC-010, DR-EXEC-007 | this revision |
+| 2026-08-29T08:47:07+02:00 | People-first host language | Activated the plain host-language, paragraph-deletion, imperative-boundary and proportional presentation-density gate after the Nerja pilot exposed grammatically valid but unnatural decision rhetoric and repeated page stages. Content Playbook 1.7.0, Register 1.42.0; operative summary added to `AGENTS.md`. | TR-CONTENT-008, TR-CONTENT-002, TR-CONTENT-004–006 | this revision |
 | 2026-08-13 | Documentation reform | Constitution 5.0.0, Governance 5.0.0, Register 1.0.0 approved as Package 1 replacement drafts. | DR-DOC-003, DR-EXEC-001 | historical package snapshot |
 | 2026-08-14T08:55:00+02:00 | Reality Reconciliation | Corrected the over-broad interpretation of Astro-only: it governs the website runtime and does not silently remove an independently governed operational boundary. | DR-PLATFORM-001, DR-BOOK-001, DR-GOV-001 | withdrawn candidate; never committed |
 | 2026-08-14T09:08:00+02:00 | SSOT Bootstrap V3 candidate | Added repository Markdown snapshots for all seven interim owner documents and introduced a mandatory read-only Compatibility Gate before activation. Gate result: BLOCKED; candidate withdrawn without commit. | DR-DOC-001, DR-DOC-005, DR-BOOT-001 | withdrawn candidate — never committed |
@@ -304,3 +306,5 @@ Separate controlled workstreams remain for:
 | 1.38.0 | 2026-08-27T13:11:27+02:00 | Registered Governance 5.6.0 and activated the bounded Parallel Traffic Check for declared parallel-agent work. | this revision |
 | 1.39.0 | 2026-08-27T14:18:49+02:00 | Activated the fixed server-side AEMET forecast boundary for the static Frigiliana Weather page and registered Runtime Standard 4.1.0. | this revision |
 | 1.40.0 | 2026-08-28T06:28:44+02:00 | Extended the fixed server-side AEMET forecast boundary to the Frigiliana, Nerja and Tarifa Weather pages and registered Runtime Standard 4.2.0. | this revision |
+| 1.41.0 | 2026-08-28T07:08:21+02:00 | Activated the dedicated-worktree and centralized release-controller contract for explicit parallel implementation. | this revision |
+| 1.42.0 | 2026-08-29T08:47:07+02:00 | Activated the people-first host-language and proportional presentation-density gate with Content Playbook 1.7.0 and an operative summary in `AGENTS.md`. | this revision |

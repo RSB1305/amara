@@ -55,31 +55,31 @@ export const gettingToNerjaSeo: AmaraAuthoringSeo = {
   languages: {
     en: {
       title: 'Getting to Nerja & AMARA Playa: Airport, Bus or Car',
-      description: 'Plan the full journey to Nerja and AMARA Playa, Calle Castilla Pérez 60, including Málaga Airport, coach arrival, car use, parking and walking.',
+      description: 'Practical directions to Nerja and AMARA Playa from Málaga Airport by direct coach, transfer or car, including the final leg and parking reality.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'Anreise nach Nerja: Flughafen, Bus oder Auto',
-      description: 'Plant die komplette Anreise nach Nerja und zu AMARA Playa, Calle Castilla Pérez 60 – mit Flughafen, Busankunft, Auto, Parken und Wegen zu Fuß.',
+      description: 'Praktische Anreise nach Nerja und zu AMARA Playa ab Flughafen Málaga – mit Direktbus, Transfer oder Auto, letzter Etappe und ehrlichen Parkhinweisen.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Cómo llegar a Nerja: aeropuerto, autobús o coche',
-      description: 'Preparad todo el viaje a Nerja y AMARA Playa, Calle Castilla Pérez 60: aeropuerto de Málaga, autobús, coche, aparcamiento y recorridos a pie.',
+      description: 'Cómo llegar a Nerja y AMARA Playa desde el aeropuerto de Málaga en autobús directo, traslado o coche, incluido el último tramo y el aparcamiento.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Naar Nerja & AMARA Playa: luchthaven, bus of auto',
-      description: 'Plan de volledige reis naar Nerja en AMARA Playa, Calle Castilla Pérez 60, met Málaga Airport, busaankomst, autogebruik, parkeren en lopen.',
+      description: 'Praktische route naar Nerja en AMARA Playa vanaf Málaga Airport per rechtstreekse bus, transfer of auto, met het laatste traject en parkeren.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Resa till Nerja & AMARA Playa: flygplats, buss eller bil',
-      description: 'Planera hela resan till Nerja och AMARA Playa, Calle Castilla Pérez 60, med Málaga flygplats, bussankomst, bil, parkering och promenader.',
+      description: 'Praktisk resa till Nerja och AMARA Playa från Málaga flygplats med direktbuss, transfer eller bil, inklusive sista sträckan och parkering.',
       robots: 'index, follow',
       canonical: 'auto'
     }
