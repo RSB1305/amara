@@ -152,8 +152,8 @@ const conversionFamilyAttributes = isAmaraConversionFamilyId(pageFamily) ? getCo
     <meta name="twitter:description" content={head.current.description} />
     {head.ogImage && <meta name="twitter:image" content={head.ogImage} />}
 
-    {ldJson && <script type="application/ld+json" set:html={ldJson} />}
-    <script type="application/json" data-amara="seo" set:html={head.seoBlock} />
+    {ldJson && <script is:inline type="application/ld+json" set:html={ldJson} />}
+    <script is:inline type="application/json" data-amara="seo" set:html={head.seoBlock} />
 
   </head>
 
