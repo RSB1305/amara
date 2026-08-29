@@ -198,8 +198,6 @@ type FactRow = {
 };
 
 const factRows: FactRow[] = [
-  { label: t(ui.labels.guests as LocalizedText), value: String(rental.occupancy), Icon: amenityIcons.occupancy },
-  { label: t(ui.labels.bedrooms as LocalizedText), value: String(rental.bedrooms), Icon: amenityIcons.bed },
   { label: t(ui.labels.bathrooms as LocalizedText), value: String(rental.bathrooms), Icon: amenityIcons.bathroom },
   ...(rental.interiorAreaSqm
     ? [{

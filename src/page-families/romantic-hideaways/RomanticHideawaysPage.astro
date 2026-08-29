@@ -119,28 +119,6 @@ const copy = {
     nl: 'Vier van onze verblijven liggen midden in de oude kern van Frigiliana. Playa ligt op 200 meter van het strand in Nerja en Family & Surf in Tarifa biedt plaats aan maximaal vier gasten.',
     sv: 'Fyra av våra boenden ligger mitt i Frigilianas gamla stad. Playa ligger 200 meter från stranden i Nerja och Family & Surf i Tarifa har plats för upp till fyra gäster.'
   } satisfies CopyRow,
-  prose: {
-    en: [
-      'Farah is our compact suite for shorter visits. Lounis, Zaid and Maha have full kitchens and private terraces; Playa adds a washing machine and an easy walk to the beach.',
-      'Five stays are made for one or two guests. For a family or four travellers, Family & Surf has two bedrooms, two bathrooms, a pool and reserved garage space.'
-    ],
-    de: [
-      'Farah ist unsere kompakte Suite für kürzere Aufenthalte. Lounis, Zaid und Maha haben vollständige Küchen und private Terrassen; Playa zusätzlich eine Waschmaschine und kurze Wege zum Strand.',
-      'Fünf Unterkünfte sind für ein oder zwei Gäste gemacht. Für eine Familie oder vier Reisende hat Family & Surf zwei Schlafzimmer, zwei Bäder, einen Pool und einen reservierten Garagenplatz.'
-    ],
-    es: [
-      'Farah es nuestra suite compacta para estancias cortas. Lounis, Zaid y Maha tienen cocina completa y terraza privada; Playa añade lavadora y un paseo corto hasta la playa.',
-      'Cinco alojamientos están pensados para uno o dos huéspedes. Para una familia o cuatro viajeros, Family & Surf cuenta con dos dormitorios, dos baños, piscina y garaje reservado.'
-    ],
-    nl: [
-      'Farah is onze compacte suite voor een korter verblijf. Lounis, Zaid en Maha hebben een volledige keuken en een privéterras; Playa voegt daar een wasmachine en een korte wandeling naar het strand aan toe.',
-      'Vijf verblijven zijn gemaakt voor één of twee gasten. Voor een gezin of vier reizigers heeft Family & Surf twee slaapkamers, twee badkamers, een zwembad en een gereserveerde garageplaats.'
-    ],
-    sv: [
-      'Farah är vår kompakta svit för kortare vistelser. Lounis, Zaid och Maha har kompletta kök och privata terrasser; Playa har dessutom tvättmaskin och nära till stranden.',
-      'Fem boenden är gjorda för en eller två gäster. För en familj eller fyra resenärer har Family & Surf två sovrum, två badrum, pool och reserverad garageplats.'
-    ]
-  } satisfies Record<AmaraLanguage, string[]>,
   ctaBook: {
     en: 'Check availability',
     de: 'Verfügbarkeit prüfen',
@@ -190,13 +168,6 @@ const copy = {
     nl: 'Alle zes AMARA-verblijven',
     sv: 'Alla sex AMARA-boenden'
   } satisfies CopyRow,
-  collectionIntro: {
-    en: 'Farah is the compact suite. Lounis, Zaid and Maha each have a private terrace, Playa is near the beach, and Family & Surf has room for four.',
-    de: 'Farah ist die kompakte Suite. Lounis, Zaid und Maha haben jeweils eine private Terrasse, Playa liegt nah am Strand und Family & Surf bietet Platz für vier.',
-    es: 'Farah es la suite compacta. Lounis, Zaid y Maha tienen terraza privada, Playa está cerca de la playa y Family & Surf ofrece espacio para cuatro.',
-    nl: 'Farah is de compacte suite. Lounis, Zaid en Maha hebben ieder een privéterras, Playa ligt dicht bij het strand en Family & Surf biedt plaats aan vier gasten.',
-    sv: 'Farah är den kompakta sviten. Lounis, Zaid och Maha har varsin privat terrass, Playa ligger nära stranden och Family & Surf har plats för fyra.'
-  } satisfies CopyRow,
   reviewsEyebrow: {
     en: 'Guest-verified',
     de: 'Was unsere Gäste sagen',
@@ -228,7 +199,6 @@ const copy = {
 };
 
 const t = <T extends Record<AmaraLanguage, string>>(row: T) => row[currentLang] ?? row.en;
-const tArr = (row: Record<AmaraLanguage, string[]>) => row[currentLang] ?? row.en;
 
 
 const footerHighlights: LabeledLink[] = [
@@ -328,13 +298,6 @@ const selectionLabels = {
     nl: 'Suite met twee kamers',
     sv: 'Svit med två rum'
   },
-  bedSize: {
-    en: '200 × 200 cm bed',
-    de: 'Bett: 200 × 200 cm',
-    es: 'Cama de 200 × 200 cm',
-    nl: 'Bed van 200 × 200 cm',
-    sv: 'Säng: 200 × 200 cm'
-  },
   noInternalStairs: {
     en: 'No stairs inside the apartment',
     de: 'Keine Stufen im Apartment',
@@ -348,20 +311,6 @@ const selectionLabels = {
     es: 'Patio y terraza privados',
     nl: 'Privépatio en privéterras',
     sv: 'Privat uteplats och terrass'
-  },
-  sharedPool: {
-    en: 'Shared pool',
-    de: 'Gemeinschaftspool',
-    es: 'Piscina comunitaria',
-    nl: 'Gedeeld zwembad',
-    sv: 'Gemensam pool'
-  },
-  reservedGarage: {
-    en: 'Reserved underground parking space',
-    de: 'Reservierter Tiefgaragenstellplatz',
-    es: 'Plaza reservada en el garaje',
-    nl: 'Gereserveerde plek in de parkeergarage',
-    sv: 'Reserverad garageplats'
   },
   stepFreeVillageRoute: {
     en: 'From the shared front door, Calle Real continues without further steps',
@@ -377,20 +326,17 @@ type SelectionSignal =
   | 'washingMachine'
   | 'noWashingMachine'
   | 'twoRoomSuite'
-  | 'bedSize'
   | 'outdoor'
   | 'privatePatioAndTerrace'
-  | 'pool'
-  | 'parking'
   | 'stepFreeVillageRoute';
 
 const selectionSignalsByToken: Record<ApartmentToken, SelectionSignal[]> = {
   farah: ['twoRoomSuite', 'kitchen', 'outdoor', 'stepFreeVillageRoute'],
   lounis: ['kitchen', 'washingMachine', 'privatePatioAndTerrace'],
-  zaid: ['kitchen', 'washingMachine', 'outdoor'],
-  maha: ['kitchen', 'noWashingMachine', 'outdoor'],
-  playa: ['bedSize', 'kitchen', 'washingMachine', 'outdoor'],
-  tarifa: ['kitchen', 'washingMachine', 'pool', 'parking']
+  zaid: ['kitchen', 'washingMachine'],
+  maha: ['kitchen', 'noWashingMachine'],
+  playa: ['kitchen', 'washingMachine'],
+  tarifa: ['kitchen', 'washingMachine']
 };
 
 function amenityValue(
@@ -426,21 +372,11 @@ function selectionSignal(
         : undefined;
     case 'twoRoomSuite':
       return rental.rooms === 2 ? selectionLabels.twoRoomSuite[currentLang] : undefined;
-    case 'bedSize':
-      return rental.bed.some((bed) => bed.label === '200 x 200')
-        ? selectionLabels.bedSize[currentLang]
-        : undefined;
     case 'outdoor':
       return rental.outdoorNote[currentLang];
     case 'privatePatioAndTerrace':
       return hasAmenity(rental, 'privatePatio') && hasAmenity(rental, 'privateTerrace')
         ? selectionLabels.privatePatioAndTerrace[currentLang]
-        : undefined;
-    case 'pool':
-      return hasAmenity(rental, 'pool') ? selectionLabels.sharedPool[currentLang] : undefined;
-    case 'parking':
-      return amenityValue(rental, 'parkingType') === 'ReservedUndergroundIncluded'
-        ? selectionLabels.reservedGarage[currentLang]
         : undefined;
     case 'stepFreeVillageRoute':
       return rental.accessFacts.routeToVillageCore === 'step-free'
@@ -522,12 +458,6 @@ const apartmentsWithLinks = apartmentRows.filter(
         ]}
       />
 
-      <div class="max-w-2xl space-y-5 mt-8 am-text-body text-on-surface-variant leading-relaxed">
-        {tArr(copy.prose).map((html) => (
-          <p set:html={html} />
-        ))}
-      </div>
-
       <div
         class="flex flex-wrap items-center gap-x-8 gap-y-4 mt-12 pt-8 border-t border-border-subtle am-text-body text-on-surface-variant"
         id="direct-booking"
@@ -550,9 +480,8 @@ const apartmentsWithLinks = apartmentRows.filter(
       labelledby="collection-title"
       dataComponent="stay-collection"
     >
-      <div class="flex flex-col gap-6 max-w-3xl">
+      <div class="max-w-3xl">
         <h2 id="collection-title" class="am-text-title tracking-tight">{t(copy.collectionTitle)}</h2>
-        <p class="am-text-body text-on-surface-variant">{t(copy.collectionIntro)}</p>
       </div>
 
       <ApartmentGrid>

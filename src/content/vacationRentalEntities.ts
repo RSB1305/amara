@@ -260,11 +260,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Frigilianas gamla stad'
     },
     headline: {
-      en: 'For short stays in Frigiliana’s old town',
-      de: 'Für kurze Aufenthalte in Frigilianas Altstadt',
-      es: 'Para estancias cortas en el casco antiguo de Frigiliana',
-      nl: 'Voor korte verblijven in de oude kern van Frigiliana',
-      sv: 'För kortare vistelser i Frigilianas gamla stad'
+      en: 'A compact suite for short stays in the old town',
+      de: 'Kompakte Suite für kurze Aufenthalte in der Altstadt',
+      es: 'Una suite compacta para estancias cortas en el casco antiguo',
+      nl: 'Een compacte suite voor korte verblijven in de oude kern',
+      sv: 'En kompakt svit för kortare vistelser i gamla stan'
     },
     lead: {
       en: 'Farah is a compact, self-contained suite in Frigiliana’s historic centre, with a separate bedroom and tea kitchen for coffee and light meals.',
@@ -423,25 +423,25 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Historisk lägenhet'
     },
     headline: {
-      en: 'A historic sanctuary for two',
-      de: 'Ein historischer Rückzugsort für zwei',
-      es: 'Un refugio histórico para dos',
-      nl: 'Een historisch toevluchtsoord voor twee',
-      sv: 'En historisk tillflyktsort för två'
+      en: '70 m², a private terrace and historic walls',
+      de: '70 m², private Terrasse und historische Mauern',
+      es: '70 m², terraza privada y muros históricos',
+      nl: '70 m², een privéterras en historische muren',
+      sv: '70 m², privat terrass och historiska murar'
     },
     lead: {
-      en: 'The largest of Casa AMARA’s three apartments, deliberately kept for two. Lounis’s walls belong to the oldest fabric of the house: Moorish masonry, rediscovered original floor tiles and a private terrace with an eight-metre historic well.',
-      de: 'Das größte der drei Apartments in Casa AMARA – und bewusst nur für zwei. Die Mauern von Lounis gehören zur ältesten Bausubstanz des Hauses: maurisches Mauerwerk, wiederentdeckte Originalfliesen und eine private Terrasse mit einem acht Meter tiefen historischen Brunnen.',
-      es: 'El más grande de los tres apartamentos de Casa AMARA, pensado deliberadamente solo para dos. Los muros de Lounis forman parte de la estructura más antigua del edificio: mampostería andalusí, baldosas originales redescubiertas y una terraza privada con un pozo histórico de ocho metros de profundidad.',
-      nl: 'Het grootste van de drie appartementen in Casa AMARA, bewust alleen voor twee. De muren van Lounis behoren tot het oudste deel van het gebouw: Moors metselwerk, teruggevonden originele vloertegels en een privéterras met een acht meter diepe historische put.',
-      sv: 'Den största av Casa AMARAs tre lägenheter, medvetet bara för två. Lounis murar hör till husets äldsta byggnadsdelar: moriskt murverk, återfunna ursprungliga golvplattor och en privat terrass med en åtta meter djup historisk brunn.'
+      en: 'Lounis is the largest apartment at Casa AMARA: 70 m² inside and a 39 m² private terrace. It has a full kitchen, historic walls and a secured eight-metre well.',
+      de: 'Lounis ist die größte Wohnung in Casa AMARA: 70 m² innen und eine 39 m² große private Terrasse. Dazu kommen eine voll ausgestattete Küche, historische Mauern und ein gesicherter acht Meter tiefer Brunnen.',
+      es: 'Lounis es el apartamento más grande de Casa AMARA: 70 m² interiores y una terraza privada de 39 m². Tiene cocina completa, muros históricos y un pozo protegido de ocho metros.',
+      nl: 'Lounis is het grootste appartement van Casa AMARA: 70 m² binnen en een privéterras van 39 m². Het heeft een volledige keuken, historische muren en een beveiligde put van acht meter diep.',
+      sv: 'Lounis är den största lägenheten i Casa AMARA: 70 m² inomhus och en privat terrass på 39 m². Här finns ett fullt kök, historiska murar och en säkrad åtta meter djup brunn.'
     },
     description: {
-      en: 'From the **private terrace**, the view stretches across the mango and avocado groves of Frigiliana Campo to the sea. It is pleasantly shaded in the morning, then catches the sun from around midday into the evening.\n\nAt its heart is an **exceptionally well-preserved eight-metre historic well**, exclusive to Lounis. It still holds water, is secured by a sturdy grate and is not used for domestic or drinking water. Behind it are the Moroccan-style outdoor shower and our sheltered “cave” — once said to have housed chickens, now a quiet retreat.\n\nThe 2020–2022 restoration revealed **Moorish masonry and the apartment’s original historic floor tiles**, both carefully preserved.\n\nA fully equipped kitchen and a light-filled bathroom with a large window and double shower complete the apartment. Outside, a hammock and two loungers await: birds in the morning, sun from midday, silence at night.',
-      de: 'Von der **privaten Terrasse** blickt ihr über die Mango- und Avocadoplantagen des Frigiliana Campo bis zum Meer. Morgens liegt sie angenehm im Schatten, ab etwa Mittag bis in den Abend in der Sonne.\n\nIhr außergewöhnlichstes Detail ist der **acht Meter tiefe historische Brunnen**, der ausschließlich zu Lounis gehört. Er führt noch Wasser, ist mit einem stabilen Gitter gesichert und wird weder als Haus- noch als Trinkwasser genutzt. Dahinter liegen die marokkanisch gestaltete Außendusche und unsere geschützte „Höhle“ – früher sollen hier Hühner gelebt haben, heute ist sie ein stiller Rückzugsort.\n\nBei der Restaurierung von 2020 bis 2022 kamen **maurisches Mauerwerk und die originalen historischen Fliesen** des Apartments zum Vorschein. Beides wurde sorgfältig erhalten und prägt heute den besonderen Charakter von Lounis.\n\nEine voll ausgestattete Küche und ein lichtdurchflutetes Badezimmer mit großem Fenster und Doppeldusche ergänzen das Apartment. Draußen warten eine Hängematte und zwei Sonnenliegen: morgens Vögel, ab Mittag Sonne, nachts Stille.',
-      es: 'Desde la **terraza privada**, la vista se extiende sobre las plantaciones de mango y aguacate del campo de Frigiliana hasta el mar. Por la mañana permanece agradablemente sombreada; desde alrededor del mediodía recibe el sol hasta la tarde.\n\nSu elemento más singular es el **pozo histórico de ocho metros de profundidad**, exclusivo de Lounis. Todavía conserva agua, está protegido por una rejilla resistente y no se utiliza como agua doméstica ni potable. Detrás se encuentran la ducha exterior de inspiración marroquí y nuestra «cueva» resguardada: antiguamente se criaban gallinas allí; hoy es un refugio tranquilo.\n\nDurante la restauración de 2020 a 2022 salieron a la luz **mampostería andalusí y las baldosas históricas originales** del apartamento. Ambas se conservaron cuidadosamente y definen hoy el carácter especial de Lounis.\n\nCompletan el apartamento una cocina totalmente equipada y un baño luminoso con gran ventana y ducha doble. Fuera esperan una hamaca y dos tumbonas: pájaros por la mañana, sol desde el mediodía y silencio por la noche.',
-      nl: 'Vanaf het **privéterras** kijk je over de mango- en avocadoplantages van het Frigiliana Campo tot aan zee. ’s Ochtends ligt het terras aangenaam in de schaduw; vanaf ongeveer het middaguur blijft de zon tot in de avond.\n\nDe blikvanger is de **uitzonderlijk goed bewaarde historische put van acht meter diep**, exclusief voor Lounis. De put bevat nog altijd water, is beveiligd met een stevig rooster en wordt niet gebruikt als huishoud- of drinkwater. Daarachter liggen de Marokkaans vormgegeven buitendouche en onze beschutte “grot” — vroeger zouden hier kippen hebben gezeten, nu is het een stille plek om je terug te trekken.\n\nBij de restauratie van 2020 tot 2022 kwamen **Moors metselwerk en de originele historische vloertegels** van het appartement tevoorschijn. Beide zijn zorgvuldig behouden en bepalen nu het bijzondere karakter van Lounis.\n\nEen volledig uitgeruste keuken en een lichte badkamer met een groot raam en dubbele douche maken het appartement compleet. Buiten wachten een hangmat en twee ligstoelen: vogels in de ochtend, zon vanaf de middag en stilte in de nacht.',
-      sv: 'Från den **privata terrassen** sträcker sig utsikten över mango- och avokadoodlingarna i Frigiliana Campo ända till havet. På morgonen ligger terrassen behagligt i skugga; från omkring middagstid har den sol till kvällen.\n\nTerrassens mest särpräglade inslag är den **ovanligt välbevarade historiska brunnen, åtta meter djup**, som är exklusiv för Lounis. Brunnen innehåller fortfarande vatten, är säkrad med ett stabilt galler och används varken som hushålls- eller dricksvatten. Bakom den finns den marockanskt utformade uteduschen och vår skyddade “grotta” — förr sägs höns ha hållits här, i dag är det en stilla plats för avkoppling.\n\nVid restaureringen 2020–2022 kom **moriskt murverk och lägenhetens ursprungliga historiska golvplattor** fram. Båda bevarades varsamt och präglar i dag Lounis speciella karaktär.\n\nEtt fullt utrustat kök och ett ljust badrum med stort fönster och dubbeldusch fullbordar lägenheten. Utomhus väntar en hängmatta och två solstolar: fåglar på morgonen, sol från middagstid och tystnad om natten.'
+      en: 'The **private terrace** overlooks the mango and avocado groves towards the sea. It is shaded in the morning and sunny from around midday; outside you have a hammock, two loungers and a Moroccan-style shower.\n\nThe secured historic well still holds water but is not used as domestic or drinking water. During the 2020–2022 restoration, Moorish masonry and original floor tiles were uncovered and preserved.',
+      de: 'Von der **privaten Terrasse** blickt ihr über Mango- und Avocadoplantagen bis zum Meer. Morgens liegt sie im Schatten, ab etwa Mittag in der Sonne; draußen stehen eine Hängematte, zwei Liegen und eine marokkanisch gestaltete Dusche bereit.\n\nDer gesicherte historische Brunnen führt noch Wasser, wird aber nicht als Haus- oder Trinkwasser genutzt. Bei der Restaurierung von 2020 bis 2022 kamen maurisches Mauerwerk und Originalfliesen zum Vorschein, die wir erhalten haben.',
+      es: 'La **terraza privada** mira sobre las plantaciones de mango y aguacate hacia el mar. Por la mañana está en sombra y desde alrededor del mediodía recibe el sol; fuera tenéis hamaca, dos tumbonas y una ducha de estilo marroquí.\n\nEl pozo histórico protegido todavía contiene agua, pero no se utiliza como agua doméstica ni potable. Durante la restauración de 2020 a 2022 aparecieron muros andalusíes y baldosas originales que conservamos.',
+      nl: 'Vanaf het **privéterras** kijken jullie over de mango- en avocadoplantages richting zee. ’s Ochtends ligt het in de schaduw en vanaf ongeveer het middaguur in de zon; buiten staan een hangmat, twee ligstoelen en een Marokkaans vormgegeven douche.\n\nDe beveiligde historische put bevat nog water, maar wordt niet gebruikt als huishoud- of drinkwater. Bij de restauratie van 2020 tot 2022 kwamen Moors metselwerk en originele vloertegels tevoorschijn, die we hebben behouden.',
+      sv: 'Från den **privata terrassen** ser ni över mango- och avokadoodlingarna mot havet. På morgonen ligger den i skugga och från omkring middagstid i sol; ute finns en hängmatta, två solsängar och en marockanskt utformad dusch.\n\nDen säkrade historiska brunnen innehåller fortfarande vatten men används inte som hushålls- eller dricksvatten. Vid restaureringen 2020–2022 kom moriskt murverk och ursprungliga golvplattor fram, som vi bevarade.'
     },
     highlights: {
       en: ['Eight-metre private well and sheltered “cave” nook', 'Moorish walls and rediscovered original floor tiles', 'Sun from midday, cafés close by along Calle Real'],
@@ -603,18 +603,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Privat terrass, en våning upp'
     },
     headline: {
-      en: 'The upper floor above the groves',
-      de: 'Die obere Etage über den Plantagen',
-      es: 'La planta de arriba sobre el campo',
-      nl: 'De bovenverdieping boven de plantages',
-      sv: 'Övervåningen ovanför odlingarna'
+      en: 'King bed and private terrace, one floor higher',
+      de: 'Kingsize-Bett und private Terrasse, eine Etage höher',
+      es: 'Cama king y terraza privada, una planta más arriba',
+      nl: 'Kingsize bed en privéterras, één verdieping hoger',
+      sv: 'Kingsize-säng och privat terrass, en våning upp'
     },
     lead: {
-      en: 'Zaid sits one floor above Lounis: the same view across the groves, only further. And the widest bed in the house, 180 × 200.',
-      de: 'Zaid liegt eine Etage über Lounis: derselbe Blick über die Plantagen, nur weiter. Dazu das breiteste Bett im Haus, 180 × 200.',
-      es: 'Zaid está una planta por encima de Lounis: la misma vista sobre el campo, solo que más lejos. Y la cama más ancha de la casa, 180 × 200.',
-      nl: 'Zaid ligt een verdieping boven Lounis: hetzelfde uitzicht over de plantages, alleen verder. En het breedste bed van het huis, 180 × 200.',
-      sv: 'Zaid ligger en våning ovanför Lounis: samma utsikt över odlingarna, fast längre. Och husets bredaste säng, 180 × 200.'
+      en: 'Zaid sits one floor above Lounis. You have a 180 × 200 bed, a full kitchen and a private terrace overlooking the groves towards the sea. Six steps lead up to the apartment.',
+      de: 'Zaid liegt eine Etage über Lounis. Ihr habt ein 180 × 200 cm großes Bett, eine voll ausgestattete Küche und eine private Terrasse mit Blick über die Plantagen bis zum Meer. Zur Wohnung führen sechs Stufen.',
+      es: 'Zaid está una planta por encima de Lounis. Tenéis una cama de 180 × 200 cm, cocina completa y terraza privada con vistas sobre el campo hacia el mar. Seis escalones llevan hasta el apartamento.',
+      nl: 'Zaid ligt één verdieping boven Lounis. Jullie hebben een bed van 180 × 200 cm, een volledige keuken en een privéterras met uitzicht over de plantages richting zee. Zes treden leiden naar het appartement.',
+      sv: 'Zaid ligger en våning ovanför Lounis. Ni har en säng på 180 × 200 cm, ett fullt kök och en privat terrass med utsikt över odlingarna mot havet. Sex trappsteg leder upp till lägenheten.'
     },
     description: {
       en: 'From the terrace, the same view as the floor below, only further: the mango and avocado groves of Frigiliana Campo, the sea behind them. Sun arrives around midday and stays until evening — mornings the terrace is in shade. Zaid was built onto Lounis centuries later, and part of that older structure is still in its walls.',
@@ -779,18 +779,18 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Stor privat terrass'
     },
     headline: {
-      en: 'Sixty-four square metres of open-air terrace',
-      de: 'Vierundsechzig Quadratmeter Terrasse unter freiem Himmel',
-      es: 'Sesenta y cuatro metros cuadrados de terraza al aire libre',
-      nl: 'Vierenzestig vierkante meter terras onder de blote hemel',
-      sv: 'Sextiofyra kvadratmeter terrass under bar himmel'
+      en: '64 m² private terrace with an outdoor kitchen',
+      de: '64 m² private Terrasse mit Außenküche',
+      es: 'Terraza privada de 64 m² con cocina exterior',
+      nl: 'Privéterras van 64 m² met buitenkeuken',
+      sv: '64 m² privat terrass med utekök'
     },
     lead: {
-      en: 'Maha’s terrace measures 64 square metres, open to the sky, with parasols and partly shaded by sails. Plus a small outdoor kitchen — if you like cooking outside, this is where you can.',
-      de: 'Mahas Terrasse misst 64 Quadratmeter – offen zum Himmel, mit Sonnenschirmen und teilweise von Sonnensegeln beschattet. Dazu eine kleine Außenküche: Wer draußen kochen möchte, kann es hier.',
-      es: 'La terraza de Maha mide 64 metros cuadrados, abierta al cielo, con sombrillas y en parte cubierta por velas de sombra. Y una pequeña cocina exterior: quien quiera cocinar al aire libre, aquí puede.',
-      nl: 'Het terras van Maha meet 64 vierkante meter, open naar de hemel, met parasols en deels beschaduwd door schaduwdoeken. Plus een kleine buitenkeuken: wie graag buiten kookt, kan dat hier.',
-      sv: 'Mahas terrass mäter 64 kvadratmeter, öppen mot himlen, med parasoll och delvis skuggad av solsegel. Dessutom ett litet utekök: den som vill laga mat utomhus kan göra det här.'
+      en: 'Choose Maha if outdoor space matters most: a 64 m² private terrace, outdoor kitchen, hammock and two loungers. Inside there is a 150 × 200 bed, but no washing machine.',
+      de: 'Maha passt zu euch, wenn euch viel Platz draußen wichtig ist: 64 m² private Terrasse, Außenküche, Hängematte und zwei Liegen. Drinnen gibt es ein 150 × 200 cm großes Bett, aber keine Waschmaschine.',
+      es: 'Maha os encaja si lo más importante es el espacio exterior: terraza privada de 64 m², cocina exterior, hamaca y dos tumbonas. Dentro hay una cama de 150 × 200 cm, pero no lavadora.',
+      nl: 'Kies Maha als veel buitenruimte het belangrijkst is: een privéterras van 64 m², buitenkeuken, hangmat en twee ligstoelen. Binnen staat een bed van 150 × 200 cm, maar er is geen wasmachine.',
+      sv: 'Välj Maha om gott om uteplats är viktigast: en privat terrass på 64 m², utekök, hängmatta och två solsängar. Inne finns en säng på 150 × 200 cm, men ingen tvättmaskin.'
     },
     description: {
       en: 'Here the terrace is the actual living room. All three AMARA terrace apartments have a hammock, two loungers and an outdoor shower — but Maha gives you more room around them, plus an outdoor kitchen the others do not have. Maha sits highest in the house and has the widest view. In exchange the bed is 150 centimetres, narrower than in Lounis or Zaid, and there is no washing machine.',
@@ -970,25 +970,25 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Nerjas kust'
     },
     headline: {
-      en: 'A quiet fifth-floor retreat for two',
-      de: 'Ein ruhiger Rückzugsort für zwei im fünften Stock',
-      es: 'Un refugio tranquilo para dos en la quinta planta',
-      nl: 'Een rustige plek voor twee op de vijfde verdieping',
-      sv: 'En lugn plats för två på femte våningen'
+      en: '200 metres from the beach, with a balcony and 200 × 200 bed',
+      de: '200 Meter zum Strand, mit Balkon und 200 × 200 cm Bett',
+      es: 'A 200 metros de la playa, con balcón y cama de 200 × 200 cm',
+      nl: '200 meter van het strand, met balkon en bed van 200 × 200 cm',
+      sv: '200 meter från stranden, med balkong och säng på 200 × 200 cm'
     },
     lead: {
-      en: 'Compact and carefully equipped, with a generous 200 × 200 bed, a balcony and the calm that comes with being high above the street.',
-      de: 'Kompakt und sorgfältig ausgestattet, mit einem großzügigen Bett von 200 × 200, Balkon und der Ruhe hoch über der Straße.',
-      es: 'Compacto y equipado con cuidado, con una amplia cama de 200 × 200, balcón y la tranquilidad de estar por encima de la calle.',
-      nl: 'Compact en zorgvuldig ingericht, met een royaal bed van 200 × 200, een balkon en de rust van een plek hoog boven de straat.',
-      sv: 'Kompakt och omsorgsfullt utrustat, med en generös säng på 200 × 200, balkong och lugnet högt ovanför gatan.'
+      en: 'Playa is a compact fifth-floor apartment around 200 metres from Torrecilla beach. It has a full kitchen, washing machine, balcony and lift; ten steps lead to the lift.',
+      de: 'Playa ist ein kompaktes Apartment im fünften Stock, rund 200 Meter vom Strand Torrecilla entfernt. Es hat eine voll ausgestattete Küche, Waschmaschine, Balkon und Aufzug; bis zum Aufzug sind zehn Stufen zu überwinden.',
+      es: 'Playa es un apartamento compacto en la quinta planta, a unos 200 metros de la playa de Torrecilla. Tiene cocina completa, lavadora, balcón y ascensor; hay diez escalones hasta llegar al ascensor.',
+      nl: 'Playa is een compact appartement op de vijfde verdieping, op ongeveer 200 meter van het Torrecilla-strand. Het heeft een volledige keuken, wasmachine, balkon en lift; tot aan de lift zijn er tien treden.',
+      sv: 'Playa är en kompakt lägenhet på femte våningen, cirka 200 meter från Torrecillastranden. Här finns fullt kök, tvättmaskin, balkong och hiss; tio trappsteg leder fram till hissen.'
     },
     description: {
-      en: 'Playa is small, and that is exactly what guests come back to: it feels snug rather than tight. The lift takes you to the fifth floor, where both the side sea view and the quiet come from. Full kitchen, washing machine, balcony, a 50-inch screen, and at 200 × 200 the largest bed of any AMARA place.',
-      de: 'Playa ist klein, und genau das schätzen die Gäste: Es wirkt gemütlich, nicht knapp. Der Aufzug bringt euch in den fünften Stock, dem das Apartment seinen seitlichen Meerblick und seine Ruhe verdankt. Komplette Küche, Waschmaschine, Balkon, ein 50-Zoll-Bildschirm und mit 200 × 200 das größte Bett aller AMARA-Unterkünfte.',
-      es: 'Playa es pequeño, y es justo lo que los huéspedes valoran: resulta acogedor, no estrecho. El ascensor lleva hasta la quinta planta, de donde vienen las vistas laterales al mar y la calma. Cocina completa, lavadora, balcón, pantalla de 50 pulgadas y, con 200 × 200, la cama más grande de todos los alojamientos AMARA.',
-      nl: 'Playa is klein, en juist dat waarderen gasten: het voelt knus, niet krap. De lift brengt jullie naar de vijfde verdieping, waar het zijdelingse zeezicht en de rust vandaan komen. Volledige keuken, wasmachine, balkon, een scherm van 50 inch en met 200 × 200 het grootste bed van alle AMARA-adressen.',
-      sv: 'Playa är litet, och det är precis vad gästerna uppskattar: det känns ombonat, inte trångt. Hissen tar er till femte våningen, som ger både havsutsikten från sidan och lugnet. Fullt kök, tvättmaskin, balkong, en 50-tums skärm och med 200 × 200 den största sängen av alla AMARA-boenden.'
+      en: 'At 37 m², Playa is one of our smaller apartments. The fifth-floor position gives you a side sea view from the balcony and keeps the apartment away from most street noise. The 200 × 200 bed is the largest in any AMARA stay.',
+      de: 'Mit 37 m² gehört Playa zu unseren kleineren Apartments. Durch die Lage im fünften Stock habt ihr vom Balkon einen seitlichen Meerblick und seid weit vom meisten Straßenlärm entfernt. Das 200 × 200 cm große Bett ist das größte in einer AMARA-Unterkunft.',
+      es: 'Con 37 m², Playa es uno de nuestros apartamentos más pequeños. La quinta planta ofrece vistas laterales al mar desde el balcón y aleja el alojamiento de gran parte del ruido de la calle. La cama de 200 × 200 cm es la más grande de AMARA.',
+      nl: 'Met 37 m² is Playa een van onze kleinere appartementen. Door de ligging op de vijfde verdieping hebben jullie vanaf het balkon zijdelings zeezicht en blijft het meeste straatgeluid op afstand. Het bed van 200 × 200 cm is het grootste van alle AMARA-verblijven.',
+      sv: 'Med 37 m² är Playa en av våra mindre lägenheter. Läget på femte våningen ger havsutsikt från sidan från balkongen och håller det mesta gatuljudet på avstånd. Sängen på 200 × 200 cm är den största i något AMARA-boende.'
     },
     highlights: {
       en: ['Side sea view from the balcony', 'Quiet on the fifth floor, with a lift', 'Largest AMARA bed, 200 × 200'],
@@ -1162,82 +1162,32 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Tarifa · Atlantterrass och pool'
     },
     headline: {
-      en: 'Atlantic sunsets and the freedom to surf',
-      de: 'Atlantik-Sonnenuntergänge und Freiheit fürs Kitesurfen',
-      es: 'Atardeceres atlánticos y libertad para practicar kitesurf',
-      nl: 'Atlantische zonsondergangen en alle vrijheid om te kitesurfen',
-      sv: 'Solnedgång över Atlanten och frihet att kitesurfa'
+      en: 'Two bedrooms, pool and garage in Tarifa',
+      de: 'Zwei Schlafzimmer, Pool und Garage in Tarifa',
+      es: 'Dos dormitorios, piscina y garaje en Tarifa',
+      nl: 'Twee slaapkamers, zwembad en garage in Tarifa',
+      sv: 'Två sovrum, pool och garage i Tarifa'
     },
     lead: {
-      en: [
-        'A spacious two-level Tarifa home with Atlantic views from the private terrace and room to slow down between active days by the sea. Its main bedroom and separate bunk-bed room work well for two or for parents travelling with younger children.',
-        'For guests who kitesurf — or want to learn — our cooperation with Tarifa Surf Club makes the sport unusually easy to build into the stay.'
-      ].join('\n\n'),
-      de: [
-        'Eine großzügige Tarifa-Unterkunft auf zwei Ebenen mit Atlantikblick von der privaten Terrasse und viel Raum zum Ankommen zwischen aktiven Tagen am Meer. Hauptschlafzimmer und separates Hochbettzimmer passen gut für zwei oder für Eltern mit jüngeren Kindern.',
-        'Für Gäste, die kiten – oder es lernen möchten –, macht unsere Kooperation mit dem Tarifa Surf Club den Sport besonders unkompliziert.'
-      ].join('\n\n'),
-      es: [
-        'Una casa amplia en Tarifa, distribuida en dos niveles, con vistas al Atlántico desde la terraza privada y espacio para descansar entre días activos junto al mar. El dormitorio principal y la habitación separada con litera funcionan bien para dos o para padres con niños pequeños.',
-        'Para quienes practican kitesurf —o quieren aprender— nuestra colaboración con Tarifa Surf Club facilita mucho la experiencia.'
-      ].join('\n\n'),
-      nl: [
-        'Een ruime woning in Tarifa over twee niveaus, met Atlantisch uitzicht vanaf het eigen terras en ruimte om tot rust te komen tussen actieve dagen aan zee. De hoofdslaapkamer en aparte kamer met stapelbed werken goed voor twee of voor ouders met jonge kinderen.',
-        'Voor gasten die kitesurfen — of het willen leren — maakt onze samenwerking met Tarifa Surf Club de sport bijzonder eenvoudig onderdeel van de reis.'
-      ].join('\n\n'),
-      sv: [
-        'Ett rymligt boende i Tarifa på två plan, med Atlantutsikt från den privata terrassen och gott om plats att varva ner mellan aktiva dagar vid havet. Huvudsovrummet och det separata rummet med våningssäng passar bra för två eller föräldrar med yngre barn.',
-        'För gäster som kitesurfar — eller vill lära sig — gör samarbetet med Tarifa Surf Club sporten ovanligt enkel att lägga in i vistelsen.'
-      ].join('\n\n')
+      en: '75 m² over two levels, with two bedrooms, two bathrooms, a private Atlantic-facing terrace, shared pool and reserved underground parking. The layout works best for two adults with one or two younger children.',
+      de: '75 m² auf zwei Ebenen, mit zwei Schlafzimmern, zwei Bädern, privater Terrasse zum Atlantik, Gemeinschaftspool und reserviertem Tiefgaragenplatz. Die Aufteilung passt am besten für zwei Erwachsene mit einem oder zwei jüngeren Kindern.',
+      es: '75 m² en dos niveles, con dos dormitorios, dos baños, terraza privada orientada al Atlántico, piscina comunitaria y plaza reservada en el garaje. La distribución funciona mejor para dos adultos con uno o dos niños pequeños.',
+      nl: '75 m² over twee niveaus, met twee slaapkamers, twee badkamers, een privéterras aan de Atlantische Oceaan, een gedeeld zwembad en een gereserveerde garageplaats. De indeling past het best bij twee volwassenen met een of twee jonge kinderen.',
+      sv: '75 m² i två plan, med två sovrum, två badrum, privat terrass mot Atlanten, gemensam pool och reserverad garageplats. Planlösningen passar bäst för två vuxna med ett eller två yngre barn.'
     },
     description: {
-      en: [
-        'Set over two levels, AMARA Family & Surf combines a main bedroom with a 150 × 200 cm double bed, a separate bunk-bed room, two bathrooms, a large kitchen and an Atlantic-facing terrace for sunsets.',
-        'The technical occupancy is four guests, but the sleeping layout is particularly well suited to a couple or to parents travelling with younger children.'
-      ].join('\n\n'),
-      de: [
-        'AMARA Family & Surf erstreckt sich über zwei Ebenen und verbindet ein Hauptschlafzimmer mit 150 × 200 cm Doppelbett, ein separates Hochbettzimmer, zwei Badezimmer, eine große Küche und eine Terrasse mit Atlantikblick und Sonnenuntergang.',
-        'Die technische Belegung beträgt vier Gäste. Von der Schlafaufteilung her passt die Wohnung besonders gut zu einem Paar oder zu Eltern, die mit kleineren Kindern reisen.'
-      ].join('\n\n'),
-      es: [
-        'AMARA Family & Surf se distribuye en dos niveles y cuenta con dormitorio principal con cama doble de 150 × 200 cm, un dormitorio separado con litera, dos baños, cocina amplia y terraza con vistas al Atlántico y al atardecer.',
-        'La capacidad técnica es de cuatro huéspedes, pero la distribución resulta especialmente adecuada para una pareja o para padres que viajan con niños pequeños.'
-      ].join('\n\n'),
-      nl: [
-        'AMARA Family & Surf ligt verdeeld over twee niveaus en heeft een hoofdslaapkamer met een tweepersoonsbed van 150 × 200 cm, een aparte kamer met stapelbed, twee badkamers, een ruime keuken en een terras met Atlantisch uitzicht en zonsondergang.',
-        'De technische capaciteit is vier gasten, maar de slaapindeling past vooral goed bij een stel of bij ouders die met jonge kinderen reizen.'
-      ].join('\n\n'),
-      sv: [
-        'AMARA Family & Surf är fördelat på två plan och har ett huvudsovrum med dubbelsäng på 150 × 200 cm, ett separat rum med våningssäng, två badrum, ett stort kök och en terrass med utsikt över Atlanten och solnedgången.',
-        'Den tekniska kapaciteten är fyra gäster, men sovlösningen passar särskilt bra för ett par eller föräldrar som reser med yngre barn.'
-      ].join('\n\n')
+      en: 'The main bedroom has a 150 × 200 cm double bed; the second bedroom has a bunk bed with two single sleeping places. Both bedrooms are upstairs. The apartment also has two bathrooms, a large kitchen and lift access to the front door.',
+      de: 'Im Hauptschlafzimmer steht ein 150 × 200 cm großes Doppelbett, im zweiten Schlafzimmer ein Hochbett mit zwei einzelnen Schlafplätzen. Beide Schlafzimmer liegen oben. Außerdem gibt es zwei Bäder, eine große Küche und einen Aufzug bis vor die Wohnungstür.',
+      es: 'El dormitorio principal tiene una cama doble de 150 × 200 cm; el segundo, una litera con dos camas individuales. Ambos dormitorios están arriba. El apartamento también cuenta con dos baños, cocina amplia y ascensor hasta la puerta.',
+      nl: 'In de hoofdslaapkamer staat een tweepersoonsbed van 150 × 200 cm; de tweede slaapkamer heeft een stapelbed met twee aparte slaapplaatsen. Beide slaapkamers liggen boven. Verder zijn er twee badkamers, een ruime keuken en een lift tot aan de voordeur.',
+      sv: 'I huvudsovrummet finns en dubbelsäng på 150 × 200 cm; det andra sovrummet har en våningssäng med två separata sovplatser. Båda sovrummen ligger på övervåningen. Lägenheten har också två badrum, ett stort kök och hiss fram till dörren.'
     },
     highlights: {
-      en: [
-        'Room to enjoy Tarifa together\n75 m² over two levels, with a main double bedroom and additional bunk-bed room.',
-        'Atlantic evenings at home\nA private terrace with Atlantic views and sunset as a quieter counterpoint to active days outside.',
-        'Comfort across two levels\nTwo bathrooms, a large kitchen and lift access to the apartment door.'
-      ],
-      de: [
-        'Viel Raum für gemeinsame Tarifa-Tage\n75 m² auf zwei Ebenen mit Hauptschlafzimmer und zusätzlichem Hochbettzimmer.',
-        'Atlantikabende auf der eigenen Terrasse\nMeerblick und Sonnenuntergang als ruhiger Gegenpol zu aktiven Tagen draußen.',
-        'Komfort auf zwei Ebenen\nZwei Badezimmer, eine große Küche und der Aufzug bis vor die Wohnungstür.'
-      ],
-      es: [
-        'Espacio para disfrutar Tarifa juntos\n75 m² en dos niveles, dormitorio principal y habitación adicional con litera.',
-        'Atardeceres sobre el Atlántico\nTerraza privada con vistas al mar para terminar el día con calma.',
-        'Comodidad en dos niveles\nDos baños, una cocina amplia y ascensor hasta la puerta del apartamento.'
-      ],
-      nl: [
-        'Ruimte om Tarifa samen te beleven\n75 m² over twee niveaus, met hoofdslaapkamer en extra stapelbedkamer.',
-        'Atlantische avonden op het terras\nEigen buitenruimte met uitzicht op zee en zonsondergang.',
-        'Comfort over twee niveaus\nTwee badkamers, een ruime keuken en een lift tot aan de voordeur.'
-      ],
-      sv: [
-        'Gott om plats för Tarifa tillsammans\n75 m² på två plan med huvudsovrum och extra rum med våningssäng.',
-        'Atlantkvällar på den egna terrassen\nHavsutsikt och solnedgång efter en dag ute.',
-        'Komfort på två plan\nTvå badrum, ett stort kök och hiss hela vägen till lägenhetsdörren.'
-      ]
+      en: ['75 m² over two levels', 'Two bedrooms and two bathrooms', 'Shared pool and underground parking'],
+      de: ['75 m² auf zwei Ebenen', 'Zwei Schlafzimmer und zwei Bäder', 'Gemeinschaftspool und Tiefgarage'],
+      es: ['75 m² en dos niveles', 'Dos dormitorios y dos baños', 'Piscina comunitaria y garaje'],
+      nl: ['75 m² over twee niveaus', 'Twee slaapkamers en twee badkamers', 'Gedeeld zwembad en parkeergarage'],
+      sv: ['75 m² i två plan', 'Två sovrum och två badrum', 'Gemensam pool och garage']
     },
     accessFacts: {
       outsideStepsBeforeEntrance: 0,
@@ -1345,9 +1295,8 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       kicker: 'AMARA × Tarifa Surf Club',
       title: 'Kitesurfing, organised before you arrive',
       paragraphs: [
-        `Tarifa is one of Europe's great places to kitesurf. Staying with AMARA means you do not have to begin your holiday by looking for a school, instructor or rental shop.`,
-        'We can connect you directly with our friends at Tarifa Surf Club before you arrive. Lessons, instructor contact and rental equipment can be organised in advance, and equipment can be prepared so it is available at the accommodation when you arrive.',
-        'If the wind is already good on your first day, you can spend less time organising and more time on the water.'
+        `You do not need to start your stay by looking for a kitesurf school, instructor or rental shop. We can connect you with our friends at Tarifa Surf Club before you travel.`,
+        'Lessons, instructor contact and rental equipment can be arranged in advance. The equipment can be ready at the accommodation when you arrive.'
       ],
       ctaLabel: 'Wind & Kitesurfing in Tarifa',
       ctaToken: 'tarifa_wind_kitesurfing_authority'
@@ -1355,8 +1304,7 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
     family: {
       title: 'Travelling with younger children?',
       paragraphs: [
-        'The second bedroom has a bunk bed with two single sleeping places. That makes the apartment particularly practical for parents travelling with younger children while keeping the main bedroom to themselves.',
-        'The apartment accommodates up to four guests, but the sleeping layout is best suited to two adults with one or two younger children rather than four adults.'
+        'The second bedroom has a bunk bed with two single sleeping places. The apartment sleeps four, but the layout works better for two adults with one or two younger children than for four adults.'
       ]
     }
   },
@@ -1365,9 +1313,8 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       kicker: 'AMARA × Tarifa Surf Club',
       title: 'Kitesurfen – schon vor der Anreise organisiert',
       paragraphs: [
-        'Tarifa gehört zu den großen europäischen Kitesurf-Destinationen. Als AMARA-Gast müsst ihr euren Urlaub aber nicht damit beginnen, erst eine Schule, einen Lehrer oder einen Materialverleih zu suchen.',
-        'Wir bringen euch bereits vor der Reise direkt mit unseren Freunden vom Tarifa Surf Club in Kontakt. Unterricht, Kitelehrer und Rental-Material können vorab abgestimmt werden. Das Equipment kann so organisiert werden, dass es bei eurer Ankunft an der Unterkunft bereitsteht.',
-        'Wenn am Ankunftstag bereits guter Wind ist, verliert ihr keine wertvolle Zeit mit Organisation – sondern könnt im Idealfall direkt aufs Wasser.'
+        'Ihr müsst euren Aufenthalt nicht damit beginnen, eine Kitesurfschule, einen Lehrer oder einen Materialverleih zu suchen. Wir bringen euch vor der Reise mit unseren Freunden vom Tarifa Surf Club in Kontakt.',
+        'Unterricht, Kitelehrer und Leihmaterial lassen sich vorab abstimmen. Das Equipment kann bei eurer Ankunft an der Unterkunft bereitstehen.'
       ],
       ctaLabel: 'Wind & Kitesurfen in Tarifa',
       ctaToken: 'tarifa_wind_kitesurfing_authority'
@@ -1375,8 +1322,7 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
     family: {
       title: 'Reist ihr mit jüngeren Kindern?',
       paragraphs: [
-        'Im zweiten Schlafzimmer befindet sich ein Hochbett mit zwei einzelnen Schlafplätzen. Dadurch können Eltern ihr eigenes Schlafzimmer behalten, während die Kinder einen separaten Schlafbereich haben.',
-        'Die Wohnung bietet Platz für bis zu vier Gäste. Die Schlafaufteilung passt jedoch besser zu zwei Erwachsenen mit einem oder zwei jüngeren Kindern als zu vier Erwachsenen.'
+        'Im zweiten Schlafzimmer steht ein Hochbett mit zwei einzelnen Schlafplätzen. Die Wohnung bietet Platz für vier, passt von der Aufteilung aber besser zu zwei Erwachsenen mit einem oder zwei jüngeren Kindern als zu vier Erwachsenen.'
       ]
     }
   },
@@ -1385,9 +1331,8 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       kicker: 'AMARA × Tarifa Surf Club',
       title: 'Kitesurf organizado antes de vuestra llegada',
       paragraphs: [
-        'Tarifa es uno de los grandes destinos europeos para practicar kitesurf. Alojaros con AMARA significa que no tenéis que empezar las vacaciones buscando escuela, instructor o tienda de alquiler.',
-        'Podemos poneros en contacto directo con nuestros amigos de Tarifa Surf Club antes de vuestra llegada. Las clases, el instructor y el material de alquiler pueden organizarse previamente, y el equipo puede prepararse para estar disponible en el alojamiento cuando lleguéis.',
-        'Si el viento ya acompaña el primer día, podéis dedicar menos tiempo a organizar y más tiempo al agua.'
+        'No tenéis que empezar la estancia buscando escuela de kitesurf, instructor o tienda de alquiler. Antes del viaje podemos poneros en contacto con nuestros amigos de Tarifa Surf Club.',
+        'Las clases, el instructor y el material de alquiler pueden organizarse con antelación. El equipo puede estar preparado en el alojamiento cuando lleguéis.'
       ],
       ctaLabel: 'Viento y kitesurf en Tarifa',
       ctaToken: 'tarifa_wind_kitesurfing_authority'
@@ -1395,8 +1340,7 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
     family: {
       title: '¿Viajáis con niños pequeños?',
       paragraphs: [
-        'El segundo dormitorio dispone de una litera con dos camas individuales. Por eso la distribución funciona especialmente bien para padres que viajan con niños pequeños y quieren conservar su propio dormitorio.',
-        'El alojamiento admite hasta cuatro huéspedes, pero la distribución resulta más adecuada para dos adultos con uno o dos niños pequeños que para cuatro adultos.'
+        'El segundo dormitorio tiene una litera con dos camas individuales. El alojamiento admite a cuatro huéspedes, pero la distribución funciona mejor para dos adultos con uno o dos niños pequeños que para cuatro adultos.'
       ]
     }
   },
@@ -1405,9 +1349,8 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       kicker: 'AMARA × Tarifa Surf Club',
       title: 'Kitesurfen geregeld vóór jullie aankomst',
       paragraphs: [
-        `Tarifa is een van Europa's bekendste bestemmingen voor kitesurfen. Als AMARA-gast hoeven jullie de vakantie niet te beginnen met het zoeken naar een school, instructeur of verhuurshop.`,
-        'We kunnen jullie voor aankomst direct in contact brengen met onze vrienden van Tarifa Surf Club. Lessen, instructeur en huurmateriaal kunnen vooraf worden geregeld en de uitrusting kan worden voorbereid zodat die bij aankomst bij de accommodatie beschikbaar is.',
-        'Is de wind op jullie eerste dag al goed, dan gaat er minder tijd verloren aan organisatie en kan de vakantie direct beginnen.'
+        'Jullie hoeven het verblijf niet te beginnen met zoeken naar een kitesurfschool, instructeur of verhuurshop. Voor de reis kunnen we jullie in contact brengen met onze vrienden van Tarifa Surf Club.',
+        'Lessen, een instructeur en huurmateriaal kunnen vooraf worden geregeld. De uitrusting kan bij aankomst bij de accommodatie klaarstaan.'
       ],
       ctaLabel: 'Wind & kitesurfen in Tarifa',
       ctaToken: 'tarifa_wind_kitesurfing_authority'
@@ -1415,8 +1358,7 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
     family: {
       title: 'Reizen jullie met jonge kinderen?',
       paragraphs: [
-        'De tweede slaapkamer heeft een stapelbed met twee aparte slaapplaatsen. Dat maakt de woning bijzonder praktisch voor ouders met jonge kinderen die hun eigen slaapkamer willen behouden.',
-        'De woning biedt plaats aan maximaal vier gasten, maar de slaapindeling past beter bij twee volwassenen met een of twee jonge kinderen dan bij vier volwassenen.'
+        'De tweede slaapkamer heeft een stapelbed met twee aparte slaapplaatsen. De woning biedt plaats aan vier gasten, maar de indeling past beter bij twee volwassenen met een of twee jonge kinderen dan bij vier volwassenen.'
       ]
     }
   },
@@ -1425,9 +1367,8 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
       kicker: 'AMARA × Tarifa Surf Club',
       title: 'Kitesurfing ordnad innan ni kommer',
       paragraphs: [
-        'Tarifa är en av Europas stora destinationer för kitesurfing. Som AMARA-gäst behöver ni inte börja semestern med att leta efter skola, instruktör eller uthyrning.',
-        'Vi kan sätta er i direkt kontakt med våra vänner på Tarifa Surf Club redan före resan. Lektioner, instruktör och hyrutrustning kan ordnas i förväg, och utrustningen kan förberedas så att den finns vid boendet när ni anländer.',
-        'Om vinden redan är bra första dagen kan ni lägga mindre tid på organisation och mer tid på vattnet.'
+        'Ni behöver inte börja vistelsen med att leta efter kitesurfskola, instruktör eller uthyrning. Före resan kan vi sätta er i kontakt med våra vänner på Tarifa Surf Club.',
+        'Lektioner, instruktör och hyrutrustning kan ordnas i förväg. Utrustningen kan finnas klar vid boendet när ni anländer.'
       ],
       ctaLabel: 'Vind & kitesurfing i Tarifa',
       ctaToken: 'tarifa_wind_kitesurfing_authority'
@@ -1435,8 +1376,7 @@ export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConver
     family: {
       title: 'Reser ni med yngre barn?',
       paragraphs: [
-        'Det andra sovrummet har en våningssäng med två separata sovplatser. Det passar särskilt bra för föräldrar med yngre barn som vill behålla huvudsovrummet för sig själva.',
-        'Boendet rymmer upp till fyra gäster, men sovlösningen passar bättre för två vuxna med ett eller två yngre barn än för fyra vuxna.'
+        'Det andra sovrummet har en våningssäng med två separata sovplatser. Boendet rymmer fyra gäster, men planlösningen passar bättre för två vuxna med ett eller två yngre barn än för fyra vuxna.'
       ]
     }
   }
