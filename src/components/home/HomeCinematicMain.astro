@@ -4,10 +4,8 @@
  *
  * Architectural intent:
  * The home is the brand's front door and must do four things in order: say what
- * AMARA is, prove it, weight the three locations honestly, and hand off. Four of
- * the six stays are in Frigiliana while most arriving interest names Nerja, so
- * the places band and the bridge band carry that asymmetry explicitly rather
- * than leaving the two locations as parallel silos.
+ * AMARA is, show the six stays, weight the three locations honestly, and hand
+ * off to booking. Deeper brand and location stories belong on their own pages.
  *
  * The collection is deliberately a comparable grid, not a stack of full-width
  * blocks: choosing between six stays needs them side by side, and the full
@@ -96,23 +94,9 @@ interface Props {
   hostAvatarAlt: string;
   hostAboutHref: string | null;
   hostAboutLabel: string;
-  philosophyHeadlinePart1: string;
-  philosophyHeadlineAccent: string;
-  philosophyLabel: string;
-  philosophyP1: string;
-  /** Evidences the Romantic Hideaways positioning by naming the stays. */
-  positioningLabel: string;
-  positioningProofs: string[];
   placesEyebrow: string;
   placesTitle: string;
   places: CinematicPlace[];
-  bridgeEyebrow: string;
-  bridgeTitle: string;
-  bridgeBody: string;
-  bridgeQuote: string;
-  bridgeQuoteAttribution: string;
-  bridgeHref: string | null;
-  bridgeCtaLabel: string;
   collectionEyebrow: string;
   collectionTitle: string;
   apartments: CinematicApartment[];
@@ -158,22 +142,9 @@ const {
   hostAvatarAlt,
   hostAboutHref,
   hostAboutLabel,
-  philosophyHeadlinePart1,
-  philosophyHeadlineAccent,
-  philosophyLabel,
-  philosophyP1,
-  positioningLabel,
-  positioningProofs,
   placesEyebrow,
   placesTitle,
   places,
-  bridgeEyebrow,
-  bridgeTitle,
-  bridgeBody,
-  bridgeQuote,
-  bridgeQuoteAttribution,
-  bridgeHref,
-  bridgeCtaLabel,
   collectionEyebrow,
   collectionTitle,
   apartments,
@@ -298,44 +269,6 @@ const hasPlaces = places.length > 0;
       )
     }
   </div>
-
-  <section class="relative z-[2] mx-auto max-w-screen-xl px-6 py-24 md:px-12 md:py-32">
-    <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-12 lg:gap-8">
-      <div class="lg:col-span-5">
-        <div>
-          <h2 class="mb-8 am-text-title text-on-surface">
-            {philosophyHeadlinePart1}{' '}
-            <span class="italic text-primary">{philosophyHeadlineAccent}</span>
-          </h2>
-        </div>
-        <div>
-          <div class="mb-8 flex items-center gap-4">
-            <div class="h-px w-12 bg-outline-variant"></div>
-            <span class="am-text-caption uppercase tracking-widest text-on-surface-variant">{philosophyLabel}</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-col gap-8 am-text-body text-on-surface-variant lg:col-span-6 lg:col-start-7">
-        <div><p><InlineEmphasis text={philosophyP1} /></p></div>
-        <div>
-          <div class="mb-5 flex items-center gap-4">
-            <div class="h-px w-8 bg-primary"></div>
-            <span class="am-text-caption uppercase tracking-widest text-primary">{positioningLabel}</span>
-          </div>
-          <ul class="flex flex-col gap-3">
-            {positioningProofs.map((proof) => (
-              <li class="flex gap-3">
-                <span class="mt-[0.6em] h-px w-4 shrink-0 bg-outline-variant" aria-hidden="true" />
-                <span>{proof}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
 
   <section class="relative z-[2] border-y border-outline-variant/10 bg-surface-container-low py-20 md:py-28">
     <div class="mx-auto max-w-screen-2xl">
@@ -465,32 +398,6 @@ const hasPlaces = places.length > 0;
       </section>
     )
   }
-
-  <section class="relative z-[2] border-y border-outline-variant/10 bg-surface-container-low py-20 md:py-28">
-    <div class="mx-auto grid max-w-screen-xl gap-12 px-6 md:px-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start">
-      <div>
-        <span class="mb-4 block am-text-caption uppercase tracking-widest text-primary">{bridgeEyebrow}</span>
-        <h2 class="mb-6 am-text-title text-on-surface">{bridgeTitle}</h2>
-        <p class="am-text-body text-on-surface-variant">{bridgeBody}</p>
-        {
-          bridgeHref && (
-            <AmaraActionLink href={bridgeHref} variant="editorial" class="am-cta-link--accent mt-8 inline-flex">
-              {bridgeCtaLabel}
-            </AmaraActionLink>
-          )
-        }
-      </div>
-
-      <figure class="border-l-2 border-primary pl-6 md:pl-8">
-        <blockquote class="am-text-body italic text-on-surface">
-          <span aria-hidden="true">&ldquo;</span>{bridgeQuote}<span aria-hidden="true">&rdquo;</span>
-        </blockquote>
-        <figcaption class="mt-4 am-text-caption uppercase tracking-widest text-on-surface-variant">
-          {bridgeQuoteAttribution}{quoteTranslationNote ? ` · ${quoteTranslationNote}` : ''}
-        </figcaption>
-      </figure>
-    </div>
-  </section>
 
   <section class="relative z-[2] overflow-hidden border-y border-outline-variant/30 bg-surface-container-high py-24 text-on-surface md:py-32">
     <div class="pointer-events-none absolute left-0 top-0 h-full w-full opacity-20">

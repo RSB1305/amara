@@ -93,11 +93,11 @@ export const cinematicCollectionEyebrow: CopyRow = {
 };
 
 export const cinematicCollectionTitle: CopyRow = {
-  en: 'Find the hideaway for your time together.',
-  de: 'Findet das Hideaway für eure gemeinsame Zeit.',
-  es: 'Encontrad vuestro lugar para compartir tiempo juntos.',
-  nl: 'Vind de hideaway voor jullie tijd samen.',
-  sv: 'Hitta ert hideaway för tiden tillsammans.'
+  en: 'Our six stays at a glance.',
+  de: 'Unsere sechs Unterkünfte auf einen Blick.',
+  es: 'Nuestros seis alojamientos de un vistazo.',
+  nl: 'Onze zes verblijven in één overzicht.',
+  sv: 'Våra sex boenden i en överblick.'
 };
 
 /**
@@ -482,11 +482,11 @@ export const cinematicPlacesEyebrow: CopyRow = {
 };
 
 export const cinematicPlacesTitle: CopyRow = {
-  en: 'A mountain village, a town by the sea and an Atlantic coast. We host in all three.',
-  de: 'Ein Bergdorf, eine Stadt am Meer und eine Atlantikküste. An allen drei Orten sind wir zu Hause.',
-  es: 'Un pueblo de montaña, una ciudad junto al mar y una costa atlántica. Estamos en los tres.',
-  nl: 'Een bergdorp, een stad aan zee en een Atlantische kust. Op alle drie zijn we thuis.',
-  sv: 'En bergsby, en stad vid havet och en atlantkust. På alla tre är vi hemma.'
+  en: 'Frigiliana, Nerja or Tarifa?',
+  de: 'Frigiliana, Nerja oder Tarifa?',
+  es: '¿Frigiliana, Nerja o Tarifa?',
+  nl: 'Frigiliana, Nerja of Tarifa?',
+  sv: 'Frigiliana, Nerja eller Tarifa?'
 };
 
 /** `{n}` is replaced with the number of stays actually registered for the place. */
@@ -736,11 +736,11 @@ export const cinematicHoneymoonEyebrow: CopyRow = {
 };
 
 export const cinematicHoneymoonTitle: CopyRow = {
-  en: 'Planning the first trip as a **just\u00a0married**\u00a0❤︎ couple?',
-  de: 'Plant ihr die erste Reise als Ehepaar?',
-  es: '¿Estáis planeando el primer viaje como pareja casada?',
-  nl: 'Plannen jullie de eerste reis als getrouwd stel?',
-  sv: 'Planerar ni den första resan som gifta?'
+  en: 'A hideaway for your honeymoon.',
+  de: 'Ein Hideaway für eure Flitterwochen.',
+  es: 'Un hideaway para vuestra luna de miel.',
+  nl: 'Een hideaway voor jullie huwelijksreis.',
+  sv: 'Ett hideaway för er smekmånad.'
 };
 
 export const cinematicHoneymoonCtaLabel: CopyRow = {

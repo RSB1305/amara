@@ -215,11 +215,11 @@ export const ui = {
     sv: 'Läs mer om komfort och bekvämligheter'
   },
   locationTitle: {
-    en: 'Plan your stay',
-    de: 'Aufenthalt planen',
-    es: 'Planifica tu estancia',
-    nl: 'Plan je verblijf',
-    sv: 'Planera vistelsen'
+    en: 'Location and arrival',
+    de: 'Lage und Anreise',
+    es: 'Ubicación y llegada',
+    nl: 'Locatie en aankomst',
+    sv: 'Läge och ankomst'
   },
   arrivalGuide: {
     en: 'Arrival guide',
@@ -229,18 +229,18 @@ export const ui = {
     sv: 'Ankomstguide'
   },
   locationBodyWithGuides: {
-    en: 'AMARA’s local guides and guest reviews give you a clear picture of arrival, access and the surrounding area before you book.',
-    de: 'Die AMARA-Ortsguides und Gästebewertungen geben euch vor der Buchung einen klaren Eindruck von Anreise, Zugang und der Umgebung.',
-    es: 'Las guías locales de AMARA y las reseñas de huéspedes os ofrecen, antes de reservar, una visión clara de la llegada, el acceso y el entorno.',
-    nl: 'De lokale AMARA-gidsen en gastbeoordelingen geven jullie vóór het boeken een duidelijk beeld van de aankomst, de toegang en de omgeving.',
-    sv: 'AMARAs lokala guider och gästomdömen ger er en tydlig bild av ankomst, tillgänglighet och omgivningarna innan ni bokar.'
+    en: 'Our local guides cover the important details about arrival, access and the surrounding area. Guest reviews show how others experienced their stay.',
+    de: 'In unseren Ortsguides findet ihr alles Wichtige zu Anreise, Zugang und Umgebung. In den Gästebewertungen lest ihr, wie andere ihren Aufenthalt erlebt haben.',
+    es: 'En nuestras guías locales encontraréis lo importante sobre la llegada, el acceso y el entorno. Las reseñas cuentan cómo vivieron otros huéspedes su estancia.',
+    nl: 'In onze lokale gidsen vinden jullie alles wat belangrijk is voor aankomst, toegang en de omgeving. In de beoordelingen lees je hoe andere gasten hun verblijf hebben ervaren.',
+    sv: 'I våra lokala guider hittar ni det viktigaste om ankomst, tillträde och omgivningar. I omdömena kan ni läsa hur andra gäster upplevde sin vistelse.'
   },
   locationBodyWithoutGuides: {
-    en: 'The practical stay details and AMARA guest reviews give you a clear picture of the accommodation before you book.',
-    de: 'Die praktischen Aufenthaltsdetails und AMARA-Gästebewertungen geben euch vor der Buchung einen klaren Eindruck von der Unterkunft.',
-    es: 'Los detalles prácticos de la estancia y las reseñas de huéspedes de AMARA os ofrecen una visión clara del alojamiento antes de reservar.',
-    nl: 'De praktische verblijfsinformatie en AMARA-gastbeoordelingen geven jullie vóór het boeken een duidelijk beeld van de accommodatie.',
-    sv: 'Den praktiska informationen och AMARAs gästomdömen ger er en tydlig bild av boendet innan ni bokar.'
+    en: 'Here you will find the practical details about the stay. Guest reviews show how others experienced the accommodation.',
+    de: 'Hier findet ihr die praktischen Details zur Unterkunft. In den Gästebewertungen lest ihr, wie andere ihren Aufenthalt erlebt haben.',
+    es: 'Aquí encontraréis los detalles prácticos del alojamiento. Las reseñas cuentan cómo vivieron otros huéspedes su estancia.',
+    nl: 'Hier vinden jullie de praktische details over het verblijf. In de beoordelingen lees je hoe andere gasten de accommodatie hebben ervaren.',
+    sv: 'Här hittar ni den praktiska informationen om boendet. I omdömena kan ni läsa hur andra gäster upplevde sin vistelse.'
   },
   frigilianaLocationGuide: {
     en: 'Frigiliana',

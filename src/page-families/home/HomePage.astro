@@ -9,7 +9,6 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import {
   formatVacationRentalFromPrice,
-  vacationRentalEntities,
   vacationRentalEntitiesByToken
 } from '../../content/vacationRentalEntities';
 import {
@@ -31,30 +30,15 @@ import {
   cinematicHostLabel,
   cinematicHostAvatarAlt,
   cinematicWelcome,
-  cinematicPhilosophyPart1,
-  cinematicPhilosophyAccent,
-  cinematicPhilosophyLabel,
-  cinematicPhilosophyP1,
   cinematicFactInteriorLabel,
   cinematicFactOutdoorLabel,
   cinematicFactBedLabel,
   cinematicFactBalconyLabel,
   cinematicPriceFromLabel,
   cinematicPriceUnitLabel,
-  cinematicListConjunction,
-  cinematicPositioningLabel,
-  cinematicPositioningTerraces,
-  cinematicPositioningStoves,
-  cinematicPositioningEntrances,
   cinematicPlaces,
   cinematicPlacesEyebrow,
   cinematicPlacesTitle,
-  cinematicBridgeEyebrow,
-  cinematicBridgeTitle,
-  cinematicBridgeBody,
-  cinematicBridgeQuote,
-  cinematicBridgeQuoteAttribution,
-  cinematicBridgeCtaLabel,
   cinematicQuoteTranslationNote,
   cinematicCollectionEyebrow,
   cinematicCollectionTitle,
@@ -168,7 +152,7 @@ const seo: AmaraAuthoringSeo = {
  * The hideaway features are argued on the rental pages, which already carry the
  * hammock, the outdoor shower and Lounis's historic well.
  */
-type RentalEntity = (typeof vacationRentalEntities)[number];
+type RentalEntity = (typeof vacationRentalEntitiesByToken)[keyof typeof vacationRentalEntitiesByToken];
 
 const hasFlag = (rental: RentalEntity, name: string) =>
   rental.amenityFeatures.some((feature) => feature.name === name && feature.value === true);
@@ -195,42 +179,6 @@ function cardFacts(rental: RentalEntity): CinematicFact[] {
     bed ? { key: 'bed' as const, value: bed, label: t(cinematicFactBedLabel) } : null
   ].filter((fact): fact is CinematicFact => Boolean(fact));
 }
-
-/** "Lounis, Zaid und Maha" — the localized list the proof lines name. */
-function listStays(rentals: RentalEntity[]): string {
-  const names = rentals.map((rental) => rental.shortName || rental.name);
-  if (names.length <= 1) return names.join('');
-  return `${names.slice(0, -1).join(', ')} ${t(cinematicListConjunction)} ${names[names.length - 1]}`;
-}
-
-/**
- * The proof row under the brand statement. Which stays qualify is derived from
- * the verified amenity flags, so the claim cannot drift away from the product.
- *
- * The lines name the stays rather than counting them. Stated as fractions they
- * joined the three "{n} of six" labels in the places band, and six fractions on
- * one page turned the brand statement into arithmetic.
- */
-const terraceHideaways = vacationRentalEntities.filter(
-  (rental) =>
-    hasFlag(rental, 'privateTerrace') && hasFlag(rental, 'hammock') && hasFlag(rental, 'outdoorShower')
-);
-const stoveStays = vacationRentalEntities.filter(
-  (rental) => hasFlag(rental, 'pelletStove') || hasFlag(rental, 'fireplace')
-);
-const everyStayHasOwnEntrance = vacationRentalEntities.every((rental) =>
-  hasFlag(rental, 'selfCheckinCheckout')
-);
-
-const positioningProofs = [
-  terraceHideaways.length > 0
-    ? t(cinematicPositioningTerraces).replace('{stays}', listStays(terraceHideaways))
-    : null,
-  stoveStays.length > 0
-    ? t(cinematicPositioningStoves).replace('{stays}', listStays(stoveStays))
-    : null,
-  everyStayHasOwnEntrance ? t(cinematicPositioningEntrances) : null
-].filter((proof): proof is string => Boolean(proof));
 
 /**
  * Card facts come from the rental entities so the four Frigiliana stays read as
@@ -295,7 +243,6 @@ const placesProps = cinematicPlaces
 const trustReviewsHref = resolveOptionalLink('reviews_hub', currentLang, { suppressMissing: true });
 const staySearchResultsHref = resolveOptionalLink('stay_search_results', currentLang, { suppressMissing: true });
 const trustBookingHref = staySearchResultsHref ? '#stay-search' : null;
-const bridgeHref = resolveOptionalLink('nerja_vs_frigiliana', currentLang, { suppressMissing: true });
 const collectionCtaHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
 const directHref = resolveOptionalLink('direct_booking_benefits', currentLang, { suppressMissing: true });
 const honeymoonHref = resolveOptionalLink('honeymoon', currentLang, { suppressMissing: true });
@@ -360,22 +307,9 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
         hostAvatarAlt={t(cinematicHostAvatarAlt)}
         hostAboutHref={hostAboutHref}
         hostAboutLabel={t(cinematicHostLabel)}
-        philosophyHeadlinePart1={t(cinematicPhilosophyPart1)}
-        philosophyHeadlineAccent={t(cinematicPhilosophyAccent)}
-        philosophyLabel={t(cinematicPhilosophyLabel)}
-        philosophyP1={t(cinematicPhilosophyP1)}
-        positioningLabel={t(cinematicPositioningLabel)}
-        positioningProofs={positioningProofs}
         placesEyebrow={t(cinematicPlacesEyebrow)}
         placesTitle={t(cinematicPlacesTitle)}
         places={placesProps}
-        bridgeEyebrow={t(cinematicBridgeEyebrow)}
-        bridgeTitle={t(cinematicBridgeTitle)}
-        bridgeBody={t(cinematicBridgeBody)}
-        bridgeQuote={t(cinematicBridgeQuote)}
-        bridgeQuoteAttribution={t(cinematicBridgeQuoteAttribution)}
-        bridgeHref={bridgeHref}
-        bridgeCtaLabel={t(cinematicBridgeCtaLabel)}
         collectionEyebrow={t(cinematicCollectionEyebrow)}
         collectionTitle={t(cinematicCollectionTitle)}
         apartments={cinematicApartmentsProps}
