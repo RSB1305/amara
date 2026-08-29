@@ -558,14 +558,13 @@ export const experienceHubContent: Record<
     },
     hero: {
       kicker: 'Aktivitäten in Frigiliana',
-      title: 'Wie möchtet ihr eure gemeinsamen Urlaubstage gestalten?',
+      title: 'Durch weiße Gassen, in die Berge oder für einen Tag ans Meer.',
       paragraphs: [
-        'Ihr könnt eure Tage aus fünf echten Möglichkeiten zusammensetzen: Frigilianas Altstadt entdecken, in die Berglandschaft wandern, einen Küstentag wählen, mit Essen und einem Sundowner in Nerja weitermachen oder früher in euer privates AMARA Hideaway zurückkehren. Wetter, Energie und Appetit bestimmen die Reihenfolge – kein vorgegebener Reiseplan.',
-        'Die Auswahl darunter erklärt zuerst, was jede Tagesform für euch bedeutet. Einen ausführlichen Guide öffnet ihr erst dann, wenn Route, Strand, Tisch, aktuelle Bedingungen oder Rückweg zur nächsten konkreten Frage werden.'
+        'Von Casa AMARA beginnt der Tag mitten in Frigiliana. Ihr könnt einfach durch die Altstadt laufen, direkt in die Berglandschaft starten oder für Strand und Abend nach Nerja fahren. Dazwischen bleiben die Dinge, die wir selbst besonders mögen: morgens Brot holen, ohne Auto zum Essen gehen und später durch die ruhiger gewordenen Gassen nach Hause laufen.'
       ],
       imageAlt:
         'Weiße Gasse in Frigiliana mit Blick auf die umliegenden Berge',
-      exploreCta: 'Erlebnis auswählen'
+      exploreCta: 'Ideen für euren Tag'
     },
     sectionNav: {
       editorial: 'Unsere Tipps',
@@ -574,10 +573,10 @@ export const experienceHubContent: Record<
       places: 'Zwei Orte'
     },
     editorial: {
-      kicker: 'Eure Auswahl',
-      title: 'Drei Tagesformen, die ihr frei miteinander verbinden könnt.',
+      kicker: 'Damit würden wir anfangen',
+      title: 'Vier gute Tage rund um Frigiliana',
       intro:
-        'Wählt nach Energie, Bedingungen und dem Rhythmus, den ihr miteinander sucht. Jeder Tag kann für sich stehen; daraus entsteht kein vorgegebener Reiseplan.',
+        'Küste, Essen, Wandern oder ein Ausflug: Jede Idee funktioniert für sich und führt bei Bedarf zu den praktischen Details.',
       featuredIds: ['hiking', 'beaches', 'restaurants']
     },
     moods: {
@@ -630,25 +629,25 @@ export const experienceHubContent: Record<
     stories: {
       hiking: {
         kicker: 'Wege & Weitblick',
-        title: 'Zu Fuß über das weiße Dorf hinaus',
+        title: 'Vom Dorf direkt in die Berge',
         text:
-          'Entscheidet nach Kondition, Gelände und Wetter, wie verbindlich euer Tag in der Berglandschaft werden soll. Route, aktuelle Bedingungen und Sicherheit prüft ihr anschließend im Wanderguide.',
+          'Schon oberhalb der Altstadt öffnen sich Wege in Richtung Sierra. Im Sommer sind Hitze und fehlender Schatten entscheidend; für längere Strecken gehören Wasser, feste Schuhe und ein aktueller Routencheck dazu.',
         linkLabel: 'Zum Wanderguide',
         imageAlt: 'Frigilianas Altstadt mit Blick in die Berglandschaft'
       },
       beaches: {
         kicker: 'Tage am Mittelmeer',
-        title: 'Findet den Strand, der zu eurem Tag passt',
+        title: 'Für einen Tag hinunter ans Meer',
         text:
-          'Ein Strand mit Infrastruktur, eine kleinere Bucht oder ein längerer Küstentag verändern euren Rhythmus. Der Strandguide hilft euch, Zugang und Setting vor der Abfahrt einzuordnen.',
+          'Nerjas Stadtstrände sind unkompliziert, die Buchten Richtung Maro natürlicher. Von Frigiliana wird daraus ein richtiger Küstentag – mit Bus, Taxi oder Auto und der Rückkehr ins Dorf am Abend.',
         linkLabel: 'Zum Strandguide',
         imageAlt: 'Palmen und Mittelmeer an der Küste von Nerja'
       },
       restaurants: {
         kicker: 'Essen & Abend',
-        title: 'Wählt das Essen — und einen erprobten Nerja-Sundowner',
+        title: 'Zu Fuß zum Essen – oder zum Sonnenuntergang nach Nerja',
         text:
-          'Bleibt zum Essen in Frigiliana oder macht Nerjas Zentrum zum Abend. Unsere konkrete Fortsetzung ist Cochran’s Terrace, wo wir im Sommer 2025 selbst den Sonnenuntergang gesehen haben; der Restaurantguide hält Essenswahl und Rückweg praktisch.',
+          'In Frigiliana könnt ihr vom Apartment zu kleinen Restaurants laufen. Für einen Abend am Meer mögen wir Cochran’s Terrace in Nerja; dort haben wir im Sommer 2025 selbst den Sonnenuntergang gesehen.',
         linkLabel: 'Zum Restaurantguide',
         imageAlt: 'Sonnige weiße Altstadtgasse in Frigiliana'
       },
@@ -670,9 +669,9 @@ export const experienceHubContent: Record<
       },
       dayTrips: {
         kicker: 'Ein Ziel für den Tag',
-        title: 'Lasst einen andalusischen Ort den Tag bestimmen',
+        title: 'Málaga, Granada oder der Caminito del Rey',
         text:
-          'Vergleicht Málaga, Granada, den Caminito del Rey und Ronda mit realistischen Fahrzeiten und Planungshinweisen.',
+          'Jedes dieser Ziele verdient einen eigenen Tag. So bleibt genug Zeit vor Ort und ihr kommt am Abend zurück nach Frigiliana, ohne mehrere Orte hastig miteinander zu verbinden.',
         linkLabel: 'Zum Tagesausflugsguide',
         imageAlt: 'Frigiliana in der andalusischen Hügellandschaft'
       },
@@ -712,9 +711,9 @@ export const experienceHubContent: Record<
       }
     },
     closing: {
-      title: 'Wenn aus einem Urlaubstag wieder gemeinsame Zeit wird.',
+      title: 'Und am Ende wieder nach Hause durch die Altstadt.',
       lead:
-        'Nach Wandern, Küste oder Abendessen könnt ihr den Tag privat ausklingen lassen. Lounis, Zaid und Maha besitzen jeweils eine private Terrasse mit Außendusche, Hängematte und zwei Liegen; Farah gehört ausdrücklich nicht zu dieser Terrassen-Rückkehr. Welche Unterkunft zu euch passt, beantwortet Romantic Hideaways.',
+        'Lounis, Zaid und Maha haben jeweils eine private Terrasse mit Außendusche, Hängematte und zwei Liegen. Farah ist unsere kompakte Suite ohne private Terrasse. So könnt ihr die Unterkunft wählen, die wirklich zu euren Tagen passt.',
       availabilityCta: 'Verfügbarkeit prüfen',
       staysCta: 'Romantic Hideaways entdecken'
     }
