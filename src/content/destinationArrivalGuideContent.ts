@@ -671,7 +671,21 @@ function nerjaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
 
 function tarifaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
   const content = resolveLocale(gettingToTarifaContent, lang);
-  const [car, bus, airports, port, withoutCar, westernCoast, parking] = content.sections;
+  /** Look sections up by id: the page slots are fixed, the authoring order is not. */
+  const section = (id: string) => {
+    const match = content.sections.find((entry) => entry.id === id);
+    if (!match) {
+      throw new Error(`[Tarifa arrival guide] Missing authored section "${id}".`);
+    }
+    return match;
+  };
+  const car = section('by-car');
+  const bus = section('by-bus');
+  const airports = section('airports');
+  const port = section('port');
+  const withoutCar = section('without-car');
+  const westernCoast = section('western-coast');
+  const parking = section('parking-mobility');
 
   return {
     destination: 'tarifa',
