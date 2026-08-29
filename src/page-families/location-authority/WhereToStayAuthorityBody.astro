@@ -11,9 +11,8 @@ interface Props {
 const { content } = Astro.props;
 ---
 
-<LocationModule
-  data-am-stay-module="decision"
->
+{content.decision.points.length > 0 && (
+<LocationModule data-am-stay-module="decision">
   <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
     <div class="lg:col-span-5">
       <p class="am-text-eyebrow text-primary">{content.decision.eyebrow}</p>
@@ -46,6 +45,7 @@ const { content } = Astro.props;
     </ol>
   </div>
 </LocationModule>
+)}
 
 <LocationModule
   id={content.areas.id}
@@ -135,11 +135,8 @@ const { content } = Astro.props;
   </div>
 </LocationModule>
 
-<LocationModule
-  id={content.mobility.id}
-  class="scroll-mt-32"
-  data-am-stay-module="mobility"
->
+{content.mobility.items.length > 0 && (
+<LocationModule id={content.mobility.id} class="scroll-mt-32" data-am-stay-module="mobility">
   <div class="mx-auto max-w-screen-2xl">
     <div class="grid gap-10 lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-5">
@@ -179,11 +176,10 @@ const { content } = Astro.props;
     )}
   </div>
 </LocationModule>
+)}
 
-<LocationModule
-  surface="tint"
-  data-am-stay-module="fit"
->
+{content.fit.items.length > 0 && (
+<LocationModule surface="tint" data-am-stay-module="fit">
   <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
     <div class="lg:col-span-4">
       <p class="am-text-eyebrow text-primary">{content.fit.eyebrow}</p>
@@ -211,6 +207,7 @@ const { content } = Astro.props;
     </div>
   </div>
 </LocationModule>
+)}
 
 <LocationModule
   data-am-stay-module="amara"

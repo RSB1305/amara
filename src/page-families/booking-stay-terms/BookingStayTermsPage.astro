@@ -67,6 +67,23 @@ const privacyHref = resolveLink('legal_notice', currentLang);
     </AmaraSection>
 
     <div class="am-document-content mx-auto">
+      <AmaraSection
+        variant="compact"
+        labelledby="booking-terms-summary-title"
+        dataComponent="booking-terms-summary"
+      >
+        <h2 id="booking-terms-summary-title" class="am-text-title text-on-surface">{copy.summary.title}</h2>
+        <p class="mt-5 max-w-3xl am-text-body text-on-surface-variant">{copy.summary.lead}</p>
+        <dl class="mt-8 grid gap-x-10 gap-y-7 md:grid-cols-2">
+          {copy.summary.items.map((item) => (
+            <div class="border-t border-border-subtle pt-5">
+              <dt class="am-text-label text-on-surface">{item.title}</dt>
+              <dd class="mt-2 am-text-body text-on-surface-variant">{item.body}</dd>
+            </div>
+          ))}
+        </dl>
+      </AmaraSection>
+
       {(copy.sections as BookingStayTermSection[]).map((section) => (
         <AmaraSection
           id={section.id}

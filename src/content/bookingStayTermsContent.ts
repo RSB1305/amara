@@ -26,6 +26,32 @@ export const bookingStayTermsContent = {
     title: l("Booking Terms", "Buchungs&shy;bedingungen", "Condiciones de reserva", "Boekings&shy;voorwaarden", "Boknings&shy;villkor"),
     lead: l("The general terms for **direct bookings with AMARA Lodging**.", "Die allgemeinen Bedingungen für **Direktbuchungen bei AMARA Lodging**.", "Las condiciones generales para las **reservas directas con AMARA Lodging**.", "De algemene voorwaarden voor **rechtstreekse boekingen bij AMARA Lodging**.", "De allmänna villkoren för **direktbokningar hos AMARA Lodging**.")
   },
+  summary: {
+    title: l("The essentials in plain language", "Das Wichtigste in einfachen Worten", "Lo esencial, explicado de forma sencilla", "De belangrijkste punten in gewone taal", "Det viktigaste med enkla ord"),
+    lead: l("This overview is for orientation. The full terms below, the information shown at checkout and your booking confirmation remain binding.", "Diese Übersicht dient zur Orientierung. Verbindlich bleiben der vollständige Text unten, die Angaben beim Buchungsabschluss und eure Buchungsbestätigung.", "Este resumen sirve de orientación. Siguen siendo vinculantes el texto completo que aparece a continuación, la información mostrada al finalizar la reserva y vuestra confirmación.", "Dit overzicht helpt bij de oriëntatie. De volledige voorwaarden hieronder, de informatie bij het afronden van de boeking en jullie boekingsbevestiging blijven bindend.", "Översikten är till för orientering. De fullständiga villkoren nedan, informationen i kassan och er bokningsbekräftelse är fortsatt bindande."),
+    items: [
+      {
+        id: "confirmation",
+        title: l("Confirmation", "Bestätigung", "Confirmación", "Bevestiging", "Bekräftelse"),
+        body: l("Your booking is confirmed once we have sent the booking confirmation and any payment then due has been received.", "Eure Buchung ist bestätigt, sobald wir die Buchungsbestätigung gesendet haben und eine zu diesem Zeitpunkt fällige Zahlung eingegangen ist.", "La reserva queda confirmada cuando os hemos enviado la confirmación y hemos recibido el pago que corresponda en ese momento.", "Jullie boeking is bevestigd zodra wij de boekingsbevestiging hebben verstuurd en een op dat moment verschuldigde betaling is ontvangen.", "Bokningen är bekräftad när vi har skickat bokningsbekräftelsen och en betalning som då ska göras har tagits emot.")
+      },
+      {
+        id: "price",
+        title: l("Price and cancellation", "Preis und Stornierung", "Precio y cancelación", "Prijs en annulering", "Pris och avbokning"),
+        body: l("The total price, payment schedule and cancellation policy for your selected rate are shown before you book and repeated in the confirmation.", "Gesamtpreis, Zahlungsplan und die Stornierungsbedingungen eures gewählten Tarifs seht ihr vor dem Abschluss und anschließend in der Buchungsbestätigung.", "El precio total, el calendario de pagos y las condiciones de cancelación de la tarifa elegida aparecen antes de reservar y se repiten en la confirmación.", "De totaalprijs, het betaalschema en de annuleringsvoorwaarden van het gekozen tarief zien jullie vóór het boeken en daarna in de bevestiging.", "Totalpriset, betalningsplanen och avbokningsvillkoren för den valda prisplanen visas före bokningen och upprepas i bekräftelsen.")
+      },
+      {
+        id: "arrival",
+        title: l("Arrival", "Anreise", "Llegada", "Aankomst", "Ankomst"),
+        body: l("Check-in and check-out times are stated in the confirmation. The required registration details must be provided for every overnight guest.", "Check-in und Check-out stehen in der Bestätigung. Für alle Übernachtungsgäste müssen die erforderlichen Meldedaten angegeben werden.", "Los horarios de entrada y salida figuran en la confirmación. Deben facilitarse los datos de registro obligatorios de todas las personas que se alojen.", "De in- en uitchecktijden staan in de bevestiging. Voor iedere overnachtende gast moeten de verplichte registratiegegevens worden verstrekt.", "Tiderna för in- och utcheckning står i bekräftelsen. Obligatoriska registreringsuppgifter måste lämnas för alla övernattande gäster.")
+      },
+      {
+        id: "rules",
+        title: l("During your stay", "Während des Aufenthalts", "Durante la estancia", "Tijdens het verblijf", "Under vistelsen"),
+        body: l("Only registered guests may stay overnight. Parties, events and smoking indoors are not permitted.", "Übernachten dürfen nur angemeldete Gäste. Partys, Veranstaltungen und Rauchen in Innenräumen sind nicht erlaubt.", "Solo pueden alojarse las personas registradas. No se permiten fiestas, eventos ni fumar en el interior.", "Alleen geregistreerde gasten mogen overnachten. Feesten, evenementen en roken binnenshuis zijn niet toegestaan.", "Endast registrerade gäster får övernatta. Fester, evenemang och rökning inomhus är inte tillåtna.")
+      }
+    ]
+  },
   identity: {
     heading: l("Contracting party", "Vertragspartner", "Parte contratante", "Contractspartij", "Avtalspart"),
     name: l("Name", "Name", "Nombre", "Naam", "Namn"),

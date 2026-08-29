@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-CONTENT-010
-title: AMARA Content Production & Localization Playbook V1.5
-version: 1.6.0
+title: AMARA Content Production & Localization Playbook V1.7.1
+version: 1.7.1
 status: ACTIVE
 authority_class: OPERATIONAL PLAYBOOK / NON-GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "10_AMARA_Content_Production_and_Localization_Playbook_V1_2(1
 source_sha256: adab58c901709b270fb264498158f2cb3010006bac7dfea18e6358627a0f10ae
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-26T18:30:00Z
+last_modified: 2026-08-29T13:59:51+02:00
 ---
 
 # AMARA Content Production & Localization Playbook V1.2 — Interim Markdown Snapshot
@@ -818,6 +818,54 @@ Ask:
 6. Does each locale answer natively, rather than translating the sentence mechanics of another language?
 7. Is the direct answer still first — before the scene, the image and the navigation?
 
+## Approved repository amendment — people-first host language
+
+This operational amendment implements `TR-CONTENT-008`. It adds a deletion and presentation gate to the existing host voice, native localization, page-job and experiential-authority rules. It does not authorize weaker evidence, fewer required facts or missing caveats.
+
+28. Write like the host, not like the content strategy
+
+Public copy should sound like a relaxed, knowledgeable host speaking to guests. The strategy remains behind the page. Guests should receive the answer, the concrete situation and the useful consequence — not instructions for how to consume the website.
+
+Fail the draft when it:
+
+- repeatedly tells guests to choose, plan, compare, start with or think several topics together;
+- makes every accommodation, card or locale begin with the same translated instruction or contrast formula merely to keep a series symmetrical;
+- explains that a guide, hub, page or content branch owns a topic;
+- uses internal abstractions such as fit, decision, base, rhythm, journey or framework where an ordinary verb or concrete noun would say more;
+- turns a simple fact into a slogan, a contrast formula or several restatements;
+- uses an imperative where no real guest action is required.
+
+Imperatives remain appropriate for genuine actions such as checking a live timetable, reserving a timed ticket, following current signage or saving an address. They are not a default editorial voice.
+
+29. Every paragraph and every stage must earn its place
+
+Every public paragraph adds at least one of these:
+
+- a new verified fact;
+- a practical consequence for the stay;
+- a concrete and truthful scene that makes the fact usable;
+- a material limitation, uncertainty or safety boundary;
+- a useful next action.
+
+If it adds none, delete it. Do not retain prose to satisfy a perceived word count; AMARA has no minimum editorial word count.
+
+The same test applies to presentation. A visually dominant section, oversized heading, full-width band or separate module requires a correspondingly important content idea. Closely related ideas are combined; navigation catalogues and repeated summaries are removed when the context navigation or a dedicated guide already performs that job. Rendering is part of editorial approval: inspect the real page at desktop and mobile widths and check when the accommodation, direct answer and decisive limitation first appear.
+
+30. People-first host-language pass
+
+For every new or materially revised public page, read the rendered copy aloud in each authored locale and ask:
+
+1. Would the host naturally say this to guests in conversation?
+2. Does the opening answer the guest's question, or announce a planning exercise?
+3. Does every paragraph add a fact, consequence, truthful scene, limitation or useful action?
+4. Are imperatives reserved for actions guests genuinely need to perform?
+5. Does any sentence describe the guide, hub, taxonomy or page instead of the place or stay?
+6. Is the accommodation or host perspective concrete early enough for the page job, without turning an authority page into a sales page?
+7. Does the rendered page give visual weight in proportion to the importance of the idea?
+8. Do repeated cards and accommodation summaries sound like natural individual descriptions rather than one translated sentence template with the name replaced?
+
+Rewrite or delete every failed sentence or stage. Do not repair an unnatural sentence by adding more explanation.
+
 ## Revision history
 
 | Version | Timestamp | Change |
@@ -827,3 +875,5 @@ Ask:
 | 1.4.0 | 2026-08-22T07:48:36+02:00 | Added the public-to-booked-guest depth boundary and the native contextual transition-block rule. |
 | 1.5.0 | 2026-08-23T12:51:40+02:00 | Added experiential authority, page-type calibration and the material-revision editorial pass. |
 | 1.6.0 | 2026-08-26T18:30:00Z | Gave the direct-answer principle a binding form, required attribute comparisons to be emitted as tables or identified lists, and added the retrievable-answer pass. Form only; no new claim authority. |
+| 1.7.0 | 2026-08-29T08:47:07+02:00 | Added the people-first host-language gate, deletion test, imperative boundary and proportional rendered-page density check. |
+| 1.7.1 | 2026-08-29T13:59:51+02:00 | Clarified that repeated cards and accommodation summaries must not be forced into one translated instruction or contrast template. |

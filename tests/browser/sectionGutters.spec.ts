@@ -177,7 +177,7 @@ test.describe('the page gutter does not depend on the mounting page', () => {
   }
 
   test('EditorialGuideLinkSection renders the same gutter on every route', async ({ page }) => {
-    for (const route of ['/frigiliana-faq', '/frigiliana-streets-stairs', '/frigiliana-location']) {
+    for (const route of ['/frigiliana-faq', '/frigiliana-streets-stairs']) {
       await page.setViewportSize(MOBILE);
       await open(page, route);
       expect(

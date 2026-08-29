@@ -93,11 +93,11 @@ export const cinematicCollectionEyebrow: CopyRow = {
 };
 
 export const cinematicCollectionTitle: CopyRow = {
-  en: 'Find the hideaway for your time together.',
-  de: 'Findet das Hideaway für eure gemeinsame Zeit.',
-  es: 'Encontrad vuestro lugar para compartir tiempo juntos.',
-  nl: 'Vind de hideaway voor jullie tijd samen.',
-  sv: 'Hitta ert hideaway för tiden tillsammans.'
+  en: 'Which of our six stays suits you?',
+  de: 'Welche unserer sechs Unterkünfte passt zu euch?',
+  es: '¿Cuál de nuestros seis alojamientos encaja con vosotros?',
+  nl: 'Welk van onze zes verblijven past bij jullie?',
+  sv: 'Vilket av våra sex boenden passar er?'
 };
 
 /**
@@ -258,11 +258,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Kompakt svit i gamla stan'
     },
     desc: {
-      en: 'Two separate rooms, a tea kitchen for the morning coffee and **just one step at the entrance**. Made for short stays.',
-      de: 'Zwei getrennte Räume, eine Teeküche für den Morgenkaffee und **nur eine Stufe am Eingang**. Gemacht für kurze Aufenthalte.',
-      es: 'Dos estancias separadas, una zona de café y té para el desayuno y **un único escalón en la entrada**. Pensada para estancias cortas.',
-      nl: 'Twee aparte ruimtes, een kitchenette voor de ochtendkoffie en **slechts één trede bij de ingang**. Gemaakt voor korte verblijven.',
-      sv: 'Två separata rum, ett pentry för morgonkaffet och **bara ett trappsteg vid entrén**. Gjord för korta vistelser.'
+      en: 'A compact choice for a few days in the old town: two rooms, a tea kitchen and **just one step at the entrance**.',
+      de: 'Kompakt und unkompliziert für ein paar Tage in der Altstadt: zwei Räume, eine kleine Küchenzeile für Kaffee und Tee und **nur eine Stufe am Eingang**.',
+      es: 'Una opción compacta para pasar unos días en el casco antiguo: dos estancias, zona de café y té y **un solo escalón en la entrada**.',
+      nl: 'Compact en makkelijk voor een paar dagen in de oude kern: twee ruimtes, een kitchenette en **maar één trede bij de ingang**.',
+      sv: 'Ett kompakt och enkelt val för några dagar i gamla stan: två rum, ett pentry och **bara ett trappsteg vid entrén**.'
     },
     imageAlt: {
       en: 'Bright bedroom with a green wooden window and brick arches in AMARA Farah, Frigiliana',
@@ -291,11 +291,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Historisk lägenhet med gammal brunn'
     },
     desc: {
-      en: 'Behind the terrace lies an **eight-metre-deep private well**, and beside it a sheltered cave. The restoration brought Moorish masonry and the original floor tiles back to light.',
-      de: 'Hinter der Terrasse liegt ein **acht Meter tiefer Privatbrunnen**, daneben eine geschützte Höhle. Bei der Restaurierung kamen maurische Mauern und die alten Originalfliesen wieder zum Vorschein.',
-      es: 'Detrás de la terraza hay un **pozo privado de ocho metros de profundidad** y, junto a él, una cueva resguardada. La restauración sacó a la luz muros andalusíes y los azulejos originales.',
-      nl: 'Achter het terras ligt een **acht meter diepe privéwaterput**, met daarnaast een beschutte grot. Bij de restauratie kwamen Moorse muren en de originele vloertegels weer tevoorschijn.',
-      sv: 'Bakom terrassen finns en **åtta meter djup privat brunn** och intill den en skyddad grotta. Vid restaureringen kom moriska murar och de ursprungliga golvplattorna fram igen.'
+      en: 'For those who like old houses with a story: terrace, sheltered cave and **a private eight-metre-deep well**.',
+      de: 'Für alle, die alte Häuser mit Geschichte mögen: Terrasse, eine Höhle gleich nebenan und **ein acht Meter tiefer Privatbrunnen**.',
+      es: 'Para quienes disfrutan de las casas antiguas con historia: terraza, cueva resguardada y **un pozo privado de ocho metros**.',
+      nl: 'Voor wie houdt van oude huizen met een verhaal: een terras, een beschutte grot en **een acht meter diepe privéwaterput**.',
+      sv: 'För er som tycker om gamla hus med en historia: terrass, skyddad grotta och **en åtta meter djup privat brunn**.'
     },
     imageAlt: {
       en: 'Whitewashed terraces and palm trees at AMARA Lounis in Frigiliana',
@@ -324,11 +324,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Terrasslägenhet med vid utsikt'
     },
     desc: {
-      en: 'The terrace sits above the mango and avocado plantations, and the view reaches the sea. Inside stands **the widest bed in Casa AMARA**.',
-      de: 'Die Terrasse liegt über den Mango- und Avocadoplantagen, der Blick reicht bis zum Meer. Drinnen steht **das breiteste Bett von Casa AMARA**.',
-      es: 'La terraza se asoma sobre los cultivos de mango y aguacate, y la vista llega hasta el mar. Dentro está **la cama más ancha de Casa AMARA**.',
-      nl: 'Het terras ligt boven de mango- en avocadoplantages, en het uitzicht reikt tot aan zee. Binnen staat **het breedste bed van Casa AMARA**.',
-      sv: 'Terrassen ligger ovanför mango- och avokadoplantagerna, och utsikten når ända till havet. Inne står **Casa AMARAs bredaste säng**.'
+      en: 'Zaid overlooks the plantations towards the sea and has **Casa AMARA’s widest bed** — a good combination when terrace and view matter most.',
+      de: 'Wenn euch Terrasse und Aussicht am wichtigsten sind: Zaid blickt über die Plantagen bis zum Meer und hat **das breiteste Bett in Casa AMARA**.',
+      es: 'Si lo más importante para vosotros son la terraza y las vistas, Zaid ofrece vistas sobre los cultivos hasta el mar y tiene **la cama más ancha de Casa AMARA**.',
+      nl: 'Als terras en uitzicht het belangrijkst zijn: Zaid kijkt over de plantages naar zee en heeft **het breedste bed van Casa AMARA**.',
+      sv: 'Om terrassen och utsikten är viktigast: Zaid blickar över odlingarna mot havet och har **Casa AMARAs bredaste säng**.'
     },
     imageAlt: {
       en: 'Outdoor rain shower with handmade tiles on the private terrace of AMARA Zaid in Frigiliana',
@@ -357,11 +357,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Takterrass under bar himmel'
     },
     desc: {
-      en: 'At the top of the house, with the widest view and **an outdoor kitchen for cooking in the open air**.',
-      de: 'Ganz oben im Haus, mit der weitesten Aussicht und einer **Außenküche zum Kochen im Freien**.',
-      es: 'En lo más alto de la casa, con las vistas más amplias y **una cocina exterior para cocinar al aire libre**.',
-      nl: 'Helemaal boven in het huis, met het ruimste uitzicht en **een buitenkeuken om in de open lucht te koken**.',
-      sv: 'Högst upp i huset, med den vidaste utsikten och **ett utekök för matlagning under bar himmel**.'
+      en: 'Maha is at the top of the house — right for you if you want the widest view and **an outdoor kitchen on your own roof terrace**.',
+      de: 'Maha liegt ganz oben im Haus: Hier habt ihr die weiteste Aussicht und **eine Außenküche auf der eigenen Dachterrasse**.',
+      es: 'Maha está en lo más alto de la casa: es vuestra opción si buscáis las vistas más amplias y **una cocina exterior en vuestra propia azotea**.',
+      nl: 'Maha ligt boven in het huis — passend als jullie het ruimste uitzicht en **een buitenkeuken op een eigen dakterras** willen.',
+      sv: 'Maha ligger högst upp i huset — rätt för er om ni vill ha den vidaste utsikten och **ett utekök på en egen takterrass**.'
     },
     imageAlt: {
       en: 'Shaded private terrace with an outdoor sofa at AMARA Maha in Frigiliana',
@@ -390,11 +390,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Mellan stranden och Balcón de Europa'
     },
     desc: {
-      en: 'Two hundred metres to Torrecilla beach, five hundred to the Balcón de Europa — **and quiet all the same**, on the fifth floor with a lift.',
-      de: 'Zweihundert Meter zum Sandstrand von Torrecilla, fünfhundert zum Balcón de Europa – **und trotzdem ruhig**, im fünften Stock mit Aufzug.',
-      es: 'Doscientos metros hasta la playa de Torrecilla, quinientos hasta el Balcón de Europa, y **aun así tranquilo**, en la quinta planta con ascensor.',
-      nl: 'Tweehonderd meter naar het strand van Torrecilla, vijfhonderd naar het Balcón de Europa — **en toch rustig**, op de vijfde verdieping met lift.',
-      sv: 'Tvåhundra meter till Torrecillastranden, femhundra till Balcón de Europa – **och ändå lugnt**, på femte våningen med hiss.'
+      en: 'For beach and town without a car: 200 metres to Torrecilla beach, 500 to the Balcón de Europa — **yet still quiet**.',
+      de: 'Für Strand und Zentrum ohne Auto: 200 Meter zum Torrecilla-Strand, 500 Meter zum Balcón de Europa – **und trotzdem ruhig**.',
+      es: 'Para disfrutar de la playa y el centro sin coche: 200 metros hasta Torrecilla y 500 hasta el Balcón de Europa, **y aun así está en una zona tranquila**.',
+      nl: 'Voor strand en centrum zonder auto: 200 meter naar Torrecilla en 500 meter naar het Balcón de Europa — **en toch rustig**.',
+      sv: 'För strand och centrum utan bil: 200 meter till Torrecillastranden och 500 till Balcón de Europa — **men ändå lugnt**.'
     },
     imageAlt: {
       en: 'Blue-and-white living and dining room with balcony at AMARA Playa in Nerja',
@@ -423,11 +423,11 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Två våningar över Atlanten'
     },
     desc: {
-      en: 'A main bedroom and a second room with a bunk bed, two bathrooms, a shared pool and **your own underground parking**. From the terrace, the sun sets over the Atlantic.',
-      de: 'Hauptschlafzimmer und ein zweites Zimmer mit Hochbett, zwei Bäder, Gemeinschaftspool und **eigene Tiefgarage**. Von der Terrasse geht die Sonne über dem Atlantik unter.',
-      es: 'Dormitorio principal y una segunda habitación con litera, dos baños, piscina comunitaria y **garaje propio**. Desde la terraza, el sol se pone sobre el Atlántico.',
-      nl: 'Een hoofdslaapkamer en een tweede kamer met stapelbed, twee badkamers, een gedeeld zwembad en **een eigen plek in de parkeergarage**. Vanaf het terras gaat de zon onder boven de Atlantische Oceaan.',
-      sv: 'Ett huvudsovrum och ett andra rum med våningssäng, två badrum, gemensam pool och **eget garage**. Från terrassen går solen ner över Atlanten.'
+      en: 'The roomier choice: two bedrooms, two bathrooms, a shared pool and **your own underground parking**, with Atlantic sunsets from the terrace.',
+      de: 'Die geräumigere Wahl: zwei Schlafzimmer, zwei Bäder, Gemeinschaftspool und **eigener Tiefgaragenplatz** – dazu Sonnenuntergänge über dem Atlantik.',
+      es: 'La opción con más espacio: dos dormitorios, dos baños, piscina comunitaria y **garaje propio**, con puestas de sol sobre el Atlántico.',
+      nl: 'De ruimere keuze: twee slaapkamers, twee badkamers, een gedeeld zwembad en **een eigen plek in de parkeergarage**, met zonsondergangen boven de Atlantische Oceaan.',
+      sv: 'Det rymligare valet: två sovrum, två badrum, gemensam pool och **egen garageplats**, med solnedgång över Atlanten.'
     },
     imageAlt: {
       en: 'Living room with colorful artwork and an open staircase at AMARA Family & Surf in Tarifa',
@@ -482,11 +482,11 @@ export const cinematicPlacesEyebrow: CopyRow = {
 };
 
 export const cinematicPlacesTitle: CopyRow = {
-  en: 'A mountain village, a town by the sea and an Atlantic coast. We host in all three.',
-  de: 'Ein Bergdorf, eine Stadt am Meer und eine Atlantikküste. An allen drei Orten sind wir zu Hause.',
-  es: 'Un pueblo de montaña, una ciudad junto al mar y una costa atlántica. Estamos en los tres.',
-  nl: 'Een bergdorp, een stad aan zee en een Atlantische kust. Op alle drie zijn we thuis.',
-  sv: 'En bergsby, en stad vid havet och en atlantkust. På alla tre är vi hemma.'
+  en: 'Frigiliana, Nerja or Tarifa?',
+  de: 'Frigiliana, Nerja oder Tarifa?',
+  es: '¿Frigiliana, Nerja o Tarifa?',
+  nl: 'Frigiliana, Nerja of Tarifa?',
+  sv: 'Frigiliana, Nerja eller Tarifa?'
 };
 
 /** `{n}` is replaced with the number of stays actually registered for the place. */
@@ -708,19 +708,19 @@ export const cinematicDirectEyebrow: CopyRow = {
 };
 
 export const cinematicDirectTitle: CopyRow = {
-  en: 'The same stay, without the platform in between.',
-  de: 'Derselbe Aufenthalt, ohne Plattform dazwischen.',
-  es: 'La misma estancia, sin plataforma de por medio.',
-  nl: 'Hetzelfde verblijf, zonder platform ertussen.',
-  sv: 'Samma vistelse, utan plattform emellan.'
+  en: 'Book here and speak directly with us.',
+  de: 'Hier buchen und bei Fragen direkt mit uns sprechen.',
+  es: 'Reservad aquí y hablad directamente con nosotros.',
+  nl: 'Boek hier en spreek rechtstreeks met ons.',
+  sv: 'Boka här och prata direkt med oss.'
 };
 
 export const cinematicDirectCtaLabel: CopyRow = {
-  en: 'What booking direct gives you',
-  de: 'Was euch die Direktbuchung bringt',
-  es: 'Qué os aporta reservar directamente',
-  nl: 'Wat direct boeken jullie oplevert',
-  sv: 'Vad direktbokning ger er'
+  en: 'More about booking direct',
+  de: 'Mehr zur Direktbuchung',
+  es: 'Más sobre la reserva directa',
+  nl: 'Meer over direct boeken',
+  sv: 'Mer om direktbokning'
 };
 
 /* =========================================================
@@ -736,11 +736,11 @@ export const cinematicHoneymoonEyebrow: CopyRow = {
 };
 
 export const cinematicHoneymoonTitle: CopyRow = {
-  en: 'Planning the first trip as a **just\u00a0married**\u00a0❤︎ couple?',
-  de: 'Plant ihr die erste Reise als Ehepaar?',
-  es: '¿Estáis planeando el primer viaje como pareja casada?',
-  nl: 'Plannen jullie de eerste reis als getrouwd stel?',
-  sv: 'Planerar ni den första resan som gifta?'
+  en: 'A hideaway for your honeymoon.',
+  de: 'Ein Hideaway für eure Flitterwochen.',
+  es: 'Un hideaway para vuestra luna de miel.',
+  nl: 'Een hideaway voor jullie huwelijksreis.',
+  sv: 'Ett hideaway för er smekmånad.'
 };
 
 export const cinematicHoneymoonCtaLabel: CopyRow = {

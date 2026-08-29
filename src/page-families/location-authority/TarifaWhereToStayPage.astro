@@ -63,9 +63,9 @@ const ui: Record<
     dimensionsEyebrow: 'Across every area',
     dimensionsTitle: 'Car use, wind and everyday life still shape the choice',
     fitEyebrow: 'For different kinds of stay',
-    continueEyebrow: 'Continue planning',
-    continueTitle: 'Return to Tarifa Location or continue with beaches and wind',
-    backToLocation: 'Back to Tarifa Location',
+    continueEyebrow: 'More Tarifa guides',
+    continueTitle: 'Beaches, wind and the Tarifa overview',
+    backToLocation: 'Tarifa overview',
     beaches: 'Explore Tarifa beaches',
     wind: 'Explore wind & kitesurfing'
   },
@@ -80,9 +80,9 @@ const ui: Record<
     dimensionsEyebrow: 'In jeder Lage',
     dimensionsTitle: 'Auto, Wind und Alltag prägen die Entscheidung weiterhin',
     fitEyebrow: 'Für unterschiedliche Aufenthalte',
-    continueEyebrow: 'Weiter planen',
-    continueTitle: 'Zurück zum Lage-Guide oder weiter zu Strand und Wind',
-    backToLocation: 'Zurück zum Tarifa Lage-Guide',
+    continueEyebrow: 'Mehr zu Tarifa',
+    continueTitle: 'Strände, Wind und der Tarifa-Überblick',
+    backToLocation: 'Tarifa im Überblick',
     beaches: 'Tarifas Strände entdecken',
     wind: 'Wind & Kitesurfen in Tarifa'
   },
@@ -97,9 +97,9 @@ const ui: Record<
     dimensionsEyebrow: 'En cualquier zona',
     dimensionsTitle: 'El coche, el viento y la vida diaria siguen definiendo la elección',
     fitEyebrow: 'Para distintos tipos de estancia',
-    continueEyebrow: 'Seguir planificando',
-    continueTitle: 'Vuelve a la guía de ubicación o sigue con playas y viento',
-    backToLocation: 'Volver a Ubicación Tarifa',
+    continueEyebrow: 'Más sobre Tarifa',
+    continueTitle: 'Playas, viento y la guía general de Tarifa',
+    backToLocation: 'Tarifa de un vistazo',
     beaches: 'Explorar las playas de Tarifa',
     wind: 'Viento y kitesurf en Tarifa'
   },
@@ -114,9 +114,9 @@ const ui: Record<
     dimensionsEyebrow: 'In elk gebied',
     dimensionsTitle: 'Auto, wind en dagelijks leven blijven de keuze bepalen',
     fitEyebrow: 'Voor verschillende soorten verblijf',
-    continueEyebrow: 'Verder plannen',
-    continueTitle: 'Ga terug naar de locatiegids of verder naar strand en wind',
-    backToLocation: 'Terug naar Tarifa Locatie',
+    continueEyebrow: 'Meer over Tarifa',
+    continueTitle: 'Stranden, wind en het Tarifa-overzicht',
+    backToLocation: 'Tarifa in het kort',
     beaches: 'Ontdek de stranden van Tarifa',
     wind: 'Lees over wind & kitesurfen'
   },
@@ -131,9 +131,9 @@ const ui: Record<
     dimensionsEyebrow: 'I varje område',
     dimensionsTitle: 'Bil, vind och vardag fortsätter att forma valet',
     fitEyebrow: 'För olika slags vistelser',
-    continueEyebrow: 'Fortsätt planera',
-    continueTitle: 'Gå tillbaka till lägesguiden eller vidare till strand och vind',
-    backToLocation: 'Tillbaka till Tarifa lägesguide',
+    continueEyebrow: 'Mer om Tarifa',
+    continueTitle: 'Stränder, vind och översikten över Tarifa',
+    backToLocation: 'Tarifa i korthet',
     beaches: 'Upptäck Tarifas stränder',
     wind: 'Vind & kitesurfing i Tarifa'
   }
@@ -157,12 +157,8 @@ const stayContent: WhereToStayAuthorityContent = {
   decision: {
     eyebrow: copy.howEyebrow,
     title: copy.howTitle,
-    intro: content.car.paragraphs,
-    points: content.microLocations.items.map((area, index) => ({
-      label: String(index + 1).padStart(2, '0'),
-      title: area.title,
-      text: area.fit ?? area.paragraphs[0]
-    }))
+    intro: [],
+    points: []
   },
   areas: {
     id: 'where-to-stay-areas',
@@ -173,7 +169,11 @@ const stayContent: WhereToStayAuthorityContent = {
     items: content.microLocations.items.map((area, index) => ({
       number: String(index + 1).padStart(2, '0'),
       title: area.title,
-      paragraphs: area.paragraphs,
+      paragraphs: index === 1
+        ? area.paragraphs.slice(1)
+        : area.paragraphs.length > 2
+          ? [area.paragraphs[0], area.paragraphs.at(-1)!]
+          : area.paragraphs,
       fit: area.fit
     }))
   },
@@ -188,24 +188,18 @@ const stayContent: WhereToStayAuthorityContent = {
     eyebrow: copy.dimensionsEyebrow,
     title: copy.dimensionsTitle,
     intro: [],
-    items: [content.car, content.wind, content.dailyLife].map((section) => ({
-      title: section.title,
-      paragraphs: section.paragraphs,
-      actions: 'links' in section && section.links
-        ? section.links.map((link) => ({ href: requiredLink(link.token), label: link.label }))
-        : undefined
-    }))
+    items: []
   },
   fit: {
     eyebrow: copy.fitEyebrow,
     title: content.stayFits.title,
     intro: [],
-    items: content.stayFits.items
+    items: []
   },
   amara: {
     eyebrow: moduleLabels.amara,
     title: content.amara.title,
-    paragraphs: content.amara.paragraphs,
+    paragraphs: [content.amara.paragraphs[0], content.amara.paragraphs.at(-1)!],
     facts: content.amara.facts,
     image: { src: tarifaStayImage, alt: content.amara.imageAlt },
     action: { href: stayHref, label: content.closing.secondary.label }

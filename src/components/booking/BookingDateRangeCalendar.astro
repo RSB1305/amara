@@ -1,20 +1,20 @@
 ---
+import AmaraActionButton from '../actions/AmaraActionButton.astro';
+
 interface Props {
   title: string;
   help: string;
-  closeLabel: string;
   previousMonthLabel: string;
   nextMonthLabel: string;
-  clearLabel: string;
+  submitLabel?: string;
 }
 
 const {
   title,
   help,
-  closeLabel,
   previousMonthLabel,
   nextMonthLabel,
-  clearLabel
+  submitLabel
 } = Astro.props;
 ---
 
@@ -35,13 +35,6 @@ const {
         {help}
       </p>
     </div>
-    <button
-      class="am-booking-calendar__text-action am-text-label"
-      type="button"
-      data-am-booking-calendar-close
-    >
-      {closeLabel}
-    </button>
   </div>
 
   <div class="am-booking-calendar__navigation">
@@ -61,19 +54,25 @@ const {
 
   <div class="am-booking-calendar__months" data-am-booking-calendar-months></div>
 
-  <div class="am-booking-calendar__footer">
-    <button
-      class="am-booking-calendar__text-action am-text-label"
-      type="button"
-      data-am-booking-calendar-clear
-    >
-      {clearLabel}
-    </button>
-  </div>
+  {submitLabel && (
+    <div class="am-booking-calendar__footer">
+      <AmaraActionButton
+        variant="primary"
+        class="min-h-12 w-full justify-center sm:w-auto"
+        type="submit"
+        disabled
+        data-am-booking-calendar-submit
+      >
+        {submitLabel}
+      </AmaraActionButton>
+    </div>
+  )}
 </div>
 
 <style is:global>
   .am-booking-calendar {
+    width: min(100%, 60rem);
+    margin-inline: auto;
     padding: 1.25rem 0;
   }
 
@@ -112,15 +111,10 @@ const {
 
   .am-booking-calendar__footer {
     justify-content: flex-end;
+    align-items: center;
     border-top: 1px solid var(--color-outline-variant);
     margin-top: 1rem;
     padding: 1rem 0.25rem 0;
-  }
-
-  .am-booking-calendar__text-action {
-    flex: 0 0 auto;
-    border-bottom: 1px solid var(--color-border-subtle);
-    color: var(--color-on-surface);
   }
 
   .am-booking-calendar__nav-button {
@@ -306,6 +300,26 @@ const {
   .am-booking-calendar__day[data-range='start'] .am-booking-calendar__day-price,
   .am-booking-calendar__day[data-range='end'] .am-booking-calendar__day-price {
     color: var(--color-on-primary);
+  }
+
+  /**
+   * Date selection uses the same calm bottom sheet in every booking context.
+   * Keeping it out of document flow prevents either the home finder or a stay
+   * panel from jumping by more than a viewport while guests choose dates.
+   */
+  @media (max-width: 639px) {
+    .am-booking-calendar {
+      position: fixed;
+      inset-inline: 0;
+      bottom: 0;
+      z-index: 120;
+      width: 100%;
+      max-height: 85dvh;
+      margin: 0;
+      overflow-y: auto;
+      border-top: 1px solid var(--color-outline-variant);
+      box-shadow: 0 -12px 32px rgb(0 0 0 / 18%);
+    }
   }
 
   @media (min-width: 64rem) {

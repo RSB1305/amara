@@ -6,7 +6,7 @@ import nerjaStayImage from '../../assets/images/home/amara-playa-chaparril-13.we
 import Navigation from '../../components/Navigation.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
-import { nerjaLocationHubContent } from '../../content/nerjaLocationHubContent';
+import { getNerjaLocationHubLocale, nerjaLocationHubContent } from '../../content/nerjaLocationHubContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -18,7 +18,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const content = nerjaLocationHubContent.locales[currentLang];
+const content = getNerjaLocationHubLocale(currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja location hub');
 const featureHref = (link?: { token?: LinkToken; anchor?: string }) =>
   link?.token ? requiredLink(link.token) : link?.anchor;
@@ -91,69 +91,7 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
-      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-5">
-          <p class="am-text-eyebrow text-primary">{content.arrival.eyebrow}</p>
-          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.arrival.title}</h2>
-        </div>
-        <div class="max-w-4xl space-y-5 lg:col-span-7">
-          {content.arrival.paragraphs.map((paragraph, index) => (
-            <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-on-surface-variant']}>{paragraph}</p>
-          ))}
-          <a href={featureHref(content.arrival.link)} class="am-cta-link mt-8 inline-flex">{content.arrival.link?.label}</a>
-        </div>
-      </div>
-    </section>
-
-    <LocationAreasBand
-      eyebrow={content.areas.eyebrow}
-      title={content.areas.title}
-      paragraphs={content.areas.paragraphs}
-      archetypes={content.areas.archetypes}
-      link={content.areas.link ? { href: featureHref(content.areas.link), label: content.areas.link.label } : undefined}
-    />
-
-    <div class="border-b border-border-subtle bg-surface">
-      <div class="mx-auto grid max-w-screen-2xl lg:grid-cols-2">
-        <section class="border-b border-border-subtle px-6 py-20 md:px-12 md:py-28 lg:border-b-0 lg:border-r">
-          <p class="am-text-eyebrow text-primary">{content.coast.eyebrow}</p>
-          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.coast.title}</h2>
-          <div class="mt-7 space-y-5">
-            {content.coast.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>)}
-          </div>
-        </section>
-        <section id="daily-life" class="scroll-mt-28 px-6 py-20 md:px-12 md:py-28">
-          <p class="am-text-eyebrow text-primary">{content.dailyLife.eyebrow}</p>
-          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.dailyLife.title}</h2>
-          <div class="mt-7 space-y-5">
-            {content.dailyLife.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>)}
-          </div>
-          <a href={featureHref(content.dailyLife.link)} class="am-cta-link mt-8 inline-flex">{content.dailyLife.link?.label}</a>
-        </section>
-      </div>
-    </div>
-
-    <section id="seasons" class="scroll-mt-28 border-b border-border-subtle bg-surface-container-low px-6 py-24 md:px-12 md:py-32">
-      <div class="mx-auto max-w-screen-2xl border-y border-primary/20 py-14 md:py-20">
-        <div class="grid gap-10 lg:grid-cols-12 lg:gap-20">
-          <div class="lg:col-span-5">
-            <p class="am-text-eyebrow text-primary">{content.seasons.eyebrow}</p>
-            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.seasons.title}</h2>
-          </div>
-          <div class="space-y-5 lg:col-span-7">
-            {content.seasons.paragraphs.map((paragraph, index) => (
-              <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-on-surface-variant']}>{paragraph}</p>
-            ))}
-            {content.seasons.link && (
-              <a href={featureHref(content.seasons.link)} class="am-cta-link mt-8 inline-flex">{content.seasons.link.label}</a>
-            )}
-          </div>
-        </div>
-      </div>
-    </section>
-
-        <LocationStaySplitSection
+    <LocationStaySplitSection
       imageSrc={nerjaStayImage}
       imageAlt={content.amara.imageAlt}
       eyebrow={content.amara.eyebrow}
@@ -161,6 +99,14 @@ const footerHighlights: LabeledLink[] = [
       paragraphs={content.amara.paragraphs}
       facts={content.amara.facts}
       link={content.amara.link ? { href: stayHref, label: content.amara.link.label } : undefined}
+    />
+
+    <LocationAreasBand
+      eyebrow={content.areas.eyebrow}
+      title={content.areas.title}
+      paragraphs={content.areas.paragraphs}
+      archetypes={content.areas.archetypes}
+      link={content.areas.link ? { href: featureHref(content.areas.link), label: content.areas.link.label } : undefined}
     />
 
     <section class="bg-surface px-6 py-24 md:px-12 md:py-32">

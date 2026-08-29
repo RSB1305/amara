@@ -28,10 +28,10 @@ const seo: AmaraAuthoringSeo = {
   entityKey: 'amara-brand',
   languages: {
     en: { title: 'Find an available AMARA stay', description: 'Check current availability and total prices for AMARA stays.', robots: 'noindex, follow', canonical: 'auto' },
-    de: { title: 'Verfügbare AMARA-Unterkunft finden', description: 'Prüft aktuelle Verfügbarkeit und Gesamtpreise der AMARA-Unterkünfte.', robots: 'noindex, follow', canonical: 'auto' },
-    es: { title: 'Encontrar un alojamiento AMARA disponible', description: 'Consultad disponibilidad y precios totales actuales de los alojamientos AMARA.', robots: 'noindex, follow', canonical: 'auto' },
-    nl: { title: 'Een beschikbaar AMARA-verblijf vinden', description: 'Bekijk actuele beschikbaarheid en totaalprijzen van AMARA-verblijven.', robots: 'noindex, follow', canonical: 'auto' },
-    sv: { title: 'Hitta ett tillgängligt AMARA-boende', description: 'Kontrollera aktuell tillgänglighet och totalpris för AMARA-boenden.', robots: 'noindex, follow', canonical: 'auto' }
+    de: { title: 'Verfügbarkeit und Preise der AMARA-Unterkünfte', description: 'Aktuelle Verfügbarkeit und Gesamtpreise der AMARA-Unterkünfte in Frigiliana, Nerja und Tarifa.', robots: 'noindex, follow', canonical: 'auto' },
+    es: { title: 'Disponibilidad y precios de AMARA', description: 'Disponibilidad actual y precios totales de los alojamientos AMARA en Frigiliana, Nerja y Tarifa.', robots: 'noindex, follow', canonical: 'auto' },
+    nl: { title: 'Beschikbaarheid en prijzen van AMARA', description: 'Actuele beschikbaarheid en totaalprijzen van de AMARA-verblijven in Frigiliana, Nerja en Tarifa.', robots: 'noindex, follow', canonical: 'auto' },
+    sv: { title: 'Tillgänglighet och priser hos AMARA', description: 'Aktuell tillgänglighet och totalpriser för AMARA-boenden i Frigiliana, Nerja och Tarifa.', robots: 'noindex, follow', canonical: 'auto' }
   }
 };
 const firstSentence = (value: string) => {
@@ -68,7 +68,7 @@ const cards = vacationRentalEntities.flatMap((rental) => {
       </div>
     </AmaraSection>
 
-    <AmaraSection labelledby="stay-results-heading" dataComponent="stay-search-results">
+    <AmaraSection variant="compact" labelledby="stay-results-heading" dataComponent="stay-search-results">
       <div
         data-am-stay-search-results
         data-am-stay-search-lang={currentLang}
@@ -87,7 +87,11 @@ const cards = vacationRentalEntities.flatMap((rental) => {
         </div>
 
         <div class="mt-10" hidden data-am-stay-search-available>
-          <h2 id="stay-results-heading" class="am-text-subtitle text-on-surface">
+          <h2
+            id="stay-results-heading"
+            class="am-text-subtitle text-on-surface"
+            data-am-stay-search-results-heading
+          >
             {t(staySearchCopy.resultsTitle)}
           </h2>
           <div class="am-stay-results-grid mt-8" data-am-stay-search-grid>

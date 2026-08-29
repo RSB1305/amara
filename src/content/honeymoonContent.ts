@@ -2,11 +2,6 @@ import type { LocalizedText, LocalizedTextList } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
 
 type HoneymoonStayLinkToken = 'romantic_hideaways' | 'playa' | 'tarifa';
-type HoneymoonPlanningLinkToken =
-  | 'arrival_guide'
-  | 'nerja_vs_frigiliana'
-  | 'location_tarifa'
-  | 'direct_booking_benefits';
 
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({
   en,
@@ -25,380 +20,85 @@ const lp = (
 ): LocalizedTextList => ({ en, de, es, nl, sv });
 
 export const honeymoonSeo: AmaraAuthoringSeo = {
-  version: '2026-08-23-honeymoon-v1.0-D',
+  version: '2026-08-29-honeymoon-v1.1-A',
   pageType: 'D',
   entityKey: 'amara-brand',
   languages: {
-    en: {
-      title: 'Honeymoon in Andalusia | AMARA Romantic Hideaways',
-      description:
-        'Choose a honeymoon hideaway in Frigiliana, Nerja or Tarifa: six individual AMARA stays for shared time as a couple, personally hosted and bookable direct.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    de: {
-      title: 'Flitterwochen in Andalusien | AMARA Romantic Hideaways',
-      description:
-        'Findet euer Honeymoon-Hideaway in Frigiliana, Nerja oder Tarifa: sechs individuelle AMARA-Unterkünfte für gemeinsame Zeit zu zweit, persönlich betreut und direkt buchbar.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    es: {
-      title: 'Luna de miel en Andalucía | AMARA Romantic Hideaways',
-      description:
-        'Elegid vuestro refugio de luna de miel en Frigiliana, Nerja o Tarifa: seis alojamientos AMARA para compartir tiempo en pareja, con atención personal y reserva directa.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    nl: {
-      title: 'Huwelijksreis in Andalusië | AMARA Romantic Hideaways',
-      description:
-        'Kies jullie hideaway voor de huwelijksreis in Frigiliana, Nerja of Tarifa: zes AMARA-verblijven voor tijd samen, persoonlijk beheerd en direct te boeken.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    },
-    sv: {
-      title: 'Smekmånad i Andalusien | AMARA Romantic Hideaways',
-      description:
-        'Välj ert hideaway för smekmånaden i Frigiliana, Nerja eller Tarifa: sex AMARA-boenden för tid tillsammans, personligt omhändertagna och bokningsbara direkt.',
-      robots: 'index, follow',
-      canonical: 'auto'
-    }
+    en: { title: 'Honeymoon in Andalusia | AMARA', description: 'Find a honeymoon hideaway in Frigiliana, Nerja or Tarifa, with private terraces, large beds, views and quiet depending on the AMARA stay.', robots: 'index, follow', canonical: 'auto' },
+    de: { title: 'Flitterwochen in Andalusien | AMARA', description: 'Findet euer Hideaway für die Flitterwochen in Frigiliana, Nerja oder Tarifa – je nach AMARA-Unterkunft mit privater Terrasse, großem Bett, Aussicht und Ruhe.', robots: 'index, follow', canonical: 'auto' },
+    es: { title: 'Luna de miel en Andalucía | AMARA', description: 'Encontrad vuestro refugio de luna de miel en Frigiliana, Nerja o Tarifa, con terraza privada, cama grande, vistas y tranquilidad según el alojamiento AMARA.', robots: 'index, follow', canonical: 'auto' },
+    nl: { title: 'Huwelijksreis in Andalusië | AMARA', description: 'Vind jullie hideaway voor de huwelijksreis in Frigiliana, Nerja of Tarifa, afhankelijk van het AMARA-verblijf met privéterras, groot bed, uitzicht en rust.', robots: 'index, follow', canonical: 'auto' },
+    sv: { title: 'Smekmånad i Andalusien | AMARA', description: 'Hitta ert hideaway för smekmånaden i Frigiliana, Nerja eller Tarifa, beroende på AMARA-boende med privat terrass, stor säng, utsikt och lugn.', robots: 'index, follow', canonical: 'auto' }
   }
 };
 
 export const honeymoonContent = {
   hero: {
-    kicker: l(
-      'HONEYMOON IN ANDALUSIA',
-      'FLITTERWOCHEN IN ANDALUSIEN',
-      'LUNA DE MIEL EN ANDALUCÍA',
-      'HUWELIJKSREIS IN ANDALUSIË',
-      'SMEKMÅNAD I ANDALUSIEN'
-    ),
-    title: l(
-      'Begin married life in your own Romantic Hideaway',
-      'Beginnt eure gemeinsame Zeit in eurem Romantic Hideaway',
-      'Empezad vuestra vida juntos en un Romantic Hideaway',
-      'Begin jullie leven samen in een eigen Romantic Hideaway',
-      'Börja livet tillsammans i ert eget Romantic Hideaway'
-    ),
+    kicker: l('HONEYMOON IN ANDALUSIA', 'FLITTERWOCHEN IN ANDALUSIEN', 'LUNA DE MIEL EN ANDALUCÍA', 'HUWELIJKSREIS IN ANDALUSIË', 'SMEKMÅNAD I ANDALUSIEN'),
+    title: l('A hideaway for the two of you', 'Ein Hideaway für euch zwei', 'Un refugio para vosotros dos', 'Een hideaway voor jullie samen', 'Ett hideaway för er två'),
     lead: l(
-      'Whitewashed old-town lanes, Mediterranean days or an Atlantic horizon: choose the Andalusian setting that feels right for the two of you.',
-      'Weiße Altstadtgassen, Tage am Mittelmeer oder der Blick zum Atlantik: Wählt den andalusischen Rahmen, der sich für euch richtig anfühlt.',
-      'Callejuelas blancas, días junto al Mediterráneo o el horizonte atlántico: elegid el escenario andaluz que encaja con vosotros.',
-      'Witgekalkte straatjes, dagen aan de Middellandse Zee of de Atlantische horizon: kies de Andalusische omgeving die bij jullie past.',
-      'Vitkalkade gränder, dagar vid Medelhavet eller en atlantisk horisont: välj den andalusiska miljö som känns rätt för just er.'
+      'You do not need a romance package for your honeymoon. You need a place where you both enjoy spending time.',
+      'Für eure Flitterwochen braucht ihr kein Romantikpaket. Ihr braucht einen Ort, an dem ihr beide gern Zeit verbringt.',
+      'Para vuestra luna de miel no necesitáis un paquete romántico. Necesitáis un lugar donde os apetezca pasar tiempo juntos.',
+      'Voor jullie huwelijksreis hebben jullie geen romantiekpakket nodig. Wel een plek waar jullie graag samen zijn.',
+      'På smekmånaden behöver ni inget romantikpaket. Ni behöver en plats där ni båda trivs tillsammans.'
     ),
     paragraphs: lp(
-      [
-        'AMARA brings together six individual stays in Frigiliana, Nerja and Tarifa. Each has its own character, location and practical rhythm, so your honeymoon can feel personal rather than packaged.',
-        '**We look after every stay ourselves** and help you compare the details that will actually shape your time together.'
-      ],
-      [
-        'AMARA vereint sechs individuelle Unterkünfte in Frigiliana, Nerja und Tarifa. Jede hat ihren eigenen Charakter, ihre eigene Lage und ihren eigenen Rhythmus – damit sich eure Flitterwochen persönlich statt vorgefertigt anfühlen.',
-        '**Wir betreuen jede Unterkunft selbst** und helfen euch, genau die Details zu vergleichen, die eure gemeinsame Zeit prägen.'
-      ],
-      [
-        'AMARA reúne seis alojamientos únicos en Frigiliana, Nerja y Tarifa. Cada uno tiene su propio carácter, ubicación y ritmo, para que vuestra luna de miel sea personal y no un paquete estándar.',
-        '**Cuidamos personalmente cada alojamiento** y os ayudamos a comparar los detalles que de verdad marcarán vuestro tiempo juntos.'
-      ],
-      [
-        'AMARA brengt zes individuele verblijven in Frigiliana, Nerja en Tarifa samen. Elk heeft een eigen karakter, ligging en dagelijks ritme, zodat jullie huwelijksreis persoonlijk voelt en niet als een standaardpakket.',
-        '**We beheren elk verblijf zelf** en helpen jullie de details te vergelijken die jullie tijd samen werkelijk bepalen.'
-      ],
-      [
-        'AMARA samlar sex individuella boenden i Frigiliana, Nerja och Tarifa. Varje boende har sin egen karaktär, sitt läge och sin rytm, så att smekmånaden känns personlig i stället för paketerad.',
-        '**Vi tar hand om varje boende själva** och hjälper er att jämföra detaljerna som faktiskt formar tiden tillsammans.'
-      ]
+      ['AMARA has six stays in Frigiliana, Nerja and Tarifa. Depending on the hideaway, you can have a generous bathroom, a double shower, a 180 or 200 centimetre-wide bed, a private terrace with a hammock, quiet or views towards the sea. No single stay has everything. Frigiliana brings the old town and terraces, Nerja the beach within easy walking distance, and Tarifa more room with an Atlantic view. We look after all six stays ourselves and will tell you honestly which one has the details that matter to you.'],
+      ['AMARA hat sechs Unterkünfte in Frigiliana, Nerja und Tarifa. Je nach Hideaway bekommt ihr ein großzügiges Bad, eine Doppeldusche, ein 180 oder 200 Zentimeter breites Bett, eine private Terrasse mit Hängematte, Ruhe oder Aussicht bis zum Meer. Keine Unterkunft hat alles. In Frigiliana geht es um Altstadt und Terrassen, in Nerja um den Strand zu Fuß und in Tarifa um mehr Raum mit Atlantikblick. Wir betreuen alle sechs Unterkünfte selbst und sagen euch ehrlich, wo ihr die Details findet, die euch wichtig sind.'],
+      ['AMARA reúne seis alojamientos en Frigiliana, Nerja y Tarifa. Según el refugio, tendréis un baño amplio, ducha doble, una cama de 180 o 200 centímetros de ancho, terraza privada con hamaca, tranquilidad o vistas hacia el mar. Ningún alojamiento lo tiene todo. Frigiliana aporta casco antiguo y terrazas; Nerja, la playa a pie; y Tarifa, más espacio con vistas al Atlántico. Cuidamos personalmente los seis alojamientos y os diremos con sinceridad cuál tiene los detalles que más os importan.'],
+      ['AMARA heeft zes verblijven in Frigiliana, Nerja en Tarifa. Afhankelijk van de hideaway krijgen jullie een ruime badkamer, dubbele douche, een bed van 180 of 200 centimeter breed, een privéterras met hangmat, rust of uitzicht richting zee. Geen enkel verblijf heeft alles. Frigiliana biedt de oude stad en terrassen, Nerja het strand op loopafstand en Tarifa meer ruimte met uitzicht op de Atlantische Oceaan. We beheren alle zes verblijven zelf en zeggen eerlijk waar jullie de details vinden die belangrijk zijn.'],
+      ['AMARA har sex boenden i Frigiliana, Nerja och Tarifa. Beroende på hideaway får ni ett rymligt badrum, dubbeldusch, en 180 eller 200 centimeter bred säng, privat terrass med hängmatta, lugn eller utsikt mot havet. Inget boende har allt. Frigiliana ger er gamla stan och terrasser, Nerja gångavstånd till stranden och Tarifa mer utrymme med utsikt över Atlanten. Vi tar hand om alla sex boenden själva och berättar ärligt var ni hittar detaljerna som betyder mest för er.']
     ),
-    cta: l(
-      'Find your honeymoon hideaway',
-      'Euer Honeymoon-Hideaway finden',
-      'Encontrar vuestro refugio',
-      'Vind jullie honeymoon-hideaway',
-      'Hitta ert hideaway för smekmånaden'
-    ),
-    imageAlt: l(
-      'Private terrace with whitewashed walls and palms at AMARA Lounis in Frigiliana',
-      'Private Terrasse mit weißen Mauern und Palmen bei AMARA Lounis in Frigiliana',
-      'Terraza privada con paredes encaladas y palmeras en AMARA Lounis, Frigiliana',
-      'Privéterras met witgekalkte muren en palmen bij AMARA Lounis in Frigiliana',
-      'Privat terrass med vitkalkade väggar och palmer vid AMARA Lounis i Frigiliana'
-    )
-  },
-  setting: {
-    title: l(
-      'Choose the rhythm of your first journey together',
-      'Wählt den Rhythmus eurer ersten Reise als Ehepaar',
-      'Elegid el ritmo de vuestro primer viaje como matrimonio',
-      'Kies het ritme van jullie eerste reis als getrouwd stel',
-      'Välj rytmen för er första resa som gifta'
-    ),
-    paragraphs: lp(
-      [
-        'In Frigiliana, mornings begin among old-town steps and whitewashed houses before the coast opens below the village. Nerja puts the sea and the Balcón de Europa within an easy walk. Tarifa gives you more space, Atlantic light and a horizon that changes with the wind.',
-        'The best honeymoon setting is not the one with the most romantic adjectives. It is the place whose movement, pace and everyday details match how the two of you want to spend your days.'
-      ],
-      [
-        'In Frigiliana beginnt der Morgen zwischen Altstadtstufen und weißen Häusern, bevor sich unterhalb des Dorfes die Küste öffnet. In Nerja erreicht ihr Meer und Balcón de Europa bequem zu Fuß. Tarifa schenkt euch mehr Raum, Atlantiklicht und einen Horizont, den der Wind immer wieder verändert.',
-        'Der beste Ort für eure Flitterwochen ist nicht der mit den meisten romantischen Adjektiven. Entscheidend ist, ob Wege, Tempo und Alltag zu den Tagen passen, die ihr miteinander verbringen möchtet.'
-      ],
-      [
-        'En Frigiliana, la mañana empieza entre escalones y casas blancas del casco antiguo, con la costa abriéndose bajo el pueblo. Nerja deja el mar y el Balcón de Europa a un paseo cómodo. Tarifa ofrece más espacio, luz atlántica y un horizonte que cambia con el viento.',
-        'El mejor escenario para vuestra luna de miel no es el que acumula más adjetivos románticos. Es el lugar cuyo movimiento, ritmo y detalles cotidianos encajan con la forma en que queréis compartir los días.'
-      ],
-      [
-        'In Frigiliana begint de ochtend tussen trappen en witte huizen in de oude kern, met de kust beneden het dorp. In Nerja liggen de zee en het Balcón de Europa op een korte wandeling. Tarifa geeft jullie meer ruimte, Atlantisch licht en een horizon die met de wind verandert.',
-        'De beste plek voor jullie huwelijksreis is niet de plek met de meeste romantische woorden. Het is de omgeving waarvan routes, tempo en dagelijkse details passen bij hoe jullie de dagen samen willen beleven.'
-      ],
-      [
-        'I Frigiliana börjar morgonen bland gamla stans trappor och vita hus, med kusten nedanför byn. I Nerja ligger havet och Balcón de Europa inom bekvämt gångavstånd. Tarifa ger er mer utrymme, atlantiskt ljus och en horisont som skiftar med vinden.',
-        'Den bästa platsen för smekmånaden är inte den med flest romantiska adjektiv. Det är platsen vars rörelse, tempo och vardagsdetaljer passar hur just ni vill tillbringa dagarna tillsammans.'
-      ]
-    ),
-    imageAlt: l(
-      'Whitewashed Frigiliana on the hillside above the Mediterranean coast',
-      'Das weiße Frigiliana am Hang oberhalb der Mittelmeerküste',
-      'Frigiliana encalada en la ladera sobre la costa mediterránea',
-      'Het witgekalkte Frigiliana op de helling boven de Middellandse Zeekust',
-      'Vitkalkade Frigiliana på sluttningen ovanför Medelhavskusten'
-    )
+    cta: l('See which stay fits', 'Schaut, welche Unterkunft passt', 'Ver qué alojamiento encaja', 'Bekijk welk verblijf past', 'Se vilket boende som passar'),
+    imageAlt: l('Private terrace with white walls and palms at AMARA Lounis in Frigiliana', 'Private Terrasse mit weißen Mauern und Palmen bei AMARA Lounis in Frigiliana', 'Terraza privada con paredes blancas y palmeras en AMARA Lounis, Frigiliana', 'Privéterras met witte muren en palmen bij AMARA Lounis in Frigiliana', 'Privat terrass med vita väggar och palmer vid AMARA Lounis i Frigiliana')
   },
   choice: {
-    title: l(
-      'One honeymoon, three different Andalusian settings',
-      'Eine Hochzeitsreise, drei unterschiedliche Orte in Andalusien',
-      'Una luna de miel, tres escenarios diferentes en Andalucía',
-      'Eén huwelijksreis, drie verschillende plekken in Andalusië',
-      'En smekmånad, tre olika miljöer i Andalusien'
-    ),
+    title: l('Romance you can actually use', 'Romantik, die ihr wirklich nutzt', 'Romanticismo que de verdad se disfruta', 'Romantiek waar jullie echt iets aan hebben', 'Romantik ni faktiskt har glädje av'),
     paragraphs: lp(
-      [
-        'Frigiliana, Nerja and Tarifa do not offer the same stay, and that is the point. Compare old-town atmosphere, proximity to the beach, outdoor space, bed size, access and room to spread out before choosing.',
-        'A feature belongs to the property where it is documented. Sea views, a private terrace or a hammock may be part of one hideaway without becoming a promise for every AMARA stay.'
-      ],
-      [
-        'Frigiliana, Nerja und Tarifa bieten nicht denselben Aufenthalt – genau darin liegt die Auswahl. Vergleicht Altstadtatmosphäre, Strandnähe, Außenbereich, Bettgröße, Zugang und Platzangebot, bevor ihr euch entscheidet.',
-        'Ein Merkmal gehört zu der Unterkunft, für die es belegt ist. Meerblick, private Terrasse oder Hängematte können ein Hideaway prägen, ohne zum Versprechen für jede AMARA-Unterkunft zu werden.'
-      ],
-      [
-        'Frigiliana, Nerja y Tarifa no ofrecen la misma estancia, y ahí está precisamente la elección. Comparad ambiente de casco antiguo, cercanía a la playa, espacio exterior, tamaño de la cama, acceso y amplitud antes de decidir.',
-        'Cada característica pertenece al alojamiento donde está documentada. Las vistas al mar, una terraza privada o una hamaca pueden definir un refugio sin convertirse en una promesa para todos los alojamientos AMARA.'
-      ],
-      [
-        'Frigiliana, Nerja en Tarifa bieden niet hetzelfde verblijf, en juist daarin zit de keuze. Vergelijk sfeer in de oude stad, afstand tot het strand, buitenruimte, bedformaat, toegang en leefruimte voordat jullie beslissen.',
-        'Een kenmerk hoort bij het verblijf waarvoor het is vastgelegd. Zeezicht, een privéterras of een hangmat kan één hideaway bijzonder maken zonder een belofte voor elk AMARA-verblijf te worden.'
-      ],
-      [
-        'Frigiliana, Nerja och Tarifa erbjuder inte samma vistelse, och det är själva poängen. Jämför gamla stans atmosfär, närhet till stranden, uteplats, sängstorlek, tillträde och utrymme innan ni väljer.',
-        'En egenskap hör till boendet där den är dokumenterad. Havsutsikt, en privat terrass eller en hängmatta kan prägla ett hideaway utan att bli ett löfte för varje AMARA-boende.'
-      ]
+      ['For us, romance is not rose petals on the bed. It is a slow morning on your own terrace, a shower with room for two, a comfortable large bed and a view that makes you stay outside a little longer.', 'Every feature belongs to a specific stay. That is why we name the hideaway instead of making one promise for the whole collection.'],
+      ['Für uns sind Rosenblätter auf dem Bett nicht das Entscheidende. Romantisch ist ein langsamer Morgen auf der eigenen Terrasse, eine Dusche mit Platz für zwei, ein bequemes großes Bett und ein Ausblick, bei dem ihr noch ein bisschen länger draußen bleibt.', 'Jedes Merkmal gehört zu einer bestimmten Unterkunft. Deshalb nennen wir das Hideaway beim Namen, statt ein Versprechen für die ganze Kollektion zu machen.'],
+      ['Para nosotros, lo importante no son los pétalos de rosa sobre la cama. Es una mañana tranquila en vuestra terraza, una ducha con espacio para dos, una cama grande y cómoda y unas vistas que invitan a quedaros un poco más fuera.', 'Cada detalle pertenece a un alojamiento concreto. Por eso nombramos el refugio en lugar de prometer lo mismo para toda la colección.'],
+      ['Voor ons draait romantiek niet om rozenblaadjes op het bed. Wel om een rustige ochtend op jullie eigen terras, een douche met ruimte voor twee, een comfortabel groot bed en uitzicht waardoor jullie nog wat langer buiten blijven.', 'Elk kenmerk hoort bij een specifiek verblijf. Daarom noemen we de hideaway bij naam en doen we geen algemene belofte voor de hele collectie.'],
+      ['För oss handlar romantik inte om rosenblad på sängen. Det är en lugn morgon på er egen terrass, en dusch med plats för två, en bekväm stor säng och en utsikt som får er att stanna ute lite längre.', 'Varje detalj hör till ett visst boende. Därför nämner vi rätt hideaway i stället för att lova samma sak för hela kollektionen.']
     ),
-    statistic: '3',
-    statisticLabel: l('distinct destinations', 'unterschiedliche Orte', 'destinos diferentes', 'verschillende bestemmingen', 'olika resmål'),
-    imageAlt: l(
-      'Outdoor rain shower and handmade tiles on the private terrace of AMARA Zaid',
-      'Außendusche und handgefertigte Fliesen auf der privaten Terrasse von AMARA Zaid',
-      'Ducha exterior y azulejos artesanales en la terraza privada de AMARA Zaid',
-      'Buitendouche en handgemaakte tegels op het privéterras van AMARA Zaid',
-      'Utomhusdusch och handgjort kakel på AMARA Zaids privata terrass'
-    )
+    imageAlt: l('Outdoor shower and handmade tiles on AMARA Zaid’s private terrace', 'Außendusche und handgefertigte Fliesen auf der privaten Terrasse von AMARA Zaid', 'Ducha exterior y azulejos artesanales en la terraza privada de AMARA Zaid', 'Buitendouche en handgemaakte tegels op het privéterras van AMARA Zaid', 'Utedusch och handgjort kakel på AMARA Zaids privata terrass')
   },
   stayOptions: {
-    title: l(
-      'Find the hideaway that fits the two of you',
-      'Findet das Hideaway, das zu euch beiden passt',
-      'Encontrad el refugio que encaja con vosotros',
-      'Vind de hideaway die bij jullie past',
-      'Hitta ert hideaway för tiden tillsammans'
-    ),
-    intro: l(
-      'Start with the setting you want, then compare the verified property details. These three routes into the collection make the first decision simpler.',
-      'Beginnt mit dem Ort, den ihr erleben möchtet, und vergleicht danach die belegten Unterkunftsdetails. Diese drei Wege in die Kollektion machen die erste Entscheidung einfacher.',
-      'Empezad por el entorno que queréis vivir y comparad después los detalles verificados de cada alojamiento. Estas tres opciones facilitan la primera decisión.',
-      'Begin met de omgeving die jullie willen beleven en vergelijk daarna de vastgelegde details per verblijf. Deze drie routes maken de eerste keuze eenvoudiger.',
-      'Börja med miljön ni vill uppleva och jämför sedan de verifierade detaljerna för varje boende. De här tre vägarna in i kollektionen gör det första valet enklare.'
-    ),
+    title: l('Three very different ways to stay', 'Drei ganz unterschiedliche Arten zu wohnen', 'Tres formas muy distintas de alojaros', 'Drie heel verschillende manieren om te verblijven', 'Tre helt olika sätt att bo'),
+    intro: l('The details you notice every day matter more than the longest list of amenities.', 'Wichtiger als die längste Ausstattungsliste sind die Details, die ihr jeden Tag spürt.', 'Importan más los detalles que notaréis cada día que la lista de equipamiento más larga.', 'De details die jullie elke dag merken zijn belangrijker dan de langste voorzieningenlijst.', 'Detaljerna ni märker varje dag betyder mer än den längsta listan med utrustning.'),
     items: [
       {
         id: 'frigiliana',
-        eyebrow: l('OLD TOWN', 'ALTSTADT', 'CASCO ANTIGUO', 'OUDE STAD', 'GAMLA STAN'),
-        title: l('Frigiliana: four individual stays', 'Frigiliana: vier individuelle Unterkünfte', 'Frigiliana: cuatro alojamientos únicos', 'Frigiliana: vier individuele verblijven', 'Frigiliana: fyra individuella boenden'),
-        text: l(
-          'Choose among Farah, Lounis, Zaid and Maha inside Casa AMARA. Their layouts, terraces, views, access and kitchen facilities differ, so compare the details that matter to your stay.',
-          'Wählt zwischen Farah, Lounis, Zaid und Maha in Casa AMARA. Grundrisse, Terrassen, Ausblicke, Zugang und Küchenausstattung unterscheiden sich – vergleicht deshalb die Details, die für euch zählen.',
-          'Elegid entre Farah, Lounis, Zaid y Maha dentro de Casa AMARA. Sus distribuciones, terrazas, vistas, accesos y cocinas son distintos: comparad los detalles importantes para vosotros.',
-          'Kies uit Farah, Lounis, Zaid en Maha in Casa AMARA. Indeling, terrassen, uitzicht, toegang en keukenvoorzieningen verschillen; vergelijk dus wat voor jullie verblijf telt.',
-          'Välj mellan Farah, Lounis, Zaid och Maha i Casa AMARA. Planlösning, terrasser, utsikt, tillträde och köksutrustning skiljer sig, så jämför detaljerna som betyder mest för er.'
-        ),
-        linkLabel: l('Compare all AMARA stays', 'Alle AMARA-Unterkünfte vergleichen', 'Comparar todos los alojamientos AMARA', 'Vergelijk alle AMARA-verblijven', 'Jämför alla AMARA-boenden'),
+        eyebrow: l('OLD TOWN · PRIVATE TERRACES', 'ALTSTADT · PRIVATE TERRASSEN', 'CASCO ANTIGUO · TERRAZAS PRIVADAS', 'OUDE STAD · PRIVÉTERRASSEN', 'GAMLA STAN · PRIVATA TERRASSER'),
+        title: l('Frigiliana: terraces, hammocks and double showers', 'Frigiliana: Terrassen, Hängematten und Doppelduschen', 'Frigiliana: terrazas, hamacas y duchas dobles', 'Frigiliana: terrassen, hangmatten en dubbele douches', 'Frigiliana: terrasser, hängmattor och dubbelduschar'),
+        text: l('Lounis, Zaid and Maha each have a private terrace with a hammock, two loungers and an outdoor shower. Lounis and Zaid have double rain showers; Zaid has a 180 × 200 cm bed. Maha gives you a 64 m² terrace and the widest view in the house.', 'Lounis, Zaid und Maha haben jeweils eine private Terrasse mit Hängematte, zwei Liegen und Außendusche. Bei Lounis und Zaid gibt es eine Doppeldusche; Zaid hat ein 180 × 200 cm großes Bett. Maha bietet 64 m² Terrasse und die weiteste Aussicht im Haus.', 'Lounis, Zaid y Maha tienen terraza privada con hamaca, dos tumbonas y ducha exterior. Lounis y Zaid cuentan con ducha doble; Zaid tiene una cama de 180 × 200 cm. Maha ofrece una terraza de 64 m² y las vistas más amplias de la casa.', 'Lounis, Zaid en Maha hebben elk een privéterras met hangmat, twee ligbedden en buitendouche. Lounis en Zaid hebben een dubbele regendouche; Zaid een bed van 180 × 200 cm. Maha biedt een terras van 64 m² en het verste uitzicht van het huis.', 'Lounis, Zaid och Maha har varsin privat terrass med hängmatta, två solsängar och utedusch. Lounis och Zaid har dubbeldusch; Zaid har en säng på 180 × 200 cm. Maha erbjuder en terrass på 64 m² och husets vidaste utsikt.'),
+        linkLabel: l('Compare the Frigiliana stays', 'Unterkünfte in Frigiliana vergleichen', 'Comparar los alojamientos de Frigiliana', 'Vergelijk de verblijven in Frigiliana', 'Jämför boendena i Frigiliana'),
         linkToken: 'romantic_hideaways' as HoneymoonStayLinkToken
       },
       {
         id: 'nerja',
-        eyebrow: l('MEDITERRANEAN', 'MITTELMEER', 'MEDITERRÁNEO', 'MIDDELLANDSE ZEE', 'MEDELHAVET'),
-        title: l('Nerja: the sea within an easy walk', 'Nerja: das Meer bequem zu Fuß erreichen', 'Nerja: el mar a un paseo', 'Nerja: de zee op korte loopafstand', 'Nerja: havet på bekvämt gångavstånd'),
-        text: l(
-          'AMARA Playa is 200 metres from Torrecilla beach and 500 metres from the Balcón de Europa. It is on the fifth floor with a lift, a side sea view and a 200 × 200 cm bed.',
-          'AMARA Playa liegt 200 Meter vom Strand Torrecilla und 500 Meter vom Balcón de Europa entfernt. Das Apartment befindet sich im fünften Stock mit Aufzug, seitlichem Meerblick und einem 200 × 200 cm großen Bett.',
-          'AMARA Playa está a 200 metros de la playa de Torrecilla y a 500 del Balcón de Europa. Se encuentra en una quinta planta con ascensor, vistas laterales al mar y cama de 200 × 200 cm.',
-          'AMARA Playa ligt op 200 meter van het strand van Torrecilla en 500 meter van het Balcón de Europa. Het verblijf ligt op de vijfde verdieping met lift, zijdelings zeezicht en een bed van 200 × 200 cm.',
-          'AMARA Playa ligger 200 meter från Torrecillastranden och 500 meter från Balcón de Europa. Boendet ligger på femte våningen med hiss, havsutsikt åt sidan och en säng på 200 × 200 cm.'
-        ),
-        linkLabel: l('View AMARA Playa', 'AMARA Playa ansehen', 'Ver AMARA Playa', 'Bekijk AMARA Playa', 'Visa AMARA Playa'),
+        eyebrow: l('BEACH · QUIET', 'STRAND · RUHE', 'PLAYA · TRANQUILIDAD', 'STRAND · RUST', 'STRAND · LUGN'),
+        title: l('Nerja: a large bed close to the sea', 'Nerja: großes Bett nah am Meer', 'Nerja: una cama grande cerca del mar', 'Nerja: een groot bed dicht bij zee', 'Nerja: en stor säng nära havet'),
+        text: l('AMARA Playa has a 200 × 200 cm bed and a balcony with a side sea view. Torrecilla beach is around 200 metres away, the Balcón de Europa around 500 metres, and the apartment itself remains pleasantly quiet.', 'AMARA Playa hat ein 200 × 200 cm großes Bett und einen Balkon mit seitlichem Meerblick. Zum Strand Torrecilla sind es rund 200 Meter, zum Balcón de Europa etwa 500 Meter – und in der Wohnung wohnt ihr trotzdem angenehm ruhig.', 'AMARA Playa tiene una cama de 200 × 200 cm y balcón con vistas laterales al mar. La playa de Torrecilla está a unos 200 metros, el Balcón de Europa a unos 500, y el apartamento sigue siendo agradablemente tranquilo.', 'AMARA Playa heeft een bed van 200 × 200 cm en een balkon met zijdelings zeezicht. Het Torrecilla-strand ligt op ongeveer 200 meter, het Balcón de Europa op circa 500 meter, terwijl het appartement zelf aangenaam rustig blijft.', 'AMARA Playa har en säng på 200 × 200 cm och balkong med havsutsikt åt sidan. Torrecillastranden ligger cirka 200 meter bort, Balcón de Europa omkring 500 meter, samtidigt som lägenheten är behagligt lugn.'),
+        linkLabel: l('See AMARA Playa', 'AMARA Playa ansehen', 'Ver AMARA Playa', 'Bekijk AMARA Playa', 'Se AMARA Playa'),
         linkToken: 'playa' as HoneymoonStayLinkToken
       },
       {
         id: 'tarifa',
-        eyebrow: l('ATLANTIC', 'ATLANTIK', 'ATLÁNTICO', 'ATLANTISCHE OCEAAN', 'ATLANTEN'),
-        title: l('Tarifa: more room for two', 'Tarifa: mehr Raum für zwei', 'Tarifa: más espacio para dos', 'Tarifa: meer ruimte voor twee', 'Tarifa: mer utrymme för två'),
-        text: l(
-          'AMARA Family & Surf has two floors, two bedrooms, two bathrooms and a terrace facing the Atlantic. It is generous for a couple and can also accommodate up to four guests.',
-          'AMARA Family & Surf bietet zwei Etagen, zwei Schlafzimmer, zwei Bäder und eine Terrasse mit Atlantikblick. Für zwei ist das Penthouse großzügig; insgesamt können bis zu vier Gäste übernachten.',
-          'AMARA Family & Surf tiene dos plantas, dos dormitorios, dos baños y una terraza frente al Atlántico. Es amplio para una pareja y también puede alojar hasta cuatro huéspedes.',
-          'AMARA Family & Surf heeft twee verdiepingen, twee slaapkamers, twee badkamers en een terras aan de Atlantische Oceaan. Het is royaal voor twee en biedt ook plaats aan maximaal vier gasten.',
-          'AMARA Family & Surf har två våningar, två sovrum, två badrum och en terrass mot Atlanten. Det är rymligt för två och kan också ta emot upp till fyra gäster.'
-        ),
-        linkLabel: l('View Family & Surf', 'Family & Surf ansehen', 'Ver Family & Surf', 'Bekijk Family & Surf', 'Visa Family & Surf'),
+        eyebrow: l('ATLANTIC · MORE ROOM', 'ATLANTIK · MEHR RAUM', 'ATLÁNTICO · MÁS ESPACIO', 'ATLANTISCHE OCEAAN · MEER RUIMTE', 'ATLANTEN · MER UTRYMME'),
+        title: l('Tarifa: space and an Atlantic view', 'Tarifa: viel Raum und Atlantikblick', 'Tarifa: espacio y vistas al Atlántico', 'Tarifa: ruimte en uitzicht op de oceaan', 'Tarifa: utrymme och utsikt över Atlanten'),
+        text: l('AMARA Family & Surf spreads 75 m² over two floors, with two bathrooms and a private Atlantic-facing terrace. It is generous for two and also has a shared pool and reserved underground parking.', 'AMARA Family & Surf verteilt 75 m² auf zwei Etagen, mit zwei Bädern und einer privaten Terrasse zum Atlantik. Zu zweit wohnt ihr hier sehr großzügig; dazu kommen Gemeinschaftspool und reservierter Tiefgaragenplatz.', 'AMARA Family & Surf reparte 75 m² en dos plantas, con dos baños y terraza privada orientada al Atlántico. Para dos es muy amplio y además cuenta con piscina comunitaria y plaza reservada en el garaje.', 'AMARA Family & Surf heeft 75 m² verdeeld over twee verdiepingen, met twee badkamers en een privéterras aan de Atlantische Oceaan. Voor twee is het bijzonder ruim; er zijn ook een gedeeld zwembad en een gereserveerde garageplaats.', 'AMARA Family & Surf har 75 m² i två plan, med två badrum och en privat terrass mot Atlanten. För två är det mycket rymligt, och dessutom finns gemensam pool och reserverad garageplats.'),
+        linkLabel: l('See Family & Surf', 'Family & Surf ansehen', 'Ver Family & Surf', 'Bekijk Family & Surf', 'Se Family & Surf'),
         linkToken: 'tarifa' as HoneymoonStayLinkToken
       }
     ],
-    note: l(
-      'Not every hideaway has every feature. The individual property page is the source for the terrace, view, bed, access, occupancy and facilities included in your chosen stay.',
-      'Nicht jedes Hideaway besitzt jedes Merkmal. Für Terrasse, Aussicht, Bett, Zugang, Belegung und Ausstattung gilt immer die jeweilige Unterkunftsseite.',
-      'No todos los refugios tienen las mismas características. La página de cada alojamiento es la referencia para terraza, vistas, cama, acceso, ocupación y equipamiento.',
-      'Niet elke hideaway heeft elk kenmerk. De pagina van het gekozen verblijf is leidend voor terras, uitzicht, bed, toegang, bezetting en voorzieningen.',
-      'Alla hideaways har inte alla egenskaper. Den enskilda boendesidan är källan för terrass, utsikt, säng, tillträde, beläggning och utrustning.'
-    ),
-    cta: l('Check honeymoon availability', 'Verfügbarkeit für eure Flitterwochen prüfen', 'Consultar disponibilidad para la luna de miel', 'Bekijk beschikbaarheid voor jullie huwelijksreis', 'Se tillgänglighet för smekmånaden'),
+    note: l('The features above belong to the named stays. Please check the individual stay page before booking.', 'Die genannten Merkmale gehören zu den jeweiligen Unterkünften. Prüft vor der Buchung bitte die einzelne Unterkunftsseite.', 'Los detalles indicados pertenecen a los alojamientos mencionados. Consultad la página de cada estancia antes de reservar.', 'De genoemde kenmerken horen bij de betreffende verblijven. Bekijk vóór het boeken de afzonderlijke verblijfspagina.', 'Detaljerna ovan hör till de boenden som nämns. Kontrollera den enskilda boendesidan innan ni bokar.'),
     collectionCta: l('Compare all Romantic Hideaways', 'Alle Romantic Hideaways vergleichen', 'Comparar todos los Romantic Hideaways', 'Vergelijk alle Romantic Hideaways', 'Jämför alla Romantic Hideaways')
   },
-  moments: {
-    title: l(
-      'What gives the stay its meaning',
-      'Was eurem Aufenthalt Bedeutung gibt',
-      'Lo que da sentido a la estancia',
-      'Wat jullie verblijf betekenis geeft',
-      'Det som ger vistelsen betydelse'
-    ),
-    intro: l(
-      'A honeymoon does not need a fixed package to feel special. It needs a place where the two of you can settle into a rhythm that belongs to you.',
-      'Flitterwochen brauchen kein festes Paket, um besonders zu sein. Sie brauchen einen Ort, an dem ihr euren eigenen gemeinsamen Rhythmus findet.',
-      'Una luna de miel no necesita un paquete cerrado para ser especial. Necesita un lugar donde podáis encontrar un ritmo propio.',
-      'Een huwelijksreis heeft geen vast pakket nodig om bijzonder te voelen. Wel een plek waar jullie samen een eigen ritme vinden.',
-      'En smekmånad behöver inget färdigt paket för att kännas speciell. Den behöver en plats där ni kan hitta er egen rytm tillsammans.'
-    ),
-    items: [
-      {
-        id: 'privacy',
-        title: l('Space that is yours', 'Raum, der euch gehört', 'Un espacio para vosotros', 'Ruimte die van jullie is', 'Ett utrymme som är ert'),
-        text: l('Choose an independent stay whose layout and outdoor space match how much time you want to spend at home.', 'Wählt eine eigenständige Unterkunft, deren Grundriss und Außenbereich dazu passen, wie viel Zeit ihr dort verbringen möchtet.', 'Elegid un alojamiento independiente cuya distribución y espacio exterior encajen con el tiempo que queréis pasar en casa.', 'Kies een zelfstandig verblijf waarvan indeling en buitenruimte passen bij de tijd die jullie er willen doorbrengen.', 'Välj ett fristående boende vars planlösning och uteplats passar hur mycket tid ni vill tillbringa hemma.')
-      },
-      {
-        id: 'sleep',
-        title: l('Rest that shapes the next day', 'Erholung für den nächsten Tag', 'Descanso para disfrutar el día siguiente', 'Rust die de volgende dag bepaalt', 'Vila som formar nästa dag'),
-        text: l('Bed size, bedroom separation, light and access are practical details worth comparing before a longer stay.', 'Bettgröße, separates Schlafzimmer, Licht und Zugang sind praktische Details, die ihr vor einem längeren Aufenthalt vergleichen solltet.', 'El tamaño de la cama, la separación del dormitorio, la luz y el acceso son detalles prácticos que conviene comparar antes de una estancia larga.', 'Bedformaat, een aparte slaapkamer, licht en toegang zijn praktische details om vóór een langer verblijf te vergelijken.', 'Sängstorlek, separat sovrum, ljus och tillträde är praktiska detaljer att jämföra före en längre vistelse.')
-      },
-      {
-        id: 'place',
-        title: l('A setting you can step into', 'Ein Ort, den ihr direkt erlebt', 'Un entorno que se vive al salir', 'Een omgeving waar je zo instapt', 'En miljö ni kliver rakt ut i'),
-        text: l('Walk into Frigiliana’s old town, reach the beach from Playa or watch the Atlantic from Family & Surf: the location changes the day.', 'Geht direkt in Frigilianas Altstadt, erreicht von Playa den Strand oder blickt von Family & Surf auf den Atlantik: Die Lage verändert euren Tag.', 'Salid al casco antiguo de Frigiliana, llegad a la playa desde Playa o mirad el Atlántico desde Family & Surf: la ubicación cambia el día.', 'Loop zo de oude kern van Frigiliana in, bereik het strand vanuit Playa of kijk vanaf Family & Surf uit over de Atlantische Oceaan: de ligging verandert de dag.', 'Kliv ut i Frigilianas gamla stad, nå stranden från Playa eller se Atlanten från Family & Surf: läget förändrar dagen.')
-      },
-      {
-        id: 'hosting',
-        title: l('Personal contact when you need it', 'Persönlicher Kontakt, wenn ihr ihn braucht', 'Contacto personal cuando lo necesitéis', 'Persoonlijk contact wanneer nodig', 'Personlig kontakt när ni behöver det'),
-        text: l('We know the stays ourselves and answer questions directly, so you can choose with clearer expectations before arrival.', 'Wir kennen die Unterkünfte selbst und beantworten eure Fragen direkt, damit ihr schon vor der Anreise mit klaren Erwartungen wählen könnt.', 'Conocemos personalmente los alojamientos y respondemos directamente a vuestras preguntas para que elijáis con expectativas claras antes de llegar.', 'We kennen de verblijven zelf en beantwoorden vragen rechtstreeks, zodat jullie vóór aankomst met heldere verwachtingen kunnen kiezen.', 'Vi känner boendena själva och svarar direkt på era frågor, så att ni kan välja med tydliga förväntningar före ankomst.')
-      }
-    ],
-    note: l(
-      'Tell us your dates and what matters most to the two of you. We will point you to the verified stay details rather than promise an amenity the property does not have.',
-      'Nennt uns eure Reisedaten und was euch beiden besonders wichtig ist. Wir verweisen euch auf die belegten Unterkunftsdetails, statt eine Ausstattung zu versprechen, die dort nicht vorhanden ist.',
-      'Decidnos vuestras fechas y qué es lo más importante para vosotros. Os indicaremos los detalles verificados del alojamiento en lugar de prometer un servicio que no existe allí.',
-      'Vertel ons jullie reisdata en wat voor jullie het belangrijkst is. We verwijzen naar de vastgelegde details van het verblijf en beloven geen voorziening die er niet is.',
-      'Berätta era resdatum och vad som betyder mest för er. Vi hänvisar till de verifierade boendedetaljerna i stället för att lova en bekvämlighet som inte finns där.'
-    ),
-    imageAlt: l(
-      'Living room and open staircase at AMARA Family & Surf in Tarifa',
-      'Wohnzimmer und offene Treppe bei AMARA Family & Surf in Tarifa',
-      'Salón y escalera abierta en AMARA Family & Surf, Tarifa',
-      'Woonkamer en open trap bij AMARA Family & Surf in Tarifa',
-      'Vardagsrum och öppen trappa på AMARA Family & Surf i Tarifa'
-    )
-  },
-  planning: {
-    title: l('Plan the stay around the two of you', 'Plant den Aufenthalt rund um euch beide', 'Planificad la estancia a vuestra medida', 'Plan het verblijf rond jullie samen', 'Planera vistelsen kring er två'),
-    intro: l('A few grounded decisions make the honeymoon feel easier from the first day.', 'Ein paar konkrete Entscheidungen machen eure Flitterwochen vom ersten Tag an leichter.', 'Unas decisiones concretas hacen que la luna de miel resulte más fácil desde el primer día.', 'Een paar concrete keuzes maken de huwelijksreis vanaf de eerste dag ontspannen.', 'Några konkreta beslut gör smekmånaden enklare från första dagen.'),
-    items: [
-      {
-        id: 'arrival',
-        title: l('Make arrival part of the plan', 'Die Anreise mitplanen', 'Incluid la llegada en el plan', 'Neem de aankomst mee in het plan', 'Gör ankomsten till en del av planen'),
-        text: l('Compare the airport, car and transfer options before fixing your first and last day.', 'Vergleicht Flughafen, Auto und Transfer, bevor ihr den ersten und letzten Tag fest plant.', 'Comparad aeropuerto, coche y traslados antes de cerrar el primer y último día.', 'Vergelijk luchthaven, auto en transfer voordat jullie de eerste en laatste dag vastleggen.', 'Jämför flygplats, bil och transfer innan ni bestämmer den första och sista dagen.'),
-        linkLabel: l('Read the arrival guide', 'Anreise-Guide lesen', 'Leer la guía de llegada', 'Lees de aankomstgids', 'Läs ankomstguiden'),
-        linkToken: 'arrival_guide' as HoneymoonPlanningLinkToken
-      },
-      {
-        id: 'east-coast',
-        title: l('Village or Mediterranean coast?', 'Dorf oder Mittelmeerküste?', '¿Pueblo o costa mediterránea?', 'Dorp of Middellandse Zeekust?', 'By eller Medelhavskust?'),
-        text: l('Use the Frigiliana–Nerja comparison to decide between old-town character and easier daily access to the sea.', 'Nutzt den Vergleich Frigiliana–Nerja, um zwischen Altstadtcharakter und einfacherem täglichem Zugang zum Meer zu wählen.', 'Usad la comparación entre Frigiliana y Nerja para elegir entre el carácter del casco antiguo y un acceso cotidiano más fácil al mar.', 'Gebruik de vergelijking Frigiliana–Nerja om te kiezen tussen de sfeer van de oude stad en dagelijks gemakkelijker naar zee.', 'Använd jämförelsen Frigiliana–Nerja för att välja mellan gamla stans karaktär och enklare daglig tillgång till havet.'),
-        linkLabel: l('Compare Frigiliana and Nerja', 'Frigiliana und Nerja vergleichen', 'Comparar Frigiliana y Nerja', 'Vergelijk Frigiliana en Nerja', 'Jämför Frigiliana och Nerja'),
-        linkToken: 'nerja_vs_frigiliana' as HoneymoonPlanningLinkToken
-      },
-      {
-        id: 'tarifa',
-        title: l('Consider the Atlantic option', 'Die Atlantik-Option prüfen', 'Considerad la opción atlántica', 'Overweeg de Atlantische optie', 'Överväg Atlantalternativet'),
-        text: l('Tarifa suits couples who want more room, open horizons and a different rhythm from the Costa del Sol.', 'Tarifa passt zu Paaren, die mehr Raum, einen weiten Horizont und einen anderen Rhythmus als an der Costa del Sol suchen.', 'Tarifa encaja con parejas que buscan más espacio, horizontes abiertos y un ritmo distinto al de la Costa del Sol.', 'Tarifa past bij stellen die meer ruimte, een open horizon en een ander ritme dan aan de Costa del Sol zoeken.', 'Tarifa passar par som vill ha mer utrymme, öppna horisonter och en annan rytm än på Costa del Sol.'),
-        linkLabel: l('Understand Tarifa as a base', 'Tarifa als Standort verstehen', 'Entender Tarifa como base', 'Ontdek Tarifa als uitvalsbasis', 'Förstå Tarifa som bas'),
-        linkToken: 'location_tarifa' as HoneymoonPlanningLinkToken
-      },
-      {
-        id: 'direct',
-        title: l('Book with clear expectations', 'Mit klaren Erwartungen buchen', 'Reservad con expectativas claras', 'Boek met heldere verwachtingen', 'Boka med tydliga förväntningar'),
-        text: l('Review the property facts and direct-booking conditions before choosing dates and making the reservation.', 'Prüft Unterkunftsfakten und Direktbuchungsbedingungen, bevor ihr Reisedaten auswählt und reserviert.', 'Revisad los datos del alojamiento y las condiciones de reserva directa antes de elegir fechas y reservar.', 'Bekijk de verblijfsdetails en voorwaarden voor direct boeken voordat jullie data kiezen en reserveren.', 'Läs boendefakta och villkoren för direktbokning innan ni väljer datum och bokar.'),
-        linkLabel: l('Why book direct?', 'Warum direkt buchen?', '¿Por qué reservar directamente?', 'Waarom direct boeken?', 'Varför boka direkt?'),
-        linkToken: 'direct_booking_benefits' as HoneymoonPlanningLinkToken
-      }
-    ]
-  },
-  faq: {
-    title: l('Questions about a honeymoon with AMARA', 'Fragen zu euren Flitterwochen mit AMARA', 'Preguntas sobre una luna de miel con AMARA', 'Vragen over een huwelijksreis met AMARA', 'Frågor om en smekmånad med AMARA'),
-    items: [
-      {
-        id: 'destinations',
-        question: l('Where can we spend our honeymoon with AMARA?', 'Wo können wir unsere Flitterwochen mit AMARA verbringen?', '¿Dónde podemos pasar nuestra luna de miel con AMARA?', 'Waar kunnen we onze huwelijksreis met AMARA doorbrengen?', 'Var kan vi tillbringa smekmånaden med AMARA?'),
-        answer: l('AMARA has stays in Frigiliana, Nerja and Tarifa. Frigiliana offers an old-town setting, Nerja gives you easy access to the Mediterranean, and Tarifa combines more space with an Atlantic outlook.', 'AMARA bietet Unterkünfte in Frigiliana, Nerja und Tarifa. Frigiliana steht für Altstadtatmosphäre, Nerja für den einfachen Zugang zum Mittelmeer und Tarifa für mehr Raum mit Blick zum Atlantik.', 'AMARA ofrece alojamientos en Frigiliana, Nerja y Tarifa. Frigiliana aporta ambiente de casco antiguo, Nerja facilita el acceso al Mediterráneo y Tarifa combina más espacio con vistas al Atlántico.', 'AMARA heeft verblijven in Frigiliana, Nerja en Tarifa. Frigiliana biedt de sfeer van de oude stad, Nerja gemakkelijke toegang tot de Middellandse Zee en Tarifa meer ruimte met uitzicht op de Atlantische Oceaan.', 'AMARA har boenden i Frigiliana, Nerja och Tarifa. Frigiliana ger gamla stans miljö, Nerja enkel tillgång till Medelhavet och Tarifa mer utrymme med utsikt mot Atlanten.')
-      },
-      {
-        id: 'features',
-        question: l('Does every hideaway have a private terrace and sea view?', 'Hat jedes Hideaway eine private Terrasse und Meerblick?', '¿Todos los refugios tienen terraza privada y vistas al mar?', 'Heeft elke hideaway een privéterras en zeezicht?', 'Har varje hideaway privat terrass och havsutsikt?'),
-        answer: l('No. Features differ by property. Check the individual stay page for verified information about terraces, views, beds, access and facilities before booking.', 'Nein. Die Merkmale unterscheiden sich je nach Unterkunft. Prüft vor der Buchung die jeweilige Seite mit belegten Angaben zu Terrasse, Aussicht, Bett, Zugang und Ausstattung.', 'No. Las características varían según el alojamiento. Consultad la página de cada estancia para comprobar terraza, vistas, cama, acceso y equipamiento antes de reservar.', 'Nee. Kenmerken verschillen per verblijf. Bekijk vóór het boeken de pagina van het verblijf voor vastgelegde informatie over terras, uitzicht, bed, toegang en voorzieningen.', 'Nej. Egenskaperna skiljer sig mellan boendena. Kontrollera den enskilda boendesidan för verifierad information om terrass, utsikt, säng, tillträde och utrustning före bokning.')
-      },
-      {
-        id: 'tarifa-couple',
-        question: l('Is AMARA Family & Surf suitable for a honeymoon for two?', 'Eignet sich AMARA Family & Surf für Flitterwochen zu zweit?', '¿AMARA Family & Surf es adecuado para una luna de miel de dos?', 'Is AMARA Family & Surf geschikt voor een huwelijksreis met z’n tweeën?', 'Passar AMARA Family & Surf för en smekmånad för två?'),
-        answer: l('Yes. The Tarifa penthouse is a generous stay for a couple, with two floors, two bedrooms, two bathrooms and an Atlantic-facing terrace. Its capacity of up to four does not prevent it from working well for two.', 'Ja. Das Penthouse in Tarifa ist mit zwei Etagen, zwei Schlafzimmern, zwei Bädern und einer Terrasse mit Atlantikblick großzügig für ein Paar. Die Kapazität bis vier Gäste steht einem Aufenthalt zu zweit nicht entgegen.', 'Sí. El ático de Tarifa es amplio para una pareja, con dos plantas, dos dormitorios, dos baños y terraza frente al Atlántico. Su capacidad de hasta cuatro huéspedes no impide disfrutarlo entre dos.', 'Ja. Het penthouse in Tarifa is royaal voor een stel, met twee verdiepingen, twee slaapkamers, twee badkamers en een terras aan de Atlantische Oceaan. De capaciteit tot vier gasten maakt het niet minder geschikt voor twee.', 'Ja. Takvåningen i Tarifa är rymlig för ett par, med två våningar, två sovrum, två badrum och en terrass mot Atlanten. Kapaciteten på upp till fyra gör den inte mindre lämplig för två.')
-      },
-      {
-        id: 'package',
-        question: l('Do we need to book a fixed honeymoon package?', 'Müssen wir ein festes Honeymoon-Paket buchen?', '¿Tenemos que reservar un paquete fijo de luna de miel?', 'Moeten we een vast honeymoonpakket boeken?', 'Måste vi boka ett färdigt smekmånadspaket?'),
-        answer: l('No. Choose the stay and dates that fit you. If a particular detail matters to your trip, ask us before booking so we can confirm what is available at that property.', 'Nein. Wählt die Unterkunft und Reisedaten, die zu euch passen. Wenn euch ein bestimmtes Detail wichtig ist, fragt uns vor der Buchung, damit wir bestätigen können, was in dieser Unterkunft vorhanden ist.', 'No. Elegid el alojamiento y las fechas que encajen con vosotros. Si algún detalle es importante para el viaje, preguntadnos antes de reservar para que podamos confirmar qué ofrece ese alojamiento.', 'Nee. Kies het verblijf en de data die bij jullie passen. Is een bepaald detail belangrijk, vraag het dan vóór het boeken zodat we kunnen bevestigen wat dit verblijf biedt.', 'Nej. Välj boendet och datumen som passar er. Om en viss detalj är viktig för resan, fråga oss före bokning så att vi kan bekräfta vad som finns på just det boendet.')
-      },
-      {
-        id: 'choose',
-        question: l('How should we choose between the six stays?', 'Wie wählen wir zwischen den sechs Unterkünften?', '¿Cómo elegimos entre los seis alojamientos?', 'Hoe kiezen we tussen de zes verblijven?', 'Hur väljer vi mellan de sex boendena?'),
-        answer: l('Start with destination and dates, then compare outdoor space, bed, kitchen, access, occupancy and proximity to the places you want to experience. Availability may narrow the shortlist.', 'Beginnt mit Ort und Reisedaten. Vergleicht danach Außenbereich, Bett, Küche, Zugang, Belegung und Nähe zu den Orten, die ihr erleben möchtet. Die Verfügbarkeit kann die Auswahl eingrenzen.', 'Empezad por el destino y las fechas; comparad después espacio exterior, cama, cocina, acceso, ocupación y cercanía a los lugares que queréis vivir. La disponibilidad puede reducir la selección.', 'Begin met bestemming en data. Vergelijk daarna buitenruimte, bed, keuken, toegang, bezetting en afstand tot de plekken die jullie willen beleven. Beschikbaarheid kan de keuze beperken.', 'Börja med resmål och datum. Jämför sedan uteplats, säng, kök, tillträde, beläggning och närhet till platserna ni vill uppleva. Tillgängligheten kan begränsa urvalet.')
-      }
-    ]
-  },
   closing: {
-    title: l('Choose the place where your time together begins', 'Wählt den Ort, an dem eure gemeinsame Zeit beginnt', 'Elegid el lugar donde empieza vuestro tiempo juntos', 'Kies de plek waar jullie tijd samen begint', 'Välj platsen där er tid tillsammans börjar'),
-    paragraphs: lp(
-      ['Tell us your dates, preferred destination and the property details that matter most. We will help you find the AMARA hideaway that fits the two of you.'],
-      ['Nennt uns eure Reisedaten, euren Wunschort und die Unterkunftsdetails, die euch besonders wichtig sind. Wir helfen euch, das AMARA Hideaway zu finden, das zu euch beiden passt.'],
-      ['Decidnos las fechas, el destino que preferís y los detalles del alojamiento que más os importan. Os ayudaremos a encontrar el refugio AMARA que encaja con vosotros.'],
-      ['Vertel ons jullie data, voorkeursbestemming en de verblijfsdetails die het belangrijkst zijn. We helpen jullie de AMARA hideaway te vinden die bij jullie past.'],
-      ['Berätta era datum, önskat resmål och vilka boendedetaljer som betyder mest. Vi hjälper er att hitta det AMARA-hideaway som passar just er.']
-    ),
+    title: l('Tell us what matters to the two of you', 'Sagt uns, was euch beiden wichtig ist', 'Contadnos qué es importante para vosotros', 'Vertel ons wat voor jullie telt', 'Berätta vad som betyder mest för er'),
+    paragraphs: lp(['Send us your dates and your two or three must-haves. We know every stay and will help you narrow down the choice.'], ['Schickt uns eure Reisedaten und zwei oder drei Dinge, auf die ihr nicht verzichten möchtet. Wir kennen jede Unterkunft und helfen euch, die Auswahl einzugrenzen.'], ['Enviadnos las fechas y dos o tres cosas imprescindibles para vosotros. Conocemos cada alojamiento y os ayudaremos a reducir la selección.'], ['Stuur ons jullie data en twee of drie dingen die echt belangrijk zijn. We kennen elk verblijf en helpen jullie de keuze kleiner te maken.'], ['Skicka era datum och två eller tre saker ni inte vill vara utan. Vi känner varje boende och hjälper er att begränsa valet.']),
     cta: l('Check availability', 'Verfügbarkeit prüfen', 'Consultar disponibilidad', 'Beschikbaarheid bekijken', 'Se tillgänglighet')
   },
   footerHighlights: {

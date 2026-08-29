@@ -4,7 +4,6 @@ import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
-import FaqAccordion from '../../components/FaqAccordion.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import FrigilianaOrientationMap from '../../components/location/FrigilianaOrientationMap.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
@@ -14,7 +13,7 @@ import LocationGuideIcon, {
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
 import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
 import {
-  frigilianaLocationCopy,
+  getFrigilianaLocationCopy,
   frigilianaLocationHeroImageAlt,
   frigilianaLocationSeo,
   type FrigilianaLocationCtaToken,
@@ -42,7 +41,7 @@ type EditorialImageAlt = {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const c = frigilianaLocationCopy[currentLang];
+const c = getFrigilianaLocationCopy(currentLang);
 const optionalLink = (token: LinkToken) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
 
@@ -57,7 +56,10 @@ const aboutHref = optionalLink('about');
 const stairsHref = optionalLink('frigiliana_stairs');
 const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const comparisonHref = optionalLink('nerja_vs_frigiliana');
-const availabilityHref = optionalLink('book');
+const availabilityBaseHref = optionalLink('book');
+const availabilityHref = availabilityBaseHref
+  ? `${availabilityBaseHref}?destination=frigiliana`
+  : null;
 const exploreHubHref = optionalLink('frigiliana_experience_hub');
 const orientationFactIcons: LocationGuideIconName[] = [
   'distance',
@@ -194,11 +196,12 @@ const historyDetail = c.history.subsections[0];
 const villageDoorstep = c.villageLife.subsections[0];
 const villageParking = c.villageLife.subsections[1];
 const coastMobility = c.coast.subsections[0];
-const coastBeachTown = c.coast.subsections[1];
 const decisionStay = c.decision.subsections[0];
 const decisionAvailabilityCta = decisionStay.ctas.find((cta) => cta.token === 'AVAILABILITY');
 
-const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
+const sectionOrder = getFrigilianaLocationSectionOrder(currentLang).filter((sectionId) =>
+  ['hero', 'villageLife', 'coast', 'decision'].includes(sectionId)
+);
 const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas;
 ---
 
@@ -530,47 +533,8 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                 </div>
               </div>
 
-              <div class="mt-20 border-t border-outline-variant/15 pt-16 lg:mt-28">
-                <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-                  <h3 class="am-text-subtitle text-on-surface lg:col-span-4">
-                    {coastBeachTown.title}
-                  </h3>
-                  <div class="lg:col-span-7 lg:col-start-6">
-                    <div class="space-y-6">
-                      {
-                        coastBeachTown.paragraphs.slice(0, -1).map((paragraph) => (
-                          <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                        ))
-                      }
-                      <p class="am-text-subtitle italic text-on-surface border-l border-primary/25 pl-7 pt-2">
-                        {coastBeachTown.paragraphs.at(-1)}
-                      </p>
-                    </div>
-                    {
-                      renderCtas(coastBeachTown).length > 0 && (
-                        <div class="mt-10 flex flex-col items-start gap-4">
-                          {renderCtas(coastBeachTown).map((cta) => {
-                            const href = ctaHrefByToken[cta.token];
-                            return href ? <a href={href} class="am-cta-link">{cta.label}</a> : null;
-                          })}
-                        </div>
-                      )
-                    }
-                  </div>
-                </div>
-              </div>
             </div>
           </section>
-
-          <FaqAccordion
-            arrivalTitle={c.arrival.title}
-            steps={c.arrival.steps}
-            faqTitle={c.faq.title}
-            items={c.faq.items}
-            anchorArrivalId="arrival"
-            anchorFaqId="faq"
-            arrivalDetailCta={{ href: gettingThereHref, label: c.arrival.detailLabel }}
-          />
         </Fragment>
 
         <Fragment slot="seasons">
@@ -674,35 +638,14 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                 </div>
               </div>
 
-              <div class="am-mobile-full-bleed mt-16 overflow-hidden bg-surface-container-low lg:mt-24">
-                <AmaraImage
-                  src={editorialImages.decision}
-                  alt={imageAlt.decision}
-                  profile="gallery"
-                  sizes="(max-width: 1023px) 100vw, 83vw"
-                  class="w-full aspect-[16/8] object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              <div class="mt-20 border-t border-outline-variant/15 pt-16 lg:mt-24">
-                <h3 class="am-text-subtitle text-on-surface mb-12 max-w-3xl">{decisionStay.title}</h3>
-                <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-                  <div class="space-y-6 lg:col-span-6">
-                    {
-                      decisionStay.paragraphs.slice(0, 3).map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                      ))
-                    }
-                  </div>
-                  <div class="space-y-6 border-l border-primary/25 pl-7 lg:col-span-5 lg:col-start-8 lg:pl-10">
-                    {
-                      decisionStay.paragraphs.slice(3).map((paragraph) => (
-                        <p class="am-text-subtitle italic text-on-surface"><InlineEmphasis text={paragraph} /></p>
-                      ))
-                    }
-                  </div>
+              <div class="mt-14 border-t border-outline-variant/15 pt-12 lg:mt-16">
+                <h3 class="am-text-subtitle text-on-surface mb-8 max-w-3xl">{decisionStay.title}</h3>
+                <div class="max-w-3xl space-y-6">
+                  {
+                    decisionStay.paragraphs.map((paragraph) => (
+                      <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
+                    ))
+                  }
                 </div>
 
                 {

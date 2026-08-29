@@ -247,11 +247,9 @@ export const overview: TarifaLocationGuideContent = {
     en: {
       hero: {
         eyebrow: 'AMARA location guide',
-        title: 'Where to stay in Tarifa: choosing the right base',
+        title: 'Where to stay in Tarifa',
         lead: [
-          'Tarifa is compact, but where you stay changes the experience more than the size of the town suggests.',
-          'Living inside the Old Town is very different from staying in the newer residential area around La Marina, farther along the Los Lances coast or outside town altogether. The right choice depends less on which area sounds most attractive and more on how you want to spend several consecutive days here.',
-          'Do you want dinner almost outside your door? A beach-and-town balance? Easy use of a car for kitesurfing and day trips? Or quiet and space outside town?'
+          'Choose the Old Town if you want restaurants, historic streets and evening life at the door — and can accept trickier parking and livelier nights. La Marina balances town, beach and easier car use. Along Los Lances, the beach and watersports come first while the Old Town becomes less spontaneous. Outside town you gain space and quiet but depend on the car. The best base is simply the one whose trade-off fits your days in Tarifa.'
         ],
         editorialNote: sharedEditorialNote.en,
         updated: sharedUpdated.en
@@ -416,13 +414,9 @@ export const overview: TarifaLocationGuideContent = {
     de: {
       hero: {
         eyebrow: 'AMARA Lage-Guide',
-        title: 'Wo in Tarifa übernachten? Die richtige Lage für euren Aufenthalt',
+        title: 'Wo in Tarifa übernachten?',
         lead: [
-          'Tarifa ist überschaubar – trotzdem macht es einen großen Unterschied, in welchem Teil des Ortes ihr mehrere Tage verbringt.',
-          'Direkt in der Altstadt zu wohnen funktioniert anders als in La Marina, weiter draußen am Los-Lances-Korridor oder im Umland. Die entscheidende Frage ist deshalb nicht, welche Gegend auf den ersten Blick am schönsten klingt.',
-          'Sondern:',
-          'Wie möchtet ihr Tarifa im Alltag nutzen?',
-          'Altstadt direkt vor der Tür? Stadt und Strand miteinander verbinden? Mit dem Auto unkompliziert zu Kite-Spots und Ausflügen fahren? Oder bewusst außerhalb und ruhig wohnen?'
+          'Wählt die Altstadt, wenn ihr Restaurants, historische Gassen und das Abendleben direkt vor der Tür möchtet – und schwierigeres Parken sowie lebhaftere Nächte in Kauf nehmt. La Marina verbindet Stadt, Strand und eine einfachere Autonutzung. Am Los Lances stehen Strand und Wassersport im Vordergrund, während die Altstadt weniger spontan erreichbar ist. Außerhalb gewinnt ihr Ruhe und Platz, seid aber auf das Auto angewiesen. Am besten passt die Lage, deren Nachteil euch im Urlaub am wenigsten stört.'
         ],
         editorialNote: sharedEditorialNote.de,
         updated: sharedUpdated.de
@@ -491,7 +485,7 @@ export const overview: TarifaLocationGuideContent = {
       },
       amara: {
         title: 'Warum AMARA in La Marina liegt',
-        paragraphs: ['AMARA Family & Surf befindet sich in der Urbanización La Marina.', 'Für unsere Gäste verbindet diese Lage mehrere Dinge, die in Tarifa nicht selbstverständlich gleichzeitig funktionieren:', 'Für uns ist La Marina deshalb weniger ein Kompromiss zwischen Stadt und Strand als eine flexible Base:', 'abends zu Fuß in die Altstadt, tagsüber mit dem Auto zum Strand oder Kitesurfen – und bei der Rückkehr kein neues Parkplatzproblem.'],
+        paragraphs: ['AMARA Family & Surf befindet sich in der Urbanización La Marina.', 'Für uns ist La Marina kein Kompromiss, sondern eine praktische Basis: Ihr geht abends zu Fuß in die Altstadt, fahrt tagsüber zum Strand oder Kitesurfen und habt bei der Rückkehr einen festen Stellplatz.'],
         facts: ['eigener Tiefgaragenstellplatz;', 'Supermarkt direkt gegenüber;', 'die Altstadt ist zu Fuß erreichbar, wobei Zielpunkt und genaue Route den Weg bestimmen;', 'Lage im neueren nordwestlichen Stadtgefüge; die konkrete Fahrt nach Westen hängt von der aktuellen Verkehrsführung ab.'],
         imageAlt: 'Wohnbereich bei AMARA Family & Surf in La Marina, Tarifa'
       },
@@ -504,8 +498,8 @@ export const overview: TarifaLocationGuideContent = {
     es: {
       hero: {
         eyebrow: 'Guía de ubicación AMARA',
-        title: 'Dónde alojarse en Tarifa: elegid la zona que encaja con vuestra estancia',
-        lead: ['Tarifa no es una ciudad grande, pero la zona donde os alojéis cambia bastante la forma de vivir varios días aquí.', 'Dormir dentro del casco antiguo no es lo mismo que alojarse en La Marina, junto al corredor de Los Lances o fuera del núcleo urbano.', 'Por eso la pregunta no es simplemente qué zona es más bonita, sino:', '¿cómo queréis utilizar Tarifa durante vuestra estancia?'],
+        title: 'Dónde alojarse en Tarifa',
+        lead: ['Elegid el casco antiguo si queréis restaurantes, calles históricas y ambiente nocturno a la puerta, y no os importa que aparcar sea más difícil. La Marina equilibra ciudad, playa y un uso más cómodo del coche. En Los Lances mandan la playa y los deportes acuáticos, mientras el centro queda menos a mano. Fuera del pueblo ganáis espacio y tranquilidad, pero dependéis del coche. La mejor zona es la que encaja con el ritmo real de vuestros días.'],
         editorialNote: sharedEditorialNote.es,
         updated: sharedUpdated.es
       },
@@ -584,12 +578,9 @@ export const overview: TarifaLocationGuideContent = {
     nl: {
       hero: {
         eyebrow: 'AMARA locatiegids',
-        title: 'Waar overnachten in Tarifa: kies de uitvalsbasis die bij jullie past',
+        title: 'Waar overnachten in Tarifa?',
         lead: [
-          'Tarifa is compact, maar waar jullie verblijven heeft veel invloed op hoe een verblijf van meerdere dagen eruitziet.',
-          'De oude stad, La Marina, de kust richting Los Lances en het buitengebied bieden allemaal een ander dagelijks ritme.',
-          'De belangrijkste vraag is daarom niet welke buurt algemeen het beste is, maar:',
-          'hoe willen jullie Tarifa gebruiken?'
+          'Kies de oude stad als jullie restaurants, historische straatjes en avondleven voor de deur willen, en lastiger parkeren geen probleem vinden. La Marina combineert stad, strand en makkelijker autogebruik. Langs Los Lances staan strand en watersport voorop en ligt de oude stad minder vanzelfsprekend binnen bereik. Buiten Tarifa krijgen jullie ruimte en rust, maar zijn jullie afhankelijk van de auto. De beste uitvalsbasis is de plek waarvan de afweging bij jullie vakantiedagen past.'
         ],
         editorialNote: sharedEditorialNote.nl,
         updated: sharedUpdated.nl
@@ -697,12 +688,9 @@ export const overview: TarifaLocationGuideContent = {
     sv: {
       hero: {
         eyebrow: 'AMARA platsguide',
-        title: 'Var ska man bo i Tarifa? Välj rätt bas för er vistelse',
+        title: 'Var ska man bo i Tarifa?',
         lead: [
-          'Tarifa är en relativt liten stad, men området ni bor i påverkar vardagen mycket när ni stannar flera nätter.',
-          'Gamla stan, La Marina, kusten mot Los Lances och boenden utanför staden fungerar på olika sätt.',
-          'Den viktigaste frågan är därför inte vilket område som är ”bäst”, utan:',
-          'hur vill ni använda Tarifa under er vistelse?'
+          'Välj gamla stan om ni vill ha restauranger, historiska gränder och kvällsliv utanför dörren och kan acceptera krångligare parkering. La Marina kombinerar stad, strand och enklare bilanvändning. Längs Los Lances står strand och vattensport i centrum, medan gamla stan blir mindre spontan. Utanför Tarifa får ni lugn och utrymme men blir beroende av bilen. Den bästa basen är den vars avvägning passar era semesterdagar.'
         ],
         editorialNote: sharedEditorialNote.sv,
         updated: sharedUpdated.sv

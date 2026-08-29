@@ -331,7 +331,7 @@ export const experienceNavigationContent: Record<
 };
 
 export const experienceHubSeo: AmaraAuthoringSeo = {
-  version: '2026-08-14-frigiliana-experience-hub-v2.0-B',
+  version: '2026-08-29-frigiliana-experience-hub-v2.1-B',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/hero-frigiliana.jpg',
@@ -339,35 +339,35 @@ export const experienceHubSeo: AmaraAuthoringSeo = {
     en: {
       title: 'Things to Do in Frigiliana',
       description:
-        'Explore hiking, village food, festivals, the weekly market, wellness, day trips and nearby beaches through AMARA’s Frigiliana experience guide.',
+        'Walk through Frigiliana, head into the hills, spend a day by the sea or simply slow down at Casa AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'Aktivitäten und Erlebnisse in Frigiliana',
       description:
-        'Wandern, Restaurants, Feste, Markt, Wellness, Ausflüge und nahe Strände: Entdeckt Frigiliana mit praktischen Tipps von AMARA.',
+        'Lauft durch Frigiliana, startet in die Berge, verbringt einen Tag am Meer oder macht es euch einfach bei Casa AMARA gemütlich.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Qué hacer en Frigiliana',
       description:
-        'Senderismo, gastronomía, fiestas, mercado, bienestar, excursiones y playas cercanas para disfrutar Frigiliana a vuestro ritmo.',
+        'Pasead por Frigiliana, salid a la montaña, pasad el día junto al mar o disfrutad sin prisas de Casa AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Wat te doen in Frigiliana',
       description:
-        'Ontdek wandelingen, dorpsrestaurants, feesten, de markt, wellness, dagtochten en nabijgelegen stranden in AMARA’s Frigiliana-gids.',
+        'Wandel door Frigiliana, trek de heuvels in, breng een dag aan zee door of doe het rustig aan bij Casa AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Att göra i Frigiliana',
       description:
-        'Upptäck vandring, byrestauranger, festivaler, marknad, wellness, utflykter och närliggande stränder i AMARAs Frigiliana-guide.',
+        'Promenera genom Frigiliana, ge er ut i bergen, tillbringa en dag vid havet eller ta det lugnt på Casa AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -388,15 +388,14 @@ export const experienceHubContent: Record<
       hub: 'All experiences'
     },
     hero: {
-      kicker: 'Things to do in Frigiliana',
-      title: 'Whitewashed streets, mountain paths and days with room to breathe.',
+      kicker: 'Your days in Frigiliana',
+      title: 'Morning in the village, later the hills or the sea.',
       paragraphs: [
-        'Shape your days around five real possibilities: explore Frigiliana’s old town, walk into the mountain landscape, choose a coast day, continue into dinner and a Nerja sundowner, or return early for private time at your AMARA hideaway. Weather, energy and appetite decide the order; no fixed itinerary does.',
-        'The choices below explain what each version of the day means for you before a link appears. Open a detailed guide only when route, beach, table, current conditions or the return becomes your next question.'
+        'At Casa AMARA, the day begins in the middle of Frigiliana. Pick up bread, wander through the old lanes, walk into the hills or head down to Nerja for the beach. In the evening, you can eat in the village and simply walk home. There is no programme to complete — every day can be different.'
       ],
       imageAlt:
         'A whitewashed street in Frigiliana opening towards the surrounding hills',
-      exploreCta: 'Choose your experience'
+      exploreCta: 'See how the day could unfold'
     },
     sectionNav: {
       editorial: 'Highlights',
@@ -405,11 +404,11 @@ export const experienceHubContent: Record<
       places: 'Two places'
     },
     editorial: {
-      kicker: 'Three ways to start',
-      title: 'A beach, a table worth booking or one good day trip.',
+      kicker: 'What we enjoy ourselves',
+      title: 'Four easy ways to spend a day from Casa AMARA.',
       intro:
-        'Choose the beach for an easy day, find a restaurant by location and style of meal, or compare realistic travel times for one good day trip.',
-      featuredIds: ['beaches', 'restaurants', 'dayTrips']
+        'Stay in the village, add some movement, go to the sea or leave the day deliberately empty. Each works on its own.',
+      featuredIds: ['restaurants', 'hiking', 'beaches']
     },
     moods: {
       title: 'What would you like to do today?',
@@ -444,13 +443,13 @@ export const experienceHubContent: Record<
         'Browse seven guides shaped around a stay in Frigiliana, from walking out of the village to planning a market morning or a nearby beach day.',
       curation: MARKET_CURATED,
       order: [
-        'beaches',
         'restaurants',
+        'hiking',
+        'beaches',
+        'wellness',
         'dayTrips',
         'festivals',
-        'market',
-        'wellness',
-        'hiking'
+        'market'
       ],
       destinationLabels: {
         frigiliana: 'Frigiliana',
@@ -460,27 +459,27 @@ export const experienceHubContent: Record<
     },
     stories: {
       hiking: {
-        kicker: 'Footpaths & views',
-        title: 'Walk beyond the white village',
+        kicker: 'A day with more movement',
+        title: 'Walk from the white village into the hills',
         text:
-          'Choose an easy village circuit or a more demanding route into the Sierras de Tejeda, with clear notes on heat, terrain and preparation.',
+          'The landscape begins just above the old town, with short walks as well as longer routes. Check the heat, weather and exact track before leaving.',
         linkLabel: 'Open the hiking guide',
         imageAlt:
           'Frigiliana street with a view towards the mountain landscape'
       },
       beaches: {
-        kicker: 'Mediterranean days',
-        title: 'Find the right stretch of coast',
+        kicker: 'When you feel like the sea',
+        title: 'Head down to Nerja for a beach day',
         text:
-          'From easy-access town beaches to coves and longer coastal days, compare the character of the shore before choosing where to settle.',
+          'Nerja is close enough for a relaxed day by the water. In the evening, return to Frigiliana, walk out for dinner and leave the car where it is.',
         linkLabel: 'Open the beach guide',
         imageAlt: 'Palm trees and the Mediterranean on Nerja’s coast'
       },
       restaurants: {
-        kicker: 'Food & tables',
-        title: 'Choose dinner — and a tested Nerja sundowner',
+        kicker: 'Village mornings & evenings',
+        title: 'Pick up bread, wander the lanes and walk out to dinner',
         text:
-          'Stay in Frigiliana for dinner, or make central Nerja the evening. Our concrete continuation is Cochran’s Terrace, where we watched the sunset in summer 2025; the restaurant guide keeps the meal choice and return practical.',
+          'Some of our favourite days are the simplest: breakfast in the village, time at Casa AMARA and a small restaurant in the evening. No car and no timetable needed.',
         linkLabel: 'Open the restaurant guide',
         imageAlt: 'Sunlit whitewashed lane in Frigiliana'
       },
@@ -509,10 +508,10 @@ export const experienceHubContent: Record<
         imageAlt: 'Frigiliana in the Andalusian hills'
       },
       wellness: {
-        kicker: 'Rest & reset',
-        title: 'Leave room for a genuinely quiet day',
+        kicker: 'A day without an excursion',
+        title: 'Stay home and enjoy the hideaway',
         text:
-          'Compare a treatment at your accommodation with a massage in the countryside, including what to confirm before you book.',
+          'Depending on your stay, a terrace, a hammock, a book and nowhere else to be can be enough. The wellness guide is there if you would like to add a treatment rather than another outing.',
         linkLabel: 'Open the wellness guide',
         imageAlt: 'Calm AMARA bedroom prepared for a restful stay'
       },
@@ -544,9 +543,9 @@ export const experienceHubContent: Record<
       }
     },
     closing: {
-      title: 'Choose where to stay, then plan the days.',
+      title: 'And in the evening, walk home through the old village.',
       lead:
-        'AMARA has four stays in Frigiliana and one in Nerja, with both places easy to include in the same trip.',
+        'Lounis, Zaid and Maha have private terraces; Farah is our compact suite without one. We are happy to tell you honestly which stay has the details that matter to you.',
       availabilityCta: 'Check availability',
       staysCta: 'View all stays'
     }
@@ -557,15 +556,14 @@ export const experienceHubContent: Record<
       hub: 'Alle Erlebnisse'
     },
     hero: {
-      kicker: 'Aktivitäten in Frigiliana',
-      title: 'Wie möchtet ihr eure gemeinsamen Urlaubstage gestalten?',
+      kicker: 'Eure Tage in Frigiliana',
+      title: 'Morgens durchs Dorf, später in die Berge oder ans Meer.',
       paragraphs: [
-        'Ihr könnt eure Tage aus fünf echten Möglichkeiten zusammensetzen: Frigilianas Altstadt entdecken, in die Berglandschaft wandern, einen Küstentag wählen, mit Essen und einem Sundowner in Nerja weitermachen oder früher in euer privates AMARA Hideaway zurückkehren. Wetter, Energie und Appetit bestimmen die Reihenfolge – kein vorgegebener Reiseplan.',
-        'Die Auswahl darunter erklärt zuerst, was jede Tagesform für euch bedeutet. Einen ausführlichen Guide öffnet ihr erst dann, wenn Route, Strand, Tisch, aktuelle Bedingungen oder Rückweg zur nächsten konkreten Frage werden.'
+        'Bei Casa AMARA beginnt der Tag mitten in Frigiliana. Ihr holt morgens Brot, lauft durch die alten Gassen, startet in die Berge oder fahrt für einen Strandtag hinunter nach Nerja. Abends könnt ihr im Dorf essen gehen und danach einfach nach Hause laufen. Es gibt kein Programm, das ihr abhaken müsst – macht das, was an diesem Tag zu euch passt.'
       ],
       imageAlt:
         'Weiße Gasse in Frigiliana mit Blick auf die umliegenden Berge',
-      exploreCta: 'Erlebnis auswählen'
+      exploreCta: 'So könnte euer Tag aussehen'
     },
     sectionNav: {
       editorial: 'Unsere Tipps',
@@ -574,11 +572,11 @@ export const experienceHubContent: Record<
       places: 'Zwei Orte'
     },
     editorial: {
-      kicker: 'Eure Auswahl',
-      title: 'Drei Tagesformen, die ihr frei miteinander verbinden könnt.',
+      kicker: 'Was wir selbst gerne machen',
+      title: 'Vier einfache Arten, einen Tag bei Casa AMARA zu verbringen',
       intro:
-        'Wählt nach Energie, Bedingungen und dem Rhythmus, den ihr miteinander sucht. Jeder Tag kann für sich stehen; daraus entsteht kein vorgegebener Reiseplan.',
-      featuredIds: ['hiking', 'beaches', 'restaurants']
+        'Bleibt im Dorf, bewegt euch draußen, fahrt ans Meer oder lasst den Tag bewusst frei. Jede Idee funktioniert für sich.',
+      featuredIds: ['restaurants', 'hiking', 'beaches']
     },
     moods: {
       title: 'Was möchtet ihr heute unternehmen?',
@@ -613,13 +611,13 @@ export const experienceHubContent: Record<
         'Sieben Guides beantworten unterschiedliche Fragen rund um euren Aufenthalt in Frigiliana – vom Wanderweg bis zum Marktbesuch oder einem nahen Strandtag.',
       curation: MARKET_CURATED,
       order: [
-        'beaches',
         'restaurants',
         'hiking',
+        'beaches',
+        'wellness',
         'dayTrips',
         'festivals',
-        'market',
-        'wellness'
+        'market'
       ],
       destinationLabels: {
         frigiliana: 'Frigiliana',
@@ -629,26 +627,26 @@ export const experienceHubContent: Record<
     },
     stories: {
       hiking: {
-        kicker: 'Wege & Weitblick',
-        title: 'Zu Fuß über das weiße Dorf hinaus',
+        kicker: 'Ein Tag mit mehr Bewegung',
+        title: 'Von den weißen Gassen hinaus in die Berge',
         text:
-          'Entscheidet nach Kondition, Gelände und Wetter, wie verbindlich euer Tag in der Berglandschaft werden soll. Route, aktuelle Bedingungen und Sicherheit prüft ihr anschließend im Wanderguide.',
+          'Oberhalb der Altstadt beginnt direkt die Landschaft – mit kurzen Spaziergängen ebenso wie mit längeren Routen. Prüft vor dem Start Hitze, Wetter und den genauen Weg.',
         linkLabel: 'Zum Wanderguide',
         imageAlt: 'Frigilianas Altstadt mit Blick in die Berglandschaft'
       },
       beaches: {
-        kicker: 'Tage am Mittelmeer',
-        title: 'Findet den Strand, der zu eurem Tag passt',
+        kicker: 'Wenn euch nach Meer ist',
+        title: 'Für einen Strandtag hinunter nach Nerja',
         text:
-          'Ein Strand mit Infrastruktur, eine kleinere Bucht oder ein längerer Küstentag verändern euren Rhythmus. Der Strandguide hilft euch, Zugang und Setting vor der Abfahrt einzuordnen.',
+          'Nerja ist nah genug für einen entspannten Tag am Wasser. Abends kommt ihr nach Frigiliana zurück, geht zu Fuß essen und lasst das Auto stehen.',
         linkLabel: 'Zum Strandguide',
         imageAlt: 'Palmen und Mittelmeer an der Küste von Nerja'
       },
       restaurants: {
-        kicker: 'Essen & Abend',
-        title: 'Wählt das Essen — und einen erprobten Nerja-Sundowner',
+        kicker: 'Morgens und abends im Dorf',
+        title: 'Brot holen, durch die Gassen laufen und später zu Fuß essen gehen',
         text:
-          'Bleibt zum Essen in Frigiliana oder macht Nerjas Zentrum zum Abend. Unsere konkrete Fortsetzung ist Cochran’s Terrace, wo wir im Sommer 2025 selbst den Sonnenuntergang gesehen haben; der Restaurantguide hält Essenswahl und Rückweg praktisch.',
+          'Manche unserer liebsten Tage sind ganz einfach: Frühstück im Dorf, Zeit bei Casa AMARA und abends ein kleines Restaurant. Dafür braucht ihr weder Auto noch Zeitplan.',
         linkLabel: 'Zum Restaurantguide',
         imageAlt: 'Sonnige weiße Altstadtgasse in Frigiliana'
       },
@@ -670,17 +668,17 @@ export const experienceHubContent: Record<
       },
       dayTrips: {
         kicker: 'Ein Ziel für den Tag',
-        title: 'Lasst einen andalusischen Ort den Tag bestimmen',
+        title: 'Málaga, Granada oder der Caminito del Rey',
         text:
-          'Vergleicht Málaga, Granada, den Caminito del Rey und Ronda mit realistischen Fahrzeiten und Planungshinweisen.',
+          'Jedes dieser Ziele verdient einen eigenen Tag. So bleibt genug Zeit vor Ort und ihr kommt am Abend zurück nach Frigiliana, ohne mehrere Orte hastig miteinander zu verbinden.',
         linkLabel: 'Zum Tagesausflugsguide',
         imageAlt: 'Frigiliana in der andalusischen Hügellandschaft'
       },
       wellness: {
-        kicker: 'Ruhe & Regeneration',
-        title: 'Plant bewusst einen ruhigen Tag ein',
+        kicker: 'Ein Tag ohne Ausflugsziel',
+        title: 'Einfach in der Unterkunft bleiben',
         text:
-          'Erholung in der Unterkunft, eine mobile Behandlung oder eine Massage auf dem Land — ohne aus Wellness den nächsten Terminplan zu machen.',
+          'Je nach Unterkunft können Terrasse, Hängematte, ein Buch und sonst nichts völlig reichen. Im Wellnessguide findet ihr eine Behandlung, falls ihr eurem ruhigen Tag doch etwas hinzufügen möchtet.',
         linkLabel: 'Zum Wellnessguide',
         imageAlt: 'Ruhiges AMARA Schlafzimmer für eine erholsame Auszeit'
       },
@@ -712,9 +710,9 @@ export const experienceHubContent: Record<
       }
     },
     closing: {
-      title: 'Wenn aus einem Urlaubstag wieder gemeinsame Zeit wird.',
+      title: 'Und am Ende wieder nach Hause durch die Altstadt.',
       lead:
-        'Nach Wandern, Küste oder Abendessen könnt ihr den Tag privat ausklingen lassen. Lounis, Zaid und Maha besitzen jeweils eine private Terrasse mit Außendusche, Hängematte und zwei Liegen; Farah gehört ausdrücklich nicht zu dieser Terrassen-Rückkehr. Welche Unterkunft zu euch passt, beantwortet Romantic Hideaways.',
+        'Lounis, Zaid und Maha haben jeweils eine private Terrasse mit Außendusche, Hängematte und zwei Liegen. Farah ist unsere kompakte Suite ohne private Terrasse. Wir sagen euch gern ehrlich, welche Unterkunft die Details hat, die euch wichtig sind.',
       availabilityCta: 'Verfügbarkeit prüfen',
       staysCta: 'Romantic Hideaways entdecken'
     }
@@ -725,15 +723,14 @@ export const experienceHubContent: Record<
       hub: 'Todas las experiencias'
     },
     hero: {
-      kicker: 'Qué hacer en Frigiliana',
-      title: 'Calles blancas, senderos de montaña y días sin prisa.',
+      kicker: 'Vuestros días en Frigiliana',
+      title: 'Por la mañana el pueblo; después, la montaña o el mar.',
       paragraphs: [
-        'Podéis componer los días con cinco posibilidades reales: descubrir el casco antiguo de Frigiliana, caminar por la montaña, elegir una jornada de costa, seguir con cena y atardecer en Nerja o volver antes para disfrutar en privado de vuestro refugio AMARA. El tiempo, la energía y el apetito deciden el orden, no un itinerario fijo.',
-        'La selección explica primero qué significa cada forma de pasar el día. Abrid una guía detallada solo cuando la ruta, la playa, la mesa, las condiciones actuales o el regreso se conviertan en la siguiente pregunta concreta.'
+        'En Casa AMARA el día empieza en pleno Frigiliana. Podéis comprar pan, pasear por las calles antiguas, salir a la montaña o bajar a Nerja para pasar el día en la playa. Por la noche cenáis en el pueblo y volvéis a casa andando. No hay ningún programa que completar: cada día puede ser distinto.'
       ],
       imageAlt:
         'Calle blanca de Frigiliana abierta hacia las montañas cercanas',
-      exploreCta: 'Elige tu experiencia'
+      exploreCta: 'Así podría ser vuestro día'
     },
     sectionNav: {
       editorial: 'Destacados',
@@ -742,11 +739,11 @@ export const experienceHubContent: Record<
       places: 'Dos lugares'
     },
     editorial: {
-      kicker: 'Tres formas de empezar',
-      title: 'Una buena mesa, el mar y una fiesta que cambie el ritmo.',
+      kicker: 'Lo que también nos gusta hacer',
+      title: 'Cuatro formas sencillas de pasar el día desde Casa AMARA.',
       intro:
-        'Empezad por la gastronomía o por un día de playa. Cuando el calendario coincide, las fiestas muestran otra forma de vivir el pueblo.',
-      featuredIds: ['restaurants', 'beaches', 'festivals']
+        'Quedaos en el pueblo, salid a caminar, bajad al mar o dejad el día libre. Cada opción funciona por sí sola.',
+      featuredIds: ['restaurants', 'hiking', 'beaches']
     },
     moods: {
       title: '¿Qué queréis hacer hoy?',
@@ -782,12 +779,12 @@ export const experienceHubContent: Record<
       curation: MARKET_CURATED,
       order: [
         'restaurants',
+        'hiking',
         'beaches',
-        'festivals',
-        'market',
         'wellness',
         'dayTrips',
-        'hiking'
+        'festivals',
+        'market'
       ],
       destinationLabels: {
         frigiliana: 'Frigiliana',
@@ -797,26 +794,26 @@ export const experienceHubContent: Record<
     },
     stories: {
       hiking: {
-        kicker: 'Senderos y vistas',
-        title: 'Caminar más allá del pueblo blanco',
+        kicker: 'Un día con más movimiento',
+        title: 'Salir de las calles blancas hacia la montaña',
         text:
-          'Desde un paseo sencillo cerca del casco antiguo hasta rutas más exigentes hacia las Sierras de Tejeda, con atención al calor, al terreno y a la preparación.',
+          'El paisaje empieza justo por encima del casco antiguo, con paseos cortos y rutas más largas. Comprobad antes el calor, el tiempo y el recorrido exacto.',
         linkLabel: 'Ver la guía de senderismo',
         imageAlt: 'Frigiliana con las montañas al fondo'
       },
       beaches: {
-        kicker: 'Días mediterráneos',
-        title: 'Encontrar la playa adecuada para cada día',
+        kicker: 'Cuando apetece el mar',
+        title: 'Bajar a Nerja para pasar el día en la playa',
         text:
-          'Playas urbanas cómodas, pequeñas calas o una jornada más larga por la costa: comparad el ambiente antes de elegir.',
+          'Nerja está lo bastante cerca para disfrutar de un día tranquilo junto al agua. Por la noche volvéis a Frigiliana, salís a cenar andando y dejáis el coche aparcado.',
         linkLabel: 'Ver la guía de playas',
         imageAlt: 'Palmeras y mar Mediterráneo en la costa de Nerja'
       },
       restaurants: {
-        kicker: 'Cocina y ambiente',
-        title: 'Elegir la cena y un atardecer probado en Nerja',
+        kicker: 'Mañanas y noches en el pueblo',
+        title: 'Comprar pan, pasear por las calles y salir a cenar andando',
         text:
-          'Cenad en Frigiliana o convertid el centro de Nerja en vuestra noche. Nuestra continuación concreta es Cochran’s Terrace, donde vimos personalmente la puesta de sol en verano de 2025; la guía ordena la cena y el regreso.',
+          'Algunos de nuestros días favoritos son los más sencillos: desayunar en el pueblo, disfrutar de Casa AMARA y cenar en un restaurante pequeño. Sin coche y sin horarios.',
         linkLabel: 'Ver la guía de restaurantes',
         imageAlt: 'Calle blanca de Frigiliana iluminada por el sol'
       },
@@ -845,10 +842,10 @@ export const experienceHubContent: Record<
         imageAlt: 'Frigiliana entre las colinas de Andalucía'
       },
       wellness: {
-        kicker: 'Calma y bienestar',
-        title: 'Reservar espacio para descansar de verdad',
+        kicker: 'Un día sin excursiones',
+        title: 'Quedarse y disfrutar del alojamiento',
         text:
-          'Una jornada lenta, un tratamiento en el alojamiento o un masaje en el campo, sin llenar de obligaciones el tiempo de descanso.',
+          'Según el alojamiento, una terraza, una hamaca, un libro y ningún otro plan pueden ser suficientes. La guía de bienestar os ayuda si queréis añadir un tratamiento en vez de otra salida.',
         linkLabel: 'Ver la guía de bienestar',
         imageAlt: 'Dormitorio tranquilo de AMARA preparado para descansar'
       },
@@ -880,9 +877,9 @@ export const experienceHubContent: Record<
       }
     },
     closing: {
-      title: 'Elegid dónde alojaros y planificad después los días.',
+      title: 'Y por la noche, volvéis a casa por el casco antiguo.',
       lead:
-        'AMARA tiene cuatro alojamientos en Frigiliana y uno en Nerja, y podéis incluir los dos lugares en el mismo viaje.',
+        'Lounis, Zaid y Maha tienen terraza privada; Farah es nuestra suite compacta sin terraza. Os diremos con sinceridad qué alojamiento tiene los detalles que más os importan.',
       availabilityCta: 'Consultar disponibilidad',
       staysCta: 'Ver todos los alojamientos'
     }
@@ -893,15 +890,14 @@ export const experienceHubContent: Record<
       hub: 'Alle ervaringen'
     },
     hero: {
-      kicker: 'Wat te doen in Frigiliana',
-      title: 'Witte straatjes, bergpaden en dagen met ruimte.',
+      kicker: 'Jullie dagen in Frigiliana',
+      title: 'In de ochtend het dorp, daarna de bergen of de zee.',
       paragraphs: [
-        'Stel jullie dagen samen uit vijf echte mogelijkheden: ontdek de oude stad van Frigiliana, wandel het berglandschap in, kies een dag aan de kust, ga verder met diner en een sundowner in Nerja of keer eerder terug voor privé-tijd in jullie AMARA-hideaway. Weer, energie en trek bepalen de volgorde, niet een vast programma.',
-        'De keuzes hieronder leggen eerst uit wat elke dagvorm voor jullie betekent. Open pas een uitgebreide gids wanneer route, strand, tafel, actuele omstandigheden of terugweg de volgende concrete vraag wordt.'
+        'Bij Casa AMARA begint de dag midden in Frigiliana. Haal brood, wandel door de oude straatjes, trek de heuvels in of ga naar Nerja voor een stranddag. ’s Avonds eten jullie in het dorp en lopen daarna gewoon naar huis. Er is geen programma om af te werken: elke dag mag anders zijn.'
       ],
       imageAlt:
         'Witte straat in Frigiliana met uitzicht richting de bergen',
-      exploreCta: 'Kies een activiteit'
+      exploreCta: 'Zo kan jullie dag eruitzien'
     },
     sectionNav: {
       editorial: 'Uitgelicht',
@@ -910,11 +906,11 @@ export const experienceHubContent: Record<
       places: 'Twee plaatsen'
     },
     editorial: {
-      kicker: 'Drie manieren om te beginnen',
-      title: 'Begin aan zee, kies een goede tafel en trek daarna de natuur in.',
+      kicker: 'Wat wij zelf graag doen',
+      title: 'Vier eenvoudige manieren om een dag vanuit Casa AMARA door te brengen.',
       intro:
-        'Een stranddag en een goed gekozen maaltijd vormen de makkelijke basis. Voeg een wandeling toe wanneer jullie actief de heuvels in willen.',
-      featuredIds: ['beaches', 'restaurants', 'hiking']
+        'Blijf in het dorp, ga bewegen, zoek de zee op of laat de dag bewust leeg. Elke keuze werkt op zichzelf.',
+      featuredIds: ['restaurants', 'hiking', 'beaches']
     },
     moods: {
       title: 'Wat willen jullie vandaag doen?',
@@ -949,13 +945,13 @@ export const experienceHubContent: Record<
         'Zeven gidsen beantwoorden verschillende vragen rond een verblijf in Frigiliana, van wandelen en de markt tot een stranddag in de buurt.',
       curation: MARKET_CURATED,
       order: [
-        'beaches',
         'restaurants',
         'hiking',
+        'beaches',
+        'wellness',
         'dayTrips',
-        'market',
         'festivals',
-        'wellness'
+        'market'
       ],
       destinationLabels: {
         frigiliana: 'Frigiliana',
@@ -965,26 +961,26 @@ export const experienceHubContent: Record<
     },
     stories: {
       hiking: {
-        kicker: 'Paden & uitzicht',
-        title: 'Loop verder dan het witte dorp',
+        kicker: 'Een dag met meer beweging',
+        title: 'Loop vanuit de witte straatjes de heuvels in',
         text:
-          'Kies een ontspannen ronde rond Frigiliana of een steviger traject richting de Sierras de Tejeda, met heldere informatie over hitte, terrein en voorbereiding.',
+          'Het landschap begint direct boven de oude kern, met korte wandelingen en langere routes. Controleer vooraf de hitte, het weer en het precieze traject.',
         linkLabel: 'Open de wandelgids',
         imageAlt: 'Frigiliana met uitzicht op het berglandschap'
       },
       beaches: {
-        kicker: 'Dagen aan zee',
-        title: 'Vind het stuk kust dat bij jullie dag past',
+        kicker: 'Als jullie zin hebben in zee',
+        title: 'Ga naar Nerja voor een stranddag',
         text:
-          'Van makkelijk bereikbare stadsstranden tot kleine baaien en langere kustdagen: vergelijk sfeer en bereikbaarheid voordat jullie vertrekken.',
+          'Nerja ligt dichtbij genoeg voor een ontspannen dag aan het water. ’s Avonds keren jullie terug naar Frigiliana, lopen naar een restaurant en laten de auto staan.',
         linkLabel: 'Open de strandgids',
         imageAlt: 'Palmbomen en de Middellandse Zee aan de kust van Nerja'
       },
       restaurants: {
-        kicker: 'Eten & sfeer',
-        title: 'Kies het diner en een beproefde sundowner in Nerja',
+        kicker: 'Ochtenden en avonden in het dorp',
+        title: 'Haal brood, wandel door de straatjes en ga later te voet uit eten',
         text:
-          'Eet in Frigiliana of maak van centraal Nerja jullie avond. Onze concrete volgende stap is Cochran’s Terrace, waar we in de zomer van 2025 zelf de zon zagen ondergaan; de restaurantgids houdt dinerkeuze en terugreis praktisch.',
+          'Sommige van onze favoriete dagen zijn heel eenvoudig: ontbijten in het dorp, tijd bij Casa AMARA en ’s avonds een klein restaurant. Zonder auto en zonder tijdschema.',
         linkLabel: 'Open de restaurantgids',
         imageAlt: 'Zonnige witte straat in Frigiliana'
       },
@@ -1013,10 +1009,10 @@ export const experienceHubContent: Record<
         imageAlt: 'Frigiliana tussen de Andalusische heuvels'
       },
       wellness: {
-        kicker: 'Rust & herstel',
-        title: 'Houd ruimte vrij voor een echt rustige dag',
+        kicker: 'Een dag zonder uitstapje',
+        title: 'Blijf thuis en geniet van het verblijf',
         text:
-          'Vergelijk een behandeling in jullie verblijf met een massage op het platteland, inclusief wat er vóór het boeken moet worden bevestigd.',
+          'Afhankelijk van het verblijf kunnen een terras, een hangmat, een boek en verder niets hoeven genoeg zijn. De wellnessgids helpt als jullie liever een behandeling toevoegen dan nog een uitstapje.',
         linkLabel: 'Open de wellnessgids',
         imageAlt: 'Rustige AMARA-slaapkamer voor een ontspannen verblijf'
       },
@@ -1048,9 +1044,9 @@ export const experienceHubContent: Record<
       }
     },
     closing: {
-      title: 'Kies jullie verblijf en plan daarna de dagen.',
+      title: 'En ’s avonds lopen jullie door de oude kern naar huis.',
       lead:
-        'AMARA heeft vier verblijven in Frigiliana en één in Nerja; beide plaatsen passen gemakkelijk in dezelfde reis.',
+        'Lounis, Zaid en Maha hebben een privéterras; Farah is onze compacte suite zonder terras. We vertellen jullie graag eerlijk welk verblijf de details heeft die belangrijk voor jullie zijn.',
       availabilityCta: 'Beschikbaarheid checken',
       staysCta: 'Bekijk alle verblijven'
     }
@@ -1061,15 +1057,14 @@ export const experienceHubContent: Record<
       hub: 'Alla upplevelser'
     },
     hero: {
-      kicker: 'Att göra i Frigiliana',
-      title: 'Vita gränder, bergsleder och dagar med gott om utrymme.',
+      kicker: 'Era dagar i Frigiliana',
+      title: 'Byn på morgonen, sedan bergen eller havet.',
       paragraphs: [
-        'Sätt ihop dagarna av fem verkliga möjligheter: upptäck Frigilianas gamla stad, vandra ut i bergslandskapet, välj en dag vid kusten, fortsätt med middag och sundowner i Nerja eller återvänd tidigare för privat tid i ert AMARA-hideaway. Väder, energi och aptit avgör ordningen, inte ett fast schema.',
-        'Valen nedan förklarar först vad varje sorts dag betyder för er. Öppna en detaljerad guide först när led, strand, bord, aktuella förhållanden eller hemresa blir nästa konkreta fråga.'
+        'På Casa AMARA börjar dagen mitt i Frigiliana. Hämta bröd, promenera genom de gamla gränderna, ge er ut i bergen eller åk till Nerja för en stranddag. På kvällen äter ni i byn och går sedan bara hem. Det finns inget program att hinna med – varje dag får se olika ut.'
       ],
       imageAlt:
         'Vitkalkad gata i Frigiliana med utsikt mot bergen',
-      exploreCta: 'Välj din upplevelse'
+      exploreCta: 'Så kan er dag se ut'
     },
     sectionNav: {
       editorial: 'Utvalt',
@@ -1078,11 +1073,11 @@ export const experienceHubContent: Record<
       places: 'Två platser'
     },
     editorial: {
-      kicker: 'Tre sätt att börja',
-      title: 'Börja vid havet, välj ett bra bord och lämna plats för vila.',
+      kicker: 'Det vi själva gärna gör',
+      title: 'Fyra enkla sätt att tillbringa en dag från Casa AMARA.',
       intro:
-        'En stranddag och en väl vald måltid är den enkla grunden. Lägg till wellness när vistelsen behöver ett lugnare tempo.',
-      featuredIds: ['beaches', 'restaurants', 'wellness']
+        'Stanna i byn, rör på er, åk till havet eller lämna dagen medvetet tom. Varje val fungerar för sig.',
+      featuredIds: ['restaurants', 'hiking', 'beaches']
     },
     moods: {
       title: 'Vad vill ni göra i dag?',
@@ -1117,13 +1112,13 @@ export const experienceHubContent: Record<
         'Sju guider svarar på olika frågor om en vistelse i Frigiliana, från vandring och marknad till en stranddag i närheten.',
       curation: MARKET_CURATED,
       order: [
-        'beaches',
         'restaurants',
+        'hiking',
+        'beaches',
         'wellness',
         'dayTrips',
-        'market',
         'festivals',
-        'hiking'
+        'market'
       ],
       destinationLabels: {
         frigiliana: 'Frigiliana',
@@ -1133,26 +1128,26 @@ export const experienceHubContent: Record<
     },
     stories: {
       hiking: {
-        kicker: 'Stigar & utsikt',
-        title: 'Vandra vidare från den vita byn',
+        kicker: 'En dag med mer rörelse',
+        title: 'Gå från de vita gränderna ut i bergen',
         text:
-          'Välj en lättare runda nära Frigiliana eller en mer krävande led mot Sierras de Tejeda, med tydliga råd om värme, terräng och förberedelser.',
+          'Landskapet börjar strax ovanför gamla byn, med både korta promenader och längre turer. Kontrollera värme, väder och den exakta rutten före start.',
         linkLabel: 'Öppna vandringsguiden',
         imageAlt: 'Frigiliana med utsikt mot bergslandskapet'
       },
       beaches: {
-        kicker: 'Dagar vid Medelhavet',
-        title: 'Hitta stranden som passar dagen',
+        kicker: 'När ni längtar efter havet',
+        title: 'Åk ner till Nerja för en stranddag',
         text:
-          'Lättillgängliga stadsstränder, mindre vikar eller en längre dag längs kusten — jämför stämning och tillgänglighet innan ni väljer.',
+          'Nerja ligger nära nog för en avkopplande dag vid vattnet. På kvällen återvänder ni till Frigiliana, går ut och äter och låter bilen stå.',
         linkLabel: 'Öppna strandguiden',
         imageAlt: 'Palmer och Medelhavet vid Nerjas kust'
       },
       restaurants: {
-        kicker: 'Mat & stämning',
-        title: 'Välj middag och en prövad sundowner i Nerja',
+        kicker: 'Morgnar och kvällar i byn',
+        title: 'Hämta bröd, gå genom gränderna och promenera ut till middagen',
         text:
-          'Ät i Frigiliana eller låt centrala Nerja bli kvällens mål. Vår konkreta fortsättning är Cochran’s Terrace, där vi själva såg solnedgången sommaren 2025; restaurangguiden håller val av middag och hemresa praktiska.',
+          'Några av våra favoritdagar är de enklaste: frukost i byn, tid på Casa AMARA och en liten restaurang på kvällen. Ingen bil och inget tidsschema behövs.',
         linkLabel: 'Öppna restaurangguiden',
         imageAlt: 'Solbelyst vit gata i Frigiliana'
       },
@@ -1181,10 +1176,10 @@ export const experienceHubContent: Record<
         imageAlt: 'Frigiliana bland Andalusiens kullar'
       },
       wellness: {
-        kicker: 'Vila & återhämtning',
-        title: 'Ge plats åt en verkligt stilla dag',
+        kicker: 'En dag utan utflykt',
+        title: 'Stanna hemma och njut av boendet',
         text:
-          'Jämför en behandling i boendet med massage på landsbygden, inklusive vad ni bör bekräfta före bokningen.',
+          'Beroende på boendet kan en terrass, en hängmatta, en bok och ingen annanstans att vara räcka. Wellnessguiden finns om ni hellre vill lägga till en behandling än ännu en utflykt.',
         linkLabel: 'Öppna wellnessguiden',
         imageAlt: 'Lugnt AMARA-sovrum för en avkopplande vistelse'
       },
@@ -1216,9 +1211,9 @@ export const experienceHubContent: Record<
       }
     },
     closing: {
-      title: 'Välj boende och planera sedan dagarna.',
+      title: 'Och på kvällen går ni hem genom gamla byn.',
       lead:
-        'AMARA har fyra boenden i Frigiliana och ett i Nerja; båda platserna ryms enkelt i samma resa.',
+        'Lounis, Zaid och Maha har privata terrasser; Farah är vår kompakta svit utan terrass. Vi berättar gärna ärligt vilket boende som har detaljerna som betyder mest för er.',
       availabilityCta: 'Se tillgänglighet',
       staysCta: 'Se alla boenden'
     }

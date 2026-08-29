@@ -93,8 +93,12 @@ interface AuthorityPage {
   blockBeforeSections: string | null;
   /** Block rendered between the text sections and the related links. */
   blockAfterSections: string | null;
-  /** Shared arrival-family modules, in their delivered order. */
+  /** Arrival-family modules, in their delivered order. */
   arrivalModules: string[] | null;
+  /** Whether the article currently carries the full editorial byline. */
+  authorByline?: boolean;
+  /** Delivered H1 when a page-family adapter intentionally replaces the source-module title. */
+  heroTitle?: string;
   interleaved: InterleavedBlock[];
   /** Attribute each text section carries in addition to its id. */
   sectionMarkerAttribute: string | null;
@@ -112,12 +116,14 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'getting_to_nerja',
     pageId: 'getting-to-nerja',
-    content: (lang) => resolveLocale(gettingToNerjaContent, lang),
+    content: (lang) => ({ ...resolveLocale(gettingToNerjaContent, lang), related: undefined }),
     heroMark: null,
-    relatedColumns: 'md:grid-cols-2',
+    relatedColumns: null,
     blockBeforeSections: null,
     blockAfterSections: null,
-    arrivalModules: ['gateways', 'options', 'journey-steps', 'mobility', 'parking', 'final-mile'],
+    arrivalModules: ['options', 'parking', 'final-mile'],
+    authorByline: false,
+    heroTitle: 'Cómo llegar a Nerja y a AMARA Playa',
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
@@ -450,20 +456,24 @@ for (const entry of AUTHORITY_PAGES) {
     // through the light DOM so the dev toolbar's own shadow markup is excluded.
     const documentHeadings = await page.evaluate(() => document.querySelectorAll('h1').length);
     expect(documentHeadings).toBe(1);
-    await expect(article.locator('h1')).toHaveText(locale.hero.title);
+    await expect(article.locator('h1')).toHaveText(entry.heroTitle ?? locale.hero.title);
 
     // Element order, including where each page-specific block sits.
     expect(await articleBlocks(page, entry.pageId)).toEqual(expectedBlocks(entry, locale));
 
     // Editorial byline: one per article, crediting the author page.
     const byline = article.locator('[data-am-component="editorial-byline"]');
-    await expect(byline).toHaveCount(1);
-    await expect(byline.locator('a[rel="author"]')).toHaveAttribute(
-      'href',
-      resolveLink('about', SWEEP_LANGUAGE)
-    );
-    await expect(byline.locator('span').first()).toHaveText(locale.hero.updated);
-    await expect(byline.locator('span').last()).toHaveText(locale.hero.note);
+    if (entry.authorByline === false) {
+      await expect(byline).toHaveCount(0);
+    } else {
+      await expect(byline).toHaveCount(1);
+      await expect(byline.locator('a[rel="author"]')).toHaveAttribute(
+        'href',
+        resolveLink('about', SWEEP_LANGUAGE)
+      );
+      await expect(byline.locator('span').first()).toHaveText(locale.hero.updated);
+      await expect(byline.locator('span').last()).toHaveText(locale.hero.note);
+    }
 
     // Decorative hero mark.
     const heroMark = article.locator('header [data-am-hero-mark]');
@@ -555,7 +565,7 @@ for (const entry of AUTHORITY_PAGES) {
   });
 }
 
-test('the destination arrival pages use the shared module order', async ({ page }) => {
+test('the destination arrival pages use their declared module order', async ({ page }) => {
   const sharedModules = ['gateways', 'options', 'journey-steps', 'mobility', 'parking', 'final-mile'];
   const pages: Array<{ routeToken: LinkToken; pageId: string; modules: string[] }> = [
     {
@@ -566,7 +576,7 @@ test('the destination arrival pages use the shared module order', async ({ page 
     {
       routeToken: 'getting_to_nerja',
       pageId: 'getting-to-nerja',
-      modules: sharedModules
+      modules: ['options', 'parking', 'final-mile']
     },
     {
       routeToken: 'getting_to_tarifa',
