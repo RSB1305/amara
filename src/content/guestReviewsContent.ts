@@ -79,11 +79,11 @@ export const guestReviewsCopy = {
   },
   sections: {
     summaryTitle: {
-      en: 'The short version',
-      de: 'Kurz zusammengefasst',
-      es: 'En resumen',
-      nl: 'Kort samengevat',
-      sv: 'Kort sammanfattat'
+      en: 'Reviews at a glance',
+      de: 'Bewertungen auf einen Blick',
+      es: 'Las reseñas de un vistazo',
+      nl: 'Beoordelingen in één oogopslag',
+      sv: 'Omdömen i korthet'
     },
     summaryLead: {
       en: `★ ${airbnbRatingLabel.en} / 5 • ${airbnbReviewEvidence.reviewCountLabel} guest reviews`,
@@ -106,19 +106,12 @@ export const guestReviewsCopy = {
       nl: 'De cijfers geven een snel overzicht. De persoonlijke ervaringen van gasten vertellen meer.',
       sv: 'Siffrorna ger en snabb överblick. Gästernas personliga upplevelser berättar mer.'
     },
-    quote: {
-      en: 'This is not just a place to stay - it is a refuge that invites calm, connection, and gratitude.',
-      de: 'Das ist nicht nur ein Ort zum Übernachten - es ist ein Rückzugsort, der Ruhe, Verbundenheit und Dankbarkeit entstehen lässt.',
-      es: 'Esto no es solo un lugar para alojarse: es un refugio que invita a la calma, la conexión y la gratitud.',
-      nl: 'Dit is niet zomaar een plek om te verblijven - het is een toevluchtsoord dat uitnodigt tot rust, verbondenheid en dankbaarheid.',
-      sv: 'Det här är inte bara en plats att bo på - det är en fristad som inbjuder till lugn, samhörighet och tacksamhet.'
-    },
     reviewsTitle: {
-      en: 'Three guest reviews',
-      de: 'Drei Gästebewertungen',
-      es: 'Tres reseñas de huéspedes',
-      nl: 'Drie gastbeoordelingen',
-      sv: 'Tre gästrecensioner'
+      en: 'Three guests, in their own words',
+      de: 'Drei Stimmen von Gästen',
+      es: 'Tres huéspedes, en sus propias palabras',
+      nl: 'Drie gasten aan het woord',
+      sv: 'Tre gäster med egna ord'
     },
     reviewsNote: {
       en: 'Translated from the original.',
@@ -135,18 +128,18 @@ export const guestReviewsCopy = {
       sv: 'Det som gäster återkommande lyfter fram'
     },
     mentionsNote: {
-      en: 'Calm is not something you can promise. It comes from many small decisions, made the same way every time.',
-      de: 'Ruhe kann man nicht versprechen. Sie entsteht aus vielen kleinen Entscheidungen – jedes Mal aufs Neue.',
-      es: 'La calma no se promete. Nace de muchas decisiones pequeñas, tomadas siempre de la misma manera.',
-      nl: 'Rust kun je niet beloven. Die ontstaat uit veel kleine keuzes, elke keer opnieuw.',
-      sv: 'Lugn kan man inte lova. Det växer fram ur många små beslut, varje gång på samma sätt.'
+      en: 'The same practical points come up most often: cleanliness, quiet nights, well-equipped apartments and quick replies.',
+      de: 'Am häufigsten lesen wir von Sauberkeit, ruhigen Nächten, gut ausgestatteten Apartments und schnellen Antworten.',
+      es: 'Lo que más se repite es muy concreto: limpieza, noches tranquilas, apartamentos bien equipados y respuestas rápidas.',
+      nl: 'Dezelfde praktische punten komen het vaakst terug: netheid, rustige nachten, goed uitgeruste appartementen en snelle antwoorden.',
+      sv: 'Samma praktiska saker nämns oftast: rent, lugna nätter, välutrustade lägenheter och snabba svar.'
     },
     awardsTitle: {
-      en: 'Five stays. Five Traveller Review Awards 2026.',
-      de: 'Fünf Unterkünfte. Fünf Traveller Review Awards 2026.',
-      es: 'Cinco alojamientos. Cinco Traveller Review Awards 2026.',
-      nl: 'Vijf verblijven. Vijf Traveller Review Awards 2026.',
-      sv: 'Fem boenden. Fem Traveller Review Awards 2026.'
+      en: 'Five Traveller Review Awards 2026',
+      de: 'Fünf Traveller Review Awards 2026',
+      es: 'Cinco Traveller Review Awards 2026',
+      nl: 'Vijf Traveller Review Awards 2026',
+      sv: 'Fem Traveller Review Awards 2026'
     },
     awardsBody: {
       en: 'Across Frigiliana, Nerja and Tarifa, five AMARA stays received a Booking.com Traveller Review Award in 2026 — based on guest reviews.',
@@ -162,54 +155,19 @@ export const guestReviewsCopy = {
       nl: 'Bron: Booking.com Traveller Review Awards 2026.',
       sv: 'Källa: Booking.com Traveller Review Awards 2026.'
     },
-    locationTitle: {
-      en: 'Where are you heading?',
-      de: 'Wohin möchtet ihr?',
-      es: '¿Adónde queréis ir?',
-      nl: 'Waar willen jullie heen?',
-      sv: 'Vart vill ni?'
-    },
-    locationLead: {
-      en: 'The stays differ by location, layout and outdoor space. Their reviews reflect those differences.',
-      de: 'Die Unterkünfte unterscheiden sich in Lage, Raumaufteilung und Außenbereich. Das zeigt sich auch in ihren Bewertungen.',
-      es: 'Los alojamientos cambian según la ubicación, la distribución y el espacio exterior. Las reseñas reflejan esas diferencias.',
-      nl: 'De verblijven verschillen in ligging, indeling en buitenruimte. Dat is ook terug te zien in de beoordelingen.',
-      sv: 'Boendena skiljer sig åt i läge, planlösning och uteplats. Det märks också i recensionerna.'
-    },
-    locationFrigiliana: {
-      en: 'Four stays in the historic old town. Lounis, Zaid and Maha have private terraces; Farah is the simpler option for a short visit.',
-      de: 'Vier Unterkünfte in der historischen Altstadt. Lounis, Zaid und Maha haben private Terrassen; Farah ist die einfachere Wahl für einen kurzen Aufenthalt.',
-      es: 'Cuatro alojamientos en el casco antiguo. Lounis, Zaid y Maha tienen terraza privada; Farah es la opción más sencilla para una visita corta.',
-      nl: 'Vier verblijven in de historische oude kern. Lounis, Zaid en Maha hebben een privéterras; Farah is de eenvoudigere optie voor een kort bezoek.',
-      sv: 'Fyra boenden i den historiska gamla stan. Lounis, Zaid och Maha har privat terrass; Farah är det enklare alternativet för ett kort besök.'
-    },
-    locationNerja: {
-      en: '200 metres from the beach and still pleasantly quiet. Lift to the apartment floor, with a few steps before reaching the lift.',
-      de: '200 Meter zum Strand und trotzdem angenehm ruhig. Aufzug bis zur Wohnungsetage, davor sind einige Stufen zu überwinden.',
-      es: 'A 200 metros de la playa y, aun así, agradablemente tranquilo. Ascensor hasta la planta del apartamento, con algunos escalones antes de llegar al ascensor.',
-      nl: 'Op 200 meter van het strand en toch aangenaam rustig. Lift tot de verdieping van het appartement, met enkele treden voordat de lift bereikbaar is.',
-      sv: '200 meter från stranden och ändå behagligt lugnt. Hiss till lägenhetens våningsplan, med några trappsteg innan man når hissen.'
-    },
-    locationTarifa: {
-      en: 'A 75 m² penthouse over two floors, with two bedrooms, two bathrooms and a terrace facing the Atlantic.',
-      de: 'Ein 75 m² großes Penthouse über zwei Etagen, mit zwei Schlafzimmern, zwei Bädern und einer Terrasse zum Atlantik.',
-      es: 'Un ático de 75 m² en dos plantas, con dos dormitorios, dos baños y una terraza frente al Atlántico.',
-      nl: 'Een penthouse van 75 m² over twee verdiepingen, met twee slaapkamers, twee badkamers en een terras aan de Atlantische Oceaan.',
-      sv: 'Ett 75 m² stort penthouse i två våningar, med två sovrum, två badrum och en terrass mot Atlanten.'
-    },
     nextTitle: {
-      en: 'Find your AMARA stay',
-      de: 'Findet eure AMARA-Unterkunft',
-      es: 'Encontrad vuestro alojamiento AMARA',
-      nl: 'Vind het AMARA-verblijf dat bij jullie past',
-      sv: 'Hitta ert AMARA-boende'
+      en: 'Stays and availability',
+      de: 'Unterkünfte und Verfügbarkeit',
+      es: 'Alojamientos y disponibilidad',
+      nl: 'Verblijven en beschikbaarheid',
+      sv: 'Boenden och tillgänglighet'
     },
     nextLead: {
-      en: 'Explore the AMARA stays and check availability when one feels right.',
-      de: 'Entdeckt die AMARA-Unterkünfte und prüft die Verfügbarkeit, wenn eine zu euch passt.',
-      es: 'Descubrid los alojamientos AMARA y consultad la disponibilidad cuando encontréis el que mejor os encaja.',
-      nl: 'Ontdek de AMARA-verblijven en bekijk de beschikbaarheid zodra er een bij jullie past.',
-      sv: 'Utforska AMARA-boendena och kontrollera tillgängligheten när något känns rätt för er.'
+      en: 'Six stays in Frigiliana, Nerja and Tarifa, with current prices for your dates.',
+      de: 'Sechs Unterkünfte in Frigiliana, Nerja und Tarifa – mit aktuellen Preisen für eure Reisedaten.',
+      es: 'Seis alojamientos en Frigiliana, Nerja y Tarifa, con precios actuales para vuestras fechas.',
+      nl: 'Zes verblijven in Frigiliana, Nerja en Tarifa, met actuele prijzen voor jullie reisdata.',
+      sv: 'Sex boenden i Frigiliana, Nerja och Tarifa, med aktuella priser för era datum.'
     },
     ctaBook: trustLabels.book,
     ctaExplore: trustLabels.romantic_hideaways,

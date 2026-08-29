@@ -2,21 +2,16 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
 import TrustFamilyClosing from '../../components/trust/TrustFamilyClosing.astro';
-import EditorialQuote from '../../components/editorial/EditorialQuote.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import AmaraSectionIntro from '../../components/layout/AmaraSectionIntro.astro';
-import AmaraImage from '../../components/AmaraImage.astro';
-import frigilianaLocationImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg';
-import nerjaLocationImage from '../../assets/images/home/amara-playa-chaparril-13.webp';
-import tarifaLocationImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import {
   guestReviewsCopy,
   guestReviewsFooterLabels,
   guestReviewsSeo
 } from '../../content/guestReviewsContent';
 import { airbnbReviewEvidence } from '../../content/reviewEvidence';
-import { resolveLink, type LabeledLink } from '../../lib/linkResolver';
+import type { LabeledLink } from '../../lib/linkResolver';
 import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -74,10 +69,6 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
           </p>
           <p class="am-text-body text-subtle">{copy.sections.summaryBodyOne[currentLang]}</p>
         </EditorialSplit>
-  </AmaraSection>
-
-  <AmaraSection>
-        <EditorialQuote quote={copy.sections.quote[currentLang]} />
   </AmaraSection>
 
   <AmaraSection>
@@ -142,68 +133,6 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
               ))}
             </ul>
           </div>
-        </div>
-  </AmaraSection>
-
-  <AmaraSection>
-        <AmaraSectionIntro
-          title={copy.sections.locationTitle[currentLang]}
-          intro={copy.sections.locationLead[currentLang]}
-          variant="centered"
-          emphasizeIntro
-        />
-
-        <div class="grid gap-[clamp(2rem,4vw,4rem)] lg:grid-cols-3">
-          <a href={resolveLink('location_frigiliana', currentLang)} class="am-card-link group block">
-            <div class="mb-6 aspect-[3/4] overflow-hidden bg-on-surface/[0.03]">
-              <AmaraImage
-                src={frigilianaLocationImage}
-                alt=""
-                profile="card"
-                mediaRole="card"
-                class="block h-full w-full object-cover [transition:transform_0.45s_ease] group-hover:scale-[1.025] group-focus-visible:scale-[1.025] motion-reduce:transition-none"
-                sizes="(max-width: 1000px) 90vw, (max-width: 1555px) 29vw, 420px"
-              />
-            </div>
-            <div>
-              <h3 class="am-text-subtitle mb-2 text-on-surface">Frigiliana</h3>
-              <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationFrigiliana[currentLang]} /></p>
-            </div>
-          </a>
-
-          <a href={resolveLink('location_nerja', currentLang)} class="am-card-link group block">
-            <div class="mb-6 aspect-[3/4] overflow-hidden bg-on-surface/[0.03]">
-              <AmaraImage
-                src={nerjaLocationImage}
-                alt=""
-                profile="card"
-                mediaRole="card"
-                class="block h-full w-full object-cover [transition:transform_0.45s_ease] group-hover:scale-[1.025] group-focus-visible:scale-[1.025] motion-reduce:transition-none"
-                sizes="(max-width: 1000px) 90vw, (max-width: 1555px) 29vw, 420px"
-              />
-            </div>
-            <div>
-              <h3 class="am-text-subtitle mb-2 text-on-surface">Nerja</h3>
-              <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationNerja[currentLang]} /></p>
-            </div>
-          </a>
-
-          <a href={resolveLink('location_tarifa', currentLang)} class="am-card-link group block">
-            <div class="mb-6 aspect-[3/4] overflow-hidden bg-on-surface/[0.03]">
-              <AmaraImage
-                src={tarifaLocationImage}
-                alt=""
-                profile="card"
-                mediaRole="card"
-                class="block h-full w-full object-cover [transition:transform_0.45s_ease] group-hover:scale-[1.025] group-focus-visible:scale-[1.025] motion-reduce:transition-none"
-                sizes="(max-width: 1000px) 90vw, (max-width: 1555px) 29vw, 420px"
-              />
-            </div>
-            <div>
-              <h3 class="am-text-subtitle mb-2 text-on-surface">Tarifa</h3>
-              <p class="am-text-body text-subtle"><InlineEmphasis text={copy.sections.locationTarifa[currentLang]} /></p>
-            </div>
-          </a>
         </div>
   </AmaraSection>
 

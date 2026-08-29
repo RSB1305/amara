@@ -386,31 +386,31 @@ export const directBookingBenefitsCopy = {
 
     tip: {
 
-      en: "If you're choosing between two stays, message us. We know the differences and will give you an honest answer.",
+      en: 'If you are choosing between two stays, the overview shows the differences in location, kitchen, outdoor space and access.',
 
-      de: 'Wenn ihr zwischen zwei Unterkünften schwankt, schreibt uns. Wir kennen die Unterschiede und sagen euch ehrlich, welche besser zu euren Plänen passt.',
+      de: 'Wenn ihr zwischen zwei Unterkünften schwankt, zeigt euch die Übersicht die Unterschiede bei Lage, Küche, Außenbereich und Zugang.',
 
-      es: 'Si dudáis entre dos alojamientos, escribidnos. Conocemos las diferencias y os diremos con sinceridad cuál encaja mejor con vuestros planes.',
+      es: 'Si dudáis entre dos alojamientos, en la vista general encontraréis las diferencias de ubicación, cocina, espacio exterior y acceso.',
 
-      nl: 'Twijfelen jullie tussen twee verblijven? Stuur ons een bericht. We kennen de verschillen en zeggen eerlijk welk verblijf beter bij jullie plannen past.',
+      nl: 'Twijfelen jullie tussen twee verblijven? In het overzicht zien jullie de verschillen in ligging, keuken, buitenruimte en toegang.',
 
-      sv: 'Om ni väljer mellan två boenden kan ni skriva till oss. Vi känner till skillnaderna och säger ärligt vilket som passar era planer bäst.'
+      sv: 'Om ni väljer mellan två boenden visar översikten skillnaderna i läge, kök, uteplats och tillträde.'
 
     },
 
     inlineReviews: trustLabels.reviews_hub,
 
-    inlineContact: {
+    inlineStays: {
 
-      en: 'Message us',
+      en: 'Compare the stays',
 
-      de: 'Uns schreiben',
+      de: 'Unterkünfte vergleichen',
 
-      es: 'Escribidnos',
+      es: 'Comparar alojamientos',
 
-      nl: 'Stuur ons een bericht',
+      nl: 'Verblijven vergelijken',
 
-      sv: 'Skriv till oss'
+      sv: 'Jämför boendena'
 
     },
 

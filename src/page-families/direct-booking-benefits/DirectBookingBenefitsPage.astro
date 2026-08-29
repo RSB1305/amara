@@ -43,7 +43,7 @@ const heroCtaLinks = ([
   })
   .filter((link): link is { href: string; label: string } => Boolean(link));
 const inlineLinks = ([
-  { token: 'contact', label: copy.sections.inlineContact[currentLang] },
+  { token: 'romantic_hideaways', label: copy.sections.inlineStays[currentLang] },
   { token: 'reviews_hub', label: copy.sections.inlineReviews[currentLang] }
 ] satisfies LabeledLink[])
   .map((link) => {
