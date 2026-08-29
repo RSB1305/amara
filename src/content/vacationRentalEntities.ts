@@ -765,46 +765,46 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Maha: lägenhet i Frigiliana med 64 m² terrass | AMARA'
     },
     seoDescription: {
-      en: 'A 64 m² terrace with an outdoor kitchen, highest in the house: a Frigiliana apartment for 2 with the widest view.',
-      de: '64 m² Terrasse mit Außenküche, ganz oben im Haus: Ferienwohnung in Frigiliana für 2 mit der weitesten Aussicht.',
-      es: 'Terraza de 64 m² con cocina exterior, en lo más alto de la casa: apartamento en Frigiliana para 2 con las vistas más amplias.',
-      nl: 'Terras van 64 m² met buitenkeuken, het hoogst in huis: appartement in Frigiliana voor 2 met het verste uitzicht.',
-      sv: '64 m² terrass med utekök, högst upp i huset: lägenhet i Frigiliana för 2 med den vidaste utsikten.'
+      en: 'Maha in Frigiliana for 2: a 64 m² private terrace with outdoor kitchen, hammock, outdoor shower and the widest view at Casa AMARA.',
+      de: 'Maha in Frigiliana für 2: 64 m² private Terrasse mit Außenküche, Hängematte, Außendusche und der weitesten Aussicht in Casa AMARA.',
+      es: 'Maha en Frigiliana para 2: terraza privada de 64 m² con cocina exterior, hamaca, ducha exterior y las vistas más amplias de Casa AMARA.',
+      nl: 'Maha in Frigiliana voor 2: privéterras van 64 m² met buitenkeuken, hangmat, buitendouche en het verste uitzicht van Casa AMARA.',
+      sv: 'Maha i Frigiliana för 2: 64 m² privat terrass med utekök, hängmatta, utedusch och Casa AMARAs vidaste utsikt.'
     },
     eyebrow: {
-      en: 'Large private terrace',
-      de: 'Große private Terrasse',
-      es: 'Gran terraza privada',
-      nl: 'Groot privéterras',
-      sv: 'Stor privat terrass'
+      en: 'Outdoor living · top of the house',
+      de: 'Draußen leben · ganz oben im Haus',
+      es: 'Vivir fuera · en lo más alto',
+      nl: 'Buiten leven · boven in het huis',
+      sv: 'Livet utomhus · högst upp i huset'
     },
     headline: {
-      en: '64 m² private terrace with an outdoor kitchen',
-      de: '64 m² private Terrasse mit Außenküche',
-      es: 'Terraza privada de 64 m² con cocina exterior',
-      nl: 'Privéterras van 64 m² met buitenkeuken',
-      sv: '64 m² privat terrass med utekök'
+      en: 'Large terrace, outdoor kitchen and the widest view',
+      de: 'Große Terrasse, Außenküche und der weiteste Blick',
+      es: 'Gran terraza, cocina exterior y las vistas más amplias',
+      nl: 'Groot terras, buitenkeuken en het verste uitzicht',
+      sv: 'Stor terrass, utekök och den vidaste utsikten'
     },
     lead: {
-      en: 'Choose Maha if outdoor space matters most: a 64 m² private terrace, outdoor kitchen, hammock and two loungers. Inside there is a 150 × 200 bed, but no washing machine.',
-      de: 'Maha passt zu euch, wenn euch viel Platz draußen wichtig ist: 64 m² private Terrasse, Außenküche, Hängematte und zwei Liegen. Drinnen gibt es ein 150 × 200 cm großes Bett, aber keine Waschmaschine.',
-      es: 'Maha os encaja si lo más importante es el espacio exterior: terraza privada de 64 m², cocina exterior, hamaca y dos tumbonas. Dentro hay una cama de 150 × 200 cm, pero no lavadora.',
-      nl: 'Kies Maha als veel buitenruimte het belangrijkst is: een privéterras van 64 m², buitenkeuken, hangmat en twee ligstoelen. Binnen staat een bed van 150 × 200 cm, maar er is geen wasmachine.',
-      sv: 'Välj Maha om gott om uteplats är viktigast: en privat terrass på 64 m², utekök, hängmatta och två solsängar. Inne finns en säng på 150 × 200 cm, men ingen tvättmaskin.'
+      en: 'Choose Maha if you want breakfast, reading and long evenings to happen outside. The 64 m² private terrace has an outdoor kitchen, dining area, hammock, two loungers and an outdoor shower. Inside there is a 150 × 200 cm bed, but no washing machine.',
+      de: 'Maha passt zu euch, wenn ihr Frühstück, Lesen und lange Abende nach draußen verlegen möchtet. Auf der 64 m² großen privaten Terrasse stehen Außenküche, Essplatz, Hängematte, zwei Liegen und Außendusche bereit. Drinnen gibt es ein 150 × 200 cm großes Bett, aber keine Waschmaschine.',
+      es: 'Elegid Maha si queréis desayunar, leer y alargar las tardes al aire libre. La terraza privada de 64 m² tiene cocina exterior, comedor, hamaca, dos tumbonas y ducha exterior. Dentro hay una cama de 150 × 200 cm, pero no lavadora.',
+      nl: 'Kies Maha als jullie willen ontbijten, lezen en lang buiten blijven. Op het privéterras van 64 m² vinden jullie een buitenkeuken, eethoek, hangmat, twee ligbedden en buitendouche. Binnen staat een bed van 150 × 200 cm, maar er is geen wasmachine.',
+      sv: 'Välj Maha om ni vill äta frukost, läsa och tillbringa långa kvällar utomhus. På den 64 m² stora privata terrassen finns utekök, matplats, hängmatta, två solsängar och utedusch. Inne finns en säng på 150 × 200 cm, men ingen tvättmaskin.'
     },
     description: {
-      en: 'Here the terrace is the actual living room. All three AMARA terrace apartments have a hammock, two loungers and an outdoor shower — but Maha gives you more room around them, plus an outdoor kitchen the others do not have. Maha sits highest in the house and has the widest view. In exchange the bed is 150 centimetres, narrower than in Lounis or Zaid, and there is no washing machine.',
-      de: 'Die Terrasse ist hier das eigentliche Wohnzimmer. Hängematte, zwei Liegen und Außendusche gibt es in allen drei AMARA-Apartments mit Terrasse – bei Maha aber mit mehr Platz und dazu einer Außenküche, die es sonst nirgends gibt. Maha liegt am höchsten im Haus und hat die weiteste Aussicht. Dafür ist das Bett mit 150 Zentimetern schmaler als in Lounis oder Zaid, und eine Waschmaschine gibt es nicht.',
-      es: 'Aquí la terraza es el verdadero salón. Los tres apartamentos AMARA con terraza tienen hamaca, dos tumbonas y ducha exterior; en Maha, además, hay mucho más espacio y una cocina exterior que no tiene ningún otro. Maha está en lo más alto de la casa y ofrece las vistas más amplias. A cambio, la cama mide 150 centímetros, es más estrecha que la de Lounis o Zaid y no hay lavadora.',
-      nl: 'Hier is het terras de eigenlijke woonkamer. Alle drie de AMARA-appartementen met terras hebben een hangmat, twee ligbedden en een buitendouche — bij Maha staat er veel meer ruimte omheen en is er bovendien een buitenkeuken die de andere niet hebben. Maha ligt het hoogst in het huis en heeft het verste uitzicht. Daar staat tegenover dat het bed 150 centimeter breed is, smaller dan in Lounis of Zaid, en dat er geen wasmachine is.',
-      sv: 'Här är terrassen det egentliga vardagsrummet. Alla tre AMARA-lägenheter med terrass har hängmatta, två solsängar och utedusch — hos Maha finns det mycket mer plats runt dem, plus ett utekök som de andra saknar. Maha ligger högst i huset och har den vidaste utsikten. I gengäld är sängen 150 centimeter, smalare än i Lounis och Zaid, och någon tvättmaskin finns inte.'
+      en: 'The terrace is the real living room here. Make coffee and cook outside, eat under the shaded area or move the loungers into the open part of the terrace. Maha sits highest at Casa AMARA, so the view over the groves towards the sea is the widest in the house.\n\nThe trade-off is indoors: at 35 m², Maha is much more compact than Lounis. Its 150 cm-wide bed is also narrower than the beds in Lounis or Zaid, and there is no washing machine.',
+      de: 'Die Terrasse ist hier das eigentliche Wohnzimmer. Kocht draußen, esst im geschützten Sitzbereich oder rückt die Liegen in den offenen Teil der Terrasse. Maha liegt ganz oben in Casa AMARA; deshalb ist der Blick über die Plantagen Richtung Meer hier am weitesten.\n\nDafür ist es drinnen kompakter: Maha hat 35 m² Innenfläche und ein 150 cm breites Bett – weniger Platz als bei Lounis und ein schmaleres Bett als bei Lounis oder Zaid. Eine Waschmaschine gibt es nicht.',
+      es: 'Aquí la terraza es el verdadero salón. Cocinad fuera, comed en la zona resguardada o moved las tumbonas a la parte abierta de la terraza. Maha está en lo más alto de Casa AMARA; por eso ofrece las vistas más amplias sobre el campo hacia el mar.\n\nA cambio, el interior es más compacto: Maha tiene 35 m² y una cama de 150 cm de ancho, menos espacio que Lounis y una cama más estrecha que la de Lounis o Zaid. No hay lavadora.',
+      nl: 'Hier is het terras de eigenlijke woonkamer. Kook buiten, eet in het beschutte zitgedeelte of zet de ligbedden in het open deel van het terras. Maha ligt boven in Casa AMARA en heeft daardoor het verste uitzicht over de plantages richting zee.\n\nBinnen is het compacter: Maha heeft 35 m² en een bed van 150 cm breed, dus minder ruimte dan Lounis en een smaller bed dan in Lounis of Zaid. Er is geen wasmachine.',
+      sv: 'Här är terrassen det egentliga vardagsrummet. Laga mat ute, ät i den skyddade delen eller flytta solsängarna till terrassens öppna yta. Maha ligger högst upp i Casa AMARA och har därför husets vidaste utsikt över odlingarna mot havet.\n\nInomhus är det mer kompakt: Maha har 35 m² och en 150 cm bred säng, alltså mindre plats än Lounis och en smalare säng än i Lounis eller Zaid. Det finns ingen tvättmaskin.'
     },
     highlights: {
-      en: ['64 m² terrace, open to the sky', 'Outdoor kitchen for cooking outside', 'The widest view in the house'],
-      de: ['64 m² Terrasse unter freiem Himmel', 'Außenküche zum Kochen im Freien', 'Die weiteste Aussicht im Haus'],
-      es: ['Terraza de 64 m² abierta al cielo', 'Cocina exterior para cocinar fuera', 'Las vistas más amplias de la casa'],
-      nl: ['Terras van 64 m², open naar de hemel', 'Buitenkeuken om buiten te koken', 'Het verste uitzicht van het huis'],
-      sv: ['64 m² terrass under bar himmel', 'Utekök för matlagning utomhus', 'Husets vidaste utsikt']
+      en: ['64 m² private terrace with outdoor kitchen', 'Hammock, two loungers and outdoor shower', 'The widest view at Casa AMARA'],
+      de: ['64 m² private Terrasse mit Außenküche', 'Hängematte, zwei Liegen und Außendusche', 'Der weiteste Blick in Casa AMARA'],
+      es: ['Terraza privada de 64 m² con cocina exterior', 'Hamaca, dos tumbonas y ducha exterior', 'Las vistas más amplias de Casa AMARA'],
+      nl: ['Privéterras van 64 m² met buitenkeuken', 'Hangmat, twee ligbedden en buitendouche', 'Het verste uitzicht van Casa AMARA'],
+      sv: ['64 m² privat terrass med utekök', 'Hängmatta, två solsängar och utedusch', 'Casa AMARAs vidaste utsikt']
     },
     accessFacts: {
       outsideStepsBeforeEntrance: 0,
@@ -956,46 +956,46 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Playa: lägenhet i Nerja, 200 m från stranden | AMARA'
     },
     seoDescription: {
-      en: 'AMARA Playa in Nerja: 200 m to Torrecilla beach, 500 m to the Balcón de Europa, and still quiet. Small apartment for 2 on the fifth floor, with a lift.',
-      de: 'AMARA Playa in Nerja: 200 m zum Strand Torrecilla, 500 m zum Balcón de Europa – und trotzdem ruhig. Kleines Apartment für 2 im fünften Stock, mit Aufzug.',
-      es: 'AMARA Playa en Nerja: a 200 m de la playa de Torrecilla y 500 m del Balcón de Europa. Apartamento tranquilo para 2 en la quinta planta, con ascensor.',
-      nl: 'AMARA Playa in Nerja: 200 m van het Torrecilla-strand en 500 m van het Balcón de Europa. Rustig appartement voor 2 op de vijfde verdieping, met lift.',
-      sv: 'AMARA Playa i Nerja: 200 m till Torrecillastranden, 500 m till Balcón de Europa — och ändå tyst. Liten lägenhet för 2 på femte våningen, med hiss.'
+      en: 'AMARA Playa in Nerja for 2: a quiet fifth-floor apartment with a 200 × 200 cm bed, side sea view and Torrecilla beach around 200 metres away.',
+      de: 'AMARA Playa in Nerja für 2: ruhiges Apartment im fünften Stock mit 200 × 200 cm großem Bett, seitlichem Meerblick und rund 200 Metern zum Strand Torrecilla.',
+      es: 'AMARA Playa en Nerja para 2: apartamento tranquilo en la quinta planta, cama de 200 × 200 cm, vistas laterales al mar y Torrecilla a unos 200 metros.',
+      nl: 'AMARA Playa in Nerja voor 2: rustig appartement op de vijfde verdieping met bed van 200 × 200 cm, zijdelings zeezicht en Torrecilla op ongeveer 200 meter.',
+      sv: 'AMARA Playa i Nerja för 2: lugn lägenhet på femte våningen med säng på 200 × 200 cm, havsutsikt åt sidan och cirka 200 meter till Torrecillastranden.'
     },
     eyebrow: {
-      en: 'Nerja coast',
-      de: 'Küste von Nerja',
-      es: 'Costa de Nerja',
-      nl: 'Kust van Nerja',
-      sv: 'Nerjas kust'
+      en: 'Sea and central Nerja on foot',
+      de: 'Meer und Zentrum zu Fuß',
+      es: 'El mar y el centro a pie',
+      nl: 'Zee en centrum te voet',
+      sv: 'Havet och centrum till fots'
     },
     headline: {
-      en: '200 metres from the beach, with a balcony and 200 × 200 bed',
-      de: '200 Meter zum Strand, mit Balkon und 200 × 200 cm Bett',
-      es: 'A 200 metros de la playa, con balcón y cama de 200 × 200 cm',
-      nl: '200 meter van het strand, met balkon en bed van 200 × 200 cm',
-      sv: '200 meter från stranden, med balkong och säng på 200 × 200 cm'
+      en: 'Large bed, quiet apartment and 200 metres to the beach',
+      de: 'Großes Bett, ruhige Wohnung und 200 Meter zum Strand',
+      es: 'Cama grande, apartamento tranquilo y 200 metros hasta la playa',
+      nl: 'Groot bed, rustig appartement en 200 meter naar het strand',
+      sv: 'Stor säng, lugn lägenhet och 200 meter till stranden'
     },
     lead: {
-      en: 'Playa is a compact fifth-floor apartment around 200 metres from Torrecilla beach. It has a full kitchen, washing machine, balcony and lift; ten steps lead to the lift.',
-      de: 'Playa ist ein kompaktes Apartment im fünften Stock, rund 200 Meter vom Strand Torrecilla entfernt. Es hat eine voll ausgestattete Küche, Waschmaschine, Balkon und Aufzug; bis zum Aufzug sind zehn Stufen zu überwinden.',
-      es: 'Playa es un apartamento compacto en la quinta planta, a unos 200 metros de la playa de Torrecilla. Tiene cocina completa, lavadora, balcón y ascensor; hay diez escalones hasta llegar al ascensor.',
-      nl: 'Playa is een compact appartement op de vijfde verdieping, op ongeveer 200 meter van het Torrecilla-strand. Het heeft een volledige keuken, wasmachine, balkon en lift; tot aan de lift zijn er tien treden.',
-      sv: 'Playa är en kompakt lägenhet på femte våningen, cirka 200 meter från Torrecillastranden. Här finns fullt kök, tvättmaskin, balkong och hiss; tio trappsteg leder fram till hissen.'
+      en: 'Choose Playa if you want to walk to the sea in the morning and still sleep away from most street noise. The apartment has a 200 × 200 cm bed, full kitchen, washing machine and a balcony with a side sea view. It is compact at 37 m²; ten steps lead to the lift.',
+      de: 'Playa passt zu euch, wenn ihr morgens zu Fuß ans Meer gehen und trotzdem abseits vom meisten Straßenlärm schlafen möchtet. Das Apartment hat ein 200 × 200 cm großes Bett, voll ausgestattete Küche, Waschmaschine und einen Balkon mit seitlichem Meerblick. Mit 37 m² ist es kompakt; bis zum Aufzug führen zehn Stufen.',
+      es: 'Elegid Playa si queréis ir al mar andando por la mañana y dormir lejos de la mayor parte del ruido de la calle. El apartamento tiene una cama de 200 × 200 cm, cocina completa, lavadora y balcón con vistas laterales al mar. Con 37 m² es compacto; hay diez escalones hasta el ascensor.',
+      nl: 'Kies Playa als jullie ’s ochtends naar zee willen lopen en toch buiten het meeste straatgeluid willen slapen. Het appartement heeft een bed van 200 × 200 cm, een volledige keuken, wasmachine en balkon met zijdelings zeezicht. Met 37 m² is het compact; tot aan de lift zijn er tien treden.',
+      sv: 'Välj Playa om ni vill gå till havet på morgonen och ändå sova på avstånd från det mesta gatuljudet. Lägenheten har en säng på 200 × 200 cm, fullt kök, tvättmaskin och balkong med havsutsikt åt sidan. Med 37 m² är den kompakt; tio trappsteg leder fram till hissen.'
     },
     description: {
-      en: 'At 37 m², Playa is one of our smaller apartments. The fifth-floor position gives you a side sea view from the balcony and keeps the apartment away from most street noise. The 200 × 200 bed is the largest in any AMARA stay.',
-      de: 'Mit 37 m² gehört Playa zu unseren kleineren Apartments. Durch die Lage im fünften Stock habt ihr vom Balkon einen seitlichen Meerblick und seid weit vom meisten Straßenlärm entfernt. Das 200 × 200 cm große Bett ist das größte in einer AMARA-Unterkunft.',
-      es: 'Con 37 m², Playa es uno de nuestros apartamentos más pequeños. La quinta planta ofrece vistas laterales al mar desde el balcón y aleja el alojamiento de gran parte del ruido de la calle. La cama de 200 × 200 cm es la más grande de AMARA.',
-      nl: 'Met 37 m² is Playa een van onze kleinere appartementen. Door de ligging op de vijfde verdieping hebben jullie vanaf het balkon zijdelings zeezicht en blijft het meeste straatgeluid op afstand. Het bed van 200 × 200 cm is het grootste van alle AMARA-verblijven.',
-      sv: 'Med 37 m² är Playa en av våra mindre lägenheter. Läget på femte våningen ger havsutsikt från sidan från balkongen och håller det mesta gatuljudet på avstånd. Sängen på 200 × 200 cm är den största i något AMARA-boende.'
+      en: 'Take a towel and walk around 200 metres to Torrecilla beach, or continue about 500 metres to the Balcón de Europa, restaurants and shops. Back at Playa, the fifth-floor position and the apartment’s set-back orientation keep most street noise at a distance.\n\nThe balcony gives you a side view towards the sea. Inside, the 200 × 200 cm bed is the largest in any AMARA stay.',
+      de: 'Nehmt ein Handtuch und geht rund 200 Meter zum Strand Torrecilla – oder etwa 500 Meter weiter zum Balcón de Europa, zu Restaurants und Geschäften. Zurück in Playa halten die Lage im fünften Stock und die nach hinten ausgerichtete Wohnung den meisten Straßenlärm auf Abstand.\n\nVom Balkon schaut ihr seitlich Richtung Meer. Drinnen steht mit 200 × 200 cm das größte Bett in einer AMARA-Unterkunft.',
+      es: 'Coged una toalla y caminad unos 200 metros hasta la playa de Torrecilla, o seguid unos 500 metros hasta el Balcón de Europa, los restaurantes y las tiendas. De vuelta en Playa, la quinta planta y la orientación hacia la parte trasera mantienen a distancia la mayor parte del ruido de la calle.\n\nDesde el balcón tenéis vistas laterales hacia el mar. Dentro, la cama de 200 × 200 cm es la más grande de AMARA.',
+      nl: 'Pak een handdoek en loop ongeveer 200 meter naar het Torrecilla-strand, of ga zo’n 500 meter verder naar het Balcón de Europa, restaurants en winkels. Terug in Playa houden de vijfde verdieping en de ligging aan de achterzijde het meeste straatgeluid op afstand.\n\nVanaf het balkon kijken jullie zijdelings richting zee. Binnen staat met 200 × 200 cm het grootste bed van alle AMARA-verblijven.',
+      sv: 'Ta en handduk och gå cirka 200 meter till Torrecillastranden, eller fortsätt omkring 500 meter till Balcón de Europa, restauranger och butiker. Tillbaka i Playa håller femte våningen och läget mot husets baksida det mesta gatuljudet på avstånd.\n\nFrån balkongen ser ni mot havet från sidan. Inne står AMARAs största säng, 200 × 200 cm.'
     },
     highlights: {
-      en: ['Side sea view from the balcony', 'Quiet on the fifth floor, with a lift', 'Largest AMARA bed, 200 × 200'],
-      de: ['Seitlicher Meerblick vom Balkon', 'Ruhig im fünften Stock, mit Aufzug', 'Größtes AMARA-Bett, 200 × 200'],
-      es: ['Vistas laterales al mar desde el balcón', 'Tranquilo en la quinta planta, con ascensor', 'La cama AMARA más grande, 200 × 200'],
-      nl: ['Zijdelings zeezicht vanaf het balkon', 'Rustig op de vijfde verdieping, met lift', 'Grootste AMARA-bed, 200 × 200'],
-      sv: ['Havsutsikt från sidan, från balkongen', 'Tyst på femte våningen, med hiss', 'Största AMARA-sängen, 200 × 200']
+      en: ['Around 200 m to Torrecilla, 500 m to the Balcón', 'Largest AMARA bed, 200 × 200 cm', 'Quiet fifth floor with a side sea view'],
+      de: ['Rund 200 m zu Torrecilla, 500 m zum Balcón', 'Größtes AMARA-Bett, 200 × 200 cm', 'Ruhiger fünfter Stock mit seitlichem Meerblick'],
+      es: ['Unos 200 m a Torrecilla y 500 m al Balcón', 'La cama AMARA más grande, 200 × 200 cm', 'Quinta planta tranquila con vistas laterales al mar'],
+      nl: ['Circa 200 m naar Torrecilla, 500 m naar het Balcón', 'Grootste AMARA-bed, 200 × 200 cm', 'Rustige vijfde verdieping met zijdelings zeezicht'],
+      sv: ['Cirka 200 m till Torrecilla, 500 m till Balcón', 'AMARAs största säng, 200 × 200 cm', 'Lugn femte våning med havsutsikt åt sidan']
     },
     accessFacts: {
       outsideStepsBeforeEntrance: 5,
