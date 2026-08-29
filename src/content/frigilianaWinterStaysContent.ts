@@ -157,7 +157,7 @@ export const frigilianaWinterStaysContent = {
     },
     {
       id: "warm-at-home",
-      eyebrow: l("In the evening", "Abends", "Por la tarde", "'s Avonds", "På kvällen"),
+      eyebrow: l("At home", "Zu Hause", "En casa", "Thuis", "Hemma"),
       title: l(
         "What is warm in your apartment",
         "Was in eurer Wohnung warm ist",
