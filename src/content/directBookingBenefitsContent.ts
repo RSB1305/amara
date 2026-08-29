@@ -60,11 +60,11 @@ export const cancellationAssuranceBadge = {
 
 /** The same policy stated in full, including the partial-refund window. */
 export const cancellationAssuranceDetail = {
-  en: `Cancel ${fullDays} days or more before arrival and your prepayment is refunded in full. Up to ${halfDays} days before arrival, half of it comes back.`,
-  de: `Storniert ihr ${fullDays} Tage oder früher vor Anreise, erstatten wir die Anzahlung vollständig. Bis ${halfDays} Tage vor Anreise bekommt ihr die Hälfte zurück.`,
-  es: `Si canceláis ${fullDays} días antes de la llegada o más, os devolvemos el anticipo íntegro. Hasta ${halfDays} días antes de la llegada, recuperáis la mitad.`,
-  nl: `Annuleren jullie ${fullDays} dagen of meer voor aankomst, dan betalen we de aanbetaling volledig terug. Tot ${halfDays} dagen voor aankomst krijgen jullie de helft terug.`,
-  sv: `Avbokar ni ${fullDays} dagar eller mer före ankomst betalar vi tillbaka hela handpenningen. Fram till ${halfDays} dagar före ankomst får ni tillbaka hälften.`
+  en: `Cancel at least ${fullDays} days before arrival and we refund the prepayment in full. For cancellations ${halfDays} to ${fullDays - 1} days before arrival, we refund half.`,
+  de: `Storniert ihr mindestens ${fullDays} Tage vor Anreise, erstatten wir die Anzahlung vollständig. Bei ${halfDays} bis ${fullDays - 1} Tagen vorher erstatten wir die Hälfte.`,
+  es: `Si canceláis al menos ${fullDays} días antes de la llegada, os devolvemos todo el anticipo. Si faltan entre ${halfDays} y ${fullDays - 1} días, os devolvemos la mitad.`,
+  nl: `Annuleren jullie minstens ${fullDays} dagen voor aankomst, dan betalen we de aanbetaling volledig terug. Bij ${halfDays} tot ${fullDays - 1} dagen vooraf betalen we de helft terug.`,
+  sv: `Avbokar ni minst ${fullDays} dagar före ankomst betalar vi tillbaka hela handpenningen. Vid ${halfDays} till ${fullDays - 1} dagar före ankomst betalar vi tillbaka hälften.`
 } satisfies Record<AmaraLanguage, string>;
 
 

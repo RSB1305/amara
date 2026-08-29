@@ -450,7 +450,10 @@ export function enhanceStaySearchFinders() {
         button.setAttribute('aria-label', [
           formatFullDate(value),
           unresolved
-            ? loading ? copy.loadingCalendar : copy.calendarError
+            // The status above the calendar explains a failed request once.
+            // Repeating that paragraph on every disabled date makes the grid
+            // unusable with a screen reader.
+            ? loading ? copy.loadingCalendar : copy.unavailableDay
             : [availabilityLabel, price?.label].filter(Boolean).join(', ')
         ].join(', '));
         button.tabIndex = isSelectable && (value === arrival.value || value === departure.value) ? 0 : -1;

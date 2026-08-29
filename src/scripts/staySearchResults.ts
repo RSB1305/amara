@@ -206,7 +206,9 @@ export function enhanceStaySearchResults() {
       } else {
         emptyCopy.textContent = copy.empty.replace('{destination}', selectedDestinationLabel);
       }
-      if (input.destination !== 'all') {
+      // Another destination is useful only when the search completed and no
+      // stay was free. It cannot solve a technical request failure.
+      if (technical.length === 0 && input.destination !== 'all') {
         const allParams = new URLSearchParams(searchParams);
         allParams.set('destination', 'all');
         allLink.href = window.location.pathname + '?' + allParams.toString();
