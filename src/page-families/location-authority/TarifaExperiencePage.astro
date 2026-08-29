@@ -1,5 +1,4 @@
 ---
-import type { TarifaExperienceSection } from '../../content/tarifaExperienceContent';
 import { resolveLocale } from '../../types/content';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
@@ -17,7 +16,6 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import AuthorityTextSection from './AuthorityTextSection.astro';
 
 interface Props {
   lang?: string;
@@ -93,30 +91,6 @@ const footerHighlights: LabeledLink[] = [
         <div class="mt-14"><ExperienceHubTopicGrid topics={dayTopics} accent="primary" /></div>
       </div>
     </section>
-
-    {(copy.sections as TarifaExperienceSection[]).map((section, index) => (
-      <>
-        <AuthorityTextSection
-          section={{
-            id: section.id,
-            eyebrow: String(index + 1).padStart(2, '0'),
-            title: section.title,
-            paragraphs: section.paragraphs
-          }}
-          index={index}
-          data-am-experience-section={section.id}
-        />
-        {section.cta && (
-          <div class="border-b border-border-subtle bg-surface px-6 py-8 md:px-12">
-            <p class="mx-auto max-w-screen-2xl text-right">
-              <a href={requiredLink(section.cta.token)} class="am-inline-link">
-                {section.cta.label}<span aria-hidden="true"> →</span>
-              </a>
-            </p>
-          </div>
-        )}
-      </>
-    ))}
 
     <GuideClosingSection
       title={copy.closing.title}

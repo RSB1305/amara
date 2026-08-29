@@ -112,8 +112,8 @@ export const tarifaLocationContent: {
     en: {
       hero: {
         eyebrow: 'Tarifa · Location & stay',
-        title: 'A holiday in Tarifa: wind, the Atlantic and Africa on the horizon',
-        standfirst: 'Welcome to Tarifa, the southernmost town on the European mainland, where almost everything is walkable. And yet where you stay shapes every day here: the wind on your balcony, the hunt for a parking space in August, and how the evening ends. Our connection to Tarifa began before we started hosting here: Robert lived in the town himself.',
+        title: 'Tarifa at a glance: town, beach and the Atlantic',
+        standfirst: 'Tarifa is compact enough to connect the Old Town, beach and newer neighbourhoods on foot. You rarely need a car in town, but it is useful for Valdevaqueros, Bolonia and other trips west. Stay in the Old Town if you want restaurants and historic streets at the door. La Marina suits quieter nights, easier parking and quick access to Los Lances. AMARA Family & Surf is there: five minutes on foot from the beach and 10–15 minutes from the Old Town.',
         note: 'An AMARA guide written from experience – not a live service for wind and weather.',
         updated: 'Reviewed August 2026'
       },
@@ -133,7 +133,7 @@ export const tarifaLocationContent: {
       },
       arrival: {
         eyebrow: 'Arrival & car',
-        title: 'Do you need a car? Never in the village – for the kite beaches, yes',
+        title: 'You can walk around town; a car helps for the western beaches',
         paragraphs: [
           'Most of our guests fly into Málaga and drive about an hour and a half on the motorway. Gibraltar really only works for guests from the UK, hardly anyone arrives by bus, and a few cross by ferry from Morocco.',
           'In Tarifa itself you do not need the car. We actively recommend not driving inside the village – only out of it. In July and August a reserved space is worth its weight in gold: you park once and leave the car where it is.',
@@ -205,10 +205,10 @@ export const tarifaLocationContent: {
       },
       experience: {
         eyebrow: 'Your days here',
-        title: 'And then the days themselves',
-        paragraphs: ['Where you stay is settled. What you do here – beaches, wind, food, nature, the Old Town and day trips to Bolonia or Tangier – is in the Experience guide.'],
+        title: 'What would you like to do in Tarifa?',
+        paragraphs: ['Use our experience guide to choose between beaches, wind and watersports, food, nature, the Old Town and a full day in Bolonia.'],
         links: [
-          { label: 'Explore the Tarifa Experience', token: 'tarifa_experience_hub' },
+          { label: 'Things to do in Tarifa', token: 'tarifa_experience_hub' },
           { label: 'Explore Tarifa beaches', token: 'tarifa_beaches_authority' }
         ]
       },
@@ -221,8 +221,8 @@ export const tarifaLocationContent: {
     de: {
       hero: {
         eyebrow: 'Tarifa · Lage & Aufenthalt',
-        title: 'Urlaub in Tarifa: Wind, Atlantik und Afrika am Horizont',
-        standfirst: 'Herzlich willkommen in Tarifa, der südlichsten Stadt des europäischen Festlands, in der fast alles zu Fuß geht. Und trotzdem entscheidet die Wohnlage hier über jeden Tag: über den Wind auf eurem Balkon, über die Parkplatzsuche im August und darüber, wie der Abend endet. Unsere Verbindung zu Tarifa begann schon vor der ersten Vermietung: Robert hat selbst im Ort gelebt.',
+        title: 'Tarifa im Überblick: Altstadt, Strand und Atlantik',
+        standfirst: 'Tarifa ist klein genug, dass ihr Altstadt, Strand und die neueren Viertel gut zu Fuß verbindet. Im Ort braucht ihr kaum ein Auto; für Valdevaqueros, Bolonia und andere Ziele im Westen ist es praktisch. Wählt die Altstadt, wenn ihr Restaurants und historische Gassen direkt vor der Tür möchtet. La Marina passt besser zu ruhigeren Nächten, einem festen Stellplatz und kurzen Wegen nach Los Lances. Dort liegt AMARA Family & Surf: fünf Minuten zu Fuß vom Strand und 10–15 Minuten von der Altstadt entfernt.',
         note: 'Ein AMARA-Guide aus eigener Erfahrung – keine Live-Auskunft zu Wind und Wetter.',
         updated: 'Geprüft im August 2026'
       },
@@ -242,7 +242,7 @@ export const tarifaLocationContent: {
       },
       arrival: {
         eyebrow: 'Anreise & Auto',
-        title: 'Braucht ihr ein Auto? Im Dorf nie – für die Kite-Strände schon',
+        title: 'Im Ort geht vieles zu Fuß; für die westlichen Strände hilft ein Auto',
         paragraphs: [
           'Die meisten unserer Gäste fliegen nach Málaga und fahren von dort rund anderthalb Stunden über die Autobahn. Gibraltar funktioniert praktisch nur für Gäste aus Großbritannien, mit dem Bus kommt kaum jemand, und ganz wenige setzen mit dem Schiff aus Marokko über.',
           'In Tarifa selbst braucht ihr das Auto nicht. Wir empfehlen sogar ausdrücklich, im Ort nicht zu fahren – nur hinaus. Im Juli und August ist ein fester Stellplatz dann Gold wert: Ihr stellt das Auto ab und lasst es stehen.',
@@ -314,10 +314,10 @@ export const tarifaLocationContent: {
       },
       experience: {
         eyebrow: 'Eure Tage hier',
-        title: 'Und dann die Tage selbst',
-        paragraphs: ['Wo ihr wohnt, ist entschieden. Was ihr hier tut – Strände, Wind, Essen, Natur, Altstadt und die Ausflüge nach Bolonia oder Tanger – steht im Erlebnis-Guide.'],
+        title: 'Was möchtet ihr in Tarifa unternehmen?',
+        paragraphs: ['Im Erlebnis-Guide wählt ihr zwischen Strand, Wind und Wassersport, Essen, Natur, Altstadt und einem ganzen Tag in Bolonia.'],
         links: [
-          { label: 'Tarifa Experience entdecken', token: 'tarifa_experience_hub' },
+          { label: 'Tarifa erleben', token: 'tarifa_experience_hub' },
           { label: 'Tarifas Strände entdecken', token: 'tarifa_beaches_authority' }
         ]
       },
@@ -330,8 +330,8 @@ export const tarifaLocationContent: {
     es: {
       hero: {
         eyebrow: 'Tarifa · Ubicación y estancia',
-        title: 'Vacaciones en Tarifa: viento, Atlántico y África en el horizonte',
-        standfirst: 'Bienvenidos a Tarifa, la ciudad más meridional de la Europa continental, donde casi todo se hace a pie. Y aun así, dónde os alojáis marca cada día: el viento en vuestro balcón, la búsqueda de aparcamiento en agosto y cómo termina la tarde. Nuestra relación con Tarifa empezó antes de recibir huéspedes aquí: Robert vivió en el pueblo.',
+        title: 'Tarifa de un vistazo: casco antiguo, playa y Atlántico',
+        standfirst: 'Tarifa es lo bastante compacta para moveros a pie entre el casco antiguo, la playa y los barrios más nuevos. En el pueblo apenas hace falta coche; para Valdevaqueros, Bolonia y otros destinos hacia poniente resulta práctico. Elegid el casco antiguo si queréis restaurantes y calles históricas a la puerta. La Marina encaja mejor si buscáis noches más tranquilas, aparcamiento propio y acceso rápido a Los Lances. Allí está AMARA Family & Surf: a cinco minutos andando de la playa y a 10–15 minutos del casco antiguo.',
         note: 'Una guía de AMARA escrita desde la experiencia; no es un servicio de condiciones en directo.',
         updated: 'Revisado en agosto de 2026'
       },
@@ -351,7 +351,7 @@ export const tarifaLocationContent: {
       },
       arrival: {
         eyebrow: 'Llegada y coche',
-        title: '¿Hace falta coche? En el pueblo nunca; para las playas de kite, sí',
+        title: 'En el pueblo podéis moveros a pie; para las playas del oeste conviene el coche',
         paragraphs: [
           'La mayoría de nuestros huéspedes vuela a Málaga y conduce desde allí alrededor de hora y media por autopista. Gibraltar funciona prácticamente solo para huéspedes del Reino Unido, en autobús llega poca gente y unos pocos cruzan en barco desde Marruecos.',
           'En Tarifa no necesitáis el coche. De hecho recomendamos no conducir dentro del pueblo, solo salir de él. En julio y agosto una plaza fija vale oro: dejáis el coche aparcado y os olvidáis de él.',
@@ -423,10 +423,10 @@ export const tarifaLocationContent: {
       },
       experience: {
         eyebrow: 'Vuestros días aquí',
-        title: 'Y después, los días en sí',
-        paragraphs: ['Dónde os alojáis ya está decidido. Lo que hacéis aquí —playas, viento, gastronomía, naturaleza, casco antiguo y las excursiones a Bolonia o Tánger— está en la guía de experiencias.'],
+        title: '¿Qué os apetece hacer en Tarifa?',
+        paragraphs: ['En la guía de experiencias podéis elegir entre playa, viento y deportes acuáticos, gastronomía, naturaleza, casco antiguo y un día completo en Bolonia.'],
         links: [
-          { label: 'Explorar Tarifa Experience', token: 'tarifa_experience_hub' },
+          { label: 'Qué hacer en Tarifa', token: 'tarifa_experience_hub' },
           { label: 'Explorar las playas de Tarifa', token: 'tarifa_beaches_authority' }
         ]
       },
@@ -439,8 +439,8 @@ export const tarifaLocationContent: {
     nl: {
       hero: {
         eyebrow: 'Tarifa · Ligging & verblijf',
-        title: 'Vakantie in Tarifa: wind, de Atlantische Oceaan en Afrika aan de horizon',
-        standfirst: 'Welkom in Tarifa, de zuidelijkste stad op het Europese vasteland, waar bijna alles te voet gaat. En toch bepaalt jullie ligging hier elke dag: de wind op jullie balkon, het zoeken naar een parkeerplek in augustus en hoe de avond eindigt. Onze band met Tarifa begon voordat we hier gasten ontvingen: Robert woonde zelf in het dorp.',
+        title: 'Tarifa in het kort: oude stad, strand en Atlantische Oceaan',
+        standfirst: 'Tarifa is compact genoeg om de oude stad, het strand en de nieuwere wijken te voet te verbinden. In de stad hebben jullie zelden een auto nodig; voor Valdevaqueros, Bolonia en andere plekken in het westen is hij handig. Kies de oude stad als jullie restaurants en historische straatjes voor de deur willen. La Marina past beter bij rustige nachten, een vaste parkeerplaats en snelle toegang tot Los Lances. Daar ligt AMARA Family & Surf: vijf minuten lopen van het strand en 10–15 minuten van de oude stad.',
         note: 'Een AMARA-gids uit eigen ervaring — geen live informatiedienst voor wind en weer.',
         updated: 'Gecontroleerd in augustus 2026'
       },
@@ -460,7 +460,7 @@ export const tarifaLocationContent: {
       },
       arrival: {
         eyebrow: 'Aankomst & auto',
-        title: 'Hebben jullie een auto nodig? In het dorp nooit – voor de kitestranden wel',
+        title: 'In de stad kan veel te voet; voor de westelijke stranden is een auto handig',
         paragraphs: [
           'De meeste van onze gasten vliegen naar Málaga en rijden vandaar ongeveer anderhalf uur over de snelweg. Gibraltar werkt praktisch alleen voor gasten uit het Verenigd Koninkrijk, met de bus komt bijna niemand, en enkelen steken met de boot over vanuit Marokko.',
           'In Tarifa zelf hebben jullie de auto niet nodig. We raden zelfs uitdrukkelijk aan niet in het dorp te rijden, alleen eruit. In juli en augustus is een vaste parkeerplaats goud waard: jullie zetten de auto neer en laten hem staan.',
@@ -532,10 +532,10 @@ export const tarifaLocationContent: {
       },
       experience: {
         eyebrow: 'Jullie dagen hier',
-        title: 'En dan de dagen zelf',
-        paragraphs: ['Waar jullie verblijven is beslist. Wat jullie hier doen — stranden, wind, eten, natuur, de oude stad en de uitstapjes naar Bolonia of Tanger — staat in de ervaringsgids.'],
+        title: 'Wat willen jullie doen in Tarifa?',
+        paragraphs: ['Kies in de ervaringsgids tussen strand, wind en watersport, eten, natuur, de oude stad en een hele dag in Bolonia.'],
         links: [
-          { label: 'Ontdek Tarifa Experience', token: 'tarifa_experience_hub' },
+          { label: 'Wat te doen in Tarifa', token: 'tarifa_experience_hub' },
           { label: 'Ontdek de stranden van Tarifa', token: 'tarifa_beaches_authority' }
         ]
       },
@@ -548,8 +548,8 @@ export const tarifaLocationContent: {
     sv: {
       hero: {
         eyebrow: 'Tarifa · Läge & vistelse',
-        title: 'Semester i Tarifa: vind, Atlanten och Afrika vid horisonten',
-        standfirst: 'Välkomna till Tarifa, den sydligaste staden på det europeiska fastlandet, där nästan allt går att nå till fots. Ändå avgör var ni bor varje dag här: vinden på er balkong, jakten på en parkeringsplats i augusti och hur kvällen slutar. Vår relation till Tarifa började innan vi tog emot gäster här: Robert bodde själv i byn.',
+        title: 'Tarifa i korthet: gamla stan, stranden och Atlanten',
+        standfirst: 'Tarifa är så kompakt att ni lätt kan gå mellan gamla stan, stranden och de nyare kvarteren. I staden behövs bilen sällan, men den är praktisk för Valdevaqueros, Bolonia och andra mål västerut. Välj gamla stan om ni vill ha restauranger och historiska gränder utanför dörren. La Marina passar bättre för lugnare nätter, egen parkering och snabb väg till Los Lances. Där ligger AMARA Family & Surf: fem minuters promenad från stranden och 10–15 minuter från gamla stan.',
         note: 'En AMARA-guide ur egen erfarenhet – inte en tjänst för aktuella vind- och väderförhållanden.',
         updated: 'Granskad i augusti 2026'
       },
@@ -569,7 +569,7 @@ export const tarifaLocationContent: {
       },
       arrival: {
         eyebrow: 'Ankomst & bil',
-        title: 'Behöver ni bil? I byn aldrig – till kitestränderna ja',
+        title: 'I staden går det mesta till fots; till stränderna i väster är bilen praktisk',
         paragraphs: [
           'De flesta av våra gäster flyger till Málaga och kör därifrån ungefär en och en halv timme på motorvägen. Gibraltar fungerar i praktiken bara för gäster från Storbritannien, med buss kommer nästan ingen, och några få tar båten från Marocko.',
           'I Tarifa behöver ni inte bilen. Vi rekommenderar till och med uttryckligen att inte köra inne i byn – bara ut ur den. I juli och augusti är en fast plats guld värd: ni ställer bilen och låter den stå.',
@@ -641,10 +641,10 @@ export const tarifaLocationContent: {
       },
       experience: {
         eyebrow: 'Era dagar här',
-        title: 'Och sedan dagarna själva',
-        paragraphs: ['Var ni bor är bestämt. Vad ni gör här – stränder, vind, mat, natur, gamla stan och utflykterna till Bolonia eller Tanger – står i upplevelseguiden.'],
+        title: 'Vad vill ni göra i Tarifa?',
+        paragraphs: ['I upplevelseguiden väljer ni mellan strand, vind och vattensport, mat, natur, gamla stan och en heldag i Bolonia.'],
         links: [
-          { label: 'Upptäck Tarifa Experience', token: 'tarifa_experience_hub' },
+          { label: 'Att göra i Tarifa', token: 'tarifa_experience_hub' },
           { label: 'Upptäck Tarifas stränder', token: 'tarifa_beaches_authority' }
         ]
       },

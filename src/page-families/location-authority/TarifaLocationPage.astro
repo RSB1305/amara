@@ -5,7 +5,6 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import Navigation from '../../components/Navigation.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
-import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import { tarifaLocationContent } from '../../content/tarifaLocationContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -67,7 +66,7 @@ const footerHighlights: LabeledLink[] = [
           <p class="am-text-eyebrow text-primary">{content.geography.eyebrow}</p>
           <h2 class="am-text-display mt-6 max-w-5xl text-balance text-on-surface">{content.geography.title}</h2>
           <div class="mt-10 max-w-3xl space-y-5">
-            {content.geography.paragraphs.map((paragraph) => (
+            {content.geography.paragraphs.slice(0, 1).map((paragraph) => (
               <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
@@ -95,7 +94,7 @@ const footerHighlights: LabeledLink[] = [
           <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.arrival.title}</h2>
         </div>
         <div class="max-w-4xl space-y-5 lg:col-span-7">
-          {content.arrival.paragraphs.map((paragraph, index) => (
+          {content.arrival.paragraphs.slice(1).map((paragraph, index) => (
             <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-on-surface-variant']}>{paragraph}</p>
           ))}
           {content.arrival.link?.token && (
@@ -110,59 +109,36 @@ const footerHighlights: LabeledLink[] = [
     <LocationAreasBand
       eyebrow={content.areas.eyebrow}
       title={content.areas.title}
-      paragraphs={content.areas.paragraphs}
+      paragraphs={content.areas.paragraphs.slice(1)}
       archetypes={content.areas.archetypes}
       link={content.areas.link ? { href: requiredLink(content.areas.link.token!), label: content.areas.link.label } : undefined}
     />
 
-    <div class="border-b border-border-subtle bg-surface">
-      <div class="mx-auto grid max-w-screen-2xl lg:grid-cols-2">
-        <section id="weather-seasons" class="scroll-mt-28 border-b border-border-subtle px-6 py-20 md:px-12 md:py-28 lg:border-b-0 lg:border-r">
+    <section id="weather-seasons" class="scroll-mt-28 border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
           <p class="am-text-eyebrow text-primary">{content.weather.eyebrow}</p>
           <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.weather.title}</h2>
+        </div>
+        <div class="lg:col-span-7">
           <div class="mt-7 space-y-5">
-            {content.weather.paragraphs.map((paragraph) => (
+            {[content.weather.paragraphs[0], content.weather.paragraphs[2]].filter(Boolean).map((paragraph) => (
               <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
           {content.weather.link && (
             <a href={requiredLink(content.weather.link.token!)} class="am-cta-link mt-8 inline-flex">{content.weather.link.label}</a>
           )}
-        </section>
-        <section id="daily-life" class="scroll-mt-28 px-6 py-20 md:px-12 md:py-28">
-          <p class="am-text-eyebrow text-primary">{content.dailyLife.eyebrow}</p>
-          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.dailyLife.title}</h2>
-          <div class="mt-7 space-y-5">
-            {content.dailyLife.paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-            ))}
-          </div>
-        </section>
-      </div>
-    </div>
-
-    <section id="winter-stays" class="scroll-mt-28 border-b border-border-subtle bg-surface-container-low px-6 py-24 md:px-12 md:py-32">
-      <div class="mx-auto max-w-screen-2xl border-y border-primary/20 py-14 md:py-20">
-        <div class="grid gap-10 lg:grid-cols-12 lg:gap-20">
-          <div class="lg:col-span-5">
-            <p class="am-text-eyebrow text-primary">{content.winter.eyebrow}</p>
-            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.winter.title}</h2>
-          </div>
-          <div class="space-y-5 lg:col-span-7">
-            {content.winter.paragraphs.map((paragraph, index) => (
-              <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-on-surface-variant']}>{paragraph}</p>
-            ))}
-          </div>
         </div>
       </div>
     </section>
 
-        <LocationStaySplitSection
+    <LocationStaySplitSection
       imageSrc={tarifaStayImage}
       imageAlt={content.amara.imageAlt}
       eyebrow={content.amara.eyebrow}
       title={content.amara.title}
-      paragraphs={content.amara.paragraphs}
+      paragraphs={[content.amara.paragraphs[0], content.amara.paragraphs.at(-1)!]}
       facts={content.amara.facts}
       link={content.amara.link ? { href: stayHref, label: content.amara.link.label } : undefined}
     />
@@ -186,19 +162,5 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    {content.closing && (
-      <section class="border-t border-border-subtle bg-surface-container-low px-6 pt-24 md:px-12 md:pt-32">
-        <div class="mx-auto max-w-screen-2xl">
-          <EditorialClosingCta
-            title={content.closing.title}
-            lead={content.closing.lead}
-            lang={currentLang}
-            links={[{ token: 'tarifa', label: content.closing.ctaLabel, style: 'primary' }]}
-            role="next-action"
-            family="location"
-          />
-        </div>
-      </section>
-    )}
   </article>
 </LocationAuthorityLayout>

@@ -12,6 +12,7 @@ export const TARIFA_EXPERIENCE_TOKEN = 'tarifa_experience_hub' as const;
 
 export type TarifaExperienceLinkToken =
   | 'location_tarifa'
+  | 'tarifa_where_to_stay'
   | 'tarifa'
   | 'tarifa_beaches_authority'
   | 'tarifa_wind_kitesurfing_authority'
@@ -129,10 +130,9 @@ export const tarifaExperienceContent = {
   navLabel: l("Experiences", "Erlebnisse", "Experiencias", "Ervaringen", "Upplevelser"),
   breadcrumbLabel: l("Experiences", "Erlebnisse", "Experiencias", "Ervaringen", "Upplevelser"),
   hero: {
-    title: l("Experiences in Tarifa: choose your kind of day", "Tarifa erleben: Welcher Tag passt heute zu euch?", "Qué hacer en Tarifa: elegid el día que os apetece", "Tarifa beleven: kies de dag die bij jullie past", "Upplev Tarifa: välj vilken sorts dag ni vill ha"),
+    title: l("What to do in Tarifa", "Was möchtet ihr in Tarifa unternehmen?", "Qué hacer en Tarifa", "Wat te doen in Tarifa", "Att göra i Tarifa"),
     lead: [
-      l("Tarifa is famous for wind and kitesurfing, but that is only one way to experience it. Stay for a few days and you can move between Atlantic beaches, a historic Strait town, nature and wildlife, food shaped by the coast, and completely different days around Bolonia or across the water in Tangier.", "Tarifa ist für Wind und Kitesurfen bekannt. Aber darauf lässt sich der Ort nicht reduzieren. Wenn ihr mehrere Tage bleibt, könnt ihr zwischen Atlantikstränden, einer historischen Stadt an der Meerenge, Natur, Küstenküche und ganz unterschiedlichen Ausflügen wechseln.", "Tarifa es conocida por el viento y el kitesurf, pero quedarse aquí varios días permite descubrir mucho más. Hay costa atlántica, una ciudad histórica marcada por el Estrecho, naturaleza, cocina ligada al mar y excursiones que combinan paisaje e historia.", "Tarifa staat bekend om wind en kitesurfen, maar een verblijf van een paar dagen laat een veel bredere bestemming zien. Wissel de Atlantische kust af met een historische stad aan de Straat, natuur, eten uit de zee en uitstappen waarin landschap en geschiedenis samenkomen.", "Tarifa är känt för vind och kitesurfing, men några dagar här visar en mycket bredare destination. Växla mellan Atlantkusten, en historisk stad vid sundet, natur, mat präglad av havet och utflykter där landskap och historia möts."),
-      l("The key is not trying to do everything. Tarifa works best when you choose the kind of day that fits the conditions — and what you actually feel like doing.", "Ihr müsst dabei nicht jeden Tag schon vorher festlegen. Gerade in Tarifa gehört es zum Aufenthalt, morgens zu schauen, worauf ihr Lust habt und welche Bedingungen dazu passen.", "No hace falta convertir las vacaciones en una lista de cosas que tachar. Tarifa funciona mejor cuando dejáis un poco de margen para decidir cada día.", "Juist hier hoeft niet iedere vakantiedag vooraf vast te staan.", "Det fina med Tarifa är att varje dag inte måste planeras i förväg.")
+      l("Tarifa gives you six very different kinds of day: beaches, wind and watersports, the Old Town, food and evenings out, nature around the Strait, or a full day in Bolonia. Check the wind and weather in the morning, then choose what fits. With two or three nights, pick the coast, the Old Town and one main experience. With more time, keep a day flexible instead of trying to plan everything before you arrive.", "In Tarifa könnt ihr jeden Tag anders verbringen: am Strand, auf dem Wasser, in der Altstadt, beim Essen und Ausgehen, in der Natur an der Meerenge oder einen ganzen Tag in Bolonia. Schaut morgens auf Wind und Wetter und entscheidet dann. Bei zwei oder drei Nächten reichen Küste, Altstadt und ein besonderes Erlebnis. Wenn ihr länger bleibt, lasst lieber einen Tag offen, statt vor der Anreise alles durchzuplanen.", "En Tarifa podéis elegir entre seis días muy distintos: playa, viento y deportes acuáticos, casco antiguo, gastronomía y ambiente nocturno, naturaleza en el Estrecho o un día completo en Bolonia. Mirad el viento y el tiempo por la mañana y decidid entonces. Con dos o tres noches bastan la costa, el casco antiguo y una experiencia especial. Si os quedáis más, dejad algún día abierto en lugar de planificarlo todo antes de llegar.", "In Tarifa kan elke dag anders zijn: strand, wind en watersport, de oude stad, eten en uitgaan, natuur rond de Straat of een hele dag in Bolonia. Kijk 's ochtends naar wind en weer en kies dan wat past. Bij twee of drie nachten zijn de kust, de oude stad en één bijzondere ervaring genoeg. Blijven jullie langer, houd dan liever een dag vrij dan alles vooraf vast te leggen.", "I Tarifa kan varje dag se olika ut: strand, vind och vattensport, gamla stan, mat och kvällsliv, naturen vid sundet eller en heldag i Bolonia. Titta på vind och väder på morgonen och välj sedan. Under två eller tre nätter räcker kusten, gamla stan och en större upplevelse. Stannar ni längre är det bättre att lämna en dag öppen än att planera allt i förväg.")
     ],
     imageAlt: l("Whale artwork and writing desk at AMARA Family & Surf in Tarifa", "Walbild und Schreibtisch bei AMARA Family & Surf in Tarifa", "Ilustración de una ballena y escritorio de AMARA Family & Surf en Tarifa", "Walviskunst en schrijftafel bij AMARA Family & Surf in Tarifa", "Valkonst och skrivbord på AMARA Family & Surf i Tarifa")
   },
@@ -167,44 +167,43 @@ export const tarifaExperienceContent = {
     ]
   },
   dayChooser: {
-    title: l("Which day suits today?", "Welcher Tag passt heute?", "¿Qué día encaja hoy?", "Welke dag past vandaag?", "Välj er Tarifa-dag"),
+    title: l("Six ideas for your day", "Sechs Ideen für euren Tag", "Seis ideas para vuestro día", "Zes ideeën voor jullie dag", "Sex idéer för er dag"),
     intro: [
-      l("In a strong Levante only Valdevaqueros really works — that is where the rescue boats are and where everything is set up for it. The small, family-friendly Playa Chica is not a good choice then. In a Poniente, or when the air is still, it is the other way round.", "Bei starkem Levante funktioniert praktisch nur Valdevaqueros – dort sind die Rettungsboote, dort ist alles darauf eingestellt. Die kleine, familienfreundliche Playa Chica ist dann keine gute Wahl. Bei Poniente oder ruhiger Luft dreht sich das um.", "Con levante fuerte solo funciona de verdad Valdevaqueros: allí están las lanchas de rescate y todo está preparado para ello. La pequeña Playa Chica, ideal para familias, no es entonces buena elección. Con poniente o con el aire en calma ocurre al revés.", "Bij sterke levante werkt praktisch alleen Valdevaqueros — daar liggen de reddingsboten en daar is alles erop ingericht. Het kleine, gezinsvriendelijke Playa Chica is dan geen goede keuze. Bij poniente of bij stille lucht is het andersom.", "Vid stark levante fungerar i praktiken bara Valdevaqueros – där finns räddningsbåtarna och allt är anpassat för förhållandena. Den lilla, familjevänliga Playa Chica är då inget bra val. Vid poniente eller stiltje är det tvärtom."),
-      l("So you do not plan Tarifa in advance. You look outside in the morning and decide then. Six kinds of day to choose from:", "Deshalb plant man Tarifa nicht auf Vorrat durch. Man schaut morgens nach draußen und entscheidet dann. Sechs Tagesformen, aus denen ihr wählen könnt:", "Por eso Tarifa no se planifica de antemano. Se mira fuera por la mañana y se decide entonces. Seis tipos de día entre los que elegir:", "Daarom plan je Tarifa niet vooruit. Je kijkt ’s ochtends naar buiten en beslist dan. Zes soorten dagen om uit te kiezen:", "Därför planerar man inte Tarifa långt i förväg. Titta ut på morgonen och bestäm då. Sex sorters dagar att välja mellan:")
+      l("Wind and weather can change which beach or activity works best. Use the six guides below to choose the day that fits the current conditions and your mood.", "Wind und Wetter können verändern, welcher Strand oder welche Aktivität gerade passt. Mit den sechs Guides unten wählt ihr den Tag, der zu den aktuellen Bedingungen und zu eurer Stimmung passt.", "El viento y el tiempo pueden cambiar qué playa o actividad conviene. Usad las seis guías para elegir el día que encaja con las condiciones y con lo que os apetece.", "Wind en weer bepalen soms welk strand of welke activiteit het beste past. Kies met de zes gidsen hieronder de dag die aansluit bij de omstandigheden en jullie stemming.", "Vind och väder kan påverka vilken strand eller aktivitet som passar bäst. Använd de sex guiderna nedan för att välja efter dagens förhållanden och vad ni känner för.")
     ],
     days: [
       {
-        title: l("A coast day.", "Ein Küstentag.", "Un día de costa.", "Een kustdag.", "En kustdag."),
+        title: l("Beaches and coast", "Strand und Küste", "Playas y costa", "Strand en kust", "Strand och kust"),
         text: l("Swim close to town or watch the kites farther west. Which beach works today depends on the wind.", "Nah am Ort baden oder weiter westlich den Kitern zuschauen. Welcher Strand heute passt, hängt vom Wind ab.", "Bañarse cerca del pueblo o ver las cometas más al oeste. Qué playa funciona hoy depende del viento.", "Zwemmen dicht bij het dorp of verderop naar het westen de kites bekijken. Welk strand vandaag werkt, hangt van de wind af.", "Bada nära stan eller se kitesurfarna längre västerut. Vilken strand som passar i dag beror på vinden."),
         token: "tarifa_beaches_authority" as LinkToken,
         linkLabel: l("Tarifa’s beaches", "Tarifas Strände", "Las playas de Tarifa", "De stranden van Tarifa", "Tarifas stränder")
       },
       {
-        title: l("A wind and water day.", "Ein Wind- und Wassertag.", "Un día de viento y agua.", "Een wind- en waterdag.", "En vind- och vattendag."),
+        title: l("Wind and watersports", "Wind und Wassersport", "Viento y deportes acuáticos", "Wind en watersport", "Vind och vattensport"),
         text: l("Onto the water if that is why you came. Beginners too — through our friends at Tarifa Surf Club, which we arrange before you arrive.", "Aufs Wasser, wenn ihr dafür gekommen seid. Anfänger ebenso – über unsere Freunde vom Tarifa Surf Club, mit denen wir das vor eurer Anreise organisieren.", "Al agua, si habéis venido para eso. También quienes empiezan, con nuestros amigos del Tarifa Surf Club, que organizamos antes de vuestra llegada.", "Het water op, als je daarvoor bent gekomen. Beginners ook — via onze vrienden van Tarifa Surf Club, wat we vóór jullie aankomst regelen.", "Ge er ut på vattnet om det är därför ni kom. Även nybörjare – via våra vänner på Tarifa Surf Club; det ordnar vi före er ankomst."),
         token: "tarifa_wind_kitesurfing_authority" as LinkToken,
         linkLabel: l("Wind & kitesurfing", "Wind & Kitesurfen", "Viento y kitesurf", "Wind & kitesurfen", "Vind & kitesurfing")
       },
       {
-        title: l("An Old Town day.", "Ein Altstadttag.", "Un día de casco antiguo.", "Een oude-stadsdag.", "En dag i gamla stan."),
+        title: l("Old Town and history", "Altstadt und Geschichte", "Casco antiguo e historia", "Oude stad en geschiedenis", "Gamla stan och historia"),
         text: l("Through the Puerta de Jerez into the walled core, the Castillo as your anchor, and the Strait behind you the whole way.", "Durch die Puerta de Jerez in den ummauerten Kern, das Castillo als Ankerpunkt, und die Meerenge ist dabei immer im Rücken.", "Por la Puerta de Jerez al recinto amurallado, el Castillo como referencia, y el Estrecho siempre a la espalda.", "Door de Puerta de Jerez de ommuurde kern in, het Castillo als ankerpunt, en de Straat de hele tijd in je rug.", "Gå genom Puerta de Jerez in i den muromgärdade stadskärnan, med Castillo som riktpunkt och sundet i ryggen hela vägen."),
         token: "tarifa_old_town_history" as LinkToken,
         linkLabel: l("Old Town & history", "Altstadt & Geschichte", "Casco antiguo e historia", "Oude stad & geschiedenis", "Gamla stan & historia")
       },
       {
-        title: l("An evening and table day.", "Ein Abend- und Esstag.", "Un día de mesa y noche.", "Een avond- en tafeldag.", "En kvälls- och matdag."),
+        title: l("Food and evenings out", "Essen und Ausgehen", "Gastronomía y ambiente nocturno", "Eten en uitgaan", "Mat och kvällsliv"),
         text: l("Red tuna from the Almadraba tradition, then Calle Batalla del Salado and the Old Town streets.", "Roter Thunfisch aus der Almadraba-Tradition, später die Calle Batalla del Salado und die Gassen der Altstadt.", "Atún rojo de la tradición almadrabera y, después, la Calle Batalla del Salado y las calles del casco antiguo.", "Rode tonijn uit de almadraba-traditie, later de Calle Batalla del Salado en de straatjes van de oude stad.", "Röd tonfisk från almadraba-traditionen, följt av Calle Batalla del Salado och gränderna i gamla stan."),
         token: "tarifa_food_evening_life" as LinkToken,
         linkLabel: l("Food & evening life", "Essen & Ausgehen", "Comer y salir", "Eten & uitgaan", "Mat & kvällsliv")
       },
       {
-        title: l("A Strait nature day.", "Ein Naturtag an der Meerenge.", "Un día de naturaleza en el Estrecho.", "Een natuurdag aan de Straat.", "En naturdag vid sundet."),
+        title: l("Nature around the Strait", "Natur an der Meerenge", "Naturaleza en el Estrecho", "Natuur rond de Straat", "Natur vid sundet"),
         text: l("Viewpoints looking across to Africa, the bird migration corridor, or a whale and dolphin trip — that one stays deliberately flexible.", "Aussichtspunkte mit Blick nach Afrika, der Zugvogelkorridor, oder eine Ausfahrt zu Walen und Delfinen – die bleibt bewusst flexibel.", "Miradores hacia África, el corredor migratorio de aves o una salida para ver ballenas y delfines: esa conviene dejarla flexible.", "Uitzichtpunten richting Afrika, de vogeltrekcorridor, of een tocht naar walvissen en dolfijnen — die houden we bewust flexibel.", "Välj en utsiktsplats, följ flyttfåglarnas stråk eller håll möjligheten till en val- och delfintur öppen."),
         token: "tarifa_nature_wildlife" as LinkToken,
         linkLabel: l("Nature & wildlife", "Natur & Tierwelt", "Naturaleza y fauna", "Natuur & dierenwereld", "Natur & djurliv")
       },
       {
-        title: l("A Bolonia day.", "Ein Bolonia-Tag.", "Un día de Bolonia.", "Een Bolonia-dag.", "En Bolonia-dag."),
+        title: l("Bolonia and Baelo Claudia", "Bolonia und Baelo Claudia", "Bolonia y Baelo Claudia", "Bolonia en Baelo Claudia", "Bolonia och Baelo Claudia"),
         text: l("Open coast, protected dune and the Roman town of Baelo Claudia — that is a whole day, not a stopover.", "Offene Küste, geschützte Düne und die römische Stadt Baelo Claudia – das ist ein ganzer Tag, kein Zwischenstopp.", "Costa abierta, duna protegida y la ciudad romana de Baelo Claudia: eso es un día entero, no una parada.", "Open kust, beschermd duin en de Romeinse stad Baelo Claudia — dat is een hele dag, geen tussenstop.", "Öppen kust, skyddad dyn och den romerska staden Baelo Claudia – en hel dag, inte ett stopp på vägen."),
         token: "tarifa_bolonia_baelo_claudia" as LinkToken,
         linkLabel: l("Bolonia & Baelo Claudia", "Bolonia & Baelo Claudia", "Bolonia y Baelo Claudia", "Bolonia & Baelo Claudia", "Bolonia & Baelo Claudia")
@@ -243,11 +242,11 @@ export const tarifaExperienceContent = {
     }
   ],
   closing: {
-    title: l("For us, Tarifa is the most beautiful place on this planet.", "Tarifa ist für uns der schönste Ort auf diesem Planeten.", "Para nosotros, Tarifa es el lugar más bonito de este planeta.", "Voor ons is Tarifa de mooiste plek op deze planeet.", "För oss är Tarifa den vackraste platsen på den här planeten."),
-    lead: l("Once you know which days you want to spend here, all that is missing is where you wake up.", "Wenn ihr wisst, welche Tage ihr hier verbringen wollt, fehlt nur noch der Ort, an dem ihr aufwacht.", "Cuando sabéis qué días queréis pasar aquí, solo falta el lugar donde despertar.", "Als jullie weten welke dagen jullie hier willen doorbrengen, ontbreekt alleen nog de plek waar jullie wakker worden.", "När ni vet vilka dagar ni vill tillbringa här återstår bara platsen där ni vaknar."),
+    title: l("Choose the base for your Tarifa days", "Wählt die passende Unterkunft für eure Tage in Tarifa", "Elegid la base para vuestros días en Tarifa", "Kies de uitvalsbasis voor jullie dagen in Tarifa", "Välj boendet för era dagar i Tarifa"),
+    lead: l("Compare the areas first, or go straight to AMARA Family & Surf in La Marina.", "Vergleicht zuerst die Lagen oder schaut euch direkt AMARA Family & Surf in La Marina an.", "Comparad primero las zonas o id directamente a AMARA Family & Surf en La Marina.", "Vergelijk eerst de gebieden of bekijk meteen AMARA Family & Surf in La Marina.", "Jämför områdena först eller gå direkt till AMARA Family & Surf i La Marina."),
     ctaLabel: l("View AMARA Family & Surf", "AMARA Family & Surf ansehen", "Ver AMARA Family & Surf", "Bekijk AMARA Family & Surf", "Visa AMARA Family & Surf"),
     token: "tarifa" as LinkToken,
     secondaryLabel: l("Where to stay in Tarifa", "Wo in Tarifa übernachten?", "Dónde alojarse en Tarifa", "Waar overnachten in Tarifa?", "Var ska man bo i Tarifa?"),
-    secondaryToken: "location_tarifa" as LinkToken
+    secondaryToken: "tarifa_where_to_stay" as LinkToken
   }
 };
