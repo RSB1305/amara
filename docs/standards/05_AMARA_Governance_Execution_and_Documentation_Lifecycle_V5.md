@@ -1,11 +1,11 @@
 ---
 document_id: AMARA-GOV-005
 title: AMARA Governance, Execution & Documentation Lifecycle
-version: 5.7.0
+version: 5.8.0
 status: ACTIVE
 authority_class: GOVERNING CONTRACT
 effective_from: 2026-08-14
-last_modified: 2026-08-28T07:08:21+02:00
+last_modified: 2026-08-29T06:45:33+02:00
 canonical_path: /docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md
 supersedes:
   - AMARA Governance & Execution Standard V4.2
@@ -227,7 +227,7 @@ When Codex, Claude, Codex Cloud or another implementation worker may operate in 
 
 Before editing, every task has a bounded scope and a provenance-bearing branch name such as `codex/<task>`, `claude/<task>` or `codex/cloud-<task>`. Branch provenance does not imply release readiness. The Parallel Traffic Check remains the overlap guard: same-file or same-owner/contract ownership stops; separate scopes proceed.
 
-Local workers hand off a clean committed branch and commit SHA. Codex Cloud or another remote worker is part of the same release inventory only after it exposes a remote branch, pull request, commit SHA or operator-provided patch to the release controller. Remote workers do not merge directly to `main` unless the operator explicitly assigns that worker the release-controller role.
+Local workers hand off a clean committed branch and commit SHA. Every explicitly commissioned Codex Cloud implementation hands off through its dedicated remote branch and an open pull request. A commit-only reference, patch file, archive, Base64 block, clipboard transfer or other manual artifact transfer is not an accepted Cloud implementation handoff; analysis-only Cloud tasks with no repository changes are exempt. The Cloud commission itself authorizes exactly one task-branch push and creation or update of that pull request without a separate cost-approval round. It does not authorize merge, deployment, unrelated pushes or direct changes to `main`. Remote workers do not merge directly to `main` unless the operator explicitly assigns that worker the release-controller role.
 
 One release controller owns integration and push. Immediately before any release push, that controller inventories:
 
@@ -429,3 +429,4 @@ Project attachments/PDFs are not activation gates.
 | 5.5.0 | 2026-08-14T12:59:47+02:00 | Made `AGENTS.md` sufficient for daily Class 0–2 work; limited owner reads to architecture/SSOT, protected-contract and concrete-conflict triggers; bounded FAST preflights; prohibited incidental validation tooling, documentation and inventories; established result-first turn completion. | DR-EXEC-001–008, DR-AGENT-001 | this revision |
 | 5.6.0 | 2026-08-27T13:11:27+02:00 | Added the bounded read-only Parallel Traffic Check for declared parallel-agent work, with an overlap stop only for the same files or shared owner/contract and no expansion into builds, audits or new coordination infrastructure. | DR-EXEC-010, DR-EXEC-007 | this revision |
 | 5.7.0 | 2026-08-28T07:08:21+02:00 | Required one dedicated branch and worktree per parallel implementation task, reserved the primary `main` worktree for control/integration, added remote Codex Cloud handoff requirements and established a centralized release inventory that classifies every visible workstream before one integrated push/PR/merge. | DR-EXEC-011, DR-EXEC-010, DR-EXEC-007 | this revision |
+| 5.8.0 | 2026-08-29T06:45:33+02:00 | Made a dedicated remote branch and open pull request mandatory for every Codex Cloud implementation, prohibited manual artifact-transfer fallbacks and established standing authorization for the single handoff push/PR while retaining separate merge and deployment control. | DR-EXEC-011, DR-EXEC-006, DR-EXEC-007 | this revision |

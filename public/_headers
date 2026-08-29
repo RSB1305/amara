@@ -1,3 +1,10 @@
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), browsing-topics=()
+  X-Frame-Options: DENY
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com; media-src 'self'; frame-src https://www.youtube-nocookie.com; connect-src 'self' https://api.open-meteo.com https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com; manifest-src 'self'
+
 # Astro emits every build asset under /_astro/ with a content hash in its filename,
 # so a changed file is always a changed URL. Cloudflare Pages otherwise serves these
 # assets with `max-age=0, must-revalidate`, which forces the browser to spend a full

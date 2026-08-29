@@ -177,7 +177,7 @@ const translations = weatherTranslations[lang];
   </div>
 </details>
 
-<script define:vars={{ lat, lon, translations, windMode, widgetId }}>
+<script is:inline define:vars={{ lat, lon, translations, windMode, widgetId }}>
   (function () {
     const root = document.getElementById(widgetId);
     if (!root) return;
@@ -227,16 +227,55 @@ const translations = weatherTranslations[lang];
           : 'weather_code,temperature_2m_max,temperature_2m_min';
         const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=${currentFields}&hourly=${hourlyFields}&daily=${dailyFields}&timezone=auto&forecast_days=5`;
         const res = await fetch(url);
+        if (!res.ok) return;
         const data = await res.json();
-        if (!data || !data.current || !data.hourly || !data.daily) return;
+        if (!data || typeof data !== 'object' || !data.current || !data.hourly || !data.daily) return;
 
-        const currentCode = data.current.weather_code;
-        const currentTemp = Math.round(data.current.temperature_2m);
-        const currentWindKmh = Math.round(data.current.wind_speed_10m || 0);
+        const finiteNumber = (value, min, max) => {
+          const number = typeof value === 'number' ? value : Number.NaN;
+          return Number.isFinite(number) && number >= min && number <= max ? number : null;
+        };
+        const weatherCode = (value) => {
+          const number = finiteNumber(value, 0, 99);
+          return number === null ? null : Math.round(number);
+        };
+        const isoLocalTime = (value) =>
+          typeof value === 'string' && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2})?$/.test(value)
+            ? value
+            : null;
+        const isoDay = (value) =>
+          typeof value === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : null;
+        const appendTextElement = (parent, className, text) => {
+          const element = document.createElement('div');
+          element.className = className;
+          element.textContent = text;
+          parent.appendChild(element);
+          return element;
+        };
+
+        const currentCode = weatherCode(data.current.weather_code);
+        const currentTemperature = finiteNumber(data.current.temperature_2m, -80, 60);
+        const maximumTemperature = finiteNumber(data.daily.temperature_2m_max?.[0], -80, 60);
+        const minimumTemperature = finiteNumber(data.daily.temperature_2m_min?.[0], -80, 60);
+        const currentUv = finiteNumber(data.current.uv_index ?? 0, 0, 30);
+        const currentTimeRaw = isoLocalTime(data.current.time);
+        if (
+          currentCode === null ||
+          currentTemperature === null ||
+          maximumTemperature === null ||
+          minimumTemperature === null ||
+          currentUv === null ||
+          currentTimeRaw === null
+        ) return;
+
+        const currentTemp = Math.round(currentTemperature);
+        const currentWindValue = finiteNumber(data.current.wind_speed_10m ?? 0, 0, 300);
+        if (showWind && currentWindValue === null) return;
+        const currentWindKmh = Math.round(currentWindValue ?? 0);
         const currentWindKnots = kmhToKnots(currentWindKmh);
-        const todayMax = Math.round(data.daily.temperature_2m_max[0]);
-        const todayMin = Math.round(data.daily.temperature_2m_min[0]);
-        const uv = Math.round(data.current.uv_index || 0);
+        const todayMax = Math.round(maximumTemperature);
+        const todayMin = Math.round(minimumTemperature);
+        const uv = Math.round(currentUv);
 
         let uvHint = t.uvLow;
         if (uv >= 3) uvHint = t.uvMid;
@@ -268,9 +307,8 @@ const translations = weatherTranslations[lang];
         if (subtitleEl) subtitleEl.textContent = subtitle;
 
         if (hourlyEl) {
-          hourlyEl.innerHTML = '';
-          const hourlyTimes = data.hourly.time || [];
-          const currentTimeRaw = data.current.time || '';
+          hourlyEl.replaceChildren();
+          const hourlyTimes = Array.isArray(data.hourly.time) ? data.hourly.time : [];
           let startIndex = hourlyTimes.indexOf(currentTimeRaw);
           if (startIndex === -1) {
             const nowTs = new Date(currentTimeRaw).getTime();
@@ -279,34 +317,55 @@ const translations = weatherTranslations[lang];
           if (startIndex === -1) startIndex = 0;
 
           for (let i = startIndex; i < startIndex + 8 && i < hourlyTimes.length; i++) {
-            const timeRaw = hourlyTimes[i] || '';
-            const time = timeRaw.split('T')[1] ? timeRaw.split('T')[1].slice(0, 5) : '--:--';
-            const temp = Math.round(data.hourly.temperature_2m[i]);
-            const code = data.hourly.weather_code[i];
-            const windKmh = Math.round(data.hourly.wind_speed_10m?.[i] || 0);
+            const timeRaw = isoLocalTime(hourlyTimes[i]);
+            const temperature = finiteNumber(data.hourly.temperature_2m?.[i], -80, 60);
+            const code = weatherCode(data.hourly.weather_code?.[i]);
+            const windValue = finiteNumber(data.hourly.wind_speed_10m?.[i] ?? 0, 0, 300);
+            if (!timeRaw || temperature === null || code === null || (showWind && windValue === null)) continue;
+            const time = timeRaw.slice(11, 16);
+            const temp = Math.round(temperature);
+            const windKmh = Math.round(windValue ?? 0);
             const windKnots = kmhToKnots(windKmh);
             const hourEl = document.createElement('div');
             hourEl.className = 'am-weather-hour';
-            hourEl.innerHTML = `<div class="am-weather-hour-time">${time}</div><div class="am-weather-hour-icon">${icons[code] || '☀️'}</div><div class="am-weather-hour-temp">${temp}°</div>${showWind ? `<div class="am-weather-hour-wind">${windKmh} km/h<br>${windKnots} kn</div>` : ''}`;
+            appendTextElement(hourEl, 'am-weather-hour-time', time);
+            appendTextElement(hourEl, 'am-weather-hour-icon', icons[code] || '☀️');
+            appendTextElement(hourEl, 'am-weather-hour-temp', `${temp}°`);
+            if (showWind) {
+              const windEl = appendTextElement(hourEl, 'am-weather-hour-wind', `${windKmh} km/h`);
+              windEl.appendChild(document.createElement('br'));
+              windEl.append(`${windKnots} kn`);
+            }
             hourlyEl.appendChild(hourEl);
           }
         }
 
         if (daysEl) {
-          daysEl.innerHTML = '';
+          daysEl.replaceChildren();
           for (let i = 0; i < 5; i++) {
-            const date = new Date(data.daily.time[i]);
+            const day = isoDay(data.daily.time?.[i]);
+            const code = weatherCode(data.daily.weather_code?.[i]);
+            const minimum = finiteNumber(data.daily.temperature_2m_min?.[i], -80, 60);
+            const maximum = finiteNumber(data.daily.temperature_2m_max?.[i], -80, 60);
+            const windValue = finiteNumber(data.daily.wind_speed_10m_max?.[i] ?? 0, 0, 300);
+            if (!day || code === null || minimum === null || maximum === null || (showWind && windValue === null)) continue;
+            const date = new Date(`${day}T12:00:00`);
             const dayName = t.dayNames[date.getDay()];
-            const code = data.daily.weather_code[i];
-            const min = Math.round(data.daily.temperature_2m_min[i]);
-            const max = Math.round(data.daily.temperature_2m_max[i]);
-            const windKmh = Math.round(data.daily.wind_speed_10m_max?.[i] || 0);
+            const min = Math.round(minimum);
+            const max = Math.round(maximum);
+            const windKmh = Math.round(windValue ?? 0);
             const windKnots = kmhToKnots(windKmh);
             const dayEl = document.createElement('div');
             dayEl.className = 'am-weather-day';
-            dayEl.innerHTML = showWind
-              ? `<div class="am-weather-day-name">${dayName}</div><div class="am-weather-day-icon">${icons[code] || '☀️'}</div><div class="am-weather-day-meta"><div class="am-weather-day-temp">${min}° / ${max}°</div><div class="am-weather-day-wind">${windKmh} km/h · ${windKnots} kn</div></div>`
-              : `<div class="am-weather-day-name">${dayName}</div><div class="am-weather-day-icon">${icons[code] || '☀️'}</div><div class="am-weather-day-temp">${min}° / ${max}°</div>`;
+            appendTextElement(dayEl, 'am-weather-day-name', dayName);
+            appendTextElement(dayEl, 'am-weather-day-icon', icons[code] || '☀️');
+            if (showWind) {
+              const metaEl = appendTextElement(dayEl, 'am-weather-day-meta', '');
+              appendTextElement(metaEl, 'am-weather-day-temp', `${min}° / ${max}°`);
+              appendTextElement(metaEl, 'am-weather-day-wind', `${windKmh} km/h · ${windKnots} kn`);
+            } else {
+              appendTextElement(dayEl, 'am-weather-day-temp', `${min}° / ${max}°`);
+            }
             daysEl.appendChild(dayEl);
           }
         }
