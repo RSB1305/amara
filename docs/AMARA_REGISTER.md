@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.43.0
+version: 1.44.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-29T06:45:33+02:00
+last_modified: 2026-08-29T07:01:07+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -22,11 +22,11 @@ The AMARA Register is the single source for active documents, authority classes,
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
 | 02 | AMARA Astro & Design Architecture Contract | 4.18.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
-| 03 | AMARA Runtime, SEO & Data Contract | 4.3.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
+| 03 | AMARA Runtime, SEO & Data Contract | 4.4.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.43.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.44.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.2.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.5.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -84,7 +84,7 @@ Current operational feature owner during transition:
 | DR-WEATHER-001 | The statically generated Frigiliana, Nerja and Tarifa Weather pages may progressively consume only their fixed GET-only Cloudflare Pages Functions at `/api/weather/frigiliana`, `/api/weather/nerja` and `/api/weather/tarifa`. The functions alone own the server-side AEMET key, fixed municipality mapping, provider fetch, temporary-host validation, normalization and per-destination caching; the public response contains only the forecast values and attribution needed by the visible three-day component. Failure preserves each static climate page and falls back to its official source. This decision grants no runtime scope to another page or destination by implication. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-001 | BaseLayout plus the central SEO head resolver remain the sole normal public head owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
-| DR-SEC-001 | Cloudflare Pages applies the active standard security headers to normal public, Guest Utility, legal and booking-entry documents. The resource-origin inventory is introduced only as `Content-Security-Policy-Report-Only`; CSP enforcement remains a separate explicit decision after representative compatibility validation. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-SEC-001 | Cloudflare Pages applies the active standard security headers to normal public, Guest Utility, legal and booking-entry documents. The validated resource-origin inventory is enforced through `Content-Security-Policy`: same-origin resources plus only the required Google Analytics, Open-Meteo and click-to-load YouTube origins are allowed; inline event-handler attributes are blocked, while deliberate Astro inline script elements and styles remain permitted. Any new origin or relaxation requires explicit alignment and representative compatibility validation. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-LINK-001 | Registry token + resolver remain the authored semantic internal-link contract. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-SCHEMA-001 | Collection/ItemList schema is not mandatory; any implementation must reflect visible real items and stay in the central resolver. | ACTIVE CURRENT DECISION |
 | DR-UTILITY-001 | Guest Guide remains a separate noindex utility shell and is not a Type D conversion surface by principle. | APPROVED; code reconciliation pending |
@@ -189,6 +189,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-08-29T07:01:07+02:00 | Enforced Content Security Policy | Promoted the validated Cloudflare Pages CSP from report-only to enforcement after representative Public, Guest, consent/analytics, weather, YouTube, legal and booking-entry flows completed without violations. Runtime Standard 4.4.0, Register 1.44.0. | DR-SEC-001 | this revision |
 | 2026-08-29T06:45:33+02:00 | Codex Cloud implementation handoff | Made a dedicated remote branch and open pull request mandatory for every Codex Cloud implementation, prohibited manual artifact-transfer fallbacks and authorized the single handoff push/PR without a separate cost-approval round. Governance 5.8.0, Register 1.43.0. | DR-EXEC-011, DR-EXEC-006, DR-EXEC-007 | this revision |
 | 2026-08-26T18:00:00Z | Conversion-family composition | Activated the executable Conversion-family contract across Stay Discovery, Stay Decision, Direct Booking and Specialist Enquiry while preserving existing family/page-end ownership and the external checkout boundary. Astro Standard 4.18.0, Register 1.36.0. | DR-DESIGN-017 | this revision |
 | 2026-08-26T18:30:00Z | Retrievable answer form | Gave the existing direct-answer principle a binding form — a self-contained 60–130-word block immediately after the H1 — and required attribute comparisons to be emitted as tables or identified lists rather than prose. Both close form gaps found in a build audit: no indexable Frigiliana page carried a standalone direct answer and the 22-page cluster held one table. Neither rule authorizes new claims; unsupported values are omitted, not estimated. Content Playbook 1.6.0, Register 1.37.0. | TR-CONTENT-006–007, TR-CONTENT-002, TR-CONTENT-005, DR-EVIDENCE-001 | this revision |
@@ -309,3 +310,4 @@ Separate controlled workstreams remain for:
 | 1.40.0 | 2026-08-28T06:28:44+02:00 | Extended the fixed server-side AEMET forecast boundary to the Frigiliana, Nerja and Tarifa Weather pages and registered Runtime Standard 4.2.0. | this revision |
 | 1.42.0 | 2026-08-28T18:00:00Z | Activated the anonymous-link Guest Utility content boundary and the standard Cloudflare Pages security headers, with CSP remaining report-only. Guest Utility 2.2.0 and Runtime Standard 4.3.0. | this revision |
 | 1.43.0 | 2026-08-29T06:45:33+02:00 | Registered Governance 5.8.0 and made remote branch plus pull request the mandatory Codex Cloud implementation handoff, replacing manual artifact transfer. | this revision |
+| 1.44.0 | 2026-08-29T07:01:07+02:00 | Registered Runtime Standard 4.4.0 and promoted the validated Cloudflare Pages CSP from report-only observation to enforcement. | this revision |

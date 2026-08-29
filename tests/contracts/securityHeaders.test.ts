@@ -11,15 +11,16 @@ test('all site documents receive the approved security headers', () => {
   expect(headers).toContain('X-Frame-Options: DENY');
 });
 
-test('CSP remains report-only and uses the reviewed resource origins', () => {
+test('CSP is enforced and uses only the reviewed resource origins', () => {
   const csp = headers
     .split('\n')
-    .find((line) => line.trim().startsWith('Content-Security-Policy-Report-Only:'));
+    .find((line) => line.trim().startsWith('Content-Security-Policy:'));
 
   expect(csp).toBeDefined();
-  expect(headers).not.toMatch(/^\s*Content-Security-Policy:/m);
+  expect(headers).not.toMatch(/^\s*Content-Security-Policy-Report-Only:/m);
   expect(csp).toContain("default-src 'self'");
   expect(csp).toContain("frame-ancestors 'none'");
+  expect(csp).toContain("script-src-attr 'none'");
   expect(csp).toContain('https://www.googletagmanager.com');
   expect(csp).toContain('https://api.open-meteo.com');
   expect(csp).toContain('https://www.youtube-nocookie.com');
