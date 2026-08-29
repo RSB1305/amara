@@ -199,9 +199,7 @@ const coastMobility = c.coast.subsections[0];
 const decisionStay = c.decision.subsections[0];
 const decisionAvailabilityCta = decisionStay.ctas.find((cta) => cta.token === 'AVAILABILITY');
 
-const sectionOrder = getFrigilianaLocationSectionOrder(currentLang).filter((sectionId) =>
-  ['hero', 'villageLife', 'coast', 'decision'].includes(sectionId)
-);
+const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
 const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas;
 ---
 
