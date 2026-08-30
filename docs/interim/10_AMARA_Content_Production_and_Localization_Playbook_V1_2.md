@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-CONTENT-010
-title: AMARA Content Production & Localization Playbook V1.8.0
-version: 1.8.0
+title: AMARA Content Production & Localization Playbook V1.8.1
+version: 1.8.1
 status: ACTIVE
 authority_class: OPERATIONAL PLAYBOOK / NON-GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "10_AMARA_Content_Production_and_Localization_Playbook_V1_2(1
 source_sha256: adab58c901709b270fb264498158f2cb3010006bac7dfea18e6358627a0f10ae
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-30T16:30:00+02:00
+last_modified: 2026-08-30T17:05:00+02:00
 ---
 
 # AMARA Content Production & Localization Playbook V1.2 — Interim Markdown Snapshot
@@ -877,7 +877,7 @@ A cross-page link exists because the source page has established something that 
 1. **Condition** — what this page established. "The days stay mild and the evenings turn cool."
 2. **Consequence** — what follows for the stay. "Then what heats the place matters."
 3. **Criterion** — what a guest would therefore look for. Usually carried by the consequence; do not spell it out twice.
-4. **Evidence** — the verified AMARA fact that answers it, attributed where it is not universal. "All four stays have heating and underfloor heating in the bathroom; Lounis, Zaid and Maha also have a pellet stove."
+4. **Evidence** — the verified fact that answers it: a property fact attributed to the stays it applies to when the destination is a stay, or the fact the destination page itself carries when it is an information page. "All four stays have heating and underfloor heating in the bathroom; Lounis, Zaid and Maha also have a pellet stove."
 
 Fail the handoff when it:
 
@@ -908,3 +908,4 @@ The same four moves are written natively in every locale. Sentence count and con
 | 1.7.0 | 2026-08-29T08:47:07+02:00 | Added the people-first host-language gate, deletion test, imperative boundary and proportional rendered-page density check. |
 | 1.7.1 | 2026-08-29T13:59:51+02:00 | Clarified that repeated cards and accommodation summaries must not be forced into one translated instruction or contrast template. |
 | 1.8.0 | 2026-08-30T16:30:00+02:00 | Added evidence-carrying handoffs: a cross-page link states condition, stay consequence, guest criterion and the verified AMARA fact instead of naming a shared topic. |
+| 1.8.1 | 2026-08-30T17:05:00+02:00 | Clarified the fourth move for the return direction: the answering fact may be the one the destination page carries, not only a property fact. |

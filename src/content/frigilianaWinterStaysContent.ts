@@ -256,23 +256,28 @@ export const frigilianaWinterStaysContent = {
     links: [
       {
         token: "weather_frigiliana" as LinkToken,
-        label: l("Weather & Seasons", "Wetter & Jahreszeiten", "Clima y estaciones", "Weer & seizoenen", "Väder & årstider"),
-        text: l("What the year looks like here, and where the forecast takes over.", "Wie das Jahr hier aussieht — und ab wann die Vorhersage zählt.", "Cómo es el año aquí y dónde empieza la previsión.", "Hoe het jaar er hier uitziet en waar de verwachting het overneemt.", "Hur året ser ut här och var prognosen tar vid.")
+        label: l("How mild January really is", "Wie mild der Januar wirklich ist", "Cómo de suave es enero en realidad", "Hoe zacht januari echt is", "Hur mild januari verkligen är"),
+        text: l("Whether you walk in January or read indoors is not decided by the month but by how the days actually turn out. The monthly values for December to February are there, and the AEMET forecast for your own dates.", "Ob ihr im Januar wandert oder lest, entscheidet nicht der Monat, sondern wie die Tage tatsächlich ausfallen. Die Monatswerte für Dezember bis Februar stehen dort — und für eure Reisedaten die AEMET-Vorhersage.", "Que en enero caminéis o os quedéis leyendo no lo decide el mes, sino cómo salgan los días. Allí están los valores mensuales de diciembre a febrero y la previsión de AEMET para vuestras fechas.", "Of je in januari wandelt of binnen leest, bepaalt niet de maand maar hoe de dagen werkelijk uitvallen. De maandwaarden voor december tot februari staan er, en de AEMET-verwachting voor jullie eigen data.", "Om ni vandrar i januari eller läser inomhus avgörs inte av månaden utan av hur dagarna faktiskt blir. Månadsvärdena för december till februari finns där, och AEMET-prognosen för era egna datum.")
+      },
+      {
+        token: "frigiliana_hiking_authority" as LinkToken,
+        label: l("The routes that work best now", "Die Routen, die jetzt am besten gehen", "Las rutas que mejor funcionan ahora", "De routes die nu het best gaan", "Lederna som fungerar bäst nu"),
+        text: l("Without the summer heat the open routes are walkable all day. On El Fuerte — 963 metres and a good four hours — there is barely any shade, and in January that is exactly the advantage.", "Ohne die Sommerhitze sind die offenen Wege den ganzen Tag machbar. Auf dem El Fuerte — 963 Meter, gut vier Stunden — gibt es kaum Schatten, und im Januar ist genau das der Vorteil.", "Sin el calor del verano, las rutas abiertas se andan a cualquier hora. En El Fuerte — 963 metros y cuatro horas largas — apenas hay sombra, y en enero eso es justo la ventaja.", "Zonder de zomerhitte zijn de open routes de hele dag te lopen. Op El Fuerte — 963 meter en ruim vier uur — is nauwelijks schaduw, en in januari is dat juist het voordeel.", "Utan sommarvärmen går de öppna lederna att vandra hela dagen. På El Fuerte — 963 meter och drygt fyra timmar — finns knappt någon skugga, och i januari är det just fördelen.")
+      },
+      {
+        token: "frigiliana_daily_life" as LinkToken,
+        label: l("Where you shop when less is open", "Wo ihr einkauft, wenn weniger offen hat", "Dónde comprar cuando hay menos abierto", "Waar je boodschappen doet als er minder open is", "Var ni handlar när mindre är öppet"),
+        text: l("Winter changes the hours, not the shops. Where the supermarkets and the pharmacy are, and how the day is timed here.", "Der Winter ändert die Zeiten, nicht die Läden. Wo die Supermärkte und die Apotheke liegen und wie der Tag hier getaktet ist.", "El invierno cambia los horarios, no las tiendas. Dónde están los supermercados y la farmacia, y cómo se reparte aquí el día.", "De winter verandert de tijden, niet de winkels. Waar de supermarkten en de apotheek liggen en hoe de dag hier verloopt.", "Vintern ändrar tiderna, inte butikerna. Var stormarknaderna och apoteket ligger och hur dagen är upplagd här.")
       },
       {
         token: "frigiliana_stairs" as LinkToken,
-        label: l("Where to Stay", "Wo übernachten", "Dónde alojarse", "Waar verblijven", "Var ska man bo"),
-        text: l("Slopes, stairs and what the daily walk is like in each part of the village.", "Steigungen, Treppen und wie sich der tägliche Weg in den einzelnen Ortsteilen anfühlt.", "Cuestas, escaleras y cómo es el camino diario en cada zona.", "Hellingen, trappen en hoe de dagelijkse wandeling per wijk aanvoelt.", "Backar, trappor och hur den dagliga promenaden känns i olika delar av byn.")
-      },
-      {
-        token: "frigiliana_geography" as LinkToken,
-        label: l("Geography & Orientation", "Geografie & Orientierung", "Geografía y orientación", "Geografie & oriëntatie", "Geografi & orientering"),
-        text: l("Where the village sits above Nerja and how the coast fits in.", "Wo das Dorf über Nerja liegt und wie die Küste dazugehört.", "Dónde queda el pueblo sobre Nerja y cómo encaja la costa.", "Waar het dorp boven Nerja ligt en hoe de kust erbij hoort.", "Var byn ligger ovanför Nerja och hur kusten hänger ihop med den.")
+        label: l("The steps after dark", "Die Stufen im Dunkeln", "Los escalones al anochecer", "De treden na zonsondergang", "Trappstegen i mörkret"),
+        text: l("It gets dark early in winter, and the way to our door runs up about 30 steps. How steep each part of the village is, and what the daily walk involves.", "Im Winter wird es früh dunkel, und der Weg zu unserer Tür führt über rund 30 Stufen. Wie steil die einzelnen Ortsteile sind und was der tägliche Weg bedeutet.", "En invierno anochece pronto y el camino hasta nuestra puerta sube unos 30 escalones. Lo empinada que es cada parte del pueblo y lo que supone el trayecto diario.", "In de winter wordt het vroeg donker, en de weg naar onze voordeur gaat over ongeveer 30 treden. Hoe steil de delen van het dorp zijn en wat de dagelijkse wandeling betekent.", "På vintern blir det mörkt tidigt, och vägen till vår port går uppför ett trettiotal trappsteg. Hur brant varje del av byn är och vad den dagliga vägen innebär.")
       },
       {
         token: "nerja_vs_frigiliana" as LinkToken,
         label: l("Frigiliana or Nerja?", "Frigiliana oder Nerja?", "¿Frigiliana o Nerja?", "Frigiliana of Nerja?", "Frigiliana eller Nerja?"),
-        text: l("If the steps are the sticking point, the coast is the other option.", "Wenn die Stufen der Knackpunkt sind, ist die Küste die Alternative.", "Si los escalones son el problema, la costa es la alternativa.", "Als de trappen het knelpunt zijn, is de kust het alternatief.", "Om trappstegen är knuten är kusten alternativet.")
+        text: l("If the steps are the sticking point, the coast is the other option.", "Wenn die Stufen der Knackpunkt sind, ist die Küste die Alternative.", "Si los escalones son el problema, la costa es la alternativa.", "Als de treden het struikelblok zijn, is de kust het alternatief.", "Om trappstegen är knäckfrågan är kusten alternativet.")
       }
     ]
   },

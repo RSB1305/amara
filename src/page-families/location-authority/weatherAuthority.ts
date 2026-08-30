@@ -1,4 +1,5 @@
 import type { LinkToken } from '../../lib/linkResolver';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 
 export interface WeatherAuthoritySeason {
   period: string;
@@ -10,6 +11,8 @@ export interface WeatherAuthoritySeason {
 export interface WeatherAuthorityItem {
   title: string;
   text: string;
+  /** Present on the local climate drivers, absent on the seasonal cards. */
+  icon?: LocationGuideIconName;
   link?: {
     token: LinkToken;
     label: string;

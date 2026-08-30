@@ -1,5 +1,6 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import type { LinkToken } from '../lib/linkResolver';
+import type { LocationGuideIconName } from '../components/location/LocationGuideIcon.astro';
 import type { WeatherAuthorityContent } from '../page-families/location-authority/weatherAuthority';
 import { climateDataSourceUrls } from './locationClimateData';
 
@@ -431,6 +432,13 @@ const dailyLifeLabels: Record<AmaraLanguage, string> = {
   sv: 'Var ni handlar och vad som är öppet när'
 };
 
+/** One icon per local climate driver. Held per destination because a symbol is not translated. */
+const factorIcons: Record<WeatherDestination, LocationGuideIconName[]> = {
+  frigiliana: ['elevation', 'evening', 'coast'],
+  nerja: ['coast', 'sunshine', 'comparison'],
+  tarifa: ['coast', 'comparison', 'municipality']
+};
+
 const relatedTokens: Record<WeatherDestination, LinkToken[]> = {
   frigiliana: ['frigiliana_geography', 'frigiliana_winter_stays'],
   nerja: ['nerja_geography', 'nerja_winter_stays'],
@@ -729,7 +737,7 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       summaryEyebrow: lang === 'de' ? 'Kurz gesagt' : lang === 'es' ? 'En resumen' : lang === 'nl' ? 'Kort gezegd' : lang === 'sv' ? 'Kort sagt' : 'In short',
       summary: profile.summary, summaryItems: profile.summaryItems
     },
-    factors: { eyebrow: lang === 'de' ? 'Lokale Klimafaktoren' : lang === 'es' ? 'Factores climáticos locales' : lang === 'nl' ? 'Lokale klimaatfactoren' : lang === 'sv' ? 'Lokala klimatfaktorer' : 'Local climate drivers', title: profile.factorsTitle, paragraphs: profile.factors, items: profile.factorItems },
+    factors: { eyebrow: lang === 'de' ? 'Lokale Klimafaktoren' : lang === 'es' ? 'Factores climáticos locales' : lang === 'nl' ? 'Lokale klimaatfactoren' : lang === 'sv' ? 'Lokala klimatfaktorer' : 'Local climate drivers', title: profile.factorsTitle, paragraphs: profile.factors, items: profile.factorItems.map((item, index) => ({ ...item, icon: factorIcons[destination][index] })) },
     table: { ...common.table, sourceText: profile.sourceText },
     seasons: { eyebrow: common.seasonEyebrow, title: common.seasonTitle, intro: common.seasonIntro, planningLabel: common.seasonPlanningLabel, items: common.seasons.map((season, index) => ({ ...season, summary: profile.seasonNotes[index] })) },
     bestTime: {
