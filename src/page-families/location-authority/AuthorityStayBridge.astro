@@ -1,0 +1,58 @@
+---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+
+/**
+ * The closing handoff from an editorial page to a bookable stay.
+ *
+ * `TR-CONTENT-009` requires a cross-page link to carry the chain that justifies
+ * it rather than the topic two pages share. `reason` is that chain and is
+ * mandatory: a page that cannot say why this activity leads to this apartment
+ * has no handoff to make, and should render none.
+ */
+interface Props {
+  eyebrow: string;
+  title: string;
+  /** Condition, consequence and the verified stay fact that answers it. */
+  reason: string;
+  stayHref: string;
+  stayLabel: string;
+  availabilityHref: string;
+  availabilityLabel: string;
+  /** Set when the page supplies a `visual` slot. */
+  hasVisual?: boolean;
+}
+
+const {
+  eyebrow,
+  title,
+  reason,
+  stayHref,
+  stayLabel,
+  availabilityHref,
+  availabilityLabel,
+  hasVisual = false
+} = Astro.props;
+
+if (reason.trim().length < 40) {
+  throw new Error(
+    '[AMARA] AuthorityStayBridge needs a reason that carries the chain, not a topic label (TR-CONTENT-009).'
+  );
+}
+---
+
+<section class="bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+  <div class:list={['mx-auto grid max-w-screen-2xl overflow-hidden bg-surface', hasVisual && 'lg:grid-cols-2']}>
+    {hasVisual && <slot name="visual" />}
+    <div class="flex flex-col justify-center p-8 md:p-14 lg:p-16">
+      <p class="text-primary am-text-label am-text-label--wide">{eyebrow}</p>
+      <h2 class="am-text-title mt-6 text-balance text-on-surface">{title}</h2>
+      <p class="am-text-body mt-6 max-w-xl leading-relaxed text-on-surface-variant">
+        <InlineEmphasis text={reason} />
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href={stayHref} class="am-btn am-btn--primary">{stayLabel}</a>
+        <a href={availabilityHref} class="am-btn am-btn--secondary">{availabilityLabel}</a>
+      </div>
+    </div>
+  </div>
+</section>
