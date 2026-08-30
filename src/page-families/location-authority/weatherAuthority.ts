@@ -14,6 +14,11 @@ export interface WeatherAuthorityItem {
     token: LinkToken;
     label: string;
   };
+  /** A second, softer link: where the main one leads outward, this points back to us. */
+  extraLink?: {
+    token: LinkToken;
+    label: string;
+  };
 }
 
 export interface WeatherAuthoritySource {

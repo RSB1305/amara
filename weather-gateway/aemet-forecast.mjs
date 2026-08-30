@@ -74,21 +74,29 @@ export function normalizeAemetDailyForecast(payload, destination = 'frigiliana')
     throw new AemetGatewayError('forecast', 'normalization');
   }
 
-  const days = rawDays.slice(0, 3).map((day) => {
+  // AEMET routinely omits values: the current day loses its temperatures late
+  // in the afternoon, and days further out can arrive incomplete. Skip what is
+  // unusable and keep the rest, rather than discarding a good forecast because
+  // one field is missing.
+  const days = [];
+  for (const day of rawDays) {
+    if (days.length === 3) break;
+
     const maximum = numericValue(day?.temperatura?.maxima);
     const minimum = numericValue(day?.temperatura?.minima);
+    if (typeof day?.fecha !== 'string' || maximum === null || minimum === null) continue;
 
-    if (typeof day?.fecha !== 'string' || maximum === null || minimum === null) {
-      throw new AemetGatewayError('forecast', 'normalization');
-    }
-
-    return {
+    days.push({
       date: day.fecha.slice(0, 10),
       temperatureMax: Math.round(maximum),
       temperatureMin: Math.round(minimum),
       precipitationProbability: precipitationMaximum(day.probPrecipitacion)
-    };
-  });
+    });
+  }
+
+  if (days.length === 0) {
+    throw new AemetGatewayError('forecast', 'normalization');
+  }
 
   return {
     destination,

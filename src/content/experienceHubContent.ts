@@ -413,7 +413,7 @@ export const experienceHubContent: Record<
     moods: {
       title: 'What would you like to do today?',
       intro:
-        'Choose an activity to open the full guide with locations, practical notes and planning advice.',
+        'Each one names the places we go ourselves, what they cost in time, and when they are worth it.',
       curation: MARKET_CURATED,
       items: [
         { label: 'Sea air', id: 'beaches' },
@@ -581,7 +581,7 @@ export const experienceHubContent: Record<
     moods: {
       title: 'Was möchtet ihr heute unternehmen?',
       intro:
-        'Wählt eine Aktivität und öffnet den vollständigen Guide mit Orten, praktischen Hinweisen und Planungstipps.',
+        'Jeder nennt die Orte, an die wir selbst gehen, wie viel Zeit sie kosten und wann sie sich lohnen.',
       curation: MARKET_CURATED,
       items: [
         { label: 'Raus in die Natur', id: 'hiking' },
@@ -748,7 +748,7 @@ export const experienceHubContent: Record<
     moods: {
       title: '¿Qué queréis hacer hoy?',
       intro:
-        'Elegid una actividad para abrir la guía completa con lugares, consejos prácticos y ayuda para planificar.',
+        'Cada uno nombra los sitios a los que vamos nosotros, cuánto tiempo llevan y cuándo merecen la pena.',
       curation: MARKET_CURATED,
       items: [
         { label: 'Comer bien', id: 'restaurants' },
@@ -915,7 +915,7 @@ export const experienceHubContent: Record<
     moods: {
       title: 'Wat willen jullie vandaag doen?',
       intro:
-        'Kies een activiteit en open de volledige gids met locaties, praktische informatie en planningstips.',
+        'Elke gids noemt de plekken waar we zelf komen, hoeveel tijd ze kosten en wanneer ze de moeite waard zijn.',
       curation: MARKET_CURATED,
       items: [
         { label: 'Naar zee', id: 'beaches' },
@@ -1082,7 +1082,7 @@ export const experienceHubContent: Record<
     moods: {
       title: 'Vad vill ni göra i dag?',
       intro:
-        'Välj en aktivitet och öppna hela guiden med platser, praktisk information och planeringsråd.',
+        'Var och en nämner platserna vi själva går till, hur mycket tid de tar och när de är värda det.',
       curation: MARKET_CURATED,
       items: [
         { label: 'Havsluft', id: 'beaches' },

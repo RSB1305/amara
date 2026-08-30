@@ -113,6 +113,17 @@ const isLive = (item: ContextNavigationItem) => item.status !== 'future' && Bool
 <style>
   [data-am-context-branch-active] > summary,
   .am-destination-disclosure[open] > summary { border-color: var(--color-primary); color: var(--color-on-surface); }
+  /*
+   * Only one branch is marked at a time. The section you are in is marked while
+   * everything is closed; once a disclosure opens, the open one takes over.
+   * Otherwise opening Experiences left Location marked too and both read as
+   * active at once.
+   */
+  [data-am-destination-context-disclosures]:has(.am-destination-disclosure[open])
+    [data-am-context-branch-active]:not([open]) > summary {
+    border-color: transparent;
+    color: var(--color-on-surface-variant);
+  }
   .am-destination-disclosure[open] .am-destination-disclosure__chevron { transform: rotate(180deg); }
   .am-destination-disclosure__panel { position: fixed; z-index: 30; left: 1.5rem; right: 1.5rem; top: auto; max-height: min(70vh, 38rem); overflow-y: auto; }
   @media (min-width: 1280px) {

@@ -169,7 +169,7 @@ export const frigilianaDayTripsContent: Record<
       intro:
         'The best day trips from Frigiliana focus on one main destination and leave the rest of the day flexible.',
       rule:
-        'Simple planning rule: choose one main highlight, leave by around 09:00 and keep enough margin for a calm return to the village.',
+        'One highlight per day is enough. Leaving around 09:00 is what makes the return to the village calm rather than rushed.',
       reviewed: 'Editorially reviewed: July 2026',
       items: [
         {
@@ -395,7 +395,7 @@ export const frigilianaDayTripsContent: Record<
       intro:
         'Die besten Tagesausflüge ab Frigiliana konzentrieren sich auf ein Hauptziel und lassen den Rest des Tages flexibel.',
       rule:
-        'Einfache Planungsregel: Wählt ein Hauptziel, fahrt gegen 09:00 Uhr los und lasst genügend Puffer für eine ruhige Rückkehr ins Dorf.',
+        'Ein Hauptziel pro Tag reicht. Wer gegen 09:00 Uhr losfährt, kommt abends in Ruhe ins Dorf zurück statt in Hektik.',
       reviewed: 'Redaktionell geprüft: Juli 2026',
       items: [
         {
@@ -621,7 +621,7 @@ export const frigilianaDayTripsContent: Record<
       intro:
         'Las mejores excursiones desde Frigiliana no consisten en acumular monumentos. Funcionan cuando os centráis en un destino principal y dejáis flexible el resto de la jornada.',
       rule:
-        'Regla sencilla: elegid un atractivo principal, salid hacia las 09:00 y dejad margen suficiente para regresar al pueblo sin prisas.',
+        'Un atractivo principal por día basta. Salir hacia las 09:00 es lo que hace que el regreso al pueblo sea tranquilo y no apresurado.',
       reviewed: 'Revisión editorial: julio de 2026',
       items: [
         {
@@ -847,7 +847,7 @@ export const frigilianaDayTripsContent: Record<
       intro:
         'De beste dagtochten vanuit Frigiliana draaien niet om zo veel mogelijk bezienswaardigheden. Ze werken wanneer de bestemming het tempo bepaalt en de rest van de dag flexibel blijft.',
       rule:
-        'Eenvoudige planningsregel: kies één hoofdactiviteit, vertrek rond 09.00 uur en houd genoeg marge voor een rustige terugkeer naar het dorp.',
+        'Eén hoofdactiviteit per dag is genoeg. Rond 09.00 uur vertrekken is wat de terugkeer naar het dorp rustig maakt in plaats van gehaast.',
       reviewed: 'Redactioneel gecontroleerd: juli 2026',
       items: [
         {
@@ -1073,7 +1073,7 @@ export const frigilianaDayTripsContent: Record<
       intro:
         'De bästa dagsutflykterna från Frigiliana handlar inte om att samla sevärdheter. De fungerar när ni fokuserar på ett huvudmål och låter resten av dagen vara flexibel.',
       rule:
-        'Enkel planeringsregel: välj en huvudupplevelse, åk omkring 09.00 och lämna tillräckligt med marginal för en lugn återkomst till byn.',
+        'En huvudupplevelse per dag räcker. Att åka omkring 09.00 är det som gör återkomsten till byn lugn i stället för stressad.',
       reviewed: 'Redaktionellt granskad: juli 2026',
       items: [
         {

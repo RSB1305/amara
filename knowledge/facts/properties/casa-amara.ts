@@ -82,5 +82,28 @@ export const casaAmaraPropertyFacts = defineKnowledgeFacts([
     checkedAt: '2026-08-27',
     volatility: 'high',
     claimBoundary: 'Attributed personal observation, not a guaranteed unobstructed sunset view on every date or in all weather conditions.'
-  }
+  },
+  {
+    id: 'casa-amara.terraces.night-sky-observation',
+    subject: 'casa-amara',
+    topic: 'property-terrace-light',
+    statement: 'The operator has observed a clearly visible night sky from the private terraces of Lounis, Zaid and Maha.',
+    status: 'first-party-observation',
+    sourceIds: ['casa-amara-operator-confirmation-2026-08-27'],
+    checkedAt: '2026-08-30',
+    volatility: 'low',
+    claimBoundary: 'Attributed personal observation of the village setting. It is not a measured sky-quality rating and not a promise for any particular night, season or weather.'
+  },
+  {
+    id: 'casa-amara.amenities.beach-towels-provided',
+    subject: 'casa-amara',
+    topic: 'property-amenities',
+    statement: 'Beach towels are provided in all Casa AMARA accommodations, in addition to bathroom towels.',
+    status: 'first-party-observation',
+    sourceIds: ['casa-amara-operator-confirmation-2026-08-30'],
+    checkedAt: '2026-08-30',
+    reviewAfter: '2027-08-30',
+    volatility: 'low',
+    claimBoundary: 'Standing practice confirmed by the operator, covering all four accommodations. It is not an audited inventory and says nothing about quantity per guest, replacement during a stay, or any other item.',
+  },
 ] as const);
