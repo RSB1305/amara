@@ -150,6 +150,14 @@ const {
                 {item.link.label}
               </a>
             )}
+            {item.extraLink && (
+              <a
+                href={resolveHref(item.extraLink.token)}
+                class="am-cta-link mt-3 inline-flex text-inverted-on-surface/70"
+              >
+                {item.extraLink.label}
+              </a>
+            )}
           </article>
         ))}
       </div>
