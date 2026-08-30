@@ -82,5 +82,16 @@ export const casaAmaraPropertyFacts = defineKnowledgeFacts([
     checkedAt: '2026-08-27',
     volatility: 'high',
     claimBoundary: 'Attributed personal observation, not a guaranteed unobstructed sunset view on every date or in all weather conditions.'
+  },
+  {
+    id: 'casa-amara.terraces.night-sky-observation',
+    subject: 'casa-amara',
+    topic: 'property-terrace-light',
+    statement: 'The operator has observed a clearly visible night sky from the private terraces of Lounis, Zaid and Maha.',
+    status: 'first-party-observation',
+    sourceIds: ['casa-amara-operator-confirmation-2026-08-27'],
+    checkedAt: '2026-08-30',
+    volatility: 'low',
+    claimBoundary: 'Attributed personal observation of the village setting. It is not a measured sky-quality rating and not a promise for any particular night, season or weather.'
   }
 ] as const);
