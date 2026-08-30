@@ -58,7 +58,7 @@ const footerHighlights: LabeledLink[] = [
   footerHighlights={footerHighlights}
   pageFamily="location-daily-life"
 >
-  <Navigation slot="navigation" currentLang={currentLang} languageToken={pageConfig.languageToken}>
+  <Navigation slot="navigation" contextDestination={destination} currentLang={currentLang} languageToken={pageConfig.languageToken}>
     {destination === 'frigiliana' && (
       <LocationContextNav slot="context-navigation" activeId="dailyLife" lang={currentLang} />
     )}
