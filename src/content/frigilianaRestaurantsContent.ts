@@ -264,7 +264,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Stay in Frigiliana',
           text:
-            'Choose the village when you want dinner to remain in Frigiliana. The exact route between a restaurant and Casa AMARA still has to be checked venue by venue.'
+            'Dinner in the village means you walk home. Ask us about a specific restaurant and we will tell you what that walk is like from our door.'
         },
         {
           title: 'Make it an occasion',
@@ -382,7 +382,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'A few streets from the Balcón de Europa, El Pulguilla is one of Nerja’s classic stops for seafood, fried fish, tapas and larger portions.',
             tip:
-              'Choose the bar when you want the tapas experience; choose a table or terrace when you want a full meal. They are two different ways to use the same place.',
+              'At the bar it is tapas; at a table or on the terrace it is a full meal. Two very different evenings at the same address.',
             goodToKnow:
               'It can be crowded and loud at peak times. Arrive early or accept the bustle as part of the experience.'
           }),
@@ -392,7 +392,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'AYO is at Paseo Burriana 15, directly on Playa Burriana, and publishes daytime service. It belongs to a beach-and-lunch plan rather than an evening dinner plan.',
             tip:
-              'Choose Burriana first if its urban beach and service profile fit your day, then check AYO’s current opening and kitchen service.',
+              'Burriana is the serviced town beach rather than a quiet cove. AYO sits directly on it, and its opening and kitchen hours change with the season.',
             goodToKnow:
               'Opening and menu details can change. Treat the venue as a current option, not a guaranteed part of the beach day.'
           })
@@ -523,7 +523,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'In Frigiliana bleiben',
           text:
-            'Wählt das Dorf, wenn das Abendessen in Frigiliana bleiben soll. Den genauen Weg zwischen Restaurant und Casa AMARA müssen wir trotzdem für jede Adresse einzeln prüfen.'
+            'Abendessen im Dorf heißt, ihr lauft nach Hause. Fragt uns nach einem bestimmten Restaurant, dann sagen wir euch, wie dieser Weg von unserer Tür aus aussieht.'
         },
         {
           title: 'Einen besonderen Abend planen',
@@ -641,7 +641,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'Nur wenige Gassen vom Balcón de Europa entfernt ist El Pulguilla ein Nerja-Klassiker für Meeresfrüchte, frittierten Fisch, Tapas und größere Portionen.',
             tip:
-              'Wählt die Bar für das Tapas-Erlebnis, Tisch oder Terrasse für ein vollständiges Essen. So entstehen aus derselben Adresse zwei sehr unterschiedliche Abende.',
+              'An der Bar gibt es Tapas, am Tisch oder auf der Terrasse ein vollständiges Essen. Zwei sehr unterschiedliche Abende an derselben Adresse.',
             goodToKnow:
               'Zu Stoßzeiten wird es voll und laut. Früh kommen oder die lebhafte Stimmung bewusst als Teil des Erlebnisses annehmen.'
           }),
@@ -651,7 +651,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'AYO liegt am Paseo Burriana 15 direkt an der Playa Burriana und veröffentlicht einen Tagesbetrieb. Der Ort gehört damit zu einem Strand-und-Mittagessen-Plan, nicht zu einem Abendessen.',
             tip:
-              'Entscheidet zuerst, ob Burrianas urbanes Strand- und Serviceprofil zu eurem Tag passt, und prüft danach AYOs aktuelle Öffnung und Küchenzeiten.',
+              'Burriana ist der bewirtschaftete Stadtstrand, keine stille Bucht. AYO liegt direkt darauf; Öffnung und Küchenzeiten wechseln mit der Saison.',
             goodToKnow:
               'Öffnung und Angebot können sich ändern. Behandelt AYO als aktuelle Option, nicht als garantierten Bestandteil des Strandtags.'
           })
@@ -782,7 +782,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Quedarse en Frigiliana',
           text:
-            'Elegid el pueblo si queréis que la cena se mantenga en Frigiliana. Aun así, la ruta exacta entre cada restaurante y Casa AMARA debe comprobarse por separado.'
+            'Cenar en el pueblo significa volver andando. Preguntadnos por un restaurante concreto y os contamos cómo es ese camino desde nuestra puerta.'
         },
         {
           title: 'Celebrar una ocasión',
@@ -900,7 +900,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'A pocas calles del Balcón de Europa, El Pulguilla es un clásico de Nerja para marisco, pescado frito, tapas y raciones.',
             tip:
-              'Elige la barra si buscas tapeo; mesa o terraza si quieres una comida completa. Son dos maneras distintas de disfrutar del mismo sitio.',
+              'En la barra hay tapeo; en mesa o terraza, una comida completa. Dos noches muy distintas en la misma dirección.',
             goodToKnow:
               'En hora punta puede estar lleno y ser ruidoso. Llega pronto o acepta ese bullicio como parte de la experiencia.'
           }),
@@ -910,7 +910,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'AYO está en Paseo Burriana 15, directamente en Playa Burriana, y publica servicio diurno. Forma parte de un plan de playa y almuerzo, no de una cena.',
             tip:
-              'Decidid primero si el perfil urbano y de servicios de Burriana encaja con vuestro día y comprobad después la apertura y el servicio de cocina actuales de AYO.',
+              'Burriana es la playa urbana con servicios, no una cala tranquila. AYO está justo en ella, y su apertura y su cocina cambian con la temporada.',
             goodToKnow:
               'La apertura y la oferta pueden cambiar. Tratad AYO como una opción actual, no como una parte garantizada del día de playa.'
           })
@@ -1041,7 +1041,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Blijf in Frigiliana',
           text:
-            'Kies het dorp wanneer het diner in Frigiliana moet blijven. De precieze route tussen elk restaurant en Casa AMARA moet nog steeds per adres worden gecontroleerd.'
+            'Eten in het dorp betekent dat je naar huis loopt. Vraag ons naar een bepaald restaurant, dan vertellen we hoe die route vanaf onze deur is.'
         },
         {
           title: 'Maak er een gelegenheid van',
@@ -1159,7 +1159,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'Een paar straten van Balcón de Europa is El Pulguilla een klassieker in Nerja voor zeevruchten, gefrituurde vis, tapas en grotere porties.',
             tip:
-              'Kies de bar voor de tapaservaring; neem een tafel of het terras voor een volledige maaltijd. Het zijn twee verschillende manieren om dezelfde zaak te beleven.',
+              'Aan de bar is het tapas, aan tafel of op het terras een volledige maaltijd. Twee heel verschillende avonden op hetzelfde adres.',
             goodToKnow:
               'Op piekmomenten kan het druk en luid zijn. Kom vroeg of omarm de levendigheid als onderdeel van de ervaring.'
           }),
@@ -1169,7 +1169,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'AYO ligt aan Paseo Burriana 15, direct aan Playa Burriana, en publiceert dagservice. Het hoort bij een strand-en-lunchplan, niet bij een avonddiner.',
             tip:
-              'Bepaal eerst of Burriana’s stedelijke strand- en voorzieningenprofiel bij jullie dag past en controleer daarna de actuele opening en keukenservice van AYO.',
+              'Burriana is het stadsstrand met voorzieningen, geen stille baai. AYO ligt er direct aan; opening en keukentijden wisselen met het seizoen.',
             goodToKnow:
               'Opening en aanbod kunnen veranderen. Zie AYO als een actuele optie, niet als een gegarandeerd onderdeel van de stranddag.'
           })
@@ -1300,7 +1300,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Stanna i Frigiliana',
           text:
-            'Välj byn när middagen ska stanna i Frigiliana. Den exakta vägen mellan varje restaurang och Casa AMARA måste ändå kontrolleras separat.'
+            'Middag i byn betyder att ni går hem. Fråga oss om en viss restaurang, så berättar vi hur den vägen är från vår dörr.'
         },
         {
           title: 'Gör kvällen speciell',
@@ -1418,7 +1418,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'Några gränder från Balcón de Europa är El Pulguilla en klassiker i Nerja för skaldjur, friterad fisk, tapas och större portioner.',
             tip:
-              'Välj baren för tapaskänslan; ta ett bord eller terrassen för en hel måltid. Det är två olika sätt att uppleva samma ställe.',
+              'Vid baren är det tapas, vid ett bord eller på terrassen en hel måltid. Två mycket olika kvällar på samma adress.',
             goodToKnow:
               'Det kan vara trångt och högljutt vid rusningstid. Kom tidigt eller se sorlet som en del av upplevelsen.'
           }),
@@ -1428,7 +1428,7 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'AYO ligger på Paseo Burriana 15, direkt vid Playa Burriana, och publicerar dagservering. Restaurangen hör till en strand-och-lunchplan, inte till en kvällsmiddag.',
             tip:
-              'Avgör först om Burrianas stadsstrand och serviceprofil passar er dag och kontrollera därefter AYOs aktuella öppettider och köksservering.',
+              'Burriana är den servicerade stadsstranden, inte en tyst vik. AYO ligger direkt på den, och öppettider och kök växlar med säsongen.',
             goodToKnow:
               'Öppettider och utbud kan ändras. Se AYO som ett aktuellt alternativ, inte som en garanterad del av stranddagen.'
           })
