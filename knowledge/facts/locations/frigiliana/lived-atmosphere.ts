@@ -47,6 +47,20 @@ const facts = [
     claimBoundary:
       'This is an attributed operator judgement, not an objective ranking or a universal visitor consensus.',
   },
+  {
+    id: 'frigiliana.atmosphere.afternoon-pause.observation',
+    subject: 'frigiliana',
+    topic: 'lived-atmosphere',
+    statement:
+      'The AMARA operator reports that Frigiliana pauses roughly between 15:00 and 19:00, with small shops closed and many restaurant kitchens not serving.',
+    status: 'first-party-observation',
+    sourceIds: ['robert-frigiliana-observations-2026-08-30'],
+    checkedAt: '2026-08-30',
+    reviewAfter: '2027-03-30',
+    volatility: 'high',
+    claimBoundary:
+      'A village-level rhythm reported once by the operator, not the published hours of any individual business. It varies by season, weekday and business and must never be rendered as a guaranteed opening time.',
+  },
 ] as const satisfies readonly LivedAtmosphereFactInput[];
 
 export const frigilianaLivedAtmosphereFacts = defineKnowledgeFacts(facts);
