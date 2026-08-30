@@ -66,7 +66,7 @@ const BRAND_ENTITY: BrandEntity = {
 };
 
 const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>> = {
-  'amara-about-us': trustLabels.about,
+  'staying-with-us': trustLabels.about,
   'comfort-amenities': trustLabels.amenities,
   'direct-booking-benefits': trustLabels.direct_booking_benefits,
   'directions-arrival-guide': {
@@ -545,7 +545,7 @@ const NERJA_LOCATION_GUIDE_SLUGS = new Set([
 ]);
 
 const PRIMARY_TRUST_PAGE_SLUGS = new Set([
-  'amara-about-us',
+  'staying-with-us',
   'guest-reviews',
   'direct-booking-benefits',
   'comfort-amenities',
@@ -704,7 +704,7 @@ function buildBreadcrumbNode(
     }
   } else if (PRIMARY_TRUST_PAGE_SLUGS.has(slug)) {
     const aboutUrl = new URL(
-      buildOwnedLocalizedPath('amara-about-us', currentLang),
+      buildOwnedLocalizedPath('staying-with-us', currentLang),
       base
     ).href;
 

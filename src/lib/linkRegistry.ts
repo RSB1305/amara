@@ -41,7 +41,7 @@ export const linkRegistry = {
      * the legacy `/{lang}/book/` URLs keep their redirects in `_redirects`.
      */
     book: buildOwnedLinks('find-a-stay'),
-    about: buildOwnedLinks('amara-about-us'),
+    about: buildOwnedLinks('staying-with-us'),
     amenities: buildOwnedLinks('comfort-amenities'),
     arrival_guide: buildOwnedLinks('directions-arrival-guide'),
     nerja_arrival_guide: buildOwnedLinks('nerja-directions-arrival-guide'),

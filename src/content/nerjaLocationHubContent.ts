@@ -55,7 +55,7 @@ const seo: AmaraAuthoringSeo = {
     dateModified: '2026-08-20',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
-    authorSlug: 'amara-about-us'
+    authorSlug: 'staying-with-us'
   },
   languages: {
     en: {

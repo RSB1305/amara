@@ -4,7 +4,7 @@ import type { ParkingGuideLocale, ParkingGuideSection } from './parkingGuideCont
 type Localized = Record<AmaraLanguage, string>;
 const l = (en: string, de: string, es: string, nl: string, sv: string): Localized => ({ en, de, es, nl, sv });
 const langs: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
-const article = { datePublished: '2026-08-20', dateModified: '2026-08-29', authorName: 'Robert Sebastian Böhmer', authorType: 'Person' as const, authorSlug: 'amara-about-us' };
+const article = { datePublished: '2026-08-20', dateModified: '2026-08-29', authorName: 'Robert Sebastian Böhmer', authorType: 'Person' as const, authorSlug: 'staying-with-us' };
 
 export const frigilianaParkingGuideSeo: AmaraAuthoringSeo = {
   version: '2026-08-29-frigiliana-parking-v2.0', pageType: 'A', entityKey: 'amara-brand', article,

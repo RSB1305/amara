@@ -78,7 +78,7 @@ const article = {
   dateModified: '2026-08-13',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
-  authorSlug: 'amara-about-us'
+  authorSlug: 'staying-with-us'
 };
 
 const buildSeo = (

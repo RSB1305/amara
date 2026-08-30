@@ -79,7 +79,13 @@
 /sv/boka/ https://amara.lodgify.com/sv/book/ 301
 
 # Current Spanish canonical equivalents
-/es/amara-about-us /amara-about-us 301
+/amara-about-us /staying-with-us 301
+/es/amara-about-us /staying-with-us 301
+/de/amara-about-us /de/staying-with-us 301
+/en/amara-about-us /en/staying-with-us 301
+/nl/amara-about-us /nl/staying-with-us 301
+/sv/amara-about-us /sv/staying-with-us 301
+/es/staying-with-us /staying-with-us 301
 /es/comfort-amenities /comfort-amenities 301
 /es/direct-booking-benefits /direct-booking-benefits 301
 /es/faq-general /faq-general 301
@@ -131,19 +137,19 @@
 /en/romantic-getaway-frigiliana-nerja /en/romantic-hideaways 301
 
 # About / brand trust
-/about /amara-about-us 301
-/en/about /en/amara-about-us 301
-/de/about /de/amara-about-us 301
-/es/about /amara-about-us 301
-/nl/about /nl/amara-about-us 301
-/sv/about /sv/amara-about-us 301
+/about /staying-with-us 301
+/en/about /en/staying-with-us 301
+/de/about /de/staying-with-us 301
+/es/about /staying-with-us 301
+/nl/about /nl/staying-with-us 301
+/sv/about /sv/staying-with-us 301
 
 # Contact legacy paths consolidate to brand trust until a real contact page exists.
-/en/contact /en/amara-about-us 301
-/de/kontaktiere-uns /de/amara-about-us 301
-/es/contacto-amara-lodging /amara-about-us 301
-/nl/contact /nl/amara-about-us 301
-/sv/kontakta-oss /sv/amara-about-us 301
+/en/contact /en/staying-with-us 301
+/de/kontaktiere-uns /de/staying-with-us 301
+/es/contacto-amara-lodging /staying-with-us 301
+/nl/contact /nl/staying-with-us 301
+/sv/kontakta-oss /sv/staying-with-us 301
 
 # Legal and privacy
 /privacy /legal-notice 301

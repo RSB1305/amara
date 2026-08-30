@@ -28,7 +28,7 @@ export interface DailyLifeGuideLocale {
 
 const article = {
   datePublished: '2026-08-13', dateModified: '2026-08-22',
-  authorName: 'Robert Sebastian Böhmer', authorType: 'Person' as const, authorSlug: 'amara-about-us'
+  authorName: 'Robert Sebastian Böhmer', authorType: 'Person' as const, authorSlug: 'staying-with-us'
 };
 const seoTitles: Record<AmaraLanguage, (place: string) => string> = {
   en: (p) => `Groceries, Pharmacy & Daily Life in ${p}`,

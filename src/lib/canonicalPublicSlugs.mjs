@@ -8,7 +8,7 @@
  */
 export const STATIC_CANONICAL_PUBLIC_SLUGS = Object.freeze([
   '',
-  'amara-about-us',
+  'staying-with-us',
   'direct-booking-benefits',
   'guest-reviews',
   'comfort-amenities',

@@ -775,7 +775,7 @@ const article = {
   dateModified: '2026-08-27',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
-  authorSlug: 'amara-about-us'
+  authorSlug: 'staying-with-us'
 };
 
 export function getWeatherSeo(destination: WeatherDestination): AmaraAuthoringSeo {
