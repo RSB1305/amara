@@ -133,7 +133,7 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Aankomst & mobiliteit',
     sv: 'Ankomst & mobilitet'
   },
-  'frigiliana-streets-stairs': {
+  'frigiliana-where-to-stay': {
     en: 'Where to Stay / Areas',
     de: 'Wo übernachten / Lagen',
     es: 'Dónde alojarse / zonas',
@@ -524,7 +524,7 @@ const FRIGILIANA_LOCATION_GUIDE_SLUGS = new Set([
   'frigiliana-location',
   'getting-to-frigiliana',
   'directions-arrival-guide',
-  'frigiliana-streets-stairs',
+  'frigiliana-where-to-stay',
   'frigiliana-parking',
   'frigiliana-weather',
   'frigiliana-winter-stays',

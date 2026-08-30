@@ -121,7 +121,7 @@ export const linkRegistry = {
     frigiliana_market: buildOwnedLinks('frigiliana-market'),
     frigiliana_hiking_authority: buildOwnedLinks('frigiliana-hiking'),
     frigiliana_parking: buildOwnedLinks('frigiliana-parking'),
-    frigiliana_stairs: buildOwnedLinks('frigiliana-streets-stairs'),
+    frigiliana_stairs: buildOwnedLinks('frigiliana-where-to-stay'),
     getting_to_frigiliana: buildOwnedLinks('getting-to-frigiliana'),
     nerja_vs_frigiliana: buildOwnedLinks('frigiliana-or-nerja'),
     weather_frigiliana: buildOwnedLinks('frigiliana-weather'),
