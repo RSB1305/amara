@@ -4,7 +4,8 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import ExperienceHubTopicGrid from '../../components/experience/ExperienceHubTopicGrid.astro';
-import GuideClosingSection from './GuideClosingSection.astro';
+import AuthorityStayBridge from './AuthorityStayBridge.astro';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   TARIFA_EXPERIENCE_TOKEN,
@@ -93,18 +94,14 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    <GuideClosingSection
+    <AuthorityStayBridge
+      eyebrow={experienceStayBridge.eyebrow[currentLang]}
       title={copy.closing.title}
-      lead={copy.closing.lead}
-      lang={currentLang}
-      links={[
-        { token: copy.closing.token, label: copy.closing.ctaLabel, style: 'text' },
-        ...(copy.closing.secondaryToken
-          ? [{ token: copy.closing.secondaryToken, label: copy.closing.secondaryLabel!, style: 'text' as const }]
-          : [])
-      ]}
-      role="next-action"
-      family="experience"
+      reason={copy.closing.lead}
+      stayHref={requiredLink(copy.closing.token)}
+      stayLabel={copy.closing.ctaLabel}
+      availabilityHref={requiredLink('book')}
+      availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
     />
   </article>
 </LocationAuthorityLayout>

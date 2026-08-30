@@ -10,6 +10,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
@@ -33,7 +34,6 @@ const requiredLink = createRequiredLinkResolver(
 );
 
 const aboutHref = requiredLink('about');
-const locationHref = requiredLink('location_nerja');
 const propertyHref = requiredLink('playa');
 const personal = isCaves ? resolveLocale(nerjaCavesContent, currentLang).personal : null;
 const footerHighlights: LabeledLink[] = isCaves
@@ -77,7 +77,7 @@ const footerHighlights: LabeledLink[] = isCaves
     sources={content.sources}
     closing={content.closing}
     primaryCta={{ href: propertyHref, label: content.closing.propertyLabel }}
-    secondaryCta={{ href: locationHref, label: content.closing.locationLabel }}
+    secondaryCta={{ href: requiredLink('book'), label: experienceStayBridge.availabilityLabel[currentLang] }}
   >
     {content.sections.map((section, index) => (
       <AuthorityTextSection section={section} index={index} />

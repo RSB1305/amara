@@ -10,6 +10,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
@@ -60,8 +61,8 @@ const footerHighlights: LabeledLink[] = [
     facts={content.facts}
     sources={content.sources}
     closing={content.closing}
-    primaryCta={{ href: requiredLink('nerja_experience_hub'), label: content.closing.experienceLabel }}
-    secondaryCta={{ href: propertyHref, label: content.closing.propertyLabel }}
+    primaryCta={{ href: propertyHref, label: content.closing.propertyLabel }}
+    secondaryCta={{ href: requiredLink('book'), label: experienceStayBridge.availabilityLabel[currentLang] }}
   >
     <section id="trailer" class="am-section bg-surface">
       <div class="max-w-4xl mx-auto w-full">

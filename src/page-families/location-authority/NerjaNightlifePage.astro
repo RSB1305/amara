@@ -1,7 +1,8 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
-import GuideClosingSection from './GuideClosingSection.astro';
+import AuthorityStayBridge from './AuthorityStayBridge.astro';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
@@ -9,7 +10,7 @@ import {
   nerjaNightlifeSeo
 } from '../../content/nerjaNightlifeContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
@@ -22,6 +23,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = nerjaNightlifeContent[currentLang];
+const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja nightlife');
 
 const footerHighlights: LabeledLink[] = [
   {
@@ -314,24 +316,14 @@ const heroImage = {
         surface="tint"
       />
 
-      <GuideClosingSection
+      <AuthorityStayBridge
+          eyebrow={experienceStayBridge.eyebrow[currentLang]}
           title={copy.closing.title}
-          lead={copy.closing.lead}
-          lang={currentLang}
-          links={[
-            {
-              token: 'playa',
-              label: copy.closing.apartmentsCta,
-              style: 'text'
-            },
-            {
-              token: 'book',
-              label: copy.closing.availabilityCta,
-              style: 'text'
-            }
-          ]}
-          role="next-action"
-          family="experience"
+          reason={copy.closing.stayReason}
+          stayHref={requiredLink('playa')}
+          stayLabel={copy.closing.apartmentsCta}
+          availabilityHref={requiredLink('book')}
+          availabilityLabel={copy.closing.availabilityCta}
       />
     </div>
   </div>

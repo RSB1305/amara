@@ -123,6 +123,8 @@ export interface NerjaNightlifePageCopy {
     lead: string;
     availabilityCta: string;
     apartmentsCta: string;
+    /** The chain to the stay; the lead above argues about the town, not about us. */
+    stayReason: string;
   };
 }
 
@@ -498,7 +500,9 @@ export const nerjaNightlifeContent: Record<
       lead:
         'Its strength is not competing with the coast’s biggest party destinations. It is offering several good versions of an evening in a compact setting: scenic, social, cultural, beach-led or late.',
       availabilityCta: 'Check availability',
-      apartmentsCta: 'View AMARA Playa'
+      apartmentsCta: 'View AMARA Playa',
+      stayReason:
+        'The evening around the Balcón runs late, and AMARA Playa sits about five hundred metres away on the fifth floor with its rooms set back from the street — close enough to walk home, far enough to sleep.'
     }
   },
   de: {
@@ -807,7 +811,9 @@ export const nerjaNightlifeContent: Record<
       lead:
         'Die Stärke liegt nicht im Wettbewerb mit den größten Partyorten der Küste, sondern in mehreren guten Versionen eines Abends auf engem Raum: schön, gesellig, kulturell, am Strand oder spät.',
       availabilityCta: 'Verfügbarkeit prüfen',
-      apartmentsCta: 'AMARA Playa ansehen'
+      apartmentsCta: 'AMARA Playa ansehen',
+      stayReason:
+        'Der Abend rund um den Balcón zieht sich, und AMARA Playa liegt rund fünfhundert Meter entfernt im fünften Stock, nach hinten ausgerichtet — nah genug für den Heimweg, weit genug zum Schlafen.'
     }
   },
   es: {
@@ -1116,7 +1122,9 @@ export const nerjaNightlifeContent: Record<
       lead:
         'Su fuerza no está en competir con los grandes destinos de fiesta de la costa, sino en ofrecer varias buenas versiones de una noche en un entorno compacto: con vistas, social, cultural, junto al mar o hasta tarde.',
       availabilityCta: 'Consultar disponibilidad',
-      apartmentsCta: 'Ver AMARA Playa'
+      apartmentsCta: 'Ver AMARA Playa',
+      stayReason:
+        'La noche alrededor del Balcón se alarga, y AMARA Playa está a unos quinientos metros, en la quinta planta y orientado hacia la parte trasera: lo bastante cerca para volver andando y lo bastante lejos para dormir.'
     }
   },
   nl: {
@@ -1425,7 +1433,9 @@ export const nerjaNightlifeContent: Record<
       lead:
         'De kracht ligt niet in concurreren met de grootste feestbestemmingen aan de kust, maar in meerdere goede versies van een avond op korte afstand: mooi, sociaal, cultureel, aan zee of laat.',
       availabilityCta: 'Beschikbaarheid bekijken',
-      apartmentsCta: 'Bekijk AMARA Playa'
+      apartmentsCta: 'Bekijk AMARA Playa',
+      stayReason:
+        'De avond rond het Balcón loopt door, en AMARA Playa ligt op zo’n vijfhonderd meter op de vijfde verdieping, met de kamers aan de achterzijde — dichtbij genoeg om terug te lopen, ver genoeg om te slapen.'
     }
   },
   sv: {
@@ -1734,7 +1744,9 @@ export const nerjaNightlifeContent: Record<
       lead:
         'Styrkan ligger inte i att konkurrera med kustens största partydestinationer, utan i flera bra versioner av en kväll på liten yta: vacker, social, kulturell, havsnära eller sen.',
       availabilityCta: 'Kontrollera tillgänglighet',
-      apartmentsCta: 'Visa AMARA Playa'
+      apartmentsCta: 'Visa AMARA Playa',
+      stayReason:
+        'Kvällen kring Balcón drar ut på tiden, och AMARA Playa ligger cirka femhundra meter bort på femte våningen med rummen mot husets baksida — nära nog för hemvägen, långt nog för att sova.'
     }
   }
 };

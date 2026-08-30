@@ -12,8 +12,9 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import { getPageEndAttributes } from '../../components/page-end/pageEndContract';
+import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 
 interface Props {
@@ -29,7 +30,6 @@ const t = (value: LocalizedExperienceText) => value[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa experience');
 
 const aboutHref = requiredLink('about');
-const hubHref = requiredLink('tarifa_experience_hub');
 const propertyHref = requiredLink('tarifa');
 const footerHighlights: LabeledLink[] = [
   { token: content.token, label: t(content.navLabel) },
@@ -166,20 +166,14 @@ const localizedSections = content.sections.map((section) => ({
       </div>
     </section>
 
-    <section class="bg-surface px-6 py-24 md:px-12 md:py-32" {...getPageEndAttributes('next-action', 'experience')}>
-      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
-        <div class="lg:col-span-7">
-          <p class="am-text-eyebrow text-primary">{t(content.closing.eyebrow)}</p>
-          <h2 class="am-text-title mt-6 text-balance text-on-surface">{t(content.closing.title)}</h2>
-        </div>
-        <div class="lg:col-span-5">
-          <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(content.closing.body)} /></p>
-          <div class="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center">
-            <AmaraActionLink href={hubHref} variant="editorial">{t(content.closing.hubLabel)}</AmaraActionLink>
-            <AmaraActionLink href={propertyHref} variant="inline">{t(content.closing.propertyLabel)}</AmaraActionLink>
-          </div>
-        </div>
-      </div>
-    </section>
+    <AuthorityStayBridge
+      eyebrow={t(content.closing.eyebrow)}
+      title={t(content.closing.title)}
+      reason={t(content.closing.body)}
+      stayHref={propertyHref}
+      stayLabel={t(content.closing.propertyLabel)}
+      availabilityHref={requiredLink('book')}
+      availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
+    />
   </article>
 </LocationAuthorityLayout>

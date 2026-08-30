@@ -14,6 +14,7 @@ import { tarifaDailyLifeContent } from '../../src/content/tarifaDailyLifeContent
 import { tarifaGeographyContent } from '../../src/content/tarifaGeographyContent';
 import { tarifaParkingContent } from '../../src/content/tarifaParkingContent';
 import { tarifaWinterStaysContent } from '../../src/content/tarifaWinterStaysContent';
+import { experienceStayBridge } from '../../src/content/experienceStayBridgeContent';
 import { resolveLink, type LinkToken } from '../../src/lib/linkResolver';
 import type { AmaraLanguage } from '../../src/types/seo';
 
@@ -68,7 +69,10 @@ interface OrientedLocale extends AuthorityArticleLocale {
 /** A closing call to action, in the order the page renders it. */
 interface ClosingCta {
   token: LinkToken;
-  labelKey: string;
+  /** Label held in the page's own closing copy. */
+  labelKey?: string;
+  /** Label held outside that copy, as the shared stay-bridge chrome is. */
+  label?: string;
   className: string;
 }
 
@@ -208,7 +212,11 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     sectionMarkerAttribute: null,
     closingCtas: [
       { token: 'playa', labelKey: 'propertyLabel', className: DECISION_PRIMARY_CLASS },
-      { token: 'location_nerja', labelKey: 'locationLabel', className: DECISION_SECONDARY_CLASS }
+      {
+        token: 'book',
+        label: experienceStayBridge.availabilityLabel[SWEEP_LANGUAGE],
+        className: DECISION_SECONDARY_CLASS
+      }
     ]
   },
   {
@@ -224,7 +232,11 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     sectionMarkerAttribute: null,
     closingCtas: [
       { token: 'playa', labelKey: 'propertyLabel', className: DECISION_PRIMARY_CLASS },
-      { token: 'location_nerja', labelKey: 'locationLabel', className: DECISION_SECONDARY_CLASS }
+      {
+        token: 'book',
+        label: experienceStayBridge.availabilityLabel[SWEEP_LANGUAGE],
+        className: DECISION_SECONDARY_CLASS
+      }
     ]
   },
   {
@@ -560,7 +572,7 @@ for (const entry of AUTHORITY_PAGES) {
       const ctaLink = closingCtas.nth(index);
       await expect(ctaLink).toHaveClass(cta.className);
       await expect(ctaLink).toHaveAttribute('href', resolveLink(cta.token, SWEEP_LANGUAGE));
-      await expect(ctaLink).toHaveText(locale.closing[cta.labelKey] as string);
+      await expect(ctaLink).toHaveText(cta.label ?? (locale.closing[cta.labelKey!] as string));
     }
   });
 }
