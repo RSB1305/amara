@@ -28,6 +28,24 @@ const facts = [
     status: 'verified', sourceIds: ['copernicus-era5-land-monthly-means-2026'], checkedAt: '2026-08-28', reviewAfter: '2028-08-28', volatility: 'low',
     claimBoundary: 'This verifies the dataset as a comparison candidate only. No local monthly values or Frigiliana–Nerja difference may be published until coordinates or cells, variables, units, reference period, aggregation and uncertainty are fixed and the extraction is reproduced.',
   },
+  {
+    id: 'frigiliana.climate.terral.definition', subject: 'frigiliana', topic: 'climate-seasons',
+    statement: 'AEMET identifies the terral on the Malaga coast as a land wind that blows from the land out to sea, arriving from the north and north-west, and it is the wind responsible for the sharpest short-term heat on this coast.',
+    status: 'verified', sourceIds: ['aemet-terral-definition-2026'], checkedAt: '2026-08-30', reviewAfter: '2028-08-30', volatility: 'low',
+    claimBoundary: 'This establishes what the terral is and where it comes from. It does not license a temperature figure, a duration, a frequency or a forecast for Frigiliana, which has no observing station of its own.',
+  },
+  {
+    id: 'frigiliana.climate.terral.upwelling-mechanism', subject: 'frigiliana', topic: 'climate-seasons',
+    statement: 'A sustained terral pushes the sun-warmed surface layer out to sea and colder deep water rises to replace it, an upwelling driven by Ekman transport in the Alboran Sea, so the sea along the Malaga coast can turn cold while the air is at its hottest.',
+    status: 'verified', sourceIds: ['tiempo-com-afloramiento-malaga-2026-08'], checkedAt: '2026-08-30', reviewAfter: '2027-08-30', volatility: 'medium',
+    claimBoundary: 'The mechanism is established for the Malaga coast as a whole. No sea temperature may be stated for a named beach near Nerja on this basis, and the effect requires a strong terral over several consecutive days rather than following automatically from any hot day.',
+  },
+  {
+    id: 'frigiliana.climate.terral.august-2026-event', subject: 'frigiliana', topic: 'climate-seasons',
+    statement: 'In August 2026 the sea surface off Malaga fell by almost 13 C within a week, from a marine heatwave to 15.9 C, while air temperatures inland approached 40 C.',
+    status: 'verified', sourceIds: ['tiempo-com-afloramiento-malaga-2026-08'], checkedAt: '2026-08-30', reviewAfter: '2027-08-30', volatility: 'low',
+    claimBoundary: 'A single documented event off Malaga, reported as a record. It illustrates the size the effect can reach; it is not a typical August, not a Nerja measurement and not a basis for predicting any future summer.',
+  },
 ] as const satisfies readonly FactInput[];
 
 export const frigilianaClimateSeasonFacts = defineKnowledgeFacts(facts);

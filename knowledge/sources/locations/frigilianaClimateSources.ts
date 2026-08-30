@@ -27,6 +27,32 @@ export const frigilianaClimateSources = defineKnowledgeSources([
       'ERA5-Land is reanalysis, not a local observing station. The CDS product is regridded to 0.1° and its native resolution is about 9 km, so terrain, coast and property microclimates are not resolved directly.',
     reuse: 'link-and-cite',
   },
+  {
+    id: 'aemet-terral-definition-2026',
+    title: 'Terral: el viento terral en la divulgación y el glosario de AEMET',
+    publisher: 'Agencia Estatal de Meteorología',
+    sourceType: 'official',
+    url: 'https://www.aemet.es/es/conocermas/recursos_en_linea/glosario',
+    accessedAt: '2026-08-30',
+    language: 'es',
+    scope: 'AEMET identifies the terral as the land breeze that blows from the land out to sea on the Malaga coast, arriving from the north and north-west.',
+    limitations:
+      'This establishes the definition and the wind direction only. It does not quantify temperatures, duration or effects for any particular municipality, and Frigiliana has no AEMET observing station of its own.',
+    reuse: 'link-and-cite',
+  },
+  {
+    id: 'tiempo-com-afloramiento-malaga-2026-08',
+    title: 'Caida record de la temperatura del mar en Malaga: de una ola de calor marina a registrar tan solo 15,9 C',
+    publisher: 'tiempo.com (Meteored)',
+    sourceType: 'secondary',
+    url: 'https://www.tiempo.com/noticias/actualidad/que-esta-pasando-en-el-mar-de-malaga-la-temperatura-cae-casi-13-c-en-apenas-una-semana.html',
+    accessedAt: '2026-08-30',
+    language: 'es',
+    scope: 'Meteorological reporting on the August 2026 upwelling event off Malaga, the Ekman transport mechanism in the Alboran Sea, and the size of the sea-surface temperature drop.',
+    limitations:
+      'Specialist media reporting rather than an official dataset. The measurements cited are for the Malaga coast, not for a named beach near Nerja, and a single event does not establish how often this recurs.',
+    reuse: 'link-and-cite',
+  },
 ] as const);
 
 export type FrigilianaClimateSourceId = (typeof frigilianaClimateSources)[number]['id'];
