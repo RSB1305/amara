@@ -314,11 +314,11 @@ export const tarifaWinterStaysContent = {
   closing: {
     eyebrow: l("Winter at AMARA", "Winter bei AMARA", "Invierno en AMARA", "Winter bij AMARA", "Vinter hos AMARA"),
     title: l(
-      "Tell us when you want to come",
-      "Sagt uns, wann ihr kommen möchtet",
-      "Contadnos cuándo queréis venir",
-      "Vertel ons wanneer jullie willen komen",
-      "Berätta när ni vill komma"
+      "Tell us when you want to stay with us in Tarifa",
+      "Sagt uns, wann ihr bei uns in Tarifa übernachten wollt",
+      "Decidnos cuándo queréis alojaros con nosotros en Tarifa",
+      "Vertel ons wanneer jullie bij ons in Tarifa willen overnachten",
+      "Berätta när ni vill bo hos oss i Tarifa"
     ),
     body: l(
       "If a calmer town, Atlantic air and space to settle in sound right, winter in Tarifa works. Send us your dates and we will tell you what is open that week.",

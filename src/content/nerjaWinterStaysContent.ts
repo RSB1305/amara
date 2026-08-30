@@ -302,11 +302,11 @@ export const nerjaWinterStaysContent = {
   closing: {
     eyebrow: l("Winter at AMARA", "Winter bei AMARA", "Invierno en AMARA", "Winter bij AMARA", "Vinter hos AMARA"),
     title: l(
-      "Tell us when you want to come",
-      "Sagt uns, wann ihr kommen möchtet",
-      "Contadnos cuándo queréis venir",
-      "Vertel ons wanneer jullie willen komen",
-      "Berätta när ni vill komma"
+      "Tell us when you want to stay with us in Nerja",
+      "Sagt uns, wann ihr bei uns in Nerja übernachten wollt",
+      "Decidnos cuándo queréis alojaros con nosotros en Nerja",
+      "Vertel ons wanneer jullie bij ons in Nerja willen overnachten",
+      "Berätta när ni vill bo hos oss i Nerja"
     ),
     body: l(
       "If coast, daylight and a town that keeps its own rhythm sound right, winter in Nerja works. Send us your dates and we will check what is open that week.",

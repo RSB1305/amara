@@ -68,31 +68,31 @@ const branchIntroCopy: Record<
   }
 > = {
   en: {
-    locationDescription: (destination) => `What you should know about ${destination}.`,
+    locationDescription: (destination) => `What you should know about staying in ${destination}.`,
     experienceTitle: (destination) => `${destination} & surroundings`,
     experienceDescription: (destination) =>
       `What you can experience in ${destination} and the surrounding region.`
   },
   de: {
-    locationDescription: (destination) => `Was ihr über ${destination} wissen solltet.`,
+    locationDescription: (destination) => `Was ihr über einen Aufenthalt in ${destination} wissen solltet.`,
     experienceTitle: (destination) => `${destination} & Region`,
     experienceDescription: (destination) =>
       `Was ihr in ${destination} und der Region erleben könnt.`
   },
   es: {
-    locationDescription: (destination) => `Lo que debéis saber sobre ${destination}.`,
+    locationDescription: (destination) => `Lo que debéis saber sobre alojaros en ${destination}.`,
     experienceTitle: (destination) => `${destination} y la región`,
     experienceDescription: (destination) =>
       `Lo que podéis vivir en ${destination} y sus alrededores.`
   },
   nl: {
-    locationDescription: (destination) => `Wat jullie over ${destination} moeten weten.`,
+    locationDescription: (destination) => `Wat jullie moeten weten over een verblijf in ${destination}.`,
     experienceTitle: (destination) => `${destination} & omgeving`,
     experienceDescription: (destination) =>
       `Wat jullie in ${destination} en de omgeving kunnen beleven.`
   },
   sv: {
-    locationDescription: (destination) => `Det ni behöver veta om ${destination}.`,
+    locationDescription: (destination) => `Det ni behöver veta om att bo i ${destination}.`,
     experienceTitle: (destination) => `${destination} med omnejd`,
     experienceDescription: (destination) =>
       `Det ni kan uppleva i ${destination} med omnejd.`
