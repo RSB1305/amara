@@ -23,11 +23,11 @@ export const trustLabels: Record<
   LocalizedTrustLabel
 > = {
   about: {
-    en: 'Philosophy',
-    de: 'Unsere Haltung',
-    es: 'Filosofía',
-    nl: 'Onze visie',
-    sv: 'Vår filosofi'
+    en: 'Staying with us',
+    de: 'Bei uns übernachten',
+    es: 'Alojarse con nosotros',
+    nl: 'Bij ons overnachten',
+    sv: 'Bo hos oss'
   },
   reviews_hub: {
     en: 'Guest Reviews',

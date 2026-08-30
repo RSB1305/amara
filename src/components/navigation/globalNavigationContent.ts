@@ -221,11 +221,11 @@ export const globalNavLabels = {
     sv: 'Semesterhus · upp till 4 gäster'
   },
   aboutMeta: {
-    en: 'Our philosophy, values and way of hosting.',
-    de: 'Unsere Werte und unser Verständnis von Gastfreundschaft.',
-    es: 'Nuestra filosofía, nuestros valores y nuestra forma de recibir.',
-    nl: 'Onze visie, waarden en manier van gastvrijheid.',
-    sv: 'Vår filosofi, våra värderingar och vårt sätt att vara värdar.'
+    en: 'What you can expect from us, and who is behind the six stays.',
+    de: 'Was ihr von uns erwarten könnt — und wer hinter den sechs Unterkünften steht.',
+    es: 'Qué podéis esperar de nosotros y quién está detrás de los seis alojamientos.',
+    nl: 'Wat je van ons kunt verwachten, en wie er achter de zes verblijven zit.',
+    sv: 'Vad ni kan förvänta er av oss, och vilka som står bakom de sex boendena.'
   },
   reviewsMeta: {
     en: 'Verified experiences from AMARA guests.',
