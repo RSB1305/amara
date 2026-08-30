@@ -12,6 +12,9 @@ interface Props {
 
 const { eyebrow, mark, note, summary, items = [] } = Astro.props;
 
+// A summary may carry more than one paragraph, separated by a blank line.
+const summaryParagraphs = summary ? summary.split(/\n\s*\n/).map((part) => part.trim()).filter(Boolean) : [];
+
 if (!mark && !summary) {
   throw new Error('[AMARA] LocationGuideEvidence requires a mark or summary content.');
 }
@@ -34,9 +37,16 @@ const moduleAttributes = getAmaraContentModuleAttributes({
       <p class="am-text-caption am-text-caption--upper am-text-caption--wide text-primary-fixed-dim">
         {eyebrow}
       </p>
-      <p class="am-text-body mt-6 max-w-xl text-balance leading-relaxed text-inverted-on-surface/85">
-        <InlineEmphasis text={summary} />
-      </p>
+      {summaryParagraphs.map((paragraph, index) => (
+        <p
+          class:list={[
+            'am-text-body max-w-xl text-balance leading-relaxed text-inverted-on-surface/85',
+            index === 0 ? 'mt-6' : 'mt-4'
+          ]}
+        >
+          <InlineEmphasis text={paragraph} />
+        </p>
+      ))}
       {items.length > 0 && (
         <dl class="mt-8 border-t border-inverted-on-surface/20">
           {items.map((item) => (
