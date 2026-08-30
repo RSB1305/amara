@@ -2,7 +2,8 @@ import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 import {
   createAemetForecastRoute,
-  fetchAemetDailyForecast
+  fetchAemetDailyForecast,
+  normalizeAemetDailyForecast
 } from '../../weather-gateway/aemet-forecast.mjs';
 
 const SECRET = 'unit-test-aemet-key-must-not-leak';
@@ -143,4 +144,41 @@ test('fails closed when the server-side AEMET key is absent', async () => {
 
   expect(response.status).toBe(503);
   expect(calls).toBe(0);
+});
+
+const dayEntry = (fecha: string, maxima: number | null, minima: number | null) => ({
+  fecha,
+  temperatura: { maxima, minima },
+  probPrecipitacion: [{ value: 0 }]
+});
+
+const municipality = (dia: unknown[]) => [{ elaborado: '2026-08-30T10:09:10', prediccion: { dia } }];
+
+test('the normalizer skips days AEMET delivered incomplete and keeps the rest', () => {
+  // A gap in the middle of the window used to discard the whole forecast,
+  // which is what left Tarifa showing "currently unavailable" all afternoon.
+  const forecast = normalizeAemetDailyForecast(municipality([
+    dayEntry('2026-08-30', 28, 20),
+    { fecha: '2026-08-31', temperatura: {}, probPrecipitacion: [] },
+    dayEntry('2026-09-01', 29, 21),
+    dayEntry('2026-09-02', 29, 21)
+  ]), 'tarifa');
+
+  expect(forecast.days.map((day) => day.date)).toEqual(['2026-08-30', '2026-09-01', '2026-09-02']);
+});
+
+test('the normalizer drops today once AEMET stops publishing its temperatures', () => {
+  const forecast = normalizeAemetDailyForecast(municipality([
+    dayEntry('2026-08-30', null, null),
+    dayEntry('2026-08-31', 29, 21),
+    dayEntry('2026-09-01', 29, 21)
+  ]), 'tarifa');
+
+  expect(forecast.days.map((day) => day.date)).toEqual(['2026-08-31', '2026-09-01']);
+});
+
+test('the normalizer still fails when no day is usable', () => {
+  expect(() => normalizeAemetDailyForecast(municipality([
+    dayEntry('2026-08-30', null, null)
+  ]), 'tarifa')).toThrow();
 });

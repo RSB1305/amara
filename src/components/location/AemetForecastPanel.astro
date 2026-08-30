@@ -98,9 +98,17 @@ const widgetId = 'am-aemet-forecast';
       if (fallback) fallback.classList.remove('hidden');
     }
 
-    function formatDay(date, index) {
-      if (index === 0) return labels.today;
-      if (index === 1) return labels.tomorrow;
+    // Label by the actual date, not by position: the gateway skips days AEMET
+    // delivered incomplete, so the first card is not always today.
+    function madridDate(offsetDays) {
+      const base = new Date();
+      base.setDate(base.getDate() + offsetDays);
+      return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Madrid' }).format(base);
+    }
+
+    function formatDay(date) {
+      if (date === madridDate(0)) return labels.today;
+      if (date === madridDate(1)) return labels.tomorrow;
       return new Intl.DateTimeFormat(lang, {
         weekday: 'short',
         day: 'numeric',
@@ -127,7 +135,7 @@ const widgetId = 'am-aemet-forecast';
             card.classList.add('hidden');
             return;
           }
-          card.querySelector('[data-forecast-day]').textContent = formatDay(day.date, index);
+          card.querySelector('[data-forecast-day]').textContent = formatDay(day.date);
           card.querySelector('[data-forecast-high]').textContent = day.temperatureMax + '°';
           card.querySelector('[data-forecast-low]').textContent = day.temperatureMin + '°';
           card.querySelector('[data-forecast-rain]').textContent = day.precipitationProbability === null
