@@ -146,6 +146,23 @@ const stayContent: WhereToStayAuthorityContent = {
     intro: [c.essence.intro],
     points: c.essence.items.map((item) => ({ label: item.kicker, title: item.headline, text: item.text }))
   },
+  stayType: {
+    id: 'stay-type',
+    eyebrow: t(copy.stayType.eyebrow),
+    title: t(copy.stayType.title),
+    intro: copy.stayType.intro.map((paragraph) => t(paragraph)),
+    labels: {
+      attribute: t(copy.stayType.labels.attribute),
+      ours: t(copy.stayType.labels.ours),
+      hotelWins: t(copy.stayType.labels.hotelWins)
+    },
+    items: copy.stayType.items.map((row) => ({
+      id: row.id,
+      attribute: t(row.attribute),
+      ours: t(row.ours),
+      hotelWins: t(row.hotelWins)
+    }))
+  },
   areas: {
     id: 'where-to-stay-in-nerja',
     eyebrow: c.areas.eyebrow,

@@ -190,6 +190,152 @@ export const nerjaLocationCopy = {
       }
     ]
   },
+  /**
+   * The accommodation-type comparison (TR-CONTENT-007). Every row in the AMARA
+   * column is a verified Playa fact; the hotel column states our own limit
+   * rather than a claim about houses we have never seen.
+   */
+  stayType: {
+    eyebrow: localized('Before the address', 'Vor der Lage', 'Antes que la zona', 'Vóór de ligging', 'Före läget'),
+    title: localized(
+      'Hotel or your own apartment?',
+      'Hotel oder eigene Wohnung?',
+      '¿Hotel o apartamento propio?',
+      'Hotel of een eigen appartement?',
+      'Hotell eller egen lägenhet?'
+    ),
+    intro: [
+      localized(
+        'A beach week in Nerja works either way: someone cooks for you, or you keep your own kitchen two hundred metres from the sand. That decision shapes the days more than the street does, so it comes before the areas below.',
+        'Eine Strandwoche in Nerja funktioniert in beide Richtungen: Entweder kocht jemand für euch, oder ihr habt zweihundert Meter vom Sand eure eigene Küche. Diese Entscheidung prägt die Tage stärker als die Straße, deshalb steht sie vor den Lagen weiter unten.',
+        'Una semana de playa en Nerja funciona de las dos formas: o alguien cocina para vosotros, o tenéis vuestra propia cocina a doscientos metros de la arena. Esa decisión marca los días más que la calle, así que va antes que las zonas.',
+        'Een strandweek in Nerja kan beide kanten op: of iemand kookt voor jullie, of jullie hebben op tweehonderd meter van het zand een eigen keuken. Die keuze bepaalt de dagen meer dan de straat, dus staat hij vóór de buurten hieronder.',
+        'En strandvecka i Nerja fungerar åt båda hållen: antingen lagar någon maten åt er, eller så har ni ett eget kök tvåhundra meter från sanden. Det avgörandet präglar dagarna mer än gatan gör, därför står det före områdena nedan.'
+      ),
+      localized(
+        'The table is about Playa, the one apartment we have in Nerja. We cannot speak for any hotel here — but we can say where Playa is the wrong answer.',
+        'Die Tabelle handelt von Playa, unserer einzigen Wohnung in Nerja. Für ein Hotel hier können wir nicht sprechen — wohl aber sagen, wo Playa die falsche Antwort ist.',
+        'La tabla habla de Playa, nuestro único apartamento en Nerja. No podemos hablar por ningún hotel de aquí, pero sí decir dónde Playa no es la respuesta adecuada.',
+        'De tabel gaat over Playa, ons enige appartement in Nerja. Voor een hotel hier kunnen we niet spreken — wel voor de gevallen waarin Playa het verkeerde antwoord is.',
+        'Tabellen handlar om Playa, vår enda lägenhet i Nerja. Vi kan inte tala för något hotell här — men väl säga när Playa är fel svar.'
+      )
+    ],
+    labels: {
+      attribute: localized('What it is about', 'Worum es geht', 'De qué se trata', 'Waar het om gaat', 'Vad det gäller'),
+      ours: localized('At AMARA', 'Bei AMARA', 'En AMARA', 'Bij AMARA', 'Hos AMARA'),
+      hotelWins: localized('Better a hotel when', 'Dann lieber ins Hotel', 'Mejor un hotel si', 'Dan liever een hotel', 'Hellre hotell om')
+    },
+    items: [
+      {
+        id: 'arrival',
+        attribute: localized('Arrival', 'Ankunft', 'Llegada', 'Aankomst', 'Ankomst'),
+        ours: localized(
+          'You write to us directly, we answer ourselves, and you let yourself in. There is no reception.',
+          'Ihr schreibt uns direkt, wir antworten selbst, und ihr schließt selbst auf. Eine Rezeption gibt es nicht.',
+          'Nos escribís directamente, respondemos nosotros y entráis por vuestra cuenta. No hay recepción.',
+          'Jullie schrijven ons rechtstreeks, wij antwoorden zelf en jullie laten jezelf binnen. Een receptie is er niet.',
+          'Ni skriver direkt till oss, vi svarar själva och ni låser upp själva. Någon reception finns inte.'
+        ),
+        hotelWins: localized(
+          'You want a desk staffed at three in the morning, or you arrive without telling us when.',
+          'Wenn ihr um drei Uhr nachts jemanden am Empfang braucht oder ankommt, ohne uns zu sagen wann.',
+          'Queréis un mostrador atendido a las tres de la madrugada, o llegáis sin decirnos cuándo.',
+          'Je wilt om drie uur ’s nachts iemand aan de balie, of je komt aan zonder te zeggen wanneer.',
+          'Ni vill ha en bemannad disk klockan tre på natten, eller kommer utan att säga när.'
+        )
+      },
+      {
+        id: 'kitchen',
+        attribute: localized('Kitchen and laundry', 'Küche und Wäsche', 'Cocina y lavadora', 'Keuken en was', 'Kök och tvätt'),
+        ours: localized(
+          'A full kitchen and a washing machine, so salt, sand and wet towels do not pile up over a beach week.',
+          'Voll ausgestattete Küche und Waschmaschine — Salz, Sand und nasse Handtücher sammeln sich über eine Strandwoche nicht an.',
+          'Cocina completa y lavadora, así la sal, la arena y las toallas mojadas no se acumulan durante una semana de playa.',
+          'Een volledige keuken en een wasmachine, zodat zout, zand en natte handdoeken zich in een strandweek niet opstapelen.',
+          'Fullt kök och tvättmaskin, så att salt, sand och blöta handdukar inte samlas på hög under en strandvecka.'
+        ),
+        hotelWins: localized(
+          'You want the table laid in the morning and nothing to wash up before the beach.',
+          'Wenn morgens der Tisch gedeckt sein soll und vor dem Strand nichts abzuwaschen ist.',
+          'Queréis la mesa puesta por la mañana y nada que fregar antes de la playa.',
+          'Je wilt ’s ochtends een gedekte tafel en niets af te wassen voordat je naar het strand gaat.',
+          'Ni vill ha bordet dukat på morgonen och ingen disk före stranden.'
+        )
+      },
+      {
+        id: 'cleaning',
+        attribute: localized('Cleaning', 'Reinigung', 'Limpieza', 'Schoonmaak', 'Städning'),
+        ours: localized(
+          'From eight nights, a direct booking includes one clean around the middle of your stay.',
+          'Ab acht Nächten ist bei Direktbuchung eine Reinigung zur Mitte des Aufenthalts dabei.',
+          'A partir de ocho noches, la reserva directa incluye una limpieza a mitad de estancia.',
+          'Vanaf acht nachten hoort bij een directe boeking één schoonmaak halverwege het verblijf.',
+          'Från åtta nätter ingår en städning mitt i vistelsen vid direktbokning.'
+        ),
+        hotelWins: localized(
+          'You want fresh towels and a made bed every day.',
+          'Wenn ihr täglich frische Handtücher und ein gemachtes Bett wollt.',
+          'Queréis toallas limpias y la cama hecha cada día.',
+          'Je wilt elke dag schone handdoeken en een opgemaakt bed.',
+          'Ni vill ha rena handdukar och bäddad säng varje dag.'
+        )
+      },
+      {
+        id: 'access',
+        attribute: localized('The way to the door', 'Der Weg zur Tür', 'El camino hasta la puerta', 'De weg naar de deur', 'Vägen till dörren'),
+        ours: localized(
+          'Five steps outside the building, five more inside, then the lift to the fifth floor.',
+          'Fünf Stufen vor dem Haus, fünf weitere drinnen, dann der Aufzug in den fünften Stock.',
+          'Cinco escalones delante del edificio, otros cinco dentro y después el ascensor hasta la quinta planta.',
+          'Vijf treden voor het gebouw, vijf treden binnen en daarna de lift naar de vijfde verdieping.',
+          'Fem trappsteg utanför huset, fem till inne och sedan hissen upp till femte våningen.'
+        ),
+        hotelWins: localized(
+          'Those ten steps are ten too many — with a wheelchair, a walking aid or a pushchair.',
+          'Wenn diese zehn Stufen zehn zu viel sind — mit Rollstuhl, Gehhilfe oder Kinderwagen.',
+          'Esos diez escalones son diez de más: con silla de ruedas, andador o carrito.',
+          'Die tien treden zijn er tien te veel — met een rolstoel, rollator of kinderwagen.',
+          'De tio trappstegen är tio för många — med rullstol, rollator eller barnvagn.'
+        )
+      },
+      {
+        id: 'party',
+        attribute: localized('How many of you', 'Wie viele ihr seid', 'Cuántos sois', 'Met hoeveel jullie zijn', 'Hur många ni är'),
+        ours: localized(
+          'Playa is 37 m² for two: one bedroom, one bathroom, one bed of 200 × 200.',
+          'Playa hat 37 m² für zwei: ein Schlafzimmer, ein Bad, ein Bett mit 200 × 200.',
+          'Playa son 37 m² para dos: un dormitorio, un baño y una cama de 200 × 200.',
+          'Playa is 37 m² voor twee: één slaapkamer, één badkamer, één bed van 200 × 200.',
+          'Playa är 37 m² för två: ett sovrum, ett badrum, en säng på 200 × 200.'
+        ),
+        hotelWins: localized(
+          'You are three or four, or you want two rooms with a door between them.',
+          'Wenn ihr zu dritt oder viert seid oder zwei Zimmer mit einer Tür dazwischen wollt.',
+          'Sois tres o cuatro, o queréis dos habitaciones con una puerta en medio.',
+          'Jullie zijn met drie of vier, of willen twee kamers met een deur ertussen.',
+          'Ni är tre eller fyra, eller vill ha två rum med en dörr emellan.'
+        )
+      },
+      {
+        id: 'evenings',
+        attribute: localized('Evenings', 'Abends', 'Las tardes', 'De avonden', 'Kvällarna'),
+        ours: localized(
+          'The fifth floor and the set-back rooms keep most of the street noise at a distance. The Balcón is around five hundred metres on foot.',
+          'Der fünfte Stock und die nach hinten ausgerichtete Wohnung halten den meisten Straßenlärm auf Abstand. Zum Balcón sind es rund fünfhundert Meter zu Fuß.',
+          'La quinta planta y la orientación hacia la parte trasera dejan a distancia la mayor parte del ruido de la calle. Hasta el Balcón hay unos quinientos metros a pie.',
+          'De vijfde verdieping en de ligging aan de achterzijde houden het meeste straatgeluid op afstand. Naar het Balcón is het zo’n vijfhonderd meter lopen.',
+          'Femte våningen och läget mot husets baksida håller det mesta gatuljudet på avstånd. Till Balcón är det ungefär femhundra meter till fots.'
+        ),
+        hotelWins: localized(
+          'You want to step out of the door into the evening, with a bar downstairs and someone behind it.',
+          'Wenn ihr abends direkt vor die Tür treten wollt, mit einer Bar unten und jemandem an der Theke.',
+          'Queréis salir por la puerta directamente a la noche, con una barra abajo y alguien detrás.',
+          'Je wilt de deur uit zo de avond in, met een bar beneden en iemand erachter.',
+          'Ni vill kliva ut genom dörren rakt in i kvällen, med en bar en trappa ner och någon bakom den.'
+        )
+      }
+    ]
+  },
   areas: {
     eyebrow: localized(
       'Where to stay in Nerja',
