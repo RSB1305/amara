@@ -204,7 +204,7 @@ export const frigilianaFestivalsContent: Record<
     overview: {
       title: 'Start with the kind of day you want',
       intro:
-        'A village saint’s day, a solemn procession and a major summer festival are very different experiences. Choose by atmosphere first, then use the date status to plan with the right level of certainty.',
+        'A village saint’s day, a solemn procession and a major summer festival are very different evenings. Some dates are fixed years ahead, others are confirmed only weeks before — which is why the status matters as much as the month.',
       reviewed: 'Editorially reviewed: July 2026',
       items: [
         {
@@ -263,7 +263,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Maro',
               dateStatus: 'Traditional dates; programme varies',
               summary:
-                'Maro’s celebration combines devotion to San Antón with street life and popular traditions. Check the current Nerja programme before travelling.',
+                'Maro’s celebration combines devotion to San Antón with street life and popular traditions. Nerja sets the programme fresh each year — tell us your dates and we will look it up.',
               officialHref: officialLinks.nerjaCouncil
             }
           ]
@@ -518,7 +518,7 @@ export const frigilianaFestivalsContent: Record<
         {
           title: 'Start with a few hours by the sea',
           text:
-            'For summer celebrations, a calm morning at the coast can make the late finish feel much easier. Choose the beach for the conditions you prefer.',
+            'For summer celebrations, a calm morning at the coast makes the late finish much easier. Our beach guide says which stretch is sheltered and which is open.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'See the beach guide'
         }
@@ -566,7 +566,7 @@ export const frigilianaFestivalsContent: Record<
     overview: {
       title: 'Beginnt mit dem Tag, den ihr erleben möchtet',
       intro:
-        'Ein Heiligenfest im Dorf, eine feierliche Prozession und ein großes Sommerfestival fühlen sich völlig unterschiedlich an. Entscheidet zuerst nach Atmosphäre und nutzt anschließend den Terminstatus für eine realistische Planung.',
+        'Ein Heiligenfest im Dorf, eine feierliche Prozession und ein großes Sommerfestival sind völlig verschiedene Abende. Manche Termine stehen Jahre im Voraus fest, andere erst wenige Wochen vorher — deshalb zählt der Status so viel wie der Monat.',
       reviewed: 'Redaktionell geprüft: Juli 2026',
       items: [
         {
@@ -625,7 +625,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Maro',
               dateStatus: 'Traditionelle Tage; Programm variabel',
               summary:
-                'Maros Fest verbindet die Verehrung des San Antón mit Leben auf den Straßen und volkstümlichen Bräuchen. Prüft vor der Fahrt das aktuelle Programm der Gemeinde Nerja.',
+                'Maros Fest verbindet die Verehrung des San Antón mit Leben auf den Straßen und volkstümlichen Bräuchen. Die Gemeinde Nerja legt das Programm jedes Jahr neu fest — sagt uns eure Daten, dann schauen wir nach.',
               officialHref: officialLinks.nerjaCouncil
             }
           ]
@@ -881,7 +881,7 @@ export const frigilianaFestivalsContent: Record<
         {
           title: 'Mit einigen Stunden am Meer beginnen',
           text:
-            'Bei Sommerfesten macht ein ruhiger Vormittag an der Küste den späten Abend deutlich leichter. Wählt den Strand passend zu euren gewünschten Bedingungen.',
+            'Bei Sommerfesten macht ein ruhiger Vormittag an der Küste den späten Abend deutlich leichter. Unser Strandguide sagt, welcher Abschnitt geschützt liegt und welcher offen.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Zum Strandguide'
         }
@@ -929,7 +929,7 @@ export const frigilianaFestivalsContent: Record<
     overview: {
       title: 'Empezad por el tipo de día que queréis vivir',
       intro:
-        'Una fiesta patronal de pueblo, una procesión solemne y un gran festival de verano son experiencias muy distintas. Elegid primero por el ambiente y utilizad después el estado de la fecha para organizaros con el grado de certeza adecuado.',
+        'Una fiesta patronal de pueblo, una procesión solemne y un gran festival de verano son noches muy distintas. Algunas fechas se fijan años antes y otras se confirman semanas antes: por eso el estado importa tanto como el mes.',
       reviewed: 'Revisión editorial: julio de 2026',
       items: [
         {
@@ -988,7 +988,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Maro',
               dateStatus: 'Días tradicionales; programa variable',
               summary:
-                'La fiesta de Maro une la devoción a San Antón con el ambiente en la calle y las tradiciones populares. Consultad el programa actual de Nerja antes de desplazaros.',
+                'La fiesta de Maro une la devoción a San Antón con el ambiente en la calle y las tradiciones populares. Nerja fija el programa cada año: decidnos vuestras fechas y lo consultamos.',
               officialHref: officialLinks.nerjaCouncil
             }
           ]
@@ -1244,7 +1244,7 @@ export const frigilianaFestivalsContent: Record<
         {
           title: 'Empezad con unas horas junto al mar',
           text:
-            'En las fiestas de verano, una mañana tranquila en la costa hace que la noche larga resulte más llevadera. Elegid la playa según las condiciones que prefiráis.',
+            'En las fiestas de verano, una mañana tranquila en la costa hace la noche larga mucho más llevadera. Nuestra guía de playas indica qué tramo está resguardado y cuál abierto.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Ver la guía de playas'
         }
@@ -1292,7 +1292,7 @@ export const frigilianaFestivalsContent: Record<
     overview: {
       title: 'Begin met het soort dag dat jullie willen beleven',
       intro:
-        'Een dorpsfeest rond een heilige, een plechtige processie en een groot zomerfestival voelen totaal verschillend. Kies eerst de sfeer en gebruik daarna de datumstatus om met de juiste mate van zekerheid te plannen.',
+        'Een dorpsfeest rond een heilige, een plechtige processie en een groot zomerfestival zijn totaal verschillende avonden. Sommige data liggen jaren vast, andere pas weken van tevoren — daarom telt de status net zo zwaar als de maand.',
       reviewed: 'Redactioneel gecontroleerd: juli 2026',
       items: [
         {
@@ -1351,7 +1351,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Maro',
               dateStatus: 'Traditionele dagen; programma wisselt',
               summary:
-                'Maro’s viering verbindt de verering van San Antón met straatleven en volkstradities. Controleer vóór vertrek het actuele programma van de gemeente Nerja.',
+                'Maro’s viering verbindt de verering van San Antón met straatleven en volkstradities. De gemeente Nerja stelt het programma elk jaar opnieuw vast — geef ons jullie data, dan zoeken we het op.',
               officialHref: officialLinks.nerjaCouncil
             }
           ]
@@ -1607,7 +1607,7 @@ export const frigilianaFestivalsContent: Record<
         {
           title: 'Begin met een paar uur aan zee',
           text:
-            'Bij zomerfeesten maakt een rustige ochtend aan de kust de late avond veel aangenamer. Kies het strand bij de omstandigheden die jullie prettig vinden.',
+            'Bij zomerfeesten maakt een rustige ochtend aan de kust de late avond veel aangenamer. Onze strandgids vertelt welk stuk beschut ligt en welk open.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Bekijk de strandgids'
         }
@@ -1655,7 +1655,7 @@ export const frigilianaFestivalsContent: Record<
     overview: {
       title: 'Börja med vilken sorts dag ni vill uppleva',
       intro:
-        'En helgondag i byn, en högtidlig procession och en stor sommarfestival är helt olika upplevelser. Välj först efter stämning och använd sedan datumstatusen för att planera med rätt grad av säkerhet.',
+        'En helgondag i byn, en högtidlig procession och en stor sommarfestival är helt olika kvällar. Vissa datum ligger fast år i förväg, andra bekräftas först några veckor innan — därför betyder statusen lika mycket som månaden.',
       reviewed: 'Redaktionellt granskat: juli 2026',
       items: [
         {
@@ -1714,7 +1714,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Maro',
               dateStatus: 'Traditionella dagar; varierande program',
               summary:
-                'Maros firande förenar vördnaden för San Antón med folkliv och lokala traditioner. Kontrollera Nerja kommuns aktuella program före resan.',
+                'Maros firande förenar vördnaden för San Antón med folkliv och lokala traditioner. Nerja kommun fastställer programmet varje år — säg era datum, så kollar vi upp det.',
               officialHref: officialLinks.nerjaCouncil
             }
           ]
@@ -1970,7 +1970,7 @@ export const frigilianaFestivalsContent: Record<
         {
           title: 'Börja med några timmar vid havet',
           text:
-            'Vid sommarfester gör en lugn morgon vid kusten den sena kvällen mycket enklare. Välj strand efter de förhållanden ni föredrar.',
+            'Vid sommarfester gör en lugn morgon vid kusten den sena kvällen mycket enklare. Vår strandguide säger vilken sträcka som ligger skyddad och vilken som är öppen.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Se strandguiden'
         }

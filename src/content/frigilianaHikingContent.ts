@@ -112,11 +112,11 @@ export const frigilianaHikingContent = {
       id: 'village-routes',
       title: text('Two routes close to the village', 'Zwei Routen nahe am Dorf', 'Dos rutas cerca del pueblo', 'Twee routes dicht bij het dorp', 'Två turer nära byn'),
       intro: text(
-        'Choose the open panorama of Cruz de Pinto or the changing riverbed terrain of the Higuerón. Check the linked route before leaving: the exact track matters more than a description from memory.',
-        'Wählt zwischen dem offenen Panorama der Cruz de Pinto und dem wechselnden Flussbett des Higuerón. Prüft vor dem Aufbruch den verlinkten Track – der genaue Verlauf ist wichtiger als eine Wegbeschreibung aus dem Gedächtnis.',
-        'Elegid entre el panorama abierto de la Cruz de Pinto y el terreno cambiante del cauce del Higuerón. Revisad el track enlazado antes de salir: el recorrido exacto importa más que una descripción de memoria.',
-        'Kies het open panorama van Cruz de Pinto of de wisselende rivierbedding van de Higuerón. Controleer de gelinkte route voor vertrek: het exacte spoor is belangrijker dan een beschrijving uit het hoofd.',
-        'Välj den öppna panoramaturen Cruz de Pinto eller Higueróns skiftande flodbädd. Kontrollera den länkade rutten före start – det exakta spåret är viktigare än en vägbeskrivning ur minnet.'
+        'Cruz de Pinto is the open panoramic walk; the Higuerón runs through changing riverbed terrain. For both, the linked track is more exact than any description from memory — take it with you.',
+        'Die Cruz de Pinto ist der offene Panoramaweg, der Higuerón führt durchs wechselnde Flussbett. Für beide gilt: Der verlinkte Track ist genauer als jede Wegbeschreibung aus dem Gedächtnis — nehmt ihn mit.',
+        'La Cruz de Pinto es la ruta panorámica abierta; el Higuerón recorre el cauce cambiante. Para ambas, el track enlazado es más exacto que cualquier descripción de memoria: llevadlo con vosotros.',
+        'Cruz de Pinto is de open panoramaroute; de Higuerón loopt door de wisselende rivierbedding. Voor beide geldt: het gelinkte spoor is nauwkeuriger dan elke beschrijving uit het hoofd — neem het mee.',
+        'Cruz de Pinto är den öppna panoramaturen; Higuerón går genom den skiftande flodbädden. För båda gäller att det länkade spåret är exaktare än någon vägbeskrivning ur minnet — ta med det.'
       ),
       routes: [
         {
@@ -297,7 +297,7 @@ export const frigilianaHikingContent = {
         id: 'restaurants',
         token: 'frigiliana_food_authority',
         title: text('Where will you eat afterwards?', 'Wo esst ihr danach?', '¿Dónde comeréis después?', 'Waar eten jullie daarna?', 'Var äter ni efteråt?'),
-        text: text('Choose a village restaurant after the route instead of leaving the final decision to tired legs.', 'Wählt nach der Route ein Restaurant im Dorf, statt die letzte Entscheidung müden Beinen zu überlassen.', 'Elegid un restaurante del pueblo para después de la ruta y no dejéis la última decisión a unas piernas cansadas.', 'Kies vooraf een restaurant in het dorp, zodat vermoeide benen niet de laatste beslissing nemen.', 'Välj en restaurang i byn efter turen i stället för att låta trötta ben ta det sista beslutet.'),
+        text: text('After four hours uphill nobody picks a restaurant well. That is why we settle on one before setting off.', 'Nach vier Stunden bergauf entscheidet man Restaurants schlecht. Deshalb suchen wir vorher eines aus.', 'Después de cuatro horas de subida nadie elige bien un restaurante. Por eso lo decidimos antes de salir.', 'Na vier uur klimmen kiest niemand nog goed een restaurant. Daarom kiezen we er vooraf een.', 'Efter fyra timmar uppför väljer ingen restaurang bra. Därför bestämmer vi en i förväg.'),
         label: text('See Frigiliana restaurants', 'Restaurants in Frigiliana ansehen', 'Ver restaurantes de Frigiliana', 'Bekijk restaurants in Frigiliana', 'Se restauranger i Frigiliana')
       },
       {
