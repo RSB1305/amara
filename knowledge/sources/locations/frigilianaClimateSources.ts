@@ -11,7 +11,7 @@ export const frigilianaClimateSources = defineKnowledgeSources([
     language: 'es',
     scope: 'Official 1981–2010 monthly and annual normals for station 6155A at Málaga Airport.',
     limitations:
-      'The station is at 7 metres in Málaga and is a regional coastal proxy only; its values are not Frigiliana observations or a current forecast.',
+      'The station is at 7 metres in Málaga and is a regional coastal proxy only; its values are not Frigiliana observations or a current forecast. The page also still shows 1981-2010 while AEMET itself has used 1991-2020 as the standard since January 2023, so these values must not be placed beside a 1991-2020 figure; the current path is the OpenData normals endpoint for the station.',
     reuse: 'link-and-cite',
   },
   {
@@ -90,6 +90,32 @@ export const frigilianaClimateSources = defineKnowledgeSources([
     scope: 'Official KNMI climate table for station 240 Schiphol covering the same 1981-2010 reference period as the AEMET station normals, with mean maximum temperature, monthly precipitation total and sunshine duration.',
     limitations:
       'A northern European comparison point only. KNMI derives sunshine duration from global radiation, so sunshine hours may not be presented as instrumentally identical to the AEMET figures; temperature and precipitation are comparable as monthly normals. Nothing here describes Frigiliana.',
+    reuse: 'link-and-cite',
+  },
+  {
+    id: 'metoffice-heathrow-averages-1991-2020',
+    title: 'Location-specific long-term averages: Heathrow',
+    publisher: 'Met Office',
+    sourceType: 'official',
+    url: 'https://www.metoffice.gov.uk/research/climate/maps-and-data/location-specific-long-term-averages/gcpsvg3nc',
+    accessedAt: '2026-08-30',
+    language: 'en',
+    scope: 'Official Met Office 1991-2020 monthly long-term averages for Heathrow: maximum temperature, rainfall and sunshine hours.',
+    limitations:
+      'The page names neither a station identifier nor an elevation, and these were not filled in from other catalogues. This is a Met Office climate product for the named location, not an unaltered raw measurement series, and it describes Heathrow rather than London as a whole.',
+    reuse: 'link-and-cite',
+  },
+  {
+    id: 'smhi-stockholm-summer-normals-1991-2020',
+    title: 'Semestervader - vad sager statistiken',
+    publisher: 'Sveriges meteorologiska och hydrologiska institut',
+    sourceType: 'official',
+    url: 'https://www.smhi.se/kunskapsbanken/meteorologi/arstider/semestervader---vad-sager-statistiken',
+    accessedAt: '2026-08-30',
+    language: 'sv',
+    scope: 'Official SMHI summer climate statistics for 1991-2020 giving mean daily maximum, precipitation and sunshine hours for June, July and August.',
+    limitations:
+      'Published for "Stockholm" without a station identifier, so this is a city-level figure and not bound to a named station. It covers the three summer months only, and SMHI flags its 1991-2020 normal files as preliminary.',
     reuse: 'link-and-cite',
   },
 ] as const);

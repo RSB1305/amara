@@ -64,6 +64,24 @@ const facts = [
     status: 'verified', sourceIds: ['aemet-sevilla-airport-normals-1981-2010', 'aemet-cordoba-airport-normals-1981-2010', 'aemet-malaga-airport-normals-1981-2010'], checkedAt: '2026-08-30', reviewAfter: '2028-08-30', volatility: 'low',
     claimBoundary: 'A contrast between three named airport stations in one reference period. It is a useful scale for a guest planning an inland round trip, not a statement about Frigiliana, any particular town, or any given day.',
   },
+  {
+    id: 'frigiliana.climate.normal-period.current-standard-1991-2020', subject: 'frigiliana', topic: 'climate-seasons',
+    statement: 'The current standard climate normal period is 1991-2020 across AEMET, DWD, the Met Office, SMHI and KNMI; AEMET states that 1981-2010 applied only until December 2022. No service publishes a more recent standard normal period, and current observations are reported against 1991-2020 rather than replacing it.',
+    status: 'verified', sourceIds: ['metoffice-heathrow-averages-1991-2020', 'smhi-stockholm-summer-normals-1991-2020'], checkedAt: '2026-08-30', reviewAfter: '2030-08-30', volatility: 'low',
+    claimBoundary: 'This fixes which reference period is current. It does not supply values, and it does not make an older published normal wrong for what it is - only wrong to place beside a 1991-2020 figure. AEMET station pages still display 1981-2010 tables, so an official source can carry the superseded period.',
+  },
+  {
+    id: 'frigiliana.climate.home-reference.london-july', subject: 'frigiliana', topic: 'climate-seasons',
+    statement: 'For 1991-2020 the Met Office gives Heathrow a July mean daily maximum of 23.89 C, with 45.8 mm of rainfall and 217.81 sunshine hours.',
+    status: 'verified', sourceIds: ['metoffice-heathrow-averages-1991-2020'], checkedAt: '2026-08-30', reviewAfter: '2030-08-30', volatility: 'low',
+    claimBoundary: 'A Met Office climate normal for Heathrow, not for London as a whole and not for Frigiliana. It is not a forecast, supports no ranking, and its sunshine hours may not be described as measured by the same method as another service.',
+  },
+  {
+    id: 'frigiliana.climate.home-reference.stockholm-july', subject: 'frigiliana', topic: 'climate-seasons',
+    statement: 'For 1991-2020 SMHI publishes a July mean daily maximum of 23.5 C for Stockholm, with 62 mm of precipitation and 280 sunshine hours.',
+    status: 'verified', sourceIds: ['smhi-stockholm-summer-normals-1991-2020'], checkedAt: '2026-08-30', reviewAfter: '2030-08-30', volatility: 'low',
+    claimBoundary: 'Published by SMHI for Stockholm at city level without a station identifier, and covering the summer months only. It says nothing about Frigiliana, is not a forecast, and SMHI flags the underlying 1991-2020 files as preliminary.',
+  },
 ] as const satisfies readonly FactInput[];
 
 export const frigilianaClimateSeasonFacts = defineKnowledgeFacts(facts);

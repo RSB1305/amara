@@ -67,7 +67,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     eyebrow: (place) => `Weather & climate · ${place}`,
     table: {
       eyebrow: '12-month climate profile', title: 'Temperature, rain and sun — month by month',
-      intro: 'If a round trip inland is on your list, put it in spring or autumn. July averages in Sevilla and Córdoba run some five to six degrees above the coast — in high summer that is a different proposition altogether.',
+      intro: 'If a round trip inland is on your list, put it in spring or autumn. July averages in Sevilla and Córdoba run some five to six degrees above the coast — in high summer that is a different proposition altogether. For a familiar yardstick: the July average maximum at Heathrow is just under 24 degrees.',
       labels: { month: 'Month', high: 'Avg. maximum', low: 'Avg. minimum', rain: 'Rainfall', sunHours: 'Sun / day', temperature: 'Average maximum / minimum', rainfall: 'Monthly rainfall', details: 'Monthly values in detail' },
       sourceTitle: 'What these numbers are, and are not', sourceText: 'The figures come from Climate-Data.org. The provider returns the same values for Nerja and Frigiliana, so this is a regional picture rather than a village climate. And if you come across the sign in neighbouring Torrox: that “best climate in Europe” comes from a 2008 comparison between Torrox and 21 other Mediterranean coastal towns, commissioned by a company based there. It says little about Europe and nothing about Frigiliana. So you will find no superlatives here, only monthly figures.'
     },
@@ -163,7 +163,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     eyebrow: (place) => `Väder & klimat · ${place}`,
     table: {
       eyebrow: 'Klimatprofil för 12 månader', title: 'Temperatur, regn och sol – månad för månad',
-      intro: 'Står en rundresa i inlandet på listan — lägg den på våren eller hösten. Julimedelvärdena i Sevilla och Córdoba ligger ungefär fem till sex grader över kustens; mitt i sommaren är det något helt annat.',
+      intro: 'Står en rundresa i inlandet på listan — lägg den på våren eller hösten. Julimedelvärdena i Sevilla och Córdoba ligger ungefär fem till sex grader över kustens; mitt i sommaren är det något helt annat. Som hemmamått: julimedelvärdet för dygnets högsta i Stockholm är 23,5 grader.',
       labels: { month: 'Månad', high: 'Medelmaximum', low: 'Medelminimum', rain: 'Nederbörd', sunHours: 'Sol / dag', temperature: 'Medelmaximum / minimum', rainfall: 'Månadsnederbörd', details: 'Månadsvärden i detalj' },
       sourceTitle: 'Vad siffrorna är – och inte är', sourceText: 'Siffrorna kommer från Climate-Data.org. Leverantören ger samma värden för Nerja och Frigiliana, så det här är en regional bild och inte ett byklimat. Och om ni stöter på skylten i grannorten Torrox: det “bästa klimatet i Europa” kommer från en jämförelse från 2008 mellan Torrox och 21 andra kustorter vid Medelhavet, beställd av ett företag på orten. Om Europa säger det lite och om Frigiliana ingenting. Därför hittar ni inga superlativ här, bara månadsvärden.'
     },
