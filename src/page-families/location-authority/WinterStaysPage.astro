@@ -20,6 +20,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import WinterStaysAuthorityArticle from './WinterStaysAuthorityArticle.astro';
 
 type Destination = 'frigiliana' | 'nerja' | 'tarifa';
@@ -30,6 +31,13 @@ interface Props {
 }
 
 const { destination, lang = 'es' } = Astro.props;
+
+/** One symbol per winter fact. Held per destination because the facts themselves differ. */
+const factIconsByDestination: Record<Destination, LocationGuideIconName[]> = {
+  frigiliana: ['evening', 'walking-surface', 'longer-stay', 'coast'],
+  nerja: ['rainfall', 'distance', 'village', 'coast'],
+  tarifa: ['comparison', 'village', 'supermarket', 'rental-car']
+};
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 
 const contentByDestination = {
@@ -67,6 +75,18 @@ const content = resolveLocale(contentByDestination[destination], currentLang);
 const seo = seoByDestination[destination];
 const pageConfig = config[destination];
 const requiredLink = createRequiredLinkResolver(currentLang, pageConfig.resolverName);
+
+/**
+ * Nerja and Tarifa have one stay each, so their winter call to action opens
+ * that apartment. Frigiliana has four and opens the search instead - and the
+ * search renders empty unless it is told which place, which reads to a guest
+ * as a broken button.
+ */
+const basePropertyHref = requiredLink(pageConfig.propertyToken);
+const propertyHref =
+  pageConfig.propertyToken === 'book'
+    ? `${basePropertyHref}?destination=${destination}`
+    : basePropertyHref;
 const footerHighlights: LabeledLink[] = content.related.links
   .slice(0, 3)
   .map(({ token, label }) => ({ token, label }));
@@ -106,13 +126,14 @@ const footerHighlights: LabeledLink[] = content.related.links
   </Navigation>
 
   <WinterStaysAuthorityArticle
+    factIcons={factIconsByDestination[destination]}
     pageId={`${destination}-winter-stays`}
     lang={currentLang}
     content={content}
     seo={seo}
     authorHref={requiredLink('about')}
     locationHref={requiredLink(pageConfig.locationToken)}
-    propertyHref={requiredLink(pageConfig.propertyToken)}
+    propertyHref={propertyHref}
     resolveHref={requiredLink}
   />
 </LocationAuthorityLayout>

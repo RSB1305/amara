@@ -47,6 +47,7 @@ export interface FrigilianaLocationModule {
 export interface FrigilianaLocationPageCopy {
   heroKicker: string;
   h1: string;
+  h1Subtitle: string;
   heroUpdated: string;
   heroNote: string;
   intro: string[];
@@ -134,7 +135,7 @@ export const frigilianaLocationSeo: AmaraAuthoringSeo = {
     dateModified: '2026-08-29',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
-    authorSlug: 'amara-about-us'
+    authorSlug: 'staying-with-us'
   },
   ogImage: '/images/amara-lounis/15-amara-frigiliana.jpg',
   languages: {
@@ -191,11 +192,18 @@ export const frigilianaLocationHeroImageAlt: Record<AmaraLanguage, string> = {
 export const frigilianaLocationCopy = {
   heroKicker: text('FRIGILIANA · ANDALUSIA', 'FRIGILIANA · ANDALUSIEN', 'FRIGILIANA · ANDALUCÍA', 'FRIGILIANA · ANDALUSIË', 'FRIGILIANA · ANDALUSIEN'),
   h1: text(
-    'Stay in Frigiliana: the old village outside, the sea nearby',
-    'In Frigiliana wohnen: Altstadt vor der Tür, Meer in der Nähe',
-    'Alojarse en Frigiliana: el casco antiguo a la puerta y el mar cerca',
-    'Overnachten in Frigiliana: de oude kern voor de deur, de zee dichtbij',
-    'Bo i Frigiliana: gamla byn utanför dörren och havet nära'
+    'Frigiliana and our house in the village',
+    'Frigiliana und unser Haus im Dorf',
+    'Frigiliana y nuestra casa en el pueblo',
+    'Frigiliana en ons huis in het dorp',
+    'Frigiliana och vårt hus i byn'
+  ),
+  h1Subtitle: text(
+    'The old town at the door, the sea nearby',
+    'Altstadt vor der Tür, Meer in der Nähe',
+    'El casco antiguo a la puerta y el mar cerca',
+    'De oude kern voor de deur, de zee dichtbij',
+    'Gamla stan utanför dörren, havet i närheten'
   ),
   heroUpdated: text('Reviewed August 2026', 'Geprüft im August 2026', 'Revisado en agosto de 2026', 'Gecontroleerd in augustus 2026', 'Granskad i augusti 2026'),
   heroNote: text(

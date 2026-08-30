@@ -11,6 +11,20 @@ export interface WhereToStayDecisionPoint {
   text: string;
 }
 
+/**
+ * One row of the accommodation-type comparison.
+ *
+ * `hotelWins` is deliberately phrased as our own limit rather than as a claim
+ * about hotels: AMARA has no verified evidence about other houses, and a
+ * comparison written by one side is only credible where it can go against it.
+ */
+export interface WhereToStayTypeRow {
+  id: string;
+  attribute: string;
+  ours: string;
+  hotelWins: string;
+}
+
 export interface WhereToStayArea {
   number: string;
   title: string;
@@ -43,6 +57,14 @@ export interface WhereToStayAuthorityContent {
     title: string;
     intro: string[];
     points: WhereToStayDecisionPoint[];
+  };
+  stayType?: {
+    id: string;
+    eyebrow: string;
+    title: string;
+    intro: string[];
+    labels: { attribute: string; ours: string; hotelWins: string };
+    items: WhereToStayTypeRow[];
   };
   areas: {
     id: string;

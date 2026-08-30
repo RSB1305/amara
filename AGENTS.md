@@ -84,6 +84,8 @@ A public page whose dominant job answers a clear question opens with a **self-co
 
 Where a page compares two or more options across the **same named attributes**, emit that comparison as a table or an identified list rather than prose (`TR-CONTENT-007`). An attribute the evidence does not cover is omitted or marked unknown, never estimated to complete a row. Surrounding editorial copy stays prose.
 
+A link from one public page to another carries the **chain that justifies it** (`TR-CONTENT-009`): the condition this page established, the consequence for the stay, the criterion a guest would then apply, and the verified fact that answers it, whether the destination page carries that fact or it is a property fact attributed to the stays it applies to. Naming the destination's topic, repeating its title or telling guests to go and consult it fails the rule. Claim no criterion the evidence does not carry, and attribute a feature only some units have to those units by name. Where the chain cannot be written from evidence, remove the handoff and record the gap in `knowledge/` rather than filling it with a topical label. Navigation chrome and utility, legal, system and entry surfaces are out of scope.
+
 The Navigation booking CTA must have a native localized label in EN, DE, ES, NL and SV.
 
 ## Consolidation slot

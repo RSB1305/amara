@@ -32,7 +32,7 @@ const FORMERLY_BRIDGED = [
   '/frigiliana-faq',
   '/frigiliana-market',
   '/frigiliana-parking',
-  '/frigiliana-streets-stairs',
+  '/frigiliana-where-to-stay',
   '/getting-to-frigiliana'
 ];
 
@@ -177,7 +177,7 @@ test.describe('the page gutter does not depend on the mounting page', () => {
   }
 
   test('EditorialGuideLinkSection renders the same gutter on every route', async ({ page }) => {
-    for (const route of ['/frigiliana-faq', '/frigiliana-streets-stairs']) {
+    for (const route of ['/frigiliana-faq', '/frigiliana-where-to-stay']) {
       await page.setViewportSize(MOBILE);
       await open(page, route);
       expect(

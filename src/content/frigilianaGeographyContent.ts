@@ -14,7 +14,7 @@ const article = {
   dateModified: '2026-08-21',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
-  authorSlug: 'amara-about-us'
+  authorSlug: 'staying-with-us'
 };
 
 const sharedSources = {
@@ -73,7 +73,8 @@ export const frigilianaGeographyContent = {
   navLabel: l("Geography & orientation", "Geografie & Orientierung", "Geografía y orientación", "Geografie & oriëntatie", "Geografi & orientering"),
   hero: {
     eyebrow: l("Frigiliana · Geography & orientation", "Frigiliana · Geografie & Orientierung", "Frigiliana · Geografía y orientación", "Frigiliana · Geografie & oriëntatie", "Frigiliana · Geografi & orientering"),
-    title: l("Where is Frigiliana? Between Nerja and Sierra Almijara", "Wo liegt Frigiliana? Zwischen Nerja und Sierra Almijara", "¿Dónde está Frigiliana? Entre Nerja y la Sierra Almijara", "Waar ligt Frigiliana? Tussen Nerja en Sierra Almijara", "Var ligger Frigiliana? Mellan Nerja och Sierra Almijara"),
+    title: l("Where is Frigiliana?", "Wo liegt Frigiliana?", "¿Dónde está Frigiliana?", "Waar ligt Frigiliana?", "Var ligger Frigiliana?"),
+    subtitle: l("Between Nerja and Sierra Almijara", "Zwischen Nerja und Sierra Almijara", "Entre Nerja y la Sierra Almijara", "Tussen Nerja en Sierra Almijara", "Mellan Nerja och Sierra Almijara"),
     standfirst: l("Frigiliana is a **40.49 km² hillside municipality in the Axarquía**. Its protected historic fabric is organised by the terrain: Barribajo follows the Calle Real axis, Barribarto occupies the medieval core above it, and El Ingenio separates the older settlement from later ridge development.", "Frigiliana ist eine **40,49 km² große Hanggemeinde in der Axarquía**. Das geschützte historische Gefüge folgt dem Relief: Barribajo liegt an der Achse der Calle Real, Barribarto bildet den mittelalterlichen Kern darüber, und El Ingenio trennt den älteren Ort von der späteren Bebauung auf dem Bergrücken.", "Frigiliana es un **municipio de ladera de 40,49 km² en la Axarquía**. Su conjunto histórico protegido responde al relieve: Barribajo sigue el eje de la calle Real, Barribarto ocupa el núcleo medieval por encima y El Ingenio separa el asentamiento antiguo de la expansión posterior sobre la loma.", "Frigiliana is een **hellinggemeente van 40,49 km² in de Axarquía**. Het beschermde historische weefsel volgt het reliëf: Barribajo ligt langs Calle Real, Barribarto vormt de middeleeuwse kern erboven en El Ingenio scheidt het oudere dorp van de latere uitbreiding op de kam.", "Frigiliana är en **sluttande kommun på 40,49 km² i Axarquía**. Den skyddade historiska strukturen följer reliefen: Barribajo ligger längs Calle Real, Barribarto bildar den medeltida kärnan ovanför och El Ingenio skiljer den äldre byn från senare bebyggelse på åsen."),
     note: l("Official datasets use 315–318 metres for the principal-settlement reference; neither figure is the altitude of every street.", "Amtliche Datensätze verwenden 315–318 Meter als Referenz für den Hauptort; keine der beiden Angaben gilt für jede Straße.", "Las fuentes oficiales utilizan 315–318 metros como referencia del núcleo principal; ninguna cifra representa todas las calles.", "Officiële bronnen gebruiken 315–318 meter als referentie voor de hoofdplaats; geen van beide waarden geldt voor elke straat.", "Officiella källor använder 315–318 meter som referens för huvudorten; ingen av siffrorna gäller varje gata."),
     updated: l("Published August 2026", "Veröffentlicht im August 2026", "Publicado en agosto de 2026", "Gepubliceerd in augustus 2026", "Publicerad i augusti 2026")

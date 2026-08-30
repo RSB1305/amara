@@ -19,7 +19,7 @@ const article = {
   dateModified: '2026-08-29',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
-  authorSlug: 'amara-about-us'
+  authorSlug: 'staying-with-us'
 };
 
 export const nerjaWinterStaysSeo: AmaraAuthoringSeo = {
@@ -47,11 +47,18 @@ export const nerjaWinterStaysContent = {
   hero: {
     eyebrow: l("Winter stays · Nerja", "Winteraufenthalte · Nerja", "Estancias de invierno · Nerja", "Winterverblijven · Nerja", "Vintervistelser · Nerja"),
     title: l(
-      "Winter in Nerja: the coast without the crowd",
-      "Winter in Nerja: die Küste ohne den Andrang",
-      "Invierno en Nerja: la costa sin la multitud",
-      "Winter in Nerja: de kust zonder de drukte",
-      "Vinter i Nerja: kusten utan trängseln"
+      "Winter in Nerja",
+      "Winter in Nerja",
+      "Invierno en Nerja",
+      "Winter in Nerja",
+      "Vinter i Nerja"
+    ),
+    subtitle: l(
+      "The coast without the crowd",
+      "Die Küste ohne den Andrang",
+      "La costa sin la aglomeración",
+      "De kust zonder de drukte",
+      "Kusten utan trängseln"
     ),
     standfirst: l(
       "In winter Nerja keeps working while the promenade empties out. The Cueva de Nerja and the Museo de Nerja are open through the year, so a grey day still has somewhere to go. The beach is for walking, not for swimming: the municipal lifeguard service runs in summer only. AMARA Playa sits about 200 metres from Torrecilla beach and 500 from the Balcón de Europa, with heating, a full kitchen, a washing machine and the largest bed we have. Send us your dates and we will check current opening hours before you arrive.",
@@ -295,11 +302,11 @@ export const nerjaWinterStaysContent = {
   closing: {
     eyebrow: l("Winter at AMARA", "Winter bei AMARA", "Invierno en AMARA", "Winter bij AMARA", "Vinter hos AMARA"),
     title: l(
-      "Tell us when you want to come",
-      "Sagt uns, wann ihr kommen möchtet",
-      "Contadnos cuándo queréis venir",
-      "Vertel ons wanneer jullie willen komen",
-      "Berätta när ni vill komma"
+      "Tell us when you want to stay with us in Nerja",
+      "Sagt uns, wann ihr bei uns in Nerja übernachten wollt",
+      "Decidnos cuándo queréis alojaros con nosotros en Nerja",
+      "Vertel ons wanneer jullie bij ons in Nerja willen overnachten",
+      "Berätta när ni vill bo hos oss i Nerja"
     ),
     body: l(
       "If coast, daylight and a town that keeps its own rhythm sound right, winter in Nerja works. Send us your dates and we will check what is open that week.",

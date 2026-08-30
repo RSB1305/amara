@@ -21,7 +21,7 @@ const article = {
   dateModified: '2026-08-19',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
-  authorSlug: 'amara-about-us'
+  authorSlug: 'staying-with-us'
 };
 
 const officialSources = {

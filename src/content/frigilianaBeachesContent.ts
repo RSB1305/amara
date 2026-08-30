@@ -89,6 +89,7 @@ export interface FrigilianaBeachesPageCopy {
         | 'weather_frigiliana'
         | 'location_nerja'
         | 'frigiliana_food_authority'
+        | 'stay_search_results'
         | 'nerja_nightlife_authority';
       linkLabel: string;
     }[];
@@ -403,6 +404,13 @@ export const frigilianaBeachesContent: Record<
             'If your coast day ends near Nerja’s old town, continue on foot to Cochran’s Terrace rather than treating sunset as a separate excursion. We watched it there ourselves in summer 2025; check current opening and terrace access before relying on the plan.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'See our Nerja sundowner'
+        },
+        {
+          title: 'Which weeks are still open?',
+          text:
+            'The coast is a different day in May than in August. What is free on your dates comes with the total price for those nights.',
+          linkToken: 'stay_search_results',
+          linkLabel: 'See what is free on your dates'
         }
       ]
     },
@@ -646,6 +654,13 @@ export const frigilianaBeachesContent: Record<
             'Wenn euer Küstentag nahe Nerjas Altstadt endet, geht zu Fuß weiter zu Cochran’s Terrace, statt den Sonnenuntergang als neuen Ausflug zu planen. Wir haben ihn dort im Sommer 2025 selbst gesehen; prüft aktuelle Öffnung und Terrassenzugang, bevor ihr euch darauf verlasst.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Zu unserem Nerja-Sundowner'
+        },
+        {
+          title: 'Welche Wochen sind noch frei?',
+          text:
+            'Die Küste ist im Mai ein anderer Tag als im August. Was an euren Daten frei ist, seht ihr mit dem Gesamtpreis für diese Nächte.',
+          linkToken: 'stay_search_results',
+          linkLabel: 'Sehen, was an euren Daten frei ist'
         }
       ]
     },
@@ -889,6 +904,13 @@ export const frigilianaBeachesContent: Record<
             'Si el día de costa termina cerca del casco antiguo de Nerja, seguid a pie hasta Cochran’s Terrace en lugar de plantear la puesta de sol como otra excursión. La vimos allí personalmente en verano de 2025; comprobad la apertura y el acceso actual a la terraza.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Ver nuestro atardecer en Nerja'
+        },
+        {
+          title: '¿Qué semanas quedan libres?',
+          text:
+            'La costa en mayo no es el mismo día que en agosto. Lo que hay libre en vuestras fechas aparece con el precio total de esas noches.',
+          linkToken: 'stay_search_results',
+          linkLabel: 'Ver qué hay libre en vuestras fechas'
         }
       ]
     },
@@ -1132,6 +1154,13 @@ export const frigilianaBeachesContent: Record<
             'Eindigt jullie kustdag bij de oude stad van Nerja, loop dan door naar Cochran’s Terrace in plaats van van de zonsondergang een nieuwe uitstap te maken. Wij zagen hem daar zelf in de zomer van 2025; controleer vooraf de actuele opening en toegang tot het terras.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Bekijk onze sundowner in Nerja'
+        },
+        {
+          title: 'Welke weken zijn nog vrij?',
+          text:
+            'De kust is in mei een andere dag dan in augustus. Wat er op jullie data vrij is, zie je met de totaalprijs voor die nachten.',
+          linkToken: 'stay_search_results',
+          linkLabel: 'Bekijk wat vrij is op jullie data'
         }
       ]
     },
@@ -1375,6 +1404,13 @@ export const frigilianaBeachesContent: Record<
             'Om kustdagen slutar nära Nerjas gamla stad kan ni promenera vidare till Cochran’s Terrace i stället för att göra solnedgången till en ny utflykt. Vi såg den där själva sommaren 2025; kontrollera aktuell öppning och tillträde till terrassen innan ni bygger planen kring den.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Se vår sundowner i Nerja'
+        },
+        {
+          title: 'Vilka veckor är lediga?',
+          text:
+            'Kusten är en annan dag i maj än i augusti. Vad som är ledigt era datum visas med totalpriset för de nätterna.',
+          linkToken: 'stay_search_results',
+          linkLabel: 'Se vad som är ledigt era datum'
         }
       ]
     },

@@ -14,7 +14,7 @@ const article = {
   dateModified: '2026-08-21',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
-  authorSlug: 'amara-about-us'
+  authorSlug: 'staying-with-us'
 };
 
 /**
@@ -79,7 +79,8 @@ export const nerjaGeographyContent = {
   navLabel: l("Geography & orientation", "Geografie & Orientierung", "Geografía y orientación", "Geografie & oriëntatie", "Geografi & orientering"),
   hero: {
     eyebrow: l("Nerja · Geography & orientation", "Nerja · Geografie & Orientierung", "Nerja · Geografía y orientación", "Nerja · Geografie & oriëntatie", "Nerja · Geografi & orientering"),
-    title: l("Where is Nerja? Between the Mediterranean and Sierra Almijara", "Wo liegt Nerja? Zwischen Mittelmeer und Sierra Almijara", "¿Dónde está Nerja? Entre el Mediterráneo y la Sierra Almijara", "Waar ligt Nerja? Tussen de Middellandse Zee en Sierra Almijara", "Var ligger Nerja? Mellan Medelhavet och Sierra Almijara"),
+    title: l("Where is Nerja?", "Wo liegt Nerja?", "¿Dónde está Nerja?", "Waar ligt Nerja?", "Var ligger Nerja?"),
+    subtitle: l("Between the Mediterranean and Sierra Almijara", "Zwischen Mittelmeer und Sierra Almijara", "Entre el Mediterráneo y la Sierra Almijara", "Tussen de Middellandse Zee en Sierra Almijara", "Mellan Medelhavet och Sierra Almijara"),
     standfirst: l("Nerja is an **85.07 km² coastal municipality with four statistical population centres**. Its principal settlement has an official 22-metre reference, while the Sierra Almijara rises close behind the coast and Navachica reaches 1,832 metres in the wider mountain system.", "Nerja ist eine **85,07 km² große Küstengemeinde mit vier statistischen Siedlungskernen**. Der Hauptort hat einen amtlichen Höhenbezug von 22 Metern; dicht hinter der Küste steigt die Sierra Almijara an, in deren größerem Gebirgssystem die Navachica 1.832 Meter erreicht.", "Nerja es un **municipio costero de 85,07 km² con cuatro núcleos estadísticos de población**. El núcleo principal tiene una referencia oficial de 22 metros; muy cerca de la costa se eleva la Sierra Almijara, donde Navachica alcanza 1.832 metros dentro del sistema montañoso más amplio.", "Nerja is een **kustgemeente van 85,07 km² met vier statistische woonkernen**. De hoofdplaats heeft een officiële referentie van 22 meter; vlak achter de kust rijst de Sierra Almijara op, waar Navachica in het bredere bergsysteem 1.832 meter bereikt.", "Nerja är en **kustkommun på 85,07 km² med fyra statistiska befolkningskärnor**. Huvudorten har en officiell referens på 22 meter; nära kusten reser sig Sierra Almijara, där Navachica når 1 832 meter i det större bergssystemet."),
     note: l("The 22-metre figure refers to the main settlement. Individual routes differ in gradient and surface.", "Die 22 Meter sind eine Hauptortreferenz. Exakte Wegsteigungen und die Lage der Navachica innerhalb der Gemeindegrenze brauchen eigene Nachweise.", "Los 22 metros son una referencia del núcleo principal. Las pendientes concretas y la posición de Navachica respecto al límite municipal requieren pruebas propias.", "De 22 meter is een referentie voor de hoofdplaats. Afzonderlijke routes verschillen in helling en ondergrond.", "22 meter är en referens för huvudorten. Exakta väglutningar och Navachicas läge mot kommungränsen kräver egna belägg."),
     updated: l("Reviewed August 2026", "Geprüft im August 2026", "Revisado en agosto de 2026", "Gecontroleerd in augustus 2026", "Granskad i augusti 2026")

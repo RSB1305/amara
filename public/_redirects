@@ -28,22 +28,28 @@
 /de/frigiliana-markt /de/frigiliana-market 301
 /nl/frigiliana-markt /nl/frigiliana-market 301
 /sv/frigiliana-marknaden /sv/frigiliana-market 301
-/frigiliana-stairs-layout /frigiliana-streets-stairs 301
-/es/frigiliana-stairs-layout /frigiliana-streets-stairs 301
-/de/frigiliana-stairs-layout /de/frigiliana-streets-stairs 301
-/en/frigiliana-stairs-layout /en/frigiliana-streets-stairs 301
-/nl/frigiliana-stairs-layout /nl/frigiliana-streets-stairs 301
-/sv/frigiliana-stairs-layout /sv/frigiliana-streets-stairs 301
-/frigiliana-village-structure-stairs /frigiliana-streets-stairs 301
-/es/frigiliana-village-structure-stairs /frigiliana-streets-stairs 301
-/de/frigiliana-village-structure-stairs /de/frigiliana-streets-stairs 301
-/en/frigiliana-village-structure-stairs /en/frigiliana-streets-stairs 301
-/nl/frigiliana-village-structure-stairs /nl/frigiliana-streets-stairs 301
-/sv/frigiliana-village-structure-stairs /sv/frigiliana-streets-stairs 301
-/de/frigiliana-ort-struktur-und-treppen /de/frigiliana-streets-stairs 301
-/es/estructura-y-escaleras-del-sitio-de-frigiliana /frigiliana-streets-stairs 301
-/nl/structuur-en-trappen-van-de-frigiliana-site /nl/frigiliana-streets-stairs 301
-/sv/frigiliana-tomtens-struktur-och-trappor /sv/frigiliana-streets-stairs 301
+/frigiliana-streets-stairs /frigiliana-where-to-stay 301
+/es/frigiliana-streets-stairs /frigiliana-where-to-stay 301
+/de/frigiliana-streets-stairs /de/frigiliana-where-to-stay 301
+/en/frigiliana-streets-stairs /en/frigiliana-where-to-stay 301
+/nl/frigiliana-streets-stairs /nl/frigiliana-where-to-stay 301
+/sv/frigiliana-streets-stairs /sv/frigiliana-where-to-stay 301
+/frigiliana-stairs-layout /frigiliana-where-to-stay 301
+/es/frigiliana-stairs-layout /frigiliana-where-to-stay 301
+/de/frigiliana-stairs-layout /de/frigiliana-where-to-stay 301
+/en/frigiliana-stairs-layout /en/frigiliana-where-to-stay 301
+/nl/frigiliana-stairs-layout /nl/frigiliana-where-to-stay 301
+/sv/frigiliana-stairs-layout /sv/frigiliana-where-to-stay 301
+/frigiliana-village-structure-stairs /frigiliana-where-to-stay 301
+/es/frigiliana-village-structure-stairs /frigiliana-where-to-stay 301
+/de/frigiliana-village-structure-stairs /de/frigiliana-where-to-stay 301
+/en/frigiliana-village-structure-stairs /en/frigiliana-where-to-stay 301
+/nl/frigiliana-village-structure-stairs /nl/frigiliana-where-to-stay 301
+/sv/frigiliana-village-structure-stairs /sv/frigiliana-where-to-stay 301
+/de/frigiliana-ort-struktur-und-treppen /de/frigiliana-where-to-stay 301
+/es/estructura-y-escaleras-del-sitio-de-frigiliana /frigiliana-where-to-stay 301
+/nl/structuur-en-trappen-van-de-frigiliana-site /nl/frigiliana-where-to-stay 301
+/sv/frigiliana-tomtens-struktur-och-trappor /sv/frigiliana-where-to-stay 301
 /explore-frigiliana-nerja /frigiliana-experience 301
 /de/explore-frigiliana-nerja /de/frigiliana-experience 301
 /en/explore-frigiliana-nerja /en/frigiliana-experience 301
@@ -73,7 +79,13 @@
 /sv/boka/ https://amara.lodgify.com/sv/book/ 301
 
 # Current Spanish canonical equivalents
-/es/amara-about-us /amara-about-us 301
+/amara-about-us /staying-with-us 301
+/es/amara-about-us /staying-with-us 301
+/de/amara-about-us /de/staying-with-us 301
+/en/amara-about-us /en/staying-with-us 301
+/nl/amara-about-us /nl/staying-with-us 301
+/sv/amara-about-us /sv/staying-with-us 301
+/es/staying-with-us /staying-with-us 301
 /es/comfort-amenities /comfort-amenities 301
 /es/direct-booking-benefits /direct-booking-benefits 301
 /es/faq-general /faq-general 301
@@ -88,7 +100,7 @@
 /es/frigiliana-experience /frigiliana-experience 301
 /es/explore-frigiliana-nerja /frigiliana-experience 301
 /es/frigiliana-parking /frigiliana-parking 301
-/es/frigiliana-streets-stairs /frigiliana-streets-stairs 301
+/es/frigiliana-where-to-stay /frigiliana-where-to-stay 301
 /es/frigiliana-weather /frigiliana-weather 301
 /es/frigiliana-winter-stays /frigiliana-winter-stays 301
 /es/getting-to-frigiliana /getting-to-frigiliana 301
@@ -125,19 +137,19 @@
 /en/romantic-getaway-frigiliana-nerja /en/romantic-hideaways 301
 
 # About / brand trust
-/about /amara-about-us 301
-/en/about /en/amara-about-us 301
-/de/about /de/amara-about-us 301
-/es/about /amara-about-us 301
-/nl/about /nl/amara-about-us 301
-/sv/about /sv/amara-about-us 301
+/about /staying-with-us 301
+/en/about /en/staying-with-us 301
+/de/about /de/staying-with-us 301
+/es/about /staying-with-us 301
+/nl/about /nl/staying-with-us 301
+/sv/about /sv/staying-with-us 301
 
 # Contact legacy paths consolidate to brand trust until a real contact page exists.
-/en/contact /en/amara-about-us 301
-/de/kontaktiere-uns /de/amara-about-us 301
-/es/contacto-amara-lodging /amara-about-us 301
-/nl/contact /nl/amara-about-us 301
-/sv/kontakta-oss /sv/amara-about-us 301
+/en/contact /en/staying-with-us 301
+/de/kontaktiere-uns /de/staying-with-us 301
+/es/contacto-amara-lodging /staying-with-us 301
+/nl/contact /nl/staying-with-us 301
+/sv/kontakta-oss /sv/staying-with-us 301
 
 # Legal and privacy
 /privacy /legal-notice 301

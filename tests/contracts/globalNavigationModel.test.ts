@@ -71,7 +71,7 @@ const NAVIGATION_SCENARIOS: {
     activeToken: 'about',
     input: (currentLang) => ({
       currentLang,
-      currentPath: buildOwnedLocalizedPath('amara-about-us', currentLang)
+      currentPath: buildOwnedLocalizedPath('staying-with-us', currentLang)
     })
   },
   {

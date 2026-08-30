@@ -50,6 +50,7 @@ const footerHighlights: LabeledLink[] = [
     <LocationHubHero
       eyebrow={content.hero.eyebrow}
       title={content.hero.title}
+      subtitle={content.hero.subtitle}
       paragraphs={[content.hero.standfirst]}
       imageSrc={nerjaStayImage}
       imageAlt={content.amara.imageAlt}
@@ -73,7 +74,7 @@ const footerHighlights: LabeledLink[] = [
       <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:gap-20">
         <div class="lg:col-span-7">
           <p class="am-text-eyebrow text-primary">{content.orientation.eyebrow}</p>
-          <h2 class="am-text-display mt-6 max-w-5xl text-balance text-on-surface">{content.orientation.title}</h2>
+          <h2 class="am-text-title mt-6 max-w-5xl text-balance text-on-surface">{content.orientation.title}</h2>
           <div class="mt-10 max-w-3xl space-y-5">
             {content.orientation.paragraphs.map((paragraph) => (
               <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
@@ -113,7 +114,7 @@ const footerHighlights: LabeledLink[] = [
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
         <div class="lg:col-span-7">
           <p class="am-text-eyebrow text-primary">{content.experience.eyebrow}</p>
-          <h2 class="am-text-display mt-6 text-balance text-on-surface">{content.experience.title}</h2>
+          <h2 class="am-text-title mt-6 text-balance text-on-surface">{content.experience.title}</h2>
         </div>
         <div class="lg:col-span-5">
           {content.experience.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>)}

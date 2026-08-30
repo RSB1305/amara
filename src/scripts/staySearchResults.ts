@@ -94,6 +94,10 @@ export function enhanceStaySearchResults() {
     if (!input) {
       const previewDestination = parseDestination(new URLSearchParams(window.location.search).get('destination'));
       if (!previewDestination || previewDestination === 'all') return;
+      // The field has to agree with the list below it, or the page offers
+      // all destinations above the stays of one.
+      const select = document.querySelector<HTMLSelectElement>('[data-am-stay-search-destination]');
+      if (select) select.value = previewDestination;
       const label = destinationLabel(previewDestination);
       resultsHeading.textContent = copy.destinationStaysTitle.replace('{destination}', label);
       summary.textContent = '';

@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-CONTENT-010
-title: AMARA Content Production & Localization Playbook V1.7.1
-version: 1.7.1
+title: AMARA Content Production & Localization Playbook V1.8.1
+version: 1.8.1
 status: ACTIVE
 authority_class: OPERATIONAL PLAYBOOK / NON-GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "10_AMARA_Content_Production_and_Localization_Playbook_V1_2(1
 source_sha256: adab58c901709b270fb264498158f2cb3010006bac7dfea18e6358627a0f10ae
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-29T13:59:51+02:00
+last_modified: 2026-08-30T17:05:00+02:00
 ---
 
 # AMARA Content Production & Localization Playbook V1.2 — Interim Markdown Snapshot
@@ -866,6 +866,36 @@ For every new or materially revised public page, read the rendered copy aloud in
 
 Rewrite or delete every failed sentence or stage. Do not repair an unnatural sentence by adding more explanation.
 
+## Approved repository amendment — evidence-carrying handoffs
+
+This operational amendment implements `TR-CONTENT-009`. It governs the text of a link from one public page to another. It does not change link ownership, route contracts or the Link Registry, and it authorizes no claim that `knowledge/` and the property record do not already carry.
+
+29. A handoff carries its chain, not its topic
+
+A cross-page link exists because the source page has established something that changes what a guest should look for next. Write that, in four moves:
+
+1. **Condition** — what this page established. "The days stay mild and the evenings turn cool."
+2. **Consequence** — what follows for the stay. "Then what heats the place matters."
+3. **Criterion** — what a guest would therefore look for. Usually carried by the consequence; do not spell it out twice.
+4. **Evidence** — the verified fact that answers it: a property fact attributed to the stays it applies to when the destination is a stay, or the fact the destination page itself carries when it is an information page. "All four stays have heating and underfloor heating in the bathroom; Lounis, Zaid and Maha also have a pellet stove."
+
+Fail the handoff when it:
+
+- names only the destination's subject ("Winter stays", "Geography & orientation");
+- repeats the destination's page title, or calls it a guide, hub or overview;
+- instructs the guest to go and check ("use the dedicated guide", "compare the areas", "plan a longer stay");
+- asserts a criterion the evidence does not carry, or gives every unit a feature only some units have;
+- exists because two pages share a topic rather than because one changes the other.
+
+Where the chain cannot be written from existing evidence, remove the handoff and record the gap in `knowledge/`. A topical label is not a smaller handoff; it is the absence of one.
+
+Worked reference — Frigiliana weather to winter stays:
+
+> Die Tage bleiben mild, die Abende werden kühl — dann zählt, womit geheizt wird. Alle vier Unterkünfte haben Heizung und Fußbodenheizung im Bad, Lounis, Zaid und Maha zusätzlich einen Pelletofen.
+
+The same four moves are written natively in every locale. Sentence count and construction follow the language, not the English draft.
+
+
 ## Revision history
 
 | Version | Timestamp | Change |
@@ -877,3 +907,5 @@ Rewrite or delete every failed sentence or stage. Do not repair an unnatural sen
 | 1.6.0 | 2026-08-26T18:30:00Z | Gave the direct-answer principle a binding form, required attribute comparisons to be emitted as tables or identified lists, and added the retrievable-answer pass. Form only; no new claim authority. |
 | 1.7.0 | 2026-08-29T08:47:07+02:00 | Added the people-first host-language gate, deletion test, imperative boundary and proportional rendered-page density check. |
 | 1.7.1 | 2026-08-29T13:59:51+02:00 | Clarified that repeated cards and accommodation summaries must not be forced into one translated instruction or contrast template. |
+| 1.8.0 | 2026-08-30T16:30:00+02:00 | Added evidence-carrying handoffs: a cross-page link states condition, stay consequence, guest criterion and the verified AMARA fact instead of naming a shared topic. |
+| 1.8.1 | 2026-08-30T17:05:00+02:00 | Clarified the fourth move for the return direction: the answering fact may be the one the destination page carries, not only a property fact. |

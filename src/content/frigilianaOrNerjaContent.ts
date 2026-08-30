@@ -4,6 +4,7 @@ export interface FrigilianaOrNerjaPageCopy {
   hero: {
     eyebrow: string;
     title: string;
+    subtitle: string;
     lead: string;
     body: string[];
     imageAlt: string;
@@ -121,7 +122,8 @@ export const frigilianaOrNerjaContent: Record<
   en: {
     hero: {
       eyebrow: 'Frigiliana & Nerja',
-      title: 'Frigiliana or Nerja – Where to Stay?',
+      title: 'Frigiliana or Nerja',
+      subtitle: 'Where to stay?',
       lead:
         'They are close enough to experience both. The real choice is which place you want around you at the beginning and end of each day.',
       body: [
@@ -237,7 +239,8 @@ export const frigilianaOrNerjaContent: Record<
   de: {
     hero: {
       eyebrow: 'Frigiliana & Nerja',
-      title: 'Frigiliana oder Nerja – wo übernachten?',
+      title: 'Frigiliana oder Nerja',
+      subtitle: 'Wo übernachten?',
       lead:
         'Beide Orte liegen nah genug beieinander, um sie während derselben Reise zu erleben. Entscheidend ist, welcher Ort euch morgens und abends umgeben soll.',
       body: [
@@ -353,7 +356,8 @@ export const frigilianaOrNerjaContent: Record<
   es: {
     hero: {
       eyebrow: 'Frigiliana y Nerja',
-      title: 'Frigiliana o Nerja: ¿dónde alojarse?',
+      title: 'Frigiliana o Nerja',
+      subtitle: '¿Dónde alojarse?',
       lead:
         'Están lo bastante cerca para conocer ambos lugares. La verdadera elección es cuál queréis tener a vuestro alrededor al empezar y terminar cada día.',
       body: [
@@ -469,7 +473,8 @@ export const frigilianaOrNerjaContent: Record<
   nl: {
     hero: {
       eyebrow: 'Frigiliana & Nerja',
-      title: 'Frigiliana of Nerja: waar overnachten?',
+      title: 'Frigiliana of Nerja',
+      subtitle: 'Waar overnachten?',
       lead:
         'De twee plaatsen liggen dicht genoeg bij elkaar om ze allebei te beleven. De echte keuze is in welke omgeving jullie elke dag willen beginnen en eindigen.',
       body: [
@@ -585,7 +590,8 @@ export const frigilianaOrNerjaContent: Record<
   sv: {
     hero: {
       eyebrow: 'Frigiliana & Nerja',
-      title: 'Frigiliana eller Nerja: var ska man bo?',
+      title: 'Frigiliana eller Nerja',
+      subtitle: 'Var ska man bo?',
       lead:
         'De ligger så nära varandra att ni kan uppleva båda. Den verkliga frågan är vilken plats ni vill ha omkring er när dagen börjar och slutar.',
       body: [

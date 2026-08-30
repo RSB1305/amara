@@ -49,6 +49,8 @@ interface Props {
   hero: {
     eyebrow: string;
     title: string;
+    /** The second, smaller line under the title. Optional while pages are migrated. */
+    subtitle?: string;
     standfirst: string;
     updated?: string;
     note?: string;
@@ -169,6 +171,7 @@ if (presentation === 'article' && !byline) {
       <LocationGuideHero
         eyebrow={hero.eyebrow}
         title={hero.title}
+        subtitle={hero.subtitle}
         paragraphs={guideSummary ? [] : [hero.standfirst]}
         topic={topic}
         visualBeforeMetaOnMobile={Boolean(guideSummary)}
@@ -274,7 +277,7 @@ if (presentation === 'article' && !byline) {
         <p class="am-text-eyebrow text-primary">{closing.eyebrow}</p>
         <h2
           class:list={[
-            'am-text-display mt-6 text-balance text-on-surface',
+            'am-text-title mt-6 text-balance text-on-surface',
             presentation !== 'article' && 'italic'
           ]}
         >

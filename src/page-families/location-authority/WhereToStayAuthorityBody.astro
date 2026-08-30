@@ -11,6 +11,40 @@ interface Props {
 const { content } = Astro.props;
 ---
 
+{content.stayType && (
+<LocationModule surface="tint" data-am-stay-module="stay-type" id={content.stayType.id}>
+  <div class="mx-auto max-w-screen-2xl">
+    <p class="am-text-eyebrow text-primary">{content.stayType.eyebrow}</p>
+    <h2 class="am-text-title mt-5 max-w-2xl text-balance italic text-on-surface">{content.stayType.title}</h2>
+    <div class="mt-7 max-w-3xl space-y-5">
+      {content.stayType.intro.map((paragraph) => (
+        <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+      ))}
+    </div>
+    <div class="mt-10 overflow-x-auto">
+      <table class="w-full min-w-[42rem] border-collapse text-left">
+        <thead>
+          <tr class="border-b border-border-subtle">
+            <th scope="col" class="am-text-label am-text-label--sm am-text-label--wide py-4 pr-6 align-bottom text-primary">{content.stayType.labels.attribute}</th>
+            <th scope="col" class="am-text-label am-text-label--sm am-text-label--wide py-4 pr-6 align-bottom text-primary">{content.stayType.labels.ours}</th>
+            <th scope="col" class="am-text-label am-text-label--sm am-text-label--wide py-4 align-bottom text-primary">{content.stayType.labels.hotelWins}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {content.stayType.items.map((row) => (
+            <tr class="border-b border-border-subtle align-top">
+              <th scope="row" class="am-text-body py-6 pr-6 font-semibold text-on-surface">{row.attribute}</th>
+              <td class="am-text-body py-6 pr-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={row.ours} /></td>
+              <td class="am-text-body py-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={row.hotelWins} /></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</LocationModule>
+)}
+
 {content.decision.points.length > 0 && (
 <LocationModule data-am-stay-module="decision">
   <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
@@ -56,7 +90,7 @@ const { content } = Astro.props;
   <div class="mx-auto max-w-screen-2xl">
     <div class="max-w-4xl">
       <p class="am-text-eyebrow text-primary">{content.areas.eyebrow}</p>
-      <h2 class="am-text-display mt-6 min-w-0 text-balance hyphens-auto text-on-surface [overflow-wrap:anywhere]">{content.areas.title}</h2>
+      <h2 class="am-text-title mt-6 min-w-0 text-balance hyphens-auto text-on-surface [overflow-wrap:anywhere]">{content.areas.title}</h2>
       <p class="am-text-body mt-7 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.areas.intro} /></p>
     </div>
 

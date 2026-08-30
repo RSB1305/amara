@@ -46,7 +46,7 @@ export const AMARA_PAGE_TYPE_PROFILES = {
     whitespace: 'generous', cta: 'subtle-next',
     pageEndRoles: ['faq', 'editorial-close', 'next-action'],
     referenceAnatomy: ['brand-hero', 'philosophy-statement', 'principles-people-evidence', 'quality-responsibility', 'subtle-close'],
-    reference: { family: 'trust-content', route: 'amara-about-us' }
+    reference: { family: 'trust-content', route: 'staying-with-us' }
   },
   conversion: {
     purpose: 'decision', layout: 'focused-reduced', density: 'decision-only', media: 'supporting',

@@ -47,7 +47,7 @@ interface HikingRouteSection {
 }
 
 interface HikingContextLink {
-  id: 'restaurants' | 'location';
+  id: 'after-the-walk' | 'dates' | 'restaurants' | 'location';
   token: LinkToken;
   title: LocalizedText;
   text: LocalizedText;
@@ -293,6 +293,20 @@ export const frigilianaHikingContent = {
     title: text('Connect the hike to the rest of the stay', 'Die Wanderung mit dem restlichen Aufenthalt verbinden', 'Conectad la ruta con el resto de la estancia', 'Verbind de wandeling met de rest van het verblijf', 'Koppla vandringen till resten av vistelsen'),
     intro: text('Once the route choice is clear, these are the next useful questions.', 'Wenn die Route feststeht, sind das die nächsten hilfreichen Fragen.', 'Cuando la ruta esté clara, estas son las siguientes preguntas útiles.', 'Als de routekeuze duidelijk is, zijn dit de volgende nuttige vragen.', 'När rutten är vald är det här de nästa användbara frågorna.'),
     items: [
+      {
+        id: 'after-the-walk',
+        token: 'amenities',
+        title: text('Where do you come back to?', 'Wohin kommt ihr zurück?', '¿A dónde volvéis?', 'Waar kom je op terug?', 'Vart kommer ni tillbaka?'),
+        text: text('After four hours on the mountain the outdoor shower on your own terrace is the best part of the day. Lounis, Zaid and Maha each have one, with a hammock and two loungers.', 'Nach vier Stunden am Berg ist die Außendusche auf der eigenen Terrasse das Beste am Tag. Lounis, Zaid und Maha haben je eine, dazu Hängematte und zwei Liegen.', 'Después de cuatro horas en la sierra, la ducha exterior de vuestra propia terraza es lo mejor del día. Lounis, Zaid y Maha tienen una cada uno, con hamaca y dos tumbonas.', 'Na vier uur in de bergen is de buitendouche op je eigen terras het beste van de dag. Lounis, Zaid en Maha hebben er elk een, met hangmat en twee ligbedden.', 'Efter fyra timmar i bergen är utduschen på er egen terrass det bästa med dagen. Lounis, Zaid och Maha har var sin, med hängmatta och två solsängar.'),
+        label: text('What is waiting in the apartments', 'Was in den Apartments wartet', 'Qué os espera en los apartamentos', 'Wat er in de appartementen klaarstaat', 'Vad som väntar i lägenheterna')
+      },
+      {
+        id: 'dates',
+        token: 'stay_search_results',
+        title: text('When do you want to walk?', 'Wann wollt ihr laufen?', '¿Cuándo queréis caminar?', 'Wanneer willen jullie lopen?', 'När vill ni vandra?'),
+        text: text('Spring and autumn are the best time for the long routes, because shade stops being the deciding factor. What is free in your weeks comes with dates and a total price.', 'Frühling und Herbst sind die beste Zeit für die langen Routen, weil der Schatten dann nicht mehr entscheidet. Was in euren Wochen frei ist, seht ihr mit Datum und Gesamtpreis.', 'Primavera y otoño son la mejor época para las rutas largas, porque la sombra deja de ser lo decisivo. Lo que hay libre en vuestras semanas aparece con fechas y precio total.', 'Lente en herfst zijn de beste tijd voor de lange routes, omdat schaduw dan niet meer beslist. Wat er in jullie weken vrij is, zie je met data en totaalprijs.', 'Vår och höst är bästa tiden för de långa lederna, eftersom skuggan då inte längre avgör. Vad som är ledigt under era veckor visas med datum och totalpris.'),
+        label: text('See what is free on your dates', 'Sehen, was an euren Daten frei ist', 'Ver qué hay libre en vuestras fechas', 'Bekijk wat vrij is op jullie data', 'Se vad som är ledigt era datum')
+      },
       {
         id: 'restaurants',
         token: 'frigiliana_food_authority',

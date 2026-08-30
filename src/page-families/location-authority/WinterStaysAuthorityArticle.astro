@@ -2,6 +2,7 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import type { RequiredLinkResolver } from '../../lib/linkResolver';
 import type { WinterStaysLocale } from '../../content/winterStaysContent';
+import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
@@ -15,6 +16,7 @@ interface Props {
   locationHref: string;
   propertyHref: string;
   resolveHref: RequiredLinkResolver;
+  factIcons?: LocationGuideIconName[];
 }
 
 const {
@@ -25,7 +27,8 @@ const {
   authorHref,
   locationHref,
   propertyHref,
-  resolveHref
+  resolveHref,
+  factIcons
 } = Astro.props;
 ---
 
@@ -38,6 +41,7 @@ const {
   authorName={seo.article!.authorName}
   authorHref={authorHref}
   facts={content.facts}
+  factIcons={factIcons}
   sources={content.sources}
   closing={content.closing}
   primaryCta={{ href: propertyHref, label: content.closing.propertyLabel }}
