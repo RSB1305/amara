@@ -420,11 +420,11 @@ export const frigilianaLocationCopy = {
         id: 'comparison',
         title: text('Would you rather stay by the sea?', 'Möchtet ihr lieber direkt am Meer wohnen?', '¿Preferís alojaros junto al mar?', 'Liever direct aan zee verblijven?', 'Vill ni hellre bo direkt vid havet?'),
         paragraphs: textList(
-          ['Choose Nerja if the beach and coastal town should shape every day. Choose Frigiliana if you want the old village to shape your mornings and evenings.'],
-          ['Wählt Nerja, wenn Strand und Küstenstadt jeden Tag bestimmen sollen. Wählt Frigiliana, wenn die Altstadt eure Morgen und Abende prägen darf.'],
-          ['Elegid Nerja si la playa y la ciudad costera deben marcar cada día. Elegid Frigiliana si queréis que el casco antiguo forme parte de vuestras mañanas y noches.'],
-          ['Kies Nerja als strand en kustplaats elke dag moeten bepalen. Kies Frigiliana als de oude kern jullie ochtenden en avonden mag vormen.'],
-          ['Välj Nerja om stranden och kuststaden ska prägla varje dag. Välj Frigiliana om gamla byn ska forma era morgnar och kvällar.']
+          ['Nerja, if the beach and the coastal town should shape every day. Frigiliana, if the old village should shape your mornings and evenings.'],
+          ['Nerja, wenn Strand und Küstenstadt jeden Tag bestimmen sollen. Frigiliana, wenn die Altstadt eure Morgen und Abende prägen darf.'],
+          ['Nerja, si la playa y la ciudad costera deben marcar cada día. Frigiliana, si el casco antiguo debe marcar vuestras mañanas y noches.'],
+          ['Nerja, als strand en kustplaats elke dag moeten bepalen. Frigiliana, als de oude kern jullie ochtenden en avonden mag vormen.'],
+          ['Nerja, om stranden och kuststaden ska prägla varje dag. Frigiliana, om gamla byn ska forma era morgnar och kvällar.']
         ),
         ctas: [cta('COMPARISON', text('Compare Frigiliana and Nerja', 'Frigiliana und Nerja vergleichen', 'Comparar Frigiliana y Nerja', 'Frigiliana en Nerja vergelijken', 'Jämför Frigiliana och Nerja'))]
       }
@@ -493,7 +493,7 @@ export const frigilianaLocationCopy = {
   exploreBridge: {
     eyebrow: text('YOUR DAYS FROM HERE', 'EURE TAGE VON HIER AUS', 'VUESTROS DÍAS DESDE AQUÍ', 'JULLIE DAGEN VANAF HIER', 'ERA DAGAR HÄRIFRÅN'),
     title: text('Village, mountains or sea?', 'Dorf, Berge oder Meer?', '¿Pueblo, montaña o mar?', 'Dorp, bergen of zee?', 'By, berg eller hav?'),
-    text: text('Choose each day as it comes: walk through the old town, head into the landscape or go down to the coast.', 'Entscheidet jeden Tag neu: durch die Altstadt laufen, in die Landschaft starten oder hinunter ans Meer fahren.', 'Decidid cada día sobre la marcha: pasear por el casco antiguo, salir a la montaña o bajar a la costa.', 'Kies elke dag opnieuw: door de oude kern wandelen, de bergen in of naar de kust.', 'Välj dag för dag: promenera i gamla byn, ge er ut i landskapet eller åk ner till kusten.'),
+    text: text('Each day can go differently: through the old town, out into the landscape or down to the coast.', 'Jeder Tag kann anders laufen: durch die Altstadt, hinaus in die Landschaft oder hinunter ans Meer.', 'Cada día puede ir de otra manera: por el casco antiguo, hacia la montaña o bajando a la costa.', 'Elke dag kan anders lopen: door de oude kern, de bergen in of omlaag naar de kust.', 'Varje dag kan bli annorlunda: genom gamla byn, ut i landskapet eller ner till kusten.'),
     ctaLabel: text('Explore ideas for your stay', 'Ideen für euren Aufenthalt', 'Ver ideas para la estancia', 'Bekijk ideeën voor jullie verblijf', 'Se idéer för vistelsen')
   },
   decision: {

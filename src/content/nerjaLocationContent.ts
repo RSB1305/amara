@@ -803,11 +803,11 @@ export const nerjaLocationCopy = {
       'Oavsett var ni bor finns den andra platsen nära nog för ett besök under semestern.'
     ),
     bridge: localized(
-      'Choose where you want to wake up. Experience both.',
-      'Wählt, wo ihr aufwachen möchtet. Erlebt beides.',
-      'Elegid dónde queréis despertar. Disfrutad de los dos lugares.',
-      'Kies waar jullie wakker willen worden. Beleef ze allebei.',
-      'Välj var ni vill vakna. Upplev båda.'
+      'Six kilometres apart, two different mornings.',
+      'Sechs Kilometer auseinander, zwei verschiedene Morgen.',
+      'Seis kilómetros de distancia, dos mañanas distintas.',
+      'Zes kilometer uit elkaar, twee verschillende ochtenden.',
+      'Sex kilometer isär, två olika morgnar.'
     ),
     cta: localized(
       'Explore Nerja & Frigiliana in more detail',
