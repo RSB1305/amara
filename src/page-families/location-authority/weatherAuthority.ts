@@ -32,6 +32,7 @@ export interface WeatherAuthorityContent {
   hero: {
     eyebrow: string;
     title: string;
+    subtitle: string;
     lead: string;
     summaryEyebrow: string;
     summary: string;
@@ -77,6 +78,7 @@ export interface WeatherAuthorityContent {
     eyebrow: string;
     title: string;
     paragraphs: string[];
+    link?: { token: LinkToken; label: string };
     listTitle: string;
     items: string[];
   };
