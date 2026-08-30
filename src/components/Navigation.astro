@@ -22,8 +22,12 @@ import GlobalNavigationUtilities from './navigation/GlobalNavigationUtilities.as
 import { createGlobalNavigationModel } from './navigation/globalNavigationModel';
 import './navigation/global-navigation.css';
 
+import type { DestinationId } from '../lib/location/destinationBranchNavigation';
+
 interface Props {
   currentLang: AmaraLanguage;
+  /** The destination branch the reader is in, so the availability CTA opens preselected. */
+  contextDestination?: DestinationId;
   currentToken?: LinkToken;
   languageToken?: LinkToken;
   showBookingCta?: boolean;
@@ -32,6 +36,7 @@ interface Props {
 
 const {
   currentLang,
+  contextDestination,
   currentToken,
   languageToken,
   showBookingCta = true,
@@ -39,12 +44,16 @@ const {
 } = Astro.props;
 const hasContextNavigation = Astro.slots.has('context-navigation');
 
-const { brandHref, utilityLabels, groups, languageOptions, cta } = createGlobalNavigationModel({
+const { brandHref, utilityLabels, groups, languageOptions, cta: baseCta } = createGlobalNavigationModel({
   currentLang,
   currentPath: Astro.url.pathname,
   currentToken,
   languageToken
 });
+
+const cta = contextDestination && baseCta.href
+  ? { ...baseCta, href: `${baseCta.href}?destination=${contextDestination}` }
+  : baseCta;
 ---
 
 <header

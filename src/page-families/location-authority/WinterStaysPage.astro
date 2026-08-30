@@ -75,6 +75,18 @@ const content = resolveLocale(contentByDestination[destination], currentLang);
 const seo = seoByDestination[destination];
 const pageConfig = config[destination];
 const requiredLink = createRequiredLinkResolver(currentLang, pageConfig.resolverName);
+
+/**
+ * Nerja and Tarifa have one stay each, so their winter call to action opens
+ * that apartment. Frigiliana has four and opens the search instead - and the
+ * search renders empty unless it is told which place, which reads to a guest
+ * as a broken button.
+ */
+const basePropertyHref = requiredLink(pageConfig.propertyToken);
+const propertyHref =
+  pageConfig.propertyToken === 'book'
+    ? `${basePropertyHref}?destination=${destination}`
+    : basePropertyHref;
 const footerHighlights: LabeledLink[] = content.related.links
   .slice(0, 3)
   .map(({ token, label }) => ({ token, label }));
@@ -121,7 +133,7 @@ const footerHighlights: LabeledLink[] = content.related.links
     seo={seo}
     authorHref={requiredLink('about')}
     locationHref={requiredLink(pageConfig.locationToken)}
-    propertyHref={requiredLink(pageConfig.propertyToken)}
+    propertyHref={propertyHref}
     resolveHref={requiredLink}
   />
 </LocationAuthorityLayout>
