@@ -18,6 +18,7 @@ interface NerjaLocationHubLocale {
   hero: {
     eyebrow: string;
     title: string;
+    subtitle?: string;
     standfirst: string;
     note: string;
     updated: string;
@@ -676,7 +677,8 @@ const nerjaLocationPeopleFirstCopy = {
   en: {
     hero: {
       eyebrow: 'Nerja at a glance',
-      title: 'Stay near the sea and walk into the old town',
+      title: 'Nerja and our apartment near the beach',
+      subtitle: '200 metres to Torrecilla, the old town on foot',
       standfirst: 'Nerja is compact, but the exact area still changes the holiday. Around Torrecilla and the old town, beaches, restaurants and everyday errands are close enough for many car-free days. Burriana has a stronger beach-resort feel, while the streets farther uphill bring more slopes into every route. AMARA Playa sits between Torrecilla and the centre: about 200 metres from the beach and about 500 metres from the Balcón de Europa, without private parking.',
       note: 'Our honest guide to the part of Nerja we know as guests and hosts.',
       updated: 'Reviewed August 2026'
@@ -703,7 +705,8 @@ const nerjaLocationPeopleFirstCopy = {
   de: {
     hero: {
       eyebrow: 'Nerja im Überblick',
-      title: 'Nah am Meer wohnen und zu Fuß in die Altstadt',
+      title: 'Nerja und unser Apartment nah am Strand',
+      subtitle: '200 Meter bis Torrecilla, die Altstadt zu Fuß',
       standfirst: 'Nerja ist kompakt, trotzdem macht die genaue Lage einen großen Unterschied. Rund um Torrecilla und die Altstadt liegen Strand, Restaurants und Einkäufe nah genug für viele Tage ohne Auto. Burriana fühlt sich stärker wie ein eigener Strandort an; weiter oben gehören Steigungen zu fast jedem Weg. AMARA Playa liegt zwischen Torrecilla und Zentrum: etwa 200 Meter vom Strand und ungefähr 500 Meter vom Balcón de Europa entfernt – ohne privaten Parkplatz.',
       note: 'Unser ehrlicher Blick auf den Teil Nerjas, den wir als Gäste und Gastgeber kennen.',
       updated: 'Geprüft im August 2026'
@@ -730,7 +733,8 @@ const nerjaLocationPeopleFirstCopy = {
   es: {
     hero: {
       eyebrow: 'Nerja de un vistazo',
-      title: 'Cerca del mar y a pie del casco antiguo',
+      title: 'Nerja y nuestro apartamento cerca de la playa',
+      subtitle: '200 metros hasta Torrecilla, el casco antiguo a pie',
       standfirst: 'Nerja es compacta, pero la zona concreta cambia mucho la estancia. Alrededor de Torrecilla y el casco antiguo, las playas, los restaurantes y las compras quedan lo bastante cerca para pasar muchos días sin coche. Burriana tiene más ambiente de núcleo de playa, mientras que en la parte alta las cuestas forman parte de casi todos los trayectos. AMARA Playa está entre Torrecilla y el centro: a unos 200 metros de la playa y 500 del Balcón de Europa, sin aparcamiento privado.',
       note: 'Nuestra mirada sincera a la parte de Nerja que conocemos como huéspedes y anfitriones.',
       updated: 'Revisado en agosto de 2026'
@@ -757,7 +761,8 @@ const nerjaLocationPeopleFirstCopy = {
   nl: {
     hero: {
       eyebrow: 'Nerja in het kort',
-      title: 'Dicht bij zee en lopend naar de oude stad',
+      title: 'Nerja en ons appartement dicht bij het strand',
+      subtitle: '200 meter naar Torrecilla, de oude kern te voet',
       standfirst: 'Nerja is compact, maar de precieze buurt maakt veel verschil. Rond Torrecilla en de oude stad liggen stranden, restaurants en winkels dichtbij genoeg voor veel autovrije dagen. Burriana voelt meer als een eigen badplaats, terwijl in hoger gelegen straten bijna elke route een helling heeft. AMARA Playa ligt tussen Torrecilla en het centrum: ongeveer 200 meter van het strand en 500 meter van het Balcón de Europa, zonder eigen parkeerplaats.',
       note: 'Onze eerlijke kijk op het deel van Nerja dat we als gasten en hosts kennen.',
       updated: 'Gecontroleerd in augustus 2026'
@@ -784,7 +789,8 @@ const nerjaLocationPeopleFirstCopy = {
   sv: {
     hero: {
       eyebrow: 'Nerja i korthet',
-      title: 'Bo nära havet och promenera till gamla stan',
+      title: 'Nerja och vår lägenhet nära stranden',
+      subtitle: '200 meter till Torrecilla, gamla stan till fots',
       standfirst: 'Nerja är kompakt, men det exakta området påverkar vistelsen mycket. Runt Torrecilla och gamla stan ligger stränder, restauranger och vardagsärenden nära nog för många bilfria dagar. Burriana känns mer som ett eget strandområde, medan gatorna högre upp gör backar till en del av nästan varje väg. AMARA Playa ligger mellan Torrecilla och centrum: cirka 200 meter från stranden och 500 meter från Balcón de Europa, utan privat parkering.',
       note: 'Vår ärliga bild av den del av Nerja som vi känner som gäster och värdar.',
       updated: 'Granskad i augusti 2026'

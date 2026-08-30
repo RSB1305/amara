@@ -192,18 +192,18 @@ export const frigilianaLocationHeroImageAlt: Record<AmaraLanguage, string> = {
 export const frigilianaLocationCopy = {
   heroKicker: text('FRIGILIANA · ANDALUSIA', 'FRIGILIANA · ANDALUSIEN', 'FRIGILIANA · ANDALUCÍA', 'FRIGILIANA · ANDALUSIË', 'FRIGILIANA · ANDALUSIEN'),
   h1: text(
-    'Stay in Frigiliana',
-    'In Frigiliana wohnen',
-    'Alojarse en Frigiliana',
-    'Overnachten in Frigiliana',
-    'Bo i Frigiliana'
+    'Frigiliana and our house in the village',
+    'Frigiliana und unser Haus im Dorf',
+    'Frigiliana y nuestra casa en el pueblo',
+    'Frigiliana en ons huis in het dorp',
+    'Frigiliana och vårt hus i byn'
   ),
   h1Subtitle: text(
-    'The old village outside, the sea nearby',
+    'The old town at the door, the sea nearby',
     'Altstadt vor der Tür, Meer in der Nähe',
     'El casco antiguo a la puerta y el mar cerca',
     'De oude kern voor de deur, de zee dichtbij',
-    'Gamla byn utanför dörren och havet nära'
+    'Gamla stan utanför dörren, havet i närheten'
   ),
   heroUpdated: text('Reviewed August 2026', 'Geprüft im August 2026', 'Revisado en agosto de 2026', 'Gecontroleerd in augustus 2026', 'Granskad i augusti 2026'),
   heroNote: text(
