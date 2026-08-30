@@ -67,7 +67,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     eyebrow: (place) => `Weather & climate · ${place}`,
     table: {
       eyebrow: '12-month climate profile', title: 'Temperature, rain and sun — month by month',
-      intro: 'Averages over many years. A single day can look quite different.',
+      intro: 'Is that a lot? Official July figures give it a scale: the mean daily maximum is 30.5 degrees at Málaga airport, 36.0 in Sevilla and 36.9 in Córdoba. So if a round trip inland is on your list, plan it for spring or autumn — in high summer Sevilla and Córdoba are a different proposition from the coast.',
       labels: { month: 'Month', high: 'Avg. maximum', low: 'Avg. minimum', rain: 'Rainfall', sunHours: 'Sun / day', temperature: 'Average maximum / minimum', rainfall: 'Monthly rainfall', details: 'Monthly values in detail' },
       sourceTitle: 'What these numbers are, and are not', sourceText: 'The figures come from Climate-Data.org. The provider returns the same values for Nerja and Frigiliana, so this is a regional picture rather than a village climate. And if you come across the sign in neighbouring Torrox: that “best climate in Europe” comes from a 2008 comparison between Torrox and 21 other Mediterranean coastal towns, commissioned by a company based there. It says little about Europe and nothing about Frigiliana. So you will find no superlatives here, only monthly figures.'
     },
@@ -91,7 +91,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     eyebrow: (place) => `Wetter & Klima · ${place}`,
     table: {
       eyebrow: 'Klimaprofil für 12 Monate', title: 'Temperatur, Regen und Sonne – Monat für Monat',
-      intro: 'Durchschnittswerte aus vielen Jahren. Der einzelne Tag kann anders aussehen.',
+      intro: 'Ist das viel? Die amtlichen Julizahlen geben einen Maßstab: Am Flughafen Málaga liegt das mittlere Tagesmaximum bei 30,5 Grad, in Sevilla bei 36,0 und in Córdoba bei 36,9. Wenn also eine Rundreise ins Binnenland auf eurer Liste steht — legt sie ins Frühjahr oder in den Herbst. Im Hochsommer ist Sevilla eine andere Nummer als die Küste.',
       labels: { month: 'Monat', high: 'Mittl. Maximum', low: 'Mittl. Minimum', rain: 'Niederschlag', sunHours: 'Sonne / Tag', temperature: 'Mittleres Maximum / Minimum', rainfall: 'Monatsniederschlag', details: 'Monatswerte im Detail' },
       sourceTitle: 'Was diese Zahlen sind — und was nicht', sourceText: 'Die Werte kommen von Climate-Data.org. Für Nerja und Frigiliana liefert der Anbieter dieselben Zahlen — es ist also ein regionales Bild, kein Ortsklima. Und falls euch das Schild im Nachbarort Torrox begegnet: Das „beste Klima Europas“ stammt aus einem Vergleich von 2008 zwischen Torrox und 21 weiteren Mittelmeerorten, in Auftrag gegeben von einem dort ansässigen Unternehmen. Über Europa sagt das wenig und über Frigiliana nichts. Deshalb findet ihr hier keine Superlative, sondern Monatswerte.'
     },
@@ -115,7 +115,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     eyebrow: (place) => `Tiempo y clima · ${place}`,
     table: {
       eyebrow: 'Perfil climático de 12 meses', title: 'Temperatura, lluvia y sol — mes a mes',
-      intro: 'Medias de muchos años. Un día concreto puede ser muy distinto.',
+      intro: '¿Es mucho? Las cifras oficiales de julio dan la medida: la máxima media diaria es de 30,5 grados en el aeropuerto de Málaga, 36,0 en Sevilla y 36,9 en Córdoba. Así que si lleváis una ruta por el interior en la lista, dejadla para la primavera o el otoño. En pleno verano, Sevilla y Córdoba son otra cosa que la costa.',
       labels: { month: 'Mes', high: 'Máxima media', low: 'Mínima media', rain: 'Lluvia', sunHours: 'Sol / día', temperature: 'Máxima / mínima media', rainfall: 'Lluvia mensual', details: 'Valores mensuales en detalle' },
       sourceTitle: 'Qué son estas cifras y qué no', sourceText: 'Los datos son de Climate-Data.org. El proveedor da los mismos valores para Nerja y Frigiliana, así que es una imagen regional y no un clima de pueblo. Y si os topáis con el cartel de Torrox: ese “mejor clima de Europa” viene de una comparación de 2008 entre Torrox y otras 21 localidades costeras del Mediterráneo, encargada por una empresa de allí. Dice poco de Europa y nada de Frigiliana. Por eso aquí no hay superlativos, solo valores mensuales.'
     },
@@ -139,7 +139,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     eyebrow: (place) => `Weer & klimaat · ${place}`,
     table: {
       eyebrow: 'Klimaatprofiel van 12 maanden', title: 'Temperatuur, regen en zon — maand voor maand',
-      intro: 'Gemiddelden over vele jaren. Een afzonderlijke dag kan er heel anders uitzien.',
+      intro: 'Is dat veel? De officiële julicijfers geven een maatstaf: het gemiddelde dagmaximum is 30,5 graden op de luchthaven van Málaga, 36,0 in Sevilla en 36,9 in Córdoba. Op Schiphol is het 22,0. Staat er dus een rondrit door het binnenland op je lijstje: doe die in het voorjaar of de herfst — in de hoogzomer is Sevilla iets heel anders dan de kust.',
       labels: { month: 'Maand', high: 'Gem. maximum', low: 'Gem. minimum', rain: 'Neerslag', sunHours: 'Zon / dag', temperature: 'Gemiddeld maximum / minimum', rainfall: 'Maandneerslag', details: 'Maandwaarden in detail' },
       sourceTitle: 'Wat deze cijfers wel en niet zijn', sourceText: 'De cijfers komen van Climate-Data.org. De aanbieder geeft Nerja en Frigiliana dezelfde waarden, dus dit is een regionaal beeld en geen dorpsklimaat. En mocht je het bord in buurgemeente Torrox tegenkomen: dat “beste klimaat van Europa” komt uit een vergelijking uit 2008 tussen Torrox en 21 andere mediterrane kustplaatsen, in opdracht van een bedrijf daar. Over Europa zegt het weinig en over Frigiliana niets. Daarom vind je hier geen superlatieven, alleen maandwaarden.'
     },
@@ -163,7 +163,7 @@ const shared: Record<AmaraLanguage, SharedLocale> = {
     eyebrow: (place) => `Väder & klimat · ${place}`,
     table: {
       eyebrow: 'Klimatprofil för 12 månader', title: 'Temperatur, regn och sol – månad för månad',
-      intro: 'Medelvärden över många år. En enskild dag kan se helt annorlunda ut.',
+      intro: 'Är det mycket? De officiella julisiffrorna ger ett mått: medelvärdet för dygnets högsta är 30,5 grader vid Málagas flygplats, 36,0 i Sevilla och 36,9 i Córdoba. Så om en rundresa i inlandet står på listan — lägg den på våren eller hösten. Mitt i sommaren är Sevilla något helt annat än kusten.',
       labels: { month: 'Månad', high: 'Medelmaximum', low: 'Medelminimum', rain: 'Nederbörd', sunHours: 'Sol / dag', temperature: 'Medelmaximum / minimum', rainfall: 'Månadsnederbörd', details: 'Månadsvärden i detalj' },
       sourceTitle: 'Vad siffrorna är – och inte är', sourceText: 'Siffrorna kommer från Climate-Data.org. Leverantören ger samma värden för Nerja och Frigiliana, så det här är en regional bild och inte ett byklimat. Och om ni stöter på skylten i grannorten Torrox: det “bästa klimatet i Europa” kommer från en jämförelse från 2008 mellan Torrox och 21 andra kustorter vid Medelhavet, beställd av ett företag på orten. Om Europa säger det lite och om Frigiliana ingenting. Därför hittar ni inga superlativ här, bara månadsvärden.'
     },

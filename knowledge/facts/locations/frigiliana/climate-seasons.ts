@@ -46,6 +46,24 @@ const facts = [
     status: 'verified', sourceIds: ['tiempo-com-afloramiento-malaga-2026-08'], checkedAt: '2026-08-30', reviewAfter: '2027-08-30', volatility: 'low',
     claimBoundary: 'A single documented event off Malaga, reported as a record. It illustrates the size the effect can reach; it is not a typical August, not a Nerja measurement and not a basis for predicting any future summer.',
   },
+  {
+    id: 'frigiliana.climate.external-reference.method-1981-2010', subject: 'frigiliana', topic: 'climate-seasons',
+    statement: 'Sevilla Aeropuerto, Cordoba Aeropuerto, Malaga Aeropuerto and Schiphol all publish official station normals for the same 1981-2010 reference period, reporting mean daily maximum temperature and monthly precipitation as comparable monthly statistics.',
+    status: 'verified', sourceIds: ['aemet-sevilla-airport-normals-1981-2010', 'aemet-cordoba-airport-normals-1981-2010', 'aemet-malaga-airport-normals-1981-2010', 'knmi-schiphol-climate-table-1981-2010'], checkedAt: '2026-08-30', reviewAfter: '2028-08-30', volatility: 'low',
+    claimBoundary: 'This establishes a shared reference period and comparable monthly statistics only. It is not a claim that the services used identical sensors or processing, and sunshine hours in particular are not established as instrumentally identical. It says nothing about Frigiliana and supports no climate superlative.',
+  },
+  {
+    id: 'frigiliana.climate.external-reference.july-daily-maximum', subject: 'frigiliana', topic: 'climate-seasons',
+    statement: 'For 1981-2010 the mean daily maximum in July is 30.5 C at Malaga Airport, 36.0 C at Sevilla Airport, 36.9 C at Cordoba Airport and 22.0 C at Schiphol.',
+    status: 'verified', sourceIds: ['aemet-sevilla-airport-normals-1981-2010', 'aemet-cordoba-airport-normals-1981-2010', 'aemet-malaga-airport-normals-1981-2010', 'knmi-schiphol-climate-table-1981-2010'], checkedAt: '2026-08-30', reviewAfter: '2028-08-30', volatility: 'low',
+    claimBoundary: 'These are station values for the four named airports. None of them is a Frigiliana value, none may be corrected for elevation or interpolated onto Frigiliana, and none predicts the weather on a particular day.',
+  },
+  {
+    id: 'frigiliana.climate.external-reference.inland-summer-contrast', subject: 'frigiliana', topic: 'climate-seasons',
+    statement: 'The official normals show inland Andalusia running markedly hotter than the coast in high summer: in July the Sevilla and Cordoba airport stations are about five to six degrees above the Malaga airport station in mean daily maximum.',
+    status: 'verified', sourceIds: ['aemet-sevilla-airport-normals-1981-2010', 'aemet-cordoba-airport-normals-1981-2010', 'aemet-malaga-airport-normals-1981-2010'], checkedAt: '2026-08-30', reviewAfter: '2028-08-30', volatility: 'low',
+    claimBoundary: 'A contrast between three named airport stations in one reference period. It is a useful scale for a guest planning an inland round trip, not a statement about Frigiliana, any particular town, or any given day.',
+  },
 ] as const satisfies readonly FactInput[];
 
 export const frigilianaClimateSeasonFacts = defineKnowledgeFacts(facts);
