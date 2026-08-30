@@ -294,7 +294,7 @@ test('the destination disclosures use one responsive DOM tree', async ({ page })
   await expect(panel).toBeVisible();
   await expect(panel.locator('[data-am-context-panel-title]')).toHaveText('Frigiliana');
   await expect(panel.locator('[data-am-context-panel-description]')).toHaveText(
-    'Was ihr über Frigiliana wissen solltet.'
+    'Was ihr über einen Aufenthalt in Frigiliana wissen solltet.'
   );
   await expect(panel.locator('section')).toHaveCount(4);
   await expect(panel.locator('[data-am-context-sibling]')).toHaveCount(9);
