@@ -163,6 +163,207 @@ export const frigilianaStreetsStairsCopy = {
       sv: 'Frigiliana går bra att uppleva till fots, men avståndet säger inte allt om en vanlig semesterdag. Höjdskillnad, trappor, stenläggning och antalet hemvägar spelar tillsammans roll – efter frukost, med inköp, efter stranden och igen efter middagen.'
     } satisfies LocalizedText
   },
+  stayType: {
+    eyebrow: {
+      en: 'The type comes first',
+      de: 'Zuerst die Art',
+      es: 'Primero el tipo',
+      nl: 'Eerst het type',
+      sv: 'Först typen'
+    } satisfies LocalizedText,
+    title: {
+      en: 'Hotel or your own apartment?',
+      de: 'Hotel oder eigene Wohnung?',
+      es: '¿Hotel o apartamento propio?',
+      nl: 'Hotel of een eigen appartement?',
+      sv: 'Hotell eller egen lägenhet?'
+    } satisfies LocalizedText,
+    intro: [
+      {
+        en: 'Most guests settle the type before the location, so it belongs at the front — and that is why this table also names the cases where a hotel is the better answer.',
+        de: 'Die meisten entscheiden die Art vor der Lage, deshalb steht sie hier vorne — und deshalb nennt die Tabelle auch die Fälle, in denen ein Hotel die bessere Antwort ist.',
+        es: 'La mayoría decide antes el tipo que la zona, así que va delante. Y por eso esta tabla nombra también los casos en los que un hotel es la mejor respuesta.',
+        nl: 'De meeste gasten bepalen eerst het type en pas daarna de ligging, dus staat het vooraan. En daarom noemt deze tabel ook de gevallen waarin een hotel het betere antwoord is.',
+        sv: 'De flesta bestämmer typen före läget, så den står först. Och därför nämner tabellen också de fall där ett hotell är det bättre svaret.'
+      } satisfies LocalizedText,
+      {
+        en: 'We only write about ourselves. What any particular hotel offers we do not know; what we do not have, we do.',
+        de: 'Wir schreiben nur über uns. Was ein einzelnes Hotel bietet, wissen wir nicht; was wir nicht haben, schon.',
+        es: 'Solo escribimos sobre nosotros. Lo que ofrece un hotel concreto no lo sabemos; lo que nosotros no tenemos, sí.',
+        nl: 'We schrijven alleen over onszelf. Wat een bepaald hotel biedt weten we niet; wat wij niet hebben wel.',
+        sv: 'Vi skriver bara om oss själva. Vad ett enskilt hotell erbjuder vet vi inte; vad vi inte har vet vi.'
+      } satisfies LocalizedText
+    ],
+    labels: {
+      attribute: {
+        en: 'What it is about',
+        de: 'Worum es geht',
+        es: 'De qué se trata',
+        nl: 'Waar het om gaat',
+        sv: 'Vad det gäller'
+      } satisfies LocalizedText,
+      ours: {
+        en: 'At AMARA',
+        de: 'Bei AMARA',
+        es: 'En AMARA',
+        nl: 'Bij AMARA',
+        sv: 'Hos AMARA'
+      } satisfies LocalizedText,
+      hotelWins: {
+        en: 'Better a hotel when',
+        de: 'Dann lieber ins Hotel',
+        es: 'Mejor un hotel si',
+        nl: 'Dan liever een hotel',
+        sv: 'Hellre hotell om'
+      } satisfies LocalizedText
+    },
+    items: [
+      {
+        id: 'arrival',
+        attribute: {
+          en: 'Arrival',
+          de: 'Ankunft',
+          es: 'Llegada',
+          nl: 'Aankomst',
+          sv: 'Ankomst'
+        } satisfies LocalizedText,
+        ours: {
+          en: 'You write to us directly and we answer ourselves. There is no reception.',
+          de: 'Ihr schreibt uns direkt, und wir antworten selbst. Eine Rezeption gibt es nicht.',
+          es: 'Nos escribís directamente y respondemos nosotros. No hay recepción.',
+          nl: 'Je schrijft ons rechtstreeks en wij antwoorden zelf. Een receptie is er niet.',
+          sv: 'Ni skriver direkt till oss och vi svarar själva. Någon reception finns inte.'
+        } satisfies LocalizedText,
+        hotelWins: {
+          en: 'You arrive late without arranging it, or you need someone on site around the clock.',
+          de: 'Wenn ihr spät und ohne Absprache ankommt oder jemanden rund um die Uhr vor Ort braucht.',
+          es: 'Llegáis tarde sin avisar o necesitáis a alguien en el sitio las veinticuatro horas.',
+          nl: 'Je komt laat aan zonder overleg, of je hebt dag en nacht iemand ter plaatse nodig.',
+          sv: 'Ni kommer sent utan att ha hört av er, eller behöver någon på plats dygnet runt.'
+        } satisfies LocalizedText
+      },
+      {
+        id: 'cleaning',
+        attribute: {
+          en: 'Cleaning',
+          de: 'Reinigung',
+          es: 'Limpieza',
+          nl: 'Schoonmaak',
+          sv: 'Städning'
+        } satisfies LocalizedText,
+        ours: {
+          en: 'From eight nights we clean once mid-stay.',
+          de: 'Ab acht Nächten reinigen wir einmal zwischendurch.',
+          es: 'A partir de ocho noches limpiamos una vez a mitad de estancia.',
+          nl: 'Vanaf acht nachten maken we halverwege een keer schoon.',
+          sv: 'Från åtta nätter städar vi en gång mitt i vistelsen.'
+        } satisfies LocalizedText,
+        hotelWins: {
+          en: 'You want fresh towels and a made bed every day.',
+          de: 'Wenn ihr täglich frische Handtücher und ein gemachtes Bett wollt.',
+          es: 'Queréis toallas limpias y la cama hecha cada día.',
+          nl: 'Je wilt elke dag schone handdoeken en een opgemaakt bed.',
+          sv: 'Ni vill ha rena handdukar och bäddad säng varje dag.'
+        } satisfies LocalizedText
+      },
+      {
+        id: 'breakfast',
+        attribute: {
+          en: 'Breakfast',
+          de: 'Frühstück',
+          es: 'Desayuno',
+          nl: 'Ontbijt',
+          sv: 'Frukost'
+        } satisfies LocalizedText,
+        ours: {
+          en: 'Lounis, Zaid and Maha have a full kitchen. Farah has a tea kitchen with a fridge.',
+          de: 'Lounis, Zaid und Maha haben eine vollwertige Küche. Farah hat eine Teeküche mit Kühlschrank.',
+          es: 'Lounis, Zaid y Maha tienen cocina completa. Farah tiene office con nevera.',
+          nl: 'Lounis, Zaid en Maha hebben een volledige keuken. Farah heeft een theekeuken met koelkast.',
+          sv: 'Lounis, Zaid och Maha har fullt kök. Farah har pentry med kylskåp.'
+        } satisfies LocalizedText,
+        hotelWins: {
+          en: 'You want a laid table in the morning without shopping first.',
+          de: 'Wenn morgens ein gedeckter Tisch dastehen soll, ohne dass ihr vorher einkauft.',
+          es: 'Queréis la mesa puesta por la mañana sin hacer antes la compra.',
+          nl: 'Je wilt ’s ochtends een gedekte tafel zonder eerst boodschappen te doen.',
+          sv: 'Ni vill ha ett dukat bord på morgonen utan att handla först.'
+        } satisfies LocalizedText
+      },
+      {
+        id: 'access',
+        attribute: {
+          en: 'The way to the door',
+          de: 'Der Weg zur Tür',
+          es: 'El camino hasta la puerta',
+          nl: 'De weg naar de deur',
+          sv: 'Vägen till dörren'
+        } satisfies LocalizedText,
+        ours: {
+          en: 'From the street it is 150 metres and 30 vertical metres over about 30 steps. Farah has one step at the entrance and is on one level after that.',
+          de: 'Von der Straße sind es 150 Meter und dabei 30 Höhenmeter über rund 30 Stufen. Farah hat eine Stufe am Eingang, danach liegt alles auf einer Ebene.',
+          es: 'Desde la calle son 150 metros y 30 de desnivel por unos 30 escalones. Farah tiene un escalón en la entrada y luego todo queda en una planta.',
+          nl: 'Vanaf de straat is het 150 meter en 30 meter hoogteverschil over ongeveer 30 treden. Farah heeft één trede bij de ingang en ligt daarna gelijkvloers.',
+          sv: 'Från gatan är det 150 meter och 30 höjdmeter över ett trettiotal trappsteg. Farah har ett trappsteg vid entrén och ligger sedan på ett plan.'
+        } satisfies LocalizedText,
+        hotelWins: {
+          en: 'It has to be step-free — with a walking aid, a pushchair or heavy luggage.',
+          de: 'Wenn es stufenfrei sein muss — mit Gehhilfe, Kinderwagen oder schwerem Gepäck.',
+          es: 'Tiene que ser sin escalones: con andador, carrito o equipaje pesado.',
+          nl: 'Het moet drempelvrij zijn — met rollator, kinderwagen of zware koffers.',
+          sv: 'Det måste vara trappfritt — med rollator, barnvagn eller tungt bagage.'
+        } satisfies LocalizedText
+      },
+      {
+        id: 'evenings',
+        attribute: {
+          en: 'Evenings',
+          de: 'Abends',
+          es: 'Las tardes',
+          nl: 'De avonden',
+          sv: 'Kvällarna'
+        } satisfies LocalizedText,
+        ours: {
+          en: 'All four have heating and underfloor heating in the bathroom; three have a pellet stove and their own terrace.',
+          de: 'Alle vier haben Heizung und Fußbodenheizung im Bad, drei einen Pelletofen und eine eigene Terrasse.',
+          es: 'Los cuatro tienen calefacción y suelo radiante en el baño; tres, estufa de pellets y terraza propia.',
+          nl: 'Alle vier hebben verwarming en vloerverwarming in de badkamer, drie een pelletkachel en een eigen terras.',
+          sv: 'Alla fyra har värme och golvvärme i badrummet; tre har pelletskamin och egen terrass.'
+        } satisfies LocalizedText,
+        hotelWins: {
+          en: 'You would rather be among people in the evening, with a bar and someone behind it.',
+          de: 'Wenn ihr abends lieber unter Leute wollt, mit Bar und jemandem an der Theke.',
+          es: 'Preferís estar entre gente por la noche, con barra y alguien detrás.',
+          nl: 'Je bent ’s avonds liever onder de mensen, met een bar en iemand erachter.',
+          sv: 'Ni är hellre bland folk på kvällen, med en bar och någon bakom den.'
+        } satisfies LocalizedText
+      },
+      {
+        id: 'length',
+        attribute: {
+          en: 'Length of stay',
+          de: 'Aufenthaltsdauer',
+          es: 'Duración',
+          nl: 'Verblijfsduur',
+          sv: 'Vistelsens längd'
+        } satisfies LocalizedText,
+        ours: {
+          en: 'From one or two nights, depending on the apartment and the season. What applies right now is shown with the free dates.',
+          de: 'Je nach Wohnung und Saison ab einer oder zwei Nächten. Was gerade gilt, steht bei den freien Terminen.',
+          es: 'Desde una o dos noches según el alojamiento y la temporada. Lo que rige ahora aparece junto a las fechas libres.',
+          nl: 'Vanaf een of twee nachten, afhankelijk van appartement en seizoen. Wat nu geldt, staat bij de vrije data.',
+          sv: 'Från en eller två nätter beroende på lägenhet och säsong. Vad som gäller just nu visas vid de lediga datumen.'
+        } satisfies LocalizedText,
+        hotelWins: {
+          en: 'You really are staying one night and driving on in the morning.',
+          de: 'Wenn ihr wirklich nur eine Nacht bleibt und morgens weiterfahrt.',
+          es: 'De verdad os quedáis una noche y seguís viaje por la mañana.',
+          nl: 'Je blijft echt één nacht en rijdt ’s ochtends door.',
+          sv: 'Ni stannar verkligen en natt och kör vidare på morgonen.'
+        } satisfies LocalizedText
+      }
+    ]
+  },
   factors: {
     title: {
       en: 'Four things behind every route',

@@ -105,6 +105,23 @@ const proofImage = {
 };
 
 const stayContent: WhereToStayAuthorityContent = {
+  stayType: {
+    id: 'stay-type',
+    eyebrow: t(copy.stayType.eyebrow),
+    title: t(copy.stayType.title),
+    intro: copy.stayType.intro.map((paragraph) => t(paragraph)),
+    labels: {
+      attribute: t(copy.stayType.labels.attribute),
+      ours: t(copy.stayType.labels.ours),
+      hotelWins: t(copy.stayType.labels.hotelWins)
+    },
+    items: copy.stayType.items.map((row) => ({
+      id: row.id,
+      attribute: t(row.attribute),
+      ours: t(row.ours),
+      hotelWins: t(row.hotelWins)
+    }))
+  },
   decision: {
     eyebrow: t(copy.principle.eyebrow),
     title: t(copy.principle.title),
