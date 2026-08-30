@@ -1,6 +1,6 @@
 ---
 research_run_id: 2026-08-30__094500__climate-home-capital-references__research-001
-title: AMARA Deep Research — Heimat-Referenzstationen für den Klimavergleich
+title: AMARA Deep Research — Vergleichsstationen auf 1991–2020
 created_at: 2026-08-30T09:45:00+02:00
 research_date: 2026-08-30
 subjects:
@@ -19,9 +19,11 @@ answers_open_question: frigiliana.climate.question-home-capital-references
 
 Du arbeitest als präziser Klimadaten-Researcher für AMARA Lodging. Beschaffe **amtliche Stationsnormalwerte** für vier Hauptstädte, damit Gäste aus vier Sprachmärkten die andalusischen Julizahlen an einem Wert messen können, den sie aus eigener Erfahrung kennen.
 
-Die andalusische Seite dieses Vergleichs ist bereits abgeschlossen. Sie liegt in `knowledge/research/locations/frigiliana/climate-seasons/2026-08-30__external-reference-points-normalized.md` und umfasst Sevilla (5783), Córdoba (5402), Málaga (6155A) und Schiphol (240), alle auf **1981–2010**.
+Ein erster Lauf hat Sevilla (5783), Córdoba (5402), Málaga (6155A) und Schiphol (240) auf **1981–2010** erfasst; das Dossier liegt in `knowledge/research/locations/frigiliana/climate-seasons/2026-08-30__external-reference-points-normalized.md`. Diese Periode ist abgelöst — siehe unten. Das Dossier dient nur noch als Formatvorlage und als Gegenprobe für die Plausibilität der neuen Werte.
 
 ## Gesuchte Stationen
+
+**Vier Hauptstädte** als Heimatreferenz je Sprachmarkt:
 
 | Sprachmarkt | Hauptstadt | Erwarteter Dienst |
 |---|---|---|
@@ -30,16 +32,31 @@ Die andalusische Seite dieses Vergleichs ist bereits abgeschlossen. Sie liegt in
 | Spanisch | Madrid | AEMET |
 | Schwedisch | Stockholm | SMHI |
 
+**Und die drei bereits erfassten spanischen Stationen erneut**, weil sie auf die neue Periode umgestellt werden müssen:
+
+| Rolle | Station | Kennung |
+|---|---|---|
+| Binnenland | Sevilla Aeropuerto | 5783 |
+| Binnenland | Córdoba Aeropuerto | 5402 |
+| Küste | Málaga Aeropuerto | 6155A |
+
+Für Amsterdam/Schiphol (KNMI 240) ebenfalls, falls die Zeit reicht — es ist die einzige bereits belegte Heimatreferenz.
+
 Wähle je Stadt **eine** Station und begründe die Wahl. Nenne amtlichen Stationsnamen, Kennung, Höhe und Normalperiode. Nutze möglichst Stationen, die der jeweilige Dienst selbst als repräsentativ für die Stadt führt.
 
-## Harte Bedingung: gemeinsame Periode
+## Harte Bedingung: Periode 1991–2020
 
-Die vorhandene Vergleichsreihe steht auf **1981–2010**. Ein Vergleich über verschiedene Perioden hinweg ist unbrauchbar.
+**Zielperiode für alle Stationen ist 1991–2020.**
 
-- Der DWD veröffentlicht vieljährige Mittelwerte für 1981–2010. Das ist geprüft und der erwartete Weg für Berlin.
-- Für Met Office, AEMET und SMHI ist offen, ob 1981–2010 amtlich vorliegt.
+Ein erster Lauf hatte 1981–2010 verwendet. Das ist verworfen. Gründe:
 
-Wenn ein Dienst 1981–2010 **nicht** veröffentlicht: sag das ausdrücklich, nenne die Perioden, die er stattdessen anbietet, und schlage vor, ob wir für alle Stationen auf 1991–2020 umstellen sollten. Das wäre die saubere Alternative, würde aber auch eine neue Extraktion der andalusischen Stationen erfordern — schätze diesen Aufwand kurz ein.
+- AEMET nutzt seit **Januar 2023** 1991–2020 als Standard, gemäss WMO-Resolution 16 (Cg-17). 1981–2010 ist damit die abgelöste Periode.
+- Die Klimatabelle auf unseren eigenen Seiten steht auf **1991–2021**. Vergleichswerte aus 1981–2010 danebenzustellen mischt Perioden — genau der Fehler, den diese Recherche verhindern soll.
+- Ein Gast plant eine Reise für 2027. Eine Periode, die 2010 endet, beschreibt ein Klima, das es so nicht mehr gibt.
+
+1991–2020 ist der WMO-Standard und sollte bei allen fünf Diensten amtlich vorliegen. Prüfe das je Dienst und belege es.
+
+Falls ein Dienst 1991–2020 **nicht** veröffentlicht: sag das ausdrücklich, nenne die verfügbaren Perioden und schlage vor, wie wir damit umgehen. Nenne die Periode in jedem Fall bei jedem Wert mit.
 
 **Niemals** Perioden stillschweigend mischen. **Niemals** Normalwerte selbst aus Tagesdaten berechnen. **Niemals** interpolieren oder höhenkorrigieren.
 
@@ -73,6 +90,10 @@ Wie beim vorangegangenen Lauf:
 - Kein Superlativ, kein „bestes Klima", keine Rangliste.
 - Keine Tages- oder Wetterprognose.
 - Keine Klimawandel-Aussage. Die Reihen sind nicht auf Homogenität geprüft.
+
+## Zusätzlich erwünscht
+
+Nenne je Dienst, ob er über die Normalperiode hinaus eine **aktuellere amtliche Referenz** anbietet — etwa gleitende Zehnjahresmittel oder veröffentlichte Dekadenauswertungen. Wenn ja: Quelle, Periode und Grösse. Berechne nichts selbst; berichte nur, was amtlich vorliegt.
 
 ## Was ausdrücklich nicht gefragt ist
 
