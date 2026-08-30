@@ -78,7 +78,14 @@ const heroAttributes = getAmaraHeroAttributes({ family, variant, role, topic });
         <p class="am-text-caption am-text-caption--upper am-text-caption--wide text-primary">
           {eyebrow}
         </p>
-        <h1 class:list={[visualBeforeMetaOnMobile ? 'am-text-title' : 'am-text-display', 'mt-7 max-w-5xl text-balance italic text-on-surface']}>
+        {/*
+          The page title carries the display role on every Location and
+          Experience page. `visualBeforeMetaOnMobile` orders the hero on small
+          screens and must not decide typography: when it did, a guide that
+          happened to carry a summary rendered its H1 two steps smaller than
+          the guide beside it in the same menu.
+        */}
+        <h1 class="am-text-display mt-7 max-w-5xl text-balance italic text-on-surface">
           {title}
         </h1>
 

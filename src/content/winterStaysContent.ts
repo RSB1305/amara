@@ -12,6 +12,7 @@ export interface WinterStaysLocale {
   hero: {
     eyebrow: string;
     title: string;
+    subtitle: string;
     standfirst: string;
     note: string;
     updated: string;

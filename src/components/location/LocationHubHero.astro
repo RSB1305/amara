@@ -7,6 +7,7 @@ import type { AmaraHeroByline } from '../hero/heroContract';
 interface Props {
   eyebrow: string;
   title: string;
+  subtitle?: string;
   paragraphs: string[];
   accent?: string;
   imageSrc: ImageMetadata | string;
@@ -19,6 +20,7 @@ interface Props {
 const {
   eyebrow,
   title,
+  subtitle,
   paragraphs,
   accent,
   imageSrc,
@@ -32,6 +34,7 @@ const {
 <LocationGuideHero
   eyebrow={eyebrow}
   title={title}
+  subtitle={subtitle}
   paragraphs={paragraphs}
   accent={accent}
   imageSrc={imageSrc}

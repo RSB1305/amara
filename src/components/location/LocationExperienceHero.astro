@@ -8,6 +8,7 @@ import LocationGuideHero from './LocationGuideHero.astro';
 interface Props {
   eyebrow: string;
   title: string;
+  subtitle?: string;
   paragraphs: string[];
   imageSrc: ImageMetadata | string;
   imageAlt: string;
@@ -23,6 +24,7 @@ interface Props {
 const {
   eyebrow,
   title,
+  subtitle,
   paragraphs,
   imageSrc,
   imageAlt,
@@ -39,6 +41,7 @@ const {
 <LocationGuideHero
   eyebrow={eyebrow}
   title={title}
+  subtitle={subtitle}
   paragraphs={paragraphs}
   accent={accent}
   imageSrc={imageSrc}

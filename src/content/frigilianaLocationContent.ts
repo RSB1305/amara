@@ -47,6 +47,7 @@ export interface FrigilianaLocationModule {
 export interface FrigilianaLocationPageCopy {
   heroKicker: string;
   h1: string;
+  h1Subtitle: string;
   heroUpdated: string;
   heroNote: string;
   intro: string[];
@@ -191,11 +192,18 @@ export const frigilianaLocationHeroImageAlt: Record<AmaraLanguage, string> = {
 export const frigilianaLocationCopy = {
   heroKicker: text('FRIGILIANA · ANDALUSIA', 'FRIGILIANA · ANDALUSIEN', 'FRIGILIANA · ANDALUCÍA', 'FRIGILIANA · ANDALUSIË', 'FRIGILIANA · ANDALUSIEN'),
   h1: text(
-    'Stay in Frigiliana: the old village outside, the sea nearby',
-    'In Frigiliana wohnen: Altstadt vor der Tür, Meer in der Nähe',
-    'Alojarse en Frigiliana: el casco antiguo a la puerta y el mar cerca',
-    'Overnachten in Frigiliana: de oude kern voor de deur, de zee dichtbij',
-    'Bo i Frigiliana: gamla byn utanför dörren och havet nära'
+    'Stay in Frigiliana',
+    'In Frigiliana wohnen',
+    'Alojarse en Frigiliana',
+    'Overnachten in Frigiliana',
+    'Bo i Frigiliana'
+  ),
+  h1Subtitle: text(
+    'The old village outside, the sea nearby',
+    'Altstadt vor der Tür, Meer in der Nähe',
+    'El casco antiguo a la puerta y el mar cerca',
+    'De oude kern voor de deur, de zee dichtbij',
+    'Gamla byn utanför dörren och havet nära'
   ),
   heroUpdated: text('Reviewed August 2026', 'Geprüft im August 2026', 'Revisado en agosto de 2026', 'Gecontroleerd in augustus 2026', 'Granskad i augusti 2026'),
   heroNote: text(

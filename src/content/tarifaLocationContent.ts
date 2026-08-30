@@ -27,6 +27,7 @@ interface TarifaLocationHubLocale {
   hero: {
     eyebrow: string;
     title: string;
+    subtitle: string;
     standfirst: string;
     note: string;
     updated: string;
@@ -112,7 +113,8 @@ export const tarifaLocationContent: {
     en: {
       hero: {
         eyebrow: 'Tarifa · Location & stay',
-        title: 'Tarifa at a glance: town, beach and the Atlantic',
+        title: 'Tarifa at a glance',
+        subtitle: 'Town, beach and the Atlantic',
         standfirst: 'Tarifa is compact enough to connect the Old Town, beach and newer neighbourhoods on foot. You rarely need a car in town, but it is useful for Valdevaqueros, Bolonia and other trips west. Stay in the Old Town if you want restaurants and historic streets at the door. La Marina suits quieter nights, easier parking and quick access to Los Lances. AMARA Family & Surf is there: five minutes on foot from the beach and 10–15 minutes from the Old Town.',
         note: 'An AMARA guide written from experience – not a live service for wind and weather.',
         updated: 'Reviewed August 2026'
@@ -221,7 +223,8 @@ export const tarifaLocationContent: {
     de: {
       hero: {
         eyebrow: 'Tarifa · Lage & Aufenthalt',
-        title: 'Tarifa im Überblick: Altstadt, Strand und Atlantik',
+        title: 'Tarifa im Überblick',
+        subtitle: 'Altstadt, Strand und Atlantik',
         standfirst: 'Tarifa ist klein genug, dass ihr Altstadt, Strand und die neueren Viertel gut zu Fuß verbindet. Im Ort braucht ihr kaum ein Auto; für Valdevaqueros, Bolonia und andere Ziele im Westen ist es praktisch. Wählt die Altstadt, wenn ihr Restaurants und historische Gassen direkt vor der Tür möchtet. La Marina passt besser zu ruhigeren Nächten, einem festen Stellplatz und kurzen Wegen nach Los Lances. Dort liegt AMARA Family & Surf: fünf Minuten zu Fuß vom Strand und 10–15 Minuten von der Altstadt entfernt.',
         note: 'Ein AMARA-Guide aus eigener Erfahrung – keine Live-Auskunft zu Wind und Wetter.',
         updated: 'Geprüft im August 2026'
@@ -330,7 +333,8 @@ export const tarifaLocationContent: {
     es: {
       hero: {
         eyebrow: 'Tarifa · Ubicación y estancia',
-        title: 'Tarifa de un vistazo: casco antiguo, playa y Atlántico',
+        title: 'Tarifa de un vistazo',
+        subtitle: 'Casco antiguo, playa y Atlántico',
         standfirst: 'Tarifa es lo bastante compacta para moveros a pie entre el casco antiguo, la playa y los barrios más nuevos. En el pueblo apenas hace falta coche; para Valdevaqueros, Bolonia y otros destinos hacia poniente resulta práctico. Elegid el casco antiguo si queréis restaurantes y calles históricas a la puerta. La Marina encaja mejor si buscáis noches más tranquilas, aparcamiento propio y acceso rápido a Los Lances. Allí está AMARA Family & Surf: a cinco minutos andando de la playa y a 10–15 minutos del casco antiguo.',
         note: 'Una guía de AMARA escrita desde la experiencia; no es un servicio de condiciones en directo.',
         updated: 'Revisado en agosto de 2026'
@@ -439,7 +443,8 @@ export const tarifaLocationContent: {
     nl: {
       hero: {
         eyebrow: 'Tarifa · Ligging & verblijf',
-        title: 'Tarifa in het kort: oude stad, strand en Atlantische Oceaan',
+        title: 'Tarifa in het kort',
+        subtitle: 'Oude stad, strand en Atlantische Oceaan',
         standfirst: 'Tarifa is compact genoeg om de oude stad, het strand en de nieuwere wijken te voet te verbinden. In de stad hebben jullie zelden een auto nodig; voor Valdevaqueros, Bolonia en andere plekken in het westen is hij handig. Kies de oude stad als jullie restaurants en historische straatjes voor de deur willen. La Marina past beter bij rustige nachten, een vaste parkeerplaats en snelle toegang tot Los Lances. Daar ligt AMARA Family & Surf: vijf minuten lopen van het strand en 10–15 minuten van de oude stad.',
         note: 'Een AMARA-gids uit eigen ervaring — geen live informatiedienst voor wind en weer.',
         updated: 'Gecontroleerd in augustus 2026'
@@ -548,7 +553,8 @@ export const tarifaLocationContent: {
     sv: {
       hero: {
         eyebrow: 'Tarifa · Läge & vistelse',
-        title: 'Tarifa i korthet: gamla stan, stranden och Atlanten',
+        title: 'Tarifa i korthet',
+        subtitle: 'Gamla stan, stranden och Atlanten',
         standfirst: 'Tarifa är så kompakt att ni lätt kan gå mellan gamla stan, stranden och de nyare kvarteren. I staden behövs bilen sällan, men den är praktisk för Valdevaqueros, Bolonia och andra mål västerut. Välj gamla stan om ni vill ha restauranger och historiska gränder utanför dörren. La Marina passar bättre för lugnare nätter, egen parkering och snabb väg till Los Lances. Där ligger AMARA Family & Surf: fem minuters promenad från stranden och 10–15 minuter från gamla stan.',
         note: 'En AMARA-guide ur egen erfarenhet – inte en tjänst för aktuella vind- och väderförhållanden.',
         updated: 'Granskad i augusti 2026'

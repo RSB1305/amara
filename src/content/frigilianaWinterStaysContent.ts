@@ -53,11 +53,18 @@ export const frigilianaWinterStaysContent = {
   hero: {
     eyebrow: l("Winter stays · Frigiliana", "Winteraufenthalte · Frigiliana", "Estancias de invierno · Frigiliana", "Winterverblijven · Frigiliana", "Vintervistelser · Frigiliana"),
     title: l(
-      "Winter in Frigiliana: bright days out, warm evenings in",
-      "Winter in Frigiliana: helle Tage draußen, warme Abende drinnen",
-      "Invierno en Frigiliana: días luminosos fuera, tardes cálidas dentro",
-      "Winter in Frigiliana: heldere dagen buiten, warme avonden binnen",
-      "Vinter i Frigiliana: ljusa dagar ute, varma kvällar inne"
+      "Winter in Frigiliana",
+      "Winter in Frigiliana",
+      "Invierno en Frigiliana",
+      "Winter in Frigiliana",
+      "Vinter i Frigiliana"
+    ),
+    subtitle: l(
+      "Bright days out, warm evenings in",
+      "Helle Tage draußen, warme Abende drinnen",
+      "Días luminosos fuera, tardes cálidas dentro",
+      "Heldere dagen buiten, warme avonden binnen",
+      "Ljusa dagar ute, varma kvällar inne"
     ),
     standfirst: l(
       "Frigiliana is quieter in winter than in summer, and the days outdoors are often better than people expect. Swimming is not the point; walking is. The village stays steep — narrow, winding lanes and steps, including on the way home after dark. What you get in the evening is a warm house: all four stays have heating and underfloor heating in the bathroom, and Lounis, Zaid and Maha have a pellet stove. We rent from a few nights up to three weeks. Some restaurants and shops keep shorter hours in winter, so send us your dates and we will tell you what is running that week.",

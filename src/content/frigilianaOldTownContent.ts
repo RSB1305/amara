@@ -106,11 +106,18 @@ export const frigilianaOldTownCopy = {
       'Gamla stan · Upptäck'
     ),
     title: l(
-      'Frigiliana’s old town: what to see, and why it still looks like this',
-      'Frigilianas Altstadt: was ihr seht — und warum es bis heute so aussieht',
-      'El casco antiguo de Frigiliana: qué ver y por qué sigue teniendo este aspecto',
-      'De oude kern van Frigiliana: wat je ziet en waarom het er nog zo uitziet',
-      'Frigilianas gamla stan: vad ni ser – och varför den ser ut så än i dag'
+      'Frigiliana’s old town',
+      'Frigilianas Altstadt',
+      'El casco antiguo de Frigiliana',
+      'De oude kern van Frigiliana',
+      'Frigilianas gamla stan'
+    ),
+    subtitle: l(
+      'What to see, and why it still looks like this',
+      'Was ihr seht — und warum es bis heute so aussieht',
+      'Qué ver y por qué sigue teniendo este aspecto',
+      'Wat je ziet en waarom het er nog zo uitziet',
+      'Vad ni ser – och varför den ser ut så än i dag'
     ),
     paragraphs: [
       l(

@@ -59,11 +59,18 @@ export const tarifaWinterStaysContent = {
   hero: {
     eyebrow: l("Winter stays · Tarifa", "Winteraufenthalte · Tarifa", "Estancias de invierno · Tarifa", "Winterverblijven · Tarifa", "Vintervistelser · Tarifa"),
     title: l(
-      "Winter in Tarifa: the wind decides the day",
-      "Winter in Tarifa: Der Wind entscheidet den Tag",
-      "Invierno en Tarifa: el viento decide el día",
-      "Winter in Tarifa: de wind bepaalt de dag",
-      "Vinter i Tarifa: vinden avgör dagen"
+      "Winter in Tarifa",
+      "Winter in Tarifa",
+      "Invierno en Tarifa",
+      "Winter in Tarifa",
+      "Vinter i Tarifa"
+    ),
+    subtitle: l(
+      "The wind decides the day",
+      "Der Wind entscheidet den Tag",
+      "El viento decide el día",
+      "De wind bepaalt de dag",
+      "Vinden avgör dagen"
     ),
     standfirst: l(
       "In summer Tarifa is in constant motion. In winter we find it calmer and more familiar — though that is our experience, not a promise. Levante and Poniente are the two winds that shape the Strait, and which one blows is decided on the day, not by the season. That is why a second plan matters here more than elsewhere. AMARA Family & Surf gives you 75 m² over two floors with a wood-burning fireplace, heating, a full kitchen and a washing machine. The supermarket is directly opposite, Los Lances beach about 500 metres away, and a reserved space in the garage comes with the apartment.",
