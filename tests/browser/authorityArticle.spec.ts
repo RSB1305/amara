@@ -607,6 +607,63 @@ test('the destination arrival pages use their declared module order', async ({ p
   }
 });
 
+test('outer section dividers only separate equal surfaces and stay inset', async ({ page }) => {
+  await openPage(page, resolveLink('getting_to_frigiliana', SWEEP_LANGUAGE));
+
+  const arrivalBoundaries = await page.$$eval(
+    'article[data-am-page="getting-to-frigiliana"] > *',
+    (nodes) =>
+      nodes.slice(0, -1).map((node, index) => {
+        const next = nodes[index + 1];
+        const currentStyle = getComputedStyle(node);
+        const nextStyle = getComputedStyle(next);
+
+        return {
+          changesSurface: currentStyle.backgroundColor !== nextStyle.backgroundColor,
+          currentBorder: currentStyle.borderBottomWidth,
+          nextBorder: nextStyle.borderTopWidth,
+          currentDivider: getComputedStyle(node, '::after').content,
+          nextDivider: getComputedStyle(next, '::before').content
+        };
+      })
+  );
+
+  const surfaceChanges = arrivalBoundaries.filter((boundary) => boundary.changesSurface);
+  expect(surfaceChanges.length).toBeGreaterThan(0);
+  for (const boundary of surfaceChanges) {
+    expect(boundary).toEqual({
+      changesSurface: true,
+      currentBorder: '0px',
+      nextBorder: '0px',
+      currentDivider: 'none',
+      nextDivider: 'none'
+    });
+  }
+
+  const internalRuleWidths = await page.$$eval(
+    'article[data-am-page="getting-to-frigiliana"] dl > div.border-t',
+    (nodes) => nodes.map((node) => getComputedStyle(node).borderTopWidth)
+  );
+  expect(internalRuleWidths.some((width) => width !== '0px')).toBe(true);
+
+  await openPage(page, resolveLink('weather_frigiliana', SWEEP_LANGUAGE));
+  const sameSurfaceDivider = await page.$eval(
+    'article[data-am-page="frigiliana-weather"] > [data-am-guide-hero]',
+    (hero) => {
+      const divider = getComputedStyle(hero, '::after');
+      return {
+        content: divider.content,
+        left: Number.parseFloat(divider.left),
+        right: Number.parseFloat(divider.right)
+      };
+    }
+  );
+
+  expect(sameSurfaceDivider.content).toBe('""');
+  expect(sameSurfaceDivider.left).toBeGreaterThan(0);
+  expect(sameSurfaceDivider.right).toBeGreaterThan(0);
+});
+
 test('nerja-caves places the personal visit block before the related links', async ({ page }) => {
   const entry = authorityPage('nerja-caves');
   const locale = entry.content(SWEEP_LANGUAGE);

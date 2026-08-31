@@ -271,21 +271,3 @@ const {
     </div>
   </LocationModule>
 </article>
-
-<style is:global>
-  [data-am-weather-family] > [data-am-guide-hero] {
-    position: relative;
-    border-bottom-width: 0;
-  }
-
-  [data-am-weather-family] > [data-am-guide-hero]::after {
-    content: '';
-    position: absolute;
-    right: var(--spacing-page-gutter);
-    bottom: 0;
-    left: var(--spacing-page-gutter);
-    height: 1px;
-    background: var(--color-border-subtle);
-    pointer-events: none;
-  }
-</style>
