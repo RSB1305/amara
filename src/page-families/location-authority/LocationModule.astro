@@ -1,4 +1,6 @@
 ---
+import AmaraSection from '../../components/layout/AmaraSection.astro';
+
 interface Props {
   id?: string;
   labelledby?: string;
@@ -25,24 +27,31 @@ const surfaceClass = {
   inverse: 'bg-inverse-surface text-inverted-on-surface'
 }[surface];
 
+const canonicalSurface = {
+  white: 'plain',
+  tint: 'tint',
+  inverse: 'inverse'
+}[surface] as 'plain' | 'tint' | 'inverse';
+
 const spacingClass = {
   standard: 'py-20 md:py-28',
   compact: 'py-16 md:py-20',
   closing: 'py-24 md:py-32'
 }[spacing];
+
+const moduleClass = ['mx-0 px-6 md:px-12', spacingClass, surfaceClass, className]
+  .filter(Boolean)
+  .join(' ');
 ---
 
-<section
+<AmaraSection
   id={id}
-  class:list={[
-    'px-6 md:px-12',
-    spacingClass,
-    surfaceClass,
-    { 'border-b border-border-subtle': divider },
-    className
-  ]}
-  aria-labelledby={labelledby}
+  labelledby={labelledby}
+  surface={canonicalSurface}
+  family="location"
+  divider={divider}
+  class={moduleClass}
   {...moduleAttributes}
 >
   <slot />
-</section>
+</AmaraSection>

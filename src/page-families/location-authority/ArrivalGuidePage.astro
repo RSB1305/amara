@@ -288,14 +288,13 @@ const isAuthorityReference = destination === 'frigiliana';
 
     {
       content.journeySteps && (
-        <div data-am-arrival-module="journey-steps">
-          <FaqAccordion
-            arrivalTitle={content.journeySteps.title}
-            steps={content.journeySteps.steps}
-            faqTitle={content.journeySteps.faqTitle}
-            items={content.journeySteps.faq}
-          />
-        </div>
+        <FaqAccordion
+          arrivalTitle={content.journeySteps.title}
+          steps={content.journeySteps.steps}
+          faqTitle={content.journeySteps.faqTitle}
+          items={content.journeySteps.faq}
+          data-am-arrival-module="journey-steps"
+        />
       )
     }
 

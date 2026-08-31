@@ -301,45 +301,50 @@ const structureUi = {
 const visualUi = {
   en: {
     eyebrow: 'Arrival orientation', airport: 'Closest airport', mainAirport: 'Main airport', distance: 'By road', time: 'Typical drive',
+    carRental: 'Car · rental car', bus: 'Bus · via Nerja', transfer: 'Change',
     frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Strait of Gibraltar',
     morocco: 'Morocco', tangier: 'Tangier', strait: 'Strait of Gibraltar', ferry: 'Ferry',
-    aria: 'Map-style arrival overview for', coast: 'Coastal connection', coastValue: 'Nerja · 6 km · approx. 10 min',
+    aria: 'Map-style arrival overview for', frigilianaAria: 'Map-style arrival overview from Málaga Airport to Frigiliana and AMARA: the car or rental-car route runs directly, while the bus journey changes in Nerja and continues to Frigiliana.', coast: 'Coastal connection', coastValue: 'Nerja · 6 km · approx. 10 min',
     setting: 'Setting', frigilianaSetting: 'White village above the Mediterranean',
     beach: 'Nearest beach', beachValue: 'Torrecilla · approx. 200 m', oldTown: 'Old town', oldTownValue: 'Balcón de Europa · approx. 500 m',
     centre: 'Town centre', centreValue: 'Old Town · 10–15 min on foot', arrival: 'At AMARA', arrivalValue: 'Reserved underground parking'
   },
   de: {
     eyebrow: 'Anreise & Orientierung', airport: 'Nächster Flughafen', mainAirport: 'Hauptflughafen', distance: 'Straßendistanz', time: 'Typische Fahrzeit',
+    carRental: 'Auto · Mietwagen', bus: 'Bus · über Nerja', transfer: 'Umstieg',
     frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Straße von Gibraltar',
     morocco: 'Marokko', tangier: 'Tanger', strait: 'Straße von Gibraltar', ferry: 'Fähre',
-    aria: 'Kartografische Anreiseübersicht für', coast: 'Verbindung zur Küste', coastValue: 'Nerja · 6 km · ca. 10 Min.',
+    aria: 'Kartografische Anreiseübersicht für', frigilianaAria: 'Kartografische Anreiseübersicht vom Flughafen Málaga nach Frigiliana und zu AMARA: Auto und Mietwagen fahren direkt; die Busreise führt mit Umstieg in Nerja weiter nach Frigiliana.', coast: 'Verbindung zur Küste', coastValue: 'Nerja · 6 km · ca. 10 Min.',
     setting: 'Lage', frigilianaSetting: 'Weißes Bergdorf über dem Mittelmeer',
     beach: 'Nächster Strand', beachValue: 'Torrecilla · ca. 200 m', oldTown: 'Altstadt', oldTownValue: 'Balcón de Europa · ca. 500 m',
     centre: 'Ortszentrum', centreValue: 'Altstadt · 10–15 Min. zu Fuß', arrival: 'Bei AMARA', arrivalValue: 'Reservierter Tiefgaragenplatz'
   },
   es: {
     eyebrow: 'Llegada y orientación', airport: 'Aeropuerto más cercano', mainAirport: 'Aeropuerto principal', distance: 'Por carretera', time: 'Tiempo habitual',
+    carRental: 'Coche · alquiler', bus: 'Autobús · vía Nerja', transfer: 'Cambio',
     frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Estrecho de Gibraltar',
     morocco: 'Marruecos', tangier: 'Tánger', strait: 'Estrecho de Gibraltar', ferry: 'Ferry',
-    aria: 'Resumen cartográfico de llegada a', coast: 'Conexión con la costa', coastValue: 'Nerja · 6 km · aprox. 10 min',
+    aria: 'Resumen cartográfico de llegada a', frigilianaAria: 'Resumen cartográfico del viaje desde el aeropuerto de Málaga hasta Frigiliana y AMARA: el coche o coche de alquiler continúa directamente; el autobús requiere un cambio en Nerja antes de seguir a Frigiliana.', coast: 'Conexión con la costa', coastValue: 'Nerja · 6 km · aprox. 10 min',
     setting: 'Entorno', frigilianaSetting: 'Pueblo blanco sobre el Mediterráneo',
     beach: 'Playa más cercana', beachValue: 'Torrecilla · aprox. 200 m', oldTown: 'Casco antiguo', oldTownValue: 'Balcón de Europa · aprox. 500 m',
     centre: 'Centro', centreValue: 'Casco antiguo · 10–15 min a pie', arrival: 'En AMARA', arrivalValue: 'Aparcamiento subterráneo reservado'
   },
   nl: {
     eyebrow: 'Aankomst & oriëntatie', airport: 'Dichtstbijzijnde luchthaven', mainAirport: 'Belangrijkste luchthaven', distance: 'Over de weg', time: 'Gebruikelijke rijtijd',
+    carRental: 'Auto · huurauto', bus: 'Bus · via Nerja', transfer: 'Overstap',
     frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Straat van Gibraltar',
     morocco: 'Marokko', tangier: 'Tanger', strait: 'Straat van Gibraltar', ferry: 'Veerboot',
-    aria: 'Kaartoverzicht van de reis naar', coast: 'Verbinding met de kust', coastValue: 'Nerja · 6 km · ca. 10 min',
+    aria: 'Kaartoverzicht van de reis naar', frigilianaAria: 'Kaartoverzicht van de reis van Málaga Airport naar Frigiliana en AMARA: de auto of huurauto rijdt rechtstreeks; voor de busreis stappen jullie in Nerja over en reizen daarna verder naar Frigiliana.', coast: 'Verbinding met de kust', coastValue: 'Nerja · 6 km · ca. 10 min',
     setting: 'Ligging', frigilianaSetting: 'Wit bergdorp boven de Middellandse Zee',
     beach: 'Dichtstbijzijnde strand', beachValue: 'Torrecilla · ca. 200 m', oldTown: 'Oude centrum', oldTownValue: 'Balcón de Europa · ca. 500 m',
     centre: 'Centrum', centreValue: 'Oude centrum · 10–15 min lopen', arrival: 'Bij AMARA', arrivalValue: 'Gereserveerde ondergrondse parking'
   },
   sv: {
     eyebrow: 'Ankomst & orientering', airport: 'Närmaste flygplats', mainAirport: 'Huvudflygplats', distance: 'Vägavstånd', time: 'Normal körtid',
+    carRental: 'Bil · hyrbil', bus: 'Buss · via Nerja', transfer: 'Byte',
     frigilianaRegion: 'Axarquía · Sierra Almijara', nerjaRegion: 'Costa del Sol · Axarquía', tarifaRegion: 'Gibraltarsundet',
     morocco: 'Marocko', tangier: 'Tanger', strait: 'Gibraltarsundet', ferry: 'Färja',
-    aria: 'Kartöversikt för resan till', coast: 'Förbindelse till kusten', coastValue: 'Nerja · 6 km · ca 10 min',
+    aria: 'Kartöversikt för resan till', frigilianaAria: 'Kartöversikt från Málaga flygplats till Frigiliana och AMARA: bil eller hyrbil kör direkt; bussresan kräver byte i Nerja och fortsätter sedan till Frigiliana.', coast: 'Förbindelse till kusten', coastValue: 'Nerja · 6 km · ca 10 min',
     setting: 'Läge', frigilianaSetting: 'Vit bergsby ovanför Medelhavet',
     beach: 'Närmaste strand', beachValue: 'Torrecilla · ca 200 m', oldTown: 'Gamla stan', oldTownValue: 'Balcón de Europa · ca 500 m',
     centre: 'Centrum', centreValue: 'Gamla stan · 10–15 min till fots', arrival: 'Vid AMARA', arrivalValue: 'Reserverad underjordisk parkering'
@@ -365,11 +370,16 @@ function arrivalHeroVisual(
       destination: 'Frigiliana',
       region: labels.frigilianaRegion,
       primaryAirport: { code: 'AGP', name: 'Málaga', distance: '≈ 66 km', time: '≈ 50 min' },
+      routeLabels: {
+        carRental: labels.carRental,
+        bus: labels.bus,
+        transfer: labels.transfer
+      },
       context: [
         { label: labels.coast, value: labels.coastValue },
         { label: labels.setting, value: labels.frigilianaSetting }
       ],
-      ariaLabel: `${labels.aria} Frigiliana`
+      ariaLabel: labels.frigilianaAria
     };
   }
 

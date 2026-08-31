@@ -12,7 +12,10 @@ export interface ParkingGuideLocale {
   hero: {
     eyebrow: string;
     title: string;
+    subtitle?: string;
     standfirst: string;
+    summaryEyebrow?: string;
+    summary?: string;
     note: string;
     updated: string;
   };

@@ -20,6 +20,7 @@ interface Props {
   class?: string;
   pageEndRole?: AmaraPageEndRole;
   pageEndFamily?: AmaraPageEndFamily;
+  [attribute: `data-am-${string}`]: string | undefined;
 }
 
 const {
@@ -33,7 +34,8 @@ const {
   dataComponent,
   class: className,
   pageEndRole,
-  pageEndFamily
+  pageEndFamily,
+  ...consumerAttributes
 } = Astro.props;
 const sectionAttributes = getAmaraSectionAttributes({ variant, surface, family, status });
 ---
@@ -51,6 +53,7 @@ const sectionAttributes = getAmaraSectionAttributes({ variant, surface, family, 
   aria-labelledby={labelledby}
   data-am-component={dataComponent}
   {...(pageEndRole && pageEndFamily ? getPageEndAttributes(pageEndRole, pageEndFamily) : {})}
+  {...consumerAttributes}
 >
   <slot />
 </section>

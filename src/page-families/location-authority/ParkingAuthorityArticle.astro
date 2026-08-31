@@ -27,6 +27,8 @@ const {
   propertyHref,
   resolveHref
 } = Astro.props;
+
+const isFrigilianaParking = pageId === 'frigiliana-parking';
 ---
 
 <AuthorityArticle
@@ -45,10 +47,14 @@ const {
   presentation="guide"
   closingRole="next-action"
   closingActionMode="restrained"
-  guideSummary={{
+  guideSummary={isFrigilianaParking ? {
+    eyebrow: content.hero.summaryEyebrow!,
+    body: content.hero.summary!
+  } : {
     eyebrow: content.navLabel,
     body: content.hero.standfirst
   }}
+  showGuideStandfirst={isFrigilianaParking}
 >
   {content.sections.map((section, index) => (
     <AuthorityTextSection

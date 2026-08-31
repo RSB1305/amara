@@ -2,7 +2,7 @@
 
 - Researched: 2026-08-30
 - Answers (partially): `frigiliana.climate.question-home-capital-references`
-- Status: **PARTIALLY RESOLVED** — period settled, two of six stations extracted
+- Status: **PARTIALLY RESOLVED** — London, Berlin, Amsterdam and Stockholm extracted; the Spanish comparisons use clearly labelled AEMET 1981–2010 station tables as rounded editorial bridges
 
 ## Settled: the period is 1991–2020
 
@@ -34,6 +34,18 @@ The current path for Spanish stations is the OpenData endpoint
 
 ## Extracted values
 
+### Berlin — Berlin-Dahlem, DWD/WMO 10381, 1991–2020 (temperature complete)
+
+| | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Mean daily max °C | **3.4** | 5.1 | 9.1 | 15.4 | 19.7 | 22.8 | 24.8 | 24.6 | 19.7 | 13.9 | 7.8 | 4.2 |
+
+The values are the DWD-published 1991–2020 monthly normals for the mean of
+daily maximum air temperature. DWD identifies WMO station 10381 as
+Berlin-Dahlem. The public German comparison uses the January values only and
+rounds both source values to whole degrees: regional Frigiliana 12 °C and
+Berlin-Dahlem 3 °C.
+
 ### London — Heathrow, Met Office, 1991–2020 (complete)
 
 | | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
@@ -46,29 +58,56 @@ Annual cross-check published alongside: 15.67 °C, 614.98 mm, 1,674.81 h.
 The Met Office page names neither a station id nor an elevation; neither was
 filled in from another catalogue.
 
-### Stockholm — SMHI, 1991–2020, summer only, city-level
+### Stockholm — Stockholm-Observatoriekullen A, SMHI 98230, 1991–2020
 
-| | Jun | Jul | Aug |
-|---|---:|---:|---:|
-| Mean daily max °C | 20.5 | **23.5** | 22.0 |
-| Rainfall mm | 62 | **62** | 66 |
-| Sunshine h | 277 | **280** | 235 |
+| | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Mean daily max °C | **1.0** | 1.3 | 4.7 | 10.6 | 16.4 | 20.5 | 23.5 | 22.0 | 16.6 | 10.1 | 5.4 | 2.4 |
 
-Published officially by SMHI for "Stockholm". The table names no station id,
-so this is a city-level figure, not a station-bound one. SMHI also flags its
-1991–2020 download files as preliminary.
+The public Swedish comparison uses the January values only and rounds both to
+whole degrees: regional Frigiliana 12 °C and Stockholm 1 °C. SMHI publishes
+the complete maximum-temperature series in its 1991–2020 workbook.
+
+### Amsterdam — Schiphol, KNMI 240, 1991–2020 (temperature complete)
+
+| | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Mean daily max °C | **6.2** | 6.9 | 10.1 | 14.3 | 17.8 | 20.3 | 22.5 | 22.4 | 19.2 | 14.7 | 10.0 | 6.9 |
+
+The public Dutch comparison uses the January values only and rounds both to
+whole degrees: regional Frigiliana 12 °C and Amsterdam 6 °C. The guest-facing
+copy names Amsterdam; the KNMI source behind it is Schiphol station 240.
+
+### Madrid — AEMET Madrid-Retiro 3195, 1981–2010 (editorial bridge only)
+
+AEMET's public station table gives a July mean daily maximum of **32.1 °C**.
+The Spanish page uses this once as a rounded, familiar comparison with the
+regional Frigiliana value of 27 °C. It does not present the two datasets as a
+same-period scientific comparison; the purpose is to explain what the monthly
+temperature means for a guest moving between coast and inland Spain.
+
+### Andalusian round-trip comparison — July mean daily maximum
+
+| Place | July °C | Public rounded value | Role on the page |
+|---|---:|---:|---|
+| Frigiliana regional model | 27.0 | **27 °C** | Stay base |
+| Málaga Aeropuerto 6155A | 30.5 | **31 °C** | Nearby day trip |
+| Granada Base Aérea 5514 | 34.2 | **34 °C** | Golden Triangle |
+| Sevilla Aeropuerto 5783 | 36.0 | **36 °C** | Golden Triangle |
+| Córdoba Aeropuerto 5402 | 36.9 | **37 °C** | Golden Triangle |
+
+The four city values are AEMET's visible 1981–2010 station normals; the
+Frigiliana regional model covers 1991–2021. The public copy uses whole degrees
+as a practical July orientation for a road trip. It does not claim a
+same-period scientific comparison.
 
 ## Not extracted
 
-Berlin (DWD 403 Berlin-Dahlem(FU)), Madrid (AEMET 3195, 667 m), Sevilla 5783,
-Córdoba 5402, Málaga 6155A and Schiphol 240. For all of these the correct
+Madrid (AEMET 3195, 667 m), Sevilla 5783, Córdoba 5402, Granada 5514 and Málaga 6155A. For all of these the correct
 1991–2020 product was confirmed to exist, but the monthly values sit in
 download payloads, XLSX files or API responses that this run could not read.
 
 Deliberately **not** backfilled from the 1981–2010 pages.
-
-For DWD there is an additional open point: it must be confirmed which CDC file
-holds the *mean of daily maxima* rather than the monthly mean temperature.
 
 ## Sunshine hours: no instrumental equivalence
 
@@ -82,9 +121,18 @@ measurement method must not be described as identical.
 - AEMET vigilancia del clima — https://www.aemet.es/gl/datos_abiertos/estadisticas/vigilancia_clima
 - AEMET OpenData — https://opendata.aemet.es/dist/
 - DWD CDC mean_91-20 — https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/multi_annual/mean_91-20/
+- DWD mean of daily maximum air temperature 1991–2020 — https://opendata.dwd.de/climate_environment/CDC/observations_global/CLIMAT/multi_annual/air_temperature_mean_of_daily_max/1991_2020.txt
+- DWD station identification 10381 Berlin-Dahlem — https://www.dwd.de/DE/fachnutzer/forschung_lehre/meteorologische_fachverfahren/mosmix_aenderungen/downloads/2025_0604_mosmix_aenderung.pdf?__blob=publicationFile&v=4
 - Met Office Heathrow averages — https://www.metoffice.gov.uk/research/climate/maps-and-data/location-specific-long-term-averages/gcpsvg3nc
+- AEMET Madrid-Retiro standard values (1981–2010) — https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?k=&l=3195
+- AEMET Málaga Aeropuerto standard values (1981–2010) — https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?l=6155A
+- AEMET Granada Base Aérea standard values (1981–2010) — https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?k=and&l=5514
+- AEMET Sevilla Aeropuerto standard values (1981–2010) — https://www.aemet.es/en/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?l=5783
+- AEMET Córdoba Aeropuerto standard values (1981–2010) — https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?l=5402
 - SMHI normalvärden 1991–2020 — https://www.smhi.se/data/temperatur-och-vind/temperatur/dataserier-med-normalvarden-for-perioden-1991-2020
+- SMHI maximum-temperature workbook 1991–2020 — https://www.smhi.se/download/18.18f5a56618fc9f08e8313e99/1741339945094/Tmax-1991-2020.xlsx
 - SMHI semesterväder — https://www.smhi.se/kunskapsbanken/meteorologi/arstider/semestervader---vad-sager-statistiken
 - KNMI klimaatnormalen 1991–2020 — https://www.knmi.nl/kennis-en-datacentrum/achtergrond/achtergrondinformatie-berekening-klimaatnormalen-1991-2020
+- KNMI Schiphol station 240, 1991–2020 — https://cdn.knmi.nl/knmi/map/page/klimatologie/klimaatatlas/tabel/stationsdata/klimtab_9120_240.pdf
 
 All accessed 2026-08-30.
