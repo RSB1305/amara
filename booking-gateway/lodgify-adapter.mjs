@@ -194,11 +194,29 @@ export function createLodgifyClient({ apiKey, fetchImpl = fetch }) {
     );
   }
 
+  function listBookings(stayFilter, page = 1, size = 50) {
+    return requestJson(
+      '/v2/reservations/bookings',
+      { stayFilter, page, size, includeCount: true },
+      { providerStep: 'guest-access-bookings' },
+    );
+  }
+
+  function getBooking(bookingId) {
+    return requestJson(
+      `/v2/reservations/bookings/${encodeURIComponent(bookingId)}`,
+      {},
+      { providerStep: 'guest-access-booking' },
+    );
+  }
+
   return Object.freeze({
     resolveStay,
     getAvailability,
     getRates,
     getQuote,
+    listBookings,
+    getBooking,
   });
 }
 

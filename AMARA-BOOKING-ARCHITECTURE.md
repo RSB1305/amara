@@ -102,8 +102,10 @@ Astro pages do not read this binding. The static build makes no Lodgify request,
 outage cannot block or slow a normal page build or page load.
 
 The provider adapter contains fixed GET operations only. It does not expose a generic provider
-path or HTTP method and does not implement reservation, guest, payment, create, update or cancel
-operations. Photos, amenities, descriptions, alt texts and SEO copy remain hand-authored in five
+path or HTTP method and does not implement payment, create, update or cancel operations. In addition
+to public availability and quote reads, it owns the two bounded reservation reads required by the
+authenticated AMARA Experience access check: booking-list lookup and single-booking revalidation.
+Photos, amenities, descriptions, alt texts and SEO copy remain hand-authored in five
 languages in `src/content/vacationRentalEntities.ts`; operational data cannot overwrite them.
 
 ---
@@ -145,7 +147,8 @@ The implementation supports Lodgify only. There is no speculative Cloudbeds adap
 ### Sole Lodgify integration path
 
 All server-side Lodgify API traffic from AMARA must run through the central AMARA Booking Gateway
-and its Lodgify adapter. This applies to availability, rates and quotes and to future last-minute,
+and its Lodgify adapter. This applies to availability, rates, quotes and AMARA Experience reservation
+verification and to future last-minute,
 promotion, accommodation-search and AI/concierge capabilities. No AMARA feature may create a
 parallel direct Lodgify API integration.
 
@@ -180,6 +183,20 @@ Calendar windows are limited to 45 days, quotes require departure after arrival,
 to a plausible future horizon, and adult/child/pet counts are bounded. Unknown query parameters,
 duplicate values, arbitrary URLs and provider IDs are rejected. Future write capabilities require
 a separate explicitly approved contract.
+
+### Protected AMARA Experience access operation
+
+`POST /api/guest/session` is a same-origin, no-store access endpoint rather than a public Booking
+Gateway data route. It accepts only booking-holder first name, arrival date and departure date plus
+the interface locale. The server uses the adapter's fixed `GET /v2/reservations/bookings` operation
+to require exactly one confirmed match among bounded upcoming/current results. The protected guide
+then uses fixed `GET /v2/reservations/bookings/{id}` revalidation at most once per hour. Neither
+operation returns reservation or guest data to the browser and neither changes provider state.
+
+The session cookie is encrypted with the Cloudflare secret `AMARA_EXPERIENCE_SESSION_SECRET`, which
+must contain at least 32 random characters. Missing or invalid configuration fails closed. Session
+claims remain encrypted, responses are private/no-store, and access expires at the end of the
+departure day in `Europe/Madrid`. `DELETE /api/guest/session` only clears the AMARA session cookie.
 
 Responses contain only AMARA-relevant availability days, public nightly rate options and quote
 totals. Rates may contain multiple options with different minimum/maximum stays. A calendar rate

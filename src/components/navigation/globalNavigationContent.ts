@@ -107,6 +107,13 @@ export const globalNavLabels = {
     nl: 'Verblijven',
     sv: 'Boenden'
   },
+  amaraExperience: {
+    en: 'AMARA Experience',
+    de: 'AMARA Experience',
+    es: 'AMARA Experience',
+    nl: 'AMARA Experience',
+    sv: 'AMARA Experience'
+  },
   aboutAmara: {
     en: 'About us',
     de: 'Über uns',
@@ -271,6 +278,13 @@ export type GlobalNavGroup = {
   label: string;
   items: GlobalNavItem[];
 };
+
+export function createExperienceNavItem(currentLang: AmaraLanguage): GlobalNavItem {
+  return {
+    token: 'amara_experience',
+    label: globalNavLabels.amaraExperience[currentLang]
+  };
+}
 
 /** Destination tokens stay reachable from the header even where they are gated elsewhere. */
 export const forcedEnabledNavTokens: LinkToken[] = [
