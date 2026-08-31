@@ -5,8 +5,9 @@ import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import ApartmentCard from '../../components/location/ApartmentCard.astro';
 import { staySearchCopy, staySearchLocale } from '../../content/staySearchContent';
+import { trustLabels } from '../../content/trustLabels';
 import { vacationRentalEntities } from '../../content/vacationRentalEntities';
-import { resolveLink, resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveLink, resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
@@ -18,6 +19,17 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = (value: Record<AmaraLanguage, string>) => value[currentLang] ?? value.en;
 const action = resolveLink('stay_search_results', currentLang);
+/**
+ * The footer default opens with the stay collection. On this page that is a
+ * loop: the six stays are already listed above it. The slot goes to the page
+ * a reader who has seen them still has a reason to open.
+ */
+const footerHighlights: LabeledLink[] = [
+  { token: 'about', label: trustLabels.about[currentLang] },
+  { token: 'amenities', label: trustLabels.amenities[currentLang] },
+  { token: 'reviews_hub', label: trustLabels.reviews_hub[currentLang] },
+  { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits[currentLang] }
+];
 const copy = Object.fromEntries(
   Object.entries(staySearchCopy).map(([key, value]) => [key, t(value)])
 );
@@ -53,7 +65,7 @@ const cards = vacationRentalEntities.flatMap((rental) => {
 });
 ---
 
-<BaseLayout seo={seo} pageLang={currentLang} pageFamily="stay-search-results" navigationLanguageToken="stay_search_results">
+<BaseLayout seo={seo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="stay-search-results" navigationLanguageToken="stay_search_results">
   <AmaraPageShell family="stay-search-results" dataLang={currentLang}>
     <AmaraSection variant="hero" labelledby="stay-search-title">
       <div class="max-w-3xl">
