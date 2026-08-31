@@ -20,6 +20,7 @@ export const weatherForecastUrls: Record<WeatherDestination, string> = {
 
 const tarifaNormalsUrl = 'https://www.aemet.es/es/serviciosclimaticos/datosclimatologicos/valoresclimatologicos?k=and&l=6001';
 const juntaWindUrl = 'https://www.juntadeandalucia.es/medioambiente/portal/landing-page/-/asset_publisher/4V1kD5gLiJkq/content/viento/20151';
+const dwdBerlinDailyMaxNormalsUrl = 'https://opendata.dwd.de/climate_environment/CDC/observations_global/CLIMAT/multi_annual/air_temperature_mean_of_daily_max/1991_2020.txt';
 
 interface SharedLocale {
   seoTitle: (place: string) => string;
@@ -223,7 +224,7 @@ const profiles: Profiles = {
       factorsTitle: 'Warum die Uhrzeit hier zählt', factors: ['Frigiliana liegt am Hang, rund sechs Kilometer von Nerja entfernt. Für euren Tag sind Sonne, Schatten und Steigung die hilfreicheren Anhaltspunkte als ein fester Temperaturvergleich mit der Küste.', 'An sehr heißen Terral-Tagen kann das Meer plötzlich erstaunlich kalt sein. Der trockene Wind aus dem Landesinneren drückt warmes Oberflächenwasser hinaus, kühleres Wasser steigt nach. Im August 2026 sank die Wassertemperatur vor Málaga so innerhalb einer Woche um fast 13 Grad, während es landeinwärts auf 40 Grad zuging. Auch bei großer Hitze an Land kann das Badewasser also überraschend kühl sein.'],
       factorItems: [{ title: 'Schatten macht den Unterschied', text: 'Dieselbe Gasse liegt vormittags im Schatten und nachmittags in voller Sonne.' }, { title: 'Nach Sonnenuntergang', text: 'Auch nach einem heißen Tag kann es am Abend spürbar abkühlen.' }, { title: 'Dorf und Küste', text: 'Zum Strand nach Nerja sind es sechs Kilometer bergab. Unten ist es voller, oben ruhiger — und an sehr heißen Tagen wartet zurück im Dorf die eigene Terrasse.' }],
       seasonNotes: ['Die Umgebung ist grüner, das Wetter wechselt noch und die länger werdenden Tage passen gut zu ausgedehnten Wegen.', 'Trocken, hell und heiß: Auf steilen oder offenen Wegen gehören die frühen und späten Stunden euch.', 'Der frühe Herbst kann sich noch wie Sommer anfühlen; später wird Regen wahrscheinlicher.', 'Das Dorf wird ruhiger, die Abende kühler und bei wechselhaftem Wetter lohnt sich ein flexibler Plan.'],
-      intentNotes: ['Im Sommer habt ihr Strandtage im Überfluss, und Torrecilla in Nerja liegt eine kurze Fahrt entfernt. Zurück im Dorf wartet die Außendusche auf der eigenen Terrasse — welche Bucht wann am angenehmsten ist, steht im Strand-Guide. Strandtücher liegen in jedem Apartment bereit.', 'Frühling und Herbst sind die schönste Zeit für einen langen Tag zu zweit in den Bergen. Auf der Cruz de Pinto und beim Aufstieg zum El Fuerte — 963 Meter, gut vier Stunden — gibt es kaum Schatten, deshalb gehen wir im Sommer früh los und sind mittags zurück. Danach wartet die Terrasse. Der Higuerón führt durchs Flussbett: Von Oktober bis Dezember kann es hier ordentlich regnen, danach ist das eine andere Route. Schaut vorher aufs Wetter oder fragt uns kurz.', 'Im Januar bleiben die Tagesgäste aus. Dann gehört euch das Dorf fast allein — Altstadt, Cafés und Aussichtspunkte in Ruhe.', 'Im Winter sind die Tage draußen heller, als die meisten erwarten, die Abende kühl — und ab dem frühen Abend trefft ihr in den Gassen kaum noch jemanden. Für einen längeren Aufenthalt habt ihr drinnen alles, was die kühleren Stunden angenehm macht.'],
+      intentNotes: ['Im Sommer habt ihr Strandtage im Überfluss, und Torrecilla in Nerja liegt eine kurze Fahrt entfernt. Zurück im Dorf wartet die Außendusche auf der eigenen Terrasse — welche Bucht wann am angenehmsten ist, steht im Strand-Guide. Strandtücher liegen in jedem Apartment bereit.', 'Frühling und Herbst sind die schönste Zeit für einen langen Tag zu zweit in den Bergen. Auf der Cruz de Pinto und beim Aufstieg zum El Fuerte — 963 Meter, gut vier Stunden — gibt es kaum Schatten, deshalb gehen wir im Sommer früh los und sind mittags zurück. Danach wartet die Terrasse. Der Higuerón führt durchs Flussbett: Von Oktober bis Dezember kann es hier ordentlich regnen, danach ist das eine andere Route. Schaut vorher aufs Wetter oder fragt uns kurz.', 'Im Januar bleiben die Tagesgäste aus. Dann gehört euch das Dorf fast allein — Altstadt, Cafés und Aussichtspunkte in Ruhe.', 'Im Januar liegt das durchschnittliche Tageshoch hier bei rund 12 Grad, in Berlin-Dahlem bei rund 3 Grad. Diese neun Grad Unterschied spürt ihr bei einer Runde durchs ruhige Dorf, beim Kaffee draußen und auf der Terrasse. Am Abend wird es kühl — dann zählt, was euch drinnen erwartet.'],
       practical: ['Zwischen etwa drei und sieben Uhr nachmittags schließen im Dorf kleine Läden und viele Küchen. Ab etwa halb acht wird wieder gekocht. Genau in diese Pause fallen meist die heißesten Stunden des Tages — ein guter Moment für Schatten, eine Pause oder die eigene Terrasse.', 'Am Anreisetag ist das ganz praktisch: Kommt ihr am Nachmittag herauf, sind die Läden im Dorf wahrscheinlich geschlossen. Kauft entweder auf dem Weg in Nerja ein oder geht später am Abend los, wenn wieder geöffnet ist. In Lounis, Zaid und Maha könnt ihr die Zeit dazwischen auf der eigenen Terrasse verbringen.'],
       closingTitle: 'Wo im Dorf ihr wohnt, macht den Unterschied',
       closingBody: 'Bei 27 Grad zählt jede Stufe doppelt 🙂 Frigiliana ist an den Hang gebaut: Zwischen zwei Adressen im Dorf liegen schnell dreißig Höhenmeter, und im Juli merkt ihr die. Wo ihr wohnt, entscheidet deshalb spürbar über euren Alltag im Dorf.',
@@ -578,6 +579,14 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
     { label: `Climate-Data.org · ${place}`, text: common.modelSourceText, href: climateDataSourceUrls[destination] },
     { label: `AEMET · ${place}`, text: common.forecastSourceText, href: weatherForecastUrls[destination] }
   ];
+
+  if (destination === 'frigiliana' && lang === 'de') {
+    links.splice(1, 0, {
+      label: 'DWD · Berlin-Dahlem',
+      text: 'Amtliche Normalwerte 1991–2020 für das mittlere tägliche Temperaturmaximum.',
+      href: dwdBerlinDailyMaxNormalsUrl
+    });
+  }
 
   if (destination === 'tarifa') {
     const stationText: Record<AmaraLanguage, string> = {

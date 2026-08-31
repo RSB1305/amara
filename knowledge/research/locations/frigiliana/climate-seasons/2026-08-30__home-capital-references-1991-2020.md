@@ -2,7 +2,7 @@
 
 - Researched: 2026-08-30
 - Answers (partially): `frigiliana.climate.question-home-capital-references`
-- Status: **PARTIALLY RESOLVED** — period settled, two of six stations extracted
+- Status: **PARTIALLY RESOLVED** — period settled, London and Berlin extracted; Stockholm covered for summer at city level
 
 ## Settled: the period is 1991–2020
 
@@ -34,6 +34,18 @@ The current path for Spanish stations is the OpenData endpoint
 
 ## Extracted values
 
+### Berlin — Berlin-Dahlem, DWD/WMO 10381, 1991–2020 (temperature complete)
+
+| | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| Mean daily max °C | **3.4** | 5.1 | 9.1 | 15.4 | 19.7 | 22.8 | 24.8 | 24.6 | 19.7 | 13.9 | 7.8 | 4.2 |
+
+The values are the DWD-published 1991–2020 monthly normals for the mean of
+daily maximum air temperature. DWD identifies WMO station 10381 as
+Berlin-Dahlem. The public German comparison uses the January values only and
+rounds both source values to whole degrees: regional Frigiliana 12 °C and
+Berlin-Dahlem 3 °C.
+
 ### London — Heathrow, Met Office, 1991–2020 (complete)
 
 | | Jan | Feb | Mar | Apr | May | Jun | Jul | Aug | Sep | Oct | Nov | Dec |
@@ -60,15 +72,12 @@ so this is a city-level figure, not a station-bound one. SMHI also flags its
 
 ## Not extracted
 
-Berlin (DWD 403 Berlin-Dahlem(FU)), Madrid (AEMET 3195, 667 m), Sevilla 5783,
-Córdoba 5402, Málaga 6155A and Schiphol 240. For all of these the correct
+Madrid (AEMET 3195, 667 m), Sevilla 5783, Córdoba 5402, Málaga 6155A and
+Schiphol 240. For all of these the correct
 1991–2020 product was confirmed to exist, but the monthly values sit in
 download payloads, XLSX files or API responses that this run could not read.
 
 Deliberately **not** backfilled from the 1981–2010 pages.
-
-For DWD there is an additional open point: it must be confirmed which CDC file
-holds the *mean of daily maxima* rather than the monthly mean temperature.
 
 ## Sunshine hours: no instrumental equivalence
 
@@ -82,6 +91,8 @@ measurement method must not be described as identical.
 - AEMET vigilancia del clima — https://www.aemet.es/gl/datos_abiertos/estadisticas/vigilancia_clima
 - AEMET OpenData — https://opendata.aemet.es/dist/
 - DWD CDC mean_91-20 — https://opendata.dwd.de/climate_environment/CDC/observations_germany/climate/multi_annual/mean_91-20/
+- DWD mean of daily maximum air temperature 1991–2020 — https://opendata.dwd.de/climate_environment/CDC/observations_global/CLIMAT/multi_annual/air_temperature_mean_of_daily_max/1991_2020.txt
+- DWD station identification 10381 Berlin-Dahlem — https://www.dwd.de/DE/fachnutzer/forschung_lehre/meteorologische_fachverfahren/mosmix_aenderungen/downloads/2025_0604_mosmix_aenderung.pdf?__blob=publicationFile&v=4
 - Met Office Heathrow averages — https://www.metoffice.gov.uk/research/climate/maps-and-data/location-specific-long-term-averages/gcpsvg3nc
 - SMHI normalvärden 1991–2020 — https://www.smhi.se/data/temperatur-och-vind/temperatur/dataserier-med-normalvarden-for-perioden-1991-2020
 - SMHI semesterväder — https://www.smhi.se/kunskapsbanken/meteorologi/arstider/semestervader---vad-sager-statistiken
