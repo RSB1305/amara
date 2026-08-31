@@ -1059,7 +1059,24 @@
    * after `base`, so no `!important` is involved.
    */
   .am-section {
-    @apply max-w-screen-2xl mx-auto px-6 py-40 border-t border-outline-variant/5 md:px-12;
+    @apply max-w-screen-2xl mx-auto px-6 py-40 md:px-12;
+    --am-section-divider-inset: var(--spacing-page-gutter);
+    position: relative;
+  }
+
+  .am-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: var(--am-section-divider-inset);
+    left: var(--am-section-divider-inset);
+    height: 1px;
+    background: var(--color-border-subtle);
+    pointer-events: none;
+  }
+
+  .am-section.border-t-0::before {
+    content: none;
   }
 
   .am-section--plain {
