@@ -24,17 +24,19 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = resolveLocale(nerjaExperienceHubContent, currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja experience hub');
 
-const themes = copy.themes.slice(0, 4).map((theme) => ({
+const themes = copy.themes.map((theme) => ({
   ...theme,
   href: resolveOptionalLink(theme.token, currentLang, { suppressMissing: true })
 }));
-const themeTopics = themes.map((theme) => ({
+const toTopic = (theme: (typeof themes)[number]) => ({
   id: `experience-${theme.id}`,
   title: theme.title,
   text: theme.text,
   href: theme.href ?? undefined,
   linkLabel: theme.linkLabel
-}));
+});
+const featuredThemeTopics = themes.slice(0, 4).map(toTopic);
+const additionalThemeTopics = themes.slice(4).map(toTopic);
 
 const footerHighlights: LabeledLink[] = [
   { token: 'nerja_experience_hub', label: copy.hero.eyebrow },
@@ -87,7 +89,21 @@ const footerHighlights: LabeledLink[] = [
         </p>
       </div>
 
-      <div class="mt-16"><ExperienceHubTopicGrid topics={themeTopics} /></div>
+      <div class="mt-16"><ExperienceHubTopicGrid topics={featuredThemeTopics} columns={4} /></div>
+
+      <div class="mt-20 grid grid-cols-1 gap-10 border-t border-outline-variant/20 pt-14 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-7">
+          <p class="am-text-caption mb-5 text-primary">{copy.moreThemes.eyebrow}</p>
+          <h2 class="am-text-title max-w-4xl text-balance italic tracking-tight text-on-surface">
+            {copy.moreThemes.title}
+          </h2>
+        </div>
+        <p class="am-text-body leading-relaxed text-on-surface-variant lg:col-span-5">
+          {copy.moreThemes.text}
+        </p>
+      </div>
+
+      <div class="mt-12"><ExperienceHubTopicGrid topics={additionalThemeTopics} /></div>
     </section>
 
     <AuthorityStayBridge

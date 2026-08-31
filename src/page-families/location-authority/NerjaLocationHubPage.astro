@@ -3,6 +3,7 @@ import LocationStaySplitSection from './LocationStaySplitSection.astro';
 import LocationAreasBand from './LocationAreasBand.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import nerjaStayImage from '../../assets/images/home/amara-playa-chaparril-13.webp';
+import nerjaCoastImage from '../../assets/images/content/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg';
 import Navigation from '../../components/Navigation.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
@@ -24,6 +25,27 @@ const featureHref = (link?: { token?: LinkToken; anchor?: string }) =>
   link?.token ? requiredLink(link.token) : link?.anchor;
 const aboutHref = requiredLink('about');
 const stayHref = requiredLink('playa');
+const experienceLinks = content.experience.links ?? [];
+const locationFeatures = [
+  {
+    id: 'coast',
+    copy: content.coast,
+    paragraphs: content.coast.paragraphs.slice(0, 1),
+    link: experienceLinks[0]
+  },
+  {
+    id: 'daily-life',
+    copy: content.dailyLife,
+    paragraphs: content.dailyLife.paragraphs.slice(0, 1),
+    link: content.dailyLife.link
+  },
+  {
+    id: 'seasons',
+    copy: content.seasons,
+    paragraphs: content.seasons.paragraphs.slice(0, 2),
+    link: content.seasons.link
+  }
+];
 const footerHighlights: LabeledLink[] = [
   { token: 'location_nerja', label: 'Nerja' },
   { token: 'getting_to_nerja', label: content.discovery.items[0].label },
@@ -53,8 +75,8 @@ const footerHighlights: LabeledLink[] = [
       title={content.hero.title}
       subtitle={content.hero.subtitle}
       paragraphs={[content.hero.standfirst]}
-      imageSrc={nerjaStayImage}
-      imageAlt={content.amara.imageAlt}
+      imageSrc={nerjaCoastImage}
+      imageAlt={content.hero.imageAlt ?? content.amara.imageAlt}
       byline={nerjaLocationHubContent.seo.article ? {
         lang: currentLang,
         authorName: nerjaLocationHubContent.seo.article.authorName,
@@ -93,15 +115,22 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    <LocationStaySplitSection
-      imageSrc={nerjaStayImage}
-      imageAlt={content.amara.imageAlt}
-      eyebrow={content.amara.eyebrow}
-      title={content.amara.title}
-      paragraphs={content.amara.paragraphs}
-      facts={content.amara.facts}
-      link={content.amara.link ? { href: stayHref, label: content.amara.link.label } : undefined}
-    />
+    <section id="arrival" class="scroll-mt-28 border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="am-text-eyebrow text-primary">{content.arrival.eyebrow}</p>
+          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.arrival.title}</h2>
+        </div>
+        <div class="max-w-4xl space-y-5 lg:col-span-7">
+          {content.arrival.paragraphs.slice(0, 2).map((paragraph) => (
+            <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+          ))}
+          {content.arrival.link && (
+            <a href={featureHref(content.arrival.link)} class="am-cta-link inline-flex">{content.arrival.link.label}</a>
+          )}
+        </div>
+      </div>
+    </section>
 
     <LocationAreasBand
       eyebrow={content.areas.eyebrow}
@@ -111,6 +140,31 @@ const footerHighlights: LabeledLink[] = [
       link={content.areas.link ? { href: featureHref(content.areas.link), label: content.areas.link.label } : undefined}
     />
 
+    {locationFeatures.map((feature, index) => (
+      <section
+        id={feature.id}
+        class:list={[
+          'scroll-mt-28 border-b border-border-subtle px-6 py-20 md:px-12 md:py-28',
+          index % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low'
+        ]}
+      >
+        <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-5">
+            <p class="am-text-eyebrow text-primary">{feature.copy.eyebrow}</p>
+            <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{feature.copy.title}</h2>
+          </div>
+          <div class="max-w-4xl space-y-5 lg:col-span-7">
+            {feature.paragraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+            ))}
+            {feature.link && (
+              <a href={featureHref(feature.link)} class="am-cta-link inline-flex">{feature.link.label}</a>
+            )}
+          </div>
+        </div>
+      </section>
+    ))}
+
     <section class="bg-surface px-6 py-24 md:px-12 md:py-32">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
         <div class="lg:col-span-7">
@@ -119,9 +173,23 @@ const footerHighlights: LabeledLink[] = [
         </div>
         <div class="lg:col-span-5">
           {content.experience.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>)}
-          <a href={featureHref(content.experience.link)} class="am-btn am-btn--primary mt-8">{content.experience.link?.label}</a>
+          <div class="mt-8 flex flex-col items-start gap-5">
+            {experienceLinks.slice(1).map((link) => (
+              <a href={featureHref(link)} class="am-cta-link">{link.label}</a>
+            ))}
+          </div>
         </div>
       </div>
     </section>
+
+    <LocationStaySplitSection
+      imageSrc={nerjaStayImage}
+      imageAlt={content.amara.imageAlt}
+      eyebrow={content.amara.eyebrow}
+      title={content.amara.title}
+      paragraphs={[content.amara.paragraphs[1], content.amara.paragraphs[3]]}
+      facts={content.amara.facts}
+      link={content.amara.link ? { href: stayHref, label: content.amara.link.label } : undefined}
+    />
   </article>
 </LocationAuthorityLayout>

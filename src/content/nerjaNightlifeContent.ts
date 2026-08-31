@@ -113,8 +113,8 @@ export interface NerjaNightlifePageCopy {
       title: string;
       text: string;
       linkToken:
-        | 'frigiliana_beaches_authority'
-        | 'frigiliana_hiking_authority';
+        | 'nerja_food_authority'
+        | 'nerja_experience_hub';
       linkLabel: string;
     }[];
   };
@@ -475,23 +475,23 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     combine: {
-      title: 'Combine your evening with the rest of the stay',
+      title: 'Let the evening grow out of the day',
       intro:
-        'A beach afternoon or an easy walk can lead naturally into dinner. Leave enough time to change and arrange transport if you are returning to Frigiliana.',
+        'Dinner in Nerja can lead naturally to a terrace or the later bars. If that is not your kind of evening, the town has several other ways to spend the day.',
       items: [
         {
-          title: 'Start at the beach',
+          title: 'Move from dinner into the evening',
           text:
-            'A day at Burriana or another beach nearby creates the easiest transition into a coastal dinner and relaxed evening.',
-          linkToken: 'frigiliana_beaches_authority',
-          linkLabel: 'See the beach guide'
+            'Lunch by the sea and dinner in the old town lead into different evenings. The central bars are the better starting point when you want the night to continue.',
+          linkToken: 'nerja_food_authority',
+          linkLabel: 'Find the dinner setting that suits the evening'
         },
         {
-          title: 'Walk before the evening',
+          title: 'Keep another Nerja day open',
           text:
-            'A slower mountain, village or coastal walk makes dinner and drinks in Nerja feel even better — provided you leave enough time to reset.',
-          linkToken: 'frigiliana_hiking_authority',
-          linkLabel: 'See the hiking guide'
+            'If a late evening is not the plan, beaches, caves, the Balcón, Verano Azul and day trips give the stay a different rhythm.',
+          linkToken: 'nerja_experience_hub',
+          linkLabel: 'See Nerja through coast, caves, culture and evenings'
         }
       ]
     },
@@ -786,23 +786,23 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     combine: {
-      title: 'Verbindet den Abend mit dem restlichen Aufenthalt',
+      title: 'Ein Abend, der aus dem Tag entsteht',
       intro:
-        'Ein Nachmittag am Strand oder ein leichter Spaziergang lässt sich gut mit einem späteren Abendessen verbinden. Plant genug Zeit zum Umziehen und für die Rückfahrt nach Frigiliana ein.',
+        'Aus einem Abendessen in Nerja werden leicht eine Terrasse und später noch ein paar Bars. Wenn das nicht euer Abend ist, bietet der Ort andere Rhythmen für den Tag.',
       items: [
         {
-          title: 'Am Strand beginnen',
+          title: 'Vom Essen in den Abend',
           text:
-            'Ein Tag in Burriana oder an einem anderen nahen Strand schafft den einfachsten Übergang zu einem Abendessen an der Küste und einem entspannten Abend.',
-          linkToken: 'frigiliana_beaches_authority',
-          linkLabel: 'Zum Strand-Guide'
+            'Mittagessen am Meer und Abendessen in der Altstadt führen in unterschiedliche Abende. Wenn es später weitergehen soll, sind die zentralen Bars der bessere Ausgangspunkt.',
+          linkToken: 'nerja_food_authority',
+          linkLabel: 'Das passende Umfeld für Essen und Abend finden'
         },
         {
-          title: 'Vorher spazieren gehen',
+          title: 'Einen anderen Nerja-Tag offenlassen',
           text:
-            'Ein ruhiger Weg in den Bergen, im Dorf oder an der Küste macht Abendessen und Drinks in Nerja noch angenehmer – wenn genug Zeit zum Umziehen bleibt.',
-          linkToken: 'frigiliana_hiking_authority',
-          linkLabel: 'Zum Wander-Guide'
+            'Wenn ein später Abend nicht zu euch passt, geben Strände, Höhlen, Balcón, Verano Azul und Tagesausflüge dem Aufenthalt einen anderen Rhythmus.',
+          linkToken: 'nerja_experience_hub',
+          linkLabel: 'Nerja über Küste, Höhlen, Kultur und Abende erleben'
         }
       ]
     },
@@ -1097,23 +1097,23 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     combine: {
-      title: 'Combinad la noche con el resto de la estancia',
+      title: 'Una noche que nace del propio día',
       intro:
-        'Las mejores noches de Nerja suelen funcionar porque el día anterior ha tenido el ritmo adecuado. Una tarde de playa o un paseo lento hacen que la cena y las copas surjan con naturalidad.',
+        'En Nerja, una cena puede continuar de forma natural en una terraza y, más tarde, entre bares. Si no es la noche que buscáis, la localidad ofrece otros ritmos para el día.',
       items: [
         {
-          title: 'Empezar en la playa',
+          title: 'De la cena a la noche',
           text:
-            'Un día en Burriana o en otra playa cercana crea la transición más sencilla hacia una cena junto al mar y una noche relajada.',
-          linkToken: 'frigiliana_beaches_authority',
-          linkLabel: 'Ver la guía de playas'
+            'Un almuerzo junto al mar y una cena en el casco antiguo llevan a noches diferentes. Si queréis seguir hasta más tarde, los bares del centro son el mejor punto de partida.',
+          linkToken: 'nerja_food_authority',
+          linkLabel: 'Encontrar el ambiente de cena que encaja con la noche'
         },
         {
-          title: 'Caminar antes de salir',
+          title: 'Dejar abierto otro día en Nerja',
           text:
-            'Un paseo tranquilo por la montaña, el pueblo o la costa mejora todavía más la cena y las copas en Nerja, siempre que dejéis tiempo para descansar y cambiaros.',
-          linkToken: 'frigiliana_hiking_authority',
-          linkLabel: 'Ver la guía de senderismo'
+            'Si no os apetece alargar la noche, las playas, las cuevas, el Balcón, Verano Azul y las excursiones dan otro ritmo a la estancia.',
+          linkToken: 'nerja_experience_hub',
+          linkLabel: 'Vivir Nerja entre costa, cuevas, cultura y noches'
         }
       ]
     },
@@ -1408,23 +1408,23 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     combine: {
-      title: 'Combineer jullie avond met de rest van het verblijf',
+      title: 'Een avond die uit de dag voortkomt',
       intro:
-        'De beste avonden in Nerja werken vaak omdat de dag ervoor klopte. Een strandmiddag of rustige wandeling laat diner en drankjes daarna vanzelf ontstaan.',
+        'Een diner in Nerja loopt gemakkelijk door naar een terras en later naar de bars. Past dat niet bij jullie avond, dan biedt de plaats andere ritmes voor de dag.',
       items: [
         {
-          title: 'Begin op het strand',
+          title: 'Van het diner de avond in',
           text:
-            'Een dag in Burriana of op een ander nabijgelegen strand geeft de eenvoudigste overgang naar een diner aan zee en een ontspannen avond.',
-          linkToken: 'frigiliana_beaches_authority',
-          linkLabel: 'Bekijk de strandgids'
+            'Lunch aan zee en diner in de oude stad leiden tot verschillende avonden. Willen jullie later doorgaan, dan vormen de centrale bars het betere vertrekpunt.',
+          linkToken: 'nerja_food_authority',
+          linkLabel: 'Vind de dineromgeving die bij de avond past'
         },
         {
-          title: 'Wandel voor de avond',
+          title: 'Houd een andere Nerja-dag open',
           text:
-            'Een rustige berg-, dorps- of kustwandeling maakt diner en drankjes in Nerja nog prettiger, zolang jullie genoeg tijd laten om op te frissen.',
-          linkToken: 'frigiliana_hiking_authority',
-          linkLabel: 'Bekijk de wandelgids'
+            'Als een late avond niet het plan is, geven stranden, grotten, het Balcón, Verano Azul en dagtochten het verblijf een ander ritme.',
+          linkToken: 'nerja_experience_hub',
+          linkLabel: 'Beleef Nerja via kust, grotten, cultuur en avonden'
         }
       ]
     },
@@ -1719,23 +1719,23 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     combine: {
-      title: 'Kombinera kvällen med resten av vistelsen',
+      title: 'En kväll som växer fram ur dagen',
       intro:
-        'De bästa kvällarna i Nerja fungerar ofta för att dagen före hade rätt rytm. En eftermiddag vid stranden eller en lugn promenad gör middag och drinkar mer naturliga.',
+        'En middag i Nerja kan enkelt fortsätta på en terrass och senare bland barerna. Om det inte är er sorts kväll finns flera andra rytmer för dagen.',
       items: [
         {
-          title: 'Börja vid stranden',
+          title: 'Från middagen vidare in i kvällen',
           text:
-            'En dag i Burriana eller vid en annan strand i närheten ger den enklaste övergången till middag vid havet och en avkopplad kväll.',
-          linkToken: 'frigiliana_beaches_authority',
-          linkLabel: 'Se strandguiden'
+            'Lunch vid havet och middag i gamla stan leder till olika sorters kvällar. Om ni vill fortsätta senare är barerna i centrum den bättre startpunkten.',
+          linkToken: 'nerja_food_authority',
+          linkLabel: 'Hitta middagsmiljön som passar kvällen'
         },
         {
-          title: 'Promenera före kvällen',
+          title: 'Lämna plats för en annan Nerja-dag',
           text:
-            'En lugn bergs-, by- eller kustpromenad gör middag och drinkar i Nerja ännu trevligare, så länge ni lämnar tid att landa och byta om.',
-          linkToken: 'frigiliana_hiking_authority',
-          linkLabel: 'Se vandringsguiden'
+            'Om en sen kväll inte passar ger stränder, grottor, Balcón, Verano Azul och dagsutflykter vistelsen en annan rytm.',
+          linkToken: 'nerja_experience_hub',
+          linkLabel: 'Upplev Nerja genom kust, grottor, kultur och kvällar'
         }
       ]
     },

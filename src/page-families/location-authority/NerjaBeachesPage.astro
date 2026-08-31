@@ -4,7 +4,7 @@ import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import { frigilianaBeachesContent } from '../../content/frigilianaBeachesContent';
+import { getNerjaCoastGuideFacts } from '../../content/sharedExperienceFacts';
 import {
   nerjaBeachesPageContent,
   nerjaBeachesSeo
@@ -22,7 +22,7 @@ interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const shared = frigilianaBeachesContent[currentLang];
+const shared = getNerjaCoastGuideFacts(currentLang);
 const copy = nerjaBeachesPageContent[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja beaches');
 
@@ -63,8 +63,8 @@ const heroImage = {
     />
 
     <BeachSectionList
-      sections={shared.beachSections}
-      labels={shared.beachCardLabels}
+      sections={shared.sections}
+      labels={shared.cardLabels}
       emphasizeText
     />
 

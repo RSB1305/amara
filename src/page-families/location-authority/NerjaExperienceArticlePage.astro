@@ -123,7 +123,7 @@ const footerHighlights: LabeledLink[] = isCaves
 
     <AuthorityRelatedLinks
       related={content.related}
-      columns="md:grid-cols-2"
+      columns={isCaves ? 'md:grid-cols-3' : 'md:grid-cols-2'}
       resolveHref={requiredLink}
     />
   </AuthorityArticle>

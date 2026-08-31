@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.47.1
+version: 1.48.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-30T17:05:00+02:00
+last_modified: 2026-08-31T18:18:00+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -21,12 +21,12 @@ The AMARA Register is the single source for active documents, authority classes,
 | Slot | Document owner | Version/status | Class | Canonical/current source |
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
-| 02 | AMARA Astro & Design Architecture Contract | 4.18.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
+| 02 | AMARA Astro & Design Architecture Contract | 4.19.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | 4.4.1 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.46.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.48.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.2.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.7.1 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -136,6 +136,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-DESIGN-015 | `trustFamilyContract.ts` owns the bounded composition profiles for `trust-content`, `guest-reviews` and `comfort-amenities`. `TrustPageLayout` exposes their semantic job, phases and intro/evidence alignment, and `TrustFamilyClosing` delegates the shared subtle next action to the canonical editorial and page-end owners. Family evidence remains philosophy/people, sourced guest proof or functional comfort detail; the contract is not a page builder and cannot create a second conversion funnel. | ACTIVE |
 | DR-DESIGN-016 | `authorityFamilyContract.ts` owns the bounded composition groups for every registered Authority family and emits their direct-answer, information/evidence, functional-media and restrained-close alignment through `BaseLayout`. Practical, destination, FAQ and documentary jobs remain distinct; the contract neither infers families nor becomes a universal renderer, and documentary Authority requires no media or next action. | ACTIVE |
 | DR-DESIGN-017 | `conversionFamilyContract.ts` owns the bounded composition groups for all seven registered Conversion families and emits their semantic phases, intro/decision/evidence/action alignment, permitted close and funnel protection through `BaseLayout`. Stay Discovery and Stay Decision remain family-owned without a second terminal funnel; Direct Booking and Specialist Enquiry remain page-end-owned with exactly one terminal close. Existing search, calendar, quote, enquiry and provider-owned checkout owners remain unchanged. | ACTIVE |
+| DR-DESIGN-018 | A horizontal outer-section divider is a full-width boundary between adjacent equal surfaces, never an inset decoration. Decorative partial-width horizontal rules are retired inside prose, pull quotes, bylines and provenance blocks. Structural borders inside lists, tables, controls and media frames remain owned by the component whose information job requires them. `global.css`, `AmaraSection` and production components are the executable owners. | ACTIVE |
 
 ### Content/localization
 
@@ -191,6 +192,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-08-31T18:18:00+02:00 | Horizontal boundary standard | Closed the repeatedly reported partial-divider failure rather than patching another page: equal-surface section boundaries now span the full owning surface without left/right gutter gaps, and the shared editorial byline no longer draws a decorative partial-width rule. The existing browser contract now rejects inset outer dividers and byline rules. Astro & Design Contract 4.19.0, Register 1.48.0; operative rule added to `AGENTS.md`. | DR-DESIGN-002, DR-DESIGN-005, DR-DESIGN-008, DR-DESIGN-018 | this revision |
 | 2026-08-30T17:05:00+02:00 | Handoff chain, return direction | Widened the fourth element of TR-CONTENT-009 after the first return handoff exposed it: a link from a stay page to an information page is answered by the fact the destination carries, not by a property fact. Wording only; the rule, its exclusions and its evidence limits are unchanged. Content Playbook 1.8.1, Register 1.47.1. | TR-CONTENT-009 | this revision |
 | 2026-08-30T16:30:00+02:00 | Evidence-carrying handoffs | Required every public cross-page link to carry the chain that justifies it — condition, stay consequence, guest criterion and the verified AMARA fact — after the weather pages were found handing off to winter stays with a topical label and an instruction to consult the guide. Closed the structural cause of destination-specific copy rendering on the wrong destination in the same pass, by moving shared closing, provenance and handoff copy into destination-indexed authoring. Content Playbook 1.8.0, Register 1.47.0; operative summary added to `AGENTS.md`. | TR-CONTENT-009, TR-CONTENT-008, TR-CONTENT-002, DR-EVIDENCE-001 | this revision |
 | 2026-08-29T22:20:00+02:00 | CSP image origin correction | Added YouTube's image host to the CSP image origins after a preview check against the real origins found the click-to-load trailer still being blocked. The still is served from a different origin than the player, so `frame-src` alone did not cover it. Runtime Standard 4.4.1, Register 1.46.0. | DR-SEC-001 | this revision |
@@ -323,3 +325,6 @@ Separate controlled workstreams remain for:
 | 1.44.0 | 2026-08-29T06:45:33+02:00 | Registered Governance 5.8.0 and made remote branch plus pull request the mandatory Codex Cloud implementation handoff, replacing manual artifact transfer. | this revision |
 | 1.45.0 | 2026-08-29T07:01:07+02:00 | Registered Runtime Standard 4.4.0 and promoted the validated Cloudflare Pages CSP from report-only observation to enforcement. | this revision |
 | 1.46.0 | 2026-08-29T22:20:00+02:00 | Registered Runtime Standard 4.4.1 and added YouTube's image host to the enforced CSP image origins. | this revision |
+| 1.47.0 | 2026-08-30T16:30:00+02:00 | Activated evidence-carrying public handoffs and corrected destination-indexed shared authoring. | this revision |
+| 1.47.1 | 2026-08-30T17:05:00+02:00 | Clarified the return-direction fact owner in the evidence-carrying handoff chain. | this revision |
+| 1.48.0 | 2026-08-31T18:18:00+02:00 | Activated the full-width horizontal boundary standard, retired decorative partial-width editorial rules and added representative browser enforcement. | this revision |

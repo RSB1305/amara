@@ -190,3 +190,93 @@ export const nerjaFoodPageContent: Record<AmaraLanguage, NerjaExperienceAddition
     closing: { title: 'Ät gott och promenera sedan tillbaka mot havet.', lead: 'Från AMARA Playa ligger centrum, Torrecilla och gamla stans restauranggator nära nog för en enkel kväll.', propertyLabel: 'Se AMARA Playa', hubLabel: 'Alla upplevelser i Nerja' }
   }
 };
+
+type DayTripDestinationId = 'malaga' | 'granada' | 'caminito' | 'ronda';
+
+interface NerjaDayTripOriginContext {
+  driveTimes: Record<DayTripDestinationId, string>;
+  malagaSummary: string;
+  rondaDetails: string;
+  returnText: string;
+}
+
+/**
+ * Only the consequences of starting and ending the day in Nerja live here.
+ * Destination identity, venue facts, ticket cautions and visit advice remain
+ * shared with the Frigiliana guide.
+ */
+export const nerjaDayTripOriginContext: Record<
+  AmaraLanguage,
+  NerjaDayTripOriginContext
+> = {
+  en: {
+    driveTimes: {
+      malaga: 'About 45–60 minutes via the A-7, depending on traffic',
+      granada: 'About 1 hour 10 minutes to 1 hour 30 minutes inland, depending on traffic',
+      caminito: 'About 1 hour 30 minutes to 1 hour 45 minutes, depending on route and traffic',
+      ronda: 'About 2 hours 15–30 minutes each way, depending on route and traffic'
+    },
+    malagaSummary:
+      'Málaga is the easiest cultural day trip from Nerja: a walkable historic centre, museums, excellent food and a modern port atmosphere. It is the most flexible choice when you want a rewarding day without a rigid schedule.',
+    rondaDetails:
+      'Leave Nerja early, explore the old and new sides of the gorge on foot and take time for a relaxed lunch. The longer coastal return makes daylight and a generous time margin more important than adding another stop.',
+    returnText:
+      'Leave margin for traffic, parking and an unhurried meal. Returning to Nerja before late evening keeps the arrival at the coast easy after a long day inland.'
+  },
+  de: {
+    driveTimes: {
+      malaga: 'Etwa 45–60 Minuten über die A-7, je nach Verkehr',
+      granada: 'Etwa 1 Stunde 10 Minuten bis 1 Stunde 30 Minuten ins Landesinnere',
+      caminito: 'Etwa 1 Stunde 30 Minuten bis 1 Stunde 45 Minuten, je nach Route und Verkehr',
+      ronda: 'Etwa 2 Stunden 15–30 Minuten pro Strecke, je nach Route und Verkehr'
+    },
+    malagaSummary:
+      'Málaga ist der unkomplizierteste kulturelle Tagesausflug ab Nerja: eine gut begehbare Altstadt, Museen, hervorragendes Essen und moderne Hafenatmosphäre. Die Stadt eignet sich besonders, wenn ihr einen lohnenden Tag ohne starren Zeitplan möchtet.',
+    rondaDetails:
+      'Fahrt früh in Nerja los, erkundet die alte und die neue Seite der Schlucht zu Fuß und nehmt euch Zeit für ein ruhiges Mittagessen. Wegen der längeren Rückfahrt an die Küste sind Tageslicht und ein großzügiger Puffer wichtiger als ein zusätzlicher Stopp.',
+    returnText:
+      'Lasst Puffer für Verkehr, Parkplatzsuche und ein entspanntes Essen. Wenn ihr vor dem späten Abend nach Nerja zurückkehrt, bleibt auch die Ankunft an der Küste nach einem langen Tag im Landesinneren einfach.'
+  },
+  es: {
+    driveTimes: {
+      malaga: 'Unos 45–60 minutos por la A-7, según el tráfico',
+      granada: 'Entre 1 hora y 10 minutos y 1 hora y 30 minutos hacia el interior',
+      caminito: 'Entre 1 hora y 30 minutos y 1 hora y 45 minutos, según la ruta',
+      ronda: 'Entre 2 horas y 15 minutos y 2 horas y 30 minutos por sentido'
+    },
+    malagaSummary:
+      'Málaga es la excursión cultural más sencilla desde Nerja: un centro histórico cómodo para recorrer a pie, museos, muy buena gastronomía y un puerto contemporáneo. Es la opción más flexible si queréis un día completo sin un horario rígido.',
+    rondaDetails:
+      'Salid temprano de Nerja, recorred a pie los dos lados del desfiladero y reservad tiempo para una comida tranquila. El regreso más largo hacia la costa hace que la luz del día y un margen amplio importen más que añadir otra parada.',
+    returnText:
+      'Dejad margen para el tráfico, el aparcamiento y una comida tranquila. Volver a Nerja antes de que sea demasiado tarde facilita la llegada a la costa después de una jornada larga en el interior.'
+  },
+  nl: {
+    driveTimes: {
+      malaga: 'Ongeveer 45–60 minuten via de A-7, afhankelijk van verkeer',
+      granada: 'Ongeveer 1 uur en 10 minuten tot 1 uur en 30 minuten landinwaarts',
+      caminito: 'Ongeveer 1 uur en 30 minuten tot 1 uur en 45 minuten, afhankelijk van route en verkeer',
+      ronda: 'Ongeveer 2 uur en 15–30 minuten per enkele reis'
+    },
+    malagaSummary:
+      'Málaga is de eenvoudigste culturele dagtocht vanuit Nerja: een beloopbaar historisch centrum, musea, uitstekend eten en een moderne havensfeer. Het is de meest flexibele keuze voor een boeiende dag zonder strak tijdschema.',
+    rondaDetails:
+      'Vertrek vroeg uit Nerja, verken beide kanten van de kloof te voet en neem tijd voor een ontspannen lunch. Door de langere terugrit naar de kust zijn daglicht en een ruime tijdsmarge belangrijker dan nog een extra stop.',
+    returnText:
+      'Houd marge voor verkeer, parkeren en een ontspannen maaltijd. Als jullie vóór de late avond in Nerja terug zijn, blijft de aankomst aan zee eenvoudig na een lange dag landinwaarts.'
+  },
+  sv: {
+    driveTimes: {
+      malaga: 'Cirka 45–60 minuter via A-7, beroende på trafik',
+      granada: 'Cirka 1 timme och 10 minuter till 1 timme och 30 minuter inåt landet',
+      caminito: 'Cirka 1 timme och 30 minuter till 1 timme och 45 minuter, beroende på väg och trafik',
+      ronda: 'Cirka 2 timmar och 15–30 minuter per riktning'
+    },
+    malagaSummary:
+      'Málaga är den enklaste kulturella dagsutflykten från Nerja: en promenadvänlig gammal stad, museer, utmärkt mat och en modern hamnmiljö. Det är det mest flexibla valet när ni vill ha en givande dag utan ett strikt schema.',
+    rondaDetails:
+      'Lämna Nerja tidigt, utforska båda sidorna av ravinen till fots och ta tid för en lugn lunch. Den längre återresan till kusten gör dagsljus och god tidsmarginal viktigare än ytterligare ett stopp.',
+    returnText:
+      'Lämna marginal för trafik, parkering och en avspänd måltid. Om ni återvänder till Nerja före sen kväll blir ankomsten till kusten enkel även efter en lång dag inåt landet.'
+  }
+};

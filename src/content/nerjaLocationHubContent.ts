@@ -12,6 +12,7 @@ interface NerjaLocationHubFeature {
   title: string;
   paragraphs: string[];
   link?: NerjaLocationHubLink;
+  links?: NerjaLocationHubLink[];
 }
 
 interface NerjaLocationHubLocale {
@@ -20,6 +21,7 @@ interface NerjaLocationHubLocale {
     title: string;
     subtitle?: string;
     standfirst: string;
+    imageAlt?: string;
     note: string;
     updated: string;
   };
@@ -677,10 +679,11 @@ const nerjaLocationPeopleFirstCopy = {
   en: {
     hero: {
       eyebrow: 'Nerja at a glance',
-      title: 'Nerja and our apartment near the beach',
-      subtitle: '200 metres to Torrecilla, the old town on foot',
-      standfirst: 'Nerja is compact, but the exact area still changes the holiday. Around Torrecilla and the old town, beaches, restaurants and everyday errands are close enough for many car-free days. Burriana has a stronger beach-resort feel, while the streets farther uphill bring more slopes into every route. AMARA Playa sits between Torrecilla and the centre: about 200 metres from the beach and about 500 metres from the Balcón de Europa, without private parking.',
-      note: 'Our honest guide to the part of Nerja we know as guests and hosts.',
+      title: 'Nerja as a place to stay: beaches, old town and distinct areas',
+      subtitle: 'A compact coastal town whose slopes and neighbourhoods still change the stay',
+      standfirst: 'Nerja works well as a holiday base when you want beaches, an old town, restaurants and everyday services close enough for many days on foot. The exact area still matters: Torrecilla and the centre support a compact routine, Burriana has its own beach focus, and upper Nerja brings more slopes into every journey. It suits couples who want the sea and town life together; it is less natural for a stay built around rural seclusion or effortless parking at the door.',
+      imageAlt: 'Nerja on the Mediterranean coast with the town rising inland',
+      note: 'Our honest guide to Nerja as a holiday base, written from local guest and host experience.',
       updated: 'Reviewed August 2026'
     },
     orientation: {
@@ -696,19 +699,38 @@ const nerjaLocationPeopleFirstCopy = {
       title: 'What changes when you stay in another part of Nerja',
       paragraphs: ['There is no single best area. The practical difference is whether you want the old town, a particular beach, quiet or easier parking closest to the door.']
     },
+    amara: {
+      eyebrow: 'AMARA Playa in this setting',
+      title: 'A central coastal base, with access and parking limits to know'
+    },
+    seasons: {
+      eyebrow: 'Seasons & longer stays',
+      title: 'Heat, quieter months and ordinary weeks change the daily rhythm',
+      paragraphs: [
+        'Hot days make early movement, shade and a flexible beach choice more important. In quieter or wetter periods, time indoors and the services that remain part of an ordinary week carry more weight.',
+        'When a stay lasts several weeks, groceries, pharmacies, repeated walks, cooking, laundry and the balance between car-free days and regional outings matter more than a sightseeing list.'
+      ],
+      link: { label: 'Check the seasonal conditions for your dates', token: 'nerja_weather' }
+    },
     experience: {
-      eyebrow: 'What we enjoy here',
-      title: 'A swim before breakfast, the old town after dinner',
-      paragraphs: ['From AMARA Playa, the short distances make simple days especially good. Torrecilla is close enough for a quick second swim, and the walk to the Balcón can become an ordinary evening rather than an excursion.']
+      eyebrow: 'Days that belong to Nerja',
+      title: 'Let the coast and old town shape the day before travelling farther',
+      paragraphs: ['Nerja is strongest when the beach, the streets above it and the evening can belong to one unhurried day. Choose the exact beach by access and conditions, use the Balcón and old town when you want the centre, and give Maro, the caves or a longer inland outing a different day.'],
+      links: [
+        { label: 'Compare access, steps and facilities before choosing a beach', token: 'nerja_beaches_authority' },
+        { label: 'Continue from a central swim through the Balcón and old town', token: 'nerja_balcon_de_europa' },
+        { label: 'See every published Nerja experience', token: 'nerja_experience_hub' }
+      ]
     }
   },
   de: {
     hero: {
       eyebrow: 'Nerja im Überblick',
-      title: 'Nerja und unser Apartment nah am Strand',
-      subtitle: '200 Meter bis Torrecilla, die Altstadt zu Fuß',
-      standfirst: 'Nerja ist kompakt, trotzdem macht die genaue Lage einen großen Unterschied. Rund um Torrecilla und die Altstadt liegen Strand, Restaurants und Einkäufe nah genug für viele Tage ohne Auto. Burriana fühlt sich stärker wie ein eigener Strandort an; weiter oben gehören Steigungen zu fast jedem Weg. AMARA Playa liegt zwischen Torrecilla und Zentrum: etwa 200 Meter vom Strand und ungefähr 500 Meter vom Balcón de Europa entfernt – ohne privaten Parkplatz.',
-      note: 'Unser ehrlicher Blick auf den Teil Nerjas, den wir als Gäste und Gastgeber kennen.',
+      title: 'Nerja als Aufenthaltsort: Strände, Altstadt und unterschiedliche Lagen',
+      subtitle: 'Ein kompakter Küstenort, in dem Steigungen und Wohnlage den Aufenthalt prägen',
+      standfirst: 'Nerja funktioniert gut als Urlaubsbasis, wenn ihr Strände, Altstadt, Restaurants und Versorgung an vielen Tagen zu Fuß verbinden möchtet. Die genaue Lage bleibt wichtig: Torrecilla und Zentrum ermöglichen einen kompakten Alltag, Burriana bildet einen eigenen Strandmittelpunkt, und im oberen Nerja gehören mehr Steigungen zu den täglichen Wegen. Der Ort passt zu Paaren, die Meer und Stadtleben nah beieinander suchen; für ländliche Abgeschiedenheit oder bequemes Parken direkt vor der Tür ist er weniger selbstverständlich.',
+      imageAlt: 'Nerja an der Mittelmeerküste mit dem landeinwärts ansteigenden Ort',
+      note: 'Unser ehrlicher Gastgeberblick auf Nerja als Urlaubsbasis.',
       updated: 'Geprüft im August 2026'
     },
     orientation: {
@@ -724,19 +746,38 @@ const nerjaLocationPeopleFirstCopy = {
       title: 'Was sich ändert, wenn ihr in einem anderen Teil Nerjas wohnt',
       paragraphs: ['Die eine beste Lage gibt es nicht. Entscheidend ist, ob ihr Altstadt, einen bestimmten Strand, mehr Ruhe oder leichteres Parken direkt vor der Tür haben möchtet.']
     },
+    amara: {
+      eyebrow: 'AMARA Playa in dieser Lage',
+      title: 'Eine zentrale Küstenbasis – mit ehrlichen Grenzen bei Zugang und Parken'
+    },
+    seasons: {
+      eyebrow: 'Jahreszeiten & längere Aufenthalte',
+      title: 'Hitze, ruhigere Monate und normale Wochen verändern den Tagesrhythmus',
+      paragraphs: [
+        'An heißen Tagen werden frühe Wege, Schatten und eine flexible Strandwahl wichtiger. In ruhigeren oder nasseren Zeiten zählen auch Stunden in der Unterkunft und die Angebote, die eine normale Woche tragen.',
+        'Dauert der Aufenthalt mehrere Wochen, werden Einkäufe, Apotheken, wiederkehrende Wege, Kochen, Wäsche und die Balance zwischen autofreien Tagen und regionalen Ausflügen wichtiger als eine Sehenswürdigkeitenliste.'
+      ],
+      link: { label: 'Die saisonalen Bedingungen für eure Reisedaten prüfen', token: 'nerja_weather' }
+    },
     experience: {
-      eyebrow: 'Was wir hier mögen',
-      title: 'Vor dem Frühstück ins Meer, nach dem Essen durch die Altstadt',
-      paragraphs: ['Von AMARA Playa machen die kurzen Wege gerade die einfachen Tage schön. Torrecilla ist nah genug für ein zweites Bad, und der Weg zum Balcón wird am Abend schnell zur normalen Runde statt zum Ausflug.']
+      eyebrow: 'Tage, die zu Nerja gehören',
+      title: 'Lasst zuerst Küste und Altstadt den Tag bestimmen',
+      paragraphs: ['Nerja ist besonders stark, wenn Strand, die Gassen darüber und der Abend zu einem ruhigen Tag gehören. Wählt den konkreten Strand nach Zugang und Bedingungen, nehmt Balcón und Altstadt für einen zentralen Tag und gebt Maro, den Höhlen oder einem längeren Ausflug ins Landesinnere einen anderen Tag.'],
+      links: [
+        { label: 'Zugang, Treppen und Ausstattung vor der Strandwahl vergleichen', token: 'nerja_beaches_authority' },
+        { label: 'Von einem zentralen Bad durch Balcón und Altstadt weitergehen', token: 'nerja_balcon_de_europa' },
+        { label: 'Alle veröffentlichten Nerja-Erlebnisse ansehen', token: 'nerja_experience_hub' }
+      ]
     }
   },
   es: {
     hero: {
       eyebrow: 'Nerja de un vistazo',
-      title: 'Nerja y nuestro apartamento cerca de la playa',
-      subtitle: '200 metros hasta Torrecilla, el casco antiguo a pie',
-      standfirst: 'Nerja es compacta, pero la zona concreta cambia mucho la estancia. Alrededor de Torrecilla y el casco antiguo, las playas, los restaurantes y las compras quedan lo bastante cerca para pasar muchos días sin coche. Burriana tiene más ambiente de núcleo de playa, mientras que en la parte alta las cuestas forman parte de casi todos los trayectos. AMARA Playa está entre Torrecilla y el centro: a unos 200 metros de la playa y 500 del Balcón de Europa, sin aparcamiento privado.',
-      note: 'Nuestra mirada sincera a la parte de Nerja que conocemos como huéspedes y anfitriones.',
+      title: 'Nerja como lugar de estancia: playas, casco antiguo y zonas distintas',
+      subtitle: 'Un pueblo costero compacto donde las cuestas y la zona cambian la estancia',
+      standfirst: 'Nerja funciona bien como base de vacaciones cuando queréis combinar playas, casco antiguo, restaurantes y servicios cotidianos a pie durante muchos días. La zona concreta sigue importando: Torrecilla y el centro facilitan una rutina compacta, Burriana tiene su propio núcleo de playa y la parte alta incorpora más cuestas a cada recorrido. Encaja con parejas que buscan mar y vida urbana juntos; resulta menos natural para quien prioriza aislamiento rural o aparcar sin esfuerzo delante de la puerta.',
+      imageAlt: 'Nerja en la costa mediterránea con el pueblo ascendiendo hacia el interior',
+      note: 'Nuestra mirada sincera de anfitriones a Nerja como base de vacaciones.',
       updated: 'Revisado en agosto de 2026'
     },
     orientation: {
@@ -752,19 +793,38 @@ const nerjaLocationPeopleFirstCopy = {
       title: 'Qué cambia al alojarse en otra parte de Nerja',
       paragraphs: ['No hay una única zona mejor. La diferencia práctica es tener más cerca el casco antiguo, una playa concreta, la tranquilidad o un aparcamiento más sencillo.']
     },
+    amara: {
+      eyebrow: 'AMARA Playa dentro de Nerja',
+      title: 'Una base céntrica junto a la costa, con límites claros de acceso y aparcamiento'
+    },
+    seasons: {
+      eyebrow: 'Temporadas y estancias largas',
+      title: 'El calor, los meses tranquilos y las semanas normales cambian el ritmo',
+      paragraphs: [
+        'En días calurosos importan más salir temprano, encontrar sombra y mantener flexible la elección de playa. En épocas tranquilas o lluviosas ganan peso las horas dentro del alojamiento y los servicios que sostienen una semana corriente.',
+        'Cuando la estancia dura varias semanas, la compra, las farmacias, los recorridos repetidos, cocinar, lavar la ropa y alternar días sin coche con excursiones importan más que una lista de visitas.'
+      ],
+      link: { label: 'Comprobar las condiciones estacionales para vuestras fechas', token: 'nerja_weather' }
+    },
     experience: {
-      eyebrow: 'Lo que nos gusta de aquí',
-      title: 'Un baño antes del desayuno, el casco antiguo después de cenar',
-      paragraphs: ['Desde AMARA Playa, las distancias cortas hacen especialmente agradables los días sencillos. Torrecilla está cerca para repetir baño y el paseo hasta el Balcón puede formar parte de cualquier tarde.']
+      eyebrow: 'Días propios de Nerja',
+      title: 'Dejad que la costa y el casco antiguo marquen primero el día',
+      paragraphs: ['Nerja funciona especialmente bien cuando la playa, las calles que quedan encima y la noche forman una jornada sin prisas. Elegid la playa concreta por acceso y condiciones, usad el Balcón y el casco antiguo para un día céntrico y reservad otra jornada para Maro, las cuevas o una excursión más larga al interior.'],
+      links: [
+        { label: 'Comparar acceso, escaleras y servicios antes de elegir playa', token: 'nerja_beaches_authority' },
+        { label: 'Seguir desde un baño céntrico por el Balcón y el casco antiguo', token: 'nerja_balcon_de_europa' },
+        { label: 'Ver todas las experiencias publicadas de Nerja', token: 'nerja_experience_hub' }
+      ]
     }
   },
   nl: {
     hero: {
       eyebrow: 'Nerja in het kort',
-      title: 'Nerja en ons appartement dicht bij het strand',
-      subtitle: '200 meter naar Torrecilla, de oude kern te voet',
-      standfirst: 'Nerja is compact, maar de precieze buurt maakt veel verschil. Rond Torrecilla en de oude stad liggen stranden, restaurants en winkels dichtbij genoeg voor veel autovrije dagen. Burriana voelt meer als een eigen badplaats, terwijl in hoger gelegen straten bijna elke route een helling heeft. AMARA Playa ligt tussen Torrecilla en het centrum: ongeveer 200 meter van het strand en 500 meter van het Balcón de Europa, zonder eigen parkeerplaats.',
-      note: 'Onze eerlijke kijk op het deel van Nerja dat we als gasten en hosts kennen.',
+      title: 'Nerja als verblijfplaats: stranden, oude stad en verschillende buurten',
+      subtitle: 'Een compacte kustplaats waar hellingen en buurt het verblijf veranderen',
+      standfirst: 'Nerja werkt goed als vakantiebasis wanneer jullie stranden, oude stad, restaurants en dagelijkse voorzieningen vaak te voet willen combineren. De precieze buurt blijft belangrijk: Torrecilla en het centrum ondersteunen een compact dagritme, Burriana heeft een eigen strandkern en hoger in Nerja worden hellingen deel van meer routes. De plaats past bij stellen die zee en stadsleven dichtbij willen; voor landelijke afzondering of moeiteloos parkeren voor de deur is Nerja minder vanzelfsprekend.',
+      imageAlt: 'Nerja aan de Middellandse Zeekust met de stad die landinwaarts omhoogloopt',
+      note: 'Onze eerlijke blik als hosts op Nerja als vakantiebasis.',
       updated: 'Gecontroleerd in augustus 2026'
     },
     orientation: {
@@ -780,19 +840,38 @@ const nerjaLocationPeopleFirstCopy = {
       title: 'Wat verandert als je in een ander deel van Nerja verblijft',
       paragraphs: ['Er is niet één beste buurt. Het praktische verschil is of je de oude stad, een bepaald strand, rust of makkelijker parkeren het liefst voor de deur hebt.']
     },
+    amara: {
+      eyebrow: 'AMARA Playa binnen Nerja',
+      title: 'Een centrale kustbasis, met duidelijke grenzen voor toegang en parkeren'
+    },
+    seasons: {
+      eyebrow: 'Seizoenen & langere verblijven',
+      title: 'Hitte, rustige maanden en gewone weken veranderen het dagritme',
+      paragraphs: [
+        'Op hete dagen worden vroeg op pad gaan, schaduw en een flexibele strandkeuze belangrijker. In rustige of nattere periodes tellen ook de uren binnen en de voorzieningen voor een gewone week zwaarder mee.',
+        'Duurt het verblijf meerdere weken, dan zijn boodschappen, apotheken, terugkerende wandelingen, koken, wassen en de balans tussen autovrije dagen en regionale uitstapjes belangrijker dan een lijst bezienswaardigheden.'
+      ],
+      link: { label: 'Bekijk de seizoensomstandigheden voor jullie reisdata', token: 'nerja_weather' }
+    },
     experience: {
-      eyebrow: 'Wat wij hier graag doen',
-      title: 'Zwemmen voor het ontbijt, de oude stad in na het eten',
-      paragraphs: ['Vanaf AMARA Playa maken de korte afstanden juist eenvoudige dagen fijn. Torrecilla is dichtbij genoeg voor een tweede duik en de wandeling naar het Balcón wordt vanzelf een gewone avondronde.']
+      eyebrow: 'Dagen die bij Nerja horen',
+      title: 'Laat eerst de kust en de oude stad de dag bepalen',
+      paragraphs: ['Nerja is op zijn sterkst wanneer strand, de straten erboven en de avond samen één rustige dag vormen. Kies het precieze strand op toegang en omstandigheden, gebruik het Balcón en de oude stad voor een centrale dag en geef Maro, de grotten of een langere tocht landinwaarts een andere dag.'],
+      links: [
+        { label: 'Vergelijk toegang, trappen en voorzieningen voordat jullie een strand kiezen', token: 'nerja_beaches_authority' },
+        { label: 'Ga na een centrale duik verder via het Balcón en de oude stad', token: 'nerja_balcon_de_europa' },
+        { label: 'Bekijk alle gepubliceerde ervaringen in Nerja', token: 'nerja_experience_hub' }
+      ]
     }
   },
   sv: {
     hero: {
       eyebrow: 'Nerja i korthet',
-      title: 'Nerja och vår lägenhet nära stranden',
-      subtitle: '200 meter till Torrecilla, gamla stan till fots',
-      standfirst: 'Nerja är kompakt, men det exakta området påverkar vistelsen mycket. Runt Torrecilla och gamla stan ligger stränder, restauranger och vardagsärenden nära nog för många bilfria dagar. Burriana känns mer som ett eget strandområde, medan gatorna högre upp gör backar till en del av nästan varje väg. AMARA Playa ligger mellan Torrecilla och centrum: cirka 200 meter från stranden och 500 meter från Balcón de Europa, utan privat parkering.',
-      note: 'Vår ärliga bild av den del av Nerja som vi känner som gäster och värdar.',
+      title: 'Nerja som bas: stränder, gamla stan och områden med olika rytm',
+      subtitle: 'En kompakt kuststad där backar och område ändå förändrar vistelsen',
+      standfirst: 'Nerja fungerar bra som semesterbas när ni vill förena stränder, gamla stan, restauranger och vardagsservice till fots under många dagar. Det exakta området spelar fortfarande roll: Torrecilla och centrum ger en kompakt vardag, Burriana har ett eget strandcentrum och högre upp blir backar en större del av varje väg. Orten passar par som vill ha hav och stadsliv nära varandra; den är mindre självklar för lantlig avskildhet eller enkel parkering precis utanför dörren.',
+      imageAlt: 'Nerja vid Medelhavskusten med staden som stiger inåt land',
+      note: 'Vår ärliga värdblick på Nerja som semesterbas.',
       updated: 'Granskad i augusti 2026'
     },
     orientation: {
@@ -808,17 +887,37 @@ const nerjaLocationPeopleFirstCopy = {
       title: 'Det här ändras när ni bor i en annan del av Nerja',
       paragraphs: ['Det finns inte ett enda bästa område. Den praktiska skillnaden är om ni vill ha gamla stan, en viss strand, mer lugn eller enklare parkering närmast dörren.']
     },
+    amara: {
+      eyebrow: 'AMARA Playa i Nerja',
+      title: 'En central bas vid kusten, med tydliga gränser för tillgång och parkering'
+    },
+    seasons: {
+      eyebrow: 'Årstider & längre vistelser',
+      title: 'Värme, lugnare månader och vanliga veckor ändrar dagsrytmen',
+      paragraphs: [
+        'Under heta dagar blir tidiga aktiviteter, skugga och ett flexibelt strandval viktigare. Under lugnare eller blötare perioder väger även tiden inomhus och servicen som bär en vanlig vecka tyngre.',
+        'När vistelsen varar flera veckor blir matinköp, apotek, återkommande promenader, matlagning, tvätt och balansen mellan bilfria dagar och utflykter viktigare än en lista över sevärdheter.'
+      ],
+      link: { label: 'Kontrollera årstidsförhållandena för era datum', token: 'nerja_weather' }
+    },
     experience: {
-      eyebrow: 'Det vi tycker om här',
-      title: 'Ett dopp före frukost, gamla stan efter middagen',
-      paragraphs: ['Från AMARA Playa gör de korta avstånden enkla dagar särskilt fina. Torrecilla är nära nog för ett andra dopp och promenaden till Balcón blir lätt en vanlig kvällsrunda.']
+      eyebrow: 'Dagar som hör till Nerja',
+      title: 'Låt först kusten och gamla stan forma dagen',
+      paragraphs: ['Nerja är som bäst när stranden, gatorna ovanför och kvällen ryms i en lugn dag. Välj den konkreta stranden efter tillgång och förhållanden, använd Balcón och gamla stan för en central dag och ge Maro, grottorna eller en längre utflykt inåt land en annan dag.'],
+      links: [
+        { label: 'Jämför tillgång, trappor och service innan ni väljer strand', token: 'nerja_beaches_authority' },
+        { label: 'Fortsätt från ett centralt bad genom Balcón och gamla stan', token: 'nerja_balcon_de_europa' },
+        { label: 'Se alla publicerade upplevelser i Nerja', token: 'nerja_experience_hub' }
+      ]
     }
   }
 } satisfies Record<AmaraLanguage, {
   hero: NerjaLocationHubLocale['hero'];
   orientation: Pick<NerjaLocationHubLocale['orientation'], 'eyebrow' | 'title' | 'paragraphs'>;
   areas: Pick<NerjaLocationHubLocale['areas'], 'eyebrow' | 'title' | 'paragraphs'>;
-  experience: Pick<NerjaLocationHubLocale['experience'], 'eyebrow' | 'title' | 'paragraphs'>;
+  amara: Pick<NerjaLocationHubLocale['amara'], 'eyebrow' | 'title'>;
+  seasons: NerjaLocationHubLocale['seasons'];
+  experience: Pick<NerjaLocationHubLocale['experience'], 'eyebrow' | 'title' | 'paragraphs' | 'links'>;
 }>;
 
 export function getNerjaLocationHubLocale(lang: AmaraLanguage): NerjaLocationHubLocale {
@@ -829,6 +928,8 @@ export function getNerjaLocationHubLocale(lang: AmaraLanguage): NerjaLocationHub
     hero: copy.hero,
     orientation: { ...base.orientation, ...copy.orientation },
     areas: { ...base.areas, ...copy.areas },
+    amara: { ...base.amara, ...copy.amara },
+    seasons: copy.seasons,
     experience: { ...base.experience, ...copy.experience }
   };
 }

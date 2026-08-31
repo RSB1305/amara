@@ -55,6 +55,7 @@ Classify the change by the owner or contract actually being changed, not by shar
 - AMARA uses one mobile-first responsive design system. The mobile composition is the canonical source layout; larger viewports progressively enhance space, imagery and columns without changing semantic order, dominant job or conversion path.
 - Preserve hierarchy, section rhythm, spacing, typography and component consistency. Do not redesign during cleanup or refactoring unless redesign is the objective.
 - Shared Navigation, Footer, Hero, FAQ, CTA and Layout changes have broad blast radius; keep them minimal and validate representative consumers.
+- Horizontal rules that separate outer page sections span the entire owning surface without a page-gutter inset and render only between equal surfaces. Do not add decorative partial-width rules inside prose, pull quotes, bylines or provenance blocks; structural borders inside lists, tables, controls and media frames remain component-owned.
 - Use existing `linkRegistry.ts` and `routeOwnership.ts` contracts where applicable. Do not invent silent fallbacks, aliases or token behavior.
 - Text size, weight, tracking and case come from the typography roles in `src/styles/global.css`. A typographic arbitrary Tailwind value fails `check:typography-policy` unless it is deliberately recorded in the baseline. A treatment used at more than one call site is a role, not a repeated recipe.
 - Keep Astro simple and client JavaScript minimal unless it provides a concrete user benefit.

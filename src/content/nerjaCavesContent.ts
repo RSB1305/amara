@@ -214,6 +214,11 @@ export const nerjaCavesContent = {
         token: "nerja_weather" as LinkToken,
         label: l("Weather & seasons", "Wetter & Jahreszeiten", "Tiempo y estaciones", "Weer & seizoenen", "Väder & årstider"),
         text: l("The cave holds its own climate — outside, the season decides your day.", "Die Höhle hat ihr eigenes Klima – draußen entscheidet die Jahreszeit über euren Tag.", "La cueva tiene su propio clima; fuera, la estación decide vuestro día.", "De grot heeft haar eigen klimaat; buiten bepaalt het seizoen jullie dag.", "Grottan har sitt eget klimat; utanför avgör årstiden er dag.")
+      },
+      {
+        token: "nerja_experience_hub" as LinkToken,
+        label: l("Choose the rest of your Nerja day", "Den restlichen Nerja-Tag gestalten", "Completar el resto del día en Nerja", "Vul de rest van jullie dag in Nerja in", "Fyll resten av dagen i Nerja"),
+        text: l("The timed cave visit takes only part of the day; beaches, the Balcón, food and Nerja's evening areas give the remaining hours a clear direction.", "Der Besuch mit festem Zeitfenster nimmt nur einen Teil des Tages ein. Strände, Balcón, Essen und Nerjas Abendviertel geben den übrigen Stunden eine klare Richtung.", "La visita con horario ocupa solo una parte del día; las playas, el Balcón, la gastronomía y las zonas nocturnas de Nerja dan forma al resto de las horas.", "Het grotbezoek met tijdslot neemt maar een deel van de dag in; stranden, het Balcón, eten en de avondbuurten van Nerja geven richting aan de resterende uren.", "Grottbesöket med tidsbestämt inträde tar bara en del av dagen; stränderna, Balcón, maten och Nerjas kvällsområden ger resten av timmarna en tydlig riktning.")
       }
     ]
   },

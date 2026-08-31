@@ -224,7 +224,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     pageId: 'nerja-caves',
     content: (lang) => resolveLocale(nerjaCavesContent, lang),
     heroMark: null,
-    relatedColumns: 'md:grid-cols-2',
+    relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
     blockAfterSections: 'section:our-visit',
     arrivalModules: null,
@@ -483,8 +483,8 @@ for (const entry of AUTHORITY_PAGES) {
         'href',
         resolveLink('about', SWEEP_LANGUAGE)
       );
-      await expect(byline.locator('span').first()).toHaveText(locale.hero.updated);
-      await expect(byline.locator('span').last()).toHaveText(locale.hero.note);
+      await expect(byline.locator('[data-am-byline-updated]')).toHaveText(locale.hero.updated);
+      await expect(byline.locator('[data-am-byline-note]')).toHaveText(locale.hero.note);
     }
 
     // Decorative hero mark.
@@ -607,7 +607,7 @@ test('the destination arrival pages use their declared module order', async ({ p
   }
 });
 
-test('outer section dividers only separate equal surfaces and stay inset', async ({ page }) => {
+test('outer section dividers only separate equal surfaces and span their boundary', async ({ page }) => {
   await openPage(page, resolveLink('getting_to_frigiliana', SWEEP_LANGUAGE));
 
   const arrivalBoundaries = await page.$$eval(
@@ -660,8 +660,17 @@ test('outer section dividers only separate equal surfaces and stay inset', async
   );
 
   expect(sameSurfaceDivider.content).toBe('""');
-  expect(sameSurfaceDivider.left).toBeGreaterThan(0);
-  expect(sameSurfaceDivider.right).toBeGreaterThan(0);
+  expect(sameSurfaceDivider.left).toBe(0);
+  expect(sameSurfaceDivider.right).toBe(0);
+});
+
+test('the Frigiliana hero uses an editorial quote and personal host signature', async ({ page }) => {
+  await openPage(page, resolveLink('location_frigiliana', SWEEP_LANGUAGE));
+  const editorialByline = page.locator('[data-am-component="editorial-byline"]');
+  await expect(editorialByline).toHaveCSS('border-top-width', '0px');
+  await expect(editorialByline).toHaveCSS('padding-top', '0px');
+  await expect(editorialByline.locator('img')).toHaveCount(1);
+  await expect(page.locator('[data-am-guide-hero] blockquote[data-am-hero-accent]')).toHaveCount(1);
 });
 
 test('nerja-caves places the personal visit block before the related links', async ({ page }) => {
