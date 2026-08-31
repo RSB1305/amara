@@ -79,7 +79,7 @@ const config = (() => {
         { token: 'getting_to_nerja', label: content.related.links[0].label },
         { token: 'nerja_where_to_stay', label: content.related.links[1].label }
       ] satisfies LabeledLink[],
-      factIcons: undefined,
+      factIcons: ['municipality', 'elevation', 'village-square', 'coast'] as LocationGuideIconName[],
       landscapeIcons: ['village', 'elevation', 'coast'] as LocationGuideIconName[],
       primaryCta: {
         href: requiredLink('playa'),
@@ -106,7 +106,7 @@ const config = (() => {
       { token: 'getting_to_tarifa', label: content.related.links[0].label },
       { token: 'tarifa_where_to_stay', label: content.related.links[1].label }
     ] satisfies LabeledLink[],
-    factIcons: undefined,
+    factIcons: ['municipality', 'village-square', 'distance', 'comparison'] as LocationGuideIconName[],
     landscapeIcons: [
       'coast',
       'comparison',
