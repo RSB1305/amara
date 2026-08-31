@@ -1,5 +1,6 @@
 ---
 import AmaraImage from '../../components/AmaraImage.astro';
+import FrigilianaOrientationMap from '../../components/location/FrigilianaOrientationMap.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -15,6 +16,7 @@ import { resolveOptionalLink, type LabeledLink, type LinkToken } from '../../lib
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import LocationModule from './LocationModule.astro';
 import LocationStaySplitSection from './LocationStaySplitSection.astro';
 
 interface Props {
@@ -23,7 +25,7 @@ interface Props {
 
 type EditorialImageAlt = {
   evening: string;
-  landscape: string;
+  heritage: string;
   oldTown: string;
   hiking: string;
   beaches: string;
@@ -38,6 +40,8 @@ const optionalLink = (token: LinkToken) =>
 
 const aboutHref = optionalLink('about');
 const romanticHideawaysHref = optionalLink('romantic_hideaways');
+const geographyHref = optionalLink('frigiliana_geography');
+const oldTownHref = optionalLink('frigiliana_old_town');
 const stairsHref = optionalLink('frigiliana_stairs');
 const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const gettingThereHref = buildOwnedLocalizedPath('getting-to-frigiliana', currentLang);
@@ -92,7 +96,7 @@ const footerHighlights: LabeledLink[] = [
 const editorialImageAlt: Record<AmaraLanguage, EditorialImageAlt> = {
   en: {
     evening: 'A quiet lane in Frigiliana in warm evening light',
-    landscape: 'White village homes on Frigiliana hillside in late sunlight',
+    heritage: 'A stepped lane between white village houses in Frigiliana',
     oldTown: 'White houses and flower pots along a lane in Frigiliana old village',
     hiking: 'Frigiliana lanes with the mountain landscape beyond',
     beaches: 'Nerja and its small beaches seen from above',
@@ -100,7 +104,7 @@ const editorialImageAlt: Record<AmaraLanguage, EditorialImageAlt> = {
   },
   de: {
     evening: 'Eine ruhige Gasse in Frigiliana im warmen Abendlicht',
-    landscape: 'Weiße Dorfhäuser am Hang von Frigiliana im späten Sonnenlicht',
+    heritage: 'Eine ansteigende Gasse zwischen weißen Dorfhäusern in Frigiliana',
     oldTown: 'Weiße Häuser und Blumentöpfe in einer Gasse der Altstadt von Frigiliana',
     hiking: 'Gassen von Frigiliana mit der Berglandschaft dahinter',
     beaches: 'Nerja und seine kleinen Strände aus der Luft',
@@ -108,7 +112,7 @@ const editorialImageAlt: Record<AmaraLanguage, EditorialImageAlt> = {
   },
   es: {
     evening: 'Una calle tranquila de Frigiliana con la luz cálida del atardecer',
-    landscape: 'Casas blancas en la ladera de Frigiliana con la última luz del día',
+    heritage: 'Una calle escalonada entre casas blancas de Frigiliana',
     oldTown: 'Casas blancas y macetas en una calle del casco antiguo de Frigiliana',
     hiking: 'Calles de Frigiliana con el paisaje de montaña al fondo',
     beaches: 'Nerja y sus pequeñas playas vistas desde el aire',
@@ -116,7 +120,7 @@ const editorialImageAlt: Record<AmaraLanguage, EditorialImageAlt> = {
   },
   nl: {
     evening: 'Een rustig straatje in Frigiliana in warm avondlicht',
-    landscape: 'Witte dorpshuizen op de helling van Frigiliana in het late zonlicht',
+    heritage: 'Een oplopend straatje tussen witte dorpshuizen in Frigiliana',
     oldTown: 'Witte huizen en bloempotten in een straatje van de oude kern van Frigiliana',
     hiking: 'Straatjes van Frigiliana met het berglandschap erachter',
     beaches: 'Nerja en zijn kleine stranden vanuit de lucht',
@@ -124,7 +128,7 @@ const editorialImageAlt: Record<AmaraLanguage, EditorialImageAlt> = {
   },
   sv: {
     evening: 'En lugn gränd i Frigiliana i varmt kvällsljus',
-    landscape: 'Vita byhus på Frigilianas sluttning i det sena solljuset',
+    heritage: 'En trappgränd mellan vita byhus i Frigiliana',
     oldTown: 'Vita hus och blomkrukor i en gränd i Frigilianas gamla by',
     hiking: 'Frigilianas gränder med bergslandskapet bakom',
     beaches: 'Nerja och de små stränderna sedda från luften',
@@ -149,8 +153,8 @@ const heroImage = {
 const editorialImages = {
   evening:
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/06-frigiliana-pueblo.jpg',
-  landscape:
-    '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/08-frigiliana-pueblo.jpg'
+  heritage:
+    '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/07-frigiliana-pueblo.jpg'
 } as const;
 
 const decisionStay = c.decision.subsections[0];
@@ -242,20 +246,87 @@ const casaFacts = [
         </div>
       </section>
 
+      <LocationModule
+        id="village-character"
+        surface="inverse"
+        spacing="closing"
+        class="lg:py-40"
+        data-am-location-story="heritage"
+      >
+        <div class="mx-auto max-w-screen-2xl">
+          <div class="grid min-w-0 items-center gap-14 lg:grid-cols-12 lg:gap-20">
+            <div class="min-w-0 lg:col-span-6">
+              <p class="am-text-eyebrow text-primary-fixed-dim">{c.planning.oldTown.label}</p>
+              <h2 class="am-text-title mt-6 text-balance text-inverted-on-surface">
+                {c.history.title}
+              </h2>
+              <div class="mt-9 space-y-6">
+                {c.history.paragraphs.map((paragraph, index) => (
+                  <p class:list={[
+                    'am-text-body leading-relaxed',
+                    index === 0
+                      ? 'text-inverted-on-surface/90'
+                      : 'text-inverted-on-surface/75'
+                  ]}>
+                    <InlineEmphasis text={paragraph} />
+                  </p>
+                ))}
+              </div>
+
+              {c.history.subsections.map((section) => (
+                <div class="mt-10 max-w-2xl">
+                  <h3 class="am-text-subtitle text-primary-fixed-dim">{section.title}</h3>
+                  {section.paragraphs.map((paragraph) => (
+                    <p class="am-text-body mt-4 leading-relaxed text-inverted-on-surface/75">
+                      <InlineEmphasis text={paragraph} />
+                    </p>
+                  ))}
+                </div>
+              ))}
+
+              {oldTownHref && (
+                <a href={oldTownHref} class="am-btn am-btn--inverse am-btn--secondary mt-10">
+                  {c.heritageLinkLabel}
+                </a>
+              )}
+            </div>
+
+            <div class="min-w-0 overflow-hidden bg-inverse-surface lg:col-span-5 lg:col-start-8">
+              <AmaraImage
+                src={editorialImages.heritage}
+                alt={imageAlt.heritage}
+                profile="gallery"
+                sizes="(max-width: 1023px) 100vw, 40vw"
+                class="aspect-[4/5] w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+
+          <dl class="mt-16 grid gap-9 border-t border-inverted-on-surface/20 pt-9 md:grid-cols-3 lg:mt-24">
+            {c.heritageFacts.map((fact) => (
+              <div>
+                <dt class="am-text-label am-text-label--sm text-primary-fixed-dim">{fact.value}</dt>
+                <dd class="am-text-body mt-3 max-w-sm leading-relaxed text-inverted-on-surface/70">
+                  {fact.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </LocationModule>
+
       <section id="between-mountains-and-sea" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
         <div class="mx-auto grid max-w-screen-2xl items-center gap-14 lg:grid-cols-12 lg:gap-20">
-          <div class="am-mobile-full-bleed overflow-hidden bg-surface-container-low lg:order-1 lg:col-span-6">
-            <AmaraImage
-              src={editorialImages.landscape}
-              alt={imageAlt.landscape}
-              profile="gallery"
-              sizes="(max-width: 1023px) 100vw, 48vw"
-              class="aspect-[4/3] w-full object-cover"
-              loading="lazy"
-              decoding="async"
+          <div class="lg:order-1 lg:col-span-7" data-am-orientation-map="frigiliana">
+            <FrigilianaOrientationMap
+              label={c.orientation.mapLabel}
+              note={c.orientation.mapNote}
+              lang={currentLang}
             />
           </div>
-          <div class="lg:order-2 lg:col-span-5 lg:col-start-8">
+          <div class="lg:order-2 lg:col-span-4 lg:col-start-9">
             <p class="am-text-eyebrow text-primary">{c.orientation.eyebrow}</p>
             <h2 class="am-text-title mt-6 italic tracking-tight text-on-surface">
               {c.orientation.title}
@@ -267,13 +338,21 @@ const casaFacts = [
                 </p>
               ))}
             </div>
-            <div class="mt-10 border-l border-primary/35 pl-6">
+            <div class="mt-10">
               <h3 class="am-text-subtitle italic text-on-surface">{c.coast.title}</h3>
               {c.coast.paragraphs.map((paragraph) => (
                 <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">
                   <InlineEmphasis text={paragraph} />
                 </p>
               ))}
+            </div>
+            <div class="mt-9 flex flex-wrap gap-x-8 gap-y-4">
+              {geographyHref && (
+                <a href={geographyHref} class="am-cta-link">{c.orientation.geographyLabel}</a>
+              )}
+              {gettingThereHref && (
+                <a href={gettingThereHref} class="am-cta-link">{c.orientation.arrivalLabel}</a>
+              )}
             </div>
           </div>
         </div>

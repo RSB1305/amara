@@ -9,11 +9,11 @@ interface Props {
 
 const { label, note, lang } = Astro.props;
 const mapCopy: Record<AmaraLanguage, { airport: string; sea: string }> = {
-  en: { airport: 'Málaga Airport', sea: 'MEDITERRANEAN' },
-  de: { airport: 'Flughafen Málaga', sea: 'MITTELMEER' },
-  es: { airport: 'Aeropuerto de Málaga', sea: 'MEDITERRÁNEO' },
-  nl: { airport: 'Luchthaven Málaga', sea: 'MIDDELLANDSE ZEE' },
-  sv: { airport: 'Málagas flygplats', sea: 'MEDELHAVET' }
+  en: { airport: 'AIRPORT', sea: 'MEDITERRANEAN' },
+  de: { airport: 'FLUGHAFEN', sea: 'MITTELMEER' },
+  es: { airport: 'AEROPUERTO', sea: 'MEDITERRÁNEO' },
+  nl: { airport: 'LUCHTHAVEN', sea: 'MIDDELLANDSE ZEE' },
+  sv: { airport: 'FLYGPLATS', sea: 'MEDELHAVET' }
 };
 const copy = mapCopy[lang];
 ---
@@ -66,11 +66,11 @@ const copy = mapCopy[lang];
         <text x="72" y="376" class="map-label map-label-small">AGP</text>
         <text x="72" y="397" class="map-label">{copy.airport}</text>
 
-        <text x="215" y="365" class="map-label map-label-small">MÁLAGA</text>
+        <text x="215" y="365" class="map-label map-label-small map-label-malaga">MÁLAGA</text>
         <text x="445" y="374" class="map-road-label">A-7 · COSTA DEL SOL</text>
 
         <text x="683" y="346" class="map-label">NERJA</text>
-        <text x="751" y="239" class="map-label map-label-strong">FRIGILIANA</text>
+        <text x="751" y="239" class="map-label map-label-strong map-label-frigiliana">FRIGILIANA</text>
         <text x="663" y="477" class="map-water-label">{copy.sea}</text>
         <text x="651" y="96" class="map-mountain-label">SIERRA ALMIJARA</text>
       </g>
@@ -230,22 +230,38 @@ const copy = mapCopy[lang];
 
   @media (max-width: 520px) {
     .map-label {
-      font-size: 17px;
+      font-size: 24px;
     }
 
     .map-label-small,
     .map-road-label,
     .map-mountain-label,
     .map-legend-label {
-      font-size: 13px;
+      font-size: 17px;
+    }
+
+    .map-label-strong {
+      font-size: 26px;
+    }
+
+    .map-water-label {
+      font-size: 18px;
     }
 
     .map-callout-title {
-      font-size: 14px;
+      font-size: 17px;
     }
 
     .map-callout-copy {
-      font-size: 12px;
+      font-size: 14px;
+    }
+
+    .map-label-malaga {
+      transform: translate(25px, -18px);
+    }
+
+    .map-label-frigiliana {
+      transform: translate(-32px, 18px);
     }
   }
 </style>

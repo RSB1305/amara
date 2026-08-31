@@ -78,6 +78,12 @@ export interface FrigilianaLocationPageCopy {
   };
   evening: FrigilianaLocationModule;
   history: FrigilianaLocationModule;
+  heritageFacts: Array<{
+    id: 'protected' | 'barribajo' | 'barribarto';
+    value: string;
+    label: string;
+  }>;
+  heritageLinkLabel: string;
   villageLife: FrigilianaLocationModule;
   coast: FrigilianaLocationModule;
   arrival: {
@@ -177,31 +183,31 @@ export const frigilianaLocationSeo: AmaraAuthoringSeo = {
   languages: {
     de: {
       title: 'Frigiliana: Dorf zwischen Bergen & Meer | AMARA',
-      description: 'Erlebt Frigiliana über Nacht: weiße Gassen, Abendessen zu Fuß, die Sierra im Rücken und Nerjas Küste rund sechs Kilometer weiter unten.',
+      description: 'Erlebt Frigiliana über Nacht: geschützte weiße Gassen, Abendessen zu Fuß, die Sierra im Rücken und Nerjas Küste weiter unten.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     en: {
       title: 'Frigiliana: A Village Between Mountains & Sea | AMARA',
-      description: 'Stay overnight in Frigiliana for white lanes, dinner on foot, the Sierra behind the village and Nerja’s coast about six kilometres below.',
+      description: 'Stay overnight in Frigiliana for protected white lanes, dinner on foot, the Sierra behind the village and Nerja’s coast below.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Frigiliana: un pueblo entre montaña y mar | AMARA',
-      description: 'Quedaos en Frigiliana para vivir sus calles blancas, salir a cenar a pie, tener la sierra detrás y la costa de Nerja a unos seis kilómetros.',
+      description: 'Quedaos en Frigiliana para vivir sus calles blancas protegidas, salir a cenar a pie, tener la sierra detrás y la costa de Nerja más abajo.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Frigiliana: dorp tussen bergen & zee | AMARA',
-      description: 'Blijf overnachten in Frigiliana voor witte straatjes, uit eten te voet, de Sierra achter het dorp en Nerja’s kust ongeveer zes kilometer lager.',
+      description: 'Blijf overnachten in Frigiliana voor beschermde witte straatjes, uit eten te voet, de Sierra achter het dorp en Nerja’s kust beneden.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Frigiliana: en by mellan berg & hav | AMARA',
-      description: 'Stanna över natten i Frigiliana för vita gränder, middag till fots, Sierran bakom byn och Nerjas kust omkring sex kilometer nedanför.',
+      description: 'Stanna över natten i Frigiliana för skyddade vita gränder, middag till fots, Sierran bakom byn och Nerjas kust nedanför.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -251,19 +257,19 @@ export const frigilianaLocationCopy = {
   ),
   intro: textList(
     [
-      'Frigiliana is made for days that begin in the village and can still wander towards mountains or sea. White lanes and small restaurants sit on the hillside; behind them begins the Sierra de Almijara, while Nerja and the Mediterranean are about six kilometres below. Staying overnight changes your relationship with the place: you share its quieter morning and evening hours, walk home after dinner and wake with the old village already around you. Cobbles, slopes and steps belong to this setting, but they do not have to become the story of the whole stay.'
+      'Frigiliana is made for days that begin in the village and can still wander towards mountains or sea. White lanes and small restaurants sit on the hillside; behind them begins the Sierra de Almijara, while Nerja and the Mediterranean lie below towards the coast. Staying overnight changes your relationship with the place: you share its quieter morning and evening hours, walk home after dinner and wake with the old village already around you. Cobbles, slopes and steps belong to this setting, but they do not have to become the story of the whole stay.'
     ],
     [
-      'Frigiliana ist ein Ort für Tage, die im Dorf beginnen und trotzdem in die Berge oder ans Meer führen können. Weiße Gassen und kleine Restaurants ziehen sich den Hang hinauf; dahinter beginnt die Sierra de Almijara, während Nerja und das Mittelmeer rund sechs Kilometer weiter unten liegen. Wer über Nacht bleibt, erlebt das Dorf anders: Ihr teilt seine ruhigeren Morgen- und Abendstunden, geht nach dem Essen zu Fuß nach Hause und wacht schon mitten in der Altstadt auf. Pflaster, Steigungen und Stufen gehören zu diesem Bild, müssen aber nicht die ganze Geschichte eures Aufenthalts bestimmen.'
+      'Frigiliana ist ein Ort für Tage, die im Dorf beginnen und trotzdem in die Berge oder ans Meer führen können. Weiße Gassen und kleine Restaurants ziehen sich den Hang hinauf; dahinter beginnt die Sierra de Almijara, während Nerja und das Mittelmeer weiter unten an der Küste liegen. Wer über Nacht bleibt, erlebt das Dorf anders: Ihr teilt seine ruhigeren Morgen- und Abendstunden, geht nach dem Essen zu Fuß nach Hause und wacht schon mitten in der Altstadt auf. Pflaster, Steigungen und Stufen gehören zu diesem Bild, müssen aber nicht die ganze Geschichte eures Aufenthalts bestimmen.'
     ],
     [
-      'Frigiliana invita a empezar el día en el pueblo y dejar que después os lleve hacia la montaña o el mar. Sus calles blancas y pequeños restaurantes suben por la ladera; detrás comienza la Sierra de Almijara y, unos seis kilómetros más abajo, están Nerja y el Mediterráneo. Quedarse a dormir cambia la relación con el lugar: compartís sus mañanas y noches más tranquilas, volvéis andando después de cenar y despertáis ya dentro del casco antiguo. El empedrado, las cuestas y los escalones forman parte de ese paisaje, pero no tienen por qué contar toda la historia de la estancia.'
+      'Frigiliana invita a empezar el día en el pueblo y dejar que después os lleve hacia la montaña o el mar. Sus calles blancas y pequeños restaurantes suben por la ladera; detrás comienza la Sierra de Almijara y, más abajo hacia la costa, están Nerja y el Mediterráneo. Quedarse a dormir cambia la relación con el lugar: compartís sus mañanas y noches más tranquilas, volvéis andando después de cenar y despertáis ya dentro del casco antiguo. El empedrado, las cuestas y los escalones forman parte de ese paisaje, pero no tienen por qué contar toda la historia de la estancia.'
     ],
     [
-      'Frigiliana is er voor dagen die in het dorp beginnen en daarna nog alle kanten op kunnen, naar de bergen of de zee. Witte straatjes en kleine restaurants klimmen tegen de helling op; daarachter begint de Sierra de Almijara en ongeveer zes kilometer lager liggen Nerja en de Middellandse Zee. Overnachten verandert jullie band met de plek: je deelt de rustigere ochtend- en avonduren, loopt na het eten naar huis en wordt wakker met de oude kern al om je heen. Keien, hellingen en trappen horen bij dat decor, maar hoeven niet het hele verhaal van jullie verblijf te bepalen.'
+      'Frigiliana is er voor dagen die in het dorp beginnen en daarna nog alle kanten op kunnen, naar de bergen of de zee. Witte straatjes en kleine restaurants klimmen tegen de helling op; daarachter begint de Sierra de Almijara en lager richting de kust liggen Nerja en de Middellandse Zee. Overnachten verandert jullie band met de plek: je deelt de rustigere ochtend- en avonduren, loopt na het eten naar huis en wordt wakker met de oude kern al om je heen. Keien, hellingen en trappen horen bij dat decor, maar hoeven niet het hele verhaal van jullie verblijf te bepalen.'
     ],
     [
-      'Frigiliana är en plats för dagar som börjar i byn och sedan kan fortsätta mot bergen eller havet. Vita gränder och små restauranger klättrar uppför sluttningen; bakom dem börjar Sierra de Almijara och omkring sex kilometer nedanför ligger Nerja och Medelhavet. Att stanna över natten förändrar relationen till platsen: ni delar de lugnare morgon- och kvällstimmarna, promenerar hem efter middagen och vaknar redan mitt i gamla byn. Stenläggning, backar och trappor hör till miljön, men behöver inte bli hela berättelsen om er vistelse.'
+      'Frigiliana är en plats för dagar som börjar i byn och sedan kan fortsätta mot bergen eller havet. Vita gränder och små restauranger klättrar uppför sluttningen; bakom dem börjar Sierra de Almijara och längre ner mot kusten ligger Nerja och Medelhavet. Att stanna över natten förändrar relationen till platsen: ni delar de lugnare morgon- och kvällstimmarna, promenerar hem efter middagen och vaknar redan mitt i gamla byn. Stenläggning, backar och trappor hör till miljön, men behöver inte bli hela berättelsen om er vistelse.'
     ]
   ),
   introPullLine: text(
@@ -278,31 +284,27 @@ export const frigilianaLocationCopy = {
     title: text('Mountains behind you, the sea below', 'Die Berge im Rücken, das Meer unterhalb', 'La montaña detrás, el mar más abajo', 'De bergen achter je, de zee beneden', 'Bergen bakom er, havet nedanför'),
     paragraphs: textList(
       [
-        'Frigiliana lies in the Axarquía, on the southern slope of the Sierra de Almijara. Nerja and the Mediterranean are about six kilometres downhill.',
+        'Frigiliana lies in the Axarquía, on the southern slope of the Sierra de Almijara. Nerja and the Mediterranean lie below the village towards the coast.',
         'The village looks towards the coast and leans into the mountains. That closeness lets a quiet morning in the lanes, a walk in the Sierra and a few hours by the sea belong to the same stay.'
       ],
       [
-        'Frigiliana liegt in der Axarquía am Südhang der Sierra de Almijara. Nerja und das Mittelmeer liegen rund sechs Kilometer weiter unten.',
+        'Frigiliana liegt in der Axarquía am Südhang der Sierra de Almijara. Nerja und das Mittelmeer liegen unterhalb des Dorfes an der Küste.',
         'Das Dorf blickt zur Küste und lehnt sich zugleich an die Berge. So können ein ruhiger Morgen in den Gassen, ein Weg in die Sierra und ein paar Stunden am Meer zum selben Aufenthalt gehören.'
       ],
       [
-        'Frigiliana está en la Axarquía, en la ladera sur de la Sierra de Almijara. Nerja y el Mediterráneo quedan unos seis kilómetros más abajo.',
+        'Frigiliana está en la Axarquía, en la ladera sur de la Sierra de Almijara. Nerja y el Mediterráneo quedan más abajo, hacia la costa.',
         'El pueblo mira hacia la costa y se apoya a la vez en la montaña. Así, una mañana tranquila entre sus calles, un paseo por la sierra y unas horas junto al mar pueden formar parte de la misma estancia.'
       ],
       [
-        'Frigiliana ligt in de Axarquía, op de zuidhelling van de Sierra de Almijara. Nerja en de Middellandse Zee liggen ongeveer zes kilometer lager.',
+        'Frigiliana ligt in de Axarquía, op de zuidhelling van de Sierra de Almijara. Nerja en de Middellandse Zee liggen lager, richting de kust.',
         'Het dorp kijkt naar de kust en leunt tegelijk tegen de bergen. Daardoor kunnen een rustige ochtend in de straatjes, een wandeling in de Sierra en een paar uur aan zee bij hetzelfde verblijf horen.'
       ],
       [
-        'Frigiliana ligger i Axarquía på Sierra de Almijaras sydsluttning. Nerja och Medelhavet ligger omkring sex kilometer längre ner.',
+        'Frigiliana ligger i Axarquía på Sierra de Almijaras sydsluttning. Nerja och Medelhavet ligger längre ner mot kusten.',
         'Byn blickar mot kusten och lutar samtidigt mot bergen. Därför kan en lugn morgon i gränderna, en vandring i Sierran och några timmar vid havet rymmas i samma vistelse.'
       ]
     ),
-    facts: [
-      { id: 'nerja', value: text('6 km', '6 km', '6 km', '6 km', '6 km'), label: text('to Nerja and the coast', 'bis Nerja und zur Küste', 'hasta Nerja y la costa', 'naar Nerja en de kust', 'till Nerja och kusten') },
-      { id: 'old-town', value: text('Old town', 'Altstadt', 'Casco antiguo', 'Oude kern', 'Gamla byn'), label: text('restaurants and cafés on foot', 'Restaurants und Cafés zu Fuß', 'restaurantes y cafeterías a pie', 'restaurants en cafés te voet', 'restauranger och kaféer till fots') },
-      { id: 'hillside', value: text('Hillside village', 'Hangdorf', 'Pueblo en cuesta', 'Dorp op een helling', 'By på en sluttning'), label: text('cobbles, slopes and steps', 'Pflaster, Steigungen und Stufen', 'empedrado, pendientes y escalones', 'keien, hellingen en trappen', 'stenläggning, backar och trappor') }
-    ],
+    facts: [],
     mapLabel: text('Orientation from Málaga via Nerja to Frigiliana', 'Orientierung von Málaga über Nerja nach Frigiliana', 'Orientación desde Málaga, pasando por Nerja, hasta Frigiliana', 'Oriëntatie van Málaga via Nerja naar Frigiliana', 'Orientering från Málaga via Nerja till Frigiliana'),
     mapNote: text('Not to scale', 'Nicht maßstabsgetreu', 'No está a escala', 'Niet op schaal', 'Inte skalenlig'),
     geographyLabel: text('See the geography guide', 'Geografie ansehen', 'Ver la guía geográfica', 'Bekijk de geografiegids', 'Se geografisidan'),
@@ -342,67 +344,96 @@ export const frigilianaLocationCopy = {
     ctas: []
   } satisfies LocalizedModule,
   history: {
-    title: text('An old village house shaped along with Frigiliana', 'Ein altes Dorfhaus, das mit Frigiliana gewachsen ist', 'Una casa de pueblo que creció con Frigiliana', 'Een oud dorpshuis dat met Frigiliana meegroeide', 'Ett gammalt byhus som har vuxit med Frigiliana'),
+    title: text('A village the hillside has shaped', 'Ein Dorf, das der Hang geformt hat', 'Un pueblo moldeado por la ladera', 'Een dorp gevormd door de helling', 'En by formad av sluttningen'),
     paragraphs: textList(
       [
-        'Just a few steps from Casa AMARA stands the church of San Antonio de Padua. The present building was completed in 1676 under the direction of Bernardo de Godoy. Around it lies the old village: white houses, narrow lanes and steps that have grown together over centuries.',
-        'Casa AMARA cannot be tied to a single year of construction either. The house was extended, joined and altered over generations. That is why the rooms have different shapes, the walls are irregular and no two floors feel the same.'
+        'Frigiliana’s old centre is more than a collection of white façades. Since 2014 the delimited historic sector has been protected as a Bien de Interés Cultural. The Junta de Andalucía describes it as one of the best-preserved urban enclaves of Morisco tradition on the Iberian Peninsula.',
+        'You can read that history in the way the village moves. Calle Real follows the lower axis through Barribajo; above it, the original medieval core of Barribarto tightens into bends, adarves, covered passages and steep cross-streets. The hillside is not a backdrop here. It is the plan of the place.',
+        'Los Pueblos Más Bonitos de España lists Frigiliana among its member villages and records the national beautification award of 1982. The distinction fits what you discover on foot: not one monument surrounded by ordinary streets, but a protected ensemble that reveals itself turn by turn.'
       ],
       [
-        'Nur wenige Schritte von Casa AMARA entfernt steht die Kirche San Antonio de Padua. Ihr heutiges Gebäude wurde 1676 unter der Leitung von Bernardo de Godoy fertiggestellt. Rundherum liegt der alte Dorfkern – ein über Jahrhunderte gewachsenes Geflecht aus weißen Häusern, schmalen Gassen und Treppen.',
-        'Auch Casa AMARA lässt sich nicht auf ein einzelnes Baujahr festlegen. Das Haus wurde über Generationen erweitert, verbunden und verändert. Deshalb sind die Räume unterschiedlich geschnitten, die Mauern unregelmäßig und keine Etage gleicht der anderen.'
+        'Frigilianas Altstadt ist mehr als eine Ansammlung weißer Fassaden. Seit 2014 steht der abgegrenzte historische Ortskern als Bien de Interés Cultural unter Schutz. Die Junta de Andalucía zählt ihn zu den am besten erhaltenen städtischen Enklaven moriskischer Tradition auf der Iberischen Halbinsel.',
+        'Diese Geschichte lässt sich beim Gehen lesen. Die Calle Real bildet die untere Achse durch das Barribajo; darüber verdichtet sich der ursprüngliche mittelalterliche Kern des Barribarto zu Kurven, Adarves, überbauten Durchgängen und steilen Quergassen. Der Hang ist hier keine Kulisse. Er ist der Grundriss des Dorfes.',
+        'Die Vereinigung Los Pueblos Más Bonitos de España führt Frigiliana als Mitglied und verzeichnet den nationalen Verschönerungspreis von 1982. Diese Anerkennung passt zu dem, was ihr zu Fuß entdeckt: kein einzelnes Denkmal zwischen gewöhnlichen Straßen, sondern ein geschütztes Ensemble, das sich Kurve für Kurve öffnet.'
       ],
       [
-        'A pocos pasos de Casa AMARA está la iglesia de San Antonio de Padua. El edificio actual se terminó en 1676 bajo la dirección de Bernardo de Godoy. A su alrededor se extiende el casco antiguo: casas blancas, callejuelas y escaleras que han ido creciendo juntas durante siglos.',
-        'Casa AMARA tampoco se puede fechar en un único año. La casa se amplió, se unió y se transformó a lo largo de generaciones. Por eso cada estancia tiene una forma distinta, los muros son irregulares y ninguna planta se parece a otra.'
+        'El casco antiguo de Frigiliana es mucho más que un conjunto de fachadas blancas. Desde 2014, el sector histórico delimitado está protegido como Bien de Interés Cultural. La Junta de Andalucía lo describe como uno de los enclaves urbanos de tradición morisca mejor conservados de la península ibérica.',
+        'Esa historia se lee al caminar. La calle Real forma el eje bajo del Barribajo; por encima, el núcleo medieval original del Barribarto se estrecha entre curvas, adarves, pasajes cubiertos y calles transversales empinadas. Aquí la ladera no es un telón de fondo. Es el trazado del pueblo.',
+        'Los Pueblos Más Bonitos de España incluye Frigiliana entre sus pueblos asociados y recoge el Premio Nacional de Embellecimiento de 1982. El reconocimiento encaja con lo que descubrís a pie: no un único monumento rodeado de calles corrientes, sino un conjunto protegido que se revela curva a curva.'
       ],
       [
-        'Op een paar stappen van Casa AMARA staat de kerk van San Antonio de Padua. Het huidige gebouw werd in 1676 voltooid onder leiding van Bernardo de Godoy. Daaromheen ligt de oude dorpskern: witte huizen, smalle straatjes en trappen die in de loop van eeuwen met elkaar zijn vergroeid.',
-        'Ook Casa AMARA is niet aan één bouwjaar te koppelen. Het huis werd door generaties heen uitgebreid, samengevoegd en veranderd. Daardoor heeft elke kamer een andere vorm, lopen de muren onregelmatig en voelt geen verdieping hetzelfde.'
+        'De oude kern van Frigiliana is meer dan een verzameling witte gevels. Sinds 2014 is het afgebakende historische gebied beschermd als Bien de Interés Cultural. De Junta de Andalucía omschrijft het als een van de best bewaarde stedelijke enclaves met een Moriscotraditie op het Iberisch Schiereiland.',
+        'Die geschiedenis lees je tijdens het lopen. Calle Real vormt de lagere as door Barribajo; daarboven trekt de oorspronkelijke middeleeuwse kern van Barribarto zich samen in bochten, adarves, overdekte doorgangen en steile dwarsstraten. De helling is hier geen decor. Zij bepaalt de plattegrond van het dorp.',
+        'Los Pueblos Más Bonitos de España rekent Frigiliana tot zijn aangesloten dorpen en vermeldt de nationale verfraaiingsprijs van 1982. Die erkenning past bij wat jullie te voet ontdekken: geen los monument tussen gewone straten, maar een beschermd geheel dat zich bocht voor bocht ontvouwt.'
       ],
       [
-        'Bara några steg från Casa AMARA står kyrkan San Antonio de Padua. Den nuvarande byggnaden färdigställdes 1676 under ledning av Bernardo de Godoy. Runt den ligger den gamla bykärnan: vita hus, smala gränder och trappor som har vuxit samman under århundraden.',
-        'Casa AMARA går inte heller att knyta till ett enda byggår. Huset har byggts ut, fogats samman och förändrats under generationer. Därför har rummen olika former, väggarna är oregelbundna och ingen våning är den andra lik.'
+        'Frigilianas gamla bykärna är mer än en samling vita fasader. Sedan 2014 är det avgränsade historiska området skyddat som Bien de Interés Cultural. Junta de Andalucía beskriver det som en av de bäst bevarade urbana miljöerna med morisk tradition på Iberiska halvön.',
+        'Historien går att läsa medan ni promenerar. Calle Real bildar den nedre axeln genom Barribajo; ovanför tätnar Barribartos ursprungliga medeltida kärna i svängar, adarves, täckta passager och branta tvärgator. Sluttningen är ingen kuliss här. Den är byns planritning.',
+        'Los Pueblos Más Bonitos de España räknar Frigiliana till sina medlemsbyar och redovisar det nationella försköningspriset från 1982. Utmärkelsen stämmer med det ni upptäcker till fots: inte ett enda monument bland vanliga gator, utan en skyddad helhet som öppnar sig sväng för sväng.'
       ]
     ),
     subsections: [
       {
-        id: 'restoration',
-        title: text('Carefully restored for today', 'Behutsam für heute saniert', 'Restaurada con cuidado para el presente', 'Zorgvuldig gerestaureerd voor nu', 'Varsamt restaurerat för i dag'),
+        id: 'ingenio',
+        title: text('El Ingenio and Frigiliana’s cane tradition', 'El Ingenio und Frigilianas Zuckerrohrtradition', 'El Ingenio y la tradición de la caña en Frigiliana', 'El Ingenio en Frigiliana’s suikerriettraditie', 'El Ingenio och Frigilianas sockerrörstradition'),
         paragraphs: textList(
-          ['From 2020 to 2022, we carefully restored Casa AMARA. The irregular rooms, old surfaces and traces of the house’s gradual growth remain; we added the comfort needed for a relaxed stay.'],
-          ['Von 2020 bis 2022 haben wir Casa AMARA behutsam saniert. Die unregelmäßigen Räume, alten Oberflächen und Spuren des gewachsenen Hauses sind geblieben; ergänzt haben wir den Komfort für einen entspannten Aufenthalt.'],
-          ['Entre 2020 y 2022 restauramos Casa AMARA con cuidado. Conservamos las estancias irregulares, las superficies antiguas y las huellas de una casa que creció poco a poco; añadimos el confort necesario para una estancia tranquila.'],
-          ['Van 2020 tot 2022 hebben we Casa AMARA zorgvuldig gerestaureerd. De onregelmatige kamers, oude oppervlakken en sporen van de geleidelijke groei zijn gebleven; we voegden het comfort voor een ontspannen verblijf toe.'],
-          ['Mellan 2020 och 2022 restaurerade vi Casa AMARA varsamt. De oregelbundna rummen, äldre ytorna och spåren av hur huset har vuxit fram finns kvar; vi lade till den komfort som behövs för en avkopplande vistelse.']
+          ['At the lower end of the old village, El Ingenio connects the streetscape with the cultivated slopes around it. Conceived in the late sixteenth century as the Manrique de Lara family residence, the building was later adapted for cane-sugar production. Miel de caña is still associated with production here today. It remains a working site, so do not count on a factory visit.'],
+          ['Am unteren Ende der Altstadt verbindet El Ingenio das Dorfbild mit den bewirtschafteten Hängen ringsum. Im späten 16. Jahrhundert als Wohnsitz der Familie Manrique de Lara angelegt, wurde das Gebäude später für die Verarbeitung von Zuckerrohr umgebaut. Bis heute ist El Ingenio mit der Herstellung von miel de caña verbunden. Es bleibt ein Produktionsort – mit einer Fabrikbesichtigung solltet ihr nicht rechnen.'],
+          ['En la parte baja del casco antiguo, El Ingenio conecta las calles con las laderas cultivadas que rodean el pueblo. Concebido a finales del siglo XVI como residencia de la familia Manrique de Lara, el edificio se adaptó más tarde a la producción de azúcar de caña. Hoy sigue vinculado a la elaboración de miel de caña. Es un lugar de producción, así que no contéis con una visita a la fábrica.'],
+          ['Aan de onderkant van de oude kern verbindt El Ingenio het straatbeeld met de bebouwde hellingen rondom. Het gebouw werd eind zestiende eeuw opgezet als woonhuis van de familie Manrique de Lara en later aangepast voor de verwerking van suikerriet. Ook nu is El Ingenio verbonden met de productie van miel de caña. Het blijft een productielocatie; reken dus niet op een fabrieksbezoek.'],
+          ['I den nedre delen av gamla byn förbinder El Ingenio gatubilden med de odlade sluttningarna runt omkring. Byggnaden utformades i slutet av 1500-talet som familjen Manrique de Laras bostad och anpassades senare för sockerrörsproduktion. Än i dag förknippas El Ingenio med tillverkningen av miel de caña. Det är fortfarande en produktionsplats, så räkna inte med ett fabriksbesök.']
         ),
         ctas: []
       }
     ],
     ctas: []
   } satisfies LocalizedModule,
+  heritageFacts: [
+    {
+      id: 'protected',
+      value: text('Since 2014', 'Seit 2014', 'Desde 2014', 'Sinds 2014', 'Sedan 2014'),
+      label: text('protected as a historic ensemble', 'als historisches Ensemble geschützt', 'protegido como conjunto histórico', 'beschermd als historisch geheel', 'skyddat som historisk helhet')
+    },
+    {
+      id: 'barribajo',
+      value: text('Barribajo', 'Barribajo', 'Barribajo', 'Barribajo', 'Barribajo'),
+      label: text('Calle Real forms the lower old-village axis', 'Calle Real bildet die untere Altstadtachse', 'la calle Real forma el eje bajo del casco antiguo', 'Calle Real vormt de lagere as van de oude kern', 'Calle Real bildar den nedre axeln genom gamla byn')
+    },
+    {
+      id: 'barribarto',
+      value: text('Barribarto', 'Barribarto', 'Barribarto', 'Barribarto', 'Barribarto'),
+      label: text('the original medieval core higher on the slope', 'der ursprüngliche mittelalterliche Kern weiter oben', 'el núcleo medieval original en la parte alta', 'de oorspronkelijke middeleeuwse kern hoger op de helling', 'den ursprungliga medeltida kärnan högre upp')
+    }
+  ],
+  heritageLinkLabel: text(
+    'Walk through the old village',
+    'Die Altstadt entdecken',
+    'Recorrer el casco antiguo',
+    'Ontdek de oude kern',
+    'Upptäck gamla byn'
+  ),
   villageLife: {
     title: text('In the old village, with the hillside still part of it', 'Mitten in der Altstadt – und trotzdem bleibt es ein Hangdorf', 'En pleno casco antiguo, sin olvidar que es un pueblo en cuesta', 'Midden in de oude kern, maar nog steeds op een helling', 'Mitt i gamla byn – fortfarande på en sluttning'),
     paragraphs: textList(
       [
         'From our front door towards San Antonio, Calle Real and the village centre there are no further steps. The route still has historic paving and gentle gradients.',
-        'The approach from the main road below is different: about 150 metres uphill, around 30 metres of height and roughly 30 steps. With limited mobility or heavy luggage, it is worth judging that honestly before booking.'
+        'The approach from the main road below is different: it continues uphill over historic paving and steps. With limited mobility or heavy luggage, check the arrival and access details carefully before booking.'
       ],
       [
         'Von unserer Haustür geht es in Richtung San Antonio, Calle Real und Ortskern ohne weitere Stufen. Historisches Pflaster und leichte Steigungen bleiben trotzdem Teil des Weges.',
-        'Anders ist der Weg von der Hauptstraße unterhalb: etwa 150 Meter bergauf, rund 30 Höhenmeter und ungefähr 30 Stufen. Mit eingeschränkter Mobilität oder schwerem Gepäck solltet ihr das vor der Buchung ehrlich einschätzen.'
+        'Anders ist der Weg von der Hauptstraße unterhalb: Er führt bergauf über historisches Pflaster und Stufen. Mit eingeschränkter Mobilität oder schwerem Gepäck solltet ihr die Anreise- und Zugangshinweise vor der Buchung sorgfältig prüfen.'
       ],
       [
         'Desde nuestra puerta hacia San Antonio, la calle Real y el centro no hay más escalones. El recorrido conserva, eso sí, el empedrado histórico y alguna pendiente suave.',
-        'El acceso desde la carretera principal, más abajo, es distinto: unos 150 metros cuesta arriba, alrededor de 30 metros de desnivel y unos 30 escalones. Si tenéis movilidad reducida o equipaje pesado, conviene valorarlo con sinceridad antes de reservar.'
+        'El acceso desde la carretera principal, más abajo, es distinto: continúa cuesta arriba por empedrado histórico y escalones. Si tenéis movilidad reducida o equipaje pesado, revisad con atención la información de llegada y acceso antes de reservar.'
       ],
       [
         'Vanaf onze voordeur richting San Antonio, Calle Real en het dorpscentrum komen geen verdere trappen. Historische bestrating en lichte hellingen blijven wel onderdeel van de route.',
-        'De weg vanaf de hoofdweg beneden is anders: ongeveer 150 meter omhoog, circa 30 hoogtemeters en rond de 30 treden. Met beperkte mobiliteit of zware bagage is het goed dit voor het boeken eerlijk te beoordelen.'
+        'De weg vanaf de hoofdweg beneden is anders: die loopt omhoog over historische bestrating en trappen. Bekijk bij beperkte mobiliteit of zware bagage vóór het boeken zorgvuldig de informatie over aankomst en toegang.'
       ],
       [
         'Från vår ytterdörr mot San Antonio, Calle Real och byns centrum finns inga fler trappsteg. Historisk stenläggning och lätta lutningar är ändå en del av vägen.',
-        'Vägen från huvudgatan nedanför är annorlunda: omkring 150 meter uppför, cirka 30 höjdmeter och ungefär 30 trappsteg. Vid begränsad rörlighet eller tungt bagage bör ni bedöma det ärligt före bokning.'
+        'Vägen från huvudgatan nedanför är annorlunda: den fortsätter uppför över historisk stenläggning och trappor. Vid begränsad rörlighet eller tungt bagage bör ni läsa informationen om ankomst och tillgänglighet noga före bokning.'
       ]
     ),
     subsections: [
@@ -436,11 +467,11 @@ export const frigilianaLocationCopy = {
   coast: {
     title: text('A beach day can still end in the village', 'Ein Strandtag kann trotzdem im Dorf enden', 'Un día de playa puede terminar en el pueblo', 'Een stranddag kan gewoon in het dorp eindigen', 'En stranddag kan ändå sluta i byn'),
     paragraphs: textList(
-      ['Nerja is about six kilometres away. You can spend the day at the beach and still come home to dinner and a quieter evening in Frigiliana.'],
-      ['Nerja liegt rund sechs Kilometer entfernt. Ihr könnt den Tag am Strand verbringen und trotzdem zum Abendessen und für einen ruhigeren Abend nach Frigiliana zurückkommen.'],
-      ['Nerja está a unos seis kilómetros. Podéis pasar el día en la playa y volver a Frigiliana para cenar y disfrutar de una noche más tranquila.'],
-      ['Nerja ligt op ongeveer zes kilometer. Jullie kunnen de dag aan het strand doorbrengen en voor het eten en een rustigere avond terugkeren naar Frigiliana.'],
-      ['Nerja ligger omkring sex kilometer bort. Ni kan tillbringa dagen på stranden och ändå komma hem till middag och en lugnare kväll i Frigiliana.']
+      ['Nerja and the Mediterranean lie below the village towards the coast. You can spend the day by the sea and still come home to dinner and a quieter evening in Frigiliana.'],
+      ['Nerja und das Mittelmeer liegen unterhalb des Dorfes an der Küste. Ihr könnt den Tag am Meer verbringen und trotzdem zum Abendessen und für einen ruhigeren Abend nach Frigiliana zurückkommen.'],
+      ['Nerja y el Mediterráneo quedan más abajo, hacia la costa. Podéis pasar el día junto al mar y volver a Frigiliana para cenar y disfrutar de una noche más tranquila.'],
+      ['Nerja en de Middellandse Zee liggen lager, richting de kust. Jullie kunnen de dag aan zee doorbrengen en voor het eten en een rustigere avond terugkeren naar Frigiliana.'],
+      ['Nerja och Medelhavet ligger längre ner mot kusten. Ni kan tillbringa dagen vid havet och ändå komma hem till middag och en lugnare kväll i Frigiliana.']
     ),
     subsections: [
       {
@@ -484,7 +515,7 @@ export const frigilianaLocationCopy = {
     items: [
       { id: 'car' as const, question: text('Do you need a car in Frigiliana?', 'Braucht ihr in Frigiliana ein Auto?', '¿Necesitáis coche en Frigiliana?', 'Hebben jullie een auto nodig in Frigiliana?', 'Behöver ni bil i Frigiliana?'), answer: text('Not for everyday time in the village. A car is useful for several beaches or excursions; bus and taxi can work for Nerja.', 'Nicht für den Alltag im Dorf. Für mehrere Strände oder Ausflüge ist ein Auto praktisch; für Nerja funktionieren auch Bus oder Taxi.', 'No para el día a día en el pueblo. Para varias playas o excursiones resulta práctico; para Nerja también sirven el autobús o el taxi.', 'Niet voor het dagelijks leven in het dorp. Voor meerdere stranden of uitstapjes is een auto handig; voor Nerja werken bus en taxi ook.', 'Inte för vardagen i byn. För flera stränder eller utflykter är en bil praktisk; till Nerja fungerar även buss eller taxi.') },
       { id: 'parking' as const, question: text('Is there parking at Casa AMARA?', 'Gibt es einen Parkplatz bei Casa AMARA?', '¿Hay aparcamiento en Casa AMARA?', 'Is er parkeergelegenheid bij Casa AMARA?', 'Finns parkering vid Casa AMARA?'), answer: text('No. The stays have no private parking. Public spaces are in the lower village and availability changes.', 'Nein. Die Unterkünfte haben keinen privaten Parkplatz. Öffentliche Plätze liegen im unteren Dorf und sind nicht garantiert.', 'No. Los alojamientos no tienen aparcamiento privado. Las plazas públicas están en la parte baja y no se garantizan.', 'Nee. De verblijven hebben geen eigen parkeerplaats. Openbare plaatsen liggen lager in het dorp en zijn niet gegarandeerd.', 'Nej. Boendena har ingen privat parkering. Allmänna platser finns längre ner i byn och kan inte garanteras.') },
-      { id: 'steepness' as const, question: text('How steep is the approach?', 'Wie steil ist der letzte Weg?', '¿Cómo es de empinado el último tramo?', 'Hoe steil is de laatste route?', 'Hur brant är sista vägen?'), answer: text('From the main road it is about 150 metres uphill, around 30 metres of height and roughly 30 steps to our door.', 'Von der Hauptstraße sind es etwa 150 Meter bergauf, rund 30 Höhenmeter und ungefähr 30 Stufen bis zu unserer Tür.', 'Desde la carretera principal son unos 150 metros cuesta arriba, alrededor de 30 metros de desnivel y unos 30 escalones hasta nuestra puerta.', 'Vanaf de hoofdweg is het ongeveer 150 meter omhoog, circa 30 hoogtemeters en rond de 30 treden tot onze deur.', 'Från huvudgatan är det omkring 150 meter uppför, cirka 30 höjdmeter och ungefär 30 trappsteg till vår dörr.') },
+      { id: 'steepness' as const, question: text('How steep is the approach?', 'Wie steil ist der letzte Weg?', '¿Cómo es de empinado el último tramo?', 'Hoe steil is de laatste route?', 'Hur brant är sista vägen?'), answer: text('From the main road below, the final approach continues uphill over historic paving and steps. The arrival guide explains the route and luggage options.', 'Von der Hauptstraße unterhalb führt der letzte Weg bergauf über historisches Pflaster und Stufen. Der Anreise-Guide erklärt den Weg und die Möglichkeiten mit Gepäck.', 'Desde la carretera principal, más abajo, el último tramo continúa cuesta arriba por empedrado histórico y escalones. La guía de llegada explica el recorrido y las opciones para el equipaje.', 'Vanaf de hoofdweg beneden loopt het laatste stuk omhoog over historische bestrating en trappen. De aankomstgids legt de route en de mogelijkheden met bagage uit.', 'Från huvudgatan nedanför fortsätter den sista vägen uppför över historisk stenläggning och trappor. Ankomstguiden förklarar vägen och alternativen för bagage.') },
       { id: 'nerja-without-car' as const, question: text('Can you reach Nerja without a car?', 'Kommt ihr ohne Auto nach Nerja?', '¿Se puede ir a Nerja sin coche?', 'Kunnen jullie zonder auto naar Nerja?', 'Går det att ta sig till Nerja utan bil?'), answer: text('Yes, by bus or taxi. Check the current timetable and return options before setting out.', 'Ja, mit Bus oder Taxi. Prüft vorab den aktuellen Fahrplan und die Rückfahrt.', 'Sí, en autobús o taxi. Consultad antes el horario actual y las opciones de vuelta.', 'Ja, met bus of taxi. Controleer vooraf de actuele dienstregeling en terugreis.', 'Ja, med buss eller taxi. Kontrollera aktuell tidtabell och returresa i förväg.') },
       { id: 'luggage' as const, question: text('What about luggage?', 'Was ist mit Gepäck?', '¿Y el equipaje?', 'En de bagage?', 'Hur fungerar det med bagage?'), answer: text('Pack for a short, steep final approach over historic paving and steps. The arrival guide explains the practical route.', 'Plant mit einem kurzen, steilen letzten Weg über historisches Pflaster und Stufen. Der Anreise-Guide erklärt den Ablauf.', 'Contad con un último tramo corto y empinado sobre empedrado y escalones. La guía de llegada explica el recorrido.', 'Reken op een korte, steile laatste route over historische keien en trappen. De aankomstgids legt de route uit.', 'Räkna med en kort, brant sista väg över historisk stenläggning och trappor. Ankomstguiden förklarar vägen.') },
       { id: 'overnight' as const, question: text('Why stay instead of making a day trip?', 'Warum übernachten statt nur besuchen?', '¿Por qué alojarse en vez de venir unas horas?', 'Waarom blijven overnachten?', 'Varför övernatta i stället för att göra ett dagsbesök?'), answer: text('You experience the village before and after the busiest daytime hours, walk home after dinner and wake up already in the old town.', 'Ihr erlebt das Dorf vor und nach den stärksten Besuchszeiten, geht nach dem Essen zu Fuß nach Hause und wacht mitten in der Altstadt auf.', 'Vivís el pueblo antes y después de las horas de más visitas, volvéis andando después de cenar y despertáis ya en el casco antiguo.', 'Jullie beleven het dorp vóór en na de drukste uren, lopen na het eten naar huis en worden wakker in de oude kern.', 'Ni upplever byn före och efter de mest besökta timmarna, går hem efter middagen och vaknar redan i gamla byn.') }
