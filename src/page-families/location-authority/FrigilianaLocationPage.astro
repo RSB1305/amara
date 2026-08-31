@@ -11,7 +11,6 @@ import LocationGuideIcon, {
 } from '../../components/location/LocationGuideIcon.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
 import decisionImage from '../../assets/images/content/amara-lounis/15-amara-frigiliana.jpg';
-import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
 import LocationAreasBand from './LocationAreasBand.astro';
 import LocationStaySplitSection from './LocationStaySplitSection.astro';
 import {
@@ -23,7 +22,6 @@ import {
 } from '../../content/frigilianaLocationContent';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
-import { getFrigilianaLocationSectionOrder } from '../../lib/frigiliana/frigilianaLocationSectionOrder';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -204,7 +202,6 @@ const decisionAvailabilityCta = decisionStay.ctas.find((cta) => cta.token === 'A
 const decisionComparisonCta = decisionStay.ctas.find((cta) => cta.token === 'COMPARISON');
 const decisionStaysCta = decisionStay.ctas.find((cta) => cta.token === 'FRIGILIANA_STAYS');
 
-const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
 const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas;
 ---
 
@@ -226,8 +223,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
 
   <div class="overflow-x-hidden">
     <div data-am-page="frigiliana-location" data-am-family="location" data-am-role="hub" data-am-presentation="guide">
-      <OrderedFrigilianaLocationSections order={sectionOrder}>
-        <Fragment slot="hero">
+        <Fragment>
           <div id="intro">
             <div class="frigiliana-hero">
               <LocationHubHero
@@ -322,15 +318,25 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     ))
                   }
                 </dl>
+
+                {
+                  decisionAvailabilityCta && availabilityHref && (
+                    <div class="lg:order-4 lg:col-span-12">
+                      <a href={availabilityHref} class="am-btn am-btn--primary">
+                        {decisionAvailabilityCta.label}
+                      </a>
+                    </div>
+                  )
+                }
               </div>
             </section>
           </div>
         </Fragment>
 
-        <Fragment slot="evening">
+        <Fragment>
           <section id="overnight" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
             <div class="mx-auto max-w-screen-2xl">
-              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+              <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
                 <div class="lg:col-span-5 lg:pt-8">
                   <h2 class="am-text-title italic text-on-surface tracking-tight mb-10">
                     {c.evening.title}
@@ -364,13 +370,13 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
 
         </Fragment>
 
-        <Fragment slot="history">
+        <Fragment>
           <section id="history" class="am-section am-section--plain py-24 md:py-32 lg:py-40">
             <div class="mx-auto max-w-screen-2xl">
               <h2 class="am-text-title italic text-on-surface tracking-tight mb-14 max-w-4xl">
                 {c.history.title}
               </h2>
-              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+              <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
                 <div class="space-y-6 lg:col-span-5">
                   {
                     c.history.paragraphs.map((paragraph) => (
@@ -423,13 +429,13 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
 
         </Fragment>
 
-        <Fragment slot="villageLife">
+        <Fragment>
           <section id="experiences" class="am-section am-section--plain py-24 md:py-32 lg:py-40">
             <div class="mx-auto max-w-screen-2xl">
               <h2 class="am-text-title italic text-on-surface tracking-tight mb-14 max-w-4xl">
                 {c.villageLife.title}
               </h2>
-              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+              <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
                 <div class="am-mobile-full-bleed lg:col-span-5 overflow-hidden bg-surface-container-low">
                   <AmaraImage
                     src={editorialImages.village}
@@ -497,13 +503,13 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
           </div>
         </Fragment>
 
-        <Fragment slot="coast">
+        <Fragment>
           <section id="comparison" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
             <div class="mx-auto max-w-screen-2xl">
               <h2 class="am-text-title italic text-on-surface tracking-tight mb-14 max-w-4xl">
                 {c.coast.title}
               </h2>
-              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+              <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
                 <div class="lg:col-span-7">
                   <div class="space-y-6">
                     {
@@ -552,7 +558,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
           </section>
         </Fragment>
 
-        <Fragment slot="seasons">
+        <Fragment>
           <section id="weather-climate" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
             <div class="mx-auto max-w-screen-2xl">
               <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
@@ -637,7 +643,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
           </section>
         </Fragment>
 
-        <Fragment slot="decision">
+        <Fragment>
           <LocationStaySplitSection
             imageSrc={decisionImage}
             imageAlt={imageAlt.decision}
@@ -650,7 +656,6 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
               : undefined}
           />
         </Fragment>
-      </OrderedFrigilianaLocationSections>
     </div>
   </div>
 </LocationAuthorityLayout>
