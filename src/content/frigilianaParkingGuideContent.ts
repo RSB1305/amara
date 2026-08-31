@@ -30,9 +30,14 @@ const hero = {
     'Als jullie in Frigiliana overnachten, is parkeren meestal geen probleem. De grootste drukte komt van dagbezoekers, die laat in de ochtend aankomen en vroeg in de middag weer vertrekken. De auto staat dan vaak al in het dorp of jullie komen terug wanneer het rustiger is.',
     'Om ni övernattar i Frigiliana är parkeringen oftast inget problem. Det största trycket kommer från dagsbesökare, som anländer sent på förmiddagen och lämnar tidigt på eftermiddagen. Bilen står då ofta redan parkerad i byn eller så kommer ni tillbaka när det har lugnat sig.'
   ),
-  visualEyebrow: l('For overnight guests', 'Für Übernachtungsgäste', 'Para quienes se alojan aquí', 'Voor overnachtende gasten', 'För övernattande gäster'),
-  visualMark: l('Easy', 'Einfach', 'Fácil', 'Eenvoudig', 'Enkelt'),
-  visualNote: l('Most parking pressure comes from day visitors.', 'Der größte Parkdruck entsteht durch Tagesgäste.', 'La mayor presión de aparcamiento viene de los visitantes de día.', 'De grootste parkeerdruk komt van dagbezoekers.', 'Det största parkeringstrycket kommer från dagsbesökare.'),
+  summaryEyebrow: l('In short', 'Kurz gesagt', 'En resumen', 'Kort gezegd', 'Kort sagt'),
+  summary: l(
+    'Parking in Frigiliana is usually straightforward for overnight guests. Pressure is concentrated in the daytime, when visitors arrive and leave again. What matters is your arrival time, a permitted space and the final walk uphill over cobbles or steps.',
+    'Parken in Frigiliana ist für Übernachtungsgäste meist unkompliziert. Der Andrang konzentriert sich auf die Tagesstunden, wenn Besucher kommen und wieder fahren. Entscheidend sind deshalb eure Ankunftszeit, ein erlaubter Stellplatz und der letzte Weg bergauf über Pflaster oder Stufen.',
+    'Aparcar en Frigiliana suele ser sencillo para quienes pasan la noche. La presión se concentra durante el día, cuando llegan y se marchan los visitantes. Lo importante es vuestra hora de llegada, una plaza permitida y el último tramo cuesta arriba por adoquines o escalones.',
+    'Parkeren in Frigiliana is meestal eenvoudig voor overnachtende gasten. De drukte concentreert zich overdag, wanneer bezoekers aankomen en weer vertrekken. Belangrijk zijn daarom jullie aankomsttijd, een toegestane plek en het laatste stuk omhoog over kasseien of trappen.',
+    'Parkering i Frigiliana är oftast enkel för övernattande gäster. Trycket är koncentrerat till dagtid, när besökarna kommer och åker igen. Det viktiga är därför er ankomsttid, en tillåten plats och den sista sträckan uppför över kullersten eller trappsteg.'
+  ),
   note: l(
     'On the day, the signs on the street always come first.',
     'Vor Ort haben die Schilder auf der Straße immer Vorrang.',
@@ -150,7 +155,7 @@ const sourceRows = [
 
 const makeLocale = (lang: AmaraLanguage): ParkingGuideLocale => ({
   navLabel: navLabel[lang],
-  hero: { eyebrow: hero.eyebrow[lang], title: hero.title[lang], subtitle: hero.subtitle[lang], standfirst: hero.standfirst[lang], visualEyebrow: hero.visualEyebrow[lang], visualMark: hero.visualMark[lang], visualNote: hero.visualNote[lang], note: hero.note[lang], updated: hero.updated[lang] },
+  hero: { eyebrow: hero.eyebrow[lang], title: hero.title[lang], subtitle: hero.subtitle[lang], standfirst: hero.standfirst[lang], summaryEyebrow: hero.summaryEyebrow[lang], summary: hero.summary[lang], note: hero.note[lang], updated: hero.updated[lang] },
   facts: facts.map((item) => ({ label: item.label[lang], value: item.value[lang] })),
   sections: sections.map((section) => ({ id: section.id, eyebrow: section.eyebrow[lang], title: section.title[lang], paragraphs: section.paragraphs.map((p) => p[lang]) })),
   related: {

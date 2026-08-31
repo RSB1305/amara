@@ -47,15 +47,14 @@ const isFrigilianaParking = pageId === 'frigiliana-parking';
   presentation="guide"
   closingRole="next-action"
   closingActionMode="restrained"
-  guideSummary={isFrigilianaParking ? undefined : {
+  guideSummary={isFrigilianaParking ? {
+    eyebrow: content.hero.summaryEyebrow!,
+    body: content.hero.summary!
+  } : {
     eyebrow: content.navLabel,
     body: content.hero.standfirst
   }}
-  guideVisual={isFrigilianaParking ? {
-    eyebrow: content.hero.visualEyebrow!,
-    mark: content.hero.visualMark!,
-    note: content.hero.visualNote
-  } : undefined}
+  showGuideStandfirst={isFrigilianaParking}
 >
   {content.sections.map((section, index) => (
     <AuthorityTextSection

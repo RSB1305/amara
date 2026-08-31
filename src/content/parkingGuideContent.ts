@@ -14,9 +14,8 @@ export interface ParkingGuideLocale {
     title: string;
     subtitle?: string;
     standfirst: string;
-    visualEyebrow?: string;
-    visualMark?: string;
-    visualNote?: string;
+    summaryEyebrow?: string;
+    summary?: string;
     note: string;
     updated: string;
   };

@@ -89,6 +89,8 @@ interface Props {
     /** Optional at-a-glance rows. Omit where the facts section already carries them. */
     items?: Array<{ label: string; value: string }>;
   };
+  /** Keeps the authored standfirst in the text column when the visual is a separate page summary. */
+  showGuideStandfirst?: boolean;
   arrivalVisual?: ArrivalJourneyGraphicData;
   weatherVisual?: {
     eyebrow: string;
@@ -118,6 +120,7 @@ const {
   presentation = 'article',
   guideVisual,
   guideSummary,
+  showGuideStandfirst = false,
   arrivalVisual,
   weatherVisual,
   heroMark,
@@ -172,7 +175,7 @@ if (presentation === 'article' && !byline) {
         eyebrow={hero.eyebrow}
         title={hero.title}
         subtitle={hero.subtitle}
-        paragraphs={guideSummary ? [] : [hero.standfirst]}
+        paragraphs={guideSummary && !showGuideStandfirst ? [] : [hero.standfirst]}
         topic={topic}
         visualBeforeMetaOnMobile={Boolean(guideSummary)}
         visualBreakpoint={arrivalVisual ? 'lg' : 'md'}
