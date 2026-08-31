@@ -4,6 +4,7 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import AmaraActionButton from '../../components/actions/AmaraActionButton.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import villageImage from '../../assets/images/content/amara-frigiliana-pueblo/frigiliana-old-town-steps.jpeg';
 import coastImage from '../../assets/images/content/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg';
 import eveningImage from '../../assets/images/content/hero-frigiliana.jpg';
@@ -170,6 +171,17 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
         </div>
       </div>
     </AmaraSection>
+
+    <EditorialClosingCta
+      title={copy.closingTitle}
+      lead={copy.closingLead}
+      links={[{ token: 'book', label: copy.availabilityLabel, style: 'primary' }]}
+      lang={currentLang}
+      spacing="page"
+      dataComponent="amara-experience-booking-cta"
+      role="conversion"
+      family="experience"
+    />
   </AmaraPageShell>
 </BaseLayout>
 

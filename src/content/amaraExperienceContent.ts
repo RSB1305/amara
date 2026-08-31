@@ -14,7 +14,7 @@ const text = (
 ): LocalizedText => ({ en, de, es, nl, sv });
 
 export const amaraExperienceSeo: AmaraAuthoringSeo = {
-  version: "2026-08-31-amara-experience-v1.1",
+  version: "2026-08-31-amara-experience-v1.2",
   pageType: "C",
   entityKey: "amara-brand",
   languages: {
@@ -361,6 +361,27 @@ const content = {
     "Usamos estos datos únicamente para verificar la reserva confirmada y crear una cookie de sesión cifrada necesaria.",
     "We gebruiken deze gegevens alleen om de bevestigde boeking te controleren en een noodzakelijke versleutelde sessiecookie te maken.",
     "Vi använder uppgifterna endast för att kontrollera den bekräftade bokningen och skapa en nödvändig krypterad sessionscookie.",
+  ),
+  closingTitle: text(
+    "Not booked yet?",
+    "Noch nicht gebucht?",
+    "¿Todavía no habéis reservado?",
+    "Nog niet geboekt?",
+    "Har ni inte bokat ännu?",
+  ),
+  closingLead: text(
+    "Book directly with AMARA. Once confirmed, your private AMARA Experience opens for the dates of your stay.",
+    "Bucht direkt bei AMARA. Nach der Bestätigung öffnet sich eure private AMARA Experience für die Reisedaten eures Aufenthalts.",
+    "Reservad directamente con AMARA. Una vez confirmada, vuestra AMARA Experience privada se abrirá para las fechas de la estancia.",
+    "Boek rechtstreeks bij AMARA. Na bevestiging gaat jullie privé-AMARA Experience open voor de data van het verblijf.",
+    "Boka direkt med AMARA. Efter bekräftelsen öppnas er privata AMARA Experience för datumen för vistelsen.",
+  ),
+  availabilityLabel: text(
+    "Check availability",
+    "Verfügbarkeit prüfen",
+    "Consultar disponibilidad",
+    "Beschikbaarheid bekijken",
+    "Kontrollera tillgänglighet",
   ),
 };
 
