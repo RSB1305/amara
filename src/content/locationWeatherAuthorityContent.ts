@@ -653,12 +653,12 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       sv: [{ label: 'Varför vinden bestämmer här', text: 'Vid en smal udde möts två hav. Därför vrider vinden mellan levante och poniente, och därför fungerar inte varje strand varje dag.' }, { label: 'Vintervistelser i Tarifa', text: 'På vintern drar fronter förbi, så en andra plan räknas mer här än på andra håll. AMARA Family & Surf har 75 m² på två plan, braskamin och värme — och stormarknaden ligger tvärs över gatan.' }],
     },
   };
-  const frigilianaBestTime: Record<AmaraLanguage, { intro: string; titles: string[] }> = {
-    en: { intro: 'Four ways to use the monthly values — for beach days, walking, a round trip and a quieter winter in the village.', titles: ['Beach & long evenings', 'Walking', 'Round trip', 'Longer winter stay'] },
-    de: { intro: 'Aus den Monatswerten ergeben sich vier einfache Reiseideen — für Strandtage, Wege in die Berge, eine Rundreise und einen ruhigen Winter im Dorf.', titles: ['Strand & lange Abende', 'Wandern', 'Rundreise', 'Längerer Winteraufenthalt'] },
-    es: { intro: 'Cuatro formas de aprovechar los valores mensuales: playa, senderismo, una ruta por Andalucía y un invierno tranquilo en el pueblo.', titles: ['Playa y tardes largas', 'Senderismo', 'Ruta por Andalucía', 'Una estancia larga en invierno'] },
-    nl: { intro: 'Vier manieren om de maandwaarden te gebruiken: stranddagen, wandelen, een rondreis en een rustige winter in het dorp.', titles: ['Strand en lange avonden', 'Wandelen', 'Rondreis', 'Een langer winterverblijf'] },
-    sv: { intro: 'Fyra sätt att använda månadsvärdena: stranddagar, vandring, en rundresa och en lugn vinter i byn.', titles: ['Strand och långa kvällar', 'Vandring', 'Rundresa', 'Längre vintervistelse'] }
+  const frigilianaBestTime: Record<AmaraLanguage, { eyebrow: string; title: string; intro: string; titles: string[] }> = {
+    en: { eyebrow: 'Your time in Frigiliana', title: 'Between beaches, mountains and quiet lanes', intro: 'One day stretches out by the sea, another begins early in the mountains. In between there is time for a road trip through Andalucía — and in winter, the village settles into its calmest rhythm.', titles: ['Beaches', 'Hiking', 'Road trip', 'Winter stays'] },
+    de: { eyebrow: 'Eure Zeit in Frigiliana', title: 'Zwischen Stränden, Bergen und ruhigen Gassen', intro: 'Mal wird es ein langer Tag am Meer, mal geht ihr früh hinauf in die Berge. Dazwischen bleibt Zeit für eine Rundreise durch Andalusien — und im Winter gehört das Dorf fast euch.', titles: ['Strände', 'Wandern', 'Rundreise', 'Winteraufenthalte'] },
+    es: { eyebrow: 'Vuestros días en Frigiliana', title: 'Entre playas, sierra y calles tranquilas', intro: 'Un día se alarga junto al mar y otro empieza temprano en la sierra. Entre medias queda tiempo para una ruta por Andalucía; en invierno, el pueblo recupera su ritmo más tranquilo.', titles: ['Playas', 'Senderismo', 'Ruta', 'Invierno'] },
+    nl: { eyebrow: 'Jullie tijd in Frigiliana', title: 'Tussen stranden, bergen en rustige straatjes', intro: 'De ene dag duurt lang aan zee, de andere begint vroeg in de bergen. Daartussen is er tijd voor een rondreis door Andalusië — en in de winter komt het dorp helemaal tot rust.', titles: ['Stranden', 'Wandelen', 'Rondreis', 'Winterverblijf'] },
+    sv: { eyebrow: 'Er tid i Frigiliana', title: 'Mellan stränder, berg och lugna gränder', intro: 'En dag blir lång vid havet, en annan börjar tidigt i bergen. Däremellan finns tid för en rundresa genom Andalusien — och på vintern hittar byn sin allra lugnaste rytm.', titles: ['Stränder', 'Vandring', 'Rundresa', 'Vintervistelse'] }
   };
   const frigilianaTableIntros: Record<AmaraLanguage, string> = {
     en: 'The table shows you how the year changes. In summer, put steep paths into the early or late hours; in winter, bring a jacket for the evening.',
@@ -785,8 +785,8 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
     table: { ...common.table, intro: destination === 'frigiliana' ? frigilianaTableIntros[lang] : common.table.intro, sourceText: profile.sourceText },
     seasons: { eyebrow: common.seasonEyebrow, title: common.seasonTitle, intro: common.seasonIntro, planningLabel: common.seasonPlanningLabel, items: common.seasons.map((season, index) => ({ ...season, summary: profile.seasonNotes[index] })) },
     bestTime: {
-      eyebrow: common.bestEyebrow,
-      title: common.bestTitle,
+      eyebrow: destination === 'frigiliana' ? frigilianaBestTime[lang].eyebrow : common.bestEyebrow,
+      title: destination === 'frigiliana' ? frigilianaBestTime[lang].title : common.bestTitle,
       intro: destination === 'frigiliana' ? frigilianaBestTime[lang].intro : common.bestIntro,
       items: (destination === 'frigiliana' ? frigilianaBestTime[lang].titles : common.intentTitles).map((title, index) => {
         const link = intentLinks[index];
