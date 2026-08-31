@@ -5,10 +5,9 @@ interface Props {
   label: string;
   note: string;
   lang: AmaraLanguage;
-  showProperty?: boolean;
 }
 
-const { label, note, lang, showProperty = true } = Astro.props;
+const { label, note, lang } = Astro.props;
 const mapCopy: Record<AmaraLanguage, { airport: string; sea: string }> = {
   en: { airport: 'Málaga Airport', sea: 'MEDITERRANEAN' },
   de: { airport: 'Flughafen Málaga', sea: 'MITTELMEER' },
@@ -76,19 +75,13 @@ const copy = mapCopy[lang];
         <text x="651" y="96" class="map-mountain-label">SIERRA ALMIJARA</text>
       </g>
 
-      {
-        showProperty && (
-          <>
-            <path d="M790 257 L837 217" class="map-callout-line" />
-            <g transform="translate(742 158)">
-              <rect width="151" height="58" rx="1" class="map-callout" />
-              <circle cx="18" cy="20" r="5" class="map-callout-point" />
-              <text x="31" y="24" class="map-callout-title">CASA AMARA</text>
-              <text x="18" y="43" class="map-callout-copy">Calle Chorruelo 5</text>
-            </g>
-          </>
-        )
-      }
+      <path d="M790 257 L837 217" class="map-callout-line" />
+      <g transform="translate(742 158)">
+        <rect width="151" height="58" rx="1" class="map-callout" />
+        <circle cx="18" cy="20" r="5" class="map-callout-point" />
+        <text x="31" y="24" class="map-callout-title">CASA AMARA</text>
+        <text x="18" y="43" class="map-callout-copy">Calle Chorruelo 5</text>
+      </g>
 
       <g transform="translate(54 535)" aria-hidden="true">
         <line x1="0" y1="0" x2="68" y2="0" class="map-legend-line" />
