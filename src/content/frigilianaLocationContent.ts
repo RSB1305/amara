@@ -111,7 +111,16 @@ export interface FrigilianaLocationPageCopy {
     amenities: { label: string; text: string };
   };
   journeyBridge?: { eyebrow: string; title: string; text: string; ctaLabel: string };
-  exploreBridge: { eyebrow: string; title: string; text: string; ctaLabel: string };
+  exploreBridge: {
+    eyebrow: string;
+    title: string;
+    text: string;
+    links: Array<{
+      id: 'old-town' | 'hiking' | 'all';
+      label: string;
+      text: string;
+    }>;
+  };
   decision: FrigilianaLocationDecisionModule;
 }
 
@@ -154,12 +163,12 @@ const cta = (token: FrigilianaLocationCtaToken, label: LocalizedText): Localized
 });
 
 export const frigilianaLocationSeo: AmaraAuthoringSeo = {
-  version: '2026-08-29-frigiliana-location-v3.0',
+  version: '2026-08-31-frigiliana-location-v4.0',
   pageType: 'A',
   entityKey: 'amara-brand',
   article: {
     datePublished: '2026-08-18',
-    dateModified: '2026-08-29',
+    dateModified: '2026-08-31',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorSlug: 'staying-with-us'
@@ -167,32 +176,32 @@ export const frigilianaLocationSeo: AmaraAuthoringSeo = {
   ogImage: '/images/amara-lounis/15-amara-frigiliana.jpg',
   languages: {
     de: {
-      title: 'In Frigiliana übernachten | Altstadt & Meer | AMARA',
-      description: 'Wohnt mitten in Frigilianas Altstadt: Restaurants zu Fuß, ruhige Morgen und Abende, Nerja und das Meer nur wenige Kilometer entfernt.',
+      title: 'Frigiliana als Urlaubsort | Dorf, Berge & Küste | AMARA',
+      description: 'Lernt Frigiliana als Urlaubsort kennen: historisches Hangdorf, Berglandschaft, Restaurants zu Fuß und Nerjas Küste rund sechs Kilometer entfernt.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     en: {
-      title: 'Stay in Frigiliana | Historic Village & Coast | AMARA',
-      description: 'Stay in Frigiliana old town: restaurants on foot, quieter mornings and evenings, with Nerja and the Mediterranean only a few kilometres away.',
+      title: 'Frigiliana as a Holiday Base | Village, Mountains & Coast | AMARA',
+      description: 'Understand Frigiliana as a holiday base: a historic hillside village, mountain landscape, restaurants on foot and Nerja’s coast about six kilometres away.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Alojarse en Frigiliana | Casco histórico y mar | AMARA',
-      description: 'Alojaos en el casco antiguo de Frigiliana: restaurantes a pie, mañanas y noches tranquilas, con Nerja y el mar a pocos kilómetros.',
+      title: 'Frigiliana como base | Pueblo, montaña y costa | AMARA',
+      description: 'Conoced Frigiliana como base de vacaciones: un pueblo histórico en cuesta, montaña, restaurantes a pie y la costa de Nerja a unos seis kilómetros.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Overnachten in Frigiliana | Historisch dorp & zee | AMARA',
-      description: 'Verblijf midden in de oude kern van Frigiliana: restaurants op loopafstand en Nerja en de Middellandse Zee op enkele kilometers.',
+      title: 'Frigiliana als vakantiebasis | Dorp, bergen & kust | AMARA',
+      description: 'Ontdek Frigiliana als vakantiebasis: een historisch heuveldorp, berglandschap, restaurants te voet en de kust van Nerja op ongeveer zes kilometer.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Bo i Frigiliana | Historisk by & havet | AMARA',
-      description: 'Bo mitt i Frigilianas gamla by: restauranger till fots, lugnare morgnar och kvällar samt Nerja och havet några kilometer bort.',
+      title: 'Frigiliana som semesterbas | By, berg & kust | AMARA',
+      description: 'Lär känna Frigiliana som semesterbas: en historisk by i sluttning, bergslandskap, restauranger till fots och Nerjas kust omkring sex kilometer bort.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -219,18 +228,18 @@ export const frigilianaLocationHeroImageAlt: Record<AmaraLanguage, string> = {
 export const frigilianaLocationCopy = {
   heroKicker: text('FRIGILIANA · ANDALUSIA', 'FRIGILIANA · ANDALUSIEN', 'FRIGILIANA · ANDALUCÍA', 'FRIGILIANA · ANDALUSIË', 'FRIGILIANA · ANDALUSIEN'),
   h1: text(
-    'Frigiliana and our house in the village',
-    'Frigiliana und unser Haus im Dorf',
-    'Frigiliana y nuestra casa en el pueblo',
-    'Frigiliana en ons huis in het dorp',
-    'Frigiliana och vårt hus i byn'
+    'Frigiliana as a holiday base',
+    'Frigiliana als Urlaubsort',
+    'Frigiliana como base de vacaciones',
+    'Frigiliana als vakantiebasis',
+    'Frigiliana som semesterbas'
   ),
   h1Subtitle: text(
-    'The old town at the door, the sea nearby',
-    'Altstadt vor der Tür, Meer in der Nähe',
-    'El casco antiguo a la puerta y el mar cerca',
-    'De oude kern voor de deur, de zee dichtbij',
-    'Gamla stan utanför dörren, havet i närheten'
+    'Historic lanes, mountain routes and the coast below',
+    'Historische Gassen, Bergwege und die Küste unterhalb',
+    'Calles históricas, rutas de montaña y la costa más abajo',
+    'Historische straatjes, bergroutes en de kust beneden',
+    'Historiska gränder, bergsleder och kusten nedanför'
   ),
   heroUpdated: text('Reviewed August 2026', 'Geprüft im August 2026', 'Revisado en agosto de 2026', 'Gecontroleerd in augustus 2026', 'Granskad i augusti 2026'),
   heroNote: text(
@@ -242,24 +251,19 @@ export const frigilianaLocationCopy = {
   ),
   intro: textList(
     [
-      'Frigiliana sits about six kilometres above Nerja. Stay here and the white lanes, small restaurants and mountain landscape are outside your door, while the coast remains close enough for a beach day. It is a hillside village, so cobbles, slopes and steps are an honest part of the stay.',
-      'Casa AMARA is on Calle Chorruelo beside San Antonio church. From our door you can walk to cafés, restaurants and the village centre. The final approach from the main road is short but steep, and our stays do not have private parking.'
+      'Frigiliana works as a holiday base when the village itself should shape your mornings and evenings. White lanes, small restaurants and the historic centre are close on foot, while the mountains begin behind the village and Nerja’s coast remains about six kilometres downhill. The trade-off is the hillside: cobbles, slopes and steps affect ordinary routes, and parking is easier in some parts than others. It suits couples who value village atmosphere and a slower return after day trips; it is less natural when immediate beach access or level, door-to-car movement is the priority.'
     ],
     [
-      'Frigiliana liegt rund sechs Kilometer oberhalb von Nerja. Wer hier übernachtet, hat die weißen Gassen, kleine Restaurants und die Berglandschaft direkt vor der Tür; für einen Strandtag bleibt die Küste nah. Das Dorf liegt am Hang, deshalb gehören Pflaster, Steigungen und Stufen ehrlich zum Aufenthalt.',
-      'Casa AMARA liegt in der Calle Chorruelo neben der Kirche San Antonio. Von unserer Tür erreicht ihr Cafés, Restaurants und den Ortskern zu Fuß. Der letzte Weg von der Hauptstraße ist kurz, aber steil, und einen privaten Parkplatz haben die Unterkünfte nicht.'
+      'Frigiliana passt als Urlaubsort, wenn das Dorf selbst eure Morgen und Abende prägen soll. Weiße Gassen, kleine Restaurants und der historische Kern liegen nah beieinander; hinter dem Ort beginnen die Berge, während Nerjas Küste rund sechs Kilometer weiter unten bleibt. Der ehrliche Tausch dafür ist die Hanglage: Pflaster, Steigungen und Stufen gehören zu alltäglichen Wegen, und manche Ortsteile sind zum Parken praktischer als andere. Das passt zu Paaren, die Dorfatmosphäre und eine ruhige Rückkehr nach Ausflügen schätzen; für direkten Strandzugang oder ebene Wege zwischen Haustür und Auto ist Frigiliana weniger selbstverständlich.'
     ],
     [
-      'Frigiliana está a unos seis kilómetros por encima de Nerja. Al alojaros aquí tenéis las calles blancas, pequeños restaurantes y la montaña a la puerta, mientras la costa sigue cerca para pasar el día en la playa. Es un pueblo en cuesta, así que el empedrado, las pendientes y los escalones forman parte real de la estancia.',
-      'Casa AMARA está en la calle Chorruelo, junto a la iglesia de San Antonio. Desde nuestra puerta podéis ir andando a cafeterías, restaurantes y al centro. El último tramo desde la carretera principal es corto pero empinado, y los alojamientos no tienen aparcamiento privado.'
+      'Frigiliana funciona como base de vacaciones cuando queréis que el propio pueblo marque las mañanas y las noches. Las calles blancas, los pequeños restaurantes y el casco histórico quedan cerca a pie; la montaña empieza detrás del pueblo y la costa de Nerja sigue a unos seis kilómetros cuesta abajo. La contrapartida es la ladera: el empedrado, las pendientes y los escalones forman parte de los recorridos diarios, y algunas zonas resultan más prácticas para aparcar que otras. Encaja con parejas que valoran la vida de pueblo y un regreso tranquilo tras las excursiones; resulta menos natural si buscáis playa inmediata o recorridos llanos entre la puerta y el coche.'
     ],
     [
-      'Frigiliana ligt ongeveer zes kilometer boven Nerja. Wie hier verblijft, heeft de witte straatjes, kleine restaurants en het berglandschap voor de deur, terwijl de kust dichtbij blijft voor een stranddag. Het dorp ligt tegen een helling, dus keien, hoogteverschillen en trappen horen eerlijk bij het verblijf.',
-      'Casa AMARA ligt aan Calle Chorruelo, naast de kerk van San Antonio. Vanaf onze deur lopen jullie naar cafés, restaurants en het dorpscentrum. De laatste route vanaf de hoofdweg is kort maar steil, en onze verblijven hebben geen eigen parkeerplaats.'
+      'Frigiliana past als vakantiebasis wanneer het dorp zelf jullie ochtenden en avonden mag bepalen. De witte straatjes, kleine restaurants en de historische kern liggen dichtbij te voet; achter het dorp beginnen de bergen en de kust van Nerja ligt ongeveer zes kilometer bergafwaarts. Daar staat de heuvel tegenover: keien, hellingen en trappen horen bij dagelijkse routes en parkeren is in sommige dorpsdelen praktischer dan in andere. Dit past bij stellen die dorpssfeer en een rustige terugkeer na uitstapjes waarderen; voor directe toegang tot het strand of vlakke routes tussen voordeur en auto is Frigiliana minder vanzelfsprekend.'
     ],
     [
-      'Frigiliana ligger omkring sex kilometer ovanför Nerja. När ni bor här finns de vita gränderna, små restauranger och bergslandskapet utanför dörren, samtidigt som kusten är nära för en stranddag. Byn ligger på en sluttning, så stenläggning, backar och trappor är en naturlig del av vistelsen.',
-      'Casa AMARA ligger på Calle Chorruelo intill kyrkan San Antonio. Från vår dörr går ni till kaféer, restauranger och byns centrum. Den sista vägen upp från huvudgatan är kort men brant, och boendena har ingen privat parkering.'
+      'Frigiliana fungerar som semesterbas när själva byn ska prägla era morgnar och kvällar. Vita gränder, små restauranger och den historiska kärnan ligger nära till fots; bergen börjar bakom byn och Nerjas kust ligger omkring sex kilometer nedför sluttningen. Avvägningen är terrängen: stenläggning, backar och trappor ingår i vardagens vägar, och vissa bydelar är mer praktiska för parkering än andra. Det passar par som uppskattar bykänsla och en lugn återkomst efter utflykter; Frigiliana är mindre självklart om direkt strandläge eller plana vägar mellan dörr och bil är viktigast.'
     ]
   ),
   introPullLine: text(
@@ -275,23 +279,23 @@ export const frigilianaLocationCopy = {
     paragraphs: textList(
       [
         'Frigiliana lies in the Axarquía, on the southern slope of the Sierra de Almijara. Nerja and the Mediterranean are about six kilometres downhill.',
-        'Casa AMARA is on Calle Chorruelo, the continuation of Calle Real. The church, restaurants and the heart of the old village are close by.'
+        'The historic fabric follows the slope: Barribajo runs along Calle Real, Barribarto rises above it, and El Ingenio marks the transition towards later development.'
       ],
       [
         'Frigiliana liegt in der Axarquía am Südhang der Sierra de Almijara. Nerja und das Mittelmeer liegen rund sechs Kilometer weiter unten.',
-        'Casa AMARA liegt an der Calle Chorruelo, der Fortsetzung der Calle Real. Kirche, Restaurants und das Herz der Altstadt sind ganz in der Nähe.'
+        'Der historische Ort folgt dem Hang: Barribajo zieht sich an der Calle Real entlang, Barribarto steigt darüber an und El Ingenio markiert den Übergang zu später entstandenen Ortsteilen.'
       ],
       [
         'Frigiliana está en la Axarquía, en la ladera sur de la Sierra de Almijara. Nerja y el Mediterráneo quedan unos seis kilómetros más abajo.',
-        'Casa AMARA está en la calle Chorruelo, continuación de la calle Real. La iglesia, los restaurantes y el centro del casco antiguo están muy cerca.'
+        'El tejido histórico sigue la ladera: Barribajo se extiende junto a la calle Real, Barribarto sube por encima y El Ingenio marca la transición hacia las zonas posteriores.'
       ],
       [
         'Frigiliana ligt in de Axarquía, op de zuidhelling van de Sierra de Almijara. Nerja en de Middellandse Zee liggen ongeveer zes kilometer lager.',
-        'Casa AMARA ligt aan Calle Chorruelo, in het verlengde van Calle Real. De kerk, restaurants en het hart van de oude kern zijn vlakbij.'
+        'De historische structuur volgt de helling: Barribajo loopt langs Calle Real, Barribarto klimt daarboven en El Ingenio vormt de overgang naar latere dorpsdelen.'
       ],
       [
         'Frigiliana ligger i Axarquía på Sierra de Almijaras sydsluttning. Nerja och Medelhavet ligger omkring sex kilometer längre ner.',
-        'Casa AMARA ligger på Calle Chorruelo, fortsättningen av Calle Real. Kyrkan, restaurangerna och gamla byns centrum finns alldeles nära.'
+        'Den historiska bebyggelsen följer sluttningen: Barribajo löper längs Calle Real, Barribarto stiger ovanför och El Ingenio markerar övergången till senare delar av byn.'
       ]
     ),
     facts: [
@@ -299,7 +303,7 @@ export const frigilianaLocationCopy = {
       { id: 'old-town', value: text('Old town', 'Altstadt', 'Casco antiguo', 'Oude kern', 'Gamla byn'), label: text('restaurants and cafés on foot', 'Restaurants und Cafés zu Fuß', 'restaurantes y cafeterías a pie', 'restaurants en cafés te voet', 'restauranger och kaféer till fots') },
       { id: 'hillside', value: text('Hillside village', 'Hangdorf', 'Pueblo en cuesta', 'Dorp op een helling', 'By på en sluttning'), label: text('cobbles, slopes and steps', 'Pflaster, Steigungen und Stufen', 'empedrado, pendientes y escalones', 'keien, hellingen en trappen', 'stenläggning, backar och trappor') }
     ],
-    mapLabel: text('Orientation from Málaga via Nerja to Frigiliana and Casa AMARA', 'Orientierung von Málaga über Nerja nach Frigiliana und Casa AMARA', 'Orientación desde Málaga, pasando por Nerja, hasta Frigiliana y Casa AMARA', 'Oriëntatie van Málaga via Nerja naar Frigiliana en Casa AMARA', 'Orientering från Málaga via Nerja till Frigiliana och Casa AMARA'),
+    mapLabel: text('Orientation from Málaga via Nerja to Frigiliana', 'Orientierung von Málaga über Nerja nach Frigiliana', 'Orientación desde Málaga, pasando por Nerja, hasta Frigiliana', 'Oriëntatie van Málaga via Nerja naar Frigiliana', 'Orientering från Málaga via Nerja till Frigiliana'),
     mapNote: text('Not to scale', 'Nicht maßstabsgetreu', 'No está a escala', 'Niet op schaal', 'Inte skalenlig'),
     geographyLabel: text('See the geography guide', 'Geografie ansehen', 'Ver la guía geográfica', 'Bekijk de geografiegids', 'Se geografisidan'),
     arrivalLabel: text('Plan your arrival', 'Anreise planen', 'Planificar la llegada', 'Plan jullie aankomst', 'Planera ankomsten'),
@@ -489,11 +493,11 @@ export const frigilianaLocationCopy = {
   seasons: {
     title: text('The same village feels different through the year', 'Dasselbe Dorf fühlt sich je nach Jahreszeit anders an', 'El mismo pueblo cambia con las estaciones', 'Hetzelfde dorp voelt elk seizoen anders', 'Samma by känns olika under året'),
     paragraphs: textList(
-      ['Heat, rain and daylight change when walking, terraces and the coast fit best into your day. Check the weather guide for current conditions.'],
-      ['Hitze, Regen und Tageslicht verändern, wann Wege, Terrasse und Küste am besten in euren Tag passen. Aktuelle Bedingungen findet ihr im Wetter-Guide.'],
-      ['El calor, la lluvia y las horas de luz cambian el mejor momento para caminar, estar en la terraza o bajar a la costa. Consultad las condiciones actuales en la guía del tiempo.'],
-      ['Hitte, regen en daglicht bepalen wanneer wandelen, terras en kust het beste in jullie dag passen. Bekijk de weergids voor de actuele omstandigheden.'],
-      ['Värme, regn och dagsljus påverkar när promenader, terrass och kust passar bäst under dagen. Se väderguiden för aktuella förhållanden.']
+      ['Heat, rain and daylight change when steep walks, outdoor meals and the coast fit best into your day.'],
+      ['Hitze, Regen und Tageslicht verändern, wann steile Wege, Essen im Freien und die Küste am besten in euren Tag passen.'],
+      ['El calor, la lluvia y las horas de luz cambian el mejor momento para las cuestas, las comidas al aire libre y la costa.'],
+      ['Hitte, regen en daglicht bepalen wanneer steile routes, buiten eten en de kust het beste in jullie dag passen.'],
+      ['Värme, regn och dagsljus påverkar när branta promenader, måltider utomhus och kusten passar bäst under dagen.']
     ),
     subsections: [
       { id: 'spring', title: text('Spring', 'Frühling', 'Primavera', 'Lente', 'Vår'), paragraphs: textList(['Good for combining village walks, landscape and the coast; check the day’s forecast.'], ['Dorf, Landschaft und Küste lassen sich gut verbinden; prüft trotzdem die Tagesvorhersage.'], ['Es fácil combinar pueblo, paisaje y costa; comprobad la previsión del día.'], ['Dorp, landschap en kust zijn goed te combineren; bekijk wel de dagverwachting.'], ['By, landskap och kust går bra att kombinera; kontrollera ändå dagens prognos.']), ctas: [] },
@@ -529,10 +533,26 @@ export const frigilianaLocationCopy = {
     eyebrow: text('YOUR DAYS FROM HERE', 'EURE TAGE VON HIER AUS', 'VUESTROS DÍAS DESDE AQUÍ', 'JULLIE DAGEN VANAF HIER', 'ERA DAGAR HÄRIFRÅN'),
     title: text('Village, mountains or sea?', 'Dorf, Berge oder Meer?', '¿Pueblo, montaña o mar?', 'Dorp, bergen of zee?', 'By, berg eller hav?'),
     text: text('Each day can go differently: through the old town, out into the landscape or down to the coast.', 'Jeder Tag kann anders laufen: durch die Altstadt, hinaus in die Landschaft oder hinunter ans Meer.', 'Cada día puede ir de otra manera: por el casco antiguo, hacia la montaña o bajando a la costa.', 'Elke dag kan anders lopen: door de oude kern, de bergen in of omlaag naar de kust.', 'Varje dag kan bli annorlunda: genom gamla byn, ut i landskapet eller ner till kusten.'),
-    ctaLabel: text('Explore ideas for your stay', 'Ideen für euren Aufenthalt', 'Ver ideas para la estancia', 'Bekijk ideeën voor jullie verblijf', 'Se idéer för vistelsen')
+    links: [
+      {
+        id: 'old-town',
+        label: text('Walk the old village', 'Durch die Altstadt gehen', 'Recorrer el casco antiguo', 'Loop door de oude kern', 'Promenera genom gamla byn'),
+        text: text('Calle Real, Barribarto and the ceramic panels turn the hillside structure into a walk through Frigiliana’s history.', 'Calle Real, Barribarto und die Keramiktafeln machen aus der Hangstruktur einen Weg durch Frigilianas Geschichte.', 'La calle Real, Barribarto y los paneles cerámicos convierten la ladera en un recorrido por la historia de Frigiliana.', 'Calle Real, Barribarto en de keramiekpanelen maken van de heuvelstructuur een wandeling door Frigiliana’s geschiedenis.', 'Calle Real, Barribarto och keramikpanelerna gör sluttningen till en vandring genom Frigilianas historia.')
+      },
+      {
+        id: 'hiking',
+        label: text('Continue into the mountains', 'Weiter in die Berge', 'Seguir hacia la montaña', 'Ga verder de bergen in', 'Fortsätt upp i bergen'),
+        text: text('When the lanes are only the start, compare the published routes by distance, ascent, terrain and exposure.', 'Wenn die Gassen nur der Anfang sind, vergleicht die veröffentlichten Routen nach Strecke, Anstieg, Untergrund und Exposition.', 'Si las calles son solo el comienzo, comparad las rutas publicadas por distancia, desnivel, terreno y exposición.', 'Wanneer de straatjes pas het begin zijn, vergelijk dan de gepubliceerde routes op afstand, stijging, terrein en beschutting.', 'När gränderna bara är början kan ni jämföra de publicerade lederna efter sträcka, stigning, underlag och exponering.')
+      },
+      {
+        id: 'all',
+        label: text('Compare all Frigiliana experiences', 'Alle Frigiliana-Erlebnisse vergleichen', 'Comparar todas las experiencias de Frigiliana', 'Vergelijk alle ervaringen in Frigiliana', 'Jämför alla upplevelser i Frigiliana'),
+        text: text('Use the complete overview when village, mountain and coast days still need to find their place in the same stay.', 'Nutzt den vollständigen Überblick, wenn Dorf-, Berg- und Küstentage noch ihren Platz im selben Aufenthalt finden sollen.', 'Usad la vista completa cuando todavía queráis encajar días de pueblo, montaña y costa en la misma estancia.', 'Gebruik het volledige overzicht wanneer dorp, bergen en kust nog een plek moeten krijgen binnen hetzelfde verblijf.', 'Använd hela översikten när dagar i byn, bergen och vid kusten fortfarande ska få plats i samma vistelse.')
+      }
+    ]
   },
   decision: {
-    eyebrow: text('YOUR STAY IN THE VILLAGE', 'EUER AUFENTHALT IM DORF', 'VUESTRA ESTANCIA EN EL PUEBLO', 'JULLIE VERBLIJF IN HET DORP', 'ER VISTELSE I BYN'),
+    eyebrow: text('CASA AMARA IN FRIGILIANA', 'CASA AMARA IN FRIGILIANA', 'CASA AMARA EN FRIGILIANA', 'CASA AMARA IN FRIGILIANA', 'CASA AMARA I FRIGILIANA'),
     staysEyebrow: text('FOUR STAYS · ONE VILLAGE HOUSE', 'VIER UNTERKÜNFTE · EIN DORFHAUS', 'CUATRO ALOJAMIENTOS · UNA CASA DE PUEBLO', 'VIER VERBLIJVEN · ÉÉN DORPSHUIS', 'FYRA BOENDEN · ETT BYHUS'),
     title: text('Frigiliana suits you if the village is part of the holiday', 'Frigiliana passt zu euch, wenn das Dorf zum Urlaub gehören soll', 'Frigiliana encaja si el pueblo debe formar parte de las vacaciones', 'Frigiliana past als het dorp onderdeel van de vakantie mag zijn', 'Frigiliana passar om byn ska vara en del av semestern'),
     paragraphs: textList(
