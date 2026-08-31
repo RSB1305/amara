@@ -69,55 +69,60 @@ export const nerjaExperienceHubContent = {
     title: l("Close by or out for the day", "Ganz in der Nähe oder einen Tag unterwegs", "Cerca de casa o de excursión", "Dicht bij huis of een dag op pad", "Nära hemmet eller på dagsutflykt"),
     text: l("These are the four things we would start with: the coast, the caves, good food and one unhurried day trip.", "Damit würden wir anfangen: Küste, Höhlen, gutes Essen und ein Tagesausflug ohne Zeitdruck.", "Nosotros empezaríamos por aquí: la costa, las cuevas, buena comida y una excursión sin prisas.", "Hier zouden wij mee beginnen: de kust, de grotten, lekker eten en één ontspannen dagtocht.", "Vi skulle börja här: kusten, grottorna, god mat och en dagsutflykt utan stress.")
   },
+  moreThemes: {
+    eyebrow: l("Three more sides of Nerja", "Drei weitere Seiten von Nerja", "Tres facetas más de Nerja", "Nog drie kanten van Nerja", "Tre andra sidor av Nerja"),
+    title: l("Old-town views, local memory and the evening", "Altstadtblicke, Ortsgeschichte und der Abend", "Vistas del casco antiguo, memoria local y vida nocturna", "Uitzicht in de oude stad, lokaal geheugen en de avond", "Gamla stans utsikter, lokala minnen och kvällen"),
+    text: l("The Balcón gives the centre its clearest orientation point, Verano Azul adds a cultural route through town, and Nerja's compact evening areas take over after dinner.", "Der Balcón ist der klarste Orientierungspunkt im Zentrum, Verano Azul führt als kulturelle Spur durch den Ort, und nach dem Essen übernehmen Nerjas kompakte Abendviertel.", "El Balcón es el punto de orientación más claro del centro, Verano Azul aporta una ruta cultural por la localidad y, después de cenar, toman el relevo las zonas nocturnas de Nerja.", "Het Balcón is het duidelijkste oriëntatiepunt in het centrum, Verano Azul vormt een culturele route door de plaats en na het eten nemen Nerja's compacte avondbuurten het over.", "Balcón är den tydligaste orienteringspunkten i centrum, Verano Azul lägger ett kulturellt spår genom staden och efter middagen tar Nerjas kompakta kvällsområden vid.")
+  },
   themes: [
     {
       id: "beaches",
       title: l("Beaches & coast", "Strände & Küste", "Playas y costa", "Stranden & kust", "Stränder & kust"),
       text: l("Torrecilla is the easy everyday beach from AMARA Playa. For clearer water and a wilder setting, the coves towards Maro are worth the extra journey.", "Torrecilla ist von AMARA Playa der unkomplizierte Strand für jeden Tag. Für klareres Wasser und eine naturbelassenere Umgebung lohnt sich der zusätzliche Weg Richtung Maro.", "Torrecilla es la playa fácil para el día a día desde AMARA Playa. Para encontrar aguas más transparentes y un entorno más natural, merece la pena acercarse a las calas de Maro.", "Torrecilla is vanaf AMARA Playa het makkelijke strand voor elke dag. Voor helderder water en een natuurlijkere omgeving is de extra reis richting Maro de moeite waard.", "Torrecilla är den enkla vardagsstranden från AMARA Playa. För klarare vatten och mer natur är vikarna mot Maro värda den extra resan."),
       token: "nerja_beaches_authority" as LinkToken,
-      linkLabel: l("Open the beach guide", "Strandguide öffnen", "Abrir la guía de playas", "Open de strandgids", "Öppna strandguiden")
+      linkLabel: l("Compare Torrecilla with the coves near Maro", "Torrecilla mit den Buchten bei Maro vergleichen", "Comparar Torrecilla con las calas de Maro", "Vergelijk Torrecilla met de baaien bij Maro", "Jämför Torrecilla med vikarna vid Maro")
     },
     {
       id: "food",
       title: l("Food & restaurants", "Essen & Restaurants", "Gastronomía y restaurantes", "Eten & restaurants", "Mat & restauranger"),
       text: l("Lunch can be grilled fish or paella by the sea; in the evening, the old town adds tapas bars and restaurants. Popular tables are worth reserving.", "Mittags passen gegrillter Fisch oder Paella am Meer; abends kommen in der Altstadt Tapasbars und Restaurants dazu. Für beliebte Tische lohnt sich eine Reservierung.", "Al mediodía apetecen pescado a la brasa o paella junto al mar; por la noche, el casco antiguo suma bares de tapas y restaurantes. Conviene reservar las mesas más solicitadas.", "Bij de lunch passen gegrilde vis of paella aan zee; 's avonds komen daar in de oude stad tapasbars en restaurants bij. Voor populaire tafels is reserveren verstandig.", "Till lunch passar grillad fisk eller paella vid havet; på kvällen väntar tapasbarer och restauranger i gamla stan. Populära bord är värda att boka."),
       token: "nerja_food_authority" as LinkToken,
-      linkLabel: l("Open the food guide", "Food-Guide öffnen", "Abrir la guía gastronómica", "Open de foodgids", "Öppna matguiden")
+      linkLabel: l("Match lunch by the sea with dinner in the old town", "Mittagessen am Meer und Abendessen in der Altstadt verbinden", "Combinar un almuerzo junto al mar con una cena en el casco antiguo", "Combineer lunch aan zee met diner in de oude stad", "Kombinera lunch vid havet med middag i gamla stan")
     },
     {
       id: "dayTrips",
       title: l("Day trips", "Tagesausflüge", "Excursiones", "Dagtochten", "Dagsutflykter"),
       text: l("Frigiliana is close enough for a few hours. Málaga, Granada, Caminito del Rey and Ronda each deserve their own day rather than being combined in a rush.", "Frigiliana liegt nah genug für ein paar Stunden. Málaga, Granada, der Caminito del Rey und Ronda verdienen jeweils einen eigenen Tag statt einer hastigen Kombination.", "Frigiliana está lo bastante cerca para pasar unas horas. Málaga, Granada, el Caminito del Rey y Ronda merecen cada uno su propio día, sin combinarlos con prisas.", "Frigiliana ligt dichtbij genoeg voor een paar uur. Málaga, Granada, Caminito del Rey en Ronda verdienen elk een eigen dag, zonder haastige combinaties.", "Frigiliana ligger nära nog för några timmar. Málaga, Granada, Caminito del Rey och Ronda förtjänar var sin dag i stället för en stressig kombination."),
       token: "nerja_daytrips_authority" as LinkToken,
-      linkLabel: l("Open the day-trip guide", "Tagesausflugs-Guide öffnen", "Abrir la guía de excursiones", "Open de dagtochtengids", "Öppna utflyktsguiden")
+      linkLabel: l("See which destinations deserve a full day", "Sehen, welche Ziele einen ganzen Tag verdienen", "Ver qué destinos merecen un día entero", "Bekijk welke bestemmingen een hele dag verdienen", "Se vilka utflyktsmål som förtjänar en hel dag")
     },
     {
       id: "caves",
       title: l("Nerja Caves", "Höhlen von Nerja", "Cueva de Nerja", "Grotten van Nerja", "Nerjagrottorna"),
       text: l("The caves are near Maro and work well as a half-day outing. Timed admission and the steps inside make checking current tickets and access details worthwhile.", "Die Höhlen liegen bei Maro und eignen sich gut für einen halben Tag. Wegen der festen Einlasszeiten und der Stufen im Inneren solltet ihr Tickets und Zugang vorher aktuell prüfen.", "Las cuevas están junto a Maro y encajan bien en una salida de medio día. Como la entrada tiene horario y hay escalones dentro, conviene comprobar antes los billetes y el acceso.", "De grotten liggen bij Maro en zijn geschikt voor een halve dag. Door de tijdsloten en trappen binnen is het verstandig om tickets en toegang vooraf te controleren.", "Grottorna ligger vid Maro och passar bra som en halvdagsutflykt. Tidsbestämt inträde och trapporna inne gör det klokt att kontrollera biljetter och tillgänglighet i förväg."),
       token: "nerja_caves" as LinkToken,
-      linkLabel: l("Open the cave guide", "Höhlen-Guide öffnen", "Abrir la guía de la cueva", "Open de grottengids", "Öppna grottguiden")
+      linkLabel: l("Check tickets, steps and access before you go", "Tickets, Stufen und Zugang vor dem Besuch prüfen", "Comprobar entradas, escalones y acceso antes de ir", "Controleer tickets, trappen en toegang voor vertrek", "Kontrollera biljetter, trappor och tillträde före besöket")
     },
     {
       id: "balcon",
       title: l("Balcón & Old Town", "Balcón & Altstadt", "Balcón y casco antiguo", "Balcón & oude stad", "Balcón & gamla stan"),
       text: l("Use the Balcón de Europa as the starting point for sea views, pedestrian streets and an unhurried walk through central Nerja.", "Nutzt den Balcón de Europa als Ausgangspunkt für Meerblick, Fußgängerzonen und einen entspannten Rundgang durch Nerjas Zentrum.", "Tomad el Balcón de Europa como punto de partida para disfrutar del mar, las calles peatonales y un paseo tranquilo por el centro.", "Gebruik het Balcón de Europa als vertrekpunt voor zeezicht, autovrije straten en een ontspannen wandeling door het centrum.", "Använd Balcón de Europa som startpunkt för havsutsikt, gågator och en lugn promenad genom centrala Nerja."),
       token: "nerja_balcon_de_europa" as LinkToken,
-      linkLabel: l("Open the Balcón guide", "Balcón-Guide öffnen", "Abrir la guía del Balcón", "Open de Balcón-gids", "Öppna Balcón-guiden")
+      linkLabel: l("Start a walk through central Nerja at the Balcón", "Am Balcón zu einem Rundgang durch Nerjas Zentrum starten", "Empezar en el Balcón un paseo por el centro de Nerja", "Begin bij het Balcón aan een wandeling door het centrum", "Börja en promenad genom centrala Nerja vid Balcón")
     },
     {
       id: "veranoAzul",
       title: l("Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul"),
       text: l("Explore where the series changed Nerja and why the town still carries its landmarks in local memory.", "Erfahrt, wo die Serie gedreht wurde und warum Nerja als Serienort noch immer im kulturellen Gedächtnis verankert ist.", "Revelad por qué la serie sigue viva en la memoria de generaciones y qué partes de Nerja siguen identificando ese legado.", "Ontdek waarom de serie nog steeds mee-evolueert met de manier waarop men naar Nerja kijkt.", "Upptäck varför serien fortfarande sätter tonen i hur Nerja minns platsen."),
       token: "nerja_verano_azul" as LinkToken,
-      linkLabel: l("Open the Verano Azul guide", "Verano Azul-Guide öffnen", "Abrir la guía de Verano Azul", "Open de Verano Azul-gids", "Öppna Verano Azul-guiden")
+      linkLabel: l("Follow the series through Nerja's landmarks", "Den Spuren der Serie durch Nerjas Schauplätze folgen", "Seguir la serie por los lugares emblemáticos de Nerja", "Volg de serie langs de herkenningspunten van Nerja", "Följ serien mellan Nerjas välkända platser")
     },
     {
       id: "nightlife",
       title: l("Evening life", "Abendleben", "Vida nocturna", "Avondleven", "Kvällsliv"),
       text: l("Choose between dinner and a terrace, live music or a livelier late evening—this is a Nerja experience, not a Frigiliana promise.", "Wählt zwischen Essen und Terrasse, Live-Musik oder einem lebhafteren späten Abend. Das ist ein Nerja-Erlebnis, kein Versprechen für Frigiliana.", "Elegid entre cena y terraza, música en directo o una noche más animada. Es una experiencia de Nerja, no una promesa de Frigiliana.", "Kies tussen diner en terras, livemuziek of een levendigere late avond. Dit hoort bij Nerja, niet bij de belofte van Frigiliana.", "Välj mellan middag och terrass, livemusik eller en livligare sen kväll. Det är en Nerja-upplevelse, inte ett Frigiliana-löfte."),
       token: "nerja_nightlife_authority" as LinkToken,
-      linkLabel: l("Open the evening guide", "Abend-Guide öffnen", "Abrir la guía de la noche", "Open de avondgids", "Öppna kvällsguiden")
+      linkLabel: l("Match the evening to Nerja's different areas", "Den Abend mit Nerjas unterschiedlichen Vierteln abstimmen", "Elegir la zona de Nerja que encaja con la noche", "Kies de Nerja-wijk die bij jullie avond past", "Hitta området i Nerja som passar er kväll")
     }
   ],
   closing: {
