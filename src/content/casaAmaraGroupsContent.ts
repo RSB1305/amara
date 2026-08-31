@@ -172,7 +172,7 @@ export const casaAmaraGroupsContent = {
       },
       {
         token: "frigiliana_stairs" as LinkToken,
-        label: l("Streets and stairs", "Gassen und Treppen", "Calles y escaleras", "Straten en trappen", "Gator och trappor"),
+        label: l("Where to stay in Frigiliana", "Wo in Frigiliana übernachten?", "Dónde alojarse en Frigiliana", "Waar overnachten in Frigiliana?", "Var ska man bo i Frigiliana?"),
         text: l("Understand the terrain and access before choosing rooms.", "Gelände und Zugänge vor der Zimmerwahl verstehen.", "Entended el terreno y los accesos antes de elegir habitaciones.", "Begrijp terrein en toegang voordat jullie kamers kiezen.", "Förstå terräng och tillträde innan ni väljer rum.")
       },
       {

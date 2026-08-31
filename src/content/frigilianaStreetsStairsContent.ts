@@ -70,11 +70,11 @@ export const frigilianaStreetsStairsCopy = {
       {
         token: 'frigiliana_stairs',
         label: {
-          en: 'Streets & stairs',
-          de: 'Gassen & Treppen',
-          es: 'Calles y escaleras',
-          nl: 'Straten & trappen',
-          sv: 'Gränder & trappor'
+          en: 'Where to stay',
+          de: 'Wo übernachten',
+          es: 'Dónde alojarse',
+          nl: 'Waar overnachten',
+          sv: 'Var ska man bo'
         } satisfies LocalizedText
       },
       {
@@ -421,11 +421,11 @@ export const frigilianaStreetsStairsCopy = {
   },
   models: {
     eyebrow: {
-      en: 'Four location models',
-      de: 'Vier Arten zu wohnen',
-      es: 'Cuatro formas de alojarse',
-      nl: 'Vier soorten ligging',
-      sv: 'Fyra sätt att bo'
+      en: 'Five location models',
+      de: 'Fünf Arten zu wohnen',
+      es: 'Cinco formas de alojarse',
+      nl: 'Vijf soorten ligging',
+      sv: 'Fem sätt att bo'
     } satisfies LocalizedText,
     title: {
       en: 'Choose the rhythm, not a “best area”',
@@ -435,11 +435,11 @@ export const frigilianaStreetsStairsCopy = {
       sv: 'Välj rätt rytm, inte det ”bästa området”'
     } satisfies LocalizedText,
     intro: {
-      en: 'Four practical types of location. In Frigiliana the conditions can differ from one street to the next.',
-      de: 'Vier praktische Lagetypen. In Frigiliana können sich die Bedingungen schon zwischen zwei Gassen unterscheiden.',
-      es: 'Cuatro tipos de ubicación prácticos. En Frigiliana las condiciones pueden cambiar de una calle a la siguiente.',
-      nl: 'Vier praktische soorten ligging. In Frigiliana kan de situatie per straat verschillen.',
-      sv: 'Fyra praktiska lägestyper. I Frigiliana kan förutsättningarna skilja sig mellan två gränder.'
+      en: 'Five practical types of location. In Frigiliana the conditions can differ from one street to the next.',
+      de: 'Fünf praktische Lagetypen. In Frigiliana können sich die Bedingungen schon zwischen zwei Gassen unterscheiden.',
+      es: 'Cinco tipos de ubicación prácticos. En Frigiliana las condiciones pueden cambiar de una calle a la siguiente.',
+      nl: 'Vijf praktische soorten ligging. In Frigiliana kan de situatie per straat verschillen.',
+      sv: 'Fem praktiska lägestyper. I Frigiliana kan förutsättningarna skilja sig mellan två gränder.'
     } satisfies LocalizedText,
     labels: {
       fit: { en: 'Best fit if', de: 'Passt gut, wenn', es: 'Encaja si', nl: 'Past goed als', sv: 'Passar om' } satisfies LocalizedText,
@@ -715,77 +715,57 @@ export const frigilianaStreetsStairsCopy = {
       sv: 'Om hela den följden passar ert sätt att resa är läget sannolikt ett bra val.'
     } satisfies LocalizedText
   },
-  fitGuide: {
+  crossChecks: {
     eyebrow: {
-      en: 'Make the choice',
-      de: 'Die Entscheidung',
-      es: 'Tomar la decisión',
-      nl: 'Maak de keuze',
-      sv: 'Gör valet'
+      en: 'Before you decide',
+      de: 'Vor der Entscheidung',
+      es: 'Antes de decidir',
+      nl: 'Voor jullie beslissen',
+      sv: 'Innan ni bestämmer er'
     } satisfies LocalizedText,
     title: {
-      en: 'Which location fits your holiday?',
-      de: 'Welche Lage passt zu eurem Urlaub?',
-      es: '¿Qué ubicación encaja con vuestras vacaciones?',
-      nl: 'Welke ligging past bij jullie vakantie?',
-      sv: 'Vilket läge passar er semester?'
+      en: 'An area name is only the first filter',
+      de: 'Der Name der Lage ist nur der erste Filter',
+      es: 'El nombre de la zona es solo el primer filtro',
+      nl: 'De naam van een gebied is pas de eerste selectie',
+      sv: 'Områdets namn är bara det första urvalet'
     } satisfies LocalizedText,
     intro: {
-      en: 'No location type wins every comparison. Choose the trade-off you will be happiest living with each day.',
-      de: 'Kein Lagetyp gewinnt jeden Vergleich. Wählt die Abwägung, mit der ihr euch im Alltag am wohlsten fühlt.',
-      es: 'Ningún tipo de ubicación gana en todo. Elegid la combinación de ventajas y límites que mejor encaje con vuestro día a día.',
-      nl: 'Geen enkele ligging wint op alle punten. Kies de afweging waar jullie je iedere dag het prettigst bij voelen.',
-      sv: 'Ingen lägestyp vinner på allt. Välj den avvägning ni helst lever med varje dag.'
+      en: 'Once an area feels right, check the exact street, entrance and repeated route. Those details decide how the location works in an ordinary day.',
+      de: 'Wenn eine Lage grundsätzlich passt, prüft die genaue Straße, den Eingang und den wiederholten Alltagsweg. Diese Details entscheiden, wie sich der Ort an einem normalen Tag anfühlt.',
+      es: 'Cuando una zona os encaje, comprobad la calle exacta, la entrada y el recorrido que repetiréis. Esos detalles determinan cómo funciona la ubicación en un día normal.',
+      nl: 'Als een gebied goed voelt, bekijk dan de precieze straat, ingang en route die jullie herhalen. Die details bepalen hoe de ligging op een gewone dag werkt.',
+      sv: 'När ett område känns rätt bör ni kontrollera den exakta gatan, entrén och vägen ni går flera gånger. De detaljerna avgör hur läget fungerar en vanlig dag.'
     } satisfies LocalizedText,
     items: [
       {
-        title: { en: 'Lower historic centre', de: 'Unterer historischer Ortskern', es: 'Casco histórico bajo', nl: 'Lagere historische kern', sv: 'Nedre historiska bykärnan' } satisfies LocalizedText,
+        title: { en: 'Exact street and entrance', de: 'Genaue Straße und Haustür', es: 'Calle y entrada exactas', nl: 'Precieze straat en ingang', sv: 'Exakt gata och entré' } satisfies LocalizedText,
         text: {
-          en: 'Best fit if you want historic-village life without choosing the highest daily position.',
-          de: 'Passt gut, wenn ihr Altstadtleben möchtet, ohne euch für die höchste tägliche Lage zu entscheiden.',
-          es: 'Encaja si queréis vivir el pueblo histórico sin elegir la posición diaria más alta.',
-          nl: 'Past als jullie het historische dorp willen beleven zonder voor de hoogste dagelijkse ligging te kiezen.',
-          sv: 'Passar om ni vill leva i den historiska byn utan att välja det högsta vardagsläget.'
+          en: 'An area label cannot tell you the final gradient, paving, steps or doorway. Ask about the route to the actual entrance.',
+          de: 'Eine Viertelbezeichnung verrät weder die letzte Steigung noch Pflaster, Stufen oder Haustür. Fragt nach dem Weg bis zum tatsächlichen Eingang.',
+          es: 'El nombre de una zona no revela la última pendiente, el pavimento, los escalones ni la puerta. Preguntad por el recorrido hasta la entrada real.',
+          nl: 'Een gebiedsnaam vertelt niets over de laatste helling, bestrating, treden of voordeur. Vraag naar de route tot de werkelijke ingang.',
+          sv: 'Ett områdesnamn visar inte den sista lutningen, stenläggningen, trappstegen eller dörren. Fråga om vägen fram till den faktiska entrén.'
         } satisfies LocalizedText
       },
       {
-        title: { en: 'Upper Barribarto', de: 'Oberes Barribarto', es: 'Barribarto alto', nl: 'Hoger Barribarto', sv: 'Övre Barribarto' } satisfies LocalizedText,
+        title: { en: 'The route you repeat', de: 'Der Weg, den ihr wiederholt', es: 'El recorrido que repetiréis', nl: 'De route die jullie herhalen', sv: 'Vägen ni går flera gånger' } satisfies LocalizedText,
         text: {
-          en: 'Best fit if atmosphere and elevation matter more than minimising repeated climbs.',
-          de: 'Passt gut, wenn Atmosphäre und Höhenlage wichtiger sind als möglichst wenige Anstiege.',
-          es: 'Encaja si la atmósfera y la altura importan más que reducir las cuestas diarias.',
-          nl: 'Past als sfeer en hoogte zwaarder wegen dan zo min mogelijk herhaald klimmen.',
-          sv: 'Passar om atmosfär och höjdläge är viktigare än att minimera återkommande stigningar.'
+          en: 'Test the walk after breakfast, with shopping, after the beach and again after dinner. Frequency changes what a short route feels like.',
+          de: 'Denkt an den Weg nach dem Frühstück, mit Einkäufen, nach dem Strand und noch einmal nach dem Abendessen. Die Häufigkeit verändert, wie sich eine kurze Strecke anfühlt.',
+          es: 'Pensad en el camino después del desayuno, con la compra, al volver de la playa y otra vez tras la cena. La frecuencia cambia cómo se siente un trayecto corto.',
+          nl: 'Denk aan de route na het ontbijt, met boodschappen, na het strand en opnieuw na het diner. Hoe vaak je loopt verandert hoe een korte afstand voelt.',
+          sv: 'Tänk på vägen efter frukost, med inköp, efter stranden och ännu en gång efter middagen. Hur ofta ni går förändrar hur en kort sträcka känns.'
         } satisfies LocalizedText
       },
       {
-        title: { en: 'Ensanche / Ingenio transition', de: 'Ensanche / Übergang am Ingenio', es: 'Ensanche / transición del Ingenio', nl: 'Ensanche / overgang bij El Ingenio', sv: 'Ensanche / övergången vid El Ingenio' } satisfies LocalizedText,
+        title: { en: 'Vehicle access is a separate question', de: 'Zufahrt ist eine eigene Frage', es: 'El acceso en coche es otra cuestión', nl: 'Autotoegang is een aparte vraag', sv: 'Bilvägen är en egen fråga' } satisfies LocalizedText,
         text: {
-          en: 'Best fit if you want a bridge between the historic village, arrival routes and later Frigiliana.',
-          de: 'Passt gut, wenn ihr einen Übergang zwischen historischem Dorf, Ankunftswegen und späteren Ortsteilen sucht.',
-          es: 'Encaja si buscáis un puente entre el pueblo histórico, las rutas de llegada y las zonas posteriores.',
-          nl: 'Past als jullie een overgang zoeken tussen het historische dorp, aankomstroutes en de latere delen.',
-          sv: 'Passar om ni söker en övergång mellan den historiska byn, ankomstvägarna och senare delar.'
-        } satisfies LocalizedText
-      },
-      {
-        title: { en: 'Modern southern village', de: 'Moderner südlicher Ort', es: 'Zona moderna al sur', nl: 'Moderner zuidelijk dorpsdeel', sv: 'Modernare södra bydel' } satisfies LocalizedText,
-        text: {
-          en: 'Best fit if practical daily movement matters more than living directly inside the historic core.',
-          de: 'Passt gut, wenn praktische Alltagswege wichtiger sind als das Wohnen direkt in der Altstadt.',
-          es: 'Encaja si la practicidad diaria importa más que vivir dentro del casco histórico.',
-          nl: 'Past als praktische dagelijkse routes belangrijker zijn dan direct in de historische kern wonen.',
-          sv: 'Passar om praktiska vardagsvägar är viktigare än att bo direkt i den historiska kärnan.'
-        } satisfies LocalizedText
-      },
-      {
-        title: { en: 'Countryside / hillside', de: 'Landschaft / Hanglage', es: 'Campo / ladera', nl: 'Buitengebied / heuvels', sv: 'Landsbygd / sluttning' } satisfies LocalizedText,
-        text: {
-          en: 'Best fit if privacy and rural space matter more than spontaneous village walking.',
-          de: 'Passt gut, wenn Privatsphäre und ländlicher Raum wichtiger sind als spontane Wege ins Dorf.',
-          es: 'Encaja si la privacidad y el espacio rural pesan más que salir andando espontáneamente al pueblo.',
-          nl: 'Past als privacy en landelijke ruimte zwaarder wegen dan spontaan naar het dorp wandelen.',
-          sv: 'Passar om avskildhet och lantligt utrymme är viktigare än spontana promenader in i byn.'
+          en: 'A road that is easy to reach does not prove a step-free entrance, and an old-town address does not describe the current loading rules. Check both separately.',
+          de: 'Eine gut erreichbare Straße beweist keinen stufenfreien Eingang, und eine Altstadtadresse erklärt nicht die aktuellen Halteregeln. Prüft beides getrennt.',
+          es: 'Una calle de fácil acceso no garantiza una entrada sin escalones, y una dirección en el casco antiguo no explica las normas actuales de parada. Comprobad ambas cosas por separado.',
+          nl: 'Een goed bereikbare straat bewijst geen drempelloze ingang, en een adres in de oude kern vertelt niets over de actuele stopregels. Controleer beide apart.',
+          sv: 'En lättillgänglig gata bevisar inte en trappfri entré, och en adress i gamla byn beskriver inte dagens stoppregler. Kontrollera båda separat.'
         } satisfies LocalizedText
       }
     ]
@@ -908,7 +888,7 @@ export const frigilianaStreetsStairsCopy = {
     links: [
       {
         token: 'location_frigiliana',
-        label: { en: 'Staying in Frigiliana', de: 'In Frigiliana übernachten', es: 'Alojarse en Frigiliana', nl: 'Overnachten in Frigiliana', sv: 'Bo i Frigiliana' } satisfies LocalizedText,
+        label: { en: 'Frigiliana & our house', de: 'Frigiliana & unser Haus', es: 'Frigiliana y nuestra casa', nl: 'Frigiliana & ons huis', sv: 'Frigiliana & vårt hus' } satisfies LocalizedText,
         text: {
           en: 'Decide whether the village is the right base for several days.',
           de: 'Entscheidet, ob das Dorf für mehrere Tage die passende Basis ist.',
