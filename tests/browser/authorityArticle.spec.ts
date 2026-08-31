@@ -224,7 +224,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     pageId: 'nerja-caves',
     content: (lang) => resolveLocale(nerjaCavesContent, lang),
     heroMark: null,
-    relatedColumns: 'md:grid-cols-2',
+    relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
     blockAfterSections: 'section:our-visit',
     arrivalModules: null,
@@ -483,8 +483,8 @@ for (const entry of AUTHORITY_PAGES) {
         'href',
         resolveLink('about', SWEEP_LANGUAGE)
       );
-      await expect(byline.locator('span').first()).toHaveText(locale.hero.updated);
-      await expect(byline.locator('span').last()).toHaveText(locale.hero.note);
+      await expect(byline.locator('[data-am-byline-updated]')).toHaveText(locale.hero.updated);
+      await expect(byline.locator('[data-am-byline-note]')).toHaveText(locale.hero.note);
     }
 
     // Decorative hero mark.
