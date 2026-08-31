@@ -13,9 +13,18 @@ const destinations = [
   { destination: 'tarifa', locationName: 'Tarifa', municipalityId: '11035' }
 ] as const;
 
-test('Cloudflare Pages dispatches booking and weather function routes', () => {
+test('Cloudflare Pages dispatches server-owned function and private guide routes', () => {
   const routes = JSON.parse(readFileSync(new URL('../../public/_routes.json', import.meta.url), 'utf8'));
-  expect(routes.include).toEqual(['/api/booking/*', '/api/weather/*']);
+  expect(routes.include).toEqual([
+    '/api/booking/*',
+    '/api/weather/*',
+    '/api/guest/*',
+    '/amara-experience/guide*',
+    '/en/amara-experience/guide*',
+    '/de/amara-experience/guide*',
+    '/nl/amara-experience/guide*',
+    '/sv/amara-experience/guide*'
+  ]);
 });
 
 function jsonResponse(payload: unknown, status = 200): Response {
