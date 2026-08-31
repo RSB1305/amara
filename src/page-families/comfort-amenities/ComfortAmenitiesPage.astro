@@ -8,6 +8,7 @@ import AmenitySpecRow, {
 } from '../../components/amenities/AmenitySpecRow.astro';
 import AmenityIconSprite from '../../components/amenities/AmenityIconSprite.astro';
 import AmaraFilterChip from '../../components/chips/AmaraFilterChip.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
 import {
   comfortAmenityExclusionsByPropertyId,
   comfortAmenityOverridesByPropertyId,
@@ -25,6 +26,7 @@ import {
 } from '../../content/comfortAmenitiesContent';
 import { trustLabels } from '../../content/trustLabels';
 import { vacationRentalEntities } from '../../content/vacationRentalEntities';
+import { stayCardImageByToken } from '../../lib/images/stayCardImages';
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -39,16 +41,24 @@ const footerHighlights: LabeledLink[] = [
   { token: 'faq_general', label: comfortAmenitiesFooterLabels.faq_general[currentLang] },
   { token: 'instagram', label: comfortAmenitiesFooterLabels.instagram[currentLang] }
 ];
-const rentalHrefByPropertyId = Object.fromEntries(
-  vacationRentalEntities.map((rental) => [
-    rental.propertyId,
-    buildOwnedLocalizedPath(rental.slug, currentLang)
-  ])
+const rentalByPropertyId = Object.fromEntries(
+  vacationRentalEntities.map((rental) => [rental.propertyId, rental])
 );
-const properties = comfortAmenitiesProperties.map((property) => ({
-  ...property,
-  href: rentalHrefByPropertyId[property.id] ?? property.href
-}));
+/**
+ * The identifying photograph comes from the shared stay map, so a guest who
+ * met the apartment on the home page recognises the same frame in this list
+ * rather than matching six names to six memories.
+ */
+const properties = comfortAmenitiesProperties.map((property) => {
+  const rental = rentalByPropertyId[property.id];
+
+  return {
+    ...property,
+    href: rental ? buildOwnedLocalizedPath(rental.slug, currentLang) : property.href,
+    image: rental ? stayCardImageByToken[rental.token] : undefined,
+    imageAlt: rental ? rental.imageAlt[currentLang] : property.name
+  };
+});
 type Property = (typeof properties)[number];
 type AmenityRow = {
   icon: AmenitySpecIcon;
@@ -360,7 +370,12 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
   <div id="am-page-amenities" class="font-body text-on-surface" data-current-lang={currentLang}>
     <AmaraSection labelledby="amenities-inventory-title">
       <div class="mx-auto max-w-[76rem]" aria-label={page.sections.inventoryAria}>
-        <h2 id="amenities-inventory-title" class="mb-6 am-text-title text-on-surface">{page.sections.inventoryTitle}</h2>
+        <h2 id="amenities-inventory-title" class="am-text-title text-on-surface">{page.sections.inventoryTitle}</h2>
+        <div class="mb-14 mt-6 max-w-3xl space-y-5">
+          {page.sections.inventoryLead.map((paragraph) => (
+            <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+          ))}
+        </div>
 
         <div class="am-page-band mb-12 border-y border-outline-variant/30 py-6">
             <p id="property-filter-label" class="am-text-caption mb-4 font-bold text-on-surface">
@@ -424,14 +439,26 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
                 data-expanded-amenities={hasExpandedAmenities ? 'true' : 'false'}
               >
                 <div class="grid gap-8 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-10">
-                  <h3 class="am-text-functional-heading text-on-surface">
-                    <a
-                      href={property.href}
-                      class="inline-flex transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-4"
-                    >
-                      {property.name}
-                    </a>
-                  </h3>
+                  <div>
+                    <h3 class="am-text-functional-heading text-on-surface">
+                      <a
+                        href={property.href}
+                        class="inline-flex transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 focus-visible:ring-offset-4"
+                      >
+                        {property.name}
+                      </a>
+                    </h3>
+                    {property.image && (
+                      <AmaraImage
+                        src={property.image}
+                        alt={property.imageAlt}
+                        profile="card"
+                        sizes="(max-width: 1023px) min(18rem, calc(100vw - 3rem)), 18rem"
+                        class="mt-5 aspect-[4/3] w-full max-w-[18rem] rounded-sm object-cover"
+                        loading="lazy"
+                      />
+                    )}
+                  </div>
                   <div>
                     <h4 class="am-text-label text-primary">
                       {amenityFilterCopy.keyFactsHeading}

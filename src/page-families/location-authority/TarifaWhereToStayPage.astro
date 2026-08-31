@@ -4,7 +4,7 @@ import Navigation from '../../components/Navigation.astro';
 import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
 import WhereToStayOrientationGraphic from '../../components/location/WhereToStayOrientationGraphic.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
-import { tarifaWhereToStayContent } from '../../content/tarifaWhereToStayContent';
+import { tarifaStayTypeCopy, tarifaWhereToStayContent } from '../../content/tarifaWhereToStayContent';
 import { whereToStayOrientationGraphicContent } from '../../content/whereToStayOrientationGraphicContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
@@ -160,6 +160,23 @@ const stayContent: WhereToStayAuthorityContent = {
     intro: [],
     points: []
   },
+  stayType: {
+    id: 'stay-type',
+    eyebrow: tarifaStayTypeCopy.eyebrow[currentLang],
+    title: tarifaStayTypeCopy.title[currentLang],
+    intro: tarifaStayTypeCopy.intro.map((paragraph) => paragraph[currentLang]),
+    labels: {
+      attribute: tarifaStayTypeCopy.labels.attribute[currentLang],
+      ours: tarifaStayTypeCopy.labels.ours[currentLang],
+      hotelWins: tarifaStayTypeCopy.labels.hotelWins[currentLang]
+    },
+    items: tarifaStayTypeCopy.items.map((row) => ({
+      id: row.id,
+      attribute: row.attribute[currentLang],
+      ours: row.ours[currentLang],
+      hotelWins: row.hotelWins[currentLang]
+    }))
+  },
   areas: {
     id: 'where-to-stay-areas',
     eyebrow: copy.settingsEyebrow,
@@ -216,6 +233,7 @@ const stayContent: WhereToStayAuthorityContent = {
 >
   <Navigation
     slot="navigation"
+    contextDestination="tarifa"
     currentLang={currentLang}
     languageToken={tarifaWhereToStayContent.token}
   >

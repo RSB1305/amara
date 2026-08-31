@@ -22,7 +22,6 @@ import {
 } from '../../content/directBookingBenefitsContent';
 import {
   cinematicApartments,
-  type CinematicAptToken,
   cinematicHeroKicker,
   cinematicHeroLead,
   cinematicHeroProofRating,
@@ -54,28 +53,14 @@ import {
   cinematicHoneymoonTitle,
   cinematicHoneymoonCtaLabel
 } from '../../content/homeCinematicCopy';
-import imgHeroLounis from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
-import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
-import imgZaid from '../../assets/images/home/amara-zaid-terraza-5.jpg';
-import imgMaha from '../../assets/images/home/amara-maha-29-amara-frigiliana.jpg';
-import imgPlaya from '../../assets/images/home/amara-playa-chaparril-13.webp';
-import imgTarifa from '../../assets/images/home/amara-tarifa-apartment01.webp';
+import { stayCardImageByToken } from '../../lib/images/stayCardImages';
 import imgHost from '../../assets/images/content/robert-amara-host.jpg';
-
-const homeImageByToken: Record<CinematicAptToken, typeof imgHeroLounis> = {
-  farah: imgFarah,
-  lounis: imgHeroLounis,
-  zaid: imgZaid,
-  maha: imgMaha,
-  playa: imgPlaya,
-  tarifa: imgTarifa
-};
 
 const homeHeroSizes = '100vw';
 const heroTokens = ['lounis', 'maha', 'playa', 'tarifa'] as const;
 const heroImages = await Promise.all(
   heroTokens.map(async (token) => {
-    const optimized = await createAmaraImage(homeImageByToken[token], 'hero', { quality: 50 });
+    const optimized = await createAmaraImage(stayCardImageByToken[token], 'hero', { quality: 50 });
     return {
       id: token,
       src: optimized.src,
@@ -87,7 +72,7 @@ const heroImages = await Promise.all(
   })
 );
 const heroImage = heroImages[0];
-const trustImage = await createAmaraImage(imgZaid, 'background', { quality: 55 });
+const trustImage = await createAmaraImage(stayCardImageByToken.zaid, 'background', { quality: 55 });
 const hostAvatar = await createAmaraImage(imgHost, 'card', { quality: 60 });
 
 interface Props {
@@ -194,7 +179,7 @@ const cinematicApartmentsProps = (
       }
 
       const rental = vacationRentalEntitiesByToken[apt.token];
-      const optimized = await createAmaraImage(homeImageByToken[apt.token], 'card', { quality: 60 });
+      const optimized = await createAmaraImage(stayCardImageByToken[apt.token], 'card', { quality: 60 });
       return {
         id: apt.id,
         name: apt.name,

@@ -93,18 +93,29 @@ export function enhanceStaySearchResults() {
     const input = parseSearch();
     if (!input) {
       const previewDestination = parseDestination(new URLSearchParams(window.location.search).get('destination'));
-      if (!previewDestination || previewDestination === 'all') return;
-      // The field has to agree with the list below it, or the page offers
-      // all destinations above the stays of one.
-      const select = document.querySelector<HTMLSelectElement>('[data-am-stay-search-destination]');
-      if (select) select.value = previewDestination;
-      const label = destinationLabel(previewDestination);
-      resultsHeading.textContent = copy.destinationStaysTitle.replace('{destination}', label);
+      // Before a search the page still shows what there is to search. An empty
+      // results area reads as "nothing available" rather than "nothing asked
+      // yet", which is the opposite of what an unfiltered list should say.
+      if (previewDestination && previewDestination !== 'all') {
+        // The field has to agree with the list below it, or the page offers
+        // all destinations above the stays of one.
+        const select = document.querySelector<HTMLSelectElement>('[data-am-stay-search-destination]');
+        if (select) select.value = previewDestination;
+        resultsHeading.textContent = copy.destinationStaysTitle.replace(
+          '{destination}',
+          destinationLabel(previewDestination)
+        );
+        cards.forEach((card) => {
+          card.hidden = card.dataset.amStayDestination !== previewDestination;
+        });
+      } else {
+        resultsHeading.textContent = copy.allStaysTitle;
+        cards.forEach((card) => {
+          card.hidden = false;
+        });
+      }
       summary.textContent = '';
       state.textContent = copy.destinationStaysPrompt;
-      cards.forEach((card) => {
-        card.hidden = card.dataset.amStayDestination !== previewDestination;
-      });
       available.hidden = false;
       return;
     }

@@ -108,17 +108,17 @@ const maxRain = Math.max(...months.map((month) => month.rain));
         <table class="w-full min-w-[760px] border-collapse text-left">
           <thead>
             <tr class="border-b border-outline-variant/25 text-muted am-text-label am-text-label--sm">
-              <th class="py-4 pr-5">{labels.month}</th>
-              <th class="px-5 py-4 text-right">{labels.high}</th>
-              <th class="px-5 py-4 text-right">{labels.low}</th>
-              <th class="px-5 py-4 text-right">{labels.rain}</th>
-              <th class="py-4 pl-5 text-right">{labels.sunHours}</th>
+              <th scope="col" class="py-4 pr-5">{labels.month}</th>
+              <th scope="col" class="px-5 py-4 text-right">{labels.high}</th>
+              <th scope="col" class="px-5 py-4 text-right">{labels.low}</th>
+              <th scope="col" class="px-5 py-4 text-right">{labels.rain}</th>
+              <th scope="col" class="py-4 pl-5 text-right">{labels.sunHours}</th>
             </tr>
           </thead>
           <tbody>
             {months.map((month) => (
               <tr class="border-b border-outline-variant/15 am-text-body text-on-surface-variant">
-                <th class="py-4 pr-5 font-normal text-on-surface">{month.month}</th>
+                <th scope="row" class="py-4 pr-5 font-normal text-on-surface">{month.month}</th>
                 <td class="px-5 py-4 text-right tabular-nums">{month.high} °C</td>
                 <td class="px-5 py-4 text-right tabular-nums">{month.low} °C</td>
                 <td class="px-5 py-4 text-right tabular-nums">{month.rain} mm</td>

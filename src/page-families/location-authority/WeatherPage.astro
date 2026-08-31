@@ -77,7 +77,7 @@ const liveForecast = content.forecast.live
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="location-weather">
-  <Navigation slot="navigation" currentLang={currentLang} languageToken={pageConfig.languageToken} >
+  <Navigation slot="navigation" contextDestination={destination} currentLang={currentLang} languageToken={pageConfig.languageToken} >
     {destination === 'frigiliana' && (
       <LocationContextNav slot="context-navigation" activeId="weather" lang={currentLang} />
     )}

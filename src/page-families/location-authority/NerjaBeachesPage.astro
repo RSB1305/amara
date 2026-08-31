@@ -1,7 +1,8 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
-import GuideClosingSection from './GuideClosingSection.astro';
+import AuthorityStayBridge from './AuthorityStayBridge.astro';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import { frigilianaBeachesContent } from '../../content/frigilianaBeachesContent';
 import {
@@ -38,7 +39,7 @@ const heroImage = {
 ---
 
 <LocationAuthorityLayout seo={nerjaBeachesSeo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="experience-nerja-beaches">
-  <Navigation slot="navigation" currentLang={currentLang} languageToken="nerja_beaches_authority" >
+  <Navigation slot="navigation" contextDestination="nerja" currentLang={currentLang} languageToken="nerja_beaches_authority" >
     <ExperienceContextNav slot="context-navigation" currentId="beaches" destination="nerja" lang={currentLang} />
   </Navigation>
 
@@ -91,6 +92,14 @@ const heroImage = {
       surface="tint"
     />
 
-    <GuideClosingSection title={copy.closing.title} lead={copy.closing.lead} lang={currentLang} links={[{ token: 'playa', label: copy.closing.propertyLabel, style: 'text' }, { token: 'nerja_experience_hub', label: copy.closing.hubLabel, style: 'text' }]} role="next-action" family="experience" />
+    <AuthorityStayBridge
+      eyebrow={experienceStayBridge.eyebrow[currentLang]}
+      title={copy.closing.title}
+      reason={copy.closing.lead}
+      stayHref={requiredLink('playa')}
+      stayLabel={copy.closing.propertyLabel}
+      availabilityHref={requiredLink('book')}
+      availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
+    />
   </div>
 </LocationAuthorityLayout>

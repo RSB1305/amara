@@ -3,14 +3,15 @@ import { resolveLocale } from '../../types/content';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import ExperienceHubTopicGrid from '../../components/experience/ExperienceHubTopicGrid.astro';
-import GuideClosingSection from './GuideClosingSection.astro';
+import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   nerjaExperienceHubContent,
   nerjaExperienceHubSeo
 } from '../../content/nerjaExperienceHubContent';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -21,6 +22,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = resolveLocale(nerjaExperienceHubContent, currentLang);
+const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja experience hub');
 
 const themes = copy.themes.slice(0, 4).map((theme) => ({
   ...theme,
@@ -49,6 +51,7 @@ const footerHighlights: LabeledLink[] = [
 >
   <Navigation
     slot="navigation"
+    contextDestination="nerja"
     currentLang={currentLang}
     currentToken="nerja_experience_hub"
     languageToken="nerja_experience_hub"
@@ -87,15 +90,14 @@ const footerHighlights: LabeledLink[] = [
       <div class="mt-16"><ExperienceHubTopicGrid topics={themeTopics} /></div>
     </section>
 
-    <GuideClosingSection
+    <AuthorityStayBridge
       eyebrow={copy.closing.eyebrow}
       title={copy.closing.title}
-      lead={copy.closing.text}
-      lang={currentLang}
-      links={[{ token: 'playa', label: copy.closing.stayLabel, style: 'text' }]}
-      role="next-action"
-      family="experience"
-      surface="tint"
+      reason={copy.closing.text}
+      stayHref={requiredLink('playa')}
+      stayLabel={copy.closing.stayLabel}
+      availabilityHref={requiredLink('book')}
+      availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
     />
   </article>
 </LocationAuthorityLayout>
