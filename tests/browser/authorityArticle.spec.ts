@@ -607,7 +607,7 @@ test('the destination arrival pages use their declared module order', async ({ p
   }
 });
 
-test('outer section dividers only separate equal surfaces and stay inset', async ({ page }) => {
+test('outer section dividers only separate equal surfaces and span their boundary', async ({ page }) => {
   await openPage(page, resolveLink('getting_to_frigiliana', SWEEP_LANGUAGE));
 
   const arrivalBoundaries = await page.$$eval(
@@ -660,8 +660,13 @@ test('outer section dividers only separate equal surfaces and stay inset', async
   );
 
   expect(sameSurfaceDivider.content).toBe('""');
-  expect(sameSurfaceDivider.left).toBeGreaterThan(0);
-  expect(sameSurfaceDivider.right).toBeGreaterThan(0);
+  expect(sameSurfaceDivider.left).toBe(0);
+  expect(sameSurfaceDivider.right).toBe(0);
+
+  await openPage(page, resolveLink('location_frigiliana', SWEEP_LANGUAGE));
+  const editorialByline = page.locator('[data-am-component="editorial-byline"]');
+  await expect(editorialByline).toHaveCSS('border-top-width', '0px');
+  await expect(editorialByline).toHaveCSS('padding-top', '0px');
 });
 
 test('nerja-caves places the personal visit block before the related links', async ({ page }) => {
