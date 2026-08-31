@@ -1,9 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import AmaraActionButton from '../../components/actions/AmaraActionButton.astro';
+import villageImage from '../../assets/images/content/amara-frigiliana-pueblo/frigiliana-old-town-steps.jpeg';
+import coastImage from '../../assets/images/content/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg';
+import eveningImage from '../../assets/images/content/hero-frigiliana.jpg';
 import { amaraExperienceSeo, getAmaraExperienceContent } from '../../content/amaraExperienceContent';
+import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -11,37 +16,125 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = getAmaraExperienceContent(currentLang);
 const guideHref = currentLang === 'es' ? '/amara-experience/guide' : `/${currentLang}/amara-experience/guide`;
+const seoHeroImage = await createAmaraImage(villageImage, 'hero');
+const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
 ---
 
 <BaseLayout
-  seo={amaraExperienceSeo}
+  seo={seo}
   pageLang={currentLang}
   pageFamily="amara-experience-landing"
   navigationCurrentToken="amara_experience"
   navigationLanguageToken="amara_experience"
   showContextNavigation={false}
 >
-  <AmaraPageShell family="amara-experience" dataLang={currentLang} class="am-experience-landing">
-    <AmaraSection variant="hero" dataComponent="amara-experience-introduction">
-      <div class="mx-auto max-w-[900px] text-center">
-        <p class="am-text-eyebrow mb-5 text-muted">{copy.eyebrow}</p>
-        <h1 class="am-text-display text-on-surface">{copy.title}</h1>
-        <p class="am-text-subtitle mx-auto mt-8 max-w-[72ch] text-on-surface-variant">{copy.directAnswer}</p>
-      </div>
-    </AmaraSection>
+  <AmaraPageShell family="amara-experience" dataLang={currentLang} class="am-experience-landing" whiteCanvas>
+    <AmaraSection variant="hero" dataComponent="amara-experience-introduction" class="am-experience-hero">
+      <div class="mx-auto grid max-w-screen-2xl items-center gap-14 lg:grid-cols-12 lg:gap-16 xl:gap-24">
+        <div class="lg:col-span-6 xl:col-span-5">
+          <p class="am-text-eyebrow mb-5 text-primary">{copy.eyebrow}</p>
+          <h1 class="am-text-display text-on-surface">{copy.title}</h1>
+          <p class="am-text-body mt-8 max-w-[65ch] leading-relaxed text-on-surface-variant">{copy.directAnswer}</p>
 
-    <AmaraSection dataComponent="amara-experience-access">
-      <div class="mx-auto grid max-w-[1050px] gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.8fr)] lg:gap-20">
-        <div class="max-w-[62ch]">
-          <h2 class="am-text-title text-on-surface">{copy.featureTitle}</h2>
-          <div class="mt-7 space-y-5">
-            {copy.featureParagraphs.map((paragraph) => (
-              <p class="am-text-body text-on-surface-variant">{paragraph}</p>
-            ))}
+          <div class="mt-10 border-l border-primary/45 pl-5 sm:pl-7">
+            <p class="am-text-label text-primary">{copy.heroProofLabel}</p>
+            <p class="am-text-body mt-3 max-w-[54ch] text-on-surface-variant">{copy.heroProof}</p>
           </div>
         </div>
 
-        <div class="rounded-[var(--radius-overlay)] border border-outline-variant/20 bg-surface-container-low p-6 sm:p-8">
+        <div class="am-experience-hero__media lg:col-span-6 lg:col-start-7 xl:col-span-7 xl:col-start-6">
+          <div class="am-experience-hero__primary overflow-hidden bg-surface-container-low">
+            <AmaraImage
+              src={villageImage}
+              alt={copy.imageAlts.village}
+              profile="hero"
+              width={1200}
+              widths={[480, 720, 960, 1200]}
+              sizes="(max-width: 1023px) calc(100vw - 3rem), 52vw"
+              class="h-full w-full object-cover"
+              loading="eager"
+              fetchpriority="high"
+              preferAvif
+            />
+          </div>
+          <div class="am-experience-hero__secondary overflow-hidden border-[6px] border-surface-white bg-surface-container-low shadow-lg sm:border-8">
+            <AmaraImage
+              src={eveningImage}
+              alt={copy.imageAlts.evening}
+              profile="card"
+              width={900}
+              widths={[320, 480, 720, 900]}
+              sizes="(max-width: 639px) 48vw, (max-width: 1023px) 42vw, 24vw"
+              class="h-full w-full object-cover"
+              loading="eager"
+            />
+          </div>
+          <div class="am-experience-hero__mark" aria-hidden="true">
+            <span class="am-text-label">AMARA</span>
+            <span class="am-text-caption">EXPERIENCE</span>
+          </div>
+        </div>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection surface="tint" family="experience" dataComponent="amara-experience-value">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
+          <div class="lg:col-span-8">
+            <p class="am-text-eyebrow mb-5 text-primary">{copy.valueEyebrow}</p>
+            <h2 class="am-text-title max-w-[25ch] text-on-surface">{copy.valueTitle}</h2>
+          </div>
+          <p class="am-text-body max-w-[60ch] leading-relaxed text-on-surface-variant lg:col-span-4">{copy.valueIntro}</p>
+        </div>
+
+        <ol class="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 xl:grid-cols-5">
+          {copy.benefits.map((benefit) => (
+            <li class="am-experience-benefit border-t border-outline-variant/30 pt-6">
+              <p class="am-text-label text-primary">{benefit.number}</p>
+              <h3 class="am-text-subtitle mt-5 text-on-surface">{benefit.title}</h3>
+              <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{benefit.copy}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection family="experience" dataComponent="amara-experience-host-note">
+      <div class="mx-auto grid max-w-screen-2xl items-center gap-12 lg:grid-cols-12 lg:gap-16 xl:gap-24">
+        <div class="overflow-hidden bg-surface-container-low lg:col-span-6">
+          <AmaraImage
+            src={coastImage}
+            alt={copy.imageAlts.coast}
+            profile="hero"
+            width={1200}
+            widths={[480, 720, 960, 1200]}
+            sizes="(max-width: 1023px) calc(100vw - 3rem), 48vw"
+            class="aspect-[4/5] h-full w-full object-cover sm:aspect-[3/2] lg:aspect-[4/5]"
+            loading="lazy"
+            preferAvif
+          />
+        </div>
+        <div class="max-w-[62ch] lg:col-span-5 lg:col-start-8">
+          <p class="am-text-eyebrow mb-5 text-primary">{copy.hostEyebrow}</p>
+          <h2 class="am-text-title text-on-surface">{copy.hostTitle}</h2>
+          <div class="mt-7 space-y-5">
+            {copy.hostParagraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection surface="tint" family="experience" dataComponent="amara-experience-access">
+      <div class="mx-auto grid max-w-[1100px] gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(22rem,1fr)] lg:items-start lg:gap-20">
+        <div class="max-w-[55ch] lg:pt-8">
+          <p class="am-text-eyebrow mb-5 text-primary">{copy.accessEyebrow}</p>
+          <h2 class="am-text-title text-on-surface">{copy.accessTitle}</h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{copy.accessIntro}</p>
+        </div>
+
+        <div class="am-experience-access-card rounded-[var(--radius-overlay)] border border-outline-variant/20 bg-surface-white p-6 shadow-sm sm:p-9">
           <h2 class="am-text-title text-on-surface">{copy.formTitle}</h2>
           <p class="am-text-body mt-3 text-on-surface-variant">{copy.formIntro}</p>
 
@@ -79,6 +172,90 @@ const guideHref = currentLang === 'es' ? '/amara-experience/guide' : `/${current
     </AmaraSection>
   </AmaraPageShell>
 </BaseLayout>
+
+<style>
+  .am-experience-hero {
+    overflow: hidden;
+  }
+
+  .am-experience-hero__media {
+    position: relative;
+    min-block-size: 32rem;
+    padding-inline-start: clamp(0rem, 6vw, 5rem);
+    padding-block-end: clamp(3rem, 7vw, 6rem);
+  }
+
+  .am-experience-hero__primary {
+    block-size: 34rem;
+  }
+
+  .am-experience-hero__secondary {
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-end: 0;
+    inline-size: min(58%, 22rem);
+    block-size: 14rem;
+  }
+
+  .am-experience-hero__mark {
+    position: absolute;
+    inset-inline-end: -0.75rem;
+    inset-block-end: 1.25rem;
+    display: grid;
+    inline-size: 7.5rem;
+    block-size: 7.5rem;
+    place-content: center;
+    gap: 0.15rem;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 34%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface-white) 94%, transparent);
+    color: var(--color-primary);
+    text-align: center;
+    backdrop-filter: blur(0.5rem);
+  }
+
+  .am-experience-benefit {
+    transition: border-color 180ms ease, transform 180ms ease;
+  }
+
+  .am-experience-benefit:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-0.25rem);
+  }
+
+  @media (max-width: 47.999rem) {
+    .am-experience-hero__media {
+      min-block-size: 28rem;
+      margin-inline: calc(var(--spacing-page-gutter) * -0.4);
+      padding-inline-start: 2.25rem;
+      padding-block-end: 4rem;
+    }
+
+    .am-experience-hero__primary {
+      block-size: 28rem;
+    }
+
+    .am-experience-hero__secondary {
+      inline-size: 55%;
+      block-size: 10.5rem;
+    }
+
+    .am-experience-hero__mark {
+      inline-size: 6.25rem;
+      block-size: 6.25rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .am-experience-benefit {
+      transition: none;
+    }
+
+    .am-experience-benefit:hover {
+      transform: none;
+    }
+  }
+</style>
 
 <script>
   const form = document.querySelector<HTMLFormElement>('[data-am-experience-form]');
