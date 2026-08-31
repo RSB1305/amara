@@ -363,13 +363,23 @@ export function runStructuredDataAudit({
       continue;
     }
 
-    contentPages += 1;
-
     const jsonLdScripts = [
       ...html.matchAll(
         /<script\b[^>]*\btype=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi
       )
     ];
+
+    if (/^\/(?:(?:de|en|nl|sv)\/)?amara-experience\/guide$/.test(fileRoutePath)) {
+      if (jsonLdScripts.length !== 0) {
+        report(file, 'protected AMARA Experience guide must not emit JSON-LD');
+      }
+      if (!/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html)) {
+        report(file, 'protected AMARA Experience guide must declare noindex');
+      }
+      continue;
+    }
+
+    contentPages += 1;
 
     if (jsonLdScripts.length !== 1) {
       const routeContext = expectedRentalRoute

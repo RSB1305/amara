@@ -50,6 +50,7 @@ export const linkRegistry = {
     reviews_hub: buildOwnedLinks('guest-reviews'),
     instagram_landing: buildOwnedLinks('instagram'),
     romantic_hideaways: buildOwnedLinks('romantic-hideaways'),
+    amara_experience: buildOwnedLinks('amara-experience'),
     stay_search_results: buildOwnedLinks('find-a-stay'),
     last_minute_stays: buildOwnedLinks('last-minute-stays'),
     honeymoon: buildOwnedLinks('honeymoon'),

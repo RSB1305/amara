@@ -1,0 +1,62 @@
+---
+import type { AmaraLanguage } from '../types/seo';
+import '../styles/global.css';
+import '../styles/amara-experience.css';
+
+interface Props {
+  lang: AmaraLanguage;
+  title: string;
+  logoutLabel: string;
+  logoutError: string;
+  landingHref: string;
+  skipLabel: string;
+}
+
+const { lang, title, logoutLabel, logoutError, landingHref, skipLabel } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  </head>
+  <body class="am-experience-app">
+    <a class="am-experience-app__skip am-btn am-btn--primary" href="#am-experience-main">{skipLabel}</a>
+    <div class="am-experience-app__viewport">
+      <header class="am-experience-app__header">
+        <a href={landingHref} class="am-experience-app__brand" aria-label="AMARA">
+          <span>AMARA</span>
+          <small>Experience</small>
+        </a>
+        <button class="am-experience-app__logout" type="button" data-am-experience-logout>{logoutLabel}</button>
+      </header>
+      <slot />
+      <p class="am-experience-app__status" data-am-experience-logout-status role="status" aria-live="polite"></p>
+    </div>
+    <script is:inline define:vars={{ landingHref, logoutError }}>
+      const logoutButton = document.querySelector('[data-am-experience-logout]');
+      const logoutStatus = document.querySelector('[data-am-experience-logout-status]');
+      logoutButton?.addEventListener('click', async () => {
+        logoutButton.disabled = true;
+        try {
+          const response = await fetch('/api/guest/session', {
+            method: 'DELETE',
+            credentials: 'same-origin',
+            headers: { Accept: 'application/json' }
+          });
+          if (!response.ok) throw new Error('logout_failed');
+          window.location.replace(landingHref);
+        } catch {
+          if (logoutStatus) logoutStatus.textContent = logoutError;
+          logoutButton.disabled = false;
+        }
+      });
+    </script>
+  </body>
+</html>

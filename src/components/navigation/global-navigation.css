@@ -445,6 +445,24 @@
   border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 28%, transparent);
 }
 
+[data-am-navigation] .am-nav-mobile__direct-link {
+  display: flex;
+  min-height: 4.5rem;
+  align-items: center;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 28%, transparent);
+  font-family: var(--font-label);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-on-surface);
+  text-decoration: none;
+}
+
+[data-am-navigation] .am-nav-mobile__direct-link[aria-current="page"] {
+  color: var(--color-primary);
+}
+
 [data-am-navigation] .am-nav-mobile__summary {
   display: flex;
   min-height: 4.5rem;

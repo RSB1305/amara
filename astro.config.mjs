@@ -79,6 +79,7 @@ const sitemapExcludedSlugs = new Set([
   'frigiliana-tomtens-struktur-och-trappor',
   'instagram',
   'vacation-rentals-sitemap.xml',
+  'amara-experience/guide',
   'test',
   // Internal, noindex Guest Guide pages must never appear in the sitemap.
   ...guestGuideEntries.map((entry) => entry.slug)

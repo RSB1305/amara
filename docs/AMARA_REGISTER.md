@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.48.0
+version: 1.49.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-08-31T18:18:00+02:00
+last_modified: 2026-08-31T20:30:00+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,8 +26,8 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.48.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
-| 08 | AMARA Guest Utility Feature Contract | 2.2.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
+| 07 | AMARA Register | 1.49.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 08 | AMARA Guest Utility Feature Contract | 2.3.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.7.1 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
 
@@ -40,6 +40,7 @@ Current operational feature owner during transition:
 | Feature | Status | Current owner | Repository reality |
 |---|---|---|---|
 | External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages GET-only Booking Gateway, including live availability, rates, quotes and the validated provider-owned checkout handoff. |
+| AMARA Experience booked-guest access | ACTIVE CODE / PRODUCTION ACTIVATION PENDING SECRET | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` + `AMARA-BOOKING-ARCHITECTURE.md` | Public landing remains static; fixed Pages Functions verify one confirmed Lodgify reservation through read-only adapter operations and protect an encrypted, no-store, noindex guide session. Production stays closed until `AMARA_EXPERIENCE_SESSION_SECRET` is configured with at least 32 random characters. |
 | Official destination short-term forecasts | ACTIVE INTERIM CONTRACT | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` | The static Frigiliana, Nerja and Tarifa Weather pages each progressively consume one fixed same-origin GET route; AEMET credentials, municipality mappings, provider URLs, normalization and caching remain server-side. |
 
 ## 3. Decision Register
@@ -80,7 +81,7 @@ Current operational feature owner during transition:
 | ID | Decision | Status |
 |---|---|---|
 | DR-PLATFORM-001 | AMARA's website runtime is Astro-native and Astro-only. Explicitly governed external operational services may remain active behind narrow boundaries and do not become a second website runtime. | APPROVED |
-| DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only Cloudflare Pages routes may expose provider-neutral availability, stay rules, rates and authoritative quotes after an explicit booking interaction, plus a validated no-store redirect into the provider-owned checkout. Provider credentials and mappings remain server-side; a provider ID may appear only in the final external checkout `Location`, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only public Cloudflare Pages routes may expose provider-neutral availability, stay rules, rates and authoritative quotes plus a validated no-store checkout redirect. The authenticated AMARA Experience may additionally use only the adapter's fixed GET booking-list and single-booking operations to establish and periodically revalidate a guest session; it returns no reservation or guest record to the browser and performs no provider write. Provider credentials and mappings remain server-side; a provider ID may appear publicly only in the final external checkout `Location`, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-WEATHER-001 | The statically generated Frigiliana, Nerja and Tarifa Weather pages may progressively consume only their fixed GET-only Cloudflare Pages Functions at `/api/weather/frigiliana`, `/api/weather/nerja` and `/api/weather/tarifa`. The functions alone own the server-side AEMET key, fixed municipality mapping, provider fetch, temporary-host validation, normalization and per-destination caching; the public response contains only the forecast values and attribution needed by the visible three-day component. Failure preserves each static climate page and falls back to its official source. This decision grants no runtime scope to another page or destination by implication. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-001 | BaseLayout plus the central SEO head resolver remain the sole normal public head owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
@@ -164,6 +165,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-IA-005 | Within **Daily Life & Essentials**, **Supermarkets & Everyday Shopping** is a Location planning topic; a weekly market or market visit as an outing remains an Experience topic. Location may include only the bounded market facts that materially affect everyday shopping or access. The three Daily Life topic families may share one Mobile-First semantic template across destinations, with topic- and destination-specific optional modules. Existing Daily Life routes remain overview hubs; each standalone topic route still requires the evidence and durable-job test in DR-IA-003. | ACTIVE |
 | DR-GUEST-001 | Public destination pages must satisfy their durable search, trust and pre-booking planning job from direct entry. The Digital Guest Guide is the deeper operational layer for booked guests, including property-specific routes, current contacts and checks, concrete host recommendations and stay instructions. Public pages may use one native contextual transition block after their useful core to explain that deeper guidance follows after booking and to offer the approved booking/availability path. Essential safety information and material booking limitations must not be withheld behind Guest Guide access. | ACTIVE |
 | DR-GUEST-002 | Guest Guides remain static, anonymously link-reachable, `noindex` and outside public sitemaps. Because noindex is not access control, public Guest output may retain non-sensitive operational information but must not contain Wi-Fi or router credentials, doorbell numbers, real building-access/key-box/alarm codes, exact physical-key locations or personal booking/guest data. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-GUEST-003 | AMARA Experience is the authenticated successor product for booked-guest utility. Its public five-locale landing is indexable and a direct global-navigation item; its guide is protected server-side, private/no-store, noindex, outside the sitemap and rendered without public navigation, footer or analytics. Access uses booking-holder first name plus arrival/departure dates, requires exactly one confirmed reservation match, revalidates at most hourly and expires at the end of the departure day in Europe/Madrid. The AES-GCM session requires `AMARA_EXPERIENCE_SESSION_SECRET` with at least 32 random characters and fails closed without it. Existing anonymous Guest Guides remain unchanged as a separate transitional legacy surface under DR-GUEST-002. | ACTIVE CODE / PRODUCTION ACTIVATION PENDING SECRET |
 
 ### Analytics/measurement
 
@@ -192,6 +194,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-08-31T20:30:00+02:00 | AMARA Experience foundation | Added the indexable five-locale product landing and direct global navigation entry; established exact-match booking-backed access, encrypted fail-closed sessions, hourly confirmation revalidation and a private noindex mobile guide shell with empty-category suppression. Existing public Experience hubs and anonymous Guest Guides remain unchanged. Guest Utility 2.3.0, Register 1.49.0; production activation awaits only the separate Cloudflare session secret. | DR-GUEST-001–003, DR-BOOK-001, DR-SEC-001, DR-LINK-001 | this revision |
 | 2026-08-31T18:18:00+02:00 | Horizontal boundary standard | Closed the repeatedly reported partial-divider failure rather than patching another page: equal-surface section boundaries now span the full owning surface without left/right gutter gaps, and the shared editorial byline no longer draws a decorative partial-width rule. The existing browser contract now rejects inset outer dividers and byline rules. Astro & Design Contract 4.19.0, Register 1.48.0; operative rule added to `AGENTS.md`. | DR-DESIGN-002, DR-DESIGN-005, DR-DESIGN-008, DR-DESIGN-018 | this revision |
 | 2026-08-30T17:05:00+02:00 | Handoff chain, return direction | Widened the fourth element of TR-CONTENT-009 after the first return handoff exposed it: a link from a stay page to an information page is answered by the fact the destination carries, not by a property fact. Wording only; the rule, its exclusions and its evidence limits are unchanged. Content Playbook 1.8.1, Register 1.47.1. | TR-CONTENT-009 | this revision |
 | 2026-08-30T16:30:00+02:00 | Evidence-carrying handoffs | Required every public cross-page link to carry the chain that justifies it — condition, stay consequence, guest criterion and the verified AMARA fact — after the weather pages were found handing off to winter stays with a topical label and an instruction to consult the guide. Closed the structural cause of destination-specific copy rendering on the wrong destination in the same pass, by moving shared closing, provenance and handoff copy into destination-indexed authoring. Content Playbook 1.8.0, Register 1.47.0; operative summary added to `AGENTS.md`. | TR-CONTENT-009, TR-CONTENT-008, TR-CONTENT-002, DR-EVIDENCE-001 | this revision |
@@ -254,7 +257,7 @@ The following are active intentional supersessions, not accidental deletions:
 - attachment/PDF activation gate -> canonical repository Markdown + Register activation;
 - universal full-build expectation for small edits -> risk-proportional validation.
 
-The active operational exceptions are limited to the five GET-only booking routes recorded in `DR-BOOK-001` and the three fixed destination forecast routes recorded in `DR-WEATHER-001`; neither makes normal Astro pages dynamic. No current route output, runtime resolver, URL helper or CSS/token system is otherwise changed; the analytics runtime changes only through the consent-gated Astro layer recorded in `DR-MEAS-006`. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
+The active operational exceptions are limited to the five public GET-only booking routes and the protected AMARA Experience guest-session boundary recorded in `DR-BOOK-001`/`DR-GUEST-003`, plus the three fixed destination forecast routes recorded in `DR-WEATHER-001`; none makes normal Astro pages dynamic. No current route resolver, URL helper or token system is otherwise changed; the analytics runtime changes only through the consent-gated Astro layer recorded in `DR-MEAS-006`. The URL **policy doctrine** changes only as explicitly recorded above; current implementation remains protected.
 
 ## 6. Remaining controlled workstreams
 
@@ -328,3 +331,4 @@ Separate controlled workstreams remain for:
 | 1.47.0 | 2026-08-30T16:30:00+02:00 | Activated evidence-carrying public handoffs and corrected destination-indexed shared authoring. | this revision |
 | 1.47.1 | 2026-08-30T17:05:00+02:00 | Clarified the return-direction fact owner in the evidence-carrying handoff chain. | this revision |
 | 1.48.0 | 2026-08-31T18:18:00+02:00 | Activated the full-width horizontal boundary standard, retired decorative partial-width editorial rules and added representative browser enforcement. | this revision |
+| 1.49.0 | 2026-08-31T20:30:00+02:00 | Activated the AMARA Experience foundation with a public product entry, booking-backed protected guide and fail-closed encrypted session boundary while preserving legacy Guest Guides. | this revision |

@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
-title: AMARA Guest Utility Architecture V2.2
-version: 2.2.0
+title: AMARA Guest Utility Architecture V2.3
+version: 2.3.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-28T18:00:00Z
+last_modified: 2026-08-31T20:30:00+02:00
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -157,6 +157,30 @@ Publicly delivered Guest Guide content may include Wi-Fi network names, apartmen
 
 When a guest needs protected current access information, the page directs them to AMARA support or the communication channel connected to their booking.
 
+## Approved repository amendment — AMARA Experience foundation
+
+13. Product and transition boundary
+
+AMARA Experience is the new booked-guest product. Its public, indexable landing page is a normal five-locale AMARA surface and a direct primary item in the global navigation. The protected guide remains a separate Guest Utility surface without public navigation, marketing footer, analytics, sitemap inclusion or indexing. Existing public destination Experience hubs keep their public editorial job unchanged.
+
+The existing anonymous Guest Guides remain available separately during a controlled transition. This foundation does not copy, migrate or remove their content. `DR-GUEST-002` continues to govern those legacy pages; the authenticated contract below governs only AMARA Experience.
+
+14. Booking-backed access
+
+AMARA Experience accepts exactly three guest-supplied access values: the booking holder's first name, arrival date and departure date. The server normalizes name case, accents and whitespace and compares the values with a confirmed Lodgify reservation through the central Booking Gateway adapter. No surname, access code or password is introduced. Zero matches and ambiguous matches both fail closed with the same neutral public response.
+
+Access begins when the reservation is confirmed and ends at 23:59:59 on the departure day in `Europe/Madrid`. A cancellation or other loss of confirmed status blocks a new login and ends an existing session at its next periodic verification, no later than one hour after the previous check.
+
+15. Session and delivery contract
+
+Cloudflare Pages Functions protect the guide route before its static Astro output is served. The session is an AES-GCM-encrypted, `HttpOnly`, `Secure`, `SameSite=Lax`, host-only cookie; it contains no readable personal or booking data, is never placed in a URL or HTML and expires no later than the access window. Protected responses are private, `no-store` and `noindex, nofollow, noarchive`.
+
+The binding `AMARA_EXPERIENCE_SESSION_SECRET` is mandatory and must contain at least 32 random characters. Missing or shorter configuration closes both login and guide access; no fallback key, default value or fail-open path is permitted. Login attempts are bounded at the application edge without persisting the supplied booking values.
+
+16. First guide structure
+
+The first guide structure owns the stable categories `day-trips`, `beaches`, `food-drinks`, `nature-walks`, `practical` and `saved`. Categories with no authored items are not rendered. This foundation intentionally contains no unverified recommendations and no door, lockbox, Wi-Fi, payment, key or personal-booking details.
+
 ## Revision history
 
 | Version | Timestamp | Change |
@@ -164,3 +188,4 @@ When a guest needs protected current access information, the page directs them t
 | 2.0 | 2026-08-10 | Approved source architecture preserved as the interim Markdown snapshot. |
 | 2.1.0 | 2026-08-22T07:48:36+02:00 | Added the public-usefulness, booked-guest operational-depth and contextual transition-block boundary. |
 | 2.2.0 | 2026-08-28T18:00:00Z | Defined anonymous-link delivery and prohibited credentials, access secrets and personal booking data in public Guest Guide output. |
+| 2.3.0 | 2026-08-31T20:30:00+02:00 | Activated the booking-backed AMARA Experience foundation while retaining anonymous Guest Guides as a separate transitional legacy surface. |

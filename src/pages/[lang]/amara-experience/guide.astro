@@ -1,0 +1,13 @@
+---
+import AmaraExperienceGuidePage from '../../../page-families/amara-experience/AmaraExperienceGuidePage.astro';
+import { getOwnedPageStaticPaths } from '../../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../../types/seo';
+
+export function getStaticPaths() {
+  return getOwnedPageStaticPaths();
+}
+
+const { lang } = Astro.params as { lang: AmaraLanguage };
+---
+
+<AmaraExperienceGuidePage lang={lang} />

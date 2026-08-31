@@ -1,0 +1,43 @@
+---
+import AmaraExperienceLayout from '../../layouts/AmaraExperienceLayout.astro';
+import { getAmaraExperienceGuideContent } from '../../content/amaraExperienceGuideContent';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = getAmaraExperienceGuideContent(currentLang);
+const visibleCategories = copy.categories.filter((category) => category.items.length > 0);
+const landingHref = currentLang === 'es' ? '/amara-experience' : `/${currentLang}/amara-experience`;
+---
+
+<AmaraExperienceLayout
+  lang={currentLang}
+  title={copy.title}
+  logoutLabel={copy.logout}
+  logoutError={copy.logoutError}
+  landingHref={landingHref}
+  skipLabel={copy.skip}
+>
+  <main id="am-experience-main" class="am-experience-app__main" tabindex="-1">
+    <div class="am-experience-app__intro">
+      <p class="am-text-eyebrow mb-4 text-muted">{copy.eyebrow}</p>
+      <h1 class="am-text-display text-on-surface">{copy.title}</h1>
+    </div>
+
+    {visibleCategories.length > 0 ? (
+      <div class="am-experience-app__categories">
+        {visibleCategories.map((category) => (
+          <section class="am-experience-app__category" aria-labelledby={`category-${category.id}`}>
+            <h2 id={`category-${category.id}`} class="am-text-title">{category.label}</h2>
+          </section>
+        ))}
+      </div>
+    ) : (
+      <section class="am-experience-app__empty" aria-labelledby="experience-empty-title">
+        <h2 id="experience-empty-title" class="am-text-title">{copy.welcomeTitle}</h2>
+        <p class="am-text-body mt-4 text-on-surface-variant">{copy.emptyCopy}</p>
+      </section>
+    )}
+  </main>
+</AmaraExperienceLayout>

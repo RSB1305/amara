@@ -1,5 +1,14 @@
 {
   "version": 1,
-  "include": ["/api/booking/*", "/api/weather/*"],
+  "include": [
+    "/api/booking/*",
+    "/api/weather/*",
+    "/api/guest/*",
+    "/amara-experience/guide*",
+    "/en/amara-experience/guide*",
+    "/de/amara-experience/guide*",
+    "/nl/amara-experience/guide*",
+    "/sv/amara-experience/guide*"
+  ],
   "exclude": []
 }

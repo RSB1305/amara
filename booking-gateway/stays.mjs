@@ -91,6 +91,13 @@ export function getLodgifyStayMapping(stay) {
   return LODGIFY_STAY_MAPPINGS[stay];
 }
 
+export function getAmaraStayByPropertyId(propertyId) {
+  const match = SEARCH_STAYS.find((candidate) => (
+    String(getLodgifyStayMapping(candidate.stay)?.propertyId) === String(propertyId)
+  ));
+  return match ? { stay: match.stay, destination: match.destination } : undefined;
+}
+
 export function getLodgifyDiscoveryMapping(stay) {
   return LODGIFY_DISCOVERY_MAPPINGS[stay];
 }
