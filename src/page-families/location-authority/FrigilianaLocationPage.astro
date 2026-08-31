@@ -1,6 +1,5 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
@@ -11,7 +10,10 @@ import LocationGuideIcon, {
   type LocationGuideIconName
 } from '../../components/location/LocationGuideIcon.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
+import decisionImage from '../../assets/images/content/amara-lounis/15-amara-frigiliana.jpg';
 import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
+import LocationAreasBand from './LocationAreasBand.astro';
+import LocationStaySplitSection from './LocationStaySplitSection.astro';
 import {
   getFrigilianaLocationCopy,
   frigilianaLocationHeroImageAlt,
@@ -56,6 +58,7 @@ const aboutHref = optionalLink('about');
 const stairsHref = optionalLink('frigiliana_stairs');
 const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const comparisonHref = optionalLink('nerja_vs_frigiliana');
+const romanticHideawaysHref = optionalLink('romantic_hideaways');
 const availabilityBaseHref = optionalLink('book');
 const availabilityHref = availabilityBaseHref
   ? `${availabilityBaseHref}?destination=frigiliana`
@@ -78,7 +81,7 @@ const ctaHrefByToken: Record<FrigilianaLocationCtaToken, string | null> = {
   PARKING: parkingHref,
   COMPARISON: comparisonHref,
   WEATHER: weatherHref,
-  FRIGILIANA_STAYS: null,
+  FRIGILIANA_STAYS: romanticHideawaysHref,
   AVAILABILITY: availabilityHref
 };
 
@@ -198,6 +201,8 @@ const villageParking = c.villageLife.subsections[1];
 const coastMobility = c.coast.subsections[0];
 const decisionStay = c.decision.subsections[0];
 const decisionAvailabilityCta = decisionStay.ctas.find((cta) => cta.token === 'AVAILABILITY');
+const decisionComparisonCta = decisionStay.ctas.find((cta) => cta.token === 'COMPARISON');
+const decisionStaysCta = decisionStay.ctas.find((cta) => cta.token === 'FRIGILIANA_STAYS');
 
 const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
 const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas;
@@ -323,7 +328,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
         </Fragment>
 
         <Fragment slot="evening">
-          <section id="overnight" class="am-section am-section--plain py-24 md:py-32 lg:py-40">
+          <section id="overnight" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
             <div class="mx-auto max-w-screen-2xl">
               <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
                 <div class="lg:col-span-5 lg:pt-8">
@@ -360,7 +365,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
         </Fragment>
 
         <Fragment slot="history">
-          <section id="history" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
+          <section id="history" class="am-section am-section--plain py-24 md:py-32 lg:py-40">
             <div class="mx-auto max-w-screen-2xl">
               <h2 class="am-text-title italic text-on-surface tracking-tight mb-14 max-w-4xl">
                 {c.history.title}
@@ -478,6 +483,18 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
               </aside>
             </div>
           </section>
+
+          <div id="where-to-stay">
+            <LocationAreasBand
+              eyebrow={c.decision.staysEyebrow}
+              title={decisionStay.title}
+              paragraphs={decisionStay.paragraphs}
+              archetypes={c.decision.archetypes}
+              link={decisionAvailabilityCta && availabilityHref
+                ? { href: availabilityHref, label: decisionAvailabilityCta.label }
+                : undefined}
+            />
+          </div>
         </Fragment>
 
         <Fragment slot="coast">
@@ -524,12 +541,19 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                 </div>
               </div>
 
+              {
+                decisionComparisonCta && comparisonHref && (
+                  <a href={comparisonHref} class="am-cta-link mt-10 inline-block">
+                    {decisionComparisonCta.label}
+                  </a>
+                )
+              }
             </div>
           </section>
         </Fragment>
 
         <Fragment slot="seasons">
-          <section id="weather-climate" class="am-section am-section--plain py-24 md:py-32 lg:py-40">
+          <section id="weather-climate" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
             <div class="mx-auto max-w-screen-2xl">
               <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
                 <div class="lg:col-span-5">
@@ -614,43 +638,17 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
         </Fragment>
 
         <Fragment slot="decision">
-          <section id="where-to-stay" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
-            <div class="mx-auto max-w-screen-2xl">
-              <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-                <h2 class="am-text-title italic text-on-surface tracking-tight lg:col-span-5">
-                  {c.decision.title}
-                </h2>
-                <div class="space-y-6 lg:col-span-7">
-                  {
-                    c.decision.paragraphs.map((paragraph) => (
-                      <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                    ))
-                  }
-                </div>
-              </div>
-
-              <div class="mt-14 border-t border-outline-variant/15 pt-12 lg:mt-16">
-                <h3 class="am-text-subtitle text-on-surface mb-8 max-w-3xl">{decisionStay.title}</h3>
-                <div class="max-w-3xl space-y-6">
-                  {
-                    decisionStay.paragraphs.map((paragraph) => (
-                      <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                    ))
-                  }
-                </div>
-
-                {
-                  decisionAvailabilityCta && availabilityHref && (
-                    <div class="mt-16 border-t border-outline-variant/15 pt-12">
-                      <AmaraActionLink href={availabilityHref} variant="primary">
-                        {decisionAvailabilityCta.label}
-                      </AmaraActionLink>
-                    </div>
-                  )
-                }
-              </div>
-            </div>
-          </section>
+          <LocationStaySplitSection
+            imageSrc={decisionImage}
+            imageAlt={imageAlt.decision}
+            eyebrow={c.decision.eyebrow}
+            title={c.decision.title}
+            paragraphs={c.decision.paragraphs}
+            facts={c.decision.facts.map((fact) => fact.value)}
+            link={decisionStaysCta && romanticHideawaysHref
+              ? { href: romanticHideawaysHref, label: decisionStaysCta.label }
+              : undefined}
+          />
         </Fragment>
       </OrderedFrigilianaLocationSections>
     </div>
