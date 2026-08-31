@@ -6,7 +6,6 @@ import SeasonalPillar from '../../components/location/SeasonalPillar.astro';
 import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
 import AemetForecastPanel from '../../components/location/AemetForecastPanel.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
-import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
 import LocationModule from './LocationModule.astro';
 import type { LocationClimateMonth } from '../../content/locationClimateData';
 import type { WeatherAuthorityContent } from './weatherAuthority';
@@ -82,6 +81,13 @@ const {
             </div>
           </article>
         ))}
+        <a
+          href={resolveHref(content.related.links[0].token)}
+          class="group block border-t border-border-subtle py-7"
+        >
+          <h3 class="am-text-subtitle text-on-surface group-hover:text-primary">{content.related.links[0].label}</h3>
+          <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.related.links[0].text} /></p>
+        </a>
       </div>
     </div>
   </LocationModule>
@@ -173,6 +179,9 @@ const {
           <article class:list={['p-7', index > 1 && 'border-t border-inverted-on-surface/20', index % 2 === 1 && 'sm:border-l sm:border-inverted-on-surface/20']}>
             <h3 class="am-text-subtitle text-inverted-on-surface">{item.title}</h3>
             <p class="am-text-body mt-4 leading-relaxed text-inverted-on-surface/70"><InlineEmphasis text={item.text} /></p>
+            {index === 3 && content.related.links[1] && (
+              <p class="am-text-body mt-4 leading-relaxed text-inverted-on-surface/70"><InlineEmphasis text={content.related.links[1].text} /></p>
+            )}
             {item.link && (
               <a
                 href={resolveHref(item.link.token)}
@@ -245,8 +254,6 @@ const {
       </div>
     </div>
   </LocationModule>
-
-  <AuthorityRelatedLinks related={content.related} columns="md:grid-cols-3" resolveHref={resolveHref} />
 
   <LocationModule spacing="closing" divider={false} {...getPageEndAttributes('next-action', 'location')}>
     <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
