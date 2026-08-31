@@ -4,11 +4,12 @@ import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import { frigilianaDayTripsContent } from '../../content/frigilianaDayTripsContent';
 import {
+  nerjaDayTripOriginContext,
   nerjaDayTripsPageContent,
   nerjaDayTripsSeo
 } from '../../content/nerjaExperienceAdditionsContent';
+import { getAndalusiaDayTripFacts } from '../../content/sharedExperienceFacts';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -21,23 +22,25 @@ interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const shared = frigilianaDayTripsContent[currentLang];
+const shared = getAndalusiaDayTripFacts(currentLang);
 const copy = nerjaDayTripsPageContent[currentLang];
+const origin = nerjaDayTripOriginContext[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja day trips');
-const adaptBase = (value: string) => value.replaceAll('Frigiliana', 'Nerja');
 const destinations = shared.destinations.map((destination) => ({
   ...destination,
-  summary: adaptBase(destination.summary),
-  callout: adaptBase(destination.callout),
-  details: adaptBase(destination.details)
+  summary: destination.id === 'malaga' ? origin.malagaSummary : destination.summary,
+  facts: destination.facts.map((fact, index) =>
+    index === 0 ? { ...fact, value: origin.driveTimes[destination.id] } : fact
+  ),
+  details: destination.id === 'ronda' ? origin.rondaDetails : destination.details
 }));
 const practical = {
   ...shared.practical,
-  intro: adaptBase(shared.practical.intro),
-  items: shared.practical.items.map((item) => ({
-    ...item,
-    text: adaptBase(item.text)
-  }))
+  items: shared.practical.items.map((item, index) =>
+    index === shared.practical.items.length - 1
+      ? { ...item, text: origin.returnText }
+      : item
+  )
 };
 const footerHighlights: LabeledLink[] = [
   { token: 'nerja_daytrips_authority', label: copy.navLabel },
