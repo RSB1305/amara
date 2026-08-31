@@ -44,6 +44,19 @@ export interface FrigilianaLocationModule {
   ctas: FrigilianaLocationCta[];
 }
 
+export interface FrigilianaLocationArchetype {
+  id: 'lounis' | 'zaid' | 'maha' | 'farah';
+  title: string;
+  consequence: string;
+}
+
+export interface FrigilianaLocationDecisionModule extends FrigilianaLocationModule {
+  eyebrow: string;
+  staysEyebrow: string;
+  archetypes: FrigilianaLocationArchetype[];
+  facts: Array<{ id: 'walkable-core' | 'terrain' | 'parking'; value: string }>;
+}
+
 export interface FrigilianaLocationPageCopy {
   heroKicker: string;
   h1: string;
@@ -99,7 +112,7 @@ export interface FrigilianaLocationPageCopy {
   };
   journeyBridge?: { eyebrow: string; title: string; text: string; ctaLabel: string };
   exploreBridge: { eyebrow: string; title: string; text: string; ctaLabel: string };
-  decision: FrigilianaLocationModule;
+  decision: FrigilianaLocationDecisionModule;
 }
 
 interface LocalizedCta {
@@ -119,6 +132,20 @@ interface LocalizedModule {
   paragraphs: LocalizedTextList;
   subsections: LocalizedSubsection[];
   ctas: LocalizedCta[];
+}
+
+interface LocalizedDecisionModule extends LocalizedModule {
+  eyebrow: LocalizedText;
+  staysEyebrow: LocalizedText;
+  archetypes: Array<{
+    id: FrigilianaLocationArchetype['id'];
+    title: string;
+    consequence: LocalizedText;
+  }>;
+  facts: Array<{
+    id: FrigilianaLocationDecisionModule['facts'][number]['id'];
+    value: LocalizedText;
+  }>;
 }
 
 const cta = (token: FrigilianaLocationCtaToken, label: LocalizedText): LocalizedCta => ({
@@ -482,7 +509,7 @@ export const frigilianaLocationCopy = {
     intro: text('Start with arrival, parking and the daily walk. Then decide how much of the coast and region you want to explore.', 'Beginnt mit Anreise, Parken und dem täglichen Weg. Danach könnt ihr überlegen, wie viel Küste und Umgebung ihr entdecken möchtet.', 'Empezad por la llegada, el aparcamiento y el camino diario. Después decidid cuánto queréis recorrer la costa y los alrededores.', 'Begin met aankomst, parkeren en de dagelijkse route. Bepaal daarna hoeveel van de kust en omgeving jullie willen ontdekken.', 'Börja med ankomst, parkering och den dagliga vägen. Bestäm sedan hur mycket av kusten och omgivningen ni vill upptäcka.'),
     gettingThere: { label: text('Getting to Frigiliana', 'Anreise nach Frigiliana', 'Cómo llegar a Frigiliana', 'Naar Frigiliana reizen', 'Resa till Frigiliana'), text: text('Compare rental car, transfer and public transport via Nerja.', 'Mietwagen, Transfer und öffentliche Verbindungen über Nerja vergleichen.', 'Comparar coche de alquiler, traslado y transporte público vía Nerja.', 'Vergelijk huurauto, transfer en openbaar vervoer via Nerja.', 'Jämför hyrbil, transfer och kollektivtrafik via Nerja.') },
     parking: { label: text('Parking in Frigiliana', 'Parken in Frigiliana', 'Aparcar en Frigiliana', 'Parkeren in Frigiliana', 'Parkering i Frigiliana'), text: text('See the public options and understand the final walk.', 'Öffentliche Möglichkeiten und den letzten Weg verstehen.', 'Ver las opciones públicas y entender el último tramo a pie.', 'Bekijk de openbare opties en begrijp de laatste looproute.', 'Se de allmänna alternativen och förstå sista promenaden.') },
-    stairs: { label: text('Streets and steps', 'Gassen und Stufen', 'Calles y escalones', 'Straatjes en trappen', 'Gränder och trappor'), text: text('Check how Frigiliana’s levels affect your everyday route.', 'Prüfen, wie Frigilianas Ebenen euren Alltag beeinflussen.', 'Comprobar cómo afectan los desniveles al recorrido diario.', 'Bekijk wat de hoogteverschillen betekenen voor jullie dagelijkse route.', 'Se hur nivåskillnaderna påverkar er dagliga väg.') },
+    stairs: { label: text('Where to stay in Frigiliana', 'Wo in Frigiliana übernachten?', 'Dónde alojarse en Frigiliana', 'Waar overnachten in Frigiliana?', 'Var ska man bo i Frigiliana?'), text: text('Check how Frigiliana’s levels affect your everyday route.', 'Prüfen, wie Frigilianas Ebenen euren Alltag beeinflussen.', 'Comprobar cómo afectan los desniveles al recorrido diario.', 'Bekijk wat de hoogteverschillen betekenen voor jullie dagelijkse route.', 'Se hur nivåskillnaderna påverkar er dagliga väg.') },
     dailyLife: { label: text('Everyday life', 'Alltag im Dorf', 'El día a día', 'Dagelijks leven', 'Vardagen i byn'), text: text('Find groceries, the bakery and practical services.', 'Lebensmittel, Bäckerei und praktische Wege finden.', 'Encontrar alimentación, panadería y servicios prácticos.', 'Vind boodschappen, bakker en praktische voorzieningen.', 'Hitta matbutik, bageri och praktisk service.') },
     comparison: { label: text('Frigiliana or Nerja', 'Frigiliana oder Nerja', 'Frigiliana o Nerja', 'Frigiliana of Nerja', 'Frigiliana eller Nerja'), text: text('Compare village life with a stay by the coast.', 'Dorfleben mit einem Aufenthalt an der Küste vergleichen.', 'Comparar la vida de pueblo con una estancia en la costa.', 'Vergelijk dorpsleven met een verblijf aan de kust.', 'Jämför byliv med en vistelse vid kusten.') },
     weather: { label: text('Weather and seasons', 'Wetter und Jahreszeiten', 'Tiempo y estaciones', 'Weer en seizoenen', 'Väder och årstider'), text: text('Choose the best rhythm for walking, terraces and coast.', 'Den passenden Rhythmus für Wege, Terrasse und Küste finden.', 'Elegir el mejor ritmo para caminar, terraza y costa.', 'Kies het beste ritme voor wandelen, terras en kust.', 'Välj rätt rytm för promenader, terrass och kust.') },
@@ -505,6 +532,8 @@ export const frigilianaLocationCopy = {
     ctaLabel: text('Explore ideas for your stay', 'Ideen für euren Aufenthalt', 'Ver ideas para la estancia', 'Bekijk ideeën voor jullie verblijf', 'Se idéer för vistelsen')
   },
   decision: {
+    eyebrow: text('YOUR STAY IN THE VILLAGE', 'EUER AUFENTHALT IM DORF', 'VUESTRA ESTANCIA EN EL PUEBLO', 'JULLIE VERBLIJF IN HET DORP', 'ER VISTELSE I BYN'),
+    staysEyebrow: text('FOUR STAYS · ONE VILLAGE HOUSE', 'VIER UNTERKÜNFTE · EIN DORFHAUS', 'CUATRO ALOJAMIENTOS · UNA CASA DE PUEBLO', 'VIER VERBLIJVEN · ÉÉN DORPSHUIS', 'FYRA BOENDEN · ETT BYHUS'),
     title: text('Frigiliana suits you if the village is part of the holiday', 'Frigiliana passt zu euch, wenn das Dorf zum Urlaub gehören soll', 'Frigiliana encaja si el pueblo debe formar parte de las vacaciones', 'Frigiliana past als het dorp onderdeel van de vakantie mag zijn', 'Frigiliana passar om byn ska vara en del av semestern'),
     paragraphs: textList(
       ['You stay in the old village, not beside it: restaurants on foot and calmer hours before and after the day visitors, but also slopes, steps and no private parking.'],
@@ -531,8 +560,86 @@ export const frigilianaLocationCopy = {
         ]
       }
     ],
-    ctas: []
-  } satisfies LocalizedModule
+    ctas: [],
+    archetypes: [
+      {
+        id: 'lounis',
+        title: 'Lounis',
+        consequence: text(
+          'You stay in an apartment with a private terrace on Calle Chorruelo.',
+          'Ihr wohnt in einem Apartment mit eigener Terrasse an der Calle Chorruelo.',
+          'Os alojáis en un apartamento con terraza privada en la calle Chorruelo.',
+          'Jullie verblijven in een appartement met eigen terras aan Calle Chorruelo.',
+          'Ni bor i en lägenhet med egen terrass på Calle Chorruelo.'
+        )
+      },
+      {
+        id: 'zaid',
+        title: 'Zaid',
+        consequence: text(
+          'You have a private terrace; San Antonio is right beside you in the old village.',
+          'Ihr habt eine eigene Terrasse; San Antonio liegt gleich nebenan in der Altstadt.',
+          'Tenéis terraza privada; San Antonio queda justo al lado, en el casco antiguo.',
+          'Jullie hebben een eigen terras; San Antonio ligt er vlak naast in de oude kern.',
+          'Ni har en egen terrass; San Antonio ligger alldeles intill i gamla byn.'
+        )
+      },
+      {
+        id: 'maha',
+        title: 'Maha',
+        consequence: text(
+          'This apartment also has a private terrace, behind the same old village door.',
+          'Auch dieses Apartment hat eine eigene Terrasse, hinter derselben alten Dorfhaustür.',
+          'Este apartamento también tiene terraza privada, tras la misma puerta antigua del pueblo.',
+          'Ook dit appartement heeft een eigen terras, achter dezelfde oude dorpsdeur.',
+          'Även den här lägenheten har en egen terrass, bakom samma gamla bydörr.'
+        )
+      },
+      {
+        id: 'farah',
+        title: 'Farah',
+        consequence: text(
+          'A compact suite without a private terrace, at the same Calle Chorruelo address.',
+          'Eine kompakte Suite ohne private Terrasse, an derselben Adresse in der Calle Chorruelo.',
+          'Una suite compacta sin terraza privada, en la misma dirección de la calle Chorruelo.',
+          'Een compacte suite zonder privéterras, op hetzelfde adres aan Calle Chorruelo.',
+          'En kompakt svit utan privat terrass, på samma adress på Calle Chorruelo.'
+        )
+      }
+    ],
+    facts: [
+      {
+        id: 'walkable-core',
+        value: text(
+          'Restaurants are within walking distance from the old village.',
+          'Restaurants erreicht ihr von der Altstadt aus zu Fuß.',
+          'Desde el casco antiguo podéis ir andando a los restaurantes.',
+          'Vanuit de oude kern lopen jullie naar de restaurants.',
+          'Från gamla byn går ni till restaurangerna.'
+        )
+      },
+      {
+        id: 'terrain',
+        value: text(
+          'Slopes, historic paving and steps remain part of the stay.',
+          'Steigungen, historisches Pflaster und Stufen bleiben Teil des Aufenthalts.',
+          'Las pendientes, el empedrado histórico y los escalones forman parte de la estancia.',
+          'Hellingen, historische bestrating en trappen blijven onderdeel van het verblijf.',
+          'Backar, historisk stenläggning och trappor är en del av vistelsen.'
+        )
+      },
+      {
+        id: 'parking',
+        value: text(
+          'There is no private parking at the house.',
+          'Am Haus gibt es keinen privaten Parkplatz.',
+          'La casa no dispone de aparcamiento privado.',
+          'Bij het huis is geen eigen parkeerplaats.',
+          'Det finns ingen privat parkering vid huset.'
+        )
+      }
+    ]
+  } satisfies LocalizedDecisionModule
 };
 
 export function getFrigilianaLocationCopy(lang: AmaraLanguage): FrigilianaLocationPageCopy {

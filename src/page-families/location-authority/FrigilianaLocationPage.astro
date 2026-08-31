@@ -1,6 +1,5 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
@@ -11,7 +10,9 @@ import LocationGuideIcon, {
   type LocationGuideIconName
 } from '../../components/location/LocationGuideIcon.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
-import OrderedFrigilianaLocationSections from './OrderedFrigilianaLocationSections.astro';
+import decisionImage from '../../assets/images/content/amara-lounis/15-amara-frigiliana.jpg';
+import LocationAreasBand from './LocationAreasBand.astro';
+import LocationStaySplitSection from './LocationStaySplitSection.astro';
 import {
   getFrigilianaLocationCopy,
   frigilianaLocationHeroImageAlt,
@@ -21,7 +22,6 @@ import {
 } from '../../content/frigilianaLocationContent';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
-import { getFrigilianaLocationSectionOrder } from '../../lib/frigiliana/frigilianaLocationSectionOrder';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -56,6 +56,7 @@ const aboutHref = optionalLink('about');
 const stairsHref = optionalLink('frigiliana_stairs');
 const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const comparisonHref = optionalLink('nerja_vs_frigiliana');
+const romanticHideawaysHref = optionalLink('romantic_hideaways');
 const availabilityBaseHref = optionalLink('book');
 const availabilityHref = availabilityBaseHref
   ? `${availabilityBaseHref}?destination=frigiliana`
@@ -78,7 +79,7 @@ const ctaHrefByToken: Record<FrigilianaLocationCtaToken, string | null> = {
   PARKING: parkingHref,
   COMPARISON: comparisonHref,
   WEATHER: weatherHref,
-  FRIGILIANA_STAYS: null,
+  FRIGILIANA_STAYS: romanticHideawaysHref,
   AVAILABILITY: availabilityHref
 };
 
@@ -177,7 +178,7 @@ const heroImage = {
   src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
   alt: frigilianaLocationHeroImageAlt[currentLang],
   width: 2000,
-  sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
+  sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 35vw'
 };
 
 const editorialImages = {
@@ -198,8 +199,9 @@ const villageParking = c.villageLife.subsections[1];
 const coastMobility = c.coast.subsections[0];
 const decisionStay = c.decision.subsections[0];
 const decisionAvailabilityCta = decisionStay.ctas.find((cta) => cta.token === 'AVAILABILITY');
+const decisionComparisonCta = decisionStay.ctas.find((cta) => cta.token === 'COMPARISON');
+const decisionStaysCta = decisionStay.ctas.find((cta) => cta.token === 'FRIGILIANA_STAYS');
 
-const sectionOrder = getFrigilianaLocationSectionOrder(currentLang);
 const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas;
 ---
 
@@ -221,34 +223,35 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
 
   <div class="overflow-x-hidden">
     <div data-am-page="frigiliana-location" data-am-family="location" data-am-role="hub" data-am-presentation="guide">
-      <OrderedFrigilianaLocationSections order={sectionOrder}>
-        <Fragment slot="hero">
+        <Fragment>
           <div id="intro">
-            <LocationHubHero
-              eyebrow={c.heroKicker}
-              title={c.h1}
-              subtitle={c.h1Subtitle}
-              paragraphs={c.intro}
-              accent={c.introPullLine}
-              imageSrc={heroImage.src}
-              imageAlt={heroImage.alt}
-              imageWidth={heroImage.width}
-              imageSizes={heroImage.sizes}
-              byline={frigilianaLocationSeo.article && aboutHref ? {
-                lang: currentLang,
-                authorName: frigilianaLocationSeo.article.authorName,
-                authorHref: aboutHref,
-                updated: c.heroUpdated,
-                note: c.heroNote
-              } : undefined}
-            />
+            <div class="frigiliana-hero">
+              <LocationHubHero
+                eyebrow={c.heroKicker}
+                title={c.h1}
+                subtitle={c.h1Subtitle}
+                paragraphs={c.intro}
+                accent={c.introPullLine}
+                imageSrc={heroImage.src}
+                imageAlt={heroImage.alt}
+                imageWidth={heroImage.width}
+                imageSizes={heroImage.sizes}
+                byline={frigilianaLocationSeo.article && aboutHref ? {
+                  lang: currentLang,
+                  authorName: frigilianaLocationSeo.article.authorName,
+                  authorHref: aboutHref,
+                  updated: c.heroUpdated,
+                  note: c.heroNote
+                } : undefined}
+              />
+            </div>
 
             <section
               id="where-is-frigiliana"
               aria-labelledby="where-is-frigiliana-title"
               class="am-section am-section--tint py-24 md:py-32 lg:py-36"
             >
-              <div class="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-12 lg:gap-x-20 lg:gap-y-16">
+              <div class="mx-auto grid max-w-screen-2xl items-center gap-14 lg:grid-cols-12 lg:gap-x-20 lg:gap-y-16">
                 <div class="lg:order-2 lg:col-span-5">
                   <span class="am-text-section-caption text-primary mb-6">
                     {c.orientation.eyebrow}
@@ -315,24 +318,38 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     ))
                   }
                 </dl>
+
+                {
+                  decisionAvailabilityCta && availabilityHref && (
+                    <div class="lg:order-4 lg:col-span-12">
+                      <a href={availabilityHref} class="am-btn am-btn--primary">
+                        {decisionAvailabilityCta.label}
+                      </a>
+                    </div>
+                  )
+                }
               </div>
             </section>
           </div>
         </Fragment>
 
-        <Fragment slot="evening">
-          <section id="overnight" class="am-section am-section--plain py-24 md:py-32 lg:py-40">
-            <div class="mx-auto max-w-6xl">
-              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+        <Fragment>
+          <section id="overnight" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
+            <div class="mx-auto max-w-screen-2xl">
+              <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
                 <div class="lg:col-span-5 lg:pt-8">
                   <h2 class="am-text-title italic text-on-surface tracking-tight mb-10">
                     {c.evening.title}
                   </h2>
                   <div class="space-y-6">
                     {
-                      c.evening.paragraphs.slice(0, 2).map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                      ))
+                      c.evening.paragraphs.map((paragraph, index) =>
+                        index === c.evening.paragraphs.length - 1 ? (
+                          <p class="am-text-subtitle italic text-on-surface pt-4"><InlineEmphasis text={paragraph} /></p>
+                        ) : (
+                          <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
+                        )
+                      )
                     }
                   </div>
                 </div>
@@ -341,24 +358,11 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     src={editorialImages.evening}
                     alt={imageAlt.evening}
                     profile="gallery"
-                    sizes="(max-width: 1023px) 100vw, 58vw"
+                    sizes="(max-width: 1023px) 100vw, 50vw"
                     class="w-full aspect-[4/3] object-cover"
                     loading="lazy"
                     decoding="async"
                   />
-                </div>
-              </div>
-              <div class="mt-14 grid grid-cols-1 lg:mt-20 lg:grid-cols-12">
-                <div class="space-y-6 lg:col-span-7 lg:col-start-6">
-                  {
-                    c.evening.paragraphs.slice(2).map((paragraph, index) =>
-                      index === c.evening.paragraphs.slice(2).length - 1 ? (
-                        <p class="am-text-subtitle italic text-on-surface pt-4"><InlineEmphasis text={paragraph} /></p>
-                      ) : (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                      )
-                    )
-                  }
                 </div>
               </div>
             </div>
@@ -366,13 +370,13 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
 
         </Fragment>
 
-        <Fragment slot="history">
-          <section id="history" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
-            <div class="mx-auto max-w-6xl">
+        <Fragment>
+          <section id="history" class="am-section am-section--plain py-24 md:py-32 lg:py-40">
+            <div class="mx-auto max-w-screen-2xl">
               <h2 class="am-text-title italic text-on-surface tracking-tight mb-14 max-w-4xl">
                 {c.history.title}
               </h2>
-              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+              <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
                 <div class="space-y-6 lg:col-span-5">
                   {
                     c.history.paragraphs.map((paragraph) => (
@@ -385,7 +389,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     src={editorialImages.historyInterior}
                     alt={imageAlt.historyInterior}
                     profile="gallery"
-                    sizes="(max-width: 1023px) 100vw, 58vw"
+                    sizes="(max-width: 1023px) 100vw, 50vw"
                     class="w-full aspect-[4/3] object-cover"
                     loading="lazy"
                     decoding="async"
@@ -393,14 +397,14 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                 </div>
               </div>
 
-              <div class="mt-20 grid grid-cols-1 items-start gap-12 border-t border-outline-variant/15 pt-16 lg:mt-28 lg:grid-cols-12 lg:gap-16">
-                <div class="am-mobile-full-bleed lg:col-span-4 overflow-hidden bg-surface-container-low">
+              <div class="mt-20 grid grid-cols-1 items-center gap-12 border-t border-outline-variant/15 pt-16 lg:mt-28 lg:grid-cols-12 lg:gap-16">
+                <div class="am-mobile-full-bleed lg:col-span-5 overflow-hidden bg-surface-container-low">
                   <AmaraImage
                     src={editorialImages.historyShower}
                     alt={imageAlt.historyShower}
                     profile="gallery"
-                    sizes="(max-width: 1023px) 100vw, 34vw"
-                    class="w-full aspect-[3/4] object-cover"
+                    sizes="(max-width: 1023px) 100vw, 35vw"
+                    class="w-full aspect-[4/5] object-cover"
                     loading="lazy"
                     decoding="async"
                   />
@@ -425,19 +429,19 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
 
         </Fragment>
 
-        <Fragment slot="villageLife">
+        <Fragment>
           <section id="experiences" class="am-section am-section--plain py-24 md:py-32 lg:py-40">
-            <div class="mx-auto max-w-6xl">
+            <div class="mx-auto max-w-screen-2xl">
               <h2 class="am-text-title italic text-on-surface tracking-tight mb-14 max-w-4xl">
                 {c.villageLife.title}
               </h2>
-              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+              <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
                 <div class="am-mobile-full-bleed lg:col-span-5 overflow-hidden bg-surface-container-low">
                   <AmaraImage
                     src={editorialImages.village}
                     alt={imageAlt.village}
                     profile="gallery"
-                    sizes="(max-width: 1023px) 100vw, 42vw"
+                    sizes="(max-width: 1023px) 100vw, 35vw"
                     class="w-full aspect-[4/5] object-cover"
                     loading="lazy"
                     decoding="async"
@@ -449,23 +453,22 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                       <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
                     ))
                   }
+
+                  <div class="border-t border-outline-variant/15 pt-10">
+                    <h3 class="am-text-subtitle text-on-surface mb-8">{villageDoorstep.title}</h3>
+                    <div class="space-y-6">
+                      {
+                        villageDoorstep.paragraphs.map((paragraph) => (
+                          <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
+                        ))
+                      }
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <div class="mt-20 grid grid-cols-1 items-start gap-16 border-t border-outline-variant/15 pt-16 lg:mt-28 lg:grid-cols-12 lg:gap-16">
-                <div class="lg:col-span-7">
-                  <h3 class="am-text-subtitle text-on-surface mb-8">{villageDoorstep.title}</h3>
-                  <div class="space-y-6">
-                    {
-                      villageDoorstep.paragraphs.map((paragraph) => (
-                        <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                      ))
-                    }
-                  </div>
-                </div>
-
-                <aside class="border-l border-primary/25 pl-7 lg:col-span-4 lg:col-start-9 lg:pl-9">
-                  <h3 class="am-text-body font-bold text-on-surface mb-6">{villageParking.title}</h3>
+              <aside class="mt-20 max-w-4xl border-t border-outline-variant/15 pt-16 lg:mt-28">
+                  <h3 class="am-text-subtitle text-on-surface mb-8">{villageParking.title}</h3>
                   <div class="space-y-4">
                     {
                       villageParking.paragraphs.map((paragraph) => (
@@ -483,19 +486,30 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                       </div>
                     )
                   }
-                </aside>
-              </div>
+              </aside>
             </div>
           </section>
+
+          <div id="where-to-stay">
+            <LocationAreasBand
+              eyebrow={c.decision.staysEyebrow}
+              title={decisionStay.title}
+              paragraphs={decisionStay.paragraphs}
+              archetypes={c.decision.archetypes}
+              link={decisionAvailabilityCta && availabilityHref
+                ? { href: availabilityHref, label: decisionAvailabilityCta.label }
+                : undefined}
+            />
+          </div>
         </Fragment>
 
-        <Fragment slot="coast">
+        <Fragment>
           <section id="comparison" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
-            <div class="mx-auto max-w-6xl">
+            <div class="mx-auto max-w-screen-2xl">
               <h2 class="am-text-title italic text-on-surface tracking-tight mb-14 max-w-4xl">
                 {c.coast.title}
               </h2>
-              <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-12 lg:gap-16">
+              <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
                 <div class="lg:col-span-7">
                   <div class="space-y-6">
                     {
@@ -525,21 +539,28 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     src={editorialImages.coast}
                     alt={imageAlt.coast}
                     profile="gallery"
-                    sizes="(max-width: 1023px) 100vw, 42vw"
-                    class="w-full aspect-[3/4] object-cover"
+                    sizes="(max-width: 1023px) 100vw, 35vw"
+                    class="w-full aspect-[4/5] object-cover"
                     loading="lazy"
                     decoding="async"
                   />
                 </div>
               </div>
 
+              {
+                decisionComparisonCta && comparisonHref && (
+                  <a href={comparisonHref} class="am-cta-link mt-10 inline-block">
+                    {decisionComparisonCta.label}
+                  </a>
+                )
+              }
             </div>
           </section>
         </Fragment>
 
-        <Fragment slot="seasons">
-          <section id="weather-climate" class="am-section am-section--plain py-24 md:py-32 lg:py-40">
-            <div class="mx-auto max-w-6xl">
+        <Fragment>
+          <section id="weather-climate" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
+            <div class="mx-auto max-w-screen-2xl">
               <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
                 <div class="lg:col-span-5">
                   <h2 class="am-text-title italic text-on-surface tracking-tight mb-10">
@@ -592,7 +613,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
             data-am-component="frigiliana-explore-bridge"
             class="am-section am-section--plain py-24 md:py-32 lg:py-40"
           >
-            <div class="mx-auto max-w-6xl border-y border-primary/20 py-16 md:py-20">
+            <div class="mx-auto max-w-screen-2xl border-y border-primary/20 py-16 md:py-20">
               <div class="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
                 <div class="lg:col-span-5">
                   <span class="am-text-section-caption mb-6 text-primary">
@@ -622,46 +643,29 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
           </section>
         </Fragment>
 
-        <Fragment slot="decision">
-          <section id="where-to-stay" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
-            <div class="mx-auto max-w-6xl">
-              <div class="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
-                <h2 class="am-text-title italic text-on-surface tracking-tight lg:col-span-5">
-                  {c.decision.title}
-                </h2>
-                <div class="space-y-6 lg:col-span-7">
-                  {
-                    c.decision.paragraphs.map((paragraph) => (
-                      <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                    ))
-                  }
-                </div>
-              </div>
-
-              <div class="mt-14 border-t border-outline-variant/15 pt-12 lg:mt-16">
-                <h3 class="am-text-subtitle text-on-surface mb-8 max-w-3xl">{decisionStay.title}</h3>
-                <div class="max-w-3xl space-y-6">
-                  {
-                    decisionStay.paragraphs.map((paragraph) => (
-                      <p class="am-text-body text-on-surface-variant leading-relaxed"><InlineEmphasis text={paragraph} /></p>
-                    ))
-                  }
-                </div>
-
-                {
-                  decisionAvailabilityCta && availabilityHref && (
-                    <div class="mt-16 border-t border-outline-variant/15 pt-12">
-                      <AmaraActionLink href={availabilityHref} variant="primary">
-                        {decisionAvailabilityCta.label}
-                      </AmaraActionLink>
-                    </div>
-                  )
-                }
-              </div>
-            </div>
-          </section>
+        <Fragment>
+          <LocationStaySplitSection
+            imageSrc={decisionImage}
+            imageAlt={imageAlt.decision}
+            eyebrow={c.decision.eyebrow}
+            title={c.decision.title}
+            paragraphs={c.decision.paragraphs}
+            facts={c.decision.facts.map((fact) => fact.value)}
+            link={decisionStaysCta && romanticHideawaysHref
+              ? { href: romanticHideawaysHref, label: decisionStaysCta.label }
+              : undefined}
+          />
         </Fragment>
-      </OrderedFrigilianaLocationSections>
     </div>
   </div>
 </LocationAuthorityLayout>
+
+<style>
+  .frigiliana-hero :global([data-am-guide-hero] > div > .am-mobile-full-bleed) {
+    align-self: stretch;
+  }
+
+  .frigiliana-hero :global([data-am-guide-hero] > div > .am-mobile-full-bleed img) {
+    aspect-ratio: auto;
+  }
+</style>

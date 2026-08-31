@@ -53,7 +53,7 @@ const dailyRouteSteps = copy.dailyRoute.steps.map((step) => ({
   label: t(step.label)
 }));
 
-const fitGuideItems = copy.fitGuide.items.map((item) => ({
+const crossCheckItems = copy.crossChecks.items.map((item) => ({
   title: t(item.title),
   text: t(item.text)
 }));
@@ -85,8 +85,8 @@ const relatedLinks = copy.related.links.flatMap((link) => {
 
 const footerHighlights: LabeledLink[] = [
   {
-    token: 'frigiliana_stairs',
-    label: t(copy.nav.links[1].label)
+    token: 'location_frigiliana',
+    label: t(copy.nav.links[0].label)
   },
   {
     token: 'frigiliana_parking',
@@ -105,23 +105,6 @@ const proofImage = {
 };
 
 const stayContent: WhereToStayAuthorityContent = {
-  stayType: {
-    id: 'stay-type',
-    eyebrow: t(copy.stayType.eyebrow),
-    title: t(copy.stayType.title),
-    intro: copy.stayType.intro.map((paragraph) => t(paragraph)),
-    labels: {
-      attribute: t(copy.stayType.labels.attribute),
-      ours: t(copy.stayType.labels.ours),
-      hotelWins: t(copy.stayType.labels.hotelWins)
-    },
-    items: copy.stayType.items.map((row) => ({
-      id: row.id,
-      attribute: t(row.attribute),
-      ours: t(row.ours),
-      hotelWins: t(row.hotelWins)
-    }))
-  },
   decision: {
     eyebrow: t(copy.principle.eyebrow),
     title: t(copy.principle.title),
@@ -148,10 +131,10 @@ const stayContent: WhereToStayAuthorityContent = {
     }))
   },
   tradeoffs: {
-    eyebrow: t(copy.models.labels.tradeoff),
-    title: t(copy.models.title),
-    intro: t(copy.models.intro),
-    items: locationModels.map((model) => ({ title: model.title, paragraphs: [model.tradeoff] }))
+    eyebrow: t(copy.crossChecks.eyebrow),
+    title: t(copy.crossChecks.title),
+    intro: t(copy.crossChecks.intro),
+    items: crossCheckItems.map((item) => ({ title: item.title, paragraphs: [item.text] }))
   },
   mobility: {
     id: 'daily-route',
@@ -162,10 +145,10 @@ const stayContent: WhereToStayAuthorityContent = {
     conclusion: t(copy.dailyRoute.conclusion)
   },
   fit: {
-    eyebrow: t(copy.fitGuide.eyebrow),
-    title: t(copy.fitGuide.title),
-    intro: [t(copy.fitGuide.intro)],
-    items: fitGuideItems.map((item) => ({ title: item.title, paragraphs: [item.text] }))
+    eyebrow: '',
+    title: '',
+    intro: [],
+    items: []
   },
   amara: {
     eyebrow: t(copy.proof.eyebrow),

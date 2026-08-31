@@ -618,7 +618,7 @@ export const frigilianaFaqCopy = {
       },
       {
         token: 'frigiliana_stairs',
-        label: l('Streets, slopes & stairs', 'Gassen, Steigungen & Treppen', 'Calles, cuestas y escaleras', 'Straten, hellingen & trappen', 'Gränder, lutningar och trappor')
+        label: l('Where to stay in Frigiliana', 'Wo in Frigiliana übernachten?', 'Dónde alojarse en Frigiliana', 'Waar overnachten in Frigiliana?', 'Var ska man bo i Frigiliana?')
       },
       {
         token: 'frigiliana_market',

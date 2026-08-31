@@ -119,11 +119,11 @@ export const frigilianaParkingCopy = {
       {
         token: 'frigiliana_stairs',
         label: l(
-          'Streets & stairs',
-          'Gassen & Treppen',
-          'Calles y escaleras',
-          'Straten & trappen',
-          'Gränder & trappor'
+          'Where to stay',
+          'Wo übernachten',
+          'Dónde alojarse',
+          'Waar overnachten',
+          'Var ska man bo'
         )
       }
     ]
@@ -508,11 +508,11 @@ export const frigilianaParkingCopy = {
       'Den närmaste platsen på kartan ger inte alltid den enklaste vägen. Lutning, stenläggning, trappor, bagage och hemvägen i mörker kan vara viktigare än några extra meter.'
     ),
     cta: l(
-      'Read the streets & stairs guide',
-      'Guide zu Gassen & Treppen lesen',
-      'Leer la guía de calles y escaleras',
-      'Lees de gids over straten en trappen',
-      'Läs guiden om gränder och trappor'
+      'Compare where to stay',
+      'Lagen zum Übernachten vergleichen',
+      'Comparar dónde alojarse',
+      'Vergelijk waar te overnachten',
+      'Jämför var ni ska bo'
     )
   },
   liveInfo: {
@@ -568,7 +568,7 @@ export const frigilianaParkingCopy = {
     links: [
       {
         token: 'frigiliana_stairs',
-        label: l('Streets, slopes & stairs', 'Gassen, Steigungen & Treppen', 'Calles, cuestas y escaleras', 'Straten, hellingen & trappen', 'Gränder, lutningar & trappor')
+        label: l('Where to stay in Frigiliana', 'Wo in Frigiliana übernachten?', 'Dónde alojarse en Frigiliana', 'Waar overnachten in Frigiliana?', 'Var ska man bo i Frigiliana?')
       },
       {
         token: 'getting_to_frigiliana',
