@@ -118,20 +118,25 @@ const heroAttributes = getAmaraHeroAttributes({ family, variant, role, topic });
         ]}
       >
         {paragraphs.length > 0 && (
-          <div class="max-w-2xl space-y-5 border-l border-primary/25 pl-7 md:pl-9">
-            {paragraphs.map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant">
-                <InlineEmphasis text={paragraph} />
-              </p>
-            ))}
+          <div class="max-w-2xl">
+            <div class="space-y-5">
+              {paragraphs.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant">
+                  <InlineEmphasis text={paragraph} />
+                </p>
+              ))}
+            </div>
             {accent && (
-              <p class="am-text-subtitle pt-2 italic text-on-surface">
-                <InlineEmphasis text={accent} />
-              </p>
+              <blockquote class="relative mt-9 pl-10" data-am-hero-accent>
+                <span aria-hidden="true" class="am-text-title absolute -left-1 -top-3 text-primary/30">“</span>
+                <p class="am-text-subtitle text-balance italic text-on-surface">
+                  <InlineEmphasis text={accent} />
+                </p>
+              </blockquote>
             )}
           </div>
         )}
-        {hasMetaSlot && <div class="mt-9"><slot name="meta" /></div>}
+        {hasMetaSlot && <div><slot name="meta" /></div>}
         {hasActionsSlot && <div class="mt-10"><slot name="actions" /></div>}
       </div>
     </div>
@@ -170,23 +175,28 @@ const heroAttributes = getAmaraHeroAttributes({ family, variant, role, topic });
           )}
 
           {paragraphs.length > 0 && (
-            <div class="mt-10 max-w-2xl space-y-5 border-l border-primary/25 pl-7 md:pl-9">
-              {paragraphs.map((paragraph) => (
-                <p class="am-text-body leading-relaxed text-on-surface-variant">
-                  <InlineEmphasis text={paragraph} />
-                </p>
-              ))}
+            <div class="mt-10 max-w-2xl">
+              <div class="space-y-5">
+                {paragraphs.map((paragraph) => (
+                  <p class="am-text-body leading-relaxed text-on-surface-variant">
+                    <InlineEmphasis text={paragraph} />
+                  </p>
+                ))}
+              </div>
               {accent && (
-                <p class="am-text-subtitle pt-2 italic text-on-surface">
-                  <InlineEmphasis text={accent} />
-                </p>
+                <blockquote class="relative mt-9 pl-10" data-am-hero-accent>
+                  <span aria-hidden="true" class="am-text-title absolute -left-1 -top-3 text-primary/30">“</span>
+                  <p class="am-text-subtitle text-balance italic text-on-surface">
+                    <InlineEmphasis text={accent} />
+                  </p>
+                </blockquote>
               )}
             </div>
           )}
         </div>
 
         {hasMetaSlot && (
-          <div class:list={visualBeforeMetaOnMobile ? 'order-3 mt-0 md:order-none md:mt-9' : 'mt-9'}>
+          <div class:list={visualBeforeMetaOnMobile ? 'order-3 md:order-none' : undefined}>
             <slot name="meta" />
           </div>
         )}
