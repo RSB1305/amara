@@ -177,7 +177,7 @@ const heroImage = {
   src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
   alt: frigilianaLocationHeroImageAlt[currentLang],
   width: 2000,
-  sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
+  sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 35vw'
 };
 
 const editorialImages = {
@@ -224,24 +224,26 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
       <OrderedFrigilianaLocationSections order={sectionOrder}>
         <Fragment slot="hero">
           <div id="intro">
-            <LocationHubHero
-              eyebrow={c.heroKicker}
-              title={c.h1}
-              subtitle={c.h1Subtitle}
-              paragraphs={c.intro}
-              accent={c.introPullLine}
-              imageSrc={heroImage.src}
-              imageAlt={heroImage.alt}
-              imageWidth={heroImage.width}
-              imageSizes={heroImage.sizes}
-              byline={frigilianaLocationSeo.article && aboutHref ? {
-                lang: currentLang,
-                authorName: frigilianaLocationSeo.article.authorName,
-                authorHref: aboutHref,
-                updated: c.heroUpdated,
-                note: c.heroNote
-              } : undefined}
-            />
+            <div class="frigiliana-hero">
+              <LocationHubHero
+                eyebrow={c.heroKicker}
+                title={c.h1}
+                subtitle={c.h1Subtitle}
+                paragraphs={c.intro}
+                accent={c.introPullLine}
+                imageSrc={heroImage.src}
+                imageAlt={heroImage.alt}
+                imageWidth={heroImage.width}
+                imageSizes={heroImage.sizes}
+                byline={frigilianaLocationSeo.article && aboutHref ? {
+                  lang: currentLang,
+                  authorName: frigilianaLocationSeo.article.authorName,
+                  authorHref: aboutHref,
+                  updated: c.heroUpdated,
+                  note: c.heroNote
+                } : undefined}
+              />
+            </div>
 
             <section
               id="where-is-frigiliana"
@@ -341,7 +343,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     src={editorialImages.evening}
                     alt={imageAlt.evening}
                     profile="gallery"
-                    sizes="(max-width: 1023px) 100vw, 58vw"
+                    sizes="(max-width: 1023px) 100vw, 50vw"
                     class="w-full aspect-[4/3] object-cover"
                     loading="lazy"
                     decoding="async"
@@ -385,7 +387,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     src={editorialImages.historyInterior}
                     alt={imageAlt.historyInterior}
                     profile="gallery"
-                    sizes="(max-width: 1023px) 100vw, 58vw"
+                    sizes="(max-width: 1023px) 100vw, 50vw"
                     class="w-full aspect-[4/3] object-cover"
                     loading="lazy"
                     decoding="async"
@@ -394,13 +396,13 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
               </div>
 
               <div class="mt-20 grid grid-cols-1 items-start gap-12 border-t border-outline-variant/15 pt-16 lg:mt-28 lg:grid-cols-12 lg:gap-16">
-                <div class="am-mobile-full-bleed lg:col-span-4 overflow-hidden bg-surface-container-low">
+                <div class="am-mobile-full-bleed lg:col-span-5 overflow-hidden bg-surface-container-low">
                   <AmaraImage
                     src={editorialImages.historyShower}
                     alt={imageAlt.historyShower}
                     profile="gallery"
-                    sizes="(max-width: 1023px) 100vw, 34vw"
-                    class="w-full aspect-[3/4] object-cover"
+                    sizes="(max-width: 1023px) 100vw, 35vw"
+                    class="w-full aspect-[4/5] object-cover"
                     loading="lazy"
                     decoding="async"
                   />
@@ -437,7 +439,7 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     src={editorialImages.village}
                     alt={imageAlt.village}
                     profile="gallery"
-                    sizes="(max-width: 1023px) 100vw, 42vw"
+                    sizes="(max-width: 1023px) 100vw, 35vw"
                     class="w-full aspect-[4/5] object-cover"
                     loading="lazy"
                     decoding="async"
@@ -525,8 +527,8 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
                     src={editorialImages.coast}
                     alt={imageAlt.coast}
                     profile="gallery"
-                    sizes="(max-width: 1023px) 100vw, 42vw"
-                    class="w-full aspect-[3/4] object-cover"
+                    sizes="(max-width: 1023px) 100vw, 35vw"
+                    class="w-full aspect-[4/5] object-cover"
                     loading="lazy"
                     decoding="async"
                   />
@@ -665,3 +667,13 @@ const renderCtas = (subsection: FrigilianaLocationSubsection) => subsection.ctas
     </div>
   </div>
 </LocationAuthorityLayout>
+
+<style>
+  .frigiliana-hero :global([data-am-guide-hero] > div > .am-mobile-full-bleed) {
+    align-self: stretch;
+  }
+
+  .frigiliana-hero :global([data-am-guide-hero] > div > .am-mobile-full-bleed img) {
+    aspect-ratio: auto;
+  }
+</style>
