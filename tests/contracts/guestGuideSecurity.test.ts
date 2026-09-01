@@ -51,14 +51,14 @@ test('all 36 Guest Guide entries publish under the protected route family in all
   );
 });
 
-test('each accommodation hub exposes the stay, location essentials and AMARA Experience', () => {
+test('each accommodation hub exposes the stay, location essentials and personal recommendations', () => {
   const hubs = guestGuideEntries.filter((entry) => entry.type === 'hub');
   expect(hubs).toHaveLength(6);
 
   for (const hub of hubs) {
     expect(hub.menuLinks).toHaveLength(3);
     expect(hub.menuLinks[1]?.targetSlug).toContain('essentials');
-    expect(hub.menuLinks[2]?.title.en).toBe('AMARA Experience');
+    expect(hub.menuLinks[2]?.title.en).toBe('Our personal recommendations');
   }
 });
 
