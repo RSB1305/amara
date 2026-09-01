@@ -607,60 +607,39 @@ test('the destination arrival pages use their declared module order', async ({ p
   }
 });
 
-test('decorative horizontal rules stay absent from outer sections and display bands', async ({ page }) => {
-  await openPage(page, resolveLink('getting_to_frigiliana', SWEEP_LANGUAGE));
+test('section separators stay inset while display boxes keep clean edges', async ({ page }) => {
+  await openPage(page, resolveLink('amara_experience', SWEEP_LANGUAGE));
+  const separator = await page.$eval(
+    '[data-am-component="amara-experience-promises"]',
+    (section) => {
+      const frame = section.parentElement!;
+      const frameRect = frame.getBoundingClientRect();
+      const sectionRect = section.getBoundingClientRect();
+      const rule = getComputedStyle(section, '::before');
 
-  const arrivalBoundaries = await page.$$eval(
-    'article[data-am-page="getting-to-frigiliana"] > *',
-    (nodes) =>
-      nodes.slice(0, -1).map((node, index) => {
-        const next = nodes[index + 1];
-        const currentStyle = getComputedStyle(node);
-        const nextStyle = getComputedStyle(next);
-
-        return {
-          changesSurface: currentStyle.backgroundColor !== nextStyle.backgroundColor,
-          currentBorder: currentStyle.borderBottomWidth,
-          nextBorder: nextStyle.borderTopWidth,
-          currentDivider: getComputedStyle(node, '::after').content,
-          nextDivider: getComputedStyle(next, '::before').content
-        };
-      })
-  );
-
-  expect(arrivalBoundaries.length).toBeGreaterThan(0);
-  for (const boundary of arrivalBoundaries) {
-    expect(boundary.currentBorder).toBe('0px');
-    expect(boundary.nextBorder).toBe('0px');
-    expect(boundary.currentDivider).toBe('none');
-    expect(boundary.nextDivider).toBe('none');
-  }
-
-  const internalRuleWidths = await page.$$eval(
-    'article[data-am-page="getting-to-frigiliana"] dl > div.border-t',
-    (nodes) => nodes.map((node) => getComputedStyle(node).borderTopWidth)
-  );
-  expect(internalRuleWidths.some((width) => width !== '0px')).toBe(true);
-
-  await openPage(page, resolveLink('weather_frigiliana', SWEEP_LANGUAGE));
-  const sameSurfaceBoundary = await page.$eval(
-    'article[data-am-page="frigiliana-weather"] > [data-am-guide-hero]',
-    (hero) => {
-      const divider = getComputedStyle(hero, '::after');
       return {
-        content: divider.content,
-        borderBottom: getComputedStyle(hero).borderBottomWidth
+        content: rule.content,
+        height: rule.height,
+        leftInset: sectionRect.left - frameRect.left,
+        rightInset: frameRect.right - sectionRect.right
       };
     }
   );
 
-  expect(sameSurfaceBoundary).toEqual({ content: 'none', borderBottom: '0px' });
+  expect(separator.content).not.toBe('none');
+  expect(separator.height).toBe('1px');
+  expect(separator.leftInset).toBeGreaterThan(0);
+  expect(separator.rightInset).toBeGreaterThan(0);
+  expect(Math.abs(separator.leftInset - separator.rightInset)).toBeLessThan(1);
 
-  await openPage(page, resolveLink('amara_experience', SWEEP_LANGUAGE));
-  await expect(page.locator('[data-am-guide-hero]')).toHaveCSS('border-bottom-width', '0px');
   const romanceClose = page.locator('[data-am-component="amara-experience-booking-cta"]');
   await expect(romanceClose).toHaveCSS('border-top-width', '0px');
   await expect(romanceClose).toHaveCSS('border-bottom-width', '0px');
+  const closeRules = await romanceClose.evaluate((node) => ({
+    before: getComputedStyle(node, '::before').content,
+    after: getComputedStyle(node, '::after').content
+  }));
+  expect(closeRules).toEqual({ before: 'none', after: 'none' });
 });
 
 test('the Frigiliana hero uses an editorial quote and personal host signature', async ({ page }) => {

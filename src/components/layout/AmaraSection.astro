@@ -45,6 +45,9 @@ const sectionAttributes = getAmaraSectionAttributes({ variant, surface, family, 
     'am-page-section',
     `am-page-section--${variant}`,
     `am-page-section--surface-${surface}`,
+    {
+      'am-page-section--inset-separated': surface === 'plain' && variant !== 'hero' && variant !== 'closing'
+    },
     className
   ]}
   aria-labelledby={labelledby}

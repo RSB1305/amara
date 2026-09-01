@@ -913,6 +913,26 @@
     padding-block: var(--spacing-page-section);
   }
 
+  /**
+   * Canonical section separators stay inside the page gutter. The section box
+   * already occupies the frame's content width, so zero inline offsets produce
+   * the same inset alignment as headings and body copy.
+   */
+  .am-page-section--inset-separated {
+    position: relative;
+  }
+
+  .am-page-section--inset-separated::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    background: var(--color-border-subtle);
+    pointer-events: none;
+  }
+
   .am-page-section--hero {
     padding-top: var(--spacing-page-section-compact);
     margin-inline: calc(var(--spacing-page-gutter) * -1);
@@ -1035,17 +1055,35 @@
     @apply bg-white;
   }
 
+  /** Legacy Location sections follow the same inset separator geometry. */
+  .am-section--plain::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 1.5rem;
+    left: 1.5rem;
+    height: 1px;
+    background: var(--color-border-subtle);
+    pointer-events: none;
+  }
+
   .am-section--tint {
     @apply bg-surface;
+  }
+
+  @media (min-width: 48rem) {
+    .am-section--plain::before {
+      right: 3rem;
+      left: 3rem;
+    }
   }
 
 }
 
 /**
- * Decorative horizontal borders on outer page sections are retired. This
- * compatibility guard suppresses legacy Tailwind border utilities at the
- * page-section boundary without touching structural borders inside lists,
- * tables, controls or media frames.
+ * Outer Tailwind borders cannot bypass the inset separator owner. This guard
+ * leaves structural borders inside lists, tables, controls and media frames
+ * untouched.
  */
 :where([data-am-page], [data-am-page] > .am-page-shell__frame)
   > :is(.border-b, .border-y):not([data-am-section]) {
