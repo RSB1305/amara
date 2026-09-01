@@ -93,11 +93,11 @@ export const cinematicCollectionEyebrow: CopyRow = {
 };
 
 export const cinematicCollectionTitle: CopyRow = {
-  en: 'Which of our six stays suits you?',
-  de: 'Welche unserer sechs Unterkünfte passt zu euch?',
-  es: '¿Cuál de nuestros seis alojamientos encaja con vosotros?',
-  nl: 'Welk van onze zes verblijven past bij jullie?',
-  sv: 'Vilket av våra sex boenden passar er?'
+  en: 'Boutique stays, each with a character of its own.',
+  de: 'Boutique-Unterkünfte mit ganz eigenem Charakter.',
+  es: 'Alojamientos boutique, cada uno con personalidad propia.',
+  nl: 'Boutiqueverblijven, elk met een geheel eigen karakter.',
+  sv: 'Boutiqueboenden, alla med sin egen karaktär.'
 };
 
 /**
