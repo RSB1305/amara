@@ -743,6 +743,12 @@ export function enhanceStaySearchFinders() {
         } else if (button.dataset.amBookingRestriction === 'stay-continuity') {
           calendarFeedback = stayContinuityFeedback(value);
           calendarFeedbackState = 'stay-continuity';
+          arrival.value = '';
+          departure.value = '';
+          departure.min = addDays(today, 1);
+          selectionMode = 'arrival';
+          hoverDate = '';
+          updateTriggers();
           render();
         }
         return;

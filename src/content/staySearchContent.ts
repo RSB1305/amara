@@ -54,11 +54,11 @@ export const staySearchCopy = {
     sv: 'Vid ankomst den {arrival} gäller minst {count} nätter. Välj avresa tidigast den {departure}.'
   }),
   stayContinuityViolation: localized({
-    en: 'No single AMARA stay is available for every night from {arrival} to {departure}. Choose a selectable departure or a new arrival.',
-    de: 'Vom {arrival} bis zur Abreise am {departure} ist keine einzelne AMARA-Unterkunft durchgehend frei. Wählt ein verfügbares Abreisedatum oder eine neue Anreise.',
-    es: 'Ningún alojamiento AMARA está disponible todas las noches desde el {arrival} hasta la salida del {departure}. Elegid una fecha de salida disponible u otra llegada.',
-    nl: 'Er is geen enkel AMARA-verblijf vrij voor alle nachten van {arrival} tot het vertrek op {departure}. Kies een beschikbare vertrekdatum of een nieuwe aankomst.',
-    sv: 'Inget enskilt AMARA-boende är ledigt varje natt från {arrival} till avresan den {departure}. Välj ett valbart avresedatum eller en ny ankomst.'
+    en: 'No single AMARA stay is available for every night from {arrival} to {departure}. We have cleared these dates so you can choose a new arrival.',
+    de: 'Vom {arrival} bis zur Abreise am {departure} ist keine einzelne AMARA-Unterkunft durchgehend frei. Wir haben diese Daten zurückgesetzt, damit ihr eine neue Anreise wählen könnt.',
+    es: 'Ningún alojamiento AMARA está disponible todas las noches desde el {arrival} hasta la salida del {departure}. Hemos borrado estas fechas para que podáis elegir otra llegada.',
+    nl: 'Er is geen enkel AMARA-verblijf vrij voor alle nachten van {arrival} tot het vertrek op {departure}. We hebben deze data gewist, zodat jullie een nieuwe aankomst kunnen kiezen.',
+    sv: 'Inget enskilt AMARA-boende är ledigt varje natt från {arrival} till avresan den {departure}. Vi har rensat datumen så att ni kan välja en ny ankomst.'
   }),
   previousMonth: localized({ en: 'Previous month', de: 'Vorheriger Monat', es: 'Mes anterior', nl: 'Vorige maand', sv: 'Föregående månad' }),
   nextMonth: localized({ en: 'Next month', de: 'Nächster Monat', es: 'Mes siguiente', nl: 'Volgende maand', sv: 'Nästa månad' }),

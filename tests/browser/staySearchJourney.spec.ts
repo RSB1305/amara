@@ -259,7 +259,7 @@ test('homepage finder refreshes live dates for destination changes and returns q
   expect(publicHtml).not.toContain('Provider');
 });
 
-test('finder explains a broken stay range and clears its hover preview', async ({ page }) => {
+test('finder explains a broken stay range and resets for a new arrival', async ({ page }) => {
   await page.setViewportSize(DESKTOP);
   const arrival = futureIso(20);
   const firstValidDeparture = futureIso(23);
@@ -292,8 +292,20 @@ test('finder explains a broken stay range and clears its hover preview', async (
   await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
     'No single AMARA stay is available for every night'
   );
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'We have cleared these dates'
+  );
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue('');
   await expect(page.locator('[data-am-stay-search-departure]')).toHaveValue('');
+  await expect(page.getByRole('button', { name: 'Choose arrival' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Check availability' })).toBeDisabled();
+
+  await invalidDepartureButton.click();
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue(invalidDeparture);
+  await expect(page.locator('[data-am-stay-search-departure]')).toHaveValue('');
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'Minimum stay from this arrival'
+  );
 });
 
 test('finder retries transient live-calendar failures once', async ({ page }) => {
