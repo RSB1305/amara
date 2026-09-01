@@ -15,7 +15,7 @@ export const airbnbReviewEvidence = {
    */
   reviewCountLabel: '600+',
   checkedAt: '2026-08-24',
-  sourceUrl: 'https://www.airbnb.com/users/show/12417181'
+  sourceUrl: 'https://www.airbnb.de/users/profile/1462887322087352320'
 } as const;
 
 /**

@@ -83,6 +83,7 @@ export interface CinematicHeroImage {
 interface CinematicHeroProof {
   label: string;
   href?: string | null;
+  external?: boolean;
 }
 
 interface Props {
@@ -228,7 +229,7 @@ const hasPlaces = places.length > 0;
               {heroProof.map((proof) => (
                 <li class="am-text-form-value am-text-form-value--compact text-center text-inverted-on-surface/85">
                   {proof.href
-                    ? <AmaraActionLink href={proof.href} variant="editorial" class="am-home-hero-direct-action">{proof.label}</AmaraActionLink>
+                    ? <AmaraActionLink href={proof.href} variant="editorial" external={proof.external} class="am-home-hero-direct-action">{proof.label}</AmaraActionLink>
                     : proof.label}
                 </li>
               ))}
