@@ -383,11 +383,11 @@ const content = {
     "Ange förnamnet i bokningen samt ankomst- och avresedatum.",
   ),
   accessLandingLabel: text(
-    "What is AMARA Experience?",
-    "Was ist AMARA Experience?",
-    "¿Qué es AMARA Experience?",
-    "Wat is AMARA Experience?",
-    "Vad är AMARA Experience?",
+    "Learn more about AMARA Experience",
+    "Mehr über AMARA Experience",
+    "Más sobre AMARA Experience",
+    "Meer over AMARA Experience",
+    "Läs mer om AMARA Experience",
   ),
   formTitle: text(
     "AMARA Experience",

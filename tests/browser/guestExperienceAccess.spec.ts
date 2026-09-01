@@ -43,7 +43,7 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveAttribute('href', '/de/amara-experience');
   await expect(page.locator('[data-am-experience-landing-link]'))
-    .toHaveText('Was ist AMARA Experience?');
+    .toHaveText('← Mehr über AMARA Experience');
   await expect(page.locator('main .am-text-eyebrow')).toHaveCount(0);
   await expect(page.locator('[data-am-experience-form]')).toBeVisible();
   await expect(page.getByLabel('Vorname der Buchung')).toBeVisible();
@@ -68,7 +68,7 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveAttribute('href', '/en/amara-experience');
   await expect(page.locator('[data-am-experience-landing-link]'))
-    .toHaveText('What is AMARA Experience?');
+    .toHaveText('← Learn more about AMARA Experience');
   await expect(page.locator('header > nav')).toHaveCount(0);
   await expect(page.locator('footer')).toHaveCount(0);
 });
