@@ -1,5 +1,6 @@
 ---
 import type { AmaraLanguage } from '../types/seo';
+import GuestGuideLanguageSwitcher from '../components/guest-guide/GuestGuideLanguageSwitcher.astro';
 import '../styles/global.css';
 import '../styles/amara-experience.css';
 
@@ -30,6 +31,7 @@ const { lang, title, landingHref } = Astro.props;
           <span>AMARA</span>
           <small>Experience</small>
         </a>
+        <GuestGuideLanguageSwitcher currentLang={lang} target="access" />
       </header>
       <slot />
     </div>

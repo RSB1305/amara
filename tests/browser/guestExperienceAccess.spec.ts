@@ -19,7 +19,18 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page.getByLabel('Vorname der Buchung')).toBeVisible();
   await expect(page.locator('input[name="arrival"]')).toHaveCount(1);
   await expect(page.locator('input[name="departure"]')).toHaveCount(1);
-  await expect(page.locator('header nav')).toHaveCount(0);
+  const languageMenu = page.locator('header .am-lang-menu');
+  await expect(languageMenu.locator('.am-lang-menu__trigger')).toBeVisible();
+  await languageMenu.locator('.am-lang-menu__trigger').click();
+  await expect(languageMenu.locator('.am-lang-menu__option')).toHaveCount(5);
+  await expect(languageMenu.locator('a[href="/en/amara-experience/access"]')).toHaveText('English');
+  await expect(languageMenu.locator('a[href="/amara-experience/access"]')).toHaveText('Español');
+  await languageMenu.locator('a[href="/en/amara-experience/access"]').click();
+  await expect(page).toHaveURL(/\/en\/amara-experience\/access$/);
+  await expect(page.locator('main')).toContainText(
+    'Enter the first name on the booking and the arrival and departure dates.'
+  );
+  await expect(page.locator('header > nav')).toHaveCount(0);
   await expect(page.locator('footer')).toHaveCount(0);
 });
 
