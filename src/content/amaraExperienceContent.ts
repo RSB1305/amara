@@ -390,11 +390,11 @@ const content = {
     "Öppna er AMARA Experience",
   ),
   formIntro: text(
-    "Enter the details exactly as they appear in the booking confirmation.",
-    "Gebt die Angaben genau wie in eurer Buchungsbestätigung ein.",
-    "Introducid los datos tal como aparecen en la confirmación.",
-    "Vul de gegevens precies in zoals ze in de boekingsbevestiging staan.",
-    "Ange uppgifterna precis som de står i bokningsbekräftelsen.",
+    "Please enter the details as they appear in your reservation.",
+    "Bitte gebt die Angaben so ein, wie sie in eurer Reservierung stehen.",
+    "Introducid, por favor, los datos tal como aparecen en vuestra reserva.",
+    "Vul de gegevens alsjeblieft in zoals ze in jullie reservering staan.",
+    "Fyll gärna i uppgifterna så som de står i er bokning.",
   ),
   firstNameLabel: text(
     "First name of booking holder",
