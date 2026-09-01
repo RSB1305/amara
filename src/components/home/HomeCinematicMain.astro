@@ -597,7 +597,14 @@ const hasPlaces = places.length > 0;
   }
 
   :global(.am-home-hero-proof-action[href])::after {
-    display: none;
+    content: "→";
+    display: inline-block;
+    margin-inline-start: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  :global(.am-home-hero-proof-action[href]:hover)::after {
+    transform: translateX(0.25rem);
   }
 
   /**
