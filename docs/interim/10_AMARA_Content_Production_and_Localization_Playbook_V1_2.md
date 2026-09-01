@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-CONTENT-010
-title: AMARA Content Production & Localization Playbook V1.9.0
-version: 1.9.0
+title: AMARA Content Production & Localization Playbook V1.9.1
+version: 1.9.1
 status: ACTIVE
 authority_class: OPERATIONAL PLAYBOOK / NON-GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "10_AMARA_Content_Production_and_Localization_Playbook_V1_2(1
 source_sha256: adab58c901709b270fb264498158f2cb3010006bac7dfea18e6358627a0f10ae
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-01T07:25:00+02:00
+last_modified: 2026-09-01T07:30:00+02:00
 ---
 
 # AMARA Content Production & Localization Playbook V1.2 — Interim Markdown Snapshot
@@ -693,7 +693,9 @@ Normal public editorial copy speaks as AMARA's hosts in the collective first per
 | NL | wij/we / ons/onze | jullie |
 | SV | vi / oss / vår | ni / er / ert/era |
 
-The perspective is binding; repetitive pronoun insertion is not. Each locale may omit pronouns or restructure sentences wherever that is the natural native-language choice. Legal, privacy, system and other explicitly formal surfaces may use the voice appropriate to their job.
+The perspective and guest address are binding. Public editorial prose always speaks from AMARA's collective first person; it never narrates AMARA, its hosts or Robert from outside in the third person. A named author remains visible in the byline and author metadata while the prose itself uses we/us/our and the natural equivalents in every locale.
+
+Guests are always addressed in the plural second person. German uses ihr/euch/euer consistently; ES uses vosotros/os/vuestro, NL jullie and SV ni/er/ert/era. English writes plural you in context. A locale may naturally omit an explicit pronoun, but the grammatical perspective remains collective host to plural guests. Legal, privacy, system and other explicitly formal surfaces may use the voice appropriate to their job.
 
 18. Evidence-to-host-voice bridge
 
@@ -916,3 +918,4 @@ The same four moves are written natively in every locale. Sentence count and con
 | 1.8.0 | 2026-08-30T16:30:00+02:00 | Added evidence-carrying handoffs: a cross-page link states condition, stay consequence, guest criterion and the verified AMARA fact instead of naming a shared topic. |
 | 1.8.1 | 2026-08-30T17:05:00+02:00 | Clarified the fourth move for the return direction: the answering fact may be the one the destination page carries, not only a property fact. |
 | 1.9.0 | 2026-09-01T07:25:00+02:00 | Made positive definition binding in the Human Voice gate: public editorial value is stated through the concrete offer, fact, detail or scene, never through what the subject is not. Preserved direct factual wording for material limitations, safety, legal, utility and system copy. |
+| 1.9.1 | 2026-09-01T07:30:00+02:00 | Made the collective host and plural guest perspectives explicit: public editorial prose always speaks as we/us/our to plural guests, while named people such as Robert remain in bylines and author metadata rather than third-person narration. |

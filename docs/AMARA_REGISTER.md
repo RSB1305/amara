@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.50.0
+version: 1.50.1
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-01T07:25:00+02:00
+last_modified: 2026-09-01T07:30:00+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,9 +26,9 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.50.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.50.1 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.3.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
-| 09 | AMARA Content Production & Localization Playbook | 1.9.0 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
+| 09 | AMARA Content Production & Localization Playbook | 1.9.1 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
 
 ### Transition rule
@@ -146,7 +146,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | TR-CONTENT-001 | Applicable public pages use dominant-job integrity rather than absolute intent isolation. | APPROVED — intentional supersession |
 | TR-CONTENT-002 | Cross-language SSOT is facts, job, evidence, claim boundaries, required information/topics, conversion intent, **meaning depth and material nuance**. No locale may shorten/omit required information. The mandatory English master-language role is superseded; native sentence construction remains locale-specific. | APPROVED — intentional supersession |
 | TR-CONTENT-003 | A/B/C/D applies to strategic public content jobs; utility/legal/entry/system surfaces need not be forced into it. | APPROVED — intentional supersession |
-| TR-CONTENT-004 | Normal public editorial copy speaks from AMARA's collective host perspective and addresses guests in the plural form natural to EN, DE, ES, NL and SV. This is a perspective rule, not a requirement to repeat pronouns unnaturally. Native authoring may transform verified knowledge into useful host guidance, but it must preserve provenance, verification status, claim boundaries and uncertainty; researched or third-party evidence must not be presented as invented first-party observation. | ACTIVE |
+| TR-CONTENT-004 | Every public editorial page speaks from AMARA's collective first-person host perspective — we/us/our and the natural equivalents in EN, DE, ES, NL and SV — and addresses guests in the plural second person. AMARA, its hosts and Robert are never narrated from outside in the third person; named people remain visible through bylines and author metadata. German uses ihr/euch/euer consistently, with the corresponding native plural forms in the other locales. Natural pronoun omission may preserve fluent language but never changes the collective-host-to-plural-guests perspective. Native authoring may transform verified knowledge into useful host guidance, but it must preserve provenance, verification status, claim boundaries and uncertainty; researched or third-party evidence must not be presented as invented first-party observation. Legal, privacy, system and other explicitly formal surfaces use the voice appropriate to their job. | ACTIVE |
 | TR-CONTENT-005 | New and materially revised public editorial copy uses **experiential authority**: it places guests in a concrete, truthful situation and connects the relevant scene or condition to movement, choice, stay consequence and a useful next step. Active verbs and specific verified detail are preferred to distant category language, but the technique is calibrated to the page job and must not weaken direct answers, evidence, caveats, safety, provenance or native-language quality. It does not authorize invented atmosphere, guest behaviour or first-party observation. Utility, legal, system and safety-critical copy prioritizes instruction clarity, and a micro correction does not trigger an adjacent rewrite. | ACTIVE |
 | TR-CONTENT-006 | A public page whose dominant job answers a clear search intent opens with a **self-contained direct answer**: one block of approximately 60–130 words placed immediately after the H1, before hero media and before any section. It must be understandable without the rest of the page and must carry the decision-relevant values the page holds where `knowledge/` evidence supports them; it states no value the evidence does not carry, and an unsupported value is omitted rather than estimated. The word range is an authoring target, not a validated threshold: each locale writes it natively and TR-CONTENT-002 continues to govern meaning depth, so locales may differ in length. Utility, legal, system, entry and safety-critical surfaces are out of scope, as are pages whose dominant job is not a question. | ACTIVE |
 | TR-CONTENT-007 | Where a public page compares two or more options, places, routes or objects across the **same named attributes**, that comparison is emitted as a table or an identified list — one entry per option, one attribute per column or field — rather than as running prose. The rule governs the comparison itself, not the surrounding editorial copy, and it creates no obligation to invent coverage: an attribute the evidence does not support is omitted or marked unknown, never estimated to complete a row. Presentation ownership remains with the page families, and DR-CONTENT-STRUCT-002 governs the identity of the resulting units. | ACTIVE |
@@ -194,6 +194,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-09-01T07:30:00+02:00 | Collective host and plural guest voice | Clarified the already-active collective-host contract after third-person narration appeared in AMARA Experience. Public editorial prose now always speaks as we/us/our to plural guests; named people such as Robert remain in bylines and author metadata. Content Playbook 1.9.1, Register 1.50.1; operative summary aligned in `AGENTS.md`. | TR-CONTENT-004, TR-CONTENT-002, TR-CONTENT-008 | this revision |
 | 2026-09-01T07:25:00+02:00 | Positive Human Voice | Made affirmative definition binding for public editorial copy after the AMARA Experience page repeatedly framed its value through "not a ranking", "not a generic list" and similar contrast formulas. Public value now begins with the concrete offer, fact, detail or scene; material limitations, safety, legal, utility and system accuracy remain protected. Content Playbook 1.9.0, Register 1.50.0; operative summary aligned in `AGENTS.md`. | TR-CONTENT-008, TR-CONTENT-002, TR-CONTENT-005 | this revision |
 | 2026-08-31T20:30:00+02:00 | AMARA Experience foundation | Added the indexable five-locale product landing and direct global navigation entry; established exact-match booking-backed access, encrypted fail-closed sessions, hourly confirmation revalidation and a private noindex mobile guide shell with empty-category suppression. Existing public Experience hubs and anonymous Guest Guides remain unchanged. Guest Utility 2.3.0, Register 1.49.0; production activation awaits only the separate Cloudflare session secret. | DR-GUEST-001–003, DR-BOOK-001, DR-SEC-001, DR-LINK-001 | this revision |
 | 2026-08-31T18:18:00+02:00 | Horizontal boundary standard | Closed the repeatedly reported partial-divider failure rather than patching another page: equal-surface section boundaries now span the full owning surface without left/right gutter gaps, and the shared editorial byline no longer draws a decorative partial-width rule. The existing browser contract now rejects inset outer dividers and byline rules. Astro & Design Contract 4.19.0, Register 1.48.0; operative rule added to `AGENTS.md`. | DR-DESIGN-002, DR-DESIGN-005, DR-DESIGN-008, DR-DESIGN-018 | this revision |
@@ -334,3 +335,4 @@ Separate controlled workstreams remain for:
 | 1.48.0 | 2026-08-31T18:18:00+02:00 | Activated the full-width horizontal boundary standard, retired decorative partial-width editorial rules and added representative browser enforcement. | this revision |
 | 1.49.0 | 2026-08-31T20:30:00+02:00 | Activated the AMARA Experience foundation with a public product entry, booking-backed protected guide and fail-closed encrypted session boundary while preserving legacy Guest Guides. | this revision |
 | 1.50.0 | 2026-09-01T07:25:00+02:00 | Made positive definition binding in the Human Voice gate and aligned Content Playbook 1.9.0 plus the daily `AGENTS.md` summary. | this revision |
+| 1.50.1 | 2026-09-01T07:30:00+02:00 | Made the collective first-person host voice and plural guest address explicit across public editorial copy; aligned Content Playbook 1.9.1 and `AGENTS.md`. | this revision |

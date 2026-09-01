@@ -306,11 +306,11 @@ const content = {
     },
   ],
   hostEyebrow: text(
-    "The host behind the recommendations",
-    "Der Gastgeber hinter den Empfehlungen",
-    "El anfitrión detrás de las recomendaciones",
-    "De host achter de aanbevelingen",
-    "Värden bakom rekommendationerna",
+    "Our recommendations, first-hand",
+    "Unsere Empfehlungen aus erster Hand",
+    "Nuestras recomendaciones, de primera mano",
+    "Onze aanbevelingen uit eigen ervaring",
+    "Våra rekommendationer från egen erfarenhet",
   ),
   hostTitle: text(
     "Time spent in each place shapes every recommendation.",
@@ -321,27 +321,27 @@ const content = {
   ),
   hostParagraphs: {
     en: [
-      "Robert has hosted AMARA guests since May 2021 and regularly returns to the stays in Frigiliana, Nerja and Tarifa. His first-hand perspective comes from these stays and the time spent in each destination. We verify opening hours, access rules and other changing details separately.",
+      "We have welcomed AMARA guests since May 2021 and regularly return to our stays in Frigiliana, Nerja and Tarifa. Our personal perspective grows from these stays and the time we spend in each destination. We verify opening hours, access rules and other changing details separately.",
       "That is why a beach tip also explains what it means for your day. From AMARA Playa, Torrecilla is about 200 metres away, so it works for a quick swim or a return near sunset. In Tarifa, we use the Mercadona opposite the apartment for everyday shopping and choose Pastelito or Bernal for bread — especially Bernal's Pan Macho. Details like these turn a list into local guidance.",
       "The private AMARA Experience follows the same principle for romantic restaurants, quieter beaches, walks, shared activities and day trips: we tell you what we know, why it may fit and what you should check before setting out.",
     ],
     de: [
-      "Robert empfängt seit Mai 2021 Gäste bei AMARA und ist regelmäßig in den Unterkünften in Frigiliana, Nerja und Tarifa. Seine persönliche Perspektive entsteht aus diesen Aufenthalten und der Zeit in den drei Orten. Öffnungszeiten, Zufahrten und andere veränderliche Angaben prüfen wir separat.",
+      "Seit Mai 2021 empfangen wir Gäste bei AMARA und sind regelmäßig in unseren Unterkünften in Frigiliana, Nerja und Tarifa. Unsere persönliche Perspektive entsteht aus diesen Aufenthalten und der Zeit, die wir an jedem der drei Orte verbringen. Öffnungszeiten, Zufahrten und andere veränderliche Angaben prüfen wir separat.",
       "Darum erklärt ein Strandtipp auch, was er für euren Tag bedeutet: Von AMARA Playa liegt Torrecilla rund 200 Meter entfernt – gut für ein schnelles Bad oder einen zweiten Besuch gegen Sonnenuntergang. In Tarifa nutzen wir den Mercadona direkt gegenüber dem Apartment; Brot holen wir bei Pastelito oder Bernal, besonders gern Bernals Pan Macho. Solche Details machen aus einer Liste lokale Orientierung.",
       "Im privaten AMARA Experience Guide gilt dasselbe für romantische Restaurants, ruhigere Strände, Wege, gemeinsame Aktivitäten und Ausflüge: Wir sagen euch, was wir wissen, warum es passen könnte und was ihr vor dem Aufbruch noch prüfen solltet.",
     ],
     es: [
-      "Robert recibe a huéspedes de AMARA desde mayo de 2021 y vuelve con regularidad a los alojamientos de Frigiliana, Nerja y Tarifa. Su perspectiva personal nace de estas estancias y del tiempo que pasa en cada destino. Los horarios, accesos y demás datos que cambian se comprueban por separado.",
+      "Recibimos a huéspedes de AMARA desde mayo de 2021 y volvemos con regularidad a nuestros alojamientos de Frigiliana, Nerja y Tarifa. Nuestra perspectiva personal nace de estas estancias y del tiempo que pasamos en cada destino. Comprobamos por separado los horarios, accesos y demás datos que cambian.",
       "Por eso una recomendación de playa explica también qué aporta al día. Torrecilla está a unos 200 metros de AMARA Playa, así que permite un baño rápido o volver cerca del atardecer. En Tarifa usamos el Mercadona frente al apartamento para la compra diaria y elegimos Pastelito o Bernal para el pan, especialmente el Pan Macho de Bernal. Esos detalles convierten una lista en orientación local.",
       "La AMARA Experience privada aplica el mismo criterio a restaurantes románticos, playas tranquilas, paseos, actividades para dos y excursiones: os contamos qué sabemos, por qué puede encajar y qué conviene comprobar antes de salir.",
     ],
     nl: [
-      "Robert ontvangt sinds mei 2021 gasten bij AMARA en verblijft regelmatig in de accommodaties in Frigiliana, Nerja en Tarifa. Zijn persoonlijke perspectief komt voort uit deze verblijven en de tijd die hij op elke bestemming doorbrengt. Openingstijden, toegangsregels en andere veranderlijke details controleren we apart.",
+      "Sinds mei 2021 ontvangen we gasten bij AMARA en verblijven we regelmatig in onze accommodaties in Frigiliana, Nerja en Tarifa. Ons persoonlijke perspectief komt voort uit deze verblijven en de tijd die we op elke bestemming doorbrengen. Openingstijden, toegangsregels en andere veranderlijke details controleren we apart.",
       "Daarom vertelt een strandtip ook wat die voor jullie dag betekent. Torrecilla ligt op ongeveer 200 meter van AMARA Playa, dus een snelle duik of terugkeer rond zonsondergang is eenvoudig. In Tarifa gebruiken we de Mercadona tegenover het appartement voor dagelijkse boodschappen en kiezen we Pastelito of Bernal voor brood, vooral Bernals Pan Macho. Zulke details maken van een lijst lokale begeleiding.",
       "De besloten AMARA Experience werkt volgens hetzelfde principe voor romantische restaurants, rustige stranden, wandelingen, activiteiten samen en uitstapjes: we vertellen wat we weten, waarom het kan passen en wat jullie voor vertrek nog moeten controleren.",
     ],
     sv: [
-      "Robert har varit värd för AMARA-gäster sedan maj 2021 och återvänder regelbundet till boendena i Frigiliana, Nerja och Tarifa. Hans personliga perspektiv växer fram ur vistelserna och tiden på varje destination. Öppettider, tillträdesregler och andra uppgifter som ändras kontrolleras separat.",
+      "Vi har tagit emot AMARA-gäster sedan maj 2021 och återvänder regelbundet till våra boenden i Frigiliana, Nerja och Tarifa. Vårt personliga perspektiv växer fram ur vistelserna och tiden vi tillbringar på varje destination. Vi kontrollerar öppettider, tillträdesregler och andra uppgifter som ändras separat.",
       "Därför förklarar ett strandtips också vad platsen betyder för dagen. Torrecilla ligger omkring 200 meter från AMARA Playa, så ett snabbt dopp eller ett återbesök nära solnedgången är enkelt. I Tarifa använder vi Mercadona mittemot lägenheten för vardagsinköp och väljer Pastelito eller Bernal för bröd, särskilt Bernals Pan Macho. Sådana detaljer gör en lista till lokal vägledning.",
       "Den privata AMARA Experience följer samma princip för romantiska restauranger, lugnare stränder, promenader, gemensamma aktiviteter och utflykter: vi berättar vad vi vet, varför det kan passa och vad ni bör kontrollera innan ni ger er av.",
     ],
