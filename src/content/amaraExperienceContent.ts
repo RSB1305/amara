@@ -14,7 +14,7 @@ const text = (
 ): LocalizedText => ({ en, de, es, nl, sv });
 
 export const amaraExperienceSeo: AmaraAuthoringSeo = {
-  version: "2026-09-01-amara-experience-v1.5",
+  version: "2026-09-01-amara-experience-v1.6",
   pageType: "C",
   entityKey: "amara-brand",
   languages: {
@@ -58,13 +58,20 @@ export const amaraExperienceSeo: AmaraAuthoringSeo = {
 
 const content = {
   eyebrow: text(
-    "An exclusive direct-booking benefit",
-    "Ein exklusiver Direktbucher-Vorteil",
-    "Una ventaja exclusiva de la reserva directa",
-    "Een exclusief voordeel van direct boeken",
-    "En exklusiv fördel vid direktbokning",
+    "Exclusive to direct bookers",
+    "Exklusiv für Direktbucher",
+    "Exclusivo al reservar directamente",
+    "Exclusief bij direct boeken",
+    "Exklusivt vid direktbokning",
   ),
   title: text(
+    "AMARA Experience",
+    "AMARA Experience",
+    "AMARA Experience",
+    "AMARA Experience",
+    "AMARA Experience",
+  ),
+  subtitle: text(
     "More local knowledge. More from your holiday.",
     "Mehr lokales Wissen. Mehr Urlaubserlebnis.",
     "Más conocimiento local. Más de vuestras vacaciones.",
@@ -78,19 +85,12 @@ const content = {
     "AMARA Experience is ons exclusieve voordeel voor stellen die rechtstreeks boeken: een privégids met persoonlijke aanbevelingen die verder gaan dan de bekende bezienswaardigheden. Na bevestiging van jullie directe boeking delen we lokale favorieten, verborgen parels en minder bekende plekken — van een klein restaurant of rustig strand tot een wandeling, activiteit samen of plaats die een dagtrip waard is. Dit is geen algemene lijst met vermeende geheime plekken. We controleren wat bij elke AMARA-bestemming past, leggen uit waarom een plek of tijdstip de moeite waard kan zijn en helpen jullie vaker buiten de drukste standaardroutes te komen. Zo zoeken jullie minder en beleven jullie samen meer van de vakantie.",
     "AMARA Experience är vår exklusiva fördel för par som bokar direkt: en privat guide med personliga rekommendationer bortom de välkända sevärdheterna. När direktbokningen är bekräftad delar vi lokala favoriter, dolda pärlor och mindre kända platser — från en liten restaurang eller lugn strand till en vandring, gemensam aktivitet eller ort värd en dagsutflykt. Det här är ingen allmän lista över påstått hemliga platser. Vi kontrollerar vad som passar varje AMARA-destination, förklarar varför en plats eller tid på dagen kan vara värd att välja och hjälper er oftare bort från de mest välbesökta standardrutterna. Då lägger ni mindre tid på att leta och mer på att uppleva semestern tillsammans.",
   ),
-  heroProofLabel: text(
-    "AMARA — Romantic Hideaways",
-    "AMARA — Romantic Hideaways",
-    "AMARA — Romantic Hideaways",
-    "AMARA — Romantic Hideaways",
-    "AMARA — Romantic Hideaways",
-  ),
-  heroProof: text(
-    "Authentic local favourites, privately shared and chosen to give you more room beyond the crowds — for shared time that feels like your own.",
-    "Authentische lokale Favoriten, privat geteilt und so ausgewählt, dass ihr mehr Raum abseits der Massen findet – für gemeinsame Zeit, die sich nach euch anfühlt.",
-    "Favoritos locales auténticos, compartidos en privado y elegidos para que encontréis más espacio lejos de las multitudes: tiempo juntos a vuestra manera.",
-    "Authentieke lokale favorieten, privé gedeeld en gekozen om jullie meer ruimte buiten de drukte te geven — voor tijd samen die echt van jullie voelt.",
-    "Genuina lokala favoriter, delade privat och utvalda för att ge er mer utrymme bortom trängseln — för gemensam tid på ert eget sätt.",
+  heroAccent: text(
+    "Less searching. More experiencing together.",
+    "Weniger suchen. Mehr gemeinsam erleben.",
+    "Menos tiempo buscando. Más tiempo disfrutando juntos.",
+    "Minder zoeken. Meer samen beleven.",
+    "Mindre letande. Mer att uppleva tillsammans.",
   ),
   promiseEyebrow: text(
     "What direct bookers receive",

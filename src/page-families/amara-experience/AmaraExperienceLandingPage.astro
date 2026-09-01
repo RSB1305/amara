@@ -6,6 +6,7 @@ import AmaraSection from '../../components/layout/AmaraSection.astro';
 import AmaraActionButton from '../../components/actions/AmaraActionButton.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import villageImage from '../../assets/images/content/amara-frigiliana-pueblo/frigiliana-old-town-steps.jpeg';
 import coastImage from '../../assets/images/content/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg';
 import eveningImage from '../../assets/images/content/hero-frigiliana.jpg';
@@ -33,20 +34,27 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
   showContextNavigation={false}
 >
   <AmaraPageShell family="amara-experience" dataLang={currentLang} class="am-experience-landing" whiteCanvas>
-    <AmaraSection variant="hero" dataComponent="amara-experience-introduction" class="am-experience-hero">
-      <div class="mx-auto grid max-w-screen-2xl items-center gap-14 lg:grid-cols-12 lg:gap-16 xl:gap-24">
-        <div class="lg:col-span-6 xl:col-span-5">
-          <p class="am-text-eyebrow mb-5 text-primary">{copy.eyebrow}</p>
-          <h1 class="am-text-display text-on-surface">{copy.title}</h1>
-          <p class="am-text-body mt-8 max-w-[65ch] leading-relaxed text-on-surface-variant">{copy.directAnswer}</p>
+    <div class="am-experience-editorial-hero" data-am-component="amara-experience-introduction">
+      <LocationGuideHero
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        subtitle={copy.subtitle}
+        paragraphs={[copy.directAnswer]}
+        accent={copy.heroAccent}
+        family="experience"
+        role="hub"
+        topic="overview"
+      >
+        <EditorialByline
+          slot="meta"
+          lang={currentLang}
+          authorName={copy.hostAuthorName}
+          authorHref={hostHref}
+          updated={copy.hostUpdated}
+          note={copy.hostNote}
+        />
 
-          <div class="mt-10 border-l border-primary/45 pl-5 sm:pl-7">
-            <p class="am-text-label text-primary">{copy.heroProofLabel}</p>
-            <p class="am-text-body mt-3 max-w-[54ch] text-on-surface-variant">{copy.heroProof}</p>
-          </div>
-        </div>
-
-        <div class="am-experience-hero__media lg:col-span-6 lg:col-start-7 xl:col-span-7 xl:col-start-6">
+        <div slot="visual" class="am-experience-hero__media">
           <div class="am-experience-hero__primary overflow-hidden bg-surface-container-low">
             <AmaraImage
               src={villageImage}
@@ -78,8 +86,8 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
             <span class="am-text-caption">EXPERIENCE</span>
           </div>
         </div>
-      </div>
-    </AmaraSection>
+      </LocationGuideHero>
+    </div>
 
     <AmaraSection family="experience" dataComponent="amara-experience-promises">
       <div class="mx-auto max-w-screen-2xl">
@@ -148,13 +156,6 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
               <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
             ))}
           </div>
-          <EditorialByline
-            lang={currentLang}
-            authorName={copy.hostAuthorName}
-            authorHref={hostHref}
-            updated={copy.hostUpdated}
-            note={copy.hostNote}
-          />
         </div>
       </div>
     </AmaraSection>
@@ -218,8 +219,9 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
 </BaseLayout>
 
 <style>
-  .am-experience-hero {
+  .am-experience-editorial-hero {
     overflow: hidden;
+    margin-inline: calc(var(--spacing-page-gutter) * -1);
   }
 
   .am-experience-hero__media {
