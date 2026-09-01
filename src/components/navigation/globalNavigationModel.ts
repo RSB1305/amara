@@ -12,8 +12,6 @@ import type { AmaraLanguage } from '../../types/seo';
 import { experienceAccessHref } from '../../../guest-experience/guide-routes.mjs';
 import {
   createGlobalNavGroups,
-  defaultCtaCompactLabels,
-  defaultCtaShortLabels,
   globalCtaLabels,
   forcedEnabledNavTokens,
   navigationLanguages,
@@ -44,8 +42,6 @@ export type ResolvedLanguageOption = {
 
 export type ResolvedNavigationCta = {
   label: string;
-  shortLabel: string;
-  compactLabel: string;
   href: string | null;
   /** True on the page the call to action would link to; the header omits it there. */
   hidden: boolean;
@@ -146,8 +142,6 @@ export function createGlobalNavigationModel({
 
   const cta: ResolvedNavigationCta = {
     label: globalCtaLabels[currentLang],
-    shortLabel: defaultCtaShortLabels[currentLang],
-    compactLabel: defaultCtaCompactLabels[currentLang],
     href: ctaTargetsCurrentPage ? null : ctaHref,
     hidden: ctaTargetsCurrentPage
   };

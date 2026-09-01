@@ -64,23 +64,6 @@
   background: var(--color-inverted-on-surface);
 }
 
-/*
- * The overlay header crosses uncontrolled hero imagery, so an outlined action
- * can lose both its label and its boundary. Keep the canonical secondary
- * treatment after scroll, but give the opening-state booking action the solid
- * inverse treatment it needs to remain legible over every crop.
- */
-[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) .am-nav__slot--cta .am-btn {
-  background-color: var(--color-inverted-on-surface);
-  border-color: var(--color-inverted-on-surface);
-  color: var(--color-inverted-surface);
-}
-
-[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"]) .am-nav__slot--cta .am-btn:hover {
-  background-color: color-mix(in srgb, var(--color-inverted-on-surface) 88%, var(--color-inverted-surface));
-  border-color: color-mix(in srgb, var(--color-inverted-on-surface) 88%, var(--color-inverted-surface));
-}
-
 [data-am-navigation] .am-nav-mobile--contextual {
   transition: top 180ms ease;
 }
@@ -122,7 +105,7 @@
   width: auto;
   justify-self: end;
   display: grid;
-  grid-template-columns: auto auto minmax(12.5rem, max-content);
+  grid-template-columns: auto auto auto;
   align-items: center;
   column-gap: 1.35rem;
 }
@@ -144,15 +127,12 @@
 }
 
 [data-am-navigation] .am-nav__slot--cta {
-  justify-content: flex-end;
+  justify-content: center;
 }
 
-[data-am-navigation] .am-nav__cta-label-short {
-  display: none;
-}
-
-[data-am-navigation] .am-nav__cta-label-compact {
-  display: none;
+[data-am-navigation] .am-nav__cta-icon {
+  display: inline-grid;
+  place-items: center;
 }
 
 [data-am-navigation] .am-nav__slot--menu {
@@ -180,6 +160,31 @@
   transition:
     background-color 160ms ease,
     color 160ms ease;
+}
+
+[data-am-navigation] .am-nav__slot--cta .am-btn.am-nav__availability-action {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  border-color: transparent;
+  padding: 0;
+  background: transparent;
+}
+
+[data-am-navigation] .am-nav__slot--cta .am-btn.am-nav__availability-action:hover,
+[data-am-navigation] .am-nav__slot--cta .am-btn.am-nav__availability-action:focus-visible {
+  border-color: transparent;
+  background-color: color-mix(in srgb, var(--color-on-surface) 5%, transparent);
+  color: var(--color-on-surface);
+}
+
+[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"])
+  .am-nav__slot--cta
+  .am-btn.am-nav__availability-action:hover,
+[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"])
+  .am-nav__slot--cta
+  .am-btn.am-nav__availability-action:focus-visible {
+  background-color: color-mix(in srgb, var(--color-inverted-on-surface) 12%, transparent);
+  color: var(--color-inverted-on-surface);
 }
 
 [data-am-navigation] .am-nav__icon-button:hover,
@@ -661,21 +666,6 @@ html.am-nav-lock {
     display: flex;
   }
 
-  /* Compact pill so the persistent booking CTA fits next to the menu trigger on phones. */
-  [data-am-navigation] .am-nav__slot--cta .am-btn {
-    min-width: 0;
-    min-height: 2.75rem;
-    padding: 0.7rem 1.1rem;
-  }
-
-  [data-am-navigation] .am-nav__cta-label-full {
-    display: none;
-  }
-
-  [data-am-navigation] .am-nav__cta-label-short {
-    display: inline;
-  }
-
   [data-am-navigation] .am-nav__slot--experience-access {
     padding-left: 0;
   }
@@ -758,17 +748,6 @@ html.am-nav-lock {
     column-gap: 0.25rem;
   }
 
-  [data-am-navigation] .am-nav__slot--cta .am-btn {
-    padding-inline: 0.75rem;
-  }
-
-  [data-am-navigation] .am-nav__cta-label-short {
-    display: none;
-  }
-
-  [data-am-navigation] .am-nav__cta-label-compact {
-    display: inline;
-  }
 }
 
 @media (min-width: 1024px) {

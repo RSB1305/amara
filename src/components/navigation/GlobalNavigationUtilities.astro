@@ -14,7 +14,7 @@ import type {
 import type { NavigationUtilityLabels } from './globalNavigationContent';
 import type { AmaraLanguage } from '../../types/seo';
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
-import { LogIn } from '@lucide/astro';
+import { CalendarCheck, LogIn } from '@lucide/astro';
 
 interface Props {
   currentLang: AmaraLanguage;
@@ -103,10 +103,14 @@ const {
         href={cta.href ?? undefined}
         variant="secondary"
         disabled={cta.href === null}
+        class="am-nav__icon-button am-nav__availability-action"
+        aria-label={cta.label}
+        title={cta.label}
+        data-am-availability-action
       >
-        <span class="am-nav__cta-label-full">{cta.label}</span>
-        <span class="am-nav__cta-label-short">{cta.shortLabel}</span>
-        <span class="am-nav__cta-label-compact">{cta.compactLabel}</span>
+        <span class="am-nav__cta-icon" aria-hidden="true">
+          <CalendarCheck size={22} stroke-width={1.5} />
+        </span>
       </AmaraActionLink>
     </div>
   )}
