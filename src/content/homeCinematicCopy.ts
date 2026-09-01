@@ -744,27 +744,27 @@ export const cinematicDirectCtaLabel: CopyRow = {
 ========================================================= */
 
 export const cinematicHoneymoonEyebrow: CopyRow = {
-  en: 'Honeymoon',
-  de: 'Flitterwochen',
-  es: 'Luna de miel',
-  nl: 'Huwelijksreis',
-  sv: 'Smekmånad'
+  en: 'Just married',
+  de: 'Frisch verheiratet',
+  es: 'Recién casados',
+  nl: 'Net getrouwd',
+  sv: 'Nygifta'
 };
 
 export const cinematicHoneymoonTitle: CopyRow = {
-  en: 'A hideaway for your honeymoon.',
-  de: 'Ein Hideaway für eure Flitterwochen.',
-  es: 'Un hideaway para vuestra luna de miel.',
-  nl: 'Een hideaway voor jullie huwelijksreis.',
-  sv: 'Ett hideaway för er smekmånad.'
+  en: 'We have a hideaway for you both.',
+  de: 'Wir haben ein Hideaway für euch zwei.',
+  es: 'Tenemos un hideaway para vosotros dos.',
+  nl: 'Wij hebben een hideaway voor jullie twee.',
+  sv: 'Vi har ett hideaway för er två.'
 };
 
 export const cinematicHoneymoonCtaLabel: CopyRow = {
-  en: 'Hideaways for a honeymoon',
-  de: 'Hideaways für die Flitterwochen',
-  es: 'Hideaways para la luna de miel',
-  nl: 'Hideaways voor de huwelijksreis',
-  sv: 'Hideaways för smekmånaden'
+  en: 'Honeymoon in Andalusia',
+  de: 'Flitterwochen in Andalusien',
+  es: 'Luna de miel en Andalucía',
+  nl: 'Huwelijksreis in Andalusië',
+  sv: 'Smekmånad i Andalusien'
 };
 
 /* =========================================================
