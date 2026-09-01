@@ -113,38 +113,6 @@
     margin: 1.25rem 0;
   }
 
-  /**
-   * Guest Guide CTAs keep the site-wide button typography (uppercase,
-   * letter-spacing, weight, size — same as .am-btn everywhere else) and only
-   * swap shape (pill) and color (warm --color-primary accent instead of
-   * stark black) so they read as more inviting without breaking CI
-   * consistency with the rest of the site. Scoped to .am-guide-wrap so the
-   * site-wide .am-btn used across marketing pages is untouched.
-   */
-  .am-guide-wrap .am-btn-row .am-btn {
-    border-radius: var(--radius-pill);
-  }
-
-  .am-guide-wrap .am-btn-row .am-btn--primary {
-    background-color: var(--color-primary);
-    border-color: var(--color-primary);
-  }
-
-  .am-guide-wrap .am-btn-row .am-btn--primary:hover {
-    background-color: color-mix(in srgb, var(--color-primary) 88%, black);
-  }
-
-  .am-guide-wrap .am-btn-row .am-btn--secondary {
-    background-color: var(--color-surface-container);
-    border-color: transparent;
-    color: var(--color-primary);
-  }
-
-  .am-guide-wrap .am-btn-row .am-btn--secondary:hover {
-    background-color: color-mix(in srgb, var(--color-surface-container) 70%, var(--color-primary));
-    border-color: transparent;
-  }
-
   .am-link {
     color: var(--color-primary);
     text-decoration: underline;
