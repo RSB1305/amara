@@ -14,7 +14,7 @@ const text = (
 ): LocalizedText => ({ en, de, es, nl, sv });
 
 export const amaraExperienceSeo: AmaraAuthoringSeo = {
-  version: "2026-09-01-amara-experience-v1.6",
+  version: "2026-09-01-amara-experience-v1.7",
   pageType: "C",
   entityKey: "amara-brand",
   languages: {
@@ -79,11 +79,11 @@ const content = {
     "Mer lokalkännedom. Mer av semestern.",
   ),
   directAnswer: text(
-    "AMARA Experience is our exclusive direct-booking benefit for couples: a private guide with personal recommendations that go beyond the familiar sights. Once your direct booking is confirmed, we share local favourites, hidden treasures and lesser-known places — from a small restaurant or quiet beach to a walk, shared activity or town worth a day trip. This is not a generic list of supposed secret spots. We check what fits each AMARA destination, explain why a place or time of day may be worthwhile and help you step away from the busiest standard routes more often. You spend less time searching and more time experiencing your holiday together.",
-    "AMARA Experience ist unser exklusiver Direktbucher-Vorteil für Paare: ein privater Guide mit persönlichen Empfehlungen, die über die bekannten Sehenswürdigkeiten hinausgehen. Nach bestätigter Direktbuchung teilen wir lokale Favoriten, versteckte Schätze und weniger bekannte Orte – vom kleinen Restaurant und ruhigen Strand bis zur Wanderung, Aktivität oder Stadt für einen gemeinsamen Ausflug. Dabei geht es nicht um eine beliebige Liste vermeintlicher Geheimtipps. Wir prüfen, was zum jeweiligen AMARA-Reiseziel passt, erklären, warum sich ein Ort oder Zeitpunkt lohnt, und helfen euch, den überlaufenen Standardrouten öfter zu entkommen. So verbringt ihr weniger Zeit mit Suchen und mehr mit Erleben.",
-    "AMARA Experience es nuestra ventaja exclusiva para parejas que reserváis directamente: una guía privada con recomendaciones personales que van más allá de los lugares conocidos. Tras confirmar la reserva directa, compartimos favoritos locales, rincones escondidos y sitios menos conocidos, desde un pequeño restaurante o una playa tranquila hasta una ruta, una actividad para dos o una localidad que merece una excursión. No es una lista genérica de supuestos lugares secretos. Comprobamos qué encaja con cada destino AMARA, explicamos por qué merece la pena un lugar o un momento del día y os ayudamos a alejaros más a menudo de las rutas más concurridas. Así buscáis menos y disfrutáis más juntos.",
-    "AMARA Experience is ons exclusieve voordeel voor stellen die rechtstreeks boeken: een privégids met persoonlijke aanbevelingen die verder gaan dan de bekende bezienswaardigheden. Na bevestiging van jullie directe boeking delen we lokale favorieten, verborgen parels en minder bekende plekken — van een klein restaurant of rustig strand tot een wandeling, activiteit samen of plaats die een dagtrip waard is. Dit is geen algemene lijst met vermeende geheime plekken. We controleren wat bij elke AMARA-bestemming past, leggen uit waarom een plek of tijdstip de moeite waard kan zijn en helpen jullie vaker buiten de drukste standaardroutes te komen. Zo zoeken jullie minder en beleven jullie samen meer van de vakantie.",
-    "AMARA Experience är vår exklusiva fördel för par som bokar direkt: en privat guide med personliga rekommendationer bortom de välkända sevärdheterna. När direktbokningen är bekräftad delar vi lokala favoriter, dolda pärlor och mindre kända platser — från en liten restaurang eller lugn strand till en vandring, gemensam aktivitet eller ort värd en dagsutflykt. Det här är ingen allmän lista över påstått hemliga platser. Vi kontrollerar vad som passar varje AMARA-destination, förklarar varför en plats eller tid på dagen kan vara värd att välja och hjälper er oftare bort från de mest välbesökta standardrutterna. Då lägger ni mindre tid på att leta och mer på att uppleva semestern tillsammans.",
+    "AMARA Experience is our exclusive direct-booking benefit for couples: a private guide with personal recommendations that go beyond the familiar sights. Once your direct booking is confirmed, we share **local favourites**, **hidden treasures** and **lesser-known places** — from a small restaurant or quiet beach to a walk, shared activity or town worth a day trip. This is not a generic list of supposed secret spots. We check what fits each AMARA destination, explain why a place or time of day may be worthwhile and help you spend more time **off the beaten track**, away from the busiest routes. You spend less time searching and more time experiencing your holiday together.",
+    "AMARA Experience ist unser exklusiver Direktbucher-Vorteil für Paare: ein privater Guide mit persönlichen Empfehlungen, die über die bekannten Sehenswürdigkeiten hinausgehen. Nach bestätigter Direktbuchung teilen wir **lokale Favoriten**, **versteckte Schätze** und **weniger bekannte Orte** – vom kleinen Restaurant und ruhigen Strand bis zur Wanderung, Aktivität oder Stadt für einen gemeinsamen Ausflug. Dabei geht es nicht um eine beliebige Liste vermeintlicher Geheimtipps. Wir prüfen, was zum jeweiligen AMARA-Reiseziel passt, erklären, warum sich ein Ort oder Zeitpunkt lohnt, und helfen euch, öfter **abseits der Touristenpfade** unterwegs zu sein. So verbringt ihr weniger Zeit mit Suchen und mehr mit Erleben.",
+    "AMARA Experience es nuestra ventaja exclusiva para parejas que reserváis directamente: una guía privada con recomendaciones personales que van más allá de los lugares conocidos. Tras confirmar la reserva directa, compartimos **favoritos locales**, **rincones escondidos** y **sitios menos conocidos**, desde un pequeño restaurante o una playa tranquila hasta una ruta, una actividad para dos o una localidad que merece una excursión. No es una lista genérica de supuestos lugares secretos. Comprobamos qué encaja con cada destino AMARA, explicamos por qué merece la pena un lugar o un momento del día y os ayudamos a moveros **fuera de las rutas turísticas más transitadas**. Así buscáis menos y disfrutáis más juntos.",
+    "AMARA Experience is ons exclusieve voordeel voor stellen die rechtstreeks boeken: een privégids met persoonlijke aanbevelingen die verder gaan dan de bekende bezienswaardigheden. Na bevestiging van jullie directe boeking delen we **lokale favorieten**, **verborgen parels** en **minder bekende plekken** — van een klein restaurant of rustig strand tot een wandeling, activiteit samen of plaats die een dagtrip waard is. Dit is geen algemene lijst met vermeende geheime plekken. We controleren wat bij elke AMARA-bestemming past, leggen uit waarom een plek of tijdstip de moeite waard kan zijn en helpen jullie vaker **buiten de gebaande toeristische paden** te komen. Zo zoeken jullie minder en beleven jullie samen meer van de vakantie.",
+    "AMARA Experience är vår exklusiva fördel för par som bokar direkt: en privat guide med personliga rekommendationer bortom de välkända sevärdheterna. När direktbokningen är bekräftad delar vi **lokala favoriter**, **dolda pärlor** och **mindre kända platser** — från en liten restaurang eller lugn strand till en vandring, gemensam aktivitet eller ort värd en dagsutflykt. Det här är ingen allmän lista över påstått hemliga platser. Vi kontrollerar vad som passar varje AMARA-destination, förklarar varför en plats eller tid på dagen kan vara värd att välja och hjälper er oftare **bortom de mest välbesökta turiststråken**. Då lägger ni mindre tid på att leta och mer på att uppleva semestern tillsammans.",
   ),
   heroAccent: text(
     "Less searching. More experiencing together.",
@@ -143,11 +143,11 @@ const content = {
         "Dolda pärlor, delade privat",
       ),
       copy: text(
-        "Your confirmed direct booking opens recommendations reserved for AMARA guests, including lesser-known places and the practical detail needed to enjoy them.",
-        "Eure bestätigte Direktbuchung öffnet Empfehlungen nur für AMARA-Gäste – darunter weniger bekannte Orte und die praktischen Details, die ihr dafür braucht.",
-        "Vuestra reserva directa confirmada abre recomendaciones reservadas a huéspedes de AMARA, incluidos lugares menos conocidos y la información práctica para disfrutarlos.",
-        "Jullie bevestigde directe boeking opent aanbevelingen voor AMARA-gasten, waaronder minder bekende plekken en de praktische informatie om ervan te genieten.",
-        "Er bekräftade direktbokning öppnar rekommendationer för AMARA-gäster, däribland mindre kända platser och den praktiska information ni behöver.",
+        "Your confirmed direct booking opens recommendations reserved for AMARA guests, including **lesser-known places** and the practical detail needed to enjoy them.",
+        "Eure bestätigte Direktbuchung öffnet Empfehlungen nur für AMARA-Gäste – darunter **weniger bekannte Orte** und die praktischen Details, die ihr dafür braucht.",
+        "Vuestra reserva directa confirmada abre recomendaciones reservadas a huéspedes de AMARA, incluidos **lugares menos conocidos** y la información práctica para disfrutarlos.",
+        "Jullie bevestigde directe boeking opent aanbevelingen voor AMARA-gasten, waaronder **minder bekende plekken** en de praktische informatie om ervan te genieten.",
+        "Er bekräftade direktbokning öppnar rekommendationer för AMARA-gäster, däribland **mindre kända platser** och den praktiska information ni behöver.",
       ),
     },
     {
@@ -161,11 +161,11 @@ const content = {
         "Lugnare platser och bättre tidpunkter",
       ),
       copy: text(
-        "An early start, another bay or a route under the radar can change the feel of a day. We point out options that help you avoid the busiest flow when possible.",
-        "Ein früher Start, eine andere Bucht oder ein Weg abseits der Touristenpfade kann den Tag verändern. Wir zeigen Alternativen, mit denen ihr dem größten Andrang ausweichen könnt, wenn es möglich ist.",
-        "Empezar temprano, elegir otra cala o seguir una ruta menos conocida puede cambiar el día. Os mostramos alternativas para evitar el mayor bullicio cuando sea posible.",
-        "Vroeg beginnen, een andere baai of een route buiten de bekende paden kan de dag veranderen. We wijzen op alternatieven waarmee jullie de grootste drukte waar mogelijk vermijden.",
-        "En tidig start, en annan vik eller en mindre känd väg kan förändra hela dagen. Vi visar alternativ som hjälper er undan den största trängseln när det är möjligt.",
+        "An early start, another bay or a route **under the radar** can change the feel of a day. We point out options that help you avoid the busiest flow when possible.",
+        "Ein früher Start, eine andere Bucht oder ein Weg **abseits der Touristenpfade** kann den Tag verändern. Wir zeigen Alternativen, mit denen ihr dem größten Andrang ausweichen könnt, wenn es möglich ist.",
+        "Empezar temprano, elegir otra cala o seguir una **ruta menos conocida** puede cambiar el día. Os mostramos alternativas para evitar el mayor bullicio cuando sea posible.",
+        "Vroeg beginnen, een andere baai of een **route buiten de bekende paden** kan de dag veranderen. We wijzen op alternatieven waarmee jullie de grootste drukte waar mogelijk vermijden.",
+        "En tidig start, en annan vik eller en **mindre känd väg** kan förändra hela dagen. Vi visar alternativ som hjälper er undan den största trängseln när det är möjligt.",
       ),
     },
   ],

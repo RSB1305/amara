@@ -7,6 +7,7 @@ import AmaraActionButton from '../../components/actions/AmaraActionButton.astro'
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import villageImage from '../../assets/images/content/amara-frigiliana-pueblo/frigiliana-old-town-steps.jpeg';
 import coastImage from '../../assets/images/content/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg';
 import eveningImage from '../../assets/images/content/hero-frigiliana.jpg';
@@ -104,7 +105,9 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
             <li class="am-experience-benefit border-t border-outline-variant/30 pt-6">
               <p class="am-text-label text-primary">{promise.principle}</p>
               <h3 class="am-text-subtitle mt-5 text-on-surface">{promise.title}</h3>
-              <p class="am-text-body mt-4 max-w-[52ch] leading-relaxed text-on-surface-variant">{promise.copy}</p>
+              <p class="am-text-body mt-4 max-w-[52ch] leading-relaxed text-on-surface-variant">
+                <InlineEmphasis text={promise.copy} />
+              </p>
             </li>
           ))}
         </ol>
