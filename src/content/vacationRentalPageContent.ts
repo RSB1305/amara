@@ -79,6 +79,13 @@ export const ui = {
     nl: 'Data kiezen',
     sv: 'Välj datum'
   },
+  bookNow: {
+    en: 'Book now',
+    de: 'Jetzt buchen',
+    es: 'Reservar ahora',
+    nl: 'Nu boeken',
+    sv: 'Boka nu'
+  },
   keyFactsLabel: {
     en: 'Key facts at a glance',
     de: 'Eckdaten auf einen Blick',
