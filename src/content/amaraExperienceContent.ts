@@ -14,7 +14,7 @@ const text = (
 ): LocalizedText => ({ en, de, es, nl, sv });
 
 export const amaraExperienceSeo: AmaraAuthoringSeo = {
-  version: "2026-09-01-amara-experience-v1.9",
+  version: "2026-09-01-amara-experience-v2.0",
   pageType: "C",
   entityKey: "amara-brand",
   languages: {
@@ -416,6 +416,69 @@ const content = {
     "Fecha de salida",
     "Vertrekdatum",
     "Avresedatum",
+  ),
+  chooseArrivalLabel: text(
+    "Choose arrival date",
+    "Anreisedatum wählen",
+    "Elegir fecha de llegada",
+    "Aankomstdatum kiezen",
+    "Välj ankomstdatum",
+  ),
+  chooseDepartureLabel: text(
+    "Choose departure date",
+    "Abreisedatum wählen",
+    "Elegir fecha de salida",
+    "Vertrekdatum kiezen",
+    "Välj avresedatum",
+  ),
+  datePickerTitle: text(
+    "Choose your travel dates",
+    "Eure Reisedaten auswählen",
+    "Elegid vuestras fechas",
+    "Kies jullie reisdata",
+    "Välj era resedatum",
+  ),
+  datePickerHelp: text(
+    "Choose the arrival date, then the departure date from your confirmation.",
+    "Wählt zuerst das Anreisedatum und danach das Abreisedatum aus eurer Bestätigung.",
+    "Elegid primero la fecha de llegada y después la fecha de salida de vuestra confirmación.",
+    "Kies eerst de aankomstdatum en daarna de vertrekdatum uit jullie bevestiging.",
+    "Välj först ankomstdatum och sedan avresedatum från er bekräftelse.",
+  ),
+  datePickerDepartureHelp: text(
+    "Arrival selected. Now choose the departure date from your confirmation.",
+    "Anreise gewählt. Wählt jetzt das Abreisedatum aus eurer Bestätigung.",
+    "Llegada seleccionada. Elegid ahora la fecha de salida de vuestra confirmación.",
+    "Aankomst gekozen. Kies nu de vertrekdatum uit jullie bevestiging.",
+    "Ankomst vald. Välj nu avresedatum från er bekräftelse.",
+  ),
+  datePickerCompleteHelp: text(
+    "Your travel dates are selected.",
+    "Eure Reisedaten sind ausgewählt.",
+    "Vuestras fechas están seleccionadas.",
+    "Jullie reisdata zijn gekozen.",
+    "Era resedatum är valda.",
+  ),
+  datePickerRequiredMessage: text(
+    "Choose the arrival and departure dates from your confirmation.",
+    "Wählt das Anreise- und Abreisedatum aus eurer Bestätigung.",
+    "Elegid las fechas de llegada y salida de vuestra confirmación.",
+    "Kies de aankomst- en vertrekdatum uit jullie bevestiging.",
+    "Välj ankomst- och avresedatum från er bekräftelse.",
+  ),
+  previousMonthLabel: text(
+    "Show previous month",
+    "Vorherigen Monat anzeigen",
+    "Mostrar el mes anterior",
+    "Vorige maand tonen",
+    "Visa föregående månad",
+  ),
+  nextMonthLabel: text(
+    "Show next month",
+    "Nächsten Monat anzeigen",
+    "Mostrar el mes siguiente",
+    "Volgende maand tonen",
+    "Visa nästa månad",
   ),
   submitLabel: text(
     "Open AMARA Experience",
