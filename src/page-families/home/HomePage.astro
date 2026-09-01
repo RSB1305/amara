@@ -11,10 +11,7 @@ import {
   formatVacationRentalFromPrice,
   vacationRentalEntitiesByToken
 } from '../../content/vacationRentalEntities';
-import {
-  travellerReviewAwardLabel,
-  completedStaysLabel
-} from '../../content/reviewEvidence';
+import { completedStaysLabel } from '../../content/reviewEvidence';
 import {
   cancellationAssuranceBadge,
   cancellationAssuranceDetail,
@@ -24,6 +21,7 @@ import {
   cinematicApartments,
   cinematicHeroKicker,
   cinematicHeroLead,
+  cinematicHeroProofBooking,
   cinematicHeroProofRating,
   cinematicHeroDirectBenefitsLabel,
   cinematicHostLabel,
@@ -93,21 +91,21 @@ const seo: AmaraAuthoringSeo = {
     en: {
       title: 'AMARA — Romantic Hideaways in Andalusia',
       description:
-        'Special places for shared time as a couple: six individual stays in Frigiliana, Nerja and Tarifa, personally hosted and bookable direct with AMARA.',
+        'Special places for time together: six individual stays in Frigiliana, Nerja and Tarifa, personally hosted and bookable direct with AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'AMARA — Romantic Hideaways in Andalusien',
       description:
-        'Besondere Orte für gemeinsame Zeit zu zweit: sechs individuelle Unterkünfte in Frigiliana, Nerja und Tarifa, persönlich betreut und direkt bei AMARA buchbar.',
+        'Besondere Orte für gemeinsame Zeit: sechs individuelle Unterkünfte in Frigiliana, Nerja und Tarifa, persönlich betreut und direkt bei AMARA buchbar.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'AMARA — Romantic Hideaways en Andalucía',
       description:
-        'Lugares especiales para compartir tiempo en pareja: seis alojamientos únicos en Frigiliana, Nerja y Tarifa, con atención personal y reserva directa con AMARA.',
+        'Lugares especiales para disfrutar juntos: seis alojamientos únicos en Frigiliana, Nerja y Tarifa, con atención personal y reserva directa con AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -234,12 +232,11 @@ const honeymoonHref = resolveOptionalLink('honeymoon', currentLang, { suppressMi
 const hostAboutHref = resolveOptionalLink('about', currentLang, { suppressMissing: true });
 
 /**
- * The opening viewport answers three trust questions at once: Airbnb proof,
- * Booking.com recognition and why the header's direct path is worthwhile.
- * Later sections substantiate these summaries without repeating them verbatim.
+ * The opening viewport keeps its evidence compact. Later sections substantiate
+ * the Booking.com and Airbnb signals without repeating the full proof here.
  */
 const heroProof = [
-  t(travellerReviewAwardLabel),
+  t(cinematicHeroProofBooking),
   t(cinematicHeroProofRating)
 ];
 

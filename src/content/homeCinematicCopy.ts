@@ -4,7 +4,7 @@ import type { LinkToken } from '../lib/linkResolver';
  * Used by HomePage.astro + HomeCinematicMain.astro props.
  */
 import type { AmaraLanguage } from '../types/seo';
-import { airbnbRatingLabel, airbnbReviewEvidence } from './reviewEvidence';
+import { airbnbRatingLabel, airbnbReviewEvidence, hostTrustEvidence } from './reviewEvidence';
 import { stayCollectionLabels } from './stayCollectionLabels';
 
 export type CopyRow = Record<AmaraLanguage, string>;
@@ -21,11 +21,11 @@ export const cinematicHeroKicker: CopyRow = {
 };
 
 export const cinematicHeroLead: CopyRow = {
-  en: 'Special places for shared time as a couple — among Frigiliana’s whitewashed lanes, by the Mediterranean in Nerja and beneath Tarifa’s wide Atlantic sky.',
-  de: 'Besondere Orte für gemeinsame Zeit zu zweit – zwischen Frigilianas weißen Altstadtgassen, am Mittelmeer in Nerja und unter Tarifas weitem Atlantikhimmel.',
-  es: 'Lugares especiales para compartir tiempo en pareja: entre las callejuelas blancas de Frigiliana, junto al Mediterráneo en Nerja y bajo el inmenso cielo atlántico de Tarifa.',
-  nl: 'Bijzondere plekken voor waardevolle tijd samen — tussen de witgekalkte straatjes van Frigiliana, aan de Middellandse Zee in Nerja en onder de weidse Atlantische hemel van Tarifa.',
-  sv: 'Speciella platser för värdefull tid tillsammans — bland Frigilianas vitkalkade gränder, vid Medelhavet i Nerja och under Tarifas vida atlanthimmel.'
+  en: 'Special places for time together.',
+  de: 'Besondere Orte für gemeinsame Zeit.',
+  es: 'Lugares especiales para disfrutar juntos.',
+  nl: 'Bijzondere plekken voor tijd samen.',
+  sv: 'Särskilda platser för tid tillsammans.'
 };
 
 export const cinematicHeroImageAlt: CopyRow = {
@@ -451,12 +451,20 @@ export const cinematicApartments: CinematicAptDef[] = [
    their later sections instead of repeating these summaries verbatim.
 ========================================================= */
 
+export const cinematicHeroProofBooking: CopyRow = {
+  en: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Award`,
+  de: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Award`,
+  es: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Award`,
+  nl: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Award`,
+  sv: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Award`
+};
+
 export const cinematicHeroProofRating: CopyRow = {
-  en: `${airbnbRatingLabel.en} from ${airbnbReviewEvidence.reviewCountLabel} Airbnb reviews`,
-  de: `${airbnbRatingLabel.de} aus ${airbnbReviewEvidence.reviewCountLabel} Airbnb-Bewertungen`,
-  es: `${airbnbRatingLabel.es} de ${airbnbReviewEvidence.reviewCountLabel} reseñas en Airbnb`,
-  nl: `${airbnbRatingLabel.nl} uit ${airbnbReviewEvidence.reviewCountLabel} Airbnb-beoordelingen`,
-  sv: `${airbnbRatingLabel.sv} från ${airbnbReviewEvidence.reviewCountLabel} Airbnb-omdömen`
+  en: `${airbnbRatingLabel.en} · ${airbnbReviewEvidence.reviewCountLabel} Airbnb reviews`,
+  de: `${airbnbRatingLabel.de} · ${airbnbReviewEvidence.reviewCountLabel} Airbnb-Bewertungen`,
+  es: `${airbnbRatingLabel.es} · ${airbnbReviewEvidence.reviewCountLabel} reseñas en Airbnb`,
+  nl: `${airbnbRatingLabel.nl} · ${airbnbReviewEvidence.reviewCountLabel} Airbnb-beoordelingen`,
+  sv: `${airbnbRatingLabel.sv} · ${airbnbReviewEvidence.reviewCountLabel} Airbnb-omdömen`
 };
 
 export const cinematicHeroDirectBenefitsLabel: CopyRow = {
