@@ -3,7 +3,6 @@ import LocationExperienceHero from '../../components/location/LocationExperience
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import {
   frigilianaDayTripsContent,
   frigilianaDayTripsSeo
@@ -103,26 +102,19 @@ const heroImage = {
         items={combineItems}
       />
 
-      <ExperiencePreFooter currentId="dayTrips" lang={currentLang} />
-
       <GuideClosingSection
-          title={copy.closing.title}
-          lead={copy.closing.lead}
-          lang={currentLang}
-          links={[
-            {
-              token: 'romantic_hideaways',
-              label: copy.closing.staysCta,
-              style: 'text'
-            },
-            {
-              token: 'book',
-              label: copy.closing.availabilityCta,
-              style: 'text'
-            }
-          ]}
-          role="next-action"
-          family="experience"
+        title={copy.closing.title}
+        lead={copy.closing.lead}
+        lang={currentLang}
+        links={[
+          {
+            token: 'frigiliana_parking',
+            label: copy.closing.nextCta,
+            style: 'text'
+          }
+        ]}
+        role="next-action"
+        family="experience"
       />
     </div>
   </div>

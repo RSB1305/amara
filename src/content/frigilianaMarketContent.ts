@@ -644,32 +644,25 @@ export const frigilianaMarketCopy = {
   },
   closing: {
     title: l(
-      'Let the market begin the day, not fill it.',
-      'Lasst den Markt den Tag eröffnen, nicht ausfüllen.',
-      'Dejad que el mercado empiece el día, no que lo ocupe entero.',
-      'Laat de markt de dag beginnen, niet vullen.',
-      'Låt marknaden inleda dagen, inte fylla hela dagen.'
+      'For the rest of your stay',
+      'Für die übrigen Tage eures Aufenthalts',
+      'Para el resto de vuestra estancia',
+      'Voor de rest van jullie verblijf',
+      'För resten av er vistelse'
     ),
     lead: l(
-      'The best market morning continues naturally into Frigiliana’s lanes, viewpoints, cafés, and lunch tables.',
-      'Der schönste Marktvormittag geht ganz selbstverständlich in Frigilianas Gassen, Aussichtspunkte, Cafés und Mittagstische über.',
-      'La mejor mañana de mercado continúa de forma natural por las calles, miradores, cafeterías y mesas de Frigiliana.',
-      'De beste marktochtend loopt vanzelf door in de straatjes, uitzichtpunten, cafés en lunchplekken van Frigiliana.',
-      'Den bästa marknadsförmiddagen fortsätter naturligt genom Frigilianas gränder, utsiktsplatser, kaféer och lunchbord.'
+      'We enjoy Thursday market as a morning in the village. For the other days, we bring together the grocery shops and small everyday essentials we rely on around Frigiliana.',
+      'Der Donnerstagsmarkt gehört für uns zu einem schönen Vormittag im Dorf. Für die übrigen Tage zeigen wir euch die Lebensmittelgeschäfte und kleinen Anlaufstellen, auf die wir rund um Frigiliana setzen.',
+      'Para nosotros, el mercado de los jueves forma parte de una bonita mañana en el pueblo. Para los demás días, reunimos las tiendas de alimentación y los pequeños comercios que utilizamos en Frigiliana.',
+      'De donderdagmarkt hoort voor ons bij een fijne ochtend in het dorp. Voor de andere dagen laten we jullie de supermarkten en kleine winkels zien waar wij rond Frigiliana op vertrouwen.',
+      'För oss hör torsdagsmarknaden till en fin förmiddag i byn. För de andra dagarna visar vi er de mataffärer och små butiker som vi själva använder runt Frigiliana.'
     ),
-    staysCta: l(
-      'View AMARA stays',
-      'AMARA-Unterkünfte ansehen',
-      'Ver alojamientos AMARA',
-      'Bekijk AMARA-verblijven',
-      'Se AMARA-boenden'
-    ),
-    guideCta: l(
-      'Explore Frigiliana',
-      'Frigiliana entdecken',
-      'Descubrir Frigiliana',
-      'Ontdek Frigiliana',
-      'Upptäck Frigiliana'
+    nextCta: l(
+      'Groceries & shops in Frigiliana',
+      'Lebensmittel & Läden in Frigiliana',
+      'Alimentación y tiendas en Frigiliana',
+      'Boodschappen & winkels in Frigiliana',
+      'Matbutiker & affärer i Frigiliana'
     )
   }
 } as const;

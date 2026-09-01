@@ -6,7 +6,6 @@ import FaqAccordion from '../../components/FaqAccordion.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import HairlineStatCard from '../../components/location/HairlineStatCard.astro';
 import {
   frigilianaMarketCopy,
@@ -307,18 +306,19 @@ const ingenioImage = {
         </div>
       </section>
 
-      <ExperiencePreFooter currentId="market" lang={currentLang} />
-
       <GuideClosingSection
         title={t(copy.closing.title)}
         lead={t(copy.closing.lead)}
         lang={currentLang}
+        links={[
+          {
+            token: 'frigiliana_daily_life',
+            label: t(copy.closing.nextCta),
+            style: 'text'
+          }
+        ]}
         role="next-action"
         family="experience"
-        links={[
-          { token: 'romantic_hideaways', label: t(copy.closing.staysCta), style: 'text' },
-          { token: 'location_frigiliana', label: t(copy.closing.guideCta), style: 'text' }
-        ]}
       />
     </div>
   </div>

@@ -97,8 +97,7 @@ export interface FrigilianaWellnessPageCopy {
   closing: {
     title: string;
     lead: string;
-    availabilityCta: string;
-    apartmentsCta: string;
+    nextCta: string;
   };
 }
 
@@ -371,11 +370,10 @@ export const frigilianaWellnessContent: Record<
       ]
     },
     closing: {
-      title: 'Four apartments in Frigiliana’s old town',
+      title: 'The apartment shapes the quiet hours around your treatment',
       lead:
-        'Compare Farah, Lounis, Zaid and Maha, then check availability for your dates.',
-      availabilityCta: 'Check availability',
-      apartmentsCta: 'View the apartments'
+        'If you choose a mobile treatment at your accommodation, its layout and comfort shape the hours around it. We compare each stay’s terrace, kitchen and access; Lounis, Zaid and Maha each have a private terrace.',
+      nextCta: 'Compare comfort & amenities'
     }
   },
   de: {
@@ -573,11 +571,10 @@ export const frigilianaWellnessContent: Record<
       ]
     },
     closing: {
-      title: 'Vier Apartments in Frigilianas Altstadt',
+      title: 'Das Apartment prägt die ruhigen Stunden rund um eure Behandlung',
       lead:
-        'Vergleicht Farah, Lounis, Zaid und Maha und prüft dann die Verfügbarkeit für eure Reisedaten.',
-      availabilityCta: 'Verfügbarkeit prüfen',
-      apartmentsCta: 'Apartments ansehen'
+        'Wenn ihr eine mobile Behandlung in eurer Unterkunft wählt, prägen Grundriss und Komfort die Stunden davor und danach. Wir vergleichen Terrassen, Küchen und Zugänge; Lounis, Zaid und Maha haben jeweils eine private Terrasse.',
+      nextCta: 'Komfort & Ausstattung vergleichen'
     }
   },
   es: {
@@ -775,11 +772,10 @@ export const frigilianaWellnessContent: Record<
       ]
     },
     closing: {
-      title: 'Cuatro apartamentos en el casco antiguo de Frigiliana',
+      title: 'El apartamento marca las horas tranquilas alrededor del tratamiento',
       lead:
-        'Comparad Farah, Lounis, Zaid y Maha y consultad después la disponibilidad para vuestras fechas.',
-      availabilityCta: 'Consultar disponibilidad',
-      apartmentsCta: 'Ver los apartamentos'
+        'Si elegís un tratamiento móvil en vuestro alojamiento, la distribución y el confort marcan las horas anteriores y posteriores. Comparamos terrazas, cocinas y accesos; Lounis, Zaid y Maha cuentan con terraza privada.',
+      nextCta: 'Comparar confort y servicios'
     }
   },
   nl: {
@@ -977,11 +973,10 @@ export const frigilianaWellnessContent: Record<
       ]
     },
     closing: {
-      title: 'Vier appartementen in de oude kern van Frigiliana',
+      title: 'Het appartement bepaalt de rustige uren rond jullie behandeling',
       lead:
-        'Vergelijk Farah, Lounis, Zaid en Maha en bekijk daarna de beschikbaarheid voor jullie data.',
-      availabilityCta: 'Beschikbaarheid bekijken',
-      apartmentsCta: 'Bekijk de appartementen'
+        'Kiezen jullie voor een mobiele behandeling bij jullie verblijf, dan bepalen indeling en comfort de uren ervoor en erna. We vergelijken terrassen, keukens en toegang; Lounis, Zaid en Maha hebben elk een privéterras.',
+      nextCta: 'Comfort en voorzieningen vergelijken'
     }
   },
   sv: {
@@ -1179,11 +1174,10 @@ export const frigilianaWellnessContent: Record<
       ]
     },
     closing: {
-      title: 'Fyra lägenheter i Frigilianas gamla stad',
+      title: 'Lägenheten formar de lugna timmarna kring er behandling',
       lead:
-        'Jämför Farah, Lounis, Zaid och Maha och kontrollera sedan tillgängligheten för era datum.',
-      availabilityCta: 'Kontrollera tillgänglighet',
-      apartmentsCta: 'Se boendena'
+        'Om ni väljer en mobil behandling i ert boende formar planlösning och komfort timmarna före och efter. Vi jämför terrasser, kök och tillträde; Lounis, Zaid och Maha har var sin privat terrass.',
+      nextCta: 'Jämför komfort och bekvämligheter'
     }
   }
 };

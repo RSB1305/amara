@@ -4,7 +4,6 @@ import LocationExperienceHero from '../../components/location/LocationExperience
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import HikingRouteStatStrip from './HikingRouteStatStrip.astro';
 import {
   frigilianaHikingSeo,
@@ -217,26 +216,19 @@ const combineIcons: Record<string, LocationGuideIconName> = {
         </div>
       </section>
 
-      <ExperiencePreFooter currentId="hiking" lang={currentLang} />
-
       <GuideClosingSection
-          title={copy.closing.title}
-          lead={copy.closing.lead}
-          lang={currentLang}
-          links={[
-            {
-              token: 'romantic_hideaways',
-              label: copy.closing.staysCta,
-              style: 'text'
-            },
-            {
-              token: 'book',
-              label: copy.closing.availabilityCta,
-              style: 'text'
-            }
-          ]}
-          role="next-action"
-          family="experience"
+        title={copy.closing.title}
+        lead={copy.closing.lead}
+        lang={currentLang}
+        links={[
+          {
+            token: 'frigiliana_stairs',
+            label: copy.closing.nextCta,
+            style: 'text'
+          }
+        ]}
+        role="next-action"
+        family="experience"
       />
     </div>
   </div>

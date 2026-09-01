@@ -193,10 +193,6 @@ export interface ExperienceNavigationCopy {
   breadcrumbLabel: string;
   breadcrumbAriaLabel: string;
   switcherLabel: string;
-  relatedKicker: string;
-  relatedTitle: string;
-  relatedIntro: string;
-  viewAllLabel: string;
   labels: Record<ExperienceId, string>;
 }
 
@@ -216,11 +212,6 @@ export const experienceNavigationContent: Record<
     breadcrumbLabel: 'Experiences',
     breadcrumbAriaLabel: 'Breadcrumb',
     switcherLabel: 'Explore another experience',
-    relatedKicker: 'Continue exploring',
-    relatedTitle: 'Choose another local guide',
-    relatedIntro:
-      'Open another topic for practical local detail, or return to the overview of all guides.',
-    viewAllLabel: 'View all experiences',
     labels: {
       hiking: 'Hiking',
       beaches: 'Beaches & coast',
@@ -240,11 +231,6 @@ export const experienceNavigationContent: Record<
     breadcrumbLabel: 'Erlebnisse',
     breadcrumbAriaLabel: 'Brotkrümelnavigation',
     switcherLabel: 'Ein anderes Erlebnis entdecken',
-    relatedKicker: 'Weiter entdecken',
-    relatedTitle: 'Wählt einen weiteren lokalen Guide',
-    relatedIntro:
-      'Öffnet ein weiteres Thema mit praktischen Details oder kehrt zur Übersicht aller Guides zurück.',
-    viewAllLabel: 'Alle Erlebnisse ansehen',
     labels: {
       hiking: 'Wandern',
       beaches: 'Strände & Küste',
@@ -264,11 +250,6 @@ export const experienceNavigationContent: Record<
     breadcrumbLabel: 'Experiencias',
     breadcrumbAriaLabel: 'Migas de pan',
     switcherLabel: 'Descubrir otra experiencia',
-    relatedKicker: 'Seguir descubriendo',
-    relatedTitle: 'Elegid otra guía local',
-    relatedIntro:
-      'Abrid otro tema con información práctica o volved a la vista general de todas las guías.',
-    viewAllLabel: 'Ver todas las experiencias',
     labels: {
       hiking: 'Senderismo',
       beaches: 'Playas y costa',
@@ -288,11 +269,6 @@ export const experienceNavigationContent: Record<
     breadcrumbLabel: 'Ervaringen',
     breadcrumbAriaLabel: 'Broodkruimelnavigatie',
     switcherLabel: 'Ontdek een andere ervaring',
-    relatedKicker: 'Verder ontdekken',
-    relatedTitle: 'Kies een andere lokale gids',
-    relatedIntro:
-      'Open een ander onderwerp met praktische informatie of ga terug naar het overzicht van alle gidsen.',
-    viewAllLabel: 'Bekijk alle ervaringen',
     labels: {
       hiking: 'Wandelen',
       beaches: 'Stranden & kust',
@@ -312,11 +288,6 @@ export const experienceNavigationContent: Record<
     breadcrumbLabel: 'Upplevelser',
     breadcrumbAriaLabel: 'Brödsmulenavigering',
     switcherLabel: 'Upptäck en annan upplevelse',
-    relatedKicker: 'Fortsätt upptäcka',
-    relatedTitle: 'Välj en annan lokal guide',
-    relatedIntro:
-      'Öppna ett annat ämne med praktisk information eller återvänd till översikten över alla guider.',
-    viewAllLabel: 'Se alla upplevelser',
     labels: {
       hiking: 'Vandring',
       beaches: 'Stränder & kust',

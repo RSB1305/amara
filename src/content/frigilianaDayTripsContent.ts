@@ -71,8 +71,7 @@ export interface FrigilianaDayTripsPageCopy {
   closing: {
     title: string;
     lead: string;
-    availabilityCta: string;
-    staysCta: string;
+    nextCta: string;
   };
 }
 
@@ -357,11 +356,10 @@ export const frigilianaDayTripsContent: Record<
       ]
     },
     closing: {
-      title: 'The joy of returning',
+      title: 'A calm return starts with parking',
       lead:
-        'After a day of culture and movement, the drive back up the hill feels like a reset: quieter air, cooler temperatures and an unhurried evening in the village.',
-      availabilityCta: 'Check availability',
-      staysCta: 'View Frigiliana stays'
+        'After a long day on the road, the parking choice shapes how calmly you reach the old town. We start with the paid car park below Plaza de las Tres Culturas, save the car’s position and allow time for the final walk uphill.',
+      nextCta: 'Plan parking in Frigiliana'
     }
   },
   de: {
@@ -583,11 +581,10 @@ export const frigilianaDayTripsContent: Record<
       ]
     },
     closing: {
-      title: 'Die Freude am Zurückkommen',
+      title: 'Eine entspannte Rückkehr beginnt beim Parken',
       lead:
-        'Nach einem Tag voller Kultur und Bewegung wirkt die Fahrt zurück in die Hügel wie ein Neustart: ruhigere Luft, kühlere Temperaturen und ein Abend ohne Eile im Dorf.',
-      availabilityCta: 'Verfügbarkeit prüfen',
-      staysCta: 'Unterkünfte in Frigiliana ansehen'
+        'Nach einem langen Fahrtag prägt die Parkplatzwahl, wie entspannt ihr die Altstadt erreicht. Wir beginnen beim kostenpflichtigen Parkhaus unterhalb der Plaza de las Tres Culturas, speichern die Parkposition und planen Zeit für den letzten Fußweg bergauf ein.',
+      nextCta: 'Parken in Frigiliana planen'
     }
   },
   es: {
@@ -809,11 +806,10 @@ export const frigilianaDayTripsContent: Record<
       ]
     },
     closing: {
-      title: 'El placer de regresar',
+      title: 'Un regreso tranquilo empieza con el aparcamiento',
       lead:
-        'Después de un día de cultura y movimiento, subir de nuevo hacia las colinas se siente como un reinicio: aire más tranquilo, temperaturas más frescas y una noche sin prisas en el pueblo.',
-      availabilityCta: 'Consultar disponibilidad',
-      staysCta: 'Ver alojamientos en Frigiliana'
+        'Después de un día largo en carretera, el aparcamiento marca lo tranquilos que llegáis al casco antiguo. Empezamos por el aparcamiento de pago bajo la Plaza de las Tres Culturas, guardamos la ubicación del coche y dejamos tiempo para el último tramo a pie cuesta arriba.',
+      nextCta: 'Organizar el aparcamiento en Frigiliana'
     }
   },
   nl: {
@@ -1035,11 +1031,10 @@ export const frigilianaDayTripsContent: Record<
       ]
     },
     closing: {
-      title: 'Het plezier van thuiskomen',
+      title: 'Een rustige terugkeer begint met parkeren',
       lead:
-        'Na een dag vol cultuur en beweging voelt de rit terug de heuvel op als een reset: rustigere lucht, koelere temperaturen en een avond zonder haast in het dorp.',
-      availabilityCta: 'Beschikbaarheid bekijken',
-      staysCta: 'Bekijk verblijven in Frigiliana'
+        'Na een lange dag onderweg bepaalt de parkeerkeuze hoe ontspannen jullie de oude kern bereiken. We beginnen bij de betaalde parkeergarage onder Plaza de las Tres Culturas, slaan de locatie van de auto op en nemen tijd voor het laatste stuk bergop.',
+      nextCta: 'Parkeren in Frigiliana plannen'
     }
   },
   sv: {
@@ -1261,11 +1256,10 @@ export const frigilianaDayTripsContent: Record<
       ]
     },
     closing: {
-      title: 'Glädjen i att återvända',
+      title: 'En lugn återkomst börjar med parkeringen',
       lead:
-        'Efter en dag fylld av kultur och rörelse känns vägen tillbaka upp i kullarna som en nystart: lugnare luft, svalare temperaturer och en kväll utan brådska i byn.',
-      availabilityCta: 'Kontrollera tillgänglighet',
-      staysCta: 'Se boenden i Frigiliana'
+        'Efter en lång dag på vägen påverkar parkeringen hur lugnt ni når gamla stan. Vi börjar vid betalparkeringen nedanför Plaza de las Tres Culturas, sparar bilens position och lämnar tid för den sista promenaden uppför.',
+      nextCta: 'Planera parkeringen i Frigiliana'
     }
   }
 };

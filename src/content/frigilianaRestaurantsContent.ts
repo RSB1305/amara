@@ -94,8 +94,7 @@ export interface FrigilianaRestaurantsPageCopy {
   closing: {
     title: string;
     lead: string;
-    availabilityCta: string;
-    apartmentsCta: string;
+    nextCta: string;
   };
 }
 
@@ -475,11 +474,10 @@ export const frigilianaRestaurantsContent: Record<
       ]
     },
     closing: {
-      title: 'Choose dinner and the return together',
+      title: 'When dinner falls on a festival evening',
       lead:
-        'Casa AMARA is on Calle Chorruelo. A restaurant address alone does not establish the exact route back; confirm the venue and return before making alcohol part of the evening.',
-      availabilityCta: 'Check availability',
-      apartmentsCta: 'View apartments'
+        'If your reservation coincides with a procession or larger celebration, busy streets and changed access can shape the best dinner time and your walk home. We check the current programme and confirmed date before choosing the table.',
+      nextCta: 'Check festival dates & programmes'
     }
   },
   de: {
@@ -734,11 +732,10 @@ export const frigilianaRestaurantsContent: Record<
       ]
     },
     closing: {
-      title: 'Abendessen und Rückweg gemeinsam wählen',
+      title: 'Wenn euer Abendessen auf einen Festabend fällt',
       lead:
-        'Casa AMARA liegt an der Calle Chorruelo. Eine Restaurantadresse belegt noch keinen konkreten Rückweg; bestätigt Adresse und Rückfahrt, bevor Alkohol Teil des Abends wird.',
-      availabilityCta: 'Verfügbarkeit prüfen',
-      apartmentsCta: 'Apartments ansehen'
+        'Fällt eure Reservierung mit einer Prozession oder einem größeren Fest zusammen, prägen volle Gassen und geänderte Zufahrten die beste Essenszeit und euren Heimweg. Wir prüfen das aktuelle Programm und den bestätigten Termin, bevor wir den Tisch auswählen.',
+      nextCta: 'Festtermine & Programme prüfen'
     }
   },
   es: {
@@ -993,11 +990,10 @@ export const frigilianaRestaurantsContent: Record<
       ]
     },
     closing: {
-      title: 'Elegid juntos la cena y el regreso',
+      title: 'Cuando vuestra cena coincide con una fiesta',
       lead:
-        'Casa AMARA está en la calle Chorruelo. La dirección de un restaurante no demuestra la ruta exacta de vuelta; confirmad el local y el regreso antes de incluir alcohol en la noche.',
-      availabilityCta: 'Consultar disponibilidad',
-      apartmentsCta: 'Ver apartamentos'
+        'Si vuestra reserva coincide con una procesión o una gran celebración, las calles concurridas y los cambios de acceso marcan la mejor hora para cenar y el regreso. Comprobamos el programa actual y la fecha confirmada antes de elegir la mesa.',
+      nextCta: 'Consultar fechas y programas'
     }
   },
   nl: {
@@ -1252,11 +1248,10 @@ export const frigilianaRestaurantsContent: Record<
       ]
     },
     closing: {
-      title: 'Kies diner en terugreis samen',
+      title: 'Wanneer jullie diner op een feestavond valt',
       lead:
-        'Casa AMARA ligt aan Calle Chorruelo. Een restaurantadres bewijst nog geen precieze terugroute; bevestig locatie en terugreis voordat alcohol deel van de avond wordt.',
-      availabilityCta: 'Beschikbaarheid bekijken',
-      apartmentsCta: 'Appartementen bekijken'
+        'Valt jullie reservering samen met een processie of groot feest, dan bepalen drukke straten en gewijzigde toegang de beste tijd om te eten en jullie terugweg. We controleren het actuele programma en de bevestigde datum voordat we de tafel kiezen.',
+      nextCta: 'Bekijk feestdata & programma’s'
     }
   },
   sv: {
@@ -1511,11 +1506,10 @@ export const frigilianaRestaurantsContent: Record<
       ]
     },
     closing: {
-      title: 'Välj middag och hemresa tillsammans',
+      title: 'När middagen sammanfaller med ett firande',
       lead:
-        'Casa AMARA ligger på Calle Chorruelo. En restaurangadress bevisar inte den exakta vägen tillbaka; bekräfta plats och hemresa innan alkohol blir en del av kvällen.',
-      availabilityCta: 'Kontrollera tillgänglighet',
-      apartmentsCta: 'Se lägenheter'
+        'Om er bokning sammanfaller med en procession eller ett större firande påverkar folktäta gränder och ändrad framkomlighet både middagstiden och vägen hem. Vi kontrollerar det aktuella programmet och det bekräftade datumet innan vi väljer bord.',
+      nextCta: 'Kontrollera datum & program'
     }
   }
 };
