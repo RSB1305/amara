@@ -70,7 +70,7 @@ export const cancellationAssuranceDetail = {
 
 export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
-  version: '2026-09-01-direct-booking-benefits-v1.3-C',
+  version: '2026-09-01-direct-booking-benefits-v1.4-C',
 
   pageType: 'C',
 
@@ -248,15 +248,15 @@ export const directBookingBenefitsCopy = {
 
       copy: {
 
-        en: 'A confirmed direct booking gives you **private access to AMARA Experience**, with **personal recommendations** for Frigiliana, Nerja and Tarifa.',
+        en: 'A confirmed direct booking gives you **private access to AMARA Experience**, with **personal recommendations for your booked destination and the surrounding area**.',
 
-        de: 'Mit eurer bestätigten Direktbuchung erhaltet ihr **privaten Zugang zur AMARA Experience** – mit **persönlichen Empfehlungen** für Frigiliana, Nerja und Tarifa.',
+        de: 'Mit eurer bestätigten Direktbuchung erhaltet ihr **privaten Zugang zur AMARA Experience** – mit **persönlichen Empfehlungen für euer gebuchtes Reiseziel und die Umgebung**.',
 
-        es: 'Vuestra reserva directa confirmada os da **acceso privado a AMARA Experience**, con **recomendaciones personales** para Frigiliana, Nerja y Tarifa.',
+        es: 'Vuestra reserva directa confirmada os da **acceso privado a AMARA Experience**, con **recomendaciones personales para el destino de vuestra reserva y sus alrededores**.',
 
-        nl: 'Een bevestigde directe boeking geeft jullie **privétoegang tot AMARA Experience**, met **persoonlijke aanbevelingen** voor Frigiliana, Nerja en Tarifa.',
+        nl: 'Een bevestigde directe boeking geeft jullie **privétoegang tot AMARA Experience**, met **persoonlijke aanbevelingen voor jullie geboekte bestemming en de omgeving**.',
 
-        sv: 'En bekräftad direktbokning ger er **privat tillgång till AMARA Experience**, med **personliga rekommendationer** för Frigiliana, Nerja och Tarifa.'
+        sv: 'En bekräftad direktbokning ger er **privat tillgång till AMARA Experience**, med **personliga rekommendationer för resmålet ni har bokat och närområdet**.'
 
       }
 
