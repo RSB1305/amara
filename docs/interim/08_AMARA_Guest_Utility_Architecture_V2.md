@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
-title: AMARA Guest Utility Architecture V2.8
-version: 2.8.0
+title: AMARA Guest Utility Architecture V2.9
+version: 2.9.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-01T17:02:23+02:00
+last_modified: 2026-09-01T17:48:21+02:00
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -167,7 +167,7 @@ The existing Guest Welcome and Guest Guide content is the canonical content basi
 
 14. Booking-backed access
 
-AMARA Experience accepts exactly three guest-supplied access values: the booking holder's first name, arrival date and departure date. The server normalizes name case, accents and whitespace and compares the values with a confirmed Lodgify reservation through the central Booking Gateway adapter. Free typo or similarity matching is prohibited because these three values form the access factors. No surname, access code or password is introduced. Zero matches and ambiguous matches both fail closed with the same neutral public response.
+AMARA Experience accepts exactly two guest-supplied access values: the booking holder's first name and arrival date. The server normalizes name case, accents and whitespace and compares both values with confirmed current and upcoming Lodgify reservations through the central Booking Gateway adapter. Free typo or similarity matching is prohibited. No departure date, surname, access code or password is requested. Access requires exactly one eligible match; zero matches and ambiguous matches both fail closed with the same neutral public response. The matched reservation supplies the authoritative departure date used for session expiry.
 
 The confirmed Lodgify property mapping identifies the booked AMARA stay. A successful login returns only the localized protected hub route for that stay; it returns no reservation or guest record to the browser.
 
@@ -202,3 +202,4 @@ Protected hub titles use `Your AMARA stay` and the natural native equivalent. `A
 | 2.6.0 | 2026-09-01T14:06:06+02:00 | Restored destination-specific Essentials as the middle direct hub entry between the accommodation and AMARA Experience, using the existing location pages as the single content source. |
 | 2.7.0 | 2026-09-01T14:14:49+02:00 | Retained the dedicated landing-page access section and added a localized AMARA Experience access icon immediately before the public-header language control. |
 | 2.8.0 | 2026-09-01T17:02:23+02:00 | Clarified AMARA Experience as the single booked-guest umbrella and access, retained Guest Guide as its descriptive utility function and renamed the third hub entry to personal recommendations. |
+| 2.9.0 | 2026-09-01T17:48:21+02:00 | Reduced guest-supplied access to booking-holder first name plus arrival date while retaining exact unique-match, fail-closed and server-owned departure-expiry semantics. |

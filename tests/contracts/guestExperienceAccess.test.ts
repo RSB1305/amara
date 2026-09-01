@@ -26,7 +26,7 @@ test('guest-name normalization tolerates case, accents and surplus whitespace on
   expect(normalizeGuestName('Robret')).not.toBe(normalizeGuestName('Robert'));
 });
 
-test('a confirmed future booking opens access as soon as it exists', async () => {
+test('first name and arrival date open exactly one confirmed future booking', async () => {
   const booking = {
     id: 'booking-future',
     property_id: '408326',
@@ -43,9 +43,21 @@ test('a confirmed future booking opens access as soon as it exists', async () =>
   await expect(findUniqueEligibleBooking('test-key', {
     firstName: 'robert',
     arrival: booking.arrival,
-    departure: booking.departure,
     lang: 'de'
   }, fetchImpl)).resolves.toMatchObject({ id: booking.id, stay: 'farah' });
+
+  const ambiguousFetch = async () => new Response(JSON.stringify({
+    items: [booking, { ...booking, id: 'booking-second', departure: '2099-06-15' }],
+    count: 2
+  }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' }
+  });
+  await expect(findUniqueEligibleBooking('test-key', {
+    firstName: 'robert',
+    arrival: booking.arrival,
+    lang: 'de'
+  }, ambiguousFetch)).rejects.toBeInstanceOf(ExperienceAccessDenied);
 });
 
 test('access expires at 23:59:59 Madrid time on the departure day', () => {

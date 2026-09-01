@@ -24,12 +24,11 @@ export function validateAccessInput(value) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) throw new ExperienceAccessDenied();
   const firstName = typeof value.firstName === 'string' ? value.firstName.trim() : '';
   const arrival = validIsoDay(value.arrival);
-  const departure = validIsoDay(value.departure);
   const lang = ALLOWED_LANGUAGES.has(value.lang) ? value.lang : 'es';
-  if (firstName.length < 2 || firstName.length > 80 || !arrival || !departure || arrival >= departure) {
+  if (firstName.length < 2 || firstName.length > 80 || !arrival) {
     throw new ExperienceAccessDenied();
   }
-  return { firstName, arrival, departure, lang };
+  return { firstName, arrival, lang };
 }
 
 function bookingSource(value) {
@@ -110,7 +109,6 @@ export async function findUniqueEligibleBooking(apiKey, input, fetchImpl = fetch
   const matches = [...normalized.values()].filter((booking) => (
     isConfirmed(booking)
     && booking.arrival === input.arrival
-    && booking.departure === input.departure
     && booking.departure >= today
     && firstNameMatches(booking, input.firstName)
   ));

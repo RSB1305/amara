@@ -187,8 +187,8 @@ a separate explicitly approved contract.
 ### Protected AMARA Experience access operation
 
 `POST /api/guest/session` is a same-origin, no-store access endpoint rather than a public Booking
-Gateway data route. It accepts only booking-holder first name, arrival date and departure date plus
-the interface locale. The server uses the adapter's fixed `GET /v2/reservations/bookings` operation
+Gateway data route. It accepts only booking-holder first name and arrival date plus the interface
+locale. The server uses the adapter's fixed `GET /v2/reservations/bookings` operation
 to require exactly one confirmed match among bounded upcoming/current results. The protected guide
 then uses fixed `GET /v2/reservations/bookings/{id}` revalidation at most once per hour. Neither
 operation returns reservation or guest data to the browser and neither changes provider state. A

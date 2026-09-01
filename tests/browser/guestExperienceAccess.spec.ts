@@ -53,9 +53,9 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page.locator('[data-am-experience-form]')).toBeVisible();
   await expect(page.getByLabel('Vorname der Buchung')).toBeVisible();
   await expect(page.locator('input[name="arrival"]')).toHaveCount(1);
-  await expect(page.locator('input[name="departure"]')).toHaveCount(1);
+  await expect(page.locator('input[name="departure"]')).toHaveCount(0);
   const fieldBackgrounds = await page.locator(
-    'input[name="firstName"], [data-am-experience-arrival-trigger], [data-am-experience-departure-trigger]'
+    'input[name="firstName"], [data-am-experience-arrival-trigger]'
   ).evaluateAll((fields) => fields.map((field) => getComputedStyle(field).backgroundColor));
   expect(new Set(fieldBackgrounds).size).toBe(1);
   expect(fieldBackgrounds[0]).toBe('rgb(255, 255, 255)');
