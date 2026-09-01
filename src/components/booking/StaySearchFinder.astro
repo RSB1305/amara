@@ -177,7 +177,7 @@ const controlLabelClasses = [
               value={count}
               selected={count === 2}
               data-am-guest-label={t(count === 1 ? staySearchCopy.guest : staySearchCopy.guestsPlural).replace('{count}', String(count))}
-              data-am-guest-label-compact={t(variant === 'home' ? staySearchCopy.guestsPlural : staySearchCopy.guestsCompact).replace('{count}', String(count))}
+              data-am-guest-label-compact={t(staySearchCopy.guestsCompact).replace('{count}', String(count))}
             >
               {t(count === 1 ? staySearchCopy.guest : staySearchCopy.guestsPlural).replace('{count}', String(count))}
             </option>
