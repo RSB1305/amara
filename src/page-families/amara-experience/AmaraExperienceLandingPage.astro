@@ -4,9 +4,9 @@ import {
   BadgeCheck,
   Croissant,
   Footprints,
+  Heart,
   MapPin,
   Route,
-  Sparkles,
   Trees,
   WavesHorizontal,
 } from '@lucide/astro';
@@ -43,7 +43,7 @@ const benefitIcons = {
   eat: Croissant,
   sea: WavesHorizontal,
   walk: Footprints,
-  together: Sparkles,
+  together: Heart,
   'day-trip': MapPin,
 } as const;
 ---
@@ -263,6 +263,7 @@ const benefitIcons = {
       dataComponent="amara-experience-booking-cta"
       role="conversion"
       family="experience"
+      tone="romance"
     />
   </AmaraPageShell>
 </BaseLayout>

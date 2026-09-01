@@ -14,42 +14,42 @@ const text = (
 ): LocalizedText => ({ en, de, es, nl, sv });
 
 export const amaraExperienceSeo: AmaraAuthoringSeo = {
-  version: "2026-09-01-amara-experience-v1.8",
+  version: "2026-09-01-amara-experience-v1.9",
   pageType: "C",
   entityKey: "amara-brand",
   languages: {
     en: {
       title: "AMARA Experience | Exclusive direct-booking benefit",
       description:
-        "More local knowledge, more holiday experience: personal insider tips, hidden treasures and quieter places away from the crowds, exclusively for direct bookers.",
+        "Personal insider tips for romantic time, hidden treasures and quieter places in Frigiliana, Nerja and Tarifa — exclusively for AMARA direct bookers.",
       robots: "index, follow",
       canonical: "auto",
     },
     de: {
       title: "AMARA Experience | Exklusiver Direktbucher-Vorteil",
       description:
-        "Mehr lokales Wissen, mehr Urlaubserlebnis: persönliche Insider-Tipps, versteckte Schätze und ruhige Orte abseits der Touristenpfade – exklusiv für Direktbucher.",
+        "Persönliche Insider-Tipps für romantische Zeit, versteckte Schätze und ruhige Orte in Frigiliana, Nerja und Tarifa – exklusiv für AMARA-Direktbucher.",
       robots: "index, follow",
       canonical: "auto",
     },
     es: {
       title: "AMARA Experience | Ventaja exclusiva de reserva directa",
       description:
-        "Más conocimiento local, más experiencias: recomendaciones personales, rincones escondidos y lugares tranquilos lejos de las multitudes para reservas directas.",
+        "Recomendaciones personales para momentos románticos, rincones escondidos y lugares tranquilos en Frigiliana, Nerja y Tarifa, solo con reserva directa.",
       robots: "index, follow",
       canonical: "auto",
     },
     nl: {
       title: "AMARA Experience | Exclusief voordeel van direct boeken",
       description:
-        "Meer lokale kennis, meer vakantiebeleving: persoonlijke insidertips, verborgen parels en rustige plekken buiten de drukte, exclusief bij direct boeken.",
+        "Persoonlijke insidertips voor romantische tijd, verborgen parels en rustige plekken in Frigiliana, Nerja en Tarifa, exclusief bij direct boeken.",
       robots: "index, follow",
       canonical: "auto",
     },
     sv: {
       title: "AMARA Experience | Exklusiv fördel vid direktbokning",
       description:
-        "Mer lokalkännedom, mer semesterupplevelse: personliga insidertips, dolda pärlor och lugnare platser bortom trängseln, exklusivt vid direktbokning.",
+        "Personliga insidertips för romantisk tid, dolda pärlor och lugnare platser i Frigiliana, Nerja och Tarifa – exklusivt vid direktbokning.",
       robots: "index, follow",
       canonical: "auto",
     },
@@ -72,18 +72,18 @@ const content = {
     "AMARA Experience",
   ),
   subtitle: text(
-    "More local knowledge. More from your holiday.",
-    "Mehr lokales Wissen. Mehr Urlaubserlebnis.",
-    "Más conocimiento local. Más de vuestras vacaciones.",
-    "Meer lokale kennis. Meer vakantiebeleving.",
-    "Mer lokalkännedom. Mer av semestern.",
+    "More local knowledge. More romantic time together in Frigiliana, Nerja and Tarifa.",
+    "Mehr lokales Wissen. Mehr romantische Zeit zu zweit in Frigiliana, Nerja und Tarifa.",
+    "Más conocimiento local. Más tiempo romántico juntos en Frigiliana, Nerja y Tarifa.",
+    "Meer lokale kennis. Meer romantische tijd samen in Frigiliana, Nerja en Tarifa.",
+    "Mer lokalkännedom. Mer romantisk tid tillsammans i Frigiliana, Nerja och Tarifa.",
   ),
   directAnswer: text(
-    "AMARA Experience is our exclusive direct-booking benefit for couples: a private guide with personal recommendations that go beyond the familiar sights. Once your direct booking is confirmed, we share **local favourites**, **hidden treasures** and **lesser-known places** — from a small restaurant or quiet beach to a walk, shared activity or town worth a day trip. This is not a generic list of supposed secret spots. We check what fits each AMARA destination, explain why a place or time of day may be worthwhile and help you spend more time **off the beaten track**, away from the busiest routes. You spend less time searching and more time experiencing your holiday together.",
-    "AMARA Experience ist unser exklusiver Direktbucher-Vorteil für Paare: ein privater Guide mit persönlichen Empfehlungen, die über die bekannten Sehenswürdigkeiten hinausgehen. Nach bestätigter Direktbuchung teilen wir **lokale Favoriten**, **versteckte Schätze** und **weniger bekannte Orte** – vom kleinen Restaurant und ruhigen Strand bis zur Wanderung, Aktivität oder Stadt für einen gemeinsamen Ausflug. Dabei geht es nicht um eine beliebige Liste vermeintlicher Geheimtipps. Wir prüfen, was zum jeweiligen AMARA-Reiseziel passt, erklären, warum sich ein Ort oder Zeitpunkt lohnt, und helfen euch, öfter **abseits der Touristenpfade** unterwegs zu sein. So verbringt ihr weniger Zeit mit Suchen und mehr mit Erleben.",
-    "AMARA Experience es nuestra ventaja exclusiva para parejas que reserváis directamente: una guía privada con recomendaciones personales que van más allá de los lugares conocidos. Tras confirmar la reserva directa, compartimos **favoritos locales**, **rincones escondidos** y **sitios menos conocidos**, desde un pequeño restaurante o una playa tranquila hasta una ruta, una actividad para dos o una localidad que merece una excursión. No es una lista genérica de supuestos lugares secretos. Comprobamos qué encaja con cada destino AMARA, explicamos por qué merece la pena un lugar o un momento del día y os ayudamos a moveros **fuera de las rutas turísticas más transitadas**. Así buscáis menos y disfrutáis más juntos.",
-    "AMARA Experience is ons exclusieve voordeel voor stellen die rechtstreeks boeken: een privégids met persoonlijke aanbevelingen die verder gaan dan de bekende bezienswaardigheden. Na bevestiging van jullie directe boeking delen we **lokale favorieten**, **verborgen parels** en **minder bekende plekken** — van een klein restaurant of rustig strand tot een wandeling, activiteit samen of plaats die een dagtrip waard is. Dit is geen algemene lijst met vermeende geheime plekken. We controleren wat bij elke AMARA-bestemming past, leggen uit waarom een plek of tijdstip de moeite waard kan zijn en helpen jullie vaker **buiten de gebaande toeristische paden** te komen. Zo zoeken jullie minder en beleven jullie samen meer van de vakantie.",
-    "AMARA Experience är vår exklusiva fördel för par som bokar direkt: en privat guide med personliga rekommendationer bortom de välkända sevärdheterna. När direktbokningen är bekräftad delar vi **lokala favoriter**, **dolda pärlor** och **mindre kända platser** — från en liten restaurang eller lugn strand till en vandring, gemensam aktivitet eller ort värd en dagsutflykt. Det här är ingen allmän lista över påstått hemliga platser. Vi kontrollerar vad som passar varje AMARA-destination, förklarar varför en plats eller tid på dagen kan vara värd att välja och hjälper er oftare **bortom de mest välbesökta turiststråken**. Då lägger ni mindre tid på att leta och mer på att uppleva semestern tillsammans.",
+    "AMARA Experience is our exclusive direct-booking benefit for couples staying with us in Frigiliana, Nerja or Tarifa: a private guide with personal recommendations that go beyond the familiar sights. Once your direct booking is confirmed, we share **local favourites**, **hidden treasures** and **lesser-known places** — from a romantic restaurant or quiet beach to a walk, shared activity or town worth a day trip. This is not a generic list of supposed secret spots. We check what fits each AMARA destination, explain why a place or time of day may be worthwhile and help you spend more time **off the beaten track**, away from the busiest routes. You spend less time searching and more time experiencing your holiday together.",
+    "AMARA Experience ist unser exklusiver Direktbucher-Vorteil für Paare mit einem Aufenthalt bei uns in Frigiliana, Nerja oder Tarifa: ein privater Guide mit persönlichen Empfehlungen, die über die bekannten Sehenswürdigkeiten hinausgehen. Nach bestätigter Direktbuchung teilen wir **lokale Favoriten**, **versteckte Schätze** und **weniger bekannte Orte** – vom romantischen Restaurant und ruhigen Strand bis zur Wanderung, Aktivität oder Stadt für einen gemeinsamen Ausflug. Dabei geht es nicht um eine beliebige Liste vermeintlicher Geheimtipps. Wir prüfen, was zum jeweiligen AMARA-Reiseziel passt, erklären, warum sich ein Ort oder Zeitpunkt lohnt, und helfen euch, öfter **abseits der Touristenpfade** unterwegs zu sein. So verbringt ihr weniger Zeit mit Suchen und mehr mit Erleben.",
+    "AMARA Experience es nuestra ventaja exclusiva para parejas que os alojáis con nosotros en Frigiliana, Nerja o Tarifa y reserváis directamente: una guía privada con recomendaciones personales que van más allá de los lugares conocidos. Tras confirmar la reserva directa, compartimos **favoritos locales**, **rincones escondidos** y **sitios menos conocidos**, desde un restaurante romántico o una playa tranquila hasta una ruta, una actividad para dos o una localidad que merece una excursión. No es una lista genérica de supuestos lugares secretos. Comprobamos qué encaja con cada destino AMARA, explicamos por qué merece la pena un lugar o un momento del día y os ayudamos a moveros **fuera de las rutas turísticas más transitadas**. Así buscáis menos y disfrutáis más juntos.",
+    "AMARA Experience is ons exclusieve voordeel voor stellen die hun verblijf bij ons in Frigiliana, Nerja of Tarifa rechtstreeks boeken: een privégids met persoonlijke aanbevelingen die verder gaan dan de bekende bezienswaardigheden. Na bevestiging van jullie directe boeking delen we **lokale favorieten**, **verborgen parels** en **minder bekende plekken** — van een romantisch restaurant of rustig strand tot een wandeling, activiteit samen of plaats die een dagtrip waard is. Dit is geen algemene lijst met vermeende geheime plekken. We controleren wat bij elke AMARA-bestemming past, leggen uit waarom een plek of tijdstip de moeite waard kan zijn en helpen jullie vaker **buiten de gebaande toeristische paden** te komen. Zo zoeken jullie minder en beleven jullie samen meer van de vakantie.",
+    "AMARA Experience är vår exklusiva fördel för par som bokar direkt och bor hos oss i Frigiliana, Nerja eller Tarifa: en privat guide med personliga rekommendationer bortom de välkända sevärdheterna. När direktbokningen är bekräftad delar vi **lokala favoriter**, **dolda pärlor** och **mindre kända platser** — från en romantisk restaurang eller lugn strand till en vandring, gemensam aktivitet eller ort värd en dagsutflykt. Det här är ingen allmän lista över påstått hemliga platser. Vi kontrollerar vad som passar varje AMARA-destination, förklarar varför en plats eller tid på dagen kan vara värd att välja och hjälper er oftare **bortom de mest välbesökta turiststråken**. Då lägger ni mindre tid på att leta och mer på att uppleva semestern tillsammans.",
   ),
   heroAccent: text(
     "Less searching. More experiencing together.",
