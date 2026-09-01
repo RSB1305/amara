@@ -70,7 +70,7 @@ export const cancellationAssuranceDetail = {
 
 export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
-  version: '2026-09-01-direct-booking-benefits-v1.2-C',
+  version: '2026-09-01-direct-booking-benefits-v1.3-C',
 
   pageType: 'C',
 
@@ -82,7 +82,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direct Booking: Benefits for Your Stay',
 
-      description: 'Book AMARA direct: private AMARA Experience, our lowest available price, direct host contact, flexible arrival and a mid-stay clean from eight nights.',
+      description: 'Book AMARA direct: private AMARA Experience, our lowest available price, Robert personally involved from the start and a mid-stay clean from eight nights.',
 
       robots: 'index, follow',
 
@@ -94,7 +94,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direktbuchung: Vorteile für euren Aufenthalt',
 
-      description: 'Bucht AMARA direkt: private AMARA Experience, niedrigster verfügbarer Preis, direkter Kontakt, flexible Anreise und Zwischenreinigung ab acht Nächten.',
+      description: 'Bucht AMARA direkt: private AMARA Experience, niedrigster verfügbarer Preis, Robert von Anfang an persönlich eingebunden und Zwischenreinigung ab acht Nächten.',
 
       robots: 'index, follow',
 
@@ -106,7 +106,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Reserva directa: precio y ventajas',
 
-      description: 'Reserva directa con AMARA: AMARA Experience privada, precio más bajo disponible, contacto directo, llegada flexible y limpieza desde 8 noches.',
+      description: 'Reserva directa con AMARA: AMARA Experience privada, precio más bajo disponible, Robert implicado desde el principio y limpieza desde 8 noches.',
 
       robots: 'index, follow',
 
@@ -118,7 +118,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direct boeken: voordelen voor je verblijf',
 
-      description: 'Boek AMARA direct: privé AMARA Experience, laagste beschikbare prijs, direct contact, flexibele aankomst en tussentijdse schoonmaak vanaf 8 nachten.',
+      description: 'Boek AMARA direct: privé AMARA Experience, laagste beschikbare prijs, Robert vanaf het begin persoonlijk betrokken en schoonmaak vanaf 8 nachten.',
 
       robots: 'index, follow',
 
@@ -130,7 +130,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direktbokning: fördelar för vistelsen',
 
-      description: 'Boka AMARA direkt: privat AMARA Experience, lägsta tillgängliga pris, direktkontakt, flexibel ankomst och mellanstädning från åtta nätter.',
+      description: 'Boka AMARA direkt: privat AMARA Experience, lägsta tillgängliga pris, Robert personligen med från början och mellanstädning från åtta nätter.',
 
       robots: 'index, follow',
 
@@ -198,15 +198,15 @@ export const directBookingBenefitsCopy = {
 
     lead: {
 
-      en: 'When you book direct with us, you receive your private AMARA Experience, our lowest available price, direct contact with us and practical extras for your stay.',
+      en: 'When you book direct with us, you receive your private AMARA Experience, our lowest available price and practical extras for your stay. Robert is personally involved from the start.',
 
-      de: 'Wenn ihr direkt bei uns bucht, erhaltet ihr eure private AMARA Experience, unseren niedrigsten verfügbaren Preis, direkten Kontakt zu uns und praktische Extras für euren Aufenthalt.',
+      de: 'Wenn ihr direkt bei uns bucht, erhaltet ihr eure private AMARA Experience, unseren niedrigsten verfügbaren Preis und praktische Extras für euren Aufenthalt. Robert ist von Anfang an persönlich eingebunden.',
 
-      es: 'Al reservar directamente con nosotros recibís vuestra AMARA Experience privada, nuestro precio más bajo disponible, contacto directo y ventajas prácticas para vuestra estancia.',
+      es: 'Al reservar directamente con nosotros recibís vuestra AMARA Experience privada, nuestro precio más bajo disponible y ventajas prácticas para vuestra estancia. Robert participa personalmente desde el principio.',
 
-      nl: 'Wanneer jullie direct bij ons boeken, krijgen jullie een privé AMARA Experience, onze laagste beschikbare prijs, direct contact en praktische extra’s voor jullie verblijf.',
+      nl: 'Wanneer jullie direct bij ons boeken, krijgen jullie een privé AMARA Experience, onze laagste beschikbare prijs en praktische extra’s voor jullie verblijf. Robert is vanaf het begin persoonlijk betrokken.',
 
-      sv: 'När ni bokar direkt hos oss får ni en privat AMARA Experience, vårt lägsta tillgängliga pris, direktkontakt och praktiska fördelar för vistelsen.'
+      sv: 'När ni bokar direkt hos oss får ni en privat AMARA Experience, vårt lägsta tillgängliga pris och praktiska fördelar för vistelsen. Robert är personligen med från början.'
 
     },
 
@@ -360,19 +360,31 @@ export const directBookingBenefitsCopy = {
 
     {
 
-      title: directBookingTrustSignals.directHostContact,
+      title: {
+
+        en: 'Robert personally involved from the start',
+
+        de: 'Robert von Anfang an persönlich eingebunden',
+
+        es: 'Robert, implicado personalmente desde el principio',
+
+        nl: 'Robert vanaf het begin persoonlijk betrokken',
+
+        sv: 'Robert personligen med från början'
+
+      },
 
       copy: {
 
-        en: 'A direct booking gives you **direct contact with us** before arrival and throughout your stay, with **quick, personal answers** whenever you need them.',
+        en: 'With a direct booking, **your host Robert is personally involved from the start** and **handles your communication directly whenever needed**.',
 
-        de: 'Mit einer Direktbuchung habt ihr **direkten Kontakt zu uns** – vor der Anreise und während eures Aufenthalts, mit **schnellen, persönlichen Antworten**.',
+        de: 'Bei einer Direktbuchung ist **euer Gastgeber Robert von Anfang an persönlich eingebunden** und **übernimmt die Kommunikation bei Bedarf direkt**.',
 
-        es: 'La reserva directa os ofrece **contacto directo con nosotros** antes de llegar y durante la estancia, con **respuestas rápidas y personales**.',
+        es: 'Con una reserva directa, **vuestro anfitrión Robert participa personalmente desde el principio** y **se ocupa directamente de la comunicación cuando hace falta**.',
 
-        nl: 'Met een directe boeking hebben jullie **rechtstreeks contact met ons** voor aankomst en tijdens het verblijf, met **snelle, persoonlijke antwoorden**.',
+        nl: 'Bij een directe boeking is **jullie host Robert vanaf het begin persoonlijk betrokken** en **neemt hij de communicatie rechtstreeks over wanneer dat nodig is**.',
 
-        sv: 'Med en direktbokning har ni **direktkontakt med oss** före ankomsten och under vistelsen, med **snabba, personliga svar**.'
+        sv: 'Vid en direktbokning är **er värd Robert personligen med från början** och **tar över kommunikationen direkt när det behövs**.'
 
       }
 
