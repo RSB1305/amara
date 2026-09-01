@@ -227,7 +227,9 @@ const hasPlaces = places.length > 0;
             <ul class="am-home-hero-proof flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
               {heroProof.map((proof) => (
                 <li class="am-text-form-value am-text-form-value--compact text-center text-inverted-on-surface/85">
-                  {proof.href ? <a class="am-inline-link" href={proof.href}>{proof.label}</a> : proof.label}
+                  {proof.href
+                    ? <AmaraActionLink href={proof.href} variant="editorial" class="am-home-hero-direct-action">{proof.label}</AmaraActionLink>
+                    : proof.label}
                 </li>
               ))}
             </ul>
@@ -556,7 +558,8 @@ const hasPlaces = places.length > 0;
 
   .am-home-hero-proof {
     --color-on-surface: var(--color-inverted-on-surface);
-    --color-outline-variant: color-mix(in srgb, var(--color-inverted-on-surface) 50%, transparent);
+    --color-border-subtle: color-mix(in srgb, var(--color-inverted-on-surface) 45%, transparent);
+    --color-border-hover: var(--color-inverted-on-surface);
   }
 
   .am-home-hero-direct-link {
