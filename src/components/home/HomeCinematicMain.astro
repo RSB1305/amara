@@ -586,6 +586,14 @@ const hasPlaces = places.length > 0;
     font-size: 0.875rem;
   }
 
+  :global(.am-home-hero-direct-action[target="_blank"])::after {
+    content: "→";
+  }
+
+  :global(.am-home-hero-direct-action[target="_blank"]:hover)::after {
+    transform: translateX(0.25rem);
+  }
+
   /**
    * The whole collection card is the link to its stay. The card previously
    * carried a separate "<name> entdecken" CTA, which put the word "entdecken"
