@@ -92,8 +92,19 @@ export const staySearchCopy = {
     nl: 'vanaf {price}', sv: 'från {price}'
   }),
   invalidSearch: localized({ en: 'Choose arrival and departure to see available stays and total prices.', de: 'Wählt An- und Abreise. Dann seht ihr freie Unterkünfte mit Gesamtpreis.', es: 'Elegid la llegada y la salida para ver alojamientos disponibles y precios totales.', nl: 'Kies aankomst en vertrek om beschikbare verblijven en totaalprijzen te zien.', sv: 'Välj ankomst och avresa för att se lediga boenden och totalpriser.' }),
-  resultsEyebrow: localized({ en: 'Book direct with AMARA', de: 'Direkt bei AMARA buchen', es: 'Reservar directamente con AMARA', nl: 'Direct boeken bij AMARA', sv: 'Boka direkt hos AMARA' }),
-  resultsTitle: localized({ en: 'Availability and prices', de: 'Verfügbarkeit und Preise', es: 'Disponibilidad y precios', nl: 'Beschikbaarheid en prijzen', sv: 'Tillgänglighet och priser' }),
+  resultsEyebrow: localized({ en: 'Your AMARA stay', de: 'Euer AMARA-Aufenthalt', es: 'Vuestra estancia AMARA', nl: 'Jullie AMARA-verblijf', sv: 'Er AMARA-vistelse' }),
+  resultsTitle: localized({ en: 'Find your dates and book direct with us', de: 'Findet eure Reisedaten und bucht direkt bei uns', es: 'Encontrad vuestras fechas y reservad directamente con nosotros', nl: 'Vind jullie reisdata en boek rechtstreeks bij ons', sv: 'Hitta era resdatum och boka direkt hos oss' }),
+  directBookingNote: localized({
+    en: 'Direct bookings include our lowest available price, with all applicable fees.',
+    de: 'Bei einer Direktbuchung gilt unser niedrigster verfügbarer Preis inklusive aller anfallenden Gebühren.',
+    es: 'Al reservar directamente con nosotros, obtenéis nuestro precio más bajo disponible, con todos los cargos aplicables incluidos.',
+    nl: 'Bij een rechtstreekse boeking geldt onze laagst beschikbare prijs, inclusief alle toepasselijke kosten.',
+    sv: 'Vid direktbokning gäller vårt lägsta tillgängliga pris, inklusive alla tillämpliga avgifter.'
+  }),
+  directBookingLinkLabel: localized({
+    en: 'See the other benefits', de: 'Weitere Vorteile ansehen',
+    es: 'Ver las demás ventajas', nl: 'Bekijk de andere voordelen', sv: 'Se de andra fördelarna'
+  }),
   allStaysTitle: localized({ en: 'All AMARA stays', de: 'Alle AMARA-Unterkünfte', es: 'Todos los alojamientos AMARA', nl: 'Alle AMARA-verblijven', sv: 'Alla AMARA-boenden' }),
   destinationStaysTitle: localized({ en: 'Stays in {destination}', de: 'Unterkünfte in {destination}', es: 'Alojamientos en {destination}', nl: 'Verblijven in {destination}', sv: 'Boenden i {destination}' }),
   destinationStaysPrompt: localized({ en: 'Choose your dates to see available stays and total prices.', de: 'Wählt eure Reisedaten, um freie Unterkünfte und Gesamtpreise zu sehen.', es: 'Elegid vuestras fechas para ver los alojamientos disponibles y los precios totales.', nl: 'Kies jullie reisdata om beschikbare verblijven en totaalprijzen te zien.', sv: 'Välj era resedatum för att se lediga boenden och totalpriser.' }),

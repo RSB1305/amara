@@ -19,6 +19,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = (value: Record<AmaraLanguage, string>) => value[currentLang] ?? value.en;
 const action = resolveLink('stay_search_results', currentLang);
+const directBookingBenefitsHref = resolveLink('direct_booking_benefits', currentLang);
 /**
  * The footer default opens with the stay collection. On this page that is a
  * loop: the six stays are already listed above it. The slot goes to the page
@@ -73,6 +74,12 @@ const cards = vacationRentalEntities.flatMap((rental) => {
         <h1 id="stay-search-title" class="am-text-title mt-4 text-on-surface">
           {t(staySearchCopy.resultsTitle)}
         </h1>
+        <p class="am-text-caption mt-4 max-w-2xl text-on-surface-variant">
+          {t(staySearchCopy.directBookingNote)}{' '}
+          <a class="am-link" href={directBookingBenefitsHref}>
+            {t(staySearchCopy.directBookingLinkLabel)}
+          </a>
+        </p>
       </div>
 
       <div class="mt-8">
