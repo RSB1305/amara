@@ -382,6 +382,13 @@ const content = {
     "Vul de voornaam op de boeking en de aankomst- en vertrekdatum in.",
     "Ange förnamnet i bokningen samt ankomst- och avresedatum.",
   ),
+  accessLandingLabel: text(
+    "What is AMARA Experience?",
+    "Was ist AMARA Experience?",
+    "¿Qué es AMARA Experience?",
+    "Wat is AMARA Experience?",
+    "Vad är AMARA Experience?",
+  ),
   formTitle: text(
     "AMARA Experience",
     "AMARA Experience",

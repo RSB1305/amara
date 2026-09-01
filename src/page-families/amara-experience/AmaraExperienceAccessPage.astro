@@ -19,6 +19,13 @@ const landingHref = currentLang === 'es' ? '/amara-experience' : `/${currentLang
     <div class="am-experience-app__intro">
       <h1 class="am-text-subtitle text-on-surface">{copy.formTitle}</h1>
       <p class="am-text-body mt-5 leading-relaxed text-on-surface-variant">{copy.accessIntro}</p>
+      <a
+        class="am-link am-text-caption mt-4 inline-block"
+        href={landingHref}
+        data-am-experience-landing-link
+      >
+        {copy.accessLandingLabel}
+      </a>
     </div>
 
     <form

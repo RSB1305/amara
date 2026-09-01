@@ -40,6 +40,10 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page.locator('main')).toContainText(
     'Gebt den Vornamen der Buchung sowie An- und Abreisedatum ein.'
   );
+  await expect(page.locator('[data-am-experience-landing-link]'))
+    .toHaveAttribute('href', '/de/amara-experience');
+  await expect(page.locator('[data-am-experience-landing-link]'))
+    .toHaveText('Was ist AMARA Experience?');
   await expect(page.locator('main .am-text-eyebrow')).toHaveCount(0);
   await expect(page.locator('[data-am-experience-form]')).toBeVisible();
   await expect(page.getByLabel('Vorname der Buchung')).toBeVisible();
@@ -61,6 +65,10 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page.locator('main')).toContainText(
     'Enter the first name on the booking and the arrival and departure dates.'
   );
+  await expect(page.locator('[data-am-experience-landing-link]'))
+    .toHaveAttribute('href', '/en/amara-experience');
+  await expect(page.locator('[data-am-experience-landing-link]'))
+    .toHaveText('What is AMARA Experience?');
   await expect(page.locator('header > nav')).toHaveCount(0);
   await expect(page.locator('footer')).toHaveCount(0);
 });
