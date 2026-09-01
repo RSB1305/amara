@@ -162,7 +162,9 @@ export function enhanceStaySearchResults() {
           Array.isArray(days) && days.length === expected.length && days.every((day, index) =>
             day.date === expected[index] && typeof day.available === 'boolean');
         if (!availabilityValid) throw new Error('Availability contract failed.');
-        if (!days.every((day) => day.available === true)) return;
+        // Lodgify returns the inclusive departure date, but guests do not occupy
+        // the stay on checkout day. Only the selected nights must be available.
+        if (!days.slice(0, nights).every((day) => day.available === true)) return;
 
         const quote = await fetchJson('/api/booking/quote', new URLSearchParams({
           stay, arrival: input.arrival, departure: input.departure,
