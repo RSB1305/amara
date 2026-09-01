@@ -1,5 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  BadgeCheck,
+  Croissant,
+  Footprints,
+  MapPin,
+  Route,
+  Sparkles,
+  Trees,
+  WavesHorizontal,
+} from '@lucide/astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
@@ -24,6 +34,18 @@ const guideHref = currentLang === 'es' ? '/amara-experience/guide' : `/${current
 const hostHref = buildOwnedLocalizedPath('staying-with-us', currentLang);
 const seoHeroImage = await createAmaraImage(villageImage, 'hero');
 const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
+const promiseIcons = {
+  authenticity: Route,
+  exclusivity: BadgeCheck,
+  calm: Trees,
+} as const;
+const benefitIcons = {
+  eat: Croissant,
+  sea: WavesHorizontal,
+  walk: Footprints,
+  together: Sparkles,
+  'day-trip': MapPin,
+} as const;
 ---
 
 <BaseLayout
@@ -101,15 +123,27 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
         </div>
 
         <ol class="mt-14 grid gap-8 lg:mt-20 lg:grid-cols-3">
-          {copy.promises.map((promise) => (
-            <li class="am-experience-benefit border-t border-outline-variant/30 pt-6">
-              <p class="am-text-label text-primary">{promise.principle}</p>
-              <h3 class="am-text-subtitle mt-5 text-on-surface">{promise.title}</h3>
-              <p class="am-text-body mt-4 max-w-[52ch] leading-relaxed text-on-surface-variant">
-                <InlineEmphasis text={promise.copy} />
-              </p>
-            </li>
-          ))}
+          {copy.promises.map((promise) => {
+            const Icon = promiseIcons[promise.id as keyof typeof promiseIcons];
+
+            return (
+              <li class="am-experience-benefit border-t border-outline-variant/30 pt-6">
+                <div class="flex items-center justify-between gap-4">
+                  <p class="am-text-label text-primary">{promise.principle}</p>
+                  <span
+                    class="inline-grid h-11 w-11 shrink-0 place-items-center rounded-full border border-outline-variant/30 bg-surface-container-low text-primary"
+                    aria-hidden="true"
+                  >
+                    <Icon class="h-5 w-5" stroke-width={1.5} />
+                  </span>
+                </div>
+                <h3 class="am-text-subtitle mt-5 text-on-surface">{promise.title}</h3>
+                <p class="am-text-body mt-4 max-w-[52ch] leading-relaxed text-on-surface-variant">
+                  <InlineEmphasis text={promise.copy} />
+                </p>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </AmaraSection>
@@ -125,13 +159,25 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
         </div>
 
         <ol class="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 xl:grid-cols-5">
-          {copy.benefits.map((benefit) => (
-            <li class="am-experience-benefit border-t border-outline-variant/30 pt-6">
-              <p class="am-text-label text-primary">{benefit.number}</p>
-              <h3 class="am-text-subtitle mt-5 text-on-surface">{benefit.title}</h3>
-              <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{benefit.copy}</p>
-            </li>
-          ))}
+          {copy.benefits.map((benefit) => {
+            const Icon = benefitIcons[benefit.id as keyof typeof benefitIcons];
+
+            return (
+              <li class="am-experience-benefit border-t border-outline-variant/30 pt-6">
+                <div class="flex items-center justify-between gap-4">
+                  <p class="am-text-label text-primary">{benefit.number}</p>
+                  <span
+                    class="inline-grid h-10 w-10 shrink-0 place-items-center rounded-full border border-outline-variant/30 bg-surface-white text-primary"
+                    aria-hidden="true"
+                  >
+                    <Icon class="h-5 w-5" stroke-width={1.5} />
+                  </span>
+                </div>
+                <h3 class="am-text-subtitle mt-5 text-on-surface">{benefit.title}</h3>
+                <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{benefit.copy}</p>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </AmaraSection>
