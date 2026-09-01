@@ -78,6 +78,28 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
       </div>
     </AmaraSection>
 
+    <AmaraSection family="experience" dataComponent="amara-experience-promises">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
+          <div class="lg:col-span-8">
+            <p class="am-text-eyebrow mb-5 text-primary">{copy.promiseEyebrow}</p>
+            <h2 class="am-text-title max-w-[24ch] text-on-surface">{copy.promiseTitle}</h2>
+          </div>
+          <p class="am-text-body max-w-[60ch] leading-relaxed text-on-surface-variant lg:col-span-4">{copy.promiseIntro}</p>
+        </div>
+
+        <ol class="mt-14 grid gap-8 lg:mt-20 lg:grid-cols-3">
+          {copy.promises.map((promise) => (
+            <li class="am-experience-benefit border-t border-outline-variant/30 pt-6">
+              <p class="am-text-label text-primary">{promise.principle}</p>
+              <h3 class="am-text-subtitle mt-5 text-on-surface">{promise.title}</h3>
+              <p class="am-text-body mt-4 max-w-[52ch] leading-relaxed text-on-surface-variant">{promise.copy}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </AmaraSection>
+
     <AmaraSection surface="tint" family="experience" dataComponent="amara-experience-value">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
