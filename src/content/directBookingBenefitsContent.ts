@@ -70,7 +70,7 @@ export const cancellationAssuranceDetail = {
 
 export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
-  version: '2026-09-01-direct-booking-benefits-v1.4-C',
+  version: '2026-09-01-direct-booking-benefits-v1.5-C',
 
   pageType: 'C',
 
@@ -248,15 +248,15 @@ export const directBookingBenefitsCopy = {
 
       copy: {
 
-        en: 'A confirmed direct booking gives you **private access to AMARA Experience**, with **personal recommendations for your booked destination and the surrounding area**.',
+        en: 'A confirmed direct booking gives you **private access to AMARA Experience**, with personal recommendations for your booked destination and the surrounding area.',
 
-        de: 'Mit eurer bestätigten Direktbuchung erhaltet ihr **privaten Zugang zur AMARA Experience** – mit **persönlichen Empfehlungen für euer gebuchtes Reiseziel und die Umgebung**.',
+        de: 'Mit eurer bestätigten Direktbuchung erhaltet ihr **privaten Zugang zur AMARA Experience** – mit persönlichen Empfehlungen für euer gebuchtes Reiseziel und die Umgebung.',
 
-        es: 'Vuestra reserva directa confirmada os da **acceso privado a AMARA Experience**, con **recomendaciones personales para el destino de vuestra reserva y sus alrededores**.',
+        es: 'Vuestra reserva directa confirmada os da **acceso privado a AMARA Experience**, con recomendaciones personales para el destino de vuestra reserva y sus alrededores.',
 
-        nl: 'Een bevestigde directe boeking geeft jullie **privétoegang tot AMARA Experience**, met **persoonlijke aanbevelingen voor jullie geboekte bestemming en de omgeving**.',
+        nl: 'Een bevestigde directe boeking geeft jullie **privétoegang tot AMARA Experience**, met persoonlijke aanbevelingen voor jullie geboekte bestemming en de omgeving.',
 
-        sv: 'En bekräftad direktbokning ger er **privat tillgång till AMARA Experience**, med **personliga rekommendationer för resmålet ni har bokat och närområdet**.'
+        sv: 'En bekräftad direktbokning ger er **privat tillgång till AMARA Experience**, med personliga rekommendationer för resmålet ni har bokat och närområdet.'
 
       }
 
@@ -280,15 +280,15 @@ export const directBookingBenefitsCopy = {
 
       copy: {
 
-        en: 'A direct booking with AMARA gives you **our lowest available price**, with **all applicable fees included**.',
+        en: 'A direct booking with AMARA gives you **our lowest available price**, with all applicable fees included.',
 
-        de: 'Eine Direktbuchung bei AMARA sichert euch **unseren niedrigsten verfügbaren Preis** – **alle anfallenden Gebühren inklusive**.',
+        de: 'Eine Direktbuchung bei AMARA sichert euch **unseren niedrigsten verfügbaren Preis** – alle anfallenden Gebühren inklusive.',
 
-        es: 'La reserva directa con AMARA os ofrece **nuestro precio más bajo disponible**, con **todos los cargos aplicables incluidos**.',
+        es: 'La reserva directa con AMARA os ofrece **nuestro precio más bajo disponible**, con todos los cargos aplicables incluidos.',
 
-        nl: 'Een directe boeking bij AMARA geeft jullie **onze laagste beschikbare prijs**, met **alle toepasselijke kosten inbegrepen**.',
+        nl: 'Een directe boeking bij AMARA geeft jullie **onze laagste beschikbare prijs**, met alle toepasselijke kosten inbegrepen.',
 
-        sv: 'En direktbokning hos AMARA ger er **vårt lägsta tillgängliga pris**, med **alla tillämpliga avgifter inkluderade**.'
+        sv: 'En direktbokning hos AMARA ger er **vårt lägsta tillgängliga pris**, med alla tillämpliga avgifter inkluderade.'
 
       }
 
@@ -312,15 +312,15 @@ export const directBookingBenefitsCopy = {
 
       copy: {
 
-        en: 'Direct bookings of eight nights or more include a **complimentary mid-stay clean**, so your apartment feels **fresh again halfway through your stay**.',
+        en: 'Direct bookings of eight nights or more include a **complimentary mid-stay clean**, so your apartment feels fresh again halfway through your stay.',
 
-        de: 'Bei Direktbuchungen ab acht Nächten ist eine **kostenlose Zwischenreinigung inklusive** – für ein **frisches Apartment zur Mitte eures Aufenthalts**.',
+        de: 'Bei Direktbuchungen ab acht Nächten ist eine **kostenlose Zwischenreinigung inklusive** – für ein frisches Apartment zur Mitte eures Aufenthalts.',
 
-        es: 'Las reservas directas de ocho noches o más incluyen una **limpieza intermedia gratuita**, para que el apartamento vuelva a estar **fresco a mitad de la estancia**.',
+        es: 'Las reservas directas de ocho noches o más incluyen una **limpieza intermedia gratuita**, para que el apartamento vuelva a estar fresco a mitad de la estancia.',
 
-        nl: 'Directe boekingen vanaf acht nachten omvatten een **gratis tussentijdse schoonmaak**, zodat het appartement **halverwege weer fris aanvoelt**.',
+        nl: 'Directe boekingen vanaf acht nachten omvatten een **gratis tussentijdse schoonmaak**, zodat het appartement halverwege weer fris aanvoelt.',
 
-        sv: 'Direktbokningar på minst åtta nätter inkluderar en **kostnadsfri mellanstädning**, så att lägenheten känns **fräsch igen halvvägs genom vistelsen**.'
+        sv: 'Direktbokningar på minst åtta nätter inkluderar en **kostnadsfri mellanstädning**, så att lägenheten känns fräsch igen halvvägs genom vistelsen.'
 
       }
 
@@ -344,15 +344,15 @@ export const directBookingBenefitsCopy = {
 
       copy: {
 
-        en: 'When occupancy allows, your **early check-in or late check-out is complimentary** — giving you **more time at AMARA**.',
+        en: 'When occupancy allows, your **early check-in or late check-out is complimentary** — giving you more time at AMARA.',
 
-        de: 'Wenn es die Belegung zulässt, sind **Early Check-in oder Late Check-out kostenlos** – für **mehr gemeinsame Zeit bei AMARA**.',
+        de: 'Wenn es die Belegung zulässt, sind **Early Check-in oder Late Check-out kostenlos** – für mehr gemeinsame Zeit bei AMARA.',
 
-        es: 'Cuando la ocupación lo permite, tenéis **early check-in o late check-out sin coste** para disfrutar de **más tiempo en AMARA**.',
+        es: 'Cuando la ocupación lo permite, tenéis **early check-in o late check-out sin coste** para disfrutar de más tiempo en AMARA.',
 
-        nl: 'Als de bezetting het toelaat, zijn **early check-in of late check-out gratis** – voor **meer tijd bij AMARA**.',
+        nl: 'Als de bezetting het toelaat, zijn **early check-in of late check-out gratis** – voor meer tijd bij AMARA.',
 
-        sv: 'När beläggningen tillåter det är **tidig incheckning eller sen utcheckning kostnadsfri** – för **mer tid hos AMARA**.'
+        sv: 'När beläggningen tillåter det är **tidig incheckning eller sen utcheckning kostnadsfri** – för mer tid hos AMARA.'
 
       }
 
@@ -376,15 +376,15 @@ export const directBookingBenefitsCopy = {
 
       copy: {
 
-        en: 'With a direct booking, **your host Robert is personally involved from the start** and **handles your communication directly whenever needed**.',
+        en: 'With a direct booking, **your host Robert is personally involved from the start** and handles your communication directly whenever needed.',
 
-        de: 'Bei einer Direktbuchung ist **euer Gastgeber Robert von Anfang an persönlich eingebunden** und **übernimmt die Kommunikation bei Bedarf direkt**.',
+        de: 'Bei einer Direktbuchung ist **euer Gastgeber Robert von Anfang an persönlich eingebunden** und übernimmt die Kommunikation bei Bedarf direkt.',
 
-        es: 'Con una reserva directa, **vuestro anfitrión Robert participa personalmente desde el principio** y **se ocupa directamente de la comunicación cuando hace falta**.',
+        es: 'Con una reserva directa, **vuestro anfitrión Robert participa personalmente desde el principio** y se ocupa directamente de la comunicación cuando hace falta.',
 
-        nl: 'Bij een directe boeking is **jullie host Robert vanaf het begin persoonlijk betrokken** en **neemt hij de communicatie rechtstreeks over wanneer dat nodig is**.',
+        nl: 'Bij een directe boeking is **jullie host Robert vanaf het begin persoonlijk betrokken** en neemt hij de communicatie rechtstreeks over wanneer dat nodig is.',
 
-        sv: 'Vid en direktbokning är **er värd Robert personligen med från början** och **tar över kommunikationen direkt när det behövs**.'
+        sv: 'Vid en direktbokning är **er värd Robert personligen med från början** och tar över kommunikationen direkt när det behövs.'
 
       }
 
@@ -408,15 +408,15 @@ export const directBookingBenefitsCopy = {
 
       copy: {
 
-        en: 'A **small local welcome** is waiting when you arrive, **chosen to suit the season**.',
+        en: 'A **small local welcome** is waiting when you arrive, chosen to suit the season.',
 
-        de: 'Bei eurer Anreise wartet eine **kleine lokale Aufmerksamkeit** auf euch, **passend zur Saison ausgewählt**.',
+        de: 'Bei eurer Anreise wartet eine **kleine lokale Aufmerksamkeit** auf euch, passend zur Saison ausgewählt.',
 
-        es: 'A vuestra llegada os espera un **pequeño detalle local de bienvenida**, **elegido según la temporada**.',
+        es: 'A vuestra llegada os espera un **pequeño detalle local de bienvenida**, elegido según la temporada.',
 
-        nl: 'Bij aankomst wacht een **klein lokaal welkomstgeschenk** op jullie, **passend bij het seizoen gekozen**.',
+        nl: 'Bij aankomst wacht een **klein lokaal welkomstgeschenk** op jullie, passend bij het seizoen gekozen.',
 
-        sv: 'Vid ankomsten väntar en **liten lokal välkomstgåva**, **vald för säsongen**.'
+        sv: 'Vid ankomsten väntar en **liten lokal välkomstgåva**, vald för säsongen.'
 
       }
 
