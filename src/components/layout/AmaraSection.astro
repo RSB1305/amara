@@ -15,7 +15,6 @@ interface Props {
   surface?: AmaraSectionSurface;
   family?: AmaraSectionFamily;
   status?: AmaraSectionStatus;
-  divider?: boolean;
   dataComponent?: string;
   class?: string;
   pageEndRole?: AmaraPageEndRole;
@@ -30,7 +29,6 @@ const {
   surface = 'plain',
   family = 'shared',
   status = 'canonical',
-  divider = true,
   dataComponent,
   class: className,
   pageEndRole,
@@ -47,7 +45,6 @@ const sectionAttributes = getAmaraSectionAttributes({ variant, surface, family, 
     'am-page-section',
     `am-page-section--${variant}`,
     `am-page-section--surface-${surface}`,
-    { 'am-page-section--divided': divider },
     className
   ]}
   aria-labelledby={labelledby}

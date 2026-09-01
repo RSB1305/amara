@@ -932,43 +932,6 @@
     background: var(--color-surface-white);
   }
 
-  .am-page-section--divided {
-    position: relative;
-  }
-
-  .am-page-section--divided::after {
-    content: none;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    height: 1px;
-    background: var(--color-border-subtle);
-    pointer-events: none;
-  }
-
-  /**
-   * A divider is a relationship between two sections, not decoration owned by
-   * either surface in isolation. Only equal, explicitly declared surfaces may
-   * draw one. Surface changes carry enough contrast on their own.
-   */
-  .am-page-section--divided[data-am-section-surface='plain']:has(
-      + [data-am-section-surface='plain']
-    )::after,
-  .am-page-section--divided[data-am-section-surface='tint']:has(
-      + [data-am-section-surface='tint']
-    )::after,
-  .am-page-section--divided[data-am-section-surface='inverse']:has(
-      + [data-am-section-surface='inverse']
-    )::after {
-    content: '';
-  }
-
-  .am-page-section--divided.am-page-section--closing::after,
-  .am-page-shell__frame > .am-page-section--divided:last-child::after {
-    content: none;
-  }
-
   .am-page-section--surface-tint,
   .am-page-section--surface-inverse {
     margin-inline: calc(var(--spacing-page-gutter) * -1);
@@ -1068,39 +1031,6 @@
     position: relative;
   }
 
-  .am-section::before {
-    content: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 1px;
-    background: var(--color-border-subtle);
-    pointer-events: none;
-  }
-
-  :is(
-      [data-am-section-surface='plain'],
-      .am-section--plain,
-      .bg-surface,
-      .bg-white
-    )
-    + .am-section:is(.am-section--plain, .bg-surface, .bg-white)::before,
-  :is(
-      [data-am-section-surface='tint'],
-      .am-section--tint,
-      .bg-surface-container-low
-    )
-    + .am-section:is(.am-section--tint, .bg-surface-container-low)::before,
-  :is([data-am-section-surface='inverse'], .bg-inverse-surface)
-    + .am-section.bg-inverse-surface::before {
-    content: '';
-  }
-
-  .am-section.am-section.border-t-0::before {
-    content: none;
-  }
-
   .am-section--plain {
     @apply bg-white;
   }
@@ -1112,106 +1042,17 @@
 }
 
 /**
- * Controlled legacy bridge for page families that still expose Tailwind
- * border utilities on their outer sections. It lives outside Tailwind's
- * layers so the shared boundary contract wins over those utilities. Internal
- * card, list and table borders are outside this direct-child scope.
+ * Decorative horizontal borders on outer page sections are retired. This
+ * compatibility guard suppresses legacy Tailwind border utilities at the
+ * page-section boundary without touching structural borders inside lists,
+ * tables, controls or media frames.
  */
 :where([data-am-page], [data-am-page] > .am-page-shell__frame)
   > :is(.border-b, .border-y):not([data-am-section]) {
-  position: relative;
   border-bottom-width: 0;
 }
 
 :where([data-am-page], [data-am-page] > .am-page-shell__frame)
   > :is(.border-t, .border-y):not([data-am-section]) {
-  position: relative;
   border-top-width: 0;
-}
-
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-b, .border-y):not([data-am-section])::after,
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-t, .border-y):not([data-am-section])::before {
-  position: absolute;
-  right: 0;
-  left: 0;
-  height: 1px;
-  background: var(--color-border-subtle);
-  pointer-events: none;
-}
-
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-b, .border-y):not([data-am-section])::after {
-  bottom: 0;
-}
-
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-t, .border-y):not([data-am-section])::before {
-  top: 0;
-}
-
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-b, .border-y):not([data-am-section]):is(.bg-surface, .bg-white):has(
-    + :is([data-am-section-surface='plain'], .bg-surface, .bg-white)
-  )::after,
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-b, .border-y):not([data-am-section]):is(
-    .bg-surface-container-low,
-    .am-section--tint
-  ):has(
-    + :is(
-      [data-am-section-surface='tint'],
-      .bg-surface-container-low,
-      .am-section--tint
-    )
-  )::after,
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-b, .border-y):not([data-am-section]).bg-surface-container-lowest:has(
-    + .bg-surface-container-lowest
-  )::after,
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-b, .border-y):not([data-am-section]).bg-surface-container-high:has(
-    + .bg-surface-container-high
-  )::after,
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-b, .border-y):not([data-am-section]).bg-inverse-surface:has(
-    + :is([data-am-section-surface='inverse'], .bg-inverse-surface)
-  )::after {
-  content: '';
-}
-
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is([data-am-section-surface='plain'], .bg-surface, .bg-white)
-  + :is(.border-t, .border-y):not([data-am-section]):is(.bg-surface, .bg-white)::before,
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(
-    [data-am-section-surface='tint'],
-    .bg-surface-container-low,
-    .am-section--tint
-  )
-  + :is(.border-t, .border-y):not([data-am-section]):is(
-    .bg-surface-container-low,
-    .am-section--tint
-  )::before,
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > .bg-surface-container-lowest
-  + :is(.border-t, .border-y):not([data-am-section]).bg-surface-container-lowest::before,
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > .bg-surface-container-high
-  + :is(.border-t, .border-y):not([data-am-section]).bg-surface-container-high::before,
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is([data-am-section-surface='inverse'], .bg-inverse-surface)
-  + :is(.border-t, .border-y):not([data-am-section]).bg-inverse-surface::before {
-  content: '';
-}
-
-/* The outgoing boundary owns the one permitted rule; never stack two lines. */
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-b, .border-y):not([data-am-section])
-  + :is(.border-t, .border-y):not([data-am-section])::before,
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > .am-page-section--divided
-  + :is(.border-t, .border-y):not([data-am-section])::before {
-  content: none;
 }

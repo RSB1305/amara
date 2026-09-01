@@ -60,7 +60,7 @@ const {
     evidenceItems={content.hero.summaryItems}
   />
 
-  <LocationModule divider={false} data-am-weather-module="factors">
+  <LocationModule data-am-weather-module="factors">
     <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-5">
         <p class="am-text-eyebrow text-primary">{content.factors.eyebrow}</p>
@@ -116,7 +116,7 @@ const {
     />
   </div>
 
-  <LocationModule surface="inverse" divider={false} data-am-weather-module="travel-fit">
+  <LocationModule surface="inverse" data-am-weather-module="travel-fit">
     <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-5">
         <p class="am-text-eyebrow text-primary-fixed-dim">{content.bestTime.eyebrow}</p>
@@ -153,7 +153,7 @@ const {
     </div>
   </LocationModule>
 
-  <LocationModule surface="tint" divider={false} data-am-weather-module="seasons">
+  <LocationModule surface="tint" data-am-weather-module="seasons">
     <div class="mx-auto max-w-screen-2xl">
       <div class="max-w-3xl">
         <p class="am-text-eyebrow text-primary">{content.seasons.eyebrow}</p>
@@ -175,7 +175,7 @@ const {
     </div>
   </LocationModule>
 
-  <LocationModule divider={false} data-am-weather-module="practical">
+  <LocationModule data-am-weather-module="practical">
     <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
       <div class:list={[content.practical.items.length > 0 ? 'lg:col-span-7' : 'lg:col-span-12']}>
         <p class="am-text-eyebrow text-primary">{content.practical.eyebrow}</p>
@@ -204,7 +204,7 @@ const {
     </div>
   </LocationModule>
 
-  <LocationModule surface="tint" divider={false} data-am-weather-module="forecast">
+  <LocationModule surface="tint" data-am-weather-module="forecast">
     <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-5">
         <p class="am-text-eyebrow text-primary">{content.forecast.eyebrow}</p>
@@ -255,7 +255,7 @@ const {
     </div>
   </LocationModule>
 
-  <LocationModule spacing="closing" divider={false} {...getPageEndAttributes('next-action', 'location')}>
+  <LocationModule spacing="closing" {...getPageEndAttributes('next-action', 'location')}>
     <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
       <div class="lg:col-span-7">
         <p class="am-text-eyebrow text-primary">{content.closing.eyebrow}</p>

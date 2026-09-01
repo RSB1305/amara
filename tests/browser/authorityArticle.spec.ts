@@ -607,7 +607,7 @@ test('the destination arrival pages use their declared module order', async ({ p
   }
 });
 
-test('outer section dividers only separate equal surfaces and span their boundary', async ({ page }) => {
+test('decorative horizontal rules stay absent from outer sections and display bands', async ({ page }) => {
   await openPage(page, resolveLink('getting_to_frigiliana', SWEEP_LANGUAGE));
 
   const arrivalBoundaries = await page.$$eval(
@@ -628,16 +628,12 @@ test('outer section dividers only separate equal surfaces and span their boundar
       })
   );
 
-  const surfaceChanges = arrivalBoundaries.filter((boundary) => boundary.changesSurface);
-  expect(surfaceChanges.length).toBeGreaterThan(0);
-  for (const boundary of surfaceChanges) {
-    expect(boundary).toEqual({
-      changesSurface: true,
-      currentBorder: '0px',
-      nextBorder: '0px',
-      currentDivider: 'none',
-      nextDivider: 'none'
-    });
+  expect(arrivalBoundaries.length).toBeGreaterThan(0);
+  for (const boundary of arrivalBoundaries) {
+    expect(boundary.currentBorder).toBe('0px');
+    expect(boundary.nextBorder).toBe('0px');
+    expect(boundary.currentDivider).toBe('none');
+    expect(boundary.nextDivider).toBe('none');
   }
 
   const internalRuleWidths = await page.$$eval(
@@ -647,21 +643,24 @@ test('outer section dividers only separate equal surfaces and span their boundar
   expect(internalRuleWidths.some((width) => width !== '0px')).toBe(true);
 
   await openPage(page, resolveLink('weather_frigiliana', SWEEP_LANGUAGE));
-  const sameSurfaceDivider = await page.$eval(
+  const sameSurfaceBoundary = await page.$eval(
     'article[data-am-page="frigiliana-weather"] > [data-am-guide-hero]',
     (hero) => {
       const divider = getComputedStyle(hero, '::after');
       return {
         content: divider.content,
-        left: Number.parseFloat(divider.left),
-        right: Number.parseFloat(divider.right)
+        borderBottom: getComputedStyle(hero).borderBottomWidth
       };
     }
   );
 
-  expect(sameSurfaceDivider.content).toBe('""');
-  expect(sameSurfaceDivider.left).toBe(0);
-  expect(sameSurfaceDivider.right).toBe(0);
+  expect(sameSurfaceBoundary).toEqual({ content: 'none', borderBottom: '0px' });
+
+  await openPage(page, resolveLink('amara_experience', SWEEP_LANGUAGE));
+  await expect(page.locator('[data-am-guide-hero]')).toHaveCSS('border-bottom-width', '0px');
+  const romanceClose = page.locator('[data-am-component="amara-experience-booking-cta"]');
+  await expect(romanceClose).toHaveCSS('border-top-width', '0px');
+  await expect(romanceClose).toHaveCSS('border-bottom-width', '0px');
 });
 
 test('the Frigiliana hero uses an editorial quote and personal host signature', async ({ page }) => {

@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.19.0
+version: 4.20.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-31T18:18:00+02:00
+last_modified: 2026-09-01T07:40:00+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -22,7 +22,7 @@ last_modified: 2026-08-31T18:18:00+02:00
 
 AMARA Astro & Design Architecture Contract V4
 Status                                                ACTIVE
-Version                                               4.19.0
+Version                                               4.20.0
 Effective date                                        2026-08-10
 Runtime                                               Astro
 Styling                                               Tailwind CSS + AMARA global tokens + scoped component
@@ -409,14 +409,16 @@ The styleguide is therefore an executable view of the system, not a parallel sou
 17.8 Section rhythm and introduction contract
 
 `src/components/layout/sectionContract.ts` is the semantic classification owner for page sections and
-section introductions. `AmaraSection` owns the canonical page-shell rhythm, divider behaviour and the
-approved plain, tint and inverse surfaces. Its default, hero, compact and closing variants describe page
-position and spacing; they are not page-local design knobs.
+section introductions. `AmaraSection` owns the canonical page-shell rhythm and the approved plain, tint and
+inverse surfaces. Its default, hero, compact and closing variants describe page position and spacing; they
+are not page-local design knobs.
 
-A horizontal section divider is a boundary, not an inset decoration. It is rendered only between adjacent
-equal surfaces and spans the full width of the surface that owns it, without page-gutter gaps. Decorative
-partial-width horizontal rules inside prose, pull quotes, bylines or provenance blocks are retired. Borders
-inside lists, tables, controls and media frames remain valid when their component job requires structure.
+Decorative horizontal rules are prohibited at outer page-section boundaries, inside prose, pull quotes,
+bylines and provenance blocks, and along the top or bottom edge of editorial boxes, display bands and CTA
+panels. Public sections are separated through spacing, typography and intentional surface changes.
+`AmaraSection` exposes no divider property or divider class. Borders inside lists, tables, controls and media
+frames remain valid when their component job requires structure or interaction; this exception cannot be used
+to decorate the outer edge of a section or display panel.
 
 `AmaraSectionIntro` owns the recurring eyebrow, H2, lead, note and supplemental-detail hierarchy. Its named
 variants preserve distinct jobs rather than flattening the silos:
@@ -584,3 +586,4 @@ the external booking provider boundary remain unchanged.
 | 4.17.0 | 2026-08-26T17:00:00Z | Activated the executable Authority-family composition contract across practical, destination, FAQ and documentary groups without changing public composition or conversion paths. |
 | 4.18.0 | 2026-08-26T18:00:00Z | Activated the executable Conversion-family composition contract across Stay Discovery, Stay Decision, Direct Booking and Specialist Enquiry without changing public conversion or checkout paths. |
 | 4.19.0 | 2026-08-31T18:18:00+02:00 | Standardized horizontal boundaries after repeated partial-divider regressions: equal-surface section dividers now span their full owning surface, decorative partial-width rules are retired from prose, pull quotes, bylines and provenance, and structural component borders remain permitted. |
+| 4.20.0 | 2026-09-01T07:40:00+02:00 | Retired decorative horizontal rules entirely from outer section boundaries and the top/bottom edges of editorial boxes, display bands and CTA panels; removed the shared divider API and added source plus browser guardrails while preserving structural borders inside lists, tables, controls and media frames. |
