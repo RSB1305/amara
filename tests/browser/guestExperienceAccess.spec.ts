@@ -1,4 +1,23 @@
 import { expect, test } from '@playwright/test';
+import { dev } from 'astro';
+import { fileURLToPath } from 'node:url';
+
+const PORT = 4322;
+const repositoryRoot = fileURLToPath(new URL('../../', import.meta.url));
+
+let astroServer: Awaited<ReturnType<typeof dev>> | undefined;
+
+test.beforeAll(async () => {
+  astroServer = await dev({
+    root: repositoryRoot,
+    server: { host: '127.0.0.1', port: PORT },
+    logLevel: 'silent'
+  });
+});
+
+test.afterAll(async () => {
+  await astroServer?.stop();
+});
 
 test('the public AMARA Experience landing links to a separate guest access page', async ({ page }) => {
   await page.goto('/de/amara-experience');
