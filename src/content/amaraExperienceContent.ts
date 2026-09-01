@@ -376,11 +376,11 @@ const content = {
     "Er privata guide börjar här",
   ),
   accessIntro: text(
-    "Enter the first name on the booking and the arrival and departure dates.",
-    "Gebt den Vornamen der Buchung sowie An- und Abreisedatum ein.",
-    "Introducid el nombre de la reserva y las fechas de llegada y salida.",
-    "Vul de voornaam op de boeking en de aankomst- en vertrekdatum in.",
-    "Ange förnamnet i bokningen samt ankomst- och avresedatum.",
+    "Open your private AMARA Guest Guide with information about your accommodation, local essentials and our personal recommendations. Enter the first name on the booking and the arrival and departure dates.",
+    "Öffnet euren privaten AMARA Guest Guide mit Informationen zu eurer Unterkunft, Wichtigem vor Ort und unseren persönlichen Empfehlungen. Gebt den Vornamen der Buchung sowie An- und Abreisedatum ein.",
+    "Abrid vuestra guía privada para huéspedes de AMARA con información sobre el alojamiento, lo esencial del lugar y nuestras recomendaciones personales. Introducid el nombre de la reserva y las fechas de llegada y salida.",
+    "Open jullie privé-gastengids van AMARA met informatie over de accommodatie, praktische zaken ter plaatse en onze persoonlijke aanbevelingen. Vul de voornaam op de boeking en de aankomst- en vertrekdatum in.",
+    "Öppna er privata AMARA-gästguide med information om boendet, praktiska saker på plats och våra personliga rekommendationer. Ange förnamnet i bokningen samt ankomst- och avresedatum.",
   ),
   accessLandingLabel: text(
     "Learn more about AMARA Experience",

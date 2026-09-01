@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
-title: AMARA Guest Utility Architecture V2.7
-version: 2.7.0
+title: AMARA Guest Utility Architecture V2.8
+version: 2.8.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-01T14:14:49+02:00
+last_modified: 2026-09-01T17:02:23+02:00
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -161,9 +161,9 @@ When a guest needs current access information that is not authored in the guide,
 
 13. Product and transition boundary
 
-AMARA Experience is the booked-guest product. Its public, indexable landing page is a normal five-locale AMARA surface and remains globally reachable inside the About us navigation group, immediately after Staying with us. The landing retains its dedicated access section and the canonical public header adds a compact access icon immediately before the language control; both open the separate access page in the current language. Booked guests also receive that localized access-page link directly. The access page contains only the access task and carries no public navigation, marketing footer, analytics, sitemap inclusion or indexing. Existing public destination and restaurant content keeps its public editorial job unchanged.
+AMARA Experience is the single booked-guest umbrella product and the name of its shared access. Guest Guide describes the private utility function and content basis inside that product; it is not a second product, separate login or parallel route family. The public, indexable AMARA Experience landing page is a normal five-locale AMARA surface and remains globally reachable inside the About us navigation group, immediately after Staying with us. The landing retains its dedicated access section and the canonical public header adds a compact access icon immediately before the language control; both open the separate access page in the current language. Booked guests also receive that localized access-page link directly. The access page explains that the private Guest Guide contains accommodation information, local essentials and personal recommendations, then performs the single AMARA Experience access task. It carries no public navigation, marketing footer, analytics, sitemap inclusion or indexing. Existing public destination and restaurant content keeps its public editorial job unchanged.
 
-The existing Guest Welcome content is the canonical content basis of AMARA Experience. It is reused under the protected route family rather than copied into a parallel guide. Legacy anonymous routes redirect to the localized access page.
+The existing Guest Welcome and Guest Guide content is the canonical content basis of AMARA Experience. It is reused under the protected route family rather than copied into a parallel guide. Legacy anonymous routes redirect to the localized access page.
 
 14. Booking-backed access
 
@@ -185,9 +185,9 @@ Each accommodation hub presents three direct entries in this order:
 
 1. the guest's stay, containing accommodation, arrival, house information and check-out;
 2. location essentials, containing practical local orientation such as mobility, supermarkets, pharmacies and parking where relevant;
-3. AMARA Experience, containing the curated destination layer: hidden treasures, insider tips, authentic local food and experiences away from the busiest routes.
+3. personal recommendations (`Our personal recommendations` and native equivalents), containing the curated destination layer: hidden treasures, insider tips, authentic local food and experiences away from the busiest routes.
 
-The established Guest Welcome entries, detail pages, location grouping and accommodation-specific structure remain the single authoring basis. Location essentials are linked directly from the hub to the existing destination-specific page and are not duplicated inside the accommodation detail. AMARA Experience upgrades the former recommendations area and may add deeper verified content without introducing a second guide taxonomy. Empty speculative categories are not rendered. The existing content prohibition for credentials, access secrets, payment details and personal booking data remains in force.
+Protected hub titles use `Your AMARA stay` and the natural native equivalent. `AMARA Experience` remains the umbrella and access name and is not repeated as a child navigation label. The established Guest Welcome entries, detail pages, location grouping and accommodation-specific structure remain the single authoring basis. Location essentials are linked directly from the hub to the existing destination-specific page and are not duplicated inside the accommodation detail. Personal recommendations carry the former recommendations area and may add deeper verified content without introducing a second guide taxonomy. Empty speculative categories are not rendered. The existing content prohibition for credentials, access secrets, payment details and personal booking data remains in force.
 
 ## Revision history
 
@@ -201,3 +201,4 @@ The established Guest Welcome entries, detail pages, location grouping and accom
 | 2.5.0 | 2026-09-01T13:30:00+02:00 | Consolidated Guest Welcome into the protected AMARA Experience product, added the separate guest access page and property-aware hub handoff, retired anonymous guide delivery and established the two-world stay/Experience structure. |
 | 2.6.0 | 2026-09-01T14:06:06+02:00 | Restored destination-specific Essentials as the middle direct hub entry between the accommodation and AMARA Experience, using the existing location pages as the single content source. |
 | 2.7.0 | 2026-09-01T14:14:49+02:00 | Retained the dedicated landing-page access section and added a localized AMARA Experience access icon immediately before the public-header language control. |
+| 2.8.0 | 2026-09-01T17:02:23+02:00 | Clarified AMARA Experience as the single booked-guest umbrella and access, retained Guest Guide as its descriptive utility function and renamed the third hub entry to personal recommendations. |

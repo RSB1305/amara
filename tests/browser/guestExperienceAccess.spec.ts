@@ -38,7 +38,7 @@ test('the guest access page stays focused on booking verification', async ({ pag
 
   await expect(page.locator('main h1')).toHaveText('AMARA Experience');
   await expect(page.locator('main')).toContainText(
-    'Gebt den Vornamen der Buchung sowie An- und Abreisedatum ein.'
+    'Öffnet euren privaten AMARA Guest Guide mit Informationen zu eurer Unterkunft, Wichtigem vor Ort und unseren persönlichen Empfehlungen.'
   );
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveAttribute('href', '/de/amara-experience');
@@ -63,7 +63,7 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await languageMenu.locator('a[href="/en/amara-experience/access"]').click();
   await expect(page).toHaveURL(/\/en\/amara-experience\/access$/);
   await expect(page.locator('main')).toContainText(
-    'Enter the first name on the booking and the arrival and departure dates.'
+    'Open your private AMARA Guest Guide with information about your accommodation, local essentials and our personal recommendations.'
   );
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveAttribute('href', '/en/amara-experience');
@@ -73,14 +73,15 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page.locator('footer')).toHaveCount(0);
 });
 
-test('the protected Guest Welcome hub contains the stay, location essentials and AMARA Experience', async ({ page }) => {
+test('the protected AMARA stay hub contains the accommodation, local essentials and personal recommendations', async ({ page }) => {
   await page.goto('/de/amara-experience/guide/guestwelcome-frigiliana-farah');
 
+  await expect(page.locator('main h1')).toHaveText('Euer Aufenthalt bei AMARA in Frigiliana');
   const menuItems = page.locator('main nav .am-ios-item');
   await expect(menuItems).toHaveCount(3);
   await expect(menuItems.nth(0)).toContainText('Eure Unterkunft Farah');
   await expect(menuItems.nth(1)).toContainText('Wichtiges vor Ort in Frigiliana');
-  await expect(menuItems.nth(2)).toContainText('AMARA Experience');
+  await expect(menuItems.nth(2)).toContainText('Unsere persönlichen Empfehlungen');
   await expect(menuItems.nth(2)).toContainText('Versteckte Schätze');
   await expect(menuItems.nth(0)).toHaveAttribute(
     'href',
