@@ -1,12 +1,22 @@
 import { expect, test } from '@playwright/test';
-import { normalizeGuestName } from '../../guest-experience/bookings.mjs';
+import {
+  ExperienceAccessDenied,
+  findUniqueEligibleBooking,
+  normalizeGuestName,
+  revalidateEligibleBooking
+} from '../../guest-experience/bookings.mjs';
 import {
   experienceAccessHref,
   experienceGuideHubHref,
   experienceGuideRootHref
 } from '../../guest-experience/guide-routes.mjs';
 import { handleExperienceGuide } from '../../guest-experience/middleware.mjs';
-import { createExperienceCookie, sealExperienceSession } from '../../guest-experience/session.mjs';
+import {
+  createExperienceClaims,
+  createExperienceCookie,
+  departureExpiryEpoch,
+  sealExperienceSession
+} from '../../guest-experience/session.mjs';
 
 const SECRET = 'unit-test-amara-experience-secret-1234567890';
 
@@ -14,6 +24,63 @@ test('guest-name normalization tolerates case, accents and surplus whitespace on
   expect(normalizeGuestName('  RÓBERT   ')).toBe('robert');
   expect(normalizeGuestName('Ro Br Et')).toBe('ro br et');
   expect(normalizeGuestName('Robret')).not.toBe(normalizeGuestName('Robert'));
+});
+
+test('a confirmed future booking opens access as soon as it exists', async () => {
+  const booking = {
+    id: 'booking-future',
+    property_id: '408326',
+    arrival: '2099-06-10',
+    departure: '2099-06-14',
+    status: 'booked',
+    guest: { first_name: 'Robert' }
+  };
+  const fetchImpl = async () => new Response(JSON.stringify({ items: [booking], count: 1 }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  await expect(findUniqueEligibleBooking('test-key', {
+    firstName: 'robert',
+    arrival: booking.arrival,
+    departure: booking.departure,
+    lang: 'de'
+  }, fetchImpl)).resolves.toMatchObject({ id: booking.id, stay: 'farah' });
+});
+
+test('access expires at 23:59:59 Madrid time on the departure day', () => {
+  const departure = '2026-10-25';
+  const exp = departureExpiryEpoch(departure);
+  const claims = createExperienceClaims({
+    id: 'booking-1',
+    stay: 'farah',
+    destination: 'frigiliana',
+    departure
+  }, 'de', exp - 7200);
+
+  expect(new Date(exp * 1000).toISOString()).toBe('2026-10-25T22:59:59.000Z');
+  expect(claims.exp).toBe(exp);
+  expect(claims.revalidateAfter).toBe(exp - 3600);
+});
+
+test('a cancelled booking fails the periodic session revalidation', async () => {
+  const fetchImpl = async () => new Response(JSON.stringify({
+    id: 'booking-cancelled',
+    property_id: '408326',
+    arrival: '2099-06-10',
+    departure: '2099-06-14',
+    status: 'cancelled',
+    guest: { first_name: 'Robert' }
+  }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' }
+  });
+
+  await expect(revalidateEligibleBooking(
+    'test-key',
+    'booking-cancelled',
+    fetchImpl
+  )).rejects.toBeInstanceOf(ExperienceAccessDenied);
 });
 
 test('the booking stay maps to its localized protected Guest Welcome hub', () => {

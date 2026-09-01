@@ -10,9 +10,13 @@ test('the public AMARA Experience landing links to a separate guest access page'
 test('the guest access page stays focused on booking verification', async ({ page }) => {
   await page.goto('/de/amara-experience/access');
 
-  await expect(page.locator('h1')).toHaveText('Eure AMARA Experience öffnen');
+  await expect(page.locator('main h1')).toHaveText('AMARA Experience');
+  await expect(page.locator('main')).toContainText(
+    'Gebt den Vornamen der Buchung sowie An- und Abreisedatum ein.'
+  );
+  await expect(page.locator('main .am-text-eyebrow')).toHaveCount(0);
   await expect(page.locator('[data-am-experience-form]')).toBeVisible();
-  await expect(page.locator('input[name="firstName"]')).toBeVisible();
+  await expect(page.getByLabel('Vorname der Buchung')).toBeVisible();
   await expect(page.locator('input[name="arrival"]')).toHaveCount(1);
   await expect(page.locator('input[name="departure"]')).toHaveCount(1);
   await expect(page.locator('header nav')).toHaveCount(0);

@@ -17,8 +17,7 @@ const landingHref = currentLang === 'es' ? '/amara-experience' : `/${currentLang
 <AmaraExperienceAccessLayout lang={currentLang} title={copy.formTitle} landingHref={landingHref}>
   <main id="am-experience-main" class="am-experience-access" tabindex="-1">
     <div class="am-experience-app__intro">
-      <p class="am-text-eyebrow mb-4 text-primary">{copy.accessEyebrow}</p>
-      <h1 class="am-text-title text-on-surface">{copy.formTitle}</h1>
+      <h1 class="am-text-subtitle text-on-surface">{copy.formTitle}</h1>
       <p class="am-text-body mt-5 leading-relaxed text-on-surface-variant">{copy.accessIntro}</p>
     </div>
 
@@ -39,7 +38,6 @@ const landingHref = currentLang === 'es' ? '/amara-experience' : `/${currentLang
       data-date-picker-complete-help={copy.datePickerCompleteHelp}
       data-date-picker-required-message={copy.datePickerRequiredMessage}
     >
-      <p class="am-text-body text-on-surface-variant">{copy.formIntro}</p>
       <label class="block">
         <span class="am-text-label mb-2 block text-on-surface">{copy.firstNameLabel}</span>
         <input class="am-form-control w-full" name="firstName" type="text" autocomplete="given-name" minlength="2" maxlength="80" required />
