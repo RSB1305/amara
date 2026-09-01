@@ -1,15 +1,31 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  BadgeCheck,
+  CalendarDays,
+  Croissant,
+  Footprints,
+  Heart,
+  MapPin,
+  Route,
+  Trees,
+  WavesHorizontal,
+} from '@lucide/astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import AmaraActionButton from '../../components/actions/AmaraActionButton.astro';
+import BookingDateRangeCalendar from '../../components/booking/BookingDateRangeCalendar.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import villageImage from '../../assets/images/content/amara-frigiliana-pueblo/frigiliana-old-town-steps.jpeg';
 import coastImage from '../../assets/images/content/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg';
 import eveningImage from '../../assets/images/content/hero-frigiliana.jpg';
 import { amaraExperienceSeo, getAmaraExperienceContent } from '../../content/amaraExperienceContent';
 import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -17,8 +33,21 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = getAmaraExperienceContent(currentLang);
 const guideHref = currentLang === 'es' ? '/amara-experience/guide' : `/${currentLang}/amara-experience/guide`;
+const hostHref = buildOwnedLocalizedPath('staying-with-us', currentLang);
 const seoHeroImage = await createAmaraImage(villageImage, 'hero');
 const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
+const promiseIcons = {
+  authenticity: Route,
+  exclusivity: BadgeCheck,
+  calm: Trees,
+} as const;
+const benefitIcons = {
+  eat: Croissant,
+  sea: WavesHorizontal,
+  walk: Footprints,
+  together: Heart,
+  'day-trip': MapPin,
+} as const;
 ---
 
 <BaseLayout
@@ -27,23 +56,30 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
   pageFamily="amara-experience-landing"
   navigationCurrentToken="amara_experience"
   navigationLanguageToken="amara_experience"
-  showContextNavigation={false}
+  contextBreadcrumbTitle={copy.title}
 >
   <AmaraPageShell family="amara-experience" dataLang={currentLang} class="am-experience-landing" whiteCanvas>
-    <AmaraSection variant="hero" dataComponent="amara-experience-introduction" class="am-experience-hero">
-      <div class="mx-auto grid max-w-screen-2xl items-center gap-14 lg:grid-cols-12 lg:gap-16 xl:gap-24">
-        <div class="lg:col-span-6 xl:col-span-5">
-          <p class="am-text-eyebrow mb-5 text-primary">{copy.eyebrow}</p>
-          <h1 class="am-text-display text-on-surface">{copy.title}</h1>
-          <p class="am-text-body mt-8 max-w-[65ch] leading-relaxed text-on-surface-variant">{copy.directAnswer}</p>
+    <div class="am-experience-editorial-hero" data-am-component="amara-experience-introduction">
+      <LocationGuideHero
+        eyebrow={copy.eyebrow}
+        title={copy.title}
+        subtitle={copy.subtitle}
+        paragraphs={[copy.directAnswer]}
+        accent={copy.heroAccent}
+        family="experience"
+        role="hub"
+        topic="overview"
+      >
+        <EditorialByline
+          slot="meta"
+          lang={currentLang}
+          authorName={copy.hostAuthorName}
+          authorHref={hostHref}
+          updated={copy.hostUpdated}
+          note={copy.hostNote}
+        />
 
-          <div class="mt-10 border-l border-primary/45 pl-5 sm:pl-7">
-            <p class="am-text-label text-primary">{copy.heroProofLabel}</p>
-            <p class="am-text-body mt-3 max-w-[54ch] text-on-surface-variant">{copy.heroProof}</p>
-          </div>
-        </div>
-
-        <div class="am-experience-hero__media lg:col-span-6 lg:col-start-7 xl:col-span-7 xl:col-start-6">
+        <div slot="visual" class="am-experience-hero__media">
           <div class="am-experience-hero__primary overflow-hidden bg-surface-container-low">
             <AmaraImage
               src={villageImage}
@@ -75,6 +111,42 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
             <span class="am-text-caption">EXPERIENCE</span>
           </div>
         </div>
+      </LocationGuideHero>
+    </div>
+
+    <AmaraSection family="experience" dataComponent="amara-experience-promises">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end lg:gap-12">
+          <div class="lg:col-span-8">
+            <p class="am-text-eyebrow mb-5 text-primary">{copy.promiseEyebrow}</p>
+            <h2 class="am-text-title max-w-[24ch] text-on-surface">{copy.promiseTitle}</h2>
+          </div>
+          <p class="am-text-body max-w-[60ch] leading-relaxed text-on-surface-variant lg:col-span-4">{copy.promiseIntro}</p>
+        </div>
+
+        <ol class="mt-14 grid gap-8 lg:mt-20 lg:grid-cols-3">
+          {copy.promises.map((promise) => {
+            const Icon = promiseIcons[promise.id as keyof typeof promiseIcons];
+
+            return (
+              <li class="am-experience-benefit border-t border-outline-variant/30 pt-6">
+                <div class="flex items-center justify-between gap-4">
+                  <p class="am-text-label text-primary">{promise.principle}</p>
+                  <span
+                    class="inline-grid h-11 w-11 shrink-0 place-items-center rounded-full border border-outline-variant/30 bg-surface-container-low text-primary"
+                    aria-hidden="true"
+                  >
+                    <Icon class="h-5 w-5" stroke-width={1.5} />
+                  </span>
+                </div>
+                <h3 class="am-text-subtitle mt-5 text-on-surface">{promise.title}</h3>
+                <p class="am-text-body mt-4 max-w-[52ch] leading-relaxed text-on-surface-variant">
+                  <InlineEmphasis text={promise.copy} />
+                </p>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </AmaraSection>
 
@@ -89,13 +161,25 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
         </div>
 
         <ol class="mt-14 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 xl:grid-cols-5">
-          {copy.benefits.map((benefit) => (
-            <li class="am-experience-benefit border-t border-outline-variant/30 pt-6">
-              <p class="am-text-label text-primary">{benefit.number}</p>
-              <h3 class="am-text-subtitle mt-5 text-on-surface">{benefit.title}</h3>
-              <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{benefit.copy}</p>
-            </li>
-          ))}
+          {copy.benefits.map((benefit) => {
+            const Icon = benefitIcons[benefit.id as keyof typeof benefitIcons];
+
+            return (
+              <li class="am-experience-benefit border-t border-outline-variant/30 pt-6">
+                <div class="flex items-center justify-between gap-4">
+                  <p class="am-text-label text-primary">{benefit.number}</p>
+                  <span
+                    class="inline-grid h-10 w-10 shrink-0 place-items-center rounded-full border border-outline-variant/30 bg-surface-white text-primary"
+                    aria-hidden="true"
+                  >
+                    <Icon class="h-5 w-5" stroke-width={1.5} />
+                  </span>
+                </div>
+                <h3 class="am-text-subtitle mt-5 text-on-surface">{benefit.title}</h3>
+                <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{benefit.copy}</p>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </AmaraSection>
@@ -149,19 +233,67 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
             data-denied-message={copy.deniedMessage}
             data-unavailable-message={copy.unavailableMessage}
             data-session-ended-message={copy.sessionEndedMessage}
+            data-choose-arrival-label={copy.chooseArrivalLabel}
+            data-choose-departure-label={copy.chooseDepartureLabel}
+            data-date-picker-help={copy.datePickerHelp}
+            data-date-picker-departure-help={copy.datePickerDepartureHelp}
+            data-date-picker-complete-help={copy.datePickerCompleteHelp}
+            data-date-picker-required-message={copy.datePickerRequiredMessage}
           >
             <label class="block">
               <span class="am-text-label mb-2 block text-on-surface">{copy.firstNameLabel}</span>
               <input class="am-form-control w-full" name="firstName" type="text" autocomplete="given-name" minlength="2" maxlength="80" required />
             </label>
-            <label class="block">
-              <span class="am-text-label mb-2 block text-on-surface">{copy.arrivalLabel}</span>
-              <input class="am-form-control w-full" name="arrival" type="date" autocomplete="off" required />
-            </label>
-            <label class="block">
-              <span class="am-text-label mb-2 block text-on-surface">{copy.departureLabel}</span>
-              <input class="am-form-control w-full" name="departure" type="date" autocomplete="off" required />
-            </label>
+            <div class="am-experience-date-picker relative" data-am-experience-date-picker>
+              <div class="space-y-5">
+                <label class="block" data-am-experience-native-arrival>
+                  <span class="am-text-label mb-2 block text-on-surface">{copy.arrivalLabel}</span>
+                  <input class="am-form-control w-full" name="arrival" type="date" autocomplete="off" required data-am-experience-arrival />
+                </label>
+                <div class="block" hidden data-am-experience-arrival-trigger-wrap>
+                  <span id="am-experience-arrival-label" class="am-text-label mb-2 block text-on-surface">{copy.arrivalLabel}</span>
+                  <button
+                    class="am-form-control am-form-control--trigger am-text-form-value flex w-full items-center justify-between gap-3 bg-surface-white"
+                    type="button"
+                    aria-controls="am-experience-date-calendar"
+                    aria-expanded="false"
+                    aria-labelledby="am-experience-arrival-label am-experience-arrival-value"
+                    data-am-experience-arrival-trigger
+                  >
+                    <span id="am-experience-arrival-value" class="min-w-0 flex-1 truncate text-left" data-am-experience-arrival-value>{copy.chooseArrivalLabel}</span>
+                    <CalendarDays class="h-5 w-5 shrink-0 text-primary" stroke-width={1.6} aria-hidden="true" />
+                  </button>
+                </div>
+
+                <label class="block" data-am-experience-native-departure>
+                  <span class="am-text-label mb-2 block text-on-surface">{copy.departureLabel}</span>
+                  <input class="am-form-control w-full" name="departure" type="date" autocomplete="off" required data-am-experience-departure />
+                </label>
+                <div class="block" hidden data-am-experience-departure-trigger-wrap>
+                  <span id="am-experience-departure-label" class="am-text-label mb-2 block text-on-surface">{copy.departureLabel}</span>
+                  <button
+                    class="am-form-control am-form-control--trigger am-text-form-value flex w-full items-center justify-between gap-3 bg-surface-white"
+                    type="button"
+                    aria-controls="am-experience-date-calendar"
+                    aria-expanded="false"
+                    aria-labelledby="am-experience-departure-label am-experience-departure-value"
+                    data-am-experience-departure-trigger
+                  >
+                    <span id="am-experience-departure-value" class="min-w-0 flex-1 truncate text-left" data-am-experience-departure-value>{copy.chooseDepartureLabel}</span>
+                    <CalendarDays class="h-5 w-5 shrink-0 text-primary" stroke-width={1.6} aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+
+              <div id="am-experience-date-calendar">
+                <BookingDateRangeCalendar
+                  title={copy.datePickerTitle}
+                  help={copy.datePickerHelp}
+                  previousMonthLabel={copy.previousMonthLabel}
+                  nextMonthLabel={copy.nextMonthLabel}
+                />
+              </div>
+            </div>
             <p class="am-text-body min-h-6 text-on-surface-variant" data-am-experience-status role="status" aria-live="polite"></p>
             <AmaraActionButton variant="primary" type="submit" class="w-full" data-am-experience-submit>
               <span data-am-experience-submit-label>{copy.submitLabel}</span>
@@ -181,13 +313,15 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
       dataComponent="amara-experience-booking-cta"
       role="conversion"
       family="experience"
+      tone="romance"
     />
   </AmaraPageShell>
 </BaseLayout>
 
 <style>
-  .am-experience-hero {
+  .am-experience-editorial-hero {
     overflow: hidden;
+    margin-inline: calc(var(--spacing-page-gutter) * -1);
   }
 
   .am-experience-hero__media {
@@ -219,7 +353,7 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
     place-content: center;
     gap: 0.15rem;
     border: 1px solid color-mix(in srgb, var(--color-primary) 34%, transparent);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: color-mix(in srgb, var(--color-surface-white) 94%, transparent);
     color: var(--color-primary);
     text-align: center;
@@ -233,6 +367,26 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
   .am-experience-benefit:hover {
     border-color: var(--color-primary);
     transform: translateY(-0.25rem);
+  }
+
+  .am-experience-date-picker :global(.am-booking-calendar__months) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .am-experience-date-picker :global(.am-booking-calendar__day),
+  .am-experience-date-picker :global(.am-booking-calendar__blank) {
+    min-height: 3.25rem;
+  }
+
+  @media (min-width: 40rem) {
+    .am-experience-date-picker :global(.am-booking-calendar) {
+      position: absolute;
+      inset-block-start: calc(100% + 0.75rem);
+      inset-inline-end: 0;
+      z-index: 90;
+      width: min(28rem, 100%);
+      margin-top: 0;
+    }
   }
 
   @media (max-width: 47.999rem) {
@@ -270,52 +424,7 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
 </style>
 
 <script>
-  const form = document.querySelector<HTMLFormElement>('[data-am-experience-form]');
-  if (form) {
-    const status = form.querySelector<HTMLElement>('[data-am-experience-status]');
-    const submit = form.querySelector<HTMLButtonElement>('[data-am-experience-submit]');
-    const submitLabel = form.querySelector<HTMLElement>('[data-am-experience-submit-label]');
-    const queryReason = new URLSearchParams(window.location.search).get('reason');
-    if (status && queryReason) {
-      status.textContent = queryReason === 'unavailable'
-        ? form.dataset.unavailableMessage ?? ''
-        : form.dataset.sessionEndedMessage ?? '';
-    }
+  import { enhanceExperienceAccessForms } from '../../scripts/experienceAccessForm';
 
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      if (!form.reportValidity()) return;
-      const data = new FormData(form);
-      if (status) status.textContent = '';
-      if (submit) submit.disabled = true;
-      if (submitLabel) submitLabel.textContent = form.dataset.pendingLabel ?? '';
-      try {
-        const response = await fetch('/api/guest/session', {
-          method: 'POST',
-          credentials: 'same-origin',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({
-            firstName: data.get('firstName'),
-            arrival: data.get('arrival'),
-            departure: data.get('departure'),
-            lang: form.dataset.lang
-          })
-        });
-        if (response.ok) {
-          window.location.assign(form.dataset.guideHref ?? '/amara-experience/guide');
-          return;
-        }
-        if (status) {
-          status.textContent = response.status >= 500
-            ? form.dataset.unavailableMessage ?? ''
-            : form.dataset.deniedMessage ?? '';
-        }
-      } catch {
-        if (status) status.textContent = form.dataset.unavailableMessage ?? '';
-      } finally {
-        if (submit) submit.disabled = false;
-        if (submitLabel) submitLabel.textContent = form.dataset.submitLabel ?? '';
-      }
-    });
-  }
+  enhanceExperienceAccessForms();
 </script>

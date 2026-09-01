@@ -49,6 +49,130 @@ function element<T extends Element>(root: ParentNode, selector: string) {
   return root.querySelector<T>(selector);
 }
 
+type SelectMenuController = {
+  render: () => void;
+  close: (restoreFocus?: boolean) => void;
+};
+
+function enhanceSelectMenu(
+  container: HTMLElement,
+  root: HTMLElement,
+  select: HTMLSelectElement,
+  compactLabels: MediaQueryList
+): SelectMenuController | undefined {
+  const trigger = element<HTMLButtonElement>(root, '[data-am-select-menu-trigger]');
+  const value = element<HTMLElement>(root, '[data-am-select-menu-value]');
+  const popover = element<HTMLElement>(root, '[data-am-select-menu-popover]');
+  const listbox = element<HTMLElement>(root, '[data-am-select-menu-listbox]');
+  if (!trigger || !value || !popover || !listbox) return;
+
+  const labelFor = (option: HTMLOptionElement) => compactLabels.matches
+    ? option.dataset.amGuestLabelCompact || option.dataset.amGuestLabel || option.textContent || ''
+    : option.dataset.amGuestLabel || option.textContent || '';
+  const optionButtons = () => [
+    ...listbox.querySelectorAll<HTMLButtonElement>('[data-am-select-menu-option]')
+  ];
+  const closeOthers = () => {
+    container.querySelectorAll<HTMLElement>('[data-am-select-menu-popover]').forEach((candidate) => {
+      if (candidate === popover) return;
+      candidate.hidden = true;
+      candidate.closest('[data-am-select-menu]')
+        ?.querySelector('[data-am-select-menu-trigger]')
+        ?.setAttribute('aria-expanded', 'false');
+    });
+  };
+  const render = () => {
+    const selected = select.selectedOptions[0] || select.options[0];
+    value.textContent = selected ? labelFor(selected) : '';
+    listbox.replaceChildren(...[...select.options].map((option) => {
+      const button = document.createElement('button');
+      button.className = 'am-select-menu__option am-text-form-value';
+      button.type = 'button';
+      button.role = 'option';
+      button.dataset.amSelectMenuOption = option.value;
+      button.setAttribute('aria-selected', String(option.selected));
+      button.textContent = labelFor(option);
+      return button;
+    }));
+  };
+  const close = (restoreFocus = false) => {
+    popover.hidden = true;
+    trigger.setAttribute('aria-expanded', 'false');
+    if (restoreFocus) trigger.focus();
+  };
+  const open = (direction: 1 | -1 = 1) => {
+    closeOthers();
+    render();
+    popover.hidden = false;
+    trigger.setAttribute('aria-expanded', 'true');
+    const buttons = optionButtons();
+    const selectedIndex = Math.max(0, [...select.options].findIndex((option) => option.selected));
+    const focusIndex = direction === -1 && selectedIndex === 0 ? buttons.length - 1 : selectedIndex;
+    buttons[focusIndex]?.focus();
+  };
+  const choose = (button: HTMLButtonElement) => {
+    const nextValue = button.dataset.amSelectMenuOption;
+    if (nextValue === undefined) return;
+    select.value = nextValue;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+    render();
+    close(true);
+  };
+  const moveFocus = (event: KeyboardEvent, offset: number) => {
+    const buttons = optionButtons();
+    const currentIndex = Math.max(0, buttons.indexOf(event.target as HTMLButtonElement));
+    buttons[(currentIndex + offset + buttons.length) % buttons.length]?.focus();
+  };
+
+  trigger.hidden = false;
+  render();
+  trigger.addEventListener('click', () => {
+    if (popover.hidden) open();
+    else close();
+  });
+  trigger.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowDown' && event.key !== 'ArrowUp') return;
+    event.preventDefault();
+    open(event.key === 'ArrowDown' ? 1 : -1);
+  });
+  listbox.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+    const button = target.closest<HTMLButtonElement>('[data-am-select-menu-option]');
+    if (button) choose(button);
+  });
+  listbox.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+      event.preventDefault();
+      moveFocus(event, event.key === 'ArrowDown' ? 1 : -1);
+      return;
+    }
+    const buttons = optionButtons();
+    if (event.key === 'Home' || event.key === 'End') {
+      event.preventDefault();
+      buttons[event.key === 'Home' ? 0 : buttons.length - 1]?.focus();
+      return;
+    }
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      close(true);
+      return;
+    }
+    if (event.key !== 'Enter' && event.key !== ' ') return;
+    event.preventDefault();
+    const target = event.target;
+    if (target instanceof HTMLButtonElement) choose(target);
+  });
+  document.addEventListener('pointerdown', (event) => {
+    const target = event.target;
+    if (popover.hidden || !(target instanceof Node) || root.contains(target)) return;
+    close();
+  });
+  select.addEventListener('change', render);
+
+  return { render, close };
+}
+
 export function enhanceStaySearchFinders() {
   document.querySelectorAll<HTMLElement>('[data-am-stay-search-finder]').forEach((container) => {
     if (container.dataset.amStaySearchEnhanced === 'true') return;
@@ -59,6 +183,8 @@ export function enhanceStaySearchFinders() {
     const arrival = element<HTMLInputElement>(container, '[data-am-stay-search-arrival]');
     const departure = element<HTMLInputElement>(container, '[data-am-stay-search-departure]');
     const guests = element<HTMLSelectElement>(container, '[data-am-stay-search-guests]');
+    const destinationMenuRoot = element<HTMLElement>(container, '[data-am-select-menu="destination"]');
+    const guestsMenuRoot = element<HTMLElement>(container, '[data-am-select-menu="guests"]');
     const arrivalWrap = element<HTMLElement>(container, '[data-am-stay-search-arrival-trigger-wrap]');
     const departureWrap = element<HTMLElement>(container, '[data-am-stay-search-departure-trigger-wrap]');
     const arrivalTrigger = element<HTMLButtonElement>(container, '[data-am-stay-search-arrival-trigger]');
@@ -72,7 +198,8 @@ export function enhanceStaySearchFinders() {
     const next = element<HTMLButtonElement>(container, '[data-am-booking-calendar-next]');
     const submit = element<HTMLButtonElement>(container, '[data-am-booking-calendar-submit]');
     const error = element<HTMLElement>(container, '[data-am-stay-search-error]');
-    if (!form || !destination || !arrival || !departure || !guests || !arrivalWrap ||
+    if (!form || !destination || !arrival || !departure || !guests || !destinationMenuRoot ||
+      !guestsMenuRoot || !arrivalWrap ||
       !departureWrap || !arrivalTrigger || !departureTrigger || !arrivalValue ||
       !departureValue || !calendar || !status || !monthsRoot || !previous || !next ||
       !submit || !error) return;
@@ -84,12 +211,14 @@ export function enhanceStaySearchFinders() {
     departure.required = false;
 
     const compactGuestLabels = window.matchMedia('(max-width: 639px)');
+    let guestsMenu: SelectMenuController | undefined;
     const renderGuestLabels = () => {
       guests.querySelectorAll<HTMLOptionElement>('option').forEach((option) => {
         option.textContent = compactGuestLabels.matches
           ? option.dataset.amGuestLabelCompact || option.dataset.amGuestLabel || option.textContent
           : option.dataset.amGuestLabel || option.textContent;
       });
+      guestsMenu?.render();
     };
     renderGuestLabels();
     compactGuestLabels.addEventListener('change', renderGuestLabels);
@@ -131,6 +260,9 @@ export function enhanceStaySearchFinders() {
       selectionMode = 'complete';
       anchorMonth = monthStart(initialArrival);
     }
+
+    enhanceSelectMenu(container, destinationMenuRoot, destination, compactGuestLabels);
+    guestsMenu = enhanceSelectMenu(container, guestsMenuRoot, guests, compactGuestLabels);
 
     const visibleMonths = () => desktopQuery.matches ? 2 : 1;
     const visibleMonthDates = () => Array.from(

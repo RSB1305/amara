@@ -1,6 +1,7 @@
 ---
 import { staySearchCopy, staySearchDestinations } from '../../content/staySearchContent';
 import type { AmaraLanguage } from '../../types/seo';
+import { ChevronDown } from '@lucide/astro';
 import AmaraActionButton from '../actions/AmaraActionButton.astro';
 import AmaraFormControl from '../forms/AmaraFormControl.astro';
 import BookingDateRangeCalendar from './BookingDateRangeCalendar.astro';
@@ -17,6 +18,15 @@ const copy = Object.fromEntries(
   Object.entries(staySearchCopy).map(([key, value]) => [key, t(value)])
 );
 const guestOptions = [1, 2, 3, 4];
+const destinationControlId = `am-stay-search-destination-${variant}`;
+const destinationLabelId = `${destinationControlId}-label`;
+const destinationListboxId = `${destinationControlId}-listbox`;
+const destinationValueId = `${destinationControlId}-value`;
+const guestsControlId = `am-stay-search-guests-${variant}`;
+const guestsLabelId = `${guestsControlId}-label`;
+const guestsListboxId = `${guestsControlId}-listbox`;
+const guestsValueId = `${guestsControlId}-value`;
+const initialGuestLabel = t(staySearchCopy.guestsPlural).replace('{count}', '2');
 ---
 
 <section
@@ -50,18 +60,40 @@ const guestOptions = [1, 2, 3, 4];
         variant === 'home' ? 'gap-3' : 'gap-4'
       ]}
     >
-      <label class="order-1 col-span-3 block min-w-0 sm:col-span-2 lg:col-span-1">
-        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.destination)}</span>
+      <div class="am-select-menu order-1 col-span-3 block min-w-0 sm:col-span-2 lg:col-span-1" data-am-select-menu="destination">
+        <label id={destinationLabelId} for={destinationControlId} class="am-text-label text-on-surface-variant">
+          {t(staySearchCopy.destination)}
+        </label>
         <AmaraFormControl
           as="select"
+          id={destinationControlId}
           name="destination"
-          data={{ 'data-am-stay-search-destination': '' }}
+          class="am-select-menu__native"
+          data={{ 'data-am-stay-search-destination': '', 'data-am-select-menu-native': '' }}
         >
           {staySearchDestinations.map((destination) => (
             <option value={destination.value}>{t(destination.label)}</option>
           ))}
         </AmaraFormControl>
-      </label>
+        <button
+          class="am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger mt-2"
+          type="button"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls={destinationListboxId}
+          aria-labelledby={`${destinationLabelId} ${destinationValueId}`}
+          hidden
+          data-am-select-menu-trigger
+        >
+          <span class="min-w-0 flex-1 truncate" id={destinationValueId} data-am-select-menu-value>
+            {t(staySearchDestinations[0].label)}
+          </span>
+          <ChevronDown class="am-select-menu__chevron h-4 w-4 shrink-0" stroke-width={1.6} aria-hidden="true" />
+        </button>
+        <div class="am-select-menu__popover" hidden data-am-select-menu-popover>
+          <div id={destinationListboxId} role="listbox" aria-labelledby={destinationLabelId} data-am-select-menu-listbox></div>
+        </div>
+      </div>
 
       <label class="order-3 col-span-2 block am-stay-search__native-date sm:order-2 sm:col-span-1">
         <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.arrival)}</span>
@@ -105,12 +137,16 @@ const guestOptions = [1, 2, 3, 4];
         </AmaraFormControl>
       </div>
 
-      <label class="order-2 col-span-1 block min-w-0 sm:order-4 sm:col-span-2 lg:col-span-1">
-        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.guests)}</span>
+      <div class="am-select-menu order-2 col-span-1 block min-w-0 sm:order-4 sm:col-span-2 lg:col-span-1" data-am-select-menu="guests">
+        <label id={guestsLabelId} for={guestsControlId} class="am-text-label text-on-surface-variant">
+          {t(staySearchCopy.guests)}
+        </label>
         <AmaraFormControl
           as="select"
+          id={guestsControlId}
           name="guests"
-          data={{ 'data-am-stay-search-guests': '' }}
+          class="am-select-menu__native"
+          data={{ 'data-am-stay-search-guests': '', 'data-am-select-menu-native': '' }}
         >
           {guestOptions.map((count) => (
             <option
@@ -123,7 +159,23 @@ const guestOptions = [1, 2, 3, 4];
             </option>
           ))}
         </AmaraFormControl>
-      </label>
+        <button
+          class="am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger mt-2"
+          type="button"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+          aria-controls={guestsListboxId}
+          aria-labelledby={`${guestsLabelId} ${guestsValueId}`}
+          hidden
+          data-am-select-menu-trigger
+        >
+          <span class="min-w-0 flex-1 truncate" id={guestsValueId} data-am-select-menu-value>{initialGuestLabel}</span>
+          <ChevronDown class="am-select-menu__chevron h-4 w-4 shrink-0" stroke-width={1.6} aria-hidden="true" />
+        </button>
+        <div class="am-select-menu__popover" hidden data-am-select-menu-popover>
+          <div id={guestsListboxId} role="listbox" aria-labelledby={guestsLabelId} data-am-select-menu-listbox></div>
+        </div>
+      </div>
     </div>
 
     <BookingDateRangeCalendar
@@ -160,7 +212,79 @@ const guestOptions = [1, 2, 3, 4];
      hairline keeps it part of the page while the negative margin still ties it
      to the image above. */
   .am-stay-search[data-am-stay-search-variant='home'] {
+    border-radius: var(--radius-overlay);
     border: 1px solid var(--color-outline-variant);
+  }
+
+  .am-select-menu {
+    position: relative;
+  }
+
+  [data-am-stay-search-enhanced='true'] .am-select-menu__native {
+    display: none;
+  }
+
+  .am-select-menu__trigger {
+    justify-content: space-between;
+    gap: 0.75rem;
+    background: var(--color-surface-white);
+  }
+
+  .am-select-menu__chevron {
+    transition: transform 180ms ease;
+  }
+
+  .am-select-menu__trigger[aria-expanded='true'] .am-select-menu__chevron {
+    transform: rotate(180deg);
+  }
+
+  .am-select-menu__popover {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    z-index: 80;
+    min-width: 100%;
+    padding: 0.375rem;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-overlay);
+    background: var(--color-surface-white);
+    box-shadow: 0 1rem 2.5rem rgb(31 28 23 / 14%);
+  }
+
+  [data-am-select-menu='guests'] .am-select-menu__popover {
+    right: 0;
+    left: auto;
+    min-width: min(12rem, calc(100vw - 3rem));
+  }
+
+  .am-select-menu__option {
+    display: flex;
+    min-height: 2.75rem;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    border-radius: calc(var(--radius-overlay) - 0.25rem);
+    padding: 0.625rem 0.75rem;
+    color: var(--color-on-surface);
+    text-align: left;
+  }
+
+  .am-select-menu__option:hover,
+  .am-select-menu__option:focus-visible {
+    background: var(--color-surface-container-low);
+    outline: none;
+  }
+
+  .am-select-menu__option[aria-selected='true'] {
+    background: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface-white));
+    color: var(--color-primary);
+  }
+
+  .am-select-menu__option[aria-selected='true']::after {
+    content: '✓';
+    color: var(--color-primary);
+    font-size: 0.875rem;
   }
 
   [data-am-stay-search-enhanced='true'] .am-stay-search__native-date {

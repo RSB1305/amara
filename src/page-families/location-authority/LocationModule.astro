@@ -6,7 +6,6 @@ interface Props {
   labelledby?: string;
   surface?: 'white' | 'tint' | 'inverse';
   spacing?: 'standard' | 'compact' | 'closing';
-  divider?: boolean;
   class?: string;
   [attribute: `data-am-${string}`]: string | undefined;
 }
@@ -16,7 +15,6 @@ const {
   labelledby,
   surface = 'white',
   spacing = 'standard',
-  divider = true,
   class: className,
   ...moduleAttributes
 } = Astro.props;
@@ -49,7 +47,6 @@ const moduleClass = ['mx-0 px-6 md:px-12', spacingClass, surfaceClass, className
   labelledby={labelledby}
   surface={canonicalSurface}
   family="location"
-  divider={divider}
   class={moduleClass}
   {...moduleAttributes}
 >

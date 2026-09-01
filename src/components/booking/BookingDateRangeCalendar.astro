@@ -19,7 +19,7 @@ const {
 ---
 
 <div
-  class="am-booking-calendar mt-6 border-y border-border-subtle bg-surface"
+  class="am-booking-calendar mt-6 bg-surface-white"
   hidden
   data-am-booking-calendar
 >
@@ -73,7 +73,10 @@ const {
   .am-booking-calendar {
     width: min(100%, 60rem);
     margin-inline: auto;
-    padding: 1.25rem 0;
+    padding: 1.25rem;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-overlay);
+    box-shadow: 0 1rem 2.5rem rgb(31 28 23 / 10%);
   }
 
   .am-booking-calendar__header,
@@ -99,6 +102,7 @@ const {
     border-left: 0.25rem solid var(--color-on-surface);
     background: color-mix(in srgb, var(--color-on-surface) 5%, var(--color-surface));
     padding: 0.75rem 1rem;
+    border-radius: var(--radius-overlay);
     color: var(--color-on-surface);
     font-weight: 700;
   }
@@ -194,6 +198,7 @@ const {
     justify-content: center;
     gap: 0.2rem;
     border: 1px solid transparent;
+    border-radius: var(--radius-control);
     color: var(--color-on-surface);
     transition: background-color 150ms ease, border-color 150ms ease;
   }
@@ -317,7 +322,11 @@ const {
       max-height: 85dvh;
       margin: 0;
       overflow-y: auto;
-      border-top: 1px solid var(--color-outline-variant);
+      border-right: 0;
+      border-bottom: 0;
+      border-left: 0;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
       box-shadow: 0 -12px 32px rgb(0 0 0 / 18%);
     }
   }
