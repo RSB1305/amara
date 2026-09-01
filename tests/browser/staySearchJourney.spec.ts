@@ -177,9 +177,30 @@ test('homepage finder refreshes live dates for destination changes and returns q
     return resolvedRadius;
   });
   await expect(homeFinder).toHaveCSS('border-radius', overlayRadius);
+  const destinationSelect = page.locator('[data-am-stay-search-destination]');
+  const destinationTrigger = page.locator(
+    '[data-am-select-menu="destination"] [data-am-select-menu-trigger]'
+  );
+  const destinationPopover = page.locator(
+    '[data-am-select-menu="destination"] [data-am-select-menu-popover]'
+  );
+  await expect(destinationSelect).toBeHidden();
+  await expect(page.locator('[data-am-stay-search-guests]')).toBeHidden();
+  await expect(destinationTrigger).toBeVisible();
+  await expect(page.locator('[data-am-select-menu="guests"] [data-am-select-menu-trigger]')).toBeVisible();
+  const nativeDateFields = page.locator('.am-stay-search__native-date');
+  await expect(nativeDateFields).toHaveCount(2);
+  await expect(nativeDateFields.nth(0)).toBeHidden();
+  await expect(nativeDateFields.nth(1)).toBeHidden();
+  await expect(page.locator('[data-am-stay-search-arrival-trigger]')).toBeVisible();
   expect(requests).toHaveLength(0);
   await expect(page.getByRole('button', { name: 'Check availability' })).toHaveCount(0);
-  await page.locator('[data-am-stay-search-destination]').selectOption('nerja');
+  await destinationTrigger.click();
+  await expect(destinationPopover).toBeVisible();
+  await expect(destinationPopover).toHaveCSS('border-radius', overlayRadius);
+  await expect(destinationPopover.getByRole('option')).toHaveCount(4);
+  await destinationPopover.locator('[data-am-select-menu-option="nerja"]').click();
+  await expect(destinationSelect).toHaveValue('nerja');
   const submit = page.getByRole('button', { name: 'Check availability' });
   await expect(submit).toBeVisible();
   await expect(submit).toBeDisabled();
@@ -189,7 +210,8 @@ test('homepage finder refreshes live dates for destination changes and returns q
   await expect(page.locator('.am-booking-calendar__month')).toHaveCount(2);
   await expect(page.locator('[data-am-booking-day="' + arrival + '"] .am-booking-calendar__day-price')).toContainText('from');
   await expect(page.locator('[data-am-booking-day="' + arrival + '"] .am-booking-calendar__day-price')).toContainText('€173');
-  await page.locator('[data-am-stay-search-destination]').selectOption('frigiliana');
+  await destinationTrigger.click();
+  await destinationPopover.locator('[data-am-select-menu-option="frigiliana"]').click();
   await expect.poll(() => requests.filter((url) => url.pathname.endsWith('/search-calendar')).length).toBe(4);
   await expect(page.locator('[data-am-booking-day="' + arrival + '"] .am-booking-calendar__day-price')).toContainText('€109');
   expect(requests.filter((url) => url.pathname.endsWith('/search-calendar')).map((url) =>

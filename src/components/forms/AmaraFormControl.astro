@@ -3,6 +3,7 @@ type FormControlData = Record<`data-${string}`, string | number | boolean | unde
 
 interface Props {
   as: 'input' | 'select' | 'button';
+  id?: string;
   name?: string;
   required?: boolean;
   disabled?: boolean;
@@ -15,6 +16,7 @@ interface Props {
 
 const {
   as,
+  id,
   name,
   required = false,
   disabled = false,
@@ -36,6 +38,7 @@ const controlClass = [
     {...data}
     class:list={controlClass}
     type="date"
+    id={id}
     name={name}
     required={required}
     disabled={disabled}
@@ -45,6 +48,7 @@ const controlClass = [
   <select
     {...data}
     class:list={controlClass}
+    id={id}
     name={name}
     required={required}
     disabled={disabled}
@@ -57,6 +61,7 @@ const controlClass = [
     {...data}
     class:list={controlClass}
     type="button"
+    id={id}
     name={name}
     disabled={disabled}
     aria-expanded={ariaExpanded}
