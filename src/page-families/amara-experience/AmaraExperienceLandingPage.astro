@@ -5,11 +5,13 @@ import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
 import AmaraActionButton from '../../components/actions/AmaraActionButton.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import villageImage from '../../assets/images/content/amara-frigiliana-pueblo/frigiliana-old-town-steps.jpeg';
 import coastImage from '../../assets/images/content/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg';
 import eveningImage from '../../assets/images/content/hero-frigiliana.jpg';
 import { amaraExperienceSeo, getAmaraExperienceContent } from '../../content/amaraExperienceContent';
 import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -17,6 +19,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = getAmaraExperienceContent(currentLang);
 const guideHref = currentLang === 'es' ? '/amara-experience/guide' : `/${currentLang}/amara-experience/guide`;
+const hostHref = buildOwnedLocalizedPath('staying-with-us', currentLang);
 const seoHeroImage = await createAmaraImage(villageImage, 'hero');
 const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
 ---
@@ -145,6 +148,13 @@ const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
               <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
             ))}
           </div>
+          <EditorialByline
+            lang={currentLang}
+            authorName={copy.hostAuthorName}
+            authorHref={hostHref}
+            updated={copy.hostUpdated}
+            note={copy.hostNote}
+          />
         </div>
       </div>
     </AmaraSection>
