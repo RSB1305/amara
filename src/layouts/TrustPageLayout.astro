@@ -27,6 +27,7 @@ interface Props {
     title: string;
     titleWidth?: 'default' | 'wide';
     lead: string;
+    leadVariant?: 'body' | 'subtitle';
     subtitle?: string;
     supportText?: string;
     ctaLinks?: HeroLink[];
@@ -65,6 +66,7 @@ const trustFamilyAttributes = isAmaraTrustFamilyId(pageFamily) ? getTrustFamilyA
         title={hero.title}
         titleWidth={hero.titleWidth}
         lead={hero.lead}
+        leadVariant={hero.leadVariant}
         supportText={hero.supportText}
         ctaLinks={hero.ctaLinks}
         ctaVariant={hero.ctaVariant}

@@ -53,9 +53,9 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page.locator('[data-am-experience-form]')).toBeVisible();
   await expect(page.getByLabel('Vorname der Buchung')).toBeVisible();
   await expect(page.locator('input[name="arrival"]')).toHaveCount(1);
-  await expect(page.locator('input[name="departure"]')).toHaveCount(1);
+  await expect(page.locator('input[name="departure"]')).toHaveCount(0);
   const fieldBackgrounds = await page.locator(
-    'input[name="firstName"], [data-am-experience-arrival-trigger], [data-am-experience-departure-trigger]'
+    'input[name="firstName"], [data-am-experience-arrival-trigger]'
   ).evaluateAll((fields) => fields.map((field) => getComputedStyle(field).backgroundColor));
   expect(new Set(fieldBackgrounds).size).toBe(1);
   expect(fieldBackgrounds[0]).toBe('rgb(255, 255, 255)');
@@ -83,6 +83,13 @@ test('the guest access page stays focused on booking verification', async ({ pag
 });
 
 test('the protected AMARA stay hub contains the accommodation, local essentials and personal recommendations', async ({ page }) => {
+  await page.route('**/api/guest/profile', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ firstName: 'Robert' })
+    });
+  });
   await page.goto('/de/amara-experience/guide/guestwelcome-frigiliana-farah');
 
   await expect(page.locator('main h1')).toHaveText('Euer Aufenthalt bei AMARA in Frigiliana');
@@ -101,6 +108,27 @@ test('the protected AMARA stay hub contains the accommodation, local essentials 
     '/de/amara-experience/guide/frigiliana-guest-essentials'
   );
   await expect(page.locator('[data-am-guide-logout]')).toHaveText('Abmelden');
+  await expect(page.locator('[data-am-guide-guest-greeting]')).toHaveText('Hallo Robert');
+
+  await page.unroute('**/api/guest/profile');
+  await page.route('**/api/guest/profile', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ firstName: 'Guest' })
+    });
+  });
+  const localizedFallbacks = [
+    ['/en/amara-experience/guide/guestwelcome-frigiliana-farah', 'Dear Guest'],
+    ['/de/amara-experience/guide/guestwelcome-frigiliana-farah', 'Liebe Gäste'],
+    ['/amara-experience/guide/guestwelcome-frigiliana-farah', 'Estimados huéspedes'],
+    ['/nl/amara-experience/guide/guestwelcome-frigiliana-farah', 'Beste gasten'],
+    ['/sv/amara-experience/guide/guestwelcome-frigiliana-farah', 'Kära gäster']
+  ];
+  for (const [href, fallback] of localizedFallbacks) {
+    await page.goto(href);
+    await expect(page.locator('[data-am-guide-guest-greeting]')).toHaveText(fallback);
+  }
 });
 
 test('a legacy anonymous Guest Welcome URL redirects to the localized access page', async ({ page }) => {

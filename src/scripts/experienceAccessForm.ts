@@ -34,15 +34,10 @@ function enhanceExperienceAccessForm(form: HTMLFormElement) {
   if (form.dataset.amExperienceEnhanced === 'true') return;
 
   const nativeArrivalWrap = element<HTMLElement>(form, '[data-am-experience-native-arrival]');
-  const nativeDepartureWrap = element<HTMLElement>(form, '[data-am-experience-native-departure]');
   const arrival = element<HTMLInputElement>(form, '[data-am-experience-arrival]');
-  const departure = element<HTMLInputElement>(form, '[data-am-experience-departure]');
   const arrivalWrap = element<HTMLElement>(form, '[data-am-experience-arrival-trigger-wrap]');
-  const departureWrap = element<HTMLElement>(form, '[data-am-experience-departure-trigger-wrap]');
   const arrivalTrigger = element<HTMLButtonElement>(form, '[data-am-experience-arrival-trigger]');
-  const departureTrigger = element<HTMLButtonElement>(form, '[data-am-experience-departure-trigger]');
   const arrivalValue = element<HTMLElement>(form, '[data-am-experience-arrival-value]');
-  const departureValue = element<HTMLElement>(form, '[data-am-experience-departure-value]');
   const datePicker = element<HTMLElement>(form, '[data-am-experience-date-picker]');
   const calendar = element<HTMLElement>(form, '[data-am-booking-calendar]');
   const calendarStatus = element<HTMLElement>(form, '[data-am-booking-calendar-status]');
@@ -53,24 +48,18 @@ function enhanceExperienceAccessForm(form: HTMLFormElement) {
   const submit = element<HTMLButtonElement>(form, '[data-am-experience-submit]');
   const submitLabel = element<HTMLElement>(form, '[data-am-experience-submit-label]');
 
-  if (!nativeArrivalWrap || !nativeDepartureWrap || !arrival || !departure ||
-    !arrivalWrap || !departureWrap || !arrivalTrigger || !departureTrigger ||
-    !arrivalValue || !departureValue || !datePicker || !calendar || !calendarStatus ||
-    !monthsRoot || !previous || !next || !status || !submit || !submitLabel) return;
+  if (!nativeArrivalWrap || !arrival || !arrivalWrap || !arrivalTrigger || !arrivalValue ||
+    !datePicker || !calendar || !calendarStatus || !monthsRoot || !previous || !next ||
+    !status || !submit || !submitLabel) return;
 
   form.dataset.amExperienceEnhanced = 'true';
   nativeArrivalWrap.hidden = true;
-  nativeDepartureWrap.hidden = true;
   arrivalWrap.hidden = false;
-  departureWrap.hidden = false;
   arrival.required = false;
-  departure.required = false;
 
   const language = form.dataset.lang || 'en';
   const today = isoDay(new Date());
   let anchorMonth = monthStart(arrival.value || today);
-  let selectionMode: 'arrival' | 'departure' = arrival.value ? 'departure' : 'arrival';
-  let activeTrigger = arrivalTrigger;
   let focusDate = arrival.value || today;
 
   const formatDate = (value: string) => new Intl.DateTimeFormat(language, {
@@ -86,35 +75,11 @@ function enhanceExperienceAccessForm(form: HTMLFormElement) {
     new Intl.DateTimeFormat(language, { weekday: 'short', timeZone: 'UTC' })
       .format(new Date(Date.UTC(2026, 0, 5 + index)))
   );
-  const canSelect = (value: string) =>
-    selectionMode === 'arrival' || Boolean(arrival.value && value > arrival.value);
-  const calendarHelp = () => departure.value
-    ? form.dataset.datePickerCompleteHelp || ''
-    : selectionMode === 'departure'
-      ? form.dataset.datePickerDepartureHelp || ''
-      : form.dataset.datePickerHelp || '';
 
-  const updateTriggers = () => {
+  const updateTrigger = () => {
     arrivalValue.textContent = arrival.value
       ? formatDate(arrival.value)
       : form.dataset.chooseArrivalLabel || '';
-    departureValue.textContent = departure.value
-      ? formatDate(departure.value)
-      : form.dataset.chooseDepartureLabel || '';
-  };
-
-  const applyRange = (button: HTMLButtonElement, value: string) => {
-    if (!arrival.value) return;
-    if (!departure.value) {
-      if (value === arrival.value) button.dataset.range = 'start';
-      return;
-    }
-    if (value < arrival.value || value > departure.value) return;
-    button.dataset.range = value === arrival.value
-      ? 'start'
-      : value === departure.value
-        ? 'end'
-        : 'middle';
   };
 
   const renderMonth = (date: Date) => {
@@ -156,11 +121,10 @@ function enhanceExperienceAccessForm(form: HTMLFormElement) {
       button.className = 'am-booking-calendar__day';
       button.type = 'button';
       button.dataset.amBookingDay = value;
-      button.disabled = !canSelect(value);
-      button.tabIndex = value === focusDate && !button.disabled ? 0 : -1;
+      button.tabIndex = value === focusDate ? 0 : -1;
       button.setAttribute('aria-label', formatFullDate(value));
-      button.setAttribute('aria-pressed', String(value === arrival.value || value === departure.value));
-      applyRange(button, value);
+      button.setAttribute('aria-pressed', String(value === arrival.value));
+      if (value === arrival.value) button.dataset.range = 'start';
 
       const number = document.createElement('span');
       number.className = 'am-booking-calendar__day-number';
@@ -179,58 +143,38 @@ function enhanceExperienceAccessForm(form: HTMLFormElement) {
     });
   };
   const render = () => {
-    calendarStatus.textContent = calendarHelp();
+    calendarStatus.textContent = form.dataset.datePickerHelp || '';
     monthsRoot.replaceChildren(renderMonth(anchorMonth));
-    updateTriggers();
+    updateTrigger();
   };
   const closeCalendar = (restoreFocus = false) => {
     calendar.hidden = true;
     arrivalTrigger.setAttribute('aria-expanded', 'false');
-    departureTrigger.setAttribute('aria-expanded', 'false');
-    if (restoreFocus) activeTrigger.focus();
+    if (restoreFocus) arrivalTrigger.focus();
   };
-  const openCalendar = (
-    mode: 'arrival' | 'departure',
-    trigger: HTMLButtonElement
-  ) => {
-    selectionMode = mode === 'departure' && arrival.value ? 'departure' : 'arrival';
-    activeTrigger = selectionMode === 'departure' ? departureTrigger : arrivalTrigger;
-    const selectedDate = selectionMode === 'departure'
-      ? departure.value || addDays(arrival.value, 1)
-      : arrival.value || today;
+  const openCalendar = () => {
+    const selectedDate = arrival.value || today;
     focusDate = selectedDate;
     anchorMonth = monthStart(selectedDate);
     calendar.hidden = false;
-    arrivalTrigger.setAttribute('aria-expanded', String(activeTrigger === arrivalTrigger));
-    departureTrigger.setAttribute('aria-expanded', String(activeTrigger === departureTrigger));
+    arrivalTrigger.setAttribute('aria-expanded', 'true');
     render();
     focusRenderedDate();
-    if (trigger !== activeTrigger) activeTrigger.focus();
   };
   const moveFocus = (nextDate: string) => {
-    let candidate = nextDate;
-    const direction = candidate < focusDate ? -1 : 1;
-    for (let attempt = 0; attempt < 370 && !canSelect(candidate); attempt += 1) {
-      candidate = addDays(candidate, direction);
-    }
-    focusDate = candidate;
-    anchorMonth = monthStart(candidate);
+    focusDate = nextDate;
+    anchorMonth = monthStart(nextDate);
     render();
     focusRenderedDate();
   };
 
   arrivalTrigger.addEventListener('click', () => {
-    if (!calendar.hidden && activeTrigger === arrivalTrigger) closeCalendar();
-    else openCalendar('arrival', arrivalTrigger);
-  });
-  departureTrigger.addEventListener('click', () => {
-    if (!calendar.hidden && activeTrigger === departureTrigger) closeCalendar();
-    else openCalendar('departure', departureTrigger);
+    if (!calendar.hidden) closeCalendar();
+    else openCalendar();
   });
   previous.addEventListener('click', () => {
     anchorMonth = addMonths(anchorMonth, -1);
     focusDate = isoDay(anchorMonth);
-    if (!canSelect(focusDate) && arrival.value) focusDate = addDays(arrival.value, 1);
     render();
     focusRenderedDate();
   });
@@ -245,23 +189,10 @@ function enhanceExperienceAccessForm(form: HTMLFormElement) {
     if (!(target instanceof Element)) return;
     const button = target.closest<HTMLButtonElement>('[data-am-booking-day]');
     const value = button?.dataset.amBookingDay;
-    if (!button || button.disabled || !value) return;
+    if (!button || !value) return;
 
-    if (selectionMode === 'arrival') {
-      arrival.value = value;
-      departure.value = '';
-      selectionMode = 'departure';
-      activeTrigger = departureTrigger;
-      focusDate = addDays(value, 1);
-      anchorMonth = monthStart(focusDate);
-      arrivalTrigger.setAttribute('aria-expanded', 'false');
-      departureTrigger.setAttribute('aria-expanded', 'true');
-      render();
-      focusRenderedDate();
-      return;
-    }
-
-    departure.value = value;
+    arrival.value = value;
+    focusDate = value;
     render();
     closeCalendar(true);
   });
@@ -305,9 +236,9 @@ function enhanceExperienceAccessForm(form: HTMLFormElement) {
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     if (!form.reportValidity()) return;
-    if (!arrival.value || !departure.value || arrival.value >= departure.value) {
+    if (!arrival.value) {
       status.textContent = form.dataset.datePickerRequiredMessage || '';
-      openCalendar(arrival.value ? 'departure' : 'arrival', arrival.value ? departureTrigger : arrivalTrigger);
+      openCalendar();
       return;
     }
 
@@ -323,7 +254,6 @@ function enhanceExperienceAccessForm(form: HTMLFormElement) {
         body: JSON.stringify({
           firstName: data.get('firstName'),
           arrival: data.get('arrival'),
-          departure: data.get('departure'),
           lang: form.dataset.lang
         })
       });
@@ -348,7 +278,7 @@ function enhanceExperienceAccessForm(form: HTMLFormElement) {
     }
   });
 
-  updateTriggers();
+  updateTrigger();
 }
 
 export function enhanceExperienceAccessForms() {

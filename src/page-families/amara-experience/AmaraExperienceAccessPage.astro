@@ -35,10 +35,7 @@ const landingHref = currentLang === 'es' ? '/amara-experience' : `/${currentLang
       data-unavailable-message={copy.unavailableMessage}
       data-session-ended-message={copy.sessionEndedMessage}
       data-choose-arrival-label={copy.chooseArrivalLabel}
-      data-choose-departure-label={copy.chooseDepartureLabel}
       data-date-picker-help={copy.datePickerHelp}
-      data-date-picker-departure-help={copy.datePickerDepartureHelp}
-      data-date-picker-complete-help={copy.datePickerCompleteHelp}
       data-date-picker-required-message={copy.datePickerRequiredMessage}
     >
       <label class="block">
@@ -46,7 +43,7 @@ const landingHref = currentLang === 'es' ? '/amara-experience' : `/${currentLang
         <input class="am-form-control w-full bg-surface-white" name="firstName" type="text" autocomplete="given-name" minlength="2" maxlength="80" required />
       </label>
       <div class="am-experience-date-picker relative" data-am-experience-date-picker>
-        <div class="space-y-5">
+        <div>
           <label class="block" data-am-experience-native-arrival>
             <span class="am-text-label mb-2 block text-on-surface">{copy.arrivalLabel}</span>
             <input class="am-form-control w-full" name="arrival" type="date" autocomplete="off" required data-am-experience-arrival />
@@ -66,24 +63,6 @@ const landingHref = currentLang === 'es' ? '/amara-experience' : `/${currentLang
             </button>
           </div>
 
-          <label class="block" data-am-experience-native-departure>
-            <span class="am-text-label mb-2 block text-on-surface">{copy.departureLabel}</span>
-            <input class="am-form-control w-full" name="departure" type="date" autocomplete="off" required data-am-experience-departure />
-          </label>
-          <div class="block" hidden data-am-experience-departure-trigger-wrap>
-            <span id="am-experience-departure-label" class="am-text-label mb-2 block text-on-surface">{copy.departureLabel}</span>
-            <button
-              class="am-form-control am-form-control--trigger am-text-form-value flex w-full items-center justify-between gap-3 bg-surface-white"
-              type="button"
-              aria-controls="am-experience-date-calendar"
-              aria-expanded="false"
-              aria-labelledby="am-experience-departure-label am-experience-departure-value"
-              data-am-experience-departure-trigger
-            >
-              <span id="am-experience-departure-value" class="min-w-0 flex-1 truncate text-left" data-am-experience-departure-value>{copy.chooseDepartureLabel}</span>
-              <CalendarDays class="h-5 w-5 shrink-0 text-primary" stroke-width={1.6} aria-hidden="true" />
-            </button>
-          </div>
         </div>
 
         <div id="am-experience-date-calendar">
