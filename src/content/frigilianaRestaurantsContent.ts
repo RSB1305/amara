@@ -293,11 +293,11 @@ export const frigilianaRestaurantsContent: Record<
             title: 'The Garden Restaurant',
             bestFor: 'A terrace dinner in Barribarto',
             description:
-              'The operator and municipality place The Garden on Calle del Santo Cristo in Barribarto and describe a terrace with an international, Mediterranean-influenced cuisine format.',
+              'The Garden sits on Calle del Santo Cristo in Barribarto, with a terrace and cooking shaped by Mediterranean and international influences.',
             tip:
-              'If the terrace matters, ask the restaurant to confirm current terrace operation and table availability when booking.',
+              'If you would like to sit outside, ask for a terrace table when you book and let the restaurant confirm current availability.',
             goodToKnow:
-              'A documented terrace does not establish sunset orientation, a particular view or the route back. Those details need a current confirmation or a first-hand AMARA note.'
+              'Terrace tables differ in position. If evening light or a particular outlook matters to you, mention it when reserving.'
           }),
           restaurant('gloriaBendita', {
             title: 'Gloria Bendita',
@@ -335,7 +335,7 @@ export const frigilianaRestaurantsContent: Record<
             tip:
               'Ask specifically which terrace or sea-view tables are available, then confirm the current booking conditions before choosing the table.',
             goodToKnow:
-              'Some front-row sea-view reservations can carry separate conditions or a supplement. Treat the restaurant’s current confirmation as definitive.'
+              'Ask about the conditions and any supplement for a front-row sea-view table when reserving; the restaurant will give you the current details.'
           }),
           restaurant('oliva', {
             title: 'Restaurante Oliva',
@@ -429,12 +429,12 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Check the same week',
           text:
-            'Opening days, winter breaks and menus change. We deliberately do not reproduce hours here; confirm them through the restaurant’s current information.'
+            'Check opening days, winter breaks and current menus directly with the restaurant during the week of your visit.'
         },
         {
           title: 'Decide who is driving',
           text:
-            'If alcohol is part of the evening, decide the return before you reserve. Do not infer a walk-home route or taxi availability from the destination name alone.'
+            'If alcohol is part of the evening, decide your return before reserving and confirm the walking route or taxi plan for that specific restaurant.'
         },
         {
           title: 'Expect dinner to start later',
@@ -443,7 +443,7 @@ export const frigilianaRestaurantsContent: Record<
         }
       ],
       note:
-        'Our selection is independent and based on the experience we want guests to have. We do not sell restaurant bookings, and restaurants can change menus, prices and opening arrangements without notice.'
+        'We choose restaurants independently for the experience they can add to your stay. For current menus, prices, opening days and reservations, contact the restaurant directly.'
     },
     combine: {
       title: 'Build the day around the meal',
@@ -453,21 +453,21 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Burriana and lunch as one beach day',
           text:
-            'If Burriana’s urban service profile suits you, AYO is directly on the beach as a daytime option. Check current operation and use the beach guide for access and beach choice.',
+            'If you want a beach day with restaurants and services close by, AYO sits directly on Burriana beach for lunch. Use our beach guide for access and choosing the stretch of coast that suits your day, and check AYO’s current opening before you go.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'See the beach guide'
         },
         {
           title: 'Hills, then a village table',
           text:
-            'A longer or more demanding route changes how much time remains for dinner. Use the hiking guide for the route commitment, then check a restaurant’s current operation separately; no route-to-table pairing is verified yet.',
+            'A longer or more demanding route leaves less time before dinner. Choose the route length in our hiking guide and leave enough margin before your restaurant reservation.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'See the hiking guide'
         },
         {
-          title: 'After a central Nerja dinner: a tested sunset drink',
+          title: 'After dinner in central Nerja: a sunset drink',
           text:
-            'If dinner leaves you near the Balcón or old town, Cochran’s Terrace is our personally tested next step. We watched the sunset there in summer 2025 over a Cuba Libre and a Mai Tai. The exact restaurant we paired it with is no longer certain, so choose dinner separately and check Cochran’s current opening before you go.',
+            'After dinner near the Balcón or old town, we like to continue to Cochran’s Terrace for a sunset drink. In summer 2025, we watched the sun go down there over a Cuba Libre and a Mai Tai. Check the current opening before you go.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'See our Nerja evening'
         }
@@ -551,11 +551,11 @@ export const frigilianaRestaurantsContent: Record<
             title: 'The Garden Restaurant',
             bestFor: 'Ein Terrassenessen im Barribarto',
             description:
-              'Betreiber und Gemeinde verorten The Garden an der Calle del Santo Cristo im Barribarto und beschreiben eine Terrasse sowie eine international und mediterran geprägte Küche.',
+              'The Garden liegt an der Calle del Santo Cristo im Barribarto und verbindet eine Terrasse mit mediterran und international geprägter Küche.',
             tip:
-              'Wenn euch die Terrasse wichtig ist, lasst euch bei der Reservierung den aktuellen Terrassenbetrieb und die Tischverfügbarkeit bestätigen.',
+              'Wenn ihr draußen sitzen möchtet, fragt bei der Reservierung nach einem Terrassentisch und lasst euch die aktuelle Verfügbarkeit bestätigen.',
             goodToKnow:
-              'Eine belegte Terrasse beweist weder Sonnenuntergangsrichtung noch eine bestimmte Aussicht oder den Rückweg. Dafür brauchen wir eine aktuelle Bestätigung oder eine eigene AMARA-Notiz.',
+              'Die Terrassentische unterscheiden sich in ihrer Lage. Wenn euch Abendlicht oder eine bestimmte Aussicht wichtig sind, sprecht das bei der Reservierung direkt an.',
           }),
           restaurant('gloriaBendita', {
             title: 'Gloria Bendita',
@@ -593,7 +593,7 @@ export const frigilianaRestaurantsContent: Record<
             tip:
               'Fragt konkret, welche Terrassen- oder Meerblicktische verfügbar sind, und bestätigt vor der Auswahl die aktuell geltenden Reservierungsbedingungen.',
             goodToKnow:
-              'Für Tische in der ersten Meerblickreihe können besondere Bedingungen oder ein Aufpreis gelten. Maßgeblich ist die aktuelle Bestätigung des Restaurants.'
+              'Fragt bei der Reservierung nach den Bedingungen und einem möglichen Aufpreis für einen Tisch in der ersten Meerblickreihe; das Restaurant nennt euch die aktuellen Details.'
           }),
           restaurant('oliva', {
             title: 'Restaurante Oliva',
@@ -687,12 +687,12 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'In derselben Woche prüfen',
           text:
-            'Ruhetage, Winterpausen und Karten ändern sich. Deshalb nennen wir bewusst keine Öffnungszeiten; bestätigt sie über die aktuellen Angaben des Restaurants.'
+            'Prüft Ruhetage, Winterpausen und die aktuelle Karte in der Woche eures Besuchs direkt beim Restaurant.'
         },
         {
           title: 'Vorher klären, wer fährt',
           text:
-            'Wenn Alkohol zum Abend gehört, klärt die Rückfahrt vor der Reservierung. Aus dem Ortsnamen allein lassen sich weder ein sicherer Heimweg zu Fuß noch Taxiverfügbarkeit ableiten.'
+            'Wenn Alkohol zum Abend gehört, klärt eure Rückfahrt vor der Reservierung und stimmt Fußweg oder Taxi für das konkrete Restaurant ab.'
         },
         {
           title: 'Mit einem späteren Rhythmus rechnen',
@@ -701,7 +701,7 @@ export const frigilianaRestaurantsContent: Record<
         }
       ],
       note:
-        'Unsere Auswahl ist unabhängig und orientiert sich an dem Erlebnis, das wir Gästen wünschen. Wir vermitteln keine Restaurantbuchungen; Karten, Preise und Öffnungstage können sich ohne Ankündigung ändern.'
+        'Wir wählen Restaurants unabhängig nach dem Erlebnis aus, das sie eurem Aufenthalt geben können. Aktuelle Karten, Preise, Öffnungstage und Reservierungen klärt ihr direkt mit dem Restaurant.'
     },
     combine: {
       title: 'Den Tag auf das Essen zulaufen lassen',
@@ -711,21 +711,21 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Burriana und Mittagessen als ein Strandtag',
           text:
-            'Wenn Burrianas urbanes Serviceprofil zu euch passt, liegt AYO direkt am Strand als Tagesoption. Prüft die aktuelle Öffnung und nutzt den Strand-Guide für Zugang und Strandwahl.',
+            'Wenn ihr einen Strandtag mit Restaurants und Angeboten in direkter Nähe möchtet, liegt AYO für den Lunch direkt am Burriana-Strand. Nutzt unseren Strand-Guide für Zugang und Strandwahl und prüft vorab AYOs aktuelle Öffnung.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Zum Strand-Guide'
         },
         {
           title: 'Erst die Hügel, dann ein Dorftisch',
           text:
-            'Eine längere oder anspruchsvollere Route verändert, wie viel Zeit danach für ein Essen bleibt. Nutzt den Wander-Guide für den Routenumfang und prüft den aktuellen Restaurantbetrieb getrennt; eine konkrete Route-zu-Tisch-Kombination ist noch nicht verifiziert.',
+            'Eine längere oder anspruchsvollere Route lässt weniger Zeit bis zum Abendessen. Wählt den passenden Routenumfang im Wander-Guide und plant genügend Puffer bis zu eurer Reservierung ein.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Zum Wander-Guide'
         },
         {
-          title: 'Nach dem Essen im Zentrum: ein erprobter Sundowner',
+          title: 'Nach dem Essen im Zentrum: ein Sundowner',
           text:
-            'Wenn euer Restaurant beim Balcón oder in der Altstadt liegt, ist Cochran’s Terrace unser persönlich erprobter nächster Schritt. Im Sommer 2025 sahen wir dort bei Cuba Libre und Mai Tai den Sonnenuntergang. Welches Restaurant wir davor besucht hatten, wissen wir nicht mehr sicher; wählt das Essen deshalb getrennt und prüft Cochran’s aktuelle Öffnung.',
+            'Nach einem Abendessen beim Balcón oder in der Altstadt gehen wir gern für einen Sundowner auf die Cochran’s Terrace weiter. Im Sommer 2025 sahen wir dort bei Cuba Libre und Mai Tai die Sonne untergehen. Prüft vor eurem Abend die aktuelle Öffnung.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Zu unserem Nerja-Abend'
         }
@@ -809,11 +809,11 @@ export const frigilianaRestaurantsContent: Record<
             title: 'The Garden Restaurant',
             bestFor: 'Una cena en terraza en Barribarto',
             description:
-              'El operador y el ayuntamiento sitúan The Garden en la calle del Santo Cristo, en Barribarto, y describen una terraza y una cocina de influencias internacionales y mediterráneas.',
+              'The Garden está en la calle del Santo Cristo, en Barribarto, y combina una terraza con una cocina de influencias mediterráneas e internacionales.',
             tip:
-              'Si la terraza es importante, pedid al restaurante que confirme su funcionamiento actual y la disponibilidad de mesas al reservar.',
+              'Si queréis sentaros fuera, pedid una mesa en la terraza al reservar y dejad que el restaurante os confirme la disponibilidad actual.',
             goodToKnow:
-              'Una terraza documentada no demuestra la orientación del atardecer, una vista concreta ni la ruta de regreso. Esos detalles requieren confirmación actual o una nota propia de AMARA.',
+              'Las mesas de la terraza ocupan posiciones distintas. Si os importa la luz del atardecer o una vista concreta, comentadlo al reservar.',
           }),
           restaurant('gloriaBendita', {
             title: 'Gloria Bendita',
@@ -849,9 +849,9 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'Restaurant 34, en Hotel Carabeo, trabaja con producto local y ofrece varios espacios, entre ellos una terraza de verano frente al Mediterráneo.',
             tip:
-              'Pregunta qué mesas de terraza o con vistas están disponibles y confirma las condiciones actuales antes de elegir una ubicación concreta.',
+              'Preguntad qué mesas de terraza o con vistas están disponibles y confirmad las condiciones actuales antes de elegir una ubicación concreta.',
             goodToKnow:
-              'Algunas mesas de primera línea pueden tener condiciones o suplemento propios. La confirmación vigente del restaurante es la referencia válida.'
+              'Al reservar, preguntad por las condiciones y cualquier suplemento para una mesa en primera línea con vistas al mar; el restaurante os dará los detalles actuales.'
           }),
           restaurant('oliva', {
             title: 'Restaurante Oliva',
@@ -943,14 +943,14 @@ export const frigilianaRestaurantsContent: Record<
             'Reserva con tiempo las terrazas y las cenas especiales. Para tapas informales suelen servir más la flexibilidad y llegar pronto que una reserva formal.'
         },
         {
-          title: 'Comprueba esa misma semana',
+          title: 'Comprobad esa misma semana',
           text:
-            'Los descansos, cierres de invierno y cartas cambian. Por eso no reproducimos horarios: confírmalos en la información actual del restaurante.'
+            'Comprobad directamente con el restaurante los días de descanso, cierres de invierno y la carta actual durante la semana de vuestra visita.'
         },
         {
-          title: 'Decide quién conduce',
+          title: 'Decidid quién conduce',
           text:
-            'Si el alcohol forma parte de la noche, decidid el regreso antes de reservar. El nombre del destino no demuestra una ruta peatonal segura ni disponibilidad de taxi.'
+            'Si el alcohol forma parte de la noche, decidid el regreso antes de reservar y concretad la ruta a pie o el taxi para ese restaurante.'
         },
         {
           title: 'Cuenta con un ritmo más tardío',
@@ -959,7 +959,7 @@ export const frigilianaRestaurantsContent: Record<
         }
       ],
       note:
-        'Nuestra selección es independiente y responde a la experiencia que queremos para los huéspedes. No vendemos reservas; las cartas, los precios y los días de apertura pueden cambiar sin previo aviso.'
+        'Elegimos los restaurantes de forma independiente por la experiencia que pueden aportar a vuestra estancia. Para cartas, precios, días de apertura y reservas actuales, contactad directamente con el restaurante.'
     },
     combine: {
       title: 'Haz que el día conduzca hacia la mesa',
@@ -969,21 +969,21 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Burriana y almuerzo como un solo día de playa',
           text:
-            'Si el perfil urbano y de servicios de Burriana os encaja, AYO está directamente en la playa como opción diurna. Comprobad su actividad actual y usad la guía de playas para el acceso y la elección.',
+            'Si queréis un día de playa con restaurantes y servicios cerca, AYO está directamente en la playa de Burriana para el almuerzo. Usad nuestra guía de playas para el acceso y la elección del tramo de costa, y comprobad antes la apertura actual de AYO.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Ver la guía de playas'
         },
         {
           title: 'Primero la sierra, después una mesa en el pueblo',
           text:
-            'Una ruta más larga o exigente cambia el tiempo disponible para cenar. Usad la guía de senderismo para valorar el compromiso de la ruta y comprobad aparte el funcionamiento actual del restaurante; aún no hay una combinación ruta-mesa verificada.',
+            'Una ruta más larga o exigente deja menos tiempo antes de la cena. Elegid la distancia adecuada en nuestra guía de senderismo y dejad margen suficiente antes de vuestra reserva.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Ver la guía de senderismo'
         },
         {
-          title: 'Después de cenar en el centro: un atardecer probado',
+          title: 'Después de cenar en el centro: una copa al atardecer',
           text:
-            'Si cenáis cerca del Balcón o del casco antiguo, Cochran’s Terrace es nuestro siguiente paso probado personalmente. Allí vimos la puesta de sol en verano de 2025 con un Cuba Libre y un Mai Tai. Ya no recordamos con seguridad el restaurante anterior; elegid la cena por separado y comprobad la apertura actual de Cochran’s.',
+            'Después de cenar cerca del Balcón o del casco antiguo, nos gusta continuar la noche con una copa al atardecer en Cochran’s Terrace. En verano de 2025 vimos allí ponerse el sol con un Cuba Libre y un Mai Tai. Comprobad el horario actual antes de ir.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Ver nuestra noche en Nerja'
         }
@@ -1067,11 +1067,11 @@ export const frigilianaRestaurantsContent: Record<
             title: 'The Garden Restaurant',
             bestFor: 'Een terrasdiner in Barribarto',
             description:
-              'De exploitant en de gemeente plaatsen The Garden aan Calle del Santo Cristo in Barribarto en beschrijven een terras en een internationaal-mediterraan keukenconcept.',
+              'The Garden ligt aan Calle del Santo Cristo in Barribarto en combineert een terras met een mediterraan-internationale keuken.',
             tip:
-              'Als het terras belangrijk is, laat het restaurant bij de reservering de actuele terraswerking en tafelbeschikbaarheid bevestigen.',
+              'Willen jullie buiten zitten, vraag dan bij de reservering om een terrastafel en laat het restaurant de actuele beschikbaarheid bevestigen.',
             goodToKnow:
-              'Een gedocumenteerd terras bewijst geen zonsondergangsrichting, specifiek uitzicht of terugroute. Die details vragen een actuele bevestiging of een eigen AMARA-notitie.',
+              'De terrastafels liggen op verschillende plekken. Is avondlicht of een bepaald uitzicht belangrijk voor jullie, vermeld dat dan bij de reservering.',
           }),
           restaurant('gloriaBendita', {
             title: 'Gloria Bendita',
@@ -1107,9 +1107,9 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'Restaurant 34 in Hotel Carabeo werkt met lokale producten en heeft verschillende eetruimtes, waaronder een zomerterras aan de Middellandse Zee.',
             tip:
-              'Vraag specifiek welke terras- of zeezichttafels beschikbaar zijn en bevestig de actuele reserveringsvoorwaarden voordat je een plek kiest.',
+              'Vraag specifiek welke terras- of zeezichttafels beschikbaar zijn en bevestig de actuele reserveringsvoorwaarden voordat jullie een plek kiezen.',
             goodToKnow:
-              'Voor sommige tafels op de eerste rij kunnen aparte voorwaarden of een toeslag gelden. De actuele bevestiging van het restaurant is leidend.'
+              'Vraag bij de reservering naar de voorwaarden en een mogelijke toeslag voor een tafel op de eerste rij met zeezicht; het restaurant geeft jullie de actuele details.'
           }),
           restaurant('oliva', {
             title: 'Restaurante Oliva',
@@ -1203,12 +1203,12 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Controleer in dezelfde week',
           text:
-            'Rustdagen, wintersluitingen en menu’s veranderen. Daarom nemen we geen openingstijden over; bevestig ze via de actuele informatie van het restaurant.'
+            'Controleer rustdagen, wintersluitingen en het actuele menu in de week van jullie bezoek rechtstreeks bij het restaurant.'
         },
         {
           title: 'Bepaal vooraf wie rijdt',
           text:
-            'Als alcohol bij de avond hoort, beslis dan vóór het reserveren over de terugreis. Uit alleen de plaatsnaam volgen geen veilige looproute of beschikbare taxi.'
+            'Hoort alcohol bij de avond, regel dan vóór de reservering jullie terugreis en stem de looproute of taxi af op het gekozen restaurant.'
         },
         {
           title: 'Reken op een later ritme',
@@ -1217,7 +1217,7 @@ export const frigilianaRestaurantsContent: Record<
         }
       ],
       note:
-        'Onze selectie is onafhankelijk en draait om de ervaring die we gasten willen bieden. We verkopen geen restaurantreserveringen; menu’s, prijzen en openingsdagen kunnen zonder bericht veranderen.'
+        'Wij kiezen restaurants onafhankelijk op basis van wat ze aan jullie verblijf kunnen toevoegen. Voor actuele menu’s, prijzen, openingsdagen en reserveringen nemen jullie rechtstreeks contact op met het restaurant.'
     },
     combine: {
       title: 'Laat de dag naar de maaltijd toe werken',
@@ -1227,21 +1227,21 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Burriana en lunch als één stranddag',
           text:
-            'Als Burriana’s stedelijke voorzieningenprofiel bij jullie past, ligt AYO direct aan het strand als optie voor overdag. Controleer de actuele werking en gebruik de strandgids voor toegang en strandkeuze.',
+            'Willen jullie een stranddag met restaurants en voorzieningen dichtbij, dan ligt AYO direct aan het strand van Burriana voor de lunch. Gebruik onze strandgids voor toegang en strandkeuze en controleer vooraf de actuele opening van AYO.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Bekijk de strandgids'
         },
         {
           title: 'Eerst de heuvels, dan een tafel in het dorp',
           text:
-            'Een langere of zwaardere route verandert hoeveel tijd er voor het diner overblijft. Gebruik de wandelgids voor de omvang van de route en controleer de actuele restaurantwerking apart; er is nog geen route-naar-tafelcombinatie geverifieerd.',
+            'Een langere of zwaardere route laat minder tijd over voor het diner. Kies de passende route in onze wandelgids en plan voldoende speling vóór jullie reservering.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Bekijk de wandelgids'
         },
         {
-          title: 'Na een diner in het centrum: een beproefde sundowner',
+          title: 'Na een diner in het centrum: een drankje bij zonsondergang',
           text:
-            'Eten jullie bij het Balcón of in de oude stad, dan is Cochran’s Terrace onze persoonlijk beproefde volgende stap. In de zomer van 2025 zagen we daar met een Cuba Libre en een Mai Tai de zon ondergaan. Welk restaurant eraan voorafging weten we niet meer zeker; kies het diner dus apart en controleer de actuele opening van Cochran’s.',
+            'Na een diner bij het Balcón of in de oude stad gaan we graag door naar Cochran’s Terrace voor een drankje bij zonsondergang. In de zomer van 2025 zagen we daar de zon ondergaan met een Cuba Libre en een Mai Tai. Controleer vooraf de actuele openingstijden.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Bekijk onze avond in Nerja'
         }
@@ -1325,11 +1325,11 @@ export const frigilianaRestaurantsContent: Record<
             title: 'The Garden Restaurant',
             bestFor: 'En terrassmiddag i Barribarto',
             description:
-              'Operatören och kommunen placerar The Garden på Calle del Santo Cristo i Barribarto och beskriver en terrass samt ett internationellt och medelhavsinspirerat köksformat.',
+              'The Garden ligger på Calle del Santo Cristo i Barribarto och kombinerar en terrass med ett medelhavsinspirerat och internationellt kök.',
             tip:
-              'Om terrassen är viktig, be restaurangen bekräfta aktuell terrassdrift och bordstillgång vid bokningen.',
+              'Om ni vill sitta ute, be om ett terrassbord när ni bokar och låt restaurangen bekräfta aktuell tillgänglighet.',
             goodToKnow:
-              'En dokumenterad terrass bevisar inte solnedgångsriktning, en viss utsikt eller vägen tillbaka. Det kräver aktuell bekräftelse eller en egen AMARA-notering.',
+              'Terrassborden ligger på olika platser. Om kvällsljus eller en särskild utsikt är viktig för er, nämn det vid bokningen.',
           }),
           restaurant('gloriaBendita', {
             title: 'Gloria Bendita',
@@ -1365,9 +1365,9 @@ export const frigilianaRestaurantsContent: Record<
             description:
               'Restaurant 34 på Hotel Carabeo arbetar med lokala råvaror och har flera matsalar, däribland en sommarterrass mot Medelhavet.',
             tip:
-              'Fråga specifikt vilka terrass- eller havsutsiktsbord som finns och bekräfta de aktuella bokningsvillkoren innan du väljer plats.',
+              'Fråga specifikt vilka terrass- eller havsutsiktsbord som finns och bekräfta de aktuella bokningsvillkoren innan ni väljer plats.',
             goodToKnow:
-              'Vissa bord närmast havet kan ha särskilda villkor eller ett tillägg. Restaurangens aktuella bekräftelse gäller.'
+              'Fråga vid bokningen om villkoren och eventuellt tillägg för ett bord på första raden med havsutsikt; restaurangen ger er de aktuella detaljerna.'
           }),
           restaurant('oliva', {
             title: 'Restaurante Oliva',
@@ -1461,12 +1461,12 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Kontrollera samma vecka',
           text:
-            'Vilodagar, vinterstängningar och menyer ändras. Därför återger vi inga öppettider; bekräfta dem via restaurangens aktuella information.'
+            'Kontrollera vilodagar, vinterstängningar och aktuell meny direkt med restaurangen under veckan för ert besök.'
         },
         {
           title: 'Bestäm vem som kör',
           text:
-            'Om alkohol ingår i kvällen, bestäm hemresan före bokningen. Ortsnamnet i sig bevisar varken en säker promenadväg hem eller tillgång till taxi.'
+            'Om alkohol ingår i kvällen, bestäm hemresan före bokningen och planera promenadväg eller taxi för den valda restaurangen.'
         },
         {
           title: 'Räkna med en senare rytm',
@@ -1475,7 +1475,7 @@ export const frigilianaRestaurantsContent: Record<
         }
       ],
       note:
-        'Vårt urval är oberoende och utgår från upplevelsen vi vill ge gäster. Vi säljer inga restaurangbokningar; menyer, priser och öppningsdagar kan ändras utan förvarning.'
+        'Vi väljer restauranger oberoende utifrån vad de kan tillföra er vistelse. För aktuella menyer, priser, öppningsdagar och bokningar kontaktar ni restaurangen direkt.'
     },
     combine: {
       title: 'Låt dagen leda fram till måltiden',
@@ -1485,21 +1485,21 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Burriana och lunch som en stranddag',
           text:
-            'Om Burrianas stadsstrand och serviceprofil passar er ligger AYO direkt vid stranden som ett alternativ dagtid. Kontrollera aktuell verksamhet och använd strandguiden för tillträde och strandval.',
+            'Om ni vill ha en stranddag med restauranger och service nära till hands ligger AYO direkt på Burrianastranden för lunch. Använd vår strandguide för tillträde och strandval och kontrollera AYOs aktuella öppettider i förväg.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Se strandguiden'
         },
         {
           title: 'Först bergen, sedan ett bord i byn',
           text:
-            'En längre eller mer krävande led ändrar hur mycket tid som återstår för middag. Använd vandringsguiden för ledens omfattning och kontrollera restaurangens aktuella drift separat; ingen led-till-bord-kombination är ännu verifierad.',
+            'En längre eller mer krävande led lämnar mindre tid före middagen. Välj en passande rutt i vår vandringsguide och lägg in tillräcklig marginal före er bokning.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Se vandringsguiden'
         },
         {
-          title: 'Efter middag i centrum: en prövad sundowner',
+          title: 'Efter middag i centrum: en drink i solnedgången',
           text:
-            'Om middagen ligger nära Balcón eller gamla stan är Cochran’s Terrace vårt personligen prövade nästa steg. Sommaren 2025 såg vi solnedgången där med en Cuba Libre och en Mai Tai. Vi minns inte längre säkert vilken restaurang vi åt på före besöket; välj därför middagen separat och kontrollera Cochran’s aktuella öppettider.',
+            'Efter en middag nära Balcón eller gamla stan fortsätter vi gärna till Cochran’s Terrace för en drink i solnedgången. Sommaren 2025 såg vi solen gå ner där med en Cuba Libre och en Mai Tai. Kontrollera de aktuella öppettiderna före ert besök.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Se vår kväll i Nerja'
         }
