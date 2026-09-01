@@ -14,6 +14,7 @@ interface Props {
   /** Compatibility alias while content models retain the old key. */
   subtitle?: string;
   lead: string;
+  leadVariant?: 'body' | 'subtitle';
   ctaLinks?: Array<AmaraHeroAction | AmaraHeroStyledAction>;
   ctaVariant?: 'editorial' | 'conversion';
   supportText?: string;
@@ -26,6 +27,7 @@ const {
   eyebrow,
   subtitle,
   lead,
+  leadVariant = 'body',
   ctaLinks = [],
   ctaVariant = 'editorial',
   supportText,
@@ -53,7 +55,10 @@ const heroAttributes = getAmaraHeroAttributes({
     ]}
     set:html={title}
   />
-  <p class="am-text-body am-exp-hero__lead text-subtle"><InlineEmphasis text={lead} /></p>
+  <p class:list={[
+    leadVariant === 'subtitle' ? 'am-text-subtitle' : 'am-text-body',
+    'am-exp-hero__lead text-subtle'
+  ]}><InlineEmphasis text={lead} /></p>
   {supportText && <p class="am-text-body am-hero-support italic text-muted"><InlineEmphasis text={supportText} /></p>}
   {ctaLinks.length > 0 && ctaVariant === 'conversion' && (
     <div class="am-exp-hero__actions">

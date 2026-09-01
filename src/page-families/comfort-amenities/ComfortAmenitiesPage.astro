@@ -361,7 +361,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
     subtitle: page.hero.subtitle,
     title: page.hero.title,
     lead: page.hero.lead,
-    supportText: page.hero.supportText,
+    leadVariant: 'subtitle',
     ctaLinks: heroCtaLinks,
     ctaVariant: 'conversion'
   }}
@@ -371,13 +371,7 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
     <AmaraSection labelledby="amenities-inventory-title">
       <div class="mx-auto max-w-[76rem]" aria-label={page.sections.inventoryAria}>
         <h2 id="amenities-inventory-title" class="am-text-title text-on-surface">{page.sections.inventoryTitle}</h2>
-        <div class="mb-14 mt-6 max-w-3xl space-y-5">
-          {page.sections.inventoryLead.map((paragraph) => (
-            <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
-          ))}
-        </div>
-
-        <div class="am-page-band mb-12 border-y border-outline-variant/30 py-6">
+        <div class="am-page-band mb-12 mt-8 border-y border-outline-variant/30 py-6">
             <p id="property-filter-label" class="am-text-caption mb-4 font-bold text-on-surface">
               {amenityFilterCopy.propertyLabel}
             </p>

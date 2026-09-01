@@ -66,14 +66,12 @@ export const comfortAmenitiesCopy: Record<
       subtitle: string;
       title: string;
       lead: string;
-      supportText: string;
       ctaAbout: string;
       ctaReviews: string;
     };
     sections: {
       inventoryAria: string;
       inventoryTitle: string;
-      inventoryLead: string[];
     };
     inventory: {
       directBooking: string;
@@ -116,18 +114,13 @@ export const comfortAmenitiesCopy: Record<
     hero: {
       subtitle: 'Compare before you book.',
       title: 'Beds, terraces, kitchens & access.',
-      lead: 'Farah has a kitchenette but no full kitchen; **Playa has lift access after ten steps**; and three Frigiliana apartments have private terraces.',
-      supportText: 'Compare occupancy, bed sizes, access, parking, views and seasonal price ranges for every AMARA stay.',
+      lead: 'Ten years of travel and five years of hosting experience have shaped the amenities in every AMARA stay.',
       ctaAbout: trustLabels.about.en,
       ctaReviews: trustLabels.reviews_hub.en
     },
     sections: {
       inventoryAria: 'Inventory list',
-      inventoryTitle: 'Everything you need',
-      inventoryLead: [
-        'Ten years of travelling for work and privately: what stands in these apartments is what we missed ourselves. Room-darkening shades at every window, because after a late flight you want to sleep in. A workspace with 1 Gbit/s and a network socket, in case a holiday day turns into a working day. Kettle, coffee maker and toaster, so the first morning does not start with a shopping trip.',
-        'Five years of hosting added the rest: a drying rack and an iron for longer stays, extra blankets for cool evenings, a first aid kit and a smoke alarm in every apartment. What an apartment does not have is in the list too — Farah has no full kitchen and no washing machine. For the details, filter below by stay or by category.'
-      ]
+      inventoryTitle: 'Everything you need'
     },
     inventory: {
       directBooking: trustLabels.book.en,
@@ -169,18 +162,13 @@ export const comfortAmenitiesCopy: Record<
     hero: {
       subtitle: 'Vor der Buchung vergleichen.',
       title: 'Betten, Terrassen, Küchen & Zugang.',
-      lead: 'Farah hat eine Teeküche, aber keine vollständige Küche; **bei Playa führen zehn Stufen zum Aufzug**; und drei Apartments in Frigiliana haben private Terrassen.',
-      supportText: 'Vergleicht Belegung, Bettgrößen, Zugang, Parken, Ausblick und saisonale Preisspannen aller AMARA-Unterkünfte.',
+      lead: 'Zehn Jahre Reiseerfahrung und fünf Jahre als Gastgeber sind in die Ausstattung unserer AMARA-Unterkünfte eingeflossen.',
       ctaAbout: trustLabels.about.de,
       ctaReviews: trustLabels.reviews_hub.de
     },
     sections: {
       inventoryAria: 'Inventarliste',
-      inventoryTitle: 'Alles, was ihr braucht',
-      inventoryLead: [
-        'Zehn Jahre beruflich und privat unterwegs: Was hier in den Wohnungen steht, haben wir vorher selbst vermisst. Verdunkelung an jedem Fenster, weil man nach einem späten Flug ausschlafen will. Ein Arbeitsplatz mit 1 Gbit/s und Netzwerkdose, falls aus einem Urlaubstag doch ein Arbeitstag wird. Wasserkocher, Kaffeemaschine und Toaster, damit der erste Morgen nicht mit dem Einkaufen anfängt.',
-        'Fünf Jahre als Gastgeber haben den Rest ergänzt: Wäscheständer und Bügeleisen für längere Aufenthalte, zusätzliche Decken für kühle Abende, Erste-Hilfe-Kasten und Rauchmelder in jeder Wohnung. Was eine Wohnung nicht hat, steht genauso in der Liste — Farah hat keine vollständige Küche und keine Waschmaschine. Für Detailinformationen filtert unten nach Unterkunft oder Kategorie.'
-      ]
+      inventoryTitle: 'Alles, was ihr braucht'
     },
     inventory: {
       directBooking: trustLabels.book.de,
@@ -222,18 +210,13 @@ export const comfortAmenitiesCopy: Record<
     hero: {
       subtitle: 'Comparad antes de reservar.',
       title: 'Camas, terrazas, cocinas y acceso.',
-      lead: 'Farah tiene una pequeña zona de cocina, pero no cocina completa; **en Playa hay diez escalones antes del ascensor**; y tres apartamentos de Frigiliana cuentan con terraza privada.',
-      supportText: 'Comparad capacidad, tamaño de las camas, acceso, aparcamiento, vistas y precios orientativos de todos los alojamientos AMARA.',
+      lead: 'Diez años viajando y cinco años como anfitriones han dado forma al equipamiento de todos nuestros alojamientos AMARA.',
       ctaAbout: trustLabels.about.es,
       ctaReviews: trustLabels.reviews_hub.es
     },
     sections: {
       inventoryAria: 'Lista de inventario',
-      inventoryTitle: 'Todo lo que necesitáis',
-      inventoryLead: [
-        'Diez años viajando por trabajo y por gusto: lo que hay en estos apartamentos es lo que echábamos de menos nosotros. Cortinas opacas en cada ventana, porque después de un vuelo tardío uno quiere dormir. Un espacio de trabajo con 1 Gbit/s y toma de red, por si un día de vacaciones acaba siendo un día de trabajo. Hervidor, cafetera y tostadora, para que la primera mañana no empiece con la compra.',
-        'Cinco años como anfitriones han añadido el resto: tendedero y plancha para estancias largas, mantas de más para las noches frescas, botiquín y detector de humo en cada apartamento. Lo que un apartamento no tiene también aparece en la lista: Farah no tiene cocina completa ni lavadora. Para los detalles, filtrad abajo por alojamiento o por categoría.'
-      ]
+      inventoryTitle: 'Todo lo que necesitáis'
     },
     inventory: {
       directBooking: trustLabels.book.es,
@@ -275,18 +258,13 @@ export const comfortAmenitiesCopy: Record<
     hero: {
       subtitle: 'Vergelijk voordat jullie boeken.',
       title: 'Bedden, terrassen, keukens & toegang.',
-      lead: 'Farah heeft een kitchenette maar geen volledige keuken; **bij Playa zijn er tien treden vóór de lift**; en drie appartementen in Frigiliana hebben een privéterras.',
-      supportText: 'Vergelijk bezetting, bedmaten, toegang, parkeren, uitzicht en seizoensprijzen van alle AMARA-verblijven.',
+      lead: 'Tien jaar reiservaring en vijf jaar gastheerschap hebben de voorzieningen van al onze AMARA-verblijven gevormd.',
       ctaAbout: trustLabels.about.nl,
       ctaReviews: trustLabels.reviews_hub.nl
     },
     sections: {
       inventoryAria: 'Inventarislijst',
-      inventoryTitle: 'Alles wat jullie nodig hebben',
-      inventoryLead: [
-        'Tien jaar onderweg voor werk en privé: wat hier in de appartementen staat, hebben we zelf gemist. Verduistering voor elk raam, want na een late vlucht wil je uitslapen. Een werkplek met 1 Gbit/s en een netwerkaansluiting, mocht een vakantiedag toch een werkdag worden. Waterkoker, koffiezetapparaat en broodrooster, zodat de eerste ochtend niet met boodschappen begint.',
-        'Vijf jaar gastheerschap heeft de rest aangevuld: een droogrek en een strijkijzer voor langere verblijven, extra dekens voor koele avonden, een EHBO-doos en een rookmelder in elk appartement. Wat een appartement niet heeft, staat er net zo goed bij — Farah heeft geen volledige keuken en geen wasmachine. Voor de details filteren jullie hieronder op verblijf of op categorie.'
-      ]
+      inventoryTitle: 'Alles wat jullie nodig hebben'
     },
     inventory: {
       directBooking: trustLabels.book.nl,
@@ -328,18 +306,13 @@ export const comfortAmenitiesCopy: Record<
     hero: {
       subtitle: 'Jämför innan ni bokar.',
       title: 'Sängar, terrasser, kök & tillträde.',
-      lead: 'Farah har pentry men inget komplett kök; **till hissen i Playa leder tio trappsteg**; och tre lägenheter i Frigiliana har privat terrass.',
-      supportText: 'Jämför antal gäster, sängmått, tillträde, parkering, utsikt och säsongspriser för alla AMARA-boenden.',
+      lead: 'Tio års reseerfarenhet och fem år som värdar har format utrustningen i alla våra AMARA-boenden.',
       ctaAbout: trustLabels.about.sv,
       ctaReviews: trustLabels.reviews_hub.sv
     },
     sections: {
       inventoryAria: 'Inventarielista',
-      inventoryTitle: 'Allt ni behöver',
-      inventoryLead: [
-        'Tio år på resande fot i jobbet och privat: det som står i lägenheterna är det vi själva saknade. Mörkläggning för varje fönster, för efter ett sent flyg vill man sova ut. En arbetsplats med 1 Gbit/s och nätverksuttag, ifall en semesterdag ändå blir en arbetsdag. Vattenkokare, kaffebryggare och brödrost, så att första morgonen inte börjar med att handla.',
-        'Fem år som värdar har fyllt på resten: torkställning och strykjärn för längre vistelser, extra filtar för svala kvällar, första hjälpen-låda och brandvarnare i varje lägenhet. Det en lägenhet inte har står lika tydligt i listan — Farah har varken fullt kök eller tvättmaskin. För detaljerna filtrerar ni nedan på boende eller kategori.'
-      ]
+      inventoryTitle: 'Allt ni behöver'
     },
     inventory: {
       directBooking: trustLabels.book.sv,
