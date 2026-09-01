@@ -248,8 +248,11 @@ const hostAboutHref = resolveOptionalLink('about', currentLang, { suppressMissin
  * the Booking.com and Airbnb signals without repeating the full proof here.
  */
 const heroProof = [
-  t(cinematicHeroProofBooking),
-  t(cinematicHeroProofRating)
+  {
+    label: t(cinematicHeroProofBooking),
+    href: trustReviewsHref ? `${trustReviewsHref}#booking-awards` : null
+  },
+  { label: t(cinematicHeroProofRating) }
 ];
 
 /**
