@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.57.0
+version: 1.58.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-01T14:24:17+02:00
+last_modified: 2026-09-01T14:29:20+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -194,6 +194,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-09-01T14:29:20+02:00 | Inverse calendar emphasis | Gave the canonical header availability icon a white circular background, dark calendar mark, fine boundary and restrained shadow so the compact action gains emphasis over both imagery and light headers without changing its hit area. Astro & Design Contract 4.24.0, Register 1.58.0; operative rule aligned in `AGENTS.md`. | DR-DESIGN-003, DR-BOOK-001 | this revision |
 | 2026-09-01T14:24:17+02:00 | Compact availability action | Replaced the written availability treatment in the canonical public header with the shared calendar-check icon on mobile and desktop. The localized accessible name, AMARA stay-search target, visible mobile-menu label and five separate header hit areas remain intact. Astro & Design Contract 4.23.0, Register 1.57.0; operative rule aligned in `AGENTS.md`. | DR-DESIGN-003, DR-BOOK-001 | this revision |
 | 2026-09-01T14:14:49+02:00 | Persistent AMARA Experience access | Retained the landing-page access section and added a localized login-style access icon immediately before the language globe in the canonical public header, preserving all existing narrow-mobile header jobs. Astro & Design Contract 4.22.0, Guest Utility 2.7.0, Register 1.56.0. | DR-GUEST-003, DR-DESIGN-003 | this revision |
 | 2026-09-01T14:06:06+02:00 | Guest hub local Essentials | Restored the existing destination-specific Essentials page as the direct middle entry on all six protected guest hubs, between the booked stay and AMARA Experience, without duplicating it inside accommodation details. Guest Utility 2.6.0, Register 1.55.0. | DR-GUEST-003 | this revision |
@@ -350,3 +351,4 @@ Separate controlled workstreams remain for:
 | 1.55.0 | 2026-09-01T14:06:06+02:00 | Restored destination-specific local Essentials as the direct middle entry on each protected guest hub and aligned Guest Utility 2.6.0. | this revision |
 | 1.56.0 | 2026-09-01T14:14:49+02:00 | Added persistent localized AMARA Experience access in the public header while retaining the landing-page access section; aligned Design Contract 4.22.0 and Guest Utility 2.7.0. | this revision |
 | 1.57.0 | 2026-09-01T14:24:17+02:00 | Replaced the public-header availability text with the calendar-check icon at every viewport while preserving route, localization and mobile-menu wording; aligned Design Contract 4.23.0 and `AGENTS.md`. | this revision |
+| 1.58.0 | 2026-09-01T14:29:20+02:00 | Inverted the calendar-check action into its white circular emphasis while preserving size, route and localization; aligned Design Contract 4.24.0 and `AGENTS.md`. | this revision |

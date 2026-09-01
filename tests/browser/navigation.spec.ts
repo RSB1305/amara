@@ -92,6 +92,19 @@ test('the header exposes three calm desktop groups with AMARA Experience inside 
   );
   await expect(page.locator('[data-am-navigation] .am-nav__cta-icon')).toBeVisible();
   await expect(page.locator('[data-am-navigation] [class^="am-nav__cta-label"]')).toHaveCount(0);
+  const availabilityStyle = await page.locator('[data-am-availability-action]').evaluate((element) => {
+    const style = getComputedStyle(element);
+    return {
+      backgroundColor: style.backgroundColor,
+      borderRadius: Number.parseFloat(style.borderRadius),
+      boxShadow: style.boxShadow,
+      color: style.color
+    };
+  });
+  expect(availabilityStyle.backgroundColor).toBe('rgb(255, 255, 255)');
+  expect(availabilityStyle.borderRadius).toBeGreaterThanOrEqual(22);
+  expect(availabilityStyle.boxShadow).not.toBe('none');
+  expect(availabilityStyle.color).toBe('rgb(48, 49, 46)');
 
   const triggers = page.locator('[data-am-navigation] .am-nav__group-trigger');
   await expect(triggers).toHaveCount(3);

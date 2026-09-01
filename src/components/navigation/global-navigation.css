@@ -165,26 +165,19 @@
 [data-am-navigation] .am-nav__slot--cta .am-btn.am-nav__availability-action {
   min-width: 2.75rem;
   min-height: 2.75rem;
-  border-color: transparent;
+  border: 1px solid color-mix(in srgb, var(--color-on-surface) 10%, transparent);
   padding: 0;
-  background: transparent;
+  background: var(--color-surface-white);
+  box-shadow: 0 0.2rem 0.8rem color-mix(in srgb, var(--color-on-surface) 14%, transparent);
+  color: var(--color-inverted-surface);
 }
 
 [data-am-navigation] .am-nav__slot--cta .am-btn.am-nav__availability-action:hover,
 [data-am-navigation] .am-nav__slot--cta .am-btn.am-nav__availability-action:focus-visible {
-  border-color: transparent;
-  background-color: color-mix(in srgb, var(--color-on-surface) 5%, transparent);
-  color: var(--color-on-surface);
-}
-
-[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"])
-  .am-nav__slot--cta
-  .am-btn.am-nav__availability-action:hover,
-[data-am-navigation][data-am-navigation-appearance="overlay"]:not([data-am-overlay-scrolled="true"])
-  .am-nav__slot--cta
-  .am-btn.am-nav__availability-action:focus-visible {
-  background-color: color-mix(in srgb, var(--color-inverted-on-surface) 12%, transparent);
-  color: var(--color-inverted-on-surface);
+  border-color: color-mix(in srgb, var(--color-primary) 24%, transparent);
+  background: var(--color-surface-white);
+  box-shadow: 0 0.28rem 1rem color-mix(in srgb, var(--color-on-surface) 18%, transparent);
+  color: var(--color-primary);
 }
 
 [data-am-navigation] .am-nav__icon-button:hover,

@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.23.0
+version: 4.24.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-01T14:24:17+02:00
+last_modified: 2026-09-01T14:29:20+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -214,8 +214,10 @@ scrolling inside the navigation rail. Long localized labels must never transfer 
 The persistent availability action remains visible in the canonical header as the shared calendar-check icon at
 every viewport. Its native localized accessible name in EN, DE, ES, NL and SV remains the full availability action,
 and the opened mobile menu retains the visible localized wording. The icon links to AMARA's owned stay search, not
-directly to external checkout. Brand, AMARA Experience access, language control, availability path and menu keep
-separate hit areas; hiding one of those five jobs is not an acceptable width fix.
+directly to external checkout. Its canonical emphasis is a white inverse circle with the dark calendar mark, a fine
+boundary and restrained shadow so it stays legible over imagery and light headers without growing beyond the shared
+icon hit area. Brand, AMARA Experience access, language control, availability path and menu keep separate hit areas;
+hiding one of those five jobs is not an acceptable width fix.
 
 The canonical public header also exposes a compact, localized AMARA Experience access icon immediately before
 the language control. It links directly to the access page in the current language, remains distinct from the
@@ -598,3 +600,4 @@ the external booking provider boundary remain unchanged.
 | 4.21.0 | 2026-09-01T07:48:00+02:00 | Corrected section-boundary ownership to the approved inset treatment: equal-surface sections receive one centrally controlled line aligned to the content gutter, never the white-canvas edge; editorial boxes, display bands and CTA panels retain clean top/bottom edges. |
 | 4.22.0 | 2026-09-01T14:14:49+02:00 | Added the localized AMARA Experience access icon immediately before the language control in the canonical public header while preserving the existing booking and mobile containment contracts. |
 | 4.23.0 | 2026-09-01T14:24:17+02:00 | Replaced the persistent header availability text treatment with the shared calendar-check icon at every viewport while preserving the localized accessible name, owned stay-search target and visible mobile-menu wording. |
+| 4.24.0 | 2026-09-01T14:29:20+02:00 | Inverted the calendar-check action into a white circular emphasis with a dark calendar mark, fine boundary and restrained shadow while preserving its shared size, route and accessible name. |
