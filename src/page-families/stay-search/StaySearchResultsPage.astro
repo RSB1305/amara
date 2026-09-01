@@ -122,8 +122,8 @@ const cards = vacationRentalEntities.flatMap((rental) => {
                 meta={`${rental.city} · ${guestCapacity(rental.occupancy)}`}
                 title={rental.name}
                 description={firstSentence(rental.lead[currentLang] ?? rental.lead.en)}
-                ctaLabel={t(staySearchCopy.viewStay)}
-                linkAriaLabel={`${t(staySearchCopy.viewStay)}: ${rental.name}`}
+                ctaLabel={t(staySearchCopy.viewStay).replace('{stay}', rental.name)}
+                linkAriaLabel={t(staySearchCopy.viewStay).replace('{stay}', rental.name)}
                 dataStay={rental.bookingKey}
                 dataDestination={destination}
                 dataOccupancy={rental.occupancy}
@@ -159,6 +159,34 @@ const cards = vacationRentalEntities.flatMap((rental) => {
 
   .am-stay-results-grid .am-apartment-card[hidden] {
     display: none;
+  }
+
+  .am-stay-results-grid .am-apartment-card__cta-wrap .am-btn {
+    width: fit-content;
+    min-width: 0;
+    min-height: 0;
+    justify-content: flex-start;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0.25rem 0;
+    color: var(--color-on-surface);
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-transform: none;
+    white-space: normal;
+    text-decoration: underline;
+    text-decoration-color: var(--color-outline-variant);
+    text-underline-offset: 0.22em;
+  }
+
+  .am-stay-results-grid .am-apartment-card__cta-wrap .am-btn:hover {
+    background: transparent;
+    color: var(--color-primary);
+    text-decoration-color: var(--color-primary);
+    transform: none;
   }
 
   @media (min-width: 48rem) {
