@@ -212,14 +212,14 @@ const hasPlaces = places.length > 0;
       <h1 class="mb-5 am-text-display">
         AMARA<span class="sr-only"> — {heroKicker}</span>
       </h1>
-      <p class="max-w-md am-text-body italic text-inverted-on-surface/90"><InlineEmphasis text={heroLead} /></p>
+      <p class="max-w-md am-text-form-value text-inverted-on-surface/90"><InlineEmphasis text={heroLead} /></p>
 
       <div class="mt-6 flex max-w-3xl flex-col items-center gap-3">
         {
           heroProof.length > 0 && (
             <ul class="flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
               {heroProof.map((proof) => (
-                <li class="am-text-caption text-center text-inverted-on-surface/90">{proof}</li>
+                <li class="am-text-form-value am-text-form-value--compact text-center text-inverted-on-surface/85">{proof}</li>
               ))}
             </ul>
           )
@@ -227,7 +227,7 @@ const hasPlaces = places.length > 0;
         {
           directHref && (
             <div class="am-home-hero-direct-link">
-              <AmaraActionLink href={directHref} variant="editorial">
+              <AmaraActionLink href={directHref} variant="editorial" class="am-home-hero-direct-action">
                 {heroDirectBenefitsLabel}
               </AmaraActionLink>
             </div>
@@ -542,6 +542,23 @@ const hasPlaces = places.length > 0;
     --color-on-surface: var(--color-inverted-on-surface);
     --color-border-subtle: color-mix(in srgb, var(--color-inverted-on-surface) 45%, transparent);
     --color-border-hover: var(--color-inverted-on-surface);
+  }
+
+  :global(.am-home-hero-direct-action) {
+    padding-bottom: 0;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  :global(.am-home-hero-direct-action)::before {
+    display: none;
+  }
+
+  :global(.am-home-hero-direct-action)::after {
+    margin-inline-start: 0.5rem;
+    font-size: 0.875rem;
   }
 
   /**
