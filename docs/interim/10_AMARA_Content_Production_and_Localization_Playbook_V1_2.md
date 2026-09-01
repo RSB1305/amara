@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-CONTENT-010
-title: AMARA Content Production & Localization Playbook V1.8.1
-version: 1.8.1
+title: AMARA Content Production & Localization Playbook V1.9.0
+version: 1.9.0
 status: ACTIVE
 authority_class: OPERATIONAL PLAYBOOK / NON-GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "10_AMARA_Content_Production_and_Localization_Playbook_V1_2(1
 source_sha256: adab58c901709b270fb264498158f2cb3010006bac7dfea18e6358627a0f10ae
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-30T17:05:00+02:00
+last_modified: 2026-09-01T07:25:00+02:00
 ---
 
 # AMARA Content Production & Localization Playbook V1.2 — Interim Markdown Snapshot
@@ -423,6 +423,12 @@ These constructions require special scrutiny:
 -   repeated lists of three emotional benefits;
 -   strategy terms such as fit, decision, base, journey, rhythm, or framework used as guest copy.
 They may occasionally be natural, but they must never become AMARA's default voice.
+
+8.5 Positive-definition rule
+
+Public editorial copy states directly what AMARA, a stay, a place or an experience offers. It never defines value through denial, rejection or a contrast with what the subject is not. Phrases such as "not a ranking", "not a generic list", "not only X" and "not automatically" fail the Human Voice gate. Replace the contrast with the concrete positive offer, verified fact, useful detail or truthful scene.
+
+Material limitations, uncertainty and safety boundaries remain mandatory. State them as clear factual conditions or consequences rather than using negation as brand rhetoric. Utility, legal, system and safety-critical copy keeps the wording needed for accurate instruction.
 
 9. SEO Integration Rule
 SEO is mandatory, but it is applied in two different moments.
@@ -909,3 +915,4 @@ The same four moves are written natively in every locale. Sentence count and con
 | 1.7.1 | 2026-08-29T13:59:51+02:00 | Clarified that repeated cards and accommodation summaries must not be forced into one translated instruction or contrast template. |
 | 1.8.0 | 2026-08-30T16:30:00+02:00 | Added evidence-carrying handoffs: a cross-page link states condition, stay consequence, guest criterion and the verified AMARA fact instead of naming a shared topic. |
 | 1.8.1 | 2026-08-30T17:05:00+02:00 | Clarified the fourth move for the return direction: the answering fact may be the one the destination page carries, not only a property fact. |
+| 1.9.0 | 2026-09-01T07:25:00+02:00 | Made positive definition binding in the Human Voice gate: public editorial value is stated through the concrete offer, fact, detail or scene, never through what the subject is not. Preserved direct factual wording for material limitations, safety, legal, utility and system copy. |
