@@ -5,6 +5,13 @@ test('the public AMARA Experience landing links to a separate guest access page'
   const access = page.locator('[data-am-component="amara-experience-access"]');
   await expect(access.locator('form')).toHaveCount(0);
   await expect(access.locator('a[href="/de/amara-experience/access"]')).toBeVisible();
+  await expect(page.locator('header [data-am-experience-access]')).toHaveAttribute(
+    'href',
+    '/de/amara-experience/access'
+  );
+  await expect(page.locator('header [data-am-experience-access]')).toHaveAccessibleName(
+    'AMARA Experience öffnen'
+  );
 });
 
 test('the guest access page stays focused on booking verification', async ({ page }) => {

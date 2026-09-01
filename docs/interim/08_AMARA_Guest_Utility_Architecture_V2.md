@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
-title: AMARA Guest Utility Architecture V2.6
-version: 2.6.0
+title: AMARA Guest Utility Architecture V2.7
+version: 2.7.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-01T14:06:06+02:00
+last_modified: 2026-09-01T14:14:49+02:00
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -161,7 +161,7 @@ When a guest needs current access information that is not authored in the guide,
 
 13. Product and transition boundary
 
-AMARA Experience is the booked-guest product. Its public, indexable landing page is a normal five-locale AMARA surface and remains globally reachable inside the About us navigation group, immediately after Staying with us. Booked guests receive a separate localized access-page link; that page contains only the access task and carries no public navigation, marketing footer, analytics, sitemap inclusion or indexing. Existing public destination and restaurant content keeps its public editorial job unchanged.
+AMARA Experience is the booked-guest product. Its public, indexable landing page is a normal five-locale AMARA surface and remains globally reachable inside the About us navigation group, immediately after Staying with us. The landing retains its dedicated access section and the canonical public header adds a compact access icon immediately before the language control; both open the separate access page in the current language. Booked guests also receive that localized access-page link directly. The access page contains only the access task and carries no public navigation, marketing footer, analytics, sitemap inclusion or indexing. Existing public destination and restaurant content keeps its public editorial job unchanged.
 
 The existing Guest Welcome content is the canonical content basis of AMARA Experience. It is reused under the protected route family rather than copied into a parallel guide. Legacy anonymous routes redirect to the localized access page.
 
@@ -200,3 +200,4 @@ The established Guest Welcome entries, detail pages, location grouping and accom
 | 2.4.0 | 2026-09-01T09:05:35+02:00 | Moved the public AMARA Experience entry from a standalone primary-navigation position into About us, immediately after Staying with us, to reduce header density while preserving global reach. |
 | 2.5.0 | 2026-09-01T13:30:00+02:00 | Consolidated Guest Welcome into the protected AMARA Experience product, added the separate guest access page and property-aware hub handoff, retired anonymous guide delivery and established the two-world stay/Experience structure. |
 | 2.6.0 | 2026-09-01T14:06:06+02:00 | Restored destination-specific Essentials as the middle direct hub entry between the accommodation and AMARA Experience, using the existing location pages as the single content source. |
+| 2.7.0 | 2026-09-01T14:14:49+02:00 | Retained the dedicated landing-page access section and added a localized AMARA Experience access icon immediately before the public-header language control. |

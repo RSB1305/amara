@@ -89,6 +89,13 @@ test('the header exposes three calm desktop groups with AMARA Experience inside 
 
   await expect(page.locator('header[data-am-navigation]')).toHaveCount(1);
   await expect(page.getByRole('banner')).toHaveCount(1);
+  await expect(page.locator('[data-am-experience-access]')).toHaveAttribute(
+    'href',
+    '/en/amara-experience/access'
+  );
+  await expect(page.locator('[data-am-experience-access]')).toHaveAccessibleName(
+    'Open AMARA Experience'
+  );
 
   const triggers = page.locator('[data-am-navigation] .am-nav__group-trigger');
   await expect(triggers).toHaveCount(3);
@@ -202,6 +209,7 @@ test('the mobile menu locks scrolling, inerts the background and restores it on 
   // Header utilities and the page body behind the panel are removed from the a11y tree.
   expect(await isInert(page, '.am-nav__brand')).toBe(true);
   expect(await isInert(page, '.am-nav__center')).toBe(true);
+  expect(await isInert(page, '.am-nav__slot--experience-access')).toBe(true);
   expect(await isInert(page, '.am-nav__slot--language')).toBe(true);
   expect(await isInert(page, '.am-nav__slot--cta')).toBe(true);
   expect(await isInert(page, '[data-am-page="home"]')).toBe(true);
@@ -220,12 +228,24 @@ test('the mobile menu locks scrolling, inerts the background and restores it on 
 
   expect(await isInert(page, '.am-nav__brand')).toBe(false);
   expect(await isInert(page, '.am-nav__center')).toBe(false);
+  expect(await isInert(page, '.am-nav__slot--experience-access')).toBe(false);
   expect(await isInert(page, '.am-nav__slot--language')).toBe(false);
   expect(await isInert(page, '.am-nav__slot--cta')).toBe(false);
   expect(await isInert(page, '[data-am-page="home"]')).toBe(false);
 
   const inertAfterClose = await backgroundSiblingInertStates(page);
   expect(inertAfterClose?.some(Boolean)).toBe(false);
+});
+
+test('the narrow mobile header keeps access, language, availability and menu visible', async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+  await openPage(page, resolveLink('home', 'de'));
+
+  await expect(page.locator('[data-am-experience-access]')).toBeVisible();
+  await expect(page.locator('[data-am-language-trigger]')).toBeVisible();
+  await expect(page.locator('.am-nav__slot--cta')).toBeVisible();
+  await expect(page.locator('[data-am-menu-trigger]')).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(320);
 });
 
 test('moving to a desktop width closes an open mobile menu cleanly', async ({ page }) => {
