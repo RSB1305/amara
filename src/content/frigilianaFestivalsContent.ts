@@ -101,8 +101,7 @@ export interface FrigilianaFestivalsPageCopy {
   closing: {
     title: string;
     lead: string;
-    availabilityCta: string;
-    apartmentsCta: string;
+    nextCta: string;
   };
 }
 
@@ -525,11 +524,10 @@ export const frigilianaFestivalsContent: Record<
       ]
     },
     closing: {
-      title: 'A calm base between the celebrations',
+      title: 'Plan your arrival before the streets fill',
       lead:
-        'Stay close enough to join the atmosphere, with a quieter place to return to when the music and crowds are over.',
-      availabilityCta: 'Check availability',
-      apartmentsCta: 'View apartments'
+        'On festival days, processions and evening arrivals can change access and parking. We follow the current signs and allow time for the final walk; the paid car park below Plaza de las Tres Culturas is our first reference point.',
+      nextCta: 'Plan parking in Frigiliana'
     }
   },
   de: {
@@ -888,11 +886,10 @@ export const frigilianaFestivalsContent: Record<
       ]
     },
     closing: {
-      title: 'Ein ruhiger Rückzugsort zwischen den Festen',
+      title: 'Plant eure Ankunft, bevor sich die Gassen füllen',
       lead:
-        'Nah genug, um die besondere Stimmung mitzuerleben — und ruhig genug, um nach Musik und Menschenmengen wieder anzukommen.',
-      availabilityCta: 'Verfügbarkeit prüfen',
-      apartmentsCta: 'Apartments ansehen'
+        'An Festtagen können Prozessionen und die abendliche Anreise Zufahrt und Parken verändern. Wir folgen der aktuellen Beschilderung und planen Zeit für den letzten Fußweg ein; das kostenpflichtige Parkhaus unterhalb der Plaza de las Tres Culturas ist unser erster Orientierungspunkt.',
+      nextCta: 'Parken in Frigiliana planen'
     }
   },
   es: {
@@ -1251,11 +1248,10 @@ export const frigilianaFestivalsContent: Record<
       ]
     },
     closing: {
-      title: 'Una base tranquila entre celebraciones',
+      title: 'Organizad la llegada antes de que se llenen las calles',
       lead:
-        'Lo bastante cerca para compartir el ambiente y con un lugar sereno al que volver cuando terminen la música y las multitudes.',
-      availabilityCta: 'Consultar disponibilidad',
-      apartmentsCta: 'Ver apartamentos'
+        'Durante las fiestas, las procesiones y las llegadas al atardecer pueden cambiar los accesos y el aparcamiento. Seguimos la señalización actual y dejamos tiempo para el último tramo a pie; el aparcamiento de pago bajo la Plaza de las Tres Culturas es nuestra primera referencia.',
+      nextCta: 'Organizar el aparcamiento en Frigiliana'
     }
   },
   nl: {
@@ -1614,11 +1610,10 @@ export const frigilianaFestivalsContent: Record<
       ]
     },
     closing: {
-      title: 'Een rustige uitvalsbasis tussen de feesten',
+      title: 'Plan jullie aankomst vóór de straten vollopen',
       lead:
-        'Dicht genoeg om de sfeer mee te maken, met een rustige plek om terug te keren zodra muziek en drukte voorbij zijn.',
-      availabilityCta: 'Beschikbaarheid bekijken',
-      apartmentsCta: 'Bekijk de appartementen'
+        'Op feestdagen kunnen processies en aankomsten in de avond de toegang en het parkeren veranderen. We volgen de actuele borden en nemen tijd voor het laatste stuk te voet; de betaalde parkeergarage onder Plaza de las Tres Culturas is ons eerste oriëntatiepunt.',
+      nextCta: 'Parkeren in Frigiliana plannen'
     }
   },
   sv: {
@@ -1977,11 +1972,10 @@ export const frigilianaFestivalsContent: Record<
       ]
     },
     closing: {
-      title: 'En lugn bas mellan firandena',
+      title: 'Planera ankomsten innan gränderna fylls',
       lead:
-        'Tillräckligt nära för att uppleva stämningen, med en lugn plats att återvända till när musiken och folkmassorna är över.',
-      availabilityCta: 'Kontrollera tillgänglighet',
-      apartmentsCta: 'Se boendena'
+        'Under festivaldagar kan processioner och kvällens ankomster ändra tillträde och parkering. Vi följer den aktuella skyltningen och lämnar tid för sista sträckan till fots; betalparkeringen nedanför Plaza de las Tres Culturas är vår första orienteringspunkt.',
+      nextCta: 'Planera parkeringen i Frigiliana'
     }
   }
 };

@@ -445,9 +445,6 @@ const stayPlanningLinks = [
       }]
     : [])
 ];
-const locationBody = locationLinks.length > 0
-  ? t(ui.locationBodyWithGuides as LocalizedText)
-  : t(ui.locationBodyWithoutGuides as LocalizedText);
 // The eight initially visible images mirror the complete image set emitted in JSON-LD.
 // Additional lightbox images remain unloaded until a guest opens the gallery.
 const visibleImages = rental.images.slice(0, 8);
@@ -531,7 +528,6 @@ const contextDestination: DestinationId | undefined =
             href: bookingSectionHref,
             label: t(ui.chooseDates as LocalizedText)
           },
-          priceNote: t(ui.indicativePriceNote as LocalizedText),
           supportLinks: bookingSupportLinks
         }}
         lead={t(rental.lead)}
@@ -581,9 +577,7 @@ const contextDestination: DestinationId | undefined =
             </dl>
             <div class="mt-7 max-w-3xl border-t border-border-subtle pt-5">
               <p class="am-text-caption font-normal leading-relaxed text-on-surface-variant">
-                {t(ui.seasonalPriceNote as LocalizedText)}
-              </p>
-              <p class="am-text-caption mt-1 font-normal text-on-surface-variant">
+                {t(ui.seasonalPriceNote as LocalizedText)}{' '}
                 {t(ui.priceChecked as LocalizedText)}: {priceCheckedDate}
               </p>
             </div>
@@ -853,9 +847,17 @@ const contextDestination: DestinationId | undefined =
             <h2 id="rental-location-title" class="am-text-subtitle text-on-surface">
               {t(ui.locationTitle as LocalizedText)}
             </h2>
-            <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
-              {locationBody}
-            </p>
+            {
+              rental.addressNote && (
+                <p class="am-text-body text-on-surface-variant mt-5 leading-relaxed">
+                  {addressNoteSegments.map((segment) =>
+                    segment === 'Calle Chorruelo' || segment === 'Calle Real'
+                      ? <strong class="font-bold text-on-surface">{segment}</strong>
+                      : segment
+                  )}
+                </p>
+              )
+            }
             <dl class="grid gap-4 mt-8">
               <div class="border-t border-border-subtle pt-4">
                 <dt class="text-on-surface-variant am-text-label">
@@ -866,17 +868,6 @@ const contextDestination: DestinationId | undefined =
                     {visibleAddress}
                   </a>
                 </dd>
-                {
-                  rental.addressNote && (
-                    <dd class="am-text-body text-on-surface-variant mt-3 leading-relaxed">
-                      {addressNoteSegments.map((segment) =>
-                        segment === 'Calle Chorruelo' || segment === 'Calle Real'
-                          ? <strong class="font-bold text-on-surface">{segment}</strong>
-                          : segment
-                      )}
-                    </dd>
-                  )
-                }
               </div>
             </dl>
           </div>
@@ -942,6 +933,7 @@ const contextDestination: DestinationId | undefined =
     price={fromPrice}
     href={bookingSectionHref}
     label={t(ui.chooseDates as LocalizedText)}
+    bookingLabel={t(ui.bookNow as LocalizedText)}
   />
 </BaseLayout>
 

@@ -308,7 +308,7 @@ test('mobile finder uses one month and results stay in a single column without o
   await page.setViewportSize(MOBILE);
   const requests = await mockGateway(page);
   await page.goto(ORIGIN + '/en');
-  await page.getByRole('button', { name: 'Choose arrival' }).click();
+  await page.getByRole('button', { name: 'Arrival' }).click();
   await expect(page.locator('.am-booking-calendar__month')).toHaveCount(1);
   await expect.poll(() => requests.length).toBe(1);
   expect(requests[0].pathname).toContain('/search-calendar');

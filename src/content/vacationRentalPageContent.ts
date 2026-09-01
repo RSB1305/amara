@@ -79,12 +79,12 @@ export const ui = {
     nl: 'Data kiezen',
     sv: 'Välj datum'
   },
-  indicativePriceNote: {
-    en: 'Indicative and season-dependent. The exact total for your dates comes from the live calendar below.',
-    de: 'Richtwert, saisonabhängig. Den genauen Gesamtpreis für eure Reisedaten zeigt der Live-Kalender unten.',
-    es: 'Precio orientativo según la temporada. El precio total exacto para vuestras fechas lo da el calendario en directo.',
-    nl: 'Indicatief en afhankelijk van het seizoen. De exacte totaalprijs voor jullie data komt uit de live kalender.',
-    sv: 'Vägledande och säsongsberoende. Det exakta totalpriset för era datum kommer från livekalendern nedan.'
+  bookNow: {
+    en: 'Book now',
+    de: 'Jetzt buchen',
+    es: 'Reservar ahora',
+    nl: 'Nu boeken',
+    sv: 'Boka nu'
   },
   keyFactsLabel: {
     en: 'Key facts at a glance',
@@ -166,11 +166,11 @@ export const ui = {
     sv: 'Bilder från boendet'
   },
   seasonalPriceNote: {
-    en: 'Seasonal indicative price range. Availability, minimum stay and the final total including cleaning costs and any service fee are shown in the booking system for your dates.',
-    de: 'Saisonabhängige Richtpreisspanne. Verfügbarkeit, Mindestaufenthalt und den Gesamtpreis einschließlich Reinigungskosten und einer eventuellen Servicegebühr zeigt das Buchungssystem für eure Reisedaten.',
-    es: 'Rango orientativo según la temporada. El sistema de reservas muestra para vuestras fechas la disponibilidad, la estancia mínima y el precio total, incluidos los gastos de limpieza y cualquier cargo de servicio.',
-    nl: 'Indicatieve prijsrange per seizoen. Het boekingssysteem toont voor jullie data de beschikbaarheid, het minimumverblijf en de totaalprijs, inclusief schoonmaak- en eventuele servicekosten.',
-    sv: 'Vägledande säsongspris. Bokningssystemet visar tillgänglighet, minsta vistelse och totalpris inklusive städning och eventuell serviceavgift för era datum.'
+    en: 'Seasonal guide price.',
+    de: 'Saisonabhängiger Richtwert.',
+    es: 'Precio orientativo según la temporada.',
+    nl: 'Seizoensgebonden richtprijs.',
+    sv: 'Säsongsberoende riktpris.'
   },
   priceChecked: {
     en: 'Price checked',
@@ -227,20 +227,6 @@ export const ui = {
     es: 'Guía de llegada',
     nl: 'Aankomstgids',
     sv: 'Ankomstguide'
-  },
-  locationBodyWithGuides: {
-    en: 'Our local guides cover the important details about arrival, access and the surrounding area. Guest reviews show how others experienced their stay.',
-    de: 'In unseren Ortsguides findet ihr alles Wichtige zu Anreise, Zugang und Umgebung. In den Gästebewertungen lest ihr, wie andere ihren Aufenthalt erlebt haben.',
-    es: 'En nuestras guías locales encontraréis lo importante sobre la llegada, el acceso y el entorno. Las reseñas cuentan cómo vivieron otros huéspedes su estancia.',
-    nl: 'In onze lokale gidsen vinden jullie alles wat belangrijk is voor aankomst, toegang en de omgeving. In de beoordelingen lees je hoe andere gasten hun verblijf hebben ervaren.',
-    sv: 'I våra lokala guider hittar ni det viktigaste om ankomst, tillträde och omgivningar. I omdömena kan ni läsa hur andra gäster upplevde sin vistelse.'
-  },
-  locationBodyWithoutGuides: {
-    en: 'Here you will find the practical details about the stay. Guest reviews show how others experienced the accommodation.',
-    de: 'Hier findet ihr die praktischen Details zur Unterkunft. In den Gästebewertungen lest ihr, wie andere ihren Aufenthalt erlebt haben.',
-    es: 'Aquí encontraréis los detalles prácticos del alojamiento. Las reseñas cuentan cómo vivieron otros huéspedes su estancia.',
-    nl: 'Hier vinden jullie de praktische details over het verblijf. In de beoordelingen lees je hoe andere gasten de accommodatie hebben ervaren.',
-    sv: 'Här hittar ni den praktiska informationen om boendet. I omdömena kan ni läsa hur andra gäster upplevde sin vistelse.'
   },
   frigilianaLocationGuide: {
     en: 'Frigiliana',

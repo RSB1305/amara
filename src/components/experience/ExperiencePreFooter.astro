@@ -2,16 +2,16 @@
 /**
  * ExperiencePreFooter
  *
- * Locale-aware next-step recommendations. The order follows the current
- * market edition of the Experience Hub and wraps without repeating the active
- * guide.
+ * One locale-aware next step for each Frigiliana experience guide.
+ *
+ * The relationship is deliberately explicit: the closing link follows a
+ * concrete planning question raised by the current guide instead of sending
+ * guests into a generic recommendation carousel.
  */
-import AmaraImage from '../AmaraImage.astro';
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import {
   experienceCatalog,
   experienceHubContent,
-  experienceNavigationContent,
   type ExperienceId
 } from '../../content/experienceHubContent';
 import { resolveOptionalLink } from '../../lib/linkResolver';
@@ -25,121 +25,60 @@ interface Props {
 
 const { currentId, lang } = Astro.props;
 const edition = experienceHubContent[lang];
-const navigation = experienceNavigationContent[lang];
-const orderedIds = edition.catalog.order.filter((id) => id !== 'nightlife');
-// currentId may be 'nightlife', which orderedIds deliberately excludes; falling back
-// to the first entry keeps the recommendation ring intact for that page.
-const currentIndex = Math.max(orderedIds.findIndex((id) => id === currentId), 0);
 
-const recommendationIds = Array.from(
-  { length: Math.min(3, orderedIds.length - 1) },
-  (_, offset) => orderedIds[(currentIndex + offset + 1) % orderedIds.length]
-).filter((id) => id !== currentId);
+const nextGuideByCurrentGuide: Record<ExperienceId, ExperienceId> = {
+  restaurants: 'market',
+  festivals: 'market',
+  dayTrips: 'wellness',
+  wellness: 'beaches',
+  market: 'restaurants',
+  hiking: 'wellness',
+  beaches: 'dayTrips',
+  nightlife: 'restaurants'
+};
 
-const recommendations = recommendationIds
-  .map((id) => {
-    const definition = experienceCatalog[id];
-    const href = resolveOptionalLink(definition.token, lang, {
-      suppressMissing: true
-    });
-
-    return href
-      ? {
-          ...definition,
-          href,
-          editorial: edition.stories[id],
-          shortLabel: navigation.labels[id],
-          destinationLabel: 'Frigiliana'
-        }
-      : null;
-  })
-  .filter(
-    (
-      item
-    ): item is NonNullable<typeof item> => Boolean(item)
-  );
-
-const hubHref = resolveOptionalLink('frigiliana_experience_hub', lang, {
+const nextId = nextGuideByCurrentGuide[currentId];
+const definition = experienceCatalog[nextId];
+const href = resolveOptionalLink(definition.token, lang, {
   suppressMissing: true
 });
+const recommendation = href
+  ? {
+      href,
+      editorial: edition.stories[nextId]
+    }
+  : null;
 ---
 
-<section
-  class="am-experience-prefooter am-section am-section--tint"
-  data-am-experience-prefooter
-  {...getPageEndAttributes('related-content', 'experience')}
->
-  <div class="mb-14 grid grid-cols-1 gap-8 pb-10 lg:grid-cols-12 lg:items-end">
-    <div class="lg:col-span-7">
-      <p class="am-text-caption mb-5 text-primary">
-        {navigation.relatedKicker}
-      </p>
-      <h2 class="am-text-title italic tracking-tight text-on-surface">
-        {navigation.relatedTitle}
-      </h2>
-    </div>
-    <div class="lg:col-span-5">
-      <p class="am-text-body leading-relaxed text-on-surface-variant">
-        {navigation.relatedIntro}
-      </p>
-      {
-        hubHref && (
+{
+  recommendation && (
+    <section
+      class="am-experience-prefooter am-section am-section--tint"
+      data-am-experience-prefooter
+      data-am-experience-recommendation
+      {...getPageEndAttributes('related-content', 'experience')}
+    >
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
+        <div class="lg:col-span-7">
+          <p class="am-text-caption mb-5 text-primary">
+            {recommendation.editorial.kicker}
+          </p>
+          <h2 class="am-text-title italic tracking-tight text-on-surface">
+            {recommendation.editorial.title}
+          </h2>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="am-text-body leading-relaxed text-on-surface-variant">
+            {recommendation.editorial.text}
+          </p>
           <p class="mt-5">
-            <AmaraActionLink href={hubHref} variant="inline">
-              {navigation.viewAllLabel}
+            <AmaraActionLink href={recommendation.href} variant="inline">
+              {recommendation.editorial.linkLabel}
               <span aria-hidden="true"> &rarr;</span>
             </AmaraActionLink>
           </p>
-        )
-      }
-    </div>
-  </div>
-
-  <div class="grid grid-cols-1 gap-x-10 gap-y-14 md:grid-cols-3">
-    {
-      recommendations.map((item, index) => (
-        <article class="group" data-am-experience-recommendation>
-          <AmaraActionLink href={item.href} variant="card" class="block">
-            <span class="block overflow-hidden bg-surface-container-low">
-              <AmaraImage
-                src={item.image}
-                alt={item.editorial.imageAlt}
-                profile="card"
-                width={900}
-                widths={[320, 480, 720, 900]}
-                sizes="(max-width: 767px) calc(100vw - 3rem), 33vw"
-                class="aspect-[4/3] h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-            </span>
-            <span class="mt-6 flex items-center justify-between gap-5">
-              <span class="am-text-caption text-primary">
-                {item.destinationLabel}
-              </span>
-              <span class="am-text-label am-text-label--sm am-text-label--wide text-on-surface/35">
-                0{index + 1}
-              </span>
-            </span>
-            <span class="am-text-subtitle mt-3 block text-on-surface transition-colors group-hover:text-primary">
-              {item.editorial.title}
-            </span>
-            <span class="mt-4 block text-sm leading-relaxed text-on-surface-variant">
-              {item.editorial.text}
-            </span>
-            <span class="am-inline-link mt-5 inline-flex">
-              {item.shortLabel}
-              <span aria-hidden="true">&nbsp;&rarr;</span>
-            </span>
-          </AmaraActionLink>
-        </article>
-      ))
-    }
-  </div>
-</section>
-
-<style>
-  @media (prefers-reduced-motion: reduce) {
-    .am-experience-prefooter :global(.group img) {
-      transition: none;
-    }
-  }
-</style>
+        </div>
+      </div>
+    </section>
+  )
+}

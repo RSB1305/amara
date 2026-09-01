@@ -97,8 +97,7 @@ export interface FrigilianaBeachesPageCopy {
   closing: {
     title: string;
     lead: string;
-    availabilityCta: string;
-    apartmentsCta: string;
+    nextCta: string;
   };
 }
 
@@ -415,11 +414,10 @@ export const frigilianaBeachesContent: Record<
       ]
     },
     closing: {
-      title: 'After the beach',
+      title: 'The beach route that fits your day',
       lead:
-        'Shake off the salt, leave the busy coast behind and let the evening settle into Frigiliana — or stay close enough to walk back from the sea in Nerja.',
-      availabilityCta: 'Check availability',
-      apartmentsCta: 'View apartments'
+        'When you want to combine the beach and town centre in one day, we look closely at the return route because it shapes your pace. Torrecilla connects comparatively easily with the centre, Carabeo often adds steps, and the return from Burriana is more demanding.',
+      nextCta: 'Routes between Nerja’s beaches & centre'
     }
   },
   de: {
@@ -665,11 +663,10 @@ export const frigilianaBeachesContent: Record<
       ]
     },
     closing: {
-      title: 'Nach dem Strand',
+      title: 'Der Strandweg, der zu eurem Tag passt',
       lead:
-        'Salz abspülen, die lebhafte Küste hinter sich lassen und den Abend in Frigiliana ruhig werden lassen — oder in Nerja so nah wohnen, dass ihr zu Fuß vom Meer zurückkommt.',
-      availabilityCta: 'Verfügbarkeit prüfen',
-      apartmentsCta: 'Apartments ansehen'
+        'Wenn ihr Strand und Zentrum an einem Tag verbinden möchtet, achten wir besonders auf den Rückweg, denn er prägt euren Rhythmus. Torrecilla lässt sich vergleichsweise leicht mit dem Zentrum verbinden, Carabeo bringt häufig Stufen mit sich, und von Burriana ist der Rückweg anspruchsvoller.',
+      nextCta: 'Wege zwischen Nerjas Stränden & Zentrum'
     }
   },
   es: {
@@ -915,11 +912,10 @@ export const frigilianaBeachesContent: Record<
       ]
     },
     closing: {
-      title: 'Después de la playa',
+      title: 'El camino a la playa que encaja con vuestro día',
       lead:
-        'Dejad atrás la sal y el bullicio para volver a una tarde tranquila en Frigiliana — o quedaos en Nerja lo bastante cerca como para regresar andando desde el mar.',
-      availabilityCta: 'Comprobar disponibilidad',
-      apartmentsCta: 'Ver apartamentos'
+        'Cuando queréis combinar playa y centro en un mismo día, nos fijamos especialmente en el camino de vuelta porque marca vuestro ritmo. Torrecilla conecta con el centro con relativa facilidad, Carabeo suele añadir escaleras y el regreso desde Burriana resulta más exigente.',
+      nextCta: 'Caminos entre las playas y el centro de Nerja'
     }
   },
   nl: {
@@ -1165,11 +1161,10 @@ export const frigilianaBeachesContent: Record<
       ]
     },
     closing: {
-      title: 'Na het strand',
+      title: 'De strandroute die bij jullie dag past',
       lead:
-        'Spoel het zout af, laat de levendige kust achter jullie en keer terug naar Frigiliana — of verblijf in Nerja dichtbij genoeg om vanaf zee terug te lopen.',
-      availabilityCta: 'Beschikbaarheid bekijken',
-      apartmentsCta: 'Appartementen bekijken'
+        'Willen jullie strand en centrum op één dag combineren, dan letten we vooral op de terugweg, omdat die jullie tempo bepaalt. Torrecilla sluit relatief gemakkelijk aan op het centrum, Carabeo brengt vaak trappen mee en de terugweg vanaf Burriana is zwaarder.',
+      nextCta: 'Routes tussen de stranden en het centrum van Nerja'
     }
   },
   sv: {
@@ -1415,11 +1410,10 @@ export const frigilianaBeachesContent: Record<
       ]
     },
     closing: {
-      title: 'Efter stranden',
+      title: 'Strandvägen som passar er dag',
       lead:
-        'Skölj av saltet, lämna den livliga kusten och låt kvällen landa i Frigilianas lugn — eller bo i Nerja nära nog för att promenera hem från havet.',
-      availabilityCta: 'Kontrollera tillgänglighet',
-      apartmentsCta: 'Se lägenheter'
+        'När ni vill kombinera stranden och centrum under samma dag tittar vi särskilt på vägen tillbaka, eftersom den påverkar ert tempo. Torrecilla har en relativt enkel koppling till centrum, Carabeo innebär ofta trappor och vägen tillbaka från Burriana är mer krävande.',
+      nextCta: 'Vägar mellan Nerjas stränder och centrum'
     }
   }
 };

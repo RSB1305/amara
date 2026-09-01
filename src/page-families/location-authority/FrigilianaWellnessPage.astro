@@ -4,7 +4,6 @@ import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import ExperiencePreFooter from '../../components/experience/ExperiencePreFooter.astro';
 import {
   frigilianaWellnessContent,
   frigilianaWellnessSeo
@@ -262,26 +261,19 @@ const providerImages = {
         surface="tint"
       />
 
-      <ExperiencePreFooter currentId="wellness" lang={currentLang} />
-
       <GuideClosingSection
-          title={copy.closing.title}
-          lead={copy.closing.lead}
-          lang={currentLang}
-          links={[
-            {
-              token: 'romantic_hideaways',
-              label: copy.closing.apartmentsCta,
-              style: 'text'
-            },
-            {
-              token: 'book',
-              label: copy.closing.availabilityCta,
-              style: 'text'
-            }
-          ]}
-          role="next-action"
-          family="experience"
+        title={copy.closing.title}
+        lead={copy.closing.lead}
+        lang={currentLang}
+        links={[
+          {
+            token: 'amenities',
+            label: copy.closing.nextCta,
+            style: 'text'
+          }
+        ]}
+        role="next-action"
+        family="experience"
       />
     </div>
   </div>

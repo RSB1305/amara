@@ -4,7 +4,7 @@ import type { LinkToken } from '../lib/linkResolver';
  * Used by HomePage.astro + HomeCinematicMain.astro props.
  */
 import type { AmaraLanguage } from '../types/seo';
-import { airbnbRatingLabel, airbnbReviewEvidence } from './reviewEvidence';
+import { airbnbRatingLabel, airbnbReviewEvidence, hostTrustEvidence } from './reviewEvidence';
 import { stayCollectionLabels } from './stayCollectionLabels';
 
 export type CopyRow = Record<AmaraLanguage, string>;
@@ -21,11 +21,11 @@ export const cinematicHeroKicker: CopyRow = {
 };
 
 export const cinematicHeroLead: CopyRow = {
-  en: 'Special places for shared time as a couple — among Frigiliana’s whitewashed lanes, by the Mediterranean in Nerja and beneath Tarifa’s wide Atlantic sky.',
-  de: 'Besondere Orte für gemeinsame Zeit zu zweit – zwischen Frigilianas weißen Altstadtgassen, am Mittelmeer in Nerja und unter Tarifas weitem Atlantikhimmel.',
-  es: 'Lugares especiales para compartir tiempo en pareja: entre las callejuelas blancas de Frigiliana, junto al Mediterráneo en Nerja y bajo el inmenso cielo atlántico de Tarifa.',
-  nl: 'Bijzondere plekken voor waardevolle tijd samen — tussen de witgekalkte straatjes van Frigiliana, aan de Middellandse Zee in Nerja en onder de weidse Atlantische hemel van Tarifa.',
-  sv: 'Speciella platser för värdefull tid tillsammans — bland Frigilianas vitkalkade gränder, vid Medelhavet i Nerja och under Tarifas vida atlanthimmel.'
+  en: 'Special places for time together.',
+  de: 'Besondere Orte für gemeinsame Zeit.',
+  es: 'Lugares especiales para disfrutar juntos.',
+  nl: 'Bijzondere plekken voor tijd samen.',
+  sv: 'Särskilda platser för tid tillsammans.'
 };
 
 export const cinematicHeroImageAlt: CopyRow = {
@@ -93,11 +93,11 @@ export const cinematicCollectionEyebrow: CopyRow = {
 };
 
 export const cinematicCollectionTitle: CopyRow = {
-  en: 'Which of our six stays suits you?',
-  de: 'Welche unserer sechs Unterkünfte passt zu euch?',
-  es: '¿Cuál de nuestros seis alojamientos encaja con vosotros?',
-  nl: 'Welk van onze zes verblijven past bij jullie?',
-  sv: 'Vilket av våra sex boenden passar er?'
+  en: 'Boutique stays, each with a character of its own.',
+  de: 'Boutique-Unterkünfte mit ganz eigenem Charakter.',
+  es: 'Alojamientos boutique, cada uno con personalidad propia.',
+  nl: 'Boutiqueverblijven, elk met een geheel eigen karakter.',
+  sv: 'Boutiqueboenden, alla med sin egen karaktär.'
 };
 
 /**
@@ -451,12 +451,20 @@ export const cinematicApartments: CinematicAptDef[] = [
    their later sections instead of repeating these summaries verbatim.
 ========================================================= */
 
+export const cinematicHeroProofBooking: CopyRow = {
+  en: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Award`,
+  de: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Award`,
+  es: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Award`,
+  nl: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Award`,
+  sv: `${hostTrustEvidence.travellerReviewAwards.count}× Booking.com Award`
+};
+
 export const cinematicHeroProofRating: CopyRow = {
-  en: `${airbnbRatingLabel.en} from ${airbnbReviewEvidence.reviewCountLabel} Airbnb reviews`,
-  de: `${airbnbRatingLabel.de} aus ${airbnbReviewEvidence.reviewCountLabel} Airbnb-Bewertungen`,
-  es: `${airbnbRatingLabel.es} de ${airbnbReviewEvidence.reviewCountLabel} reseñas en Airbnb`,
-  nl: `${airbnbRatingLabel.nl} uit ${airbnbReviewEvidence.reviewCountLabel} Airbnb-beoordelingen`,
-  sv: `${airbnbRatingLabel.sv} från ${airbnbReviewEvidence.reviewCountLabel} Airbnb-omdömen`
+  en: `${airbnbRatingLabel.en} · ${airbnbReviewEvidence.reviewCountLabel} Airbnb reviews`,
+  de: `${airbnbRatingLabel.de} · ${airbnbReviewEvidence.reviewCountLabel} Airbnb-Bewertungen`,
+  es: `${airbnbRatingLabel.es} · ${airbnbReviewEvidence.reviewCountLabel} reseñas en Airbnb`,
+  nl: `${airbnbRatingLabel.nl} · ${airbnbReviewEvidence.reviewCountLabel} Airbnb-beoordelingen`,
+  sv: `${airbnbRatingLabel.sv} · ${airbnbReviewEvidence.reviewCountLabel} Airbnb-omdömen`
 };
 
 export const cinematicHeroDirectBenefitsLabel: CopyRow = {
@@ -468,17 +476,17 @@ export const cinematicHeroDirectBenefitsLabel: CopyRow = {
 };
 
 /* =========================================================
-   THREE PLACES
+   THREE DESTINATIONS
    The home weights the locations deliberately: four of the six stays
    are in Frigiliana, so Frigiliana leads this section.
 ========================================================= */
 
 export const cinematicPlacesEyebrow: CopyRow = {
-  en: 'Three places, one host',
-  de: 'Drei Orte, ein Gastgeber',
-  es: 'Tres lugares, un anfitrión',
-  nl: 'Drie plekken, één gastheer',
-  sv: 'Tre platser, en värd'
+  en: 'Three destinations, one promise.',
+  de: 'Drei Reiseziele, ein Versprechen.',
+  es: 'Tres destinos, una promesa.',
+  nl: 'Drie bestemmingen, één belofte.',
+  sv: 'Tre resmål, ett löfte.'
 };
 
 export const cinematicPlacesTitle: CopyRow = {
@@ -487,6 +495,14 @@ export const cinematicPlacesTitle: CopyRow = {
   es: '¿Frigiliana, Nerja o Tarifa?',
   nl: 'Frigiliana, Nerja of Tarifa?',
   sv: 'Frigiliana, Nerja eller Tarifa?'
+};
+
+export const cinematicPlacesPromise: CopyRow = {
+  en: 'Whichever destination you choose, we prepare your AMARA hideaway with the same care and attention to detail, so you can arrive, feel at ease and enjoy more time together.',
+  de: 'Für welches Reiseziel ihr euch entscheidet: Wir bereiten euer AMARA Hideaway mit derselben Sorgfalt und Liebe zum Detail vor, damit ihr in Ruhe ankommen und mehr gemeinsame Zeit genießen könnt.',
+  es: 'Elijáis el destino que elijáis, preparamos vuestro AMARA Hideaway con el mismo cuidado y atención a los detalles, para que podáis llegar con calma y disfrutar de más tiempo juntos.',
+  nl: 'Welke bestemming jullie ook kiezen, we bereiden jullie AMARA-hideaway met dezelfde zorg en aandacht voor detail voor, zodat jullie rustig kunnen aankomen en meer tijd voor elkaar hebben.',
+  sv: 'Oavsett vilket resmål ni väljer förbereder vi ert AMARA-hideaway med samma omsorg och känsla för detaljer, så att ni kan landa i lugn och ro och få mer tid tillsammans.'
 };
 
 /** `{n}` is replaced with the number of stays actually registered for the place. */
@@ -728,27 +744,27 @@ export const cinematicDirectCtaLabel: CopyRow = {
 ========================================================= */
 
 export const cinematicHoneymoonEyebrow: CopyRow = {
-  en: 'Honeymoon',
-  de: 'Flitterwochen',
-  es: 'Luna de miel',
-  nl: 'Huwelijksreis',
-  sv: 'Smekmånad'
+  en: 'Just married',
+  de: 'Frisch verheiratet',
+  es: 'Recién casados',
+  nl: 'Net getrouwd',
+  sv: 'Nygifta'
 };
 
 export const cinematicHoneymoonTitle: CopyRow = {
-  en: 'A hideaway for your honeymoon.',
-  de: 'Ein Hideaway für eure Flitterwochen.',
-  es: 'Un hideaway para vuestra luna de miel.',
-  nl: 'Een hideaway voor jullie huwelijksreis.',
-  sv: 'Ett hideaway för er smekmånad.'
+  en: 'We have a hideaway for you both.',
+  de: 'Wir haben ein Hideaway für euch zwei.',
+  es: 'Tenemos un hideaway para vosotros dos.',
+  nl: 'Wij hebben een hideaway voor jullie twee.',
+  sv: 'Vi har ett hideaway för er två.'
 };
 
 export const cinematicHoneymoonCtaLabel: CopyRow = {
-  en: 'Hideaways for a honeymoon',
-  de: 'Hideaways für die Flitterwochen',
-  es: 'Hideaways para la luna de miel',
-  nl: 'Hideaways voor de huwelijksreis',
-  sv: 'Hideaways för smekmånaden'
+  en: 'Honeymoon in Andalusia',
+  de: 'Flitterwochen in Andalusien',
+  es: 'Luna de miel en Andalucía',
+  nl: 'Huwelijksreis in Andalusië',
+  sv: 'Smekmånad i Andalusien'
 };
 
 /* =========================================================

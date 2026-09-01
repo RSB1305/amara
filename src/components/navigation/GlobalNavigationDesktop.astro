@@ -8,21 +8,19 @@
  * differ: this view is a button-driven dropdown, the mobile view is a details
  * disclosure list. Both consume the same resolved model.
  */
-import type { ResolvedGlobalNavGroup, ResolvedGlobalNavItem } from './globalNavigationModel';
+import type { ResolvedGlobalNavGroup } from './globalNavigationModel';
 
 interface Props {
   groups: ResolvedGlobalNavGroup[];
-  experienceLink: ResolvedGlobalNavItem;
   navigationLabel: string;
 }
 
-const { groups, experienceLink, navigationLabel } = Astro.props;
+const { groups, navigationLabel } = Astro.props;
 ---
 
 <nav class="am-nav__center" aria-label={navigationLabel}>
   <ul class="hidden lg:flex items-center gap-10">
     {groups.map((group) => (
-      <>
       <li class="am-nav__group">
         <button
           type="button"
@@ -88,24 +86,6 @@ const { groups, experienceLink, navigationLabel } = Astro.props;
           </div>
         </div>
       </li>
-      {group.id === 'stays' && (
-        <li>
-          {experienceLink.href ? (
-            <a
-              href={experienceLink.href}
-              class="am-nav__link am-text-nav-primary text-on-surface transition-colors"
-              aria-current={experienceLink.isActive ? 'page' : undefined}
-            >
-              {experienceLink.label}
-            </a>
-          ) : (
-            <span class="am-nav__link am-is-disabled am-text-nav-primary" aria-disabled="true">
-              {experienceLink.label}
-            </span>
-          )}
-        </li>
-      )}
-      </>
     ))}
   </ul>
 </nav>

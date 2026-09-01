@@ -2,31 +2,35 @@
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
 
 interface Props {
-  /** Indicative from-price. The live module owns the exact total. */
+  /** Indicative fallback price. The live module supplies an exact confirmed total. */
   price: string;
   href: string;
   label: string;
+  bookingLabel: string;
 }
 
-const { price, href, label } = Astro.props;
+const { price, href, label, bookingLabel } = Astro.props;
 ---
 
 {/*
   A compact companion to the live booking module, not a second booking surface:
   it appears once the hero decision block has scrolled away and steps aside
   while the module itself is on screen, so the guest never sees two competing
-  calls to action at the same time.
+  calls to action at the same time. Once a quote is confirmed, it carries that
+  total and the existing checkout handoff through the rest of the page.
 */}
 <div class="am-stay-sticky-cta" data-am-stay-sticky-cta hidden>
   <div class="am-stay-sticky-cta__inner">
-    <p class="am-text-label am-stay-sticky-cta__price">{price}</p>
+    <p class="am-text-label am-stay-sticky-cta__price" data-am-stay-sticky-price>{price}</p>
     <AmaraActionLink
       variant="primary"
       class="am-stay-sticky-cta__action"
       href={href}
       data-am-booking-open
+      data-am-stay-sticky-action
+      data-am-stay-sticky-booking-label={bookingLabel}
     >
-      {label}
+      <span data-am-stay-sticky-action-label>{label}</span>
     </AmaraActionLink>
   </div>
 </div>

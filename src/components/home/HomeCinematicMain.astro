@@ -13,7 +13,6 @@
  */
 import { amenityIcons } from '../amenities/amenityIcons';
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
-import AmaraMetaChip from '../chips/AmaraMetaChip.astro';
 import InlineEmphasis from '../text/InlineEmphasis.astro';
 
 /**
@@ -96,6 +95,7 @@ interface Props {
   hostAboutLabel: string;
   placesEyebrow: string;
   placesTitle: string;
+  placesPromise: string;
   places: CinematicPlace[];
   collectionEyebrow: string;
   collectionTitle: string;
@@ -144,6 +144,7 @@ const {
   hostAboutLabel,
   placesEyebrow,
   placesTitle,
+  placesPromise,
   places,
   collectionEyebrow,
   collectionTitle,
@@ -207,22 +208,20 @@ const hasPlaces = places.length > 0;
     </div>
 
     <div class="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 pb-12 pt-28 text-center text-inverted-on-surface md:pb-16 md:pt-32">
-      <span class="mb-6 am-text-section-caption text-inverted-on-surface/90">
+      <span class="mb-4 am-text-section-caption text-inverted-on-surface/90">
         {heroKicker}
       </span>
-      <h1 class="mb-8 am-text-display">
+      <h1 class="mb-5 am-text-display">
         AMARA<span class="sr-only"> — {heroKicker}</span>
       </h1>
-      <p class="max-w-xl am-text-body italic text-inverted-on-surface/90"><InlineEmphasis text={heroLead} /></p>
+      <p class="am-home-hero-lead max-w-md am-text-body text-inverted-on-surface/90"><InlineEmphasis text={heroLead} /></p>
 
-      <div class="mt-8 flex max-w-3xl flex-col items-center gap-4">
+      <div class="mt-6 flex max-w-3xl flex-col items-center gap-3">
         {
           heroProof.length > 0 && (
-            <ul class="grid grid-cols-2 gap-3">
+            <ul class="flex flex-col items-center gap-2 sm:flex-row sm:gap-6">
               {heroProof.map((proof) => (
-                <li class="flex">
-                  <AmaraMetaChip class="flex-1 justify-center text-center">{proof}</AmaraMetaChip>
-                </li>
+                <li class="am-text-form-value am-text-form-value--compact text-center text-inverted-on-surface/85">{proof}</li>
               ))}
             </ul>
           )
@@ -230,7 +229,7 @@ const hasPlaces = places.length > 0;
         {
           directHref && (
             <div class="am-home-hero-direct-link">
-              <AmaraActionLink href={directHref} variant="editorial">
+              <AmaraActionLink href={directHref} variant="editorial" class="am-home-hero-direct-action">
                 {heroDirectBenefitsLabel}
               </AmaraActionLink>
             </div>
@@ -394,6 +393,8 @@ const hasPlaces = places.length > 0;
                 </article>
               ))}
           </div>
+
+          <p class="mt-14 max-w-3xl am-text-body text-on-surface md:mt-16">{placesPromise}</p>
         </div>
       </section>
     )
@@ -541,10 +542,32 @@ const hasPlaces = places.length > 0;
     font-weight: 700;
   }
 
+  .am-home-hero-lead.am-text-body {
+    font-size: clamp(1.125rem, 1.075rem + 0.25vw, 1.25rem);
+    line-height: 1.5;
+  }
+
   .am-home-hero-direct-link {
     --color-on-surface: var(--color-inverted-on-surface);
     --color-border-subtle: color-mix(in srgb, var(--color-inverted-on-surface) 45%, transparent);
     --color-border-hover: var(--color-inverted-on-surface);
+  }
+
+  :global(.am-home-hero-direct-action) {
+    padding-bottom: 0;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  :global(.am-home-hero-direct-action)::before {
+    display: none;
+  }
+
+  :global(.am-home-hero-direct-action)::after {
+    margin-inline-start: 0.5rem;
+    font-size: 0.875rem;
   }
 
   /**

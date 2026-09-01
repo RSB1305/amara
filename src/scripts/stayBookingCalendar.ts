@@ -23,6 +23,10 @@ type BookingRequestError = Error & {
   code?: string;
 };
 
+type StickyBookingState =
+  | { state: 'idle' | 'loading' }
+  | { state: 'available'; price: string; checkoutHref: string };
+
 const DAY_MS = 86_400_000;
 const MAX_NIGHTS = 45;
 const MAX_ADVANCE_DAYS = 730;
@@ -169,6 +173,7 @@ export function enhanceStayBookingCalendars() {
     let activeTrigger = arrivalTrigger;
     let hoverDate = '';
     let quoteSignature = '';
+    let quoteGeneration = 0;
     let calendarFeedback = '';
 
     arrivalInput.min = today;
@@ -236,18 +241,27 @@ export function enhanceStayBookingCalendars() {
       }).format(new Date(Date.UTC(2026, 0, 5 + index)))
     );
 
+    const announceStickyBookingState = (detail: StickyBookingState) => {
+      container.dispatchEvent(new CustomEvent('am:stay-booking-state', {
+        bubbles: true,
+        detail
+      }));
+    };
+
     const showState = ({
       state,
       title,
       body,
       priceText,
-      detail
+      detail,
+      checkoutHref
     }: {
       state: string;
       title: string;
       body: string;
       priceText?: string;
       detail: string;
+      checkoutHref?: string;
     }) => {
       checkout.hidden = true;
       checkout.removeAttribute('href');
@@ -258,13 +272,23 @@ export function enhanceStayBookingCalendars() {
       priceWrap.hidden = !priceText;
       price.textContent = priceText || '';
       note.textContent = detail;
+      if (state === 'available' && priceText && checkoutHref) {
+        checkout.href = checkoutHref;
+        checkout.hidden = false;
+        announceStickyBookingState({ state: 'available', price: priceText, checkoutHref });
+      } else {
+        announceStickyBookingState({ state: state === 'loading' ? 'loading' : 'idle' });
+      }
     };
 
     const clearResult = () => {
+      quoteGeneration += 1;
+      form.removeAttribute('aria-busy');
       result.hidden = true;
       result.removeAttribute('data-state');
       checkout.hidden = true;
       checkout.removeAttribute('href');
+      announceStickyBookingState({ state: 'idle' });
     };
 
     const fetchJson = async (path: string, searchParams: URLSearchParams) => {
@@ -715,6 +739,7 @@ export function enhanceStayBookingCalendars() {
       const signature = [arrival, departure, guests].join('|');
       if (quoteSignature === signature && result.dataset.state === 'available') return;
       quoteSignature = signature;
+      const generation = ++quoteGeneration;
       form.setAttribute('aria-busy', 'true');
       showState({ state: 'loading', title: copy.loading, body: '', detail: '' });
       try {
@@ -742,11 +767,23 @@ export function enhanceStayBookingCalendars() {
         ) {
           throw new Error('Booking gateway quote contract failed.');
         }
+        if (
+          generation !== quoteGeneration ||
+          [arrivalInput.value, departureInput.value, Number(guestsInput.value)].join('|') !== signature
+        ) return;
         const formattedPrice = new Intl.NumberFormat(language, {
           style: 'currency',
           currency: quote.currency,
         }).format(Number(quote.grossTotal));
         const nights = nightsBetween(arrival, departure);
+        const checkoutHref = buildCheckoutHandoffUrl({
+          stay,
+          lang: language as AmaraLanguage,
+          arrival,
+          departure,
+          adults: guests,
+          currency: String(quote.currency)
+        });
         showState({
           state: 'available',
           title: copy.available,
@@ -759,18 +796,11 @@ export function enhanceStayBookingCalendars() {
             ' · ' +
             guestLabel(guests),
           priceText: formattedPrice,
-          detail: copy.quoteNote
+          detail: copy.quoteNote,
+          checkoutHref
         });
-        checkout.href = buildCheckoutHandoffUrl({
-          stay,
-          lang: language as AmaraLanguage,
-          arrival,
-          departure,
-          adults: guests,
-          currency: String(quote.currency)
-        });
-        checkout.hidden = false;
       } catch (error) {
+        if (generation !== quoteGeneration) return;
         quoteSignature = '';
         const requestError = error as BookingRequestError;
         if (requestError.code === 'quote_unavailable') {
@@ -789,7 +819,7 @@ export function enhanceStayBookingCalendars() {
           });
         }
       } finally {
-        form.removeAttribute('aria-busy');
+        if (generation === quoteGeneration) form.removeAttribute('aria-busy');
       }
     };
 
@@ -916,6 +946,7 @@ export function enhanceStayBookingCalendars() {
     // inert form and never leaves the page to check availability.
     document.querySelectorAll<HTMLElement>('[data-am-booking-open]').forEach((trigger) => {
       trigger.addEventListener('click', (event) => {
+        if (!trigger.hasAttribute('data-am-booking-open')) return;
         event.preventDefault();
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         container.scrollIntoView({

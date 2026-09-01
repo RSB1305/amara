@@ -11,7 +11,6 @@ import { isPublicLinkEnabled } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 import {
   createGlobalNavGroups,
-  createExperienceNavItem,
   defaultCtaCompactLabels,
   defaultCtaShortLabels,
   globalCtaLabels,
@@ -55,7 +54,6 @@ export type GlobalNavigationModel = {
   brandHref: string;
   utilityLabels: NavigationUtilityLabels;
   groups: ResolvedGlobalNavGroup[];
-  experienceLink: ResolvedGlobalNavItem;
   languageOptions: ResolvedLanguageOption[];
   cta: ResolvedNavigationCta;
 };
@@ -138,8 +136,6 @@ export function createGlobalNavigationModel({
       hasDescriptions: items.some((item) => Boolean(item.description))
     };
   });
-  const experienceLink = resolveGlobalNavItem(createExperienceNavItem(currentLang));
-
   const ctaHref = isPublicLinkEnabled(CTA_TOKEN) ? resolveLink(CTA_TOKEN, currentLang) : null;
   // A call to action pointing at the page a guest is already reading is noise,
   // and on the search page it would stand next to the finder it duplicates.
@@ -154,5 +150,5 @@ export function createGlobalNavigationModel({
     hidden: ctaTargetsCurrentPage
   };
 
-  return { brandHref, utilityLabels: navigationUtilityLabels[currentLang] ?? navigationUtilityLabels.en, groups, experienceLink, languageOptions, cta };
+  return { brandHref, utilityLabels: navigationUtilityLabels[currentLang] ?? navigationUtilityLabels.en, groups, languageOptions, cta };
 }

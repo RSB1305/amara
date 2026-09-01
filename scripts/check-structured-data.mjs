@@ -219,7 +219,7 @@ function getExperienceFamily(slug) {
     return {
       hubSlug: 'frigiliana-experience',
       navigationSlugs: FRIGILIANA_EXPERIENCE_NAVIGATION_SLUGS,
-      requiresPrefooter: true
+      requiredNextActionCount: 1
     };
   }
 
@@ -227,7 +227,7 @@ function getExperienceFamily(slug) {
     return {
       hubSlug: 'nerja-experience',
       navigationSlugs: NERJA_EXPERIENCE_NAVIGATION_SLUGS,
-      requiresPrefooter: false
+      requiredNextActionCount: null
     };
   }
 
@@ -573,10 +573,6 @@ export function runStructuredDataAudit({
         report(file, 'experience detail is missing its crawlable family navigation');
       }
 
-      if (experienceFamily.requiresPrefooter && !html.includes('data-am-experience-prefooter')) {
-        report(file, 'experience detail is missing its related-guides pre-footer');
-      }
-
       const siblingSlugs = getExperienceSiblingSlugs(html, webPage.url);
       const missingSiblingSlugs = [...experienceFamily.navigationSlugs].filter(
         (slug) => !siblingSlugs.has(slug)
@@ -584,8 +580,8 @@ export function runStructuredDataAudit({
       const unexpectedSiblingSlugs = [...siblingSlugs].filter(
         (slug) => !experienceFamily.navigationSlugs.has(slug)
       );
-      const recommendationCount = [
-        ...html.matchAll(/\bdata-am-experience-recommendation\b/g)
+      const nextActionCount = [
+        ...html.matchAll(/\bdata-am-page-end-role="next-action"/g)
       ].length;
 
       if (missingSiblingSlugs.length > 0 || unexpectedSiblingSlugs.length > 0) {
@@ -597,10 +593,14 @@ export function runStructuredDataAudit({
         );
       }
 
-      if (experienceFamily.requiresPrefooter && recommendationCount !== 3) {
+      if (
+        experienceFamily.requiredNextActionCount !== null &&
+        nextActionCount !== experienceFamily.requiredNextActionCount
+      ) {
         report(
           file,
-          `experience pre-footer contains ${recommendationCount} recommendations instead of 3`
+          `experience detail contains ${nextActionCount} next actions instead of ` +
+            experienceFamily.requiredNextActionCount
         );
       }
     }

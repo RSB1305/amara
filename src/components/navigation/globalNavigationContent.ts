@@ -114,6 +114,13 @@ export const globalNavLabels = {
     nl: 'AMARA Experience',
     sv: 'AMARA Experience'
   },
+  amaraExperienceMeta: {
+    en: 'Personal recommendations for your booked destination and its region.',
+    de: 'Persönliche Empfehlungen für euer gebuchtes Reiseziel und die Region.',
+    es: 'Recomendaciones personales para vuestro destino reservado y su entorno.',
+    nl: 'Persoonlijke tips voor jullie geboekte bestemming en de regio.',
+    sv: 'Personliga tips för ert bokade resmål och regionen.'
+  },
   aboutAmara: {
     en: 'About us',
     de: 'Über uns',
@@ -279,13 +286,6 @@ export type GlobalNavGroup = {
   items: GlobalNavItem[];
 };
 
-export function createExperienceNavItem(currentLang: AmaraLanguage): GlobalNavItem {
-  return {
-    token: 'amara_experience',
-    label: globalNavLabels.amaraExperience[currentLang]
-  };
-}
-
 /** Destination tokens stay reachable from the header even where they are gated elsewhere. */
 export const forcedEnabledNavTokens: LinkToken[] = [
   'location_frigiliana',
@@ -367,6 +367,11 @@ export function createGlobalNavGroups(currentLang: AmaraLanguage): GlobalNavGrou
           token: 'about',
           label: trustLabels.about[currentLang],
           description: t('aboutMeta')
+        },
+        {
+          token: 'amara_experience',
+          label: t('amaraExperience'),
+          description: t('amaraExperienceMeta')
         },
         {
           token: 'reviews_hub',

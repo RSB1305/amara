@@ -27,6 +27,10 @@ const guestsLabelId = `${guestsControlId}-label`;
 const guestsListboxId = `${guestsControlId}-listbox`;
 const guestsValueId = `${guestsControlId}-value`;
 const initialGuestLabel = t(staySearchCopy.guestsPlural).replace('{count}', '2');
+const controlLabelClasses = [
+  'am-text-label text-on-surface-variant',
+  variant === 'home' && 'font-semibold normal-case tracking-normal'
+];
 ---
 
 <section
@@ -43,11 +47,13 @@ const initialGuestLabel = t(staySearchCopy.guestsPlural).replace('{count}', '2')
   data-am-stay-search-variant={variant}
   data-am-stay-search-copy={JSON.stringify(copy)}
 >
-  {/* The section already carries this as its accessible name, so on a phone the
-      eyebrow is redundant chrome: it wrapped to two lines and was the loudest
-      element in a widget that should read as a quiet utility. */}
   {variant === 'home' && (
-    <p class="am-text-eyebrow mb-4 hidden text-primary sm:block">{t(staySearchCopy.eyebrow)}</p>
+    <>
+      <p class="mb-3 am-text-form-value am-text-form-value--compact text-primary sm:hidden">
+        {t(staySearchCopy.eyebrow)}
+      </p>
+      <p class="mb-4 hidden am-text-eyebrow text-primary sm:block">{t(staySearchCopy.eyebrow)}</p>
+    </>
   )}
 
   <form action={action} method="get" data-am-stay-search-form>
@@ -56,12 +62,19 @@ const initialGuestLabel = t(staySearchCopy.guestsPlural).replace('{count}', '2')
         hero. */}
     <div
       class:list={[
-        'grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr] lg:items-end',
+        'grid sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr] lg:items-end',
+        variant === 'home' ? 'grid-cols-10' : 'grid-cols-4',
         variant === 'home' ? 'gap-3' : 'gap-4'
       ]}
     >
-      <div class="am-select-menu order-1 col-span-3 block min-w-0 sm:col-span-2 lg:col-span-1" data-am-select-menu="destination">
-        <label id={destinationLabelId} for={destinationControlId} class="am-text-label text-on-surface-variant">
+      <div
+        class:list={[
+          'am-select-menu order-1 block min-w-0 sm:col-span-2 lg:col-span-1',
+          variant === 'home' ? 'col-span-6' : 'col-span-3'
+        ]}
+        data-am-select-menu="destination"
+      >
+        <label id={destinationLabelId} for={destinationControlId} class:list={controlLabelClasses} data-am-stay-search-control-label>
           {t(staySearchCopy.destination)}
         </label>
         <AmaraFormControl
@@ -76,7 +89,10 @@ const initialGuestLabel = t(staySearchCopy.guestsPlural).replace('{count}', '2')
           ))}
         </AmaraFormControl>
         <button
-          class="am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger mt-2"
+          class:list={[
+            'am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger',
+            variant === 'home' ? 'am-stay-search__home-control mt-0' : 'mt-2'
+          ]}
           type="button"
           aria-haspopup="listbox"
           aria-expanded="false"
@@ -95,8 +111,8 @@ const initialGuestLabel = t(staySearchCopy.guestsPlural).replace('{count}', '2')
         </div>
       </div>
 
-      <label class="order-3 col-span-2 block am-stay-search__native-date sm:order-2 sm:col-span-1">
-        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.arrival)}</span>
+      <label class:list={['order-3 block am-stay-search__native-date sm:order-2 sm:col-span-1', variant === 'home' ? 'col-span-5' : 'col-span-2']}>
+        <span class:list={controlLabelClasses} data-am-stay-search-control-label>{t(staySearchCopy.arrival)}</span>
         <AmaraFormControl
           as="input"
           name="arrival"
@@ -104,20 +120,21 @@ const initialGuestLabel = t(staySearchCopy.guestsPlural).replace('{count}', '2')
           data={{ 'data-am-stay-search-arrival': '' }}
         />
       </label>
-      <div class="order-3 col-span-2 am-stay-search__date-trigger sm:order-2 sm:col-span-1" hidden data-am-stay-search-arrival-trigger-wrap>
-        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.arrival)}</span>
+      <div class:list={['order-3 am-stay-search__date-trigger sm:order-2 sm:col-span-1', variant === 'home' ? 'col-span-5' : 'col-span-2']} hidden data-am-stay-search-arrival-trigger-wrap>
+        <span class:list={controlLabelClasses} data-am-stay-search-control-label>{t(staySearchCopy.arrival)}</span>
         <AmaraFormControl
           as="button"
           trigger
           ariaExpanded={false}
+          class={variant === 'home' ? 'am-stay-search__home-control !mt-0' : undefined}
           data={{ 'data-am-stay-search-arrival-trigger': '' }}
         >
-          <span data-am-stay-search-arrival-value>{t(staySearchCopy.chooseArrival)}</span>
+          <span data-am-stay-search-arrival-value>{t(variant === 'home' ? staySearchCopy.arrival : staySearchCopy.chooseArrival)}</span>
         </AmaraFormControl>
       </div>
 
-      <label class="order-4 col-span-2 block am-stay-search__native-date sm:order-3 sm:col-span-1">
-        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.departure)}</span>
+      <label class:list={['order-4 block am-stay-search__native-date sm:order-3 sm:col-span-1', variant === 'home' ? 'col-span-5' : 'col-span-2']}>
+        <span class:list={controlLabelClasses} data-am-stay-search-control-label>{t(staySearchCopy.departure)}</span>
         <AmaraFormControl
           as="input"
           name="departure"
@@ -125,20 +142,27 @@ const initialGuestLabel = t(staySearchCopy.guestsPlural).replace('{count}', '2')
           data={{ 'data-am-stay-search-departure': '' }}
         />
       </label>
-      <div class="order-4 col-span-2 am-stay-search__date-trigger sm:order-3 sm:col-span-1" hidden data-am-stay-search-departure-trigger-wrap>
-        <span class="am-text-label text-on-surface-variant">{t(staySearchCopy.departure)}</span>
+      <div class:list={['order-4 am-stay-search__date-trigger sm:order-3 sm:col-span-1', variant === 'home' ? 'col-span-5' : 'col-span-2']} hidden data-am-stay-search-departure-trigger-wrap>
+        <span class:list={controlLabelClasses} data-am-stay-search-control-label>{t(staySearchCopy.departure)}</span>
         <AmaraFormControl
           as="button"
           trigger
           ariaExpanded={false}
+          class={variant === 'home' ? 'am-stay-search__home-control !mt-0' : undefined}
           data={{ 'data-am-stay-search-departure-trigger': '' }}
         >
-          <span data-am-stay-search-departure-value>{t(staySearchCopy.chooseDeparture)}</span>
+          <span data-am-stay-search-departure-value>{t(variant === 'home' ? staySearchCopy.departure : staySearchCopy.chooseDeparture)}</span>
         </AmaraFormControl>
       </div>
 
-      <div class="am-select-menu order-2 col-span-1 block min-w-0 sm:order-4 sm:col-span-2 lg:col-span-1" data-am-select-menu="guests">
-        <label id={guestsLabelId} for={guestsControlId} class="am-text-label text-on-surface-variant">
+      <div
+        class:list={[
+          'am-select-menu order-2 block min-w-0 sm:order-4 sm:col-span-2 lg:col-span-1',
+          variant === 'home' ? 'col-span-4' : 'col-span-1'
+        ]}
+        data-am-select-menu="guests"
+      >
+        <label id={guestsLabelId} for={guestsControlId} class:list={controlLabelClasses} data-am-stay-search-control-label>
           {t(staySearchCopy.guests)}
         </label>
         <AmaraFormControl
@@ -160,7 +184,10 @@ const initialGuestLabel = t(staySearchCopy.guestsPlural).replace('{count}', '2')
           ))}
         </AmaraFormControl>
         <button
-          class="am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger mt-2"
+          class:list={[
+            'am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger',
+            variant === 'home' ? 'am-stay-search__home-control mt-0' : 'mt-2'
+          ]}
           type="button"
           aria-haspopup="listbox"
           aria-expanded="false"
@@ -214,6 +241,10 @@ const initialGuestLabel = t(staySearchCopy.guestsPlural).replace('{count}', '2')
   .am-stay-search[data-am-stay-search-variant='home'] {
     border-radius: var(--radius-overlay);
     border: 1px solid var(--color-outline-variant);
+  }
+
+  .am-stay-search__home-control {
+    font-size: 0.9375rem;
   }
 
   .am-select-menu {
