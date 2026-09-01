@@ -164,12 +164,12 @@ const cards = vacationRentalEntities.flatMap((rental) => {
   .am-stay-results-grid .am-apartment-card__cta-wrap .am-btn {
     width: fit-content;
     min-width: 0;
-    min-height: 0;
+    min-height: 2.5rem;
     justify-content: flex-start;
-    border: 0;
-    border-radius: 0;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-control);
     background: transparent;
-    padding: 0.25rem 0;
+    padding: 0.625rem 1rem;
     color: var(--color-on-surface);
     font-size: inherit;
     font-weight: inherit;
@@ -177,16 +177,14 @@ const cards = vacationRentalEntities.flatMap((rental) => {
     letter-spacing: inherit;
     text-transform: none;
     white-space: normal;
-    text-decoration: underline;
-    text-decoration-color: var(--color-outline-variant);
-    text-underline-offset: 0.22em;
+    text-decoration: none;
   }
 
   .am-stay-results-grid .am-apartment-card__cta-wrap .am-btn:hover {
-    background: transparent;
-    color: var(--color-primary);
-    text-decoration-color: var(--color-primary);
-    transform: none;
+    border-color: var(--color-on-surface);
+    background: var(--color-surface-container-low);
+    color: var(--color-on-surface);
+    transform: translateY(-1px);
   }
 
   @media (min-width: 48rem) {
