@@ -476,17 +476,17 @@ export const cinematicHeroDirectBenefitsLabel: CopyRow = {
 };
 
 /* =========================================================
-   THREE PLACES
+   THREE DESTINATIONS
    The home weights the locations deliberately: four of the six stays
    are in Frigiliana, so Frigiliana leads this section.
 ========================================================= */
 
 export const cinematicPlacesEyebrow: CopyRow = {
-  en: 'Three places, one host',
-  de: 'Drei Orte, ein Gastgeber',
-  es: 'Tres lugares, un anfitrión',
-  nl: 'Drie plekken, één gastheer',
-  sv: 'Tre platser, en värd'
+  en: 'Three destinations, one promise.',
+  de: 'Drei Reiseziele, ein Versprechen.',
+  es: 'Tres destinos, una promesa.',
+  nl: 'Drie bestemmingen, één belofte.',
+  sv: 'Tre resmål, ett löfte.'
 };
 
 export const cinematicPlacesTitle: CopyRow = {
@@ -495,6 +495,14 @@ export const cinematicPlacesTitle: CopyRow = {
   es: '¿Frigiliana, Nerja o Tarifa?',
   nl: 'Frigiliana, Nerja of Tarifa?',
   sv: 'Frigiliana, Nerja eller Tarifa?'
+};
+
+export const cinematicPlacesPromise: CopyRow = {
+  en: 'Whichever destination you choose, we prepare your AMARA hideaway with the same care and attention to detail, so you can arrive, feel at ease and enjoy more time together.',
+  de: 'Für welches Reiseziel ihr euch entscheidet: Wir bereiten euer AMARA Hideaway mit derselben Sorgfalt und Liebe zum Detail vor, damit ihr in Ruhe ankommen und mehr gemeinsame Zeit genießen könnt.',
+  es: 'Elijáis el destino que elijáis, preparamos vuestro AMARA Hideaway con el mismo cuidado y atención a los detalles, para que podáis llegar con calma y disfrutar de más tiempo juntos.',
+  nl: 'Welke bestemming jullie ook kiezen, we bereiden jullie AMARA-hideaway met dezelfde zorg en aandacht voor detail voor, zodat jullie rustig kunnen aankomen en meer tijd voor elkaar hebben.',
+  sv: 'Oavsett vilket resmål ni väljer förbereder vi ert AMARA-hideaway med samma omsorg och känsla för detaljer, så att ni kan landa i lugn och ro och få mer tid tillsammans.'
 };
 
 /** `{n}` is replaced with the number of stays actually registered for the place. */

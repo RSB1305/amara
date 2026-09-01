@@ -95,6 +95,7 @@ interface Props {
   hostAboutLabel: string;
   placesEyebrow: string;
   placesTitle: string;
+  placesPromise: string;
   places: CinematicPlace[];
   collectionEyebrow: string;
   collectionTitle: string;
@@ -143,6 +144,7 @@ const {
   hostAboutLabel,
   placesEyebrow,
   placesTitle,
+  placesPromise,
   places,
   collectionEyebrow,
   collectionTitle,
@@ -391,6 +393,8 @@ const hasPlaces = places.length > 0;
                 </article>
               ))}
           </div>
+
+          <p class="mt-14 max-w-3xl am-text-body text-on-surface md:mt-16">{placesPromise}</p>
         </div>
       </section>
     )
