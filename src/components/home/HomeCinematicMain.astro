@@ -212,7 +212,7 @@ const hasPlaces = places.length > 0;
       <h1 class="mb-5 am-text-display">
         AMARA<span class="sr-only"> — {heroKicker}</span>
       </h1>
-      <p class="max-w-md am-text-body text-inverted-on-surface/90"><InlineEmphasis text={heroLead} /></p>
+      <p class="am-home-hero-lead max-w-md am-text-body text-inverted-on-surface/90"><InlineEmphasis text={heroLead} /></p>
 
       <div class="mt-6 flex max-w-3xl flex-col items-center gap-3">
         {
@@ -536,6 +536,11 @@ const hasPlaces = places.length > 0;
 
   .am-home-honeymoon-title :global(strong) {
     font-weight: 700;
+  }
+
+  .am-home-hero-lead.am-text-body {
+    font-size: clamp(1.125rem, 1.075rem + 0.25vw, 1.25rem);
+    line-height: 1.5;
   }
 
   .am-home-hero-direct-link {

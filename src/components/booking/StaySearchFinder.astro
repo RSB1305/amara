@@ -47,11 +47,13 @@ const controlLabelClasses = [
   data-am-stay-search-variant={variant}
   data-am-stay-search-copy={JSON.stringify(copy)}
 >
-  {/* The section already carries this as its accessible name, so on a phone the
-      eyebrow is redundant chrome: it wrapped to two lines and was the loudest
-      element in a widget that should read as a quiet utility. */}
   {variant === 'home' && (
-    <p class="am-text-eyebrow mb-4 hidden text-primary sm:block">{t(staySearchCopy.eyebrow)}</p>
+    <>
+      <p class="mb-3 am-text-form-value am-text-form-value--compact text-primary sm:hidden">
+        {t(staySearchCopy.eyebrow)}
+      </p>
+      <p class="mb-4 hidden am-text-eyebrow text-primary sm:block">{t(staySearchCopy.eyebrow)}</p>
+    </>
   )}
 
   <form action={action} method="get" data-am-stay-search-form>
@@ -89,7 +91,7 @@ const controlLabelClasses = [
         <button
           class:list={[
             'am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger',
-            variant === 'home' ? 'mt-0' : 'mt-2'
+            variant === 'home' ? 'am-stay-search__home-control mt-0' : 'mt-2'
           ]}
           type="button"
           aria-haspopup="listbox"
@@ -124,7 +126,7 @@ const controlLabelClasses = [
           as="button"
           trigger
           ariaExpanded={false}
-          class={variant === 'home' ? '!mt-0' : undefined}
+          class={variant === 'home' ? 'am-stay-search__home-control !mt-0' : undefined}
           data={{ 'data-am-stay-search-arrival-trigger': '' }}
         >
           <span data-am-stay-search-arrival-value>{t(variant === 'home' ? staySearchCopy.arrival : staySearchCopy.chooseArrival)}</span>
@@ -146,7 +148,7 @@ const controlLabelClasses = [
           as="button"
           trigger
           ariaExpanded={false}
-          class={variant === 'home' ? '!mt-0' : undefined}
+          class={variant === 'home' ? 'am-stay-search__home-control !mt-0' : undefined}
           data={{ 'data-am-stay-search-departure-trigger': '' }}
         >
           <span data-am-stay-search-departure-value>{t(variant === 'home' ? staySearchCopy.departure : staySearchCopy.chooseDeparture)}</span>
@@ -184,7 +186,7 @@ const controlLabelClasses = [
         <button
           class:list={[
             'am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger',
-            variant === 'home' ? 'mt-0' : 'mt-2'
+            variant === 'home' ? 'am-stay-search__home-control mt-0' : 'mt-2'
           ]}
           type="button"
           aria-haspopup="listbox"
@@ -239,6 +241,10 @@ const controlLabelClasses = [
   .am-stay-search[data-am-stay-search-variant='home'] {
     border-radius: var(--radius-overlay);
     border: 1px solid var(--color-outline-variant);
+  }
+
+  .am-stay-search__home-control {
+    font-size: 0.9375rem;
   }
 
   .am-select-menu {
