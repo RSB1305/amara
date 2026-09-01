@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
-title: AMARA Guest Utility Architecture V2.4
-version: 2.4.0
+title: AMARA Guest Utility Architecture V2.7
+version: 2.7.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-01T09:05:35+02:00
+last_modified: 2026-09-01T14:14:49+02:00
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -143,11 +143,11 @@ Public pages should normally give the durable context, meaningful alternatives a
 
 The transition block must be native in EN, DE, ES, NL and SV, use the collective host perspective and plural guest address, and point to the approved booking or availability path rather than exposing private Guest Guide routes. Its booking CTA follows the active centralized booking contract; the preferred intent is availability or accommodation selection rather than a claim that safety-critical information is available only after payment.
 
-12. Anonymous-link access and public-delivery boundary
+12. Protected delivery boundary
 
-Guest Guides are static utility pages that are anonymously reachable by their link, remain `noindex` and stay outside public sitemaps. `noindex` controls search-engine indexing; it is not authentication or access control.
+Guest Welcome and its detailed Guest Guide pages are delivered only inside the booking-backed AMARA Experience session, remain `noindex` and stay outside public sitemaps. The former anonymous routes redirect to the localized access page and no longer render Guest Guide content.
 
-Publicly delivered Guest Guide content may include Wi-Fi network names, apartment and parking-space numbers, general arrival guidance, house and device instructions, emergency/contact guidance and other non-sensitive operational information. It must not include:
+Protected delivery does not turn the guide into a credential store. Guest Guide content may include Wi-Fi network names, apartment and parking-space numbers, general arrival guidance, house and device instructions, emergency/contact guidance and other non-sensitive operational information. It must not include:
 
 - Wi-Fi passwords or router-administration credentials;
 - doorbell numbers;
@@ -155,31 +155,39 @@ Publicly delivered Guest Guide content may include Wi-Fi network names, apartmen
 - exact physical-key locations or locations of other means that directly enable building access;
 - personal booking or guest data.
 
-When a guest needs protected current access information, the page directs them to AMARA support or the communication channel connected to their booking.
+When a guest needs current access information that is not authored in the guide, the page directs them to AMARA support or the communication channel connected to their booking.
 
 ## Approved repository amendment — AMARA Experience foundation
 
 13. Product and transition boundary
 
-AMARA Experience is the new booked-guest product. Its public, indexable landing page is a normal five-locale AMARA surface and remains globally reachable inside the About us navigation group, immediately after Staying with us. The protected guide remains a separate Guest Utility surface without public navigation, marketing footer, analytics, sitemap inclusion or indexing. Existing public destination Experience hubs keep their public editorial job unchanged.
+AMARA Experience is the booked-guest product. Its public, indexable landing page is a normal five-locale AMARA surface and remains globally reachable inside the About us navigation group, immediately after Staying with us. The landing retains its dedicated access section and the canonical public header adds a compact access icon immediately before the language control; both open the separate access page in the current language. Booked guests also receive that localized access-page link directly. The access page contains only the access task and carries no public navigation, marketing footer, analytics, sitemap inclusion or indexing. Existing public destination and restaurant content keeps its public editorial job unchanged.
 
-The existing anonymous Guest Guides remain available separately during a controlled transition. This foundation does not copy, migrate or remove their content. `DR-GUEST-002` continues to govern those legacy pages; the authenticated contract below governs only AMARA Experience.
+The existing Guest Welcome content is the canonical content basis of AMARA Experience. It is reused under the protected route family rather than copied into a parallel guide. Legacy anonymous routes redirect to the localized access page.
 
 14. Booking-backed access
 
-AMARA Experience accepts exactly three guest-supplied access values: the booking holder's first name, arrival date and departure date. The server normalizes name case, accents and whitespace and compares the values with a confirmed Lodgify reservation through the central Booking Gateway adapter. No surname, access code or password is introduced. Zero matches and ambiguous matches both fail closed with the same neutral public response.
+AMARA Experience accepts exactly three guest-supplied access values: the booking holder's first name, arrival date and departure date. The server normalizes name case, accents and whitespace and compares the values with a confirmed Lodgify reservation through the central Booking Gateway adapter. Free typo or similarity matching is prohibited because these three values form the access factors. No surname, access code or password is introduced. Zero matches and ambiguous matches both fail closed with the same neutral public response.
+
+The confirmed Lodgify property mapping identifies the booked AMARA stay. A successful login returns only the localized protected hub route for that stay; it returns no reservation or guest record to the browser.
 
 Access begins when the reservation is confirmed and ends at 23:59:59 on the departure day in `Europe/Madrid`. A cancellation or other loss of confirmed status blocks a new login and ends an existing session at its next periodic verification, no later than one hour after the previous check.
 
 15. Session and delivery contract
 
-Cloudflare Pages Functions protect the guide route before its static Astro output is served. The session is an AES-GCM-encrypted, `HttpOnly`, `Secure`, `SameSite=Lax`, host-only cookie; it contains no readable personal or booking data, is never placed in a URL or HTML and expires no later than the access window. Protected responses are private, `no-store` and `noindex, nofollow, noarchive`.
+Cloudflare Pages Functions protect the complete AMARA Experience guide route family before its static Astro output is served. The session is an AES-GCM-encrypted, `HttpOnly`, `Secure`, `SameSite=Lax`, host-only cookie; it contains no readable personal or booking data, is never placed in a URL or HTML and expires no later than the access window. Protected responses are private, `no-store` and `noindex, nofollow, noarchive`. The root guide route resolves an authenticated guest to the hub belonging to the booked stay. Language switches stay inside the protected route family, and logout clears the cookie before returning to the localized access page.
 
 The binding `AMARA_EXPERIENCE_SESSION_SECRET` is mandatory and must contain at least 32 random characters. Missing or shorter configuration closes both login and guide access; no fallback key, default value or fail-open path is permitted. Login attempts are bounded at the application edge without persisting the supplied booking values.
 
-16. First guide structure
+16. Canonical guide structure
 
-The first guide structure owns the stable categories `day-trips`, `beaches`, `food-drinks`, `nature-walks`, `practical` and `saved`. Categories with no authored items are not rendered. This foundation intentionally contains no unverified recommendations and no door, lockbox, Wi-Fi, payment, key or personal-booking details.
+Each accommodation hub presents three direct entries in this order:
+
+1. the guest's stay, containing accommodation, arrival, house information and check-out;
+2. location essentials, containing practical local orientation such as mobility, supermarkets, pharmacies and parking where relevant;
+3. AMARA Experience, containing the curated destination layer: hidden treasures, insider tips, authentic local food and experiences away from the busiest routes.
+
+The established Guest Welcome entries, detail pages, location grouping and accommodation-specific structure remain the single authoring basis. Location essentials are linked directly from the hub to the existing destination-specific page and are not duplicated inside the accommodation detail. AMARA Experience upgrades the former recommendations area and may add deeper verified content without introducing a second guide taxonomy. Empty speculative categories are not rendered. The existing content prohibition for credentials, access secrets, payment details and personal booking data remains in force.
 
 ## Revision history
 
@@ -190,3 +198,6 @@ The first guide structure owns the stable categories `day-trips`, `beaches`, `fo
 | 2.2.0 | 2026-08-28T18:00:00Z | Defined anonymous-link delivery and prohibited credentials, access secrets and personal booking data in public Guest Guide output. |
 | 2.3.0 | 2026-08-31T20:30:00+02:00 | Activated the booking-backed AMARA Experience foundation while retaining anonymous Guest Guides as a separate transitional legacy surface. |
 | 2.4.0 | 2026-09-01T09:05:35+02:00 | Moved the public AMARA Experience entry from a standalone primary-navigation position into About us, immediately after Staying with us, to reduce header density while preserving global reach. |
+| 2.5.0 | 2026-09-01T13:30:00+02:00 | Consolidated Guest Welcome into the protected AMARA Experience product, added the separate guest access page and property-aware hub handoff, retired anonymous guide delivery and established the two-world stay/Experience structure. |
+| 2.6.0 | 2026-09-01T14:06:06+02:00 | Restored destination-specific Essentials as the middle direct hub entry between the accommodation and AMARA Experience, using the existing location pages as the single content source. |
+| 2.7.0 | 2026-09-01T14:14:49+02:00 | Retained the dedicated landing-page access section and added a localized AMARA Experience access icon immediately before the public-header language control. |

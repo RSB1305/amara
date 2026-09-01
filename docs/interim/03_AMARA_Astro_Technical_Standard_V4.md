@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.21.0
+version: 4.24.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-01T07:48:00+02:00
+last_modified: 2026-09-01T14:29:20+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -211,9 +211,18 @@ Context navigation must not widen the document at any supported mobile viewport.
 truncate inside its available width; sibling links that intentionally remain on one line own their horizontal
 scrolling inside the navigation rail. Long localized labels must never transfer that overflow to the page.
 
-The persistent booking action remains visible in the canonical header. Below 360px it uses the approved native
-compact availability label for EN, DE, ES, NL and SV so the brand, language control, booking path and menu keep
-separate hit areas. Hiding one of those four jobs is not an acceptable width fix.
+The persistent availability action remains visible in the canonical header as the shared calendar-check icon at
+every viewport. Its native localized accessible name in EN, DE, ES, NL and SV remains the full availability action,
+and the opened mobile menu retains the visible localized wording. The icon links to AMARA's owned stay search, not
+directly to external checkout. Its canonical emphasis is a white inverse circle with the dark calendar mark, a fine
+boundary and restrained shadow so it stays legible over imagery and light headers without growing beyond the shared
+icon hit area. Brand, AMARA Experience access, language control, availability path and menu keep separate hit areas;
+hiding one of those five jobs is not an acceptable width fix.
+
+The canonical public header also exposes a compact, localized AMARA Experience access icon immediately before
+the language control. It links directly to the access page in the current language, remains distinct from the
+editorial AMARA Experience navigation entry and keeps its own accessible name and hit area at every supported
+viewport. The protected Guest Guide and its specialized access shell keep their own header contracts.
 
 10. Footer contract
 BaseLayout pages render the canonical footer core.
@@ -589,3 +598,6 @@ the external booking provider boundary remain unchanged.
 | 4.19.0 | 2026-08-31T18:18:00+02:00 | Standardized horizontal boundaries after repeated partial-divider regressions: equal-surface section dividers now span their full owning surface, decorative partial-width rules are retired from prose, pull quotes, bylines and provenance, and structural component borders remain permitted. |
 | 4.20.0 | 2026-09-01T07:40:00+02:00 | Retired decorative horizontal rules entirely from outer section boundaries and the top/bottom edges of editorial boxes, display bands and CTA panels; removed the shared divider API and added source plus browser guardrails while preserving structural borders inside lists, tables, controls and media frames. |
 | 4.21.0 | 2026-09-01T07:48:00+02:00 | Corrected section-boundary ownership to the approved inset treatment: equal-surface sections receive one centrally controlled line aligned to the content gutter, never the white-canvas edge; editorial boxes, display bands and CTA panels retain clean top/bottom edges. |
+| 4.22.0 | 2026-09-01T14:14:49+02:00 | Added the localized AMARA Experience access icon immediately before the language control in the canonical public header while preserving the existing booking and mobile containment contracts. |
+| 4.23.0 | 2026-09-01T14:24:17+02:00 | Replaced the persistent header availability text treatment with the shared calendar-check icon at every viewport while preserving the localized accessible name, owned stay-search target and visible mobile-menu wording. |
+| 4.24.0 | 2026-09-01T14:29:20+02:00 | Inverted the calendar-check action into a white circular emphasis with a dark calendar mark, fine boundary and restrained shadow while preserving its shared size, route and accessible name. |

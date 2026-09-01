@@ -328,7 +328,13 @@ function enhanceExperienceAccessForm(form: HTMLFormElement) {
         })
       });
       if (response.ok) {
-        window.location.assign(form.dataset.guideHref || '/amara-experience/guide');
+        const payload = await response.json().catch(() => undefined) as { guideHref?: unknown } | undefined;
+        const guideHref = typeof payload?.guideHref === 'string'
+          && payload.guideHref.startsWith('/')
+          && !payload.guideHref.startsWith('//')
+          ? payload.guideHref
+          : form.dataset.guideHref || '/amara-experience/guide';
+        window.location.assign(guideHref);
         return;
       }
       status.textContent = response.status >= 500

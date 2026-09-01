@@ -1,4 +1,4 @@
-import type { GuestGuideEntry, LocalizedText } from '../types/guestGuide';
+import type { GuestGuideCategoryLinkItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
 import { buildBookingLandingUrl } from '../lib/directBooking';
 
 const TARIFA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
@@ -26,6 +26,45 @@ const AMARA_SIGN_OFF: LocalizedText = {
   es: 'Un afectuoso saludo,<br>Robert',
   nl: 'Hartelijke groeten,<br>Robert',
   sv: 'Varma hälsningar,<br>Robert'
+};
+
+const TARIFA_ESSENTIALS_MENU_LINK: GuestGuideMenuLink = {
+  icon: 'location-pin',
+  targetSlug: 'tarifa-guest-local-essentials',
+  title: {
+    en: 'Tarifa essentials',
+    de: 'Wichtiges vor Ort in Tarifa',
+    es: 'Lo esencial de Tarifa',
+    nl: 'Praktische informatie in Tarifa',
+    sv: 'Praktisk information i Tarifa'
+  },
+  subtitle: {
+    en: 'Parking · Supermarkets · Practical local basics',
+    de: 'Parken · Supermärkte · Praktische Grundlagen vor Ort',
+    es: 'Aparcamiento · Supermercados · Información práctica local',
+    nl: 'Parkeren · Supermarkten · Praktische lokale basisinfo',
+    sv: 'Parkering · Stormarknader · Praktisk lokal information'
+  }
+};
+
+const TARIFA_EXPERIENCE_KITESURF_LINK: GuestGuideCategoryLinkItem = {
+  kind: 'link',
+  icon: 'wave',
+  targetSlug: 'tarifa-guest-kitesurfing',
+  title: {
+    en: 'Kitesurfing in Tarifa',
+    de: 'Kitesurfen in Tarifa',
+    es: 'Kitesurf en Tarifa',
+    nl: 'Kitesurfen in Tarifa',
+    sv: 'Kitesurfing i Tarifa'
+  },
+  subtitle: {
+    en: 'Wind basics · Spots · What to expect',
+    de: 'Wind-Basics · Spots · Was euch erwartet',
+    es: 'Conceptos básicos del viento · Spots · Qué esperar',
+    nl: 'Wind basics · Spots · Wat jullie kunnen verwachten',
+    sv: 'Vindgrunder · Spots · Vad ni kan förvänta er'
+  }
 };
 
 // Booking CTA must stay on the guide page's own language route (never hardcode one locale).
@@ -168,65 +207,30 @@ const tarifaFamilySurfHub: GuestGuideEntry = {
         sv: 'Er lägenhet'
       },
       subtitle: {
-        en: 'Arrival · Check-in · House information',
-        de: 'Anreise · Check-in · Hausinformationen',
-        es: 'Llegada · Check-in · Información del apartamento',
-        nl: 'Aankomst · Check-in · Informatie over het appartement',
-        sv: 'Ankomst · Check-in · Information om lägenheten'
+        en: 'Arrival · House information',
+        de: 'Anreise · Hausinformationen',
+        es: 'Llegada · Información del alojamiento',
+        nl: 'Aankomst · Huisinformatie',
+        sv: 'Ankomst · Boendeinformation'
       }
     },
-    {
-      icon: 'location-pin',
-      targetSlug: 'tarifa-guest-local-essentials',
-      title: {
-        en: 'Tarifa Essentials',
-        de: 'Tarifa kompakt',
-        es: 'Lo esencial de Tarifa',
-        nl: 'Tarifa essentials',
-        sv: 'Det viktigaste i Tarifa'
-      },
-      subtitle: {
-        en: 'Parking · Supermarkets · Practical local basics',
-        de: 'Parken · Supermärkte · Praktische Grundlagen vor Ort',
-        es: 'Aparcamiento · Supermercados · Información práctica local',
-        nl: 'Parkeren · Supermarkten · Praktische lokale basisinfo',
-        sv: 'Parkering · Stormarknader · Praktisk lokal information'
-      }
-    },
+    TARIFA_ESSENTIALS_MENU_LINK,
     {
       icon: 'compass',
       targetSlug: 'tarifa-guest-local-guide',
       title: {
-        en: 'Our Recommendations',
-        de: 'Unsere Empfehlungen',
-        es: 'Nuestras recomendaciones',
-        nl: 'Onze aanbevelingen',
-        sv: 'Våra rekommendationer'
+        en: 'AMARA Experience',
+        de: 'AMARA Experience',
+        es: 'AMARA Experience',
+        nl: 'AMARA Experience',
+        sv: 'AMARA Experience'
       },
       subtitle: {
-        en: 'Restaurants · Cafés · Places we genuinely like',
-        de: 'Restaurants · Cafés · Orte, die wir wirklich mögen',
-        es: 'Restaurantes · Cafés · Lugares que realmente nos gustan',
-        nl: 'Restaurants · Cafés · Plekken die we echt graag aanraden',
-        sv: 'Restauranger · Kaféer · Platser som vi verkligen tycker om'
-      }
-    },
-    {
-      icon: 'wave',
-      targetSlug: 'tarifa-guest-kitesurfing',
-      title: {
-        en: 'Kitesurfing in Tarifa',
-        de: 'Kitesurfen in Tarifa',
-        es: 'Kitesurf en Tarifa',
-        nl: 'Kitesurfen in Tarifa',
-        sv: 'Kitesurfing i Tarifa'
-      },
-      subtitle: {
-        en: 'Wind basics · Spots · What to expect',
-        de: 'Wind-Basics · Spots · Was euch erwartet',
-        es: 'Conceptos básicos del viento · Spots · Qué esperar',
-        nl: 'Wind basics · Spots · Wat jullie kunnen verwachten',
-        sv: 'Vindgrunder · Spots · Vad ni kan förvänta er'
+        en: 'Hidden treasures · Insider tips · Authentic local food · Beyond the crowds',
+        de: 'Versteckte Schätze · Insider-Tipps · Authentische lokale Küche · Abseits der Massen',
+        es: 'Rincones escondidos · Consejos locales · Cocina local auténtica · Lejos de las multitudes',
+        nl: 'Verborgen parels · Insidertips · Authentiek lokaal eten · Buiten de drukte',
+        sv: 'Dolda pärlor · Insidertips · Genuin lokal mat · Bortom trängseln'
       }
     }
   ],
@@ -1880,18 +1884,18 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
   supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
-    'Local Guide | AMARA Tarifa',
-    'Local Guide | AMARA Tarifa',
-    'Guía local | AMARA Tarifa',
-    'Local Guide | AMARA Tarifa',
-    'Lokalguide | AMARA Tarifa'
+    'AMARA Experience | Tarifa',
+    'AMARA Experience | Tarifa',
+    'AMARA Experience | Tarifa',
+    'AMARA Experience | Tarifa',
+    'AMARA Experience | Tarifa'
   ),
   seoDescription: tarifaText(
-    'Beaches, culture, and curated places in Tarifa.',
-    'Strände, Kultur und handverlesene Orte in Tarifa.',
-    'Playas, cultura y lugares recomendados en Tarifa.',
-    'Stranden, cultuur en speciaal geselecteerde plekken in Tarifa.',
-    'Stränder, kultur och utvalda platser i Tarifa.'
+    'Hidden treasures, insider tips, authentic local food and lesser-known places in Tarifa, selected by your AMARA hosts.',
+    'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte in Tarifa, ausgewählt von euren AMARA-Gastgebern.',
+    'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos de Tarifa, seleccionados por vuestros anfitriones de AMARA.',
+    'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken in Tarifa, geselecteerd door jullie AMARA-gastheren.',
+    'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser i Tarifa, utvalda av era AMARA-värdar.'
   ),
   kicker: tarifaText(
     'TARIFA GUEST GUIDE',
@@ -1901,18 +1905,18 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
     'TARIFA GUEST GUIDE'
   ),
   title: tarifaText(
-    'Our Recommendations',
-    'Unsere Empfehlungen',
-    'Nuestras recomendaciones',
-    'Onze aanbevelingen',
-    'Våra rekommendationer'
+    'AMARA Experience in Tarifa',
+    'AMARA Experience in Tarifa',
+    'AMARA Experience en Tarifa',
+    'AMARA Experience in Tarifa',
+    'AMARA Experience i Tarifa'
   ),
   intro: tarifaText(
-    'Beaches, culture, and curated places in Tarifa.',
-    'Strände, Kultur und handverlesene Orte in Tarifa.',
-    'Playas, cultura y lugares especialmente seleccionados en Tarifa.',
-    'Stranden, cultuur en speciaal geselecteerde plekken in Tarifa.',
-    'Stränder, kultur och noga utvalda platser i Tarifa.'
+    'Hidden treasures, insider tips, authentic local food and lesser-known places — with practical details for more time together away from the busiest routes.',
+    'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte – mit praktischen Details für mehr gemeinsame Zeit abseits der meistbesuchten Wege.',
+    'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos, con detalles prácticos para disfrutar más tiempo juntos fuera de las rutas más concurridas.',
+    'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken — met praktische details voor meer tijd samen buiten de drukste routes.',
+    'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser — med praktiska detaljer för mer tid tillsammans bortom de mest välbesökta stråken.'
   ),
   categories: [
     {
@@ -1924,6 +1928,7 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
         'Upptäck Tarifa'
       ),
       items: [
+        TARIFA_EXPERIENCE_KITESURF_LINK,
         {
           kind: 'link',
           icon: 'goblet',

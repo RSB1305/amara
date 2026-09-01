@@ -14,19 +14,40 @@ import type {
 import type { NavigationUtilityLabels } from './globalNavigationContent';
 import type { AmaraLanguage } from '../../types/seo';
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
+import { CalendarCheck, LogIn } from '@lucide/astro';
 
 interface Props {
   currentLang: AmaraLanguage;
+  experienceAccessHref: string;
   languageOptions: ResolvedLanguageOption[];
   cta: ResolvedNavigationCta;
   showBookingCta: boolean;
   utilityLabels: NavigationUtilityLabels;
 }
 
-const { currentLang, languageOptions, cta, showBookingCta, utilityLabels } = Astro.props;
+const {
+  currentLang,
+  experienceAccessHref,
+  languageOptions,
+  cta,
+  showBookingCta,
+  utilityLabels
+} = Astro.props;
 ---
 
 <div class="am-nav__rail">
+  <div class="am-nav__slot am-nav__slot--experience-access">
+    <a
+      href={experienceAccessHref}
+      class="am-nav__icon-button"
+      aria-label={utilityLabels.openAmaraExperience}
+      title={utilityLabels.openAmaraExperience}
+      data-am-experience-access
+    >
+      <LogIn size={22} stroke-width={1.5} aria-hidden="true" />
+    </a>
+  </div>
+
   <div class="am-nav__slot am-nav__slot--language">
     <div class="am-nav__language" data-am-language>
       <button
@@ -82,10 +103,14 @@ const { currentLang, languageOptions, cta, showBookingCta, utilityLabels } = Ast
         href={cta.href ?? undefined}
         variant="secondary"
         disabled={cta.href === null}
+        class="am-nav__icon-button am-nav__availability-action"
+        aria-label={cta.label}
+        title={cta.label}
+        data-am-availability-action
       >
-        <span class="am-nav__cta-label-full">{cta.label}</span>
-        <span class="am-nav__cta-label-short">{cta.shortLabel}</span>
-        <span class="am-nav__cta-label-compact">{cta.compactLabel}</span>
+        <span class="am-nav__cta-icon" aria-hidden="true">
+          <CalendarCheck size={22} stroke-width={1.5} />
+        </span>
       </AmaraActionLink>
     </div>
   )}

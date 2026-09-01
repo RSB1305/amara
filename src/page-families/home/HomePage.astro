@@ -54,14 +54,25 @@ import {
 } from '../../content/homeCinematicCopy';
 import { stayCardImageByToken } from '../../lib/images/stayCardImages';
 import imgHost from '../../assets/images/content/robert-amara-host.jpg';
+import imgHeroLounis from '../../assets/images/content/amara-lounis/17-amara-frigiliana.jpg';
+import imgHeroFarah from '../../assets/images/content/amara-farah/72-amara-frigiliana.jpg';
+import imgHeroMaha from '../../assets/images/content/amara-maha/31-amara-frigiliana.jpg';
+import imgHeroZaid from '../../assets/images/content/amara-zaid/cara-rural-frigiliana-amara-said-terraza-6.jpg';
 
 const homeHeroSizes = '100vw';
-const heroTokens = ['lounis', 'maha', 'playa', 'tarifa'] as const;
+// The hero has its own Frigiliana sequence so the apartment cards below retain
+// distinct recognition images instead of immediately repeating the same frames.
+const heroSources = [
+  { id: 'lounis-detail', image: imgHeroLounis },
+  { id: 'farah-detail', image: imgHeroFarah },
+  { id: 'maha-detail', image: imgHeroMaha },
+  { id: 'zaid-detail', image: imgHeroZaid }
+] as const;
 const heroImages = await Promise.all(
-  heroTokens.map(async (token) => {
-    const optimized = await createAmaraImage(stayCardImageByToken[token], 'hero', { quality: 50 });
+  heroSources.map(async ({ id, image }) => {
+    const optimized = await createAmaraImage(image, 'hero', { quality: 50 });
     return {
-      id: token,
+      id,
       src: optimized.src,
       srcSet: optimized.srcSet.attribute,
       sizes: homeHeroSizes,

@@ -50,6 +50,7 @@ function initGlobalNavigation(): void {
 
     addTarget(header.querySelector<HTMLElement>('.am-nav__brand'));
     addTarget(header.querySelector<HTMLElement>('.am-nav__center'));
+    addTarget(header.querySelector<HTMLElement>('.am-nav__slot--experience-access'));
     addTarget(header.querySelector<HTMLElement>('.am-nav__slot--language'));
     addTarget(header.querySelector<HTMLElement>('.am-nav__slot--cta'));
 

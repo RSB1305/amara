@@ -6,5 +6,6 @@ import type { AmaraLanguage } from '../types/seo';
  * routing through buildOwnedLocalizedPath()/the public slug policy.
  */
 export function guideHref(slug: string, lang: AmaraLanguage): string {
-  return lang === 'es' ? `/${slug}` : `/${lang}/${slug}`;
+  const root = lang === 'es' ? '/amara-experience/guide' : `/${lang}/amara-experience/guide`;
+  return `${root}/${slug}`;
 }

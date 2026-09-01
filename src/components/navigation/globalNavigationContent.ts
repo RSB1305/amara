@@ -55,6 +55,7 @@ export const globalCtaLabels: Record<AmaraLanguage, string> = {
 export type NavigationUtilityLabels = {
   menu: string;
   closeMenu: string;
+  openAmaraExperience: string;
   selectLanguage: string;
   mobileNavigation: string;
 };
@@ -63,30 +64,35 @@ export const navigationUtilityLabels: Record<AmaraLanguage, NavigationUtilityLab
   en: {
     menu: 'Open menu',
     closeMenu: 'Close menu',
+    openAmaraExperience: 'Open AMARA Experience',
     selectLanguage: 'Select language',
     mobileNavigation: 'Main navigation'
   },
   de: {
     menu: 'Menü öffnen',
     closeMenu: 'Menü schließen',
+    openAmaraExperience: 'AMARA Experience öffnen',
     selectLanguage: 'Sprache auswählen',
     mobileNavigation: 'Hauptnavigation'
   },
   es: {
     menu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
+    openAmaraExperience: 'Abrir AMARA Experience',
     selectLanguage: 'Seleccionar idioma',
     mobileNavigation: 'Navegación principal'
   },
   nl: {
     menu: 'Menu openen',
     closeMenu: 'Menu sluiten',
+    openAmaraExperience: 'AMARA Experience openen',
     selectLanguage: 'Taal selecteren',
     mobileNavigation: 'Hoofdnavigatie'
   },
   sv: {
     menu: 'Öppna meny',
     closeMenu: 'Stäng meny',
+    openAmaraExperience: 'Öppna AMARA Experience',
     selectLanguage: 'Välj språk',
     mobileNavigation: 'Huvudnavigering'
   }

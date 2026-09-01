@@ -6,7 +6,6 @@
 // noindex/title/description/canonical logic stays centralized with the rest of the site.
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import { normalizeLanguage, resolveSeoHead } from '../lib/seo/resolve-seo-head';
-import { resolveStructuredData } from '../lib/seo/resolve-structured-data';
 import GuestGuideSupportFloat from '../components/guest-guide/GuestGuideSupportFloat.astro';
 import '../styles/global.css';
 import '../styles/guest-guide.css';
@@ -26,7 +25,14 @@ const pathname = Astro.url.pathname;
 const currentLang = normalizeLanguage(pageLang);
 const origin = Astro.url.origin;
 const head = resolveSeoHead(seo, origin, pathname, currentLang);
-const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin);
+const accessHref = currentLang === 'es' ? '/amara-experience/access' : `/${currentLang}/amara-experience/access`;
+const logoutLabel: Record<AmaraLanguage, string> = {
+  en: 'Log out',
+  de: 'Abmelden',
+  es: 'Cerrar sesión',
+  nl: 'Uitloggen',
+  sv: 'Logga ut'
+};
 ---
 
 <!DOCTYPE html>
@@ -42,11 +48,14 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
     <meta name="description" content={head.current.description} />
     <meta name="robots" content={head.current.robots} />
     <link rel="canonical" href={head.canonicalUrl} />
-    {ldJson && <script is:inline type="application/ld+json" set:html={ldJson} />}
   </head>
 
   <body class="am-guide-root bg-surface text-on-surface font-body antialiased" data-guide-slug={currentSlug}>
     <div class="am-guide-wrap">
+      <header class="am-guide-session-bar">
+        <span class="am-guide-session-brand">AMARA Experience</span>
+        <button class="am-guide-session-logout" type="button" data-am-guide-logout>{logoutLabel[currentLang]}</button>
+      </header>
       <slot />
     </div>
     <GuestGuideSupportFloat href={supportHref} label={supportLabel} />
@@ -83,6 +92,26 @@ const ldJson = resolveStructuredData(seo, head.canonicalUrl, currentLang, origin
           if (!link) return;
           e.preventDefault();
           window.open(link.href, '_blank', 'noopener');
+        });
+      })();
+    </script>
+    <script is:inline define:vars={{ accessHref }}>
+      (function () {
+        var button = document.querySelector('[data-am-guide-logout]');
+        if (!button) return;
+        button.addEventListener('click', async function () {
+          button.disabled = true;
+          try {
+            var response = await fetch('/api/guest/session', {
+              method: 'DELETE',
+              credentials: 'same-origin',
+              headers: { Accept: 'application/json' }
+            });
+            if (!response.ok) throw new Error('logout_failed');
+            window.location.replace(accessHref);
+          } catch (error) {
+            button.disabled = false;
+          }
         });
       })();
     </script>

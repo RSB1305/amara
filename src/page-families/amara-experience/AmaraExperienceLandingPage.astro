@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import {
   BadgeCheck,
-  CalendarDays,
   Croissant,
   Footprints,
   Heart,
@@ -14,8 +13,6 @@ import {
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
-import AmaraActionButton from '../../components/actions/AmaraActionButton.astro';
-import BookingDateRangeCalendar from '../../components/booking/BookingDateRangeCalendar.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
@@ -32,7 +29,7 @@ import type { AmaraLanguage } from '../../types/seo';
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = getAmaraExperienceContent(currentLang);
-const guideHref = currentLang === 'es' ? '/amara-experience/guide' : `/${currentLang}/amara-experience/guide`;
+const accessHref = currentLang === 'es' ? '/amara-experience/access' : `/${currentLang}/amara-experience/access`;
 const hostHref = buildOwnedLocalizedPath('staying-with-us', currentLang);
 const seoHeroImage = await createAmaraImage(villageImage, 'hero');
 const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
@@ -212,94 +209,14 @@ const benefitIcons = {
     </AmaraSection>
 
     <AmaraSection surface="tint" family="experience" dataComponent="amara-experience-access">
-      <div class="mx-auto grid max-w-[1100px] gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(22rem,1fr)] lg:items-start lg:gap-20">
-        <div class="max-w-[55ch] lg:pt-8">
+      <div class="mx-auto grid max-w-[1100px] gap-8 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-16">
+        <div class="max-w-[62ch]">
           <p class="am-text-eyebrow mb-5 text-primary">{copy.accessEyebrow}</p>
           <h2 class="am-text-title text-on-surface">{copy.accessTitle}</h2>
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{copy.accessIntro}</p>
         </div>
-
-        <div class="am-experience-access-card rounded-[var(--radius-overlay)] border border-outline-variant/20 bg-surface-white p-6 shadow-sm sm:p-9">
-          <h2 class="am-text-title text-on-surface">{copy.formTitle}</h2>
-          <p class="am-text-body mt-3 text-on-surface-variant">{copy.formIntro}</p>
-
-          <form
-            class="mt-8 space-y-5"
-            data-am-experience-form
-            data-lang={currentLang}
-            data-guide-href={guideHref}
-            data-pending-label={copy.pendingLabel}
-            data-submit-label={copy.submitLabel}
-            data-denied-message={copy.deniedMessage}
-            data-unavailable-message={copy.unavailableMessage}
-            data-session-ended-message={copy.sessionEndedMessage}
-            data-choose-arrival-label={copy.chooseArrivalLabel}
-            data-choose-departure-label={copy.chooseDepartureLabel}
-            data-date-picker-help={copy.datePickerHelp}
-            data-date-picker-departure-help={copy.datePickerDepartureHelp}
-            data-date-picker-complete-help={copy.datePickerCompleteHelp}
-            data-date-picker-required-message={copy.datePickerRequiredMessage}
-          >
-            <label class="block">
-              <span class="am-text-label mb-2 block text-on-surface">{copy.firstNameLabel}</span>
-              <input class="am-form-control w-full" name="firstName" type="text" autocomplete="given-name" minlength="2" maxlength="80" required />
-            </label>
-            <div class="am-experience-date-picker relative" data-am-experience-date-picker>
-              <div class="space-y-5">
-                <label class="block" data-am-experience-native-arrival>
-                  <span class="am-text-label mb-2 block text-on-surface">{copy.arrivalLabel}</span>
-                  <input class="am-form-control w-full" name="arrival" type="date" autocomplete="off" required data-am-experience-arrival />
-                </label>
-                <div class="block" hidden data-am-experience-arrival-trigger-wrap>
-                  <span id="am-experience-arrival-label" class="am-text-label mb-2 block text-on-surface">{copy.arrivalLabel}</span>
-                  <button
-                    class="am-form-control am-form-control--trigger am-text-form-value flex w-full items-center justify-between gap-3 bg-surface-white"
-                    type="button"
-                    aria-controls="am-experience-date-calendar"
-                    aria-expanded="false"
-                    aria-labelledby="am-experience-arrival-label am-experience-arrival-value"
-                    data-am-experience-arrival-trigger
-                  >
-                    <span id="am-experience-arrival-value" class="min-w-0 flex-1 truncate text-left" data-am-experience-arrival-value>{copy.chooseArrivalLabel}</span>
-                    <CalendarDays class="h-5 w-5 shrink-0 text-primary" stroke-width={1.6} aria-hidden="true" />
-                  </button>
-                </div>
-
-                <label class="block" data-am-experience-native-departure>
-                  <span class="am-text-label mb-2 block text-on-surface">{copy.departureLabel}</span>
-                  <input class="am-form-control w-full" name="departure" type="date" autocomplete="off" required data-am-experience-departure />
-                </label>
-                <div class="block" hidden data-am-experience-departure-trigger-wrap>
-                  <span id="am-experience-departure-label" class="am-text-label mb-2 block text-on-surface">{copy.departureLabel}</span>
-                  <button
-                    class="am-form-control am-form-control--trigger am-text-form-value flex w-full items-center justify-between gap-3 bg-surface-white"
-                    type="button"
-                    aria-controls="am-experience-date-calendar"
-                    aria-expanded="false"
-                    aria-labelledby="am-experience-departure-label am-experience-departure-value"
-                    data-am-experience-departure-trigger
-                  >
-                    <span id="am-experience-departure-value" class="min-w-0 flex-1 truncate text-left" data-am-experience-departure-value>{copy.chooseDepartureLabel}</span>
-                    <CalendarDays class="h-5 w-5 shrink-0 text-primary" stroke-width={1.6} aria-hidden="true" />
-                  </button>
-                </div>
-              </div>
-
-              <div id="am-experience-date-calendar">
-                <BookingDateRangeCalendar
-                  title={copy.datePickerTitle}
-                  help={copy.datePickerHelp}
-                  previousMonthLabel={copy.previousMonthLabel}
-                  nextMonthLabel={copy.nextMonthLabel}
-                />
-              </div>
-            </div>
-            <p class="am-text-body min-h-6 text-on-surface-variant" data-am-experience-status role="status" aria-live="polite"></p>
-            <AmaraActionButton variant="primary" type="submit" class="w-full" data-am-experience-submit>
-              <span data-am-experience-submit-label>{copy.submitLabel}</span>
-            </AmaraActionButton>
-          </form>
-          <p class="am-text-caption mt-5 text-muted">{copy.privacyNote}</p>
+        <div>
+          <a class="am-btn am-btn--primary" href={accessHref}>{copy.submitLabel}</a>
         </div>
       </div>
     </AmaraSection>
@@ -369,26 +286,6 @@ const benefitIcons = {
     transform: translateY(-0.25rem);
   }
 
-  .am-experience-date-picker :global(.am-booking-calendar__months) {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .am-experience-date-picker :global(.am-booking-calendar__day),
-  .am-experience-date-picker :global(.am-booking-calendar__blank) {
-    min-height: 3.25rem;
-  }
-
-  @media (min-width: 40rem) {
-    .am-experience-date-picker :global(.am-booking-calendar) {
-      position: absolute;
-      inset-block-start: calc(100% + 0.75rem);
-      inset-inline-end: 0;
-      z-index: 90;
-      width: min(28rem, 100%);
-      margin-top: 0;
-    }
-  }
-
   @media (max-width: 47.999rem) {
     .am-experience-hero__media {
       min-block-size: 28rem;
@@ -422,9 +319,3 @@ const benefitIcons = {
     }
   }
 </style>
-
-<script>
-  import { enhanceExperienceAccessForms } from '../../scripts/experienceAccessForm';
-
-  enhanceExperienceAccessForms();
-</script>

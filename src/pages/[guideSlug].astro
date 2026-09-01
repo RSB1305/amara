@@ -1,7 +1,5 @@
 ---
-import GuestGuidePage from '../page-families/guest-guide/GuestGuidePage.astro';
 import { guestGuideEntries } from '../content/guestGuideEntries';
-import { DEFAULT_LANGUAGE } from '../lib/routeOwnership';
 
 export function getStaticPaths() {
   return guestGuideEntries.map((entry) => ({
@@ -10,7 +8,5 @@ export function getStaticPaths() {
   }));
 }
 
-const { entry } = Astro.props;
+return Astro.redirect('/amara-experience/access', 301);
 ---
-
-<GuestGuidePage entry={entry} lang={DEFAULT_LANGUAGE} />

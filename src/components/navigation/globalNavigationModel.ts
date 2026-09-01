@@ -9,10 +9,9 @@
 import { resolveLink, resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import { isPublicLinkEnabled } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
+import { experienceAccessHref } from '../../../guest-experience/guide-routes.mjs';
 import {
   createGlobalNavGroups,
-  defaultCtaCompactLabels,
-  defaultCtaShortLabels,
   globalCtaLabels,
   forcedEnabledNavTokens,
   navigationLanguages,
@@ -43,8 +42,6 @@ export type ResolvedLanguageOption = {
 
 export type ResolvedNavigationCta = {
   label: string;
-  shortLabel: string;
-  compactLabel: string;
   href: string | null;
   /** True on the page the call to action would link to; the header omits it there. */
   hidden: boolean;
@@ -53,6 +50,7 @@ export type ResolvedNavigationCta = {
 export type GlobalNavigationModel = {
   brandHref: string;
   utilityLabels: NavigationUtilityLabels;
+  experienceAccessHref: string;
   groups: ResolvedGlobalNavGroup[];
   languageOptions: ResolvedLanguageOption[];
   cta: ResolvedNavigationCta;
@@ -144,11 +142,16 @@ export function createGlobalNavigationModel({
 
   const cta: ResolvedNavigationCta = {
     label: globalCtaLabels[currentLang],
-    shortLabel: defaultCtaShortLabels[currentLang],
-    compactLabel: defaultCtaCompactLabels[currentLang],
     href: ctaTargetsCurrentPage ? null : ctaHref,
     hidden: ctaTargetsCurrentPage
   };
 
-  return { brandHref, utilityLabels: navigationUtilityLabels[currentLang] ?? navigationUtilityLabels.en, groups, languageOptions, cta };
+  return {
+    brandHref,
+    utilityLabels: navigationUtilityLabels[currentLang] ?? navigationUtilityLabels.en,
+    experienceAccessHref: experienceAccessHref(currentLang),
+    groups,
+    languageOptions,
+    cta
+  };
 }

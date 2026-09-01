@@ -4,14 +4,21 @@ import { SUPPORTED_LANGUAGES } from '../../lib/routeOwnership';
 import { guideHref } from '../../lib/guestGuideHref';
 import { AMARA_LANGUAGE_LABELS } from '../../lib/languageLabels';
 import type { AmaraLanguage } from '../../types/seo';
+import { experienceAccessHref } from '../../../guest-experience/guide-routes.mjs';
+import '../../styles/guest-guide-language-switcher.css';
 
 interface Props {
-  slug: string;
+  slug?: string;
   currentLang: AmaraLanguage;
   variant?: 'overlay' | 'inline';
+  target?: 'guide' | 'access';
 }
 
-const { slug, currentLang, variant = 'inline' } = Astro.props;
+const { slug, currentLang, variant = 'inline', target = 'guide' } = Astro.props;
+if (target === 'guide' && !slug) throw new Error('Guest Guide language switching requires a guide slug.');
+const hrefForLanguage = (lang: AmaraLanguage) => (
+  target === 'access' ? experienceAccessHref(lang) : guideHref(slug!, lang)
+);
 ---
 
 <details class={`am-lang-menu ${variant === 'overlay' ? 'am-lang-menu--overlay' : ''}`}>
@@ -26,7 +33,7 @@ const { slug, currentLang, variant = 'inline' } = Astro.props;
     {SUPPORTED_LANGUAGES.map((lang) => (
       <a
         class="am-lang-menu__option"
-        href={guideHref(slug, lang)}
+        href={hrefForLanguage(lang)}
         aria-current={lang === currentLang ? 'true' : undefined}
       >
         {AMARA_LANGUAGE_LABELS[lang]}

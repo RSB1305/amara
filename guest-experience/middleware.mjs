@@ -8,27 +8,27 @@ import {
   readExperienceCookie,
   sealExperienceSession
 } from './session.mjs';
+import {
+  experienceAccessHref,
+  experienceGuideHubHref,
+  experienceGuideRootHref,
+  experienceRouteLanguage
+} from './guide-routes.mjs';
 
-const LANGUAGES = new Set(['en', 'de', 'nl', 'sv']);
 const GUIDE_CSP = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'";
 const PERMISSIONS_POLICY = 'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=(), browsing-topics=()';
 
-function routeLanguage(pathname) {
-  const first = pathname.split('/').filter(Boolean)[0];
-  return LANGUAGES.has(first) ? first : 'es';
-}
-
-function landingUrl(request, reason) {
+function accessUrl(request, reason) {
   const url = new URL(request.url);
-  const lang = routeLanguage(url.pathname);
-  url.pathname = lang === 'es' ? '/amara-experience' : `/${lang}/amara-experience`;
+  const lang = experienceRouteLanguage(url.pathname);
+  url.pathname = experienceAccessHref(lang);
   url.search = `?reason=${encodeURIComponent(reason)}`;
   return url;
 }
 
 function redirect(request, reason) {
   const headers = new Headers({
-    Location: landingUrl(request, reason).toString(),
+    Location: accessUrl(request, reason).toString(),
     'Cache-Control': 'no-store, private',
     'X-Robots-Tag': 'noindex, nofollow, noarchive',
     'Referrer-Policy': 'no-referrer',
@@ -63,6 +63,8 @@ export async function handleExperienceGuide(context) {
     const now = Math.floor(Date.now() / 1000);
     if (claims.exp < now) return redirect(request, 'session');
 
+    const lang = experienceRouteLanguage(new URL(request.url).pathname);
+
     let refreshedCookie;
     if (claims.revalidateAfter <= now) {
       const booking = await revalidateEligibleBooking(env?.LODGIFY_API_KEY, claims.bookingId);
@@ -71,6 +73,13 @@ export async function handleExperienceGuide(context) {
         await sealExperienceSession(refreshedClaims, secret),
         refreshedClaims.exp,
       );
+    }
+
+    if (new URL(request.url).pathname.replace(/\/$/, '') === experienceGuideRootHref(lang)) {
+      return protectResponse(new Response(null, {
+        status: 302,
+        headers: { Location: experienceGuideHubHref(claims.stay, lang) }
+      }), refreshedCookie);
     }
 
     return protectResponse(await context.next(), refreshedCookie);

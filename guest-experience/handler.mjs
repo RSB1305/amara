@@ -1,5 +1,6 @@
 import { ExperienceAccessDenied, findUniqueEligibleBooking, validateAccessInput } from './bookings.mjs';
 import { consumeAccessAttempt } from './rate-limit.mjs';
+import { experienceGuideHubHref } from './guide-routes.mjs';
 import {
   ExperienceSessionError,
   clearExperienceCookie,
@@ -19,10 +20,10 @@ const JSON_HEADERS = {
   'Content-Security-Policy': "default-src 'none'; base-uri 'none'; frame-ancestors 'none'"
 };
 
-function json(status, code, cookie) {
+function json(status, code, cookie, payload = {}) {
   const headers = new Headers(JSON_HEADERS);
   if (cookie) headers.append('Set-Cookie', cookie);
-  return new Response(JSON.stringify({ ok: status >= 200 && status < 300, code }), { status, headers });
+  return new Response(JSON.stringify({ ok: status >= 200 && status < 300, code, ...payload }), { status, headers });
 }
 
 function sameOrigin(request) {
@@ -76,7 +77,12 @@ export async function handleExperienceSession(context) {
     const booking = await findUniqueEligibleBooking(env?.LODGIFY_API_KEY, input);
     const claims = createExperienceClaims(booking, input.lang);
     const token = await sealExperienceSession(claims, secret);
-    return json(200, 'session_open', createExperienceCookie(token, claims.exp));
+    return json(
+      200,
+      'session_open',
+      createExperienceCookie(token, claims.exp),
+      { guideHref: experienceGuideHubHref(claims.stay, claims.lang) }
+    );
   } catch (error) {
     if (error instanceof ExperienceAccessDenied) return json(401, 'access_denied');
     if (error instanceof ExperienceSessionError) return json(503, 'unavailable');
