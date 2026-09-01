@@ -1,0 +1,110 @@
+---
+import { CalendarDays } from '@lucide/astro';
+import AmaraExperienceAccessLayout from '../../layouts/AmaraExperienceAccessLayout.astro';
+import AmaraActionButton from '../../components/actions/AmaraActionButton.astro';
+import BookingDateRangeCalendar from '../../components/booking/BookingDateRangeCalendar.astro';
+import { getAmaraExperienceContent } from '../../content/amaraExperienceContent';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = getAmaraExperienceContent(currentLang);
+const guideHref = currentLang === 'es' ? '/amara-experience/guide' : `/${currentLang}/amara-experience/guide`;
+const landingHref = currentLang === 'es' ? '/amara-experience' : `/${currentLang}/amara-experience`;
+---
+
+<AmaraExperienceAccessLayout lang={currentLang} title={copy.formTitle} landingHref={landingHref}>
+  <main id="am-experience-main" class="am-experience-access" tabindex="-1">
+    <div class="am-experience-app__intro">
+      <p class="am-text-eyebrow mb-4 text-primary">{copy.accessEyebrow}</p>
+      <h1 class="am-text-title text-on-surface">{copy.formTitle}</h1>
+      <p class="am-text-body mt-5 leading-relaxed text-on-surface-variant">{copy.accessIntro}</p>
+    </div>
+
+    <form
+      class="mt-8 space-y-5"
+      data-am-experience-form
+      data-lang={currentLang}
+      data-guide-href={guideHref}
+      data-pending-label={copy.pendingLabel}
+      data-submit-label={copy.submitLabel}
+      data-denied-message={copy.deniedMessage}
+      data-unavailable-message={copy.unavailableMessage}
+      data-session-ended-message={copy.sessionEndedMessage}
+      data-choose-arrival-label={copy.chooseArrivalLabel}
+      data-choose-departure-label={copy.chooseDepartureLabel}
+      data-date-picker-help={copy.datePickerHelp}
+      data-date-picker-departure-help={copy.datePickerDepartureHelp}
+      data-date-picker-complete-help={copy.datePickerCompleteHelp}
+      data-date-picker-required-message={copy.datePickerRequiredMessage}
+    >
+      <p class="am-text-body text-on-surface-variant">{copy.formIntro}</p>
+      <label class="block">
+        <span class="am-text-label mb-2 block text-on-surface">{copy.firstNameLabel}</span>
+        <input class="am-form-control w-full" name="firstName" type="text" autocomplete="given-name" minlength="2" maxlength="80" required />
+      </label>
+      <div class="am-experience-date-picker relative" data-am-experience-date-picker>
+        <div class="space-y-5">
+          <label class="block" data-am-experience-native-arrival>
+            <span class="am-text-label mb-2 block text-on-surface">{copy.arrivalLabel}</span>
+            <input class="am-form-control w-full" name="arrival" type="date" autocomplete="off" required data-am-experience-arrival />
+          </label>
+          <div class="block" hidden data-am-experience-arrival-trigger-wrap>
+            <span id="am-experience-arrival-label" class="am-text-label mb-2 block text-on-surface">{copy.arrivalLabel}</span>
+            <button
+              class="am-form-control am-form-control--trigger am-text-form-value flex w-full items-center justify-between gap-3 bg-surface-white"
+              type="button"
+              aria-controls="am-experience-date-calendar"
+              aria-expanded="false"
+              aria-labelledby="am-experience-arrival-label am-experience-arrival-value"
+              data-am-experience-arrival-trigger
+            >
+              <span id="am-experience-arrival-value" class="min-w-0 flex-1 truncate text-left" data-am-experience-arrival-value>{copy.chooseArrivalLabel}</span>
+              <CalendarDays class="h-5 w-5 shrink-0 text-primary" stroke-width={1.6} aria-hidden="true" />
+            </button>
+          </div>
+
+          <label class="block" data-am-experience-native-departure>
+            <span class="am-text-label mb-2 block text-on-surface">{copy.departureLabel}</span>
+            <input class="am-form-control w-full" name="departure" type="date" autocomplete="off" required data-am-experience-departure />
+          </label>
+          <div class="block" hidden data-am-experience-departure-trigger-wrap>
+            <span id="am-experience-departure-label" class="am-text-label mb-2 block text-on-surface">{copy.departureLabel}</span>
+            <button
+              class="am-form-control am-form-control--trigger am-text-form-value flex w-full items-center justify-between gap-3 bg-surface-white"
+              type="button"
+              aria-controls="am-experience-date-calendar"
+              aria-expanded="false"
+              aria-labelledby="am-experience-departure-label am-experience-departure-value"
+              data-am-experience-departure-trigger
+            >
+              <span id="am-experience-departure-value" class="min-w-0 flex-1 truncate text-left" data-am-experience-departure-value>{copy.chooseDepartureLabel}</span>
+              <CalendarDays class="h-5 w-5 shrink-0 text-primary" stroke-width={1.6} aria-hidden="true" />
+            </button>
+          </div>
+        </div>
+
+        <div id="am-experience-date-calendar">
+          <BookingDateRangeCalendar
+            title={copy.datePickerTitle}
+            help={copy.datePickerHelp}
+            previousMonthLabel={copy.previousMonthLabel}
+            nextMonthLabel={copy.nextMonthLabel}
+          />
+        </div>
+      </div>
+      <p class="am-text-body min-h-6 text-on-surface-variant" data-am-experience-status role="status" aria-live="polite"></p>
+      <AmaraActionButton variant="primary" type="submit" class="w-full" data-am-experience-submit>
+        <span data-am-experience-submit-label>{copy.submitLabel}</span>
+      </AmaraActionButton>
+    </form>
+    <p class="am-text-caption mt-5 text-muted">{copy.privacyNote}</p>
+  </main>
+</AmaraExperienceAccessLayout>
+
+<script>
+  import { enhanceExperienceAccessForms } from '../../scripts/experienceAccessForm';
+
+  enhanceExperienceAccessForms();
+</script>

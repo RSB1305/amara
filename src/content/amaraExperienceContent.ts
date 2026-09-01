@@ -14,40 +14,40 @@ const text = (
 ): LocalizedText => ({ en, de, es, nl, sv });
 
 export const amaraExperienceSeo: AmaraAuthoringSeo = {
-  version: "2026-09-01-amara-experience-v2.0",
+  version: "2026-09-01-amara-experience-v2.1",
   pageType: "C",
   entityKey: "amara-brand",
   languages: {
     en: {
-      title: "AMARA Experience | Exclusive direct-booking benefit",
+      title: "AMARA Experience | Private local guide for couples",
       description:
         "Personal insider tips for romantic time, hidden treasures and quieter places in Frigiliana, Nerja and Tarifa — exclusively for AMARA direct bookers.",
       robots: "index, follow",
       canonical: "auto",
     },
     de: {
-      title: "AMARA Experience | Exklusiver Direktbucher-Vorteil",
+      title: "AMARA Experience | Privater Reiseguide für Paare",
       description:
         "Persönliche Insider-Tipps für romantische Zeit, versteckte Schätze und ruhige Orte in Frigiliana, Nerja und Tarifa – exklusiv für AMARA-Direktbucher.",
       robots: "index, follow",
       canonical: "auto",
     },
     es: {
-      title: "AMARA Experience | Ventaja exclusiva de reserva directa",
+      title: "AMARA Experience | Guía local privada para parejas",
       description:
         "Recomendaciones personales para momentos románticos, rincones escondidos y lugares tranquilos en Frigiliana, Nerja y Tarifa, solo con reserva directa.",
       robots: "index, follow",
       canonical: "auto",
     },
     nl: {
-      title: "AMARA Experience | Exclusief voordeel van direct boeken",
+      title: "AMARA Experience | Privégids voor stellen",
       description:
         "Persoonlijke insidertips voor romantische tijd, verborgen parels en rustige plekken in Frigiliana, Nerja en Tarifa, exclusief bij direct boeken.",
       robots: "index, follow",
       canonical: "auto",
     },
     sv: {
-      title: "AMARA Experience | Exklusiv fördel vid direktbokning",
+      title: "AMARA Experience | Privat lokalguide för par",
       description:
         "Personliga insidertips för romantisk tid, dolda pärlor och lugnare platser i Frigiliana, Nerja och Tarifa – exklusivt vid direktbokning.",
       robots: "index, follow",
@@ -58,11 +58,11 @@ export const amaraExperienceSeo: AmaraAuthoringSeo = {
 
 const content = {
   eyebrow: text(
-    "Exclusive to direct bookers",
-    "Exklusiv für Direktbucher",
-    "Exclusivo al reservar directamente",
-    "Exclusief bij direct boeken",
-    "Exklusivt vid direktbokning",
+    "Private local guide for direct bookers",
+    "Privater Reiseguide für Direktbucher",
+    "Guía local privada al reservar directamente",
+    "Privégids bij direct boeken",
+    "Privat lokalguide vid direktbokning",
   ),
   title: text(
     "AMARA Experience",
@@ -79,11 +79,11 @@ const content = {
     "Mer lokalkännedom. Mer romantisk tid tillsammans i Frigiliana, Nerja och Tarifa.",
   ),
   directAnswer: text(
-    "AMARA Experience is our exclusive direct-booking benefit for couples staying with us in Frigiliana, Nerja or Tarifa: a private guide with personal recommendations that go beyond the familiar sights. Once your direct booking is confirmed, we share **local favourites**, **hidden treasures** and **lesser-known places** — from a romantic restaurant or quiet beach to a walk, shared activity or town worth a day trip. Every recommendation has a reason. We check what fits each AMARA destination, explain why a place or time of day may be worthwhile and help you enjoy more time **off the beaten track**, away from the busiest routes. Your holiday holds more time to experience these places together.",
-    "AMARA Experience ist unser exklusiver Direktbucher-Vorteil für Paare mit einem Aufenthalt bei uns in Frigiliana, Nerja oder Tarifa: ein privater Guide mit persönlichen Empfehlungen, die über die bekannten Sehenswürdigkeiten hinausgehen. Nach bestätigter Direktbuchung teilen wir **lokale Favoriten**, **versteckte Schätze** und **weniger bekannte Orte** – vom romantischen Restaurant und ruhigen Strand bis zur Wanderung, Aktivität oder Stadt für einen gemeinsamen Ausflug. Jede Empfehlung hat einen guten Grund. Wir prüfen, was zum jeweiligen AMARA-Reiseziel passt, erklären, warum sich ein Ort oder Zeitpunkt lohnt, und helfen euch, öfter **abseits der Touristenpfade** unterwegs zu sein. So bleibt euch im Urlaub mehr Zeit, diese Orte gemeinsam zu erleben.",
-    "AMARA Experience es nuestra ventaja exclusiva para parejas que os alojáis con nosotros en Frigiliana, Nerja o Tarifa y reserváis directamente: una guía privada con recomendaciones personales que van más allá de los lugares conocidos. Tras confirmar la reserva directa, compartimos **favoritos locales**, **rincones escondidos** y **sitios menos conocidos**, desde un restaurante romántico o una playa tranquila hasta una ruta, una actividad para dos o una localidad que merece una excursión. Cada recomendación tiene un motivo. Comprobamos qué encaja con cada destino AMARA, explicamos por qué merece la pena un lugar o un momento del día y os ayudamos a disfrutar **fuera de las rutas turísticas más transitadas**. Así tenéis más tiempo para vivir juntos estos lugares.",
-    "AMARA Experience is ons exclusieve voordeel voor stellen die hun verblijf bij ons in Frigiliana, Nerja of Tarifa rechtstreeks boeken: een privégids met persoonlijke aanbevelingen die verder gaan dan de bekende bezienswaardigheden. Na bevestiging van jullie directe boeking delen we **lokale favorieten**, **verborgen parels** en **minder bekende plekken** — van een romantisch restaurant of rustig strand tot een wandeling, activiteit samen of plaats die een dagtrip waard is. Elke aanbeveling heeft een goede reden. We controleren wat bij elke AMARA-bestemming past, leggen uit waarom een plek of tijdstip de moeite waard kan zijn en helpen jullie vaker **buiten de gebaande toeristische paden** te komen. Zo blijft er meer tijd over om deze plekken samen te beleven.",
-    "AMARA Experience är vår exklusiva fördel för par som bokar direkt och bor hos oss i Frigiliana, Nerja eller Tarifa: en privat guide med personliga rekommendationer bortom de välkända sevärdheterna. När direktbokningen är bekräftad delar vi **lokala favoriter**, **dolda pärlor** och **mindre kända platser** — från en romantisk restaurang eller lugn strand till en vandring, gemensam aktivitet eller ort värd en dagsutflykt. Varje rekommendation har en tydlig anledning. Vi kontrollerar vad som passar varje AMARA-destination, förklarar varför en plats eller tid på dagen kan vara värd att välja och hjälper er att uppleva mer **bortom de mest välbesökta turiststråken**. Då får ni mer tid att upptäcka platserna tillsammans.",
+    "AMARA Experience is our exclusive direct-booking benefit for couples staying with us in Frigiliana, Nerja or Tarifa: a **private guide with personal insider tips** that go beyond the familiar sights. Once your direct booking is confirmed, we share **local favourites**, **hidden treasures** and **lesser-known places** — from a romantic restaurant or quiet beach to a walk, shared activity or town worth a day trip. Every recommendation has a reason. We check what fits each AMARA destination, explain why a place or time of day may be worthwhile and help you enjoy more time **off the beaten track**, away from the busiest routes. Your holiday holds more time to experience these places together.",
+    "AMARA Experience ist unser exklusiver Direktbucher-Vorteil für Paare mit einem Aufenthalt bei uns in Frigiliana, Nerja oder Tarifa: ein **privater Guide mit persönlichen Insider-Tipps**, die über die bekannten Sehenswürdigkeiten hinausgehen. Nach bestätigter Direktbuchung teilen wir **lokale Favoriten**, **versteckte Schätze** und **weniger bekannte Orte** – vom romantischen Restaurant und ruhigen Strand bis zur Wanderung, Aktivität oder Stadt für einen gemeinsamen Ausflug. Jede Empfehlung hat einen guten Grund. Wir prüfen, was zum jeweiligen AMARA-Reiseziel passt, erklären, warum sich ein Ort oder Zeitpunkt lohnt, und helfen euch, öfter **abseits der Touristenpfade** unterwegs zu sein. So bleibt euch im Urlaub mehr Zeit, diese Orte gemeinsam zu erleben.",
+    "AMARA Experience es nuestra ventaja exclusiva para parejas que os alojáis con nosotros en Frigiliana, Nerja o Tarifa y reserváis directamente: una **guía privada con recomendaciones locales** que van más allá de los lugares conocidos. Tras confirmar la reserva directa, compartimos **favoritos locales**, **rincones escondidos** y **sitios menos conocidos**, desde un restaurante romántico o una playa tranquila hasta una ruta, una actividad para dos o una localidad que merece una excursión. Cada recomendación tiene un motivo. Comprobamos qué encaja con cada destino AMARA, explicamos por qué merece la pena un lugar o un momento del día y os ayudamos a disfrutar **fuera de las rutas turísticas más transitadas**. Así tenéis más tiempo para vivir juntos estos lugares.",
+    "AMARA Experience is ons exclusieve voordeel voor stellen die hun verblijf bij ons in Frigiliana, Nerja of Tarifa rechtstreeks boeken: een **privégids met persoonlijke insidertips** die verder gaan dan de bekende bezienswaardigheden. Na bevestiging van jullie directe boeking delen we **lokale favorieten**, **verborgen parels** en **minder bekende plekken** — van een romantisch restaurant of rustig strand tot een wandeling, activiteit samen of plaats die een dagtrip waard is. Elke aanbeveling heeft een goede reden. We controleren wat bij elke AMARA-bestemming past, leggen uit waarom een plek of tijdstip de moeite waard kan zijn en helpen jullie vaker **buiten de gebaande toeristische paden** te komen. Zo blijft er meer tijd over om deze plekken samen te beleven.",
+    "AMARA Experience är vår exklusiva fördel för par som bokar direkt och bor hos oss i Frigiliana, Nerja eller Tarifa: en **privat guide med personliga insidertips** bortom de välkända sevärdheterna. När direktbokningen är bekräftad delar vi **lokala favoriter**, **dolda pärlor** och **mindre kända platser** — från en romantisk restaurang eller lugn strand till en vandring, gemensam aktivitet eller ort värd en dagsutflykt. Varje rekommendation har en tydlig anledning. Vi kontrollerar vad som passar varje AMARA-destination, förklarar varför en plats eller tid på dagen kan vara värd att välja och hjälper er att uppleva mer **bortom de mest välbesökta turiststråken**. Då får ni mer tid att upptäcka platserna tillsammans.",
   ),
   heroAccent: text(
     "More time to experience it together.",
@@ -118,29 +118,29 @@ const content = {
       id: "authenticity",
       principle: text("Authenticity", "Authentizität", "Autenticidad", "Authenticiteit", "Genuinitet"),
       title: text(
-        "The details that make the day feel easy",
-        "Die Details, die euch den Tag leicht machen",
-        "Los detalles que os facilitan el día",
-        "De details die jullie dag makkelijker maken",
-        "Detaljerna som gör dagen enklare",
+        "Local favourites and personal insider tips",
+        "Lokale Favoriten und persönliche Insider-Tipps",
+        "Favoritos locales y recomendaciones personales",
+        "Lokale favorieten en persoonlijke insidertips",
+        "Lokala favoriter och personliga insidertips",
       ),
       copy: text(
-        "When it matters, a recommendation includes the detail that changes the day: a useful time to set off, how access or parking works, whether booking ahead makes sense and what should be checked again shortly before you go.",
-        "Wenn es darauf ankommt, enthält eine Empfehlung die Details, die den Tag verändern: eine sinnvolle Startzeit, Hinweise zu Zufahrt oder Parken, ob eine Reservierung ratsam ist und was ihr kurz vorher noch einmal prüfen solltet.",
-        "Cuando importa, una recomendación incluye los detalles que cambian el día: una buena hora para salir, cómo funcionan el acceso o el aparcamiento, si conviene reservar y qué deberíais comprobar poco antes.",
-        "Waar het ertoe doet, bevat een aanbeveling de details die de dag veranderen: een slim vertrekmoment, hoe toegang of parkeren werkt, of reserveren verstandig is en wat jullie kort van tevoren nog moeten controleren.",
-        "När det spelar roll innehåller ett tips detaljerna som förändrar dagen: en bra tid att ge sig av, hur tillträde eller parkering fungerar, om det är klokt att boka och vad ni bör kontrollera strax innan.",
+        "We share local favourites with the detail that changes the day: a useful time to set off, how access or parking works, whether booking ahead makes sense and what should be checked again shortly before you go.",
+        "Wir teilen lokale Favoriten mit den Details, die den Tag verändern: eine sinnvolle Startzeit, Hinweise zu Zufahrt oder Parken, ob eine Reservierung ratsam ist und was ihr kurz vorher noch einmal prüfen solltet.",
+        "Compartimos favoritos locales con los detalles que cambian el día: una buena hora para salir, cómo funcionan el acceso o el aparcamiento, si conviene reservar y qué deberíais comprobar poco antes.",
+        "We delen lokale favorieten met de details die de dag veranderen: een slim vertrekmoment, hoe toegang of parkeren werkt, of reserveren verstandig is en wat jullie kort van tevoren nog moeten controleren.",
+        "Vi delar lokala favoriter med detaljerna som förändrar dagen: en bra tid att ge sig av, hur tillträde eller parkering fungerar, om det är klokt att boka och vad ni bör kontrollera strax innan.",
       ),
     },
     {
       id: "exclusivity",
       principle: text("Exclusivity", "Exklusivität", "Exclusividad", "Exclusiviteit", "Exklusivitet"),
       title: text(
-        "A short selection, shared privately",
-        "Eine kleine Auswahl, privat geteilt",
-        "Una selección breve, compartida en privado",
-        "Een kleine selectie, privé gedeeld",
-        "Ett litet urval, delat privat",
+        "Hidden treasures and lesser-known places",
+        "Versteckte Schätze und weniger bekannte Orte",
+        "Rincones escondidos y lugares menos conocidos",
+        "Verborgen parels en minder bekende plekken",
+        "Dolda pärlor och mindre kända platser",
       ),
       copy: text(
         "Your confirmed direct booking opens a deliberately small selection for AMARA guests: places we can explain, **lesser-known options** we consider worthwhile and the practical context needed to enjoy them.",
@@ -154,18 +154,18 @@ const content = {
       id: "calm",
       principle: text("More calm", "Mehr Ruhe", "Más calma", "Meer rust", "Mer lugn"),
       title: text(
-        "Popular when worthwhile. Quieter when better.",
-        "Bekannt, wenn es sich lohnt. Ruhiger, wenn es besser passt.",
-        "Conocido cuando merece la pena. Tranquilo cuando encaja mejor.",
-        "Bekend als het de moeite waard is. Rustiger als dat beter past.",
-        "Välkänt när det är värt det. Lugnare när det passar bättre.",
+        "Off the beaten track, away from the crowds",
+        "Abseits der Touristenpfade und der Massen",
+        "Fuera de las rutas turísticas más transitadas",
+        "Buiten de gebaande paden en de drukte",
+        "Bortom turiststråken och trängseln",
       ),
       copy: text(
-        "We share well-known places when the timing makes them enjoyable and a **quieter alternative away from the crowds** when it suits the day you want even better.",
-        "Wir empfehlen bekannte Orte zu den Zeiten, in denen sie besonders schön sind, und eine **ruhigere Alternative abseits der Massen**, wenn sie noch besser zu eurem Tag passt.",
-        "Os recomendamos los lugares conocidos en el momento en que más se disfrutan y una **alternativa tranquila lejos de las multitudes** cuando encaja todavía mejor con el día que queréis vivir.",
-        "We delen bekende plekken op het moment dat ze het prettigst zijn en een **rustiger alternatief buiten de drukte** wanneer dat nog beter past bij de dag die jullie willen.",
-        "Vi tipsar om välkända platser vid tiden då de är som mest njutbara och visar ett **lugnare alternativ bortom trängseln** när det passar er dag ännu bättre.",
+        "We share well-known places when the timing makes them enjoyable and a quieter alternative when it suits the day you want even better.",
+        "Wir empfehlen bekannte Orte zu den Zeiten, in denen sie besonders schön sind, und eine ruhigere Alternative, wenn sie noch besser zu eurem Tag passt.",
+        "Os recomendamos los lugares conocidos en el momento en que más se disfrutan y una alternativa tranquila cuando encaja todavía mejor con el día que queréis vivir.",
+        "We delen bekende plekken op het moment dat ze het prettigst zijn en een rustiger alternatief wanneer dat nog beter past bij de dag die jullie willen.",
+        "Vi tipsar om välkända platser vid tiden då de är som mest njutbara och visar ett lugnare alternativ när det passar er dag ännu bättre.",
       ),
     },
   ],

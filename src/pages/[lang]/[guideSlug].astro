@@ -1,8 +1,6 @@
 ---
-import GuestGuidePage from '../../page-families/guest-guide/GuestGuidePage.astro';
 import { guestGuideEntries } from '../../content/guestGuideEntries';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '../../lib/routeOwnership';
-import type { AmaraLanguage } from '../../types/seo';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
@@ -15,10 +13,5 @@ export function getStaticPaths() {
     );
 }
 
-const { entry, lang } = Astro.props as {
-  entry: (typeof guestGuideEntries)[number];
-  lang: AmaraLanguage;
-};
+return Astro.redirect(`/${Astro.params.lang}/amara-experience/access`, 301);
 ---
-
-<GuestGuidePage entry={entry} lang={lang} />

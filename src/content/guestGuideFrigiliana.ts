@@ -1,4 +1,4 @@
-import type { GuestGuideAccordionItem, GuestGuideEntry, LocalizedText } from '../types/guestGuide';
+import type { GuestGuideAccordionItem, GuestGuideCategory, GuestGuideEntry, LocalizedText } from '../types/guestGuide';
 import { buildBookingLandingUrl } from '../lib/directBooking';
 
 const FRIGILIANA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
@@ -8,6 +8,78 @@ const NEED_HELP: LocalizedText = {
   es: '¿Necesitáis ayuda?',
   nl: 'Hulp nodig?',
   sv: 'Behöver ni hjälp?'
+};
+
+const AMARA_EXPERIENCE_MENU_TITLE: LocalizedText = {
+  en: 'AMARA Experience',
+  de: 'AMARA Experience',
+  es: 'AMARA Experience',
+  nl: 'AMARA Experience',
+  sv: 'AMARA Experience'
+};
+
+const AMARA_EXPERIENCE_MENU_SUBTITLE: LocalizedText = {
+  en: 'Hidden treasures · Insider tips · Authentic local food · Beyond the crowds',
+  de: 'Versteckte Schätze · Insider-Tipps · Authentische lokale Küche · Abseits der Massen',
+  es: 'Rincones escondidos · Consejos locales · Cocina local auténtica · Lejos de las multitudes',
+  nl: 'Verborgen parels · Insidertips · Authentiek lokaal eten · Buiten de drukte',
+  sv: 'Dolda pärlor · Insidertips · Genuin lokal mat · Bortom trängseln'
+};
+
+const STAY_ESSENTIALS_SUBTITLE: LocalizedText = {
+  en: 'Mobility · Supermarket · Pharmacy',
+  de: 'Fortbewegung · Supermarkt · Apotheke',
+  es: 'Transporte · Supermercado · Farmacia',
+  nl: 'Vervoer · Supermarkt · Apotheek',
+  sv: 'Transport · Supermarket · Apotek'
+};
+
+const STAY_MENU_SUBTITLE: LocalizedText = {
+  en: 'Arrival · House information · Local essentials',
+  de: 'Anreise · Hausinformationen · Wichtiges vor Ort',
+  es: 'Llegada · Información del alojamiento · Información práctica',
+  nl: 'Aankomst · Huisinformatie · Praktische informatie',
+  sv: 'Ankomst · Boendeinformation · Praktisk information'
+};
+
+const FRIGILIANA_STAY_ESSENTIALS_CATEGORY: GuestGuideCategory = {
+  heading: {
+    en: 'Useful nearby',
+    de: 'Wichtiges in der Nähe',
+    es: 'Información útil cerca',
+    nl: 'Handig in de buurt',
+    sv: 'Praktiskt i närheten'
+  },
+  items: [{
+    kind: 'link',
+    icon: 'location-pin',
+    targetSlug: 'frigiliana-guest-essentials',
+    title: {
+      en: 'Frigiliana essentials',
+      de: 'Wichtiges vor Ort in Frigiliana',
+      es: 'Lo esencial de Frigiliana',
+      nl: 'Praktische informatie in Frigiliana',
+      sv: 'Praktisk information i Frigiliana'
+    },
+    subtitle: STAY_ESSENTIALS_SUBTITLE
+  }]
+};
+
+const NERJA_STAY_ESSENTIALS_CATEGORY: GuestGuideCategory = {
+  heading: FRIGILIANA_STAY_ESSENTIALS_CATEGORY.heading,
+  items: [{
+    kind: 'link',
+    icon: 'location-pin',
+    targetSlug: 'nerja-guest-essentials',
+    title: {
+      en: 'Nerja essentials',
+      de: 'Wichtiges vor Ort in Nerja',
+      es: 'Lo esencial de Nerja',
+      nl: 'Praktische informatie in Nerja',
+      sv: 'Praktisk information i Nerja'
+    },
+    subtitle: STAY_ESSENTIALS_SUBTITLE
+  }]
 };
 
 const HOUSEKEEPING_WHATSAPP = 'https://wa.me/34652072384';
@@ -739,49 +811,13 @@ const frigilianaFarahHub: GuestGuideEntry = {
         nl: 'Jullie accommodatie Farah',
         sv: 'Ert boende Farah'
       },
-      subtitle: {
-        en: 'Arrival · Instructions · Please note',
-        de: 'Anreise · Hinweise · Bitte beachten',
-        es: 'Llegada · Instrucciones · A tener en cuenta',
-        nl: 'Aankomst · Instructies · Let op',
-        sv: 'Ankomst · Instruktioner · Vänligen observera'
-      }
-    },
-    {
-      icon: 'location-pin',
-      targetSlug: 'frigiliana-guest-essentials',
-      title: {
-        en: 'Frigiliana Essentials',
-        de: 'Frigiliana kompakt',
-        es: 'Lo esencial de Frigiliana',
-        nl: 'Frigiliana essentials',
-        sv: 'Det viktigaste i Frigiliana'
-      },
-      subtitle: {
-        en: 'Mobility · Supermarket · Pharmacy',
-        de: 'Fortbewegung · Supermarkt · Apotheke',
-        es: 'Transporte · Supermercado · Farmacia',
-        nl: 'Vervoer · Supermarkt · Apotheek',
-        sv: 'Transport · Supermarket · Apotek'
-      }
+      subtitle: STAY_MENU_SUBTITLE
     },
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
-      title: {
-        en: 'Our Recommendations',
-        de: 'Unsere Empfehlungen',
-        es: 'Nuestras recomendaciones',
-        nl: 'Onze aanbevelingen',
-        sv: 'Våra rekommendationer'
-      },
-      subtitle: {
-        en: 'Restaurants · Walks · Viewpoints',
-        de: 'Restaurants · Spaziergänge · Aussichtspunkte',
-        es: 'Restaurantes · Paseos · Miradores',
-        nl: 'Restaurants · Wandelingen · Uitzichtpunten',
-        sv: 'Restauranger · Promenader · Utkiksplatser'
-      }
+      title: AMARA_EXPERIENCE_MENU_TITLE,
+      subtitle: AMARA_EXPERIENCE_MENU_SUBTITLE
     }
   ],
   closingParagraphs: [
@@ -854,6 +890,7 @@ const frigilianaFarahAccommodation: GuestGuideEntry = {
     sv: 'Detaljer och det viktigaste om ert hus.'
   },
   categories: [
+    FRIGILIANA_STAY_ESSENTIALS_CATEGORY,
     {
       heading: {
         en: 'Arrival & Basics',
@@ -1424,7 +1461,7 @@ const RECOMMENDATIONS_KICKER: LocalizedText = {
   sv: 'AMARA GÄSTGUIDE'
 };
 
-/** Sub-pages linked from "Our Recommendations" that haven't been supplied yet — kept live with placeholder copy so links never 404. */
+/** Sub-pages linked from AMARA Experience that haven't been supplied yet — kept live with placeholder copy so links never 404. */
 function createPlaceholderGuidePage(slug: string, title: LocalizedText): GuestGuideEntry {
   return {
     type: 'detail',
@@ -4404,33 +4441,33 @@ const frigilianaRecommendations: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Our Recommendations | AMARA',
-    de: 'Unsere Empfehlungen | AMARA',
-    es: 'Nuestras recomendaciones | AMARA',
-    nl: 'Onze aanbevelingen | AMARA',
-    sv: 'Våra rekommendationer | AMARA'
+    en: 'AMARA Experience | Nerja & Frigiliana',
+    de: 'AMARA Experience | Nerja & Frigiliana',
+    es: 'AMARA Experience | Nerja y Frigiliana',
+    nl: 'AMARA Experience | Nerja & Frigiliana',
+    sv: 'AMARA Experience | Nerja & Frigiliana'
   },
   seoDescription: {
-    en: 'Beaches, culture, dining and curated places around Frigiliana and Nerja, picked by your hosts.',
-    de: 'Strände, Kultur, Restaurants und von euren Gastgebern ausgewählte Orte rund um Frigiliana und Nerja.',
-    es: 'Playas, cultura, restaurantes y lugares seleccionados por vuestros anfitriones alrededor de Frigiliana y Nerja.',
-    nl: 'Stranden, cultuur, restaurants en door jullie gastheren geselecteerde plekken rondom Frigiliana en Nerja.',
-    sv: 'Stränder, kultur, restauranger och platser utvalda av era värdar runt Frigiliana och Nerja.'
+    en: 'Hidden treasures, insider tips, authentic local food and lesser-known places around Frigiliana and Nerja, selected by your AMARA hosts.',
+    de: 'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte rund um Frigiliana und Nerja, ausgewählt von euren AMARA-Gastgebern.',
+    es: 'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos de Frigiliana y Nerja, seleccionados por vuestros anfitriones de AMARA.',
+    nl: 'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken rond Frigiliana en Nerja, geselecteerd door jullie AMARA-gastheren.',
+    sv: 'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser runt Frigiliana och Nerja, utvalda av era AMARA-värdar.'
   },
   kicker: RECOMMENDATIONS_KICKER,
   title: {
-    en: 'Our Recommendations in Nerja, Frigiliana & Nearby',
-    de: 'Unsere Empfehlungen für Nerja, Frigiliana & Umgebung',
-    es: 'Nuestras recomendaciones en Nerja, Frigiliana y alrededores',
-    nl: 'Onze aanbevelingen in Nerja, Frigiliana & omgeving',
-    sv: 'Våra rekommendationer i Nerja, Frigiliana & närområdet'
+    en: 'AMARA Experience in Nerja, Frigiliana & Nearby',
+    de: 'AMARA Experience in Nerja, Frigiliana & Umgebung',
+    es: 'AMARA Experience en Nerja, Frigiliana y alrededores',
+    nl: 'AMARA Experience in Nerja, Frigiliana & omgeving',
+    sv: 'AMARA Experience i Nerja, Frigiliana & närområdet'
   },
   intro: {
-    en: 'Beaches, culture, and curated places in the area.',
-    de: 'Strände, Kultur und von uns für euch ausgewählte Orte in der Umgebung.',
-    es: 'Playas, cultura y lugares seleccionados para vosotros en la zona.',
-    nl: 'Stranden, cultuur en speciaal voor jullie geselecteerde plekken in de omgeving.',
-    sv: 'Stränder, kultur och platser vi valt ut för er i området.'
+    en: 'Hidden treasures, insider tips, authentic local food and lesser-known places — with practical details for more time together away from the busiest routes.',
+    de: 'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte – mit praktischen Details für mehr gemeinsame Zeit abseits der meistbesuchten Wege.',
+    es: 'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos, con detalles prácticos para disfrutar más tiempo juntos fuera de las rutas más concurridas.',
+    nl: 'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken — met praktische details voor meer tijd samen buiten de drukste routes.',
+    sv: 'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser — med praktiska detaljer för mer tid tillsammans bortom de mest välbesökta stråken.'
   },
   categories: [
     {
@@ -4723,49 +4760,13 @@ const frigilianaLounisHub: GuestGuideEntry = {
         nl: 'Jullie appartement Lounis',
         sv: 'Er lägenhet Lounis'
       },
-      subtitle: {
-        en: 'Arrival · Instructions · Please note',
-        de: 'Anreise · Hinweise · Bitte beachten',
-        es: 'Llegada · Instrucciones · A tener en cuenta',
-        nl: 'Aankomst · Instructies · Let op',
-        sv: 'Ankomst · Instruktioner · Vänligen observera'
-      }
-    },
-    {
-      icon: 'location-pin',
-      targetSlug: 'frigiliana-guest-essentials',
-      title: {
-        en: 'Frigiliana Essentials',
-        de: 'Frigiliana kompakt',
-        es: 'Lo esencial de Frigiliana',
-        nl: 'Frigiliana essentials',
-        sv: 'Det viktigaste i Frigiliana'
-      },
-      subtitle: {
-        en: 'Mobility · Supermarket · Pharmacy',
-        de: 'Fortbewegung · Supermarkt · Apotheke',
-        es: 'Transporte · Supermercado · Farmacia',
-        nl: 'Vervoer · Supermarkt · Apotheek',
-        sv: 'Transport · Supermarket · Apotek'
-      }
+      subtitle: STAY_MENU_SUBTITLE
     },
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
-      title: {
-        en: 'Our Recommendations',
-        de: 'Unsere Empfehlungen',
-        es: 'Nuestras recomendaciones',
-        nl: 'Onze aanbevelingen',
-        sv: 'Våra rekommendationer'
-      },
-      subtitle: {
-        en: 'Restaurants · Walks · Viewpoints',
-        de: 'Restaurants · Spaziergänge · Aussichtspunkte',
-        es: 'Restaurantes · Paseos · Miradores',
-        nl: 'Restaurants · Wandelingen · Uitzichtpunten',
-        sv: 'Restauranger · Promenader · Utkiksplatser'
-      }
+      title: AMARA_EXPERIENCE_MENU_TITLE,
+      subtitle: AMARA_EXPERIENCE_MENU_SUBTITLE
     }
   ],
   closingParagraphs: [
@@ -4840,6 +4841,7 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
     sv: 'Detaljer och det viktigaste om ert hus.'
   },
   categories: [
+    FRIGILIANA_STAY_ESSENTIALS_CATEGORY,
     {
       heading: {
         en: 'Arrival & Basics',
@@ -4965,49 +4967,13 @@ const frigilianaZaidHub: GuestGuideEntry = {
         nl: 'Jullie appartement Zaid',
         sv: 'Er lägenhet Zaid'
       },
-      subtitle: {
-        en: 'Arrival · Instructions · Please note',
-        de: 'Anreise · Hinweise · Bitte beachten',
-        es: 'Llegada · Instrucciones · A tener en cuenta',
-        nl: 'Aankomst · Instructies · Let op',
-        sv: 'Ankomst · Instruktioner · Vänligen observera'
-      }
-    },
-    {
-      icon: 'location-pin',
-      targetSlug: 'frigiliana-guest-essentials',
-      title: {
-        en: 'Frigiliana Essentials',
-        de: 'Frigiliana kompakt',
-        es: 'Lo esencial de Frigiliana',
-        nl: 'Frigiliana essentials',
-        sv: 'Det viktigaste i Frigiliana'
-      },
-      subtitle: {
-        en: 'Mobility · Supermarket · Pharmacy',
-        de: 'Fortbewegung · Supermarkt · Apotheke',
-        es: 'Transporte · Supermercado · Farmacia',
-        nl: 'Vervoer · Supermarkt · Apotheek',
-        sv: 'Transport · Supermarket · Apotek'
-      }
+      subtitle: STAY_MENU_SUBTITLE
     },
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
-      title: {
-        en: 'Our Recommendations',
-        de: 'Unsere Empfehlungen',
-        es: 'Nuestras recomendaciones',
-        nl: 'Onze aanbevelingen',
-        sv: 'Våra rekommendationer'
-      },
-      subtitle: {
-        en: 'Restaurants · Walks · Viewpoints',
-        de: 'Restaurants · Spaziergänge · Aussichtspunkte',
-        es: 'Restaurantes · Paseos · Miradores',
-        nl: 'Restaurants · Wandelingen · Uitzichtpunten',
-        sv: 'Restauranger · Promenader · Utkiksplatser'
-      }
+      title: AMARA_EXPERIENCE_MENU_TITLE,
+      subtitle: AMARA_EXPERIENCE_MENU_SUBTITLE
     }
   ],
   closingParagraphs: [
@@ -5076,6 +5042,7 @@ const frigilianaZaidAccommodation: GuestGuideEntry = {
     sv: 'Detaljer och det viktigaste om ert hus.'
   },
   categories: [
+    FRIGILIANA_STAY_ESSENTIALS_CATEGORY,
     {
       heading: {
         en: 'Arrival & Basics',
@@ -5201,49 +5168,13 @@ const frigilianaMahaHub: GuestGuideEntry = {
         nl: 'Jullie appartement Maha',
         sv: 'Er lägenhet Maha'
       },
-      subtitle: {
-        en: 'Arrival · Instructions · Please note',
-        de: 'Anreise · Hinweise · Bitte beachten',
-        es: 'Llegada · Instrucciones · A tener en cuenta',
-        nl: 'Aankomst · Instructies · Let op',
-        sv: 'Ankomst · Instruktioner · Vänligen observera'
-      }
-    },
-    {
-      icon: 'location-pin',
-      targetSlug: 'frigiliana-guest-essentials',
-      title: {
-        en: 'Frigiliana Essentials',
-        de: 'Frigiliana kompakt',
-        es: 'Lo esencial de Frigiliana',
-        nl: 'Frigiliana essentials',
-        sv: 'Det viktigaste i Frigiliana'
-      },
-      subtitle: {
-        en: 'Mobility · Supermarket · Pharmacy',
-        de: 'Fortbewegung · Supermarkt · Apotheke',
-        es: 'Transporte · Supermercado · Farmacia',
-        nl: 'Vervoer · Supermarkt · Apotheek',
-        sv: 'Transport · Supermarket · Apotek'
-      }
+      subtitle: STAY_MENU_SUBTITLE
     },
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
-      title: {
-        en: 'Our Recommendations',
-        de: 'Unsere Empfehlungen',
-        es: 'Nuestras recomendaciones',
-        nl: 'Onze aanbevelingen',
-        sv: 'Våra rekommendationer'
-      },
-      subtitle: {
-        en: 'Restaurants · Walks · Viewpoints',
-        de: 'Restaurants · Spaziergänge · Aussichtspunkte',
-        es: 'Restaurantes · Paseos · Miradores',
-        nl: 'Restaurants · Wandelingen · Uitzichtpunten',
-        sv: 'Restauranger · Promenader · Utkiksplatser'
-      }
+      title: AMARA_EXPERIENCE_MENU_TITLE,
+      subtitle: AMARA_EXPERIENCE_MENU_SUBTITLE
     }
   ],
   closingParagraphs: [
@@ -5312,6 +5243,7 @@ const frigilianaMahaAccommodation: GuestGuideEntry = {
     sv: 'Detaljer och det viktigaste om ert hus.'
   },
   categories: [
+    FRIGILIANA_STAY_ESSENTIALS_CATEGORY,
     {
       heading: {
         en: 'Arrival & Basics',
@@ -5437,49 +5369,13 @@ const nerjaPlayaHub: GuestGuideEntry = {
         nl: 'Jullie accommodatie AMARA Playa',
         sv: 'Ert boende AMARA Playa'
       },
-      subtitle: {
-        en: 'Arrival · Instructions · Please note',
-        de: 'Anreise · Hinweise · Bitte beachten',
-        es: 'Llegada · Instrucciones · A tener en cuenta',
-        nl: 'Aankomst · Instructies · Let op',
-        sv: 'Ankomst · Instruktioner · Vänligen observera'
-      }
-    },
-    {
-      icon: 'location-pin',
-      targetSlug: 'nerja-guest-essentials',
-      title: {
-        en: 'Nerja Essentials',
-        de: 'Nerja kompakt',
-        es: 'Lo esencial de Nerja',
-        nl: 'Nerja essentials',
-        sv: 'Det viktigaste i Nerja'
-      },
-      subtitle: {
-        en: 'Mobility · Supermarket · Pharmacy',
-        de: 'Fortbewegung · Supermarkt · Apotheke',
-        es: 'Transporte · Supermercado · Farmacia',
-        nl: 'Vervoer · Supermarkt · Apotheek',
-        sv: 'Transport · Supermarket · Apotek'
-      }
+      subtitle: STAY_MENU_SUBTITLE
     },
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
-      title: {
-        en: 'Our Recommendations',
-        de: 'Unsere Empfehlungen',
-        es: 'Nuestras recomendaciones',
-        nl: 'Onze aanbevelingen',
-        sv: 'Våra rekommendationer'
-      },
-      subtitle: {
-        en: 'Restaurants · Beaches · Walks',
-        de: 'Restaurants · Strände · Spaziergänge',
-        es: 'Restaurantes · Playas · Paseos',
-        nl: 'Restaurants · Stranden · Wandelingen',
-        sv: 'Restauranger · Stränder · Promenader'
-      }
+      title: AMARA_EXPERIENCE_MENU_TITLE,
+      subtitle: AMARA_EXPERIENCE_MENU_SUBTITLE
     }
   ],
   closingParagraphs: [
@@ -5548,6 +5444,7 @@ const nerjaPlayaAccommodation: GuestGuideEntry = {
     sv: 'Detaljer och det viktigaste om ert boende.'
   },
   categories: [
+    NERJA_STAY_ESSENTIALS_CATEGORY,
     {
       heading: {
         en: 'Arrival & Basics',

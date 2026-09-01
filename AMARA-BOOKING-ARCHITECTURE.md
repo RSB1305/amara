@@ -191,7 +191,9 @@ Gateway data route. It accepts only booking-holder first name, arrival date and 
 the interface locale. The server uses the adapter's fixed `GET /v2/reservations/bookings` operation
 to require exactly one confirmed match among bounded upcoming/current results. The protected guide
 then uses fixed `GET /v2/reservations/bookings/{id}` revalidation at most once per hour. Neither
-operation returns reservation or guest data to the browser and neither changes provider state.
+operation returns reservation or guest data to the browser and neither changes provider state. A
+successful login returns only the localized protected Guest Welcome hub path derived from the
+server-side AMARA stay mapping.
 
 The session cookie is encrypted with the Cloudflare secret `AMARA_EXPERIENCE_SESSION_SECRET`, which
 must contain at least 32 random characters. Missing or invalid configuration fails closed. Session

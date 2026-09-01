@@ -1,0 +1,37 @@
+---
+import type { AmaraLanguage } from '../types/seo';
+import '../styles/global.css';
+import '../styles/amara-experience.css';
+
+interface Props {
+  lang: AmaraLanguage;
+  title: string;
+  landingHref: string;
+}
+
+const { lang, title, landingHref } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang} class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="referrer" content="no-referrer" />
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <title>{title}</title>
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  </head>
+  <body class="am-experience-app">
+    <div class="am-experience-app__viewport">
+      <header class="am-experience-app__header">
+        <a href={landingHref} class="am-experience-app__brand" aria-label="AMARA Experience">
+          <span>AMARA</span>
+          <small>Experience</small>
+        </a>
+      </header>
+      <slot />
+    </div>
+  </body>
+</html>
