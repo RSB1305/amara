@@ -39,7 +39,11 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page.locator('main h1')).toHaveText('AMARA Experience');
   await expect(page.locator('.am-experience-app__intro strong')).toHaveText('AMARA Guest Guide');
   await expect(page.locator('main')).toContainText(
-    'Hier findet ihr Informationen zu eurer Unterkunft, Wichtigem vor Ort und unseren persönlichen Insider-Tipps. Alle gebuchten Gäste haben vor und während ihres Aufenthalts Zugang.'
+    'Hier findet ihr Informationen zu eurer Unterkunft, Wichtigem vor Ort und unseren persönlichen Insider-Tipps, die dazu beitragen sollen, euren Urlaub mit uns zu einem ganz besonderen Erlebnis zu machen.'
+  );
+  await expect(page.locator('.am-experience-app__intro p')).toHaveCount(2);
+  await expect(page.locator('.am-experience-app__intro p').nth(1)).toContainText(
+    'Alle gebuchten Gäste haben vor und während ihres Aufenthalts Zugang.'
   );
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveAttribute('href', '/de/amara-experience');
@@ -65,7 +69,10 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page).toHaveURL(/\/en\/amara-experience\/access$/);
   await expect(page.locator('.am-experience-app__intro strong')).toHaveText('AMARA Guest Guide');
   await expect(page.locator('main')).toContainText(
-    'Here you’ll find information about your accommodation, local essentials and our personal insider tips. All booked guests have access before and during their stay.'
+    'Here you’ll find information about your accommodation, local essentials and our personal insider tips, designed to help make your holiday with us a truly special experience.'
+  );
+  await expect(page.locator('.am-experience-app__intro p').nth(1)).toContainText(
+    'All booked guests have access before and during their stay.'
   );
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveAttribute('href', '/en/amara-experience');

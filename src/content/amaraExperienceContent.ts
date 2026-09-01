@@ -383,11 +383,18 @@ const content = {
     "AMARA-gästguide",
   ),
   accessIntro: text(
-    "Here you’ll find information about your accommodation, local essentials and our personal insider tips. All booked guests have access before and during their stay. Simply enter the first name on the booking and the arrival and departure dates.",
-    "Hier findet ihr Informationen zu eurer Unterkunft, Wichtigem vor Ort und unseren persönlichen Insider-Tipps. Alle gebuchten Gäste haben vor und während ihres Aufenthalts Zugang. Gebt einfach den Vornamen eurer Buchung sowie das An- und Abreisedatum ein.",
-    "Aquí encontraréis información sobre el alojamiento, lo esencial del lugar y nuestros consejos personales. Todos los huéspedes con reserva tienen acceso antes y durante su estancia. Introducid simplemente el nombre que figura en la reserva y las fechas de llegada y salida.",
-    "Hier vinden jullie informatie over de accommodatie, praktische zaken ter plaatse en onze persoonlijke insidertips. Alle geboekte gasten hebben voor en tijdens hun verblijf toegang. Vul eenvoudig de voornaam op de boeking en de aankomst- en vertrekdatum in.",
-    "Här hittar ni information om boendet, praktiska saker på plats och våra personliga insidertips. Alla bokade gäster har tillgång före och under vistelsen. Ange helt enkelt förnamnet i bokningen samt ankomst- och avresedatum.",
+    "Here you’ll find information about your accommodation, local essentials and our personal insider tips, designed to help make your holiday with us a truly special experience.",
+    "Hier findet ihr Informationen zu eurer Unterkunft, Wichtigem vor Ort und unseren persönlichen Insider-Tipps, die dazu beitragen sollen, euren Urlaub mit uns zu einem ganz besonderen Erlebnis zu machen.",
+    "Aquí encontraréis información sobre el alojamiento, lo esencial del lugar y nuestros consejos personales, pensados para ayudaros a convertir vuestras vacaciones con nosotros en una experiencia muy especial.",
+    "Hier vinden jullie informatie over de accommodatie, praktische zaken ter plaatse en onze persoonlijke insidertips, bedoeld om van jullie vakantie bij ons een heel bijzondere ervaring te maken.",
+    "Här hittar ni information om boendet, praktiska saker på plats och våra personliga insidertips, som hjälper till att göra er semester hos oss till en alldeles särskild upplevelse.",
+  ),
+  accessInstructions: text(
+    "All booked guests have access before and during their stay. Simply enter the first name on the booking and the arrival and departure dates.",
+    "Alle gebuchten Gäste haben vor und während ihres Aufenthalts Zugang. Gebt einfach den Vornamen eurer Buchung sowie das An- und Abreisedatum ein.",
+    "Todos los huéspedes con reserva tienen acceso antes y durante su estancia. Introducid simplemente el nombre que figura en la reserva y las fechas de llegada y salida.",
+    "Alle geboekte gasten hebben voor en tijdens hun verblijf toegang. Vul eenvoudig de voornaam op de boeking en de aankomst- en vertrekdatum in.",
+    "Alla bokade gäster har tillgång före och under vistelsen. Ange helt enkelt förnamnet i bokningen samt ankomst- och avresedatum.",
   ),
   accessLandingLabel: text(
     "Learn more about AMARA Experience",
