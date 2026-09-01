@@ -39,17 +39,22 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page.locator('footer')).toHaveCount(0);
 });
 
-test('the protected Guest Welcome hub contains only the stay and AMARA Experience worlds', async ({ page }) => {
+test('the protected Guest Welcome hub contains the stay, location essentials and AMARA Experience', async ({ page }) => {
   await page.goto('/de/amara-experience/guide/guestwelcome-frigiliana-farah');
 
   const menuItems = page.locator('main nav .am-ios-item');
-  await expect(menuItems).toHaveCount(2);
+  await expect(menuItems).toHaveCount(3);
   await expect(menuItems.nth(0)).toContainText('Eure Unterkunft Farah');
-  await expect(menuItems.nth(1)).toContainText('AMARA Experience');
-  await expect(menuItems.nth(1)).toContainText('Versteckte Schätze');
+  await expect(menuItems.nth(1)).toContainText('Wichtiges vor Ort in Frigiliana');
+  await expect(menuItems.nth(2)).toContainText('AMARA Experience');
+  await expect(menuItems.nth(2)).toContainText('Versteckte Schätze');
   await expect(menuItems.nth(0)).toHaveAttribute(
     'href',
     '/de/amara-experience/guide/guesthome-frigiliana-farah'
+  );
+  await expect(menuItems.nth(1)).toHaveAttribute(
+    'href',
+    '/de/amara-experience/guide/frigiliana-guest-essentials'
   );
   await expect(page.locator('[data-am-guide-logout]')).toHaveText('Abmelden');
 });

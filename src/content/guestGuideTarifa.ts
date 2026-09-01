@@ -1,4 +1,4 @@
-import type { GuestGuideCategory, GuestGuideCategoryLinkItem, GuestGuideEntry, LocalizedText } from '../types/guestGuide';
+import type { GuestGuideCategoryLinkItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
 import { buildBookingLandingUrl } from '../lib/directBooking';
 
 const TARIFA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
@@ -28,33 +28,23 @@ const AMARA_SIGN_OFF: LocalizedText = {
   sv: 'Varma hälsningar,<br>Robert'
 };
 
-const TARIFA_STAY_ESSENTIALS_CATEGORY: GuestGuideCategory = {
-  heading: {
-    en: 'Useful nearby',
-    de: 'Wichtiges in der Nähe',
-    es: 'Información útil cerca',
-    nl: 'Handig in de buurt',
-    sv: 'Praktiskt i närheten'
+const TARIFA_ESSENTIALS_MENU_LINK: GuestGuideMenuLink = {
+  icon: 'location-pin',
+  targetSlug: 'tarifa-guest-local-essentials',
+  title: {
+    en: 'Tarifa essentials',
+    de: 'Wichtiges vor Ort in Tarifa',
+    es: 'Lo esencial de Tarifa',
+    nl: 'Praktische informatie in Tarifa',
+    sv: 'Praktisk information i Tarifa'
   },
-  items: [{
-    kind: 'link',
-    icon: 'location-pin',
-    targetSlug: 'tarifa-guest-local-essentials',
-    title: {
-      en: 'Tarifa essentials',
-      de: 'Wichtiges vor Ort in Tarifa',
-      es: 'Lo esencial de Tarifa',
-      nl: 'Praktische informatie in Tarifa',
-      sv: 'Praktisk information i Tarifa'
-    },
-    subtitle: {
-      en: 'Parking · Supermarkets · Practical local basics',
-      de: 'Parken · Supermärkte · Praktische Grundlagen vor Ort',
-      es: 'Aparcamiento · Supermercados · Información práctica local',
-      nl: 'Parkeren · Supermarkten · Praktische lokale basisinfo',
-      sv: 'Parkering · Stormarknader · Praktisk lokal information'
-    }
-  }]
+  subtitle: {
+    en: 'Parking · Supermarkets · Practical local basics',
+    de: 'Parken · Supermärkte · Praktische Grundlagen vor Ort',
+    es: 'Aparcamiento · Supermercados · Información práctica local',
+    nl: 'Parkeren · Supermarkten · Praktische lokale basisinfo',
+    sv: 'Parkering · Stormarknader · Praktisk lokal information'
+  }
 };
 
 const TARIFA_EXPERIENCE_KITESURF_LINK: GuestGuideCategoryLinkItem = {
@@ -217,13 +207,14 @@ const tarifaFamilySurfHub: GuestGuideEntry = {
         sv: 'Er lägenhet'
       },
       subtitle: {
-        en: 'Arrival · House information · Local essentials',
-        de: 'Anreise · Hausinformationen · Wichtiges vor Ort',
-        es: 'Llegada · Información del alojamiento · Información práctica',
-        nl: 'Aankomst · Huisinformatie · Praktische informatie',
-        sv: 'Ankomst · Boendeinformation · Praktisk information'
+        en: 'Arrival · House information',
+        de: 'Anreise · Hausinformationen',
+        es: 'Llegada · Información del alojamiento',
+        nl: 'Aankomst · Huisinformatie',
+        sv: 'Ankomst · Boendeinformation'
       }
     },
+    TARIFA_ESSENTIALS_MENU_LINK,
     {
       icon: 'compass',
       targetSlug: 'tarifa-guest-local-guide',
@@ -322,7 +313,6 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
     'Information om lägenheten och allt viktigt.'
   ),
   categories: [
-    TARIFA_STAY_ESSENTIALS_CATEGORY,
     {
       heading: tarifaText(
         'Arrival & Basics',

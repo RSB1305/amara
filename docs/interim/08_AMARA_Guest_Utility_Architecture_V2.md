@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
-title: AMARA Guest Utility Architecture V2.5
-version: 2.5.0
+title: AMARA Guest Utility Architecture V2.6
+version: 2.6.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-01T13:30:00+02:00
+last_modified: 2026-09-01T14:06:06+02:00
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -181,12 +181,13 @@ The binding `AMARA_EXPERIENCE_SESSION_SECRET` is mandatory and must contain at l
 
 16. Canonical guide structure
 
-Each accommodation hub presents two top-level worlds in this order:
+Each accommodation hub presents three direct entries in this order:
 
-1. the guest's stay, containing accommodation, arrival, house information, check-out and practical local essentials;
-2. AMARA Experience, containing the curated destination layer: hidden treasures, insider tips, authentic local food and experiences away from the busiest routes.
+1. the guest's stay, containing accommodation, arrival, house information and check-out;
+2. location essentials, containing practical local orientation such as mobility, supermarkets, pharmacies and parking where relevant;
+3. AMARA Experience, containing the curated destination layer: hidden treasures, insider tips, authentic local food and experiences away from the busiest routes.
 
-The established Guest Welcome entries, detail pages, location grouping and accommodation-specific structure remain the single authoring basis. AMARA Experience upgrades the former recommendations area and may add deeper verified content without introducing a second guide taxonomy. Empty speculative categories are not rendered. The existing content prohibition for credentials, access secrets, payment details and personal booking data remains in force.
+The established Guest Welcome entries, detail pages, location grouping and accommodation-specific structure remain the single authoring basis. Location essentials are linked directly from the hub to the existing destination-specific page and are not duplicated inside the accommodation detail. AMARA Experience upgrades the former recommendations area and may add deeper verified content without introducing a second guide taxonomy. Empty speculative categories are not rendered. The existing content prohibition for credentials, access secrets, payment details and personal booking data remains in force.
 
 ## Revision history
 
@@ -198,3 +199,4 @@ The established Guest Welcome entries, detail pages, location grouping and accom
 | 2.3.0 | 2026-08-31T20:30:00+02:00 | Activated the booking-backed AMARA Experience foundation while retaining anonymous Guest Guides as a separate transitional legacy surface. |
 | 2.4.0 | 2026-09-01T09:05:35+02:00 | Moved the public AMARA Experience entry from a standalone primary-navigation position into About us, immediately after Staying with us, to reduce header density while preserving global reach. |
 | 2.5.0 | 2026-09-01T13:30:00+02:00 | Consolidated Guest Welcome into the protected AMARA Experience product, added the separate guest access page and property-aware hub handoff, retired anonymous guide delivery and established the two-world stay/Experience structure. |
+| 2.6.0 | 2026-09-01T14:06:06+02:00 | Restored destination-specific Essentials as the middle direct hub entry between the accommodation and AMARA Experience, using the existing location pages as the single content source. |

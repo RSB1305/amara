@@ -1,4 +1,4 @@
-import type { GuestGuideAccordionItem, GuestGuideCategory, GuestGuideEntry, LocalizedText } from '../types/guestGuide';
+import type { GuestGuideAccordionItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
 import { buildBookingLandingUrl } from '../lib/directBooking';
 
 const FRIGILIANA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
@@ -35,51 +35,37 @@ const STAY_ESSENTIALS_SUBTITLE: LocalizedText = {
 };
 
 const STAY_MENU_SUBTITLE: LocalizedText = {
-  en: 'Arrival · House information · Local essentials',
-  de: 'Anreise · Hausinformationen · Wichtiges vor Ort',
-  es: 'Llegada · Información del alojamiento · Información práctica',
-  nl: 'Aankomst · Huisinformatie · Praktische informatie',
-  sv: 'Ankomst · Boendeinformation · Praktisk information'
+  en: 'Arrival · House information',
+  de: 'Anreise · Hausinformationen',
+  es: 'Llegada · Información del alojamiento',
+  nl: 'Aankomst · Huisinformatie',
+  sv: 'Ankomst · Boendeinformation'
 };
 
-const FRIGILIANA_STAY_ESSENTIALS_CATEGORY: GuestGuideCategory = {
-  heading: {
-    en: 'Useful nearby',
-    de: 'Wichtiges in der Nähe',
-    es: 'Información útil cerca',
-    nl: 'Handig in de buurt',
-    sv: 'Praktiskt i närheten'
+const FRIGILIANA_ESSENTIALS_MENU_LINK: GuestGuideMenuLink = {
+  icon: 'location-pin',
+  targetSlug: 'frigiliana-guest-essentials',
+  title: {
+    en: 'Frigiliana essentials',
+    de: 'Wichtiges vor Ort in Frigiliana',
+    es: 'Lo esencial de Frigiliana',
+    nl: 'Praktische informatie in Frigiliana',
+    sv: 'Praktisk information i Frigiliana'
   },
-  items: [{
-    kind: 'link',
-    icon: 'location-pin',
-    targetSlug: 'frigiliana-guest-essentials',
-    title: {
-      en: 'Frigiliana essentials',
-      de: 'Wichtiges vor Ort in Frigiliana',
-      es: 'Lo esencial de Frigiliana',
-      nl: 'Praktische informatie in Frigiliana',
-      sv: 'Praktisk information i Frigiliana'
-    },
-    subtitle: STAY_ESSENTIALS_SUBTITLE
-  }]
+  subtitle: STAY_ESSENTIALS_SUBTITLE
 };
 
-const NERJA_STAY_ESSENTIALS_CATEGORY: GuestGuideCategory = {
-  heading: FRIGILIANA_STAY_ESSENTIALS_CATEGORY.heading,
-  items: [{
-    kind: 'link',
-    icon: 'location-pin',
-    targetSlug: 'nerja-guest-essentials',
-    title: {
-      en: 'Nerja essentials',
-      de: 'Wichtiges vor Ort in Nerja',
-      es: 'Lo esencial de Nerja',
-      nl: 'Praktische informatie in Nerja',
-      sv: 'Praktisk information i Nerja'
-    },
-    subtitle: STAY_ESSENTIALS_SUBTITLE
-  }]
+const NERJA_ESSENTIALS_MENU_LINK: GuestGuideMenuLink = {
+  icon: 'location-pin',
+  targetSlug: 'nerja-guest-essentials',
+  title: {
+    en: 'Nerja essentials',
+    de: 'Wichtiges vor Ort in Nerja',
+    es: 'Lo esencial de Nerja',
+    nl: 'Praktische informatie in Nerja',
+    sv: 'Praktisk information i Nerja'
+  },
+  subtitle: STAY_ESSENTIALS_SUBTITLE
 };
 
 const HOUSEKEEPING_WHATSAPP = 'https://wa.me/34652072384';
@@ -813,6 +799,7 @@ const frigilianaFarahHub: GuestGuideEntry = {
       },
       subtitle: STAY_MENU_SUBTITLE
     },
+    FRIGILIANA_ESSENTIALS_MENU_LINK,
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
@@ -890,7 +877,6 @@ const frigilianaFarahAccommodation: GuestGuideEntry = {
     sv: 'Detaljer och det viktigaste om ert hus.'
   },
   categories: [
-    FRIGILIANA_STAY_ESSENTIALS_CATEGORY,
     {
       heading: {
         en: 'Arrival & Basics',
@@ -4762,6 +4748,7 @@ const frigilianaLounisHub: GuestGuideEntry = {
       },
       subtitle: STAY_MENU_SUBTITLE
     },
+    FRIGILIANA_ESSENTIALS_MENU_LINK,
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
@@ -4841,7 +4828,6 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
     sv: 'Detaljer och det viktigaste om ert hus.'
   },
   categories: [
-    FRIGILIANA_STAY_ESSENTIALS_CATEGORY,
     {
       heading: {
         en: 'Arrival & Basics',
@@ -4969,6 +4955,7 @@ const frigilianaZaidHub: GuestGuideEntry = {
       },
       subtitle: STAY_MENU_SUBTITLE
     },
+    FRIGILIANA_ESSENTIALS_MENU_LINK,
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
@@ -5042,7 +5029,6 @@ const frigilianaZaidAccommodation: GuestGuideEntry = {
     sv: 'Detaljer och det viktigaste om ert hus.'
   },
   categories: [
-    FRIGILIANA_STAY_ESSENTIALS_CATEGORY,
     {
       heading: {
         en: 'Arrival & Basics',
@@ -5170,6 +5156,7 @@ const frigilianaMahaHub: GuestGuideEntry = {
       },
       subtitle: STAY_MENU_SUBTITLE
     },
+    FRIGILIANA_ESSENTIALS_MENU_LINK,
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
@@ -5243,7 +5230,6 @@ const frigilianaMahaAccommodation: GuestGuideEntry = {
     sv: 'Detaljer och det viktigaste om ert hus.'
   },
   categories: [
-    FRIGILIANA_STAY_ESSENTIALS_CATEGORY,
     {
       heading: {
         en: 'Arrival & Basics',
@@ -5371,6 +5357,7 @@ const nerjaPlayaHub: GuestGuideEntry = {
       },
       subtitle: STAY_MENU_SUBTITLE
     },
+    NERJA_ESSENTIALS_MENU_LINK,
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
@@ -5444,7 +5431,6 @@ const nerjaPlayaAccommodation: GuestGuideEntry = {
     sv: 'Detaljer och det viktigaste om ert boende.'
   },
   categories: [
-    NERJA_STAY_ESSENTIALS_CATEGORY,
     {
       heading: {
         en: 'Arrival & Basics',

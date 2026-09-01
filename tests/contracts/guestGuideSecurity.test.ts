@@ -51,17 +51,34 @@ test('all 36 Guest Guide entries publish under the protected route family in all
   );
 });
 
-test('each accommodation hub exposes only the stay and AMARA Experience', () => {
+test('each accommodation hub exposes the stay, location essentials and AMARA Experience', () => {
   const hubs = guestGuideEntries.filter((entry) => entry.type === 'hub');
   expect(hubs).toHaveLength(6);
 
   for (const hub of hubs) {
-    expect(hub.menuLinks).toHaveLength(2);
-    expect(hub.menuLinks[1]?.title.en).toBe('AMARA Experience');
+    expect(hub.menuLinks).toHaveLength(3);
+    expect(hub.menuLinks[1]?.targetSlug).toContain('essentials');
+    expect(hub.menuLinks[2]?.title.en).toBe('AMARA Experience');
   }
 });
 
-test('practical essentials live inside the stay and Tarifa kitesurfing lives inside AMARA Experience', () => {
+test('location essentials use the correct destination page and are not duplicated inside the stay', () => {
+  const essentialsByHub = new Map([
+    ['guestwelcome-frigiliana-farah', 'frigiliana-guest-essentials'],
+    ['guestwelcome-frigiliana-lounis', 'frigiliana-guest-essentials'],
+    ['guestwelcome-frigiliana-zaid', 'frigiliana-guest-essentials'],
+    ['guestwelcome-frigiliana-maha', 'frigiliana-guest-essentials'],
+    ['guestwelcome-nerja-playa', 'nerja-guest-essentials'],
+    ['guestwelcome-tarifa-family-surf', 'tarifa-guest-local-essentials']
+  ]);
+
+  for (const [hubSlug, essentialsSlug] of essentialsByHub) {
+    const hub = guestGuideEntries.find((entry) => entry.slug === hubSlug);
+    expect(hub?.type).toBe('hub');
+    if (hub?.type !== 'hub') continue;
+    expect(hub.menuLinks[1]?.targetSlug).toBe(essentialsSlug);
+  }
+
   const accommodationSlugs = new Set([
     'guesthome-frigiliana-farah',
     'guesthome-frigiliana-lounis',
@@ -78,9 +95,11 @@ test('practical essentials live inside the stay and Tarifa kitesurfing lives ins
     if (entry.type !== 'detail') continue;
     expect(entry.categories.flatMap((category) => category.items).some((item) => (
       item.kind === 'link' && item.targetSlug.includes('essentials')
-    ))).toBe(true);
+    ))).toBe(false);
   }
+});
 
+test('Tarifa kitesurfing lives inside AMARA Experience', () => {
   const tarifaExperience = guestGuideEntries.find((entry) => entry.slug === 'tarifa-guest-local-guide');
   expect(tarifaExperience?.type).toBe('detail');
   if (tarifaExperience?.type === 'detail') {
