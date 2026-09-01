@@ -53,16 +53,27 @@ type GatewayOptions = {
   unavailableDates?: Set<string>;
   technicalError?: Set<string>;
   quoteError?: Set<string>;
+  searchCalendarFailures?: number;
 };
 
 async function mockGateway(page: Page, options: GatewayOptions = {}) {
   const requests: URL[] = [];
+  let remainingSearchCalendarFailures = options.searchCalendarFailures ?? 0;
   await page.route('**/api/booking/**', async (route: Route) => {
     const url = new URL(route.request().url());
     requests.push(url);
     const stay = url.searchParams.get('stay') || '';
     const operation = url.pathname.split('/').pop();
     if (operation === 'search-calendar') {
+      if (remainingSearchCalendarFailures > 0) {
+        remainingSearchCalendarFailures -= 1;
+        await route.fulfill({
+          status: 502,
+          contentType: 'application/json',
+          body: JSON.stringify({ error: { code: 'booking_data_unavailable' } })
+        });
+        return;
+      }
       const destination = url.searchParams.get('destination') || '';
       const guests = Number(url.searchParams.get('guests'));
       const start = url.searchParams.get('start') || '';
@@ -114,7 +125,9 @@ async function mockGateway(page: Page, options: GatewayOptions = {}) {
           end,
           days: enumerateDays(start, end).map((date) => ({
             date,
-            available: !options.unavailable?.has(stay)
+            available:
+              !options.unavailable?.has(stay) &&
+              !options.unavailableDates?.has(date)
           }))
         })
       });
@@ -244,6 +257,56 @@ test('homepage finder refreshes live dates for destination changes and returns q
   const publicHtml = await page.locator('html').textContent();
   expect(publicHtml).not.toContain('Lodgify');
   expect(publicHtml).not.toContain('Provider');
+});
+
+test('finder explains a broken stay range and clears its hover preview', async ({ page }) => {
+  await page.setViewportSize(DESKTOP);
+  const arrival = futureIso(20);
+  const firstValidDeparture = futureIso(23);
+  const blockedNight = firstValidDeparture;
+  const invalidDeparture = futureIso(26);
+  await mockGateway(page, { unavailableDates: new Set([blockedNight]) });
+  await page.goto(ORIGIN + '/en/find-a-stay?destination=frigiliana');
+  await page.getByRole('button', { name: 'Choose arrival' }).click();
+  const arrivalButton = page.locator('[data-am-booking-day="' + arrival + '"]');
+  await expect(arrivalButton).toBeEnabled();
+  await arrivalButton.click();
+
+  const validDepartureButton = page.locator(
+    '[data-am-booking-day="' + firstValidDeparture + '"]'
+  );
+  const invalidDepartureButton = page.locator(
+    '[data-am-booking-day="' + invalidDeparture + '"]'
+  );
+  await expect(validDepartureButton).toBeEnabled();
+  await expect(invalidDepartureButton).toBeEnabled();
+  await expect(invalidDepartureButton).toHaveAttribute(
+    'data-am-booking-restriction',
+    'stay-continuity'
+  );
+  await validDepartureButton.hover();
+  await expect(page.locator('[data-range="middle"]')).not.toHaveCount(0);
+  await invalidDepartureButton.hover();
+  await expect(page.locator('[data-range="middle"]')).toHaveCount(0);
+  await invalidDepartureButton.click();
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'No single AMARA stay is available for every night'
+  );
+  await expect(page.locator('[data-am-stay-search-departure]')).toHaveValue('');
+  await expect(page.getByRole('button', { name: 'Check availability' })).toBeDisabled();
+});
+
+test('finder retries transient live-calendar failures once', async ({ page }) => {
+  await page.setViewportSize(DESKTOP);
+  const requests = await mockGateway(page, { searchCalendarFailures: 2 });
+  await page.goto(ORIGIN + '/en/find-a-stay?destination=frigiliana');
+  await page.getByRole('button', { name: 'Choose arrival' }).click();
+  await expect.poll(() => requests.filter(
+    (url) => url.pathname.endsWith('/search-calendar')
+  ).length).toBe(4);
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'Choose arrival and departure'
+  );
 });
 
 test('candidate sets issue only availability plus quotes with controlled destination counts', async ({ page }) => {

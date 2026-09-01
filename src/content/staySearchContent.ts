@@ -53,6 +53,13 @@ export const staySearchCopy = {
     nl: 'Bij aankomst op {arrival} geldt een minimumverblijf van {count} nachten. Kies een vertrek vanaf {departure}.',
     sv: 'Vid ankomst den {arrival} gäller minst {count} nätter. Välj avresa tidigast den {departure}.'
   }),
+  stayContinuityViolation: localized({
+    en: 'No single AMARA stay is available for every night from {arrival} to {departure}. Choose a selectable departure or a new arrival.',
+    de: 'Vom {arrival} bis zur Abreise am {departure} ist keine einzelne AMARA-Unterkunft durchgehend frei. Wählt ein verfügbares Abreisedatum oder eine neue Anreise.',
+    es: 'Ningún alojamiento AMARA está disponible todas las noches desde el {arrival} hasta la salida del {departure}. Elegid una fecha de salida disponible u otra llegada.',
+    nl: 'Er is geen enkel AMARA-verblijf vrij voor alle nachten van {arrival} tot het vertrek op {departure}. Kies een beschikbare vertrekdatum of een nieuwe aankomst.',
+    sv: 'Inget enskilt AMARA-boende är ledigt varje natt från {arrival} till avresan den {departure}. Välj ett valbart avresedatum eller en ny ankomst.'
+  }),
   previousMonth: localized({ en: 'Previous month', de: 'Vorheriger Monat', es: 'Mes anterior', nl: 'Vorige maand', sv: 'Föregående månad' }),
   nextMonth: localized({ en: 'Next month', de: 'Nächster Monat', es: 'Mes siguiente', nl: 'Volgende maand', sv: 'Nästa månad' }),
   unavailableDay: localized({ en: 'Unavailable', de: 'Nicht wählbar', es: 'No disponible', nl: 'Niet beschikbaar', sv: 'Inte tillgänglig' }),
@@ -68,6 +75,13 @@ export const staySearchCopy = {
     es: 'no se alcanza la estancia mínima; seleccionad para ver los detalles',
     nl: 'minimumverblijf nog niet bereikt; selecteer voor uitleg',
     sv: 'minsta vistelse har inte uppnåtts; välj för mer information'
+  }),
+  stayContinuityDeparture: localized({
+    en: 'no single stay covers the full period; select for details',
+    de: 'keine einzelne Unterkunft deckt den gesamten Zeitraum ab; für Details auswählen',
+    es: 'ningún alojamiento cubre todo el periodo; seleccionad para ver los detalles',
+    nl: 'geen enkel verblijf dekt de volledige periode; selecteer voor uitleg',
+    sv: 'inget enskilt boende täcker hela perioden; välj för mer information'
   }),
   selectedArrival: localized({
     en: 'selected arrival', de: 'gewählte Anreise', es: 'llegada seleccionada',

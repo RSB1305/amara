@@ -10,15 +10,15 @@ const NEED_HELP: LocalizedText = {
   sv: 'Behöver ni hjälp?'
 };
 
-const AMARA_EXPERIENCE_MENU_TITLE: LocalizedText = {
-  en: 'AMARA Experience',
-  de: 'AMARA Experience',
-  es: 'AMARA Experience',
-  nl: 'AMARA Experience',
-  sv: 'AMARA Experience'
+const PERSONAL_RECOMMENDATIONS_MENU_TITLE: LocalizedText = {
+  en: 'Our personal recommendations',
+  de: 'Unsere persönlichen Empfehlungen',
+  es: 'Nuestras recomendaciones personales',
+  nl: 'Onze persoonlijke aanbevelingen',
+  sv: 'Våra personliga rekommendationer'
 };
 
-const AMARA_EXPERIENCE_MENU_SUBTITLE: LocalizedText = {
+const PERSONAL_RECOMMENDATIONS_MENU_SUBTITLE: LocalizedText = {
   en: 'Hidden treasures · Insider tips · Authentic local food · Beyond the crowds',
   de: 'Versteckte Schätze · Insider-Tipps · Authentische lokale Küche · Abseits der Massen',
   es: 'Rincones escondidos · Consejos locales · Cocina local auténtica · Lejos de las multitudes',
@@ -750,11 +750,11 @@ const frigilianaFarahHub: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Frigiliana Guest Guide | AMARA',
-    de: 'Frigiliana-Gästeguide | AMARA',
-    es: 'Guía para huéspedes en Frigiliana | AMARA',
-    nl: 'Gastengids voor Frigiliana | AMARA',
-    sv: 'Gästguide för Frigiliana | AMARA'
+    en: 'Your AMARA stay in Frigiliana | AMARA Experience',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Experience',
+    es: 'Vuestra estancia con AMARA en Frigiliana | AMARA Experience',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Experience',
+    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Experience'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
@@ -773,11 +773,11 @@ const frigilianaFarahHub: GuestGuideEntry = {
   },
   kicker: { en: 'AMARA FARAH', de: 'AMARA FARAH', es: 'AMARA FARAH', nl: 'AMARA FARAH', sv: 'AMARA FARAH' },
   title: {
-    en: 'Frigiliana Guest Guide',
-    de: 'Frigiliana-Gästeguide',
-    es: 'Guía para huéspedes en Frigiliana',
-    nl: 'Gastengids voor Frigiliana',
-    sv: 'Gästguide för Frigiliana'
+    en: 'Your AMARA stay in Frigiliana',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana',
+    es: 'Vuestra estancia con AMARA en Frigiliana',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana',
+    sv: 'Er vistelse hos AMARA i Frigiliana'
   },
   intro: {
     en: 'A thoughtful guide to help you settle in, find your way, and enjoy Frigiliana with ease.',
@@ -803,8 +803,8 @@ const frigilianaFarahHub: GuestGuideEntry = {
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
-      title: AMARA_EXPERIENCE_MENU_TITLE,
-      subtitle: AMARA_EXPERIENCE_MENU_SUBTITLE
+      title: PERSONAL_RECOMMENDATIONS_MENU_TITLE,
+      subtitle: PERSONAL_RECOMMENDATIONS_MENU_SUBTITLE
     }
   ],
   closingParagraphs: [
@@ -4427,11 +4427,11 @@ const frigilianaRecommendations: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'AMARA Experience | Nerja & Frigiliana',
-    de: 'AMARA Experience | Nerja & Frigiliana',
-    es: 'AMARA Experience | Nerja y Frigiliana',
-    nl: 'AMARA Experience | Nerja & Frigiliana',
-    sv: 'AMARA Experience | Nerja & Frigiliana'
+    en: 'Our personal recommendations | AMARA Experience',
+    de: 'Unsere persönlichen Empfehlungen | AMARA Experience',
+    es: 'Nuestras recomendaciones personales | AMARA Experience',
+    nl: 'Onze persoonlijke aanbevelingen | AMARA Experience',
+    sv: 'Våra personliga rekommendationer | AMARA Experience'
   },
   seoDescription: {
     en: 'Hidden treasures, insider tips, authentic local food and lesser-known places around Frigiliana and Nerja, selected by your AMARA hosts.',
@@ -4442,11 +4442,11 @@ const frigilianaRecommendations: GuestGuideEntry = {
   },
   kicker: RECOMMENDATIONS_KICKER,
   title: {
-    en: 'AMARA Experience in Nerja, Frigiliana & Nearby',
-    de: 'AMARA Experience in Nerja, Frigiliana & Umgebung',
-    es: 'AMARA Experience en Nerja, Frigiliana y alrededores',
-    nl: 'AMARA Experience in Nerja, Frigiliana & omgeving',
-    sv: 'AMARA Experience i Nerja, Frigiliana & närområdet'
+    en: 'Our personal recommendations in Nerja, Frigiliana & nearby',
+    de: 'Unsere persönlichen Empfehlungen für Nerja, Frigiliana und Umgebung',
+    es: 'Nuestras recomendaciones personales en Nerja, Frigiliana y alrededores',
+    nl: 'Onze persoonlijke aanbevelingen voor Nerja, Frigiliana en omgeving',
+    sv: 'Våra personliga rekommendationer för Nerja, Frigiliana och närområdet'
   },
   intro: {
     en: 'Hidden treasures, insider tips, authentic local food and lesser-known places — with practical details for more time together away from the busiest routes.',
@@ -4699,11 +4699,11 @@ const frigilianaLounisHub: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Frigiliana Guest Guide | AMARA',
-    de: 'Frigiliana-Gästeguide | AMARA',
-    es: 'Guía para huéspedes en Frigiliana | AMARA',
-    nl: 'Gastengids voor Frigiliana | AMARA',
-    sv: 'Gästguide för Frigiliana | AMARA'
+    en: 'Your AMARA stay in Frigiliana | AMARA Experience',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Experience',
+    es: 'Vuestra estancia con AMARA en Frigiliana | AMARA Experience',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Experience',
+    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Experience'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
@@ -4722,11 +4722,11 @@ const frigilianaLounisHub: GuestGuideEntry = {
   },
   kicker: { en: 'AMARA LOUNIS', de: 'AMARA LOUNIS', es: 'AMARA LOUNIS', nl: 'AMARA LOUNIS', sv: 'AMARA LOUNIS' },
   title: {
-    en: 'Frigiliana Guest Guide',
-    de: 'Frigiliana-Gästeguide',
-    es: 'Guía para huéspedes en Frigiliana',
-    nl: 'Gastengids voor Frigiliana',
-    sv: 'Gästguide för Frigiliana'
+    en: 'Your AMARA stay in Frigiliana',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana',
+    es: 'Vuestra estancia con AMARA en Frigiliana',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana',
+    sv: 'Er vistelse hos AMARA i Frigiliana'
   },
   intro: {
     en: 'A thoughtful guide to help you settle in, find your way, and enjoy Frigiliana with ease.',
@@ -4752,8 +4752,8 @@ const frigilianaLounisHub: GuestGuideEntry = {
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
-      title: AMARA_EXPERIENCE_MENU_TITLE,
-      subtitle: AMARA_EXPERIENCE_MENU_SUBTITLE
+      title: PERSONAL_RECOMMENDATIONS_MENU_TITLE,
+      subtitle: PERSONAL_RECOMMENDATIONS_MENU_SUBTITLE
     }
   ],
   closingParagraphs: [
@@ -4906,11 +4906,11 @@ const frigilianaZaidHub: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Frigiliana Guest Guide | AMARA',
-    de: 'Frigiliana-Gästeguide | AMARA',
-    es: 'Guía para huéspedes en Frigiliana | AMARA',
-    nl: 'Gastengids voor Frigiliana | AMARA',
-    sv: 'Gästguide för Frigiliana | AMARA'
+    en: 'Your AMARA stay in Frigiliana | AMARA Experience',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Experience',
+    es: 'Vuestra estancia con AMARA en Frigiliana | AMARA Experience',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Experience',
+    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Experience'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
@@ -4929,11 +4929,11 @@ const frigilianaZaidHub: GuestGuideEntry = {
   },
   kicker: { en: 'AMARA ZAID', de: 'AMARA ZAID', es: 'AMARA ZAID', nl: 'AMARA ZAID', sv: 'AMARA ZAID' },
   title: {
-    en: 'Frigiliana Guest Guide',
-    de: 'Frigiliana-Gästeguide',
-    es: 'Guía para huéspedes en Frigiliana',
-    nl: 'Gastengids voor Frigiliana',
-    sv: 'Gästguide för Frigiliana'
+    en: 'Your AMARA stay in Frigiliana',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana',
+    es: 'Vuestra estancia con AMARA en Frigiliana',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana',
+    sv: 'Er vistelse hos AMARA i Frigiliana'
   },
   intro: {
     en: 'A thoughtful guide to help you settle in, find your way, and enjoy Frigiliana with ease.',
@@ -4959,8 +4959,8 @@ const frigilianaZaidHub: GuestGuideEntry = {
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
-      title: AMARA_EXPERIENCE_MENU_TITLE,
-      subtitle: AMARA_EXPERIENCE_MENU_SUBTITLE
+      title: PERSONAL_RECOMMENDATIONS_MENU_TITLE,
+      subtitle: PERSONAL_RECOMMENDATIONS_MENU_SUBTITLE
     }
   ],
   closingParagraphs: [
@@ -5107,11 +5107,11 @@ const frigilianaMahaHub: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Frigiliana Guest Guide | AMARA',
-    de: 'Frigiliana-Gästeguide | AMARA',
-    es: 'Guía para huéspedes en Frigiliana | AMARA',
-    nl: 'Gastengids voor Frigiliana | AMARA',
-    sv: 'Gästguide för Frigiliana | AMARA'
+    en: 'Your AMARA stay in Frigiliana | AMARA Experience',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Experience',
+    es: 'Vuestra estancia con AMARA en Frigiliana | AMARA Experience',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Experience',
+    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Experience'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
@@ -5130,11 +5130,11 @@ const frigilianaMahaHub: GuestGuideEntry = {
   },
   kicker: { en: 'AMARA MAHA', de: 'AMARA MAHA', es: 'AMARA MAHA', nl: 'AMARA MAHA', sv: 'AMARA MAHA' },
   title: {
-    en: 'Frigiliana Guest Guide',
-    de: 'Frigiliana-Gästeguide',
-    es: 'Guía para huéspedes en Frigiliana',
-    nl: 'Gastengids voor Frigiliana',
-    sv: 'Gästguide för Frigiliana'
+    en: 'Your AMARA stay in Frigiliana',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana',
+    es: 'Vuestra estancia con AMARA en Frigiliana',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana',
+    sv: 'Er vistelse hos AMARA i Frigiliana'
   },
   intro: {
     en: 'A thoughtful guide to help you settle in, find your way, and enjoy Frigiliana with ease.',
@@ -5160,8 +5160,8 @@ const frigilianaMahaHub: GuestGuideEntry = {
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
-      title: AMARA_EXPERIENCE_MENU_TITLE,
-      subtitle: AMARA_EXPERIENCE_MENU_SUBTITLE
+      title: PERSONAL_RECOMMENDATIONS_MENU_TITLE,
+      subtitle: PERSONAL_RECOMMENDATIONS_MENU_SUBTITLE
     }
   ],
   closingParagraphs: [
@@ -5308,11 +5308,11 @@ const nerjaPlayaHub: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Nerja Guest Guide | AMARA',
-    de: 'Nerja-Gästeguide | AMARA',
-    es: 'Guía para huéspedes en Nerja | AMARA',
-    nl: 'Gastengids voor Nerja | AMARA',
-    sv: 'Gästguide för Nerja | AMARA'
+    en: 'Your AMARA stay in Nerja | AMARA Experience',
+    de: 'Euer Aufenthalt bei AMARA in Nerja | AMARA Experience',
+    es: 'Vuestra estancia con AMARA en Nerja | AMARA Experience',
+    nl: 'Jullie verblijf bij AMARA in Nerja | AMARA Experience',
+    sv: 'Er vistelse hos AMARA i Nerja | AMARA Experience'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Nerja: house info, local recommendations, and essentials for a smooth arrival.',
@@ -5331,11 +5331,11 @@ const nerjaPlayaHub: GuestGuideEntry = {
   },
   kicker: { en: 'AMARA PLAYA', de: 'AMARA PLAYA', es: 'AMARA PLAYA', nl: 'AMARA PLAYA', sv: 'AMARA PLAYA' },
   title: {
-    en: 'Nerja Guest Guide',
-    de: 'Nerja-Gästeguide',
-    es: 'Guía para huéspedes en Nerja',
-    nl: 'Gastengids voor Nerja',
-    sv: 'Gästguide för Nerja'
+    en: 'Your AMARA stay in Nerja',
+    de: 'Euer Aufenthalt bei AMARA in Nerja',
+    es: 'Vuestra estancia con AMARA en Nerja',
+    nl: 'Jullie verblijf bij AMARA in Nerja',
+    sv: 'Er vistelse hos AMARA i Nerja'
   },
   intro: {
     en: 'A thoughtful guide to help you settle in, find your way, and enjoy Nerja with ease.',
@@ -5361,8 +5361,8 @@ const nerjaPlayaHub: GuestGuideEntry = {
     {
       icon: 'compass',
       targetSlug: 'frigiliana-guest-recommendations',
-      title: AMARA_EXPERIENCE_MENU_TITLE,
-      subtitle: AMARA_EXPERIENCE_MENU_SUBTITLE
+      title: PERSONAL_RECOMMENDATIONS_MENU_TITLE,
+      subtitle: PERSONAL_RECOMMENDATIONS_MENU_SUBTITLE
     }
   ],
   closingParagraphs: [

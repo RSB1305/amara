@@ -37,9 +37,18 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await page.goto('/de/amara-experience/access');
 
   await expect(page.locator('main h1')).toHaveText('AMARA Experience');
+  await expect(page.locator('.am-experience-app__intro strong')).toHaveText('AMARA Guest Guide');
   await expect(page.locator('main')).toContainText(
-    'Gebt den Vornamen der Buchung sowie An- und Abreisedatum ein.'
+    'Hier findet ihr Informationen zu eurer Unterkunft, Wichtigem vor Ort und unseren persönlichen Insider-Tipps, die dazu beitragen sollen, euren Urlaub mit uns zu einem ganz besonderen Erlebnis zu machen.'
   );
+  await expect(page.locator('.am-experience-app__intro p')).toHaveCount(2);
+  await expect(page.locator('.am-experience-app__intro p').nth(1)).toContainText(
+    'Alle gebuchten Gäste haben vor und während ihres Aufenthalts Zugang.'
+  );
+  await expect(page.locator('[data-am-experience-landing-link]'))
+    .toHaveAttribute('href', '/de/amara-experience');
+  await expect(page.locator('[data-am-experience-landing-link]'))
+    .toHaveText('← Mehr über AMARA Experience');
   await expect(page.locator('main .am-text-eyebrow')).toHaveCount(0);
   await expect(page.locator('[data-am-experience-form]')).toBeVisible();
   await expect(page.getByLabel('Vorname der Buchung')).toBeVisible();
@@ -58,21 +67,30 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(languageMenu.locator('a[href="/amara-experience/access"]')).toHaveText('Español');
   await languageMenu.locator('a[href="/en/amara-experience/access"]').click();
   await expect(page).toHaveURL(/\/en\/amara-experience\/access$/);
+  await expect(page.locator('.am-experience-app__intro strong')).toHaveText('AMARA Guest Guide');
   await expect(page.locator('main')).toContainText(
-    'Enter the first name on the booking and the arrival and departure dates.'
+    'Here you’ll find information about your accommodation, local essentials and our personal insider tips, designed to help make your holiday with us a truly special experience.'
   );
+  await expect(page.locator('.am-experience-app__intro p').nth(1)).toContainText(
+    'All booked guests have access before and during their stay.'
+  );
+  await expect(page.locator('[data-am-experience-landing-link]'))
+    .toHaveAttribute('href', '/en/amara-experience');
+  await expect(page.locator('[data-am-experience-landing-link]'))
+    .toHaveText('← Learn more about AMARA Experience');
   await expect(page.locator('header > nav')).toHaveCount(0);
   await expect(page.locator('footer')).toHaveCount(0);
 });
 
-test('the protected Guest Welcome hub contains the stay, location essentials and AMARA Experience', async ({ page }) => {
+test('the protected AMARA stay hub contains the accommodation, local essentials and personal recommendations', async ({ page }) => {
   await page.goto('/de/amara-experience/guide/guestwelcome-frigiliana-farah');
 
+  await expect(page.locator('main h1')).toHaveText('Euer Aufenthalt bei AMARA in Frigiliana');
   const menuItems = page.locator('main nav .am-ios-item');
   await expect(menuItems).toHaveCount(3);
   await expect(menuItems.nth(0)).toContainText('Eure Unterkunft Farah');
   await expect(menuItems.nth(1)).toContainText('Wichtiges vor Ort in Frigiliana');
-  await expect(menuItems.nth(2)).toContainText('AMARA Experience');
+  await expect(menuItems.nth(2)).toContainText('Unsere persönlichen Empfehlungen');
   await expect(menuItems.nth(2)).toContainText('Versteckte Schätze');
   await expect(menuItems.nth(0)).toHaveAttribute(
     'href',

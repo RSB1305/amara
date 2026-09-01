@@ -97,7 +97,8 @@ const {
     flex: 1 1 auto;
   }
 
-  .am-booking-calendar [data-am-booking-calendar-status-state='minimum-stay'] {
+  .am-booking-calendar [data-am-booking-calendar-status-state='minimum-stay'],
+  .am-booking-calendar [data-am-booking-calendar-status-state='stay-continuity'] {
     max-width: 48rem;
     border-left: 0.25rem solid var(--color-on-surface);
     background: color-mix(in srgb, var(--color-on-surface) 5%, var(--color-surface));
@@ -236,6 +237,10 @@ const {
   }
 
   .am-booking-calendar__day[data-am-booking-restriction='minimum-stay'] {
+    cursor: pointer;
+  }
+
+  .am-booking-calendar__day[data-am-booking-restriction='stay-continuity'] {
     cursor: pointer;
   }
 
