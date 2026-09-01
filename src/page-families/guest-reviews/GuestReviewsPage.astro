@@ -1,5 +1,6 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
 import type { EditorialClosingCtaLink } from '../../components/editorial/EditorialClosingCta.astro';
 import TrustFamilyClosing from '../../components/trust/TrustFamilyClosing.astro';
 import EditorialSplit from '../../components/editorial/EditorialSplit.astro';
@@ -14,6 +15,11 @@ import { airbnbReviewEvidence } from '../../content/reviewEvidence';
 import type { LabeledLink } from '../../lib/linkResolver';
 import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
 import type { AmaraLanguage } from '../../types/seo';
+import awardLounis from '../../assets/images/content/booking-awards-2026/amara-lounis-booking-award-2026.png';
+import awardMaha from '../../assets/images/content/booking-awards-2026/amara-maha-booking-award-2026.png';
+import awardZaid from '../../assets/images/content/booking-awards-2026/amara-zaid-booking-award-2026.png';
+import awardPlaya from '../../assets/images/content/booking-awards-2026/amara-playa-booking-award-2026.png';
+import awardFamilySurf from '../../assets/images/content/booking-awards-2026/amara-family-surf-booking-award-2026.png';
 
 interface Props {
   currentLang: AmaraLanguage;
@@ -28,6 +34,17 @@ const awardScoreFormatter = new Intl.NumberFormat(currentLang, {
 });
 const formatAward = (award: { name: string; score: number }) =>
   `${award.name} - ${awardScoreFormatter.format(award.score)} / 10`;
+const awardImageAlt = (award: { name: string; score: number }) =>
+  copy.sections.awardImageAlt[currentLang]
+    .replace('{stay}', award.name)
+    .replace('{score}', awardScoreFormatter.format(award.score));
+const awards = [
+  { ...copy.awards.frigiliana[0], image: awardLounis },
+  { ...copy.awards.frigiliana[1], image: awardMaha },
+  { ...copy.awards.frigiliana[2], image: awardZaid },
+  { ...copy.awards.coast[0], image: awardPlaya },
+  { ...copy.awards.coast[1], image: awardFamilySurf }
+];
 const footerHighlights: LabeledLink[] = [
   { token: 'amenities', label: guestReviewsFooterLabels.amenities[currentLang] },
   { token: 'faq_general', label: guestReviewsFooterLabels.faq_general[currentLang] },
@@ -115,24 +132,18 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
           emphasizeIntro
         />
 
-        <div class="mx-auto grid max-w-[1100px] gap-[clamp(2rem,4vw,4rem)] lg:grid-cols-2">
-          <div class="border border-on-surface/5 bg-surface-container-lowest p-[clamp(2rem,4vw,3rem)] shadow-[var(--shadow-editorial-card)]">
-            <h3 class="am-text-caption mb-6 border-b border-on-surface/10 pb-[0.6rem] text-muted">Frigiliana</h3>
-            <ul class="am-text-body m-0 list-none p-0 text-on-surface">
-              {copy.awards.frigiliana.map((award) => (
-                <li class="relative mb-4 pl-5 before:absolute before:left-0 before:text-on-surface/35 before:content-['-'] last:mb-0">{formatAward(award)}</li>
-              ))}
-            </ul>
-          </div>
-
-          <div class="border border-on-surface/5 bg-surface-container-lowest p-[clamp(2rem,4vw,3rem)] shadow-[var(--shadow-editorial-card)]">
-            <h3 class="am-text-caption mb-6 border-b border-on-surface/10 pb-[0.6rem] text-muted">Nerja & Tarifa</h3>
-            <ul class="am-text-body m-0 list-none p-0 text-on-surface">
-              {copy.awards.coast.map((award) => (
-                <li class="relative mb-4 pl-5 before:absolute before:left-0 before:text-on-surface/35 before:content-['-'] last:mb-0">{formatAward(award)}</li>
-              ))}
-            </ul>
-          </div>
+        <div class="am-booking-awards-grid mx-auto max-w-[1100px]">
+          {awards.map((award) => (
+            <figure class="m-0 overflow-hidden border border-on-surface/5 bg-surface-container-lowest shadow-[var(--shadow-editorial-card)]">
+              <AmaraImage
+                src={award.image}
+                alt={awardImageAlt(award)}
+                profile="card"
+                class="block h-auto w-full"
+              />
+              <figcaption class="sr-only">{formatAward(award)}</figcaption>
+            </figure>
+          ))}
         </div>
   </AmaraSection>
 
@@ -144,3 +155,28 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
         lang={currentLang}
       />
 </TrustPageLayout>
+
+<style>
+  .am-booking-awards-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .am-booking-awards-grid figure {
+    flex: 0 1 100%;
+  }
+
+  @media (min-width: 48rem) {
+    .am-booking-awards-grid figure {
+      flex-basis: calc(50% - 1rem);
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .am-booking-awards-grid figure {
+      flex-basis: calc(33.333% - 1.35rem);
+    }
+  }
+</style>

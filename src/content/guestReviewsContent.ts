@@ -155,6 +155,13 @@ export const guestReviewsCopy = {
       nl: 'Bewijs: officiële Booking.com-certificaten van de Traveller Review Awards 2026 voor vijf AMARA-verblijven.',
       sv: 'Underlag: officiella Booking.com-certifikat för Traveller Review Awards 2026 för fem AMARA-boenden.'
     },
+    awardImageAlt: {
+      en: 'Booking.com Traveller Review Award 2026 for {stay}, rated {score} out of 10',
+      de: 'Booking.com Traveller Review Award 2026 für {stay} mit {score} von 10 Punkten',
+      es: 'Traveller Review Award 2026 de Booking.com para {stay}, con una puntuación de {score} sobre 10',
+      nl: 'Booking.com Traveller Review Award 2026 voor {stay}, beoordeeld met {score} van 10',
+      sv: 'Booking.com Traveller Review Award 2026 för {stay}, med betyget {score} av 10'
+    },
     nextTitle: {
       en: 'Stays and availability',
       de: 'Unterkünfte und Verfügbarkeit',
