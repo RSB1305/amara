@@ -167,6 +167,16 @@ test('homepage finder refreshes live dates for destination changes and returns q
   const departure = futureIso(10);
   const requests = await mockGateway(page, { unavailableDates: new Set([departure]) });
   await page.goto(ORIGIN + '/en', { waitUntil: 'domcontentloaded' });
+  const homeFinder = page.locator('[data-am-stay-search-variant="home"]');
+  const overlayRadius = await page.locator('body').evaluate((body) => {
+    const probe = document.createElement('div');
+    probe.style.borderRadius = 'var(--radius-overlay)';
+    body.append(probe);
+    const resolvedRadius = getComputedStyle(probe).borderRadius;
+    probe.remove();
+    return resolvedRadius;
+  });
+  await expect(homeFinder).toHaveCSS('border-radius', overlayRadius);
   expect(requests).toHaveLength(0);
   await expect(page.getByRole('button', { name: 'Check availability' })).toHaveCount(0);
   await page.locator('[data-am-stay-search-destination]').selectOption('nerja');
