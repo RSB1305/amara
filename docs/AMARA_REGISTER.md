@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.60.0
+version: 1.61.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-01T17:48:21+02:00
+last_modified: 2026-09-01T18:00:51+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,8 +26,8 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.60.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
-| 08 | AMARA Guest Utility Feature Contract | 2.9.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
+| 07 | AMARA Register | 1.61.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 08 | AMARA Guest Utility Feature Contract | 2.10.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.9.1 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
 
@@ -81,7 +81,7 @@ Current operational feature owner during transition:
 | ID | Decision | Status |
 |---|---|---|
 | DR-PLATFORM-001 | AMARA's website runtime is Astro-native and Astro-only. Explicitly governed external operational services may remain active behind narrow boundaries and do not become a second website runtime. | APPROVED |
-| DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only public Cloudflare Pages routes may expose provider-neutral availability, stay rules, rates and authoritative quotes plus a validated no-store checkout redirect. The authenticated AMARA Experience may additionally use only the adapter's fixed GET booking-list and single-booking operations to establish and periodically revalidate a guest session; it returns no reservation or guest record to the browser and performs no provider write. Provider credentials and mappings remain server-side; a provider ID may appear publicly only in the final external checkout `Location`, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only public Cloudflare Pages routes may expose provider-neutral availability, stay rules, rates and authoritative quotes plus a validated no-store checkout redirect. The authenticated AMARA Experience may additionally use only the adapter's fixed GET booking-list and single-booking operations to establish and periodically revalidate a guest session. Its protected profile response may expose only the booking holder's first name for the hub greeting; it returns no reservation record or other guest data and performs no provider write. Provider credentials and mappings remain server-side; a provider ID may appear publicly only in the final external checkout `Location`, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-WEATHER-001 | The statically generated Frigiliana, Nerja and Tarifa Weather pages may progressively consume only their fixed GET-only Cloudflare Pages Functions at `/api/weather/frigiliana`, `/api/weather/nerja` and `/api/weather/tarifa`. The functions alone own the server-side AEMET key, fixed municipality mapping, provider fetch, temporary-host validation, normalization and per-destination caching; the public response contains only the forecast values and attribution needed by the visible three-day component. Failure preserves each static climate page and falls back to its official source. This decision grants no runtime scope to another page or destination by implication. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-001 | BaseLayout plus the central SEO head resolver remain the sole normal public head owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
@@ -194,6 +194,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-09-01T18:00:51+02:00 | Protected personal guest greeting | Added the confirmed booking holder's first name above the closing message on all accommodation hubs. Only this field crosses the encrypted session boundary through a same-origin private response; a native five-locale `Dear Guest` remains the fallback. Guest Utility 2.10.0, Register 1.61.0. | DR-GUEST-003, DR-BOOK-001, DR-SEC-001 | this revision |
 | 2026-09-01T17:48:21+02:00 | Two-field booked-guest access | Reduced the AMARA Experience login to booking-holder first name plus arrival date. Exact unique matching remains fail closed, while the authoritative departure date stays server-owned and continues to control session expiry. Guest Utility 2.9.0, Register 1.60.0. | DR-GUEST-003, DR-BOOK-001 | this revision |
 | 2026-09-01T17:02:23+02:00 | Booked-guest product hierarchy | Clarified AMARA Experience as the single umbrella and login, kept Guest Guide as a descriptive utility function, titled protected hubs as the guest's AMARA stay and renamed the former nested AMARA Experience entry to personal recommendations. Guest Utility 2.8.0, Register 1.59.0. | DR-GUEST-003 | this revision |
 | 2026-09-01T14:29:20+02:00 | Inverse calendar emphasis | Gave the canonical header availability icon a white circular background, dark calendar mark, fine boundary and restrained shadow so the compact action gains emphasis over both imagery and light headers without changing its hit area. Astro & Design Contract 4.24.0, Register 1.58.0; operative rule aligned in `AGENTS.md`. | DR-DESIGN-003, DR-BOOK-001 | this revision |
@@ -356,3 +357,4 @@ Separate controlled workstreams remain for:
 | 1.58.0 | 2026-09-01T14:29:20+02:00 | Inverted the calendar-check action into its white circular emphasis while preserving size, route and localization; aligned Design Contract 4.24.0 and `AGENTS.md`. | this revision |
 | 1.59.0 | 2026-09-01T17:02:23+02:00 | Clarified the booked-guest product hierarchy: AMARA Experience is the umbrella and access, Guest Guide is its descriptive utility function and protected hubs lead to accommodation, local Essentials and personal recommendations. | this revision |
 | 1.60.0 | 2026-09-01T17:48:21+02:00 | Reduced AMARA Experience access to booking-holder first name plus arrival date while retaining exact unique matching and server-owned departure expiry; aligned Guest Utility 2.9.0 and the Booking Architecture. | this revision |
+| 1.61.0 | 2026-09-01T18:00:51+02:00 | Added the first-name-only protected hub greeting with a private same-origin profile response and native five-locale `Dear Guest` fallback; aligned Guest Utility 2.10.0 and the Booking Architecture. | this revision |

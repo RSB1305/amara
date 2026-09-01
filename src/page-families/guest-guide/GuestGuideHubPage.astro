@@ -14,6 +14,15 @@ interface Props {
 
 const { entry, lang } = Astro.props;
 
+const personalGreeting: Record<AmaraLanguage, { fallback: string; personalized: string }> = {
+  en: { fallback: 'Dear Guest', personalized: 'Dear {name}' },
+  de: { fallback: 'Liebe Gäste', personalized: 'Hallo {name}' },
+  es: { fallback: 'Estimados huéspedes', personalized: 'Hola {name}' },
+  nl: { fallback: 'Beste gasten', personalized: 'Beste {name}' },
+  sv: { fallback: 'Kära gäster', personalized: 'Hej {name}' }
+};
+const greeting = personalGreeting[lang];
+
 const seo: AmaraAuthoringSeo = {
   version: 'guest-guide-v1',
   pageType: 'D',
@@ -53,6 +62,12 @@ const seo: AmaraAuthoringSeo = {
     </nav>
 
     <section class="am-prose am-prose--closing">
+      <p class="am-guide-personal-greeting" aria-live="polite">
+        <strong
+          data-am-guide-guest-greeting
+          data-am-guide-greeting-template={greeting.personalized}
+        >{greeting.fallback}</strong>,
+      </p>
       {entry.closingParagraphs.map((paragraph) => <p set:html={paragraph[lang]} />)}
 
       <div class="am-btn-row">
@@ -67,4 +82,28 @@ const seo: AmaraAuthoringSeo = {
       <p set:html={entry.signOff[lang]} />
     </section>
   </main>
+
+  <script is:inline>
+    (async function () {
+      var target = document.querySelector('[data-am-guide-guest-greeting]');
+      if (!target) return;
+      try {
+        var response = await fetch('/api/guest/profile', {
+          method: 'GET',
+          credentials: 'same-origin',
+          headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) return;
+        var profile = await response.json();
+        if (typeof profile.firstName !== 'string') return;
+        var firstName = profile.firstName.trim();
+        if (!firstName || firstName === 'Guest' || firstName.length > 80) return;
+        var template = target.getAttribute('data-am-guide-greeting-template');
+        if (!template || !template.includes('{name}')) return;
+        target.textContent = template.replace('{name}', firstName);
+      } catch (error) {
+        // The static fallback remains visible when the protected profile is unavailable.
+      }
+    })();
+  </script>
 </GuestGuideLayout>

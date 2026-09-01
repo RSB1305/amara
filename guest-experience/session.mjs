@@ -83,6 +83,11 @@ function isValidClaims(claims) {
     && typeof claims.stay === 'string'
     && typeof claims.destination === 'string'
     && ['en', 'de', 'es', 'nl', 'sv'].includes(claims.lang)
+    && (claims.guestFirstName === undefined || (
+      typeof claims.guestFirstName === 'string'
+      && claims.guestFirstName.length >= 1
+      && claims.guestFirstName.length <= 80
+    ))
     && Number.isInteger(claims.exp)
     && Number.isInteger(claims.revalidateAfter);
 }
@@ -145,12 +150,25 @@ export function departureExpiryEpoch(departure) {
 
 export function createExperienceClaims(booking, lang, nowEpochSeconds = Math.floor(Date.now() / 1000)) {
   const exp = departureExpiryEpoch(booking.departure);
+  const explicitFirstName = typeof booking.explicitFirstName === 'string'
+    ? booking.explicitFirstName
+    : '';
+  const fullNameFirstPart = typeof booking.fullName === 'string'
+    ? booking.fullName.trim().split(/\s+/u)[0]
+    : '';
+  const guestFirstName = (explicitFirstName || fullNameFirstPart)
+    .normalize('NFC')
+    .replace(/[\p{Cc}\p{Cf}]/gu, '')
+    .trim()
+    .replace(/\s+/gu, ' ')
+    .slice(0, 80) || 'Guest';
   return {
     v: 1,
     bookingId: String(booking.id),
     stay: booking.stay,
     destination: booking.destination,
     lang,
+    guestFirstName,
     exp,
     revalidateAfter: Math.min(exp, nowEpochSeconds + SESSION_REVALIDATION_SECONDS)
   };

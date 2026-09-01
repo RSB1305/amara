@@ -11,6 +11,7 @@ import {
   experienceGuideRootHref
 } from '../../guest-experience/guide-routes.mjs';
 import { handleExperienceGuide } from '../../guest-experience/middleware.mjs';
+import { handleExperienceProfile } from '../../guest-experience/profile-handler.mjs';
 import {
   createExperienceClaims,
   createExperienceCookie,
@@ -40,11 +41,17 @@ test('first name and arrival date open exactly one confirmed future booking', as
     headers: { 'Content-Type': 'application/json' }
   });
 
-  await expect(findUniqueEligibleBooking('test-key', {
+  const matchedBooking = await findUniqueEligibleBooking('test-key', {
     firstName: 'robert',
     arrival: booking.arrival,
     lang: 'de'
-  }, fetchImpl)).resolves.toMatchObject({ id: booking.id, stay: 'farah' });
+  }, fetchImpl);
+  expect(matchedBooking).toMatchObject({
+    id: booking.id,
+    stay: 'farah',
+    explicitFirstName: 'Robert'
+  });
+  expect(createExperienceClaims(matchedBooking, 'de').guestFirstName).toBe('Robert');
 
   const ambiguousFetch = async () => new Response(JSON.stringify({
     items: [booking, { ...booking, id: 'booking-second', departure: '2099-06-15' }],
@@ -73,6 +80,7 @@ test('access expires at 23:59:59 Madrid time on the departure day', () => {
   expect(new Date(exp * 1000).toISOString()).toBe('2026-10-25T22:59:59.000Z');
   expect(claims.exp).toBe(exp);
   expect(claims.revalidateAfter).toBe(exp - 3600);
+  expect(claims.guestFirstName).toBe('Guest');
 });
 
 test('a cancelled booking fails the periodic session revalidation', async () => {
@@ -128,6 +136,7 @@ test('an authenticated guide-root request resolves to the booked accommodation h
     stay: 'lounis',
     destination: 'frigiliana',
     lang: 'en',
+    guestFirstName: 'Robert',
     exp: now + 3600,
     revalidateAfter: now + 1800
   };
@@ -144,6 +153,16 @@ test('an authenticated guide-root request resolves to the booked accommodation h
   expect(response.status).toBe(302);
   expect(response.headers.get('location')).toBe(experienceGuideHubHref('lounis', 'nl'));
   expect(response.headers.get('cache-control')).toBe('no-store, private');
+
+  const profileResponse = await handleExperienceProfile({
+    request: new Request('https://amara.test/api/guest/profile', {
+      headers: { Cookie: cookie }
+    }),
+    env: { AMARA_EXPERIENCE_SESSION_SECRET: SECRET }
+  });
+  expect(profileResponse.status).toBe(200);
+  expect(profileResponse.headers.get('cache-control')).toBe('no-store, private');
+  expect(await profileResponse.json()).toEqual({ firstName: 'Robert' });
 });
 
 test('the access route remains outside the protected guide root', () => {

@@ -96,6 +96,11 @@
     margin-top: 2rem;
   }
 
+  .am-prose .am-guide-personal-greeting {
+    margin-bottom: 0.35rem;
+    color: var(--color-on-surface);
+  }
+
   .am-prose--category-intro {
     margin: 0.25rem 0 0.75rem;
   }

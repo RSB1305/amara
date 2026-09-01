@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
-title: AMARA Guest Utility Architecture V2.9
-version: 2.9.0
+title: AMARA Guest Utility Architecture V2.10
+version: 2.10.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-01T17:48:21+02:00
+last_modified: 2026-09-01T18:00:51+02:00
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -155,6 +155,12 @@ Protected delivery does not turn the guide into a credential store. Guest Guide 
 - exact physical-key locations or locations of other means that directly enable building access;
 - personal booking or guest data.
 
+The protected accommodation hub may show only the authenticated booking holder's first name as a
+personal greeting. The name is supplied at request time from the encrypted AMARA Experience
+session, is never authored into static output or a URL, and falls back to the natural localized
+equivalent of `Dear Guest`. No other personal or reservation field may be exposed by this
+presentation exception.
+
 When a guest needs current access information that is not authored in the guide, the page directs them to AMARA support or the communication channel connected to their booking.
 
 ## Approved repository amendment — AMARA Experience foundation
@@ -169,7 +175,7 @@ The existing Guest Welcome and Guest Guide content is the canonical content basi
 
 AMARA Experience accepts exactly two guest-supplied access values: the booking holder's first name and arrival date. The server normalizes name case, accents and whitespace and compares both values with confirmed current and upcoming Lodgify reservations through the central Booking Gateway adapter. Free typo or similarity matching is prohibited. No departure date, surname, access code or password is requested. Access requires exactly one eligible match; zero matches and ambiguous matches both fail closed with the same neutral public response. The matched reservation supplies the authoritative departure date used for session expiry.
 
-The confirmed Lodgify property mapping identifies the booked AMARA stay. A successful login returns only the localized protected hub route for that stay; it returns no reservation or guest record to the browser.
+The confirmed Lodgify property mapping identifies the booked AMARA stay. A successful login returns only the localized protected hub route for that stay. The authenticated hub may subsequently receive only the booking holder's first name through a same-origin, private, `no-store` profile response for its personal greeting. No reservation record, dates, provider identifiers, contact details or other guest data are returned to the browser; an unavailable or unusable name renders as the natural localized equivalent of `Dear Guest`.
 
 Access begins when the reservation is confirmed and ends at 23:59:59 on the departure day in `Europe/Madrid`. A cancellation or other loss of confirmed status blocks a new login and ends an existing session at its next periodic verification, no later than one hour after the previous check.
 
@@ -203,3 +209,4 @@ Protected hub titles use `Your AMARA stay` and the natural native equivalent. `A
 | 2.7.0 | 2026-09-01T14:14:49+02:00 | Retained the dedicated landing-page access section and added a localized AMARA Experience access icon immediately before the public-header language control. |
 | 2.8.0 | 2026-09-01T17:02:23+02:00 | Clarified AMARA Experience as the single booked-guest umbrella and access, retained Guest Guide as its descriptive utility function and renamed the third hub entry to personal recommendations. |
 | 2.9.0 | 2026-09-01T17:48:21+02:00 | Reduced guest-supplied access to booking-holder first name plus arrival date while retaining exact unique-match, fail-closed and server-owned departure-expiry semantics. |
+| 2.10.0 | 2026-09-01T18:00:51+02:00 | Added the booking holder's first name as the sole protected presentation field on every accommodation hub, with a native five-locale `Dear Guest` fallback. |
