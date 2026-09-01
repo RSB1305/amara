@@ -37,8 +37,9 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await page.goto('/de/amara-experience/access');
 
   await expect(page.locator('main h1')).toHaveText('AMARA Experience');
+  await expect(page.locator('.am-experience-app__intro strong')).toHaveText('AMARA Guest Guide');
   await expect(page.locator('main')).toContainText(
-    'Öffnet euren privaten AMARA Guest Guide mit Informationen zu eurer Unterkunft, Wichtigem vor Ort und unseren persönlichen Empfehlungen.'
+    'Hier findet ihr Informationen zu eurer Unterkunft, Wichtigem vor Ort und unseren persönlichen Empfehlungen.'
   );
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveAttribute('href', '/de/amara-experience');
@@ -62,8 +63,9 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(languageMenu.locator('a[href="/amara-experience/access"]')).toHaveText('Español');
   await languageMenu.locator('a[href="/en/amara-experience/access"]').click();
   await expect(page).toHaveURL(/\/en\/amara-experience\/access$/);
+  await expect(page.locator('.am-experience-app__intro strong')).toHaveText('AMARA Guest Guide');
   await expect(page.locator('main')).toContainText(
-    'Open your private AMARA Guest Guide with information about your accommodation, local essentials and our personal recommendations.'
+    'Here you’ll find information about your accommodation, local essentials and our personal recommendations.'
   );
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveAttribute('href', '/en/amara-experience');
