@@ -7,12 +7,11 @@
  * own markup rather than sharing an item renderer with the desktop dropdown,
  * because the two views carry different semantics for the same resolved routes.
  */
-import type { ResolvedGlobalNavGroup, ResolvedGlobalNavItem, ResolvedNavigationCta } from './globalNavigationModel';
+import type { ResolvedGlobalNavGroup, ResolvedNavigationCta } from './globalNavigationModel';
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
 
 interface Props {
   groups: ResolvedGlobalNavGroup[];
-  experienceLink: ResolvedGlobalNavItem;
   cta: ResolvedNavigationCta;
   hasContextNavigation?: boolean;
   showBookingCta: boolean;
@@ -21,7 +20,6 @@ interface Props {
 
 const {
   groups,
-  experienceLink,
   cta,
   hasContextNavigation = false,
   showBookingCta,
@@ -41,7 +39,6 @@ const {
   <nav class="am-nav-mobile__inner" aria-label={navigationLabel}>
     <div class="am-nav-mobile__groups">
       {groups.map((group) => (
-        <>
         <details class="am-nav-mobile__group" open={group.isActive}>
           <summary class="am-nav-mobile__summary">
             <span>{group.label}</span>
@@ -104,22 +101,6 @@ const {
             ))}
           </div>
         </details>
-        {group.id === 'stays' && (
-          experienceLink.href ? (
-            <a
-              class="am-nav-mobile__direct-link"
-              href={experienceLink.href}
-              aria-current={experienceLink.isActive ? 'page' : undefined}
-            >
-              {experienceLink.label}
-            </a>
-          ) : (
-            <span class="am-nav-mobile__direct-link am-is-disabled" aria-disabled="true">
-              {experienceLink.label}
-            </span>
-          )
-        )}
-        </>
       ))}
     </div>
 

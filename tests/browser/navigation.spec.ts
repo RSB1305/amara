@@ -84,7 +84,7 @@ const backgroundSiblingInertStates = (page: Page) =>
       .map((child) => (child as HTMLElement).inert);
   });
 
-test('the header exposes exactly one banner with three desktop groups', async ({ page }) => {
+test('the header exposes three calm desktop groups with AMARA Experience inside About us', async ({ page }) => {
   await openPage(page, resolveLink('home', 'en'));
 
   await expect(page.locator('header[data-am-navigation]')).toHaveCount(1);
@@ -96,6 +96,12 @@ test('the header exposes exactly one banner with three desktop groups', async ({
   for (let index = 0; index < 3; index += 1) {
     await expect(triggers.nth(index)).toHaveAttribute('aria-expanded', 'false');
   }
+
+  await expect(page.locator('[data-am-navigation] .am-nav__center > ul > li > a')).toHaveCount(0);
+  await triggers.nth(2).click();
+  const aboutLinks = page.locator('#am-nav-dropdown-aboutAmara a');
+  await expect(aboutLinks.nth(0).locator('.am-nav__dropdown-item-title')).toHaveText('Staying with us');
+  await expect(aboutLinks.nth(1).locator('.am-nav__dropdown-item-title')).toHaveText('AMARA Experience');
 });
 
 test('opening a desktop group closes the previous one and Escape restores focus', async ({

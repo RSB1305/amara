@@ -44,7 +44,7 @@ const {
 } = Astro.props;
 const hasContextNavigation = Astro.slots.has('context-navigation');
 
-const { brandHref, utilityLabels, groups, experienceLink, languageOptions, cta: baseCta } = createGlobalNavigationModel({
+const { brandHref, utilityLabels, groups, languageOptions, cta: baseCta } = createGlobalNavigationModel({
   currentLang,
   currentPath: Astro.url.pathname,
   currentToken,
@@ -74,7 +74,7 @@ const cta = contextDestination && baseCta.href
       </a>
     </div>
 
-    <GlobalNavigationDesktop groups={groups} experienceLink={experienceLink} navigationLabel={utilityLabels.mobileNavigation} />
+    <GlobalNavigationDesktop groups={groups} navigationLabel={utilityLabels.mobileNavigation} />
 
     <GlobalNavigationUtilities
       currentLang={currentLang}
@@ -87,7 +87,6 @@ const cta = contextDestination && baseCta.href
 
   <GlobalNavigationMobile
     groups={groups}
-    experienceLink={experienceLink}
     cta={cta}
     hasContextNavigation={hasContextNavigation}
     showBookingCta={showBookingCta}

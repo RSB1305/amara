@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.52.0
+version: 1.53.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-01T07:48:00+02:00
+last_modified: 2026-09-01T09:05:35+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,8 +26,8 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.52.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
-| 08 | AMARA Guest Utility Feature Contract | 2.3.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
+| 07 | AMARA Register | 1.53.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 08 | AMARA Guest Utility Feature Contract | 2.4.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.9.1 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
 
@@ -165,7 +165,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-IA-005 | Within **Daily Life & Essentials**, **Supermarkets & Everyday Shopping** is a Location planning topic; a weekly market or market visit as an outing remains an Experience topic. Location may include only the bounded market facts that materially affect everyday shopping or access. The three Daily Life topic families may share one Mobile-First semantic template across destinations, with topic- and destination-specific optional modules. Existing Daily Life routes remain overview hubs; each standalone topic route still requires the evidence and durable-job test in DR-IA-003. | ACTIVE |
 | DR-GUEST-001 | Public destination pages must satisfy their durable search, trust and pre-booking planning job from direct entry. The Digital Guest Guide is the deeper operational layer for booked guests, including property-specific routes, current contacts and checks, concrete host recommendations and stay instructions. Public pages may use one native contextual transition block after their useful core to explain that deeper guidance follows after booking and to offer the approved booking/availability path. Essential safety information and material booking limitations must not be withheld behind Guest Guide access. | ACTIVE |
 | DR-GUEST-002 | Guest Guides remain static, anonymously link-reachable, `noindex` and outside public sitemaps. Because noindex is not access control, public Guest output may retain non-sensitive operational information but must not contain Wi-Fi or router credentials, doorbell numbers, real building-access/key-box/alarm codes, exact physical-key locations or personal booking/guest data. | ACTIVE CURRENT IMPLEMENTATION |
-| DR-GUEST-003 | AMARA Experience is the authenticated successor product for booked-guest utility. Its public five-locale landing is indexable and a direct global-navigation item; its guide is protected server-side, private/no-store, noindex, outside the sitemap and rendered without public navigation, footer or analytics. Access uses booking-holder first name plus arrival/departure dates, requires exactly one confirmed reservation match, revalidates at most hourly and expires at the end of the departure day in Europe/Madrid. The AES-GCM session requires `AMARA_EXPERIENCE_SESSION_SECRET` with at least 32 random characters and fails closed without it. Existing anonymous Guest Guides remain unchanged as a separate transitional legacy surface under DR-GUEST-002. | ACTIVE CODE / PRODUCTION ACTIVATION PENDING SECRET |
+| DR-GUEST-003 | AMARA Experience is the authenticated successor product for booked-guest utility. Its public five-locale landing is indexable and globally reachable inside the About us navigation group immediately after Staying with us; its guide is protected server-side, private/no-store, noindex, outside the sitemap and rendered without public navigation, footer or analytics. Access uses booking-holder first name plus arrival/departure dates, requires exactly one confirmed reservation match, revalidates at most hourly and expires at the end of the departure day in Europe/Madrid. The AES-GCM session requires `AMARA_EXPERIENCE_SESSION_SECRET` with at least 32 random characters and fails closed without it. Existing anonymous Guest Guides remain unchanged as a separate transitional legacy surface under DR-GUEST-002. | ACTIVE CODE / PRODUCTION ACTIVATION PENDING SECRET |
 
 ### Analytics/measurement
 
@@ -194,6 +194,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-09-01T09:05:35+02:00 | Calmer global navigation | Moved AMARA Experience from its standalone primary position into About us, immediately after Staying with us, in the shared five-locale desktop/mobile navigation model. Global reach and the protected guide boundary remain unchanged. Guest Utility 2.4.0, Register 1.53.0. | DR-GUEST-003, DR-DESIGN-003 | this revision |
 | 2026-09-01T07:48:00+02:00 | Inset section separator restored | Corrected the immediately preceding over-removal: equal-surface page sections now receive the intended centrally controlled one-pixel separator aligned to the responsive content gutter, while full-width outer rules and top/bottom rules on editorial boxes, display bands and CTA panels remain prohibited. Astro & Design Contract 4.21.0, Register 1.52.0; operative rule and automated browser/source guards aligned. | DR-DESIGN-002, DR-DESIGN-005, DR-DESIGN-008, DR-DESIGN-018 | this revision |
 | 2026-09-01T07:40:00+02:00 | Decorative horizontal rules retired | Superseded the full-width divider rule after repeated visible regressions: public outer sections, editorial boxes, display bands and CTA panels now carry no decorative top or bottom rules. Removed the shared divider API and global pseudo-divider bridge, corrected the shared hero and conversion owners, and added source plus browser guardrails. Structural borders inside lists, tables, controls and media frames remain permitted. Astro & Design Contract 4.20.0, Register 1.51.0; operative rule aligned in `AGENTS.md`. | DR-DESIGN-002, DR-DESIGN-005, DR-DESIGN-008, DR-DESIGN-018 | this revision |
 | 2026-09-01T07:30:00+02:00 | Collective host and plural guest voice | Clarified the already-active collective-host contract after third-person narration appeared in AMARA Experience. Public editorial prose now always speaks as we/us/our to plural guests; named people such as Robert remain in bylines and author metadata. Content Playbook 1.9.1, Register 1.50.1; operative summary aligned in `AGENTS.md`. | TR-CONTENT-004, TR-CONTENT-002, TR-CONTENT-008 | this revision |
@@ -340,3 +341,4 @@ Separate controlled workstreams remain for:
 | 1.50.1 | 2026-09-01T07:30:00+02:00 | Made the collective first-person host voice and plural guest address explicit across public editorial copy; aligned Content Playbook 1.9.1 and `AGENTS.md`. | this revision |
 | 1.51.0 | 2026-09-01T07:40:00+02:00 | Retired decorative horizontal rules from public outer sections and display-panel edges, removed the divider API and aligned Astro & Design Contract 4.20.0 plus executable guardrails. | this revision |
 | 1.52.0 | 2026-09-01T07:48:00+02:00 | Restored the approved centrally owned inset section separator, retained clean editorial-box and CTA edges, and aligned Design Contract 4.21.0 plus executable guardrails. | this revision |
+| 1.53.0 | 2026-09-01T09:05:35+02:00 | Moved AMARA Experience into About us after Staying with us in the shared global navigation and aligned Guest Utility 2.4.0. | this revision |

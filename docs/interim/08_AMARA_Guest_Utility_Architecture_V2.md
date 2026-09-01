@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
-title: AMARA Guest Utility Architecture V2.3
-version: 2.3.0
+title: AMARA Guest Utility Architecture V2.4
+version: 2.4.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-31T20:30:00+02:00
+last_modified: 2026-09-01T09:05:35+02:00
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -161,7 +161,7 @@ When a guest needs protected current access information, the page directs them t
 
 13. Product and transition boundary
 
-AMARA Experience is the new booked-guest product. Its public, indexable landing page is a normal five-locale AMARA surface and a direct primary item in the global navigation. The protected guide remains a separate Guest Utility surface without public navigation, marketing footer, analytics, sitemap inclusion or indexing. Existing public destination Experience hubs keep their public editorial job unchanged.
+AMARA Experience is the new booked-guest product. Its public, indexable landing page is a normal five-locale AMARA surface and remains globally reachable inside the About us navigation group, immediately after Staying with us. The protected guide remains a separate Guest Utility surface without public navigation, marketing footer, analytics, sitemap inclusion or indexing. Existing public destination Experience hubs keep their public editorial job unchanged.
 
 The existing anonymous Guest Guides remain available separately during a controlled transition. This foundation does not copy, migrate or remove their content. `DR-GUEST-002` continues to govern those legacy pages; the authenticated contract below governs only AMARA Experience.
 
@@ -189,3 +189,4 @@ The first guide structure owns the stable categories `day-trips`, `beaches`, `fo
 | 2.1.0 | 2026-08-22T07:48:36+02:00 | Added the public-usefulness, booked-guest operational-depth and contextual transition-block boundary. |
 | 2.2.0 | 2026-08-28T18:00:00Z | Defined anonymous-link delivery and prohibited credentials, access secrets and personal booking data in public Guest Guide output. |
 | 2.3.0 | 2026-08-31T20:30:00+02:00 | Activated the booking-backed AMARA Experience foundation while retaining anonymous Guest Guides as a separate transitional legacy surface. |
+| 2.4.0 | 2026-09-01T09:05:35+02:00 | Moved the public AMARA Experience entry from a standalone primary-navigation position into About us, immediately after Staying with us, to reduce header density while preserving global reach. |

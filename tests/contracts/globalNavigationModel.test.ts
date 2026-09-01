@@ -41,7 +41,7 @@ const DESTINATION_SLUGS: Record<string, string> = {
 const EXPECTED_GROUP_TOKENS: Record<string, LinkToken[]> = {
   locations: ['location_frigiliana', 'location_nerja', 'location_tarifa'],
   stays: ['romantic_hideaways', 'farah', 'lounis', 'zaid', 'maha', 'playa', 'tarifa', 'last_minute_stays'],
-  aboutAmara: ['about', 'reviews_hub', 'direct_booking_benefits', 'amenities', 'faq_general']
+  aboutAmara: ['about', 'amara_experience', 'reviews_hub', 'direct_booking_benefits', 'amenities', 'faq_general']
 };
 
 const EXPECTED_CTA_LABELS: Record<AmaraLanguage, string> = {
@@ -72,6 +72,16 @@ const NAVIGATION_SCENARIOS: {
     input: (currentLang) => ({
       currentLang,
       currentPath: buildOwnedLocalizedPath('staying-with-us', currentLang)
+    })
+  },
+  {
+    id: 'AMARA Experience',
+    activeToken: 'amara_experience',
+    input: (currentLang) => ({
+      currentLang,
+      currentPath: buildOwnedLocalizedPath('amara-experience', currentLang),
+      currentToken: 'amara_experience',
+      languageToken: 'amara_experience'
     })
   },
   {
