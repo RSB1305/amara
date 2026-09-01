@@ -204,7 +204,12 @@ export function enhanceStaySearchFinders() {
       !departureValue || !calendar || !status || !monthsRoot || !previous || !next ||
       !submit || !error) return;
 
+    const homeVariant = container.dataset.amStaySearchVariant === 'home';
     container.dataset.amStaySearchEnhanced = 'true';
+    if (homeVariant) {
+      container.querySelectorAll<HTMLElement>('[data-am-stay-search-control-label]')
+        .forEach((label) => label.classList.add('sr-only'));
+    }
     arrivalWrap.hidden = false;
     departureWrap.hidden = false;
     arrival.required = false;
@@ -288,8 +293,12 @@ export function enhanceStaySearchFinders() {
       return new Intl.DateTimeFormat(language, { weekday: 'short', timeZone: 'UTC' }).format(date);
     });
     const updateTriggers = () => {
-      arrivalValue.textContent = arrival.value ? formatDate(arrival.value) : copy.chooseArrival;
-      departureValue.textContent = departure.value ? formatDate(departure.value) : copy.chooseDeparture;
+      arrivalValue.textContent = arrival.value
+        ? (homeVariant ? copy.arrival + ' · ' : '') + formatDate(arrival.value)
+        : homeVariant ? copy.arrival : copy.chooseArrival;
+      departureValue.textContent = departure.value
+        ? (homeVariant ? copy.departure + ' · ' : '') + formatDate(departure.value)
+        : homeVariant ? copy.departure : copy.chooseDeparture;
     };
     const validRateOption = (option: unknown): option is SearchRateOption => {
       const candidate = option as Partial<SearchRateOption> | null;

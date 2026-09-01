@@ -60,12 +60,19 @@ const controlLabelClasses = [
         hero. */}
     <div
       class:list={[
-        'grid grid-cols-4 sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr] lg:items-end',
+        'grid sm:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_0.75fr] lg:items-end',
+        variant === 'home' ? 'grid-cols-10' : 'grid-cols-4',
         variant === 'home' ? 'gap-3' : 'gap-4'
       ]}
     >
-      <div class="am-select-menu order-1 col-span-3 block min-w-0 sm:col-span-2 lg:col-span-1" data-am-select-menu="destination">
-        <label id={destinationLabelId} for={destinationControlId} class:list={controlLabelClasses}>
+      <div
+        class:list={[
+          'am-select-menu order-1 block min-w-0 sm:col-span-2 lg:col-span-1',
+          variant === 'home' ? 'col-span-6' : 'col-span-3'
+        ]}
+        data-am-select-menu="destination"
+      >
+        <label id={destinationLabelId} for={destinationControlId} class:list={controlLabelClasses} data-am-stay-search-control-label>
           {t(staySearchCopy.destination)}
         </label>
         <AmaraFormControl
@@ -80,7 +87,10 @@ const controlLabelClasses = [
           ))}
         </AmaraFormControl>
         <button
-          class="am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger mt-2"
+          class:list={[
+            'am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger',
+            variant === 'home' ? 'mt-0' : 'mt-2'
+          ]}
           type="button"
           aria-haspopup="listbox"
           aria-expanded="false"
@@ -99,8 +109,8 @@ const controlLabelClasses = [
         </div>
       </div>
 
-      <label class="order-3 col-span-2 block am-stay-search__native-date sm:order-2 sm:col-span-1">
-        <span class:list={controlLabelClasses}>{t(staySearchCopy.arrival)}</span>
+      <label class:list={['order-3 block am-stay-search__native-date sm:order-2 sm:col-span-1', variant === 'home' ? 'col-span-5' : 'col-span-2']}>
+        <span class:list={controlLabelClasses} data-am-stay-search-control-label>{t(staySearchCopy.arrival)}</span>
         <AmaraFormControl
           as="input"
           name="arrival"
@@ -108,20 +118,21 @@ const controlLabelClasses = [
           data={{ 'data-am-stay-search-arrival': '' }}
         />
       </label>
-      <div class="order-3 col-span-2 am-stay-search__date-trigger sm:order-2 sm:col-span-1" hidden data-am-stay-search-arrival-trigger-wrap>
-        <span class:list={controlLabelClasses}>{t(staySearchCopy.arrival)}</span>
+      <div class:list={['order-3 am-stay-search__date-trigger sm:order-2 sm:col-span-1', variant === 'home' ? 'col-span-5' : 'col-span-2']} hidden data-am-stay-search-arrival-trigger-wrap>
+        <span class:list={controlLabelClasses} data-am-stay-search-control-label>{t(staySearchCopy.arrival)}</span>
         <AmaraFormControl
           as="button"
           trigger
           ariaExpanded={false}
+          class={variant === 'home' ? '!mt-0' : undefined}
           data={{ 'data-am-stay-search-arrival-trigger': '' }}
         >
-          <span data-am-stay-search-arrival-value>{t(staySearchCopy.chooseArrival)}</span>
+          <span data-am-stay-search-arrival-value>{t(variant === 'home' ? staySearchCopy.arrival : staySearchCopy.chooseArrival)}</span>
         </AmaraFormControl>
       </div>
 
-      <label class="order-4 col-span-2 block am-stay-search__native-date sm:order-3 sm:col-span-1">
-        <span class:list={controlLabelClasses}>{t(staySearchCopy.departure)}</span>
+      <label class:list={['order-4 block am-stay-search__native-date sm:order-3 sm:col-span-1', variant === 'home' ? 'col-span-5' : 'col-span-2']}>
+        <span class:list={controlLabelClasses} data-am-stay-search-control-label>{t(staySearchCopy.departure)}</span>
         <AmaraFormControl
           as="input"
           name="departure"
@@ -129,20 +140,27 @@ const controlLabelClasses = [
           data={{ 'data-am-stay-search-departure': '' }}
         />
       </label>
-      <div class="order-4 col-span-2 am-stay-search__date-trigger sm:order-3 sm:col-span-1" hidden data-am-stay-search-departure-trigger-wrap>
-        <span class:list={controlLabelClasses}>{t(staySearchCopy.departure)}</span>
+      <div class:list={['order-4 am-stay-search__date-trigger sm:order-3 sm:col-span-1', variant === 'home' ? 'col-span-5' : 'col-span-2']} hidden data-am-stay-search-departure-trigger-wrap>
+        <span class:list={controlLabelClasses} data-am-stay-search-control-label>{t(staySearchCopy.departure)}</span>
         <AmaraFormControl
           as="button"
           trigger
           ariaExpanded={false}
+          class={variant === 'home' ? '!mt-0' : undefined}
           data={{ 'data-am-stay-search-departure-trigger': '' }}
         >
-          <span data-am-stay-search-departure-value>{t(staySearchCopy.chooseDeparture)}</span>
+          <span data-am-stay-search-departure-value>{t(variant === 'home' ? staySearchCopy.departure : staySearchCopy.chooseDeparture)}</span>
         </AmaraFormControl>
       </div>
 
-      <div class="am-select-menu order-2 col-span-1 block min-w-0 sm:order-4 sm:col-span-2 lg:col-span-1" data-am-select-menu="guests">
-        <label id={guestsLabelId} for={guestsControlId} class:list={controlLabelClasses}>
+      <div
+        class:list={[
+          'am-select-menu order-2 block min-w-0 sm:order-4 sm:col-span-2 lg:col-span-1',
+          variant === 'home' ? 'col-span-4' : 'col-span-1'
+        ]}
+        data-am-select-menu="guests"
+      >
+        <label id={guestsLabelId} for={guestsControlId} class:list={controlLabelClasses} data-am-stay-search-control-label>
           {t(staySearchCopy.guests)}
         </label>
         <AmaraFormControl
@@ -157,14 +175,17 @@ const controlLabelClasses = [
               value={count}
               selected={count === 2}
               data-am-guest-label={t(count === 1 ? staySearchCopy.guest : staySearchCopy.guestsPlural).replace('{count}', String(count))}
-              data-am-guest-label-compact={t(staySearchCopy.guestsCompact).replace('{count}', String(count))}
+              data-am-guest-label-compact={t(variant === 'home' ? staySearchCopy.guestsPlural : staySearchCopy.guestsCompact).replace('{count}', String(count))}
             >
               {t(count === 1 ? staySearchCopy.guest : staySearchCopy.guestsPlural).replace('{count}', String(count))}
             </option>
           ))}
         </AmaraFormControl>
         <button
-          class="am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger mt-2"
+          class:list={[
+            'am-form-control am-form-control--trigger am-text-form-value am-select-menu__trigger',
+            variant === 'home' ? 'mt-0' : 'mt-2'
+          ]}
           type="button"
           aria-haspopup="listbox"
           aria-expanded="false"
