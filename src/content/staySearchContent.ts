@@ -62,6 +62,8 @@ export const staySearchCopy = {
   }),
   previousMonth: localized({ en: 'Previous month', de: 'Vorheriger Monat', es: 'Mes anterior', nl: 'Vorige maand', sv: 'Föregående månad' }),
   nextMonth: localized({ en: 'Next month', de: 'Nächster Monat', es: 'Mes siguiente', nl: 'Volgende maand', sv: 'Nästa månad' }),
+  resetDates: localized({ en: 'Start over', de: 'Neu wählen', es: 'Volver a elegir', nl: 'Opnieuw kiezen', sv: 'Välj på nytt' }),
+  closeCalendar: localized({ en: 'Close calendar', de: 'Kalender schließen', es: 'Cerrar calendario', nl: 'Kalender sluiten', sv: 'Stäng kalendern' }),
   unavailableDay: localized({ en: 'Unavailable', de: 'Nicht wählbar', es: 'No disponible', nl: 'Niet beschikbaar', sv: 'Inte tillgänglig' }),
   availableDay: localized({ en: 'Available', de: 'Wählbar', es: 'Disponible', nl: 'Beschikbaar', sv: 'Tillgänglig' }),
   invalidDeparture: localized({
@@ -86,6 +88,10 @@ export const staySearchCopy = {
   selectedArrival: localized({
     en: 'selected arrival', de: 'gewählte Anreise', es: 'llegada seleccionada',
     nl: 'gekozen aankomst', sv: 'vald ankomst'
+  }),
+  newArrivalDay: localized({
+    en: 'select as new arrival', de: 'als neue Anreise wählen', es: 'elegir como nueva llegada',
+    nl: 'als nieuwe aankomst kiezen', sv: 'välj som ny ankomst'
   }),
   fromPrice: localized({
     en: 'from {price}', de: 'ab {price}', es: 'desde {price}',

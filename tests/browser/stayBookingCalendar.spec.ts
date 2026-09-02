@@ -195,13 +195,13 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
 
   await page.getByRole('button', { name: 'Choose arrival' }).click();
   await expect(page.locator('[data-am-booking-calendar]')).toBeVisible();
-  await expect(page.getByRole('button', { name: 'Close calendar' })).toHaveCount(0);
-  await expect(page.getByRole('button', { name: 'Clear dates' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Close calendar' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Start over' })).toBeDisabled();
   await expect(page.locator('[data-am-booking-month]')).toHaveCount(2);
   await expect.poll(() => requests.length).toBe(4);
   expect(requests.filter((request) => request.pathname.endsWith('/availability'))).toHaveLength(2);
   expect(requests.filter((request) => request.pathname.endsWith('/rates'))).toHaveLength(2);
-  await page.mouse.click(10, 10);
+  await page.getByRole('button', { name: 'Close calendar' }).click();
   await expect(page.locator('[data-am-booking-calendar]')).toBeHidden();
   await page.getByRole('button', { name: 'Choose arrival' }).click();
   expect(requests).toHaveLength(4);
@@ -226,6 +226,16 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
   await expect(arrivalButton).toHaveAttribute('data-range', 'start');
   await expect(arrivalButton).toHaveAttribute('data-am-booking-day-state', 'selected');
   await expect(arrivalButton).toHaveAttribute('aria-label', /selected arrival/);
+  const earlierArrivalButton = dayButton(page, futureIso(2));
+  await expect(earlierArrivalButton).toBeEnabled();
+  await expect(earlierArrivalButton).toHaveAttribute('data-am-booking-selection', 'arrival');
+  await earlierArrivalButton.click();
+  await expect(page.locator('[data-am-booking-arrival]')).toHaveValue(futureIso(2));
+  await expect(page.locator('[data-am-booking-departure]')).toHaveValue('');
+  await page.getByRole('button', { name: 'Start over' }).click();
+  await expect(page.locator('[data-am-booking-arrival]')).toHaveValue('');
+  await expect(page.getByRole('button', { name: 'Start over' })).toBeDisabled();
+  await arrivalButton.click();
   await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
     'Minimum stay from this arrival: 3 nights'
   );

@@ -227,6 +227,12 @@ const copy = {
   nextMonth: {
     en: 'Next month', de: 'Nächster Monat', es: 'Mes siguiente', nl: 'Volgende maand', sv: 'Nästa månad'
   },
+  resetDates: {
+    en: 'Start over', de: 'Neu wählen', es: 'Volver a elegir', nl: 'Opnieuw kiezen', sv: 'Välj på nytt'
+  },
+  closeCalendar: {
+    en: 'Close calendar', de: 'Kalender schließen', es: 'Cerrar calendario', nl: 'Kalender sluiten', sv: 'Stäng kalendern'
+  },
   availableDay: {
     en: 'available', de: 'verfügbar', es: 'disponible', nl: 'beschikbaar', sv: 'tillgängligt'
   },
@@ -253,6 +259,13 @@ const copy = {
     es: 'llegada seleccionada',
     nl: 'gekozen aankomst',
     sv: 'vald ankomst'
+  },
+  newArrivalDay: {
+    en: 'select as new arrival',
+    de: 'als neue Anreise wählen',
+    es: 'elegir como nueva llegada',
+    nl: 'als nieuwe aankomst kiezen',
+    sv: 'välj som ny ankomst'
   },
   fromPrice: {
     en: 'from {price}', de: 'ab {price}', es: 'desde {price}', nl: 'vanaf {price}', sv: 'från {price}'
@@ -403,6 +416,8 @@ const titleId = `${bookingKey}-booking-calendar-title`;
       help={t(copy.calendarHelp)}
       previousMonthLabel={t(copy.previousMonth)}
       nextMonthLabel={t(copy.nextMonth)}
+      resetLabel={t(copy.resetDates)}
+      closeLabel={t(copy.closeCalendar)}
     />
   </div>
 </AmaraSection>

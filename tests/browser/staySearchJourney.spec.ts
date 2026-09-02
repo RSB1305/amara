@@ -217,8 +217,8 @@ test('homepage finder refreshes live dates for destination changes and returns q
   const submit = page.getByRole('button', { name: 'Check availability' });
   await expect(submit).toBeVisible();
   await expect(submit).toBeDisabled();
-  await expect(page.getByRole('button', { name: 'Close calendar' })).toHaveCount(0);
-  await expect(page.getByRole('button', { name: 'Clear dates' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Close calendar' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Start over' })).toBeDisabled();
   await expect.poll(() => requests.filter((url) => url.pathname.endsWith('/search-calendar')).length).toBe(2);
   await expect(page.locator('.am-booking-calendar__month')).toHaveCount(2);
   await expect(page.locator('[data-am-booking-day="' + arrival + '"] .am-booking-calendar__day-price')).toContainText('from');
@@ -236,6 +236,17 @@ test('homepage finder refreshes live dates for destination changes and returns q
     'data-am-booking-calendar-status-state',
     'minimum-stay'
   );
+  const earlierArrival = futureIso(2);
+  const earlierArrivalButton = page.locator('[data-am-booking-day="' + earlierArrival + '"]');
+  await expect(earlierArrivalButton).toBeEnabled();
+  await expect(earlierArrivalButton).toHaveAttribute('data-am-booking-selection', 'arrival');
+  await earlierArrivalButton.click();
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue(earlierArrival);
+  await expect(page.locator('[data-am-stay-search-departure]')).toHaveValue('');
+  await page.getByRole('button', { name: 'Start over' }).click();
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue('');
+  await expect(page.getByRole('button', { name: 'Start over' })).toBeDisabled();
+  await page.locator('[data-am-booking-day="' + arrival + '"]').click();
   const departureButton = page.locator('[data-am-booking-day="' + departure + '"]');
   await expect(departureButton).toBeEnabled();
   await departureButton.click();
