@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-EXPERIENCE-KNOWLEDGE-001
 title: AMARA Experience Knowledge Product Feature Contract
-version: 1.0.0
+version: 1.1.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT
 activation_state: ACTIVE
 effective_from: 2026-09-02
-last_modified: 2026-09-02T06:19:43+02:00
+last_modified: 2026-09-02T08:09:00+02:00
 canonical_path: /docs/features/11_AMARA_Experience_Knowledge_Product_Feature_Contract_V1.md
 ---
 
@@ -141,6 +141,35 @@ Approved AMARA Experience recommendation
 ```
 
 Raw research never publishes itself. An AI synthesis never publishes itself. An approved recommendation is still not finished copy; public and private authoring each apply their own page or utility job.
+
+## 6.1 Content ownership and projection model
+
+The public website and AMARA Experience remain separate presentation surfaces, but an overlapping topic may not have two independent maintenance owners. Before new authoring or a material revision, the responsible editor declares exactly one canonical model:
+
+| Model | Canonical owner | Public projection | AMARA Experience projection |
+|---|---|---|---|
+| **Public editorial owner** | Relevant public Location or Experience content owner | Complete explanation, comparison and stable planning context | Stay-specific execution: priority, timing, route from the relevant stay, direct action, current note and Plan B |
+| **Shared fact owner** | One record in `knowledge/` or another existing approved data owner | General planning context and the fields needed by the public page | The fields and actions needed during the stay, such as nearest useful option, map, call or live check |
+| **AMARA Experience owner** | Protected booked-guest utility content owner | Only the general context required by the public page's own job | Accommodation and stay instructions, exact property routes, check-in/check-out, device guidance, current contacts and approved stay-specific host notes |
+
+Typical ownership is:
+
+- beaches, hiking, restaurants, nature and comparable discovery topics use the **public editorial owner** model;
+- pharmacies, supermarkets, parking facilities, transport points and comparable services use the **shared fact owner** model;
+- booked-stay instructions and property-specific operational guidance use the **AMARA Experience owner** model.
+
+Facts may appear on more than one surface when each projection needs them, but the factual value is maintained once. Identical or near-identical editorial long-form copy must not be maintained in both the public website and AMARA Experience. A private page may not become a shortened or restyled copy of the public article.
+
+Content consolidation does not merge the shells. The public website remains responsive for desktop and mobile, indexable where approved and connected to public navigation and conversion. AMARA Experience remains a separate noindex, mobile-first utility surface that must also remain usable on larger screens.
+
+Existing duplication is consolidated incrementally when the affected topic is materially revised. This contract does not require a repository-wide big-bang rewrite or duplicate-content audit.
+
+The first reference cases are:
+
+1. **Pharmacies in Nerja** — one shared fact owner with a public planning projection and an AMARA Experience action projection.
+2. **Hiking in Frigiliana** — one public editorial owner with AMARA Experience limited to stay-specific execution.
+
+These ownership/projection reference cases are distinct from the recommendation-research pilots in Section 19.
 
 ## 7. Research portfolio gate
 
@@ -480,3 +509,4 @@ An AMARA Experience knowledge topic is product-ready when:
 | Version | Timestamp | Change |
 |---|---|---|
 | 1.0.0 | 2026-09-02T06:19:43+02:00 | Activated the public Experience versus AMARA Experience product boundary, research-to-recommendation architecture, human approval gate, provenance/channel separation, operating roles and two initial pilots. |
+| 1.1.0 | 2026-09-02T08:09:00+02:00 | Added the single-owner content and fact projection model, three ownership patterns, duplicate-copy prohibition, separate-shell boundary, incremental consolidation rule and two reference cases. |

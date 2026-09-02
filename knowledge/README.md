@@ -1,10 +1,10 @@
 ---
 document_id: AMARA-KNOWLEDGE-OPS-001
 title: AMARA Research and Knowledge Workflow
-version: 1.2.0
+version: 1.3.0
 status: ACTIVE
 created_at: 2026-08-21T11:26:50+02:00
-last_modified: 2026-09-02T06:19:43+02:00
+last_modified: 2026-09-02T08:09:00+02:00
 ---
 
 # AMARA Research and Knowledge Workflow
@@ -33,6 +33,20 @@ Public Experience pages remain complete, indexable Type B pages. They explain an
 AMARA Experience adds the actionable layer for an authenticated stay: prioritized shortlists, exact timing, route or starting point, reservation/order/access guidance, property-specific application, current host notes and a realistic Plan B.
 
 The same evaluated evidence may support both surfaces, but the copy and immediate job are different. Private placement does not turn external research into AMARA first-hand experience. Human approval confirms the AMARA recommendation; it does not replace missing evidence.
+
+## Content ownership and projection rule
+
+Every topic shared by the public website and AMARA Experience declares one canonical maintenance owner before new authoring or a material revision:
+
+- **Public editorial owner:** the public Location or Experience surface owns the complete explanation; AMARA Experience adds only stay-specific execution.
+- **Shared fact owner:** one `knowledge/` or approved data record owns reusable facts; each surface selects the fields and actions required by its job.
+- **AMARA Experience owner:** protected booked-stay guidance owns accommodation-specific and operational content; public content carries only the general context required by its own job.
+
+A fact may be projected into both surfaces, but it is maintained once. Identical or near-identical editorial long-form copy is not maintained twice. The public responsive shell and the separate noindex, mobile-first Guest Utility shell remain distinct.
+
+Existing duplication is consolidated incrementally when a topic is materially revised. The first reference cases are Pharmacies in Nerja for shared facts and Hiking in Frigiliana for public editorial ownership.
+
+Until dedicated projection fields are implemented, record the selected model and canonical owner in the relevant non-public research dossier, synthesis or page manifest. Do not create a parallel database or a second authoring system.
 
 ## Google Drive boundary
 
@@ -153,3 +167,4 @@ A page can become shorter or change layout without reducing its knowledge base. 
 | 2026-08-21T12:01:15+02:00 | 1.0.2 | Normalized both raw reports into destination sources, atomic facts, conflicts, open questions and page coverage; archived the raw run without changing its Drive ID. |
 | 2026-08-22T06:48:59+02:00 | 1.1.0 | Opened the three Daily Life research runs, registered nine destination page manifests and preserved the evidence gate before public authoring. |
 | 2026-09-02T06:19:43+02:00 | 1.2.0 | Added the public Experience versus AMARA Experience knowledge-product flow, recommendation candidates, human approval gate, publication scopes and role separation while leaving the dedicated schema implementation pending. |
+| 2026-09-02T08:09:00+02:00 | 1.3.0 | Added the single-owner projection rule, three ownership models, duplicate-copy prohibition, separate-shell boundary and incremental consolidation reference cases. |

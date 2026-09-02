@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.62.0
+version: 1.63.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-02T06:19:43+02:00
+last_modified: 2026-09-02T08:09:00+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,11 +26,11 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.62.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.63.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.10.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.9.1 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
-| 11 | AMARA Experience Knowledge Product Feature Contract | 1.0.0 ACTIVE | FEATURE CONTRACT | `docs/features/11_AMARA_Experience_Knowledge_Product_Feature_Contract_V1.md` |
+| 11 | AMARA Experience Knowledge Product Feature Contract | 1.1.0 ACTIVE | FEATURE CONTRACT | `docs/features/11_AMARA_Experience_Knowledge_Product_Feature_Contract_V1.md` |
 
 ### Transition rule
 
@@ -179,6 +179,7 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-EXPERIENCE-004 | Only the human AMARA operator may approve an official AMARA recommendation. Approval confirms selection, conditions, caveats and publication scope; it does not replace evidence or create AMARA first-hand provenance. | ACTIVE |
 | DR-EXPERIENCE-005 | Provenance (`researched`, `AMARA first-hand`, `mixed`), recommendation status and publication scope (`public`, `AMARA Experience`, `split`, `internal`) are independent dimensions. Guest-facing wording must preserve the actual provenance and claim boundary. | ACTIVE |
 | DR-EXPERIENCE-006 | Recommendation lifecycle states are `CANDIDATE`, `HUMAN_REVIEW`, `FIELD_VALIDATION_REQUIRED`, `APPROVED`, `REJECTED`, `DEFERRED`, `PAUSED` and `RETIRED`. Only `APPROVED` recommendations may enter new authoring; material evidence or operating changes trigger renewed human review. | ACTIVE |
+| DR-EXPERIENCE-007 | The public website and AMARA Experience remain separate shells, but every overlapping topic has one canonical content or fact owner and uses one projection model: public editorial owner, shared fact owner or AMARA Experience owner. Shared facts may appear on both surfaces; identical or near-identical editorial long-form copy may not be maintained twice. Existing duplication is consolidated incrementally during material revision without merging the public responsive design and the mobile-first Guest Utility design. | ACTIVE |
 
 The full normative owner is `docs/features/11_AMARA_Experience_Knowledge_Product_Feature_Contract_V1.md`. Guest Utility continues to own protected access and delivery; `knowledge/README.md` owns the operational Drive-to-Git workflow.
 
@@ -209,6 +210,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-09-02T08:09:00+02:00 | Content ownership and projection model | Activated one canonical content or fact owner for every overlapping public/AMARA Experience topic, three projection models, duplicate long-form prevention, separate-shell preservation and incremental consolidation. Feature Contract 1.1.0, Knowledge Workflow 1.3.0 and Register 1.63.0; no website, route, schema or presentation code changed. | DR-EXPERIENCE-007, DR-EXPERIENCE-001–005, DR-EVIDENCE-001–003, DR-GUEST-001–003 | this revision |
 | 2026-09-02T06:19:43+02:00 | AMARA Experience knowledge product | Activated the public Experience versus AMARA Experience content boundary, the research-to-recommendation workflow, human approval gate, provenance/publication separation and recommendation lifecycle. Added Feature Contract 1.0.0, Knowledge Workflow 1.2.0 and Register 1.62.0; no website, route, access or schema code changed. | DR-EXPERIENCE-001–006, DR-EVIDENCE-001–003, DR-GUEST-001–003 | this revision |
 | 2026-09-01T18:00:51+02:00 | Protected personal guest greeting | Added the confirmed booking holder's first name above the closing message on all accommodation hubs. Only this field crosses the encrypted session boundary through a same-origin private response; a native five-locale `Dear Guest` remains the fallback. Guest Utility 2.10.0, Register 1.61.0. | DR-GUEST-003, DR-BOOK-001, DR-SEC-001 | this revision |
 | 2026-09-01T17:48:21+02:00 | Two-field booked-guest access | Reduced the AMARA Experience login to booking-holder first name plus arrival date. Exact unique matching remains fail closed, while the authoritative departure date stays server-owned and continues to control session expiry. Guest Utility 2.9.0, Register 1.60.0. | DR-GUEST-003, DR-BOOK-001 | this revision |
@@ -378,3 +380,4 @@ Separate controlled workstreams remain for:
 | 1.60.0 | 2026-09-01T17:48:21+02:00 | Reduced AMARA Experience access to booking-holder first name plus arrival date while retaining exact unique matching and server-owned departure expiry; aligned Guest Utility 2.9.0 and the Booking Architecture. | this revision |
 | 1.61.0 | 2026-09-01T18:00:51+02:00 | Added the first-name-only protected hub greeting with a private same-origin profile response and native five-locale `Dear Guest` fallback; aligned Guest Utility 2.10.0 and the Booking Architecture. | this revision |
 | 1.62.0 | 2026-09-02T06:19:43+02:00 | Activated the AMARA Experience Knowledge Product Feature Contract, added the public/private recommendation boundary and human approval workflow, and aligned Knowledge Workflow 1.2.0 without changing runtime or content. | this revision |
+| 1.63.0 | 2026-09-02T08:09:00+02:00 | Activated the single-owner content and fact projection model, three ownership patterns, duplicate-copy prevention, separate-shell preservation and incremental consolidation reference cases. | this revision |
