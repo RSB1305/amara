@@ -391,7 +391,7 @@ const content = {
   ),
   accessInstructions: text(
     "Use your guide before and during your stay. Enter the first name on your reservation and your arrival date.",
-    "Nutzt euren Guide vor und während eures Aufenthalts. Gebt den Vornamen aus eurer Reservierung und euer Anreisedatum ein.",
+    "Für den Zugang gebt einfach den Vornamen aus eurer Reservierung und euer Anreisedatum ein.",
     "Usad vuestra guía antes y durante la estancia. Introducid el nombre de la reserva y vuestra fecha de llegada.",
     "Gebruik jullie gids vóór en tijdens het verblijf. Vul de voornaam op de reservering en jullie aankomstdatum in.",
     "Använd er guide före och under vistelsen. Ange förnamnet i bokningen och ert ankomstdatum.",
