@@ -267,7 +267,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Två rum, regndusch och bara ett trappsteg'
     },
     lead: {
-      en: 'Farah works well if you want a simple place in Frigiliana and would rather eat out than cook. The 19 m² suite has a separate bedroom, a 160 × 200 cm bed, rain shower with bathroom underfloor heating and a tea kitchen with refrigerator. There is no full kitchen or private outdoor space.',
+      en: 'Farah is ideal if you want a cozy place in Frigiliana and prefer eating out to cooking. The 19 m² suite has a separate bedroom, a 160 × 200 cm bed, rain shower with bathroom underfloor heating and a tea kitchen with refrigerator. There is no full kitchen or private outdoor space.',
       de: 'In Farah wohnt ihr unkompliziert mitten in Frigiliana und könnt lieber essen gehen, statt selbst zu kochen. Die 19 m² große Suite hat ein separates Schlafzimmer, ein 160 × 200 cm großes Bett, Regendusche mit Fußbodenheizung im Bad und eine Teeküche mit Kühlschrank. Eine vollwertige Küche und einen privaten Außenbereich gibt es nicht.',
       es: 'Farah funciona bien si queréis un alojamiento sencillo en Frigiliana y preferís salir a comer antes que cocinar. La suite de 19 m² tiene dormitorio separado, cama de 160 × 200 cm, ducha de lluvia con suelo radiante en el baño y zona de café y té con frigorífico. No hay cocina completa ni espacio exterior privado.',
       nl: 'Farah past goed als jullie een eenvoudig verblijf in Frigiliana willen en liever uit eten gaan dan zelf koken. De suite van 19 m² heeft een aparte slaapkamer, een bed van 160 × 200 cm, regendouche met vloerverwarming in de badkamer en een kitchenette met koelkast. Er is geen volledige keuken of eigen buitenruimte.',
