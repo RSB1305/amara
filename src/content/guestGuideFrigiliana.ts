@@ -1,5 +1,7 @@
 import type { GuestGuideAccordionItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
 import { buildBookingLandingUrl } from '../lib/directBooking';
+import { getFrigilianaHikingUtilityFacts } from './sharedExperienceFacts';
+import { NERJA_PHARMACY_GUEST_ITEM } from './sharedLocalEssentials';
 
 const FRIGILIANA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
 const NEED_HELP: LocalizedText = {
@@ -2629,6 +2631,8 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
   ]
 };
 
+const frigilianaHikingUtilityRoutes = getFrigilianaHikingUtilityFacts();
+
 const frigilianaGuestHiking: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-hiking',
@@ -2643,11 +2647,11 @@ const frigilianaGuestHiking: GuestGuideEntry = {
     sv: 'Frigiliana Gästguide — Vandring | AMARA'
   },
   seoDescription: {
-    en: 'Practical hiking overview for guests staying in Frigiliana — easy walks, half-day hikes, and river trails with quick tips.',
-    de: 'Praktische Wander-Übersicht für Gäste in Frigiliana — leichte Spaziergänge, Halbtagstouren und Flusswanderungen.',
-    es: 'Resumen práctico de senderismo para los huéspedes de Frigiliana: paseos fáciles, rutas de medio día y senderos por el río con consejos rápidos.',
-    nl: 'Praktisch wandeloverzicht voor gasten in Frigiliana — makkelijke wandelingen, routes van een halve dag en rivierpaden met snelle tips.',
-    sv: 'Praktisk vandringsöversikt för gäster som bor i Frigiliana — enkla promenader, halvdagsturer och åvandringar med snabba tips.'
+    en: 'Quick access to the four researched hiking routes around Frigiliana, with current source and navigation links.',
+    de: 'Schnellzugriff auf vier recherchierte Wanderungen rund um Frigiliana mit aktuellen Quellen- und Navigationslinks.',
+    es: 'Acceso rápido a cuatro rutas investigadas cerca de Frigiliana, con enlaces actuales de fuentes y navegación.',
+    nl: 'Snelle toegang tot vier onderzochte wandelroutes rond Frigiliana, met actuele bron- en navigatielinks.',
+    sv: 'Snabb åtkomst till fyra undersökta vandringsleder runt Frigiliana, med aktuella käll- och navigeringslänkar.'
   },
   kicker: {
     en: 'AMARA LOCAL GUIDE',
@@ -2658,204 +2662,87 @@ const frigilianaGuestHiking: GuestGuideEntry = {
   },
   title: { en: 'Hiking', de: 'Wandern', es: 'Senderismo', nl: 'Wandelen', sv: 'Vandring' },
   intro: {
-    en: 'Behind Frigiliana, the Sierra starts almost immediately — from gentle viewpoint walks to half-day routes. Below are our most practical picks.',
-    de: 'Direkt hinter Frigiliana beginnt die Sierra – von gemütlichen Spaziergängen zu schönen Aussichtspunkten bis hin zu Halbtagestouren. Hier sind unsere praktischsten Empfehlungen für euch.',
-    es: 'Justo detrás de Frigiliana comienza la Sierra: desde paseos tranquilos hasta miradores y rutas de medio día. Aquí tenéis nuestras opciones más prácticas.',
-    nl: 'Direct achter Frigiliana begint de Sierra — van rustige wandelingen naar uitzichtpunten tot routes van een halve dag. Hieronder vinden jullie onze meest praktische aanraders.',
-    sv: 'Precis bakom Frigiliana börjar Sierra-bergen – från lugna promenader till utsiktsplatser till halvdagsturer. Nedan hittar ni våra mest praktiska tips.'
+    en: 'Compare the four routes in our complete hiking guide. Once you have chosen, use this page to open the current official information or exact navigation before you leave.',
+    de: 'Vergleicht die vier Routen in unserem vollständigen Wander-Guide. Sobald ihr gewählt habt, öffnet ihr hier vor dem Losgehen die aktuellen offiziellen Angaben oder die genaue Navigation.',
+    es: 'Comparad las cuatro rutas en nuestra guía completa de senderismo. Cuando hayáis elegido, abrid aquí la información oficial actual o la navegación exacta antes de salir.',
+    nl: 'Vergelijk de vier routes in onze complete wandelgids. Zodra jullie hebben gekozen, openen jullie hier voor vertrek de actuele officiële informatie of de exacte navigatie.',
+    sv: 'Jämför de fyra lederna i vår fullständiga vandringsguide. När ni har valt öppnar ni här aktuell officiell information eller exakt navigering innan ni ger er av.'
   },
   authorityLink: {
     targetSlug: 'frigiliana-hiking',
     label: {
-      en: 'Looking for a deeper overview? Read the full hiking guide →',
-      de: 'Sucht ihr nach einer ausführlicheren Übersicht? Lest unseren kompletten Wander-Guide →',
-      es: '¿Buscáis información más detallada? Lee la guía completa de senderismo →',
-      nl: 'Op zoek naar een uitgebreider overzicht? Lees de volledige wandelgids →',
-      sv: 'Letar ni efter en mer detaljerad översikt? Läs hela vandringsguiden →'
+      en: 'Compare all four routes in the full hiking guide →',
+      de: 'Alle vier Routen im vollständigen Wander-Guide vergleichen →',
+      es: 'Comparar las cuatro rutas en la guía completa →',
+      nl: 'Vergelijk alle vier routes in de complete wandelgids →',
+      sv: 'Jämför alla fyra lederna i den fullständiga vandringsguiden →'
     }
   },
   categories: [
     {
       heading: {
-        en: 'Trails Near Frigiliana',
-        de: 'Wanderwege bei Frigiliana',
-        es: 'Rutas cerca de Frigiliana',
-        nl: 'Wandelroutes bij Frigiliana',
-        sv: 'Vandringsleder nära Frigiliana'
+        en: 'Open your route',
+        de: 'Eure Route öffnen',
+        es: 'Abrir vuestra ruta',
+        nl: 'Open jullie route',
+        sv: 'Öppna er led'
+      },
+      intro: [
+        {
+          en: 'The latest route source and track matter more than directions from memory. Open them before setting off and keep the track available during the walk.',
+          de: 'Die aktuelle Routenquelle und der Track sind wichtiger als eine Wegbeschreibung aus dem Gedächtnis. Öffnet sie vor dem Start und haltet den Track während der Tour verfügbar.',
+          es: 'La fuente actual de la ruta y el track son más importantes que una descripción de memoria. Abridlos antes de salir y mantened el track disponible durante la ruta.',
+          nl: 'De actuele routebron en de track zijn belangrijker dan een beschrijving uit het hoofd. Open ze voor vertrek en houd de track tijdens de wandeling beschikbaar.',
+          sv: 'Den aktuella källan och spåret är viktigare än en vägbeskrivning ur minnet. Öppna dem före start och ha spåret tillgängligt under vandringen.'
+        }
+      ],
+      items: frigilianaHikingUtilityRoutes.map((route) => ({
+        icon:
+          route.id === 'rio-higueron-cahorros'
+            ? 'wave'
+            : route.id === 'gr-249-stage-6'
+              ? 'route'
+              : 'hiking',
+        title: route.title,
+        subtitle: route.duration,
+        body: [
+          route.experience,
+          ...(route.distance ? [route.distance] : []),
+          ...(route.elevationGain ? [route.elevationGain] : []),
+          route.difficulty
+        ],
+        actions: route.links.map((link, index) => ({
+          label: link.label,
+          href: link.href,
+          variant: index === 0 ? ('secondary' as const) : undefined
+        }))
+      }))
+    },
+    {
+      heading: {
+        en: 'Before you leave',
+        de: 'Bevor ihr losgeht',
+        es: 'Antes de salir',
+        nl: 'Voor jullie vertrekken',
+        sv: 'Innan ni går'
       },
       items: [
         {
-          icon: 'hiking',
-          title: { en: 'Cruz de Pinto (Loop)', de: 'Cruz de Pinto (Rundweg)', es: 'Cruz de Pinto (Circular)', nl: 'Cruz de Pinto (Rondwandeling)', sv: 'Cruz de Pinto (Rundslinga)' },
-          subtitle: {
-            en: '3–4 h · Moderate · Reliable',
-            de: '3–4 Std. · Mittelschwer · Verlässlich',
-            es: '3–4 h · Moderado · Fiable',
-            nl: '3–4 uur · Gemiddeld · Betrouwbaar',
-            sv: '3–4 tim · Medelsvår · Pålitlig'
+          icon: 'warning',
+          title: {
+            en: 'Weather, water and footwear',
+            de: 'Wetter, Wasser und Schuhe',
+            es: 'Tiempo, agua y calzado',
+            nl: 'Weer, water en schoenen',
+            sv: 'Väder, vatten och skor'
           },
           body: [
             {
-              en: 'A panoramic loop above the village with open slopes and wide coastal views — one of the most dependable choices. Good after rain since the terrain drains quickly, but still wear shoes with grip.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Search on Komoot</a>',
-              de: 'Ein Panoramarundweg oberhalb des Dorfes mit weiten Hängen und herrlichem Blick auf die Küste – eine der besten und verlässlichsten Touren. Auch nach Regen gut machbar, da das Wasser hier schnell abfließt – zieht aber trotzdem Schuhe mit gutem Profil an.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Auf Komoot suchen</a>',
-              es: 'Una ruta circular panorámica por encima del pueblo con laderas abiertas y amplias vistas a la costa: una de las opciones más fiables. Buena opción después de llover porque el terreno suele drenar rápido, pero llevad calzado con buen agarre.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Buscar en Komoot</a>',
-              nl: 'Een panoramische rondwandeling boven het dorp met open hellingen en weids uitzicht op de kust — een van de meest betrouwbare keuzes. Goed te doen na regen omdat het terrein snel droogt, maar draag wel schoenen met goede grip.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Zoeken op Komoot</a>',
-              sv: 'En panoramisk rundslinga ovanför byn med öppna sluttningar och vidsträckt kustutsikt – ett av de mest pålitliga valen. Bra alternativ efter regn eftersom terrängen torkar snabbt, men använd ändå skor med bra grepp.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Sök på Komoot</a>'
-            }
-          ]
-        },
-        {
-          icon: 'location-pin',
-          title: { en: 'El Fuerte (Viewpoints)', de: 'El Fuerte (Aussichtspunkte)', es: 'El Fuerte (Miradores)', nl: 'El Fuerte (Uitzichtpunten)', sv: 'El Fuerte (Utsiktsplatser)' },
-          subtitle: {
-            en: '3–4 h · Steep sections',
-            de: '3–4 Std. · Steile Abschnitte',
-            es: '3–4 h · Tramos empinados',
-            nl: '3–4 uur · Steile stukken',
-            sv: '3–4 tim · Branta partier'
-          },
-          body: [
-            {
-              en: 'The classic route behind Frigiliana — you don\'t need the full summit to get amazing views. After rain, the rocky parts can be slippery; go slow and bring water.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Search on Komoot</a>',
-              de: 'Der klassische Weg hinter Frigiliana – ihr müsst nicht ganz bis zum Gipfel hinauf, um eine fantastische Aussicht zu genießen. Nach Regen können die felsigen Stellen rutschig sein – geht es langsam an und nehmt ausreichend Wasser mit.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Auf Komoot suchen</a>',
-              es: 'El camino clásico detrás de Frigiliana: no hace falta llegar a la cima para disfrutar de unas vistas increíbles. Después de llover, las zonas rocosas pueden resbalar; id con calma y llevad agua.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Buscar en Komoot</a>',
-              nl: 'De klassieke route achter Frigiliana — jullie hoeven niet helemaal naar de top voor een geweldig uitzicht. Na regen kunnen de rotsachtige delen glad zijn; doe het rustig aan en neem water mee.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Zoeken op Komoot</a>',
-              sv: 'Den klassiska leden bakom Frigiliana – ni behöver inte gå hela vägen till toppen för att få fantastiska vyer. Efter regn kan de steniga partierna vara hala; ta det lugnt och ta med vatten.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Sök på Komoot</a>'
-            }
-          ]
-        },
-        {
-          icon: 'compass',
-          title: { en: 'Lizar & Acequia Trail', de: 'Lizar & Acequia Trail', es: 'Sendero de Lízar y la Acequia', nl: 'Lizar & Acequia Pad', sv: 'Lizar & Acequia-leden' },
-          subtitle: {
-            en: '~1 h · Easy · Sunset',
-            de: '~1 Std. · Leicht · Sonnenuntergang',
-            es: '~1 h · Fácil · Atardecer',
-            nl: '~1 uur · Makkelijk · Zonsondergang',
-            sv: '~1 tim · Enkelt · Solnedgång'
-          },
-          body: [
-            {
-              en: 'A gentle "active rest day" walk along old irrigation channels above the village — flat and scenic.',
-              de: 'Ein sanfter Spaziergang für einen "aktiven Ruhetag" entlang der alten Bewässerungskanäle oberhalb des Dorfes – flach und sehr malerisch.',
-              es: 'Un paseo suave para un "día de descanso activo" por las antiguas acequias sobre el pueblo: llano y muy pintoresco.',
-              nl: 'Een rustige wandeling voor een "actieve rustdag" langs de oude irrigatiekanalen boven het dorp — vlak en schilderachtig.',
-              sv: 'En lugn promenad för en "aktiv vilodag" längs de gamla bevattningskanalerna ovanför byn – plant och vackert.'
-            },
-            {
-              en: 'Perfect for golden hour. Bring a light layer if you go late — it cools down quickly.',
-              de: 'Perfekt für das weiche Licht am späten Nachmittag. Nehmt euch eine leichte Jacke mit, falls ihr spät losgeht, es kühlt schnell ab.',
-              es: 'Perfecto para la luz del atardecer. Llevad algo de abrigo ligero si vais tarde, refresca rápido.',
-              nl: 'Perfect voor het gouden uur. Neem een extra laagje mee als jullie laat gaan, het koelt hier snel af.',
-              sv: 'Perfekt för solnedgångsljuset. Ta med en lätt tröja om ni går sent, det blir snabbt svalt.'
-            }
-          ]
-        },
-        {
-          icon: 'landmark',
-          title: { en: 'Historic Quarter Loop', de: 'Rundweg durch die Altstadt', es: 'Paseo por el Casco Histórico', nl: 'Rondwandeling Historisch Centrum', sv: 'Promenad i gamla stan' },
-          subtitle: {
-            en: '~45 min · Steps & views',
-            de: '~45 Min. · Treppen & Aussicht',
-            es: '~45 min · Escaleras y vistas',
-            nl: '~45 min · Trappen & uitzicht',
-            sv: '~45 min · Trappor & utsikt'
-          },
-          body: [
-            {
-              en: 'A simple village walk through upper lanes, archways and viewpoints — ideal if you want "movement" without a hike.',
-              de: 'Ein einfacher Dorfspaziergang durch die oberen Gassen, Torbögen und zu schönen Aussichtspunkten – ideal, wenn ihr euch bewegen, aber keine echte Wanderung machen wollt.',
-              es: 'Un sencillo paseo por las calles altas del pueblo, arcos y miradores: ideal si queréis "moveros" un poco sin hacer una ruta larga.',
-              nl: 'Een eenvoudige dorpswandeling door de hoger gelegen straatjes, poortjes en langs uitzichtpunten — ideaal als jullie wel willen "bewegen" maar niet echt willen wandelen.',
-              sv: 'En enkel bypromenad genom de övre gränderna, valven och utsiktsplatserna – perfekt om ni vill "röra på er" utan att vandra.'
-            },
-            {
-              en: 'Expect stairs and some steep sections. Great before dinner.',
-              de: 'Stellt euch auf Treppen und einige steile Abschnitte ein. Wunderbar vor dem Abendessen.',
-              es: 'Preparaos para subir escaleras y algunos tramos empinados. Genial para antes de cenar.',
-              nl: 'Verwacht trappen en enkele steile stukken. Heerlijk voor het avondeten.',
-              sv: 'Räkna med trappor och några branta partier. Härligt före middagen.'
-            }
-          ]
-        },
-        {
-          icon: 'wave',
-          title: { en: 'Río Higuerón', de: 'Río Higuerón', es: 'Río Higuerón', nl: 'Río Higuerón', sv: 'Río Higuerón' },
-          subtitle: {
-            en: '2–3 h · Water trail · Quieter',
-            de: '2–3 Std. · Wasserweg · Ruhiger',
-            es: '2–3 h · Ruta acuática · Más tranquilo',
-            nl: '2–3 uur · Waterroute · Rustiger',
-            sv: '2–3 tim · Vattenled · Lugnare'
-          },
-          body: [
-            {
-              en: 'The calmer local river option near Frigiliana — wading, small pools, and a refreshing summer escape.',
-              de: 'Die ruhigere lokale Flussvariante in der Nähe von Frigiliana – Waten durchs Wasser, kleine Becken und eine herrlich erfrischende Auszeit im Sommer.',
-              es: 'La opción de río local más tranquila cerca de Frigiliana: vadear, pequeñas pozas y una refrescante escapada en verano.',
-              nl: 'De rustigere lokale rivieroptie vlakbij Frigiliana — waden door het water, kleine poeltjes en een heerlijk verfrissende ontsnapping in de zomer.',
-              sv: 'Det lugnare lokala flodalternativet nära Frigiliana – vada genom vatten, små pooler och en uppfriskande utflykt på sommaren.'
-            },
-            {
-              en: 'Water shoes (or grippy sports sandals) are strongly recommended. Avoid after heavy rain.',
-              de: 'Wasserschuhe (oder gut sitzende Sportsandalen) sind sehr zu empfehlen. Meidet diese Tour nach starkem Regen.',
-              es: 'Se recomiendan encarecidamente escarpines (o sandalias deportivas con agarre). Evitad esta ruta después de lluvias fuertes.',
-              nl: 'Waterschoenen (of stevige sportsandalen) worden sterk aanbevolen. Vermijd deze route na hevige regenval.',
-              sv: 'Badskor (eller sportsandaler med bra grepp) rekommenderas starkt. Undvik efter kraftigt regn.'
-            }
-          ]
-        },
-        {
-          icon: 'star',
-          title: { en: 'Río Chíllar (Nerja)', de: 'Río Chíllar (Nerja)', es: 'Río Chíllar (Nerja)', nl: 'Río Chíllar (Nerja)', sv: 'Río Chíllar (Nerja)' },
-          subtitle: {
-            en: '4–5 h · Very popular',
-            de: '4–5 Std. · Sehr beliebt',
-            es: '4–5 h · Muy popular',
-            nl: '4–5 uur · Erg populair',
-            sv: '4–5 tim · Väldigt populärt'
-          },
-          body: [
-            {
-              en: 'The famous "walk in the river" route — beautiful, cool, and busy in peak season.',
-              de: 'Die berühmte "Flusswanderung" – wunderschön, angenehm kühl und in der Hochsaison sehr gut besucht.',
-              es: 'La famosa ruta para "caminar por el río": preciosa, fresca y muy concurrida en temporada alta.',
-              nl: 'De beroemde "rivierwandeling" — prachtig, lekker verkoelend en erg druk in het hoogseizoen.',
-              sv: 'Den berömda "flodvandringen" – vacker, svalkande och mycket välbesökt under högsäsong.'
-            },
-            {
-              en: 'Go early (around 08:00) and prefer weekdays. Check current access rules locally before you go.',
-              de: 'Geht früh los (gegen 08:00 Uhr) und am besten unter der Woche. Bitte prüft vorab lokal die aktuellen Zugangsregeln.',
-              es: 'Id temprano (sobre las 08:00) y preferiblemente entre semana. Consultad las normas de acceso actuales antes de ir.',
-              nl: 'Ga vroeg op pad (rond 08:00 uur) en bij voorkeur op een doordeweekse dag. Controleer vooraf lokaal de actuele toegangsregels.',
-              sv: 'Gå tidigt (runt 08:00) och helst på vardagar. Kontrollera aktuella tillträdesregler lokalt innan ni åker.'
-            }
-          ]
-        },
-        {
-          icon: 'flag',
-          title: { en: 'El Acebuchal (Loop)', de: 'El Acebuchal (Rundweg)', es: 'El Acebuchal (Circular)', nl: 'El Acebuchal (Rondwandeling)', sv: 'El Acebuchal (Rundslinga)' },
-          subtitle: {
-            en: '4–5 h · Forest · Lunch stop',
-            de: '4–5 Std. · Wald · Einkehr zum Mittag',
-            es: '4–5 h · Bosque · Parada para comer',
-            nl: '4–5 uur · Bos · Lunchstop',
-            sv: '4–5 tim · Skog · Lunchstopp'
-          },
-          body: [
-            {
-              en: 'A rewarding hike through pine forest to the "Lost Village" — great if you want a destination with a rustic meal.',
-              de: 'Eine lohnende Tour durch Pinienwälder zum "Verlorenen Dorf" – fantastisch, wenn ihr ein Ziel mit einem rustikalen Essen verbinden wollt.',
-              es: 'Una ruta gratificante por pinares hasta el "Pueblo Perdido": genial si buscáis un destino donde tomar una comida rústica.',
-              nl: 'Een mooie wandelroute door dennenbossen naar het "Verloren Dorp" — geweldig als jullie een bestemming willen combineren met een rustieke maaltijd.',
-              sv: 'En givande vandring genom tallskog till den "Förlorade byn" – fantastiskt om ni vill ha ett mål med en rustik måltid.'
-            },
-            {
-              en: 'Reserve lunch in advance if you go in high season. Bring water and a bit of cash.',
-              de: 'Reserviert das Mittagessen in der Hochsaison am besten vorab. Nehmt Wasser und etwas Bargeld mit.',
-              es: 'Reservad el almuerzo con antelación si vais en temporada alta. Llevad agua y algo de efectivo.',
-              nl: 'Reserveer in het hoogseizoen de lunch van tevoren. Neem water en een beetje contant geld mee.',
-              sv: 'Boka lunchen i förväg om ni vandrar under högsäsong. Ta med vatten och lite kontanter.'
+              en: 'Check the current weather and route notice, carry enough water and wear footwear with grip. Casa AMARA is a convenient place to begin the day in the historic centre, but it is not an official trailhead.',
+              de: 'Prüft die aktuelle Wetterlage und die Routenhinweise, nehmt ausreichend Wasser mit und tragt Schuhe mit gutem Profil. Casa AMARA ist ein praktischer Startpunkt für euren Tag im historischen Zentrum, aber kein offizieller Trailhead.',
+              es: 'Comprobad el tiempo y los avisos de la ruta, llevad suficiente agua y calzado con buen agarre. Casa AMARA es un punto práctico para empezar el día en el casco histórico, pero no es el inicio oficial de ningún sendero.',
+              nl: 'Controleer het actuele weer en de routemeldingen, neem genoeg water mee en draag schoenen met grip. Casa AMARA is een praktisch beginpunt voor de dag in de historische kern, maar geen officiële trailhead.',
+              sv: 'Kontrollera aktuellt väder och ledmeddelanden, ta med tillräckligt med vatten och använd skor med bra grepp. Casa AMARA är en praktisk utgångspunkt för dagen i den historiska bykärnan, men ingen officiell ledstart.'
             }
           ]
         }
@@ -6243,26 +6130,7 @@ const nerjaEssentials: GuestGuideEntry = {
             }
           ]
         },
-        {
-          icon: 'pharmacy',
-          title: { en: 'Pharmacy', de: 'Apotheke', es: 'Farmacia', nl: 'Apotheek', sv: 'Apotek' },
-          body: [
-            {
-              en: 'For everyday medicine or small essentials, we recommend starting with the <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Farmacia+Nerja" target="_blank" rel="noopener"><strong>pharmacy on Calle Castilla Pérez</strong></a>.<br><br>If it is closed, look for the notice saying <em>“Farmacia de guardia”</em> — that tells you which pharmacy is currently on duty. If something feels more urgent, it is better not to wait too long and use medical assistance instead.',
-              de: 'Für alltägliche Medikamente oder kleine Dinge würden wir euch empfehlen, zuerst die <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Farmacia+Nerja" target="_blank" rel="noopener"><strong>Apotheke in der Calle Castilla Pérez</strong></a> zu nutzen.<br><br>Falls sie geschlossen ist, achtet auf den Hinweis <em>„Farmacia de guardia“</em> — dort steht, welche Apotheke gerade Notdienst hat. Wenn etwas dringlicher wirkt, lieber nicht zu lange warten und stattdessen medizinische Hilfe nutzen.',
-              es: 'Para medicinas básicas o pequeñas necesidades, os recomendamos empezar por la <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Farmacia+Nerja" target="_blank" rel="noopener"><strong>farmacia de la Calle Castilla Pérez</strong></a>.<br><br>Si está cerrada, buscad el aviso <em>“Farmacia de guardia”</em>, donde se indica qué farmacia está de guardia en ese momento. Si parece algo más urgente, es mejor no esperar demasiado y usar asistencia médica.',
-              nl: 'Voor gewone medicijnen of kleine benodigdheden raden we aan om eerst de <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Farmacia+Nerja" target="_blank" rel="noopener"><strong>apotheek in Calle Castilla Pérez</strong></a> te proberen.<br><br>Als die gesloten is, let dan op de melding <em>“Farmacia de guardia”</em>; daar staat welke apotheek op dat moment dienst heeft. Als het dringender aanvoelt, is het beter niet te lang te wachten en medische hulp te gebruiken.',
-              sv: 'För vanliga mediciner eller småsaker rekommenderar vi att ni börjar med <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Farmacia+Nerja" target="_blank" rel="noopener"><strong>apoteket på Calle Castilla Pérez</strong></a>.<br><br>Om det är stängt ska ni leta efter skylten <em>“Farmacia de guardia”</em>; där står vilket apotek som har jour just då. Om något känns mer brådskande är det bättre att inte vänta för länge utan använda medicinsk hjälp.'
-            },
-            {
-              en: 'Pharmacies are marked with illuminated green crosses, and duty pharmacy information is posted on every pharmacy door.',
-              de: 'Apotheken erkennt ihr an den leuchtend grünen Kreuzen. Informationen zur Notdienstapotheke hängen an jeder Apothekentür aus.',
-              es: 'Las farmacias están señalizadas con cruces verdes luminosas, y la información sobre la farmacia de guardia está expuesta en la puerta de cada farmacia.',
-              nl: 'Apotheken zijn te herkennen aan verlichte groene kruisen, en informatie over de dienstdoende apotheek hangt op de deur van elke apotheek.',
-              sv: 'Apotek är markerade med upplysta gröna kors, och information om jourhavande apotek sitter på varje apoteksdörr.'
-            }
-          ]
-        }
+        NERJA_PHARMACY_GUEST_ITEM
       ]
     }
   ]

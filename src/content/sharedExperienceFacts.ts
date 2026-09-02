@@ -1,6 +1,7 @@
 import type { AmaraLanguage } from '../types/seo';
 import { frigilianaBeachesContent } from './frigilianaBeachesContent';
 import { frigilianaDayTripsContent } from './frigilianaDayTripsContent';
+import { frigilianaHikingContent } from './frigilianaHikingContent';
 import { frigilianaRestaurantsContent } from './frigilianaRestaurantsContent';
 
 /**
@@ -41,4 +42,24 @@ export function getAndalusiaDayTripFacts(lang: AmaraLanguage) {
     destinations: copy.destinations,
     practical: copy.practical
   };
+}
+
+/**
+ * Compact booked-guest projection of the four public hiking records.
+ * Route identity, facts and source links remain owned by the public
+ * hiking content; Guest Utility adds only its action-oriented shell.
+ */
+export function getFrigilianaHikingUtilityFacts() {
+  return frigilianaHikingContent.routeSections.flatMap((section) =>
+    section.routes.map((route) => ({
+      id: route.id,
+      title: route.title,
+      duration: 'duration' in route ? route.duration : undefined,
+      distance: 'distance' in route ? route.distance : undefined,
+      elevationGain: 'elevationGain' in route ? route.elevationGain : undefined,
+      difficulty: route.difficulty,
+      experience: route.experience,
+      links: route.links.map(({ label, href }) => ({ label, href }))
+    }))
+  );
 }
