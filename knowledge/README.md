@@ -1,26 +1,38 @@
 ---
 document_id: AMARA-KNOWLEDGE-OPS-001
 title: AMARA Research and Knowledge Workflow
-version: 1.1.0
+version: 1.2.0
 status: ACTIVE
 created_at: 2026-08-21T11:26:50+02:00
-last_modified: 2026-08-22T06:48:59+02:00
+last_modified: 2026-09-02T06:19:43+02:00
 ---
 
 # AMARA Research and Knowledge Workflow
 
 ## Purpose
 
-This directory preserves the evidence behind AMARA's public content. It prevents a page redesign, copy edit or shortening pass from deleting the research that supports the page.
+This directory preserves the evidence behind AMARA's public and booked-guest content. It prevents a page redesign, copy edit or shortening pass from deleting the research that supports the page, and it prevents raw research or an AI synthesis from becoming an AMARA recommendation without human approval.
+
+The normative content-product boundary and approval model are defined in `docs/features/11_AMARA_Experience_Knowledge_Product_Feature_Contract_V1.md`. This file owns the operational Drive-to-Git Knowledge workflow.
 
 ## One-way publishing flow
 
 1. **Google Drive — immutable raw archive:** original Deep Research outputs, supplied files and operator notes.
-2. **`knowledge/` — versioned evaluation:** sources, atomic facts, claim boundaries, conflicts, open questions and page coverage.
-3. **`src/content/` — curated public authoring:** user-facing copy selected from verified knowledge for the page's job.
-4. **page families/components — presentation:** layout and visual treatment only; presentation changes do not rewrite evidence.
+2. **`knowledge/` — versioned evaluation:** sources, atomic facts, claim boundaries, conflicts, external experience patterns, open questions and page coverage.
+3. **Recommendation candidate — non-public synthesis:** a proposed practical recommendation connected to its evidence, limitations, uncertainty and intended guest situation.
+4. **Human approval gate:** the AMARA operator approves, changes, defers, rejects or requires field validation.
+5. **Authoring projections:** approved evidence and recommendations are selected separately for public Experience content and for AMARA Experience booked-guest utility.
+6. **Page families and Guest Utility presentation:** layout, shell and visual treatment render the approved authoring without rewriting its evidence or approval status.
 
-Raw research never publishes itself. Public copy never becomes the only remaining record of a researched fact.
+Raw research never publishes itself. An AI candidate never approves itself. Public or private copy never becomes the only remaining record of a researched fact or recommendation decision.
+
+## Public Experience and AMARA Experience boundary
+
+Public Experience pages remain complete, indexable Type B pages. They explain and differentiate the subject, include concrete evidence-supported examples and answer the durable search or trip-planning question without requiring a booking.
+
+AMARA Experience adds the actionable layer for an authenticated stay: prioritized shortlists, exact timing, route or starting point, reservation/order/access guidance, property-specific application, current host notes and a realistic Plan B.
+
+The same evaluated evidence may support both surfaces, but the copy and immediate job are different. Private placement does not turn external research into AMARA first-hand experience. Human approval confirms the AMARA recommendation; it does not replace missing evidence.
 
 ## Google Drive boundary
 
@@ -66,25 +78,71 @@ Each run has the standard `01_PROMPT`, `02_GPT_RAW`, `03_GEMINI_RAW`, `04_SOURCE
 
 - `prompts/` stores the exact research brief used for a run.
 - `research-runs/` records timestamps, Drive IDs, provider destinations and lifecycle status.
-- `research/` stores human-readable research dossiers and synthesis.
+- `research/` stores human-readable research dossiers, synthesis, external experience patterns and interim recommendation review cards.
 - `sources/` stores normalized source metadata.
 - `facts/` stores atomic claims with verification status and claim boundaries.
-- `open-questions/` stores unresolved evidence needs.
+- `open-questions/` stores unresolved evidence needs, including targeted first-hand or field-validation requests.
 - `pages/` stores one manifest and coverage map per public page.
+
+The current `knowledge/schema.ts` models sources, facts, open questions, research runs and public page manifests. Dedicated structured records for Experience patterns, recommendation lifecycle and AMARA Experience manifests are an approved target but remain implementation-pending. Until that workstream is completed, do not create an ad-hoc parallel database or misclassify a recommendation as a `KnowledgeFact`.
+
+## Experience research package
+
+Before a recommendation-focused run begins, the operator activates a bounded package containing:
+
+- public search or trip-planning question;
+- AMARA Experience value hypothesis;
+- existing Knowledge and raw-corpus recovery;
+- concrete unresolved gaps;
+- required source standard;
+- volatility and maintenance expectation;
+- likely first-hand or field-validation needs;
+- expected public, private or split use.
+
+A package may include corpus recovery, candidate discovery, fact verification, external experience-pattern analysis, recommendation synthesis and targeted field validation. These are controlled stages of one package; they do not authorize automatic research outside the selected topic.
+
+## Recommendation review package
+
+When an activated run is intended to produce recommendations, each candidate receives a stable ID and a compact review card containing:
+
+- proposed recommendation;
+- guest situation and reason for inclusion;
+- evidence references and provenance proposal;
+- strengths, limitations and unresolved uncertainty;
+- practical timing, duration, access, preparation or reservation implications;
+- credible alternative or Plan B where relevant;
+- proposed public, AMARA Experience, split or internal scope;
+- checked date, volatility and proposed review date.
+
+Only the human AMARA operator may approve an official recommendation. The available decisions are approve, approve with changes, field validation required, defer and reject. Approval records the final claim boundary, provenance, publication scope, caveats and review trigger.
 
 ## Ingestion procedure
 
-1. Confirm both raw uploads and record `receivedAt` in the run manifest.
+1. Confirm all expected raw uploads and record `receivedAt` in the run manifest.
 2. Preserve disagreements between sources or research providers; never silently choose one.
 3. Normalize reusable sources and atomic facts, including checked date, volatility and claim boundary.
-4. Resolve or create open questions where the evidence is incomplete.
-5. Map verified fact IDs to each page section in its page manifest.
-6. Update public content only from that reviewed map; retain facts that are not selected for the current layout.
-7. Mark the run `normalized`, then move its Drive folder from `00_INBOX` to `90_ARCHIVE`. The stable Drive folder ID remains the audit link.
+4. Record external experience patterns separately from factual claims and AMARA first-hand evidence.
+5. Resolve or create open questions where the evidence is incomplete.
+6. When the activated package seeks recommendations, prepare stable recommendation review cards; do not self-approve them.
+7. Record the operator's decision and any required field validation before an item is treated as an AMARA recommendation.
+8. Map reviewed fact and approved recommendation IDs to the appropriate public and/or private authoring scope once the dedicated schema/manifests are implemented.
+9. Update public or Guest Utility content only through a separately approved authoring/implementation scope; retain evidence and rejected/deferred candidates for traceability.
+10. Mark the run `normalized`, then move its Drive folder from `00_INBOX` to `90_ARCHIVE`. The stable Drive folder ID remains the audit link.
+
+## Organizational boundary
+
+- The operator owns research priority, run activation, first-hand confirmation, recommendation approval and publication scope.
+- The Research Agent owns gap analysis, source work, raw preservation, evidence extraction and candidate preparation.
+- The Knowledge Editor owns normalization, provenance, conflicts, claim boundaries and review dates.
+- Public Editorial owns complete Type B authoring from approved evidence.
+- AMARA Experience Editorial owns concise booked-stay execution guidance from approved recommendations.
+- Implementation publishes through the existing content, Guest Utility, route, resolver and runtime owners; it does not invent a parallel system.
+
+One human or AI may perform several preparation roles. The AI may not perform the operator approval gate.
 
 ## Change rule
 
-A page can become shorter or change layout without reducing its knowledge base. A researched fact leaves the active knowledge set only through explicit supersession, dispute or a documented scope decision. New research adds a new timestamped run and updates existing facts transparently; it does not erase previous evidence.
+A page can become shorter or change layout without reducing its knowledge base. A researched fact or approved recommendation leaves the active Knowledge set only through explicit supersession, dispute, pause, retirement or a documented scope decision. New research adds a new timestamped run and updates existing records transparently; it does not erase previous evidence or silently preserve an outdated approval.
 
 ## Revision history
 
@@ -94,3 +152,4 @@ A page can become shorter or change layout without reducing its knowledge base. 
 | 2026-08-21T11:49:45+02:00 | 1.0.1 | Recorded both raw research inputs, normalized filenames and advanced the Geography & Orientation run to `raw-received`. |
 | 2026-08-21T12:01:15+02:00 | 1.0.2 | Normalized both raw reports into destination sources, atomic facts, conflicts, open questions and page coverage; archived the raw run without changing its Drive ID. |
 | 2026-08-22T06:48:59+02:00 | 1.1.0 | Opened the three Daily Life research runs, registered nine destination page manifests and preserved the evidence gate before public authoring. |
+| 2026-09-02T06:19:43+02:00 | 1.2.0 | Added the public Experience versus AMARA Experience knowledge-product flow, recommendation candidates, human approval gate, publication scopes and role separation while leaving the dedicated schema implementation pending. |

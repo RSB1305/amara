@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.61.0
+version: 1.62.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-01T18:00:51+02:00
+last_modified: 2026-09-02T06:19:43+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -26,10 +26,11 @@ The AMARA Register is the single source for active documents, authority classes,
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.61.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.62.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.10.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.9.1 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
+| 11 | AMARA Experience Knowledge Product Feature Contract | 1.0.0 ACTIVE | FEATURE CONTRACT | `docs/features/11_AMARA_Experience_Knowledge_Product_Feature_Contract_V1.md` |
 
 ### Transition rule
 
@@ -42,6 +43,7 @@ Current operational feature owner during transition:
 | External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages GET-only Booking Gateway, including live availability, rates, quotes and the validated provider-owned checkout handoff. |
 | AMARA Experience booked-guest access | ACTIVE CODE / PRODUCTION ACTIVATION PENDING SECRET | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` + `AMARA-BOOKING-ARCHITECTURE.md` | Public landing remains static and sends booked guests to a separate localized access page. Fixed Pages Functions verify one confirmed Lodgify reservation, identify its AMARA stay and protect the complete existing Guest Welcome content under the encrypted, no-store, noindex AMARA Experience route family. Production stays closed until `AMARA_EXPERIENCE_SESSION_SECRET` is configured with at least 32 random characters. |
 | Official destination short-term forecasts | ACTIVE INTERIM CONTRACT | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` | The static Frigiliana, Nerja and Tarifa Weather pages each progressively consume one fixed same-origin GET route; AEMET credentials, municipality mappings, provider URLs, normalization and caching remain server-side. |
+| AMARA Experience knowledge product and recommendation approval | ACTIVE CONTRACT / SCHEMA AND PILOTS PENDING | `docs/features/11_AMARA_Experience_Knowledge_Product_Feature_Contract_V1.md` + `knowledge/README.md` | The public Experience versus AMARA Experience boundary, research-to-recommendation flow and human approval gate are active. Dedicated recommendation schema/manifests and the two pilot research packages remain separate workstreams. |
 
 ## 3. Decision Register
 
@@ -167,6 +169,19 @@ They do **not** supersede the current implementation. Until a separately aligned
 | DR-GUEST-002 | Guest Guides were formerly static and anonymously link-reachable under a strict non-secret content boundary. The content prohibition for credentials, physical-access secrets and personal booking data remains active as defense in depth; anonymous delivery is superseded by DR-GUEST-003. | SUPERSEDED IN DELIVERY BY DR-GUEST-003 |
 | DR-GUEST-003 | AMARA Experience is the single authenticated booked-guest umbrella and access; Guest Guide describes its private utility function and established content basis rather than a separate product, login or route family. Its public five-locale landing remains indexable and globally reachable inside About us; its dedicated access section remains present and the canonical public header exposes a localized access icon immediately before the language control. Both open the separate localized noindex access page without marketing chrome or analytics, whose direct link is also sent to booked guests. Access uses booking-holder first name plus exact arrival date, normalizes case, accents and whitespace, prohibits free typo matching, requires exactly one confirmed current or upcoming reservation, identifies the booked AMARA stay and opens its protected hub. Zero and ambiguous matches fail closed with the same neutral response; the matched reservation supplies the server-owned departure expiry. The complete guide route family is private/no-store/noindex and has language switching plus logout; legacy anonymous guide routes redirect to access. Sessions revalidate at most hourly, expire at departure-day end in Europe/Madrid and fail closed without a 32+ character `AMARA_EXPERIENCE_SESSION_SECRET`. Each hub is titled `Your AMARA stay` in the native locale and exposes three direct entries: the booked accommodation, destination-specific local Essentials and personal recommendations with hidden treasures, insider tips, authentic local food and less-crowded experiences. Essentials reuse their existing location page and are not duplicated inside the accommodation detail. | ACTIVE CODE / PRODUCTION ACTIVATION PENDING SECRET |
 
+### AMARA Experience knowledge product
+
+| ID | Decision | Status |
+|---|---|---|
+| DR-EXPERIENCE-001 | Public Experience remains a complete indexable Type B answer to its durable search and trip-planning question. AMARA Experience adds authenticated booked-stay execution depth. Essential safety information, material booking limitations and the useful public core may not be withheld. | ACTIVE |
+| DR-EXPERIENCE-002 | The commercial value of AMARA Experience is research, verification, curation, situational application and maintenance — not exclusive ownership of public facts or deliberate weakening of public content. | ACTIVE |
+| DR-EXPERIENCE-003 | The controlled flow is Google Drive raw archive -> Git `knowledge/` evaluation -> recommendation candidate -> human operator review -> approved recommendation -> separate public and/or booked-guest authoring. Raw research and AI candidates never publish or approve themselves. | ACTIVE |
+| DR-EXPERIENCE-004 | Only the human AMARA operator may approve an official AMARA recommendation. Approval confirms selection, conditions, caveats and publication scope; it does not replace evidence or create AMARA first-hand provenance. | ACTIVE |
+| DR-EXPERIENCE-005 | Provenance (`researched`, `AMARA first-hand`, `mixed`), recommendation status and publication scope (`public`, `AMARA Experience`, `split`, `internal`) are independent dimensions. Guest-facing wording must preserve the actual provenance and claim boundary. | ACTIVE |
+| DR-EXPERIENCE-006 | Recommendation lifecycle states are `CANDIDATE`, `HUMAN_REVIEW`, `FIELD_VALIDATION_REQUIRED`, `APPROVED`, `REJECTED`, `DEFERRED`, `PAUSED` and `RETIRED`. Only `APPROVED` recommendations may enter new authoring; material evidence or operating changes trigger renewed human review. | ACTIVE |
+
+The full normative owner is `docs/features/11_AMARA_Experience_Knowledge_Product_Feature_Contract_V1.md`. Guest Utility continues to own protected access and delivery; `knowledge/README.md` owns the operational Drive-to-Git workflow.
+
 ### Analytics/measurement
 
 | ID | Decision | Status |
@@ -194,6 +209,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-09-02T06:19:43+02:00 | AMARA Experience knowledge product | Activated the public Experience versus AMARA Experience content boundary, the research-to-recommendation workflow, human approval gate, provenance/publication separation and recommendation lifecycle. Added Feature Contract 1.0.0, Knowledge Workflow 1.2.0 and Register 1.62.0; no website, route, access or schema code changed. | DR-EXPERIENCE-001–006, DR-EVIDENCE-001–003, DR-GUEST-001–003 | this revision |
 | 2026-09-01T18:00:51+02:00 | Protected personal guest greeting | Added the confirmed booking holder's first name above the closing message on all accommodation hubs. Only this field crosses the encrypted session boundary through a same-origin private response; a native five-locale `Dear Guest` remains the fallback. Guest Utility 2.10.0, Register 1.61.0. | DR-GUEST-003, DR-BOOK-001, DR-SEC-001 | this revision |
 | 2026-09-01T17:48:21+02:00 | Two-field booked-guest access | Reduced the AMARA Experience login to booking-holder first name plus arrival date. Exact unique matching remains fail closed, while the authoritative departure date stays server-owned and continues to control session expiry. Guest Utility 2.9.0, Register 1.60.0. | DR-GUEST-003, DR-BOOK-001 | this revision |
 | 2026-09-01T17:02:23+02:00 | Booked-guest product hierarchy | Clarified AMARA Experience as the single umbrella and login, kept Guest Guide as a descriptive utility function, titled protected hubs as the guest's AMARA stay and renamed the former nested AMARA Experience entry to personal recommendations. Guest Utility 2.8.0, Register 1.59.0. | DR-GUEST-003 | this revision |
@@ -285,6 +301,9 @@ Separate controlled workstreams remain for:
 - deployed GA4 receipt and `DR-MEAS-008` cross-domain continuity validation across AMARA, Lodgify and checkout;
 - later normalization of the active external booking feature contract/runbook into `/docs/features` without changing its implementation by documentation alone.
 - continued exception-led consolidation of shared modules and remaining legacy consumers, with `/tools/styleguide` maintained as a rendered view of production owners under Astro & Design Contract 4.9.0.
+- implement dedicated external-experience pattern, recommendation and AMARA Experience manifest records inside the existing `knowledge/` system and `knowledge/schema.ts`, without creating a parallel database;
+- activate and run the two controlled pilots — Hiking in Frigiliana and Restaurants/Evenings in Nerja — as separate research packages;
+- author public transition blocks and private recommendations only after the relevant human approvals are recorded.
 
 ## Revision history
 
@@ -358,3 +377,4 @@ Separate controlled workstreams remain for:
 | 1.59.0 | 2026-09-01T17:02:23+02:00 | Clarified the booked-guest product hierarchy: AMARA Experience is the umbrella and access, Guest Guide is its descriptive utility function and protected hubs lead to accommodation, local Essentials and personal recommendations. | this revision |
 | 1.60.0 | 2026-09-01T17:48:21+02:00 | Reduced AMARA Experience access to booking-holder first name plus arrival date while retaining exact unique matching and server-owned departure expiry; aligned Guest Utility 2.9.0 and the Booking Architecture. | this revision |
 | 1.61.0 | 2026-09-01T18:00:51+02:00 | Added the first-name-only protected hub greeting with a private same-origin profile response and native five-locale `Dear Guest` fallback; aligned Guest Utility 2.10.0 and the Booking Architecture. | this revision |
+| 1.62.0 | 2026-09-02T06:19:43+02:00 | Activated the AMARA Experience Knowledge Product Feature Contract, added the public/private recommendation boundary and human approval workflow, and aligned Knowledge Workflow 1.2.0 without changing runtime or content. | this revision |
