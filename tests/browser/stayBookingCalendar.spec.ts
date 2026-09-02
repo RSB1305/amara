@@ -288,6 +288,9 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
   );
   await expect(dayButton(page, arrival)).toHaveAttribute('data-range', 'start');
   await expect(dayButton(page, futureIso(6))).toHaveAttribute('data-range', 'end');
+  await expect(
+    dayButton(page, futureIso(6)).locator('.am-booking-calendar__day-number')
+  ).toHaveCSS('text-decoration-line', 'none');
   await dayButton(page, futureIso(7)).click();
   await expect(page.locator('[data-am-booking-arrival]')).toHaveValue(futureIso(7));
   await expect(page.locator('[data-am-booking-departure]')).toHaveValue('');
