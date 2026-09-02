@@ -276,6 +276,7 @@ test('finder explains a broken stay range and resets for a new arrival', async (
   const firstValidDeparture = futureIso(23);
   const blockedNight = firstValidDeparture;
   const invalidDeparture = futureIso(26);
+  const laterArrival = futureIso(29);
   await mockGateway(page, { unavailableDates: new Set([blockedNight]) });
   await page.goto(ORIGIN + '/en/find-a-stay?destination=frigiliana');
   await page.getByRole('button', { name: 'Choose arrival' }).click();
@@ -311,8 +312,10 @@ test('finder explains a broken stay range and resets for a new arrival', async (
   await expect(page.getByRole('button', { name: 'Choose arrival' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Check availability' })).toBeDisabled();
 
-  await invalidDepartureButton.click();
-  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue(invalidDeparture);
+  const laterArrivalButton = page.locator('[data-am-booking-day="' + laterArrival + '"]');
+  await expect(laterArrivalButton).toBeEnabled();
+  await laterArrivalButton.click();
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue(laterArrival);
   await expect(page.locator('[data-am-stay-search-departure]')).toHaveValue('');
   await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
     'Minimum stay from this arrival'

@@ -771,14 +771,10 @@ export function enhanceStaySearchFinders() {
           calendarFeedbackState = 'minimum-stay';
           render();
         } else if (button.dataset.amBookingRestriction === 'stay-continuity') {
-          calendarFeedback = stayContinuityFeedback(value);
+          const feedback = stayContinuityFeedback(value);
+          resetDateSelection(false);
+          calendarFeedback = feedback;
           calendarFeedbackState = 'stay-continuity';
-          arrival.value = '';
-          departure.value = '';
-          departure.min = addDays(today, 1);
-          selectionMode = 'arrival';
-          hoverDate = '';
-          updateTriggers();
           render();
         }
         return;
