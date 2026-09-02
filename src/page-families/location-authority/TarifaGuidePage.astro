@@ -1,6 +1,8 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
+import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-surf-club-team.webp';
+import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
@@ -32,6 +34,10 @@ const bookHref = requiredLink('book');
 const aboutHref = requiredLink('about');
 const topicContent = content.id === 'overview' ? undefined : content;
 const relatedGuides = topicContent?.related.map((id) => tarifaGuideContent[id]) ?? [];
+const kitePartnership = topicContent?.partnership;
+const kiteEnquiryHref = kitePartnership
+  ? `https://wa.me/34604440964?text=${encodeURIComponent(t(kitePartnership.contactMessage))}`
+  : undefined;
 const locationCopy = content.id === 'overview' ? content.location[currentLang] : undefined;
 
 if (content.id === 'overview' && !locationCopy) {
@@ -142,23 +148,25 @@ const ui = {
     sv: 'Utsikt från AMARA över Tarifa mot Atlantkusten'
   },
   windImageAlt: {
-    en: 'Surf details in the bedroom at AMARA Family & Surf in Tarifa',
-    de: 'Surfdetails im Schlafzimmer von AMARA Family & Surf in Tarifa',
-    es: 'Detalles de surf en el dormitorio de AMARA Family & Surf en Tarifa',
-    nl: 'Surfdetails in de slaapkamer van AMARA Family & Surf in Tarifa',
-    sv: 'Surfdetaljer i sovrummet på AMARA Family & Surf i Tarifa'
+    en: 'Tarifa Surf Club team together at the beach in Tarifa',
+    de: 'Das Team des Tarifa Surf Club gemeinsam am Strand von Tarifa',
+    es: 'El equipo de Tarifa Surf Club reunido en la playa de Tarifa',
+    nl: 'Het team van Tarifa Surf Club samen op het strand van Tarifa',
+    sv: 'Tarifa Surf Club-teamet samlat på stranden i Tarifa'
   }
 } satisfies Record<string, LocalizedText>;
 
 const topicHeroMedia = content.id === 'beaches'
   ? {
       src: '/images/amara-tarifa/amara-tarifa-apartment23.webp',
-      alt: t(ui.beachesImageAlt)
+      alt: t(ui.beachesImageAlt),
+      width: 1600
     }
   : content.id === 'wind'
     ? {
-        src: '/images/amara-tarifa/amara-tarifa-apartment21.webp',
-        alt: t(ui.windImageAlt)
+        src: tarifaSurfClubTeamImage,
+        alt: t(ui.windImageAlt),
+        width: 1200
       }
     : undefined;
 
@@ -404,7 +412,7 @@ const footerHighlights: LabeledLink[] = [
       paragraphs={[t(topicContent.hero.lead)]}
       imageSrc={topicHeroMedia!.src}
       imageAlt={topicHeroMedia!.alt}
-      imageWidth={1600}
+      imageWidth={topicHeroMedia!.width}
       topic={content.id}
       byline={{
         lang: currentLang,
@@ -427,6 +435,92 @@ const footerHighlights: LabeledLink[] = [
         ))}
       </dl>
     </section>
+
+    {kitePartnership && kiteEnquiryHref && (
+      <section id="kite-stay" class="scroll-mt-40 bg-surface px-6 py-20 md:px-12 md:py-28" data-am-section="kite-partnership">
+        <div class="mx-auto max-w-screen-2xl">
+          <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)] lg:gap-20">
+            <div class="max-w-3xl">
+              <div class="flex items-center gap-5">
+                <AmaraImage
+                  src="/images/tarifa/tarifa-surf-club-logo.webp"
+                  alt="Tarifa Surf Club"
+                  profile="card"
+                  class="h-20 w-20 object-contain md:h-24 md:w-24"
+                  width={192}
+                  widths={[96, 192]}
+                  sizes="96px"
+                />
+                <p class="text-primary am-text-label am-text-label--wide">
+                  {t(kitePartnership.eyebrow)}
+                </p>
+              </div>
+              <h2 class="am-text-title mt-8 max-w-3xl text-balance text-on-surface">
+                {t(kitePartnership.title)}
+              </h2>
+              <p class="am-text-body mt-7 max-w-3xl leading-relaxed text-on-surface-variant">
+                {t(kitePartnership.intro)}
+              </p>
+              <p class="am-text-body mt-6 max-w-3xl border-l border-primary/35 pl-5 leading-relaxed text-on-surface">
+                {t(kitePartnership.personalNote)}
+              </p>
+            </div>
+
+            <figure class="am-mobile-full-bleed bg-surface-container-high">
+              <AmaraImage
+                src={markRobertTarifaImage}
+                alt={t(kitePartnership.imageAlt)}
+                profile="hero"
+                class="aspect-[4/3] h-full w-full object-cover"
+                sizes="(max-width: 1023px) 100vw, 40vw"
+                focalPoint="50% 42%"
+              />
+              <figcaption class="px-5 py-4 text-on-surface-variant am-text-label am-text-label--sm">
+                {t(kitePartnership.imageCaption)}
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="mt-16 md:mt-20">
+            <h3 class="am-text-subtitle max-w-3xl text-on-surface">
+              {t(kitePartnership.servicesTitle)}
+            </h3>
+            <div class="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+              {kitePartnership.services.map((service) => (
+                <a
+                  href={service.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="group flex min-h-full flex-col border border-border-subtle bg-surface-container-low p-6 transition-colors hover:border-primary/45"
+                >
+                  <p class="text-primary am-text-label am-text-label--sm">{t(service.eyebrow)}</p>
+                  <h4 class="am-text-subtitle mt-4 text-on-surface">{t(service.title)}</h4>
+                  <p class="am-text-body mt-4 flex-1 leading-relaxed text-on-surface-variant">{t(service.text)}</p>
+                  <span class="mt-7 inline-flex items-center text-primary am-text-label am-text-label--sm">
+                    {t(kitePartnership.partnerLabel)}
+                    <span aria-hidden="true" class="ml-2 transition-transform group-hover:translate-x-1">→</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div class="mt-12 flex flex-col gap-6 bg-inverse-surface p-7 text-inverted-on-surface md:flex-row md:items-center md:justify-between md:p-9">
+            <p class="am-text-body max-w-4xl leading-relaxed text-inverted-on-surface/80">
+              {t(kitePartnership.contactText)}
+            </p>
+            <a
+              href={kiteEnquiryHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="am-btn am-btn--primary am-btn--inverse shrink-0 justify-center"
+            >
+              {t(kitePartnership.contactLabel)}
+            </a>
+          </div>
+        </div>
+      </section>
+    )}
 
     {topicContent.sections.map((section, sectionIndex) => (
       <section

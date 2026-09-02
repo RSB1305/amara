@@ -24,6 +24,29 @@ export interface TarifaGuideSource {
   href: string;
 }
 
+export interface TarifaPartnershipService {
+  id: 'kite-school' | 'kitecamp' | 'rental' | 'shop';
+  eyebrow: LocalizedText;
+  title: LocalizedText;
+  text: LocalizedText;
+  href: string;
+}
+
+export interface TarifaKitePartnership {
+  eyebrow: LocalizedText;
+  title: LocalizedText;
+  intro: LocalizedText;
+  personalNote: LocalizedText;
+  imageAlt: LocalizedText;
+  imageCaption: LocalizedText;
+  servicesTitle: LocalizedText;
+  services: TarifaPartnershipService[];
+  contactText: LocalizedText;
+  contactLabel: LocalizedText;
+  contactMessage: LocalizedText;
+  partnerLabel: LocalizedText;
+}
+
 export interface TarifaLocationLink {
   label: string;
   token:
@@ -112,6 +135,7 @@ export interface TarifaTopicGuideContent extends TarifaGuideBase {
     label: LocalizedText;
     value: LocalizedText;
   }>;
+  partnership?: TarifaKitePartnership;
   sections: TarifaGuideSection[];
   notice: {
     eyebrow: LocalizedText;
@@ -211,6 +235,17 @@ const officialKiteSource: TarifaGuideSource = {
     'Tarifas turistbyrå: kitesurfing'
   ),
   href: 'https://turismodetarifa.com/que-hacer/kitesurf/'
+};
+
+const tarifaSurfClubSource: TarifaGuideSource = {
+  label: l(
+    'Tarifa Surf Club: kite school, kitecamps and equipment',
+    'Tarifa Surf Club: Kiteschule, Kitecamps und Material',
+    'Tarifa Surf Club: escuela, kitecamps y material',
+    'Tarifa Surf Club: kiteschool, kitecamps en materiaal',
+    'Tarifa Surf Club: kiteskola, kitecamps och utrustning'
+  ),
+  href: 'https://tarifasurfclub.com/'
 };
 
 const overviewTitles = l(
@@ -771,39 +806,176 @@ export const overview: TarifaLocationGuideContent = {
 };
 
 const windTitles = l(
-  'Tarifa Wind & Kitesurfing Guide | Levante and Poniente',
-  'Tarifa Wind- & Kitesurf-Guide | Levante und Poniente',
-  'Guía de viento y kitesurf en Tarifa | Levante y Poniente',
-  'Tarifa wind- en kitesurfgids | Levante en Poniente',
-  'Tarifa vind- och kitesurfguide | Levante och Poniente'
+  'Kitesurfing Tarifa: Kite School, Kitecamp & Stay | AMARA',
+  'Kitesurfen Tarifa: Kiteschule, Kitecamp & Unterkunft | AMARA',
+  'Kitesurf Tarifa: escuela, kitecamp y alojamiento | AMARA',
+  'Kitesurfen Tarifa: kiteschool, kitecamp & verblijf | AMARA',
+  'Kitesurfing Tarifa: skola, kitecamp & boende | AMARA'
 );
 
 const windDescriptions = l(
-  'A practical guide to Levante, Poniente, the main Tarifa kite areas and the safety checks that matter before entering the water.',
-  'Ein praktischer Guide zu Levante, Poniente, wichtigen Kitezonen und den entscheidenden Sicherheitschecks vor dem Start.',
-  'Una guía práctica sobre Levante, Poniente, las principales zonas de kite y las comprobaciones de seguridad antes de entrar al agua.',
-  'Een praktische gids voor Levante, Poniente, de belangrijkste kitegebieden en de veiligheidschecks vóór je het water op gaat.',
-  'En praktisk guide till Levante, Poniente, de viktigaste kiteområdena och säkerhetskontrollerna innan du går ut på vattnet.'
+  'Stay with AMARA and let us coordinate your Tarifa kite school, kitecamp, lessons and equipment with our friends at Tarifa Surf Club.',
+  'Bei AMARA wohnen und Kiteschule, Kitecamp, Kurse sowie Material in Tarifa persönlich mit unseren Freunden vom Tarifa Surf Club organisieren.',
+  'Alojaos con AMARA y coordinamos vuestra escuela de kitesurf, kitecamp, cursos y material en Tarifa con nuestros amigos de Tarifa Surf Club.',
+  'Verblijf bij AMARA en laat ons jullie kiteschool, kitecamp, lessen en materiaal in Tarifa regelen met onze vrienden van Tarifa Surf Club.',
+  'Bo hos AMARA så samordnar vi kiteskola, kitecamp, kurser och utrustning i Tarifa med våra vänner på Tarifa Surf Club.'
+);
+
+const windEditorialNote = l(
+  'AMARA orientation for your kite stay, with official rules and current local advice taking priority on the day.',
+  'AMARA-Orientierung für eure Kite-Reise; am jeweiligen Tag haben offizielle Regeln und aktuelle Hinweise vor Ort Vorrang.',
+  'Orientación de AMARA para vuestro viaje de kitesurf; ese día prevalecen las normas oficiales y la información local actual.',
+  'AMARA-oriëntatie voor jullie kitereis; op de dag zelf gaan officiële regels en actuele lokale aanwijzingen voor.',
+  'AMARA-vägledning för er kiteresa; på plats gäller dagens officiella regler och aktuella lokala råd.'
+);
+
+const windUpdated = l(
+  'Reviewed September 2026',
+  'Geprüft im September 2026',
+  'Revisado en septiembre de 2026',
+  'Gecontroleerd in september 2026',
+  'Granskad i september 2026'
 );
 
 const wind: TarifaGuideContent = {
   id: 'wind',
   token: 'tarifa_wind_kitesurfing_authority',
-  seo: buildSeo('2026-08-03-tarifa-wind-kitesurfing-v1.0', 'B', windTitles, windDescriptions),
+  seo: buildSeo(
+    '2026-09-02-tarifa-wind-kitesurfing-v2.0',
+    'B',
+    windTitles,
+    windDescriptions,
+    { ...article, dateModified: '2026-09-02' }
+  ),
   navLabel: l('Wind & Kitesurfing', 'Wind & Kitesurfen', 'Viento y kitesurf', 'Wind & kitesurfen', 'Vind & kitesurfing'),
   breadcrumbLabel: l('Wind & Kitesurfing', 'Wind & Kitesurfen', 'Viento y kitesurf', 'Wind & kitesurfen', 'Vind & kitesurfing'),
   hero: {
-    eyebrow: l('Tarifa experience guide', 'Tarifa Experience Guide', 'Guía de experiencias en Tarifa', 'Tarifa Experience Guide', 'Tarifa upplevelseguide'),
-    title: l('Read the wind before choosing the water', 'Erst den Wind lesen, dann den Spot wählen', 'Leer el viento antes de elegir el agua', 'Lees eerst de wind, kies daarna het water', 'Läs vinden innan du väljer vatten'),
-    lead: l('Levante and Poniente give Tarifa two very different faces. This guide explains the practical difference, where the principal kite areas sit and when local instruction matters more than any online guide.', 'Levante und Poniente geben Tarifa zwei sehr unterschiedliche Gesichter. Dieser Guide erklärt den praktischen Unterschied, ordnet die wichtigsten Kitezonen ein und zeigt, wann Hinweise vor Ort wichtiger sind als jeder Online-Guide.', 'Levante y Poniente muestran dos caras muy distintas de Tarifa. Esta guía explica la diferencia práctica, sitúa las principales zonas de kite y aclara cuándo la información local importa más que cualquier guía en línea.', 'Levante en Poniente geven Tarifa twee heel verschillende gezichten. Deze gids legt het praktische verschil uit, plaatst de belangrijkste kitegebieden in context en maakt duidelijk wanneer lokale instructies zwaarder wegen dan welke online gids ook.', 'Levante och Poniente ger Tarifa två helt olika ansikten. Guiden förklarar den praktiska skillnaden, sätter de viktigaste kiteområdena i sitt sammanhang och visar när lokal vägledning väger tyngre än en nätguide.'),
-    editorialNote: sharedEditorialNote,
-    updated: sharedUpdated
+    eyebrow: l('Kite stay in Tarifa', 'Kite-Aufenthalt in Tarifa', 'Viaje de kitesurf en Tarifa', 'Kiteverblijf in Tarifa', 'Kitevistelse i Tarifa'),
+    title: l(
+      'Kitesurfing in Tarifa – your stay and time on the water, personally arranged',
+      'Kitesurfen in Tarifa – Unterkunft und Zeit auf dem Wasser persönlich organisiert',
+      'Kitesurf en Tarifa: alojamiento y tiempo en el agua, organizados personalmente',
+      'Kitesurfen in Tarifa – verblijf en tijd op het water persoonlijk geregeld',
+      'Kitesurfing i Tarifa – boende och tid på vattnet personligt ordnat'
+    ),
+    lead: l(
+      'Stay with AMARA and combine your accommodation in Tarifa with the full offer from our friends at Tarifa Surf Club. Send us one message with your dates, level and wishes; we coordinate kite school courses for every level, kitecamps, personal coaching and equipment to rent or buy. You receive a trip shaped around your stay and personal contact throughout the planning. Levante, Poniente, the principal kite areas and the current safety checks determine which programme and time on the water suit each day.',
+      'Bei AMARA verbindet ihr eure Unterkunft in Tarifa mit dem gesamten Angebot unserer Freunde vom Tarifa Surf Club. Schreibt uns eine Nachricht mit Reisedaten, Niveau und Wünschen; wir koordinieren Kurse der Kiteschule für jedes Level, Kitecamps, persönliche Betreuung sowie Material zum Leihen oder Kaufen. So entsteht eine Reise, die zu eurem Aufenthalt passt, mit persönlichem Kontakt während der Planung. Levante, Poniente, die wichtigsten Kitezonen und die aktuellen Sicherheitschecks bestimmen, welches Programm und welche Zeit auf dem Wasser zum jeweiligen Tag passen.',
+      'Con AMARA combináis vuestro alojamiento en Tarifa con toda la oferta de nuestros amigos de Tarifa Surf Club. Enviadnos un mensaje con las fechas, vuestro nivel y lo que buscáis; coordinamos cursos de la escuela para todos los niveles, kitecamps, clases personales y material para alquilar o comprar. Tendréis un viaje adaptado a vuestra estancia y contacto personal durante la organización. Levante, Poniente, las principales zonas de kite y las comprobaciones actuales de seguridad determinan el programa y el momento en el agua adecuados para cada día.',
+      'Bij AMARA combineren jullie je verblijf in Tarifa met het volledige aanbod van onze vrienden van Tarifa Surf Club. Stuur ons één bericht met reisdata, niveau en wensen; wij regelen lessen van de kiteschool voor elk niveau, kitecamps, persoonlijke coaching en materiaal om te huren of te kopen. Zo sluit alles aan op jullie verblijf en houden jullie persoonlijk contact tijdens de voorbereiding. Levante, Poniente, de belangrijkste kitegebieden en de actuele veiligheidschecks bepalen welk programma en welke tijd op het water bij de dag passen.',
+      'Hos AMARA kombinerar ni ert boende i Tarifa med hela utbudet hos våra vänner på Tarifa Surf Club. Skicka ett meddelande med datum, nivå och önskemål; vi samordnar kurser på kiteskolan för alla nivåer, kitecamps, personlig coaching och utrustning att hyra eller köpa. Resan anpassas till er vistelse och ni har personlig kontakt under planeringen. Levante, Poniente, de viktigaste kiteområdena och dagens säkerhetskontroller avgör vilket program och vilken tid på vattnet som passar varje dag.',
+    ),
+    editorialNote: windEditorialNote,
+    updated: windUpdated
   },
   facts: [
     { label: l('Levante', 'Levante', 'Levante', 'Levante', 'Levante'), value: l('Easterly · often offshore', 'Östlich · häufig ablandig', 'De este · a menudo de tierra', 'Oostelijk · vaak aflandig', 'Ostlig · ofta frånlandsvind') },
     { label: l('Poniente', 'Poniente', 'Poniente', 'Poniente', 'Poniente'), value: l('Westerly · generally more onshore', 'Westlich · meist stärker auflandig', 'De oeste · generalmente más de mar', 'Westelijk · doorgaans meer aanlandig', 'Västlig · generellt mer pålandsvind') },
     { label: l('Daily rule', 'Tägliche Regel', 'Regla diaria', 'Dagelijkse regel', 'Daglig regel'), value: l('Check forecast, flags and zones', 'Vorhersage, Flaggen und Zonen prüfen', 'Revisar previsión, banderas y zonas', 'Controleer verwachting, vlaggen en zones', 'Kontrollera prognos, flaggor och zoner') }
   ],
+  partnership: {
+    eyebrow: l('AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club'),
+    title: l(
+      'One message to AMARA – we coordinate the rest',
+      'Eine Nachricht an AMARA – wir koordinieren den Rest',
+      'Un mensaje a AMARA y coordinamos el resto',
+      'Eén bericht aan AMARA – wij regelen de rest',
+      'Ett meddelande till AMARA – vi samordnar resten'
+    ),
+    intro: l(
+      'As an accommodation partner of Tarifa Surf Club, we connect your stay with the complete kite programme: school courses for beginners and advanced riders, kitecamps, personal coaching and the right equipment to rent or buy. Tell us your travel dates, group size, level and wishes. We coordinate the AMARA stay with our friends on the Surf Club team and bring the right contacts and booking details together for you.',
+      'Als Unterkunftspartner des Tarifa Surf Club verbinden wir euren Aufenthalt mit dem gesamten Kiteprogramm: Kurse der Kiteschule für Anfänger und Fortgeschrittene, Kitecamps, persönliche Betreuung sowie passendes Material zum Leihen oder Kaufen. Nennt uns Reisedaten, Personenzahl, Niveau und Wünsche. Wir stimmen euren AMARA-Aufenthalt mit unseren Freunden im Surf-Club-Team ab und bringen die passenden Kontakte und Buchungsinformationen für euch zusammen.',
+      'Como colaboradores de alojamiento de Tarifa Surf Club, conectamos vuestra estancia con todo el programa de kite: cursos de escuela para principiantes y avanzados, kitecamps, clases personales y el material adecuado para alquilar o comprar. Decidnos las fechas, el número de personas, vuestro nivel y lo que buscáis. Coordinamos la estancia en AMARA con nuestros amigos del Surf Club y reunimos para vosotros los contactos y datos de reserva adecuados.',
+      'Als accommodatiepartner van Tarifa Surf Club verbinden we jullie verblijf met het volledige kiteprogramma: lessen van de kiteschool voor beginners en gevorderden, kitecamps, persoonlijke coaching en passend materiaal om te huren of te kopen. Vertel ons reisdata, groepsgrootte, niveau en wensen. Wij stemmen jullie AMARA-verblijf af met onze vrienden van het Surf Club-team en brengen de juiste contacten en boekingsinformatie voor jullie samen.',
+      'Som boendepartner till Tarifa Surf Club kopplar vi ihop er vistelse med hela kiteprogrammet: kurser på kiteskolan för nybörjare och erfarna åkare, kitecamps, personlig coaching och rätt utrustning att hyra eller köpa. Berätta era resedatum, antal personer, nivå och önskemål. Vi samordnar AMARA-vistelsen med våra vänner i Surf Club-teamet och samlar rätt kontakter och bokningsuppgifter åt er.'
+    ),
+    personalNote: l(
+      'We have known Mark, founder of Tarifa Surf Club, for many years. In Tarifa we see and speak to each other almost every day, so questions and changes can be coordinated personally and quickly.',
+      'Mark, den Gründer des Tarifa Surf Club, kennen wir seit vielen Jahren. In Tarifa sehen und sprechen wir uns fast täglich – so lassen sich Fragen und Änderungen persönlich und auf kurzem Weg abstimmen.',
+      'Conocemos desde hace muchos años a Mark, fundador de Tarifa Surf Club. En Tarifa nos vemos y hablamos casi a diario, así que podemos coordinar preguntas y cambios de forma personal y rápida.',
+      'We kennen Mark, oprichter van Tarifa Surf Club, al vele jaren. In Tarifa zien en spreken we elkaar bijna dagelijks, zodat we vragen en wijzigingen persoonlijk en snel kunnen afstemmen.',
+      'Vi har känt Mark, grundaren av Tarifa Surf Club, i många år. I Tarifa ses och hörs vi nästan varje dag, så frågor och ändringar kan samordnas personligt och snabbt.'
+    ),
+    imageAlt: l(
+      'Mark from Tarifa Surf Club and Robert from AMARA in Tarifa',
+      'Mark vom Tarifa Surf Club und Robert von AMARA in Tarifa',
+      'Mark de Tarifa Surf Club y Robert de AMARA en Tarifa',
+      'Mark van Tarifa Surf Club en Robert van AMARA in Tarifa',
+      'Mark från Tarifa Surf Club och Robert från AMARA i Tarifa'
+    ),
+    imageCaption: l(
+      'Mark and Robert – personal coordination in Tarifa',
+      'Mark und Robert – persönliche Abstimmung in Tarifa',
+      'Mark y Robert: coordinación personal en Tarifa',
+      'Mark en Robert – persoonlijk afgestemd in Tarifa',
+      'Mark och Robert – personlig samordning i Tarifa'
+    ),
+    servicesTitle: l(
+      'The complete Tarifa Surf Club offer',
+      'Das gesamte Angebot des Tarifa Surf Club',
+      'Toda la oferta de Tarifa Surf Club',
+      'Het volledige aanbod van Tarifa Surf Club',
+      'Hela utbudet hos Tarifa Surf Club'
+    ),
+    services: [
+      {
+        id: 'kite-school',
+        eyebrow: l('Kite school', 'Kiteschule', 'Escuela de kitesurf', 'Kiteschool', 'Kiteskola'),
+        title: l('Courses for every level', 'Kurse für jedes Level', 'Cursos para todos los niveles', 'Lessen voor elk niveau', 'Kurser för alla nivåer'),
+        text: l('Group and private tuition for first water starts, progression and confident riding.', 'Gruppen- und Privatkurse für erste Wasserstarts, Fortschritte und sicheres Fahren.', 'Clases en grupo y privadas para las primeras salidas, progresar y navegar con seguridad.', 'Groeps- en privélessen voor de eerste waterstart, progressie en zeker varen.', 'Grupp- och privatlektioner för vattenstart, utveckling och trygg åkning.'),
+        href: 'https://tarifasurfclub.com/kitekurs-in-tarifa'
+      },
+      {
+        id: 'kitecamp',
+        eyebrow: l('Kitecamp', 'Kitecamp', 'Kitecamp', 'Kitecamp', 'Kitecamp'),
+        title: l('Several days focused on kiting', 'Mehrere Tage ganz im Zeichen des Kitens', 'Varios días centrados en el kite', 'Meerdere dagen volledig gericht op kiten', 'Flera dagar med kite i fokus'),
+        text: l('A coordinated programme with coaching, time on the water and the right package for your level.', 'Ein abgestimmtes Programm mit Betreuung, Zeit auf dem Wasser und dem passenden Paket für euer Niveau.', 'Un programa coordinado con clases, tiempo en el agua y el paquete adecuado para vuestro nivel.', 'Een afgestemd programma met begeleiding, tijd op het water en een passend pakket voor jullie niveau.', 'Ett samordnat program med coaching, tid på vattnet och rätt paket för er nivå.'),
+        href: 'https://tarifasurfclub.com/kitecamp-in-tarifa-spanien'
+      },
+      {
+        id: 'rental',
+        eyebrow: l('Rental', 'Verleih', 'Alquiler', 'Verhuur', 'Uthyrning'),
+        title: l('Equipment ready for your session', 'Material passend zu eurer Session', 'Material preparado para vuestra sesión', 'Materiaal voor jullie sessie', 'Utrustning för er session'),
+        text: l('Rent current kite equipment with personal advice on setup and conditions.', 'Aktuelles Kitematerial leihen, mit persönlicher Beratung zu Setup und Bedingungen.', 'Alquilad material actual con asesoramiento personal sobre equipo y condiciones.', 'Huur actueel kitemateriaal met persoonlijk advies over setup en omstandigheden.', 'Hyr aktuell kiteutrustning med personlig rådgivning om setup och förhållanden.'),
+        href: 'https://tarifasurfclub.com/kite-equipment-rental'
+      },
+      {
+        id: 'shop',
+        eyebrow: l('Shop', 'Shop', 'Tienda', 'Shop', 'Butik'),
+        title: l('Buy equipment with local advice', 'Material mit lokalem Rat kaufen', 'Comprar material con asesoramiento local', 'Materiaal kopen met lokaal advies', 'Köp utrustning med lokala råd'),
+        text: l('Find kites, boards, accessories and support from a team that knows Tarifa conditions.', 'Kites, Boards und Zubehör mit Beratung eines Teams, das die Bedingungen in Tarifa kennt.', 'Kites, tablas y accesorios con el apoyo de un equipo que conoce las condiciones de Tarifa.', 'Kites, boards en accessoires met advies van een team dat de omstandigheden in Tarifa kent.', 'Kites, brädor och tillbehör med stöd från ett team som känner Tarifas förhållanden.'),
+        href: 'https://shop.tarifasurfclub.com/'
+      }
+    ],
+    contactText: l(
+      'Send us your dates, number of guests, kite level and what you would like to do. We will reply personally and coordinate accommodation and Surf Club offer with you.',
+      'Schickt uns Reisedaten, Personenzahl, Kite-Level und eure Wünsche. Wir antworten persönlich und stimmen Unterkunft und Surf-Club-Angebot mit euch ab.',
+      'Enviadnos las fechas, el número de huéspedes, vuestro nivel de kite y lo que os gustaría hacer. Respondemos personalmente y coordinamos con vosotros el alojamiento y la oferta del Surf Club.',
+      'Stuur ons reisdata, aantal gasten, kite-niveau en jullie wensen. We antwoorden persoonlijk en stemmen verblijf en Surf Club-aanbod met jullie af.',
+      'Skicka resedatum, antal gäster, kitenivå och era önskemål. Vi svarar personligen och samordnar boende och Surf Club-utbud med er.'
+    ),
+    contactLabel: l(
+      'Plan your kite stay with AMARA',
+      'Kite-Aufenthalt mit AMARA planen',
+      'Organizar vuestro viaje de kite con AMARA',
+      'Plan jullie kiteverblijf met AMARA',
+      'Planera er kitevistelse med AMARA'
+    ),
+    contactMessage: l(
+      'Hello AMARA, we are interested in a Tarifa stay with kitesurfing. Travel dates: / Number of guests: / Kite level: / Courses, kitecamp or equipment:',
+      'Hallo AMARA, wir interessieren uns für einen Tarifa-Aufenthalt mit Kitesurfen. Reisedaten: / Anzahl Gäste: / Kite-Level: / Kurse, Kitecamp oder Material:',
+      'Hola AMARA, nos interesa una estancia en Tarifa con kitesurf. Fechas: / Número de huéspedes: / Nivel de kite: / Cursos, kitecamp o material:',
+      'Hallo AMARA, we zijn geïnteresseerd in een verblijf in Tarifa met kitesurfen. Reisdata: / Aantal gasten: / Kite-niveau: / Lessen, kitecamp of materiaal:',
+      'Hej AMARA, vi är intresserade av en vistelse i Tarifa med kitesurfing. Resedatum: / Antal gäster: / Kitenivå: / Kurser, kitecamp eller utrustning:'
+    ),
+    partnerLabel: l(
+      'Visit Tarifa Surf Club',
+      'Tarifa Surf Club besuchen',
+      'Visitar Tarifa Surf Club',
+      'Bezoek Tarifa Surf Club',
+      'Besök Tarifa Surf Club'
+    )
+  },
   sections: [
     {
       id: 'winds',
@@ -844,11 +1016,59 @@ const wind: TarifaGuideContent = {
     text: l('Do not enter the water because a spot is famous or other riders are out. Respect current zones and flags, never ride beyond your proven level, and seek qualified local advice whenever conditions are strong, gusty or offshore.', 'Geht nicht aufs Wasser, nur weil ein Spot bekannt ist oder andere fahren. Beachtet aktuelle Zonen und Flaggen, überschreitet niemals euer nachgewiesenes Niveau und holt bei starken, böigen oder ablandigen Bedingungen qualifizierten Rat vor Ort ein.', 'No entres al agua porque el lugar sea famoso o porque haya otras personas navegando. Respeta zonas y banderas, no superes tu nivel demostrado y busca asesoramiento local cualificado con viento fuerte, racheado o de tierra.', 'Ga niet het water op omdat een spot beroemd is of anderen varen. Respecteer actuele zones en vlaggen, blijf binnen je aantoonbare niveau en vraag gekwalificeerd lokaal advies bij harde, vlagerige of aflandige wind.', 'Gå inte ut bara för att platsen är berömd eller andra är på vattnet. Respektera aktuella zoner och flaggor, håll dig inom bevisad nivå och sök kvalificerad lokal rådgivning vid stark, byig eller frånlandsvind.')
   },
   faq: [
+    {
+      question: l(
+        'Can AMARA coordinate accommodation and kitesurfing together?',
+        'Kann AMARA Unterkunft und Kitesurfen gemeinsam organisieren?',
+        '¿Puede AMARA coordinar juntos el alojamiento y el kitesurf?',
+        'Kan AMARA verblijf en kitesurfen samen regelen?',
+        'Kan AMARA samordna boende och kitesurfing?'
+      ),
+      answer: l(
+        'Yes. Send us your dates, number of guests, kite level and wishes. We coordinate your AMARA stay with the suitable Tarifa Surf Club course, kitecamp, coaching or equipment and bring the relevant booking details together for you.',
+        'Ja. Schickt uns Reisedaten, Personenzahl, Kite-Level und eure Wünsche. Wir stimmen euren AMARA-Aufenthalt mit dem passenden Kurs, Kitecamp, Coaching oder Material des Tarifa Surf Club ab und bringen die jeweiligen Buchungsinformationen für euch zusammen.',
+        'Sí. Enviadnos las fechas, el número de huéspedes, vuestro nivel y lo que buscáis. Coordinamos vuestra estancia en AMARA con el curso, kitecamp, clase o material adecuado de Tarifa Surf Club y reunimos los datos de reserva correspondientes.',
+        'Ja. Stuur ons reisdata, aantal gasten, kite-niveau en jullie wensen. Wij stemmen het AMARA-verblijf af met de passende les, kitecamp, coaching of uitrusting van Tarifa Surf Club en brengen de juiste boekingsinformatie samen.',
+        'Ja. Skicka resedatum, antal gäster, kitenivå och önskemål. Vi samordnar AMARA-vistelsen med rätt kurs, kitecamp, coaching eller utrustning hos Tarifa Surf Club och samlar bokningsuppgifterna åt er.'
+      )
+    },
+    {
+      question: l(
+        'Are kite school courses and kitecamps suitable for beginners?',
+        'Sind Kurse der Kiteschule und Kitecamps für Anfänger geeignet?',
+        '¿Los cursos de la escuela y los kitecamps son adecuados para principiantes?',
+        'Zijn lessen van de kiteschool en kitecamps geschikt voor beginners?',
+        'Passar kiteskolans kurser och kitecamps för nybörjare?'
+      ),
+      answer: l(
+        'Tarifa Surf Club offers tuition for different levels. Share your experience and goals with us so the team can recommend the appropriate course format, supervision and schedule for the actual conditions.',
+        'Der Tarifa Surf Club bietet Unterricht für unterschiedliche Niveaus. Teilt uns eure Erfahrung und Ziele mit, damit das Team das passende Kursformat, die Betreuung und den Ablauf für die tatsächlichen Bedingungen empfehlen kann.',
+        'Tarifa Surf Club ofrece clases para distintos niveles. Contadnos vuestra experiencia y objetivos para que el equipo pueda recomendar el formato, la atención y el horario adecuados a las condiciones reales.',
+        'Tarifa Surf Club geeft les op verschillende niveaus. Deel jullie ervaring en doelen met ons, zodat het team de passende lesvorm, begeleiding en planning voor de actuele omstandigheden kan adviseren.',
+        'Tarifa Surf Club erbjuder undervisning för olika nivåer. Berätta om er erfarenhet och era mål så att teamet kan rekommendera rätt kursform, handledning och upplägg för dagens förhållanden.'
+      )
+    },
+    {
+      question: l(
+        'Can I rent or buy kite equipment in Tarifa?',
+        'Kann ich in Tarifa Kitematerial leihen oder kaufen?',
+        '¿Puedo alquilar o comprar material de kite en Tarifa?',
+        'Kan ik in Tarifa kitemateriaal huren of kopen?',
+        'Kan jag hyra eller köpa kiteutrustning i Tarifa?'
+      ),
+      answer: l(
+        'Tarifa Surf Club offers equipment rental and a shop for kites, boards and accessories. Tell us what you need and your level; we coordinate the contact so the team can advise you on the suitable setup.',
+        'Der Tarifa Surf Club bietet Materialverleih und einen Shop für Kites, Boards und Zubehör. Nennt uns Bedarf und Niveau; wir koordinieren den Kontakt, damit das Team euch zum passenden Setup beraten kann.',
+        'Tarifa Surf Club ofrece alquiler y una tienda de kites, tablas y accesorios. Decidnos qué necesitáis y vuestro nivel; coordinamos el contacto para que el equipo pueda aconsejaros el equipo adecuado.',
+        'Tarifa Surf Club heeft verhuur en een shop voor kites, boards en accessoires. Vertel ons wat jullie nodig hebben en op welk niveau jullie varen; wij regelen het contact voor advies over de passende setup.',
+        'Tarifa Surf Club erbjuder uthyrning och en butik med kites, brädor och tillbehör. Berätta vad ni behöver och er nivå; vi samordnar kontakten så att teamet kan rekommendera rätt setup.'
+      )
+    },
     { question: l('Which wind is better for beginners?', 'Welcher Wind ist besser für Anfänger?', '¿Qué viento es mejor para principiantes?', 'Welke wind is beter voor beginners?', 'Vilken vind är bäst för nybörjare?'), answer: l('Poniente often feels more accessible because it generally reaches the Atlantic beaches from the sea, but there is no automatic beginner day. A qualified school must assess the actual location, strength, waves and zoning.', 'Poniente wirkt oft zugänglicher, weil er die Atlantikstrände meist vom Meer erreicht. Einen automatisch sicheren Anfängertag gibt es dennoch nicht. Eine qualifizierte Schule muss Ort, Stärke, Wellen und Zonierung aktuell beurteilen.', 'El Poniente suele resultar más accesible porque llega generalmente del mar, pero no existe un día automáticamente apto para principiantes. Una escuela cualificada debe valorar lugar, intensidad, olas y zonificación.', 'Poniente voelt vaak toegankelijker omdat hij meestal vanaf zee komt, maar er bestaat geen automatisch veilige beginnersdag. Een gekwalificeerde school moet plek, kracht, golven en zonering beoordelen.', 'Poniente känns ofta mer tillgänglig eftersom den vanligtvis kommer från havet, men ingen dag är automatiskt en nybörjardag. En kvalificerad skola måste bedöma plats, styrka, vågor och zoner.') },
     { question: l('Can I kite anywhere along Los Lances?', 'Kann ich überall an Los Lances kiten?', '¿Se puede hacer kite en cualquier punto de Los Lances?', 'Kun je overal langs Los Lances kiten?', 'Kan man kitesurfa överallt längs Los Lances?'), answer: l('No. Los Lances includes different sections, bathing areas, protected environments and marked watersport infrastructure. Use only the currently permitted zones and access points.', 'Nein. Los Lances umfasst unterschiedliche Abschnitte, Badebereiche, geschützte Lebensräume und markierte Wassersport-Infrastruktur. Nutzt nur aktuell erlaubte Zonen und Zugänge.', 'No. Los Lances incluye tramos distintos, zonas de baño, espacios protegidos e infraestructura señalizada para deportes. Utiliza únicamente zonas y accesos autorizados.', 'Nee. Los Lances bestaat uit verschillende delen, zwemzones, beschermde natuur en gemarkeerde watersportinfrastructuur. Gebruik alleen de op dat moment toegestane zones en toegangen.', 'Nej. Los Lances omfattar olika delar, badzoner, skyddade miljöer och markerad vattensportinfrastruktur. Använd endast för tillfället tillåtna zoner och tillträden.') },
     { question: l('Do online forecasts replace local advice?', 'Ersetzen Online-Vorhersagen lokalen Rat?', '¿Las previsiones en línea sustituyen el consejo local?', 'Vervangen online verwachtingen lokaal advies?', 'Ersätter nätprognoser lokala råd?'), answer: l('No. Forecasts are planning tools. Beach observations, official flags, marked zones and qualified local operators provide the final context.', 'Nein. Vorhersagen sind Planungswerkzeuge. Beobachtungen am Strand, offizielle Flaggen, markierte Zonen und qualifizierte lokale Anbieter liefern den entscheidenden Kontext.', 'No. Las previsiones sirven para planificar. La observación en la playa, las banderas, las zonas señalizadas y los operadores cualificados aportan el contexto definitivo.', 'Nee. Verwachtingen zijn planningstools. Observatie op het strand, officiële vlaggen, gemarkeerde zones en gekwalificeerde lokale aanbieders geven de doorslaggevende context.', 'Nej. Prognoser är planeringsverktyg. Observationer på stranden, officiella flaggor, markerade zoner och kvalificerade lokala aktörer ger det avgörande sammanhanget.') }
   ],
-  sources: [officialKiteSource, beachPlanSource, officialBeachSource],
+  sources: [tarifaSurfClubSource, officialKiteSource, beachPlanSource, officialBeachSource],
   related: ['overview', 'beaches']
 };
 
