@@ -33,6 +33,31 @@ test('the public AMARA Experience landing links to a separate guest access page'
   );
 });
 
+test('the guest access header uses the canonical AMARA brand and availability action', async ({ page }) => {
+  await page.goto('/de/amara-experience/access');
+
+  const brand = page.locator('.am-experience-app__brand');
+  await expect(brand).toHaveAttribute('href', '/de');
+  await expect(brand).toContainText('AMARA');
+  await expect(brand).toContainText('Lodging');
+
+  const availabilityAction = page.locator('header [data-am-availability-action]');
+  await expect(availabilityAction).toHaveAttribute('href', '/de/find-a-stay');
+  await expect(availabilityAction).toHaveAccessibleName('Verfügbarkeit prüfen');
+  await expect(availabilityAction.locator('svg')).toBeVisible();
+  const availabilityStyle = await availabilityAction.evaluate((element) => {
+    const style = getComputedStyle(element);
+    return {
+      backgroundColor: style.backgroundColor,
+      borderRadius: Number.parseFloat(style.borderRadius),
+      boxShadow: style.boxShadow
+    };
+  });
+  expect(availabilityStyle.backgroundColor).toBe('rgb(255, 255, 255)');
+  expect(availabilityStyle.borderRadius).toBeGreaterThanOrEqual(22);
+  expect(availabilityStyle.boxShadow).not.toBe('none');
+});
+
 test('the guest access page stays focused on booking verification', async ({ page }) => {
   await page.goto('/de/amara-experience/access');
 

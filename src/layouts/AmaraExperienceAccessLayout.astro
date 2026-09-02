@@ -1,16 +1,21 @@
 ---
+import { CalendarCheck } from '@lucide/astro';
 import type { AmaraLanguage } from '../types/seo';
+import AmaraActionLink from '../components/actions/AmaraActionLink.astro';
 import GuestGuideLanguageSwitcher from '../components/guest-guide/GuestGuideLanguageSwitcher.astro';
+import { globalCtaLabels } from '../components/navigation/globalNavigationContent';
+import { resolveLink } from '../lib/linkResolver';
 import '../styles/global.css';
 import '../styles/amara-experience.css';
 
 interface Props {
   lang: AmaraLanguage;
   title: string;
-  landingHref: string;
 }
 
-const { lang, title, landingHref } = Astro.props;
+const { lang, title } = Astro.props;
+const homeHref = resolveLink('home', lang);
+const availabilityHref = resolveLink('stay_search_results', lang);
 ---
 
 <!doctype html>
@@ -27,11 +32,23 @@ const { lang, title, landingHref } = Astro.props;
   <body class="am-experience-app">
     <div class="am-experience-app__viewport">
       <header class="am-experience-app__header">
-        <a href={landingHref} class="am-experience-app__brand" aria-label="AMARA Experience">
-          <span>AMARA</span>
-          <small>Experience</small>
+        <a href={homeHref} class="am-experience-app__brand" aria-label="AMARA Lodging">
+          <span class="font-headline italic text-xl text-on-surface tracking-tighter">AMARA</span>
+          <span class="am-text-brand-strapline -mt-1 block text-center text-muted">Lodging</span>
         </a>
-        <GuestGuideLanguageSwitcher currentLang={lang} target="access" />
+        <div class="am-experience-app__utilities">
+          <AmaraActionLink
+            href={availabilityHref}
+            variant="secondary"
+            class="am-experience-app__availability"
+            aria-label={globalCtaLabels[lang]}
+            title={globalCtaLabels[lang]}
+            data-am-availability-action
+          >
+            <CalendarCheck size={22} stroke-width={1.5} aria-hidden="true" />
+          </AmaraActionLink>
+          <GuestGuideLanguageSwitcher currentLang={lang} target="access" />
+        </div>
       </header>
       <slot />
     </div>
