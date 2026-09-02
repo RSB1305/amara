@@ -849,6 +849,10 @@ export function enhanceStaySearchFinders() {
         arrivalTrigger.contains(target) ||
         departureTrigger.contains(target)
       ) return;
+      if (arrival.value && !departure.value) {
+        resetDateSelection();
+        return;
+      }
       closeCalendar(false);
     });
     const resetLiveCalendar = (openAfterReset = false) => {

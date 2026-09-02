@@ -400,6 +400,14 @@ test('mobile finder uses one month and results stay in a single column without o
   expect(requests[0].pathname).toContain('/search-calendar');
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(MOBILE.width);
 
+  const partialArrival = futureIso(2);
+  await page.locator('[data-am-booking-day="' + partialArrival + '"]').click();
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue(partialArrival);
+  await page.mouse.click(5, 5);
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue('');
+  await expect(page.locator('[data-am-booking-calendar]')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Start over' })).toBeDisabled();
+
   await page.goto(searchUrl('nerja', futureIso(50), futureIso(57)));
   await expect(page.locator('[data-am-stay-result]:visible')).toHaveCount(1);
   const boxes = await page.locator('[data-am-stay-result]:visible').evaluateAll((items) => items.map((item) => item.getBoundingClientRect().width));
