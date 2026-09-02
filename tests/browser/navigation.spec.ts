@@ -490,15 +490,15 @@ test('the availability context stays concise and separates its mobile link rail'
   );
 
   await page.setViewportSize(DESKTOP_VIEWPORT);
-  const [desktopBreadcrumbBox, desktopToolbarBox] = await Promise.all([
-    breadcrumb.boundingBox(),
+  const [desktopLayoutBox, desktopToolbarBox] = await Promise.all([
+    page.locator('[data-am-context-layout-simple]').boundingBox(),
     page.locator('[data-am-context-toolbar-simple]').boundingBox()
   ]);
-  expect(desktopBreadcrumbBox).not.toBeNull();
+  expect(desktopLayoutBox).not.toBeNull();
   expect(desktopToolbarBox).not.toBeNull();
-  const desktopGap = desktopToolbarBox!.x - (desktopBreadcrumbBox!.x + desktopBreadcrumbBox!.width);
-  expect(desktopGap).toBeGreaterThanOrEqual(24);
-  expect(desktopGap).toBeLessThanOrEqual(65);
+  const desktopRightEdge = desktopLayoutBox!.x + desktopLayoutBox!.width;
+  const desktopToolbarRightEdge = desktopToolbarBox!.x + desktopToolbarBox!.width;
+  expect(Math.abs(desktopRightEdge - desktopToolbarRightEdge)).toBeLessThanOrEqual(1);
 
   await page.setViewportSize({ width: 1100, height: 900 });
   const [tabletContextShellBox, tabletContextSpacerBox] = await Promise.all([
