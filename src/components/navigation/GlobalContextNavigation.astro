@@ -12,7 +12,7 @@ import {
   type DestinationId
 } from '../../lib/location/destinationBranchNavigation';
 import { getDestinationContextGroups } from '../../lib/location/destinationContextNavigation';
-import { defaultCtaShortLabels, globalCtaLabels } from './globalNavigationContent';
+import { defaultCtaShortLabels } from './globalNavigationContent';
 import { resolveLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -45,7 +45,6 @@ const labels: Record<
     allStays: string;
     amenities: string;
     reviews: string;
-    checkAvailability: string;
     directBookingBenefits: string;
     faq: string;
     arrival: string;
@@ -57,12 +56,11 @@ const labels: Record<
     stays: 'Stays',
     switcher: 'Explore AMARA',
     destinations: 'Destinations',
-    allStays: 'All stays',
-    amenities: trustLabels.amenities.en,
-    reviews: trustLabels.reviews_hub.en,
-    checkAvailability: globalCtaLabels.en,
+    allStays: 'Stays',
+    amenities: 'Amenities',
+    reviews: 'Reviews',
     directBookingBenefits: trustLabels.direct_booking_benefits.en,
-    faq: trustLabels.faq_general.en,
+    faq: 'FAQ',
     arrival: 'Arrival Guide'
   },
   de: {
@@ -71,12 +69,11 @@ const labels: Record<
     stays: 'Unterkünfte',
     switcher: 'AMARA entdecken',
     destinations: 'Reiseziele',
-    allStays: 'Alle Unterkünfte',
-    amenities: trustLabels.amenities.de,
-    reviews: trustLabels.reviews_hub.de,
-    checkAvailability: globalCtaLabels.de,
+    allStays: 'Unterkünfte',
+    amenities: 'Ausstattung',
+    reviews: 'Bewertungen',
     directBookingBenefits: trustLabels.direct_booking_benefits.de,
-    faq: trustLabels.faq_general.de,
+    faq: 'FAQ',
     arrival: 'Anreise-Guide'
   },
   es: {
@@ -85,12 +82,11 @@ const labels: Record<
     stays: 'Alojamientos',
     switcher: 'Descubrir AMARA',
     destinations: 'Destinos',
-    allStays: 'Todos los alojamientos',
-    amenities: trustLabels.amenities.es,
-    reviews: trustLabels.reviews_hub.es,
-    checkAvailability: globalCtaLabels.es,
+    allStays: 'Alojamientos',
+    amenities: 'Equipamiento',
+    reviews: 'Reseñas',
     directBookingBenefits: trustLabels.direct_booking_benefits.es,
-    faq: trustLabels.faq_general.es,
+    faq: 'FAQ',
     arrival: 'Guía de llegada'
   },
   nl: {
@@ -99,12 +95,11 @@ const labels: Record<
     stays: 'Verblijven',
     switcher: 'AMARA ontdekken',
     destinations: 'Bestemmingen',
-    allStays: 'Alle verblijven',
-    amenities: trustLabels.amenities.nl,
-    reviews: trustLabels.reviews_hub.nl,
-    checkAvailability: globalCtaLabels.nl,
+    allStays: 'Verblijven',
+    amenities: 'Voorzieningen',
+    reviews: 'Beoordelingen',
     directBookingBenefits: trustLabels.direct_booking_benefits.nl,
-    faq: trustLabels.faq_general.nl,
+    faq: 'FAQ',
     arrival: 'Aankomstgids'
   },
   sv: {
@@ -113,12 +108,11 @@ const labels: Record<
     stays: 'Boenden',
     switcher: 'Upptäck AMARA',
     destinations: 'Resmål',
-    allStays: 'Alla boenden',
-    amenities: trustLabels.amenities.sv,
-    reviews: trustLabels.reviews_hub.sv,
-    checkAvailability: globalCtaLabels.sv,
+    allStays: 'Boenden',
+    amenities: 'Bekvämligheter',
+    reviews: 'Omdömen',
     directBookingBenefits: trustLabels.direct_booking_benefits.sv,
-    faq: trustLabels.faq_general.sv,
+    faq: 'FAQ',
     arrival: 'Ankomstguide'
   }
 };
@@ -185,7 +179,6 @@ const genericItems: ContextNavigationItem[] = [
   { id: 'stays', href: resolveLink('romantic_hideaways', lang), label: copy.allStays },
   { id: 'amenities', href: resolveLink('amenities', lang), label: copy.amenities },
   { id: 'reviews', href: resolveLink('reviews_hub', lang), label: copy.reviews },
-  { id: 'availability', href: resolveLink('stay_search_results', lang), label: copy.checkAvailability },
   { id: 'faq', href: resolveLink('faq_general', lang), label: copy.faq }
 ];
 
@@ -226,7 +219,7 @@ const activeId = items.find(
 )?.id;
 const breadcrumbs = isHome ? [] : [
   { label: 'AMARA', href: homeHref },
-  ...(!isLegalDocument
+  ...(!isLegalDocument && !isStaySearchResults
     ? [{ label: breadcrumbSection, href: breadcrumbSectionHref }]
     : []),
   { label: resolvedBreadcrumbTitle }

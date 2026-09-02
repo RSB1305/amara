@@ -457,25 +457,57 @@ test('the AMARA breadcrumb mark stays a black text heart on mobile', async ({ pa
   expect(presentation.onSurfaceColor).toBe('#1b1c1a');
 });
 
-test('the mobile breadcrumb and contextual links share one vertical center', async ({ page }) => {
+test('the availability context stays concise and separates its mobile link rail', async ({ page }) => {
   await page.setViewportSize(MOBILE_VIEWPORT);
-  await openPage(page, '/de/amara-experience');
+  await openPage(page, '/de/find-a-stay');
 
-  const breadcrumb = page.locator('[data-am-context-breadcrumb-row] ol');
-  const firstContextLink = page.locator('[data-am-context-scroll-rail] a').first();
+  const breadcrumb = page.locator('[data-am-context-breadcrumb-row]');
+  const currentBreadcrumb = page.locator('[data-am-context-breadcrumb-current]');
+  const linkRail = page.locator('[data-am-context-scroll-rail]');
+  const contextLinks = linkRail.locator('a');
   await expect(breadcrumb).toBeVisible();
-  await expect(firstContextLink).toBeVisible();
+  await expect(currentBreadcrumb).toHaveText('Verfügbarkeit');
+  await expect(breadcrumb).not.toContainText('AMARA entdecken');
+  await expect(contextLinks).toHaveCount(4);
+  await expect(contextLinks).toHaveText(['Unterkünfte', 'Ausstattung', 'Bewertungen', 'FAQ']);
+  await expect(linkRail).not.toContainText('Verfügbarkeit');
 
-  const [breadcrumbBox, contextLinkBox] = await Promise.all([
+  const [breadcrumbBox, linkRailBox, contextShellBox, contextSpacerBox] = await Promise.all([
     breadcrumb.boundingBox(),
-    firstContextLink.boundingBox()
+    linkRail.boundingBox(),
+    page.locator('[data-am-context-navigation-simple]').boundingBox(),
+    page.locator('.am-nav-context-spacer').boundingBox()
   ]);
 
   expect(breadcrumbBox).not.toBeNull();
-  expect(contextLinkBox).not.toBeNull();
-  const breadcrumbCenter = breadcrumbBox!.y + breadcrumbBox!.height / 2;
-  const contextLinkCenter = contextLinkBox!.y + contextLinkBox!.height / 2;
-  expect(Math.abs(breadcrumbCenter - contextLinkCenter)).toBeLessThanOrEqual(1);
+  expect(linkRailBox).not.toBeNull();
+  expect(contextShellBox).not.toBeNull();
+  expect(contextSpacerBox).not.toBeNull();
+  expect(linkRailBox!.y).toBeGreaterThan(breadcrumbBox!.y + breadcrumbBox!.height);
+  expect(Math.abs(contextShellBox!.height - contextSpacerBox!.height)).toBeLessThanOrEqual(1);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+    MOBILE_VIEWPORT.width
+  );
+
+  await page.setViewportSize(DESKTOP_VIEWPORT);
+  const [desktopBreadcrumbBox, desktopToolbarBox] = await Promise.all([
+    breadcrumb.boundingBox(),
+    page.locator('[data-am-context-toolbar-simple]').boundingBox()
+  ]);
+  expect(desktopBreadcrumbBox).not.toBeNull();
+  expect(desktopToolbarBox).not.toBeNull();
+  const desktopGap = desktopToolbarBox!.x - (desktopBreadcrumbBox!.x + desktopBreadcrumbBox!.width);
+  expect(desktopGap).toBeGreaterThanOrEqual(24);
+  expect(desktopGap).toBeLessThanOrEqual(65);
+
+  await page.setViewportSize({ width: 1100, height: 900 });
+  const [tabletContextShellBox, tabletContextSpacerBox] = await Promise.all([
+    page.locator('[data-am-context-navigation-simple]').boundingBox(),
+    page.locator('.am-nav-context-spacer').boundingBox()
+  ]);
+  expect(tabletContextShellBox).not.toBeNull();
+  expect(tabletContextSpacerBox).not.toBeNull();
+  expect(Math.abs(tabletContextShellBox!.height - tabletContextSpacerBox!.height)).toBeLessThanOrEqual(1);
 });
 
 test('the desktop destination disclosures remain available without JavaScript', async ({ browser }) => {

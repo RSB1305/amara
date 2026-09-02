@@ -70,9 +70,14 @@ const {
 const visibleItems = activeId && !retainActiveItem
   ? items.filter((item) => item.id !== activeId)
   : items;
+const hasSimpleItemNavigation =
+  branches.length === 0 && !branchGroups && groups.length === 0 && visibleItems.length > 0;
 ---
 
-<div data-am-context-navigation-shell={groups.length > 0 || branchGroups ? '' : undefined}>
+<div
+  data-am-context-navigation-shell={groups.length > 0 || branchGroups ? '' : undefined}
+  data-am-context-navigation-simple={hasSimpleItemNavigation ? '' : undefined}
+>
   <div
     class="border-b border-outline-variant/10 bg-surface"
     data-am-context-navigation
@@ -92,6 +97,7 @@ const visibleItems = activeId && !retainActiveItem
         'grid min-h-10 grid-cols-[max-content_minmax(0,1fr)] items-center gap-x-3'
       ]}
       data-am-context-layout={groups.length > 0 || branchGroups ? '' : undefined}
+      data-am-context-layout-simple={hasSimpleItemNavigation ? '' : undefined}
     >
       {
         breadcrumbs.length > 0 && (
@@ -171,10 +177,12 @@ const visibleItems = activeId && !retainActiveItem
       {(branches.length > 0 || groups.length > 0 || visibleItems.length > 0) && (
       <div
         class:list={[
-          'ml-auto flex min-w-0 max-w-full gap-3',
+          'flex min-w-0 max-w-full gap-3',
+          hasSimpleItemNavigation ? 'w-full' : 'ml-auto',
           branchGroups || groups.length > 0 ? 'overflow-visible' : 'overflow-hidden'
         ]}
         data-am-context-toolbar={groups.length > 0 || branchGroups ? '' : undefined}
+        data-am-context-toolbar-simple={hasSimpleItemNavigation ? '' : undefined}
       >
         {branches.length > 0 && branchSwitcherAriaLabel && !branchGroups && (
           <DestinationBranchSwitcher
@@ -266,6 +274,13 @@ const visibleItems = activeId && !retainActiveItem
     [data-am-context-navigation] [data-am-context-mobile-hidden] {
       display: none;
     }
+
+  }
+
+  @media (max-width: 1023px) {
+    [data-am-context-navigation-simple] {
+      min-height: 81px;
+    }
   }
 
   @media (min-width: 1280px) {
@@ -294,6 +309,19 @@ const visibleItems = activeId && !retainActiveItem
     [data-am-context-toolbar] [data-am-grouped-context-navigation] {
       flex-basis: 100%;
       width: 100%;
+    }
+
+    [data-am-context-layout-simple] {
+      grid-template-columns: max-content minmax(0, 1fr);
+      column-gap: clamp(2rem, 4vw, 4rem);
+    }
+
+    [data-am-context-layout-simple] [data-am-context-toolbar] {
+      justify-content: flex-start;
+    }
+
+    [data-am-context-layout-simple] [data-am-context-scroll-rail] {
+      justify-content: flex-start;
     }
   }
 
