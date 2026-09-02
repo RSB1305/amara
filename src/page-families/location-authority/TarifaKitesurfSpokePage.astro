@@ -3,6 +3,7 @@ import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-s
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
+import TarifaWindBriefing from '../../components/TarifaWindBriefing.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import { tarifaKitesurfSpokeContent, type LocalizedKiteText, type TarifaKitesurfSpokeId } from '../../content/tarifaKitesurfContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -62,6 +63,8 @@ const ui = {
         ))}
       </dl>
     </section>
+
+    {spoke === 'wind-spots-safety' && <TarifaWindBriefing lang={currentLang} />}
 
     {localizedSections.map((section, index) => <AuthorityTextSection section={section} index={index} />)}
 

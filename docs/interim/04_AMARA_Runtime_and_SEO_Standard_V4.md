@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-RUNTIME-004
 title: AMARA Runtime & SEO Standard V4
-version: 4.4.1
+version: 4.5.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF
@@ -9,7 +9,7 @@ source_attachment: "04_AMARA_Runtime_and_SEO_Standard_V4(1).pdf"
 source_sha256: 65e3a3312c1c56a3c096800d3a267dc85e57c6e60f16b81eecc3cbce089eb621
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-29T22:20:00+02:00
+last_modified: 2026-09-02T11:29:14+02:00
 ---
 
 # AMARA Runtime & SEO Standard V4 — Interim Markdown Snapshot
@@ -23,6 +23,12 @@ The public Weather pages for Frigiliana, Nerja and Tarifa remain statically gene
 The Cloudflare Pages Functions own the server-only `AEMET_API_KEY`, the fixed municipality mapping for those three destinations, the provider's two-step request, temporary-host validation, response normalization and per-destination edge caching. The browser receives only the small provider-neutral forecast projection required by the visible component. It never receives the key, provider request URL or raw provider payload.
 
 Failure of the external forecast must not remove or rewrite the static climate content. The component fails safely to a short unavailable state and the official AEMET source link. This amendment grants no dynamic-runtime scope to another public page or destination by implication.
+
+The existing Tarifa Wind / Spots / Safety kitesurfing spoke may additionally request the fixed same-origin GET route `/api/weather/tarifa/kitesurfing`. The page remains statically generated and renders useful evergreen and safety content before enhancement. Its shared Cloudflare Pages gateway owns the server-only Open-Meteo customer API key, fixed Los Lances and Valdevaqueros coordinates, paired weather and marine requests, three-day daytime normalization and deterministic safety assessment. Open-Meteo uses its automatic best-match model selection; the implementation does not select a named forecast model.
+
+The gateway may cache a versioned provider-neutral forecast in `WIND_FORECAST_KV`: data up to six hours old is fresh, data older than six and no older than twelve hours may be served as stale while a background refresh is attempted, and data older than twelve hours is never presented as current. Without a valid cache and provider response the route fails closed with 503. The browser receives neither `OPEN_METEO_API_KEY` nor raw provider payloads.
+
+An optional Workers AI binding may formulate and localize facts already determined by code when `AI` and `WIND_BRIEFING_AI_MODEL` are configured. AI never determines or changes status, warnings, safety, skill suitability or equipment sizing. Invalid, unavailable or timed-out AI output falls back to deterministic ES, EN, DE, NL and SV briefing text. Los Lances with E or SE wind is deterministically `avoid` with offshore-risk and local-check-required warnings; no other safety or suitability thresholds are implied. Valdevaqueros is only the usual alternative to check, never a guarantee of suitable conditions.
 
 
 
@@ -151,7 +157,7 @@ or routing.
 
 ### Official destination forecasts
 
-The Frigiliana, Nerja and Tarifa Weather pages may use the narrow same-origin AEMET boundary defined in the active repository amendment above. The pages themselves stay static, the enhancement uses no client framework and AEMET remains the attributed source of the volatile forecast values.
+The Frigiliana, Nerja and Tarifa Weather pages may use the narrow same-origin AEMET boundary defined in the active repository amendment above. The Tarifa Wind / Spots / Safety spoke may use the separate fixed kitesurfing projection from the same shared weather-gateway owner. These pages stay static, the enhancements use no client framework, and each visible component attributes its provider.
 
 11. Delivery security headers
 
@@ -217,3 +223,4 @@ AMARA Runtime & SEO Standard V4 is binding.
 | 4.3.0 | 2026-08-28T18:00:00Z | Added the Cloudflare Pages security-header contract and introduced CSP strictly in report-only mode. |
 | 4.4.0 | 2026-08-29T07:01:07+02:00 | Enforced the validated CSP origin inventory after representative Public, Guest, consent/analytics, weather, YouTube, legal and booking-entry browser flows completed without violations. |
 | 4.4.1 | 2026-08-29T22:20:00+02:00 | Added YouTube's image host to the CSP image origins. The click-to-load trailer still is served from a separate origin to the player, so enforcing 4.4.0 blocked it; a preview check against the real origins found the gap that the pre-enforcement flows had not. |
+| 4.5.0 | 2026-09-02T11:29:14+02:00 | Added the fixed Open-Meteo weather-and-marine projection for the static Tarifa Wind / Spots / Safety spoke, with versioned KV freshness limits, deterministic safety ownership and an optional formulation-only Workers AI layer. |

@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.64.0
+version: 1.65.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-02T08:45:00+02:00
+last_modified: 2026-09-02T11:29:14+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -22,11 +22,11 @@ The AMARA Register is the single source for active documents, authority classes,
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
 | 02 | AMARA Astro & Design Architecture Contract | 4.25.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
-| 03 | AMARA Runtime, SEO & Data Contract | 4.4.1 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
+| 03 | AMARA Runtime, SEO & Data Contract | 4.5.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.63.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.65.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.10.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.9.1 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -42,7 +42,7 @@ Current operational feature owner during transition:
 |---|---|---|---|
 | External booking / availability / checkout boundary | ACTIVE INTERIM CONTRACT | `AMARA-BOOKING-ARCHITECTURE.md` | Checkout URLs remain centralized through `src/lib/directBooking.ts`; static Astro is extended only by the narrow Cloudflare Pages GET-only Booking Gateway, including live availability, rates, quotes and the validated provider-owned checkout handoff. |
 | AMARA Experience booked-guest access | ACTIVE CODE / PRODUCTION ACTIVATION PENDING SECRET | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` + `AMARA-BOOKING-ARCHITECTURE.md` | Public landing remains static and sends booked guests to a separate localized access page. Fixed Pages Functions verify one confirmed Lodgify reservation, identify its AMARA stay and protect the complete existing Guest Welcome content under the encrypted, no-store, noindex AMARA Experience route family. Production stays closed until `AMARA_EXPERIENCE_SESSION_SECRET` is configured with at least 32 random characters. |
-| Official destination short-term forecasts | ACTIVE INTERIM CONTRACT | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` | The static Frigiliana, Nerja and Tarifa Weather pages each progressively consume one fixed same-origin GET route; AEMET credentials, municipality mappings, provider URLs, normalization and caching remain server-side. |
+| Official destination short-term forecasts | ACTIVE INTERIM CONTRACT | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` | The static Frigiliana, Nerja and Tarifa Weather pages each progressively consume one fixed same-origin AEMET route. The static Tarifa Wind / Spots / Safety spoke consumes its fixed Open-Meteo weather-and-marine projection; customer credentials, coordinates, normalization, deterministic safety logic and versioned KV caching remain server-side. |
 | AMARA Experience knowledge product and recommendation approval | ACTIVE CONTRACT / SCHEMA AND PILOTS PENDING | `docs/features/11_AMARA_Experience_Knowledge_Product_Feature_Contract_V1.md` + `knowledge/README.md` | The public Experience versus AMARA Experience boundary, research-to-recommendation flow and human approval gate are active. Dedicated recommendation schema/manifests and the two pilot research packages remain separate workstreams. |
 
 ## 3. Decision Register
@@ -84,7 +84,7 @@ Current operational feature owner during transition:
 |---|---|---|
 | DR-PLATFORM-001 | AMARA's website runtime is Astro-native and Astro-only. Explicitly governed external operational services may remain active behind narrow boundaries and do not become a second website runtime. | APPROVED |
 | DR-BOOK-001 | The external booking / availability / checkout boundary remains ACTIVE under `AMARA-BOOKING-ARCHITECTURE.md`. Checkout URL construction stays centralized in `src/lib/directBooking.ts`; normal Astro pages stay static, while fixed GET-only public Cloudflare Pages routes may expose provider-neutral availability, stay rules, rates and authoritative quotes plus a validated no-store checkout redirect. The authenticated AMARA Experience may additionally use only the adapter's fixed GET booking-list and single-booking operations to establish and periodically revalidate a guest session. Its protected profile response may expose only the booking holder's first name for the hub greeting; it returns no reservation record or other guest data and performs no provider write. Provider credentials and mappings remain server-side; a provider ID may appear publicly only in the final external checkout `Location`, and all booking/payment writes remain outside the contract. | ACTIVE CURRENT IMPLEMENTATION |
-| DR-WEATHER-001 | The statically generated Frigiliana, Nerja and Tarifa Weather pages may progressively consume only their fixed GET-only Cloudflare Pages Functions at `/api/weather/frigiliana`, `/api/weather/nerja` and `/api/weather/tarifa`. The functions alone own the server-side AEMET key, fixed municipality mapping, provider fetch, temporary-host validation, normalization and per-destination caching; the public response contains only the forecast values and attribution needed by the visible three-day component. Failure preserves each static climate page and falls back to its official source. This decision grants no runtime scope to another page or destination by implication. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-WEATHER-001 | The statically generated Frigiliana, Nerja and Tarifa Weather pages may progressively consume only their fixed GET-only Cloudflare Pages Functions at `/api/weather/frigiliana`, `/api/weather/nerja` and `/api/weather/tarifa`. The static Tarifa Wind / Spots / Safety spoke may additionally consume `/api/weather/tarifa/kitesurfing`, whose shared weather gateway owns the Open-Meteo customer credential, approved Los Lances and Valdevaqueros coordinates, paired weather/marine fetch, versioned `WIND_FORECAST_KV` cache and deterministic safety assessment. Cache data is fresh through six hours, stale-servable through twelve hours and expired thereafter. Los Lances with E or SE wind is always `avoid` with offshore-risk and local-check-required warnings; no other numerical safety or suitability threshold is approved. Optional Workers AI may formulate and localize only code-determined facts and cannot change status, warnings, safety, skill suitability or equipment sizing. All pages remain static and useful when live data fails. This grants no runtime scope to another page or destination by implication. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-001 | BaseLayout plus the central SEO head resolver remain the sole normal public head owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-SEC-001 | Cloudflare Pages applies the active standard security headers to normal public, Guest Utility, legal and booking-entry documents. The validated resource-origin inventory is enforced through `Content-Security-Policy`: same-origin resources plus only the required Google Analytics, Open-Meteo and click-to-load YouTube origins are allowed; inline event-handler attributes are blocked, while deliberate Astro inline script elements and styles remain permitted. Any new origin or relaxation requires explicit alignment and representative compatibility validation. | ACTIVE CURRENT IMPLEMENTATION |
@@ -212,6 +212,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-09-02T11:29:14+02:00 | Tarifa kitesurfing wind briefing | Added the fixed same-origin Open-Meteo weather-and-marine projection to the static Wind / Spots / Safety spoke, with deterministic offshore safety ownership, versioned six/twelve-hour KV freshness and optional formulation-only Workers AI. Runtime Standard 4.5.0, Register 1.65.0. | DR-PLATFORM-001, DR-WEATHER-001, DR-SEC-001 | this revision |
 | 2026-09-02T08:45:00+02:00 | Tarifa Kitesurfing cluster and editorial hero hierarchy | Activated the existing Kitesurfing route as a nested Experience hub with four independently useful spokes, kept spoke navigation local to the cluster, and made the concise H1/subtitle/explanatory hierarchy binding. Astro & Design Contract 4.25.0, Register 1.64.0. | DR-DESIGN-006, DR-DESIGN-019, DR-IA-003–006 | this revision |
 | 2026-09-02T08:09:00+02:00 | Content ownership and projection model | Activated one canonical content or fact owner for every overlapping public/AMARA Experience topic, three projection models, duplicate long-form prevention, separate-shell preservation and incremental consolidation. Feature Contract 1.1.0, Knowledge Workflow 1.3.0 and Register 1.63.0; no website, route, schema or presentation code changed. | DR-EXPERIENCE-007, DR-EXPERIENCE-001–005, DR-EVIDENCE-001–003, DR-GUEST-001–003 | this revision |
 | 2026-09-02T06:19:43+02:00 | AMARA Experience knowledge product | Activated the public Experience versus AMARA Experience content boundary, the research-to-recommendation workflow, human approval gate, provenance/publication separation and recommendation lifecycle. Added Feature Contract 1.0.0, Knowledge Workflow 1.2.0 and Register 1.62.0; no website, route, access or schema code changed. | DR-EXPERIENCE-001–006, DR-EVIDENCE-001–003, DR-GUEST-001–003 | this revision |
@@ -385,3 +386,4 @@ Separate controlled workstreams remain for:
 | 1.62.0 | 2026-09-02T06:19:43+02:00 | Activated the AMARA Experience Knowledge Product Feature Contract, added the public/private recommendation boundary and human approval workflow, and aligned Knowledge Workflow 1.2.0 without changing runtime or content. | this revision |
 | 1.63.0 | 2026-09-02T08:09:00+02:00 | Activated the single-owner content and fact projection model, three ownership patterns, duplicate-copy prevention, separate-shell preservation and incremental consolidation reference cases. | this revision |
 | 1.64.0 | 2026-09-02T08:45:00+02:00 | Activated the Tarifa Kitesurfing hub-and-spoke cluster and the binding two-line editorial-H1 hierarchy; aligned Astro & Design Contract 4.25.0 and the executable route/page-family owners. | this revision |
+| 1.65.0 | 2026-09-02T11:29:14+02:00 | Registered Runtime Standard 4.5.0 and activated the fixed Tarifa kitesurfing weather-and-marine projection with deterministic safety ownership, versioned KV freshness and optional formulation-only Workers AI. | this revision |

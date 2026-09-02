@@ -1,0 +1,267 @@
+---
+import type { AmaraLanguage } from '../types/seo';
+
+interface Props {
+  lang: AmaraLanguage;
+}
+
+const { lang } = Astro.props;
+const endpoint = `/api/weather/tarifa/kitesurfing?lang=${lang}`;
+const widgetId = 'amara-tarifa-wind-briefing';
+
+const copy = {
+  es: {
+    eyebrow: 'Previsión de viento', title: 'Briefing de kitesurf para los próximos tres días',
+    intro: 'Combinamos la previsión de viento y mar para Los Lances y Valdevaqueros. El estado se mantiene sin valorar salvo cuando se aplica la regla local aprobada para viento de tierra en Los Lances.',
+    loading: 'Cargando la previsión del modelo…', fresh: 'Previsión actualizada', stale: 'Última previsión disponible; puede tener entre 6 y 12 horas', unavailable: 'La previsión dinámica no está disponible ahora. La orientación práctica de esta página sigue vigente.',
+    fallbackLos: 'Con viento E o SE, evitad Los Lances por riesgo de viento de tierra y comprobad las zonas locales vigentes.',
+    fallbackValde: 'Valdevaqueros es la alternativa habitual que conviene comprobar; nunca garantiza condiciones adecuadas.',
+    status: 'Estado', statuses: { favourable: 'Favorable', demanding: 'Exigente', avoid: 'Evitad', unknown: 'Sin valorar' },
+    warnings: { 'offshore-risk': 'Riesgo de viento de tierra', 'local-check-required': 'Comprobación local imprescindible' },
+    wind: 'Viento medio', gusts: 'Rachas', gustOffset: 'Diferencia de racha', waves: 'Olas', swell: 'Mar de fondo', period: 'periodo',
+    model: 'Modelo', updated: 'Actualizado',
+    safetyTitle: 'Comprobad siempre las condiciones reales',
+    safety: [
+      'Esta es una previsión de modelo, no una medición en directo desde la playa. Las condiciones reales pueden ser distintas.',
+      'Comprobad las zonas locales vigentes y seguid la orientación de expertos locales antes de entrar al agua.',
+      'Si estáis empezando, confirmad las condiciones con una escuela o un instructor.',
+      'Confirmad el tamaño de kite y tabla con la escuela o el proveedor según peso, nivel, equipo y condiciones locales.'
+    ],
+    attribution: 'Datos meteorológicos de Open-Meteo.com'
+  },
+  en: {
+    eyebrow: 'Wind forecast', title: 'Three-day kitesurfing wind briefing',
+    intro: 'We combine wind and marine model forecasts for Los Lances and Valdevaqueros. Status remains unassessed unless the approved local offshore-wind rule for Los Lances applies.',
+    loading: 'Loading the current model forecast…', fresh: 'Current forecast', stale: 'Last available forecast; it may be 6 to 12 hours old', unavailable: 'The dynamic forecast is unavailable right now. The practical guidance on this page still applies.',
+    fallbackLos: 'With E or SE wind, avoid Los Lances because of offshore risk and check the current local zones.',
+    fallbackValde: 'Valdevaqueros is the usual alternative to check; it is never a guarantee of suitable conditions.',
+    status: 'Status', statuses: { favourable: 'Favourable', demanding: 'Demanding', avoid: 'Avoid', unknown: 'Unassessed' },
+    warnings: { 'offshore-risk': 'Offshore-wind risk', 'local-check-required': 'Local check required' },
+    wind: 'Average wind', gusts: 'Gusts', gustOffset: 'Gust offset', waves: 'Waves', swell: 'Swell', period: 'period',
+    model: 'Model', updated: 'Updated',
+    safetyTitle: 'Always check the actual conditions',
+    safety: [
+      'This is a model forecast, not a live beach measurement. Actual conditions at the beach can differ.',
+      'Check the current local zones and follow local expert guidance before going on the water.',
+      'If you are beginners, confirm the conditions with a school or instructor.',
+      'Confirm kite and board sizing with the school or provider for rider weight, ability, equipment and local conditions.'
+    ],
+    attribution: 'Weather data by Open-Meteo.com'
+  },
+  de: {
+    eyebrow: 'Windvorhersage', title: 'Kitesurf-Windbriefing für drei Tage',
+    intro: 'Wir verbinden die Wind- und Meeresmodellvorhersage für Los Lances und Valdevaqueros. Der Status bleibt unbewertet, außer wenn die freigegebene lokale Ablandig-Regel für Los Lances greift.',
+    loading: 'Aktuelle Modellvorhersage wird geladen…', fresh: 'Aktuelle Vorhersage', stale: 'Letzte verfügbare Vorhersage; sie kann 6 bis 12 Stunden alt sein', unavailable: 'Die dynamische Vorhersage ist gerade nicht verfügbar. Die praktischen Hinweise auf dieser Seite gelten weiterhin.',
+    fallbackLos: 'Bei Ost- oder Südostwind meidet Los Lances wegen des ablandigen Risikos und prüft die aktuellen lokalen Zonen.',
+    fallbackValde: 'Valdevaqueros ist die übliche Alternative, die ihr prüfen könnt; geeignete Bedingungen sind dort nie garantiert.',
+    status: 'Status', statuses: { favourable: 'Günstig', demanding: 'Anspruchsvoll', avoid: 'Meiden', unknown: 'Unbewertet' },
+    warnings: { 'offshore-risk': 'Ablandiges Windrisiko', 'local-check-required': 'Lokale Prüfung erforderlich' },
+    wind: 'Mittlerer Wind', gusts: 'Böen', gustOffset: 'Böendifferenz', waves: 'Wellen', swell: 'Dünung', period: 'Periode',
+    model: 'Modell', updated: 'Aktualisiert',
+    safetyTitle: 'Prüft immer die tatsächlichen Bedingungen',
+    safety: [
+      'Dies ist eine Modellvorhersage und keine Live-Messung am Strand. Die tatsächlichen Bedingungen können abweichen.',
+      'Prüft die aktuellen lokalen Zonen und folgt den Hinweisen lokaler Fachleute, bevor ihr aufs Wasser geht.',
+      'Wenn ihr anfangt, bestätigt die Bedingungen mit einer Schule oder einem Instructor.',
+      'Bestätigt Kite- und Boardgröße mit Schule oder Anbieter anhand von Gewicht, Können, Ausrüstung und lokalen Bedingungen.'
+    ],
+    attribution: 'Wetterdaten von Open-Meteo.com'
+  },
+  nl: {
+    eyebrow: 'Windverwachting', title: 'Kitesurf-windbriefing voor drie dagen',
+    intro: 'We combineren de wind- en zeemodelverwachting voor Los Lances en Valdevaqueros. De status blijft onbeoordeeld, behalve wanneer de goedgekeurde lokale aflandige-windregel voor Los Lances geldt.',
+    loading: 'Actuele modelverwachting laden…', fresh: 'Actuele verwachting', stale: 'Laatst beschikbare verwachting; deze kan 6 tot 12 uur oud zijn', unavailable: 'De dynamische verwachting is nu niet beschikbaar. De praktische uitleg op deze pagina blijft bruikbaar.',
+    fallbackLos: 'Mijd Los Lances bij O- of ZO-wind vanwege het aflandige risico en controleer de actuele lokale zones.',
+    fallbackValde: 'Valdevaqueros is het gebruikelijke alternatief om te controleren; geschikte omstandigheden zijn nooit gegarandeerd.',
+    status: 'Status', statuses: { favourable: 'Gunstig', demanding: 'Veeleisend', avoid: 'Mijden', unknown: 'Onbeoordeeld' },
+    warnings: { 'offshore-risk': 'Risico op aflandige wind', 'local-check-required': 'Lokale controle vereist' },
+    wind: 'Gemiddelde wind', gusts: 'Windvlagen', gustOffset: 'Vlaagverschil', waves: 'Golven', swell: 'Deining', period: 'periode',
+    model: 'Model', updated: 'Bijgewerkt',
+    safetyTitle: 'Controleer altijd de werkelijke omstandigheden',
+    safety: [
+      'Dit is een modelverwachting, geen live meting op het strand. De werkelijke omstandigheden kunnen afwijken.',
+      'Controleer de actuele lokale zones en volg lokaal deskundig advies voordat jullie het water op gaan.',
+      'Als jullie beginners zijn, bevestig de omstandigheden dan bij een school of instructeur.',
+      'Bevestig kite- en boardmaten met school of aanbieder op basis van gewicht, niveau, materiaal en lokale omstandigheden.'
+    ],
+    attribution: 'Weergegevens door Open-Meteo.com'
+  },
+  sv: {
+    eyebrow: 'Vindprognos', title: 'Vindbriefing för tre dagars kitesurfing',
+    intro: 'Vi kombinerar vind- och havsmodellprognosen för Los Lances och Valdevaqueros. Statusen förblir obedömd utom när den godkända lokala regeln för frånlandsvind vid Los Lances gäller.',
+    loading: 'Aktuell modellprognos laddas…', fresh: 'Aktuell prognos', stale: 'Senast tillgängliga prognos; den kan vara 6 till 12 timmar gammal', unavailable: 'Den dynamiska prognosen är inte tillgänglig just nu. Den praktiska vägledningen på sidan gäller fortfarande.',
+    fallbackLos: 'Undvik Los Lances vid ostlig eller sydostlig vind på grund av frånlandsrisken och kontrollera aktuella lokala zoner.',
+    fallbackValde: 'Valdevaqueros är det vanliga alternativet att kontrollera; lämpliga förhållanden är aldrig garanterade.',
+    status: 'Status', statuses: { favourable: 'Gynnsamt', demanding: 'Krävande', avoid: 'Undvik', unknown: 'Obedömt' },
+    warnings: { 'offshore-risk': 'Risk för frånlandsvind', 'local-check-required': 'Lokal kontroll krävs' },
+    wind: 'Medelvind', gusts: 'Vindbyar', gustOffset: 'Skillnad till by', waves: 'Vågor', swell: 'Dyning', period: 'period',
+    model: 'Modell', updated: 'Uppdaterad',
+    safetyTitle: 'Kontrollera alltid de faktiska förhållandena',
+    safety: [
+      'Detta är en modellprognos, inte en livemätning från stranden. De faktiska förhållandena kan skilja sig.',
+      'Kontrollera aktuella lokala zoner och följ lokala expertråd innan ni går ut på vattnet.',
+      'Om ni är nybörjare ska ni bekräfta förhållandena med en skola eller instruktör.',
+      'Bekräfta storlek på kite och bräda med skola eller leverantör utifrån vikt, nivå, utrustning och lokala förhållanden.'
+    ],
+    attribution: 'Väderdata från Open-Meteo.com'
+  }
+} as const;
+
+const labels = copy[lang];
+---
+
+<section
+  id={widgetId}
+  class="bg-surface px-6 py-16 md:px-12 md:py-20"
+  data-tarifa-wind-briefing
+  data-state="loading"
+  aria-live="polite"
+  aria-busy="false"
+>
+  <div class="mx-auto max-w-screen-2xl">
+    <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
+      <div class="lg:col-span-5">
+        <p class="am-text-eyebrow text-primary">{labels.eyebrow}</p>
+        <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{labels.title}</h2>
+        <p class="am-text-body mt-6 max-w-xl leading-relaxed text-on-surface-variant">{labels.intro}</p>
+      </div>
+      <div class="lg:col-span-7">
+        <p data-wind-state class="am-text-label am-text-label--sm text-primary">{labels.loading}</p>
+        <div data-wind-grid class="mt-6 grid gap-5 md:grid-cols-2">
+          <article class="bg-surface-container-low p-6">
+            <h3 class="am-text-subtitle text-on-surface">Los Lances</h3>
+            <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{labels.fallbackLos}</p>
+          </article>
+          <article class="bg-surface-container-low p-6">
+            <h3 class="am-text-subtitle text-on-surface">Valdevaqueros</h3>
+            <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{labels.fallbackValde}</p>
+          </article>
+        </div>
+        <p data-wind-meta class="am-text-caption mt-5 hidden normal-case tracking-normal text-muted"></p>
+      </div>
+    </div>
+
+    <div class="mt-12 bg-surface-container-low px-6 py-7 md:px-8">
+      <h3 class="am-text-subtitle text-on-surface">{labels.safetyTitle}</h3>
+      <ul class="mt-5 grid gap-4 md:grid-cols-2">
+        {labels.safety.map((item) => <li class="am-text-body leading-relaxed text-on-surface-variant">{item}</li>)}
+      </ul>
+    </div>
+
+    <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer" class="am-inline-link mt-6 inline-flex">
+      {labels.attribution} ↗
+    </a>
+  </div>
+</section>
+
+<script is:inline define:vars={{ endpoint, lang, labels, widgetId }}>
+  (function () {
+    const root = document.getElementById(widgetId);
+    if (!root) return;
+    const state = root.querySelector('[data-wind-state]');
+    const grid = root.querySelector('[data-wind-grid]');
+    const meta = root.querySelector('[data-wind-meta]');
+    root.setAttribute('aria-busy', 'true');
+
+    function textElement(tag, className, text) {
+      const element = document.createElement(tag);
+      element.className = className;
+      element.textContent = text;
+      return element;
+    }
+
+    function value(value, suffix) {
+      return typeof value === 'number' && Number.isFinite(value) ? value + suffix : '—';
+    }
+
+    function dateLabel(date) {
+      return new Intl.DateTimeFormat(lang, {
+        weekday: 'long', day: 'numeric', month: 'short', timeZone: 'Europe/Madrid'
+      }).format(new Date(date + 'T12:00:00+02:00'));
+    }
+
+    function metric(label, reading) {
+      const row = document.createElement('p');
+      row.className = 'am-text-caption normal-case tracking-normal text-on-surface-variant';
+      row.append(textElement('span', 'text-muted', label + ': '), document.createTextNode(reading));
+      return row;
+    }
+
+    function spotCard(spot) {
+      const card = document.createElement('article');
+      card.className = 'bg-surface-container-low p-6';
+      card.append(textElement('h4', 'am-text-subtitle text-on-surface', spot.name));
+
+      const status = labels.statuses[spot.status] || labels.statuses.unknown;
+      card.append(textElement('p', 'am-text-label am-text-label--sm mt-3 text-primary', labels.status + ': ' + status));
+
+      if (Array.isArray(spot.warnings)) {
+        spot.warnings.forEach(function (warning) {
+          if (!labels.warnings[warning]) return;
+          card.append(textElement('p', 'am-text-body mt-3 leading-relaxed text-on-surface', labels.warnings[warning]));
+        });
+      }
+
+      const measurements = document.createElement('div');
+      measurements.className = 'mt-5 space-y-2 border-t border-border-subtle pt-4';
+      const direction = spot.wind && spot.wind.direction ? spot.wind.direction + ' · ' : '';
+      measurements.append(
+        metric(labels.wind, direction + value(spot.wind && spot.wind.speedKnots, ' kn')),
+        metric(labels.gusts, value(spot.wind && spot.wind.gustsKnots, ' kn')),
+        metric(labels.gustOffset, value(spot.wind && spot.wind.gustOffset && spot.wind.gustOffset.knots, ' kn') + ' · ' + value(spot.wind && spot.wind.gustOffset && spot.wind.gustOffset.percent, '%')),
+        metric(labels.waves, value(spot.marine && spot.marine.waveHeightMetres, ' m') + ' · ' + labels.period + ' ' + value(spot.marine && spot.marine.wavePeriodSeconds, ' s')),
+        metric(labels.swell, value(spot.marine && spot.marine.swellHeightMetres, ' m') + ' · ' + labels.period + ' ' + value(spot.marine && spot.marine.swellPeriodSeconds, ' s'))
+      );
+      card.append(measurements);
+
+      if (typeof spot.briefing === 'string') {
+        card.append(textElement('p', 'am-text-body mt-5 leading-relaxed text-on-surface-variant', spot.briefing));
+      }
+      return card;
+    }
+
+    function renderForecast(forecast) {
+      const fragment = document.createDocumentFragment();
+      forecast.days.forEach(function (day) {
+        const daySection = document.createElement('section');
+        daySection.className = 'border-t border-border-subtle pt-6';
+        daySection.append(textElement('h3', 'am-text-subtitle text-on-surface', dateLabel(day.date)));
+        const spots = document.createElement('div');
+        spots.className = 'mt-5 grid gap-5 md:grid-cols-2';
+        day.spots.forEach(function (spot) { spots.append(spotCard(spot)); });
+        daySection.append(spots);
+        fragment.append(daySection);
+      });
+      grid.replaceChildren(fragment);
+
+      const isStale = forecast.cache && forecast.cache.state === 'stale';
+      state.textContent = isStale ? labels.stale : labels.fresh;
+      root.dataset.state = isStale ? 'stale' : 'fresh';
+      if (forecast.cache && forecast.cache.fetchedAt) {
+        const updated = new Intl.DateTimeFormat(lang, {
+          day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Madrid'
+        }).format(new Date(forecast.cache.fetchedAt));
+        meta.textContent = labels.updated + ': ' + updated + ' · ' + labels.model + ': ' + (forecast.source && forecast.source.model ? forecast.source.model : 'best_match');
+        meta.classList.remove('hidden');
+      }
+      root.setAttribute('aria-busy', 'false');
+    }
+
+    fetch(endpoint, { method: 'GET', headers: { Accept: 'application/json' } })
+      .then(function (response) {
+        if (!response.ok) throw new Error('forecast unavailable');
+        return response.json();
+      })
+      .then(function (forecast) {
+        if (!forecast || !Array.isArray(forecast.days) || forecast.days.length === 0 || forecast.days.some(function (day) { return !Array.isArray(day.spots) || day.spots.length !== 2; })) {
+          throw new Error('forecast malformed');
+        }
+        renderForecast(forecast);
+      })
+      .catch(function () {
+        state.textContent = labels.unavailable;
+        root.dataset.state = 'unavailable';
+        root.setAttribute('aria-busy', 'false');
+      });
+  })();
+</script>
