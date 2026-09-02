@@ -457,6 +457,27 @@ test('the AMARA breadcrumb mark stays a black text heart on mobile', async ({ pa
   expect(presentation.onSurfaceColor).toBe('#1b1c1a');
 });
 
+test('the mobile breadcrumb and contextual links share one vertical center', async ({ page }) => {
+  await page.setViewportSize(MOBILE_VIEWPORT);
+  await openPage(page, '/de/amara-experience');
+
+  const breadcrumb = page.locator('[data-am-context-breadcrumb-row] ol');
+  const firstContextLink = page.locator('[data-am-context-scroll-rail] a').first();
+  await expect(breadcrumb).toBeVisible();
+  await expect(firstContextLink).toBeVisible();
+
+  const [breadcrumbBox, contextLinkBox] = await Promise.all([
+    breadcrumb.boundingBox(),
+    firstContextLink.boundingBox()
+  ]);
+
+  expect(breadcrumbBox).not.toBeNull();
+  expect(contextLinkBox).not.toBeNull();
+  const breadcrumbCenter = breadcrumbBox!.y + breadcrumbBox!.height / 2;
+  const contextLinkCenter = contextLinkBox!.y + contextLinkBox!.height / 2;
+  expect(Math.abs(breadcrumbCenter - contextLinkCenter)).toBeLessThanOrEqual(1);
+});
+
 test('the desktop destination disclosures remain available without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({
     javaScriptEnabled: false,
