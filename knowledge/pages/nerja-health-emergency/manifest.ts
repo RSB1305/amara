@@ -2,7 +2,7 @@ import { defineKnowledgePageManifest } from '../../schema';
 
 export const nerjaHealthEmergencyKnowledge = defineKnowledgePageManifest({
   id: 'page-nerja-health-emergency', destination: 'nerja', topic: 'health-emergency',
-  createdAt: '2026-08-22T06:41:03+02:00', updatedAt: '2026-08-24T12:00:00+02:00', status: 'needs-review',
+  createdAt: '2026-08-22T06:41:03+02:00', updatedAt: '2026-09-02T10:15:00+02:00', status: 'needs-review',
   driveFolder: { id: '1xkZaZCRKd9QBG9xpJkhRNoUwrh-78G-9', url: 'https://drive.google.com/drive/folders/1xkZaZCRKd9QBG9xpJkhRNoUwrh-78G-9', path: 'AMARA – Research Vault/10_LOCATIONS/nerja/nerja-health-emergency' },
   publicContentPath: 'src/content/dailyLifeGuideContent.ts',
   researchRunIds: ['2026-08-22__064103__health-emergency__research-001'],

@@ -1,11 +1,14 @@
 import type { LinkToken } from '../lib/linkResolver';
+import { getLocationGuideTopicLabels } from '../lib/location/locationGuideTopics';
+import type { LocationGuideIconName } from '../components/location/LocationGuideIcon.astro';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 export type DailyLifeDestination = 'frigiliana' | 'nerja' | 'tarifa';
+export type DailyLifeTopic = 'shopping-markets' | 'health-emergency';
 
 interface ContextBlock { eyebrow: string; title: string; paragraphs: string[] }
 export interface DailyLifeGuideSection {
-  id: 'supermarkets-everyday-shopping' | 'health-emergency' | 'good-to-know';
+  id: DailyLifeTopic;
   eyebrow: string;
   title: string;
   intro: string[];
@@ -17,11 +20,12 @@ export interface DailyLifeGuideSection {
 }
 export interface DailyLifeGuideLocale {
   navLabel: string;
-  hero: { eyebrow: string; title: string; standfirst: string; note: string; updated: string };
+  hero: { eyebrow: string; title: string; subtitle?: string; standfirst: string; note: string; updated: string };
   facts: Array<{ label: string; value: string }>;
+  factIcons: LocationGuideIconName[];
   sections: DailyLifeGuideSection[];
   mobilitySummary: string;
-  related: { eyebrow: string; title: string; links: Array<{ token: LinkToken; label: string; text: string }> };
+  related?: { eyebrow: string; title: string; links: Array<{ token: LinkToken; label: string; text: string }> };
   sources: { eyebrow: string; title: string; intro: string; checked: string; links: Array<{ label: string; text: string; href: string }> };
   closing: { eyebrow: string; title: string; body: string; availabilityLabel: string; locationLabel: string };
 }
@@ -30,32 +34,38 @@ const article = {
   datePublished: '2026-08-13', dateModified: '2026-08-22',
   authorName: 'Robert Sebastian Böhmer', authorType: 'Person' as const, authorSlug: 'staying-with-us'
 };
-const seoTitles: Record<AmaraLanguage, (place: string) => string> = {
-  en: (p) => `Groceries, Pharmacy & Daily Life in ${p}`,
-  de: (p) => `Einkaufen, Apotheke & Alltag in ${p}`,
-  es: (p) => `Compras, farmacia y vida diaria en ${p}`,
-  nl: (p) => `Boodschappen, apotheek & dagelijks leven in ${p}`,
-  sv: (p) => `Matinköp, apotek & vardag i ${p}`
+const seoDescriptions: Record<DailyLifeTopic, Record<AmaraLanguage, (place: string) => string>> = {
+  'shopping-markets': {
+    en: (p) => `Our host guide to supermarkets and everyday shopping in ${p}, with practical routes from an AMARA stay.`,
+    de: (p) => `Unser Gastgeberguide zu Supermärkten und Einkaufen in ${p} – mit praktischen Wegen von AMARA aus.`,
+    es: (p) => `Nuestra guía como anfitriones sobre supermercados y compras en ${p}, con rutas prácticas desde AMARA.`,
+    nl: (p) => `Onze gastheergids voor supermarkten en boodschappen in ${p}, met praktische routes vanaf AMARA.`,
+    sv: (p) => `Vår värdguide till matbutiker och inköp i ${p}, med praktiska vägar från AMARA.`
+  },
+  'health-emergency': {
+    en: (p) => `Pharmacies, public healthcare and emergency routes in ${p}, clearly explained for an AMARA stay.`,
+    de: (p) => `Apotheken, öffentliche medizinische Versorgung und Notfallwege in ${p} – klar für euren Aufenthalt bei AMARA erklärt.`,
+    es: (p) => `Farmacias, atención sanitaria pública y vías de emergencia en ${p}, explicadas para vuestra estancia en AMARA.`,
+    nl: (p) => `Apotheken, openbare zorg en noodroutes in ${p}, helder uitgelegd voor jullie verblijf bij AMARA.`,
+    sv: (p) => `Apotek, offentlig vård och akutvägar i ${p}, tydligt förklarade för er vistelse på AMARA.`
+  }
 };
-const seoDescriptions: Record<AmaraLanguage, (place: string) => string> = {
-  en: (p) => `Our host guide to groceries, pharmacy and medical help in ${p}, with practical recommendations from an AMARA stay.`,
-  de: (p) => `Unser Gastgeberguide zu Einkauf, Apotheke und medizinischer Hilfe in ${p} – konkret von AMARA aus gedacht.`,
-  es: (p) => `Nuestra guía como anfitriones sobre compras, farmacia y asistencia médica en ${p}, pensada desde AMARA.`,
-  nl: (p) => `Onze gastheergids voor boodschappen, apotheek en medische hulp in ${p}, praktisch bekeken vanuit AMARA.`,
-  sv: (p) => `Vår värdguide till matinköp, apotek och vård i ${p}, med praktiska råd från AMARA.`
-};
-function makeSeo(destination: DailyLifeDestination, place: string): AmaraAuthoringSeo {
+const titlePrepositions: Record<AmaraLanguage, string> = { en: 'in', de: 'in', es: 'en', nl: 'in', sv: 'i' };
+const seoTitle = (topic: DailyLifeTopic, lang: AmaraLanguage, place: string) =>
+  `${getLocationGuideTopicLabels(lang)[topic]} ${titlePrepositions[lang]} ${place}`;
+
+function makeSeo(destination: DailyLifeDestination, place: string, topic: DailyLifeTopic): AmaraAuthoringSeo {
   return {
-    version: `2026-08-22-${destination}-daily-life-v3.0`, pageType: 'A', entityKey: 'amara-brand', article,
+    version: `2026-09-02-${destination}-${topic}-v4.0`, pageType: 'A', entityKey: 'amara-brand', article: { ...article, dateModified: '2026-09-02' },
     languages: Object.fromEntries((['en', 'de', 'es', 'nl', 'sv'] as AmaraLanguage[]).map((lang) => [
-      lang, { title: seoTitles[lang](place), description: seoDescriptions[lang](place), robots: 'index, follow', canonical: 'auto' }
+      lang, { title: seoTitle(topic, lang, place), description: seoDescriptions[topic][lang](place), robots: 'index, follow', canonical: 'auto' }
     ])) as AmaraAuthoringSeo['languages']
   };
 }
-export const dailyLifeGuideSeo: Record<DailyLifeDestination, AmaraAuthoringSeo> = {
-  frigiliana: makeSeo('frigiliana', 'Frigiliana'),
-  nerja: makeSeo('nerja', 'Nerja'),
-  tarifa: makeSeo('tarifa', 'Tarifa')
+export const dailyLifeGuideSeo: Record<DailyLifeDestination, Record<DailyLifeTopic, AmaraAuthoringSeo>> = {
+  frigiliana: { 'shopping-markets': makeSeo('frigiliana', 'Frigiliana', 'shopping-markets'), 'health-emergency': makeSeo('frigiliana', 'Frigiliana', 'health-emergency') },
+  nerja: { 'shopping-markets': makeSeo('nerja', 'Nerja', 'shopping-markets'), 'health-emergency': makeSeo('nerja', 'Nerja', 'health-emergency') },
+  tarifa: { 'shopping-markets': makeSeo('tarifa', 'Tarifa', 'shopping-markets'), 'health-emergency': makeSeo('tarifa', 'Tarifa', 'health-emergency') }
 };
 
 const urls = {
@@ -152,7 +162,7 @@ const tarifaBase: Record<AmaraLanguage, RawLocale> = {
 raw.nerja = nerjaBase;
 raw.tarifa = tarifaBase;
 
-function buildLocale(destination: DailyLifeDestination, lang: AmaraLanguage, place: string, data: RawLocale): DailyLifeGuideLocale {
+function buildLocale(destination: DailyLifeDestination, topic: DailyLifeTopic, lang: AmaraLanguage, place: string, data: RawLocale): DailyLifeGuideLocale {
   const l = labels[lang];
   const sourcePair = destination === 'frigiliana' ? [urls.frigilianaShopping, urls.frigilianaHealth] : destination === 'nerja' ? [urls.nerjaShopping, urls.nerjaHealth] : [urls.tarifaShopping, urls.tarifaHealth];
   const makeSection = (id: DailyLifeGuideSection['id'], eyebrow: string, section: RawSection, note?: string): DailyLifeGuideSection => ({
@@ -163,35 +173,57 @@ function buildLocale(destination: DailyLifeDestination, lang: AmaraLanguage, pla
     guestGuideNote: note
   });
   const tokens = relatedTokens[destination];
+  const isShopping = topic === 'shopping-markets';
+  const section = isShopping ? data.shop : data.health;
+  const shoppingFactCount = destination === 'tarifa' ? 2 : 3;
+  const facts = data.facts.map((value, index) => ({ label: data.factLabels[index], value }));
+  const selectedFacts = isShopping ? facts.slice(0, shoppingFactCount) : facts.slice(shoppingFactCount);
+  const navLabel = getLocationGuideTopicLabels(lang)[topic];
   return {
-    navLabel: l.nav,
-    hero: { eyebrow: `${place} · ${l.nav}`, title: data.title, standfirst: data.standfirst, note: l.note, updated: l.updated },
-    facts: data.facts.map((value, index) => ({ label: data.factLabels[index], value })),
-    sections: [
-      makeSection('supermarkets-everyday-shopping', l.shop, data.shop, l.guide),
-      makeSection('health-emergency', l.health, data.health, l.medicalGuide),
-      makeSection('good-to-know', l.good, data.good)
-    ],
+    navLabel,
+    hero: {
+      eyebrow: `${place} · ${l.nav}`,
+      title: navLabel,
+      subtitle: isShopping ? data.title : data.health.title,
+      standfirst: isShopping
+        ? [data.standfirst, ...data.shop.intro].join(' ')
+        : [...data.health.intro, ...data.health.local, ...data.health.amara].join(' '),
+      note: l.note,
+      updated: l.updated
+    },
+    facts: selectedFacts,
+    factIcons: isShopping
+      ? (destination === 'tarifa' ? ['supermarket', 'walkable'] : ['supermarket', 'walkable', 'opening-hours'])
+      : ['pharmacy', 'opening-hours'],
+    sections: [makeSection(topic, isShopping ? l.shop : l.health, section, isShopping ? l.guide : l.medicalGuide)],
     mobilitySummary: data.mobility,
-    related: { eyebrow: l.related, title: l.relatedTitle, links: [
+    related: isShopping ? { eyebrow: l.related, title: l.relatedTitle, links: [
       { token: tokens[0], label: l.food, text: l.foodText },
       { token: tokens[1], label: l.discover, text: l.discoverText },
       { token: tokens[2], label: l.more, text: l.moreText }
-    ] },
+    ] } : undefined,
     sources: { eyebrow: l.source, title: l.sourceTitle, intro: l.sourceIntro, checked: l.checked, links: [
-      { label: 'Supermarkets', text: l.shop, href: sourcePair[0] },
-      { label: 'Servicio Andaluz de Salud', text: l.health, href: sourcePair[1] },
-      { label: 'Emergencias Sanitarias de Andalucía', text: '061 / 112', href: urls.emergency }
+      ...(isShopping
+        ? [{ label: 'Supermarkets', text: l.shop, href: sourcePair[0] }]
+        : [
+            { label: 'Servicio Andaluz de Salud', text: l.health, href: sourcePair[1] },
+            { label: 'Emergencias Sanitarias de Andalucía', text: '061 / 112', href: urls.emergency }
+          ])
     ] },
-    closing: { eyebrow: l.closing, title: l.closingTitle, body: l.closingBody, availabilityLabel: l.availability, locationLabel: l.location }
+    closing: isShopping
+      ? { eyebrow: l.closing, title: l.closingTitle, body: l.closingBody, availabilityLabel: l.availability, locationLabel: l.location }
+      : { eyebrow: l.health, title: data.health.amaraTitle, body: data.health.amara.join(' '), availabilityLabel: l.availability, locationLabel: l.location }
   };
 }
 
 export const dailyLifeGuideContent = Object.fromEntries(
   (['frigiliana', 'nerja', 'tarifa'] as DailyLifeDestination[]).map((destination) => [
     destination,
-    Object.fromEntries((['en', 'de', 'es', 'nl', 'sv'] as AmaraLanguage[]).map((lang) => [
-      lang, buildLocale(destination, lang, destination[0].toUpperCase() + destination.slice(1), raw[destination][lang])
+    Object.fromEntries((['shopping-markets', 'health-emergency'] as DailyLifeTopic[]).map((topic) => [
+      topic,
+      Object.fromEntries((['en', 'de', 'es', 'nl', 'sv'] as AmaraLanguage[]).map((lang) => [
+        lang, buildLocale(destination, topic, lang, destination[0].toUpperCase() + destination.slice(1), raw[destination][lang])
+      ]))
     ]))
   ])
-) as Record<DailyLifeDestination, Record<AmaraLanguage, DailyLifeGuideLocale>>;
+) as Record<DailyLifeDestination, Record<DailyLifeTopic, Record<AmaraLanguage, DailyLifeGuideLocale>>>;

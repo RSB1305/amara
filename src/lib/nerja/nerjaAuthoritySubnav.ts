@@ -12,7 +12,7 @@ export type NerjaAuthoritySubnavId = 'intro' | LocationGuideTopicId;
 export type NerjaAuthoritySubnavItem = AuthoritySubnavItem;
 export type NerjaAuthoritySubnavGroup = AuthoritySubnavGroup;
 
-/** Nerja publishes all nine topics; three of them share the daily-life page. */
+/** Nerja publishes the shared eight-topic Location model. */
 const topicLinks: LocationTopicLinks = {
   'arrival-mobility': 'getting_to_nerja',
   'geography-orientation': 'nerja_geography',
@@ -21,8 +21,7 @@ const topicLinks: LocationTopicLinks = {
   'winter-stays': 'nerja_winter_stays',
   'parking-accessibility': 'nerja_parking',
   'shopping-markets': 'nerja_daily_life',
-  'health-emergency': 'nerja_daily_life',
-  'practical-local-rules': 'nerja_daily_life'
+  'health-emergency': 'nerja_health_emergency'
 };
 
 export function getNerjaAuthoritySubnavGroups(

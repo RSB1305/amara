@@ -2,9 +2,8 @@ import { defineKnowledgePageManifest } from '../../schema';
 
 export const frigilianaPracticalLocalRulesKnowledge = defineKnowledgePageManifest({
   id: 'page-frigiliana-practical-local-rules', destination: 'frigiliana', topic: 'practical-local-rules',
-  createdAt: '2026-08-22T06:41:04+02:00', updatedAt: '2026-08-22T06:41:04+02:00', status: 'awaiting-research',
+  createdAt: '2026-08-22T06:41:04+02:00', updatedAt: '2026-09-02T10:15:00+02:00', status: 'retired',
   driveFolder: { id: '16IeMGcsULsHx_-dy7rxRsUt9eQZAFw1v', url: 'https://drive.google.com/drive/folders/16IeMGcsULsHx_-dy7rxRsUt9eQZAFw1v', path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/frigiliana-practical-local-rules' },
-  publicContentPath: 'src/content/dailyLifeGuideContent.ts',
   researchRunIds: ['2026-08-22__064104__practical-local-rules__research-001'],
   coverage: [
     { authoringArea: 'planning-rules', purpose: 'Select only durable rules that materially affect a stay.', factIds: [], status: 'baseline-unmapped' },

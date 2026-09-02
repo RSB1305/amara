@@ -10,7 +10,10 @@ interface Props {
 }
 
 const { sections } = Astro.props;
-const icons: LocationGuideIconName[] = ['supermarket', 'pharmacy', 'opening-hours'];
+const icons: Record<DailyLifeGuideSection['id'], LocationGuideIconName> = {
+  'shopping-markets': 'supermarket',
+  'health-emergency': 'pharmacy'
+};
 ---
 
 {
@@ -26,7 +29,7 @@ const icons: LocationGuideIconName[] = ['supermarket', 'pharmacy', 'opening-hour
         <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
           <header class="lg:col-span-4">
             <div class="flex items-center gap-3 text-primary">
-              <LocationGuideIcon name={icons[index]} />
+              <LocationGuideIcon name={icons[section.id]} />
               <p class="am-text-eyebrow">
                 {section.eyebrow}
               </p>

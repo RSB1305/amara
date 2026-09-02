@@ -43,18 +43,6 @@ export type AuthoritySubnavGroup = {
  */
 export type LocationTopicLinks = Record<LocationGuideTopicId, LinkToken | undefined>;
 
-/**
- * Three topics are sections of a destination's shared daily-life page rather
- * than pages of their own, so their links carry the section anchor. The anchors
- * are part of the daily-life page contract and are identical for every
- * destination that publishes one.
- */
-const TOPIC_ANCHORS: Partial<Record<LocationGuideTopicId, string>> = {
-  'shopping-markets': 'supermarkets-everyday-shopping',
-  'health-emergency': 'health-emergency',
-  'practical-local-rules': 'good-to-know'
-};
-
 export function buildAuthorityTopicItem(
   topicId: LocationGuideTopicId,
   links: LocationTopicLinks,
@@ -67,13 +55,11 @@ export function buildAuthorityTopicItem(
     return { id: topicId, label, status: 'future' };
   }
 
-  const anchor = TOPIC_ANCHORS[topicId];
-
   return {
     id: topicId,
     label,
     status: 'live',
-    href: `${resolveLink(token, currentLang)}${anchor ? `#${anchor}` : ''}`
+    href: resolveLink(token, currentLang)
   };
 }
 

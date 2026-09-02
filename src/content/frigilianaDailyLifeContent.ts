@@ -8,5 +8,5 @@ import {
 export type FrigilianaDailyLifeLocale = DailyLifeGuideLocale;
 export type FrigilianaDailyLifeSection = DailyLifeGuideSection;
 
-export const frigilianaDailyLifeSeo = dailyLifeGuideSeo.frigiliana;
-export const frigilianaDailyLifeContent = dailyLifeGuideContent.frigiliana;
+export const frigilianaDailyLifeSeo = dailyLifeGuideSeo.frigiliana['shopping-markets'];
+export const frigilianaDailyLifeContent = dailyLifeGuideContent.frigiliana['shopping-markets'];

@@ -126,9 +126,9 @@ export interface KnowledgePageManifest {
   topic: string;
   createdAt: string;
   updatedAt: string;
-  status: 'awaiting-research' | 'research-received' | 'normalizing' | 'ready' | 'needs-review';
+  status: 'awaiting-research' | 'research-received' | 'normalizing' | 'ready' | 'needs-review' | 'retired';
   driveFolder: KnowledgeDriveFolder;
-  publicContentPath: string;
+  publicContentPath?: string;
   researchRunIds: readonly string[];
   coverage: readonly KnowledgeCoverageEntry[];
 }

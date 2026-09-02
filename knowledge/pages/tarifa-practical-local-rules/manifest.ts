@@ -2,9 +2,8 @@ import { defineKnowledgePageManifest } from '../../schema';
 
 export const tarifaPracticalLocalRulesKnowledge = defineKnowledgePageManifest({
   id: 'page-tarifa-practical-local-rules', destination: 'tarifa', topic: 'practical-local-rules',
-  createdAt: '2026-08-22T06:41:04+02:00', updatedAt: '2026-08-22T06:41:04+02:00', status: 'awaiting-research',
+  createdAt: '2026-08-22T06:41:04+02:00', updatedAt: '2026-09-02T10:15:00+02:00', status: 'retired',
   driveFolder: { id: '1ttS4fTPKTlTgeQha5b2eEYWWKhe9WF0T', url: 'https://drive.google.com/drive/folders/1ttS4fTPKTlTgeQha5b2eEYWWKhe9WF0T', path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/tarifa-practical-local-rules' },
-  publicContentPath: 'src/content/tarifaPracticalLocalRulesContent.ts',
   researchRunIds: ['2026-08-22__064104__practical-local-rules__research-001'],
   coverage: [
     { authoringArea: 'planning-rules', purpose: 'Select only durable rules that materially affect a stay.', factIds: [], status: 'baseline-unmapped' },

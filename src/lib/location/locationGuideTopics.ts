@@ -15,8 +15,7 @@ export const LOCATION_GUIDE_TOPIC_IDS = [
   'arrival-mobility',
   'parking-accessibility',
   'shopping-markets',
-  'health-emergency',
-  'practical-local-rules'
+  'health-emergency'
 ] as const;
 
 export type LocationGuideClusterId = (typeof LOCATION_GUIDE_CLUSTER_IDS)[number];
@@ -30,8 +29,7 @@ const labels: Record<AmaraLanguage, LocationGuideTopicLabels> = {
     'arrival-mobility': 'Arrival & Mobility',
     'geography-orientation': 'Geography & Orientation',
     'parking-accessibility': 'Parking & Accessibility',
-    'practical-local-rules': 'Good to Know',
-    'shopping-markets': 'Supermarkets & Everyday Shopping',
+    'shopping-markets': 'Supermarkets & Shopping',
     'health-emergency': 'Health & Emergency',
     'where-to-stay': 'Where to Stay / Areas',
     'weather-seasons': 'Weather & Seasons',
@@ -41,8 +39,7 @@ const labels: Record<AmaraLanguage, LocationGuideTopicLabels> = {
     'arrival-mobility': 'Anreise & Mobilität',
     'geography-orientation': 'Geografie & Orientierung',
     'parking-accessibility': 'Parken & Erreichbarkeit',
-    'practical-local-rules': 'Gut zu wissen',
-    'shopping-markets': 'Supermärkte & Alltagseinkauf',
+    'shopping-markets': 'Supermärkte & Einkaufen',
     'health-emergency': 'Gesundheit & Notfälle',
     'where-to-stay': 'Wo übernachten / Lagen',
     'weather-seasons': 'Wetter & Jahreszeiten',
@@ -52,8 +49,7 @@ const labels: Record<AmaraLanguage, LocationGuideTopicLabels> = {
     'arrival-mobility': 'Llegada y movilidad',
     'geography-orientation': 'Geografía y orientación',
     'parking-accessibility': 'Aparcamiento y acceso',
-    'practical-local-rules': 'Conviene saberlo',
-    'shopping-markets': 'Supermercados y compras diarias',
+    'shopping-markets': 'Supermercados y compras',
     'health-emergency': 'Salud y emergencia',
     'where-to-stay': 'Dónde alojarse / zonas',
     'weather-seasons': 'Tiempo y estaciones',
@@ -63,8 +59,7 @@ const labels: Record<AmaraLanguage, LocationGuideTopicLabels> = {
     'arrival-mobility': 'Aankomst & mobiliteit',
     'geography-orientation': 'Geografie & oriëntatie',
     'parking-accessibility': 'Parkeren & toegankelijkheid',
-    'practical-local-rules': 'Goed om te weten',
-    'shopping-markets': 'Supermarkten & dagelijkse boodschappen',
+    'shopping-markets': 'Supermarkten & boodschappen',
     'health-emergency': 'Gezondheid & noodgevallen',
     'where-to-stay': 'Waar overnachten / gebieden',
     'weather-seasons': 'Weer & seizoenen',
@@ -74,8 +69,7 @@ const labels: Record<AmaraLanguage, LocationGuideTopicLabels> = {
     'arrival-mobility': 'Ankomst & mobilitet',
     'geography-orientation': 'Geografi & orientering',
     'parking-accessibility': 'Parkering & tillgänglighet',
-    'practical-local-rules': 'Bra att veta',
-    'shopping-markets': 'Matbutiker & vardagsinköp',
+    'shopping-markets': 'Matbutiker & inköp',
     'health-emergency': 'Hälsa & nödsituation',
     'where-to-stay': 'Var ska man bo / områden',
     'weather-seasons': 'Väder & årstider',
@@ -123,7 +117,7 @@ export const LOCATION_GUIDE_CLUSTER_TOPICS: Record<
   'orientation-areas': ['geography-orientation', 'where-to-stay'],
   'climate-seasons': ['weather-seasons', 'winter-stays'],
   'arrival-parking': ['arrival-mobility', 'parking-accessibility'],
-  'daily-life-essentials': ['shopping-markets', 'health-emergency', 'practical-local-rules']
+  'daily-life-essentials': ['shopping-markets', 'health-emergency']
 };
 
 export function getLocationGuideTopicLabels(

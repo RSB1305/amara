@@ -8,5 +8,5 @@ import {
 export type TarifaDailyLifeLocale = DailyLifeGuideLocale;
 export type TarifaDailyLifeSection = DailyLifeGuideSection;
 
-export const tarifaDailyLifeSeo = dailyLifeGuideSeo.tarifa;
-export const tarifaDailyLifeContent = dailyLifeGuideContent.tarifa;
+export const tarifaDailyLifeSeo = dailyLifeGuideSeo.tarifa['shopping-markets'];
+export const tarifaDailyLifeContent = dailyLifeGuideContent.tarifa['shopping-markets'];

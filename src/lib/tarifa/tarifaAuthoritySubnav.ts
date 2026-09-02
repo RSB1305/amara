@@ -125,8 +125,7 @@ const topicLinks: LocationTopicLinks = {
   'winter-stays': 'tarifa_winter_stays',
   'parking-accessibility': 'tarifa_parking',
   'shopping-markets': 'tarifa_daily_life',
-  'health-emergency': 'tarifa_daily_life',
-  'practical-local-rules': 'tarifa_daily_life'
+  'health-emergency': 'tarifa_health_emergency'
 };
 
 /** Experience children in the order the branch presents them. */

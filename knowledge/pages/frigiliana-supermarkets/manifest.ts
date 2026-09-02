@@ -2,7 +2,7 @@ import { defineKnowledgePageManifest } from '../../schema';
 
 export const frigilianaSupermarketsKnowledge = defineKnowledgePageManifest({
   id: 'page-frigiliana-supermarkets', destination: 'frigiliana', topic: 'supermarkets-everyday-shopping',
-  createdAt: '2026-08-22T06:41:02+02:00', updatedAt: '2026-08-28T14:30:00+02:00', status: 'needs-review',
+  createdAt: '2026-08-22T06:41:02+02:00', updatedAt: '2026-09-02T10:15:00+02:00', status: 'needs-review',
   driveFolder: { id: '1RaAACIbrpNW2d8mad7xfjxTZ4o1d6yhy', url: 'https://drive.google.com/drive/folders/1RaAACIbrpNW2d8mad7xfjxTZ4o1d6yhy', path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/frigiliana-supermarkets-everyday-shopping' },
   publicContentPath: 'src/content/dailyLifeGuideContent.ts',
   researchRunIds: [

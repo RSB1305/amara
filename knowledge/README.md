@@ -1,10 +1,10 @@
 ---
 document_id: AMARA-KNOWLEDGE-OPS-001
 title: AMARA Research and Knowledge Workflow
-version: 1.3.0
+version: 1.4.0
 status: ACTIVE
 created_at: 2026-08-21T11:26:50+02:00
-last_modified: 2026-09-02T08:09:00+02:00
+last_modified: 2026-09-02T10:15:00+02:00
 ---
 
 # AMARA Research and Knowledge Workflow
@@ -78,13 +78,14 @@ The normalized synthesis is `knowledge/research/locations/geography-orientation/
 
 ## Open Daily Life research intake
 
-Three cross-destination runs are issued and awaiting raw inputs:
+Two cross-destination runs support the active public Daily Life page pair:
 
 | Topic | Run | Drive | Publication state |
 |---|---|---|---|
-| Supermarkets & Everyday Shopping | `2026-08-22__064102__supermarkets-everyday-shopping__research-001` | [open run](https://drive.google.com/drive/folders/1LXzvwCnCDNsRZg5ncPkahPJERroaqFdD) | Nine-page family not yet evidence-approved; three destination manifests are `awaiting-research`. |
+| Supermarkets & Shopping | `2026-08-22__064102__supermarkets-everyday-shopping__research-001` | [open run](https://drive.google.com/drive/folders/1LXzvwCnCDNsRZg5ncPkahPJERroaqFdD) | Three standalone destination pages retain the existing public baseline while their manifests track remaining evidence gaps. |
 | Health & Emergency Planning | `2026-08-22__064103__health-emergency__research-001` | [open run](https://drive.google.com/drive/folders/1sEVnMDg75TqhEgroNPJGUtHTXVbVX2nh) | Public/private/live boundary must be resolved before authoring. |
-| Practical & Local Rules | `2026-08-22__064104__practical-local-rules__research-001` | [open run](https://drive.google.com/drive/folders/1n65iJYtUImeGYkLCgr2lubwAToWpo4Hj) | Ownership, volatility and standalone-page value must be resolved before authoring. |
+
+The issued Practical & Local Rules run and its three manifests remain preserved as historical evidence intake. They no longer define a public page or navigation topic; any useful result is assigned to the relevant specialist owner before publication.
 
 Each run has the standard `01_PROMPT`, `02_GPT_RAW`, `03_GEMINI_RAW`, `04_SOURCE_MATERIAL` and `05_OPERATOR_NOTES` folders. Durable destination folders exist for all nine candidate pages under `10_LOCATIONS`. The exact prompts are stored in Git and Drive. Sources and atomic facts are intentionally not created until raw research is ingested and evaluated.
 
@@ -168,3 +169,4 @@ A page can become shorter or change layout without reducing its knowledge base. 
 | 2026-08-22T06:48:59+02:00 | 1.1.0 | Opened the three Daily Life research runs, registered nine destination page manifests and preserved the evidence gate before public authoring. |
 | 2026-09-02T06:19:43+02:00 | 1.2.0 | Added the public Experience versus AMARA Experience knowledge-product flow, recommendation candidates, human approval gate, publication scopes and role separation while leaving the dedicated schema implementation pending. |
 | 2026-09-02T08:09:00+02:00 | 1.3.0 | Added the single-owner projection rule, three ownership models, duplicate-copy prohibition, separate-shell boundary and incremental consolidation reference cases. |
+| 2026-09-02T10:15:00+02:00 | 1.4.0 | Aligned Daily Life knowledge coverage to the two standalone public topics, retained the Practical & Local Rules intake as historical evidence and removed it as a public page target. |
