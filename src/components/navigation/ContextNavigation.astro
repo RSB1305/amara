@@ -115,7 +115,11 @@ const visibleItems = activeId && !retainActiveItem
                 const isAmaraHome = index === 0 && breadcrumb.label.trim().toUpperCase() === 'AMARA';
                 const breadcrumbLabel = isAmaraHome ? (
                   <>
-                    <span aria-hidden="true">&hearts;</span>
+                    <span
+                      class="text-on-surface"
+                      aria-hidden="true"
+                      data-am-context-home-mark
+                    >&#x2665;&#xFE0E;</span>
                     <span class="sr-only">AMARA</span>
                   </>
                 ) : breadcrumb.label;

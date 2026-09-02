@@ -437,6 +437,26 @@ test('the contextual scroll contract covers location and experience hubs and spo
   }
 });
 
+test('the AMARA breadcrumb mark stays a black text heart on mobile', async ({ page }) => {
+  await page.setViewportSize(MOBILE_VIEWPORT);
+  await openPage(page, '/de/frigiliana-location');
+
+  const mark = page.locator('[data-am-context-home-mark]');
+  await expect(mark).toBeVisible();
+
+  const presentation = await mark.evaluate((element) => ({
+    codePoints: Array.from(element.textContent ?? '', (character) => character.codePointAt(0)),
+    color: getComputedStyle(element).color,
+    onSurfaceColor: getComputedStyle(document.documentElement)
+      .getPropertyValue('--color-on-surface')
+      .trim()
+  }));
+
+  expect(presentation.codePoints).toEqual([0x2665, 0xfe0e]);
+  expect(presentation.color).toBe('rgb(27, 28, 26)');
+  expect(presentation.onSurfaceColor).toBe('#1b1c1a');
+});
+
 test('the desktop destination disclosures remain available without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({
     javaScriptEnabled: false,
