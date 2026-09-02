@@ -12,7 +12,7 @@ import {
   guestReviewsSeo
 } from '../../content/guestReviewsContent';
 import { airbnbReviewEvidence } from '../../content/reviewEvidence';
-import type { LabeledLink } from '../../lib/linkResolver';
+import { resolveLink, type LabeledLink } from '../../lib/linkResolver';
 import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
 import type { AmaraLanguage } from '../../types/seo';
 import awardLounis from '../../assets/images/content/booking-awards-2026/amara-lounis-booking-award-2026.png';
@@ -38,12 +38,14 @@ const awardImageAlt = (award: { name: string; score: number }) =>
   copy.sections.awardImageAlt[currentLang]
     .replace('{stay}', award.name)
     .replace('{score}', awardScoreFormatter.format(award.score));
+const awardLinkLabel = (award: { name: string }) =>
+  copy.sections.awardLinkLabel[currentLang].replace('{stay}', award.name);
 const awards = [
-  { ...copy.awards.frigiliana[0], image: awardLounis },
-  { ...copy.awards.frigiliana[1], image: awardMaha },
-  { ...copy.awards.frigiliana[2], image: awardZaid },
-  { ...copy.awards.coast[0], image: awardPlaya },
-  { ...copy.awards.coast[1], image: awardFamilySurf }
+  { ...copy.awards.frigiliana[0], image: awardLounis, href: resolveLink('lounis', currentLang) },
+  { ...copy.awards.frigiliana[1], image: awardMaha, href: resolveLink('maha', currentLang) },
+  { ...copy.awards.frigiliana[2], image: awardZaid, href: resolveLink('zaid', currentLang) },
+  { ...copy.awards.coast[0], image: awardPlaya, href: resolveLink('playa', currentLang) },
+  { ...copy.awards.coast[1], image: awardFamilySurf, href: resolveLink('tarifa', currentLang) }
 ];
 const footerHighlights: LabeledLink[] = [
   { token: 'amenities', label: guestReviewsFooterLabels.amenities[currentLang] },
@@ -135,12 +137,18 @@ const closingCtaLinks: EditorialClosingCtaLink[] = [
         <div class="am-booking-awards-grid mx-auto max-w-[960px]">
           {awards.map((award) => (
             <figure class="m-0 overflow-hidden border border-on-surface/5 bg-surface-container-lowest shadow-[var(--shadow-editorial-card)]">
-              <AmaraImage
-                src={award.image}
-                alt={awardImageAlt(award)}
-                profile="card"
-                class="block h-auto w-full"
-              />
+              <a
+                href={award.href}
+                aria-label={awardLinkLabel(award)}
+                class="block transition-opacity hover:opacity-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/40"
+              >
+                <AmaraImage
+                  src={award.image}
+                  alt={awardImageAlt(award)}
+                  profile="card"
+                  class="block h-auto w-full"
+                />
+              </a>
               <figcaption class="sr-only">{formatAward(award)}</figcaption>
             </figure>
           ))}

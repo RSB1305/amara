@@ -162,6 +162,13 @@ export const guestReviewsCopy = {
       nl: 'Booking.com Traveller Review Award 2026 voor {stay}, beoordeeld met {score} van 10',
       sv: 'Booking.com Traveller Review Award 2026 för {stay}, med betyget {score} av 10'
     },
+    awardLinkLabel: {
+      en: 'View {stay}',
+      de: '{stay} ansehen',
+      es: 'Ver {stay}',
+      nl: 'Bekijk {stay}',
+      sv: 'Se {stay}'
+    },
     nextTitle: {
       en: 'Stays and availability',
       de: 'Unterkünfte und Verfügbarkeit',
