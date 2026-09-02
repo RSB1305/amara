@@ -689,6 +689,9 @@ export function enhanceStayBookingCalendars() {
           ? copy.minimumStayHelp.replace('{count}', String(minimumStay))
           : copy.departureHelp;
       }
+      else if (renderArrivalInput.value && renderDepartureInput.value) {
+        renderCalendarStatus.textContent = copy.completeHelp;
+      }
       else renderCalendarStatus.textContent = copy.calendarHelp;
       renderResetButton.disabled = !(renderArrivalInput.value || renderDepartureInput.value);
       applyRange(hoverDate);
@@ -744,6 +747,17 @@ export function enhanceStayBookingCalendars() {
       arrivalTrigger.setAttribute('aria-expanded', 'false');
       departureTrigger.setAttribute('aria-expanded', 'false');
       if (restoreFocus) activeTrigger.focus();
+    };
+    const revealBookingResultOnMobile = () => {
+      if (!compactGuestLabels.matches || calendar.hidden) return;
+      closeCalendar(false);
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.requestAnimationFrame(() => {
+        result.scrollIntoView({
+          behavior: reducedMotion ? 'auto' : 'smooth',
+          block: 'center'
+        });
+      });
     };
     const resetDateSelection = () => {
       arrivalInput.value = '';
@@ -836,6 +850,7 @@ export function enhanceStayBookingCalendars() {
           detail: copy.quoteNote,
           checkoutHref
         });
+        revealBookingResultOnMobile();
       } catch (error) {
         if (generation !== quoteGeneration) return;
         quoteSignature = '';
@@ -855,6 +870,7 @@ export function enhanceStayBookingCalendars() {
             detail: ''
           });
         }
+        revealBookingResultOnMobile();
       } finally {
         if (generation === quoteGeneration) form.removeAttribute('aria-busy');
       }
