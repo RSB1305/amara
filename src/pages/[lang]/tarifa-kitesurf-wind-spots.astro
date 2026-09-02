@@ -1,0 +1,7 @@
+---
+import TarifaKitesurfSpokePage from '../../page-families/location-authority/TarifaKitesurfSpokePage.astro';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
+export const getStaticPaths = getOwnedPageStaticPaths;
+const { lang } = Astro.params;
+---
+<TarifaKitesurfSpokePage spoke="wind-spots-safety" lang={lang} />

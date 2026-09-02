@@ -84,6 +84,8 @@ export const AMARA_PAGE_FAMILY_PROFILES = {
   'experience-nerja-article': { type: 'explore', tier: 'approved' },
   'experience-nerja-verano-azul': { type: 'explore', tier: 'approved' },
   'experience-tarifa-guide': { type: 'explore', tier: 'approved' },
+  'experience-tarifa-kite-hub': { type: 'explore', tier: 'approved' },
+  'experience-tarifa-kite-spoke': { type: 'authority', tier: 'approved' },
   'location-winter-stays': { type: 'authority', tier: 'approved' },
   'experience-beaches': { type: 'explore', tier: 'approved' },
   'experience-hiking': { type: 'explore', tier: 'approved' },

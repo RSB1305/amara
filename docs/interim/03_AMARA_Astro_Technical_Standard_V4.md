@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.24.0
+version: 4.25.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-01T14:29:20+02:00
+last_modified: 2026-09-02T08:45:00+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -22,7 +22,7 @@ last_modified: 2026-09-01T14:29:20+02:00
 
 AMARA Astro & Design Architecture Contract V4
 Status                                                ACTIVE
-Version                                               4.21.0
+Version                                               4.25.0
 Effective date                                        2026-08-10
 Runtime                                               Astro
 Styling                                               Tailwind CSS + AMARA global tokens + scoped component
@@ -123,9 +123,14 @@ AMARA uses a restrained editorial hierarchy:
 - display serif for editorial/emotional hierarchy;
 - functional sans for controls, labels, and practical copy;
 - one H1 per public content page unless a specialized system page requires a reviewed exception;
+- a concise public editorial H1 that occupies no more than two visible lines at the reference mobile and desktop viewports;
+- the H1 names the page subject, a medium subtitle carries positioning or promise, and explanatory or direct-answer copy follows beneath it;
 - clear H2/H3 hierarchy;
 - no decorative heading inflation.
 Existing am-text-* typography classes are the preferred semantic text scale.
+
+The two-line budget is fulfilled through native authored copy in every locale. CSS clipping, line clamping,
+overflow hiding and ellipsis are prohibited for page headings because they would conceal the document title.
 
 6.1 Mobile-first responsive page contract
 
@@ -601,3 +606,4 @@ the external booking provider boundary remain unchanged.
 | 4.22.0 | 2026-09-01T14:14:49+02:00 | Added the localized AMARA Experience access icon immediately before the language control in the canonical public header while preserving the existing booking and mobile containment contracts. |
 | 4.23.0 | 2026-09-01T14:24:17+02:00 | Replaced the persistent header availability text treatment with the shared calendar-check icon at every viewport while preserving the localized accessible name, owned stay-search target and visible mobile-menu wording. |
 | 4.24.0 | 2026-09-01T14:29:20+02:00 | Inverted the calendar-check action into a white circular emphasis with a dark calendar mark, fine boundary and restrained shadow while preserving its shared size, route and accessible name. |
+| 4.25.0 | 2026-09-02T08:45:00+02:00 | Added the concise editorial-hero hierarchy: H1 limited to two visible lines by native authoring, medium subtitle for the promise and explanatory/direct-answer copy beneath; explicitly prohibited heading truncation. |

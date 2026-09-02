@@ -24,8 +24,8 @@ function buildGroupEnquiry(subject: string, body: string): string {
  */
 
 export const linkRegistry = {
-  version: '2026-08-24-registry-v4.9',
-  updated_at: '2026-08-24',
+  version: '2026-09-02-registry-v5.0',
+  updated_at: '2026-09-02',
   base: '/',
   links: {
     /* =========================================================
@@ -107,6 +107,10 @@ export const linkRegistry = {
     tarifa_winter_stays: buildOwnedLinks('tarifa-winter-stays'),
     tarifa_experience_hub: buildOwnedLinks('tarifa-experience'),
     tarifa_wind_kitesurfing_authority: buildOwnedLinks('tarifa-wind-kitesurfing'),
+    tarifa_kite_school: buildOwnedLinks('tarifa-kite-school'),
+    tarifa_kitecamp: buildOwnedLinks('tarifa-kitecamp'),
+    tarifa_kite_equipment: buildOwnedLinks('tarifa-kite-equipment'),
+    tarifa_kitesurf_wind_spots: buildOwnedLinks('tarifa-kitesurf-wind-spots'),
     tarifa_beaches_authority: buildOwnedLinks('tarifa-beaches'),
     tarifa_food_evening_life: buildOwnedLinks('tarifa-food-evening-life'),
     tarifa_nature_wildlife: buildOwnedLinks('tarifa-nature-wildlife'),

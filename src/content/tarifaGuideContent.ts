@@ -127,6 +127,7 @@ export interface TarifaTopicGuideContent extends TarifaGuideBase {
   hero: {
     eyebrow: LocalizedText;
     title: LocalizedText;
+    subtitle?: LocalizedText;
     lead: LocalizedText;
     editorialNote: LocalizedText;
     updated: LocalizedText;
@@ -852,11 +853,18 @@ const wind: TarifaGuideContent = {
   hero: {
     eyebrow: l('Kite stay in Tarifa', 'Kite-Aufenthalt in Tarifa', 'Viaje de kitesurf en Tarifa', 'Kiteverblijf in Tarifa', 'Kitevistelse i Tarifa'),
     title: l(
-      'Kitesurfing in Tarifa – your stay and time on the water, personally arranged',
-      'Kitesurfen in Tarifa – Unterkunft und Zeit auf dem Wasser persönlich organisiert',
-      'Kitesurf en Tarifa: alojamiento y tiempo en el agua, organizados personalmente',
-      'Kitesurfen in Tarifa – verblijf en tijd op het water persoonlijk geregeld',
-      'Kitesurfing i Tarifa – boende och tid på vattnet personligt ordnat'
+      'Kitesurfing in Tarifa',
+      'Kitesurfen in Tarifa',
+      'Kitesurf en Tarifa',
+      'Kitesurfen in Tarifa',
+      'Kitesurfing i Tarifa'
+    ),
+    subtitle: l(
+      'Accommodation, kite school and kitecamp, personally coordinated.',
+      'Unterkunft, Kiteschule und Kitecamp persönlich organisiert.',
+      'Alojamiento, escuela y kitecamp coordinados personalmente.',
+      'Verblijf, kiteschool en kitecamp persoonlijk afgestemd.',
+      'Boende, kiteskola och kitecamp personligt samordnat.'
     ),
     lead: l(
       'Stay with AMARA and combine your accommodation in Tarifa with the full offer from our friends at Tarifa Surf Club. Send us one message with your dates, level and wishes; we coordinate kite school courses for every level, kitecamps, personal coaching and equipment to rent or buy. You receive a trip shaped around your stay and personal contact throughout the planning. Levante, Poniente, the principal kite areas and the current safety checks determine which programme and time on the water suit each day.',
