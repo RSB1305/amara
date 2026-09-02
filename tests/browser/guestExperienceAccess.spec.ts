@@ -33,17 +33,42 @@ test('the public AMARA Experience landing links to a separate guest access page'
   );
 });
 
+test('the guest access header uses the canonical AMARA brand and availability action', async ({ page }) => {
+  await page.goto('/de/amara-experience/access');
+
+  const brand = page.locator('.am-experience-app__brand');
+  await expect(brand).toHaveAttribute('href', '/de');
+  await expect(brand).toContainText('AMARA');
+  await expect(brand).toContainText('Lodging');
+
+  const availabilityAction = page.locator('header [data-am-availability-action]');
+  await expect(availabilityAction).toHaveAttribute('href', '/de/find-a-stay');
+  await expect(availabilityAction).toHaveAccessibleName('Verfügbarkeit prüfen');
+  await expect(availabilityAction.locator('svg')).toBeVisible();
+  const availabilityStyle = await availabilityAction.evaluate((element) => {
+    const style = getComputedStyle(element);
+    return {
+      backgroundColor: style.backgroundColor,
+      borderRadius: Number.parseFloat(style.borderRadius),
+      boxShadow: style.boxShadow
+    };
+  });
+  expect(availabilityStyle.backgroundColor).toBe('rgb(255, 255, 255)');
+  expect(availabilityStyle.borderRadius).toBeGreaterThanOrEqual(22);
+  expect(availabilityStyle.boxShadow).not.toBe('none');
+});
+
 test('the guest access page stays focused on booking verification', async ({ page }) => {
   await page.goto('/de/amara-experience/access');
 
   await expect(page.locator('main h1')).toHaveText('AMARA Experience');
   await expect(page.locator('.am-experience-app__intro strong')).toHaveText('AMARA Guest Guide');
   await expect(page.locator('main')).toContainText(
-    'Hier findet ihr Informationen zu eurer Unterkunft, Wichtigem vor Ort und unseren persönlichen Insider-Tipps, die dazu beitragen sollen, euren Urlaub mit uns zu einem ganz besonderen Erlebnis zu machen.'
+    'Findet Informationen zu eurer Unterkunft, Wichtiges vor Ort und unsere persönlichen Insider-Tipps für eine besondere Zeit bei AMARA.'
   );
   await expect(page.locator('.am-experience-app__intro p')).toHaveCount(2);
   await expect(page.locator('.am-experience-app__intro p').nth(1)).toContainText(
-    'Alle gebuchten Gäste haben vor und während ihres Aufenthalts Zugang.'
+    'Für den Zugang gebt einfach den Vornamen aus eurer Reservierung und euer Anreisedatum ein.'
   );
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveAttribute('href', '/de/amara-experience');
@@ -51,7 +76,7 @@ test('the guest access page stays focused on booking verification', async ({ pag
     .toHaveText('← Mehr über AMARA Experience');
   await expect(page.locator('main .am-text-eyebrow')).toHaveCount(0);
   await expect(page.locator('[data-am-experience-form]')).toBeVisible();
-  await expect(page.getByLabel('Vorname der Buchung')).toBeVisible();
+  await expect(page.getByLabel('Vorname in der Reservierung')).toBeVisible();
   await expect(page.locator('input[name="arrival"]')).toHaveCount(1);
   await expect(page.locator('input[name="departure"]')).toHaveCount(0);
   const fieldBackgrounds = await page.locator(
@@ -69,10 +94,10 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page).toHaveURL(/\/en\/amara-experience\/access$/);
   await expect(page.locator('.am-experience-app__intro strong')).toHaveText('AMARA Guest Guide');
   await expect(page.locator('main')).toContainText(
-    'Here you’ll find information about your accommodation, local essentials and our personal insider tips, designed to help make your holiday with us a truly special experience.'
+    'Access information about your accommodation, local essentials and our personal insider tips for a special stay with AMARA.'
   );
   await expect(page.locator('.am-experience-app__intro p').nth(1)).toContainText(
-    'All booked guests have access before and during their stay.'
+    'Use your guide before and during your stay. Enter the first name on your reservation and your arrival date.'
   );
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveAttribute('href', '/en/amara-experience');

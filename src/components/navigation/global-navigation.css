@@ -703,10 +703,30 @@ html.am-nav-lock {
   }
 
   [data-am-navigation]
+    .am-nav-mobile--contextual
+    [data-am-context-layout-simple] {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.25rem;
+  }
+
+  [data-am-navigation]
+    .am-nav-mobile--contextual
+    [data-am-context-toolbar-simple] {
+    grid-column: 1;
+    grid-row: 2;
+    display: block;
+    width: 100%;
+  }
+
+  [data-am-navigation]
     .am-nav-mobile--contextual:not([data-am-contextual-closed])
     [data-am-destination-branch-switcher] {
     grid-column: 2;
     grid-row: 1;
+  }
+
+  [data-am-navigation]:has([data-am-context-navigation-simple]) + .am-nav-context-spacer {
+    height: 81px;
   }
 
   [data-am-navigation]

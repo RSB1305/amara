@@ -205,7 +205,12 @@ export function enhanceStaySearchResults() {
         cardSummary.hidden = false;
         priceWrap.hidden = false;
         success.push(card);
-      } catch {
+      } catch (error) {
+        const requestError = error as RequestFailure;
+        // A provider-declined quote is a valid "not bookable" result, for
+        // example when the selected stay is shorter than the minimum stay.
+        // Only transport or contract failures should raise a technical warning.
+        if (requestError.code === 'quote_unavailable') return;
         technical.push(card);
       }
     };

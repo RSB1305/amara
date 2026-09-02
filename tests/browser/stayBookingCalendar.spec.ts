@@ -288,6 +288,12 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
   );
   await expect(dayButton(page, arrival)).toHaveAttribute('data-range', 'start');
   await expect(dayButton(page, futureIso(6))).toHaveAttribute('data-range', 'end');
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'Your dates are set'
+  );
+  await expect(
+    dayButton(page, futureIso(6)).locator('.am-booking-calendar__day-number')
+  ).toHaveCSS('text-decoration-line', 'none');
   await dayButton(page, futureIso(7)).click();
   await expect(page.locator('[data-am-booking-arrival]')).toHaveValue(futureIso(7));
   await expect(page.locator('[data-am-booking-departure]')).toHaveValue('');
@@ -353,6 +359,38 @@ test('mobile calendar shows one full-width month without horizontal overflow', a
   expect(measurements.calendarWidth).toBeLessThanOrEqual(measurements.calendarClientWidth);
   expect(measurements.pageWidth).toBeLessThanOrEqual(measurements.viewportWidth);
   expect(measurements.dayHeight).toBeGreaterThanOrEqual(44);
+});
+
+test('mobile quote closes the calendar and reveals the booking button', async ({ page }) => {
+  await page.setViewportSize(MOBILE);
+  await mockGateway(page, { minStay: 1 });
+  await page.goto(ORIGIN + '/de/la-amara-lounis', { waitUntil: 'domcontentloaded' });
+  await page.locator('[data-am-consent-choice="necessary"]').click();
+
+  await page.getByRole('button', { name: 'Anreise wählen' }).click();
+  await page.getByRole('button', { name: 'Nächster Monat' }).click();
+  const visibleMonth = page.locator('[data-am-booking-month]:visible');
+  const arrivalButton = visibleMonth.locator('[data-am-booking-day]:enabled').first();
+  const arrival = await arrivalButton.getAttribute('data-am-booking-day');
+  expect(arrival).toBeTruthy();
+  await arrivalButton.click();
+
+  const departure = await visibleMonth.locator('[data-am-booking-day]:enabled').evaluateAll(
+    (buttons, selectedArrival) => buttons
+      .map((button) => button.getAttribute('data-am-booking-day') || '')
+      .find((value) => value > String(selectedArrival)),
+    arrival
+  );
+  expect(departure).toBeTruthy();
+  await dayButton(page, String(departure)).click();
+
+  const result = page.locator('[data-am-booking-result]');
+  const checkout = page.locator('[data-am-booking-checkout]');
+  await expect(result).toHaveAttribute('data-state', 'available');
+  await expect(page.locator('[data-am-booking-calendar]')).toBeHidden();
+  await expect(checkout).toBeVisible();
+  await expect(checkout).toBeInViewport();
+  await expect(checkout).toHaveText('Jetzt buchen');
 });
 
 test('calendar and quote failures stay generic and never retry automatically', async ({ page }) => {

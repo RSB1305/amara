@@ -84,7 +84,7 @@ const { rental: rentalProp, lang = 'es' } = Astro.props;
 const rental = vacationRentalEntitiesByKey[rentalProp.key] ?? rentalProp;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const isFamilySurf = rental.key === 'amara-family-surf';
-const familySurfContent = isFamilySurf ? familySurfConversionContent[currentLang] : undefined;
+const familySurfContent = isFamilySurf ? familySurfConversionContent : undefined;
 const seo = buildVacationRentalSeo(rental);
 
 const t = (value: LocalizedText) => value[currentLang] ?? value.en;
@@ -328,9 +328,6 @@ const sameHouseLinks = Object.values(vacationRentalEntitiesByKey)
   .filter((item): item is { href: string; label: string } => Boolean(item.href));
 const casaAmaraGroupsHref = sameHouseLinks.length > 0
   ? resolveOptionalLink('casa_amara_groups', currentLang, { suppressMissing: true })
-  : undefined;
-const familySurfWindHref = familySurfContent
-  ? resolveOptionalLink(familySurfContent.surf.ctaToken, currentLang, { suppressMissing: true })
   : undefined;
 const localizedHostRating: LocalizedText = {
   en: `Host rating: ${airbnbRatingLabel.en}/5 · ${airbnbReviewEvidence.reviewCountLabel} Airbnb reviews`,
@@ -732,35 +729,83 @@ const contextDestination: DestinationId | undefined =
         >
           <div class="grid gap-12 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)]">
             <div class="max-w-3xl">
-              <p class="text-on-surface-variant am-text-label">
-                {familySurfContent.surf.kicker}
-              </p>
+              <div class="flex items-start justify-between gap-6">
+                <p class="text-on-surface-variant am-text-label">
+                  {t(familySurfContent.surf.kicker)}
+                </p>
+                <a
+                  class="shrink-0 transition-opacity hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-primary"
+                  href={familySurfContent.surf.homepageHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <AmaraImage
+                    class="h-24 w-24 object-contain sm:h-28 sm:w-28"
+                    src="/images/tarifa/tarifa-surf-club-logo.webp"
+                    alt={familySurfContent.surf.logoAlt}
+                    width={128}
+                    widths={[96, 112, 128]}
+                    sizes="(min-width: 640px) 7rem, 6rem"
+                    quality={90}
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </a>
+              </div>
               <h2 id="family-surf-proof-title" class="am-text-title text-on-surface mt-4 text-balance">
-                {familySurfContent.surf.title}
+                {t(familySurfContent.surf.title)}
               </h2>
               <div class="mt-6 grid gap-4">
-                {familySurfContent.surf.paragraphs.map((paragraph) => (
+                {familySurfContent.surf.paragraphs[currentLang].map((paragraph) => (
                   <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
                 ))}
               </div>
-              {familySurfWindHref && (
-                <p class="am-text-body mt-7">
-                  <a class="am-inline-link" href={familySurfWindHref}>
-                    {familySurfContent.surf.ctaLabel}
-                    <span aria-hidden="true"> &rarr;</span>
+
+              <div class="mt-8">
+                <p class="am-text-label text-on-surface-variant">
+                  {t(familySurfContent.surf.offersLabel)}
+                </p>
+                <ul class="mt-4 flex flex-wrap gap-x-7 gap-y-3" role="list">
+                  {familySurfContent.surf.offers.map((offer) => (
+                    <li>
+                      <a
+                        class="am-inline-link am-text-body"
+                        href={offer.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {t(offer.label)}
+                        <span aria-hidden="true"> &nearr;</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="mt-8 bg-surface-container-low p-5 sm:p-6">
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {t(familySurfContent.surf.fallback.text)}
+                </p>
+                <p class="am-text-body mt-4">
+                  <a
+                    class="am-inline-link"
+                    href={familySurfContent.surf.fallback.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t(familySurfContent.surf.fallback.ctaLabel)}
+                    <span aria-hidden="true"> &nearr;</span>
                   </a>
                 </p>
-              )}
+              </div>
             </div>
 
             <aside class="border-t border-border-subtle pt-7 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
-              {familySurfContent.family.title && (
-                <h3 class="am-text-subtitle text-on-surface text-balance">
-                  {familySurfContent.family.title}
-                </h3>
-              )}
-              <div class:list={['grid gap-4', { 'mt-5': familySurfContent.family.title }]}>
-                {familySurfContent.family.paragraphs.map((paragraph) => (
+              <h3 class="am-text-subtitle text-on-surface text-balance">
+                {t(familySurfContent.family.title)}
+              </h3>
+              <div class="mt-5 grid gap-4">
+                {familySurfContent.family.paragraphs[currentLang].map((paragraph) => (
                   <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
                 ))}
               </div>

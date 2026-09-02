@@ -1,4 +1,4 @@
-import type { LocalizedText } from '../types/content';
+import type { LocalizedText, LocalizedTextList } from '../types/content';
 import type {
   AmaraAuthoringSeo,
   AmaraEntityKey,
@@ -105,17 +105,28 @@ export interface VacationRentalEntity {
   amenityFeatures: VacationRentalAmenityFeature[];
 }
 
-interface FamilySurfConversionLocale {
+interface FamilySurfConversionContent {
   surf: {
-    kicker: string;
-    title: string;
-    paragraphs: string[];
-    ctaLabel: string;
-    ctaToken: 'tarifa_wind_kitesurfing_authority';
+    logoAlt: string;
+    homepageHref: string;
+    kicker: LocalizedText;
+    title: LocalizedText;
+    paragraphs: LocalizedTextList;
+    offersLabel: LocalizedText;
+    offers: Array<{
+      id: 'courses' | 'rental' | 'shop';
+      label: LocalizedText;
+      href: string;
+    }>;
+    fallback: {
+      text: LocalizedText;
+      ctaLabel: LocalizedText;
+      href: string;
+    };
   };
   family: {
-    title?: string;
-    paragraphs: string[];
+    title: LocalizedText;
+    paragraphs: LocalizedTextList;
   };
 }
 
@@ -1289,93 +1300,128 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
 ];
 
 /** Public conversion proof for AMARA Family & Surf only. Operational details remain in the noindex Guest Guide. */
-export const familySurfConversionContent: Record<AmaraLanguage, FamilySurfConversionLocale> = {
-  en: {
-    surf: {
-      kicker: 'AMARA × Tarifa Surf Club',
-      title: 'Kitesurfing, organised before you arrive',
-      paragraphs: [
-        `You do not need to start your stay by looking for a kitesurf school, instructor or rental shop. We can connect you with our friends at Tarifa Surf Club before you travel.`,
-        'Lessons, instructor contact and rental equipment can be arranged in advance. The equipment can be ready at the accommodation when you arrive.'
-      ],
-      ctaLabel: 'Wind & Kitesurfing in Tarifa',
-      ctaToken: 'tarifa_wind_kitesurfing_authority'
+export const familySurfConversionContent: FamilySurfConversionContent = {
+  surf: {
+    logoAlt: 'Tarifa Surf Club',
+    homepageHref: 'https://tarifasurfclub.com/',
+    kicker: {
+      en: 'AMARA × Tarifa Surf Club',
+      de: 'AMARA × Tarifa Surf Club',
+      es: 'AMARA × Tarifa Surf Club',
+      nl: 'AMARA × Tarifa Surf Club',
+      sv: 'AMARA × Tarifa Surf Club'
     },
-    family: {
-      title: 'Travelling with younger children?',
-      paragraphs: [
+    title: {
+      en: 'Accommodation and kitesurfing, organised together',
+      de: 'Unterkunft und Kitesurfen, gemeinsam organisiert',
+      es: 'Alojamiento y kitesurf, organizados juntos',
+      nl: 'Verblijf en kitesurfen, samen geregeld',
+      sv: 'Boende och kitesurfing, planerat tillsammans'
+    },
+    paragraphs: {
+      en: [
+        'We combine your stay at AMARA with the kite expertise of our friends at Tarifa Surf Club. Whether you want lessons, personal coaching or the right equipment to rent or buy, we can coordinate everything with you before you arrive.',
+        'With one personal contact for planning, you can arrive with the essentials already arranged and devote more of your time in Tarifa to the water.'
+      ],
+      de: [
+        'Wir verbinden euren Aufenthalt bei AMARA mit der Kite-Kompetenz unserer Freunde vom Tarifa Surf Club. Ob Kurse, individuelle Betreuung oder passendes Material zum Leihen oder Kaufen: Auf Wunsch stimmen wir alles schon vor eurer Anreise mit euch ab.',
+        'Mit einem persönlichen Kontakt für die Planung kommt ihr mit den wichtigsten Dingen bereits abgestimmt an und habt in Tarifa mehr Zeit fürs Wasser.'
+      ],
+      es: [
+        'Unimos vuestra estancia en AMARA con la experiencia en kitesurf de nuestros amigos del Tarifa Surf Club. Tanto si buscáis un curso, clases individuales o el material adecuado para alquilar o comprar, podemos coordinarlo todo con vosotros antes de vuestra llegada.',
+        'Con un contacto personal para organizarlo, llegaréis con lo esencial preparado y tendréis más tiempo para disfrutar del agua en Tarifa.'
+      ],
+      nl: [
+        'We combineren jullie verblijf bij AMARA met de kite-expertise van onze vrienden van Tarifa Surf Club. Of jullie nu lessen, persoonlijke begeleiding of geschikt materiaal willen huren of kopen: we kunnen alles vóór aankomst met jullie afstemmen.',
+        'Met één persoonlijk aanspreekpunt voor de planning komen jullie aan terwijl de belangrijkste zaken al geregeld zijn en blijft er in Tarifa meer tijd over voor het water.'
+      ],
+      sv: [
+        'Vi kombinerar er vistelse hos AMARA med kitekunskapen hos våra vänner på Tarifa Surf Club. Oavsett om ni vill boka en kurs, personlig coaching eller rätt utrustning att hyra eller köpa kan vi ordna allt tillsammans med er före ankomsten.',
+        'Med en personlig kontakt för planeringen kan ni anlända med det viktigaste ordnat och få mer tid för vattnet i Tarifa.'
+      ]
+    },
+    offersLabel: {
+      en: 'Explore Tarifa Surf Club',
+      de: 'Tarifa Surf Club entdecken',
+      es: 'Descubrid Tarifa Surf Club',
+      nl: 'Ontdek Tarifa Surf Club',
+      sv: 'Upptäck Tarifa Surf Club'
+    },
+    offers: [
+      {
+        id: 'courses',
+        label: {
+          en: 'Lessons & kitecamps',
+          de: 'Kurse & Kitecamps',
+          es: 'Cursos y kitecamps',
+          nl: 'Lessen & kitecamps',
+          sv: 'Kurser & kitecamps'
+        },
+        href: 'https://tarifasurfclub.com/kitekurs-in-tarifa'
+      },
+      {
+        id: 'rental',
+        label: {
+          en: 'Rent equipment',
+          de: 'Material leihen',
+          es: 'Alquilar material',
+          nl: 'Materiaal huren',
+          sv: 'Hyra utrustning'
+        },
+        href: 'https://tarifasurfclub.com/kite-equipment-rental'
+      },
+      {
+        id: 'shop',
+        label: {
+          en: 'Buy equipment',
+          de: 'Material kaufen',
+          es: 'Comprar material',
+          nl: 'Materiaal kopen',
+          sv: 'Köpa utrustning'
+        },
+        href: 'https://shop.tarifasurfclub.com/'
+      }
+    ],
+    fallback: {
+      text: {
+        en: 'AMARA Family & Surf already booked for your dates? We will be happy to connect you with one of Tarifa Surf Club’s premium stays.',
+        de: 'AMARA Family & Surf ist zu euren Reisedaten schon belegt? Wir vermitteln euch gern eine der Premium-Unterkünfte des Tarifa Surf Club.',
+        es: '¿AMARA Family & Surf ya está reservado para vuestras fechas? Estaremos encantados de poneros en contacto con uno de los alojamientos premium de Tarifa Surf Club.',
+        nl: 'Is AMARA Family & Surf op jullie data al geboekt? We brengen jullie graag in contact met een van de premium verblijven van Tarifa Surf Club.',
+        sv: 'Är AMARA Family & Surf redan bokat under era datum? Vi förmedlar gärna kontakt med ett av Tarifa Surf Clubs premiumboenden.'
+      },
+      ctaLabel: {
+        en: 'See partner stays',
+        de: 'Partnerunterkünfte ansehen',
+        es: 'Ver alojamientos asociados',
+        nl: 'Partnerverblijven bekijken',
+        sv: 'Se partnerboenden'
+      },
+      href: 'https://tarifasurfclub.com/ferienwohnungen-in-tarifa'
+    }
+  },
+  family: {
+    title: {
+      en: 'Travelling with younger children?',
+      de: 'Reist ihr mit jüngeren Kindern?',
+      es: '¿Viajáis con niños pequeños?',
+      nl: 'Reizen jullie met jonge kinderen?',
+      sv: 'Reser ni med yngre barn?'
+    },
+    paragraphs: {
+      en: [
         'The second bedroom has a bunk bed with two single sleeping places. The apartment sleeps four, but the layout works better for two adults with one or two younger children than for four adults.'
-      ]
-    }
-  },
-  de: {
-    surf: {
-      kicker: 'AMARA × Tarifa Surf Club',
-      title: 'Kitesurfen – schon vor der Anreise organisiert',
-      paragraphs: [
-        'Ihr müsst euren Aufenthalt nicht damit beginnen, eine Kitesurfschule, einen Lehrer oder einen Materialverleih zu suchen. Wir bringen euch vor der Reise mit unseren Freunden vom Tarifa Surf Club in Kontakt.',
-        'Unterricht, Kitelehrer und Leihmaterial lassen sich vorab abstimmen. Das Equipment kann bei eurer Ankunft an der Unterkunft bereitstehen.'
       ],
-      ctaLabel: 'Wind & Kitesurfen in Tarifa',
-      ctaToken: 'tarifa_wind_kitesurfing_authority'
-    },
-    family: {
-      title: 'Reist ihr mit jüngeren Kindern?',
-      paragraphs: [
+      de: [
         'Im zweiten Schlafzimmer steht ein Hochbett mit zwei einzelnen Schlafplätzen. Die Wohnung bietet Platz für vier, passt von der Aufteilung aber besser zu zwei Erwachsenen mit einem oder zwei jüngeren Kindern als zu vier Erwachsenen.'
-      ]
-    }
-  },
-  es: {
-    surf: {
-      kicker: 'AMARA × Tarifa Surf Club',
-      title: 'Kitesurf organizado antes de vuestra llegada',
-      paragraphs: [
-        'No tenéis que empezar la estancia buscando escuela de kitesurf, instructor o tienda de alquiler. Antes del viaje podemos poneros en contacto con nuestros amigos de Tarifa Surf Club.',
-        'Las clases, el instructor y el material de alquiler pueden organizarse con antelación. El equipo puede estar preparado en el alojamiento cuando lleguéis.'
       ],
-      ctaLabel: 'Viento y kitesurf en Tarifa',
-      ctaToken: 'tarifa_wind_kitesurfing_authority'
-    },
-    family: {
-      title: '¿Viajáis con niños pequeños?',
-      paragraphs: [
+      es: [
         'El segundo dormitorio tiene una litera con dos camas individuales. El alojamiento admite a cuatro huéspedes, pero la distribución funciona mejor para dos adultos con uno o dos niños pequeños que para cuatro adultos.'
-      ]
-    }
-  },
-  nl: {
-    surf: {
-      kicker: 'AMARA × Tarifa Surf Club',
-      title: 'Kitesurfen geregeld vóór jullie aankomst',
-      paragraphs: [
-        'Jullie hoeven het verblijf niet te beginnen met zoeken naar een kitesurfschool, instructeur of verhuurshop. Voor de reis kunnen we jullie in contact brengen met onze vrienden van Tarifa Surf Club.',
-        'Lessen, een instructeur en huurmateriaal kunnen vooraf worden geregeld. De uitrusting kan bij aankomst bij de accommodatie klaarstaan.'
       ],
-      ctaLabel: 'Wind & kitesurfen in Tarifa',
-      ctaToken: 'tarifa_wind_kitesurfing_authority'
-    },
-    family: {
-      title: 'Reizen jullie met jonge kinderen?',
-      paragraphs: [
+      nl: [
         'De tweede slaapkamer heeft een stapelbed met twee aparte slaapplaatsen. De woning biedt plaats aan vier gasten, maar de indeling past beter bij twee volwassenen met een of twee jonge kinderen dan bij vier volwassenen.'
-      ]
-    }
-  },
-  sv: {
-    surf: {
-      kicker: 'AMARA × Tarifa Surf Club',
-      title: 'Kitesurfing ordnad innan ni kommer',
-      paragraphs: [
-        'Ni behöver inte börja vistelsen med att leta efter kitesurfskola, instruktör eller uthyrning. Före resan kan vi sätta er i kontakt med våra vänner på Tarifa Surf Club.',
-        'Lektioner, instruktör och hyrutrustning kan ordnas i förväg. Utrustningen kan finnas klar vid boendet när ni anländer.'
       ],
-      ctaLabel: 'Vind & kitesurfing i Tarifa',
-      ctaToken: 'tarifa_wind_kitesurfing_authority'
-    },
-    family: {
-      title: 'Reser ni med yngre barn?',
-      paragraphs: [
+      sv: [
         'Det andra sovrummet har en våningssäng med två separata sovplatser. Boendet rymmer fyra gäster, men planlösningen passar bättre för två vuxna med ett eller två yngre barn än för fyra vuxna.'
       ]
     }

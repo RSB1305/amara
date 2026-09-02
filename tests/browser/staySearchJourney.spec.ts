@@ -53,6 +53,7 @@ type GatewayOptions = {
   unavailableDates?: Set<string>;
   technicalError?: Set<string>;
   quoteError?: Set<string>;
+  quoteUnavailable?: Set<string>;
   searchCalendarFailures?: number;
 };
 
@@ -110,6 +111,14 @@ async function mockGateway(page: Page, options: GatewayOptions = {}) {
         status: 502,
         contentType: 'application/json',
         body: JSON.stringify({ error: { code: 'booking_data_unavailable', message: 'Live booking data is temporarily unavailable.' } })
+      });
+      return;
+    }
+    if (operation === 'quote' && options.quoteUnavailable?.has(stay)) {
+      await route.fulfill({
+        status: 409,
+        contentType: 'application/json',
+        body: JSON.stringify({ error: { code: 'quote_unavailable', message: 'A current quote is unavailable for this stay.' } })
       });
       return;
     }
@@ -367,6 +376,32 @@ test('empty availability and technical failures remain distinct', async ({ page 
   await expect(page.locator('[data-am-stay-search-empty]')).toBeVisible();
   await expect(page.locator('[data-am-stay-search-empty-copy]')).toContainText('cannot load availability and prices');
   expect(errorRequests).toHaveLength(1);
+});
+
+test('quote restrictions hide the affected stay without showing a technical warning', async ({ page }) => {
+  const arrival = futureIso(30);
+  const departure = futureIso(33);
+  const requests = await mockGateway(page, { quoteUnavailable: new Set(['lounis']) });
+  await page.goto(searchUrl('frigiliana', arrival, departure));
+
+  await expect(page.locator('[data-am-stay-result]:visible')).toHaveCount(3);
+  await expect(page.locator('[data-am-stay-result="lounis"]')).toBeHidden();
+  await expect(page.locator('[data-am-stay-search-warning]')).toBeHidden();
+  await expect(page.locator('[data-am-stay-search-empty]')).toBeHidden();
+  expect(requests).toHaveLength(8);
+});
+
+test('a partial technical failure keeps valid results and shows a neutral warning', async ({ page }) => {
+  const arrival = futureIso(30);
+  const departure = futureIso(33);
+  await mockGateway(page, { quoteError: new Set(['lounis']) });
+  await page.goto(searchUrl('frigiliana', arrival, departure));
+
+  await expect(page.locator('[data-am-stay-result]:visible')).toHaveCount(3);
+  await expect(page.locator('[data-am-stay-search-warning]')).toBeVisible();
+  await expect(page.locator('[data-am-stay-search-warning]')).toContainText(
+    'We could not check every stay right now'
+  );
 });
 
 test('result handoff preserves provider-neutral search state and primes the stay quote', async ({ page }) => {

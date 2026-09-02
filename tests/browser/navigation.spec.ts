@@ -437,6 +437,79 @@ test('the contextual scroll contract covers location and experience hubs and spo
   }
 });
 
+test('the AMARA breadcrumb mark stays a black text heart on mobile', async ({ page }) => {
+  await page.setViewportSize(MOBILE_VIEWPORT);
+  await openPage(page, '/de/frigiliana-location');
+
+  const mark = page.locator('[data-am-context-home-mark]');
+  await expect(mark).toBeVisible();
+
+  const presentation = await mark.evaluate((element) => ({
+    codePoints: Array.from(element.textContent ?? '', (character) => character.codePointAt(0)),
+    color: getComputedStyle(element).color,
+    onSurfaceColor: getComputedStyle(document.documentElement)
+      .getPropertyValue('--color-on-surface')
+      .trim()
+  }));
+
+  expect(presentation.codePoints).toEqual([0x2665, 0xfe0e]);
+  expect(presentation.color).toBe('rgb(27, 28, 26)');
+  expect(presentation.onSurfaceColor).toBe('#1b1c1a');
+});
+
+test('the availability context stays concise and separates its mobile link rail', async ({ page }) => {
+  await page.setViewportSize(MOBILE_VIEWPORT);
+  await openPage(page, '/de/find-a-stay');
+
+  const breadcrumb = page.locator('[data-am-context-breadcrumb-row]');
+  const currentBreadcrumb = page.locator('[data-am-context-breadcrumb-current]');
+  const linkRail = page.locator('[data-am-context-scroll-rail]');
+  const contextLinks = linkRail.locator('a');
+  await expect(breadcrumb).toBeVisible();
+  await expect(currentBreadcrumb).toHaveText('Verfügbarkeit');
+  await expect(breadcrumb).not.toContainText('AMARA entdecken');
+  await expect(contextLinks).toHaveCount(4);
+  await expect(contextLinks).toHaveText(['Unterkünfte', 'Ausstattung', 'Bewertungen', 'FAQ']);
+  await expect(linkRail).not.toContainText('Verfügbarkeit');
+
+  const [breadcrumbBox, linkRailBox, contextShellBox, contextSpacerBox] = await Promise.all([
+    breadcrumb.boundingBox(),
+    linkRail.boundingBox(),
+    page.locator('[data-am-context-navigation-simple]').boundingBox(),
+    page.locator('.am-nav-context-spacer').boundingBox()
+  ]);
+
+  expect(breadcrumbBox).not.toBeNull();
+  expect(linkRailBox).not.toBeNull();
+  expect(contextShellBox).not.toBeNull();
+  expect(contextSpacerBox).not.toBeNull();
+  expect(linkRailBox!.y).toBeGreaterThan(breadcrumbBox!.y + breadcrumbBox!.height);
+  expect(Math.abs(contextShellBox!.height - contextSpacerBox!.height)).toBeLessThanOrEqual(1);
+  expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(
+    MOBILE_VIEWPORT.width
+  );
+
+  await page.setViewportSize(DESKTOP_VIEWPORT);
+  const [desktopLayoutBox, desktopToolbarBox] = await Promise.all([
+    page.locator('[data-am-context-layout-simple]').boundingBox(),
+    page.locator('[data-am-context-toolbar-simple]').boundingBox()
+  ]);
+  expect(desktopLayoutBox).not.toBeNull();
+  expect(desktopToolbarBox).not.toBeNull();
+  const desktopRightEdge = desktopLayoutBox!.x + desktopLayoutBox!.width;
+  const desktopToolbarRightEdge = desktopToolbarBox!.x + desktopToolbarBox!.width;
+  expect(Math.abs(desktopRightEdge - desktopToolbarRightEdge)).toBeLessThanOrEqual(1);
+
+  await page.setViewportSize({ width: 1100, height: 900 });
+  const [tabletContextShellBox, tabletContextSpacerBox] = await Promise.all([
+    page.locator('[data-am-context-navigation-simple]').boundingBox(),
+    page.locator('.am-nav-context-spacer').boundingBox()
+  ]);
+  expect(tabletContextShellBox).not.toBeNull();
+  expect(tabletContextSpacerBox).not.toBeNull();
+  expect(Math.abs(tabletContextShellBox!.height - tabletContextSpacerBox!.height)).toBeLessThanOrEqual(1);
+});
+
 test('the desktop destination disclosures remain available without JavaScript', async ({ browser }) => {
   const context = await browser.newContext({
     javaScriptEnabled: false,
