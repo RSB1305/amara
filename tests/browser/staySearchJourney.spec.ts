@@ -217,8 +217,8 @@ test('homepage finder refreshes live dates for destination changes and returns q
   const submit = page.getByRole('button', { name: 'Check availability' });
   await expect(submit).toBeVisible();
   await expect(submit).toBeDisabled();
-  await expect(page.getByRole('button', { name: 'Close calendar' })).toHaveCount(0);
-  await expect(page.getByRole('button', { name: 'Clear dates' })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: 'Close calendar' })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Start over' })).toBeDisabled();
   await expect.poll(() => requests.filter((url) => url.pathname.endsWith('/search-calendar')).length).toBe(2);
   await expect(page.locator('.am-booking-calendar__month')).toHaveCount(2);
   await expect(page.locator('[data-am-booking-day="' + arrival + '"] .am-booking-calendar__day-price')).toContainText('from');
@@ -236,6 +236,17 @@ test('homepage finder refreshes live dates for destination changes and returns q
     'data-am-booking-calendar-status-state',
     'minimum-stay'
   );
+  const earlierArrival = futureIso(2);
+  const earlierArrivalButton = page.locator('[data-am-booking-day="' + earlierArrival + '"]');
+  await expect(earlierArrivalButton).toBeEnabled();
+  await expect(earlierArrivalButton).toHaveAttribute('data-am-booking-selection', 'arrival');
+  await earlierArrivalButton.click();
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue(earlierArrival);
+  await expect(page.locator('[data-am-stay-search-departure]')).toHaveValue('');
+  await page.getByRole('button', { name: 'Start over' }).click();
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue('');
+  await expect(page.getByRole('button', { name: 'Start over' })).toBeDisabled();
+  await page.locator('[data-am-booking-day="' + arrival + '"]').click();
   const departureButton = page.locator('[data-am-booking-day="' + departure + '"]');
   await expect(departureButton).toBeEnabled();
   await departureButton.click();
@@ -259,12 +270,13 @@ test('homepage finder refreshes live dates for destination changes and returns q
   expect(publicHtml).not.toContain('Provider');
 });
 
-test('finder explains a broken stay range and clears its hover preview', async ({ page }) => {
+test('finder explains a broken stay range and resets for a new arrival', async ({ page }) => {
   await page.setViewportSize(DESKTOP);
   const arrival = futureIso(20);
   const firstValidDeparture = futureIso(23);
   const blockedNight = firstValidDeparture;
   const invalidDeparture = futureIso(26);
+  const laterArrival = futureIso(29);
   await mockGateway(page, { unavailableDates: new Set([blockedNight]) });
   await page.goto(ORIGIN + '/en/find-a-stay?destination=frigiliana');
   await page.getByRole('button', { name: 'Choose arrival' }).click();
@@ -292,8 +304,22 @@ test('finder explains a broken stay range and clears its hover preview', async (
   await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
     'No single AMARA stay is available for every night'
   );
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'We have cleared these dates'
+  );
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue('');
   await expect(page.locator('[data-am-stay-search-departure]')).toHaveValue('');
+  await expect(page.getByRole('button', { name: 'Choose arrival' })).toBeVisible();
   await expect(page.getByRole('button', { name: 'Check availability' })).toBeDisabled();
+
+  const laterArrivalButton = page.locator('[data-am-booking-day="' + laterArrival + '"]');
+  await expect(laterArrivalButton).toBeEnabled();
+  await laterArrivalButton.click();
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue(laterArrival);
+  await expect(page.locator('[data-am-stay-search-departure]')).toHaveValue('');
+  await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
+    'Minimum stay from this arrival'
+  );
 });
 
 test('finder retries transient live-calendar failures once', async ({ page }) => {
@@ -376,6 +402,14 @@ test('mobile finder uses one month and results stay in a single column without o
   await expect.poll(() => requests.length).toBe(1);
   expect(requests[0].pathname).toContain('/search-calendar');
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(MOBILE.width);
+
+  const partialArrival = futureIso(2);
+  await page.locator('[data-am-booking-day="' + partialArrival + '"]').click();
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue(partialArrival);
+  await page.mouse.click(5, 5);
+  await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue('');
+  await expect(page.locator('[data-am-booking-calendar]')).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Start over' })).toBeDisabled();
 
   await page.goto(searchUrl('nerja', futureIso(50), futureIso(57)));
   await expect(page.locator('[data-am-stay-result]:visible')).toHaveCount(1);

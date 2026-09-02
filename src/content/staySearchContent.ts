@@ -54,14 +54,16 @@ export const staySearchCopy = {
     sv: 'Vid ankomst den {arrival} gäller minst {count} nätter. Välj avresa tidigast den {departure}.'
   }),
   stayContinuityViolation: localized({
-    en: 'No single AMARA stay is available for every night from {arrival} to {departure}. Choose a selectable departure or a new arrival.',
-    de: 'Vom {arrival} bis zur Abreise am {departure} ist keine einzelne AMARA-Unterkunft durchgehend frei. Wählt ein verfügbares Abreisedatum oder eine neue Anreise.',
-    es: 'Ningún alojamiento AMARA está disponible todas las noches desde el {arrival} hasta la salida del {departure}. Elegid una fecha de salida disponible u otra llegada.',
-    nl: 'Er is geen enkel AMARA-verblijf vrij voor alle nachten van {arrival} tot het vertrek op {departure}. Kies een beschikbare vertrekdatum of een nieuwe aankomst.',
-    sv: 'Inget enskilt AMARA-boende är ledigt varje natt från {arrival} till avresan den {departure}. Välj ett valbart avresedatum eller en ny ankomst.'
+    en: 'No single AMARA stay is available for every night from {arrival} to {departure}. We have cleared these dates so you can choose a new arrival.',
+    de: 'Vom {arrival} bis zur Abreise am {departure} ist keine einzelne AMARA-Unterkunft durchgehend frei. Wir haben diese Daten zurückgesetzt, damit ihr eine neue Anreise wählen könnt.',
+    es: 'Ningún alojamiento AMARA está disponible todas las noches desde el {arrival} hasta la salida del {departure}. Hemos borrado estas fechas para que podáis elegir otra llegada.',
+    nl: 'Er is geen enkel AMARA-verblijf vrij voor alle nachten van {arrival} tot het vertrek op {departure}. We hebben deze data gewist, zodat jullie een nieuwe aankomst kunnen kiezen.',
+    sv: 'Inget enskilt AMARA-boende är ledigt varje natt från {arrival} till avresan den {departure}. Vi har rensat datumen så att ni kan välja en ny ankomst.'
   }),
   previousMonth: localized({ en: 'Previous month', de: 'Vorheriger Monat', es: 'Mes anterior', nl: 'Vorige maand', sv: 'Föregående månad' }),
   nextMonth: localized({ en: 'Next month', de: 'Nächster Monat', es: 'Mes siguiente', nl: 'Volgende maand', sv: 'Nästa månad' }),
+  resetDates: localized({ en: 'Start over', de: 'Neu wählen', es: 'Volver a elegir', nl: 'Opnieuw kiezen', sv: 'Välj på nytt' }),
+  closeCalendar: localized({ en: 'Close calendar', de: 'Kalender schließen', es: 'Cerrar calendario', nl: 'Kalender sluiten', sv: 'Stäng kalendern' }),
   unavailableDay: localized({ en: 'Unavailable', de: 'Nicht wählbar', es: 'No disponible', nl: 'Niet beschikbaar', sv: 'Inte tillgänglig' }),
   availableDay: localized({ en: 'Available', de: 'Wählbar', es: 'Disponible', nl: 'Beschikbaar', sv: 'Tillgänglig' }),
   invalidDeparture: localized({
@@ -87,19 +89,34 @@ export const staySearchCopy = {
     en: 'selected arrival', de: 'gewählte Anreise', es: 'llegada seleccionada',
     nl: 'gekozen aankomst', sv: 'vald ankomst'
   }),
+  newArrivalDay: localized({
+    en: 'select as new arrival', de: 'als neue Anreise wählen', es: 'elegir como nueva llegada',
+    nl: 'als nieuwe aankomst kiezen', sv: 'välj som ny ankomst'
+  }),
   fromPrice: localized({
     en: 'from {price}', de: 'ab {price}', es: 'desde {price}',
     nl: 'vanaf {price}', sv: 'från {price}'
   }),
   invalidSearch: localized({ en: 'Choose arrival and departure to see available stays and total prices.', de: 'Wählt An- und Abreise. Dann seht ihr freie Unterkünfte mit Gesamtpreis.', es: 'Elegid la llegada y la salida para ver alojamientos disponibles y precios totales.', nl: 'Kies aankomst en vertrek om beschikbare verblijven en totaalprijzen te zien.', sv: 'Välj ankomst och avresa för att se lediga boenden och totalpriser.' }),
-  resultsEyebrow: localized({ en: 'Book direct with AMARA', de: 'Direkt bei AMARA buchen', es: 'Reservar directamente con AMARA', nl: 'Direct boeken bij AMARA', sv: 'Boka direkt hos AMARA' }),
-  resultsTitle: localized({ en: 'Availability and prices', de: 'Verfügbarkeit und Preise', es: 'Disponibilidad y precios', nl: 'Beschikbaarheid en prijzen', sv: 'Tillgänglighet och priser' }),
+  resultsEyebrow: localized({ en: 'Your AMARA stay', de: 'Euer AMARA-Aufenthalt', es: 'Vuestra estancia AMARA', nl: 'Jullie AMARA-verblijf', sv: 'Er AMARA-vistelse' }),
+  resultsTitle: localized({ en: 'Find your dates and book direct with us', de: 'Findet eure Reisedaten und bucht direkt bei uns', es: 'Encontrad vuestras fechas y reservad directamente con nosotros', nl: 'Vind jullie reisdata en boek rechtstreeks bij ons', sv: 'Hitta era resdatum och boka direkt hos oss' }),
+  directBookingNote: localized({
+    en: 'Direct bookings include our lowest available price, with all applicable fees.',
+    de: 'Bei einer Direktbuchung gilt unser niedrigster verfügbarer Preis inklusive aller anfallenden Gebühren.',
+    es: 'Al reservar directamente con nosotros, obtenéis nuestro precio más bajo disponible, con todos los cargos aplicables incluidos.',
+    nl: 'Bij een rechtstreekse boeking geldt onze laagst beschikbare prijs, inclusief alle toepasselijke kosten.',
+    sv: 'Vid direktbokning gäller vårt lägsta tillgängliga pris, inklusive alla tillämpliga avgifter.'
+  }),
+  directBookingLinkLabel: localized({
+    en: 'See the other benefits', de: 'Weitere Vorteile ansehen',
+    es: 'Ver las demás ventajas', nl: 'Bekijk de andere voordelen', sv: 'Se de andra fördelarna'
+  }),
   allStaysTitle: localized({ en: 'All AMARA stays', de: 'Alle AMARA-Unterkünfte', es: 'Todos los alojamientos AMARA', nl: 'Alle AMARA-verblijven', sv: 'Alla AMARA-boenden' }),
   destinationStaysTitle: localized({ en: 'Stays in {destination}', de: 'Unterkünfte in {destination}', es: 'Alojamientos en {destination}', nl: 'Verblijven in {destination}', sv: 'Boenden i {destination}' }),
   destinationStaysPrompt: localized({ en: 'Choose your dates to see available stays and total prices.', de: 'Wählt eure Reisedaten, um freie Unterkünfte und Gesamtpreise zu sehen.', es: 'Elegid vuestras fechas para ver los alojamientos disponibles y los precios totales.', nl: 'Kies jullie reisdata om beschikbare verblijven en totaalprijzen te zien.', sv: 'Välj era resedatum för att se lediga boenden och totalpriser.' }),
   loading: localized({ en: 'We are checking availability and total prices…', de: 'Wir prüfen Verfügbarkeit und Gesamtpreise…', es: 'Estamos comprobando la disponibilidad y los precios totales…', nl: 'We controleren beschikbaarheid en totaalprijzen…', sv: 'Vi kontrollerar tillgänglighet och totalpriser…' }),
   totalPrice: localized({ en: 'Total price', de: 'Gesamtpreis', es: 'Precio total', nl: 'Totaalprijs', sv: 'Totalpris' }),
-  viewStay: localized({ en: 'Choose this stay', de: 'Diese Unterkunft wählen', es: 'Elegir este alojamiento', nl: 'Dit verblijf kiezen', sv: 'Välj detta boende' }),
+  viewStay: localized({ en: 'View {stay}', de: '{stay} ansehen', es: 'Ver {stay}', nl: 'Bekijk {stay}', sv: 'Se {stay}' }),
   night: localized({ en: '{count} night', de: '{count} Nacht', es: '{count} noche', nl: '{count} nacht', sv: '{count} natt' }),
   nights: localized({ en: '{count} nights', de: '{count} Nächte', es: '{count} noches', nl: '{count} nachten', sv: '{count} nätter' }),
   empty: localized({ en: 'Unfortunately, none of our stays in {destination} is available for these dates. Try different dates.', de: 'Für diese Reisedaten ist in {destination} leider keine unserer Unterkünfte frei. Probiert andere Daten.', es: 'Por desgracia, ninguno de nuestros alojamientos en {destination} está disponible en esas fechas. Probad con otras fechas.', nl: 'Helaas is geen van onze verblijven in {destination} op deze data beschikbaar. Probeer andere data.', sv: 'Tyvärr är inget av våra boenden i {destination} ledigt under de här datumen. Prova andra datum.' }),

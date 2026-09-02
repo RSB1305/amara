@@ -19,6 +19,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = (value: Record<AmaraLanguage, string>) => value[currentLang] ?? value.en;
 const action = resolveLink('stay_search_results', currentLang);
+const directBookingBenefitsHref = resolveLink('direct_booking_benefits', currentLang);
 /**
  * The footer default opens with the stay collection. On this page that is a
  * loop: the six stays are already listed above it. The slot goes to the page
@@ -73,6 +74,12 @@ const cards = vacationRentalEntities.flatMap((rental) => {
         <h1 id="stay-search-title" class="am-text-title mt-4 text-on-surface">
           {t(staySearchCopy.resultsTitle)}
         </h1>
+        <p class="am-text-caption mt-4 max-w-2xl text-on-surface-variant">
+          {t(staySearchCopy.directBookingNote)}{' '}
+          <a class="am-link" href={directBookingBenefitsHref}>
+            {t(staySearchCopy.directBookingLinkLabel)}
+          </a>
+        </p>
       </div>
 
       <div class="mt-8">
@@ -115,8 +122,8 @@ const cards = vacationRentalEntities.flatMap((rental) => {
                 meta={`${rental.city} · ${guestCapacity(rental.occupancy)}`}
                 title={rental.name}
                 description={firstSentence(rental.lead[currentLang] ?? rental.lead.en)}
-                ctaLabel={t(staySearchCopy.viewStay)}
-                linkAriaLabel={`${t(staySearchCopy.viewStay)}: ${rental.name}`}
+                ctaLabel={t(staySearchCopy.viewStay).replace('{stay}', rental.name)}
+                linkAriaLabel={t(staySearchCopy.viewStay).replace('{stay}', rental.name)}
                 dataStay={rental.bookingKey}
                 dataDestination={destination}
                 dataOccupancy={rental.occupancy}
@@ -152,6 +159,32 @@ const cards = vacationRentalEntities.flatMap((rental) => {
 
   .am-stay-results-grid .am-apartment-card[hidden] {
     display: none;
+  }
+
+  .am-stay-results-grid .am-apartment-card__cta-wrap .am-btn {
+    width: fit-content;
+    min-width: 0;
+    min-height: 2.5rem;
+    justify-content: flex-start;
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-control);
+    background: transparent;
+    padding: 0.625rem 1rem;
+    color: var(--color-on-surface);
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-transform: none;
+    white-space: normal;
+    text-decoration: none;
+  }
+
+  .am-stay-results-grid .am-apartment-card__cta-wrap .am-btn:hover {
+    border-color: var(--color-on-surface);
+    background: var(--color-surface-container-low);
+    color: var(--color-on-surface);
+    transform: translateY(-1px);
   }
 
   @media (min-width: 48rem) {

@@ -1,11 +1,14 @@
 ---
 import AmaraActionButton from '../actions/AmaraActionButton.astro';
+import { X } from '@lucide/astro';
 
 interface Props {
   title: string;
   help: string;
   previousMonthLabel: string;
   nextMonthLabel: string;
+  resetLabel?: string;
+  closeLabel?: string;
   submitLabel?: string;
 }
 
@@ -14,6 +17,8 @@ const {
   help,
   previousMonthLabel,
   nextMonthLabel,
+  resetLabel,
+  closeLabel,
   submitLabel
 } = Astro.props;
 ---
@@ -35,21 +40,44 @@ const {
         {help}
       </p>
     </div>
+    {closeLabel && (
+      <button
+        class="am-booking-calendar__utility-button"
+        type="button"
+        aria-label={closeLabel}
+        title={closeLabel}
+        data-am-booking-calendar-close
+      >
+        <X class="h-5 w-5" stroke-width={1.7} aria-hidden="true" />
+      </button>
+    )}
   </div>
 
   <div class="am-booking-calendar__navigation">
-    <button
-      class="am-booking-calendar__nav-button"
-      type="button"
-      aria-label={previousMonthLabel}
-      data-am-booking-calendar-prev
-    >←</button>
-    <button
-      class="am-booking-calendar__nav-button"
-      type="button"
-      aria-label={nextMonthLabel}
-      data-am-booking-calendar-next
-    >→</button>
+    {resetLabel && (
+      <button
+        class="am-booking-calendar__reset-button am-text-form-value am-text-form-value--compact"
+        type="button"
+        disabled
+        data-am-booking-calendar-reset
+      >
+        {resetLabel}
+      </button>
+    )}
+    <div class="am-booking-calendar__navigation-buttons">
+      <button
+        class="am-booking-calendar__nav-button"
+        type="button"
+        aria-label={previousMonthLabel}
+        data-am-booking-calendar-prev
+      >←</button>
+      <button
+        class="am-booking-calendar__nav-button"
+        type="button"
+        aria-label={nextMonthLabel}
+        data-am-booking-calendar-next
+      >→</button>
+    </div>
   </div>
 
   <div class="am-booking-calendar__months" data-am-booking-calendar-months></div>
@@ -109,9 +137,15 @@ const {
   }
 
   .am-booking-calendar__navigation {
-    justify-content: flex-end;
+    align-items: center;
     border-top: 1px solid var(--color-outline-variant);
     padding: 0.75rem 0.25rem;
+  }
+
+  .am-booking-calendar__navigation-buttons {
+    display: flex;
+    margin-inline-start: auto;
+    gap: 1rem;
   }
 
   .am-booking-calendar__footer {
@@ -122,16 +156,30 @@ const {
     padding: 1rem 0.25rem 0;
   }
 
-  .am-booking-calendar__nav-button {
+  .am-booking-calendar__nav-button,
+  .am-booking-calendar__utility-button,
+  .am-booking-calendar__reset-button {
     display: inline-flex;
     min-height: 2.75rem;
-    min-width: 2.75rem;
     align-items: center;
     justify-content: center;
     border: 1px solid var(--color-outline-variant);
     border-radius: var(--radius-control);
     color: var(--color-on-surface);
+  }
+
+  .am-booking-calendar__nav-button,
+  .am-booking-calendar__utility-button {
+    min-width: 2.75rem;
     font-size: 1.25rem;
+  }
+
+  .am-booking-calendar__utility-button {
+    flex: 0 0 auto;
+  }
+
+  .am-booking-calendar__reset-button {
+    padding-inline: 0.9rem;
   }
 
   .am-booking-calendar button:focus-visible {
@@ -139,7 +187,8 @@ const {
     outline-offset: 2px;
   }
 
-  .am-booking-calendar__nav-button:disabled {
+  .am-booking-calendar__nav-button:disabled,
+  .am-booking-calendar__reset-button:disabled {
     cursor: not-allowed;
     opacity: 0.35;
   }
@@ -234,6 +283,10 @@ const {
   .am-booking-calendar__day[data-am-booking-day-state='restricted'] {
     cursor: not-allowed;
     color: var(--color-on-surface-variant);
+  }
+
+  .am-booking-calendar__day[data-am-booking-day-state='selected'] {
+    cursor: pointer;
   }
 
   .am-booking-calendar__day[data-am-booking-restriction='minimum-stay'] {

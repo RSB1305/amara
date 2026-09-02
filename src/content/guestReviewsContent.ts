@@ -135,25 +135,32 @@ export const guestReviewsCopy = {
       sv: 'Samma praktiska saker nämns oftast: rent, lugna nätter, välutrustade lägenheter och snabba svar.'
     },
     awardsTitle: {
-      en: 'Five Traveller Review Awards 2026',
-      de: 'Fünf Traveller Review Awards 2026',
-      es: 'Cinco Traveller Review Awards 2026',
-      nl: 'Vijf Traveller Review Awards 2026',
-      sv: 'Fem Traveller Review Awards 2026'
+      en: 'Five awards — thanks to your reviews',
+      de: 'Fünf Auszeichnungen – dank eurer Bewertungen',
+      es: 'Cinco premios, gracias a vuestras reseñas',
+      nl: 'Vijf awards — dankzij jullie beoordelingen',
+      sv: 'Fem utmärkelser – tack vare era omdömen'
     },
     awardsBody: {
-      en: 'Across Frigiliana, Nerja and Tarifa, five AMARA stays received a Booking.com Traveller Review Award in 2026 — based on guest reviews.',
-      de: 'Von Frigiliana über Nerja bis Tarifa wurden fünf AMARA-Unterkünfte 2026 von Booking.com ausgezeichnet – auf Basis der Bewertungen unserer Gäste.',
-      es: 'De Frigiliana a Nerja y Tarifa, cinco alojamientos AMARA han sido reconocidos por Booking.com en 2026 gracias a las valoraciones de nuestros huéspedes.',
-      nl: 'In Frigiliana, Nerja en Tarifa ontvingen vijf AMARA-verblijven in 2026 een Booking.com Traveller Review Award, gebaseerd op beoordelingen van gasten.',
-      sv: 'I Frigiliana, Nerja och Tarifa fick fem AMARA-boenden en Booking.com Traveller Review Award 2026, baserat på gästernas omdömen.'
+      en: 'In 2026, five AMARA stays received a Booking.com Traveller Review Award. The recognition is based on the experiences you shared after your stay. Thank you for sharing them with other couples and with us.',
+      de: '2026 wurden fünf AMARA-Unterkünfte mit einem Booking.com Traveller Review Award ausgezeichnet. Diese Anerkennung beruht auf den Erfahrungen, die ihr nach eurem Aufenthalt geteilt habt. Danke, dass ihr sie mit anderen Paaren und mit uns teilt.',
+      es: 'En 2026, cinco alojamientos AMARA recibieron un Traveller Review Award de Booking.com. Este reconocimiento se basa en las experiencias que compartisteis después de vuestra estancia. Gracias por compartirlas con otras parejas y con nosotros.',
+      nl: 'In 2026 ontvingen vijf AMARA-verblijven een Booking.com Traveller Review Award. Deze erkenning is gebaseerd op de ervaringen die jullie na jullie verblijf deelden. Dank jullie wel dat jullie die met andere stellen en met ons delen.',
+      sv: 'År 2026 fick fem AMARA-boenden en Booking.com Traveller Review Award. Utmärkelsen bygger på de erfarenheter ni delade efter er vistelse. Tack för att ni delar dem med andra par och med oss.'
     },
     awardsSource: {
-      en: 'Source: Booking.com Traveller Review Awards 2026.',
-      de: 'Quelle: Booking.com Traveller Review Awards 2026.',
-      es: 'Fuente: Booking.com Traveller Review Awards 2026.',
-      nl: 'Bron: Booking.com Traveller Review Awards 2026.',
-      sv: 'Källa: Booking.com Traveller Review Awards 2026.'
+      en: 'Evidence: official Booking.com Traveller Review Awards 2026 certificates for five AMARA stays.',
+      de: 'Nachweis: offizielle Booking.com-Zertifikate der Traveller Review Awards 2026 für fünf AMARA-Unterkünfte.',
+      es: 'Prueba: certificados oficiales de los Traveller Review Awards 2026 de Booking.com para cinco alojamientos AMARA.',
+      nl: 'Bewijs: officiële Booking.com-certificaten van de Traveller Review Awards 2026 voor vijf AMARA-verblijven.',
+      sv: 'Underlag: officiella Booking.com-certifikat för Traveller Review Awards 2026 för fem AMARA-boenden.'
+    },
+    awardImageAlt: {
+      en: 'Booking.com Traveller Review Award 2026 for {stay}, rated {score} out of 10',
+      de: 'Booking.com Traveller Review Award 2026 für {stay} mit {score} von 10 Punkten',
+      es: 'Traveller Review Award 2026 de Booking.com para {stay}, con una puntuación de {score} sobre 10',
+      nl: 'Booking.com Traveller Review Award 2026 voor {stay}, beoordeeld met {score} van 10',
+      sv: 'Booking.com Traveller Review Award 2026 för {stay}, med betyget {score} av 10'
     },
     nextTitle: {
       en: 'Stays and availability',
@@ -262,12 +269,12 @@ export const guestReviewsCopy = {
   },
   awards: {
     frigiliana: [
-      { name: 'La AMARA Lounis', score: 9.8 },
-      { name: 'La AMARA Maha', score: 9.5 },
-      { name: 'La AMARA Zaid', score: 9.7 }
+      { name: 'AMARA Lounis', score: 9.8 },
+      { name: 'AMARA Maha', score: 9.5 },
+      { name: 'AMARA Zaid', score: 9.7 }
     ],
     coast: [
-      { name: 'AMARA Nerja Beachside', score: 9.4 },
+      { name: 'AMARA Playa', score: 9.4 },
       { name: 'AMARA Family & Surf', score: 9.6 }
     ]
   }
