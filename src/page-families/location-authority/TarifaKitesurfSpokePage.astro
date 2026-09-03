@@ -23,7 +23,7 @@ const contactHref = `https://wa.me/34604440964?text=${encodeURIComponent(t(conte
 const localizedSections = content.sections.map((section) => ({ id: section.id, eyebrow: t(section.eyebrow), title: t(section.title), paragraphs: section.paragraphs.map(t) }));
 const hubLabel = { en: 'Kitesurfing in Tarifa', de: 'Kitesurfen in Tarifa', es: 'Kitesurf en Tarifa', nl: 'Kitesurfen in Tarifa', sv: 'Kitesurfing i Tarifa' } satisfies LocalizedKiteText;
 const footerHighlights: LabeledLink[] = [
-  { token: 'tarifa_wind_kitesurfing_authority', label: t(hubLabel) },
+  { token: 'tarifa_kitesurfing_hub', label: t(hubLabel) },
   ...content.related.slice(0, 3).map((item) => ({ token: item.token, label: t(item.label) }))
 ];
 
@@ -97,7 +97,7 @@ const ui = {
         <p class="am-text-body mx-auto mt-6 max-w-3xl leading-relaxed text-on-surface-variant">{t(content.closing.text)}</p>
         <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <a href={contactHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--primary w-full justify-center sm:w-auto">{t(content.closing.contactLabel)}</a>
-          <a href={requiredLink('tarifa_wind_kitesurfing_authority')} class="am-btn am-btn--secondary w-full justify-center sm:w-auto">{t(hubLabel)}</a>
+          <a href={requiredLink('tarifa_kitesurfing_hub')} class="am-btn am-btn--secondary w-full justify-center sm:w-auto">{t(hubLabel)}</a>
         </div>
       </div>
     </section>

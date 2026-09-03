@@ -1,0 +1,247 @@
+---
+import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
+import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-surf-club-team.webp';
+import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
+import AemetForecastPanel from '../../components/location/AemetForecastPanel.astro';
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import Navigation from '../../components/Navigation.astro';
+import { tarifaKitesurfWindContent, tarifaKitesurfWindSeo } from '../../content/tarifaKitesurfWindContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import { resolveLocale } from '../../types/content';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props { lang?: string; }
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const content = resolveLocale(tarifaKitesurfWindContent, currentLang);
+const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf wind spoke');
+const aboutHref = requiredLink('about');
+const contactHref = `https://wa.me/34604440964?text=${encodeURIComponent(content.partner.contactMessage)}`;
+const footerHighlights: LabeledLink[] = [
+  { token: content.token, label: content.hero.title },
+  ...content.related.links.map((link) => ({ token: link.token, label: link.title }))
+];
+---
+
+<LocationAuthorityLayout seo={tarifaKitesurfWindSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-spoke">
+  <Navigation slot="navigation" contextDestination="tarifa" currentLang={currentLang} languageToken={content.token}>
+    <ExperienceContextNav slot="context-navigation" currentId="wind" destination="tarifa" lang={currentLang} />
+  </Navigation>
+
+  <article class="bg-surface" data-am-page="tarifa-wind-kitesurfing" data-am-family="experience" data-am-role="spoke" data-am-topic="kitesurf-wind-safety">
+    <LocationExperienceHero
+      eyebrow={content.hero.eyebrow}
+      title={content.hero.title}
+      subtitle={content.hero.subtitle}
+      paragraphs={[content.hero.lead]}
+      imageSrc={tarifaSurfClubTeamImage}
+      imageAlt={content.hero.imageAlt}
+      imageWidth={1200}
+      role="spoke"
+      topic="kitesurf-wind-safety"
+      byline={{ lang: currentLang, authorName: 'Robert Sebastian Böhmer', authorHref: aboutHref, updated: content.hero.updated, note: content.hero.note }}
+    />
+
+    <AmaraSection id="today-in-tarifa" family="experience" labelledby="today-in-tarifa-title" variant="compact" surface="tint">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="am-text-eyebrow text-primary">{content.live.eyebrow}</p>
+          <h2 id="today-in-tarifa-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.live.title}</h2>
+        </div>
+        <div class="lg:col-span-7">
+          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.live.intro}</p>
+          <AemetForecastPanel
+            endpoint="/api/weather/tarifa"
+            lang={currentLang}
+            labels={{
+              loading: content.live.loading,
+              today: content.live.today,
+              tomorrow: content.live.tomorrow,
+              high: content.live.high,
+              low: content.live.low,
+              rain: content.live.rain,
+              issued: content.live.issued,
+              unavailable: content.live.unavailableTitle,
+              unavailableText: content.live.unavailableText,
+              source: content.live.aemetLabel
+            }}
+            sourceHref={content.safety.aemetHref}
+            fallbackLabel={content.live.aemetLabel}
+          />
+          <aside class="mt-10 border-l-2 border-primary/35 bg-surface px-6 py-7" aria-labelledby="today-in-tarifa-check-title">
+            <h3 id="today-in-tarifa-check-title" class="am-text-subtitle text-on-surface">{content.live.checkHeading}</h3>
+            <p class="am-text-body mt-4 max-w-3xl leading-relaxed text-on-surface-variant">{content.live.checkText}</p>
+          </aside>
+        </div>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection id="windguru" family="experience" labelledby="windguru-title" variant="compact">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-5">
+            <p class="am-text-eyebrow text-primary">{content.windguru.eyebrow}</p>
+            <h2 id="windguru-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.windguru.title}</h2>
+          </div>
+          <div class="lg:col-span-7">
+            <p class="am-text-subtitle max-w-3xl leading-relaxed text-on-surface">{content.windguru.intro}</p>
+            <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant">{content.windguru.sourceNote}</p>
+            <AmaraActionLink href={content.windguru.linkHref} variant="editorial" external class="mt-7 inline-flex">{content.windguru.linkLabel}</AmaraActionLink>
+          </div>
+        </div>
+
+        <div class="mt-14 grid gap-5 md:grid-cols-2">
+          {content.windguru.terms.map((term) => (
+            <section class="border-l-2 border-primary/35 bg-surface-container-low px-6 py-7" aria-labelledby={`windguru-${term.id}`}>
+              <h3 id={`windguru-${term.id}`} class="am-text-subtitle text-on-surface">{term.title}</h3>
+              <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{term.text}</p>
+            </section>
+          ))}
+        </div>
+        <p class="am-text-subtitle mt-10 max-w-4xl text-balance text-on-surface">{content.windguru.modelNote}</p>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection id="poniente-levante" family="experience" labelledby="poniente-levante-title" variant="compact" surface="tint">
+      <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="am-text-eyebrow text-primary">{content.localWind.eyebrow}</p>
+          <h2 id="poniente-levante-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.localWind.title}</h2>
+        </div>
+        <div class="space-y-6 lg:col-span-7">
+          {content.localWind.paragraphs.map((paragraph) => <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{paragraph}</p>)}
+          <aside class="mt-10 border-l-2 border-primary/35 bg-surface px-6 py-7" aria-label={content.localWind.observationLabel}>
+            <p class="am-text-label am-text-label--sm text-primary">{content.localWind.observationLabel}</p>
+            <p class="am-text-subtitle mt-4 max-w-3xl leading-relaxed text-on-surface">{content.localWind.observation}</p>
+          </aside>
+          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">
+            {content.localWind.spotLink.before}{' '}
+            <a class="am-link" href={requiredLink(content.localWind.spotLink.token)}>{content.localWind.spotLink.label}</a>{' '}
+            {content.localWind.spotLink.after}
+          </p>
+        </div>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection id="safety" family="experience" labelledby="safety-title" variant="compact">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="max-w-4xl">
+          <p class="am-text-eyebrow text-primary">{content.safety.eyebrow}</p>
+          <h2 id="safety-title" class="am-text-title mt-5 text-balance text-on-surface">{content.safety.title}</h2>
+          <p class="am-text-body mt-7 max-w-3xl leading-relaxed text-on-surface-variant">{content.safety.intro}</p>
+          <p class="am-text-subtitle mt-7 max-w-3xl border-l-2 border-primary/35 bg-surface-container-low px-6 py-5 leading-relaxed text-on-surface">{content.safety.priority}</p>
+        </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-2">
+          {content.safety.checks.map((check) => (
+            <section class="border-l-2 border-primary/35 bg-surface-container-low px-6 py-7" aria-labelledby={`safety-${check.id}`}>
+              <h3 id={`safety-${check.id}`} class="am-text-subtitle text-on-surface">{check.title}</h3>
+              <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{check.text}</p>
+            </section>
+          ))}
+        </div>
+
+        <p class="am-text-subtitle mt-8 max-w-4xl leading-relaxed text-on-surface">{content.safety.lagoon}</p>
+
+        <div class="mt-16 grid gap-10 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-4">
+            <p class="am-text-eyebrow text-primary">{content.safety.rescueTitle}</p>
+            <p class="am-text-body mt-5 leading-relaxed text-on-surface-variant">{content.safety.rescueIntro}</p>
+          </div>
+          <div class="grid gap-5 lg:col-span-8 md:grid-cols-2">
+            {content.safety.providers.map((provider) => (
+              <section class="border-l-2 border-primary/35 bg-surface-container-low px-6 py-7" aria-labelledby={`rescue-${provider.id}`}>
+                <h3 id={`rescue-${provider.id}`} class="am-text-subtitle text-on-surface">{provider.name}</h3>
+                <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{provider.text}</p>
+                <AmaraActionLink href={provider.href} variant="editorial" external class="mt-6 inline-flex">{provider.label}</AmaraActionLink>
+              </section>
+            ))}
+          </div>
+        </div>
+
+        <aside class="mt-16 bg-inverse-surface px-6 py-10 text-inverted-on-surface md:px-10 md:py-12" aria-labelledby="maritime-emergency-title">
+          <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
+            <div class="lg:col-span-5">
+              <p class="am-text-eyebrow text-primary-fixed-dim">{content.safety.emergencyTitle}</p>
+              <h3 id="maritime-emergency-title" class="am-text-title mt-5 text-balance text-inverted-on-surface">112 · Salvamento Marítimo</h3>
+              <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/80">{content.safety.emergencyText}</p>
+            </div>
+            <dl class="grid gap-5 sm:grid-cols-3 lg:col-span-7 lg:items-end">
+              {content.safety.emergencyNumbers.map((item) => (
+                <div class="border-l border-inverted-on-surface/30 pl-5">
+                  <dt class="am-text-label am-text-label--sm text-inverted-on-surface/70">{item.label}</dt>
+                  <dd class="am-text-subtitle mt-2 text-inverted-on-surface">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </aside>
+
+        <div class="mt-10 border-l-2 border-primary/35 bg-surface-container-low px-6 py-7">
+          <p class="am-text-body max-w-4xl leading-relaxed text-on-surface-variant">{content.safety.aemetText}</p>
+          <AmaraActionLink href={content.safety.aemetHref} variant="editorial" external class="mt-6 inline-flex">{content.safety.aemetLabel}</AmaraActionLink>
+        </div>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection id="tarifa-surf-club" family="experience" labelledby="tarifa-surf-club-title" variant="compact" surface="inverse">
+      <div class="mx-auto grid max-w-screen-2xl items-start gap-12 lg:grid-cols-12 lg:gap-20">
+        <figure class="lg:col-span-5">
+          <AmaraImage src={markRobertTarifaImage} alt={content.partner.imageAlt} profile="hero" class="aspect-[4/3] w-full object-cover" widths={[480, 720, 960, 1200]} sizes="(max-width: 1023px) 100vw, 42vw" />
+          <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-inverted-on-surface/65">{content.partner.imageCaption}</figcaption>
+        </figure>
+        <div class="lg:col-span-7">
+          <p class="am-text-eyebrow text-primary-fixed-dim">{content.partner.eyebrow}</p>
+          <h2 id="tarifa-surf-club-title" class="am-text-title mt-5 max-w-3xl text-balance text-inverted-on-surface">{content.partner.title}</h2>
+          <p class="am-text-body mt-7 max-w-3xl leading-relaxed text-inverted-on-surface/80">{content.partner.intro}</p>
+          <div class="mt-10 grid gap-5 md:grid-cols-3">
+            {content.partner.benefits.map((benefit) => (
+              <section class="border-l border-inverted-on-surface/30 pl-5" aria-labelledby={`partner-${benefit.id}`}>
+                <h3 id={`partner-${benefit.id}`} class="am-text-subtitle text-inverted-on-surface">{benefit.title}</h3>
+                <p class="am-text-body mt-3 leading-relaxed text-inverted-on-surface/75">{benefit.text}</p>
+              </section>
+            ))}
+          </div>
+          <div class="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a href={contactHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--primary justify-center">{content.partner.contactLabel}</a>
+            <a href={content.partner.partnerHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--secondary am-btn--inverse justify-center">{content.partner.partnerLabel}</a>
+          </div>
+        </div>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection id="related-kite-guides" family="experience" labelledby="related-kite-guides-title" variant="compact" surface="tint">
+      <div class="mx-auto max-w-screen-2xl">
+        <p class="am-text-eyebrow text-primary">{content.related.eyebrow}</p>
+        <h2 id="related-kite-guides-title" class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{content.related.title}</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-2">
+          {content.related.links.map((link) => (
+            <AmaraActionLink href={requiredLink(link.token)} variant="card" class="group bg-surface px-7 pb-8 pt-7 transition-colors hover:bg-surface-container-lowest">
+              <h3 class="am-text-subtitle text-on-surface transition-colors group-hover:text-primary">{link.title}</h3>
+              <span class="am-text-body mt-4 block leading-relaxed text-on-surface-variant">{link.text}</span>
+              <span aria-hidden="true" class="mt-7 inline-flex text-primary transition-transform group-hover:translate-x-1">→</span>
+            </AmaraActionLink>
+          ))}
+        </div>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection id="tarifa-basecamp" family="experience" labelledby="tarifa-basecamp-title" variant="closing">
+      <div class="mx-auto max-w-4xl text-center">
+        <p class="am-text-eyebrow text-primary">{content.closing.eyebrow}</p>
+        <h2 id="tarifa-basecamp-title" class="am-text-title mt-5 text-balance text-on-surface">{content.closing.title}</h2>
+        <p class="am-text-body mx-auto mt-7 max-w-3xl leading-relaxed text-on-surface-variant">{content.closing.text}</p>
+        <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a href={requiredLink('tarifa')} class="am-btn am-btn--secondary w-full justify-center sm:w-auto">{content.closing.stayLabel}</a>
+          <a href={requiredLink('book')} class="am-btn am-btn--primary w-full justify-center sm:w-auto">{content.closing.availabilityLabel}</a>
+        </div>
+      </div>
+    </AmaraSection>
+  </article>
+</LocationAuthorityLayout>

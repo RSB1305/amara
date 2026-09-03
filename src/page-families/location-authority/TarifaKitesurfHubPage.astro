@@ -44,13 +44,13 @@ const ui = {
 } satisfies Record<string, LocalizedText>;
 
 const footerHighlights: LabeledLink[] = [
-  { token: 'tarifa_wind_kitesurfing_authority', label: t(content.navLabel) },
+  { token: 'tarifa_kitesurfing_hub', label: t(content.navLabel) },
   ...spokeOrder.slice(0, 3).map((id) => ({ token: tarifaKitesurfSpokeContent[id].token, label: t(tarifaKitesurfSpokeContent[id].navLabel) }))
 ];
 ---
 
 <LocationAuthorityLayout seo={content.seo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-hub">
-  <Navigation slot="navigation" contextDestination="tarifa" currentLang={currentLang} languageToken={content.token}>
+  <Navigation slot="navigation" contextDestination="tarifa" currentLang={currentLang} languageToken="tarifa_kitesurfing_hub">
     <ExperienceContextNav slot="context-navigation" currentId="wind" destination="tarifa" lang={currentLang} />
   </Navigation>
 

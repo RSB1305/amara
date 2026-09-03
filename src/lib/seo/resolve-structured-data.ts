@@ -329,12 +329,19 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Ervaringen',
     sv: 'Upplevelser'
   },
+  'tarifa-kitesurfing': {
+    en: 'Kitesurfing',
+    de: 'Kitesurfen',
+    es: 'Kitesurf',
+    nl: 'Kitesurfen',
+    sv: 'Kitesurfing'
+  },
   'tarifa-wind-kitesurfing': {
-    en: 'Wind & Kitesurfing',
-    de: 'Wind & Kitesurfen',
-    es: 'Viento y kitesurf',
-    nl: 'Wind & kitesurfen',
-    sv: 'Vind & kitesurfing'
+    en: 'Wind, Weather & Safety',
+    de: 'Wind, Wetter & Sicherheit',
+    es: 'Viento, tiempo y seguridad',
+    nl: 'Wind, weer & veiligheid',
+    sv: 'Vind, väder & säkerhet'
   },
   'tarifa-beaches': {
     en: 'Beaches',
@@ -541,6 +548,7 @@ const TARIFA_LOCATION_GUIDE_SLUGS = new Set([
 
 const TARIFA_EXPERIENCE_SLUGS = new Set([
   'tarifa-experience',
+  'tarifa-kitesurfing',
   'tarifa-wind-kitesurfing',
   'tarifa-beaches',
   'tarifa-food-evening-life',
