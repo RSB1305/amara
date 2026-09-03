@@ -336,7 +336,7 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
   },
   related: {
     eyebrow: l('Keep the practical details together', 'Weiter', 'Reunid los detalles prácticos', 'Houd de praktische details bij elkaar', 'Håll ihop de praktiska detaljerna'),
-    title: l('Two useful next reads for your Tarifa stay', 'Weiter zu den Spots und zur Kiteschule', 'Dos lecturas útiles para vuestra estancia en Tarifa', 'Twee nuttige vervolgteksten voor jullie Tarifa-verblijf', 'Två användbara nästa läsningar för er Tarifa-vistelse'),
+    title: l('Two useful next reads for your Tarifa stay', 'Weiter zu den Spots und zum Überblick', 'Dos lecturas útiles para vuestra estancia en Tarifa', 'Twee nuttige vervolgteksten voor jullie Tarifa-verblijf', 'Två användbara nästa läsningar för er Tarifa-vistelse'),
     links: [
       {
         id: 'spots',
@@ -345,10 +345,10 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
         text: l('Wind direction only becomes useful on a coastline. See how zones, beach geometry and current access turn a forecast into a careful on-site check.', 'Welcher Abschnitt bei welcher Lage funktioniert und wo die Zonen verlaufen.', 'La dirección del viento solo cobra sentido en la costa. Ved cómo las zonas, la geometría de playa y los accesos actuales convierten un parte en una comprobación cuidadosa sobre el terreno.', 'Windrichting wordt pas bruikbaar aan de kust. Zie hoe zones, strandvorm en actuele toegang een forecast omzetten in een zorgvuldige controle ter plaatse.', 'Vindriktning blir användbar först vid kusten. Se hur zoner, strandgeometri och aktuell tillgång gör en prognos till en noggrann kontroll på plats.')
       },
       {
-        id: 'kite-school',
-        token: 'tarifa_kite_school',
-        title: l('Kite school and courses', 'Kiteschule und Kurse', 'Escuela y cursos de kite', 'Kiteschool en lessen', 'Kiteskola och kurser'),
-        text: l('When conditions or confidence leave questions open, a qualified instructor can turn today’s beach briefing into an appropriate lesson or accompanied session.', 'Kurs, Kitecamp oder begleitete Session: die sinnvolle Option, wenn ihr noch unsicher seid oder nicht allein aufs Wasser möchtet.', 'Cuando las condiciones o la confianza dejan preguntas abiertas, un instructor cualificado puede convertir el briefing de playa de hoy en una clase o sesión acompañada adecuada.', 'Als omstandigheden of vertrouwen vragen openlaten, kan een gekwalificeerde instructeur de strandbriefing van vandaag vertalen naar een passende les of begeleide sessie.', 'När förhållanden eller självförtroende lämnar frågor öppna kan en kvalificerad instruktör göra dagens strandbriefing till en lämplig lektion eller ett ledsagat pass.')
+        id: 'hub',
+        token: 'tarifa_kitesurfing_hub',
+        title: l('Kitesurfing in Tarifa', 'Kitesurfen in Tarifa', 'Kitesurf en Tarifa', 'Kitesurfen in Tarifa', 'Kitesurfing i Tarifa'),
+        text: l('The overview: school, kitecamp, equipment and everything around them.', 'Der Überblick über Schule, Kitecamp, Material und den Rest.', 'La visión de conjunto: escuela, kitecamp, material y todo lo demás.', 'Het overzicht: school, kitecamp, materiaal en de rest.', 'Översikten: skola, kitecamp, utrustning och resten.')
       }
     ]
   },
