@@ -377,3 +377,42 @@ Schwerpunkt: Tarifa einfacher organisieren, Material bei Ankunft, persönliche K
 - micro.windguru.cz/help.php — Modellliste und Auflösungserklärung
 - opendata.aemet.es — OpenData, Nutzungsbedingungen
 - Robert Böhmer — persönliche Erfahrung, freigegeben am 03.09.2026
+
+---
+
+## 17. Nachtrag Co-Branding AMARA × Tarifa Surf Club (Stand 03.09.2026)
+
+Operator-Entscheidung vom 03.09.2026: Der Hub `tarifa-kitesurfing` und die Spokes Kiteschule, Kitecamp und Material treten als gemeinsamer Auftritt von AMARA und Tarifa Surf Club auf. Beide Partner sind gleichberechtigte Absender; Unterkunft und Kiten sind getrennt oder in Kombination buchbar. Die Unterkünfte des Clubs werden mit Namen genannt, Preise werden mit Stand-Datum gezeigt.
+
+### 17a. Geprüfte Fakten Tarifa Surf Club (Quelle: tarifasurfclub.com, abgerufen 03.09.2026)
+
+| Fakt | Zulässige Formulierung | Grenze |
+|---|---|---|
+| Betreiber | Mark und Simone Uellendahl führen den Tarifa Surf Club; VDWS-Schule; Materialpartner Airush und Core | Keine Gründungsjahre, keine Schülerzahlen — der Club veröffentlicht keine |
+| Kurse | Semi-privat: 2 Schüler pro Lehrer, 3 h/Tag, Material inklusive, ab 110 €/Person/Tag (Tag 1–3), danach 100 €. Privat: 1 Schüler pro Lehrer, 2 h/Tag, Material inklusive, 150 €/Tag (Tag 1–3), danach 135 € | Immer mit Stand-Datum und Link; Preise sind Angaben des Clubs |
+| Help 2 Kite | Begleitetes Gruppenfahren für sichere Fahrer (VDWS Level 4–5): Spotwahl, Materialaufsicht, Rescue per Boot bei ablandigem Wind. Ohne Material 30 €/Tag (Tag 1–5), danach 25 €; mit Material 90 €/Tag (Tag 1–3), danach 85 € | Kein Sicherheitsversprechen; Rescue ist Leistungsbestandteil, keine Garantie |
+| Kitecamp | Saison 15. September bis 15. Juni, flexible Anreise. Kitecamp mit Kitekurs ab 599 €/Person: 7 Tage / 6 Übernachtungen im Doppelzimmer, 3 Tage Kitekurs in der Gruppe, komplettes Kitematerial, Neopren, Weste und Helm inklusive, Funkschulung, Rescue per Boot bei ablandigem Wind. Kitecamp mit Help 2 Kite ab 599 €: 4 Tage Help 2 Kite, sicheres Fahren nötig. Premium-Varianten ab 799 € mit 5–6 Kurstagen semi-privat | „ab“-Preise mit Stand-Datum |
+| Unterkünfte des Clubs | TSC Guesthouse (5 Personen, Surfer-WG auf Zeit, eine Minute zum Strand, Dachterrasse); Palomaview Penthouse (6 Personen, Meerblick, 3 Doppelzimmer, 2 Bäder, Pool Juni–September); Casa Maresia (8 Personen, 4 Schlafzimmer, wenige Minuten zur Playa de Los Lances). Der Club listet außerdem das „Amara Apartment“ (4 Personen, Meerblick) — das ist AMARA Family & Surf | Keine Preise für Club-Unterkünfte (der Club nennt keine); Verlinkung auf die Club-Seite |
+| Bildungsurlaub | Über die Work Surf Balance GmbH (worksurfbalance.com): Seminare KI Kompakt, KI Advanced, MH Reset, MH Clear Mind; in 13 Bundesländern anerkannt, nicht in Bayern, NRW und Sachsen; 5 Tage pro Jahr; Kiten über den Club dazu buchbar | Anbieter korrekt nennen (nicht der Club selbst); Anerkennung je Bundesland ist Sache des Anbieters |
+| Saison | Der Club schreibt von ganzjährig guten Wassersportbedingungen und Sonne auch im Winter | Keine Windtage-Zahl als Fakt |
+
+### 17b. Fakten aus dem Hub-Fragenkatalog (Robert, 13.08.2026)
+
+- Nebensaison: von AMARA zu Fuß hinunter nach Los Lances, dort direkt kiten. Hauptsaison: mit dem Auto aus dem Ort heraus nach Valdevaqueros.
+- Robert: „Für Kite-Anfänger haben wir die besten Voraussetzungen.“
+- Beim Club sind immer viele Teilnehmer dabei; wer keinen Mietwagen hat, fährt bei anderen mit. Keine organisierte Fahrgemeinschaft.
+
+### 17c. Was nicht auf die Seite darf
+
+- Zahlen zu Schülern, Gästen oder „Hunderten“, solange Mark keine Zahl freigibt.
+- Bilder aus dem Drive-Ordner „Twintip“ (Fotografen Sebastian Lang, Max Gifted, Andre Magaro), solange die Nutzungsrechte nicht dokumentiert sind.
+- Alle Grenzen der Abschnitte 1, 5, 6 und 6a gelten unverändert; insbesondere bleibt Rescue eine Leistungsbeschreibung und keine Sicherheitszusage.
+
+### 17d. Nachtrag Verleih und Shop (Quelle: tarifasurfclub.com/kite-equipment-rental, abgerufen 03.09.2026)
+
+| Fakt | Zulässige Formulierung | Grenze |
+|---|---|---|
+| Sets | Freeride/Wave-Set (Kite, Bar, Twintip oder Waveboard, mit Einweisung) 60 €/Tag (Tag 1–3), ab Tag 4 50 €; Hydrofoil-Set 80 €/Tag, ab Tag 4 70 €; Verleih plus Help to Kite 90 €/Tag (Tag 1–3), danach 85 € | Preise mit Stand-Datum |
+| Einzelteile | Kite und Bar 40 €/Tag, Board 25 €/Tag, Foilboard mit Foil 50 €/Tag, Neopren oder Trapez je 10 €/Tag | — |
+| Kaution und Schäden | Kaution 150 €; reparable Schäden pauschal 80 € pro Schaden; Totalschaden zum Zeitwert. Für AMARA-Gäste hinterlegt AMARA die Kaution | Bedingungen des Clubs, nicht AMARAs |
+| Marken und Shop | Airush, Blankforce, AK, Core, v-aerial; Test & Buy: Leihgebühr wird zu 100 % auf einen Kauf angerechnet; Shop mit Blankforce Pro Center | Keine Öffnungszeiten, keine Lagerbestände behaupten |

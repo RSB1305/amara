@@ -6,6 +6,7 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import KiteCoBrandingBand from '../../components/experience/KiteCoBrandingBand.astro';
 import WindguruExampleRow from '../../components/experience/WindguruExampleRow.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -290,6 +291,8 @@ const footerHighlights: LabeledLink[] = [
         </div>
       </div>
     </LocationModule>
+
+    <KiteCoBrandingBand lang={currentLang} surface="white" />
 
     <LocationModule id="related-kite-guides" labelledby="related-kite-guides-title" surface="tint" spacing="compact" data-am-topic="related">
       <div class="mx-auto max-w-screen-2xl">

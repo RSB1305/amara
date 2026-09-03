@@ -1,0 +1,54 @@
+---
+/**
+ * KiteCoBrandingBand
+ *
+ * The shared signature of the Tarifa kitesurf cluster: AMARA and Tarifa Surf
+ * Club side by side, one message to either partner. Sits on every page of
+ * the cluster so the co-branding is visible wherever a guest enters.
+ */
+import AmaraImage from '../AmaraImage.astro';
+import { kiteCoBranding } from '../../content/tarifaKitesurfHubContent';
+import type { AmaraLanguage } from '../../types/seo';
+import LocationModule from '../../page-families/location-authority/LocationModule.astro';
+
+interface Props {
+  lang: AmaraLanguage;
+  surface?: 'white' | 'tint';
+}
+
+const { lang, surface = 'tint' } = Astro.props;
+const copy = {
+  eyebrow: kiteCoBranding.eyebrow[lang],
+  title: kiteCoBranding.title[lang],
+  text: kiteCoBranding.text[lang],
+  amaraLabel: kiteCoBranding.amaraLabel[lang],
+  clubLabel: kiteCoBranding.clubLabel[lang],
+  logoAlt: kiteCoBranding.logoAlt[lang],
+  contactMessage: kiteCoBranding.contactMessage[lang]
+};
+const amaraHref = `https://wa.me/34604440964?text=${encodeURIComponent(copy.contactMessage)}`;
+---
+
+<LocationModule id="kite-partners" labelledby="kite-partners-title" surface={surface} spacing="compact" data-am-topic="co-branding">
+  <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+    <div class="flex items-center gap-6 lg:col-span-4" data-am-co-branding-lockup>
+      <span class="inline-flex flex-col items-center text-center">
+        <span class="font-headline italic text-xl tracking-tighter text-on-surface">AMARA</span>
+        <span class="am-text-brand-strapline -mt-1 block text-center text-muted">Lodging</span>
+      </span>
+      <span aria-hidden="true" class="am-text-title text-primary/40">×</span>
+      <a href={kiteCoBranding.clubSiteHref} target="_blank" rel="noopener noreferrer" class="shrink-0">
+        <AmaraImage src="/images/tarifa/tarifa-surf-club-logo.webp" alt={copy.logoAlt} profile="card" class="h-16 w-16 object-contain md:h-20 md:w-20" width={192} widths={[96, 192]} sizes="80px" />
+      </a>
+    </div>
+    <div class="lg:col-span-8">
+      <p class="am-text-eyebrow text-primary">{copy.eyebrow}</p>
+      <h2 id="kite-partners-title" class="am-text-title mt-4 max-w-xl text-balance text-on-surface">{copy.title}</h2>
+      <p class="am-text-body mt-5 max-w-3xl leading-relaxed text-on-surface-variant">{copy.text}</p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <a href={amaraHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--primary justify-center">{copy.amaraLabel}</a>
+        <a href={kiteCoBranding.clubHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--secondary justify-center">{copy.clubLabel}</a>
+      </div>
+    </div>
+  </div>
+</LocationModule>

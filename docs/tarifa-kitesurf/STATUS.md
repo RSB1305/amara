@@ -63,9 +63,26 @@ Token `tarifa_kitesurf_forecast`; Slug, Registry und Breadcrumb-Label registrier
 
 **Windguru-Widget.** Abweichend vom Contract (kein fremdes JavaScript) auf ausdrückliche Anforderung des Operators eingebunden, als Kompromiss per Lazy Load: `src/components/experience/WindguruWidget.astro` lädt das Skript von windguru.cz erst, wenn die Tabelle ins Bild scrollt (IntersectionObserver, 200 px Vorlauf). Vorher geht keine Anfrage an windguru.cz; im Browser geprüft. Spot 43, Modell 37, Knoten, Sprache je Locale (Schwedisch fällt auf Englisch zurück, Windguru bietet kein Schwedisch). CSP in `public/_headers` um `https://www.windguru.cz` für script-src, img-src und connect-src erweitert.
 
+### Stufe 8 — Co-Branding AMARA × Tarifa Surf Club (Operator-Entscheidung vom 03.09.2026)
+
+Hub und Spokes stellen AMARA und den Tarifa Surf Club als zwei gleichwertige Partner dar: Unterkunft und Kiteschule, getrennt buchbar oder zusammen. Inhaltliche Quelle ist ausschließlich `redaktions-contract.md` §17 (Team, Kurse, Camps, Club-Unterkünfte, Bildungsurlaub, Verleih), geprüft am 03.09.2026 auf tarifasurfclub.com und worksurfbalance.com.
+
+| Datei | Rolle |
+|---|---|
+| `src/content/tarifaKitesurfHubContent.ts` | Hub-Inhalt in fünf Sprachen und `kiteCoBranding` (Band-Texte, Club-Links, WhatsApp-Vorlage) |
+| `src/components/experience/KiteCoBrandingBand.astro` | Signaturband: AMARA-Wortmarke × Club-Logo, zwei Kontaktwege; auf Hub, Wind-, Spots-, Werte-Seite und allen Spokes |
+| `src/page-families/location-authority/TarifaKitesurfHubPage.astro` | Hub neu: Partnerkarten, fünf Einstiege (Anfänger, Fortgeschrittene, Camp, Bildungsurlaub, Material), Nebensaison, Club-Unterkünfte mit Namen, Wissen, Geschichte |
+| `src/content/tarifaKitesurfContent.ts` | Spokes neu: Kiteschule (Semi-privat, Privat, Help 2 Kite), Kitecamp (Kurs, Help 2 Kite, Premium; Nebensaison, Unterkünfte, Bildungsurlaub), Material (Freeride/Wave-Set, Hydrofoil, Verleih + Help 2 Kite, Einzelteile; Kaution, Test & Buy) |
+| `src/page-families/location-authority/TarifaKitesurfSpokePage.astro` | Spoke-Layout: Faktenleiste, Angebotskarten mit Preis, Stand und Club-Link, Erklärmodule, Stimme, Band, Weiter-Karten |
+
+Regeln: Preis als Zahl auf der Karte, Einheit und Staffel in der Notiz, Stand „3. September 2026“ unter jeder Preisliste, Buchung und Rechnung laufen über den Club. Club-Unterkünfte mit Namen (TSC Guesthouse, Palomaview Penthouse, Casa Maresia) neben AMARA Family & Surf. Bildungsurlaub verweist auf worksurfbalance.com. Keine Schülerzahlen („Hunderte“), bis Mark eine Zahl freigibt. Das OG-Bild `mark-robert-tarifa-surf-club.webp` ist in den Kontrakt der veröffentlichten Bilder aufgenommen (148 Pfade).
+
+Prüfung: typecheck 0 Fehler, Parität grün, 127 Kontrakttests, voller Build mit allen Gates, Screenshots Desktop und Mobil (Hub, Schule, Camp, Material, Band auf Wind-, Spots- und Werte-Seite).
+
 ## Was als Nächstes ansteht
 
 - Betrieb: `OPEN_METEO_API_KEY` in Cloudflare Pages setzen; Live-Test des Warnendpunkts mit `AEMET_API_KEY`.
+- Bildstrecke Kite-Vibes: nach Rechteklärung 8 bis 12 Motive aus den Rohordnern auswählen, optimieren, in Hub-Galerie und Spoke-Heros einbauen.
 - Release-Grenze gemäß `AGENTS.md`: gesammelte lokale Commits, einmal volle Validierung, dann ein Push, ein Pull Request, ein Merge.
 
 ## Dateien in diesem Ordner
@@ -79,3 +96,5 @@ Token `tarifa_kitesurf_forecast`; Slug, Registry und Breadcrumb-Label registrier
 - „Sea Angels“ wurde laut Mark umbenannt; welcher der beiden heutigen Anbieter daraus hervorging, ist ungeklärt. Der Name erscheint bis dahin nicht auf der Seite.
 - Aufnahmeort für den Alt-Text von `mark-tarifa-surf-club.webp`: Der Alt-Text nennt bewusst keinen Ort.
 - `npm run build` verlangt lokal `PUBLIC_SITE_URL`; der Lauf gemäß `AGENTS.md`: `ASTRO_TELEMETRY_DISABLED=1 PUBLIC_SITE_URL=https://amara-lodging.es npm run build`.
+- Mark hat keine Schülerzahl freigegeben; „Hunderte“ oder Ähnliches bleibt bis dahin draußen.
+- Fotos: Unter `src/assets/images/content/tarifa/` liegen acht unversionierte Rohordner (Twintip, Big Air, Control Bar, Mark, Rider Profiles, Surf Directionals, Yellow Kite Focus, Guest House; rund 450 Dateien, etwa 4,7 GB; Fotografen laut Drive Sebastian Lang, Max Gifted, Andre Magaro). Bewusst nicht committet: Nutzungsrechte nicht dokumentiert, Rohgröße nicht repo-tauglich. Vor Nutzung: schriftliche Freigabe von Club und Fotografen, Auswahl von 8 bis 12 Motiven, Umwandlung nach WebP, dann Hub-Galerie und Spoke-Heros.

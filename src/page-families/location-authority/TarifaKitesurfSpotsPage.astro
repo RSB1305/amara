@@ -3,6 +3,7 @@ import type { ImageMetadata } from 'astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import KiteCoBrandingBand from '../../components/experience/KiteCoBrandingBand.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import { tarifaKitesurfSpotsContent, tarifaKitesurfSpotsSeo } from '../../content/tarifaKitesurfSpotsContent';
@@ -199,6 +200,8 @@ const spotNumber = (index: number) => String(index + 1).padStart(2, '0');
         </div>
       </div>
     </LocationModule>
+
+    <KiteCoBrandingBand lang={currentLang} surface="white" />
 
     <LocationModule id="amara-family-surf" labelledby="stay-title" surface="tint" spacing="closing" data-am-topic="basecamp">
       <div class="mx-auto max-w-4xl text-center">
