@@ -16,6 +16,7 @@ export type TarifaExperienceLinkToken =
   | 'tarifa'
   | 'tarifa_beaches_authority'
   | 'tarifa_wind_kitesurfing_authority'
+  | 'tarifa_kitesurfing_hub'
   | 'tarifa_food_evening_life'
   | 'tarifa_nature_wildlife'
   | 'tarifa_old_town_history'
@@ -146,7 +147,7 @@ export const tarifaExperienceContent = {
       },
       {
         id: "wind-watersports",
-        label: l("Wind & watersports", "Wind & Wassersport", "Viento y deportes acuáticos", "Wind & watersport", "Vind & vattensport")
+        label: l("Kitesurfing", "Kitesurfen", "Kitesurf", "Kitesurfen", "Kitesurfing")
       },
       {
         id: "food-evening-life",
@@ -181,7 +182,7 @@ export const tarifaExperienceContent = {
       {
         title: l("Wind and watersports", "Wind und Wassersport", "Viento y deportes acuáticos", "Wind en watersport", "Vind och vattensport"),
         text: l("Onto the water if that is why you came. Beginners too — through our friends at Tarifa Surf Club, which we arrange before you arrive.", "Aufs Wasser, wenn ihr dafür gekommen seid. Anfänger ebenso – über unsere Freunde vom Tarifa Surf Club, mit denen wir das vor eurer Anreise organisieren.", "Al agua, si habéis venido para eso. También quienes empiezan, con nuestros amigos del Tarifa Surf Club, que organizamos antes de vuestra llegada.", "Het water op, als je daarvoor bent gekomen. Beginners ook — via onze vrienden van Tarifa Surf Club, wat we vóór jullie aankomst regelen.", "Ge er ut på vattnet om det är därför ni kom. Även nybörjare – via våra vänner på Tarifa Surf Club; det ordnar vi före er ankomst."),
-        token: "tarifa_wind_kitesurfing_authority" as LinkToken,
+        token: "tarifa_kitesurfing_hub" as LinkToken,
         linkLabel: l("Wind & kitesurfing", "Wind & Kitesurfen", "Viento y kitesurf", "Wind & kitesurfen", "Vind & kitesurfing")
       },
       {

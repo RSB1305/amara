@@ -2,9 +2,9 @@ import { defineKnowledgePageManifest } from '../../schema';
 
 export const tarifaSupermarketsKnowledge = defineKnowledgePageManifest({
   id: 'page-tarifa-supermarkets', destination: 'tarifa', topic: 'supermarkets-everyday-shopping',
-  createdAt: '2026-08-22T06:41:02+02:00', updatedAt: '2026-08-22T06:41:02+02:00', status: 'awaiting-research',
+  createdAt: '2026-08-22T06:41:02+02:00', updatedAt: '2026-09-02T10:15:00+02:00', status: 'needs-review',
   driveFolder: { id: '16zRQmK-tHfYcj7igQ-2Chsd-bPY40XDc', url: 'https://drive.google.com/drive/folders/16zRQmK-tHfYcj7igQ-2Chsd-bPY40XDc', path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/tarifa-supermarkets-everyday-shopping' },
-  publicContentPath: 'src/content/tarifaSupermarketsContent.ts',
+  publicContentPath: 'src/content/dailyLifeGuideContent.ts',
   researchRunIds: ['2026-08-22__064102__supermarkets-everyday-shopping__research-001'],
   coverage: [
     { authoringArea: 'shopping-reality', purpose: 'Explain Tarifa shopping areas without an uncurated store directory.', factIds: [], status: 'baseline-unmapped' },

@@ -17,6 +17,7 @@ export type FrigilianaAuthoritySubnavId =
   | 'arrival'
   | 'geography'
   | 'dailyLife'
+  | 'health'
   | 'parking'
   | 'weather'
   | 'winter'
@@ -73,11 +74,18 @@ const currentPageLabels: Record<
     sv: 'Geografi & orientering'
   },
   dailyLife: {
-    en: 'Daily Life & Shopping',
-    de: 'Alltag & Einkaufen',
-    es: 'Vida diaria y compras',
-    nl: 'Dagelijks leven & boodschappen',
-    sv: 'Vardag & inköp'
+    en: 'Supermarkets & Shopping',
+    de: 'Supermärkte & Einkaufen',
+    es: 'Supermercados y compras',
+    nl: 'Supermarkten & boodschappen',
+    sv: 'Matbutiker & inköp'
+  },
+  health: {
+    en: 'Health & Emergency',
+    de: 'Gesundheit & Notfälle',
+    es: 'Salud y emergencia',
+    nl: 'Gezondheid & noodgevallen',
+    sv: 'Hälsa & nödsituation'
   },
   parking: {
     en: 'Parking & Access',
@@ -134,13 +142,13 @@ const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
       'orientation-areas': 'Hill-Village Areas',
       'climate-seasons': 'Climate & Travel Timing',
       'arrival-parking': 'Getting Here',
-      'daily-life-essentials': 'In the Village'
+      'daily-life-essentials': 'Daily Life & Essentials'
     },
     topics: {
       'where-to-stay': 'Where to Stay',
       'parking-accessibility': 'Parking & Access',
-      'shopping-markets': 'Daily Life & Shopping',
-      'health-emergency': 'Medical Care'
+      'shopping-markets': 'Supermarkets & Shopping',
+      'health-emergency': 'Health & Emergency'
     }
   },
   de: {
@@ -148,13 +156,13 @@ const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
       'orientation-areas': 'Lagen im Bergdorf',
       'climate-seasons': 'Klima & Reisezeit',
       'arrival-parking': 'Ankommen',
-      'daily-life-essentials': 'Vor Ort'
+      'daily-life-essentials': 'Alltag & Versorgung'
     },
     topics: {
       'where-to-stay': 'Wo übernachten',
       'parking-accessibility': 'Parken & Zugang',
-      'shopping-markets': 'Alltag & Einkaufen',
-      'health-emergency': 'Medizinische Versorgung'
+      'shopping-markets': 'Supermärkte & Einkaufen',
+      'health-emergency': 'Gesundheit & Notfälle'
     }
   },
   es: {
@@ -162,13 +170,13 @@ const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
       'orientation-areas': 'Zonas del pueblo',
       'climate-seasons': 'Clima y época de viaje',
       'arrival-parking': 'Cómo llegar',
-      'daily-life-essentials': 'En el pueblo'
+      'daily-life-essentials': 'Vida diaria y servicios'
     },
     topics: {
       'where-to-stay': 'Dónde alojarse',
       'parking-accessibility': 'Aparcamiento y acceso',
-      'shopping-markets': 'Vida diaria y compras',
-      'health-emergency': 'Atención médica'
+      'shopping-markets': 'Supermercados y compras',
+      'health-emergency': 'Salud y emergencia'
     }
   },
   nl: {
@@ -176,13 +184,13 @@ const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
       'orientation-areas': 'Liggingen in het bergdorp',
       'climate-seasons': 'Klimaat & reistijd',
       'arrival-parking': 'Aankomst',
-      'daily-life-essentials': 'In het dorp'
+      'daily-life-essentials': 'Dagelijks leven & voorzieningen'
     },
     topics: {
       'where-to-stay': 'Waar overnachten',
       'parking-accessibility': 'Parkeren & toegang',
-      'shopping-markets': 'Dagelijks leven & boodschappen',
-      'health-emergency': 'Medische zorg'
+      'shopping-markets': 'Supermarkten & boodschappen',
+      'health-emergency': 'Gezondheid & noodgevallen'
     }
   },
   sv: {
@@ -190,13 +198,13 @@ const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
       'orientation-areas': 'Lägen i bergsbyn',
       'climate-seasons': 'Klimat & restid',
       'arrival-parking': 'Ankomst',
-      'daily-life-essentials': 'I byn'
+      'daily-life-essentials': 'Vardag & service'
     },
     topics: {
       'where-to-stay': 'Var ska man bo',
       'parking-accessibility': 'Parkering & åtkomst',
-      'shopping-markets': 'Vardag & inköp',
-      'health-emergency': 'Sjukvård'
+      'shopping-markets': 'Matbutiker & inköp',
+      'health-emergency': 'Hälsa & nödsituation'
     }
   }
 };
@@ -212,8 +220,7 @@ const topicLinks: LocationTopicLinks = {
   'winter-stays': 'frigiliana_winter_stays',
   'parking-accessibility': 'frigiliana_parking',
   'shopping-markets': 'frigiliana_daily_life',
-  'health-emergency': 'frigiliana_daily_life',
-  'practical-local-rules': 'frigiliana_daily_life'
+  'health-emergency': 'frigiliana_health_emergency'
 };
 
 export function getFrigilianaAuthorityActiveTopic(
@@ -224,14 +231,15 @@ export function getFrigilianaAuthorityActiveTopic(
     arrival: 'arrival-mobility',
     geography: 'geography-orientation',
     dailyLife: 'shopping-markets',
+    health: 'health-emergency',
     parking: 'parking-accessibility',
     stay: 'where-to-stay',
     weather: 'weather-seasons',
     winter: 'winter-stays',
     oldTown: 'geography-orientation',
-    faq: 'practical-local-rules',
+    faq: undefined,
     comparison: 'where-to-stay',
-    dosTumbas: 'practical-local-rules'
+    dosTumbas: undefined
   };
 
   return topicByPage[id];

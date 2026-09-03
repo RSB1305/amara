@@ -6,7 +6,8 @@ import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import {
   dailyLifeGuideContent,
   dailyLifeGuideSeo,
-  type DailyLifeDestination
+  type DailyLifeDestination,
+  type DailyLifeTopic
 } from '../../content/dailyLifeGuideContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink, type LinkToken } from '../../lib/linkResolver';
@@ -15,39 +16,45 @@ import type { AmaraLanguage } from '../../types/seo';
 import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
 import DailyLifeGuideSections from './DailyLifeGuideSections.astro';
+import { getLocationGuideTopicLabels } from '../../lib/location/locationGuideTopics';
 
 interface Props {
   destination: DailyLifeDestination;
+  topic: DailyLifeTopic;
   lang?: string;
 }
 
-const { destination, lang = 'es' } = Astro.props;
+const { destination, topic, lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const content = dailyLifeGuideContent[destination][currentLang];
-const seo = dailyLifeGuideSeo[destination];
+const content = dailyLifeGuideContent[destination][topic][currentLang];
+const seo = dailyLifeGuideSeo[destination][topic];
 
 const config: Record<DailyLifeDestination, {
   label: string;
-  languageToken: LinkToken;
+  shoppingToken: LinkToken;
+  healthToken: LinkToken;
   locationToken: LinkToken;
   arrivalToken: LinkToken;
   parkingToken: LinkToken;
 }> = {
-  frigiliana: { label: 'Frigiliana', languageToken: 'frigiliana_daily_life', locationToken: 'location_frigiliana', arrivalToken: 'getting_to_frigiliana', parkingToken: 'frigiliana_parking' },
-  nerja: { label: 'Nerja', languageToken: 'nerja_daily_life', locationToken: 'location_nerja', arrivalToken: 'getting_to_nerja', parkingToken: 'nerja_parking' },
-  tarifa: { label: 'Tarifa', languageToken: 'tarifa_daily_life', locationToken: 'location_tarifa', arrivalToken: 'getting_to_tarifa', parkingToken: 'tarifa_parking' }
+  frigiliana: { label: 'Frigiliana', shoppingToken: 'frigiliana_daily_life', healthToken: 'frigiliana_health_emergency', locationToken: 'location_frigiliana', arrivalToken: 'getting_to_frigiliana', parkingToken: 'frigiliana_parking' },
+  nerja: { label: 'Nerja', shoppingToken: 'nerja_daily_life', healthToken: 'nerja_health_emergency', locationToken: 'location_nerja', arrivalToken: 'getting_to_nerja', parkingToken: 'nerja_parking' },
+  tarifa: { label: 'Tarifa', shoppingToken: 'tarifa_daily_life', healthToken: 'tarifa_health_emergency', locationToken: 'location_tarifa', arrivalToken: 'getting_to_tarifa', parkingToken: 'tarifa_parking' }
 };
 
 const pageConfig = config[destination];
-const requiredLink = createRequiredLinkResolver(currentLang, `${pageConfig.label} daily life`);
+const languageToken = topic === 'shopping-markets' ? pageConfig.shoppingToken : pageConfig.healthToken;
+const siblingToken = topic === 'shopping-markets' ? pageConfig.healthToken : pageConfig.shoppingToken;
+const siblingTopic: DailyLifeTopic = topic === 'shopping-markets' ? 'health-emergency' : 'shopping-markets';
+const requiredLink = createRequiredLinkResolver(currentLang, `${pageConfig.label} ${topic}`);
 const aboutHref = requiredLink('about');
 const availabilityHref = requiredLink('book');
 const locationHref = requiredLink(pageConfig.locationToken);
 
 const footerHighlights: LabeledLink[] = [
-  { token: pageConfig.languageToken, label: content.navLabel },
-  { token: pageConfig.arrivalToken, label: content.related.links[0].label },
-  { token: pageConfig.parkingToken, label: content.related.links[1].label }
+  { token: languageToken, label: content.navLabel },
+  { token: siblingToken, label: getLocationGuideTopicLabels(currentLang)[siblingTopic] },
+  { token: pageConfig.locationToken, label: content.closing.locationLabel }
 ];
 ---
 
@@ -58,14 +65,14 @@ const footerHighlights: LabeledLink[] = [
   footerHighlights={footerHighlights}
   pageFamily="location-daily-life"
 >
-  <Navigation slot="navigation" contextDestination={destination} currentLang={currentLang} languageToken={pageConfig.languageToken}>
+  <Navigation slot="navigation" contextDestination={destination} currentLang={currentLang} languageToken={languageToken}>
     {destination === 'frigiliana' && (
-      <LocationContextNav slot="context-navigation" activeId="dailyLife" lang={currentLang} />
+      <LocationContextNav slot="context-navigation" activeId={topic === 'shopping-markets' ? 'dailyLife' : 'health'} lang={currentLang} />
     )}
     {destination === 'nerja' && (
       <NerjaContextNav
         slot="context-navigation"
-        activeId="shopping-markets"
+        activeId={topic}
         childLabel={content.navLabel}
         lang={currentLang}
       />
@@ -74,7 +81,7 @@ const footerHighlights: LabeledLink[] = [
       <TarifaContextNav
         slot="context-navigation"
         activeId="overview"
-        activeChildId="shopping-markets"
+        activeChildId={topic}
         currentLabel="Tarifa"
         childLabel={content.navLabel}
         lang={currentLang}
@@ -83,15 +90,15 @@ const footerHighlights: LabeledLink[] = [
   </Navigation>
 
   <AuthorityArticle
-    pageId={`${destination}-daily-life`}
+    pageId={topic === 'shopping-markets' ? `${destination}-daily-life` : `${destination}-health-emergency`}
     family="location"
-    topic="daily-life"
+    topic={topic}
     lang={currentLang}
     hero={content.hero}
     authorName={seo.article!.authorName}
     authorHref={aboutHref}
     facts={content.facts}
-    factIcons={['supermarket', 'walkable', 'pharmacy', 'opening-hours']}
+    factIcons={content.factIcons}
     sources={content.sources}
     closing={content.closing}
     primaryCta={{ href: availabilityHref, label: content.closing.availabilityLabel }}
@@ -107,17 +114,20 @@ const footerHighlights: LabeledLink[] = [
   >
     <DailyLifeGuideSections sections={content.sections} />
 
-    <AuthorityRelatedLinks
-      related={content.related}
-      columns="md:grid-cols-3"
-      resolveHref={requiredLink}
-      presentation="guide"
-    />
+    {content.related && (
+      <AuthorityRelatedLinks
+        related={content.related}
+        columns="md:grid-cols-3"
+        resolveHref={requiredLink}
+        presentation="guide"
+      />
+    )}
   </AuthorityArticle>
 </LocationAuthorityLayout>
 
 <style>
-  :global(article[data-am-topic='daily-life']) {
+  :global(article[data-am-topic='shopping-markets']),
+  :global(article[data-am-topic='health-emergency']) {
     overflow-x: clip;
   }
 </style>

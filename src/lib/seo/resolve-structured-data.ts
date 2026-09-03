@@ -126,6 +126,20 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Waar overnachten / gebieden',
     sv: 'Var ska man bo / områden'
   },
+  'nerja-daily-life': {
+    en: 'Supermarkets & Shopping',
+    de: 'Supermärkte & Einkaufen',
+    es: 'Supermercados y compras',
+    nl: 'Supermarkten & boodschappen',
+    sv: 'Matbutiker & inköp'
+  },
+  'nerja-health-emergency': {
+    en: 'Health & Emergency',
+    de: 'Gesundheit & Notfälle',
+    es: 'Salud y emergencia',
+    nl: 'Gezondheid & noodgevallen',
+    sv: 'Hälsa & nödsituation'
+  },
   'getting-to-frigiliana': {
     en: 'Arrival & Mobility',
     de: 'Anreise & Mobilität',
@@ -288,11 +302,18 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     sv: 'Väder & årstider'
   },
   'tarifa-daily-life': {
-    en: 'Daily Life & Services',
-    de: 'Alltag & Versorgung',
-    es: 'Vida diaria y servicios',
-    nl: 'Dagelijks leven & voorzieningen',
-    sv: 'Vardag & service'
+    en: 'Supermarkets & Shopping',
+    de: 'Supermärkte & Einkaufen',
+    es: 'Supermercados y compras',
+    nl: 'Supermarkten & boodschappen',
+    sv: 'Matbutiker & inköp'
+  },
+  'tarifa-health-emergency': {
+    en: 'Health & Emergency',
+    de: 'Gesundheit & Notfälle',
+    es: 'Salud y emergencia',
+    nl: 'Gezondheid & noodgevallen',
+    sv: 'Hälsa & nödsituation'
   },
   'tarifa-winter-stays': {
     en: 'Winter Stays',
@@ -308,12 +329,33 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Ervaringen',
     sv: 'Upplevelser'
   },
+  'tarifa-kitesurfing': {
+    en: 'Kitesurfing',
+    de: 'Kitesurfen',
+    es: 'Kitesurf',
+    nl: 'Kitesurfen',
+    sv: 'Kitesurfing'
+  },
   'tarifa-wind-kitesurfing': {
-    en: 'Wind & Kitesurfing',
-    de: 'Wind & Kitesurfen',
-    es: 'Viento y kitesurf',
-    nl: 'Wind & kitesurfen',
-    sv: 'Vind & kitesurfing'
+    en: 'Wind, Weather & Safety',
+    de: 'Wind, Wetter & Sicherheit',
+    es: 'Viento, tiempo y seguridad',
+    nl: 'Wind, weer & veiligheid',
+    sv: 'Vind, väder & säkerhet'
+  },
+  'tarifa-kitesurf-forecast': {
+    en: 'Today in Tarifa',
+    de: 'Heute in Tarifa',
+    es: 'Hoy en Tarifa',
+    nl: 'Vandaag in Tarifa',
+    sv: 'I dag i Tarifa'
+  },
+  'amara-tarifa-surf-club': {
+    en: 'AMARA × Tarifa Surf Club',
+    de: 'AMARA × Tarifa Surf Club',
+    es: 'AMARA × Tarifa Surf Club',
+    nl: 'AMARA × Tarifa Surf Club',
+    sv: 'AMARA × Tarifa Surf Club'
   },
   'tarifa-beaches': {
     en: 'Beaches',
@@ -379,11 +421,18 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     sv: 'Väder & årstider'
   },
   'frigiliana-daily-life': {
-    en: 'Daily Life & Services',
-    de: 'Alltag & Versorgung',
-    es: 'Vida diaria y servicios',
-    nl: 'Dagelijks leven & voorzieningen',
-    sv: 'Vardag & service'
+    en: 'Supermarkets & Shopping',
+    de: 'Supermärkte & Einkaufen',
+    es: 'Supermercados y compras',
+    nl: 'Supermarkten & boodschappen',
+    sv: 'Matbutiker & inköp'
+  },
+  'frigiliana-health-emergency': {
+    en: 'Health & Emergency',
+    de: 'Gesundheit & Notfälle',
+    es: 'Salud y emergencia',
+    nl: 'Gezondheid & noodgevallen',
+    sv: 'Hälsa & nödsituation'
   },
   'frigiliana-geography': {
     en: 'Geography & Orientation',
@@ -506,13 +555,17 @@ const TARIFA_LOCATION_GUIDE_SLUGS = new Set([
   'tarifa-where-to-stay',
   'tarifa-weather',
   'tarifa-daily-life',
+  'tarifa-health-emergency',
   'tarifa-winter-stays',
   'tarifa-parking'
 ]);
 
 const TARIFA_EXPERIENCE_SLUGS = new Set([
   'tarifa-experience',
+  'tarifa-kitesurfing',
   'tarifa-wind-kitesurfing',
+  'tarifa-kitesurf-forecast',
+  'amara-tarifa-surf-club',
   'tarifa-beaches',
   'tarifa-food-evening-life',
   'tarifa-nature-wildlife',
@@ -530,6 +583,7 @@ const FRIGILIANA_LOCATION_GUIDE_SLUGS = new Set([
   'frigiliana-winter-stays',
   'frigiliana-or-nerja',
   'frigiliana-daily-life',
+  'frigiliana-health-emergency',
   'frigiliana-geography',
   'frigiliana-faq',
   'frigiliana-netflix-dos-tumbas'
@@ -540,6 +594,8 @@ const NERJA_LOCATION_GUIDE_SLUGS = new Set([
   'getting-to-nerja',
   'nerja-directions-arrival-guide',
   'nerja-where-to-stay',
+  'nerja-daily-life',
+  'nerja-health-emergency',
   'nerja-winter-stays',
   'nerja-parking'
 ]);

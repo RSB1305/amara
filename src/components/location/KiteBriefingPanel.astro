@@ -1,0 +1,335 @@
+---
+/**
+ * KiteBriefingPanel
+ *
+ * The live data object of the Tarifa wind page. It fetches the server-side
+ * Open-Meteo gateway and shows the modelled values for the current model hour
+ * together with the explanation layer: one authored sentence per situation,
+ * selected by fixed rules from the values. No text is generated at runtime,
+ * so the panel structurally cannot approve a session, name a kite size, pick
+ * a spot, score anything or promise rescue — none of that exists in the
+ * sentence library it draws from.
+ *
+ * When data is missing the panel says so. It never estimates.
+ */
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+import LocationGuideIcon from './LocationGuideIcon.astro';
+import type { Resolved } from '../../types/content';
+import type { TarifaKiteBriefingCopy } from '../../content/tarifaKiteBriefingContent';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Headings {
+  wind: string;
+  wave: string;
+  sky: string;
+  check: string;
+}
+
+interface Props {
+  endpoint: string;
+  lang: AmaraLanguage;
+  timezone: string;
+  copy: Resolved<TarifaKiteBriefingCopy>;
+  headings: Headings;
+  notes: Omit<Headings, 'check'>;
+  aemetHref: string;
+  aemetLabel: string;
+}
+
+const { endpoint, lang, timezone, copy, headings, notes, aemetHref, aemetLabel } = Astro.props;
+const widgetId = 'am-kite-briefing';
+const { labels } = copy;
+---
+
+<div id={widgetId} class="mt-10" aria-live="polite" aria-busy="true" data-am-kite-briefing>
+  <div data-briefing-loading class="flex items-center gap-3 bg-surface-container-low px-6 py-6">
+    <LocationGuideIcon name="temperature" class="h-6 w-6" />
+    <p class="am-text-body text-on-surface-variant">{labels.loading}</p>
+  </div>
+
+  <div data-briefing-body class="hidden">
+    <p class="am-text-label am-text-label--sm text-primary">
+      <span>{labels.modelHour}</span> · <span data-briefing-hour>—</span>
+    </p>
+
+    <dl class="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+      <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-briefing-block="wind">
+        <dt class="am-text-label am-text-label--sm text-primary">{headings.wind}</dt>
+        <dd class="mt-3">
+          <p class="am-text-title tabular-nums text-on-surface"><span data-value="wind">—</span> <span class="am-text-subtitle">kn</span></p>
+          <p class="am-text-caption mt-2 normal-case tracking-normal text-muted">
+            <span>{labels.columnDirection}</span> <span data-value="direction">—</span> · <span>{labels.columnGusts}</span> <span data-value="gusts">—</span> kn
+          </p>
+          <p class="am-text-body mt-4 leading-relaxed text-on-surface" data-sentence="wind"></p>
+          <p class="am-text-body mt-2 leading-relaxed text-on-surface" data-sentence="beaufort"></p>
+          <p class="am-text-body mt-2 leading-relaxed text-on-surface" data-sentence="gusts"></p>
+          <p class="am-text-body mt-2 leading-relaxed text-on-surface" data-sentence="trend"></p>
+          <p class="am-text-caption mt-4 normal-case tracking-normal text-muted">{notes.wind}</p>
+        </dd>
+      </div>
+
+      <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-briefing-block="sea">
+        <dt class="am-text-label am-text-label--sm text-primary">{headings.wave}</dt>
+        <dd class="mt-3">
+          <p class="am-text-title tabular-nums text-on-surface"><span data-value="wave">—</span> <span class="am-text-subtitle">m</span></p>
+          <p class="am-text-caption mt-2 normal-case tracking-normal text-muted">
+            <span>{labels.columnDirection}</span> <span data-value="waveDirection">—</span> · <span data-value="wavePeriod">—</span> s
+          </p>
+          <p class="am-text-body mt-4 leading-relaxed text-on-surface" data-sentence="sea"></p>
+          <p class="am-text-caption mt-4 normal-case tracking-normal text-muted">{notes.wave}</p>
+        </dd>
+      </div>
+
+      <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-briefing-block="sky">
+        <dt class="am-text-label am-text-label--sm text-primary">{headings.sky}</dt>
+        <dd class="mt-3">
+          <p class="am-text-title tabular-nums text-on-surface"><span data-value="cloud">—</span> <span class="am-text-subtitle">%</span></p>
+          <p class="am-text-caption mt-2 normal-case tracking-normal text-muted">
+            <span>{labels.cloudLayers}</span> <span data-value="cloudLayers">—</span> · <span data-value="radiation">—</span> W/m²
+          </p>
+          <p class="am-text-body mt-4 leading-relaxed text-on-surface" data-sentence="sky"></p>
+          <p class="am-text-caption mt-4 normal-case tracking-normal text-muted">{notes.sky}</p>
+        </dd>
+      </div>
+
+      <div class="min-w-0 border-l-2 border-on-surface bg-surface-container-low px-6 py-6" data-briefing-block="check">
+        <dt class="am-text-label am-text-label--sm text-on-surface">{headings.check}</dt>
+        <dd class="mt-3">
+          <p class="am-text-body leading-relaxed text-on-surface">{copy.situations.check}</p>
+        </dd>
+      </div>
+    </dl>
+
+    <div class="mt-8">
+      <p class="am-text-label am-text-label--sm text-on-surface">{labels.nextHours}</p>
+      <div class="mt-3 overflow-x-auto bg-surface-container-lowest" role="region" aria-label={labels.nextHours} tabindex="0">
+        <table class="w-full min-w-[32rem] border-collapse text-left">
+          <caption class="sr-only">{labels.nextHours}</caption>
+          <thead>
+            <tr class="border-b border-border-subtle">
+              <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{labels.columnTime}</th>
+              <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{labels.columnWind}</th>
+              <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{labels.columnGusts}</th>
+              <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{labels.columnDirection}</th>
+              <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{labels.columnWave}</th>
+            </tr>
+          </thead>
+          <tbody data-briefing-rows></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="mt-6 am-text-caption normal-case tracking-normal text-muted" data-briefing-attribution>
+      <p data-attribution-forecast></p>
+      <p class="mt-1" data-attribution-marine></p>
+      <p class="mt-2"><a class="am-link" data-attribution-link href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">{labels.openMeteoLink}</a></p>
+    </div>
+  </div>
+
+  <div data-briefing-fallback class="hidden bg-surface-container-low px-6 py-7">
+    <p class="am-text-subtitle text-on-surface">{labels.unavailableTitle}</p>
+    <p class="am-text-body mt-3 max-w-2xl leading-relaxed text-on-surface-variant">{labels.unavailableText}</p>
+    <AmaraActionLink href={aemetHref} variant="editorial" external class="mt-6 inline-flex">{aemetLabel}</AmaraActionLink>
+  </div>
+
+  <noscript>
+    <p class="am-text-body mt-5 text-on-surface-variant">{labels.unavailableText}</p>
+  </noscript>
+</div>
+
+<script is:inline define:vars={{ endpoint, lang, timezone, copy, widgetId }}>
+  (function () {
+    const root = document.getElementById(widgetId);
+    if (!root) return;
+
+    const query = (selector) => root.querySelector(selector);
+    const loading = query('[data-briefing-loading]');
+    const body = query('[data-briefing-body]');
+    const fallback = query('[data-briefing-fallback]');
+    const values = {};
+    root.querySelectorAll('[data-value]').forEach((node) => { values[node.dataset.value] = node; });
+    const sentences = {};
+    root.querySelectorAll('[data-sentence]').forEach((node) => { sentences[node.dataset.sentence] = node; });
+
+    const COMPASS = ['n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw'];
+    // Rule thresholds of the explanation layer. They select an authored
+    // sentence; they never produce a rating.
+    const GUST_GAP_KN = 8;
+    const TREND_STEP_KN = 6;
+    const TREND_WINDOW_HOURS = 6;
+    const SEA_SMALL_M = 0.4;
+    const SEA_PART_M = 0.3;
+    const SEA_CROSSED_DEGREES = 60;
+    const TABLE_ROWS = 6;
+
+    const hourFormat = new Intl.DateTimeFormat(lang, { hour: '2-digit', minute: '2-digit', timeZone: timezone });
+    const stampFormat = new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: timezone });
+    const oneDecimal = new Intl.NumberFormat(lang, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    const integer = new Intl.NumberFormat(lang, { maximumFractionDigits: 0 });
+
+    function finish() {
+      root.setAttribute('aria-busy', 'false');
+      if (loading) loading.classList.add('hidden');
+    }
+
+    function showFallback() {
+      finish();
+      if (fallback) fallback.classList.remove('hidden');
+    }
+
+    const isNumber = (value) => typeof value === 'number' && Number.isFinite(value);
+    const knots = (value) => (isNumber(value) ? integer.format(Math.round(value)) : copy.labels.noValue);
+    const metres = (value) => (isNumber(value) ? oneDecimal.format(value) : copy.labels.noValue);
+    const compass = (degrees) => (isNumber(degrees) ? copy.compass[COMPASS[Math.round(degrees / 45) % 8]] : copy.labels.noValue);
+    const hourOf = (time) => hourFormat.format(new Date(time));
+    const fill = (template, data) => template.replace(/\{(\w+)\}/g, (match, key) => (key in data ? String(data[key]) : match));
+    // Beaufort upper limits in knots for forces 0–11; anything above is force 12.
+    const BEAUFORT_LIMITS = [0.9, 3.4, 6.4, 10.4, 16.4, 21.4, 27.4, 33.4, 40.4, 47.4, 55.4, 63.4];
+    const beaufort = (knotsValue) => {
+      const force = BEAUFORT_LIMITS.findIndex((limit) => knotsValue <= limit);
+      return force === -1 ? 12 : force;
+    };
+    const sector = (degrees) => {
+      if (!isNumber(degrees)) return '';
+      if (degrees >= 45 && degrees <= 135) return copy.sectors.levante;
+      if (degrees >= 225 && degrees <= 315) return copy.sectors.poniente;
+      return '';
+    };
+    const angleBetween = (a, b) => {
+      const difference = Math.abs(a - b) % 360;
+      return difference > 180 ? 360 - difference : difference;
+    };
+
+    function currentIndex(hours, now) {
+      const stamps = hours.map((hour) => Date.parse(hour.time));
+      let index = stamps.findIndex((stamp, position) => stamp <= now && (position === stamps.length - 1 || stamps[position + 1] > now));
+      if (index === -1) index = now < stamps[0] ? 0 : stamps.length - 1;
+      return index;
+    }
+
+    function trendSentence(hours, index) {
+      const current = hours[index].wind.speed;
+      if (!isNumber(current)) return '';
+      const window = hours.slice(index + 1, index + 1 + TREND_WINDOW_HOURS).filter((hour) => isNumber(hour.wind.speed));
+      if (window.length === 0) return '';
+      const max = window.reduce((best, hour) => (hour.wind.speed > best.wind.speed ? hour : best));
+      const min = window.reduce((best, hour) => (hour.wind.speed < best.wind.speed ? hour : best));
+      const rise = max.wind.speed - current;
+      const fall = current - min.wind.speed;
+      if (rise >= TREND_STEP_KN && rise >= fall) {
+        return fill(copy.situations.trendRising, { max: knots(max.wind.speed), maxHour: hourOf(max.time) });
+      }
+      if (fall >= TREND_STEP_KN) {
+        return fill(copy.situations.trendFalling, { min: knots(min.wind.speed), minHour: hourOf(min.time) });
+      }
+      return copy.situations.trendFlat;
+    }
+
+    function seaSentence(hour) {
+      const wave = hour.wave;
+      if (!isNumber(wave.height)) return copy.situations.seaUnavailable;
+      const data = {
+        wave: metres(wave.height),
+        period: isNumber(wave.period) ? oneDecimal.format(wave.period) : copy.labels.noValue,
+        windWave: metres(hour.windWave.height),
+        windWaveDir: compass(hour.windWave.direction),
+        swell: metres(hour.swell.height),
+        swellDir: compass(hour.swell.direction),
+        swellPeriod: isNumber(hour.swell.period) ? oneDecimal.format(hour.swell.period) : copy.labels.noValue
+      };
+      if (wave.height < SEA_SMALL_M) return fill(copy.situations.seaSmall, data);
+      const crossed =
+        isNumber(hour.windWave.height) && hour.windWave.height >= SEA_PART_M &&
+        isNumber(hour.swell.height) && hour.swell.height >= SEA_PART_M &&
+        isNumber(hour.windWave.direction) && isNumber(hour.swell.direction) &&
+        angleBetween(hour.windWave.direction, hour.swell.direction) > SEA_CROSSED_DEGREES;
+      return fill(crossed ? copy.situations.seaCrossed : copy.situations.seaAligned, data);
+    }
+
+    function render(briefing) {
+      const hours = briefing.hours;
+      const index = currentIndex(hours, Date.now());
+      const hour = hours[index];
+      const wind = hour.wind;
+
+      query('[data-briefing-hour]').textContent = stampFormat.format(new Date(hour.time));
+      values.wind.textContent = knots(wind.speed);
+      values.direction.textContent = isNumber(wind.direction) ? compass(wind.direction) + ' (' + integer.format(Math.round(wind.direction)) + '°)' : copy.labels.noValue;
+      values.gusts.textContent = knots(wind.gusts);
+      values.wave.textContent = metres(hour.wave.height);
+      values.waveDirection.textContent = compass(hour.wave.direction);
+      values.wavePeriod.textContent = isNumber(hour.wave.period) ? oneDecimal.format(hour.wave.period) : copy.labels.noValue;
+      values.cloud.textContent = isNumber(hour.cloud.total) ? integer.format(hour.cloud.total) : copy.labels.noValue;
+      values.cloudLayers.textContent = [hour.cloud.low, hour.cloud.mid, hour.cloud.high]
+        .map((layer) => (isNumber(layer) ? integer.format(layer) + ' %' : copy.labels.noValue)).join(' · ');
+      values.radiation.textContent = isNumber(hour.radiation) ? integer.format(Math.round(hour.radiation)) : copy.labels.noValue;
+
+      sentences.wind.textContent = isNumber(wind.speed)
+        ? fill(copy.situations.wind, { hour: hourOf(hour.time), speed: knots(wind.speed), dir: compass(wind.direction), deg: isNumber(wind.direction) ? integer.format(Math.round(wind.direction)) : copy.labels.noValue, sector: sector(wind.direction) })
+        : '';
+      if (isNumber(wind.speed)) {
+        const force = beaufort(wind.speed);
+        sentences.beaufort.textContent = fill(copy.situations.beaufort, { speed: knots(wind.speed), bft: String(force), name: copy.beaufortNames[force] });
+      } else {
+        sentences.beaufort.textContent = '';
+      }
+      if (isNumber(wind.gusts) && isNumber(wind.speed)) {
+        const gap = wind.gusts - wind.speed;
+        sentences.gusts.textContent = fill(gap >= GUST_GAP_KN ? copy.situations.gustsWide : copy.situations.gustsClose, { gusts: knots(wind.gusts), gap: knots(gap) });
+      } else {
+        sentences.gusts.textContent = '';
+      }
+      sentences.trend.textContent = trendSentence(hours, index);
+      sentences.sea.textContent = seaSentence(hour);
+      sentences.sky.textContent = isNumber(hour.cloud.total)
+        ? fill(copy.situations.sky, { cloud: integer.format(hour.cloud.total), radiation: isNumber(hour.radiation) ? integer.format(Math.round(hour.radiation)) : copy.labels.noValue })
+        : '';
+
+      const rows = query('[data-briefing-rows]');
+      rows.textContent = '';
+      hours.slice(index, index + TABLE_ROWS).forEach((entry) => {
+        const row = document.createElement('tr');
+        row.className = 'border-b border-border-subtle last:border-b-0';
+        [hourOf(entry.time), knots(entry.wind.speed) + ' kn', knots(entry.wind.gusts) + ' kn', compass(entry.wind.direction), isNumber(entry.wave.height) ? metres(entry.wave.height) + ' m' : copy.labels.noValue].forEach((text, column) => {
+          const cell = document.createElement(column === 0 ? 'th' : 'td');
+          if (column === 0) cell.setAttribute('scope', 'row');
+          cell.className = 'whitespace-nowrap px-4 py-3 am-text-body tabular-nums ' + (column === 0 ? 'text-on-surface' : 'text-on-surface-variant');
+          cell.textContent = text;
+          row.appendChild(cell);
+        });
+        rows.appendChild(row);
+      });
+
+      const source = briefing.source;
+      const forecast = source.forecast;
+      query('[data-attribution-forecast]').textContent =
+        copy.labels.weatherData + ': ' + source.provider +
+        ' · ' + copy.labels.model + ': ' + forecast.modelLabel + ' (' + forecast.configuredModel + ')' +
+        ' · ' + copy.labels.originalSource + ': ' + forecast.originalSourceName +
+        ' · ' + copy.labels.fetched + ': ' + stampFormat.format(new Date(source.requestedAt)) +
+        ' · ' + copy.labels.validFor + ': ' + stampFormat.format(new Date(hour.time));
+      const marine = source.marine;
+      query('[data-attribution-marine]').textContent = marine && marine.status === 'ok'
+        ? copy.labels.waveData + ': ' + marine.modelLabel + ' (' + marine.configuredModel + ') · ' + copy.labels.originalSource + ': ' + marine.originalSourceName
+        : copy.labels.seaUnavailable;
+      if (source.attributionUrl) query('[data-attribution-link]').setAttribute('href', source.attributionUrl);
+
+      finish();
+      if (body) body.classList.remove('hidden');
+    }
+
+    (async function () {
+      try {
+        const response = await fetch(endpoint, { method: 'GET', headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error('briefing unavailable');
+        const briefing = await response.json();
+        if (!briefing || !Array.isArray(briefing.hours) || briefing.hours.length === 0 || !briefing.source || !briefing.source.forecast) {
+          throw new Error('briefing malformed');
+        }
+        render(briefing);
+      } catch {
+        showFallback();
+      }
+    })();
+  })();
+</script>

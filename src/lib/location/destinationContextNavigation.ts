@@ -30,11 +30,11 @@ const experienceClusterLabels: Record<DestinationId, Record<AmaraLanguage, strin
     sv: ['Hav & kust', 'Mat & kvällliv', 'Kultur & sevärdheter', 'Utflykter & omgivningar']
   },
   tarifa: {
-    en: ['Wind & Atlantic', 'Landscape & Heritage', 'Old Town & History', 'Food & Evenings'],
-    de: ['Wind & Atlantik', 'Landschaft & Erbe', 'Altstadt & Geschichte', 'Genuss & Abende'],
-    es: ['Viento & Atlántico', 'Paisaje & patrimonio', 'Casco antiguo & historia', 'Gastronomía & ambiente nocturno'],
-    nl: ['Wind & Atlantische kust', 'Landschap & erfgoed', 'Oude stad & geschiedenis', 'Eten & avonden'],
-    sv: ['Vind & Atlanten', 'Landskap & kulturarv', 'Gamla stan & historia', 'Mat & kvällar']
+    en: ['Sea & Wind', 'Landscape & Heritage', 'Old Town & History', 'Food & Evenings'],
+    de: ['Meer & Wind', 'Landschaft & Erbe', 'Altstadt & Geschichte', 'Genuss & Abende'],
+    es: ['Mar & viento', 'Paisaje & patrimonio', 'Casco antiguo & historia', 'Gastronomía & ambiente nocturno'],
+    nl: ['Zee & wind', 'Landschap & erfgoed', 'Oude stad & geschiedenis', 'Eten & avonden'],
+    sv: ['Hav & vind', 'Landskap & kulturarv', 'Gamla stan & historia', 'Mat & kvällar']
   }
 };
 
@@ -83,7 +83,7 @@ export function getDestinationExperienceGroups(destination: DestinationId, lang:
 
   const items = getTarifaAuthoritySubnav(lang).find((branch) => branch.id === 'experience')?.children ?? [];
   return groupItems(destination, lang, items, [
-    ['wind', 'beaches'], ['nature-wildlife', 'bolonia-baelo-claudia'], ['old-town-history'], ['food-evening-life']
+    ['kitesurfing', 'beaches'], ['nature-wildlife', 'bolonia-baelo-claudia'], ['old-town-history'], ['food-evening-life']
   ]);
 }
 

@@ -10,23 +10,26 @@ interface Props {
 }
 
 const { sections } = Astro.props;
-const icons: LocationGuideIconName[] = ['supermarket', 'pharmacy', 'opening-hours'];
+const icons: Record<DailyLifeGuideSection['id'], LocationGuideIconName> = {
+  'shopping-markets': 'supermarket',
+  'health-emergency': 'pharmacy'
+};
 ---
 
 {
   sections.map((section, index) => (
       <section
-        id={section.id}
-        class:list={[
-          'scroll-mt-32 border-b border-border-subtle px-6 py-20 md:px-12 md:py-28',
-          index % 2 === 0 ? 'bg-surface-container-low' : 'bg-surface'
-        ]}
-        data-am-daily-life-section={section.id}
-      >
+ id={section.id}
+ class:list={[
+ 'scroll-mt-32 px-6 py-20 md:px-12 md:py-28',
+ index % 2 === 0 ? 'bg-surface-container-low' : 'bg-surface'
+ ]}
+ data-am-daily-life-section={section.id}
+ >
         <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
           <header class="lg:col-span-4">
             <div class="flex items-center gap-3 text-primary">
-              <LocationGuideIcon name={icons[index]} />
+              <LocationGuideIcon name={icons[section.id]} />
               <p class="am-text-eyebrow">
                 {section.eyebrow}
               </p>

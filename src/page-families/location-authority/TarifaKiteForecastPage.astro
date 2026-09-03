@@ -1,0 +1,238 @@
+---
+import spotMapImage from '../../assets/images/content/tarifa/tarifa-spots-map.webp';
+import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import KiteCoBrandingBand from '../../components/experience/KiteCoBrandingBand.astro';
+import WindguruWidget from '../../components/experience/WindguruWidget.astro';
+import AemetForecastPanel from '../../components/location/AemetForecastPanel.astro';
+import AemetWarningsPanel from '../../components/location/AemetWarningsPanel.astro';
+import KiteBriefingPanel from '../../components/location/KiteBriefingPanel.astro';
+import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import Navigation from '../../components/Navigation.astro';
+import { tarifaKiteBriefingCopy } from '../../content/tarifaKiteBriefingContent';
+import { tarifaKiteForecastContent, tarifaKiteForecastSeo } from '../../content/tarifaKiteForecastContent';
+import { tarifaKitesurfSpotsContent } from '../../content/tarifaKitesurfSpotsContent';
+import { tarifaKitesurfWindContent } from '../../content/tarifaKitesurfWindContent';
+import { tarifaWeatherWarningsCopy } from '../../content/tarifaWeatherWarningsContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import { resolveLocale } from '../../types/content';
+import type { AmaraLanguage } from '../../types/seo';
+import LocationModule from './LocationModule.astro';
+
+/**
+ * Live-values page under the wind spoke. Three data objects in the order the
+ * editorial contract fixes: official AEMET context first, the Open-Meteo
+ * briefing second, Windguru's own table last. The evergreen explanation of
+ * the numbers lives on the wind spoke; this page stays light and links back.
+ */
+interface Props { lang?: string; }
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const content = resolveLocale(tarifaKiteForecastContent, currentLang);
+const wind = resolveLocale(tarifaKitesurfWindContent, currentLang);
+const briefingCopy = resolveLocale(tarifaKiteBriefingCopy, currentLang);
+const warningsCopy = resolveLocale(tarifaWeatherWarningsCopy, currentLang);
+const mapAlt = tarifaKitesurfSpotsContent.orientation.mapAlt[currentLang];
+const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf forecast');
+const aboutHref = requiredLink('about');
+const windPageHref = requiredLink('tarifa_wind_kitesurfing_authority');
+const footerHighlights: LabeledLink[] = [
+  { token: content.token, label: content.hero.title },
+  ...content.related.links.map((link) => ({ token: link.token, label: link.title }))
+];
+---
+
+<LocationAuthorityLayout seo={tarifaKiteForecastSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-spoke">
+  <Navigation slot="navigation" contextDestination="tarifa" currentLang={currentLang} languageToken={content.token}>
+    <ExperienceContextNav slot="context-navigation" currentId="kitesurfing" destination="tarifa" lang={currentLang} />
+  </Navigation>
+
+  <article class="bg-surface" data-am-page="tarifa-kitesurf-forecast" data-am-family="experience" data-am-role="spoke" data-am-topic="kitesurf-forecast">
+    <LocationGuideHero
+      eyebrow={content.hero.eyebrow}
+      title={content.hero.title}
+      subtitle={content.hero.subtitle}
+      paragraphs={[content.hero.lead]}
+      family="experience"
+      role="spoke"
+      topic="kitesurf-forecast"
+      visualBreakpoint="lg"
+    >
+      <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
+      <AmaraImage
+        slot="visual"
+        src={spotMapImage}
+        alt={mapAlt}
+        profile="hero"
+        width={1536}
+        widths={[640, 960, 1280, 1536]}
+        sizes="(max-width: 1023px) 100vw, 36vw"
+        class="aspect-[3/2] w-full object-cover"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </LocationGuideHero>
+
+    <LocationModule id="aemet" labelledby="aemet-title" surface="tint" spacing="compact" data-am-topic="official-weather">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="max-w-3xl">
+          <p class="am-text-eyebrow text-primary">{wind.live.eyebrow}</p>
+          <h2 id="aemet-title" class="am-text-title mt-5 text-balance text-on-surface">{wind.live.title}</h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{wind.live.intro}</p>
+        </div>
+        <AemetWarningsPanel
+          endpoint="/api/weather/tarifa-warnings"
+          lang={currentLang}
+          timezone="Europe/Madrid"
+          copy={warningsCopy}
+          officialHref="https://www.aemet.es/es/eltiempo/prediccion/avisos?w=hoy&l=611104"
+        />
+        <div class="mt-6 bg-surface px-6 pb-8 md:px-8" data-am-official-weather>
+          <AemetForecastPanel
+            endpoint="/api/weather/tarifa"
+            lang={currentLang}
+            labels={{
+              loading: wind.live.loading,
+              today: wind.live.today,
+              tomorrow: wind.live.tomorrow,
+              high: wind.live.high,
+              low: wind.live.low,
+              rain: wind.live.rain,
+              issued: wind.live.issued,
+              unavailable: wind.live.unavailableTitle,
+              unavailableText: wind.live.unavailableText,
+              source: wind.live.aemetLabel
+            }}
+            sourceHref={wind.safety.aemetHref}
+            fallbackLabel={wind.live.aemetLabel}
+          />
+        </div>
+        <p class="am-text-body mt-8 max-w-3xl leading-relaxed text-on-surface-variant">{wind.safety.aemetText}</p>
+        <AmaraActionLink href={wind.safety.aemetHref} variant="editorial" external class="mt-5 inline-flex">{wind.safety.aemetLabel}</AmaraActionLink>
+      </div>
+    </LocationModule>
+
+    <LocationModule id="today-in-tarifa" labelledby="today-in-tarifa-title" spacing="compact" data-am-topic="live-briefing">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="max-w-3xl">
+          <p class="am-text-eyebrow text-primary">{wind.live.briefingEyebrow}</p>
+          <h2 id="today-in-tarifa-title" class="am-text-title mt-5 text-balance text-on-surface">{wind.live.forecastHeading}</h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{wind.live.pending}</p>
+        </div>
+        <KiteBriefingPanel
+          endpoint="/api/weather/tarifa-kite"
+          lang={currentLang}
+          timezone="Europe/Madrid"
+          copy={briefingCopy}
+          headings={{ wind: wind.live.windHeading, wave: wind.live.waveHeading, sky: wind.live.skyHeading, check: wind.live.checkHeading }}
+          notes={{ wind: wind.live.windText, wave: wind.live.waveText, sky: wind.live.skyText }}
+          aemetHref={wind.safety.aemetHref}
+          aemetLabel={wind.safety.aemetLabel}
+        />
+      </div>
+    </LocationModule>
+
+    <LocationModule id="windguru-live" labelledby="windguru-live-title" surface="tint" spacing="compact" data-am-topic="windguru-live">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-5">
+            <p class="am-text-eyebrow text-primary">{content.windguruLive.eyebrow}</p>
+            <h2 id="windguru-live-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.windguruLive.title}</h2>
+          </div>
+          <div class="lg:col-span-7">
+            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.windguruLive.intro}</p>
+            <p class="am-text-body mt-5 max-w-3xl leading-relaxed text-on-surface-variant">
+              {content.windguruLive.explainBefore}{' '}
+              <a class="am-link" href={`${windPageHref}#windguru`}>{content.windguruLive.explainLabel}</a>{content.windguruLive.explainAfter}
+            </p>
+          </div>
+        </div>
+        <div class="mt-10">
+          <WindguruWidget lang={currentLang} loadingLabel={content.windguruLive.loading} noscriptLabel={content.windguruLive.noscript} />
+          <p class="am-text-caption mt-4 max-w-3xl normal-case tracking-normal text-muted">{content.windguruLive.lazyNote}</p>
+          <AmaraActionLink href={wind.windguru.linkHref} variant="editorial" external class="mt-5 inline-flex">{wind.windguru.linkLabel}</AmaraActionLink>
+        </div>
+
+        <details class="group mt-12 border-t border-border-subtle pt-6 outline-none" data-am-windguru-legend>
+          <summary class="am-accordion__trigger items-center">
+            <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.windguruLive.rowsTitle}</h3>
+            <span class="am-accordion__indicator" aria-hidden="true">
+              <span class="group-open:hidden">+</span>
+              <span class="hidden group-open:inline">−</span>
+            </span>
+          </summary>
+          <p class="am-text-body mt-5 max-w-3xl leading-relaxed text-on-surface-variant">{content.windguruLive.rowsIntro}</p>
+          <p class="am-text-body mt-3 max-w-3xl leading-relaxed text-on-surface-variant"><a class="am-link" href={`${windPageHref}#windguru`}>{content.windguruLive.explainLabel}</a></p>
+          <dl class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {content.windguruLive.rows.map((row) => (
+              <div class="min-w-0 border-l-2 border-primary/35 bg-surface px-6 py-6" data-windguru-row={row.id}>
+                <dt class="am-text-label am-text-label--sm text-on-surface">{row.title}</dt>
+                <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{row.text}</dd>
+              </div>
+            ))}
+          </dl>
+        </details>
+
+        <details class="group mt-6 border-t border-border-subtle pt-6 outline-none" data-am-beaufort>
+          <summary class="am-accordion__trigger items-center">
+            <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.beaufort.title}</h3>
+            <span class="am-accordion__indicator" aria-hidden="true">
+              <span class="group-open:hidden">+</span>
+              <span class="hidden group-open:inline">−</span>
+            </span>
+          </summary>
+          <p class="am-text-body mt-5 max-w-3xl leading-relaxed text-on-surface-variant">{content.beaufort.intro}</p>
+          <div class="mt-6 overflow-x-auto bg-surface" role="region" aria-label={content.beaufort.title} tabindex="0">
+            <table class="w-full min-w-[40rem] border-collapse text-left">
+              <caption class="sr-only">{content.beaufort.title}</caption>
+              <thead>
+                <tr class="border-b border-border-subtle">
+                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.beaufort.columnKnots}</th>
+                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.beaufort.columnForce}</th>
+                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.beaufort.columnName}</th>
+                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.beaufort.columnSea}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {content.beaufort.rows.map((row) => (
+                  <tr class="border-b border-border-subtle last:border-b-0" data-beaufort={row.id}>
+                    <th scope="row" class="whitespace-nowrap px-4 py-3 am-text-body tabular-nums text-on-surface">{row.knots} kn</th>
+                    <td class="whitespace-nowrap px-4 py-3 am-text-body tabular-nums text-on-surface-variant">{row.force}</td>
+                    <td class="whitespace-nowrap px-4 py-3 am-text-body text-on-surface-variant">{row.name}</td>
+                    <td class="px-4 py-3 am-text-body text-on-surface-variant">{row.sea}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="am-text-caption mt-4 max-w-3xl normal-case tracking-normal text-muted">{content.beaufort.note}</p>
+        </details>
+      </div>
+    </LocationModule>
+
+    <KiteCoBrandingBand lang={currentLang} surface="white" />
+
+    <LocationModule id="related-kite-guides" labelledby="related-kite-guides-title" spacing="closing" data-am-topic="related">
+      <div class="mx-auto max-w-screen-2xl">
+        <p class="am-text-eyebrow text-primary">{content.related.eyebrow}</p>
+        <h2 id="related-kite-guides-title" class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{content.related.title}</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          {content.related.links.map((link) => (
+            <AmaraActionLink href={requiredLink(link.token)} variant="card" class="group bg-surface-container-low px-7 pb-8 pt-7 transition-colors hover:bg-surface-container-lowest">
+              <h3 class="am-text-subtitle text-on-surface transition-colors group-hover:text-primary">{link.title}</h3>
+              <span class="am-text-body mt-4 block leading-relaxed text-on-surface-variant">{link.text}</span>
+              <span aria-hidden="true" class="mt-7 inline-flex text-primary transition-transform group-hover:translate-x-1">→</span>
+            </AmaraActionLink>
+          ))}
+        </div>
+        <p class="am-text-body mt-14 max-w-3xl leading-relaxed text-muted" data-am-final-line>{wind.closing.finalLine}</p>
+      </div>
+    </LocationModule>
+  </article>
+</LocationAuthorityLayout>

@@ -187,7 +187,9 @@ export const STABLE_PUBLIC_IMAGE_PATHS = [
   '/images/arrival-map.jpg',
   '/images/hero-frigiliana.jpg',
   '/images/nerja/nerja-cave-VR.jpeg',
-  '/images/robert-amara-host.jpg',] as const;
+  '/images/robert-amara-host.jpg',
+  '/images/tarifa/mark-robert-tarifa-surf-club.webp',
+] as const;
 
 /** URL prefix every stable public image path starts with. */
 export const STABLE_PUBLIC_IMAGE_URL_PREFIX = '/images/';

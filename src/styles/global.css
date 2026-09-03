@@ -1081,16 +1081,20 @@
 }
 
 /**
- * Outer Tailwind borders cannot bypass the inset separator owner. This guard
- * leaves structural borders inside lists, tables, controls and media frames
- * untouched.
+ * Outer Tailwind borders cannot bypass the inset separator owner. Two nets:
+ * every direct child of the page, whatever attributes a consumer adds, and
+ * every page-gutter band (`px-6 md:px-12`, the signature of an outer section)
+ * anywhere inside the shell, so a wrapper element or a consumer data attribute
+ * no longer reopens the loophole. Structural borders inside lists, tables,
+ * controls and media frames never carry the gutter signature and stay intact.
+ * `check:section-boundary-policy` enforces the same rule at build time.
  */
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-b, .border-y):not([data-am-section]) {
+:where([data-am-page], [data-am-page] > .am-page-shell__frame) > :is(.border-b, .border-y),
+:where(.am-page-shell) :is(.px-6.md\:px-12, .am-page-section):is(.border-b, .border-y) {
   border-bottom-width: 0;
 }
 
-:where([data-am-page], [data-am-page] > .am-page-shell__frame)
-  > :is(.border-t, .border-y):not([data-am-section]) {
+:where([data-am-page], [data-am-page] > .am-page-shell__frame) > :is(.border-t, .border-y),
+:where(.am-page-shell) :is(.px-6.md\:px-12, .am-page-section):is(.border-t, .border-y) {
   border-top-width: 0;
 }

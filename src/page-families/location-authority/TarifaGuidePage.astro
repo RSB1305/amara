@@ -200,7 +200,7 @@ const footerHighlights: LabeledLink[] = [
 
   {locationCopy ? (
     <article class="bg-surface" data-am-page="tarifa-overview">
-      <header class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28">
+      <header class="bg-surface px-6 py-20 md:px-12 md:py-28">
         <div class="mx-auto max-w-screen-2xl">
           <div class="max-w-5xl">
             <p class="am-text-eyebrow text-primary">
@@ -234,7 +234,7 @@ const footerHighlights: LabeledLink[] = [
         </div>
       </header>
 
-      <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+      <section class="bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
         <div class="mx-auto max-w-screen-2xl">
           <h2 class="am-text-title max-w-3xl text-balance text-on-surface">
             {locationCopy.microLocations.title}
@@ -272,12 +272,12 @@ const footerHighlights: LabeledLink[] = [
 
       {locationSections.map((section, sectionIndex) => (
         <section
-          id={section.id}
-          class:list={[
-            'border-b border-border-subtle px-6 py-16 md:px-12 md:py-20',
-            sectionIndex % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low'
-          ]}
-        >
+ id={section.id}
+ class:list={[
+ ' px-6 py-16 md:px-12 md:py-20',
+ sectionIndex % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low'
+ ]}
+ >
           <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
             <h2 class="am-text-title max-w-xl text-balance text-on-surface">{section.title}</h2>
             <div class="max-w-4xl space-y-5">
@@ -296,7 +296,7 @@ const footerHighlights: LabeledLink[] = [
         </section>
       ))}
 
-      <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-24">
+      <section class="bg-surface-container-low px-6 py-20 md:px-12 md:py-24">
         <div class="mx-auto max-w-screen-2xl">
           <h2 class="am-text-title max-w-3xl text-balance text-on-surface">{locationCopy.stayFits.title}</h2>
           <div class="mt-10 grid gap-5 md:grid-cols-2">
@@ -314,7 +314,7 @@ const footerHighlights: LabeledLink[] = [
         </div>
       </section>
 
-      <section id={locationCopy.dailyLife.id} class="border-b border-border-subtle bg-surface px-6 py-16 md:px-12 md:py-20">
+      <section id={locationCopy.dailyLife.id} class="bg-surface px-6 py-16 md:px-12 md:py-20">
         <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
           <h2 class="am-text-title max-w-xl text-balance text-on-surface">{locationCopy.dailyLife.title}</h2>
           <div class="max-w-4xl space-y-4">
@@ -325,7 +325,7 @@ const footerHighlights: LabeledLink[] = [
         </div>
       </section>
 
-      <section class="border-b border-border-subtle bg-inverse-surface px-6 py-16 text-inverted-on-surface md:px-12 md:py-20">
+      <section class="bg-inverse-surface px-6 py-16 text-inverted-on-surface md:px-12 md:py-20">
         <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
           <div>
             <h2 class="am-text-title max-w-xl text-balance text-inverted-on-surface">
@@ -354,7 +354,7 @@ const footerHighlights: LabeledLink[] = [
         </div>
       </section>
 
-      <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+      <section class="bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
         <div class="mx-auto grid max-w-screen-2xl overflow-hidden bg-surface lg:grid-cols-2">
           <figure class="am-mobile-full-bleed min-h-[360px] bg-surface-container-high lg:min-h-[560px]">
             <AmaraImage
@@ -423,7 +423,7 @@ const footerHighlights: LabeledLink[] = [
       }}
     />
 
-    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-8 md:px-12">
+    <section class="bg-surface-container-low px-6 py-8 md:px-12">
       <dl class="mx-auto grid max-w-screen-2xl gap-8 md:grid-cols-3">
         {topicContent.facts.map((fact) => (
           <div class="border-l border-primary/25 pl-5">
@@ -524,12 +524,12 @@ const footerHighlights: LabeledLink[] = [
 
     {topicContent.sections.map((section, sectionIndex) => (
       <section
-        id={section.id}
-        class:list={[
-          'border-b border-border-subtle px-6 py-20 md:px-12 md:py-28',
-          sectionIndex % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low'
-        ]}
-      >
+ id={section.id}
+ class:list={[
+ ' px-6 py-20 md:px-12 md:py-28',
+ sectionIndex % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low'
+ ]}
+ >
         <div class="mx-auto max-w-screen-2xl">
           <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
             <div class="max-w-xl">
@@ -569,7 +569,7 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </aside>
 
-    <section class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28">
+    <section class="bg-surface px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
         <h2 class="am-text-title text-on-surface">{t(ui.faq)}</h2>
         <div class="divide-y divide-border-subtle border-y border-border-subtle">
@@ -588,7 +588,7 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
+    <section class="bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div>
           <p class="text-primary am-text-label am-text-label--wide">
@@ -617,7 +617,7 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </section>
 
-    <section class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-24">
+    <section class="bg-surface px-6 py-20 md:px-12 md:py-24">
       <div class="mx-auto max-w-screen-2xl">
         <p class="text-primary am-text-label am-text-label--wide">
           {t(ui.relatedEyebrow)}

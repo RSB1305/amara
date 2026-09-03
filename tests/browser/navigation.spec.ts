@@ -326,7 +326,7 @@ test('the destination disclosures use one responsive DOM tree', async ({ page })
   await expect(root).toHaveCount(1);
   await expect(root).toBeVisible();
   await expect(disclosures).toHaveCount(2);
-  await expect(root.locator('[data-am-context-sibling]')).toHaveCount(18);
+  await expect(root.locator('[data-am-context-sibling]')).toHaveCount(17);
 
   await locationDisclosure.locator('summary').click();
   await expect(locationDisclosure).toHaveAttribute('open', '');
@@ -336,7 +336,7 @@ test('the destination disclosures use one responsive DOM tree', async ({ page })
     'Was ihr über einen Aufenthalt in Frigiliana wissen solltet.'
   );
   await expect(panel.locator('section')).toHaveCount(4);
-  await expect(panel.locator('[data-am-context-sibling]')).toHaveCount(9);
+  await expect(panel.locator('[data-am-context-sibling]')).toHaveCount(8);
   expect(
     await groupGrid.evaluate(
       (element) => getComputedStyle(element).gridTemplateColumns.split(' ').length
@@ -530,7 +530,7 @@ test('the desktop destination disclosures remain available without JavaScript', 
     await locationDisclosure.locator('summary').click();
     await expect(locationDisclosure).toHaveAttribute('open', '');
     await expect(locationDisclosure.locator('section')).toHaveCount(4);
-    await expect(locationDisclosure.locator('[data-am-context-sibling]')).toHaveCount(9);
+    await expect(locationDisclosure.locator('[data-am-context-sibling]')).toHaveCount(8);
 
     await experienceDisclosure.locator('summary').click();
     await expect(experienceDisclosure).toHaveAttribute('open', '');

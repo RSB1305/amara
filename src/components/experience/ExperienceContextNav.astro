@@ -31,6 +31,8 @@ type TarifaExperienceId =
   | 'old-town-history'
   | 'bolonia-baelo-claudia'
   | 'beaches'
+  | 'kitesurfing'
+  | 'kitesurf-spots'
   | 'wind';
 type FrigilianaExperienceId = ExperienceId | FrigilianaAdditionalExperienceId;
 
@@ -115,31 +117,31 @@ const clusterLabels: Record<
   },
   tarifa: {
     en: {
-      cluster1: 'Wind & Atlantic',
+      cluster1: 'Sea & Wind',
       cluster2: 'Landscape & Heritage',
       cluster3: 'Old Town & History',
       cluster4: 'Food & Evenings'
     },
     de: {
-      cluster1: 'Wind & Atlantik',
+      cluster1: 'Meer & Wind',
       cluster2: 'Landschaft & Erbe',
       cluster3: 'Altstadt & Geschichte',
       cluster4: 'Genuss & Abende'
     },
     es: {
-      cluster1: 'Viento & Atlántico',
+      cluster1: 'Mar & viento',
       cluster2: 'Paisaje & patrimonio',
       cluster3: 'Casco antiguo & historia',
       cluster4: 'Gastronomía & ambiente nocturno'
     },
     nl: {
-      cluster1: 'Wind & Atlantische kust',
+      cluster1: 'Zee & wind',
       cluster2: 'Landschap & erfgoed',
       cluster3: 'Oude stad & geschiedenis',
       cluster4: 'Eten & avonden'
     },
     sv: {
-      cluster1: 'Vind & Atlanten',
+      cluster1: 'Hav & vind',
       cluster2: 'Landskap & kulturarv',
       cluster3: 'Gamla stan & historia',
       cluster4: 'Mat & kvällar'
@@ -297,7 +299,9 @@ const tarifaChildren = getTarifaAuthoritySubnav(lang)
   ?.children ?? [];
 
 const tarifaSiblingLinks = [
+  'kitesurfing',
   'wind',
+  'kitesurf-spots',
   'beaches',
   'nature-wildlife',
   'bolonia-baelo-claudia',
@@ -386,7 +390,7 @@ const tarifaGroups: ContextNavigationGroup[] = selectNavigationGroups(
     {
       id: 'tarifa-atlantic',
       label: 'cluster1',
-      itemIds: ['wind', 'beaches']
+      itemIds: ['kitesurfing', 'beaches']
     },
     {
       id: 'tarifa-landscape',

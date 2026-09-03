@@ -1,6 +1,6 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import type { LinkToken } from '../lib/linkResolver';
-import type { LocationGuideIconName } from '../components/location/LocationGuideIcon.astro';
+import type { LocationGuideIconName } from '../components/location/locationGuideIconContract';
 import type { WeatherAuthorityContent } from '../page-families/location-authority/weatherAuthority';
 import { climateDataSourceUrls } from './locationClimateData';
 

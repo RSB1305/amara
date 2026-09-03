@@ -1,5 +1,5 @@
 ---
-import TarifaKitesurfHubPage from '../../page-families/location-authority/TarifaKitesurfHubPage.astro';
+import TarifaKitesurfWindPage from '../../page-families/location-authority/TarifaKitesurfWindPage.astro';
 import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -10,5 +10,4 @@ export function getStaticPaths() {
 const { lang } = Astro.params as { lang: AmaraLanguage };
 ---
 
-<TarifaKitesurfHubPage lang={lang} />
-
+<TarifaKitesurfWindPage lang={lang} />

@@ -2,9 +2,8 @@ import { defineKnowledgePageManifest } from '../../schema';
 
 export const nerjaPracticalLocalRulesKnowledge = defineKnowledgePageManifest({
   id: 'page-nerja-practical-local-rules', destination: 'nerja', topic: 'practical-local-rules',
-  createdAt: '2026-08-22T06:41:04+02:00', updatedAt: '2026-08-22T06:41:04+02:00', status: 'awaiting-research',
+  createdAt: '2026-08-22T06:41:04+02:00', updatedAt: '2026-09-02T10:15:00+02:00', status: 'retired',
   driveFolder: { id: '1U22asuz_LRoYesQBTNLRtB8EJNu4H9_p', url: 'https://drive.google.com/drive/folders/1U22asuz_LRoYesQBTNLRtB8EJNu4H9_p', path: 'AMARA – Research Vault/10_LOCATIONS/nerja/nerja-practical-local-rules' },
-  publicContentPath: 'src/content/nerjaPracticalLocalRulesContent.ts',
   researchRunIds: ['2026-08-22__064104__practical-local-rules__research-001'],
   coverage: [
     { authoringArea: 'planning-rules', purpose: 'Select only durable rules that materially affect a stay.', factIds: [], status: 'baseline-unmapped' },
