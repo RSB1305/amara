@@ -10,7 +10,8 @@ import { tarifaGuideContent, type LocalizedText, type TarifaTopicGuideContent } 
 import { tarifaKitesurfSpokeContent, type TarifaKitesurfSpokeId } from '../../content/tarifaKitesurfContent';
 import { tarifaKitePartnerContent } from '../../content/tarifaKitePartnerContent';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
-import { tarifaKitesurfSpotsHandoff } from '../../content/tarifaKitesurfSpotsContent';
+import { tarifaKitesurfSpotsContent, tarifaKitesurfSpotsHandoff } from '../../content/tarifaKitesurfSpotsContent';
+import { tarifaKitesurfWindContent } from '../../content/tarifaKitesurfWindContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink, type LinkToken } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -46,6 +47,11 @@ const ui = {
   factsEyebrow: { en: 'In short', de: 'Kurz gesagt', es: 'En resumen', nl: 'In het kort', sv: 'Kort sagt' },
   pathsEyebrow: { en: 'Your kite stay', de: 'Euer Kite-Aufenthalt', es: 'Vuestra estancia de kite', nl: 'Jullie kiteverblijf', sv: 'Er kitevistelse' },
   pathsTitle: { en: 'Everything you need, clearly separated', de: 'Alles, was ihr braucht, klar gegliedert', es: 'Todo lo que necesitáis, bien ordenado', nl: 'Alles wat jullie nodig hebben, overzichtelijk', sv: 'Allt ni behöver, tydligt uppdelat' },
+  spotsEyebrow: { en: 'Where you ride', de: 'Wo ihr fahrt', es: 'Dónde navegáis', nl: 'Waar jullie varen', sv: 'Var ni åker' },
+  windEyebrow: { en: 'Before the water', de: 'Vor dem Wasser', es: 'Antes del agua', nl: 'Vóór het water', sv: 'Före vattnet' },
+  schoolEyebrow: { en: 'Kite school in Tarifa', de: 'Kiteschule in Tarifa', es: 'Escuela de kite en Tarifa', nl: 'Kiteschool in Tarifa', sv: 'Kiteskola i Tarifa' },
+  schoolTitle: { en: 'Gear, rental and courses', de: 'Material, Leihen und Kurse', es: 'Material, alquiler y cursos', nl: 'Materiaal, huren en lessen', sv: 'Utrustning, hyra och kurser' },
+  schoolText: { en: 'Courses at Tarifa Surf Club with gear included, rental and shop for your own sessions, prices with their date.', de: 'Kurse beim Tarifa Surf Club mit Material inklusive, Verleih und Shop für eigene Sessions, Preise mit Stand.', es: 'Cursos en Tarifa Surf Club con material incluido, alquiler y tienda para vuestras propias sesiones, precios con fecha.', nl: 'Lessen bij Tarifa Surf Club met materiaal inbegrepen, verhuur en shop voor eigen sessies, prijzen met datum.', sv: 'Kurser hos Tarifa Surf Club med utrustning inkluderad, uthyrning och butik för egna sessioner, priser med datum.' },
   partnerCardEyebrow: { en: 'The partnership', de: 'Die Partnerschaft', es: 'La colaboración', nl: 'Het partnerschap', sv: 'Partnerskapet' },
   readMore: { en: 'Explore this topic', de: 'Thema entdecken', es: 'Descubrir este tema', nl: 'Ontdek dit thema', sv: 'Upptäck ämnet' },
   windsLink: { en: 'Wind, weather and safety in depth', de: 'Wind, Wetter und Sicherheit im Detail', es: 'Viento, tiempo y seguridad en detalle', nl: 'Wind, weer en veiligheid in detail', sv: 'Vind, väder och säkerhet i detalj' },
@@ -63,11 +69,10 @@ const ui = {
 
 const spokeOrder: TarifaKitesurfSpokeId[] = ['kite-school', 'kitecamp', 'equipment'];
 const cards = [
-  ...spokeOrder.map((id) => {
-    const spoke = tarifaKitesurfSpokeContent[id];
-    return { id, href: requiredLink(spoke.token), eyebrow: t(spoke.hero.eyebrow), title: t(spoke.navLabel), text: t(spoke.hero.subtitle) };
-  }),
-  { id: 'partner', href: partnerHref, eyebrow: t(ui.partnerCardEyebrow), title: t(tarifaKitePartnerContent.hero.title), text: t(tarifaKitePartnerContent.hero.subtitle) }
+  { id: 'spots', href: requiredLink('tarifa_kitesurf_spots'), eyebrow: t(ui.spotsEyebrow), title: t(tarifaKitesurfSpotsContent.hero.headline), text: t(tarifaKitesurfSpotsContent.hero.subtitle) },
+  { id: 'wind', href: requiredLink('tarifa_wind_kitesurfing_authority'), eyebrow: t(ui.windEyebrow), title: t(tarifaKitesurfWindContent.hero.title), text: t(tarifaKitesurfWindContent.hero.subtitle) },
+  { id: 'school', href: requiredLink(tarifaKitesurfSpokeContent['kite-school'].token), eyebrow: t(ui.schoolEyebrow), title: t(ui.schoolTitle), text: t(ui.schoolText) },
+  { id: 'partner', href: partnerHref, eyebrow: t(ui.partnerCardEyebrow), title: t(tarifaKitePartnerContent.navLabel), text: t(tarifaKitePartnerContent.hero.subtitle) }
 ];
 
 const sectionLinks: Record<string, { token: LinkToken; label: LocalizedText } | undefined> = {
