@@ -27,34 +27,8 @@ import {
   WavesHorizontal
 } from '@lucide/astro';
 
-export type LocationGuideIconName =
-  | 'airport'
-  | 'rental-car'
-  | 'private-transfer'
-  | 'taxi'
-  | 'bus'
-  | 'journey-time'
-  | 'distance'
-  | 'elevation'
-  | 'walking-surface'
-  | 'frequency'
-  | 'municipality'
-  | 'village-square'
-  | 'protected-landscape'
-  | 'local-shops'
-  | 'bakery'
-  | 'supermarket'
-  | 'walkable'
-  | 'pharmacy'
-  | 'opening-hours'
-  | 'longer-stay'
-  | 'comparison'
-  | 'temperature'
-  | 'evening'
-  | 'rainfall'
-  | 'sunshine'
-  | 'coast'
-  | 'village';
+import type { LocationGuideIconName } from './locationGuideIconContract';
+export type { LocationGuideIconName };
 
 interface Props {
   name: LocationGuideIconName;

@@ -1,6 +1,6 @@
 import type { LinkToken } from '../lib/linkResolver';
 import { getLocationGuideTopicLabels } from '../lib/location/locationGuideTopics';
-import type { LocationGuideIconName } from '../components/location/LocationGuideIcon.astro';
+import type { LocationGuideIconName } from '../components/location/locationGuideIconContract';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 export type DailyLifeDestination = 'frigiliana' | 'nerja' | 'tarifa';

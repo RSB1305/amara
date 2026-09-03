@@ -2,7 +2,7 @@ import { resolveLocale } from '../types/content';
 import type { LocalizedText } from '../types/content';
 import type { ImageMetadata } from 'astro';
 import type { ArrivalJourneyGraphicData } from '../components/location/ArrivalJourneyGraphic.astro';
-import type { LocationGuideIconName } from '../components/location/LocationGuideIcon.astro';
+import type { LocationGuideIconName } from '../components/location/locationGuideIconContract';
 import {
   gettingToFrigilianaCopy,
   gettingToFrigilianaExternalLinks,
