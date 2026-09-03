@@ -5,6 +5,12 @@ import {
   fetchAemetDailyForecast,
   normalizeAemetDailyForecast
 } from '../../weather-gateway/aemet-forecast.mjs';
+import {
+  createKiteBriefingRoute,
+  fetchKiteBriefing,
+  normalizeKiteBriefing,
+  OpenMeteoGatewayError
+} from '../../weather-gateway/open-meteo-kite.mjs';
 
 const SECRET = 'unit-test-aemet-key-must-not-leak';
 const destinations = [
@@ -190,4 +196,182 @@ test('the normalizer still fails when no day is usable', () => {
   expect(() => normalizeAemetDailyForecast(municipality([
     dayEntry('2026-08-30', null, null)
   ]), 'tarifa')).toThrow();
+});
+
+/* ---------------------------------------------------------------------------
+ * Open-Meteo kite briefing gateway
+ * ------------------------------------------------------------------------- */
+
+const OPEN_METEO_SECRET = 'unit-test-open-meteo-key-must-not-leak';
+const times = ['2026-09-03T13:00', '2026-09-03T14:00', '2026-09-03T15:00'];
+
+const forecastHourly = {
+  latitude: 36.0625,
+  longitude: -5.625,
+  generationtime_ms: 0.4,
+  utc_offset_seconds: 7200,
+  timezone: 'Europe/Madrid',
+  hourly_units: { wind_speed_10m: 'kn' },
+  hourly: {
+    time: times,
+    wind_speed_10m: [16.2, 18.4, 20.1],
+    wind_direction_10m: [265, 270, 272],
+    wind_gusts_10m: [22.0, 26.3, 29.9],
+    cloud_cover: [10, 20, 30],
+    cloud_cover_low: [5, 10, 15],
+    cloud_cover_mid: [5, 5, 10],
+    cloud_cover_high: [0, 5, 5],
+    shortwave_radiation: [650.5, 700.2, 640.0]
+  }
+};
+
+const marineHourly = {
+  latitude: 36.05,
+  longitude: -5.65,
+  generationtime_ms: 0.2,
+  utc_offset_seconds: 7200,
+  timezone: 'Europe/Madrid',
+  hourly: {
+    time: times,
+    wave_height: [1.1, 1.2, 1.3],
+    wave_direction: [250, 255, 260],
+    wave_period: [6.5, 7.0, 7.2],
+    wind_wave_height: [0.8, 0.9, 1.0],
+    wind_wave_direction: [265, 268, 270],
+    wind_wave_period: [5.0, 5.5, 5.8],
+    swell_wave_height: [0.6, 0.6, 0.5],
+    swell_wave_direction: [230, 232, 235],
+    swell_wave_period: [9.0, 9.2, 9.1],
+    secondary_swell_wave_height: [null, 0.2, 0.2],
+    secondary_swell_wave_direction: [null, 300, 300],
+    secondary_swell_wave_period: [null, 12.0, 12.0]
+  }
+};
+
+test('the kite briefing asks two customer endpoints for explicit models and aligns them by hour', async () => {
+  const sequence = fetchSequence(jsonResponse(forecastHourly), jsonResponse(marineHourly));
+  const { briefing, marineError } = await fetchKiteBriefing({
+    apiKey: OPEN_METEO_SECRET,
+    site: 'tarifa',
+    fetchImpl: sequence.fetchImpl,
+    now: () => new Date('2026-09-03T12:02:00Z')
+  });
+
+  expect(marineError).toBeNull();
+  expect(sequence.urls).toHaveLength(2);
+  const forecastUrl = new URL(sequence.urls[0]);
+  const marineUrl = new URL(sequence.urls[1]);
+  expect(forecastUrl.host).toBe('customer-api.open-meteo.com');
+  expect(marineUrl.host).toBe('customer-marine-api.open-meteo.com');
+  expect(forecastUrl.searchParams.get('apikey')).toBe(OPEN_METEO_SECRET);
+  expect(forecastUrl.searchParams.get('models')).toBe('icon_eu');
+  expect(forecastUrl.searchParams.get('wind_speed_unit')).toBe('kn');
+  expect(forecastUrl.searchParams.get('timezone')).toBe('Europe/Madrid');
+  expect(marineUrl.searchParams.get('models')).toBe('dwd_ewam');
+  expect(forecastUrl.searchParams.get('models')).not.toBe('best_match');
+
+  expect(briefing.source.provider).toBe('Open-Meteo');
+  expect(briefing.source.requestedAt).toBe('2026-09-03T12:02:00.000Z');
+  expect(briefing.source.validFrom).toBe('2026-09-03T13:00+02:00');
+  expect(briefing.source.validTo).toBe('2026-09-03T15:00+02:00');
+  expect(briefing.source.forecast).toMatchObject({
+    status: 'ok',
+    configuredModel: 'icon_eu',
+    originalSource: 'DWD',
+    requested: { latitude: 36.03, longitude: -5.63 },
+    grid: { latitude: 36.0625, longitude: -5.625 }
+  });
+  expect(briefing.source.forecast.gridOffsetKm).toBeGreaterThan(3);
+  expect(briefing.source.forecast.gridOffsetKm).toBeLessThan(4);
+  expect(briefing.source.marine).toMatchObject({ status: 'ok', configuredModel: 'dwd_ewam', originalSource: 'DWD' });
+  expect(briefing.source).not.toHaveProperty('generationTimeMs');
+
+  expect(briefing.hours).toHaveLength(3);
+  expect(briefing.hours[1]).toEqual({
+    time: '2026-09-03T14:00+02:00',
+    wind: { speed: 18.4, direction: 270, gusts: 26.3 },
+    cloud: { total: 20, low: 10, mid: 5, high: 5 },
+    radiation: 700.2,
+    wave: { height: 1.2, direction: 255, period: 7.0 },
+    windWave: { height: 0.9, direction: 268, period: 5.5 },
+    swell: { height: 0.6, direction: 232, period: 9.2 },
+    secondarySwell: { height: 0.2, direction: 300, period: 12.0 }
+  });
+  expect(briefing.hours[0].secondarySwell).toEqual({ height: null, direction: null, period: null });
+});
+
+test('a failing wave model leaves the wind briefing intact and says the sea state is unavailable', async () => {
+  const sequence = fetchSequence(jsonResponse(forecastHourly), jsonResponse({ error: true, reason: 'boom' }, 500));
+  const { briefing, marineError } = await fetchKiteBriefing({ apiKey: OPEN_METEO_SECRET, fetchImpl: sequence.fetchImpl });
+
+  expect(marineError).toBeInstanceOf(OpenMeteoGatewayError);
+  expect(briefing.source.marine).toMatchObject({ status: 'unavailable', configuredModel: 'dwd_ewam' });
+  expect(briefing.hours[0].wind.speed).toBe(16.2);
+  expect(briefing.hours[0].wave).toEqual({ height: null, direction: null, period: null });
+});
+
+test('the kite briefing rejects a forecast payload whose hourly arrays do not line up', () => {
+  const broken = { ...forecastHourly, hourly: { ...forecastHourly.hourly, wind_gusts_10m: [22.0] } };
+  expect(() => normalizeKiteBriefing({ forecastPayload: broken, marinePayload: null, site: 'tarifa', requestedAt: 'x' })).toThrow(OpenMeteoGatewayError);
+});
+
+test('the kite briefing route keeps the Open-Meteo key and provider details out of public failures', async () => {
+  const sequence = fetchSequence(jsonResponse({ error: true, reason: 'Invalid API key' }, 401));
+  const logs: string[] = [];
+  const originalConsoleError = console.error;
+  console.error = (message) => logs.push(String(message));
+
+  try {
+    const response = await createKiteBriefingRoute({ fetchImpl: sequence.fetchImpl })({
+      request: new Request('https://amara.test/api/weather/tarifa-kite'),
+      env: { OPEN_METEO_API_KEY: OPEN_METEO_SECRET }
+    });
+    expect(response.status).toBe(503);
+    expect(response.headers.get('cache-control')).toBe('no-store');
+    expect(await response.json()).toEqual({
+      error: { code: 'kite_briefing_unavailable', message: 'The kite briefing is temporarily unavailable.' }
+    });
+  } finally {
+    console.error = originalConsoleError;
+  }
+
+  expect(logs).toHaveLength(1);
+  expect(logs[0]).not.toContain(OPEN_METEO_SECRET);
+  expect(JSON.parse(logs[0])).toEqual({
+    operation: 'kite-briefing',
+    providerStep: 'forecast',
+    providerHttpStatus: 401,
+    category: 'http'
+  });
+});
+
+test('the kite briefing route fails closed when the server-side Open-Meteo key is absent', async () => {
+  let calls = 0;
+  const response = await createKiteBriefingRoute({
+    fetchImpl: (async () => {
+      calls += 1;
+      return jsonResponse({});
+    }) as typeof fetch
+  })({
+    request: new Request('https://amara.test/api/weather/tarifa-kite'),
+    env: {}
+  });
+
+  expect(response.status).toBe(503);
+  expect(calls).toBe(0);
+});
+
+test('the kite briefing route serves a successful payload with public caching', async () => {
+  const sequence = fetchSequence(jsonResponse(forecastHourly), jsonResponse(marineHourly));
+  const response = await createKiteBriefingRoute({ fetchImpl: sequence.fetchImpl, cache: undefined })({
+    request: new Request('https://amara.test/api/weather/tarifa-kite'),
+    env: { OPEN_METEO_API_KEY: OPEN_METEO_SECRET }
+  });
+
+  expect(response.status).toBe(200);
+  expect(response.headers.get('cache-control')).toBe('public, max-age=600, s-maxage=900, stale-while-revalidate=1800');
+  const payload = await response.json();
+  expect(payload.site).toBe('tarifa');
+  expect(payload.hours).toHaveLength(3);
+  expect(JSON.stringify(payload)).not.toContain(OPEN_METEO_SECRET);
 });
