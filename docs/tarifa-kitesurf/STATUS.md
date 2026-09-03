@@ -79,6 +79,19 @@ Regeln: Preis als Zahl auf der Karte, Einheit und Staffel in der Notiz, Stand �
 
 Prüfung: typecheck 0 Fehler, Parität grün, 127 Kontrakttests, voller Build mit allen Gates, Screenshots Desktop und Mobil (Hub, Schule, Camp, Material, Band auf Wind-, Spots- und Werte-Seite).
 
+### Stufe 9 — Hub wiederhergestellt, Partner-Spoke `amara-tarifa-surf-club` (Operator-Entscheidung vom 03.09.2026)
+
+Der Hub aus Stufe 8 stellte die Kooperation ins Zentrum und war damit kein Autoritäts-Hub für „Kitesurfen in Tarifa“ mehr. Beschluss: Die Inhalte von Stufe 8 ziehen eins zu eins auf einen vierten Spoke um, der Hub kehrt zur alten Struktur zurück und bekommt die alten Guide-Abschnitte als Rückgrat.
+
+| Route | Rendert | Inhalt |
+|---|---|---|
+| `tarifa-kitesurfing` | `TarifaKitesurfHubPage` | H1 „Kitesurfen in Tarifa“, Lead, Faktenleiste, Einstiegskarten (Schule, Camp, Material, Partnerseite), Guide-Abschnitte Windsysteme / wichtige Bereiche / Check vor dem Start mit Weiter-Links auf Wind-, Spots- und Werte-Seite, Sicherheitshinweis, Partnermodul mit Foto und Logo, FAQ, Quellen, Basis-Abschluss |
+| `amara-tarifa-surf-club` | `TarifaKitePartnerPage` | Zwei Partner, wer was macht, fünf Einstiege, Nebensaison, Unterkünfte beider Partner mit Namen, Wissen, Geschichte |
+
+Textbasis des Hubs ist `tarifaGuideContent.wind` (Wind-Thema des Tarifa-Guides), geprüft gegen den Contract: keine Blacklist-Treffer, kein AEMET-als-Forecast. Ergänzt um zwei FAQ aus §17 (Kurstag-Preise mit Stand 3. September 2026; beste Zeit mit Camp-Saison und Spotwegen aus §17b) und den Hinweis, dass auch direkt beim Club gebucht werden kann. Token `amara_tarifa_surf_club`; Slug, Registry, Breadcrumb „AMARA × Tarifa Surf Club“ und Seitenfamilie `experience-tarifa-kite-spoke` registriert. Inhaltsmodul `tarifaKitesurfHubContent.ts` wurde zu `tarifaKitePartnerContent.ts`. Das Band verlinkt zusätzlich die Partnerseite; auf der Partnerseite selbst gibt es kein Band.
+
+Prüfung: typecheck 0 Fehler, Slug-, Fallback-, Bild- und Typografie-Policy grün, 127 Kontrakttests, voller Build mit allen Gates, Screenshots Desktop und Mobil.
+
 ## Was als Nächstes ansteht
 
 - Betrieb: `OPEN_METEO_API_KEY` in Cloudflare Pages setzen; Live-Test des Warnendpunkts mit `AEMET_API_KEY`.

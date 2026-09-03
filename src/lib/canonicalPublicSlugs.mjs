@@ -56,6 +56,7 @@ export const STATIC_CANONICAL_PUBLIC_SLUGS = Object.freeze([
   'tarifa-kite-school',
   'tarifa-kitecamp',
   'tarifa-kite-equipment',
+  'amara-tarifa-surf-club',
   'tarifa-kitesurfing',
   'tarifa-beaches',
   'tarifa-food-evening-life',

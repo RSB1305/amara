@@ -3,30 +3,37 @@
  * KiteCoBrandingBand
  *
  * The shared signature of the Tarifa kitesurf cluster: AMARA and Tarifa Surf
- * Club side by side, one message to either partner. Sits on every page of
- * the cluster so the co-branding is visible wherever a guest enters.
+ * Club side by side, one message to either partner, and the way to the
+ * partner page. Sits on every page of the cluster so the co-branding is
+ * visible wherever a guest enters.
  */
 import AmaraImage from '../AmaraImage.astro';
-import { kiteCoBranding } from '../../content/tarifaKitesurfHubContent';
+import { kiteCoBranding } from '../../content/tarifaKitePartnerContent';
+import { createRequiredLinkResolver } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 import LocationModule from '../../page-families/location-authority/LocationModule.astro';
 
 interface Props {
   lang: AmaraLanguage;
   surface?: 'white' | 'tint';
+  /** Link to the partner spoke; off on the partner spoke itself. */
+  partnerLink?: boolean;
 }
 
-const { lang, surface = 'tint' } = Astro.props;
+const { lang, surface = 'tint', partnerLink = true } = Astro.props;
 const copy = {
   eyebrow: kiteCoBranding.eyebrow[lang],
   title: kiteCoBranding.title[lang],
   text: kiteCoBranding.text[lang],
   amaraLabel: kiteCoBranding.amaraLabel[lang],
   clubLabel: kiteCoBranding.clubLabel[lang],
+  partnerLinkLabel: kiteCoBranding.partnerLinkLabel[lang],
   logoAlt: kiteCoBranding.logoAlt[lang],
   contactMessage: kiteCoBranding.contactMessage[lang]
 };
 const amaraHref = `https://wa.me/34604440964?text=${encodeURIComponent(copy.contactMessage)}`;
+const requiredLink = createRequiredLinkResolver(lang, 'Kite co-branding band');
+const partnerHref = requiredLink('amara_tarifa_surf_club');
 ---
 
 <LocationModule id="kite-partners" labelledby="kite-partners-title" surface={surface} spacing="compact" data-am-topic="co-branding">
@@ -49,6 +56,7 @@ const amaraHref = `https://wa.me/34604440964?text=${encodeURIComponent(copy.cont
         <a href={amaraHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--primary justify-center">{copy.amaraLabel}</a>
         <a href={kiteCoBranding.clubHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--secondary justify-center">{copy.clubLabel}</a>
       </div>
+      {partnerLink && <a href={partnerHref} class="am-cta-link mt-6 inline-flex" data-am-partner-link>{copy.partnerLinkLabel}</a>}
     </div>
   </div>
 </LocationModule>

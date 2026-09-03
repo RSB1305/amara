@@ -3,8 +3,8 @@ import type { LocalizedText, LocalizedTextList } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
 
 /**
- * The co-branded kitesurf hub: AMARA and Tarifa Surf Club as two equal
- * senders. Every fact about the club comes from docs/tarifa-kitesurf/
+ * The partner spoke of the Tarifa kitesurf cluster: AMARA and Tarifa Surf
+ * Club as two equal senders. Every fact about the club comes from docs/tarifa-kitesurf/
  * redaktions-contract.md §17 (tarifasurfclub.com, checked 3 September 2026);
  * prices carry that date on the page. Nothing here promises safety, names a
  * kite size or claims figures the club does not publish.
@@ -13,11 +13,11 @@ const l = (en: string, de: string, es: string, nl: string, sv: string): Localize
 const ll = (en: string[], de: string[], es: string[], nl: string[], sv: string[]): LocalizedTextList => ({ en, de, es, nl, sv });
 
 const title = l(
-  'Kitesurfing in Tarifa: AMARA × Tarifa Surf Club | AMARA',
-  'Kitesurfen in Tarifa: AMARA × Tarifa Surf Club | AMARA',
-  'Kitesurf en Tarifa: AMARA × Tarifa Surf Club | AMARA',
-  'Kitesurfen in Tarifa: AMARA × Tarifa Surf Club | AMARA',
-  'Kitesurfing i Tarifa: AMARA × Tarifa Surf Club | AMARA'
+  'AMARA × Tarifa Surf Club: Stay & Kite School | AMARA',
+  'AMARA × Tarifa Surf Club: Unterkunft & Kiteschule | AMARA',
+  'AMARA × Tarifa Surf Club: alojamiento y kite | AMARA',
+  'AMARA × Tarifa Surf Club: verblijf & kiteschool | AMARA',
+  'AMARA × Tarifa Surf Club: boende & kiteskola | AMARA'
 );
 
 const description = l(
@@ -28,8 +28,8 @@ const description = l(
   'Två partner för en kitevistelse i Tarifa: boende från AMARA, kurser, kitecamps och utrustning från Tarifa Surf Club. Var för sig eller tillsammans, med lågsäsongen från mitten av september till mitten av juni som bästa tid.'
 );
 
-export const tarifaKitesurfHubSeo: AmaraAuthoringSeo = {
-  version: '2026-09-03-tarifa-kitesurfing-hub-v2.0',
+export const tarifaKitePartnerSeo: AmaraAuthoringSeo = {
+  version: '2026-09-03-amara-tarifa-surf-club-v1.0',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/tarifa/mark-robert-tarifa-surf-club.webp',
@@ -62,6 +62,7 @@ export const kiteCoBranding = {
   ),
   amaraLabel: l('Message AMARA', 'AMARA schreiben', 'Escribir a AMARA', 'AMARA een bericht sturen', 'Skriv till AMARA'),
   clubLabel: l('Contact Tarifa Surf Club', 'Tarifa Surf Club kontaktieren', 'Contactar con Tarifa Surf Club', 'Contact met Tarifa Surf Club', 'Kontakta Tarifa Surf Club'),
+  partnerLinkLabel: l('About the partnership', 'Mehr zur Partnerschaft', 'Sobre la colaboración', 'Over het partnerschap', 'Om partnerskapet'),
   clubHref: 'https://tarifasurfclub.com/kontakt-tarifa-surf-club',
   clubSiteHref: 'https://tarifasurfclub.com/',
   logoAlt: l('Tarifa Surf Club logo', 'Logo des Tarifa Surf Club', 'Logotipo de Tarifa Surf Club', 'Logo van Tarifa Surf Club', 'Tarifa Surf Clubs logotyp'),
@@ -74,7 +75,7 @@ export const kiteCoBranding = {
   )
 };
 
-export interface TarifaKitesurfHubContent {
+export interface TarifaKitePartnerContent {
   token: LinkToken;
   navLabel: LocalizedText;
   hero: {
@@ -137,11 +138,11 @@ export interface TarifaKitesurfHubContent {
   };
 }
 
-export const tarifaKitesurfHubContent: TarifaKitesurfHubContent = {
-  token: 'tarifa_kitesurfing_hub',
-  navLabel: l('Kitesurfing', 'Kitesurfen', 'Kitesurf', 'Kitesurfen', 'Kitesurfing'),
+export const tarifaKitePartnerContent: TarifaKitePartnerContent = {
+  token: 'amara_tarifa_surf_club',
+  navLabel: l('AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club'),
   hero: {
-    eyebrow: l('Kitesurfing in Tarifa', 'Kitesurfen in Tarifa', 'Kitesurf en Tarifa', 'Kitesurfen in Tarifa', 'Kitesurfing i Tarifa'),
+    eyebrow: l('The partnership', 'Die Partnerschaft', 'La colaboración', 'Het partnerschap', 'Partnerskapet'),
     title: l('Two partners, one Tarifa', 'Zwei Partner, ein Tarifa', 'Dos socios, un mismo Tarifa', 'Twee partners, één Tarifa', 'Två partner, ett Tarifa'),
     subtitle: l('Accommodation from AMARA, kiting with Tarifa Surf Club — separately or together', 'Unterkunft von AMARA, Kiten mit dem Tarifa Surf Club — getrennt oder zusammen', 'Alojamiento de AMARA, kite con Tarifa Surf Club: por separado o juntos', 'Accommodatie van AMARA, kiten met Tarifa Surf Club — apart of samen', 'Boende från AMARA, kitesurfing med Tarifa Surf Club – var för sig eller tillsammans'),
     lead: l(
@@ -309,6 +310,7 @@ export const tarifaKitesurfHubContent: TarifaKitesurfHubContent = {
     eyebrow: l('Before the water', 'Vor dem Wasser', 'Antes del agua', 'Vóór het water', 'Före vattnet'),
     title: l('What we explain, so nobody has to guess', 'Was wir erklären, damit niemand raten muss', 'Lo que explicamos para que nadie tenga que adivinar', 'Wat we uitleggen, zodat niemand hoeft te gokken', 'Vad vi förklarar, så att ingen behöver gissa'),
     links: [
+      { id: 'guide', token: 'tarifa_kitesurfing_hub', title: l('Kitesurfing in Tarifa: the guide', 'Kitesurfen in Tarifa: der Guide', 'Kitesurf en Tarifa: la guía', 'Kitesurfen in Tarifa: de gids', 'Kitesurfing i Tarifa: guiden'), text: l('Wind systems, main areas, the check before launching and the practical questions, on one page.', 'Windsysteme, wichtige Bereiche, der Check vor dem Start und die praktischen Fragen auf einer Seite.', 'Sistemas de viento, zonas principales, la comprobación antes de salir y las preguntas prácticas en una página.', 'Windsystemen, belangrijkste gebieden, de check vóór de start en de praktische vragen op één pagina.', 'Vindsystem, viktiga områden, kontrollen före start och de praktiska frågorna på en sida.') },
       { id: 'wind', token: 'tarifa_wind_kitesurfing_authority', title: l('Wind, weather and safety', 'Wind, Wetter und Sicherheit', 'Viento, tiempo y seguridad', 'Wind, weer en veiligheid', 'Vind, väder och säkerhet'), text: l('How to read a forecast before you believe it: Windguru, Levante and Poniente, the official rules, rescue and emergency channels.', 'Wie ihr einen Forecast lest, bevor ihr ihn glaubt: Windguru, Levante und Poniente, die amtlichen Regeln, Rescue und Notrufwege.', 'Cómo leer un parte antes de creérselo: Windguru, levante y poniente, las normas oficiales, rescate y vías de emergencia.', 'Hoe je een forecast leest voordat je hem gelooft: Windguru, levante en poniente, de officiële regels, rescue en noodkanalen.', 'Hur ni läser en prognos innan ni tror på den: Windguru, levante och poniente, de officiella reglerna, räddning och nödvägar.') },
       { id: 'spots', token: 'tarifa_kitesurf_spots', title: l('Kitesurf spots', 'Kitesurf-Spots', 'Spots de kitesurf', 'Kitesurfspots', 'Kitesurfspots'), text: l('Which stretch works in which conditions, where the zones run and where kiting is prohibited.', 'Welcher Abschnitt bei welcher Lage funktioniert, wo die Zonen verlaufen und wo Kiten verboten ist.', 'Qué tramo funciona con cada situación, por dónde van las zonas y dónde está prohibido el kite.', 'Welk deel bij welke situatie werkt, waar de zones lopen en waar kiten verboden is.', 'Vilken sträcka som fungerar i vilket läge, var zonerna går och var kitesurfing är förbjuden.') },
       { id: 'forecast', token: 'tarifa_kitesurf_forecast', title: l('Today in Tarifa', 'Heute in Tarifa', 'Hoy en Tarifa', 'Vandaag in Tarifa', 'I dag i Tarifa'), text: l('Official AEMET warnings, the model briefing with explanation, and Windguru’s table.', 'Amtliche AEMET-Warnungen, das Modellbriefing mit Einordnung und die Windguru-Tabelle.', 'Avisos oficiales de AEMET, el briefing del modelo con explicación y la tabla de Windguru.', 'Officiële AEMET-waarschuwingen, de modelbriefing met duiding en de tabel van Windguru.', 'Officiella AEMET-varningar, modellbriefingen med förklaring och Windgurus tabell.') }

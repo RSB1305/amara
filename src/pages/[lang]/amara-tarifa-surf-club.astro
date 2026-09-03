@@ -1,0 +1,13 @@
+---
+import TarifaKitePartnerPage from '../../page-families/location-authority/TarifaKitePartnerPage.astro';
+import { getOwnedPageStaticPaths } from '../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return getOwnedPageStaticPaths();
+}
+
+const { lang } = Astro.params as { lang: AmaraLanguage };
+---
+
+<TarifaKitePartnerPage lang={lang} />
