@@ -11,6 +11,7 @@ export type TarifaAuthorityBranchId = 'location' | 'experience';
 
 export type TarifaExperienceChildId =
   | 'beaches'
+  | 'kitesurfing'
   | 'wind'
   | 'kitesurf-spots'
   | 'food-evening-life'
@@ -60,7 +61,8 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     location: 'Location',
     experience: 'Experience',
     children: {
-      beaches: 'Beaches & coast',
+      beaches: 'Beaches',
+      kitesurfing: 'Kitesurfing',
       wind: 'Wind & watersports',
       'kitesurf-spots': 'Kitesurf spots',
       'food-evening-life': 'Food & evening life',
@@ -73,7 +75,8 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     location: 'Lage',
     experience: 'Erlebnisse',
     children: {
-      beaches: 'Strände & Küste',
+      beaches: 'Strände',
+      kitesurfing: 'Kitesurfen',
       wind: 'Wind & Wassersport',
       'kitesurf-spots': 'Kitesurf-Spots',
       'food-evening-life': 'Essen & Ausgehen',
@@ -86,7 +89,8 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     location: 'Ubicación',
     experience: 'Experiencias',
     children: {
-      beaches: 'Playas y costa',
+      beaches: 'Playas',
+      kitesurfing: 'Kitesurf',
       wind: 'Viento y deportes acuáticos',
       'kitesurf-spots': 'Spots de kitesurf',
       'food-evening-life': 'Gastronomía y vida nocturna',
@@ -99,7 +103,8 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     location: 'Locatie',
     experience: 'Ervaringen',
     children: {
-      beaches: 'Stranden & kust',
+      beaches: 'Stranden',
+      kitesurfing: 'Kitesurfen',
       wind: 'Wind & watersport',
       'kitesurf-spots': 'Kitesurfspots',
       'food-evening-life': 'Eten & uitgaan',
@@ -112,7 +117,8 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     location: 'Läge',
     experience: 'Upplevelser',
     children: {
-      beaches: 'Stränder & kust',
+      beaches: 'Stränder',
+      kitesurfing: 'Kitesurfing',
       wind: 'Vind & vattensport',
       'kitesurf-spots': 'Kitesurfspots',
       'food-evening-life': 'Mat & kvällsliv',
@@ -137,6 +143,7 @@ const topicLinks: LocationTopicLinks = {
 /** Experience children in the order the branch presents them. */
 const experienceChildren: readonly (readonly [TarifaExperienceChildId, LinkToken])[] = [
   ['beaches', 'tarifa_beaches_authority'],
+  ['kitesurfing', 'tarifa_kitesurfing_hub'],
   ['wind', 'tarifa_wind_kitesurfing_authority'],
   ['kitesurf-spots', 'tarifa_kitesurf_spots'],
   ['food-evening-life', 'tarifa_food_evening_life'],
