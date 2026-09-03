@@ -41,12 +41,13 @@ const params = [
   'hrsm=2',
   'vt=forecasts',
   `lng=${widgetLanguage[lang]}`,
-  'p=WINDSPD,GUST,MWINDSPD,SMER,TMP,TMPE,WCHILL,FLHGT,CDC,TCDC,APCP1s,RH,SLP,RATING'
+  // Only the rows a kiter reads: wind, gusts, direction, temperature, cloud, rain, Windguru's rating.
+  'p=WINDSPD,GUST,SMER,TMP,TCDC,APCP1s,RATING'
 ];
 const widgetSrc = `https://www.windguru.cz/js/widget.php?${params.join('&')}`;
 ---
 
-<div class="overflow-x-auto bg-surface-container-lowest px-2 py-2" data-am-windguru-widget data-widget-src={widgetSrc} data-widget-uid={uid}>
+<div class="overflow-x-auto bg-surface-container-lowest px-2 py-2" data-am-windguru-widget data-widget-src={widgetSrc} data-widget-uid={uid} data-widget-fallback={noscriptLabel}>
   <p class="am-text-caption px-2 py-4 normal-case tracking-normal text-muted" data-widget-loading>{loadingLabel}</p>
   <div id={uid}></div>
   <noscript>
@@ -68,6 +69,10 @@ const widgetSrc = `https://www.windguru.cz/js/widget.php?${params.join('&')}`;
       script.addEventListener('load', function () {
         var loading = container.querySelector('[data-widget-loading]');
         if (loading) loading.remove();
+      });
+      script.addEventListener('error', function () {
+        var loading = container.querySelector('[data-widget-loading]');
+        if (loading) loading.textContent = container.dataset.widgetFallback || '';
       });
       document.head.appendChild(script);
     }

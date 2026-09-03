@@ -157,6 +157,52 @@ const footerHighlights: LabeledLink[] = [
           <p class="am-text-caption mt-4 max-w-3xl normal-case tracking-normal text-muted">{content.windguruLive.lazyNote}</p>
           <AmaraActionLink href={wind.windguru.linkHref} variant="editorial" external class="mt-5 inline-flex">{wind.windguru.linkLabel}</AmaraActionLink>
         </div>
+
+        <div class="mt-14" data-am-windguru-legend>
+          <div class="max-w-3xl">
+            <h3 class="am-text-subtitle text-on-surface">{content.windguruLive.rowsTitle}</h3>
+            <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{content.windguruLive.rowsIntro}</p>
+          </div>
+          <dl class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {content.windguruLive.rows.map((row) => (
+              <div class="min-w-0 border-l-2 border-primary/35 bg-surface px-6 py-6" data-windguru-row={row.id}>
+                <dt class="am-text-label am-text-label--sm text-on-surface">{row.title}</dt>
+                <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{row.text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div class="mt-14" data-am-beaufort>
+          <div class="max-w-3xl">
+            <h3 class="am-text-subtitle text-on-surface">{content.beaufort.title}</h3>
+            <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{content.beaufort.intro}</p>
+          </div>
+          <div class="mt-6 overflow-x-auto bg-surface" role="region" aria-label={content.beaufort.title} tabindex="0">
+            <table class="w-full min-w-[40rem] border-collapse text-left">
+              <caption class="sr-only">{content.beaufort.title}</caption>
+              <thead>
+                <tr class="border-b border-border-subtle">
+                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.beaufort.columnKnots}</th>
+                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.beaufort.columnForce}</th>
+                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.beaufort.columnName}</th>
+                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.beaufort.columnSea}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {content.beaufort.rows.map((row) => (
+                  <tr class="border-b border-border-subtle last:border-b-0" data-beaufort={row.id}>
+                    <th scope="row" class="whitespace-nowrap px-4 py-3 am-text-body tabular-nums text-on-surface">{row.knots} kn</th>
+                    <td class="whitespace-nowrap px-4 py-3 am-text-body tabular-nums text-on-surface-variant">{row.force}</td>
+                    <td class="whitespace-nowrap px-4 py-3 am-text-body text-on-surface-variant">{row.name}</td>
+                    <td class="px-4 py-3 am-text-body text-on-surface-variant">{row.sea}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="am-text-caption mt-4 max-w-3xl normal-case tracking-normal text-muted">{content.beaufort.note}</p>
+        </div>
       </div>
     </LocationModule>
 

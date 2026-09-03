@@ -61,6 +61,7 @@ const { labels } = copy;
             <span>{labels.columnDirection}</span> <span data-value="direction">—</span> · <span>{labels.columnGusts}</span> <span data-value="gusts">—</span> kn
           </p>
           <p class="am-text-body mt-4 leading-relaxed text-on-surface" data-sentence="wind"></p>
+          <p class="am-text-body mt-2 leading-relaxed text-on-surface" data-sentence="beaufort"></p>
           <p class="am-text-body mt-2 leading-relaxed text-on-surface" data-sentence="gusts"></p>
           <p class="am-text-body mt-2 leading-relaxed text-on-surface" data-sentence="trend"></p>
           <p class="am-text-caption mt-4 normal-case tracking-normal text-muted">{notes.wind}</p>
@@ -182,6 +183,18 @@ const { labels } = copy;
     const compass = (degrees) => (isNumber(degrees) ? copy.compass[COMPASS[Math.round(degrees / 45) % 8]] : copy.labels.noValue);
     const hourOf = (time) => hourFormat.format(new Date(time));
     const fill = (template, data) => template.replace(/\{(\w+)\}/g, (match, key) => (key in data ? String(data[key]) : match));
+    // Beaufort upper limits in knots for forces 0–11; anything above is force 12.
+    const BEAUFORT_LIMITS = [0.9, 3.4, 6.4, 10.4, 16.4, 21.4, 27.4, 33.4, 40.4, 47.4, 55.4, 63.4];
+    const beaufort = (knotsValue) => {
+      const force = BEAUFORT_LIMITS.findIndex((limit) => knotsValue <= limit);
+      return force === -1 ? 12 : force;
+    };
+    const sector = (degrees) => {
+      if (!isNumber(degrees)) return '';
+      if (degrees >= 45 && degrees <= 135) return copy.sectors.levante;
+      if (degrees >= 225 && degrees <= 315) return copy.sectors.poniente;
+      return '';
+    };
     const angleBetween = (a, b) => {
       const difference = Math.abs(a - b) % 360;
       return difference > 180 ? 360 - difference : difference;
@@ -252,8 +265,14 @@ const { labels } = copy;
       values.radiation.textContent = isNumber(hour.radiation) ? integer.format(Math.round(hour.radiation)) : copy.labels.noValue;
 
       sentences.wind.textContent = isNumber(wind.speed)
-        ? fill(copy.situations.wind, { hour: hourOf(hour.time), speed: knots(wind.speed), dir: compass(wind.direction), deg: isNumber(wind.direction) ? integer.format(Math.round(wind.direction)) : copy.labels.noValue })
+        ? fill(copy.situations.wind, { hour: hourOf(hour.time), speed: knots(wind.speed), dir: compass(wind.direction), deg: isNumber(wind.direction) ? integer.format(Math.round(wind.direction)) : copy.labels.noValue, sector: sector(wind.direction) })
         : '';
+      if (isNumber(wind.speed)) {
+        const force = beaufort(wind.speed);
+        sentences.beaufort.textContent = fill(copy.situations.beaufort, { speed: knots(wind.speed), bft: String(force), name: copy.beaufortNames[force] });
+      } else {
+        sentences.beaufort.textContent = '';
+      }
       if (isNumber(wind.gusts) && isNumber(wind.speed)) {
         const gap = wind.gusts - wind.speed;
         sentences.gusts.textContent = fill(gap >= GUST_GAP_KN ? copy.situations.gustsWide : copy.situations.gustsClose, { gusts: knots(wind.gusts), gap: knots(gap) });

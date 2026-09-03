@@ -47,8 +47,15 @@ export interface TarifaKiteBriefingCopy {
     w: LocalizedText;
     nw: LocalizedText;
   };
+  sectors: {
+    levante: LocalizedText;
+    poniente: LocalizedText;
+  };
+  /** Beaufort force names 0–12, indexed by force. */
+  beaufortNames: LocalizedText[];
   situations: {
     wind: LocalizedText;
+    beaufort: LocalizedText;
     gustsWide: LocalizedText;
     gustsClose: LocalizedText;
     trendRising: LocalizedText;
@@ -96,13 +103,39 @@ export const tarifaKiteBriefingCopy: TarifaKiteBriefingCopy = {
     w: l('west', 'West', 'oeste', 'west', 'väst'),
     nw: l('north-west', 'Nordwest', 'noroeste', 'noordwest', 'nordväst')
   },
+  sectors: {
+    levante: l(' — that is the Levante sector', ' — das ist der Levante-Sektor', ', es decir, el sector de levante', ' — dat is de levantesector', ' – det är levantesektorn'),
+    poniente: l(' — that is the Poniente sector', ' — das ist der Poniente-Sektor', ', es decir, el sector de poniente', ' — dat is de ponientesector', ' – det är ponientesektorn')
+  },
+  beaufortNames: [
+    l('calm', 'Windstille', 'calma', 'windstil', 'stiltje'),
+    l('light air', 'leiser Zug', 'ventolina', 'zwakke wind', 'nästan stiltje'),
+    l('light breeze', 'leichte Brise', 'flojito', 'zwakke wind', 'svag vind'),
+    l('gentle breeze', 'schwache Brise', 'flojo', 'matige bries', 'lätt bris'),
+    l('moderate breeze', 'mäßige Brise', 'bonancible', 'matige wind', 'måttlig bris'),
+    l('fresh breeze', 'frische Brise', 'fresquito', 'vrij krachtige wind', 'frisk bris'),
+    l('strong breeze', 'starker Wind', 'fresco', 'krachtige wind', 'frisk vind'),
+    l('near gale', 'steifer Wind', 'frescachón', 'harde wind', 'styv kuling'),
+    l('gale', 'stürmischer Wind', 'temporal', 'stormachtige wind', 'hård kuling'),
+    l('strong gale', 'Sturm', 'temporal fuerte', 'storm', 'halv storm'),
+    l('storm', 'schwerer Sturm', 'temporal duro', 'zware storm', 'storm'),
+    l('violent storm', 'orkanartiger Sturm', 'temporal muy duro', 'zeer zware storm', 'svår storm'),
+    l('hurricane force', 'Orkan', 'temporal huracanado', 'orkaan', 'orkan')
+  ],
   situations: {
     wind: l(
-      'For {hour} the model calculates {speed} kn of wind at 10 m, coming from {dir} ({deg}°).',
-      'Das Modell berechnet für {hour} Uhr {speed} kn Wind auf 10 m, aus {dir} ({deg}°).',
-      'Para las {hour} el modelo calcula {speed} kn de viento a 10 m, desde el {dir} ({deg}°).',
-      'Voor {hour} uur berekent het model {speed} kn wind op 10 m, uit het {dir} ({deg}°).',
-      'För klockan {hour} beräknar modellen {speed} kn vind på 10 m, från {dir} ({deg}°).'
+      'For {hour} the model calculates {speed} kn of wind at 10 m, coming from {dir} ({deg}°){sector}.',
+      'Das Modell berechnet für {hour} Uhr {speed} kn Wind auf 10 m, aus {dir} ({deg}°){sector}.',
+      'Para las {hour} el modelo calcula {speed} kn de viento a 10 m, desde el {dir} ({deg}°){sector}.',
+      'Voor {hour} uur berekent het model {speed} kn wind op 10 m, uit het {dir} ({deg}°){sector}.',
+      'För klockan {hour} beräknar modellen {speed} kn vind på 10 m, från {dir} ({deg}°){sector}.'
+    ),
+    beaufort: l(
+      'In proportion: {speed} kn is force {bft} on the Beaufort scale, a {name}.',
+      'Zur Einordnung: {speed} kn sind Windstärke {bft} auf der Beaufort-Skala, {name}.',
+      'Para situarlo: {speed} kn son fuerza {bft} en la escala Beaufort, {name}.',
+      'Ter vergelijking: {speed} kn is windkracht {bft} op de Beaufort-schaal, {name}.',
+      'Som jämförelse: {speed} kn är vindstyrka {bft} på Beaufort-skalan, {name}.'
     ),
     gustsWide: l(
       'The modelled gust peak for this hour is {gusts} kn — {gap} kn above the mean wind. A wide gap means the model expects a lot of variation.',
