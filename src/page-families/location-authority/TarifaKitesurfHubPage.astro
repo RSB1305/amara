@@ -1,5 +1,5 @@
 ---
-import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-surf-club-team.webp';
+import kiteBoardImage from '../../assets/images/content/tarifa/tarifa-kite-board-sand.webp';
 import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
@@ -45,7 +45,7 @@ const contactHref = `https://wa.me/34604440964?text=${encodeURIComponent(t(partn
 
 const ui = {
   hubLabel: { en: 'Kitesurfing in Tarifa', de: 'Kitesurfen in Tarifa', es: 'Kitesurf en Tarifa', nl: 'Kitesurfen in Tarifa', sv: 'Kitesurfing i Tarifa' },
-  heroImageAlt: { en: 'Tarifa Surf Club team together at the beach in Tarifa', de: 'Das Team des Tarifa Surf Club gemeinsam am Strand von Tarifa', es: 'El equipo de Tarifa Surf Club reunido en la playa de Tarifa', nl: 'Het team van Tarifa Surf Club samen op het strand van Tarifa', sv: 'Tarifa Surf Club-teamet samlat på stranden i Tarifa' },
+  heroImageAlt: { en: 'Kiteboard with foot pads lying in the sand in low evening light', de: 'Kiteboard mit Fußpads im Sand bei tiefstehender Sonne', es: 'Tabla de kite con pads sobre la arena con el sol bajo', nl: 'Kiteboard met voetpads in het zand bij laagstaande zon', sv: 'Kiteboard med fotpads i sanden i lågt kvällsljus' },
   pathsEyebrow: { en: 'Your kite stay', de: 'Euer Kite-Aufenthalt', es: 'Vuestra estancia de kite', nl: 'Jullie kiteverblijf', sv: 'Er kitevistelse' },
   pathsTitle: { en: 'Everything you need, clearly separated', de: 'Alles, was ihr braucht, klar gegliedert', es: 'Todo lo que necesitáis, bien ordenado', nl: 'Alles wat jullie nodig hebben, overzichtelijk', sv: 'Allt ni behöver, tydligt uppdelat' },
   pathsIntro: { en: 'Four paths that belong together: **spots, wind, courses and gear**, and the partnership behind them. Each card leads to its own page.', de: 'Vier Wege, die zusammengehören: **Spots, Wind, Kurse und Material**, und die Partnerschaft dahinter. Jede Karte führt auf eine eigene Seite.', es: 'Cuatro caminos que van juntos: **spots, viento, cursos y material**, y la colaboración detrás. Cada tarjeta lleva a su propia página.', nl: 'Vier wegen die bij elkaar horen: **spots, wind, lessen en materiaal**, en het partnerschap erachter. Elke kaart leidt naar een eigen pagina.', sv: 'Fyra vägar som hör ihop: **spots, vind, kurser och utrustning**, och partnerskapet bakom. Varje kort leder till en egen sida.' },
@@ -102,7 +102,7 @@ const footerHighlights: LabeledLink[] = [
       title={t(content.hero.title)}
       subtitle={t(content.hero.subtitle!)}
       paragraphs={[t(content.hero.lead)]}
-      imageSrc={tarifaSurfClubTeamImage}
+      imageSrc={kiteBoardImage}
       imageAlt={t(ui.heroImageAlt)}
       imageWidth={1200}
       role="hub"
