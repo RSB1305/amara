@@ -92,6 +92,12 @@ Textbasis des Hubs ist `tarifaGuideContent.wind` (Wind-Thema des Tarifa-Guides),
 
 Prüfung: typecheck 0 Fehler, Slug-, Fallback-, Bild- und Typografie-Policy grün, 127 Kontrakttests, voller Build mit allen Gates, Screenshots Desktop und Mobil.
 
+### Stufe 10 — Vermittlung: AMARA-Raster für den Cluster, Muster am Hub (Operator-Entscheidung vom 03.09.2026)
+
+Befund: Die Kite-Seiten trugen das Zwei- bis Vierfache an Text gegenüber den bestehenden AMARA-Seiten, wiederholten sieben- bis zwölfmal denselben Block aus Eyebrow, Titel, Einleitung und Kartenraster mit wechselnder Tönung, hatten bis zu 14 Buttons pro Seite, kein Fett, eine eigene FAQ-Variante und eine eigene Quellenliste. Entscheidung: Substanz bleibt, Vermittlung ändert sich. Das Muster ist die AMARA-Themenseite (Strände-Guide): Haarlinien statt Tönungsteppich, Titel links und Text rechts, ein Kartenraster pro Seite, eine Kontaktleiste, der gemeinsame FAQ-Baustein `FaqAccordion`, die kompakte Quellenliste als neuer gemeinsamer Baustein `src/components/editorial/EditorialSources.astro`, und je Absatz eine fett gesetzte Phrase über `InlineEmphasis` (Markierung `**…**` im Inhalt, für den Hub in `tarifaGuideContent.wind` in allen fünf Sprachen gesetzt).
+
+Umgesetzt am Hub `tarifa-kitesurfing`. Reihenfolge der Seiten danach: Wind, Spots, Werte-Seite, Kiteschule, Kitecamp, Material, Partnerseite, jeweils mit Screenshot zur Abnahme. Die freigegebenen Texte bleiben Wort für Wort; Vertiefungen werden eingeklappt, nicht gestrichen. Bilder als eigener Schritt nach Rechtefreigabe.
+
 ## Was als Nächstes ansteht
 
 - Betrieb: `OPEN_METEO_API_KEY` in Cloudflare Pages setzen; Live-Test des Warnendpunkts mit `AEMET_API_KEY`.

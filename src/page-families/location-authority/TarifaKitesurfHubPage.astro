@@ -3,30 +3,32 @@ import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-s
 import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
+import EditorialSources from '../../components/editorial/EditorialSources.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import { tarifaGuideContent, type LocalizedText, type TarifaTopicGuideContent } from '../../content/tarifaGuideContent';
 import { tarifaKitesurfSpokeContent, type TarifaKitesurfSpokeId } from '../../content/tarifaKitesurfContent';
 import { tarifaKitePartnerContent } from '../../content/tarifaKitePartnerContent';
-import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
-import { tarifaKitesurfSpotsContent, tarifaKitesurfSpotsHandoff } from '../../content/tarifaKitesurfSpotsContent';
+import { tarifaKitesurfSpotsContent } from '../../content/tarifaKitesurfSpotsContent';
 import { tarifaKitesurfWindContent } from '../../content/tarifaKitesurfWindContent';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink, type LinkToken } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
-import LocationModule from './LocationModule.astro';
 
 /**
  * Hub of the Tarifa kitesurf cluster: the authority page for kitesurfing in
- * Tarifa. Its text base is the wind topic of the Tarifa guide: the two wind
- * systems, the main areas, the check before launching, the safety notice,
- * practical questions and sources. The spokes (school, camp, equipment,
- * partner page) and the knowledge pages (wind, spots, forecast) hang off it.
- * The partnership with Tarifa Surf Club is one module here; it has its own
- * page under amara-tarifa-surf-club.
+ * Tarifa, built on the AMARA topic-guide grid (hairline sections, title left
+ * and text right, one card grid, one contact bar, the shared FAQ accordion,
+ * the compact source list). Its text base is the wind topic of the Tarifa
+ * guide; one decision-relevant phrase per paragraph is emphasised in the
+ * content with **double asterisks**. The spokes and the knowledge pages hang
+ * off the four entry cards; the partnership has its own page.
  */
 interface Props { lang?: string; }
 
@@ -44,9 +46,9 @@ const contactHref = `https://wa.me/34604440964?text=${encodeURIComponent(t(partn
 const ui = {
   hubLabel: { en: 'Kitesurfing in Tarifa', de: 'Kitesurfen in Tarifa', es: 'Kitesurf en Tarifa', nl: 'Kitesurfen in Tarifa', sv: 'Kitesurfing i Tarifa' },
   heroImageAlt: { en: 'Tarifa Surf Club team together at the beach in Tarifa', de: 'Das Team des Tarifa Surf Club gemeinsam am Strand von Tarifa', es: 'El equipo de Tarifa Surf Club reunido en la playa de Tarifa', nl: 'Het team van Tarifa Surf Club samen op het strand van Tarifa', sv: 'Tarifa Surf Club-teamet samlat på stranden i Tarifa' },
-  factsEyebrow: { en: 'In short', de: 'Kurz gesagt', es: 'En resumen', nl: 'In het kort', sv: 'Kort sagt' },
   pathsEyebrow: { en: 'Your kite stay', de: 'Euer Kite-Aufenthalt', es: 'Vuestra estancia de kite', nl: 'Jullie kiteverblijf', sv: 'Er kitevistelse' },
   pathsTitle: { en: 'Everything you need, clearly separated', de: 'Alles, was ihr braucht, klar gegliedert', es: 'Todo lo que necesitáis, bien ordenado', nl: 'Alles wat jullie nodig hebben, overzichtelijk', sv: 'Allt ni behöver, tydligt uppdelat' },
+  pathsIntro: { en: 'Four paths that belong together: **spots, wind, courses and gear**, and the partnership behind them. Each card leads to its own page.', de: 'Vier Wege, die zusammengehören: **Spots, Wind, Kurse und Material**, und die Partnerschaft dahinter. Jede Karte führt auf eine eigene Seite.', es: 'Cuatro caminos que van juntos: **spots, viento, cursos y material**, y la colaboración detrás. Cada tarjeta lleva a su propia página.', nl: 'Vier wegen die bij elkaar horen: **spots, wind, lessen en materiaal**, en het partnerschap erachter. Elke kaart leidt naar een eigen pagina.', sv: 'Fyra vägar som hör ihop: **spots, vind, kurser och utrustning**, och partnerskapet bakom. Varje kort leder till en egen sida.' },
   spotsEyebrow: { en: 'Where you ride', de: 'Wo ihr fahrt', es: 'Dónde navegáis', nl: 'Waar jullie varen', sv: 'Var ni åker' },
   windEyebrow: { en: 'Before the water', de: 'Vor dem Wasser', es: 'Antes del agua', nl: 'Vóór het water', sv: 'Före vattnet' },
   schoolEyebrow: { en: 'Kite school in Tarifa', de: 'Kiteschule in Tarifa', es: 'Escuela de kite en Tarifa', nl: 'Kiteschool in Tarifa', sv: 'Kiteskola i Tarifa' },
@@ -58,8 +60,7 @@ const ui = {
   areasLink: { en: 'The kitesurf spots with map', de: 'Die Kitesurf-Spots mit Karte', es: 'Los spots de kitesurf con mapa', nl: 'De kitesurfspots met kaart', sv: 'Kitesurfspots med karta' },
   checklistLink: { en: 'Today in Tarifa: warnings, briefing, Windguru', de: 'Heute in Tarifa: Warnungen, Briefing, Windguru', es: 'Hoy en Tarifa: avisos, briefing, Windguru', nl: 'Vandaag in Tarifa: waarschuwingen, briefing, Windguru', sv: 'I dag i Tarifa: varningar, briefing, Windguru' },
   personalTitle: { en: 'Short lines between AMARA and the Surf Club', de: 'Kurze Wege zwischen AMARA und dem Surf Club', es: 'Comunicación directa entre AMARA y el Surf Club', nl: 'Korte lijnen tussen AMARA en de Surf Club', sv: 'Direkt kontakt mellan AMARA och Surf Club' },
-  partnerPageLink: { en: 'The partnership in detail: AMARA × Tarifa Surf Club', de: 'Die Partnerschaft im Detail: AMARA × Tarifa Surf Club', es: 'La colaboración en detalle: AMARA × Tarifa Surf Club', nl: 'Het partnerschap in detail: AMARA × Tarifa Surf Club', sv: 'Partnerskapet i detalj: AMARA × Tarifa Surf Club' },
-  faqEyebrow: { en: 'FAQ', de: 'FAQ', es: 'FAQ', nl: 'FAQ', sv: 'FAQ' },
+  partnerPageLink: { en: 'The partnership in detail', de: 'Die Partnerschaft im Detail', es: 'La colaboración en detalle', nl: 'Het partnerschap in detail', sv: 'Partnerskapet i detalj' },
   faqTitle: { en: 'Practical questions', de: 'Praktische Fragen', es: 'Preguntas prácticas', nl: 'Praktische vragen', sv: 'Praktiska frågor' },
   sourcesEyebrow: { en: 'Editorial transparency', de: 'Redaktionelle Transparenz', es: 'Transparencia editorial', nl: 'Redactionele transparantie', sv: 'Redaktionell transparens' },
   sourcesTitle: { en: 'Sources for this guide', de: 'Quellen dieses Guides', es: 'Fuentes de esta guía', nl: 'Bronnen van deze gids', sv: 'Källor till den här guiden' },
@@ -67,7 +68,6 @@ const ui = {
   propertyLabel: { en: 'View AMARA Family & Surf', de: 'AMARA Family & Surf ansehen', es: 'Ver AMARA Family & Surf', nl: 'Bekijk AMARA Family & Surf', sv: 'Visa AMARA Family & Surf' }
 } satisfies Record<string, LocalizedText>;
 
-const spokeOrder: TarifaKitesurfSpokeId[] = ['kite-school', 'kitecamp', 'equipment'];
 const cards = [
   { id: 'spots', href: requiredLink('tarifa_kitesurf_spots'), eyebrow: t(ui.spotsEyebrow), title: t(tarifaKitesurfSpotsContent.hero.headline), text: t(tarifaKitesurfSpotsContent.hero.subtitle) },
   { id: 'wind', href: requiredLink('tarifa_wind_kitesurfing_authority'), eyebrow: t(ui.windEyebrow), title: t(tarifaKitesurfWindContent.hero.title), text: t(tarifaKitesurfWindContent.hero.subtitle) },
@@ -81,6 +81,10 @@ const sectionLinks: Record<string, { token: LinkToken; label: LocalizedText } | 
   checklist: { token: 'tarifa_kitesurf_forecast', label: ui.checklistLink }
 };
 
+const faqItems = content.faq.map((item) => ({ question: t(item.question), answer: t(item.answer) }));
+const sourceItems = content.sources.map((source) => ({ label: t(source.label), href: source.href }));
+
+const spokeOrder: TarifaKitesurfSpokeId[] = ['kite-school', 'kitecamp', 'equipment'];
 const footerHighlights: LabeledLink[] = [
   { token: 'tarifa_kitesurfing_hub', label: t(ui.hubLabel) },
   ...spokeOrder.map((id) => ({ token: tarifaKitesurfSpokeContent[id].token, label: t(tarifaKitesurfSpokeContent[id].navLabel) }))
@@ -106,143 +110,112 @@ const footerHighlights: LabeledLink[] = [
       byline={{ lang: currentLang, authorName: content.seo.article!.authorName, authorHref: aboutHref, updated: t(content.hero.updated), note: t(content.hero.editorialNote) }}
     />
 
-    <LocationModule id="facts" labelledby="facts-title" surface="tint" spacing="compact" data-am-topic="facts">
-      <div class="mx-auto max-w-screen-2xl">
-        <p id="facts-title" class="am-text-eyebrow text-primary">{t(ui.factsEyebrow)}</p>
-        <dl class="mt-6 grid gap-5 md:grid-cols-3">
-          {content.facts.map((fact) => (
-            <div class="border-l-2 border-primary/35 pl-5">
-              <dt class="am-text-label am-text-label--sm text-on-surface-variant">{t(fact.label)}</dt>
-              <dd class="am-text-subtitle mt-1 text-on-surface">{t(fact.value)}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </LocationModule>
+    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-8 md:px-12" data-am-section="facts">
+      <dl class="mx-auto grid max-w-screen-2xl gap-8 md:grid-cols-3">
+        {content.facts.map((fact) => (
+          <div class="border-l border-primary/25 pl-5">
+            <dt class="text-on-surface-variant am-text-label am-text-label--sm">{t(fact.label)}</dt>
+            <dd class="am-text-subtitle mt-2 text-on-surface">{t(fact.value)}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
 
-    <LocationModule id="kite-paths" labelledby="kite-paths-title" spacing="compact" data-am-topic="paths">
+    <section id="kite-paths" class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28" aria-labelledby="kite-paths-title" data-am-section="kite-paths">
       <div class="mx-auto max-w-screen-2xl">
-        <div class="max-w-3xl">
-          <p class="am-text-eyebrow text-primary">{t(ui.pathsEyebrow)}</p>
-          <h2 id="kite-paths-title" class="am-text-title mt-5 text-balance text-on-surface">{t(ui.pathsTitle)}</h2>
-          <p class="am-text-body mt-7 leading-relaxed text-on-surface-variant">
-            {t(tarifaKitesurfSpotsHandoff.text)}{' '}
-            <a class="am-link" href={requiredLink('tarifa_kitesurf_spots')}>{t(tarifaKitesurfSpotsHandoff.label)}</a>.
-          </p>
-        </div>
-        <div class="mt-10 grid gap-5 md:grid-cols-2">
-          {cards.map((card) => (
-            <AmaraActionLink href={card.href} variant="card" class="group bg-surface-container-low px-7 pb-8 pt-7 transition-colors hover:bg-surface-container-lowest">
-              <span class="am-text-label am-text-label--sm text-primary">{card.eyebrow}</span>
-              <h3 class="am-text-subtitle mt-4 text-on-surface transition-colors group-hover:text-primary">{card.title}</h3>
-              <span class="am-text-body mt-4 block max-w-xl leading-relaxed text-on-surface-variant">{card.text}</span>
-              <span class="am-cta-link mt-7 inline-flex">{t(ui.readMore)}</span>
-            </AmaraActionLink>
-          ))}
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+          <div class="max-w-xl">
+            <p class="text-primary am-text-label am-text-label--wide">{t(ui.pathsEyebrow)}</p>
+            <h2 id="kite-paths-title" class="am-text-title mt-5 text-balance text-on-surface">{t(ui.pathsTitle)}</h2>
+            <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(ui.pathsIntro)} /></p>
+          </div>
+          <div class="grid gap-5 sm:grid-cols-2">
+            {cards.map((card) => (
+              <AmaraActionLink href={card.href} variant="card" class="group flex min-h-full flex-col border-t border-border-subtle bg-surface-container-low px-5 pb-7 pt-6 transition-colors hover:bg-surface-container-lowest">
+                <span class="text-primary am-text-label am-text-label--sm">{card.eyebrow}</span>
+                <h3 class="am-text-subtitle mt-4 text-on-surface transition-colors group-hover:text-primary">{card.title}</h3>
+                <span class="am-text-body mt-4 block flex-1 leading-relaxed text-on-surface-variant">{card.text}</span>
+                <span class="mt-7 inline-flex items-center text-primary am-text-label am-text-label--sm">{t(ui.readMore)}<span aria-hidden="true" class="ml-2 transition-transform group-hover:translate-x-1">→</span></span>
+              </AmaraActionLink>
+            ))}
+          </div>
         </div>
       </div>
-    </LocationModule>
+    </section>
 
     {content.sections.map((section, index) => {
       const link = sectionLinks[section.id];
-      const tint = index % 2 === 0;
       return (
-        <LocationModule id={section.id} labelledby={`${section.id}-title`} surface={tint ? 'tint' : 'white'} spacing="compact" data-am-topic={section.id}>
+        <section id={section.id} class:list={['border-b border-border-subtle px-6 py-20 md:px-12 md:py-28', index % 2 === 0 ? 'bg-surface-container-low' : 'bg-surface']} aria-labelledby={`${section.id}-title`} data-am-section={section.id}>
           <div class="mx-auto max-w-screen-2xl">
-            <div class="max-w-3xl">
-              <p class="am-text-eyebrow text-primary">{t(section.eyebrow)}</p>
-              <h2 id={`${section.id}-title`} class="am-text-title mt-5 text-balance text-on-surface">{t(section.title)}</h2>
-              <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{t(section.intro)}</p>
+            <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+              <div class="max-w-xl">
+                <p class="text-primary am-text-label am-text-label--wide">{t(section.eyebrow)}</p>
+                <h2 id={`${section.id}-title`} class="am-text-title mt-5 text-balance text-on-surface">{t(section.title)}</h2>
+                <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(section.intro)} /></p>
+                {link && <a href={requiredLink(link.token)} class="am-cta-link mt-7 inline-flex">{t(link.label)}</a>}
+              </div>
+              <div class="grid gap-5 sm:grid-cols-2">
+                {section.cards.map((card) => (
+                  <section class:list={['border-t border-border-subtle px-5 pb-7 pt-6', index % 2 === 0 ? 'bg-surface/70' : 'bg-surface-container-low/60']}>
+                    <p class="text-primary am-text-label am-text-label--sm">{t(card.kicker)}</p>
+                    <h3 class="am-text-subtitle mt-4 text-on-surface">{t(card.title)}</h3>
+                    <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(card.text)} /></p>
+                  </section>
+                ))}
+              </div>
             </div>
-            <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {section.cards.map((card) => (
-                <section class:list={['min-w-0 px-6 py-7 md:px-8', tint ? 'bg-surface' : 'bg-surface-container-low']}>
-                  <span class="am-text-label am-text-label--sm text-primary">{t(card.kicker)}</span>
-                  <h3 class="am-text-subtitle mt-4 text-on-surface">{t(card.title)}</h3>
-                  <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{t(card.text)}</p>
-                </section>
-              ))}
-            </div>
-            {link && <a href={requiredLink(link.token)} class="am-cta-link mt-8 inline-flex">{t(link.label)}</a>}
           </div>
-        </LocationModule>
+        </section>
       );
     })}
 
-    <LocationModule id="safety-notice" labelledby="safety-notice-title" surface="inverse" spacing="compact" data-am-topic="safety">
-      <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-5">
-          <p class="am-text-eyebrow text-inverted-on-surface/70">{t(content.notice.eyebrow)}</p>
-          <h2 id="safety-notice-title" class="am-text-title mt-5 max-w-xl text-balance text-inverted-on-surface">{t(content.notice.title)}</h2>
+    <aside class="bg-inverse-surface px-6 py-16 text-inverted-on-surface md:px-12 md:py-20" data-am-section="safety-notice">
+      <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
+        <p class="text-primary-fixed-dim am-text-label am-text-label--wide">{t(content.notice.eyebrow)}</p>
+        <div>
+          <h2 class="am-text-title text-balance text-inverted-on-surface">{t(content.notice.title)}</h2>
+          <p class="am-text-body mt-6 max-w-4xl leading-relaxed text-inverted-on-surface/75"><InlineEmphasis text={t(content.notice.text)} /></p>
         </div>
-        <p class="am-text-body max-w-3xl leading-relaxed text-inverted-on-surface/85 lg:col-span-7">{t(content.notice.text)}</p>
       </div>
-    </LocationModule>
+    </aside>
 
-    <LocationModule id="partnership" labelledby="partnership-title" spacing="compact" data-am-topic="partnership">
-      <div class="mx-auto grid max-w-screen-2xl items-center gap-12 lg:grid-cols-12 lg:gap-20">
-        <figure class="lg:col-span-5">
-          <AmaraImage src={markRobertTarifaImage} alt={t(partnership.imageAlt)} profile="hero" class="aspect-[4/3] w-full object-cover" widths={[480, 720, 960, 1200]} sizes="(max-width: 1023px) 100vw, 42vw" />
-          <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{t(partnership.imageCaption)}</figcaption>
-        </figure>
-        <div class="lg:col-span-7">
-          <div class="flex items-center gap-5">
-            <AmaraImage src="/images/tarifa/tarifa-surf-club-logo.webp" alt="Tarifa Surf Club" profile="card" class="h-16 w-16 object-contain md:h-20 md:w-20" width={192} widths={[96, 192]} sizes="80px" />
-            <p class="am-text-eyebrow text-primary">{t(partnership.eyebrow)}</p>
+    <section id="partnership" class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28" aria-labelledby="partnership-title" data-am-section="kite-partnership">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)] lg:gap-20">
+          <div class="max-w-3xl">
+            <div class="flex items-center gap-5">
+              <AmaraImage src="/images/tarifa/tarifa-surf-club-logo.webp" alt="Tarifa Surf Club" profile="card" class="h-20 w-20 object-contain md:h-24 md:w-24" width={192} widths={[96, 192]} sizes="96px" />
+              <p class="text-primary am-text-label am-text-label--wide">{t(partnership.eyebrow)}</p>
+            </div>
+            <h2 id="partnership-title" class="am-text-title mt-8 max-w-3xl text-balance text-on-surface">{t(ui.personalTitle)}</h2>
+            <p class="am-text-body mt-7 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(partnership.intro)} /></p>
+            <p class="am-text-body mt-6 max-w-3xl border-l border-primary/35 pl-5 leading-relaxed text-on-surface"><InlineEmphasis text={t(partnership.personalNote)} /></p>
+            <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3">
+              <a href={partnerHref} class="am-cta-link">{t(ui.partnerPageLink)}</a>
+              <a href="https://tarifasurfclub.com/" target="_blank" rel="noopener noreferrer" class="am-cta-link">{t(partnership.partnerLabel)}</a>
+            </div>
           </div>
-          <h2 id="partnership-title" class="am-text-title mt-6 max-w-3xl text-balance text-on-surface">{t(ui.personalTitle)}</h2>
-          <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface">{t(partnership.personalNote)}</p>
-          <p class="am-text-body mt-4 max-w-3xl leading-relaxed text-on-surface-variant">{t(partnership.contactText)}</p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <a href={contactHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--primary justify-center">{t(partnership.contactLabel)}</a>
-            <a href="https://tarifasurfclub.com/" target="_blank" rel="noopener noreferrer" class="am-btn am-btn--secondary justify-center">{t(partnership.partnerLabel)}</a>
-          </div>
-          <a href={partnerHref} class="am-cta-link mt-6 inline-flex">{t(ui.partnerPageLink)}</a>
+          <figure class="am-mobile-full-bleed bg-surface-container-high">
+            <AmaraImage src={markRobertTarifaImage} alt={t(partnership.imageAlt)} profile="hero" class="aspect-[4/3] h-full w-full object-cover" widths={[480, 720, 960, 1200]} sizes="(max-width: 1023px) 100vw, 40vw" focalPoint="50% 42%" />
+            <figcaption class="px-5 py-4 text-on-surface-variant am-text-label am-text-label--sm">{t(partnership.imageCaption)}</figcaption>
+          </figure>
+        </div>
+        <div class="mt-12 flex flex-col gap-6 bg-inverse-surface p-7 text-inverted-on-surface md:flex-row md:items-center md:justify-between md:p-9">
+          <p class="am-text-body max-w-4xl leading-relaxed text-inverted-on-surface/80">{t(partnership.contactText)}</p>
+          <a href={contactHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--primary am-btn--inverse shrink-0 justify-center">{t(partnership.contactLabel)}</a>
         </div>
       </div>
-    </LocationModule>
+    </section>
 
-    <LocationModule id="faq" labelledby="faq-title" surface="tint" spacing="compact" data-am-topic="faq">
-      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-4">
-          <p class="am-text-eyebrow text-primary">{t(ui.faqEyebrow)}</p>
-          <h2 id="faq-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{t(ui.faqTitle)}</h2>
-        </div>
-        <div class="divide-y divide-border-subtle border-y border-border-subtle lg:col-span-8">
-          {content.faq.map((item) => (
-            <section class="py-6">
-              <h3 class="am-text-subtitle text-on-surface">{t(item.question)}</h3>
-              <p class="am-text-body mt-3 max-w-3xl leading-relaxed text-on-surface-variant">{t(item.answer)}</p>
-            </section>
-          ))}
-        </div>
-      </div>
-    </LocationModule>
+    <FaqAccordion layout="single" faqTitle={t(ui.faqTitle)} items={faqItems} anchorFaqId="faq" data-am-section="faq" />
 
-    <LocationModule id="sources" labelledby="sources-title" spacing="compact" data-am-topic="sources" data-am-editorial-sources="">
-      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-5">
-          <p class="am-text-eyebrow text-primary">{t(ui.sourcesEyebrow)}</p>
-          <h2 id="sources-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{t(ui.sourcesTitle)}</h2>
-          <p class="am-text-caption mt-6 normal-case tracking-normal text-muted">{t(content.hero.updated)}</p>
-        </div>
-        <div class="lg:col-span-7">
-          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{t(ui.sourcesText)}</p>
-          <ul class="mt-8 space-y-4">
-            {content.sources.map((source) => (
-              <li class="border-l-2 border-primary/35 pl-5">
-                <a class="am-link am-text-body" href={source.href} target="_blank" rel="noopener noreferrer">{t(source.label)}<span aria-hidden="true"> ↗</span></a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </LocationModule>
+    <EditorialSources eyebrow={t(ui.sourcesEyebrow)} title={t(ui.sourcesTitle)} updated={t(content.hero.updated)} text={t(ui.sourcesText)} items={sourceItems} data-am-section="sources" />
 
     <AuthorityStayBridge
       eyebrow={t(partnership.eyebrow)}
       title={t(partnership.title)}
-      reason={t(partnership.intro)}
+      reason={t(partnership.intro).replace(/\*\*/g, '')}
       stayHref={propertyHref}
       stayLabel={t(ui.propertyLabel)}
       availabilityHref={requiredLink('book')}

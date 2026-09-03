@@ -1,0 +1,44 @@
+---
+/**
+ * EditorialSources
+ *
+ * The compact source list under an authority page: eyebrow, title and the
+ * review date on the left, one short framing sentence and small external
+ * links on the right. Replaces the large evidence block for the kite cluster;
+ * other pages migrate to it step by step.
+ */
+interface Props {
+  eyebrow: string;
+  title: string;
+  /** Review date line, e.g. "Geprüft im September 2026". */
+  updated?: string;
+  /** One sentence on what the sources cover and what overrides them. */
+  text?: string;
+  items: Array<{ label: string; href: string }>;
+  id?: string;
+  [attribute: `data-am-${string}`]: string | undefined;
+}
+
+const { eyebrow, title, updated, text, items, id = 'sources', ...sectionAttributes } = Astro.props;
+const titleId = `${id}-title`;
+---
+
+<section id={id} class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20" aria-labelledby={titleId} data-am-editorial-sources="" {...sectionAttributes}>
+  <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+    <div>
+      <p class="text-primary am-text-label am-text-label--wide">{eyebrow}</p>
+      <h2 id={titleId} class="am-text-title mt-5 text-on-surface">{title}</h2>
+      {updated && <p class="am-text-caption mt-5 normal-case tracking-normal text-muted">{updated}</p>}
+    </div>
+    <div>
+      {text && <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{text}</p>}
+      <ul class:list={['space-y-4', text ? 'mt-8' : '']}>
+        {items.map((source) => (
+          <li class="border-l-2 border-primary/35 pl-5">
+            <a class="am-link am-text-body" href={source.href} target="_blank" rel="noopener noreferrer">{source.label}<span aria-hidden="true"> ↗</span></a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
