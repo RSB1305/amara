@@ -128,6 +128,8 @@ export const tarifaKitesurfSpotsContent = {
   token: 'tarifa_kitesurf_spots' as const,
   hero: {
     eyebrow: 'Tarifa Experience Guide', title,
+    headline: l('Kitesurf spots in Tarifa', 'Kitesurf-Spots in Tarifa', 'Spots de kitesurf en Tarifa', 'Kitesurfspots in Tarifa', 'Kitesurfspots i Tarifa'),
+    subtitle: l('Los Lances, Valdevaqueros and Balneario: which stretch works in which conditions', 'Los Lances, Valdevaqueros und Balneario: welcher Abschnitt bei welcher Lage funktioniert', 'Los Lances, Valdevaqueros y Balneario: qué tramo funciona con cada situación', 'Los Lances, Valdevaqueros en Balneario: welk deel bij welke situatie werkt', 'Los Lances, Valdevaqueros och Balneario: vilken sträcka som fungerar i vilket läge'),
     lead: l(
       'Tarifa is a system of kite spots. For independent riders, we start with Los Lances in Poniente and consider Valdevaqueros in Levante, where a suitable wind angle can make the bay’s downwind coastline more favourable. That is no safety guarantee. Wind direction, season, riding level and current zoning belong in the same decision. The official bathing season runs from 15 June to 15 September; on-site signs, buoys and permitted zones take priority. Balneario is a specialist Big Air spot, and kitesurfing in the Los Lances lagoon is prohibited. Research checked: 3 September 2026.',
       'Tarifa ist ein System aus mehreren Kitesurf-Spots. Für selbstständige Fahrer schauen wir bei Poniente zuerst auf Los Lances und bei Levante auf Valdevaqueros, wo ein passender Windwinkel eine günstigere Küstengeometrie in Abdriftrichtung ermöglichen kann. Das ist keine Sicherheitsgarantie. Windrichtung, Saison, Niveau und aktuelle Zonierung gehören zur selben Entscheidung. Die offizielle Badesaison läuft vom 15. Juni bis 15. September; Schilder, Bojen und erlaubte Zonen vor Ort haben Vorrang. Balneario ist ein Big-Air-Spezialspot, in der Los-Lances-Lagune ist Kitesurfen verboten. Recherchestand: 3. September 2026.',
@@ -141,6 +143,20 @@ export const tarifaKitesurfSpotsContent = {
   },
   orientation: {
     title: l('The spot map: Tarifa at a glance', 'Die Spot-Landkarte: Tarifa auf einen Blick', 'El mapa de spots: Tarifa de un vistazo', 'De spots: Tarifa in één oogopslag', 'Spotkartan: Tarifa i överblick'),
+    mapAlt: l(
+      'Illustrated map of the Tarifa coast with the numbered spots from Los Caños de Meca to Palmones, the town, the Strait of Gibraltar and the two wind directions Poniente and Levante',
+      'Illustrierte Karte der Küste von Tarifa mit den nummerierten Spots von Los Caños de Meca bis Palmones, der Stadt, der Straße von Gibraltar und den beiden Windrichtungen Poniente und Levante',
+      'Mapa ilustrado de la costa de Tarifa con los spots numerados de Los Caños de Meca a Palmones, el pueblo, el estrecho de Gibraltar y las dos direcciones de viento, poniente y levante',
+      'Geïllustreerde kaart van de kust van Tarifa met de genummerde spots van Los Caños de Meca tot Palmones, de stad, de Straat van Gibraltar en de twee windrichtingen poniente en levante',
+      'Illustrerad karta över Tarifas kust med de numrerade spotsen från Los Caños de Meca till Palmones, staden, Gibraltar sund och de två vindriktningarna poniente och levante'
+    ),
+    mapCaption: l(
+      'Illustration for orientation, not a zoning map. The numbers follow the coast from west to east; the symbols on the map are no statement about permitted use. Which stretch is open for what is set by the beach plan, the signs and the buoys on site.',
+      'Illustration zur Orientierung, keine Zonenkarte. Die Nummern folgen der Küste von Westen nach Osten; die Symbole der Karte sind keine Aussage über erlaubte Nutzung. Welcher Abschnitt wofür freigegeben ist, regeln Strandplan, Beschilderung und Bojen vor Ort.',
+      'Ilustración para orientarse, no un mapa de zonas. Los números siguen la costa de oeste a este; los símbolos del mapa no dicen nada sobre el uso permitido. Qué tramo está abierto para qué lo fijan el plan de playas, la señalización y las boyas sobre el terreno.',
+      'Illustratie ter oriëntatie, geen zonekaart. De nummers volgen de kust van west naar oost; de symbolen op de kaart zeggen niets over toegestaan gebruik. Welk deel waarvoor open is, bepalen het strandplan, de bebording en de boeien ter plaatse.',
+      'Illustration för orientering, ingen zonkarta. Numren följer kusten från väst till öst; symbolerna på kartan säger inget om tillåten användning. Vilken sträcka som är öppen för vad avgörs av strandplanen, skyltarna och bojarna på plats.'
+    ),
     columns: [
       { id: 'spot', label: l('Spot', 'Spot', 'Spot', 'Spot', 'Spot') },
       { id: 'role', label: l('Role', 'Rolle', 'Función', 'Rol', 'Roll') },
@@ -171,6 +187,14 @@ export const tarifaKitesurfSpotsContent = {
     note: l('This table cannot replace an assessment on the beach. June and September each overlap the official bathing season; check the date and the zone on the day.', 'Die Tabelle ersetzt keine Einschätzung am Strand. Juni und September überschneiden sich jeweils mit der offiziellen Badesaison; prüft das Datum und die aktuelle Zone am jeweiligen Tag.', 'La tabla no sustituye la valoración en la playa. Junio y septiembre coinciden parcialmente con la temporada oficial de baño; comprobad la fecha y la zona ese día.', 'Deze tabel vervangt geen beoordeling op het strand. Juni en september vallen elk deels in het officiële badseizoen; controleer de datum en de actuele zone op de dag zelf.', 'Tabellen ersätter inte en bedömning på stranden. Juni och september överlappar båda den officiella badsäsongen; kontrollera datum och aktuell zon för dagen.')
   },
   observationLabel: l('Robert · personal experience', 'Robert · persönliche Erfahrung', 'Robert · experiencia personal', 'Robert · persoonlijke ervaring', 'Robert · personlig erfarenhet'),
+  ui: {
+    orientationEyebrow: l('Overview', 'Überblick', 'Visión general', 'Overzicht', 'Överblick'),
+    decisionEyebrow: l('The main decision', 'Die Hauptentscheidung', 'La decisión principal', 'De belangrijkste keuze', 'Huvudfrågan'),
+    spotsEyebrow: l('The spots', 'Die Spots', 'Los spots', 'De spots', 'Spotsen'),
+    spotLabel: l('Spot', 'Spot', 'Spot', 'Spot', 'Spot'),
+    checklistEyebrow: l('Before every session', 'Vor jeder Session', 'Antes de cada sesión', 'Voor elke sessie', 'Inför varje pass'),
+    portraitAlt: l('Robert Böhmer, host at AMARA', 'Robert Böhmer, Gastgeber bei AMARA', 'Robert Böhmer, anfitrión de AMARA', 'Robert Böhmer, host bij AMARA', 'Robert Böhmer, värd på AMARA')
+  },
   sections,
   checklist: {
     title: l('What to check before every session', 'Was ihr vor jeder Session prüfen solltet', 'Qué comprobar antes de cada sesión', 'Wat jullie voor elke sessie controleren', 'Vad ni behöver kontrollera inför varje pass'),

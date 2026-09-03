@@ -1,10 +1,10 @@
 ---
+import type { ImageMetadata } from 'astro';
 import AmaraImage from '../../components/AmaraImage.astro';
-import Navigation from '../../components/Navigation.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import AmaraSection from '../../components/layout/AmaraSection.astro';
-import { getAmaraHeroAttributes } from '../../components/hero/heroContract';
+import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import Navigation from '../../components/Navigation.astro';
 import { tarifaKitesurfSpotsContent, tarifaKitesurfSpotsSeo } from '../../content/tarifaKitesurfSpotsContent';
 import { vacationRentalEntitiesByKey } from '../../content/vacationRentalEntities';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -12,7 +12,17 @@ import { createRequiredLinkResolver } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import { resolveLocale } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
+import LocationModule from './LocationModule.astro';
 
+/**
+ * Kitesurf spots spoke of the Tarifa cluster. Same section grammar as the
+ * wind spoke: `LocationModule` owns gutter and surfaces, each content class
+ * gets its own form — spot cards, the decision list, one module per spot with
+ * Robert's observation as an attributed quote, a numbered checklist.
+ *
+ * The illustrated spot map is optional on purpose: the page renders without
+ * it, and picks it up as soon as the asset exists under the expected name.
+ */
 interface Props { lang?: string; }
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
@@ -20,7 +30,15 @@ const content = resolveLocale(tarifaKitesurfSpotsContent, currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf spots');
 const aboutHref = requiredLink('about');
 const stay = vacationRentalEntitiesByKey['amara-family-surf'];
-const heroAttributes = getAmaraHeroAttributes({ family: 'experience', variant: 'authority-editorial', role: 'spoke', topic: 'kitesurf-spots' });
+const robertPortrait = '/images/robert-amara-host.jpg';
+const heroPhoto = '/images/amara-tarifa/amara-tarifa-apartment23.webp';
+
+const spotMapModules = import.meta.glob<{ default: ImageMetadata }>(
+  '../../assets/images/content/tarifa/tarifa-spots-map.{webp,png,jpg,jpeg}',
+  { eager: true }
+);
+const spotMap = Object.values(spotMapModules)[0]?.default ?? null;
+const spotNumber = (index: number) => String(index + 1).padStart(2, '0');
 ---
 
 <LocationAuthorityLayout seo={tarifaKitesurfSpotsSeo} pageLang={currentLang} showContextNavigation={false} pageFamily="experience-tarifa-guide">
@@ -29,152 +47,174 @@ const heroAttributes = getAmaraHeroAttributes({ family: 'experience', variant: '
   </Navigation>
 
   <article class="bg-surface" data-am-page="tarifa-kitesurf-spots" data-am-family="experience" data-am-role="spoke" data-am-topic="kitesurf-spots">
-    <header {...heroAttributes} class="px-6 py-16 md:px-12 md:py-24">
-      <div class="mx-auto max-w-5xl">
-        <p class="am-text-eyebrow text-primary">{content.hero.eyebrow}</p>
-        <h1 class="am-text-title mt-7 text-balance italic text-on-surface">{content.hero.title}</h1>
-        <p class="am-text-body mt-8 max-w-3xl leading-relaxed text-on-surface-variant">{content.hero.lead}</p>
-      {/* The short visible author name uses the existing byline; its portrait is composed locally. */}
-      <div class="spot-author mt-10 flex items-start gap-5 am-text-body">
-        <a href={aboutHref} rel="author" aria-label="Robert Böhmer" class="h-16 w-16 shrink-0 overflow-hidden rounded-full bg-surface-container-low ring-1 ring-outline-variant/35 ring-offset-4 ring-offset-surface">
-          <AmaraImage src="/images/robert-amara-host.jpg" alt="Robert Böhmer" profile="card" width={96} widths={[64, 96]} sizes="64px" class="h-full w-full object-cover" focalPoint="50% 32%" />
-        </a>
-        <EditorialByline lang={currentLang} authorName="Robert Böhmer" authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
-      </div>
-        <figure class="am-mobile-full-bleed mt-12">
-          <AmaraImage src="/images/amara-tarifa/amara-tarifa-apartment23.webp" alt={content.hero.imageAlt} profile="hero" width={1600} widths={[480, 800, 1200, 1600]} sizes="(max-width: 767px) 100vw, 1024px" class="aspect-[16/9] w-full object-cover" loading="eager" fetchpriority="high" />
-        </figure>
-      </div>
-    </header>
+    <LocationGuideHero
+      eyebrow={content.hero.eyebrow}
+      title={content.hero.headline}
+      subtitle={content.hero.subtitle}
+      paragraphs={[content.hero.lead]}
+      family="experience"
+      role="spoke"
+      topic="kitesurf-spots"
+      visualBreakpoint="lg"
+    >
+      <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
+      <AmaraImage
+        slot="visual"
+        src={heroPhoto}
+        alt={content.hero.imageAlt}
+        profile="hero"
+        width={1600}
+        widths={[480, 800, 1200, 1600]}
+        sizes="(max-width: 1023px) 100vw, 36vw"
+        class="aspect-[3/2] w-full object-cover"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </LocationGuideHero>
 
-    <div class="px-6 md:px-12">
-      <AmaraSection id="spot-map" family="experience" labelledby="spot-map-title" variant="compact">
-        <div class="mx-auto max-w-5xl">
-          <h2 id="spot-map-title" class="am-text-title text-balance text-on-surface">{content.orientation.title}</h2>
-          <div class="mt-8 overflow-x-auto" role="region" aria-labelledby="spot-map-title" tabindex="0">
-            <table class="w-full min-w-[34rem] border-collapse text-left am-text-body text-on-surface-variant">
-              <caption class="sr-only">{content.orientation.title}</caption>
-              <thead class="bg-surface-container-low text-on-surface">
-                <tr>{content.orientation.columns.map((column) => <th scope="col" class="px-4 py-4 am-text-label am-text-label--sm">{column.label}</th>)}</tr>
-              </thead>
-              <tbody>
-                {content.orientation.rows.map((row) => (
-                  <tr class="border-b border-border-subtle" data-spot={row.id}>
-                    <th scope="row" class="px-4 py-4 am-text-body text-on-surface">{row.name}</th>
-                    <td class="px-4 py-4">{row.role}</td>
-                    <td class="px-4 py-4">{row.text}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+    <LocationModule id="spot-map" labelledby="spot-map-title" surface="tint" spacing="compact" data-am-topic="orientation">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="max-w-3xl">
+          <p class="am-text-eyebrow text-primary">{content.ui.orientationEyebrow}</p>
+          <h2 id="spot-map-title" class="am-text-title mt-5 text-balance text-on-surface">{content.orientation.title}</h2>
         </div>
-      </AmaraSection>
 
-      <AmaraSection id="main-decision" family="experience" labelledby="decision-title" variant="compact">
-        <div class="mx-auto max-w-5xl">
-          <h2 id="decision-title" class="am-text-title max-w-3xl text-balance text-on-surface">{content.decision.title}</h2>
-          <div class="mt-8 overflow-x-auto" role="region" aria-labelledby="decision-title" tabindex="0">
-            <table class="w-full min-w-[28rem] border-collapse text-left am-text-body text-on-surface-variant">
-              <caption class="sr-only">{content.decision.title}</caption>
-              <thead class="bg-surface-container-low text-on-surface">
-                <tr>
-                  <th scope="col" class="px-4 py-4 am-text-label am-text-label--sm">{content.decision.condition}</th>
-                  <th scope="col" class="px-4 py-4 am-text-label am-text-label--sm">{content.decision.orientation}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {content.decision.rows.map((row) => (
-                  <tr class="border-b border-border-subtle" data-decision={row.id}>
-                    <th scope="row" class="px-4 py-4 am-text-body text-on-surface">{row.condition}</th>
-                    <td class="px-4 py-4">{row.text}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant">{content.decision.note}</p>
+        {spotMap && (
+          <figure class="am-mobile-full-bleed mt-10 md:mx-0 md:w-auto" data-am-spot-map>
+            <AmaraImage
+              src={spotMap}
+              alt={content.orientation.mapAlt}
+              profile="hero"
+              width={1536}
+              widths={[640, 960, 1280, 1536]}
+              sizes="(max-width: 1535px) 100vw, 1440px"
+              class="w-full bg-surface-container-lowest"
+            />
+            <figcaption class="am-text-caption mt-4 max-w-3xl px-6 normal-case tracking-normal text-muted sm:px-0">{content.orientation.mapCaption}</figcaption>
+          </figure>
+        )}
+
+        <dl class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+          {content.orientation.rows.map((row) => (
+            <div
+              class:list={[
+                'min-w-0 border-l-2 bg-surface px-6 py-6',
+                row.id === 'lagoon' ? 'border-on-surface' : 'border-primary/35'
+              ]}
+              data-spot={row.id}
+            >
+              <dt>
+                <span class:list={['am-text-label am-text-label--sm block', row.id === 'lagoon' ? 'text-on-surface' : 'text-primary']}>{row.role}</span>
+                <span class="am-text-subtitle mt-2 block text-on-surface">{row.name}</span>
+              </dt>
+              <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{row.text}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </LocationModule>
+
+    <LocationModule id="main-decision" labelledby="decision-title" spacing="compact" data-am-topic="decision">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="am-text-eyebrow text-primary">{content.ui.decisionEyebrow}</p>
+          <h2 id="decision-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.decision.title}</h2>
+          <p class="am-text-body mt-6 max-w-md leading-relaxed text-on-surface-variant">{content.decision.note}</p>
         </div>
-      </AmaraSection>
+        <dl class="lg:col-span-7">
+          {content.decision.rows.map((row, index) => (
+            <div class:list={['grid gap-2 py-6 md:grid-cols-12 md:gap-8', index > 0 && 'border-t border-border-subtle']} data-decision={row.id}>
+              <dt class="am-text-subtitle text-on-surface md:col-span-4">{row.condition}</dt>
+              <dd class="am-text-body leading-relaxed text-on-surface-variant md:col-span-8">{row.text}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </LocationModule>
 
-      {content.sections.map((section) => (
-        <AmaraSection id={section.id} family="experience" labelledby={`${section.id}-title`} variant="compact">
-          <div class="mx-auto max-w-3xl">
-            <h2 id={`${section.id}-title`} class="am-text-title text-balance text-on-surface">{section.title}</h2>
-            <div class="mt-7 space-y-5 am-text-body leading-relaxed text-on-surface-variant">
-              {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+    {content.sections.map((section, index) => (
+      <LocationModule id={section.id} labelledby={`${section.id}-title`} surface={index % 2 === 0 ? 'tint' : 'white'} spacing="compact" data-am-topic="spot">
+        <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-5">
+            <p class="am-text-eyebrow text-primary">{content.ui.spotsEyebrow} · {content.ui.spotLabel} {spotNumber(index)}</p>
+            <h2 id={`${section.id}-title`} class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{section.title}</h2>
+          </div>
+          <div class="lg:col-span-7">
+            <div class="space-y-5">
+              {section.paragraphs.map((paragraph) => <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{paragraph}</p>)}
             </div>
             {section.observation && (
-              <figure class="mt-8">
-                <blockquote class="am-text-subtitle italic leading-relaxed text-on-surface"><p>{section.observation}</p></blockquote>
-                <figcaption class="am-text-caption mt-4 text-primary">{content.observationLabel}</figcaption>
+              <figure class:list={['mt-8 flex items-start gap-5 px-6 py-6', index % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low']} data-am-voice="robert">
+                <AmaraImage src={robertPortrait} alt={content.ui.portraitAlt} profile="card" width={192} widths={[96, 144, 192]} sizes="4rem" class="h-16 w-16 shrink-0 rounded-full object-cover" focalPoint="50% 32%" />
+                <div class="min-w-0">
+                  <blockquote class="m-0"><p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{section.observation}</p></blockquote>
+                  <figcaption class="am-text-label am-text-label--sm mt-3 text-primary">— {content.observationLabel}</figcaption>
+                </div>
               </figure>
             )}
             {section.link && (
-              <p class="am-text-body mt-7 leading-relaxed text-on-surface-variant">
+              <p class="am-text-body mt-8 max-w-3xl leading-relaxed text-on-surface-variant">
                 {section.link.text}{' '}<a class="am-link" href={requiredLink(section.link.token)}>{section.link.label}</a>.
               </p>
             )}
           </div>
-        </AmaraSection>
-      ))}
+        </div>
+      </LocationModule>
+    ))}
 
-      <AmaraSection id="session-check" family="experience" labelledby="session-check-title" variant="compact">
-        <div class="mx-auto max-w-3xl">
-          <h2 id="session-check-title" class="am-text-title text-balance text-on-surface">{content.checklist.title}</h2>
-          <ul class="mt-7 list-disc space-y-3 pl-5 am-text-body text-on-surface-variant">
-            {content.checklist.items.map((item) => <li data-check={item.id}>{item.text}</li>)}
+    <LocationModule id="session-check" labelledby="session-check-title" surface="tint" spacing="compact" data-am-topic="checklist">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="max-w-3xl">
+          <p class="am-text-eyebrow text-primary">{content.ui.checklistEyebrow}</p>
+          <h2 id="session-check-title" class="am-text-title mt-5 text-balance text-on-surface">{content.checklist.title}</h2>
+        </div>
+        <ol class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+          {content.checklist.items.map((item, index) => (
+            <li class="flex gap-4 bg-surface px-6 py-6" data-check={item.id}>
+              <span aria-hidden="true" class="am-text-data-note mt-1 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary text-on-primary">{index + 1}</span>
+              <p class="am-text-body leading-relaxed text-on-surface">{item.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </LocationModule>
+
+    <LocationModule id="sources" labelledby="sources-title" spacing="compact" data-am-topic="sources" data-am-editorial-sources="">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="am-text-eyebrow text-primary">{content.sources.eyebrow}</p>
+          <h2 id="sources-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.sources.title}</h2>
+          <p class="am-text-caption mt-6 normal-case tracking-normal text-muted">{content.hero.updated}</p>
+        </div>
+        <div class="lg:col-span-7">
+          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.sources.text}</p>
+          <ul class="mt-8 space-y-4">
+            {content.sources.items.map((source) => (
+              <li class="border-l-2 border-primary/35 pl-5">
+                <a class="am-link am-text-body" href={source.href} target="_blank" rel="noopener noreferrer">{source.label}<span aria-hidden="true"> ↗</span></a>
+              </li>
+            ))}
           </ul>
         </div>
-      </AmaraSection>
+      </div>
+    </LocationModule>
 
-      <aside class="mx-auto max-w-3xl py-10" aria-labelledby="sources-title" data-am-editorial-sources>
-        <p class="am-text-eyebrow text-primary">{content.sources.eyebrow}</p>
-        <h2 id="sources-title" class="am-text-subtitle mt-4 text-on-surface">{content.sources.title}</h2>
-        <p class="am-text-body mt-5 leading-relaxed text-on-surface-variant">{content.sources.text}</p>
-        <ul class="mt-5 space-y-4 am-text-body">
-          {content.sources.items.map((source) => <li><a class="am-link" href={source.href} target="_blank" rel="noopener noreferrer">{source.label}<span aria-hidden="true"> ↗</span></a></li>)}
-        </ul>
-        <p class="am-text-caption mt-5 text-muted">{content.hero.updated}</p>
-      </aside>
-
-      <AmaraSection id="amara-family-surf" family="experience" variant="closing" surface="tint" labelledby="stay-title">
-        <div class="mx-auto max-w-3xl">
-          <p class="am-text-eyebrow text-primary">{content.closing.eyebrow}</p>
-          <h2 id="stay-title" class="am-text-title mt-5 text-on-surface">{stay.name}</h2>
-          <figure class="mt-7">
-            <blockquote class="am-text-body leading-relaxed text-on-surface-variant"><p>{content.closing.observation}</p></blockquote>
-            <figcaption class="am-text-caption mt-3 text-primary">{content.observationLabel}</figcaption>
-          </figure>
-          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.closing.text}</p>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a class="am-btn am-btn--primary" href={requiredLink('tarifa')}>{content.closing.stayLabel}</a>
-            <a class="am-btn am-btn--secondary" href={requiredLink('book')}>{content.closing.availabilityLabel}</a>
-          </div>
+    <LocationModule id="amara-family-surf" labelledby="stay-title" surface="tint" spacing="closing" data-am-topic="basecamp">
+      <div class="mx-auto max-w-4xl text-center">
+        <p class="am-text-eyebrow text-primary">{content.closing.eyebrow}</p>
+        <h2 id="stay-title" class="am-text-title mt-5 text-balance text-on-surface">{stay.name}</h2>
+        <figure class="mx-auto mt-8 flex max-w-2xl flex-col items-center gap-4" data-am-voice="robert">
+          <AmaraImage src={robertPortrait} alt={content.ui.portraitAlt} profile="card" width={192} widths={[96, 144, 192]} sizes="4rem" class="h-16 w-16 rounded-full object-cover" focalPoint="50% 32%" />
+          <blockquote class="m-0"><p class="am-text-body leading-relaxed text-on-surface">{content.closing.observation}</p></blockquote>
+          <figcaption class="am-text-label am-text-label--sm text-primary">— {content.observationLabel}</figcaption>
+        </figure>
+        <p class="am-text-body mx-auto mt-7 max-w-3xl leading-relaxed text-on-surface-variant">{content.closing.text}</p>
+        <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <a class="am-btn am-btn--primary w-full justify-center sm:w-auto" href={requiredLink('tarifa')}>{content.closing.stayLabel}</a>
+          <a class="am-btn am-btn--secondary w-full justify-center sm:w-auto" href={requiredLink('book')}>{content.closing.availabilityLabel}</a>
         </div>
-      </AmaraSection>
-    </div>
+      </div>
+    </LocationModule>
   </article>
 </LocationAuthorityLayout>
-
-<style>
-  /* Keep the existing byline owner intact while composing its short-name portrait locally. */
-  .spot-author :global([data-am-component='editorial-byline']) {
-    margin-top: 0;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  .spot-author :global(a[rel='author'] > span > span) {
-    display: inline;
-    font: inherit;
-    letter-spacing: inherit;
-    text-transform: inherit;
-  }
-  .spot-author :global(a[rel='author'] > span > span:first-child)::after {
-    content: ' ';
-  }
-  .spot-author :global(a[rel='author'] > span > span:last-child)::before {
-    content: ' · ';
-  }
-</style>
