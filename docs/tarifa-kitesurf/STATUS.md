@@ -51,6 +51,18 @@ Sektionen auf `LocationModule` (Gutter und Flächen in der flush gesetzten Autor
 
 **Noch offen, vor Produktivschaltung:** Der letzte Verifikationsschritt aus dem Contract, ein Test gegen die offizielle API mit aktivem oder historischem Warnobjekt, wurde nicht ausgeführt, weil lokal kein `AEMET_API_KEY` vorliegt. Beim ersten Lauf mit Key zu bestätigen: (1) der Area-Code `61` (Andalucía) wird vom Endpunkt akzeptiert; (2) das Archivformat entspricht dem tar/gzip-Lesepfad; (3) eine echte Meldung für 611104 oder 611104C erscheint im Block. Bis dahin zeigt der Block bei Ausfall ehrlich „Warnstatus konnte nicht abgerufen werden“ und den externen AEMET-Link.
 
+### Nachtrag — Werte-Seite und Windguru-Widget (Operator-Entscheidung vom 03.09.2026)
+
+Die Wind-Seite behält die Erklärung (Windguru-Beispielzeile, Levante/Poniente, Regeln, Rescue, Partner). Die Live-Werte sind auf eine eigene Unterseite gezogen, damit die Wind-Seite schlank bleibt:
+
+| Route | Rendert | Inhalt |
+|---|---|---|
+| `tarifa-kitesurf-forecast` | `TarifaKiteForecastPage` | AEMET-Warnblock und -Vorhersage, Open-Meteo-Briefing mit Erklärschicht, Windguru-Tabelle, Weiter-Links, Schlusszeile |
+
+Token `tarifa_kitesurf_forecast`; Slug, Registry und Breadcrumb-Label registriert, Slug-Policy grün. Die Wind-Seite verweist mit einem Teaser-Block und einer Weiter-Karte auf die Werte-Seite.
+
+**Windguru-Widget.** Abweichend vom Contract (kein fremdes JavaScript) auf ausdrückliche Anforderung des Operators eingebunden, als Kompromiss per Lazy Load: `src/components/experience/WindguruWidget.astro` lädt das Skript von windguru.cz erst, wenn die Tabelle ins Bild scrollt (IntersectionObserver, 200 px Vorlauf). Vorher geht keine Anfrage an windguru.cz; im Browser geprüft. Spot 43, Modell 37, Knoten, Sprache je Locale (Schwedisch fällt auf Englisch zurück, Windguru bietet kein Schwedisch). CSP in `public/_headers` um `https://www.windguru.cz` für script-src, img-src und connect-src erweitert.
+
 ## Was als Nächstes ansteht
 
 - Betrieb: `OPEN_METEO_API_KEY` in Cloudflare Pages setzen; Live-Test des Warnendpunkts mit `AEMET_API_KEY`.

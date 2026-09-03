@@ -39,6 +39,9 @@ export interface TarifaKitesurfWindContent {
     briefingEyebrow: LocalizedText;
     forecastHeading: LocalizedText;
     pending: LocalizedText;
+    teaserTitle: LocalizedText;
+    teaserText: LocalizedText;
+    teaserLabel: LocalizedText;
     windHeading: LocalizedText;
     windText: LocalizedText;
     waveHeading: LocalizedText;
@@ -205,6 +208,9 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
     briefingEyebrow: l('Today in Tarifa', 'Heute in Tarifa', 'Hoy en Tarifa', 'Vandaag in Tarifa', 'I dag i Tarifa'),
     forecastHeading: l('What the models are calculating right now', 'Was die Modelle gerade rechnen', 'Qué están calculando los modelos ahora mismo', 'Wat de modellen nu berekenen', 'Vad modellerna räknar just nu'),
     pending: l('Modelled values from Open-Meteo for the current model hour, read for you by fixed rules: what the numbers for wind, gusts, wave and swell mean. Nothing here chooses a spot, a kite size or a session for you.', 'Modellwerte aus Open-Meteo für die aktuelle Modellstunde, eingeordnet nach festen Regeln: was die Zahlen für Wind, Böen, Welle und Swell bedeuten. Nichts davon wählt für euch Spot, Kitegröße oder Session.', 'Valores del modelo de Open-Meteo para la hora actual del modelo, leídos con reglas fijas: qué significan las cifras de viento, rachas, ola y mar de fondo. Nada de esto elige por vosotros el spot, la talla de cometa ni la sesión.', 'Modelwaarden van Open-Meteo voor het huidige modeluur, geduid met vaste regels: wat de getallen voor wind, vlagen, golf en swell betekenen. Niets hiervan kiest voor jullie een spot, kitemaat of sessie.', 'Modellvärden från Open-Meteo för den aktuella modelltimmen, tolkade med fasta regler: vad siffrorna för vind, byar, våg och swell betyder. Inget av det väljer spot, kitestorlek eller pass åt er.'),
+    teaserTitle: l('The current values have a page of their own', 'Die aktuellen Werte stehen auf einer eigenen Seite', 'Los valores actuales tienen su propia página', 'De actuele waarden staan op een eigen pagina', 'De aktuella värdena har en egen sida'),
+    teaserText: l('This page explains how wind, gusts, wave and swell are read. The live values — the official AEMET warnings and forecast, the Open-Meteo briefing with its explanation and Windguru’s table — sit on a separate page that stays light and loads fast.', 'Diese Seite erklärt, wie man Wind, Böen, Welle und Swell liest. Die Live-Werte — amtliche AEMET-Warnungen und -Vorhersage, das Open-Meteo-Briefing mit Einordnung und die Windguru-Tabelle — stehen auf einer eigenen Seite, die schlank bleibt und schnell lädt.', 'Esta página explica cómo se leen viento, rachas, ola y mar de fondo. Los valores en directo (avisos y previsión oficiales de AEMET, el briefing de Open-Meteo con su explicación y la tabla de Windguru) están en una página aparte, ligera y rápida.', 'Deze pagina legt uit hoe je wind, vlagen, golf en swell leest. De livewaarden — officiële AEMET-waarschuwingen en -verwachting, de Open-Meteo-briefing met duiding en de tabel van Windguru — staan op een eigen pagina die licht blijft en snel laadt.', 'Den här sidan förklarar hur man läser vind, byar, våg och swell. Livevärdena – officiella AEMET-varningar och -prognos, Open-Meteo-briefingen med förklaring och Windgurus tabell – ligger på en egen sida som är lätt och laddar snabbt.'),
+    teaserLabel: l('Open the current values', 'Zu den aktuellen Werten', 'Ver los valores actuales', 'Naar de actuele waarden', 'Till de aktuella värdena'),
     windHeading: l('Wind and gusts', 'Wind und Böen', 'Viento y rachas', 'Wind en vlagen', 'Vind och byar'),
     windText: l('The modelled value at 10 metres, the calculated direction, and the gust peak — which is the maximum of the previous hour, not a value for one moment.', 'Der Modellwert für 10 Meter Höhe, die berechnete Richtung, und die Böenspitze — die ist das Maximum der vorangegangenen Stunde, nicht ein Wert für einen Moment.', 'El valor del modelo a 10 metros de altura, la dirección calculada y el pico de racha, que es el máximo de la hora anterior, no un valor de un instante.', 'De modelwaarde op 10 meter hoogte, de berekende richting en de vlaagpiek — dat is het maximum van het voorgaande uur, geen waarde voor één moment.', 'Modellvärdet på 10 meters höjd, den beräknade riktningen och bytoppen – som är maxvärdet för den föregående timmen, inte ett värde för ett ögonblick.'),
     waveHeading: l('Wave and swell', 'Welle und Swell', 'Ola y mar de fondo', 'Golf en swell', 'Våg och swell'),
@@ -505,6 +511,12 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
         token: 'tarifa_kitesurf_spots',
         title: l('Kitesurf spots in Tarifa', 'Kitesurf-Spots in Tarifa', 'Spots de kitesurf en Tarifa', 'Kitesurfspots in Tarifa', 'Kitesurfspots i Tarifa'),
         text: l('Which stretch works in which conditions, and where the zones run.', 'Welcher Abschnitt bei welcher Lage funktioniert und wo die Zonen verlaufen.', 'Qué tramo funciona con cada situación y por dónde van las zonas.', 'Welk deel bij welke situatie werkt en waar de zones lopen.', 'Vilken sträcka som fungerar i vilket läge och var zonerna går.')
+      },
+      {
+        id: 'forecast',
+        token: 'tarifa_kitesurf_forecast',
+        title: l('Today in Tarifa', 'Heute in Tarifa', 'Hoy en Tarifa', 'Vandaag in Tarifa', 'I dag i Tarifa'),
+        text: l('The current values: official AEMET warnings and forecast, the Open-Meteo briefing and Windguru’s table.', 'Die aktuellen Werte: amtliche AEMET-Warnungen und -Vorhersage, das Open-Meteo-Briefing und die Windguru-Tabelle.', 'Los valores actuales: avisos y previsión oficiales de AEMET, el briefing de Open-Meteo y la tabla de Windguru.', 'De actuele waarden: officiële AEMET-waarschuwingen en -verwachting, de Open-Meteo-briefing en de tabel van Windguru.', 'De aktuella värdena: officiella AEMET-varningar och -prognos, Open-Meteo-briefingen och Windgurus tabell.')
       },
       {
         id: 'hub',

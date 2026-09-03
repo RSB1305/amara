@@ -343,6 +343,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Wind, weer & veiligheid',
     sv: 'Vind, väder & säkerhet'
   },
+  'tarifa-kitesurf-forecast': {
+    en: 'Today in Tarifa',
+    de: 'Heute in Tarifa',
+    es: 'Hoy en Tarifa',
+    nl: 'Vandaag in Tarifa',
+    sv: 'I dag i Tarifa'
+  },
   'tarifa-beaches': {
     en: 'Beaches',
     de: 'Strände',
@@ -550,6 +557,7 @@ const TARIFA_EXPERIENCE_SLUGS = new Set([
   'tarifa-experience',
   'tarifa-kitesurfing',
   'tarifa-wind-kitesurfing',
+  'tarifa-kitesurf-forecast',
   'tarifa-beaches',
   'tarifa-food-evening-life',
   'tarifa-nature-wildlife',

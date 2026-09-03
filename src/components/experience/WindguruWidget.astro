@@ -1,0 +1,88 @@
+---
+/**
+ * WindguruWidget
+ *
+ * Lazily embeds Windguru's own forecast table for one spot. The third-party
+ * script is requested only once the container scrolls into view, never on
+ * page load, so the page stays fast and windguru.cz is contacted only for
+ * readers who actually reach the table. The widget renders into the element
+ * carrying the `uid` Windguru expects.
+ *
+ * This is the one deliberate third-party embed of the cluster: the operator
+ * asked for it on the live-values page, apart from the editorial wind page.
+ */
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang: AmaraLanguage;
+  spot?: number;
+  model?: number;
+  loadingLabel: string;
+  noscriptLabel: string;
+}
+
+const { lang, spot = 43, model = 37, loadingLabel, noscriptLabel } = Astro.props;
+
+// Windguru's interface languages; Swedish is not offered, so Swedish readers get English.
+const widgetLanguage: Record<AmaraLanguage, string> = { en: 'en', de: 'de', es: 'es', nl: 'nl', sv: 'en' };
+const uidSuffix: Record<AmaraLanguage, string> = { de: '1788441950654', en: '1788442045576', es: '1788442045577', nl: '1788442045578', sv: '1788442045579' };
+const uid = `wg_fwdg_${spot}_${model}_${uidSuffix[lang]}`;
+const params = [
+  `s=${spot}`,
+  `m=${model}`,
+  `uid=${uid}`,
+  'wj=knots',
+  'tj=c',
+  'waj=m',
+  'tij=cm',
+  'odh=0',
+  'doh=24',
+  'fhours=240',
+  'hrsm=2',
+  'vt=forecasts',
+  `lng=${widgetLanguage[lang]}`,
+  'p=WINDSPD,GUST,MWINDSPD,SMER,TMP,TMPE,WCHILL,FLHGT,CDC,TCDC,APCP1s,RH,SLP,RATING'
+];
+const widgetSrc = `https://www.windguru.cz/js/widget.php?${params.join('&')}`;
+---
+
+<div class="overflow-x-auto bg-surface-container-lowest px-2 py-2" data-am-windguru-widget data-widget-src={widgetSrc} data-widget-uid={uid}>
+  <p class="am-text-caption px-2 py-4 normal-case tracking-normal text-muted" data-widget-loading>{loadingLabel}</p>
+  <div id={uid}></div>
+  <noscript>
+    <p class="am-text-body px-2 py-4 text-on-surface-variant">{noscriptLabel}</p>
+  </noscript>
+</div>
+
+<script is:inline>
+  (function () {
+    var containers = document.querySelectorAll('[data-am-windguru-widget]');
+    if (!containers.length) return;
+
+    function load(container) {
+      if (container.dataset.widgetLoaded === 'true') return;
+      container.dataset.widgetLoaded = 'true';
+      var script = document.createElement('script');
+      script.src = container.dataset.widgetSrc;
+      script.async = true;
+      script.addEventListener('load', function () {
+        var loading = container.querySelector('[data-widget-loading]');
+        if (loading) loading.remove();
+      });
+      document.head.appendChild(script);
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      containers.forEach(load);
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        load(entry.target);
+      });
+    }, { rootMargin: '200px 0px' });
+    containers.forEach(function (container) { observer.observe(container); });
+  })();
+</script>

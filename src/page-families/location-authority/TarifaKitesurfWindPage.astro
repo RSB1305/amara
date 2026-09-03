@@ -7,14 +7,9 @@ import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import WindguruExampleRow from '../../components/experience/WindguruExampleRow.astro';
-import AemetForecastPanel from '../../components/location/AemetForecastPanel.astro';
-import AemetWarningsPanel from '../../components/location/AemetWarningsPanel.astro';
-import KiteBriefingPanel from '../../components/location/KiteBriefingPanel.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import Navigation from '../../components/Navigation.astro';
-import { tarifaKiteBriefingCopy } from '../../content/tarifaKiteBriefingContent';
 import { tarifaKitesurfWindContent, tarifaKitesurfWindSeo } from '../../content/tarifaKitesurfWindContent';
-import { tarifaWeatherWarningsCopy } from '../../content/tarifaWeatherWarningsContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -26,8 +21,8 @@ import LocationModule from './LocationModule.astro';
  * Wind, weather and safety spoke of the Tarifa kitesurf cluster.
  *
  * The page separates four information classes visually so none can read as a
- * riding approval: official weather context (AEMET), modelled values (the
- * briefing and the Windguru teaching row), private rescue offers, and the
+ * riding approval: the Windguru teaching row as modelled values, private
+ * rescue offers, official rules, and the
  * personal experience of two named voices. Sections sit on `LocationModule`,
  * which owns the gutter and surface geometry inside the flush authority shell.
  */
@@ -44,8 +39,6 @@ const footerHighlights: LabeledLink[] = [
   { token: content.token, label: content.hero.title },
   ...content.related.links.map((link) => ({ token: link.token, label: link.title }))
 ];
-const briefingCopy = resolveLocale(tarifaKiteBriefingCopy, currentLang);
-const warningsCopy = resolveLocale(tarifaWeatherWarningsCopy, currentLang);
 ---
 
 <LocationAuthorityLayout seo={tarifaKitesurfWindSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-spoke">
@@ -81,62 +74,19 @@ const warningsCopy = resolveLocale(tarifaWeatherWarningsCopy, currentLang);
       />
     </LocationGuideHero>
 
-    <LocationModule id="aemet" labelledby="aemet-title" surface="tint" spacing="compact" data-am-topic="official-weather">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="max-w-3xl">
-          <p class="am-text-eyebrow text-primary">{content.live.eyebrow}</p>
-          <h2 id="aemet-title" class="am-text-title mt-5 text-balance text-on-surface">{content.live.title}</h2>
-          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.live.intro}</p>
-        </div>
-        <AemetWarningsPanel
-          endpoint="/api/weather/tarifa-warnings"
-          lang={currentLang}
-          timezone="Europe/Madrid"
-          copy={warningsCopy}
-          officialHref="https://www.aemet.es/es/eltiempo/prediccion/avisos?w=hoy&l=611104"
-        />
-        <div class="mt-6 bg-surface px-6 pb-8 md:px-8" data-am-official-weather>
-          <AemetForecastPanel
-            endpoint="/api/weather/tarifa"
-            lang={currentLang}
-            labels={{
-              loading: content.live.loading,
-              today: content.live.today,
-              tomorrow: content.live.tomorrow,
-              high: content.live.high,
-              low: content.live.low,
-              rain: content.live.rain,
-              issued: content.live.issued,
-              unavailable: content.live.unavailableTitle,
-              unavailableText: content.live.unavailableText,
-              source: content.live.aemetLabel
-            }}
-            sourceHref={content.safety.aemetHref}
-            fallbackLabel={content.live.aemetLabel}
-          />
-        </div>
-        <p class="am-text-body mt-8 max-w-3xl leading-relaxed text-on-surface-variant">{content.safety.aemetText}</p>
-        <AmaraActionLink href={content.safety.aemetHref} variant="editorial" external class="mt-5 inline-flex">{content.safety.aemetLabel}</AmaraActionLink>
-      </div>
-    </LocationModule>
-
-    <LocationModule id="today-in-tarifa" labelledby="today-in-tarifa-title" spacing="compact" data-am-topic="live-briefing">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="max-w-3xl">
+    <LocationModule id="today-in-tarifa" labelledby="today-in-tarifa-title" surface="tint" spacing="compact" data-am-topic="live-values-teaser">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
           <p class="am-text-eyebrow text-primary">{content.live.briefingEyebrow}</p>
-          <h2 id="today-in-tarifa-title" class="am-text-title mt-5 text-balance text-on-surface">{content.live.forecastHeading}</h2>
-          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.live.pending}</p>
+          <h2 id="today-in-tarifa-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.live.teaserTitle}</h2>
         </div>
-        <KiteBriefingPanel
-          endpoint="/api/weather/tarifa-kite"
-          lang={currentLang}
-          timezone="Europe/Madrid"
-          copy={briefingCopy}
-          headings={{ wind: content.live.windHeading, wave: content.live.waveHeading, sky: content.live.skyHeading, check: content.live.checkHeading }}
-          notes={{ wind: content.live.windText, wave: content.live.waveText, sky: content.live.skyText }}
-          aemetHref={content.safety.aemetHref}
-          aemetLabel={content.safety.aemetLabel}
-        />
+        <div class="lg:col-span-7">
+          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.live.teaserText}</p>
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+            <a href={requiredLink('tarifa_kitesurf_forecast')} class="am-btn am-btn--primary justify-center">{content.live.teaserLabel}</a>
+            <AmaraActionLink href={content.safety.aemetHref} variant="editorial" external class="inline-flex self-center">{content.safety.aemetLabel}</AmaraActionLink>
+          </div>
+        </div>
       </div>
     </LocationModule>
 
@@ -345,7 +295,7 @@ const warningsCopy = resolveLocale(tarifaWeatherWarningsCopy, currentLang);
       <div class="mx-auto max-w-screen-2xl">
         <p class="am-text-eyebrow text-primary">{content.related.eyebrow}</p>
         <h2 id="related-kite-guides-title" class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{content.related.title}</h2>
-        <div class="mt-10 grid gap-5 md:grid-cols-2">
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
           {content.related.links.map((link) => (
             <AmaraActionLink href={requiredLink(link.token)} variant="card" class="group bg-surface px-7 pb-8 pt-7 transition-colors hover:bg-surface-container-lowest">
               <h3 class="am-text-subtitle text-on-surface transition-colors group-hover:text-primary">{link.title}</h3>
