@@ -19,7 +19,7 @@ interface Props {
 const { title, lead, lang, links, role, family, eyebrow, surface = 'plain' } = Astro.props;
 ---
 
-<section class:list={['border-t border-outline-variant/15 px-6 pt-24 md:px-12 md:pt-32', surface === 'tint' ? 'bg-surface-container-low' : 'bg-surface']}>
+<section class:list={['px-6 pt-24 md:px-12 md:pt-32', surface === 'tint' ? 'bg-surface-container-low' : 'bg-surface']}>
   <div class="mx-auto max-w-screen-2xl">
   {eyebrow && <p class="am-text-caption mb-5 text-primary">{eyebrow}</p>}
   <EditorialClosingCta

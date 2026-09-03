@@ -20,15 +20,18 @@ import { createRequiredLinkResolver, type LabeledLink, type LinkToken } from '..
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
+import LocationModule from './LocationModule.astro';
 
 /**
  * Hub of the Tarifa kitesurf cluster: the authority page for kitesurfing in
- * Tarifa, built on the AMARA topic-guide grid (hairline sections, title left
- * and text right, one card grid, one contact bar, the shared FAQ accordion,
- * the compact source list). Its text base is the wind topic of the Tarifa
- * guide; one decision-relevant phrase per paragraph is emphasised in the
- * content with **double asterisks**. The spokes and the knowledge pages hang
- * off the four entry cards; the partnership has its own page.
+ * Tarifa, built on the AMARA topic-guide grid (title left and text right, one
+ * card grid, one contact bar, the shared FAQ accordion, the compact source
+ * list). Every band is a canonical section via LocationModule, so section
+ * separators come from the central inset owner and never from page-local
+ * border classes. Its text base is the wind topic of the Tarifa guide; one
+ * decision-relevant phrase per paragraph is emphasised in the content with
+ * **double asterisks**. The spokes and the knowledge pages hang off the four
+ * entry cards; the partnership has its own page.
  */
 interface Props { lang?: string; }
 
@@ -110,7 +113,7 @@ const footerHighlights: LabeledLink[] = [
       byline={{ lang: currentLang, authorName: content.seo.article!.authorName, authorHref: aboutHref, updated: t(content.hero.updated), note: t(content.hero.editorialNote) }}
     />
 
-    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-8 md:px-12" data-am-section="facts">
+    <LocationModule surface="tint" spacing="compact" data-am-topic="facts">
       <dl class="mx-auto grid max-w-screen-2xl gap-8 md:grid-cols-3">
         {content.facts.map((fact) => (
           <div class="border-l border-primary/25 pl-5">
@@ -119,9 +122,9 @@ const footerHighlights: LabeledLink[] = [
           </div>
         ))}
       </dl>
-    </section>
+    </LocationModule>
 
-    <section id="kite-paths" class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28" aria-labelledby="kite-paths-title" data-am-section="kite-paths">
+    <LocationModule id="kite-paths" labelledby="kite-paths-title" data-am-topic="paths">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
           <div class="max-w-xl">
@@ -141,12 +144,13 @@ const footerHighlights: LabeledLink[] = [
           </div>
         </div>
       </div>
-    </section>
+    </LocationModule>
 
     {content.sections.map((section, index) => {
       const link = sectionLinks[section.id];
+      const tint = index % 2 === 0;
       return (
-        <section id={section.id} class:list={['border-b border-border-subtle px-6 py-20 md:px-12 md:py-28', index % 2 === 0 ? 'bg-surface-container-low' : 'bg-surface']} aria-labelledby={`${section.id}-title`} data-am-section={section.id}>
+        <LocationModule id={section.id} labelledby={`${section.id}-title`} surface={tint ? 'tint' : 'white'} data-am-topic={section.id}>
           <div class="mx-auto max-w-screen-2xl">
             <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
               <div class="max-w-xl">
@@ -157,7 +161,7 @@ const footerHighlights: LabeledLink[] = [
               </div>
               <div class="grid gap-5 sm:grid-cols-2">
                 {section.cards.map((card) => (
-                  <section class:list={['border-t border-border-subtle px-5 pb-7 pt-6', index % 2 === 0 ? 'bg-surface/70' : 'bg-surface-container-low/60']}>
+                  <section class:list={['border-t border-border-subtle px-5 pb-7 pt-6', tint ? 'bg-surface/70' : 'bg-surface-container-low/60']}>
                     <p class="text-primary am-text-label am-text-label--sm">{t(card.kicker)}</p>
                     <h3 class="am-text-subtitle mt-4 text-on-surface">{t(card.title)}</h3>
                     <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(card.text)} /></p>
@@ -166,21 +170,21 @@ const footerHighlights: LabeledLink[] = [
               </div>
             </div>
           </div>
-        </section>
+        </LocationModule>
       );
     })}
 
-    <aside class="bg-inverse-surface px-6 py-16 text-inverted-on-surface md:px-12 md:py-20" data-am-section="safety-notice">
+    <LocationModule surface="inverse" spacing="compact" labelledby="safety-notice-title" data-am-topic="safety-notice">
       <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
         <p class="text-primary-fixed-dim am-text-label am-text-label--wide">{t(content.notice.eyebrow)}</p>
         <div>
-          <h2 class="am-text-title text-balance text-inverted-on-surface">{t(content.notice.title)}</h2>
+          <h2 id="safety-notice-title" class="am-text-title text-balance text-inverted-on-surface">{t(content.notice.title)}</h2>
           <p class="am-text-body mt-6 max-w-4xl leading-relaxed text-inverted-on-surface/75"><InlineEmphasis text={t(content.notice.text)} /></p>
         </div>
       </div>
-    </aside>
+    </LocationModule>
 
-    <section id="partnership" class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28" aria-labelledby="partnership-title" data-am-section="kite-partnership">
+    <LocationModule id="partnership" labelledby="partnership-title" data-am-topic="partnership">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)] lg:gap-20">
           <div class="max-w-3xl">
@@ -206,11 +210,11 @@ const footerHighlights: LabeledLink[] = [
           <a href={contactHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--primary am-btn--inverse shrink-0 justify-center">{t(partnership.contactLabel)}</a>
         </div>
       </div>
-    </section>
+    </LocationModule>
 
-    <FaqAccordion layout="single" faqTitle={t(ui.faqTitle)} items={faqItems} anchorFaqId="faq" data-am-section="faq" />
+    <FaqAccordion layout="single" faqTitle={t(ui.faqTitle)} items={faqItems} anchorFaqId="faq" data-am-topic="faq" />
 
-    <EditorialSources eyebrow={t(ui.sourcesEyebrow)} title={t(ui.sourcesTitle)} updated={t(content.hero.updated)} text={t(ui.sourcesText)} items={sourceItems} data-am-section="sources" />
+    <EditorialSources eyebrow={t(ui.sourcesEyebrow)} title={t(ui.sourcesTitle)} updated={t(content.hero.updated)} text={t(ui.sourcesText)} items={sourceItems} data-am-topic="sources" />
 
     <AuthorityStayBridge
       eyebrow={t(partnership.eyebrow)}

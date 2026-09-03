@@ -14,8 +14,8 @@
     "test": "npm run test:contracts && npm run test:browser",
     "test:contracts": "playwright test --config=playwright.contracts.config.ts",
     "test:browser": "playwright test --config=playwright.browser.config.ts",
-    "prebuild": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy && npm run check:typography-policy",
-    "check": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy && npm run check:typography-policy",
+    "prebuild": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy && npm run check:typography-policy && npm run check:section-boundary-policy",
+    "check": "npm run typecheck && npm run check:slug-policy && npm run check:fallback-policy && npm run check:image-policy && npm run check:typography-policy && npm run check:section-boundary-policy",
     "check:ci": "npm run audit:dependencies && npm run typecheck:tools && npm run typecheck:tests && npm run test:contracts && npm run build",
     "build": "astro build",
     "postbuild": "node scripts/postbuild.mjs && node scripts/check-image-policy.mjs --dist",
@@ -26,7 +26,8 @@
     "check:image-policy": "node scripts/check-image-policy.mjs",
     "check:structured-data": "node scripts/check-structured-data.mjs",
     "sandbox:lodgify": "node --env-file-if-exists=.env scripts/lodgify-sandbox.mjs",
-    "check:typography-policy": "node scripts/check-typography-policy.mjs"
+    "check:typography-policy": "node scripts/check-typography-policy.mjs",
+    "check:section-boundary-policy": "node scripts/check-section-boundary-policy.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

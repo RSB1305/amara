@@ -84,7 +84,7 @@ const localizedSections = content.sections.map((section) => ({
       topic={content.id}
     />
 
-    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
+    <section class="bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
       <dl class="mx-auto grid max-w-screen-2xl gap-x-10 gap-y-8 md:grid-cols-3">
         {content.facts.map((fact) => (
           <div class="border-t border-primary/30 pt-5">
@@ -103,7 +103,7 @@ const localizedSections = content.sections.map((section) => ({
       />
     ))}
 
-    <aside class="border-b border-border-subtle bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28">
+    <aside class="bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
         <div class="lg:col-span-5">
           <p class="am-text-eyebrow text-primary-fixed-dim">{t(content.host.eyebrow)}</p>
@@ -119,7 +119,7 @@ const localizedSections = content.sections.map((section) => ({
       </div>
     </aside>
 
-    <section class="border-b border-border-subtle bg-surface px-6 py-20 md:px-12 md:py-28">
+    <section class="bg-surface px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
         <p class="am-text-eyebrow text-primary">{t(content.related.eyebrow)}</p>
         <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(content.related.title)}</h2>
@@ -139,7 +139,7 @@ const localizedSections = content.sections.map((section) => ({
       </div>
     </section>
 
-    <section class="border-b border-border-subtle bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+    <section class="bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
         <div class="lg:col-span-4">
           <p class="am-text-eyebrow text-primary">{t(content.sources.eyebrow)}</p>

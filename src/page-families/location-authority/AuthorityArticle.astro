@@ -215,7 +215,7 @@ if (presentation === 'article' && !byline) {
     )
   }
 
-  <section class="border-b border-border-subtle bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
+  <section class="bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
     <div class="mx-auto max-w-screen-2xl">
       {factsTitle && <h2 class="am-text-title mb-12 text-balance italic text-on-surface">{factsTitle}</h2>}
     <dl class="grid gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -241,11 +241,11 @@ if (presentation === 'article' && !byline) {
   <slot />
 
   <section
-    class:list={[
-      'bg-surface-container-low px-6 py-20 md:px-12 md:py-28',
-      pageId !== 'getting-to-frigiliana' && 'border-b border-border-subtle'
-    ]}
-  >
+ class:list={[
+ 'bg-surface-container-low px-6 py-20 md:px-12 md:py-28',
+ pageId !== 'getting-to-frigiliana' && ''
+ ]}
+ >
     <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
       <div class="lg:col-span-4">
         <p class="am-text-eyebrow text-primary">{sources.eyebrow}</p>

@@ -98,6 +98,12 @@ Befund: Die Kite-Seiten trugen das Zwei- bis Vierfache an Text gegenüber den be
 
 Umgesetzt am Hub `tarifa-kitesurfing`. Reihenfolge der Seiten danach: Wind, Spots, Werte-Seite, Kiteschule, Kitecamp, Material, Partnerseite, jeweils mit Screenshot zur Abnahme. Die freigegebenen Texte bleiben Wort für Wort; Vertiefungen werden eingeklappt, nicht gestrichen. Bilder als eigener Schritt nach Rechtefreigabe.
 
+### Stufe 11 — Durchgezogene Trennlinien projektweit gesperrt (Operator-Meldung vom 03.09.2026)
+
+Befund: Der Hub aus Stufe 10 zeichnete seine Sektionsgrenzen mit Tailwind-Klassen (`border-b`) auf den Außenbändern; die Linie lief bis an den Rahmen des weißen Seitenkörpers statt im Raster zu enden. Der bestehende CSS-Guard griff nicht, weil die Bänder ein eigenes `data-am-section`-Attribut trugen; auf anderen Seiten scheiterte er an Wrapper-Elementen. Gleiche Muster lagen in 38 Außenbändern von 16 Dateien (Nerja, Tarifa, Frigiliana, Experience, Authority-Bausteine).
+
+Maßnahmen: (1) Build-Gate `scripts/check-section-boundary-policy.mjs`, in `prebuild` und `npm run check`; es scheitert für jedes Außenband mit Seitenraster (`px-6 md:px-12`), das `border-t`, `border-b` oder `border-y` trägt, sowie für jeden `AmaraSection`- oder `LocationModule`-Aufruf mit solcher Klasse. (2) CSS-Guard in `global.css` gehärtet: greift jetzt für jedes Kind der Seite unabhängig von Attributen und für jedes Rasterband in beliebiger Tiefe. (3) Alle 38 Außenbänder bereinigt. (4) Hub und `EditorialSources` auf `LocationModule` gestellt; Trennlinien kommen dort vom zentralen Inset-Owner. Register 1.66.0 und `AGENTS.md` ergänzt. Prüfung im Browser: kein rahmenbreites Element mit Rand mehr auf Hub, Strände, Frigiliana Lage, Erlebnisse, Kiteschule, Partnerseite.
+
 ## Was als Nächstes ansteht
 
 - Betrieb: `OPEN_METEO_API_KEY` in Cloudflare Pages setzen; Live-Test des Warnendpunkts mit `AEMET_API_KEY`.
