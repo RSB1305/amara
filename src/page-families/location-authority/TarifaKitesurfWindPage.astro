@@ -8,9 +8,13 @@ import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import WindguruExampleRow from '../../components/experience/WindguruExampleRow.astro';
 import AemetForecastPanel from '../../components/location/AemetForecastPanel.astro';
+import AemetWarningsPanel from '../../components/location/AemetWarningsPanel.astro';
+import KiteBriefingPanel from '../../components/location/KiteBriefingPanel.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import Navigation from '../../components/Navigation.astro';
+import { tarifaKiteBriefingCopy } from '../../content/tarifaKiteBriefingContent';
 import { tarifaKitesurfWindContent, tarifaKitesurfWindSeo } from '../../content/tarifaKitesurfWindContent';
+import { tarifaWeatherWarningsCopy } from '../../content/tarifaWeatherWarningsContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -40,12 +44,8 @@ const footerHighlights: LabeledLink[] = [
   { token: content.token, label: content.hero.title },
   ...content.related.links.map((link) => ({ token: link.token, label: link.title }))
 ];
-const briefingItems = [
-  { id: 'wind', title: content.live.windHeading, text: content.live.windText },
-  { id: 'wave', title: content.live.waveHeading, text: content.live.waveText },
-  { id: 'sky', title: content.live.skyHeading, text: content.live.skyText },
-  { id: 'check', title: content.live.checkHeading, text: content.live.checkText }
-];
+const briefingCopy = resolveLocale(tarifaKiteBriefingCopy, currentLang);
+const warningsCopy = resolveLocale(tarifaWeatherWarningsCopy, currentLang);
 ---
 
 <LocationAuthorityLayout seo={tarifaKitesurfWindSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-spoke">
@@ -88,7 +88,14 @@ const briefingItems = [
           <h2 id="aemet-title" class="am-text-title mt-5 text-balance text-on-surface">{content.live.title}</h2>
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.live.intro}</p>
         </div>
-        <div class="mt-10 bg-surface px-6 pb-8 md:px-8" data-am-official-weather>
+        <AemetWarningsPanel
+          endpoint="/api/weather/tarifa-warnings"
+          lang={currentLang}
+          timezone="Europe/Madrid"
+          copy={warningsCopy}
+          officialHref="https://www.aemet.es/es/eltiempo/prediccion/avisos?w=hoy&l=611104"
+        />
+        <div class="mt-6 bg-surface px-6 pb-8 md:px-8" data-am-official-weather>
           <AemetForecastPanel
             endpoint="/api/weather/tarifa"
             lang={currentLang}
@@ -120,14 +127,16 @@ const briefingItems = [
           <h2 id="today-in-tarifa-title" class="am-text-title mt-5 text-balance text-on-surface">{content.live.forecastHeading}</h2>
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.live.pending}</p>
         </div>
-        <dl class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4" data-am-briefing-structure>
-          {briefingItems.map((item) => (
-            <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-briefing-item={item.id}>
-              <dt class="am-text-label am-text-label--sm text-primary">{item.title}</dt>
-              <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{item.text}</dd>
-            </div>
-          ))}
-        </dl>
+        <KiteBriefingPanel
+          endpoint="/api/weather/tarifa-kite"
+          lang={currentLang}
+          timezone="Europe/Madrid"
+          copy={briefingCopy}
+          headings={{ wind: content.live.windHeading, wave: content.live.waveHeading, sky: content.live.skyHeading, check: content.live.checkHeading }}
+          notes={{ wind: content.live.windText, wave: content.live.waveText, sky: content.live.skyText }}
+          aemetHref={content.safety.aemetHref}
+          aemetLabel={content.safety.aemetLabel}
+        />
       </div>
     </LocationModule>
 

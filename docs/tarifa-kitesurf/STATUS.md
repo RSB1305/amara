@@ -1,12 +1,10 @@
-# Tarifa-Kitesurf-Cluster — Stand 03.09.2026 (nach Stufe 3)
+# Tarifa-Kitesurf-Cluster — Stand 03.09.2026 (nach Stufe 7, 4, 5 und 6)
 
 Übergabe an Claude Code. Alle inhaltlichen Vorarbeiten liegen in diesem Ordner.
 
 ## Was bereits umgesetzt und geprüft ist
 
 ### Stufe 1 — Routen (erledigt)
-
-Routenstruktur korrigiert, `npm run build` grün, alle Prebuild-Gates bestanden:
 
 | Route | Rendert | Status |
 |---|---|---|
@@ -15,29 +13,48 @@ Routenstruktur korrigiert, `npm run build` grün, alle Prebuild-Gates bestanden:
 | `tarifa-kitesurf-spots` | `TarifaKitesurfSpotsPage` | unverändert |
 | `tarifa-kitesurf-wind-spots` | — | entfernt |
 
-Der Link-Token `tarifa_kitesurf_wind_spots` wurde vollständig durch `tarifa_wind_kitesurfing_authority` ersetzt; der neue Hub-Token heißt `tarifa_kitesurfing_hub`.
-
-Nachtrag: Der zweite „Weiter“-Link der Wind-Seite zeigte nach der Token-Zusammenführung auf die Kiteschule statt auf den Hub. Korrigiert; die übrigen Related-Listen (Hub-Spokes untereinander, Spots-Spoke → Wind-Seite) waren korrekt.
+Der Link-Token `tarifa_kitesurf_wind_spots` wurde vollständig durch `tarifa_wind_kitesurfing_authority` ersetzt; der Hub-Token heißt `tarifa_kitesurfing_hub`. Nachtrag: Der zweite „Weiter“-Link der Wind-Seite zeigt auf den Hub; die übrigen Related-Listen waren korrekt.
 
 ### Stufe 2 — Redaktion Deutsch (erledigt)
 
-`src/content/tarifaKitesurfWindContent.ts` trägt den freigegebenen deutschen Text. AEMET ist als amtlicher Wetterkontext beschriftet, nicht als Forecast-Quelle des Live-Briefings; die Provenienz-Labels zeigen auf Open-Meteo. Roberts Passage steht wörtlich.
-
-Ermessensentscheidung aus Stufe 2, zum Gegenlesen: Der Halbsatz „dafür braucht ihr eine eigene Rescue-Card“ (Partner-Block) wurde weggelassen, weil er als Kaufaufforderung im Rescue-Kontext unter die Blacklist fällt. Der Satz „Beim reinen Materialverleih ist sie es nicht“ steht.
+`src/content/tarifaKitesurfWindContent.ts` trägt den freigegebenen deutschen Text. Ermessensentscheidung zum Gegenlesen: Der Halbsatz „dafür braucht ihr eine eigene Rescue-Card“ wurde als Kaufaufforderung im Rescue-Kontext weggelassen; „Beim reinen Materialverleih ist sie es nicht“ steht.
 
 ### Stufe 3 — Gestaltung und fehlende Inhalte (erledigt)
 
-**Layout-Audit, Ursachen und Fixes.** Die Seite lief in der flush gesetzten Autoritäts-Hülle (`AmaraPageShell flush whiteCanvas`), aber ihre Sektionen saßen direkt auf `AmaraSection` ohne eigenen Seitenrand. Folge: plain-Sektionen ohne Gutter, tint/inverse-Sektionen mit negativem Rand 48 px über den weißen Rahmen hinaus, und `surface="tint"` war farblich identisch mit dem Rahmen. Alle Sektionen sitzen jetzt auf `LocationModule` (Gutter, Abstände und Flächen wie bei den Geschwister-Spokes); Tint ist damit `surface-container-low` und sichtbar. Intro-Absätze tragen die Body-Rolle; Subtitle nur noch für Statements (Pflichtsatz, Lagune, Plan B). Das 5/7-Raster im Briefing ist durch Kopf plus vierteiliges Datenband ersetzt. Das Hero-Bild (Teamfoto, Querformat 3:2) wurde vom Standard-Hero in ein 3:4-Porträt beschnitten; es läuft jetzt über den `visual`-Slot in seinem eigenen Seitenverhältnis. Alt-Text entsprechend korrigiert.
+Sektionen auf `LocationModule` (Gutter und Flächen in der flush gesetzten Autoritäts-Hülle), Body-Rolle für Fließtext, Hero-Bild im eigenen 3:2-Format. Beschriftete Windguru-Beispielzeile (`src/components/experience/WindguruExampleRow.astro`), Zitatblöcke mit Foto für Robert und Mark, privater Rescue-Block und Notfallblock klar getrennt. Marks drei Zitate, das Rescue-Zitat, der Gezeiten-Absatz und die Schlusszeile in allen fünf Sprachen.
 
-**Neue Inhalte, in allen fünf Sprachen nativ angelegt:** Marks drei Zitate (`partner.voice`), das Rescue-Zitat (`safety.rescueQuote`), der Gezeiten-Absatz (`safety.tides`), die Schlusszeile (`closing.finalLine`), die Beispielzeile mit zehn Glossar-Einträgen (`windguru.example`, `windguru.terms`), die Briefing-Struktur (`live.windText` etc.) sowie Eyebrows/Überschriften für Briefing und Rescue-Sektion. Roberts Zitat ist von einem String auf drei Absätze (`localWind.quote.paragraphs`) umgestellt; ES/EN/NL/SV tragen dafür jetzt die übersetzte, nicht ausgeschmückte Fassung statt des veralteten Alt-Zitats.
+### Stufe 7 — ES, EN, NL, SV (erledigt)
 
-**Gebaut:** `src/components/experience/WindguruExampleRow.astro` (beschriftete Beispielzeile, nummerierte Legende, kein fremdes Widget), Zitatblöcke mit Foto für Robert und Mark, privater Rescue-Block (heller Kasten) und Notfallblock (dunkle Fläche) klar getrennt.
+62 Schlüssel nativ neu formuliert; keine Sprache stellt AEMET mehr als Forecast-Quelle des Live-Briefings dar. Paritätstest grün.
+
+### Stufe 4 — Open-Meteo-Gateway (erledigt, Live-Abruf steht aus)
+
+`weather-gateway/open-meteo-kite.mjs` und `functions/api/weather/tarifa-kite.js`, Endpunkt `/api/weather/tarifa-kite`, nach dem Cloudflare-Muster der AEMET-Anbindung (Key aus der Umgebung, Edge-Cache, Key nie im Client).
+
+- Modelle explizit konfiguriert: Wetter `icon_eu` (DWD ICON-EU), Wellen `dwd_ewam` (DWD ICON Wave/EWAM). Kein `best_match`.
+- Anfragekoordinate 36.03 / −5.63 (Playa de Los Lances); Rasterkoordinate und Offset je Abruf im Payload, kein publizierter Maximalabstand. `generationtime_ms` wird nicht ausgegeben.
+- Felder gemäß Datenmatrix: Wind, Böen, Richtung, Wolkenschichten, Einstrahlung, Gesamtwelle, Windwelle, Swell, Sekundärswell, je Stunde für zwei Tage in Europe/Madrid.
+- Fällt das Wellenmodell aus, bleibt das Windbriefing stehen; der Payload weist `marine.status = unavailable` aus. Fällt das Wettermodell aus: 503 ohne Pseudo-Werte.
+- Contract-Tests in `tests/contracts/weatherGateway.test.ts` (Normalisierung, Teilausfall, Fehlerfall, Key-Schutz).
+
+**Offen für den Betrieb:** `OPEN_METEO_API_KEY` als Server-Secret in Cloudflare Pages setzen (kommerzielles Open-Meteo-Abo; Customer-Hosts `customer-api` / `customer-marine-api`). Beim ersten Live-Abruf prüfen, dass `dwd_ewam` für die Meerenge Werte liefert; sonst liefert die Seite ehrlich „Wellenmodell ohne Werte“.
+
+### Stufe 5 — Live-Briefing und Erklärschicht (erledigt)
+
+`src/components/location/KiteBriefingPanel.astro` mit Satzbibliothek `src/content/tarifaKiteBriefingContent.ts` (fünf Sprachen, zur Autorenzeit geschrieben). Deterministische Regeln im Client wählen je Situation eine Variante: Böigkeit (Abstand Böe–Grundwind ≥ 8 kn), Trend (Anstieg/Abfall ≥ 6 kn in den nächsten sechs Stunden), Seegang (Windwelle und Swell ≥ 0,3 m aus Richtungen > 60° auseinander → kreuzend; Gesamtwelle < 0,4 m → klein), Wolken/Einstrahlung beschreibend. Kein Sprachmodell zur Laufzeit; Freigabe, Kitegröße, Spotwahl, Score und Rescue-Zusage existieren in der Bibliothek nicht. Attribution sichtbar am Datenobjekt: Open-Meteo, Modell-ID, Originalquelle DWD, Abrufzeit, Gültigkeitsstunde, Link „Weather data by Open-Meteo.com“, Wellendaten ICON Wave · DWD. Fallback laut Seitentext. Mit Fixture im Browser geprüft (Desktop, Mobile, Fehlerzustand).
+
+### Stufe 6 — AEMET-Warnblock (gebaut; Live-Test mit Warnobjekt steht aus)
+
+**Zonen-Verifikation.** Zwei amtliche Quellen stimmen überein: das Meteoalerta-Zonenverzeichnis (METEOALERTA_ANX2, Version 1, 31.05.2022) führt `611104 Estrecho, Cádiz, Andalucía, mar = 1`; AEMETs eigene Gemeindeseite für Tarifa (id11035) nennt „Zona de avisos: Estrecho“ und verlinkt `avisos?w=hoy&l=611104`. Küstenphänomene tragen laut CAP-Profil (METEOALERTA_ANX3) den Zonencode mit angehängtem `C`, also `611104C`; das Gateway filtert beide.
+
+**Umsetzung.** `weather-gateway/aemet-warnings.mjs`, `functions/api/weather/tarifa-warnings.js`, Endpunkt `/api/weather/tarifa-warnings`: AEMET OpenData `avisos_cap/ultimoelaborado/area/61`, zweistufiger Download, tar (auch gzip) mit CAP-1.2-XML, Filter auf Zone, nur `status Actual` und `msgType Alert/Update`, abgelaufene Meldungen verworfen, `severity Minor` als „Zone gelistet, keine Warnung“. Block `src/components/location/AemetWarningsPanel.astro` oberhalb des Modellbriefings: Warnstufe, Phänomen, Zone, Gültigkeit von–bis, Quelle AEMET, Abrufzeit, Link, Wortlaut von AEMET unverändert (spanisch, englische Fassung falls vorhanden). Keine Zusammenfassung, keine Relativierung, keine Verrechnung mit Open-Meteo. Contract-Tests mit synthetischem CAP-Archiv.
+
+**Noch offen, vor Produktivschaltung:** Der letzte Verifikationsschritt aus dem Contract, ein Test gegen die offizielle API mit aktivem oder historischem Warnobjekt, wurde nicht ausgeführt, weil lokal kein `AEMET_API_KEY` vorliegt. Beim ersten Lauf mit Key zu bestätigen: (1) der Area-Code `61` (Andalucía) wird vom Endpunkt akzeptiert; (2) das Archivformat entspricht dem tar/gzip-Lesepfad; (3) eine echte Meldung für 611104 oder 611104C erscheint im Block. Bis dahin zeigt der Block bei Ausfall ehrlich „Warnstatus konnte nicht abgerufen werden“ und den externen AEMET-Link.
 
 ## Was als Nächstes ansteht
 
-**Stufe 7 — ES, EN, NL, SV** ist jetzt sinnvoll, weil die Struktur steht. Die vier Sprachen tragen bei den Stufe-2-Schlüsseln noch den Vor-Redaktions-Text (z. B. Hero-Lead, Windguru-Intro, Sicherheits-Intro, Rescue-Intro, Partner-Intro); nur die in Stufe 3 neu angelegten Schlüssel sind bereits nativ.
-
-Stufen 4 bis 6 (Open-Meteo-Gateway, Live-Briefing, AEMET-Warnblock) laufen unabhängig. Die Briefing-Sektion erklärt bis dahin, was sie zeigen wird, ohne leere Werteboxen; die Attributionszeile ist als Labels vorbereitet, aber nicht gerendert.
+- Betrieb: `OPEN_METEO_API_KEY` in Cloudflare Pages setzen; Live-Test des Warnendpunkts mit `AEMET_API_KEY`.
+- Release-Grenze gemäß `AGENTS.md`: gesammelte lokale Commits, einmal volle Validierung, dann ein Push, ein Pull Request, ein Merge.
 
 ## Dateien in diesem Ordner
 
@@ -48,7 +65,5 @@ Stufen 4 bis 6 (Open-Meteo-Gateway, Live-Briefing, AEMET-Warnblock) laufen unabh
 ## Offene Punkte
 
 - „Sea Angels“ wurde laut Mark umbenannt; welcher der beiden heutigen Anbieter daraus hervorging, ist ungeklärt. Der Name erscheint bis dahin nicht auf der Seite.
-- Aufnahmeort für den Alt-Text von `mark-tarifa-surf-club.webp`: Der Alt-Text nennt bewusst keinen Ort, obwohl der Seitentext „Los Lances“ vorschlägt. Sobald der Ort bestätigt ist, kann er ergänzt werden.
-- AEMET-Warnzonen-ID für Tarifa: Deployment-Blocker für die automatische Warnbox.
-- Open-Meteo-Gateway existiert noch nicht. Im Repo liegt nur `weather-gateway/aemet-forecast.mjs`.
+- Aufnahmeort für den Alt-Text von `mark-tarifa-surf-club.webp`: Der Alt-Text nennt bewusst keinen Ort.
 - `npm run build` verlangt lokal `PUBLIC_SITE_URL`; der Lauf gemäß `AGENTS.md`: `ASTRO_TELEMETRY_DISABLED=1 PUBLIC_SITE_URL=https://amara-lodging.es npm run build`.

@@ -1,0 +1,159 @@
+---
+/**
+ * AemetWarningsPanel
+ *
+ * The official warning block: AEMET Meteoalerta warnings for one configured
+ * zone, fetched from the server-side gateway and shown in AEMET's own wording.
+ * The panel frames each warning with level, phenomenon, zone, validity and
+ * source; it never summarises, softens or weighs a warning against a model.
+ * Empty and error states are stated as such.
+ */
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
+import LocationGuideIcon from './LocationGuideIcon.astro';
+import type { Resolved } from '../../types/content';
+import type { TarifaWeatherWarningsCopy } from '../../content/tarifaWeatherWarningsContent';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  endpoint: string;
+  lang: AmaraLanguage;
+  timezone: string;
+  copy: Resolved<TarifaWeatherWarningsCopy>;
+  officialHref: string;
+}
+
+const { endpoint, lang, timezone, copy, officialHref } = Astro.props;
+const widgetId = 'am-aemet-warnings';
+---
+
+<section id={widgetId} class="mt-10 bg-surface px-6 py-7 md:px-8" aria-labelledby={`${widgetId}-title`} aria-live="polite" aria-busy="true" data-am-official-warnings>
+  <h3 id={`${widgetId}-title`} class="am-text-subtitle text-on-surface">{copy.title}</h3>
+
+  <div data-warnings-loading class="mt-5 flex items-center gap-3">
+    <LocationGuideIcon name="temperature" class="h-5 w-5" />
+    <p class="am-text-body text-on-surface-variant">{copy.loading}</p>
+  </div>
+
+  <div data-warnings-list class="mt-5 hidden space-y-5"></div>
+
+  <div data-warnings-empty class="mt-5 hidden">
+    <p class="am-text-body text-on-surface" data-warnings-empty-title></p>
+    <p class="am-text-body mt-2 max-w-2xl leading-relaxed text-on-surface-variant" data-warnings-empty-text></p>
+  </div>
+
+  <div data-warnings-fallback class="mt-5 hidden">
+    <p class="am-text-body text-on-surface">{copy.unavailableTitle}</p>
+    <p class="am-text-body mt-2 max-w-2xl leading-relaxed text-on-surface-variant">{copy.unavailableText}</p>
+  </div>
+
+  <p class="am-text-caption mt-5 hidden normal-case tracking-normal text-muted" data-warnings-meta></p>
+  <AmaraActionLink href={officialHref} variant="editorial" external class="mt-5 inline-flex">{copy.linkLabel}</AmaraActionLink>
+
+  <template data-warning-template>
+    <article class="border-l-4 bg-surface-container-low px-5 py-5" data-warning-level="">
+      <p class="am-text-label am-text-label--sm text-on-surface"><span data-field="levelLabel"></span>: <span data-field="level"></span></p>
+      <p class="am-text-subtitle mt-2 text-on-surface" data-field="headline"></p>
+      <p class="am-text-caption mt-2 normal-case tracking-normal text-muted" data-field="meta"></p>
+      <p class="am-text-body mt-3 max-w-3xl leading-relaxed text-on-surface" data-field="description"></p>
+      <p class="am-text-body mt-2 max-w-3xl leading-relaxed text-on-surface-variant" data-field="instruction"></p>
+      <div class="mt-3 hidden" data-field="englishBlock">
+        <p class="am-text-label am-text-label--sm text-muted" data-field="englishLabel"></p>
+        <p class="am-text-body mt-1 max-w-3xl leading-relaxed text-on-surface-variant" data-field="english"></p>
+      </div>
+      <p class="am-text-caption mt-3 normal-case tracking-normal text-muted" data-field="verbatim"></p>
+    </article>
+  </template>
+
+  <noscript>
+    <p class="am-text-body mt-5 text-on-surface-variant">{copy.unavailableText}</p>
+  </noscript>
+</section>
+
+<script is:inline define:vars={{ endpoint, lang, timezone, copy, widgetId }}>
+  (function () {
+    const root = document.getElementById(widgetId);
+    if (!root) return;
+    const query = (selector) => root.querySelector(selector);
+    const loading = query('[data-warnings-loading]');
+    const list = query('[data-warnings-list]');
+    const empty = query('[data-warnings-empty]');
+    const fallback = query('[data-warnings-fallback]');
+    const meta = query('[data-warnings-meta]');
+    const template = query('[data-warning-template]');
+
+    const LEVEL_CLASS = { amarillo: 'border-gold', naranja: 'border-primary', rojo: 'border-on-surface' };
+    const stamp = new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: timezone });
+    const format = (value) => {
+      const parsed = value ? Date.parse(value) : Number.NaN;
+      return Number.isFinite(parsed) ? stamp.format(new Date(parsed)) : '—';
+    };
+
+    function finish() {
+      root.setAttribute('aria-busy', 'false');
+      if (loading) loading.classList.add('hidden');
+    }
+
+    function showFallback() {
+      finish();
+      if (fallback) fallback.classList.remove('hidden');
+    }
+
+    function renderWarning(warning, zoneName) {
+      const node = template.content.firstElementChild.cloneNode(true);
+      const field = (name) => node.querySelector('[data-field="' + name + '"]');
+      const level = warning.level || '';
+      node.dataset.warningLevel = level;
+      node.classList.add(LEVEL_CLASS[level] || 'border-outline-variant');
+      field('levelLabel').textContent = copy.levelLabel;
+      field('level').textContent = copy.levels[level] || level || '—';
+      const primary = warning.spanish || warning.english;
+      field('headline').textContent = primary.headline || primary.event || '';
+      const phenomenon = warning.phenomenon
+        ? (copy.phenomena[warning.phenomenon.code] || warning.phenomenon.name || warning.phenomenon.code) +
+          (warning.phenomenon.name && copy.phenomena[warning.phenomenon.code] ? ' (' + warning.phenomenon.name + ')' : '')
+        : '—';
+      const parameter = warning.parameter && (warning.parameter.name || warning.parameter.value)
+        ? ' · ' + [warning.parameter.name, warning.parameter.value].filter(Boolean).join(': ')
+        : '';
+      field('meta').textContent =
+        copy.phenomenonLabel + ': ' + phenomenon + parameter +
+        ' · ' + copy.zoneLabel + ': ' + (warning.areaDesc || zoneName) +
+        ' · ' + copy.validLabel + ': ' + format(warning.onset) + ' ' + copy.until + ' ' + format(warning.expires);
+      field('description').textContent = primary.description || '';
+      const instruction = field('instruction');
+      if (primary.instruction) instruction.textContent = primary.instruction;
+      else instruction.remove();
+      if (warning.spanish && warning.english) {
+        field('englishLabel').textContent = copy.englishLabel;
+        field('english').textContent = [warning.english.headline, warning.english.description].filter(Boolean).join(' — ');
+        field('englishBlock').classList.remove('hidden');
+      }
+      field('verbatim').textContent = copy.verbatimNote;
+      return node;
+    }
+
+    (async function () {
+      try {
+        const response = await fetch(endpoint, { method: 'GET', headers: { Accept: 'application/json' } });
+        if (!response.ok) throw new Error('warnings unavailable');
+        const payload = await response.json();
+        if (!payload || !Array.isArray(payload.warnings) || !payload.zone || !payload.source) throw new Error('warnings malformed');
+
+        finish();
+        if (payload.warnings.length > 0) {
+          payload.warnings.forEach((warning) => list.appendChild(renderWarning(warning, payload.zone.name)));
+          list.classList.remove('hidden');
+        } else {
+          const listed = payload.coverage === 'zone-listed';
+          query('[data-warnings-empty-title]').textContent = listed ? copy.noneTitle : copy.notListedTitle;
+          query('[data-warnings-empty-text]').textContent = listed ? copy.noneText : copy.notListedText;
+          empty.classList.remove('hidden');
+        }
+        meta.textContent = copy.sourceLabel + ' · ' + copy.zoneLabel + ': ' + payload.zone.name + ' (' + payload.zone.id + ') · ' + copy.fetchedLabel + ': ' + format(payload.source.fetchedAt);
+        meta.classList.remove('hidden');
+      } catch {
+        showFallback();
+      }
+    })();
+  })();
+</script>
