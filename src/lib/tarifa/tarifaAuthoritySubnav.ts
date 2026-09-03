@@ -12,6 +12,7 @@ export type TarifaAuthorityBranchId = 'location' | 'experience';
 export type TarifaExperienceChildId =
   | 'beaches'
   | 'wind'
+  | 'kitesurf-spots'
   | 'food-evening-life'
   | 'nature-wildlife'
   | 'old-town-history'
@@ -61,6 +62,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     children: {
       beaches: 'Beaches & coast',
       wind: 'Wind & watersports',
+      'kitesurf-spots': 'Kitesurf spots',
       'food-evening-life': 'Food & evening life',
       'nature-wildlife': 'Nature & wildlife',
       'old-town-history': 'Old Town & history',
@@ -73,6 +75,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     children: {
       beaches: 'Strände & Küste',
       wind: 'Wind & Wassersport',
+      'kitesurf-spots': 'Kitesurf-Spots',
       'food-evening-life': 'Essen & Ausgehen',
       'nature-wildlife': 'Natur & Tierwelt',
       'old-town-history': 'Altstadt & Geschichte',
@@ -85,6 +88,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     children: {
       beaches: 'Playas y costa',
       wind: 'Viento y deportes acuáticos',
+      'kitesurf-spots': 'Spots de kitesurf',
       'food-evening-life': 'Gastronomía y vida nocturna',
       'nature-wildlife': 'Naturaleza y fauna',
       'old-town-history': 'Casco antiguo e historia',
@@ -97,6 +101,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     children: {
       beaches: 'Stranden & kust',
       wind: 'Wind & watersport',
+      'kitesurf-spots': 'Kitesurfspots',
       'food-evening-life': 'Eten & uitgaan',
       'nature-wildlife': 'Natuur & dieren',
       'old-town-history': 'Oude stad & geschiedenis',
@@ -109,6 +114,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     children: {
       beaches: 'Stränder & kust',
       wind: 'Vind & vattensport',
+      'kitesurf-spots': 'Kitesurfspots',
       'food-evening-life': 'Mat & kvällsliv',
       'nature-wildlife': 'Natur & djurliv',
       'old-town-history': 'Gamla stan & historia',
@@ -132,6 +138,7 @@ const topicLinks: LocationTopicLinks = {
 const experienceChildren: readonly (readonly [TarifaExperienceChildId, LinkToken])[] = [
   ['beaches', 'tarifa_beaches_authority'],
   ['wind', 'tarifa_wind_kitesurfing_authority'],
+  ['kitesurf-spots', 'tarifa_kitesurf_spots'],
   ['food-evening-life', 'tarifa_food_evening_life'],
   ['nature-wildlife', 'tarifa_nature_wildlife'],
   ['old-town-history', 'tarifa_old_town_history'],

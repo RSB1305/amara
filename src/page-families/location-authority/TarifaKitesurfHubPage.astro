@@ -9,6 +9,7 @@ import ExperienceContextNav from '../../components/experience/ExperienceContextN
 import { tarifaGuideContent, type LocalizedText, type TarifaTopicGuideContent } from '../../content/tarifaGuideContent';
 import { tarifaKitesurfSpokeContent, type TarifaKitesurfSpokeId } from '../../content/tarifaKitesurfContent';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
+import { tarifaKitesurfSpotsHandoff } from '../../content/tarifaKitesurfSpotsContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -71,6 +72,10 @@ const footerHighlights: LabeledLink[] = [
       <div class="mx-auto max-w-screen-2xl">
         <p class="am-text-eyebrow text-primary">{t(ui.pathsEyebrow)}</p>
         <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(ui.pathsTitle)}</h2>
+        <p class="am-text-body mt-7 max-w-3xl leading-relaxed text-on-surface-variant">
+          {t(tarifaKitesurfSpotsHandoff.text)}{' '}
+          <a class="am-link" href={requiredLink('tarifa_kitesurf_spots')}>{t(tarifaKitesurfSpotsHandoff.label)}</a>.
+        </p>
         <div class="mt-12 grid gap-5 md:grid-cols-2">
           {cards.map((card) => (
             <AmaraActionLink href={card.href} variant="card" class="group bg-surface px-7 pb-8 pt-7 transition-colors hover:bg-surface-container-lowest">
