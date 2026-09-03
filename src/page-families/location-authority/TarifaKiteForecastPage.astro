@@ -167,6 +167,7 @@ const footerHighlights: LabeledLink[] = [
             </span>
           </summary>
           <p class="am-text-body mt-5 max-w-3xl leading-relaxed text-on-surface-variant">{content.windguruLive.rowsIntro}</p>
+          <p class="am-text-body mt-3 max-w-3xl leading-relaxed text-on-surface-variant"><a class="am-link" href={`${windPageHref}#windguru`}>{content.windguruLive.explainLabel}</a></p>
           <dl class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {content.windguruLive.rows.map((row) => (
               <div class="min-w-0 border-l-2 border-primary/35 bg-surface px-6 py-6" data-windguru-row={row.id}>
