@@ -22,7 +22,7 @@ import { getDestinationContextGroups } from '../../lib/location/destinationConte
 import { getTarifaAuthoritySubnav } from '../../lib/tarifa/tarifaAuthoritySubnav';
 import type { AmaraLanguage } from '../../types/seo';
 
-type ClusterLabelKey = 'cluster1' | 'cluster2' | 'cluster3' | 'cluster4';
+type ClusterLabelKey = 'cluster1' | 'cluster2' | 'cluster3' | 'cluster4' | 'cluster5';
 type NerjaExperienceId = NerjaExperienceThemeId;
 type FrigilianaAdditionalExperienceId = 'oldTown' | 'dosTumbas';
 type TarifaExperienceId =
@@ -50,7 +50,7 @@ const sharedNavigation = experienceNavigationContent[lang];
 
 const clusterLabels: Record<
   'frigiliana' | 'nerja' | 'tarifa',
-  Record<AmaraLanguage, Record<ClusterLabelKey, string>>
+  Record<AmaraLanguage, Partial<Record<ClusterLabelKey, string>>>
 > = {
   frigiliana: {
     en: {
@@ -121,31 +121,36 @@ const clusterLabels: Record<
       cluster1: 'Sea & Wind',
       cluster2: 'Landscape & Heritage',
       cluster3: 'Old Town & History',
-      cluster4: 'Food & Evenings'
+      cluster4: 'Food & Evenings',
+      cluster5: 'Wellness & Calm'
     },
     de: {
       cluster1: 'Meer & Wind',
       cluster2: 'Landschaft & Erbe',
       cluster3: 'Altstadt & Geschichte',
-      cluster4: 'Genuss & Abende'
+      cluster4: 'Genuss & Abende',
+      cluster5: 'Wellness & Ruhe'
     },
     es: {
       cluster1: 'Mar & viento',
       cluster2: 'Paisaje & patrimonio',
       cluster3: 'Casco antiguo & historia',
-      cluster4: 'Gastronomía & ambiente nocturno'
+      cluster4: 'Gastronomía & ambiente nocturno',
+      cluster5: 'Bienestar y calma'
     },
     nl: {
       cluster1: 'Zee & wind',
       cluster2: 'Landschap & erfgoed',
       cluster3: 'Oude stad & geschiedenis',
-      cluster4: 'Eten & avonden'
+      cluster4: 'Eten & avonden',
+      cluster5: 'Wellness & rust'
     },
     sv: {
       cluster1: 'Hav & vind',
       cluster2: 'Landskap & kulturarv',
       cluster3: 'Gamla stan & historia',
-      cluster4: 'Mat & kvällar'
+      cluster4: 'Mat & kvällar',
+      cluster5: 'Wellness & lugn'
     }
   }
 };
@@ -333,7 +338,7 @@ const selectNavigationGroups = (
   clusters
     .map((cluster) => ({
       id: cluster.id,
-      label: labels[cluster.label],
+      label: labels[cluster.label] ?? '',
       items: cluster.itemIds
         .map((itemId) => siblingLinks.find((item) => item.id === itemId))
         .filter((item): item is ContextNavigationItem => item !== undefined)
@@ -408,6 +413,11 @@ const tarifaGroups: ContextNavigationGroup[] = selectNavigationGroups(
       id: 'tarifa-evenings',
       label: 'cluster4',
       itemIds: ['food-evening-life']
+    },
+    {
+      id: 'tarifa-wellness',
+      label: 'cluster5',
+      itemIds: ['yoga']
     }
   ]
 );
