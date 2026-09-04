@@ -555,6 +555,14 @@ const definitions = [
     props: { spoke: 'bolonia-baelo-claudia' },
     segment: shared('bolonia-baelo-claudia')
   },
+  {
+    key: 'tarifa.experience.yoga',
+    legacySlug: 'tarifa-yoga',
+    family: 'tarifa-experience-spoke',
+    parent: 'tarifa.experience',
+    props: { spoke: 'yoga' },
+    segment: shared('yoga')
+  },
   // Kitesurfing is Tarifa's largest cluster: one hub beneath Experiences with
   // its spokes nested under the hub, mirroring the cluster navigation.
   {
