@@ -31,12 +31,11 @@ export interface TarifaKitesurfGuideContent {
     title: LocalizedGuideText;
     links: Array<{ token: LinkToken; label: LocalizedGuideText; text: LocalizedGuideText }>;
   };
-  sources: {
+  explore: {
     eyebrow: LocalizedGuideText;
     title: LocalizedGuideText;
     intro: LocalizedGuideText;
-    checked: LocalizedGuideText;
-    links: Array<{ label: LocalizedGuideText; text: LocalizedGuideText; href: string }>;
+    links: Array<{ token: LinkToken; label: LocalizedGuideText; text: LocalizedGuideText }>;
   };
   closing: {
     eyebrow: LocalizedGuideText;
@@ -220,21 +219,21 @@ export const tarifaKitesurfBeginnerGuide: TarifaKitesurfGuideContent = {
       { token: 'tarifa_wind_kitesurfing_authority', label: l('Wind, weather & safety', 'Wind, Wetter & Sicherheit', 'Viento, tiempo y seguridad', 'Wind, weer & veiligheid', 'Vind, väder & säkerhet'), text: l('Read a Tarifa forecast before you trust it, plus the rules and rescue on the beach.', 'Lest einen Tarifa-Forecast, bevor ihr ihm traut, dazu Regeln und Rescue am Strand.', 'Lee un parte de Tarifa antes de fiarte, con las normas y el rescate en la playa.', 'Lees een Tarifa-forecast voordat je hem vertrouwt, plus de regels en rescue op het strand.', 'Läs en Tarifa-prognos innan du litar på den, plus reglerna och räddning på stranden.') }
     ]
   },
-  sources: {
-    eyebrow: l('Editorial transparency', 'Redaktionelle Transparenz', 'Transparencia editorial', 'Redactionele transparantie', 'Redaktionell transparens'),
-    title: l('What this guide is built on', 'Worauf dieser Guide beruht', 'En qué se basa esta guía', 'Waarop deze gids berust', 'Vad guiden bygger på'),
+  explore: {
+    eyebrow: l('Keep exploring', 'Weiter entdecken', 'Seguir explorando', 'Verder ontdekken', 'Fortsätt utforska'),
+    title: l('More kitesurfing in Tarifa', 'Mehr Kitesurfen in Tarifa', 'Más kitesurf en Tarifa', 'Meer kitesurfen in Tarifa', 'Mer kitesurfing i Tarifa'),
     intro: l(
-      'These are teaching and standards references for the stable principles. Your instructor, your equipment and the conditions on the day always take priority.',
-      'Dies sind Ausbildungs- und Normreferenzen für die stabilen Prinzipien. Eure Lehrkraft, euer Material und die Bedingungen des Tages haben immer Vorrang.',
-      'Son referencias de formación y de normas para los principios estables. Tu instructor, tu material y las condiciones del día siempre tienen prioridad.',
-      'Dit zijn opleidings- en normreferenties voor de vaste principes. Je instructeur, je materiaal en de omstandigheden van de dag hebben altijd voorrang.',
-      'Detta är utbildnings- och standardreferenser för de stabila principerna. Din instruktör, din utrustning och dagens förhållanden gäller alltid först.'
+      'Once the basics click, this is where the Tarifa kite world opens up.',
+      'Wenn die Grundlagen sitzen, öffnet sich hier die Tarifa-Kitewelt.',
+      'Cuando lo básico encaja, aquí se abre el mundo del kite en Tarifa.',
+      'Zodra de basis zit, gaat hier de kitewereld van Tarifa open.',
+      'När grunderna sitter öppnar sig Tarifas kitevärld här.'
     ),
-    checked: l('References checked in September 2026', 'Referenzen geprüft im September 2026', 'Referencias consultadas en septiembre de 2026', 'Referenties gecontroleerd in september 2026', 'Referenser kontrollerade i september 2026'),
     links: [
-      { label: l('VDWS · Kiteboarding training & safety', 'VDWS · Kiteboarding-Ausbildung & Safety', 'VDWS · Formación y seguridad de kite', 'VDWS · Kiteopleiding & veiligheid', 'VDWS · Kiteutbildning & säkerhet'), text: l('Competence-based beginner progression and the spot, wind, material and emergency checks.', 'Kompetenzbasierte Anfängerprogression und die Spot-, Wind-, Material- und Notfallchecks.', 'Progresión por competencias y los controles de spot, viento, material y emergencia.', 'Competentiegerichte beginnersprogressie en de spot-, wind-, materiaal- en noodchecks.', 'Kompetensbaserad nybörjarprogression och kontroller av spot, vind, material och nöd.'), href: 'https://www.vdws.de/' },
-      { label: l('ISO 21853:2020 · Kiteboarding release systems', 'ISO 21853:2020 · Kiteboarding-Release-Systeme', 'ISO 21853:2020 · Sistemas de liberación de kite', 'ISO 21853:2020 · Kite-ontkoppelsystemen', 'ISO 21853:2020 · Frikopplingssystem för kite'), text: l('International minimum safety requirements and test methods for kite release systems.', 'Internationale Mindest-Sicherheitsanforderungen und Prüfverfahren für Kite-Release-Systeme.', 'Requisitos mínimos internacionales de seguridad y métodos de ensayo de los sistemas de liberación.', 'Internationale minimale veiligheidseisen en testmethoden voor kite-ontkoppelsystemen.', 'Internationella minimikrav på säkerhet och provningsmetoder för frikopplingssystem.'), href: 'https://www.iso.org/standard/71922.html' },
-      { label: l('Duotone Kiteboarding · Learn to kite', 'Duotone Kiteboarding · Kiten lernen', 'Duotone Kiteboarding · Aprender a kitesurfear', 'Duotone Kiteboarding · Leren kitesurfen', 'Duotone Kiteboarding · Lär dig kite'), text: l('Manufacturer guidance on bar function, suitable beginner gear and learning conditions.', 'Herstellerhinweise zu Bar-Funktion, geeignetem Anfängermaterial und Lernbedingungen.', 'Orientación del fabricante sobre la barra, el material de iniciación y las condiciones de aprendizaje.', 'Fabrikantadvies over barfunctie, geschikt beginnersmateriaal en leeromstandigheden.', 'Tillverkarens vägledning om barfunktion, lämplig nybörjarutrustning och inlärningsförhållanden.'), href: 'https://www.duotonesports.com/' }
+      { token: 'tarifa_kitesurfing_hub', label: l('Kitesurfing in Tarifa', 'Kitesurfen in Tarifa', 'Kitesurf en Tarifa', 'Kitesurfen in Tarifa', 'Kitesurfing i Tarifa'), text: l('The overview: spots, wind, school, camp and gear in one place.', 'Der Überblick: Spots, Wind, Schule, Camp und Material an einem Ort.', 'La visión general: spots, viento, escuela, camp y material en un lugar.', 'Het overzicht: spots, wind, school, camp en materiaal op één plek.', 'Överblicken: spots, vind, skola, camp och utrustning på ett ställe.') },
+      { token: 'tarifa_kitesurf_spots', label: l('The spots', 'Die Spots', 'Los spots', 'De spots', 'Spotsen'), text: l('Where Tarifa rides — from a flat learning lagoon to open swell.', 'Wo in Tarifa gefahren wird – vom flachen Lernrevier bis zur offenen Welle.', 'Dónde se navega en Tarifa: de la laguna llana al oleaje abierto.', 'Waar Tarifa vaart — van vlak leerwater tot open deining.', 'Var Tarifa åker — från platt lärvatten till öppen svall.') },
+      { token: 'tarifa_kitesurf_forecast', label: l('Wind forecast', 'Wind-Vorhersage', 'Previsión de viento', 'Windvoorspelling', 'Vindprognos'), text: l('The current read on wind and conditions before your kite day.', 'Der aktuelle Blick auf Wind und Bedingungen vor eurem Kitetag.', 'La lectura actual del viento y las condiciones antes de tu día de kite.', 'De actuele blik op wind en omstandigheden vóór je kitedag.', 'Den aktuella bilden av vind och förhållanden före din kitedag.') },
+      { token: 'tarifa_kitecamp', label: l('Kitecamp', 'Kitecamp', 'Kitecamp', 'Kitecamp', 'Kitecamp'), text: l('A full week of kite: course, stay, gear and rescue in one package.', 'Eine ganze Woche Kite: Kurs, Unterkunft, Material und Rescue im Paket.', 'Una semana entera de kite: curso, alojamiento, material y rescate en un paquete.', 'Een hele week kite: cursus, verblijf, materiaal en rescue in één pakket.', 'En hel vecka kite: kurs, boende, utrustning och räddning i ett paket.') }
     ]
   },
   closing: {
