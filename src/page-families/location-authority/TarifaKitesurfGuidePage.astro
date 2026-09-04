@@ -3,6 +3,8 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
 import ExperienceArticleHero from '../../components/experience/ExperienceArticleHero.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
+import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
 import {
   tarifaKitesurfBeginnerGuide,
   type LocalizedGuideText
@@ -93,6 +95,8 @@ const heroImageCaption: LocalizedGuideText = {
     data-am-role="spoke"
     data-am-topic={content.id}
   >
+    <KiteClusterNav lang={currentLang} currentId="guide" />
+
     <ExperienceArticleHero
       eyebrow={t(content.hero.eyebrow)}
       title={t(content.hero.title)}
@@ -216,5 +220,7 @@ const heroImageCaption: LocalizedGuideText = {
       availabilityHref={requiredLink('book')}
       availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
     />
+
+    <KitePartnerLogoBand lang={currentLang} />
   </article>
 </LocationAuthorityLayout>

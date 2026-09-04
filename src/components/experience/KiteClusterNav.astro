@@ -19,8 +19,12 @@ import type { AmaraLanguage } from '../../types/seo';
  * stays reachable from there. Educational leave is a German concept and is
  * shown in German only. No caption: the breadcrumb above already names the
  * topic.
+ *
+ * The beginner guide sits inside the cluster but is not itself a nav
+ * destination, so it passes `currentId="guide"`: no item matches, and the band
+ * shows every cluster page.
  */
-export type KiteClusterPageId = 'hub' | 'spots' | 'wind' | 'forecast' | 'school' | 'camp' | 'education' | 'equipment' | 'partner';
+export type KiteClusterPageId = 'hub' | 'spots' | 'wind' | 'forecast' | 'school' | 'camp' | 'education' | 'equipment' | 'partner' | 'guide';
 
 interface Props {
   lang: AmaraLanguage;
