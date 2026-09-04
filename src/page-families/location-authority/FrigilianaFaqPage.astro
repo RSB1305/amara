@@ -34,7 +34,7 @@ function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
 }
 
-const gettingHereHref = buildOwnedLocalizedPath('getting-to-frigiliana', currentLang);
+const gettingHereHref = buildOwnedLocalizedPath('frigiliana.arrival', currentLang);
 
 const orientationFacts = copy.orientation.items.map((item) => ({
   label: t(item.label),

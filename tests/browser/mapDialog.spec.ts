@@ -26,7 +26,7 @@ test('the route map dialog supports close button, Escape and a real backdrop cli
 }) => {
   // The image pipeline has its own build gate; this interaction test only needs
   // the DOM and must not wait for every large responsive image on a cold CI run.
-  await page.goto('/directions-arrival-guide', { waitUntil: 'domcontentloaded' });
+  await page.goto('/frigiliana/llegada-al-apartamento', { waitUntil: 'domcontentloaded' });
 
   const opener = page.locator('[data-am-map-open]');
   const dialog = page.locator('[data-am-map-overlay]');

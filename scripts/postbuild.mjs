@@ -2,6 +2,7 @@ import { readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { createServer } from 'vite';
 import { runStructuredDataAudit } from './check-structured-data.mjs';
+import { buildPublicRoutePath } from '../src/lib/publicRouteManifest.mjs';
 
 const distRoot = join(process.cwd(), 'dist');
 
@@ -70,7 +71,7 @@ async function runSeoTitlePolicyAudit() {
           }
         },
         'https://amara-lodging.es',
-        '/en/romantic-hideaways',
+        buildPublicRoutePath('stays', 'en'),
         'en'
       ).current.title;
 
@@ -98,25 +99,29 @@ async function runSeoTitlePolicyAudit() {
       assertEqual(resolveTitle(input), expected, label);
     }
 
+    /** The rendered stay selector page per language, located through the route manifest. */
+    const staySelectorFile = (locale) =>
+      `${buildPublicRoutePath('stays', locale).slice(1)}.html`;
+
     const renderedSelectorTitles = [
       [
-        'romantic-hideaways.html',
+        staySelectorFile('es'),
         'Seis alojamientos en Frigiliana, Nerja y Tarifa | AMARA'
       ],
       [
-        'en/romantic-hideaways.html',
+        staySelectorFile('en'),
         'Stays in Frigiliana, Nerja & Tarifa | AMARA'
       ],
       [
-        'de/romantic-hideaways.html',
+        staySelectorFile('de'),
         'AMARA-Unterkünfte in Frigiliana, Nerja & Tarifa'
       ],
       [
-        'nl/romantic-hideaways.html',
+        staySelectorFile('nl'),
         'AMARA-verblijven in Frigiliana, Nerja & Tarifa'
       ],
       [
-        'sv/romantic-hideaways.html',
+        staySelectorFile('sv'),
         'AMARA-boenden i Frigiliana, Nerja & Tarifa'
       ]
     ];

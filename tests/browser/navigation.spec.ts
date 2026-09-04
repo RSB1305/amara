@@ -287,7 +287,7 @@ test('the booking CTA is present by default and suppressed on the property sale 
   await expect(page.locator('[data-am-navigation] .am-nav__slot--cta')).toHaveCount(1);
   await expect(page.locator('[data-am-navigation] .am-nav-mobile__cta')).toHaveCount(1);
 
-  await openPage(page, '/en/frigiliana-hospitality-property-for-sale');
+  await openPage(page, '/en/frigiliana/property-for-sale');
   await expect(page.locator('header[data-am-navigation]')).toHaveCount(1);
   await expect(page.locator('[data-am-navigation] .am-nav__slot--cta')).toHaveCount(0);
   await expect(page.locator('[data-am-navigation] .am-nav-mobile__cta')).toHaveCount(0);
@@ -296,7 +296,7 @@ test('the booking CTA is present by default and suppressed on the property sale 
 test('the slotted navigation on a location authority page keeps its full contract', async ({
   page
 }) => {
-  await openPage(page, '/en/directions-arrival-guide');
+  await openPage(page, '/en/frigiliana/arrival-directions');
 
   await expect(page.locator('header[data-am-navigation]')).toHaveCount(1);
   await expect(page.getByRole('banner')).toHaveCount(1);
@@ -315,7 +315,7 @@ test('the slotted navigation on a location authority page keeps its full contrac
 
 test('the destination disclosures use one responsive DOM tree', async ({ page }) => {
   await page.setViewportSize(MOBILE_VIEWPORT);
-  await openPage(page, '/de/frigiliana-location');
+  await openPage(page, '/de/frigiliana');
 
   const root = page.locator('[data-am-destination-context-disclosures]');
   const disclosures = root.locator('[data-am-context-disclosure]');
@@ -362,7 +362,7 @@ test('the destination disclosures use one responsive DOM tree', async ({ page })
 
 test('the destination branch disclosures stay distinct from the global menu', async ({ page }) => {
   await page.setViewportSize(MOBILE_VIEWPORT);
-  await openPage(page, '/de/frigiliana-location');
+  await openPage(page, '/de/frigiliana');
 
   const globalTrigger = page.locator('[data-am-menu-trigger]');
   const disclosures = page.locator('[data-am-context-disclosure]');
@@ -417,12 +417,12 @@ test('the contextual scroll contract covers location and experience hubs and spo
   await page.setViewportSize(DESKTOP_VIEWPORT);
 
   const representativeRoutes = [
-    '/de/frigiliana-location',
-    '/de/frigiliana-geography',
-    '/de/frigiliana-experience',
-    '/de/frigiliana-beaches',
-    '/de/nerja-caves',
-    '/de/tarifa-beaches'
+    '/de/frigiliana',
+    '/de/frigiliana/geografie',
+    '/de/frigiliana/erlebnisse',
+    '/de/frigiliana/erlebnisse/straende',
+    '/de/nerja/erlebnisse/hoehlen',
+    '/de/tarifa/erlebnisse/straende'
   ];
 
   for (const route of representativeRoutes) {
@@ -439,7 +439,7 @@ test('the contextual scroll contract covers location and experience hubs and spo
 
 test('the AMARA breadcrumb mark stays a black text heart on mobile', async ({ page }) => {
   await page.setViewportSize(MOBILE_VIEWPORT);
-  await openPage(page, '/de/frigiliana-location');
+  await openPage(page, '/de/frigiliana');
 
   const mark = page.locator('[data-am-context-home-mark]');
   await expect(mark).toBeVisible();
@@ -459,7 +459,7 @@ test('the AMARA breadcrumb mark stays a black text heart on mobile', async ({ pa
 
 test('the availability context stays concise and separates its mobile link rail', async ({ page }) => {
   await page.setViewportSize(MOBILE_VIEWPORT);
-  await openPage(page, '/de/find-a-stay');
+  await openPage(page, '/de/unterkuenfte/suche');
 
   const breadcrumb = page.locator('[data-am-context-breadcrumb-row]');
   const currentBreadcrumb = page.locator('[data-am-context-breadcrumb-current]');
@@ -518,7 +518,7 @@ test('the desktop destination disclosures remain available without JavaScript', 
   const page = await context.newPage();
 
   try {
-    await openPage(page, '/de/frigiliana-location');
+    await openPage(page, '/de/frigiliana');
 
     const root = page.locator('[data-am-destination-context-disclosures]');
     const locationDisclosure = root.locator('[data-am-context-branch="location"]');

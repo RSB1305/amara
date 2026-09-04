@@ -31,7 +31,7 @@ const article = {
   dateModified: '2026-08-16',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
-  authorSlug: 'staying-with-us'
+  authorRoute: 'about'
 };
 
 export const nerjaBeachesSeo: AmaraAuthoringSeo = {

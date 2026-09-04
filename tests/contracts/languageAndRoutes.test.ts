@@ -3,8 +3,10 @@ import {
   DEFAULT_LANGUAGE,
   SUPPORTED_LANGUAGES,
   buildOwnedLocalizedPath,
-  getOwnedLanguagesForSlug,
-  getOwnedSlugFromPathname,
+  buildPrivateLocalizedPath,
+  getOwnedLanguagesForRoute,
+  getOwnedPublicRoutes,
+  getOwnedRouteFromPathname,
   isSupportedLanguage
 } from '../../src/lib/routeOwnership';
 import { normalizeLanguage } from '../../src/lib/seo/resolve-seo-head';
@@ -23,38 +25,72 @@ test('normalizes supported regional language tags and rejects unsupported ones',
   expect(isSupportedLanguage('fr')).toBe(false);
 });
 
-test('builds unprefixed Spanish and prefixed translated routes', () => {
-  expect(buildOwnedLocalizedPath('', 'es')).toBe('/');
-  expect(buildOwnedLocalizedPath('', 'en')).toBe('/en');
-  expect(buildOwnedLocalizedPath('directions-arrival-guide', 'es')).toBe(
-    '/directions-arrival-guide'
+test('builds unprefixed Spanish and prefixed native routes from the manifest', () => {
+  expect(buildOwnedLocalizedPath('home', 'es')).toBe('/');
+  expect(buildOwnedLocalizedPath('home', 'en')).toBe('/en');
+  expect(buildOwnedLocalizedPath('frigiliana.directions', 'es')).toBe(
+    '/frigiliana/llegada-al-apartamento'
   );
-  expect(buildOwnedLocalizedPath('directions-arrival-guide', 'de')).toBe(
-    '/de/directions-arrival-guide'
+  expect(buildOwnedLocalizedPath('frigiliana.directions', 'de')).toBe(
+    '/de/frigiliana/anfahrt'
+  );
+  expect(buildOwnedLocalizedPath('frigiliana.experience.beaches', 'sv')).toBe(
+    '/sv/frigiliana/upplevelser/strander'
+  );
+  expect(buildOwnedLocalizedPath('la-amara-farah', 'nl')).toBe('/nl/la-amara-farah');
+  expect(() => buildOwnedLocalizedPath('frigiliana-beaches', 'de')).toThrow(
+    /Unknown public route key/
   );
 });
 
-test('extracts the owned slug from localized and generated URLs', () => {
-  expect(getOwnedSlugFromPathname('/directions-arrival-guide')).toBe(
-    'directions-arrival-guide'
+test('resolves the owning route and language from localized and generated URLs', () => {
+  expect(getOwnedRouteFromPathname('/frigiliana/llegada-al-apartamento')?.route.key).toBe(
+    'frigiliana.directions'
   );
-  expect(getOwnedSlugFromPathname('/de/directions-arrival-guide/')).toBe(
-    'directions-arrival-guide'
-  );
+  expect(getOwnedRouteFromPathname('/de/frigiliana/anfahrt/')).toMatchObject({
+    lang: 'de',
+    route: { key: 'frigiliana.directions' }
+  });
   expect(
-    getOwnedSlugFromPathname('/sv/directions-arrival-guide/index.html?source=test')
-  ).toBe('directions-arrival-guide');
-  expect(getOwnedSlugFromPathname('/nl/directions-arrival-guide.html#map')).toBe(
-    'directions-arrival-guide'
+    getOwnedRouteFromPathname('/sv/frigiliana/vagbeskrivning/index.html?source=test')?.lang
+  ).toBe('sv');
+  expect(getOwnedRouteFromPathname('/nl/frigiliana/routebeschrijving.html#map')?.route.key).toBe(
+    'frigiliana.directions'
+  );
+  expect(getOwnedRouteFromPathname('/')?.route.key).toBe('home');
+  expect(getOwnedRouteFromPathname('/en')?.route.key).toBe('home');
+  expect(getOwnedRouteFromPathname('/de/frigiliana-beaches')).toBeNull();
+  expect(getOwnedRouteFromPathname('/de/amara-experience/access')).toBeNull();
+});
+
+test('keeps private routes on their own language while public routes own all five', () => {
+  const publicMatch = getOwnedRouteFromPathname('/de/frigiliana/anfahrt');
+  expect(getOwnedLanguagesForRoute(publicMatch, 'de')).toEqual(SUPPORTED_LANGUAGES);
+  expect(getOwnedLanguagesForRoute(null, 'de')).toEqual(['de']);
+  expect(buildPrivateLocalizedPath('/de/amara-experience/access', 'sv')).toBe(
+    '/sv/amara-experience/access'
+  );
+  expect(buildPrivateLocalizedPath('/amara-experience/access', 'es')).toBe(
+    '/amara-experience/access'
   );
 });
 
-test(
-  'publishes canonical public pages in all languages without inventing private routes',
-  () => {
-    expect(getOwnedLanguagesForSlug('directions-arrival-guide', 'de')).toEqual(
-      SUPPORTED_LANGUAGES
-    );
-    expect(getOwnedLanguagesForSlug('private-preview', 'de')).toEqual(['de']);
+test('composes every child path beneath its parent in every language', () => {
+  const routes = getOwnedPublicRoutes();
+  const byKey = new Map(routes.map((route) => [route.key, route]));
+
+  for (const route of routes) {
+    if (!route.parent || route.identity) {
+      continue;
+    }
+
+    const parent = byKey.get(route.parent);
+    expect(parent, `${route.key} parent`).toBeDefined();
+
+    for (const lang of SUPPORTED_LANGUAGES) {
+      const parentPath = buildOwnedLocalizedPath(route.parent, lang);
+      const childPath = buildOwnedLocalizedPath(route.key, lang);
+      expect(childPath.startsWith(`${parentPath}/`), `${route.key} ${lang}`).toBe(true);
+    }
   }
-);
+});

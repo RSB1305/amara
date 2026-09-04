@@ -32,10 +32,10 @@ const DISABLED_TOKENS: LinkToken[] = [
   'archive'
 ];
 
-const DESTINATION_SLUGS: Record<string, string> = {
-  location_frigiliana: 'frigiliana-location',
-  location_nerja: 'nerja-location',
-  location_tarifa: 'tarifa-location'
+const DESTINATION_ROUTE_KEYS: Record<string, string> = {
+  location_frigiliana: 'frigiliana',
+  location_nerja: 'nerja',
+  location_tarifa: 'tarifa'
 };
 
 const EXPECTED_GROUP_TOKENS: Record<string, LinkToken[]> = {
@@ -63,7 +63,7 @@ const NAVIGATION_SCENARIOS: {
     activeToken: null,
     input: (currentLang) => ({
       currentLang,
-      currentPath: buildOwnedLocalizedPath('', currentLang)
+      currentPath: buildOwnedLocalizedPath('home', currentLang)
     })
   },
   {
@@ -71,7 +71,7 @@ const NAVIGATION_SCENARIOS: {
     activeToken: 'about',
     input: (currentLang) => ({
       currentLang,
-      currentPath: buildOwnedLocalizedPath('staying-with-us', currentLang)
+      currentPath: buildOwnedLocalizedPath('about', currentLang)
     })
   },
   {
@@ -89,7 +89,7 @@ const NAVIGATION_SCENARIOS: {
     activeToken: null,
     input: (currentLang) => ({
       currentLang,
-      currentPath: buildOwnedLocalizedPath('frigiliana-parking', currentLang),
+      currentPath: buildOwnedLocalizedPath('frigiliana.parking', currentLang),
       languageToken: 'frigiliana_parking'
     })
   },
@@ -98,7 +98,7 @@ const NAVIGATION_SCENARIOS: {
     activeToken: null,
     input: (currentLang) => ({
       currentLang,
-      currentPath: buildOwnedLocalizedPath('frigiliana-experience', currentLang),
+      currentPath: buildOwnedLocalizedPath('frigiliana.experience', currentLang),
       currentToken: 'frigiliana_experience_hub',
       languageToken: 'frigiliana_experience_hub'
     })
@@ -118,7 +118,7 @@ test('keeps the three destination tokens resolvable in every language', () => {
 
       for (const item of locations?.items ?? []) {
         expect(item.href, `${item.token} (${language}) must resolve`).toBe(
-          buildOwnedLocalizedPath(DESTINATION_SLUGS[item.token] ?? '', language)
+          buildOwnedLocalizedPath(DESTINATION_ROUTE_KEYS[item.token] ?? 'home', language)
         );
       }
     }

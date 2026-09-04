@@ -27,7 +27,7 @@ export interface AmaraAuthoringSeo {
     dateModified: string;
     authorName: string;
     authorType?: 'Person' | 'Organization';
-    authorSlug?: string;
+    authorRoute?: string;
   };
 
   /**

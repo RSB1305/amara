@@ -179,7 +179,7 @@ async function mockGateway(page: Page, options: GatewayOptions = {}) {
 }
 
 const searchUrl = (destination: string, arrival: string, departure: string, guests = 2) =>
-  ORIGIN + '/en/find-a-stay?destination=' + destination + '&arrival=' + arrival +
+  ORIGIN + '/en/stays/search?destination=' + destination + '&arrival=' + arrival +
   '&departure=' + departure + '&guests=' + guests;
 
 test('homepage finder refreshes live dates for destination changes and returns quoted stays', async ({ page }) => {
@@ -287,7 +287,7 @@ test('finder explains a broken stay range and resets for a new arrival', async (
   const invalidDeparture = futureIso(26);
   const laterArrival = futureIso(29);
   await mockGateway(page, { unavailableDates: new Set([blockedNight]) });
-  await page.goto(ORIGIN + '/en/find-a-stay?destination=frigiliana');
+  await page.goto(ORIGIN + '/en/stays/search?destination=frigiliana');
   await page.getByRole('button', { name: 'Choose arrival' }).click();
   const arrivalButton = page.locator('[data-am-booking-day="' + arrival + '"]');
   await expect(arrivalButton).toBeEnabled();
@@ -334,7 +334,7 @@ test('finder explains a broken stay range and resets for a new arrival', async (
 test('finder retries transient live-calendar failures once', async ({ page }) => {
   await page.setViewportSize(DESKTOP);
   const requests = await mockGateway(page, { searchCalendarFailures: 2 });
-  await page.goto(ORIGIN + '/en/find-a-stay?destination=frigiliana');
+  await page.goto(ORIGIN + '/en/stays/search?destination=frigiliana');
   await page.getByRole('button', { name: 'Choose arrival' }).click();
   await expect.poll(() => requests.filter(
     (url) => url.pathname.endsWith('/search-calendar')
@@ -455,8 +455,8 @@ test('mobile finder uses one month and results stay in a single column without o
 
 test('all five utility routes are noindex and localized without starting a search', async ({ page }) => {
   const routes = [
-    ['/en/find-a-stay', 'Destination'], ['/de/find-a-stay', 'Reiseziel'],
-    ['/find-a-stay', 'Destino'], ['/nl/find-a-stay', 'Bestemming'], ['/sv/find-a-stay', 'Resmål']
+    ['/en/stays/search', 'Destination'], ['/de/unterkuenfte/suche', 'Reiseziel'],
+    ['/alojamientos/buscar', 'Destino'], ['/nl/verblijven/zoeken', 'Bestemming'], ['/sv/boenden/sok', 'Resmål']
   ] as const;
   for (const [path, label] of routes) {
     const requests = await mockGateway(page);

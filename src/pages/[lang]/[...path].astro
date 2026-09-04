@@ -1,0 +1,29 @@
+---
+/**
+ * Prefixed public routes for the non-default languages. Every manifest route
+ * renders once per language at its native path; the locale homepage is the
+ * empty rest parameter.
+ */
+import PublicRoutePage from '../_routes/PublicRoutePage.astro';
+import {
+  DEFAULT_LANGUAGE,
+  SUPPORTED_LANGUAGES,
+  getOwnedPublicRoutes
+} from '../../lib/routeOwnership';
+import type { AmaraLanguage } from '../../types/seo';
+
+export function getStaticPaths() {
+  return SUPPORTED_LANGUAGES
+    .filter((lang) => lang !== DEFAULT_LANGUAGE)
+    .flatMap((lang) =>
+      getOwnedPublicRoutes().map((route) => ({
+        params: { lang, path: route.paths[lang] || undefined },
+        props: { routeKey: route.key, lang }
+      }))
+    );
+}
+
+const { routeKey, lang } = Astro.props as { routeKey: string; lang: AmaraLanguage };
+---
+
+<PublicRoutePage routeKey={routeKey} lang={lang} />

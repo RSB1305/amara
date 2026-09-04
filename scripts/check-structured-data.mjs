@@ -6,19 +6,23 @@ import {
 } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { DYNAMIC_CANONICAL_PUBLIC_SLUGS } from '../src/lib/canonicalPublicSlugs.mjs';
+import {
+  VACATION_RENTAL_ROUTE_KEYS,
+  buildPublicRoutePath,
+  resolvePublicRoute
+} from '../src/lib/publicRouteManifest.mjs';
 
 const VACATION_RENTAL_LANGUAGES = Object.freeze(['es', 'de', 'en', 'nl', 'sv']);
 const EXPECTED_VACATION_RENTAL_IDENTITIES = 6;
 const EXPECTED_LOCALIZED_VACATION_RENTAL_PAGES = 30;
-const STAY_SELECTOR_SLUG = 'romantic-hideaways';
+const STAY_SELECTOR_ROUTE_KEY = 'stays';
 const EXPECTED_LOCALIZED_STAY_SELECTOR_PAGES = VACATION_RENTAL_LANGUAGES.length;
-const VACATION_RENTAL_SLUGS = new Set(DYNAMIC_CANONICAL_PUBLIC_SLUGS);
+const VACATION_RENTAL_SLUGS = new Set(VACATION_RENTAL_ROUTE_KEYS);
 
 const EXPECTED_VACATION_RENTAL_ROUTES = new Map(
-  DYNAMIC_CANONICAL_PUBLIC_SLUGS.flatMap((slug) =>
+  VACATION_RENTAL_ROUTE_KEYS.flatMap((slug) =>
     VACATION_RENTAL_LANGUAGES.map((language) => {
-      const pathname = language === 'es' ? `/${slug}` : `/${language}/${slug}`;
+      const pathname = buildPublicRoutePath(slug, language);
 
       return [pathname, { language, pathname, slug }];
     })
@@ -27,9 +31,7 @@ const EXPECTED_VACATION_RENTAL_ROUTES = new Map(
 
 const EXPECTED_STAY_SELECTOR_ROUTES = new Map(
   VACATION_RENTAL_LANGUAGES.map((language) => {
-    const pathname = language === 'es'
-      ? `/${STAY_SELECTOR_SLUG}`
-      : `/${language}/${STAY_SELECTOR_SLUG}`;
+    const pathname = buildPublicRoutePath(STAY_SELECTOR_ROUTE_KEY, language);
 
     return [pathname, { language, pathname }];
   })
@@ -66,33 +68,33 @@ const GOOGLE_VACATION_RENTAL_ENUM_AMENITIES = {
 };
 
 const FRIGILIANA_EXPERIENCE_DETAIL_SLUGS = new Set([
-  'frigiliana-beaches',
-  'frigiliana-hiking',
-  'frigiliana-restaurants',
-  'frigiliana-festivals',
-  'frigiliana-market',
-  'frigiliana-day-trips',
-  'frigiliana-wellness'
+  'frigiliana.experience.beaches',
+  'frigiliana.experience.hiking',
+  'frigiliana.experience.restaurants',
+  'frigiliana.experience.festivals',
+  'frigiliana.experience.market',
+  'frigiliana.experience.day-trips',
+  'frigiliana.experience.wellness'
 ]);
 
 const FRIGILIANA_EXPERIENCE_NAVIGATION_SLUGS = new Set([
   ...FRIGILIANA_EXPERIENCE_DETAIL_SLUGS,
-  'frigiliana-old-town',
-  'frigiliana-netflix-dos-tumbas'
+  'frigiliana.experience.old-town',
+  'frigiliana.experience.dos-tumbas'
 ]);
 
 const NERJA_EXPERIENCE_DETAIL_SLUGS = new Set([
-  'nerja-beaches',
-  'nerja-day-trips',
-  'nerja-food',
-  'nerja-balcon-de-europa',
-  'nerja-caves',
-  'nerja-nightlife'
+  'nerja.experience.beaches',
+  'nerja.experience.day-trips',
+  'nerja.experience.food',
+  'nerja.experience.balcon-de-europa',
+  'nerja.experience.caves',
+  'nerja.experience.nightlife'
 ]);
 
 const NERJA_EXPERIENCE_NAVIGATION_SLUGS = new Set([
   ...NERJA_EXPERIENCE_DETAIL_SLUGS,
-  'nerja-verano-azul'
+  'nerja.experience.verano-azul'
 ]);
 
 const NON_DEFAULT_LANGUAGES = new Set(['de', 'en', 'nl', 'sv']);
@@ -146,18 +148,13 @@ function describeRentalRoute(route, canonicalUrl, propertyName) {
   );
 }
 
+/** The manifest route key that owns a rendered pathname, or null for private routes. */
 function getOwnedSlug(pathname) {
-  const segments = pathname.split('/').filter(Boolean);
-
-  if (NON_DEFAULT_LANGUAGES.has(segments[0])) {
-    segments.shift();
-  }
-
-  return segments.join('/');
+  return resolvePublicRoute(pathname)?.route.key ?? null;
 }
 
 function getLocalizedOwnedPath(slug, language) {
-  return language === 'es' ? `/${slug}` : `/${language}/${slug}`;
+  return buildPublicRoutePath(slug, language);
 }
 
 function getVisibleRentalSlugs(html, pageUrl) {
@@ -197,7 +194,11 @@ function getExperienceSiblingSlugs(html, pageUrl) {
     }
 
     try {
-      slugs.add(getOwnedSlug(new URL(href, pageUrl).pathname));
+      const key = getOwnedSlug(new URL(href, pageUrl).pathname);
+
+      if (key) {
+        slugs.add(key);
+      }
     } catch {
       continue;
     }
@@ -209,15 +210,13 @@ function getExperienceSiblingSlugs(html, pageUrl) {
 function getExperienceHubPath(pathname, hubSlug) {
   const language = pathname.split('/').filter(Boolean)[0];
 
-  return NON_DEFAULT_LANGUAGES.has(language)
-    ? `/${language}/${hubSlug}`
-    : `/${hubSlug}`;
+  return buildPublicRoutePath(hubSlug, NON_DEFAULT_LANGUAGES.has(language) ? language : 'es');
 }
 
 function getExperienceFamily(slug) {
   if (FRIGILIANA_EXPERIENCE_DETAIL_SLUGS.has(slug)) {
     return {
-      hubSlug: 'frigiliana-experience',
+      hubSlug: 'frigiliana.experience',
       navigationSlugs: FRIGILIANA_EXPERIENCE_NAVIGATION_SLUGS,
       requiredNextActionCount: 1
     };
@@ -225,7 +224,7 @@ function getExperienceFamily(slug) {
 
   if (NERJA_EXPERIENCE_DETAIL_SLUGS.has(slug)) {
     return {
-      hubSlug: 'nerja-experience',
+      hubSlug: 'nerja.experience',
       navigationSlugs: NERJA_EXPERIENCE_NAVIGATION_SLUGS,
       requiredNextActionCount: null
     };
@@ -297,10 +296,10 @@ export function runStructuredDataAudit({
     errors.push(`${relative(distRoot, file).replaceAll('\\', '/')}: ${message}`);
   };
 
-  if (DYNAMIC_CANONICAL_PUBLIC_SLUGS.length !== EXPECTED_VACATION_RENTAL_IDENTITIES) {
+  if (VACATION_RENTAL_ROUTE_KEYS.length !== EXPECTED_VACATION_RENTAL_IDENTITIES) {
     errors.push(
       'Canonical rental route source contains ' +
-        `${DYNAMIC_CANONICAL_PUBLIC_SLUGS.length} identities; ` +
+        `${VACATION_RENTAL_ROUTE_KEYS.length} identities; ` +
         `expected ${EXPECTED_VACATION_RENTAL_IDENTITIES}.`
     );
   }
@@ -973,7 +972,7 @@ export function runStructuredDataAudit({
     );
   }
 
-  for (const slug of DYNAMIC_CANONICAL_PUBLIC_SLUGS) {
+  for (const slug of VACATION_RENTAL_ROUTE_KEYS) {
     const identity = rentalIdentityBySlug.get(slug);
     const actualLanguages = identity ? [...identity.languages].sort() : [];
 
