@@ -523,7 +523,7 @@ const relatedLabel: Record<LinkToken & string, LocalizedText | undefined> = {
   tarifa_kite_school: school.navLabel,
   tarifa_kitecamp: camp.navLabel,
   tarifa_kite_equipment: equipment.navLabel,
-  tarifa_wind_kitesurfing_authority: l('Wind, weather & safety', 'Wind, Wetter & Sicherheit', 'Viento, tiempo y seguridad', 'Wind, weer & veiligheid', 'Vind, väder & säkerhet')
+  tarifa_wind_kitesurfing_authority: l('Wind, weather & safety', 'Wind in Tarifa', 'Viento, tiempo y seguridad', 'Wind, weer & veiligheid', 'Vind, väder & säkerhet')
 } as Record<LinkToken & string, LocalizedText | undefined>;
 
 const all = { 'kite-school': school, kitecamp: camp, equipment };

@@ -338,7 +338,7 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
   },
   'tarifa-wind-kitesurfing': {
     en: 'Wind, Weather & Safety',
-    de: 'Wind, Wetter & Sicherheit',
+    de: 'Wind in Tarifa',
     es: 'Viento, tiempo y seguridad',
     nl: 'Wind, weer & veiligheid',
     sv: 'Vind, väder & säkerhet'

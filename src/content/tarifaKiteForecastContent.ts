@@ -191,7 +191,7 @@ export const tarifaKiteForecastContent: TarifaKiteForecastContent = {
       {
         id: 'wind',
         token: 'tarifa_wind_kitesurfing_authority',
-        title: l('Wind, weather and safety', 'Wind, Wetter und Sicherheit', 'Viento, tiempo y seguridad', 'Wind, weer en veiligheid', 'Vind, väder och säkerhet'),
+        title: l('Wind, weather and safety', 'Wind in Tarifa', 'Viento, tiempo y seguridad', 'Wind, weer en veiligheid', 'Vind, väder och säkerhet'),
         text: l('How to read a forecast before you believe it: Windguru, Levante and Poniente, the official rules and the emergency channels.', 'Wie ihr einen Forecast lest, bevor ihr ihn glaubt: Windguru, Levante und Poniente, die amtlichen Regeln und die Notrufwege.', 'Cómo leer un parte antes de creérselo: Windguru, levante y poniente, las normas oficiales y las vías de emergencia.', 'Hoe je een forecast leest voordat je hem gelooft: Windguru, levante en poniente, de officiële regels en de noodkanalen.', 'Hur ni läser en prognos innan ni tror på den: Windguru, levante och poniente, de officiella reglerna och nödvägarna.')
       },
       {
