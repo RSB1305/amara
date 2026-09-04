@@ -72,7 +72,7 @@ const article = {
   dateModified: '2026-09-03',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
-  authorSlug: 'staying-with-us'
+  authorRoute: 'about'
 };
 
 const seo = (version: string, title: LocalizedText, description: LocalizedText): AmaraAuthoringSeo => ({

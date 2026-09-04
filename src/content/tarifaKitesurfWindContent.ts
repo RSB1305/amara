@@ -170,7 +170,7 @@ export const tarifaKitesurfWindSeo: AmaraAuthoringSeo = {
     dateModified: '2026-09-03',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
-    authorSlug: 'staying-with-us'
+    authorRoute: 'about'
   },
   languages: {
     en: { title: title.en, description: description.en, robots: 'index, follow', canonical: 'auto' },

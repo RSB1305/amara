@@ -30,7 +30,7 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = getAmaraExperienceContent(currentLang);
 const accessHref = currentLang === 'es' ? '/amara-experience/access' : `/${currentLang}/amara-experience/access`;
-const hostHref = buildOwnedLocalizedPath('staying-with-us', currentLang);
+const hostHref = buildOwnedLocalizedPath('about', currentLang);
 const seoHeroImage = await createAmaraImage(villageImage, 'hero');
 const seo = { ...amaraExperienceSeo, ogImage: seoHeroImage.src };
 const promiseIcons = {

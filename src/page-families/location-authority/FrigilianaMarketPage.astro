@@ -32,7 +32,7 @@ function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
 }
 
-const parkingHref = buildOwnedLocalizedPath('frigiliana-parking', currentLang);
+const parkingHref = buildOwnedLocalizedPath('frigiliana.parking', currentLang);
 
 const facts = copy.facts.items.map((item) => ({
   label: t(item.label),

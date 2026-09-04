@@ -1,0 +1,20 @@
+---
+/**
+ * Spanish public routes. Spanish is the unprefixed default language, so every
+ * manifest route renders here at its Spanish path; the homepage is the empty
+ * rest parameter.
+ */
+import PublicRoutePage from './_routes/PublicRoutePage.astro';
+import { DEFAULT_LANGUAGE, getOwnedPublicRoutes } from '../lib/routeOwnership';
+
+export function getStaticPaths() {
+  return getOwnedPublicRoutes().map((route) => ({
+    params: { path: route.paths[DEFAULT_LANGUAGE] || undefined },
+    props: { routeKey: route.key }
+  }));
+}
+
+const { routeKey } = Astro.props as { routeKey: string };
+---
+
+<PublicRoutePage routeKey={routeKey} lang={DEFAULT_LANGUAGE} />

@@ -173,8 +173,8 @@ export interface GuestGuideDetailEntry extends GuestGuideEntryBase {
   intro?: LocalizedText;
   /** Optional "read the full guide" link to an existing public marketing page (not another guide entry). */
   authorityLink?: {
-    /** Canonical public slug (from CANONICAL_PUBLIC_SLUGS), resolved via buildOwnedLocalizedPath. */
-    targetSlug: string;
+    /** Public route key from the route manifest, resolved via buildOwnedLocalizedPath. */
+    targetRoute: string;
     label: LocalizedText;
   };
   categories: GuestGuideCategory[];

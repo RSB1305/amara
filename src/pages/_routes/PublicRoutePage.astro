@@ -1,0 +1,178 @@
+---
+/**
+ * Public route dispatcher.
+ *
+ * The two catch-all pages generate every public path from the route manifest
+ * and hand this component a route key and a language. This is the only place
+ * that maps a route's page family to its Astro component, so the manifest
+ * stays pure data and a page family is imported exactly once.
+ */
+import type { AmaraLanguage } from '../../types/seo';
+import { getOwnedPublicRoute } from '../../lib/routeOwnership';
+import { getVacationRentalBySlug } from '../../content/vacationRentalEntities';
+
+import AmaraExperienceLandingPage from '../../page-families/amara-experience/AmaraExperienceLandingPage.astro';
+import ArrivalGuidePage from '../../page-families/location-authority/ArrivalGuidePage.astro';
+import BookingStayTermsPage from '../../page-families/booking-stay-terms/BookingStayTermsPage.astro';
+import CasaAmaraGroupsPage from '../../page-families/casa-amara-groups/CasaAmaraGroupsPage.astro';
+import ComfortAmenitiesPage from '../../page-families/comfort-amenities/ComfortAmenitiesPage.astro';
+import DailyLifeGuidePage from '../../page-families/location-authority/DailyLifeGuidePage.astro';
+import DirectBookingBenefitsPage from '../../page-families/direct-booking-benefits/DirectBookingBenefitsPage.astro';
+import DirectionsArrivalGuidePage from '../../page-families/arrival-guide/DirectionsArrivalGuidePage.astro';
+import ExperienceHubPage from '../../page-families/location-authority/ExperienceHubPage.astro';
+import FaqGeneralPage from '../../page-families/faq-general/FaqGeneralPage.astro';
+import FrigilianaBeachesPage from '../../page-families/location-authority/FrigilianaBeachesPage.astro';
+import FrigilianaDayTripsPage from '../../page-families/location-authority/FrigilianaDayTripsPage.astro';
+import FrigilianaDosTumbasPage from '../../page-families/location-authority/FrigilianaDosTumbasPage.astro';
+import FrigilianaFaqPage from '../../page-families/location-authority/FrigilianaFaqPage.astro';
+import FrigilianaFestivalsPage from '../../page-families/location-authority/FrigilianaFestivalsPage.astro';
+import FrigilianaHikingPage from '../../page-families/location-authority/FrigilianaHikingPage.astro';
+import FrigilianaLocationPage from '../../page-families/location-authority/FrigilianaLocationPage.astro';
+import FrigilianaMarketPage from '../../page-families/location-authority/FrigilianaMarketPage.astro';
+import FrigilianaOldTownPage from '../../page-families/location-authority/FrigilianaOldTownPage.astro';
+import FrigilianaOrNerjaPage from '../../page-families/location-authority/FrigilianaOrNerjaPage.astro';
+import FrigilianaRestaurantsPage from '../../page-families/location-authority/FrigilianaRestaurantsPage.astro';
+import FrigilianaStreetsStairsPage from '../../page-families/location-authority/FrigilianaStreetsStairsPage.astro';
+import FrigilianaWeddingsPage from '../../page-families/frigiliana-weddings/FrigilianaWeddingsPage.astro';
+import FrigilianaWellnessPage from '../../page-families/location-authority/FrigilianaWellnessPage.astro';
+import GeographyPage from '../../page-families/location-authority/GeographyPage.astro';
+import GuestReviewsPage from '../../page-families/guest-reviews/GuestReviewsPage.astro';
+import HomePage from '../../page-families/home/HomePage.astro';
+import HoneymoonPage from '../../page-families/honeymoon/HoneymoonPage.astro';
+import InstagramPage from '../../page-families/instagram/InstagramPage.astro';
+import LastMinuteStaysPage from '../../page-families/last-minute-stays/LastMinuteStaysPage.astro';
+import LegalNoticePage from '../../page-families/legal-notice/LegalNoticePage.astro';
+import NerjaBeachesPage from '../../page-families/location-authority/NerjaBeachesPage.astro';
+import NerjaDayTripsPage from '../../page-families/location-authority/NerjaDayTripsPage.astro';
+import NerjaExperienceArticlePage from '../../page-families/location-authority/NerjaExperienceArticlePage.astro';
+import NerjaExperienceHubPage from '../../page-families/location-authority/NerjaExperienceHubPage.astro';
+import NerjaFoodPage from '../../page-families/location-authority/NerjaFoodPage.astro';
+import NerjaLocationHubPage from '../../page-families/location-authority/NerjaLocationHubPage.astro';
+import NerjaNightlifePage from '../../page-families/location-authority/NerjaNightlifePage.astro';
+import NerjaVeranoAzulPage from '../../page-families/location-authority/NerjaVeranoAzulPage.astro';
+import NerjaWhereToStayPage from '../../page-families/location-authority/NerjaLocationPage.astro';
+import ParkingPage from '../../page-families/location-authority/ParkingPage.astro';
+import PropertySalePage from '../../page-families/property-sale/PropertySalePage.astro';
+import RomanticHideawaysPage from '../../page-families/romantic-hideaways/RomanticHideawaysPage.astro';
+import StaySearchResultsPage from '../../page-families/stay-search/StaySearchResultsPage.astro';
+import StayingWithUsPage from '../../page-families/staying-with-us/StayingWithUsPage.astro';
+import TarifaBildungsurlaubPage from '../../page-families/location-authority/TarifaBildungsurlaubPage.astro';
+import TarifaExperiencePage from '../../page-families/location-authority/TarifaExperiencePage.astro';
+import TarifaExperienceSpokePage from '../../page-families/location-authority/TarifaExperienceSpokePage.astro';
+import TarifaGuidePage from '../../page-families/location-authority/TarifaGuidePage.astro';
+import TarifaKiteForecastPage from '../../page-families/location-authority/TarifaKiteForecastPage.astro';
+import TarifaKitePartnerPage from '../../page-families/location-authority/TarifaKitePartnerPage.astro';
+import TarifaKitesurfHubPage from '../../page-families/location-authority/TarifaKitesurfHubPage.astro';
+import TarifaKitesurfSpokePage from '../../page-families/location-authority/TarifaKitesurfSpokePage.astro';
+import TarifaKitesurfSpotsPage from '../../page-families/location-authority/TarifaKitesurfSpotsPage.astro';
+import TarifaKitesurfWindPage from '../../page-families/location-authority/TarifaKitesurfWindPage.astro';
+import TarifaLocationPage from '../../page-families/location-authority/TarifaLocationPage.astro';
+import TarifaWhereToStayPage from '../../page-families/location-authority/TarifaWhereToStayPage.astro';
+import VacationRentalPage from '../../page-families/vacation-rental/VacationRentalPage.astro';
+import WeatherPage from '../../page-families/location-authority/WeatherPage.astro';
+import WeddingAnniversaryPage from '../../page-families/wedding-anniversary/WeddingAnniversaryPage.astro';
+import WinterStaysPage from '../../page-families/location-authority/WinterStaysPage.astro';
+
+interface Props {
+  routeKey: string;
+  lang: AmaraLanguage;
+}
+
+const { routeKey, lang } = Astro.props;
+const route = getOwnedPublicRoute(routeKey);
+
+const families = {
+  'home': HomePage,
+  'about': StayingWithUsPage,
+  'guest-reviews': GuestReviewsPage,
+  'direct-booking-benefits': DirectBookingBenefitsPage,
+  'comfort-amenities': ComfortAmenitiesPage,
+  'faq-general': FaqGeneralPage,
+  'amara-experience': AmaraExperienceLandingPage,
+  'legal-notice': LegalNoticePage,
+  'booking-stay-terms': BookingStayTermsPage,
+  'instagram': InstagramPage,
+  'romantic-hideaways': RomanticHideawaysPage,
+  'stay-search': StaySearchResultsPage,
+  'last-minute-stays': LastMinuteStaysPage,
+  'honeymoon': HoneymoonPage,
+  'wedding-anniversary': WeddingAnniversaryPage,
+  'casa-amara-groups': CasaAmaraGroupsPage,
+  'vacation-rental': VacationRentalPage,
+  'frigiliana-location': FrigilianaLocationPage,
+  'arrival-guide': ArrivalGuidePage,
+  'directions-arrival-guide': DirectionsArrivalGuidePage,
+  'parking': ParkingPage,
+  'geography': GeographyPage,
+  'frigiliana-where-to-stay': FrigilianaStreetsStairsPage,
+  'weather': WeatherPage,
+  'winter-stays': WinterStaysPage,
+  'daily-life': DailyLifeGuidePage,
+  'frigiliana-or-nerja': FrigilianaOrNerjaPage,
+  'frigiliana-faq': FrigilianaFaqPage,
+  'property-sale': PropertySalePage,
+  'frigiliana-experience': ExperienceHubPage,
+  'frigiliana-beaches': FrigilianaBeachesPage,
+  'frigiliana-hiking': FrigilianaHikingPage,
+  'frigiliana-restaurants': FrigilianaRestaurantsPage,
+  'frigiliana-festivals': FrigilianaFestivalsPage,
+  'frigiliana-market': FrigilianaMarketPage,
+  'frigiliana-day-trips': FrigilianaDayTripsPage,
+  'frigiliana-wellness': FrigilianaWellnessPage,
+  'frigiliana-old-town': FrigilianaOldTownPage,
+  'frigiliana-dos-tumbas': FrigilianaDosTumbasPage,
+  'frigiliana-weddings': FrigilianaWeddingsPage,
+  'nerja-location': NerjaLocationHubPage,
+  'nerja-where-to-stay': NerjaWhereToStayPage,
+  'nerja-experience': NerjaExperienceHubPage,
+  'nerja-beaches': NerjaBeachesPage,
+  'nerja-day-trips': NerjaDayTripsPage,
+  'nerja-food': NerjaFoodPage,
+  'nerja-experience-article': NerjaExperienceArticlePage,
+  'nerja-nightlife': NerjaNightlifePage,
+  'nerja-verano-azul': NerjaVeranoAzulPage,
+  'tarifa-location': TarifaLocationPage,
+  'tarifa-where-to-stay': TarifaWhereToStayPage,
+  'tarifa-experience': TarifaExperiencePage,
+  'tarifa-guide': TarifaGuidePage,
+  'tarifa-experience-spoke': TarifaExperienceSpokePage,
+  'tarifa-kitesurf-hub': TarifaKitesurfHubPage,
+  'tarifa-kitesurf-spots': TarifaKitesurfSpotsPage,
+  'tarifa-kitesurf-wind': TarifaKitesurfWindPage,
+  'tarifa-kite-forecast': TarifaKiteForecastPage,
+  'tarifa-kitesurf-spoke': TarifaKitesurfSpokePage,
+  'tarifa-bildungsurlaub': TarifaBildungsurlaubPage,
+  'tarifa-kite-partner': TarifaKitePartnerPage
+} as const;
+
+type FamilyId = keyof typeof families;
+
+function isFamilyId(value: string): value is FamilyId {
+  return Object.hasOwn(families, value);
+}
+
+if (!isFamilyId(route.family)) {
+  throw new Error(`[AMARA routes] Route "${route.key}" names unknown page family "${route.family}".`);
+}
+
+// Page families declare their own typed props; the manifest carries them as
+// authored data, so the dispatcher hands them over without re-typing each one.
+const Component = families[route.family] as (props: Record<string, unknown>) => unknown;
+let props: Record<string, unknown>;
+
+if (route.family === 'vacation-rental') {
+  const rental = getVacationRentalBySlug(route.key);
+
+  if (!rental) {
+    throw new Error(`[AMARA routes] Stay route "${route.key}" has no vacation rental entity.`);
+  }
+
+  props = { rental, lang };
+} else if (route.family === 'guest-reviews') {
+  props = { currentLang: lang };
+} else {
+  props = { ...route.props, lang };
+}
+---
+
+<Component {...props} />

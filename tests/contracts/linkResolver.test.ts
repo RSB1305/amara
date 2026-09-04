@@ -28,8 +28,8 @@ test('every localized registry entry resolves in all supported languages', () =>
 test('keeps site and external links in their respective URL spaces', () => {
   expect(resolveLink('home', 'es')).toBe('/');
   expect(resolveLink('home', 'de')).toBe('/de');
-  expect(resolveLink('book', 'es')).toBe('/find-a-stay');
-  expect(resolveLink('book', 'de')).toBe('/de/find-a-stay');
+  expect(resolveLink('book', 'es')).toBe('/alojamientos/buscar');
+  expect(resolveLink('book', 'de')).toBe('/de/unterkuenfte/suche');
   expect(resolveLink('instagram', 'sv')).toBe(
     'https://www.instagram.com/amaralodging/'
   );

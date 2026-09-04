@@ -5,8 +5,9 @@ import type {
 } from '../../types/seo';
 import {
   buildOwnedLocalizedPath,
-  getOwnedLanguagesForSlug,
-  getOwnedSlugFromPathname,
+  buildPrivateLocalizedPath,
+  getOwnedLanguagesForRoute,
+  getOwnedRouteFromPathname,
   isSupportedLanguage
 } from '../routeOwnership';
 
@@ -91,6 +92,11 @@ function normalizeBrandTitle(rawTitle: string | undefined): string {
   return `${withoutBrandPrefix} | AMARA`;
 }
 
+/**
+ * Canonical and hreflang come from the route manifest: a public route knows
+ * its native path in every language, while a private route keeps its own
+ * pathname and publishes no alternates.
+ */
 export function resolveSeoHead(
   seo: AmaraAuthoringSeo | undefined,
   origin: string,
@@ -102,25 +108,24 @@ export function resolveSeoHead(
     ...languageEntry,
     title: normalizeBrandTitle(languageEntry.title)
   };
-  const slug = getOwnedSlugFromPathname(pathname);
-  const ownedLanguages = getOwnedLanguagesForSlug(slug, currentLang);
+  const match = getOwnedRouteFromPathname(pathname);
+  const ownedLanguages = getOwnedLanguagesForRoute(match, currentLang);
   const normalizedOrigin = origin.replace(/\/+$/, '');
+  const localizedPath = (lang: AmaraLanguage) =>
+    match ? buildOwnedLocalizedPath(match.route.key, lang) : buildPrivateLocalizedPath(pathname, lang);
 
-  const canonicalUrl = new URL(
-    buildOwnedLocalizedPath(slug, currentLang),
-    normalizedOrigin
-  ).href;
+  const canonicalUrl = new URL(localizedPath(currentLang), normalizedOrigin).href;
 
   const hreflangs: Array<{ hreflang: AmaraLanguage | 'x-default'; href: string }> =
     ownedLanguages.map((lang) => ({
       hreflang: lang,
-      href: new URL(buildOwnedLocalizedPath(slug, lang), normalizedOrigin).href
+      href: new URL(localizedPath(lang), normalizedOrigin).href
     }));
 
   if (ownedLanguages.includes('es')) {
     hreflangs.push({
       hreflang: 'x-default',
-      href: new URL(buildOwnedLocalizedPath(slug, 'es'), normalizedOrigin).href
+      href: new URL(localizedPath('es'), normalizedOrigin).href
     });
   }
 

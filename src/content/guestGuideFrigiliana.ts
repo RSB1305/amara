@@ -1701,7 +1701,7 @@ const frigilianaGuestBeaches: GuestGuideEntry = {
     sv: 'Från Frigiliana är kusten bara en kort bilresa bort – från livliga stranddagar i Nerja till lugnare badvikar och naturplatser runt Maro.'
   },
   authorityLink: {
-    targetSlug: 'frigiliana-beaches',
+    targetRoute: 'frigiliana.experience.beaches',
     label: {
       en: 'Looking for a deeper overview? Read the full beach guide →',
       de: 'Sucht ihr nach einer ausführlicheren Übersicht? Lest unseren kompletten Strand-Guide →',
@@ -1881,7 +1881,7 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
     sv: 'Här är våra mest pålitliga och okomplicerade val i Frigiliana – från avslappnade middagar på terrassen till en lunch med vacker utsikt uppe i bergen.'
   },
   authorityLink: {
-    targetSlug: 'frigiliana-restaurants',
+    targetRoute: 'frigiliana.experience.restaurants',
     label: {
       en: 'Looking for a deeper overview? Read the full dining guide →',
       de: 'Sucht ihr nach einer ausführlicheren Übersicht? Lest unseren kompletten Restaurant-Guide →',
@@ -2665,7 +2665,7 @@ const frigilianaGuestHiking: GuestGuideEntry = {
     sv: 'Precis bakom Frigiliana börjar Sierra-bergen – från lugna promenader till utsiktsplatser till halvdagsturer. Nedan hittar ni våra mest praktiska tips.'
   },
   authorityLink: {
-    targetSlug: 'frigiliana-hiking',
+    targetRoute: 'frigiliana.experience.hiking',
     label: {
       en: 'Looking for a deeper overview? Read the full hiking guide →',
       de: 'Sucht ihr nach einer ausführlicheren Übersicht? Lest unseren kompletten Wander-Guide →',
@@ -2900,7 +2900,7 @@ const frigilianaGuestDayTrips: GuestGuideEntry = {
     sv: 'Frigiliana är en härligt lugn utgångspunkt – och några av Andalusiens absoluta höjdpunkter kan nås på en dagsutflykt. Vår enkla regel för er: välj ett huvudmål, lägg till ett enkelt extra stopp och håll ett avslappnat tempo.'
   },
   authorityLink: {
-    targetSlug: 'frigiliana-day-trips',
+    targetRoute: 'frigiliana.experience.day-trips',
     label: {
       en: 'Want the deeper version? Read the full day trips guide →',
       de: 'Hättet ihr gerne mehr Details? Lest unseren kompletten Guide für Tagesausflüge →',
@@ -3046,7 +3046,7 @@ const frigilianaGuestFestivals: GuestGuideEntry = {
     sv: 'Om er vistelse sammanfaller med en lokal festival kan det bli oförglömligt – men det påverkar också parkering, ljudnivå och hur mycket folk som är i rörelse. Här är en snabb översikt för er: vad som är viktigt, när det händer och hur ni planerar i lugn och ro.'
   },
   authorityLink: {
-    targetSlug: 'frigiliana-festivals',
+    targetRoute: 'frigiliana.experience.festivals',
     label: {
       en: 'Looking for the deeper overview? Read the full festivals guide →',
       de: 'Sucht ihr nach einer ausführlicheren Übersicht? Lest unseren kompletten Event-Guide →',
@@ -3328,7 +3328,7 @@ const frigilianaGuestWellness: GuestGuideEntry = {
     sv: 'Från Frigilianas lugna gator till Nerjas kustnära retreats – här är de bästa sätten att varva ner och koppla av på.'
   },
   authorityLink: {
-    targetSlug: 'frigiliana-wellness',
+    targetRoute: 'frigiliana.experience.wellness',
     label: {
       en: 'Want the full curated overview? Read the full wellness guide →',
       de: 'Hättet ihr gerne die komplette Übersicht? Lest unseren vollständigen Wellness-Guide →',
@@ -3526,7 +3526,7 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
     sv: 'Det viktigaste som faktiskt känns värt det: grottor, utsiktsplatser, gamla gator – och lugna sätt att uppleva var och en av dem. Vår regel: välj 1–2 höjdpunkter och lämna sedan tid för en långsam måltid eller en timme på stranden.'
   },
   authorityLink: {
-    targetSlug: 'frigiliana-experience',
+    targetRoute: 'frigiliana.experience',
     label: {
       en: 'Looking for a deeper overview? Read the full sightseeing guide →',
       de: 'Sucht ihr nach einer ausführlicheren Übersicht? Lest unseren kompletten Sightseeing-Guide →',
