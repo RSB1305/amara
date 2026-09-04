@@ -555,13 +555,13 @@ const definitions = [
     props: { spoke: 'bolonia-baelo-claudia' },
     segment: shared('bolonia-baelo-claudia')
   },
-  // Kitesurfing is Tarifa's defining draw and its largest cluster, so it sits
-  // as a branch directly under the destination rather than beneath Experiences.
+  // Kitesurfing is Tarifa's largest cluster: one hub beneath Experiences with
+  // its spokes nested under the hub, mirroring the cluster navigation.
   {
     key: 'tarifa.kitesurfing',
     legacySlug: 'tarifa-kitesurfing',
     family: 'tarifa-kitesurf-hub',
-    parent: 'tarifa',
+    parent: 'tarifa.experience',
     segment: { es: 'kitesurf', en: 'kitesurfing', de: 'kitesurfen', nl: 'kitesurfen', sv: 'kitesurfing' }
   },
   { key: 'tarifa.kitesurfing.spots', legacySlug: 'tarifa-kitesurf-spots', family: 'tarifa-kitesurf-spots', parent: 'tarifa.kitesurfing', segment: shared('spots') },
