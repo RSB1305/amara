@@ -1,0 +1,140 @@
+---
+import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-surf-club-team.webp';
+import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
+import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
+import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import Navigation from '../../components/Navigation.astro';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { LocalizedText } from '../../types/content';
+import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+import LocationModule from './LocationModule.astro';
+
+/**
+ * Educational-leave spoke of the Tarifa kitesurf cluster: a placeholder by
+ * operator decision of 4 September 2026. The route, registry entry and band
+ * link exist so the German band can point here; the page carries only what
+ * §17a of the editorial contract already verifies (Work Surf Balance GmbH,
+ * recognised in 13 German states, five days a year, kiting through the
+ * club) and stays out of the index until the text is written. The band
+ * shows this page in German only; the other locales render the same
+ * placeholder if reached by URL.
+ */
+interface Props { lang?: string; }
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const t = (value: LocalizedText) => value[currentLang];
+const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa Bildungsurlaub');
+const aboutHref = requiredLink('about');
+const campHref = `${requiredLink('tarifa_kitecamp')}#bildungsurlaub`;
+
+const ui = {
+  navLabel: { en: 'Educational leave', de: 'Bildungsurlaub', es: 'Bildungsurlaub', nl: 'Bildungsurlaub', sv: 'Bildungsurlaub' },
+  eyebrow: { en: 'Kitesurfing in Tarifa', de: 'Kitesurfen in Tarifa', es: 'Kitesurf en Tarifa', nl: 'Kitesurfen in Tarifa', sv: 'Kitesurfing i Tarifa' },
+  title: { en: 'Educational leave in Tarifa', de: 'Bildungsurlaub in Tarifa', es: 'Bildungsurlaub en Tarifa', nl: 'Bildungsurlaub in Tarifa', sv: 'Bildungsurlaub i Tarifa' },
+  subtitle: {
+    en: 'A seminar in the morning, the water in the afternoon, recognised in thirteen German states.',
+    de: 'Vormittags Seminar, nachmittags aufs Wasser, anerkannt in dreizehn Bundesländern.',
+    es: 'Seminario por la mañana, agua por la tarde, reconocido en trece estados alemanes.',
+    nl: '’s Ochtends seminar, ’s middags het water op, erkend in dertien Duitse deelstaten.',
+    sv: 'Seminarium på förmiddagen, vattnet på eftermiddagen, erkänt i tretton tyska delstater.'
+  },
+  lead: {
+    en: 'This page is being written. What is already settled: Work Surf Balance GmbH runs the recognised seminar weeks, five days a year, on AI and mental health, and the kiting is booked through Tarifa Surf Club. Until the page is ready, the short version stands on the kitecamp page.',
+    de: 'Diese Seite entsteht gerade. Was schon feststeht: Die anerkannten Seminarwochen veranstaltet die Work Surf Balance GmbH, fünf Tage im Jahr, zu KI und mentaler Gesundheit, und das Kiten dazu bucht ihr beim Tarifa Surf Club. Bis die Seite fertig ist, steht die kurze Fassung auf der Kitecamp-Seite.',
+    es: 'Esta página está en preparación. Lo que ya está claro: las semanas de seminario reconocidas las organiza Work Surf Balance GmbH, cinco días al año, sobre IA y salud mental, y el kite se reserva con Tarifa Surf Club. Hasta que esté lista, la versión corta está en la página del kitecamp.',
+    nl: 'Deze pagina wordt nog geschreven. Wat al vaststaat: de erkende seminarweken worden georganiseerd door Work Surf Balance GmbH, vijf dagen per jaar, over AI en mentale gezondheid, en het kiten boek je bij Tarifa Surf Club. Tot de pagina klaar is, staat de korte versie op de kitecamp-pagina.',
+    sv: 'Den här sidan skrivs just nu. Det som redan är klart: de erkända seminarieveckorna arrangeras av Work Surf Balance GmbH, fem dagar om året, om AI och mental hälsa, och kitingen bokas hos Tarifa Surf Club. Tills sidan är klar finns den korta versionen på kitecamp-sidan.'
+  },
+  imageAlt: { en: 'Tarifa Surf Club team together at the beach in Tarifa', de: 'Das Team des Tarifa Surf Club gemeinsam am Strand von Tarifa', es: 'El equipo de Tarifa Surf Club reunido en la playa de Tarifa', nl: 'Het team van Tarifa Surf Club samen op het strand van Tarifa', sv: 'Tarifa Surf Club-teamet samlat på stranden i Tarifa' },
+  updated: { en: 'In preparation, September 2026', de: 'In Arbeit, September 2026', es: 'En preparación, septiembre de 2026', nl: 'In voorbereiding, september 2026', sv: 'Under arbete, september 2026' },
+  note: { en: 'Facts from Work Surf Balance and Tarifa Surf Club, checked 3 September 2026.', de: 'Fakten von Work Surf Balance und Tarifa Surf Club, geprüft am 3. September 2026.', es: 'Datos de Work Surf Balance y Tarifa Surf Club, comprobados el 3 de septiembre de 2026.', nl: 'Feiten van Work Surf Balance en Tarifa Surf Club, gecontroleerd op 3 september 2026.', sv: 'Fakta från Work Surf Balance och Tarifa Surf Club, kontrollerade 3 september 2026.' },
+  campLink: { en: 'Educational leave on the kitecamp page', de: 'Bildungsurlaub auf der Kitecamp-Seite', es: 'Bildungsurlaub en la página del kitecamp', nl: 'Bildungsurlaub op de kitecamp-pagina', sv: 'Bildungsurlaub på kitecamp-sidan' },
+  providerLink: { en: 'Work Surf Balance', de: 'Work Surf Balance', es: 'Work Surf Balance', nl: 'Work Surf Balance', sv: 'Work Surf Balance' }
+} satisfies Record<string, LocalizedText>;
+
+const title: LocalizedText = {
+  en: 'Educational leave in Tarifa | AMARA',
+  de: 'Bildungsurlaub in Tarifa | AMARA',
+  es: 'Bildungsurlaub en Tarifa | AMARA',
+  nl: 'Bildungsurlaub in Tarifa | AMARA',
+  sv: 'Bildungsurlaub i Tarifa | AMARA'
+};
+
+const seo: AmaraAuthoringSeo = {
+  version: '2026-09-04-tarifa-bildungsurlaub-v0.1',
+  pageType: 'B',
+  entityKey: 'amara-brand',
+  ogImage: '/images/robert-amara-host.jpg',
+  article: {
+    datePublished: '2026-09-04',
+    dateModified: '2026-09-04',
+    authorName: 'Robert Sebastian Böhmer',
+    authorType: 'Person',
+    authorSlug: 'staying-with-us'
+  },
+  languages: {
+    en: { title: title.en, description: ui.subtitle.en, robots: 'noindex, follow', canonical: 'auto' },
+    de: { title: title.de, description: ui.subtitle.de, robots: 'noindex, follow', canonical: 'auto' },
+    es: { title: title.es, description: ui.subtitle.es, robots: 'noindex, follow', canonical: 'auto' },
+    nl: { title: title.nl, description: ui.subtitle.nl, robots: 'noindex, follow', canonical: 'auto' },
+    sv: { title: title.sv, description: ui.subtitle.sv, robots: 'noindex, follow', canonical: 'auto' }
+  }
+};
+
+const footerHighlights: LabeledLink[] = [
+  { token: 'tarifa_bildungsurlaub', label: t(ui.navLabel) },
+  { token: 'tarifa_kitecamp', label: t(ui.campLink) }
+];
+---
+
+<LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-spoke">
+  <Navigation slot="navigation" contextDestination="tarifa" currentLang={currentLang} languageToken="tarifa_bildungsurlaub">
+    <ExperienceContextNav slot="context-navigation" currentId="kitesurfing" destination="tarifa" lang={currentLang} />
+  </Navigation>
+
+  <article class="bg-surface" data-am-page="tarifa-bildungsurlaub" data-am-family="experience" data-am-role="spoke" data-am-topic="educational-leave">
+    <KiteClusterNav lang={currentLang} currentId="education" />
+
+    <LocationGuideHero
+      eyebrow={t(ui.eyebrow)}
+      title={t(ui.title)}
+      subtitle={t(ui.subtitle)}
+      paragraphs={[t(ui.lead)]}
+      family="experience"
+      role="spoke"
+      topic="educational-leave"
+      visualBreakpoint="lg"
+    >
+      <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={t(ui.updated)} note={t(ui.note)} />
+      <AmaraImage
+        slot="visual"
+        src={tarifaSurfClubTeamImage}
+        alt={t(ui.imageAlt)}
+        profile="hero"
+        width={1200}
+        widths={[480, 640, 800, 1200]}
+        sizes="(max-width: 1023px) 100vw, 36vw"
+        class="aspect-[3/2] w-full object-cover"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </LocationGuideHero>
+
+    <LocationModule id="placeholder-links" spacing="compact" data-am-topic="placeholder">
+      <div class="mx-auto flex max-w-screen-2xl flex-wrap gap-x-8 gap-y-3">
+        <a href={campHref} class="am-cta-link">{t(ui.campLink)}</a>
+        <AmaraActionLink href="https://worksurfbalance.com" variant="editorial" external class="inline-flex">{t(ui.providerLink)}</AmaraActionLink>
+      </div>
+    </LocationModule>
+
+    <KitePartnerLogoBand lang={currentLang} />
+  </article>
+</LocationAuthorityLayout>

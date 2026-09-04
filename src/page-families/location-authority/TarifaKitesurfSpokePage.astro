@@ -5,7 +5,8 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import KiteCoBrandingBand from '../../components/experience/KiteCoBrandingBand.astro';
+import KiteClusterNav, { type KiteClusterPageId } from '../../components/experience/KiteClusterNav.astro';
+import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import { tarifaKitesurfSpokeContent, type TarifaKitesurfSpokeId } from '../../content/tarifaKitesurfContent';
@@ -26,6 +27,7 @@ interface Props { spoke: TarifaKitesurfSpokeId; lang?: string; }
 
 const { spoke, lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const clusterPageId: KiteClusterPageId = ({ 'kite-school': 'school', kitecamp: 'camp', equipment: 'equipment' } as const)[spoke];
 const content = resolveLocale(tarifaKitesurfSpokeContent[spoke], currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf spoke');
 const aboutHref = requiredLink('about');
@@ -52,6 +54,8 @@ const footerHighlights: LabeledLink[] = [
   </Navigation>
 
   <article class="bg-surface" data-am-page={`tarifa-${content.id}`} data-am-family="experience" data-am-role="spoke" data-am-topic={content.id}>
+    <KiteClusterNav lang={currentLang} currentId={clusterPageId} />
+
     <LocationGuideHero
       eyebrow={content.hero.eyebrow}
       title={content.hero.title}
@@ -153,8 +157,6 @@ const footerHighlights: LabeledLink[] = [
       </LocationModule>
     )}
 
-    <KiteCoBrandingBand lang={currentLang} surface="white" />
-
     <LocationModule id="related" labelledby="related-title" surface="tint" spacing="compact" data-am-topic="related">
       <div class="mx-auto max-w-screen-2xl">
         <p class="am-text-eyebrow text-primary">{t(ui.relatedEyebrow)}</p>
@@ -181,5 +183,7 @@ const footerHighlights: LabeledLink[] = [
         </div>
       </div>
     </LocationModule>
+
+    <KitePartnerLogoBand lang={currentLang} />
   </article>
 </LocationAuthorityLayout>

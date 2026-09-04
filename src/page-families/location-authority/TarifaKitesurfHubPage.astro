@@ -8,15 +8,13 @@ import FaqAccordion from '../../components/FaqAccordion.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
+import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import { tarifaGuideContent, type LocalizedText, type TarifaTopicGuideContent } from '../../content/tarifaGuideContent';
-import { tarifaKitesurfSpokeContent, type TarifaKitesurfSpokeId } from '../../content/tarifaKitesurfContent';
-import { tarifaKitePartnerContent } from '../../content/tarifaKitePartnerContent';
-import { tarifaKitesurfSpotsContent } from '../../content/tarifaKitesurfSpotsContent';
-import { tarifaKitesurfWindContent } from '../../content/tarifaKitesurfWindContent';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { createRequiredLinkResolver, type LabeledLink, type LinkToken } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
@@ -28,10 +26,14 @@ import LocationModule from './LocationModule.astro';
  * card grid, one contact bar, the shared FAQ accordion, the compact source
  * list). Every band is a canonical section via LocationModule, so section
  * separators come from the central inset owner and never from page-local
- * border classes. Its text base is the wind topic of the Tarifa guide; one
- * decision-relevant phrase per paragraph is emphasised in the content with
- * **double asterisks**. The spokes and the knowledge pages hang off the four
- * entry cards; the partnership has its own page.
+ * border classes.
+ *
+ * Reading order follows the hub draft of 4 September 2026: first the feeling
+ * and the orientation (why Tarifa, a day here, learning, staying), then the two
+ * people behind it, safety once at the end, and three onward cards. Headings
+ * state the thing itself rather than announcing it. Its text base is the wind
+ * topic of the Tarifa guide; one decision-relevant phrase per paragraph is
+ * emphasised in the content with **double asterisks**.
  */
 interface Props { lang?: string; }
 
@@ -49,48 +51,50 @@ const contactHref = `https://wa.me/34604440964?text=${encodeURIComponent(t(partn
 const ui = {
   hubLabel: { en: 'Kitesurfing in Tarifa', de: 'Kitesurfen in Tarifa', es: 'Kitesurf en Tarifa', nl: 'Kitesurfen in Tarifa', sv: 'Kitesurfing i Tarifa' },
   heroImageAlt: { en: 'Kiteboard with foot pads lying in the sand in low evening light', de: 'Kiteboard mit Fußpads im Sand bei tiefstehender Sonne', es: 'Tabla de kite con pads sobre la arena con el sol bajo', nl: 'Kiteboard met voetpads in het zand bij laagstaande zon', sv: 'Kiteboard med fotpads i sanden i lågt kvällsljus' },
-  pathsEyebrow: { en: 'Your kite stay', de: 'Euer Kite-Aufenthalt', es: 'Vuestra estancia de kite', nl: 'Jullie kiteverblijf', sv: 'Er kitevistelse' },
-  pathsTitle: { en: 'Everything you need, clearly separated', de: 'Alles, was ihr braucht, klar gegliedert', es: 'Todo lo que necesitáis, bien ordenado', nl: 'Alles wat jullie nodig hebben, overzichtelijk', sv: 'Allt ni behöver, tydligt uppdelat' },
-  pathsIntro: { en: 'Four paths that belong together: **spots, wind, courses and gear**, and the partnership behind them. Each card leads to its own page.', de: 'Vier Wege, die zusammengehören: **Spots, Wind, Kurse und Material**, und die Partnerschaft dahinter. Jede Karte führt auf eine eigene Seite.', es: 'Cuatro caminos que van juntos: **spots, viento, cursos y material**, y la colaboración detrás. Cada tarjeta lleva a su propia página.', nl: 'Vier wegen die bij elkaar horen: **spots, wind, lessen en materiaal**, en het partnerschap erachter. Elke kaart leidt naar een eigen pagina.', sv: 'Fyra vägar som hör ihop: **spots, vind, kurser och utrustning**, och partnerskapet bakom. Varje kort leder till en egen sida.' },
-  spotsEyebrow: { en: 'Where you ride', de: 'Wo ihr fahrt', es: 'Dónde navegáis', nl: 'Waar jullie varen', sv: 'Var ni åker' },
-  windEyebrow: { en: 'Before the water', de: 'Vor dem Wasser', es: 'Antes del agua', nl: 'Vóór het water', sv: 'Före vattnet' },
-  schoolEyebrow: { en: 'Kite school in Tarifa', de: 'Kiteschule in Tarifa', es: 'Escuela de kite en Tarifa', nl: 'Kiteschool in Tarifa', sv: 'Kiteskola i Tarifa' },
-  schoolTitle: { en: 'Gear, rental and courses', de: 'Material, Leihen und Kurse', es: 'Material, alquiler y cursos', nl: 'Materiaal, huren en lessen', sv: 'Utrustning, hyra och kurser' },
-  schoolText: { en: 'Courses at Tarifa Surf Club with gear included, rental and shop for your own sessions, prices with their date.', de: 'Kurse beim Tarifa Surf Club mit Material inklusive, Verleih und Shop für eigene Sessions, Preise mit Stand.', es: 'Cursos en Tarifa Surf Club con material incluido, alquiler y tienda para vuestras propias sesiones, precios con fecha.', nl: 'Lessen bij Tarifa Surf Club met materiaal inbegrepen, verhuur en shop voor eigen sessies, prijzen met datum.', sv: 'Kurser hos Tarifa Surf Club med utrustning inkluderad, uthyrning och butik för egna sessioner, priser med datum.' },
+  pathsEyebrow: { en: 'Next', de: 'Weiter', es: 'Seguir', nl: 'Verder', sv: 'Vidare' },
+  pathsTitle: { en: 'Learning to kite, wind and spots, the partnership', de: 'Kiten lernen, Wind und Spots, die Partnerschaft', es: 'Aprender a navegar, viento y spots, la colaboración', nl: 'Leren kiten, wind en spots, het partnerschap', sv: 'Lära sig kita, vind och spots, partnerskapet' },
+  pathsIntro: { en: 'Three pages with what is only touched on here: **courses and prices with their date**, the two winds in detail, and how AMARA and the club work together.', de: 'Drei Seiten mit dem, was hier nur angerissen ist: **Kurse und Preise mit Stand**, die zwei Winde im Detail, und wie AMARA und der Club zusammenarbeiten.', es: 'Tres páginas con lo que aquí solo se apunta: **cursos y precios con fecha**, los dos vientos en detalle y cómo trabajamos AMARA y el club.', nl: 'Drie pagina’s met wat hier alleen wordt aangestipt: **lessen en prijzen met datum**, de twee winden in detail, en hoe AMARA en de club samenwerken.', sv: 'Tre sidor med det som bara snuddas vid här: **kurser och priser med datum**, de två vindarna i detalj, och hur AMARA och klubben arbetar ihop.' },
+  learnEyebrow: { en: 'Kite school, camp, gear', de: 'Kiteschule, Camp, Material', es: 'Escuela, camp, material', nl: 'Kiteschool, camp, materiaal', sv: 'Kiteskola, camp, utrustning' },
+  learnTitle: { en: 'Learn to kite with Tarifa Surf Club', de: 'Kiten lernen mit dem Tarifa Surf Club', es: 'Aprender kite con Tarifa Surf Club', nl: 'Leren kiten met Tarifa Surf Club', sv: 'Lär er kita med Tarifa Surf Club' },
+  learnText: { en: 'Courses for beginners and advanced riders, kitecamp in the off-season, gear to rent and buy, all prices with their date.', de: 'Kurse für Anfänger und Fortgeschrittene, Kitecamp in der Nebensaison, Material zum Leihen und Kaufen, alle Preise mit Stand.', es: 'Cursos para principiantes y avanzados, kitecamp en temporada baja, material de alquiler y venta, todos los precios con fecha.', nl: 'Lessen voor beginners en gevorderden, kitecamp in het laagseizoen, materiaal huren en kopen, alle prijzen met datum.', sv: 'Kurser för nybörjare och erfarna, kitecamp under lågsäsong, utrustning att hyra och köpa, alla priser med datum.' },
+  windEyebrow: { en: 'Levante, Poniente, the beaches', de: 'Levante, Poniente, die Strände', es: 'Levante, poniente, las playas', nl: 'Levante, poniente, de stranden', sv: 'Levante, poniente, stränderna' },
+  windTitle: { en: 'Wind, spots and today', de: 'Wind, Spots und heute', es: 'Viento, spots y hoy', nl: 'Wind, spots en vandaag', sv: 'Vind, spots och i dag' },
+  windText: { en: 'How to read a Windguru table, what Levante and Poniente mean on the beach, the spots, and today’s values with the official warnings.', de: 'Wie ihr eine Windguru-Tabelle lest, was Levante und Poniente am Strand bedeuten, die Spots, und die Werte von heute mit den amtlichen Warnungen.', es: 'Cómo leer una tabla de Windguru, qué significan levante y poniente en la playa, los spots y los valores de hoy con los avisos oficiales.', nl: 'Hoe je een Windguru-tabel leest, wat levante en poniente op het strand betekenen, de spots, en de waarden van vandaag met de officiële waarschuwingen.', sv: 'Hur ni läser en Windguru-tabell, vad levante och poniente betyder på stranden, spotsen, och dagens värden med de officiella varningarna.' },
   partnerCardEyebrow: { en: 'The partnership', de: 'Die Partnerschaft', es: 'La colaboración', nl: 'Het partnerschap', sv: 'Partnerskapet' },
-  readMore: { en: 'Explore this topic', de: 'Thema entdecken', es: 'Descubrir este tema', nl: 'Ontdek dit thema', sv: 'Upptäck ämnet' },
-  windsLink: { en: 'Wind, weather and safety in depth', de: 'Wind, Wetter und Sicherheit im Detail', es: 'Viento, tiempo y seguridad en detalle', nl: 'Wind, weer en veiligheid in detail', sv: 'Vind, väder och säkerhet i detalj' },
-  areasLink: { en: 'The kitesurf spots with map', de: 'Die Kitesurf-Spots mit Karte', es: 'Los spots de kitesurf con mapa', nl: 'De kitesurfspots met kaart', sv: 'Kitesurfspots med karta' },
-  checklistLink: { en: 'Today in Tarifa: warnings, briefing, Windguru', de: 'Heute in Tarifa: Warnungen, Briefing, Windguru', es: 'Hoy en Tarifa: avisos, briefing, Windguru', nl: 'Vandaag in Tarifa: waarschuwingen, briefing, Windguru', sv: 'I dag i Tarifa: varningar, briefing, Windguru' },
-  personalTitle: { en: 'Short lines between AMARA and the Surf Club', de: 'Kurze Wege zwischen AMARA und dem Surf Club', es: 'Comunicación directa entre AMARA y el Surf Club', nl: 'Korte lijnen tussen AMARA en de Surf Club', sv: 'Direkt kontakt mellan AMARA och Surf Club' },
+  partnerCardTitle: { en: 'AMARA × Tarifa Surf Club', de: 'AMARA × Tarifa Surf Club', es: 'AMARA × Tarifa Surf Club', nl: 'AMARA × Tarifa Surf Club', sv: 'AMARA × Tarifa Surf Club' },
+  partnerCardText: { en: 'Who does what, three ways to book, and both partners’ places to stay by name.', de: 'Wer was macht, drei Wege zu buchen, und die Unterkünfte beider Partner mit Namen.', es: 'Quién hace qué, tres formas de reservar y los alojamientos de los dos socios con nombre.', nl: 'Wie wat doet, drie manieren om te boeken, en de verblijven van beide partners bij naam.', sv: 'Vem som gör vad, tre sätt att boka, och båda partnernas boenden med namn.' },
+  readMore: { en: 'Read on', de: 'Weiterlesen', es: 'Seguir leyendo', nl: 'Verder lezen', sv: 'Läs vidare' },
   partnerPageLink: { en: 'The partnership in detail', de: 'Die Partnerschaft im Detail', es: 'La colaboración en detalle', nl: 'Het partnerschap in detail', sv: 'Partnerskapet i detalj' },
   faqTitle: { en: 'Practical questions', de: 'Praktische Fragen', es: 'Preguntas prácticas', nl: 'Praktische vragen', sv: 'Praktiska frågor' },
   sourcesEyebrow: { en: 'Editorial transparency', de: 'Redaktionelle Transparenz', es: 'Transparencia editorial', nl: 'Redactionele transparantie', sv: 'Redaktionell transparens' },
   sourcesTitle: { en: 'Sources for this guide', de: 'Quellen dieses Guides', es: 'Fuentes de esta guía', nl: 'Bronnen van deze gids', sv: 'Källor till den här guiden' },
   sourcesText: { en: 'Official rules, the municipal beach plan and the partner school. Signs, buoys and current orders on site take priority.', de: 'Amtliche Regeln, der kommunale Strandplan und die Partnerschule. Beschilderung, Bojen und aktuelle Anordnungen vor Ort gehen vor.', es: 'Normas oficiales, el plan municipal de playas y la escuela asociada. La señalización, las boyas y las órdenes vigentes sobre el terreno tienen prioridad.', nl: 'Officiële regels, het gemeentelijke strandplan en de partnerschool. Borden, boeien en actuele aanwijzingen ter plaatse gaan voor.', sv: 'Officiella regler, kommunens strandplan och partnerskolan. Skyltar, bojar och aktuella anvisningar på plats gäller först.' },
-  propertyLabel: { en: 'View AMARA Family & Surf', de: 'AMARA Family & Surf ansehen', es: 'Ver AMARA Family & Surf', nl: 'Bekijk AMARA Family & Surf', sv: 'Visa AMARA Family & Surf' }
+  bridgeTitle: { en: 'The apartment with a view of Los Lances', de: 'Die Wohnung mit Blick auf Los Lances', es: 'El apartamento con vistas a Los Lances', nl: 'Het appartement met uitzicht op Los Lances', sv: 'Lägenheten med utsikt över Los Lances' },
+  bridgeReason: { en: 'When the wind comes, you see it from the terrace. The beach is a walk below you, car and boards are in the underground garage, and we cover the deposit for rental gear with the club.', de: 'Wenn der Wind kommt, seht ihr es von der Terrasse. Der Strand liegt zu Fuß unter euch, Auto und Boards stehen in der Tiefgarage, und die Kaution fürs Leihmaterial übernehmen wir beim Club.', es: 'Cuando entra el viento, lo veis desde la terraza. La playa está a un paseo, coche y tablas quedan en el garaje, y la fianza del material de alquiler la cubrimos nosotros con el club.', nl: 'Als de wind komt, zien jullie het vanaf het terras. Het strand ligt op loopafstand onder jullie, auto en boards staan in de garage, en de borg voor huurmateriaal nemen wij bij de club voor onze rekening.', sv: 'När vinden kommer ser ni det från terrassen. Stranden ligger en promenad nedanför er, bil och brädor står i garaget, och depositionen för hyrutrustning står vi för hos klubben.' },
+  propertyLabel: { en: 'View AMARA Family & Surf', de: 'AMARA Family & Surf ansehen', es: 'Ver AMARA Family & Surf', nl: 'Bekijk AMARA Family & Surf', sv: 'Visa AMARA Family & Surf' },
+  footerArrival: { en: 'Getting to Tarifa', de: 'Anreise nach Tarifa', es: 'Cómo llegar a Tarifa', nl: 'Naar Tarifa reizen', sv: 'Resa till Tarifa' },
+  footerStays: { en: 'Places to stay in Tarifa', de: 'Unterkünfte in Tarifa', es: 'Dónde alojarse en Tarifa', nl: 'Verblijven in Tarifa', sv: 'Boenden i Tarifa' },
+  footerBeaches: { en: 'Tarifa’s beaches', de: 'Strände von Tarifa', es: 'Playas de Tarifa', nl: 'Stranden van Tarifa', sv: 'Tarifas stränder' },
+  footerTown: { en: 'Tarifa, the town', de: 'Tarifa, der Ort', es: 'Tarifa, el pueblo', nl: 'Tarifa, de stad', sv: 'Tarifa, staden' },
+  footerSpots: { en: 'Kitesurf spots', de: 'Kitesurf-Spots', es: 'Spots de kitesurf', nl: 'Kitesurfspots', sv: 'Kitesurfspots' }
 } satisfies Record<string, LocalizedText>;
 
 const cards = [
-  { id: 'spots', href: requiredLink('tarifa_kitesurf_spots'), eyebrow: t(ui.spotsEyebrow), title: t(tarifaKitesurfSpotsContent.hero.headline), text: t(tarifaKitesurfSpotsContent.hero.subtitle) },
-  { id: 'wind', href: requiredLink('tarifa_wind_kitesurfing_authority'), eyebrow: t(ui.windEyebrow), title: t(tarifaKitesurfWindContent.hero.title), text: t(tarifaKitesurfWindContent.hero.subtitle) },
-  { id: 'school', href: requiredLink(tarifaKitesurfSpokeContent['kite-school'].token), eyebrow: t(ui.schoolEyebrow), title: t(ui.schoolTitle), text: t(ui.schoolText) },
-  { id: 'partner', href: partnerHref, eyebrow: t(ui.partnerCardEyebrow), title: t(tarifaKitePartnerContent.navLabel), text: t(tarifaKitePartnerContent.hero.subtitle) }
+  { id: 'learn', href: requiredLink('tarifa_kite_school'), eyebrow: t(ui.learnEyebrow), title: t(ui.learnTitle), text: t(ui.learnText) },
+  { id: 'wind', href: requiredLink('tarifa_wind_kitesurfing_authority'), eyebrow: t(ui.windEyebrow), title: t(ui.windTitle), text: t(ui.windText) },
+  { id: 'partner', href: partnerHref, eyebrow: t(ui.partnerCardEyebrow), title: t(ui.partnerCardTitle), text: t(ui.partnerCardText) }
 ];
-
-const sectionLinks: Record<string, { token: LinkToken; label: LocalizedText } | undefined> = {
-  winds: { token: 'tarifa_wind_kitesurfing_authority', label: ui.windsLink },
-  areas: { token: 'tarifa_kitesurf_spots', label: ui.areasLink },
-  checklist: { token: 'tarifa_kitesurf_forecast', label: ui.checklistLink }
-};
 
 const faqItems = content.faq.map((item) => ({ question: t(item.question), answer: t(item.answer) }));
 const sourceItems = content.sources.map((source) => ({ label: t(source.label), href: source.href }));
 
-const spokeOrder: TarifaKitesurfSpokeId[] = ['kite-school', 'kitecamp', 'equipment'];
 const footerHighlights: LabeledLink[] = [
-  { token: 'tarifa_kitesurfing_hub', label: t(ui.hubLabel) },
-  ...spokeOrder.map((id) => ({ token: tarifaKitesurfSpokeContent[id].token, label: t(tarifaKitesurfSpokeContent[id].navLabel) }))
+  { token: 'getting_to_tarifa', label: t(ui.footerArrival) },
+  { token: 'tarifa_where_to_stay', label: t(ui.footerStays) },
+  { token: 'tarifa_beaches_authority', label: t(ui.footerBeaches) },
+  { token: 'location_tarifa', label: t(ui.footerTown) },
+  { token: 'tarifa_kitesurf_spots', label: t(ui.footerSpots) },
+  { token: 'book', label: experienceStayBridge.availabilityLabel[currentLang] }
 ];
 ---
 
@@ -100,11 +104,14 @@ const footerHighlights: LabeledLink[] = [
   </Navigation>
 
   <article class="bg-surface" data-am-page="tarifa-kitesurf-hub" data-am-family="experience" data-am-role="hub" data-am-topic="kitesurfing">
+    <KiteClusterNav lang={currentLang} currentId="hub" />
+
     <LocationExperienceHero
       eyebrow={t(content.hero.eyebrow)}
       title={t(content.hero.title)}
       subtitle={t(content.hero.subtitle!)}
       paragraphs={[t(content.hero.lead)]}
+      accent={content.hero.accent ? t(content.hero.accent) : undefined}
       imageSrc={kiteBoardImage}
       imageAlt={t(ui.heroImageAlt)}
       imageWidth={1200}
@@ -124,31 +131,10 @@ const footerHighlights: LabeledLink[] = [
       </dl>
     </LocationModule>
 
-    <LocationModule id="kite-paths" labelledby="kite-paths-title" data-am-topic="paths">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
-          <div class="max-w-xl">
-            <p class="text-primary am-text-label am-text-label--wide">{t(ui.pathsEyebrow)}</p>
-            <h2 id="kite-paths-title" class="am-text-title mt-5 text-balance text-on-surface">{t(ui.pathsTitle)}</h2>
-            <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(ui.pathsIntro)} /></p>
-          </div>
-          <div class="grid gap-5 sm:grid-cols-2">
-            {cards.map((card) => (
-              <AmaraActionLink href={card.href} variant="card" class="group flex min-h-full flex-col border-t border-border-subtle bg-surface-container-low px-5 pb-7 pt-6 transition-colors hover:bg-surface-container-lowest">
-                <span class="text-primary am-text-label am-text-label--sm">{card.eyebrow}</span>
-                <h3 class="am-text-subtitle mt-4 text-on-surface transition-colors group-hover:text-primary">{card.title}</h3>
-                <span class="am-text-body mt-4 block flex-1 leading-relaxed text-on-surface-variant">{card.text}</span>
-                <span class="mt-7 inline-flex items-center text-primary am-text-label am-text-label--sm">{t(ui.readMore)}<span aria-hidden="true" class="ml-2 transition-transform group-hover:translate-x-1">→</span></span>
-              </AmaraActionLink>
-            ))}
-          </div>
-        </div>
-      </div>
-    </LocationModule>
-
     {content.sections.map((section, index) => {
-      const link = sectionLinks[section.id];
-      const tint = index % 2 === 0;
+      const tint = index % 2 === 1;
+      const paragraphs = section.paragraphs ?? [];
+      const sectionCards = section.cards ?? [];
       return (
         <LocationModule id={section.id} labelledby={`${section.id}-title`} surface={tint ? 'tint' : 'white'} data-am-topic={section.id}>
           <div class="mx-auto max-w-screen-2xl">
@@ -157,32 +143,29 @@ const footerHighlights: LabeledLink[] = [
                 <p class="text-primary am-text-label am-text-label--wide">{t(section.eyebrow)}</p>
                 <h2 id={`${section.id}-title`} class="am-text-title mt-5 text-balance text-on-surface">{t(section.title)}</h2>
                 <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(section.intro)} /></p>
-                {link && <a href={requiredLink(link.token)} class="am-cta-link mt-7 inline-flex">{t(link.label)}</a>}
               </div>
-              <div class="grid gap-5 sm:grid-cols-2">
-                {section.cards.map((card) => (
-                  <section class:list={['border-t border-border-subtle px-5 pb-7 pt-6', tint ? 'bg-surface/70' : 'bg-surface-container-low/60']}>
-                    <p class="text-primary am-text-label am-text-label--sm">{t(card.kicker)}</p>
-                    <h3 class="am-text-subtitle mt-4 text-on-surface">{t(card.title)}</h3>
-                    <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(card.text)} /></p>
-                  </section>
-                ))}
-              </div>
+              {paragraphs.length > 0 ? (
+                <div class="max-w-3xl space-y-6 lg:pt-1">
+                  {paragraphs.map((paragraph) => (
+                    <p class="am-text-body leading-relaxed text-on-surface"><InlineEmphasis text={t(paragraph)} /></p>
+                  ))}
+                </div>
+              ) : (
+                <div class="grid gap-5 sm:grid-cols-2">
+                  {sectionCards.map((card) => (
+                    <section class:list={['border-t border-border-subtle px-5 pb-7 pt-6', tint ? 'bg-surface/70' : 'bg-surface-container-low/60']}>
+                      <p class="text-primary am-text-label am-text-label--sm">{t(card.kicker)}</p>
+                      <h3 class="am-text-subtitle mt-4 text-on-surface">{t(card.title)}</h3>
+                      <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(card.text)} /></p>
+                    </section>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </LocationModule>
       );
     })}
-
-    <LocationModule surface="inverse" spacing="compact" labelledby="safety-notice-title" data-am-topic="safety-notice">
-      <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
-        <p class="text-primary-fixed-dim am-text-label am-text-label--wide">{t(content.notice.eyebrow)}</p>
-        <div>
-          <h2 id="safety-notice-title" class="am-text-title text-balance text-inverted-on-surface">{t(content.notice.title)}</h2>
-          <p class="am-text-body mt-6 max-w-4xl leading-relaxed text-inverted-on-surface/75"><InlineEmphasis text={t(content.notice.text)} /></p>
-        </div>
-      </div>
-    </LocationModule>
 
     <LocationModule id="partnership" labelledby="partnership-title" data-am-topic="partnership">
       <div class="mx-auto max-w-screen-2xl">
@@ -192,7 +175,7 @@ const footerHighlights: LabeledLink[] = [
               <AmaraImage src="/images/tarifa/tarifa-surf-club-logo.webp" alt="Tarifa Surf Club" profile="card" class="h-20 w-20 object-contain md:h-24 md:w-24" width={192} widths={[96, 192]} sizes="96px" />
               <p class="text-primary am-text-label am-text-label--wide">{t(partnership.eyebrow)}</p>
             </div>
-            <h2 id="partnership-title" class="am-text-title mt-8 max-w-3xl text-balance text-on-surface">{t(ui.personalTitle)}</h2>
+            <h2 id="partnership-title" class="am-text-title mt-8 max-w-3xl text-balance text-on-surface">{t(partnership.title)}</h2>
             <p class="am-text-body mt-7 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(partnership.intro)} /></p>
             <p class="am-text-body mt-6 max-w-3xl border-l border-primary/35 pl-5 leading-relaxed text-on-surface"><InlineEmphasis text={t(partnership.personalNote)} /></p>
             <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3">
@@ -212,18 +195,56 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </LocationModule>
 
+    <LocationModule surface="inverse" spacing="compact" labelledby="safety-notice-title" data-am-topic="safety-notice">
+      <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
+        <p class="text-primary-fixed-dim am-text-label am-text-label--wide">{t(content.notice.eyebrow)}</p>
+        <div>
+          <h2 id="safety-notice-title" class="am-text-title text-balance text-inverted-on-surface">{t(content.notice.title)}</h2>
+          <p class="am-text-body mt-6 max-w-4xl leading-relaxed text-inverted-on-surface/75"><InlineEmphasis text={t(content.notice.text)} /></p>
+        </div>
+      </div>
+    </LocationModule>
+
+    <LocationModule id="kite-paths" labelledby="kite-paths-title" data-am-topic="paths">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+          <div class="max-w-xl">
+            <p class="text-primary am-text-label am-text-label--wide">{t(ui.pathsEyebrow)}</p>
+            <h2 id="kite-paths-title" class="am-text-title mt-5 text-balance text-on-surface">{t(ui.pathsTitle)}</h2>
+            <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(ui.pathsIntro)} /></p>
+          </div>
+          <div class="grid gap-5">
+            {cards.map((card) => (
+              <AmaraActionLink href={card.href} variant="card" class="group flex flex-col border-t border-border-subtle bg-surface-container-low px-5 pb-7 pt-6 transition-colors hover:bg-surface-container-lowest md:grid md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:gap-x-10">
+                <div>
+                  <span class="text-primary am-text-label am-text-label--sm">{card.eyebrow}</span>
+                  <h3 class="am-text-subtitle mt-4 text-on-surface transition-colors group-hover:text-primary">{card.title}</h3>
+                </div>
+                <div class="flex flex-col">
+                  <span class="am-text-body mt-4 block flex-1 leading-relaxed text-on-surface-variant md:mt-0">{card.text}</span>
+                  <span class="mt-7 inline-flex items-center text-primary am-text-label am-text-label--sm md:mt-5">{t(ui.readMore)}<span aria-hidden="true" class="ml-2 transition-transform group-hover:translate-x-1">→</span></span>
+                </div>
+              </AmaraActionLink>
+            ))}
+          </div>
+        </div>
+      </div>
+    </LocationModule>
+
     <FaqAccordion layout="single" faqTitle={t(ui.faqTitle)} items={faqItems} anchorFaqId="faq" data-am-topic="faq" />
 
     <EditorialSources eyebrow={t(ui.sourcesEyebrow)} title={t(ui.sourcesTitle)} updated={t(content.hero.updated)} text={t(ui.sourcesText)} items={sourceItems} data-am-topic="sources" />
 
     <AuthorityStayBridge
-      eyebrow={t(partnership.eyebrow)}
-      title={t(partnership.title)}
-      reason={t(partnership.intro).replace(/\*\*/g, '')}
+      eyebrow={experienceStayBridge.eyebrow[currentLang]}
+      title={t(ui.bridgeTitle)}
+      reason={t(ui.bridgeReason)}
       stayHref={propertyHref}
       stayLabel={t(ui.propertyLabel)}
       availabilityHref={requiredLink('book')}
       availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
     />
+
+    <KitePartnerLogoBand lang={currentLang} />
   </article>
 </LocationAuthorityLayout>

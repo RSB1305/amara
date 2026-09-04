@@ -6,11 +6,15 @@ import {
   normalizeAemetDailyForecast
 } from '../../weather-gateway/aemet-forecast.mjs';
 import {
+  AemetKiteError,
+  buildKiteBriefing,
   createKiteBriefingRoute,
   fetchKiteBriefing,
-  normalizeKiteBriefing,
-  OpenMeteoGatewayError
-} from '../../weather-gateway/open-meteo-kite.mjs';
+  localHourIso,
+  normalizeBeachForecast,
+  normalizeHourlyForecast,
+  skyCategory
+} from '../../weather-gateway/aemet-kite.mjs';
 import {
   createZoneWarningsRoute,
   extractCapDocuments,
@@ -207,181 +211,239 @@ test('the normalizer still fails when no day is usable', () => {
 });
 
 /* ---------------------------------------------------------------------------
- * Open-Meteo kite briefing gateway
+ * AEMET kite briefing gateway
  * ------------------------------------------------------------------------- */
 
-const OPEN_METEO_SECRET = 'unit-test-open-meteo-key-must-not-leak';
-const times = ['2026-09-03T13:00', '2026-09-03T14:00', '2026-09-03T15:00'];
+const KITE_SECRET = 'unit-test-aemet-kite-key-must-not-leak';
 
-const forecastHourly = {
-  latitude: 36.0625,
-  longitude: -5.625,
-  generationtime_ms: 0.4,
-  utc_offset_seconds: 7200,
-  timezone: 'Europe/Madrid',
-  hourly_units: { wind_speed_10m: 'kn' },
-  hourly: {
-    time: times,
-    wind_speed_10m: [16.2, 18.4, 20.1],
-    wind_direction_10m: [265, 270, 272],
-    wind_gusts_10m: [22.0, 26.3, 29.9],
-    cloud_cover: [10, 20, 30],
-    cloud_cover_low: [5, 10, 15],
-    cloud_cover_mid: [5, 5, 10],
-    cloud_cover_high: [0, 5, 5],
-    shortwave_radiation: [650.5, 700.2, 640.0]
+type HourSpec = { h: string; t: string; sky: string; wind: [string, string]; gust?: string; rain?: string };
+
+const hourlyDay = (fecha: string, hours: HourSpec[]) => ({
+  fecha,
+  orto: '07:56',
+  ocaso: '20:46',
+  estadoCielo: hours.map((hour) => ({ value: hour.sky, periodo: hour.h, descripcion: 'x' })),
+  precipitacion: hours.map((hour) => ({ value: hour.rain ?? '0', periodo: hour.h })),
+  probPrecipitacion: [
+    { value: '', periodo: '0107' },
+    { value: '5', periodo: '0713' },
+    { value: '40', periodo: '1319' },
+    { value: '10', periodo: '1901' }
+  ],
+  temperatura: hours.map((hour) => ({ value: hour.t, periodo: hour.h })),
+  vientoAndRachaMax: hours.flatMap((hour) =>
+    hour.gust
+      ? [{ direccion: [hour.wind[0]], velocidad: [hour.wind[1]], periodo: hour.h }, { value: hour.gust, periodo: hour.h }]
+      : [{ direccion: [hour.wind[0]], velocidad: [hour.wind[1]], periodo: hour.h }]
+  )
+});
+
+const hourlyPayload = [{
+  elaborado: '2026-09-04T09:12:00',
+  nombre: 'Tarifa',
+  prediccion: {
+    dia: [
+      hourlyDay('2026-09-04T00:00:00', [
+        { h: '13', t: '26', sky: '12', wind: ['E', '35'], gust: '50' },
+        { h: '14', t: '27', sky: '12', wind: ['E', '37'], gust: '54' },
+        { h: '15', t: '27', sky: '13', wind: ['E', '40'], gust: '56', rain: '0.2' },
+        { h: '16', t: '26', sky: '13', wind: ['C', '2'] }
+      ]),
+      hourlyDay('2026-09-05T00:00:00', [
+        { h: '12', t: '25', sky: '11', wind: ['O', '22'], gust: '35' },
+        { h: '15', t: '26', sky: '11', wind: ['O', '30'], gust: '44' },
+        { h: '18', t: '25', sky: '12', wind: ['SO', '26'], gust: '40' }
+      ])
+    ]
   }
-};
+}];
 
-const marineHourly = {
-  latitude: 36.05,
-  longitude: -5.65,
-  generationtime_ms: 0.2,
-  utc_offset_seconds: 7200,
-  timezone: 'Europe/Madrid',
-  hourly: {
-    time: times,
-    wave_height: [1.1, 1.2, 1.3],
-    wave_direction: [250, 255, 260],
-    wave_period: [6.5, 7.0, 7.2],
-    wind_wave_height: [0.8, 0.9, 1.0],
-    wind_wave_direction: [265, 268, 270],
-    wind_wave_period: [5.0, 5.5, 5.8],
-    swell_wave_height: [0.6, 0.6, 0.5],
-    swell_wave_direction: [230, 232, 235],
-    swell_wave_period: [9.0, 9.2, 9.1],
-    secondary_swell_wave_height: [null, 0.2, 0.2],
-    secondary_swell_wave_direction: [null, 300, 300],
-    secondary_swell_wave_period: [null, 12.0, 12.0]
+const beachPayload = [{
+  elaborado: '2026-09-04T08:00:00',
+  nombre: 'Los Lances',
+  prediccion: {
+    dia: [
+      {
+        fecha: 20260904,
+        estadoCielo: { f1: 110, descripcion1: 'Despejado', f2: 120, descripcion2: 'Poco nuboso' },
+        viento: { f1: 2, descripcion1: 'Moderado', f2: 3, descripcion2: 'Fuerte' },
+        oleaje: { f1: 1, descripcion1: 'Débil', f2: 2, descripcion2: 'Moderado' },
+        tMaxima: { valor1: 27 },
+        sTermica: { valor1: 2, descripcion1: 'Calor moderado' },
+        tAgua: { valor1: 21 },
+        uvMax: { valor1: 7 }
+      }
+    ]
   }
-};
+}];
 
-test('the kite briefing asks two customer endpoints for explicit models and aligns them by hour', async () => {
-  const sequence = fetchSequence(jsonResponse(forecastHourly), jsonResponse(marineHourly));
-  const { briefing, marineError } = await fetchKiteBriefing({
-    apiKey: OPEN_METEO_SECRET,
-    site: 'tarifa',
+const aemetEnvelope = (datos: string) =>
+  jsonResponse({ descripcion: 'exito', estado: 200, datos, metadata: 'https://opendata.aemet.es/opendata/sh/meta' });
+
+const HOURLY_DATA_URL = 'https://opendata.aemet.es/opendata/sh/hourly-tarifa';
+const BEACH_DATA_URL = 'https://opendata.aemet.es/opendata/sh/beach-los-lances';
+
+test('the hourly normalizer converts AEMET km/h to knots, aligns gusts by hour and keeps missing gusts missing', () => {
+  const hourly = normalizeHourlyForecast(hourlyPayload, 'tarifa');
+
+  expect(hourly.issuedAt).toBe('2026-09-04T09:12:00');
+  expect(hourly.days.map((day) => day.date)).toEqual(['2026-09-04', '2026-09-05']);
+  expect(hourly.days[0]).toMatchObject({ sunrise: '07:56', sunset: '20:46' });
+  expect(hourly.hours).toHaveLength(7);
+
+  const first = hourly.hours[0];
+  expect(first.time).toBe('2026-09-04T13:00:00+02:00');
+  expect(first.wind).toEqual({ speed: 18.9, directionCode: 'E', direction: 90, gusts: 27 });
+  expect(first.temperature).toBe(26);
+  expect(first.sky).toEqual({ code: '12', category: 'fewClouds', night: false });
+  expect(first.precipitation).toBe(0);
+  expect(first.precipitationProbability).toBe(40);
+
+  expect(hourly.hours[2].sky.category).toBe('intervals');
+  expect(hourly.hours[2].precipitation).toBe(0.2);
+
+  const calm = hourly.hours[3];
+  expect(calm.wind.directionCode).toBe('C');
+  expect(calm.wind.direction).toBeNull();
+  expect(calm.wind.gusts).toBeNull();
+
+  expect(hourly.hours[4].time).toBe('2026-09-05T12:00:00+02:00');
+  expect(hourly.hours[6].wind).toMatchObject({ directionCode: 'SO', direction: 225 });
+});
+
+test('the sky codes map to the authored categories, night suffix included', () => {
+  expect(skyCategory('11')).toBe('clear');
+  expect(skyCategory('16n')).toBe('overcast');
+  expect(skyCategory('26')).toBe('rain');
+  expect(skyCategory('46n')).toBe('lightRain');
+  expect(skyCategory('54')).toBe('thunder');
+  expect(skyCategory('72')).toBe('snow');
+  expect(skyCategory('81')).toBe('fog');
+  expect(skyCategory('')).toBe('unknown');
+  expect(localHourIso('2026-01-15', 9, 'Europe/Madrid')).toBe('2026-01-15T09:00:00+01:00');
+});
+
+test('the beach normalizer reads sea state and water temperature and tolerates gaps', () => {
+  const beach = normalizeBeachForecast(beachPayload);
+  expect(beach.beachName).toBe('Los Lances');
+  expect(beach.days[0]).toEqual({
+    date: '2026-09-04',
+    wave: { morning: 'weak', afternoon: 'moderate' },
+    waterTemperature: 21,
+    temperatureMax: 27,
+    uvMax: 7
+  });
+
+  const sparse = normalizeBeachForecast([{
+    prediccion: { dia: [{ fecha: '20260905', oleaje: { descripcion1: 'Fuerte', descripcion2: 'Moderado' } }] }
+  }]);
+  expect(sparse.days[0]).toEqual({
+    date: '2026-09-05',
+    wave: { morning: 'strong', afternoon: 'moderate' },
+    waterTemperature: null,
+    temperatureMax: null,
+    uvMax: null
+  });
+});
+
+test('the kite briefing downloads both AEMET products in two steps and combines them', async () => {
+  const sequence = fetchSequence(
+    aemetEnvelope(HOURLY_DATA_URL),
+    jsonResponse(hourlyPayload),
+    aemetEnvelope(BEACH_DATA_URL),
+    jsonResponse(beachPayload)
+  );
+  const { briefing, beachError } = await fetchKiteBriefing({
+    apiKey: KITE_SECRET,
     fetchImpl: sequence.fetchImpl,
-    now: () => new Date('2026-09-03T12:02:00Z')
+    now: () => new Date('2026-09-04T11:30:00Z')
   });
 
-  expect(marineError).toBeNull();
-  expect(sequence.urls).toHaveLength(2);
-  const forecastUrl = new URL(sequence.urls[0]);
-  const marineUrl = new URL(sequence.urls[1]);
-  expect(forecastUrl.host).toBe('customer-api.open-meteo.com');
-  expect(marineUrl.host).toBe('customer-marine-api.open-meteo.com');
-  expect(forecastUrl.searchParams.get('apikey')).toBe(OPEN_METEO_SECRET);
-  expect(forecastUrl.searchParams.get('models')).toBe('icon_eu');
-  expect(forecastUrl.searchParams.get('wind_speed_unit')).toBe('kn');
-  expect(forecastUrl.searchParams.get('timezone')).toBe('Europe/Madrid');
-  expect(marineUrl.searchParams.get('models')).toBe('dwd_ewam');
-  expect(forecastUrl.searchParams.get('models')).not.toBe('best_match');
+  expect(sequence.urls).toHaveLength(4);
+  const hourlyRequest = new URL(sequence.urls[0]);
+  expect(hourlyRequest.host).toBe('opendata.aemet.es');
+  expect(hourlyRequest.pathname).toContain('/prediccion/especifica/municipio/horaria/11035');
+  expect(hourlyRequest.searchParams.get('api_key')).toBe(KITE_SECRET);
+  expect(sequence.urls[1]).toBe(HOURLY_DATA_URL);
+  expect(new URL(sequence.urls[2]).pathname).toContain('/prediccion/especifica/playa/1103506');
+  expect(sequence.urls[3]).toBe(BEACH_DATA_URL);
 
-  expect(briefing.source.provider).toBe('Open-Meteo');
-  expect(briefing.source.requestedAt).toBe('2026-09-03T12:02:00.000Z');
-  expect(briefing.source.validFrom).toBe('2026-09-03T13:00+02:00');
-  expect(briefing.source.validTo).toBe('2026-09-03T15:00+02:00');
-  expect(briefing.source.forecast).toMatchObject({
-    status: 'ok',
-    configuredModel: 'icon_eu',
-    originalSource: 'DWD',
-    requested: { latitude: 36.03, longitude: -5.63 },
-    grid: { latitude: 36.0625, longitude: -5.625 }
-  });
-  expect(briefing.source.forecast.gridOffsetKm).toBeGreaterThan(3);
-  expect(briefing.source.forecast.gridOffsetKm).toBeLessThan(4);
-  expect(briefing.source.marine).toMatchObject({ status: 'ok', configuredModel: 'dwd_ewam', originalSource: 'DWD' });
-  expect(briefing.source).not.toHaveProperty('generationTimeMs');
-
-  expect(briefing.hours).toHaveLength(3);
-  expect(briefing.hours[1]).toEqual({
-    time: '2026-09-03T14:00+02:00',
-    wind: { speed: 18.4, direction: 270, gusts: 26.3 },
-    cloud: { total: 20, low: 10, mid: 5, high: 5 },
-    radiation: 700.2,
-    wave: { height: 1.2, direction: 255, period: 7.0 },
-    windWave: { height: 0.9, direction: 268, period: 5.5 },
-    swell: { height: 0.6, direction: 232, period: 9.2 },
-    secondarySwell: { height: 0.2, direction: 300, period: 12.0 }
-  });
-  expect(briefing.hours[0].secondarySwell).toEqual({ height: null, direction: null, period: null });
+  expect(beachError).toBeNull();
+  expect(briefing.site).toBe('tarifa');
+  expect(briefing.source.provider).toBe('AEMET');
+  expect(briefing.source.requestedAt).toBe('2026-09-04T11:30:00.000Z');
+  expect(briefing.source.hourly).toMatchObject({ status: 'ok', issuedAt: '2026-09-04T09:12:00', validFrom: '2026-09-04T13:00:00+02:00' });
+  expect(briefing.source.beach.status).toBe('ok');
+  expect(briefing.beach?.[0].waterTemperature).toBe(21);
+  expect(briefing.days[0].sunset).toBe('20:46');
+  expect(briefing.hours[0].wind.speed).toBe(18.9);
 });
 
-test('a failing wave model leaves the wind briefing intact and says the sea state is unavailable', async () => {
-  const sequence = fetchSequence(jsonResponse(forecastHourly), jsonResponse({ error: true, reason: 'boom' }, 500));
-  const { briefing, marineError } = await fetchKiteBriefing({ apiKey: OPEN_METEO_SECRET, fetchImpl: sequence.fetchImpl });
+test('a failing beach product leaves the wind briefing intact and says the sea state is unavailable', async () => {
+  const sequence = fetchSequence(aemetEnvelope(HOURLY_DATA_URL), jsonResponse(hourlyPayload), new Error('beach down'));
+  const { briefing, beachError } = await fetchKiteBriefing({ apiKey: KITE_SECRET, fetchImpl: sequence.fetchImpl });
 
-  expect(marineError).toBeInstanceOf(OpenMeteoGatewayError);
-  expect(briefing.source.marine).toMatchObject({ status: 'unavailable', configuredModel: 'dwd_ewam' });
-  expect(briefing.hours[0].wind.speed).toBe(16.2);
-  expect(briefing.hours[0].wave).toEqual({ height: null, direction: null, period: null });
+  expect(beachError).toBeInstanceOf(Error);
+  expect(briefing.beach).toBeNull();
+  expect(briefing.source.beach.status).toBe('unavailable');
+  expect(briefing.hours).toHaveLength(7);
 });
 
-test('the kite briefing rejects a forecast payload whose hourly arrays do not line up', () => {
-  const broken = { ...forecastHourly, hourly: { ...forecastHourly.hourly, wind_gusts_10m: [22.0] } };
-  expect(() => normalizeKiteBriefing({ forecastPayload: broken, marinePayload: null, site: 'tarifa', requestedAt: 'x' })).toThrow(OpenMeteoGatewayError);
+test('the kite briefing rejects a data URL outside AEMET and a payload without hours', async () => {
+  const sequence = fetchSequence(aemetEnvelope('https://evil.example/hourly'));
+  await expect(fetchKiteBriefing({ apiKey: KITE_SECRET, fetchImpl: sequence.fetchImpl })).rejects.toBeInstanceOf(AemetKiteError);
+  expect(() => buildKiteBriefing({ hourlyPayload: [{ prediccion: { dia: [] } }], beachPayload: null, site: 'tarifa', requestedAt: 'x' })).toThrow(AemetKiteError);
 });
 
-test('the kite briefing route keeps the Open-Meteo key and provider details out of public failures', async () => {
-  const sequence = fetchSequence(jsonResponse({ error: true, reason: 'Invalid API key' }, 401));
-  const logs: string[] = [];
-  const originalConsoleError = console.error;
-  console.error = (message) => logs.push(String(message));
-
+test('the kite briefing route keeps the AEMET key and provider details out of public failures', async () => {
+  const sequence = fetchSequence(new Response('upstream broke', { status: 500 }));
+  const errors: string[] = [];
+  const originalError = console.error;
+  console.error = (message: unknown) => { errors.push(String(message)); };
   try {
     const response = await createKiteBriefingRoute({ fetchImpl: sequence.fetchImpl })({
-      request: new Request('https://amara.test/api/weather/tarifa-kite'),
-      env: { OPEN_METEO_API_KEY: OPEN_METEO_SECRET }
+      request: new Request('https://amara-lodging.es/api/weather/tarifa-kite'),
+      env: { AEMET_API_KEY: KITE_SECRET }
     });
     expect(response.status).toBe(503);
-    expect(response.headers.get('cache-control')).toBe('no-store');
-    expect(await response.json()).toEqual({
-      error: { code: 'kite_briefing_unavailable', message: 'The kite briefing is temporarily unavailable.' }
-    });
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+    const body = await response.text();
+    expect(body).toContain('kite_briefing_unavailable');
+    expect(body).not.toContain(KITE_SECRET);
+    expect(body).not.toContain('upstream broke');
+    expect(errors.join('\n')).not.toContain(KITE_SECRET);
   } finally {
-    console.error = originalConsoleError;
+    console.error = originalError;
   }
-
-  expect(logs).toHaveLength(1);
-  expect(logs[0]).not.toContain(OPEN_METEO_SECRET);
-  expect(JSON.parse(logs[0])).toEqual({
-    operation: 'kite-briefing',
-    providerStep: 'forecast',
-    providerHttpStatus: 401,
-    category: 'http'
-  });
 });
 
-test('the kite briefing route fails closed when the server-side Open-Meteo key is absent', async () => {
-  let calls = 0;
-  const response = await createKiteBriefingRoute({
-    fetchImpl: (async () => {
-      calls += 1;
-      return jsonResponse({});
-    }) as typeof fetch
-  })({
-    request: new Request('https://amara.test/api/weather/tarifa-kite'),
+test('the kite briefing route fails closed when the server-side AEMET key is absent', async () => {
+  const sequence = fetchSequence();
+  const response = await createKiteBriefingRoute({ fetchImpl: sequence.fetchImpl })({
+    request: new Request('https://amara-lodging.es/api/weather/tarifa-kite'),
     env: {}
   });
-
   expect(response.status).toBe(503);
-  expect(calls).toBe(0);
+  expect(sequence.urls).toHaveLength(0);
 });
 
 test('the kite briefing route serves a successful payload with public caching', async () => {
-  const sequence = fetchSequence(jsonResponse(forecastHourly), jsonResponse(marineHourly));
+  const sequence = fetchSequence(
+    aemetEnvelope(HOURLY_DATA_URL),
+    jsonResponse(hourlyPayload),
+    aemetEnvelope(BEACH_DATA_URL),
+    jsonResponse(beachPayload)
+  );
   const response = await createKiteBriefingRoute({ fetchImpl: sequence.fetchImpl })({
-    request: new Request('https://amara.test/api/weather/tarifa-kite'),
-    env: { OPEN_METEO_API_KEY: OPEN_METEO_SECRET }
+    request: new Request('https://amara-lodging.es/api/weather/tarifa-kite'),
+    env: { AEMET_API_KEY: KITE_SECRET }
   });
-
   expect(response.status).toBe(200);
-  expect(response.headers.get('cache-control')).toBe('public, max-age=600, s-maxage=900, stale-while-revalidate=1800');
+  expect(response.headers.get('Cache-Control')).toContain('public');
   const payload = await response.json();
-  expect(payload.site).toBe('tarifa');
-  expect(payload.hours).toHaveLength(3);
-  expect(JSON.stringify(payload)).not.toContain(OPEN_METEO_SECRET);
+  expect(payload.hours).toHaveLength(7);
+  expect(payload.beach).toHaveLength(1);
+  expect(JSON.stringify(payload)).not.toContain(KITE_SECRET);
 });
 
 /* ---------------------------------------------------------------------------

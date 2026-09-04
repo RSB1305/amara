@@ -4,6 +4,8 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
+import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
@@ -46,6 +48,8 @@ const footerHighlights: LabeledLink[] = [
   </Navigation>
 
   <article class="bg-surface" data-am-page="amara-tarifa-surf-club" data-am-family="experience" data-am-role="spoke" data-am-topic="co-branding">
+    <KiteClusterNav lang={currentLang} currentId="partner" />
+
     <LocationGuideHero
       eyebrow={content.hero.eyebrow}
       title={content.hero.title}
@@ -236,5 +240,7 @@ const footerHighlights: LabeledLink[] = [
       availabilityHref={requiredLink('book')}
       availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
     />
+
+    <KitePartnerLogoBand lang={currentLang} />
   </article>
 </LocationAuthorityLayout>

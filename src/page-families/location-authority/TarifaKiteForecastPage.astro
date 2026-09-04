@@ -4,7 +4,8 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
-import KiteCoBrandingBand from '../../components/experience/KiteCoBrandingBand.astro';
+import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
+import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
 import WindguruWidget from '../../components/experience/WindguruWidget.astro';
 import AemetForecastPanel from '../../components/location/AemetForecastPanel.astro';
 import AemetWarningsPanel from '../../components/location/AemetWarningsPanel.astro';
@@ -25,7 +26,7 @@ import LocationModule from './LocationModule.astro';
 
 /**
  * Live-values page under the wind spoke. Three data objects in the order the
- * editorial contract fixes: official AEMET context first, the Open-Meteo
+ * editorial contract fixes: official AEMET context first, the hourly AEMET
  * briefing second, Windguru's own table last. The evergreen explanation of
  * the numbers lives on the wind spoke; this page stays light and links back.
  */
@@ -53,6 +54,8 @@ const footerHighlights: LabeledLink[] = [
   </Navigation>
 
   <article class="bg-surface" data-am-page="tarifa-kitesurf-forecast" data-am-family="experience" data-am-role="spoke" data-am-topic="kitesurf-forecast">
+    <KiteClusterNav lang={currentLang} currentId="forecast" />
+
     <LocationGuideHero
       eyebrow={content.hero.eyebrow}
       title={content.hero.title}
@@ -127,11 +130,11 @@ const footerHighlights: LabeledLink[] = [
         </div>
         <KiteBriefingPanel
           endpoint="/api/weather/tarifa-kite"
+          warningsEndpoint="/api/weather/tarifa-warnings"
           lang={currentLang}
           timezone="Europe/Madrid"
           copy={briefingCopy}
-          headings={{ wind: wind.live.windHeading, wave: wind.live.waveHeading, sky: wind.live.skyHeading, check: wind.live.checkHeading }}
-          notes={{ wind: wind.live.windText, wave: wind.live.waveText, sky: wind.live.skyText }}
+          warningLevels={resolveLocale(tarifaWeatherWarningsCopy, currentLang).levels}
           aemetHref={wind.safety.aemetHref}
           aemetLabel={wind.safety.aemetLabel}
         />
@@ -216,8 +219,6 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </LocationModule>
 
-    <KiteCoBrandingBand lang={currentLang} surface="white" />
-
     <LocationModule id="related-kite-guides" labelledby="related-kite-guides-title" spacing="closing" data-am-topic="related">
       <div class="mx-auto max-w-screen-2xl">
         <p class="am-text-eyebrow text-primary">{content.related.eyebrow}</p>
@@ -234,5 +235,7 @@ const footerHighlights: LabeledLink[] = [
         <p class="am-text-body mt-14 max-w-3xl leading-relaxed text-muted" data-am-final-line>{wind.closing.finalLine}</p>
       </div>
     </LocationModule>
+
+    <KitePartnerLogoBand lang={currentLang} />
   </article>
 </LocationAuthorityLayout>

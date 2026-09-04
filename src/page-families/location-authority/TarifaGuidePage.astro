@@ -540,7 +540,7 @@ const footerHighlights: LabeledLink[] = [
               <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(section.intro)} /></p>
             </div>
             <div class="grid gap-5 sm:grid-cols-2">
-              {section.cards.map((card) => (
+              {(section.cards ?? []).map((card) => (
                 <section class="border-t border-border-subtle bg-surface/70 px-5 pb-7 pt-6">
                   <p class="text-primary am-text-label am-text-label--sm">
                     {t(card.kicker)}

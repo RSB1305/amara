@@ -1,0 +1,78 @@
+---
+import airushLogo from '../../assets/images/content/tarifa/logos/airush.webp';
+import coreLogo from '../../assets/images/content/tarifa/logos/core.webp';
+import tarifaSurfClubLogo from '../../assets/images/content/tarifa/logos/tarifa-surf-club.webp';
+import vaerialLogo from '../../assets/images/content/tarifa/logos/vaerial.webp';
+import wsbLogo from '../../assets/images/content/tarifa/logos/wsb.webp';
+import AmaraImage from '../AmaraImage.astro';
+import AmaraSection from '../layout/AmaraSection.astro';
+import type { LocalizedText } from '../../types/content';
+import type { AmaraLanguage } from '../../types/seo';
+
+/**
+ * Closing band of the Tarifa kitesurf cluster, the counterpart of the dark
+ * cluster rail above the hero: the partner logos of Tarifa Surf Club, the
+ * club's round mark in the middle and larger, two flat brand marks on each
+ * side. It sits as the last element of every cluster page, directly above
+ * the footer, and replaces the earlier co-branding band with its contact
+ * buttons, which every page carries in its partner or closing module anyway.
+ * The band is as flat as the logos allow (operator decision of 4 September
+ * 2026): no visible caption, the section name stays for assistive
+ * technology. Every mark links to its brand; the club mark to the club.
+ */
+interface Props { lang: AmaraLanguage; }
+
+const { lang } = Astro.props;
+const t = (value: LocalizedText) => value[lang];
+
+const caption: LocalizedText = {
+  en: 'Partners of Tarifa Surf Club',
+  de: 'Partner des Tarifa Surf Club',
+  es: 'Socios de Tarifa Surf Club',
+  nl: 'Partners van Tarifa Surf Club',
+  sv: 'Partner till Tarifa Surf Club'
+};
+const clubLinkLabel: LocalizedText = {
+  en: 'Tarifa Surf Club website',
+  de: 'Website des Tarifa Surf Club',
+  es: 'Web de Tarifa Surf Club',
+  nl: 'Website van Tarifa Surf Club',
+  sv: 'Tarifa Surf Clubs webbplats'
+};
+
+/** Flat marks are sized by width so the five read as one family; the wide Core mark gets the widest box, the compact WSB and Airush marks the narrowest. */
+const flatLogoClass = 'h-auto w-full object-contain opacity-90';
+---
+
+<AmaraSection id="kite-partner-logos" labelledby="kite-partner-logos-title" surface="inverse" family="location" class="mx-0 bg-inverse-surface px-6 py-0 text-inverted-on-surface md:px-12" data-am-topic="partner-logos" data-am-kite-partner-logos>
+  <div class="mx-auto max-w-screen-2xl py-3">
+    <h2 id="kite-partner-logos-title" class="sr-only">{t(caption)}</h2>
+    <ul class="grid grid-cols-2 items-center gap-x-8 gap-y-6 md:grid-cols-[1fr_1fr_auto_1fr_1fr] md:gap-x-12 lg:gap-x-20">
+      <li class="col-span-2 flex justify-center md:order-3 md:col-span-1">
+        <a href="https://tarifasurfclub.com/" target="_blank" rel="noopener noreferrer" aria-label={t(clubLinkLabel)} class="inline-flex transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40">
+          <AmaraImage src={tarifaSurfClubLogo} alt="Tarifa Surf Club" profile="card" width={300} widths={[150, 300]} sizes="112px" class="h-24 w-24 object-contain md:h-28 md:w-28" />
+        </a>
+      </li>
+      <li class="flex justify-center md:order-1">
+        <a href="https://worksurfbalance.com/" target="_blank" rel="noopener noreferrer" aria-label="Work Surf Balance" class="w-32 md:w-40 inline-flex transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40">
+          <AmaraImage src={wsbLogo} alt="Work Surf Balance" profile="card" width={600} widths={[300, 600]} sizes="160px" class={flatLogoClass} />
+        </a>
+      </li>
+      <li class="flex justify-center md:order-2">
+        <a href="https://airush.com/" target="_blank" rel="noopener noreferrer" aria-label="Airush Kiteboarding" class="w-32 md:w-40 inline-flex transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40">
+          <AmaraImage src={airushLogo} alt="Airush Kiteboarding" profile="card" width={500} widths={[250, 500]} sizes="160px" class={flatLogoClass} />
+        </a>
+      </li>
+      <li class="flex justify-center md:order-4">
+        <a href="https://vaerial-kiteboarding.com/" target="_blank" rel="noopener noreferrer" aria-label="Vaerial Kiteboarding" class="w-40 md:w-48 inline-flex transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40">
+          <AmaraImage src={vaerialLogo} alt="Vaerial Kiteboarding" profile="card" width={800} widths={[400, 800]} sizes="192px" class={flatLogoClass} />
+        </a>
+      </li>
+      <li class="flex justify-center md:order-5">
+        <a href="https://ridecore.com/" target="_blank" rel="noopener noreferrer" aria-label="Core Kiteboarding" class="w-44 md:w-52 inline-flex transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40">
+          <AmaraImage src={coreLogo} alt="Core Kiteboarding" profile="card" width={800} widths={[400, 800]} sizes="208px" class={flatLogoClass} />
+        </a>
+      </li>
+    </ul>
+  </div>
+</AmaraSection>

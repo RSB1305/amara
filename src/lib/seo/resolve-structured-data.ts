@@ -338,7 +338,7 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
   },
   'tarifa-wind-kitesurfing': {
     en: 'Wind, Weather & Safety',
-    de: 'Wind, Wetter & Sicherheit',
+    de: 'Wind in Tarifa',
     es: 'Viento, tiempo y seguridad',
     nl: 'Wind, weer & veiligheid',
     sv: 'Vind, väder & säkerhet'
@@ -356,6 +356,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     es: 'AMARA × Tarifa Surf Club',
     nl: 'AMARA × Tarifa Surf Club',
     sv: 'AMARA × Tarifa Surf Club'
+  },
+  'tarifa-bildungsurlaub': {
+    en: 'Educational leave',
+    de: 'Bildungsurlaub',
+    es: 'Bildungsurlaub',
+    nl: 'Bildungsurlaub',
+    sv: 'Bildungsurlaub'
   },
   'tarifa-beaches': {
     en: 'Beaches',
@@ -566,6 +573,7 @@ const TARIFA_EXPERIENCE_SLUGS = new Set([
   'tarifa-wind-kitesurfing',
   'tarifa-kitesurf-forecast',
   'amara-tarifa-surf-club',
+  'tarifa-bildungsurlaub',
   'tarifa-beaches',
   'tarifa-food-evening-life',
   'tarifa-nature-wildlife',

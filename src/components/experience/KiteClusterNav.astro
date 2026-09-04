@@ -1,0 +1,65 @@
+---
+import AmaraSection from '../layout/AmaraSection.astro';
+import { createRequiredLinkResolver, type LinkToken } from '../../lib/linkResolver';
+import type { LocalizedText } from '../../types/content';
+import type { AmaraLanguage } from '../../types/seo';
+
+/**
+ * Page-level band of the Tarifa kitesurf cluster, rendered above the hero of
+ * every page in the cluster.
+ *
+ * It lives inside the page, not in the global context navigation: DR-IA-006
+ * keeps the Tarifa context navigation at the hub level so mobile navigation
+ * gains no third persistent tier. The band is a slim dark rail directly under
+ * the context row, left-aligned, in the primary navigation role at regular
+ * weight, on the inverse surface the site already uses for dark bands. The
+ * current page is left out rather than marked (operator decision of
+ * 4 September 2026): the band shows only where you can still go. Wind and
+ * forecast share one entry that leads to the wind page; the live-values page
+ * stays reachable from there. Educational leave is a German concept and is
+ * shown in German only. No caption: the breadcrumb above already names the
+ * topic.
+ */
+export type KiteClusterPageId = 'hub' | 'spots' | 'wind' | 'forecast' | 'school' | 'camp' | 'education' | 'equipment' | 'partner';
+
+interface Props {
+  lang: AmaraLanguage;
+  currentId: KiteClusterPageId;
+}
+
+const { lang, currentId } = Astro.props;
+const t = (value: LocalizedText) => value[lang];
+const requiredLink = createRequiredLinkResolver(lang, 'Tarifa kite cluster nav');
+
+const ariaLabel: LocalizedText = { en: 'More pages on kitesurfing in Tarifa', de: 'Weitere Seiten zum Kitesurfen in Tarifa', es: 'Más páginas sobre kitesurf en Tarifa', nl: 'Meer pagina’s over kitesurfen in Tarifa', sv: 'Fler sidor om kitesurfing i Tarifa' };
+
+const items: Array<{ id: KiteClusterPageId; token: LinkToken; label: LocalizedText; languages?: AmaraLanguage[] }> = [
+  { id: 'hub', token: 'tarifa_kitesurfing_hub', label: { en: 'Overview', de: 'Überblick', es: 'Resumen', nl: 'Overzicht', sv: 'Översikt' } },
+  { id: 'spots', token: 'tarifa_kitesurf_spots', label: { en: 'Spots', de: 'Kitespots', es: 'Spots', nl: 'Spots', sv: 'Spots' } },
+  { id: 'wind', token: 'tarifa_wind_kitesurfing_authority', label: { en: 'Wind', de: 'Wind & Vorhersage', es: 'Viento', nl: 'Wind', sv: 'Vind' } },
+  { id: 'school', token: 'tarifa_kite_school', label: { en: 'Kite school', de: 'Kiteschule', es: 'Escuela', nl: 'Kiteschool', sv: 'Kiteskola' } },
+  { id: 'camp', token: 'tarifa_kitecamp', label: { en: 'Kitecamp', de: 'Kitecamps', es: 'Kitecamp', nl: 'Kitecamp', sv: 'Kitecamp' } },
+  { id: 'education', token: 'tarifa_bildungsurlaub', label: { en: 'Educational leave', de: 'Bildungsurlaub', es: 'Bildungsurlaub', nl: 'Bildungsurlaub', sv: 'Bildungsurlaub' }, languages: ['de'] },
+  { id: 'equipment', token: 'tarifa_kite_equipment', label: { en: 'Gear', de: 'Materialverleih & Shop', es: 'Material', nl: 'Materiaal', sv: 'Utrustning' } },
+  { id: 'partner', token: 'amara_tarifa_surf_club', label: { en: 'Partnership', de: 'AMARA × Tarifa Surf Club', es: 'Colaboración', nl: 'Partnerschap', sv: 'Partnerskap' } }
+];
+
+const links = items.filter((item) => item.id !== currentId && (!item.languages || item.languages.includes(lang)));
+---
+
+<AmaraSection surface="inverse" family="location" class="mx-0 bg-inverse-surface px-6 py-0 text-inverted-on-surface md:px-12" data-am-topic="kite-cluster-nav" data-am-kite-cluster-nav data-am-kite-cluster-current={currentId}>
+  <nav aria-label={t(ariaLabel)} class="mx-auto max-w-screen-2xl">
+    <ul class="-mx-3 flex min-w-0 flex-nowrap items-center overflow-x-auto overscroll-x-contain md:flex-wrap md:overflow-visible">
+      {links.map((item) => (
+        <li class="shrink-0">
+          <a
+            href={requiredLink(item.token)}
+            class="group inline-flex min-h-11 items-center px-3 am-text-nav-primary am-text-nav-primary--quiet text-inverted-on-surface/90 transition-colors hover:text-inverted-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40"
+          >
+            <span class="border-b border-transparent pb-1 transition-colors group-hover:border-inverted-on-surface/50">{t(item.label)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</AmaraSection>
