@@ -172,7 +172,7 @@ export const frigilianaRestaurantsSeo: AmaraAuthoringSeo = {
     dateModified: '2026-08-27',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
-    authorSlug: 'staying-with-us'
+    authorRoute: 'about'
   },
   languages: {
     en: {

@@ -26,7 +26,7 @@ export const tarifaKitesurfSpotsSeo: AmaraAuthoringSeo = {
   ogImage: '/images/amara-tarifa/amara-tarifa-apartment23.webp',
   article: {
     datePublished: '2026-09-03', dateModified: '2026-09-03',
-    authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorSlug: 'staying-with-us'
+    authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about'
   },
   languages: {
     en: { title: title.en, description: description.en, robots: 'index, follow', canonical: 'auto' },

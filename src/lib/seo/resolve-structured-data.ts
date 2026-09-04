@@ -12,8 +12,10 @@ import { trustLabels, trustSectionLabels } from '../../content/trustLabels';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import {
   buildOwnedLocalizedPath,
-  getOwnedSlugFromPathname,
-  SUPPORTED_LANGUAGES
+  getOwnedPublicRoute,
+  getOwnedRouteFromPathname,
+  SUPPORTED_LANGUAGES,
+  type PublicRoute
 } from '../routeOwnership';
 
 type SchemaNode = Record<string, unknown>;
@@ -66,417 +68,417 @@ const BRAND_ENTITY: BrandEntity = {
 };
 
 const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>> = {
-  'staying-with-us': trustLabels.about,
-  'comfort-amenities': trustLabels.amenities,
-  'direct-booking-benefits': trustLabels.direct_booking_benefits,
-  'directions-arrival-guide': {
+  'about': trustLabels.about,
+  'about.amenities': trustLabels.amenities,
+  'about.direct-booking': trustLabels.direct_booking_benefits,
+  'frigiliana.directions': {
     en: 'Arrival & Mobility',
     de: 'Anreise & Mobilität',
     es: 'Llegada y movilidad',
     nl: 'Aankomst & mobiliteit',
     sv: 'Ankomst & mobilitet'
   },
-  'nerja-directions-arrival-guide': {
+  'nerja.directions': {
     en: 'AMARA Playa Arrival',
     de: 'Anreise zu AMARA Playa',
     es: 'Llegada a AMARA Playa',
     nl: 'Aankomst bij AMARA Playa',
     sv: 'Ankomst till AMARA Playa'
   },
-  'tarifa-directions-arrival-guide': {
+  'tarifa.directions': {
     en: 'AMARA Family & Surf Arrival',
     de: 'Anreise zu AMARA Family & Surf',
     es: 'Llegada a AMARA Family & Surf',
     nl: 'Aankomst bij AMARA Family & Surf',
     sv: 'Ankomst till AMARA Family & Surf'
   },
-  'faq-general': trustLabels.faq_general,
-  'frigiliana-faq': {
+  'about.faq': trustLabels.faq_general,
+  'frigiliana.faq': {
     en: 'Frigiliana FAQ',
     de: 'Frigiliana-FAQ',
     es: 'FAQ de Frigiliana',
     nl: 'Frigiliana-FAQ',
     sv: 'Frigiliana-FAQ'
   },
-  'frigiliana-location': {
+  'frigiliana': {
     en: 'Frigiliana',
     de: 'Frigiliana',
     es: 'Frigiliana',
     nl: 'Frigiliana',
     sv: 'Frigiliana'
   },
-  'nerja-location': {
+  'nerja': {
     en: 'Nerja',
     de: 'Nerja',
     es: 'Nerja',
     nl: 'Nerja',
     sv: 'Nerja'
   },
-  'getting-to-nerja': {
+  'nerja.arrival': {
     en: 'Arrival & Mobility',
     de: 'Anreise & Mobilität',
     es: 'Llegada y movilidad',
     nl: 'Aankomst & mobiliteit',
     sv: 'Ankomst & mobilitet'
   },
-  'nerja-where-to-stay': {
+  'nerja.where-to-stay': {
     en: 'Where to Stay / Areas',
     de: 'Wo übernachten / Lagen',
     es: 'Dónde alojarse / zonas',
     nl: 'Waar overnachten / gebieden',
     sv: 'Var ska man bo / områden'
   },
-  'nerja-daily-life': {
+  'nerja.supermarkets': {
     en: 'Supermarkets & Shopping',
     de: 'Supermärkte & Einkaufen',
     es: 'Supermercados y compras',
     nl: 'Supermarkten & boodschappen',
     sv: 'Matbutiker & inköp'
   },
-  'nerja-health-emergency': {
+  'nerja.health': {
     en: 'Health & Emergency',
     de: 'Gesundheit & Notfälle',
     es: 'Salud y emergencia',
     nl: 'Gezondheid & noodgevallen',
     sv: 'Hälsa & nödsituation'
   },
-  'getting-to-frigiliana': {
+  'frigiliana.arrival': {
     en: 'Arrival & Mobility',
     de: 'Anreise & Mobilität',
     es: 'Llegada y movilidad',
     nl: 'Aankomst & mobiliteit',
     sv: 'Ankomst & mobilitet'
   },
-  'frigiliana-where-to-stay': {
+  'frigiliana.where-to-stay': {
     en: 'Where to Stay / Areas',
     de: 'Wo übernachten / Lagen',
     es: 'Dónde alojarse / zonas',
     nl: 'Waar overnachten / gebieden',
     sv: 'Var ska man bo / områden'
   },
-  'frigiliana-winter-stays': {
+  'frigiliana.winter': {
     en: 'Winter Stays',
     de: 'Winteraufenthalte',
     es: 'Estancias de invierno',
     nl: 'Winterverblijven',
     sv: 'Vintervistelser'
   },
-  'nerja-winter-stays': {
+  'nerja.winter': {
     en: 'Winter Stays',
     de: 'Winteraufenthalte',
     es: 'Estancias de invierno',
     nl: 'Winterverblijven',
     sv: 'Vintervistelser'
   },
-  'frigiliana-experience': {
+  'frigiliana.experience': {
     en: 'Experiences',
     de: 'Erlebnisse',
     es: 'Experiencias',
     nl: 'Ervaringen',
     sv: 'Upplevelser'
   },
-  'nerja-experience': {
+  'nerja.experience': {
     en: 'Experiences',
     de: 'Erlebnisse',
     es: 'Experiencias',
     nl: 'Ervaringen',
     sv: 'Upplevelser'
   },
-  'nerja-beaches': {
+  'nerja.experience.beaches': {
     en: 'Beaches',
     de: 'Strände',
     es: 'Playas',
     nl: 'Stranden',
     sv: 'Stränder'
   },
-  'nerja-day-trips': {
+  'nerja.experience.day-trips': {
     en: 'Day Trips',
     de: 'Tagesausflüge',
     es: 'Excursiones',
     nl: 'Dagtochten',
     sv: 'Utflykter'
   },
-  'nerja-food': {
+  'nerja.experience.food': {
     en: 'Food & Restaurants',
     de: 'Essen & Restaurants',
     es: 'Gastronomía y restaurantes',
     nl: 'Eten & restaurants',
     sv: 'Mat & restauranger'
   },
-  'frigiliana-beaches': {
+  'frigiliana.experience.beaches': {
     en: 'Beaches',
     de: 'Strände',
     es: 'Playas',
     nl: 'Stranden',
     sv: 'Stränder'
   },
-  'frigiliana-hiking': {
+  'frigiliana.experience.hiking': {
     en: 'Hiking',
     de: 'Wandern',
     es: 'Senderismo',
     nl: 'Wandelen',
     sv: 'Vandring'
   },
-  'frigiliana-restaurants': {
+  'frigiliana.experience.restaurants': {
     en: 'Restaurants',
     de: 'Restaurants',
     es: 'Restaurantes',
     nl: 'Restaurants',
     sv: 'Restauranger'
   },
-  'frigiliana-festivals': {
+  'frigiliana.experience.festivals': {
     en: 'Festivals',
     de: 'Feste',
     es: 'Fiestas',
     nl: 'Feesten',
     sv: 'Festivaler'
   },
-  'frigiliana-market': {
+  'frigiliana.experience.market': {
     en: 'Market',
     de: 'Markt',
     es: 'Mercado',
     nl: 'Markt',
     sv: 'Marknad'
   },
-  'frigiliana-day-trips': {
+  'frigiliana.experience.day-trips': {
     en: 'Day Trips',
     de: 'Tagesausflüge',
     es: 'Excursiones',
     nl: 'Dagtochten',
     sv: 'Utflykter'
   },
-  'frigiliana-wellness': {
+  'frigiliana.experience.wellness': {
     en: 'Wellness',
     de: 'Wellness',
     es: 'Bienestar',
     nl: 'Wellness',
     sv: 'Wellness'
   },
-  'nerja-nightlife': {
+  'nerja.experience.nightlife': {
     en: 'Nerja Nightlife',
     de: 'Nachtleben in Nerja',
     es: 'Noche en Nerja',
     nl: 'Uitgaan in Nerja',
     sv: 'Kvällsliv i Nerja'
   },
-  'nerja-verano-azul': {
+  'nerja.experience.verano-azul': {
     en: 'Verano Azul',
     de: 'Verano Azul',
     es: 'Verano Azul',
     nl: 'Verano Azul',
     sv: 'Verano Azul'
   },
-  'tarifa-location': {
+  'tarifa': {
     en: 'Tarifa',
     de: 'Tarifa',
     es: 'Tarifa',
     nl: 'Tarifa',
     sv: 'Tarifa'
   },
-  'getting-to-tarifa': {
+  'tarifa.arrival': {
     en: 'Arrival & Mobility',
     de: 'Anreise & Mobilität',
     es: 'Llegada y movilidad',
     nl: 'Aankomst & mobiliteit',
     sv: 'Ankomst & mobilitet'
   },
-  'tarifa-geography': {
+  'tarifa.geography': {
     en: 'Geography & Orientation',
     de: 'Geografie & Orientierung',
     es: 'Geografía y orientación',
     nl: 'Geografie & oriëntatie',
     sv: 'Geografi & orientering'
   },
-  'tarifa-where-to-stay': {
+  'tarifa.where-to-stay': {
     en: 'Where to stay',
     de: 'Wo übernachten',
     es: 'Dónde alojarse',
     nl: 'Waar overnachten',
     sv: 'Var ska man bo'
   },
-  'tarifa-weather': {
+  'tarifa.weather': {
     en: 'Weather & Seasons',
     de: 'Wetter & Jahreszeiten',
     es: 'Tiempo y estaciones',
     nl: 'Weer & seizoenen',
     sv: 'Väder & årstider'
   },
-  'tarifa-daily-life': {
+  'tarifa.supermarkets': {
     en: 'Supermarkets & Shopping',
     de: 'Supermärkte & Einkaufen',
     es: 'Supermercados y compras',
     nl: 'Supermarkten & boodschappen',
     sv: 'Matbutiker & inköp'
   },
-  'tarifa-health-emergency': {
+  'tarifa.health': {
     en: 'Health & Emergency',
     de: 'Gesundheit & Notfälle',
     es: 'Salud y emergencia',
     nl: 'Gezondheid & noodgevallen',
     sv: 'Hälsa & nödsituation'
   },
-  'tarifa-winter-stays': {
+  'tarifa.winter': {
     en: 'Winter Stays',
     de: 'Winteraufenthalte',
     es: 'Estancias de invierno',
     nl: 'Winterverblijven',
     sv: 'Vintervistelser'
   },
-  'tarifa-experience': {
+  'tarifa.experience': {
     en: 'Experiences',
     de: 'Erlebnisse',
     es: 'Experiencias',
     nl: 'Ervaringen',
     sv: 'Upplevelser'
   },
-  'tarifa-kitesurfing': {
+  'tarifa.kitesurfing': {
     en: 'Kitesurfing',
     de: 'Kitesurfen',
     es: 'Kitesurf',
     nl: 'Kitesurfen',
     sv: 'Kitesurfing'
   },
-  'tarifa-wind-kitesurfing': {
+  'tarifa.kitesurfing.wind': {
     en: 'Wind, Weather & Safety',
     de: 'Wind in Tarifa',
     es: 'Viento, tiempo y seguridad',
     nl: 'Wind, weer & veiligheid',
     sv: 'Vind, väder & säkerhet'
   },
-  'tarifa-kitesurf-forecast': {
+  'tarifa.kitesurfing.forecast': {
     en: 'Today in Tarifa',
     de: 'Heute in Tarifa',
     es: 'Hoy en Tarifa',
     nl: 'Vandaag in Tarifa',
     sv: 'I dag i Tarifa'
   },
-  'amara-tarifa-surf-club': {
+  'tarifa.kitesurfing.surf-club': {
     en: 'AMARA × Tarifa Surf Club',
     de: 'AMARA × Tarifa Surf Club',
     es: 'AMARA × Tarifa Surf Club',
     nl: 'AMARA × Tarifa Surf Club',
     sv: 'AMARA × Tarifa Surf Club'
   },
-  'tarifa-bildungsurlaub': {
+  'tarifa.kitesurfing.bildungsurlaub': {
     en: 'Educational leave',
     de: 'Bildungsurlaub',
     es: 'Bildungsurlaub',
     nl: 'Bildungsurlaub',
     sv: 'Bildungsurlaub'
   },
-  'tarifa-beaches': {
+  'tarifa.experience.beaches': {
     en: 'Beaches',
     de: 'Strände',
     es: 'Playas',
     nl: 'Stranden',
     sv: 'Stränder'
   },
-  'tarifa-food-evening-life': {
+  'tarifa.experience.food-evening-life': {
     en: 'Food & Evening Life',
     de: 'Essen & Ausgehen',
     es: 'Gastronomía y vida nocturna',
     nl: 'Eten & uitgaan',
     sv: 'Mat & kvällsliv'
   },
-  'tarifa-nature-wildlife': {
+  'tarifa.experience.nature-wildlife': {
     en: 'Nature & Wildlife',
     de: 'Natur & Tierwelt',
     es: 'Naturaleza y fauna',
     nl: 'Natuur & dieren',
     sv: 'Natur & djurliv'
   },
-  'tarifa-old-town-history': {
+  'tarifa.experience.old-town-history': {
     en: 'Old Town & History',
     de: 'Altstadt & Geschichte',
     es: 'Casco antiguo e historia',
     nl: 'Oude stad & geschiedenis',
     sv: 'Gamla stan & historia'
   },
-  'tarifa-bolonia-baelo-claudia': {
+  'tarifa.experience.bolonia-baelo-claudia': {
     en: 'Bolonia & Baelo Claudia',
     de: 'Bolonia & Baelo Claudia',
     es: 'Bolonia y Baelo Claudia',
     nl: 'Bolonia & Baelo Claudia',
     sv: 'Bolonia & Baelo Claudia'
   },
-  'frigiliana-parking': {
+  'frigiliana.parking': {
     en: 'Parking',
     de: 'Parken',
     es: 'Aparcamiento',
     nl: 'Parkeren',
     sv: 'Parkering'
   },
-  'nerja-parking': {
+  'nerja.parking': {
     en: 'Parking & Accessibility',
     de: 'Parken & Erreichbarkeit',
     es: 'Aparcamiento y acceso',
     nl: 'Parkeren & toegankelijkheid',
     sv: 'Parkering & tillgänglighet'
   },
-  'tarifa-parking': {
+  'tarifa.parking': {
     en: 'Parking & Accessibility',
     de: 'Parken & Erreichbarkeit',
     es: 'Aparcamiento y acceso',
     nl: 'Parkeren & toegankelijkheid',
     sv: 'Parkering & tillgänglighet'
   },
-  'frigiliana-weather': {
+  'frigiliana.weather': {
     en: 'Weather & Seasons',
     de: 'Wetter & Jahreszeiten',
     es: 'Tiempo y estaciones',
     nl: 'Weer & seizoenen',
     sv: 'Väder & årstider'
   },
-  'frigiliana-daily-life': {
+  'frigiliana.supermarkets': {
     en: 'Supermarkets & Shopping',
     de: 'Supermärkte & Einkaufen',
     es: 'Supermercados y compras',
     nl: 'Supermarkten & boodschappen',
     sv: 'Matbutiker & inköp'
   },
-  'frigiliana-health-emergency': {
+  'frigiliana.health': {
     en: 'Health & Emergency',
     de: 'Gesundheit & Notfälle',
     es: 'Salud y emergencia',
     nl: 'Gezondheid & noodgevallen',
     sv: 'Hälsa & nödsituation'
   },
-  'frigiliana-geography': {
+  'frigiliana.geography': {
     en: 'Geography & Orientation',
     de: 'Geografie & Orientierung',
     es: 'Geografía y orientación',
     nl: 'Geografie & oriëntatie',
     sv: 'Geografi & orientering'
   },
-  'frigiliana-or-nerja': {
+  'frigiliana.or-nerja': {
     en: 'Frigiliana & Nerja',
     de: 'Frigiliana & Nerja',
     es: 'Frigiliana y Nerja',
     nl: 'Frigiliana en Nerja',
     sv: 'Frigiliana och Nerja'
   },
-  'frigiliana-netflix-dos-tumbas': {
+  'frigiliana.experience.dos-tumbas': {
     en: 'Netflix Locations',
     de: 'Netflix-Drehorte',
     es: 'Localizaciones Netflix',
     nl: 'Netflix-locaties',
     sv: 'Netflix-platser'
   },
-  'frigiliana-old-town': {
+  'frigiliana.experience.old-town': {
     en: 'Old Town & History',
     de: 'Altstadt & Geschichte',
     es: 'Casco antiguo e historia',
     nl: 'Oude kern & geschiedenis',
     sv: 'Gamla stan & historia'
   },
-  'frigiliana-hospitality-property-for-sale': {
+  'frigiliana.property-for-sale': {
     en: 'Property for Sale',
     de: 'Immobilie zu verkaufen',
     es: 'Propiedad en venta',
     nl: 'Pand te koop',
     sv: 'Fastighet till salu'
   },
-  'guest-reviews': trustLabels.reviews_hub,
+  'about.reviews': trustLabels.reviews_hub,
   instagram: {
     en: 'Instagram',
     de: 'Instagram',
@@ -485,8 +487,8 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     sv: 'Instagram'
   },
   'legal-notice': trustLabels.legal_notice,
-  'booking-stay-terms': trustLabels.booking_stay_terms,
-  'romantic-hideaways': stayCollectionLabels.structuralName,
+  'booking-terms': trustLabels.booking_stay_terms,
+  'stays': stayCollectionLabels.structuralName,
   'la-amara-farah': {
     en: 'AMARA Farah',
     de: 'AMARA Farah',
@@ -531,90 +533,20 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
   }
 };
 
-const FRIGILIANA_EXPERIENCE_SLUGS = new Set([
-  'frigiliana-experience',
-  'frigiliana-beaches',
-  'frigiliana-hiking',
-  'frigiliana-restaurants',
-  'frigiliana-festivals',
-  'frigiliana-market',
-  'frigiliana-day-trips',
-  'frigiliana-wellness',
-  'frigiliana-old-town'
-]);
-
-const NERJA_EXPERIENCE_SLUGS = new Set([
-  'nerja-experience',
-  'nerja-beaches',
-  'nerja-day-trips',
-  'nerja-food',
-  'nerja-balcon-de-europa',
-  'nerja-caves',
-  'nerja-nightlife',
-  'nerja-verano-azul'
-]);
-
-const TARIFA_LOCATION_GUIDE_SLUGS = new Set([
-  'tarifa-location',
-  'getting-to-tarifa',
-  'tarifa-directions-arrival-guide',
-  'tarifa-geography',
-  'tarifa-where-to-stay',
-  'tarifa-weather',
-  'tarifa-daily-life',
-  'tarifa-health-emergency',
-  'tarifa-winter-stays',
-  'tarifa-parking'
-]);
-
-const TARIFA_EXPERIENCE_SLUGS = new Set([
-  'tarifa-experience',
-  'tarifa-kitesurfing',
-  'tarifa-wind-kitesurfing',
-  'tarifa-kitesurf-forecast',
-  'amara-tarifa-surf-club',
-  'tarifa-bildungsurlaub',
-  'tarifa-beaches',
-  'tarifa-food-evening-life',
-  'tarifa-nature-wildlife',
-  'tarifa-old-town-history',
-  'tarifa-bolonia-baelo-claudia'
-]);
-
-const FRIGILIANA_LOCATION_GUIDE_SLUGS = new Set([
-  'frigiliana-location',
-  'getting-to-frigiliana',
-  'directions-arrival-guide',
-  'frigiliana-where-to-stay',
-  'frigiliana-parking',
-  'frigiliana-weather',
-  'frigiliana-winter-stays',
-  'frigiliana-or-nerja',
-  'frigiliana-daily-life',
-  'frigiliana-health-emergency',
-  'frigiliana-geography',
-  'frigiliana-faq',
-  'frigiliana-netflix-dos-tumbas'
-]);
-
-const NERJA_LOCATION_GUIDE_SLUGS = new Set([
-  'nerja-location',
-  'getting-to-nerja',
-  'nerja-directions-arrival-guide',
-  'nerja-where-to-stay',
-  'nerja-daily-life',
-  'nerja-health-emergency',
-  'nerja-winter-stays',
-  'nerja-parking'
-]);
-
-const PRIMARY_TRUST_PAGE_SLUGS = new Set([
-  'staying-with-us',
-  'guest-reviews',
-  'direct-booking-benefits',
-  'comfort-amenities',
-  'faq-general'
-]);
+/**
+ * Breadcrumb names for routes that appear as ancestors. A hub is named by
+ * its destination or section rather than by its own page title.
+ */
+const ANCESTOR_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>> = {
+  about: trustSectionLabels,
+  stays: {
+    en: 'Stays',
+    de: 'Unterkünfte',
+    es: 'Alojamientos',
+    nl: 'Verblijven',
+    sv: 'Boenden'
+  }
+};
 
 function getBase(origin: string): string {
   return origin.replace(/\/+$/, '');
@@ -628,11 +560,11 @@ function resolveOgImage(seo: AmaraAuthoringSeo | undefined, origin: string): str
   return toAbsoluteUrl(seo?.ogImage, origin);
 }
 
-function resolveCanonicalSlug(canonicalUrl: string): string {
+function resolveCanonicalRoute(canonicalUrl: string): PublicRoute | null {
   try {
-    return getOwnedSlugFromPathname(new URL(canonicalUrl).pathname);
+    return getOwnedRouteFromPathname(new URL(canonicalUrl).pathname)?.route ?? null;
   } catch {
-    return getOwnedSlugFromPathname(canonicalUrl);
+    return getOwnedRouteFromPathname(canonicalUrl)?.route ?? null;
   }
 }
 
@@ -647,7 +579,7 @@ function humanizeSlug(slug: string): string {
 }
 
 function resolveRouteLabel(
-  slug: string,
+  routeKey: string,
   currentLang: AmaraLanguage,
   fallbackTitle: string
 ): string {
@@ -657,12 +589,37 @@ function resolveRouteLabel(
     .replace(/^AMARA\s*(?:\||-|–|—|:)?\s*/i, '')
     .replace(/\s*(?:\||-|–|—)\s*AMARA$/i, '')
     .trim();
-  const routeLabel = PUBLIC_ROUTE_LABELS[slug]?.[currentLang] ??
-    PUBLIC_ROUTE_LABELS[slug]?.en;
+  const routeLabel = PUBLIC_ROUTE_LABELS[routeKey]?.[currentLang] ??
+    PUBLIC_ROUTE_LABELS[routeKey]?.en;
 
-  return routeLabel ?? (titleLabel || humanizeSlug(slug));
+  return routeLabel ?? (titleLabel || humanizeSlug(routeKey));
 }
 
+/** The label a route carries when it appears above the current page. */
+function resolveAncestorLabel(route: PublicRoute, currentLang: AmaraLanguage): string {
+  const override = ANCESTOR_LABELS[route.key]?.[currentLang];
+
+  return override ?? resolveRouteLabel(route.key, currentLang, humanizeSlug(route.paths.en));
+}
+
+/** Ancestors of a route from the top of its branch down, excluding the homepage. */
+function resolveAncestors(route: PublicRoute): PublicRoute[] {
+  const ancestors: PublicRoute[] = [];
+  let parentKey = route.parent;
+
+  while (parentKey) {
+    const parent = getOwnedPublicRoute(parentKey);
+    ancestors.unshift(parent);
+    parentKey = parent.parent;
+  }
+
+  return ancestors;
+}
+
+/**
+ * The breadcrumb follows the route hierarchy declared in the manifest:
+ * homepage, then every ancestor in order, then the current page.
+ */
 function buildBreadcrumbNode(
   canonicalUrl: string,
   title: string,
@@ -670,14 +627,14 @@ function buildBreadcrumbNode(
   origin: string,
   lodgingEntity?: VacationRentalEntity
 ): SchemaNode | null {
-  const slug = resolveCanonicalSlug(canonicalUrl);
+  const route = resolveCanonicalRoute(canonicalUrl);
 
-  if (!slug) {
+  if (route?.key === 'home') {
     return null;
   }
 
   const base = getBase(origin);
-  const homeUrl = new URL(buildOwnedLocalizedPath('', currentLang), base).href;
+  const homeUrl = new URL(buildOwnedLocalizedPath('home', currentLang), base).href;
   const itemListElement: SchemaNode[] = [
     {
       '@type': 'ListItem',
@@ -687,118 +644,12 @@ function buildBreadcrumbNode(
     }
   ];
 
-  const experienceHierarchy = FRIGILIANA_EXPERIENCE_SLUGS.has(slug)
-    ? { locationSlug: 'frigiliana-location', hubSlug: 'frigiliana-experience', locationName: 'Frigiliana' }
-    : NERJA_EXPERIENCE_SLUGS.has(slug)
-      ? { locationSlug: 'nerja-location', hubSlug: 'nerja-experience', locationName: 'Nerja' }
-      : TARIFA_EXPERIENCE_SLUGS.has(slug)
-        ? { locationSlug: 'tarifa-location', hubSlug: 'tarifa-experience', locationName: 'Tarifa' }
-        : null;
-
-  if (experienceHierarchy) {
-    const locationUrl = new URL(
-      buildOwnedLocalizedPath(experienceHierarchy.locationSlug, currentLang),
-      base
-    ).href;
-
+  for (const ancestor of route ? resolveAncestors(route) : []) {
     itemListElement.push({
       '@type': 'ListItem',
       position: itemListElement.length + 1,
-      name: experienceHierarchy.locationName,
-      item: locationUrl
-    });
-
-    if (slug !== experienceHierarchy.hubSlug) {
-      const hubUrl = new URL(
-        buildOwnedLocalizedPath(experienceHierarchy.hubSlug, currentLang),
-        base
-      ).href;
-
-      itemListElement.push({
-        '@type': 'ListItem',
-        position: itemListElement.length + 1,
-        name: resolveRouteLabel(experienceHierarchy.hubSlug, currentLang, 'Experiences'),
-        item: hubUrl
-      });
-    }
-  } else if (TARIFA_LOCATION_GUIDE_SLUGS.has(slug)) {
-    if (slug !== 'tarifa-location') {
-      const tarifaSlug = 'tarifa-location';
-      const tarifaUrl = new URL(
-        buildOwnedLocalizedPath(tarifaSlug, currentLang),
-        base
-      ).href;
-
-      itemListElement.push({
-        '@type': 'ListItem',
-        position: itemListElement.length + 1,
-        name: resolveRouteLabel(tarifaSlug, currentLang, 'Tarifa'),
-        item: tarifaUrl
-      });
-    }
-  } else if (FRIGILIANA_LOCATION_GUIDE_SLUGS.has(slug)) {
-    if (slug !== 'frigiliana-location') {
-      const frigilianaSlug = 'frigiliana-location';
-      const frigilianaUrl = new URL(
-        buildOwnedLocalizedPath(frigilianaSlug, currentLang),
-        base
-      ).href;
-
-      itemListElement.push({
-        '@type': 'ListItem',
-        position: itemListElement.length + 1,
-        name: 'Frigiliana',
-        item: frigilianaUrl
-      });
-    }
-  } else if (NERJA_LOCATION_GUIDE_SLUGS.has(slug)) {
-    if (slug !== 'nerja-location') {
-      const nerjaSlug = 'nerja-location';
-      const nerjaUrl = new URL(
-        buildOwnedLocalizedPath(nerjaSlug, currentLang),
-        base
-      ).href;
-
-      itemListElement.push({
-        '@type': 'ListItem',
-        position: itemListElement.length + 1,
-        name: 'Nerja',
-        item: nerjaUrl
-      });
-    }
-  } else if (PRIMARY_TRUST_PAGE_SLUGS.has(slug)) {
-    const aboutUrl = new URL(
-      buildOwnedLocalizedPath('staying-with-us', currentLang),
-      base
-    ).href;
-
-    itemListElement.push({
-      '@type': 'ListItem',
-      position: itemListElement.length + 1,
-      name: trustSectionLabels[currentLang],
-      item: aboutUrl
-    });
-  }
-
-  if (lodgingEntity) {
-    const staysSlug = 'romantic-hideaways';
-    const staysUrl = new URL(
-      buildOwnedLocalizedPath(staysSlug, currentLang),
-      base
-    ).href;
-    const staysLabels: Record<AmaraLanguage, string> = {
-      en: 'Stays',
-      de: 'Unterkünfte',
-      es: 'Alojamientos',
-      nl: 'Verblijven',
-      sv: 'Boenden'
-    };
-
-    itemListElement.push({
-      '@type': 'ListItem',
-      position: itemListElement.length + 1,
-      name: staysLabels[currentLang],
-      item: staysUrl
+      name: resolveAncestorLabel(ancestor, currentLang),
+      item: new URL(buildOwnedLocalizedPath(ancestor.key, currentLang), base).href
     });
   }
 
@@ -807,7 +658,7 @@ function buildBreadcrumbNode(
     position: itemListElement.length + 1,
     name: lodgingEntity
       ? `${lodgingEntity.name}, ${lodgingEntity.city}`
-      : resolveRouteLabel(slug, currentLang, title),
+      : resolveRouteLabel(route?.key ?? '', currentLang, title),
     item: canonicalUrl
   });
 
@@ -929,8 +780,8 @@ function buildArticleNode(
 ) {
   const organizationId = `${getBase(origin)}/#organization`;
   const authorIsPerson = seo.authorType === 'Person';
-  const authorUrl = seo.authorSlug
-    ? new URL(buildOwnedLocalizedPath(seo.authorSlug, currentLang), getBase(origin)).href
+  const authorUrl = seo.authorRoute
+    ? new URL(buildOwnedLocalizedPath(seo.authorRoute, currentLang), getBase(origin)).href
     : `${getBase(origin)}/`;
   const node: SchemaNode = {
     '@type': 'Article',

@@ -113,7 +113,7 @@ The repository has a focused automated test suite plus the build gate:
 - `npm run audit:dependencies` — blocks known high and critical npm vulnerabilities
 - `npm run test:contracts` — booking, localization, route and link contracts
 - `npm run test:browser` — real-browser smoke tests for interactive behaviour
-- `check-public-slug-policy` — slug collisions, duplicates, redirect chains and loops
+- `check-public-route-policy` — route manifest integrity, retired wrappers, authored route references, redirect chains, loops and migration coverage
 - `check-fallback-policy` — restricts `fallbackLang` to approved files
 - `check-image-policy` — responsive image delivery, in source and in `dist`
 - `postbuild.mjs` — structured data audit and SEO title policy assertions

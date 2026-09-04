@@ -32,7 +32,7 @@ export interface DailyLifeGuideLocale {
 
 const article = {
   datePublished: '2026-08-13', dateModified: '2026-08-22',
-  authorName: 'Robert Sebastian Böhmer', authorType: 'Person' as const, authorSlug: 'staying-with-us'
+  authorName: 'Robert Sebastian Böhmer', authorType: 'Person' as const, authorRoute: 'about'
 };
 const seoDescriptions: Record<DailyLifeTopic, Record<AmaraLanguage, (place: string) => string>> = {
   'shopping-markets': {

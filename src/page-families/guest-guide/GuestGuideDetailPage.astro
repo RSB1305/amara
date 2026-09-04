@@ -62,7 +62,7 @@ const seo: AmaraAuthoringSeo = {
       {entry.intro && <p>{entry.intro[lang]}</p>}
       {entry.authorityLink && (
         <p class="am-muted">
-          <a class="am-link" href={buildOwnedLocalizedPath(entry.authorityLink.targetSlug, lang)}>
+          <a class="am-link" href={buildOwnedLocalizedPath(entry.authorityLink.targetRoute, lang)}>
             {entry.authorityLink.label[lang]}
           </a>
         </p>

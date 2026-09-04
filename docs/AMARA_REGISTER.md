@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.65.0
+version: 1.67.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-02T10:15:00+02:00
+last_modified: 2026-09-04T17:00:00+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -23,7 +23,7 @@ The AMARA Register is the single source for active documents, authority classes,
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
 | 02 | AMARA Astro & Design Architecture Contract | 4.25.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | 4.4.1 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
-| 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` + Decision Register |
+| 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` (transition note 2026-09-04) + Decision Register `DR-URL-003/005`, `DR-ROUTE-003` + executable owner `src/lib/publicRouteManifest.mjs` |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
 | 07 | AMARA Register | 1.65.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
@@ -98,18 +98,18 @@ Current operational feature owner during transition:
 | ID | Decision | Status |
 |---|---|---|
 | DR-URL-001 | Spanish remains unprefixed; EN/DE/NL/SV remain language-prefixed under the current route model. | ACTIVE CURRENT IMPLEMENTATION |
-| DR-URL-002 | Publication/indexability alone does not permanently freeze a route; generic routes without meaningful external adoption may enter one controlled pre-traffic migration after adoption audit. | MIGRATION PENDING |
-| DR-URL-003 | Target model: stable language-neutral route key mapped to localized public slugs for generic editorial/commercial routes; genuine identity slugs may remain shared. | IMPLEMENTATION PENDING |
-| DR-URL-004 | After migration or meaningful adoption, path changes require structural/legal/consolidation/brand need, not keyword experimentation. | IMPLEMENTATION PENDING |
-| DR-ROUTE-001 | Explicit Astro route wrappers remain the current implementation. | ACTIVE |
-| DR-ROUTE-002 | No route-manifest migration is currently approved. | ACTIVE |
+| DR-URL-002 | Publication/indexability alone does not permanently freeze a route; generic routes without meaningful external adoption may enter one controlled pre-traffic migration after adoption audit. The one permitted migration was executed on 2026-09-04 while the production domain still served the legacy site and the Astro routes carried no indexed traffic. | EXECUTED |
+| DR-URL-003 | Every public route has one stable language-neutral key in `src/lib/publicRouteManifest.mjs`, mapped to one native path per locale: generic segments are written in the visible language (ASCII kebab-case, German umlauts as ae/oe/ue, Swedish å/ä/ö as a/a/o, Spanish and Dutch accents dropped); place names, the six branded stays, `amara-experience`, `casa-amara`, `tarifa-surf-club`, proper nouns and `bildungsurlaub` stay shared. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-URL-004 | After migration or meaningful adoption, path changes require structural/legal/consolidation/brand need, not keyword experimentation. The manifest paths of 2026-09-04 are the frozen set. | ACTIVE |
+| DR-URL-005 | Public paths mirror the visible information architecture: the three destinations sit directly under the locale root; practical Location topics sit directly under their destination; Experiences form one branch per destination, and Tarifa Kitesurfing is one hub inside that branch with its spokes beneath the hub; Stays and About us are sections with their pages beneath them; legal, terms and Instagram stay flat. A child path is always composed from its parent, and the JSON-LD breadcrumb follows the same chain. The private AMARA Experience family keeps its shared `amara-experience` prefix because the Cloudflare Functions middleware is bound to that path. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-ROUTE-001 | Explicit Astro route wrappers remain the current implementation. | SUPERSEDED by DR-ROUTE-003 |
+| DR-ROUTE-002 | No route-manifest migration is currently approved. | SUPERSEDED by DR-ROUTE-003 |
+| DR-ROUTE-003 | The route manifest is the single declaration of public pages. Two catch-all pages (`src/pages/[...path].astro`, `src/pages/[lang]/[...path].astro`) render every manifest route through `src/pages/_routes/PublicRoutePage.astro`, the only place that maps a page family to its component. Explicit route files remain only for the 404, the legacy anonymous guide redirects and the private AMARA Experience family. `routeOwnership.ts`, the Link Registry, `resolve-seo-head.ts`, the sitemap alternates, the breadcrumb resolver and the structured-data audit read the manifest; `check:route-policy` (prebuild and `npm run check`) enforces manifest integrity, the retired-wrapper rule, authored route references and redirect coverage of the migration without chains, loops or collisions. | ACTIVE CURRENT IMPLEMENTATION |
 
 
 ### URL-policy supersession boundary
 
-`DR-URL-002/003/004` intentionally supersede the **permanent policy doctrine** that publication/indexability alone creates an irreversible freeze and that generic public slugs must remain language-neutral forever.
-
-They do **not** supersede the current implementation. Until a separately aligned and approved Class-3 migration is implemented, the existing shared-slug output, route ownership, canonical/hreflang behavior, redirects and guardrails remain protected current contracts.
+`DR-URL-002/003/004` intentionally superseded the **permanent policy doctrine** that publication/indexability alone creates an irreversible freeze and that generic public slugs must remain language-neutral forever. The Class-3 migration those decisions anticipated was aligned with the operator and implemented on 2026-09-04 under `DR-URL-003`, `DR-URL-005` and `DR-ROUTE-003`; the flat shared-slug model is retired, and every previous flat route redirects in its own language to its hierarchical owner through `public/_redirects`.
 
 ### Performance
 
@@ -212,6 +212,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-09-04T17:00:00+02:00 | Hierarchical native-language public routes | Executed the pre-traffic route migration: replaced the flat shared English slugs with one route manifest that maps every public page to a language-neutral key, a parent and a native path per locale (destinations at the root, Location topics beneath them, Experiences as a branch with the Tarifa Kitesurfing cluster nested inside it, Stays and About us as sections, identity slugs shared). Replaced 171 explicit route wrappers with two catch-all pages and one dispatcher, derived canonical, hreflang, sitemap alternates, breadcrumb hierarchy and the Link Registry from the manifest, retargeted every legacy redirect and added one migration redirect per previous route and language, and replaced the slug-policy gate with `check:route-policy`. Register 1.67.0; URL & Route V4 carries a transition note. | DR-URL-002–005, DR-ROUTE-003, DR-LINK-001 | this revision |
 | 2026-09-03T18:30:00+02:00 | Section boundary enforcement | Closed the recurring full-width outer rule regression at the source instead of on one more page: added the build gate `check:section-boundary-policy` to `prebuild` and `npm run check`, hardened the global CSS guard so wrapped bands and consumer data attributes can no longer bypass it, removed the Tailwind edge rules from 38 outer page bands across 16 page families and components, and moved the Tarifa kitesurf hub onto the canonical section owner. Structural borders inside lists, cards and controls are unaffected; footers stay out of scope. | DR-DESIGN-018 | this revision |
 | 2026-09-02T08:45:00+02:00 | Tarifa Kitesurfing cluster and editorial hero hierarchy | Activated the existing Kitesurfing route as a nested Experience hub with four independently useful spokes, kept spoke navigation local to the cluster, and made the concise H1/subtitle/explanatory hierarchy binding. Astro & Design Contract 4.25.0, Register 1.64.0. | DR-DESIGN-006, DR-DESIGN-019, DR-IA-003–006 | this revision |
 | 2026-09-02T08:09:00+02:00 | Content ownership and projection model | Activated one canonical content or fact owner for every overlapping public/AMARA Experience topic, three projection models, duplicate long-form prevention, separate-shell preservation and incremental consolidation. Feature Contract 1.1.0, Knowledge Workflow 1.3.0 and Register 1.63.0; no website, route, schema or presentation code changed. | DR-EXPERIENCE-007, DR-EXPERIENCE-001–005, DR-EVIDENCE-001–003, DR-GUEST-001–003 | this revision |
@@ -388,3 +389,4 @@ Separate controlled workstreams remain for:
 | 1.64.0 | 2026-09-02T08:45:00+02:00 | Activated the Tarifa Kitesurfing hub-and-spoke cluster and the binding two-line editorial-H1 hierarchy; aligned Astro & Design Contract 4.25.0 and the executable route/page-family owners. | this revision |
 | 1.65.0 | 2026-09-02T10:15:00+02:00 | Reduced the shared Location model to eight topics and split Daily Life into separate Supermarkets & Shopping and Health & Emergency pages for Frigiliana, Nerja and Tarifa; retired Practical & Local Rules as a navigation topic while preserving its evidence intake. | this revision |
 | 1.66.0 | 2026-09-03T18:30:00+02:00 | Added the executable section boundary gate, hardened the CSS separator guard and removed page-local outer edge rules across public page families. | this revision |
+| 1.67.0 | 2026-09-04T17:00:00+02:00 | Executed the hierarchical native-language route migration through the public route manifest, two catch-all pages and `check:route-policy`; activated DR-URL-003/004/005 and DR-ROUTE-003, superseded DR-ROUTE-001/002 and marked DR-URL-002 executed. | this revision |

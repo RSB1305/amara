@@ -15,7 +15,7 @@ migration_state: PENDING PACKAGE 2/3 NORMALIZATION
 
 > **INTERIM SNAPSHOT.** This file preserves the wording of the currently approved source document while AMARA migrates active documentation into the repository. Formatting was normalized for Markdown; no substantive rule change is intended by this conversion. Where the System Constitution, Governance or Decision Register explicitly records an intentional supersession, the higher owner governs.
 
-> **Transition note:** the shared language-neutral slug implementation remains the current protected implementation contract. The Decision Register intentionally supersedes the old **permanent policy doctrine** around publication-based freeze/shared generic slugs and records a future locale-path direction, but that direction is **implementation pending**. This snapshot does not authorize or perform any route migration.
+> **Transition note (2026-09-04):** the locale-path direction recorded in `DR-URL-003` is now the implemented contract. Public routes are declared once in `src/lib/publicRouteManifest.mjs` with one language-neutral key, one parent and one native hierarchical path per locale, and rendered by two catch-all pages; canonical, hreflang, sitemap alternates, breadcrumb hierarchy, the Link Registry and the migration redirects derive from that manifest. Sections 2–5 and 7 below describe the superseded shared-slug model and are governed by `DR-URL-003`, `DR-URL-005` and `DR-ROUTE-003` in the Register. Redirect governance, semantic link resolution, the change gate and the definition of done continue to apply unchanged.
 
 ---
 

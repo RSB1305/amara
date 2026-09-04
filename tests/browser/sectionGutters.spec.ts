@@ -29,22 +29,22 @@ const WIDE = 48;
 
 /** Pages that used to depend on a page-scoped rule for the narrow gutter. */
 const FORMERLY_BRIDGED = [
-  '/frigiliana-faq',
-  '/frigiliana-market',
-  '/frigiliana-parking',
-  '/frigiliana-where-to-stay',
-  '/getting-to-frigiliana'
+  '/frigiliana/preguntas-frecuentes',
+  '/frigiliana/experiencias/mercadillo',
+  '/frigiliana/aparcamiento',
+  '/frigiliana/donde-alojarse',
+  '/frigiliana/como-llegar'
 ];
 
 /** Pages that mount the same shared components without that rule. */
 const NEVER_BRIDGED = [
-  '/frigiliana-weather',
-  '/nerja-weather',
-  '/nerja-where-to-stay',
-  '/frigiliana-location',
-  '/directions-arrival-guide',
-  '/nerja-nightlife',
-  '/frigiliana-or-nerja'
+  '/frigiliana/clima',
+  '/nerja/clima',
+  '/nerja/donde-alojarse',
+  '/frigiliana',
+  '/frigiliana/llegada-al-apartamento',
+  '/nerja/experiencias/vida-nocturna',
+  '/frigiliana/frigiliana-o-nerja'
 ];
 
 let astroServer: Awaited<ReturnType<typeof dev>> | undefined;
@@ -125,7 +125,7 @@ const open = (page: Page, path: string) =>
 test.describe('shared .am-section gutter', () => {
   test('standard sections narrow to 24px below md and widen to 48px above', async ({ page }) => {
     await page.setViewportSize(MOBILE);
-    await open(page, '/nerja-nightlife');
+    await open(page, '/nerja/experiencias/vida-nocturna');
     const mobile = await guttersOf(page, 'section.am-section');
     expect(mobile.length).toBeGreaterThan(0);
     expect(mobile.every((padding) => padding === NARROW)).toBe(true);
@@ -148,7 +148,7 @@ test.describe('shared .am-section gutter', () => {
       [DESKTOP, WIDE]
     ] as const) {
       await page.setViewportSize(viewport);
-      await open(page, '/frigiliana-or-nerja');
+      await open(page, '/frigiliana/frigiliana-o-nerja');
       const gutters = await guttersOf(page, 'section.am-section');
       expect(gutters.length).toBe(6);
       expect(gutters.every((padding) => padding === expected)).toBe(true);
@@ -177,7 +177,7 @@ test.describe('the page gutter does not depend on the mounting page', () => {
   }
 
   test('EditorialGuideLinkSection renders the same gutter on every route', async ({ page }) => {
-    for (const route of ['/frigiliana-faq', '/frigiliana-where-to-stay']) {
+    for (const route of ['/frigiliana/preguntas-frecuentes', '/frigiliana/donde-alojarse']) {
       await page.setViewportSize(MOBILE);
       await open(page, route);
       expect(
@@ -205,7 +205,7 @@ test.describe('footer gutter', () => {
     ] as const) {
       await page.setViewportSize(viewport);
 
-      for (const route of ['/frigiliana-parking', '/nerja-nightlife', '/frigiliana-or-nerja']) {
+      for (const route of ['/frigiliana/aparcamiento', '/nerja/experiencias/vida-nocturna', '/frigiliana/frigiliana-o-nerja']) {
         await open(page, route);
         expect(await guttersOf(page, '.footer-core')).toEqual([expected]);
         expect(await guttersOf(page, '.footer-minimal')).toEqual([expected]);
@@ -227,7 +227,7 @@ test.describe('effective content inset', () => {
       [DESKTOP, WIDE]
     ] as const) {
       await page.setViewportSize(viewport);
-      await open(page, '/frigiliana-or-nerja');
+      await open(page, '/frigiliana/frigiliana-o-nerja');
       const insets = await contentInsetOf(page, 'section.am-section > div');
       expect(insets.length).toBe(6);
       expect(insets.every((inset) => inset === expected)).toBe(true);

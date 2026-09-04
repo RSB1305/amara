@@ -19,7 +19,7 @@ test('falls back to authored English metadata without changing the requested rou
   const result = resolveSeoHead(
     seoWithOnlyEnglish,
     'https://amara-lodging.es',
-    '/de/directions-arrival-guide',
+    '/de/frigiliana/anfahrt',
     'de'
   );
 
@@ -28,7 +28,7 @@ test('falls back to authored English metadata without changing the requested rou
     title: 'Arrival guide | AMARA'
   });
   expect(result.canonicalUrl).toBe(
-    'https://amara-lodging.es/de/directions-arrival-guide'
+    'https://amara-lodging.es/de/frigiliana/anfahrt'
   );
 });
 
@@ -36,7 +36,7 @@ test('uses a safe AMARA default when authoring metadata is absent', () => {
   const result = resolveSeoHead(
     undefined,
     'https://amara-lodging.es',
-    '/directions-arrival-guide',
+    '/frigiliana/llegada-al-apartamento',
     'es'
   );
 
@@ -48,6 +48,6 @@ test('uses a safe AMARA default when authoring metadata is absent', () => {
   });
   expect(result.hreflangs.at(-1)).toEqual({
     hreflang: 'x-default',
-    href: 'https://amara-lodging.es/directions-arrival-guide'
+    href: 'https://amara-lodging.es/frigiliana/llegada-al-apartamento'
   });
 });

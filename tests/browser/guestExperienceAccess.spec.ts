@@ -42,7 +42,7 @@ test('the guest access header uses the canonical AMARA brand and availability ac
   await expect(brand).toContainText('Lodging');
 
   const availabilityAction = page.locator('header [data-am-availability-action]');
-  await expect(availabilityAction).toHaveAttribute('href', '/de/find-a-stay');
+  await expect(availabilityAction).toHaveAttribute('href', '/de/unterkuenfte/suche');
   await expect(availabilityAction).toHaveAccessibleName('Verfügbarkeit prüfen');
   await expect(availabilityAction.locator('svg')).toBeVisible();
   const availabilityStyle = await availabilityAction.evaluate((element) => {
