@@ -3,36 +3,42 @@ import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-s
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import EditorialSources from '../../components/editorial/EditorialSources.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
 import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import Navigation from '../../components/Navigation.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
+import { tarifaBildungsurlaubDe } from '../../content/tarifaBildungsurlaubContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { LocalizedText } from '../../types/content';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import LocationModule from './LocationModule.astro';
 
 /**
- * Educational-leave spoke of the Tarifa kitesurf cluster: a placeholder by
- * operator decision of 4 September 2026. The route, registry entry and band
- * link exist so the German band can point here; the page carries only what
- * §17a of the editorial contract already verifies (Work Surf Balance GmbH,
- * recognised in 13 German states, five days a year, kiting through the
- * club) and stays out of the index until the text is written. The band
- * shows this page in German only; the other locales render the same
- * placeholder if reached by URL.
+ * Educational-leave spoke of the Tarifa kitesurf cluster. German carries the
+ * full page (operator decision of 4 September 2026: German first, the other
+ * locales in the translation pass at the end); the other locales still render
+ * the short placeholder and stay out of the index. The request form at the
+ * end sends nothing to a server: it opens the guest's mail program with the
+ * message template addressed to Work Surf Balance and the field values
+ * appended, so nothing is stored on our side.
  */
 interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const isGerman = currentLang === 'de';
 const t = (value: LocalizedText) => value[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa Bildungsurlaub');
 const aboutHref = requiredLink('about');
 const campHref = `${requiredLink('tarifa_kitecamp')}#bildungsurlaub`;
+const de = tarifaBildungsurlaubDe;
 
 const ui = {
   navLabel: { en: 'Educational leave', de: 'Bildungsurlaub', es: 'Bildungsurlaub', nl: 'Bildungsurlaub', sv: 'Bildungsurlaub' },
@@ -47,7 +53,7 @@ const ui = {
   },
   lead: {
     en: 'This page is being written. What is already settled: Work Surf Balance GmbH runs the recognised seminar weeks, five days a year, on AI and mental health, and the kiting is booked through Tarifa Surf Club. Until the page is ready, the short version stands on the kitecamp page.',
-    de: 'Diese Seite entsteht gerade. Was schon feststeht: Die anerkannten Seminarwochen veranstaltet die Work Surf Balance GmbH, fünf Tage im Jahr, zu KI und mentaler Gesundheit, und das Kiten dazu bucht ihr beim Tarifa Surf Club. Bis die Seite fertig ist, steht die kurze Fassung auf der Kitecamp-Seite.',
+    de: 'Diese Seite entsteht gerade.',
     es: 'Esta página está en preparación. Lo que ya está claro: las semanas de seminario reconocidas las organiza Work Surf Balance GmbH, cinco días al año, sobre IA y salud mental, y el kite se reserva con Tarifa Surf Club. Hasta que esté lista, la versión corta está en la página del kitecamp.',
     nl: 'Deze pagina wordt nog geschreven. Wat al vaststaat: de erkende seminarweken worden georganiseerd door Work Surf Balance GmbH, vijf dagen per jaar, over AI en mentale gezondheid, en het kiten boek je bij Tarifa Surf Club. Tot de pagina klaar is, staat de korte versie op de kitecamp-pagina.',
     sv: 'Den här sidan skrivs just nu. Det som redan är klart: de erkända seminarieveckorna arrangeras av Work Surf Balance GmbH, fem dagar om året, om AI och mental hälsa, och kitingen bokas hos Tarifa Surf Club. Tills sidan är klar finns den korta versionen på kitecamp-sidan.'
@@ -56,19 +62,20 @@ const ui = {
   updated: { en: 'In preparation, September 2026', de: 'In Arbeit, September 2026', es: 'En preparación, septiembre de 2026', nl: 'In voorbereiding, september 2026', sv: 'Under arbete, september 2026' },
   note: { en: 'Facts from Work Surf Balance and Tarifa Surf Club, checked 3 September 2026.', de: 'Fakten von Work Surf Balance und Tarifa Surf Club, geprüft am 3. September 2026.', es: 'Datos de Work Surf Balance y Tarifa Surf Club, comprobados el 3 de septiembre de 2026.', nl: 'Feiten van Work Surf Balance en Tarifa Surf Club, gecontroleerd op 3 september 2026.', sv: 'Fakta från Work Surf Balance och Tarifa Surf Club, kontrollerade 3 september 2026.' },
   campLink: { en: 'Educational leave on the kitecamp page', de: 'Bildungsurlaub auf der Kitecamp-Seite', es: 'Bildungsurlaub en la página del kitecamp', nl: 'Bildungsurlaub op de kitecamp-pagina', sv: 'Bildungsurlaub på kitecamp-sidan' },
-  providerLink: { en: 'Work Surf Balance', de: 'Work Surf Balance', es: 'Work Surf Balance', nl: 'Work Surf Balance', sv: 'Work Surf Balance' }
+  providerLink: { en: 'Work Surf Balance', de: 'Work Surf Balance', es: 'Work Surf Balance', nl: 'Work Surf Balance', sv: 'Work Surf Balance' },
+  propertyLabel: { en: 'View AMARA Family & Surf', de: 'AMARA Family & Surf ansehen', es: 'Ver AMARA Family & Surf', nl: 'Bekijk AMARA Family & Surf', sv: 'Visa AMARA Family & Surf' }
 } satisfies Record<string, LocalizedText>;
 
-const title: LocalizedText = {
+const placeholderTitle: LocalizedText = {
   en: 'Educational leave in Tarifa | AMARA',
-  de: 'Bildungsurlaub in Tarifa | AMARA',
+  de: de.seo.title,
   es: 'Bildungsurlaub en Tarifa | AMARA',
   nl: 'Bildungsurlaub in Tarifa | AMARA',
   sv: 'Bildungsurlaub i Tarifa | AMARA'
 };
 
 const seo: AmaraAuthoringSeo = {
-  version: '2026-09-04-tarifa-bildungsurlaub-v0.1',
+  version: '2026-09-04-tarifa-bildungsurlaub-v1.0',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/robert-amara-host.jpg',
@@ -80,11 +87,11 @@ const seo: AmaraAuthoringSeo = {
     authorSlug: 'staying-with-us'
   },
   languages: {
-    en: { title: title.en, description: ui.subtitle.en, robots: 'noindex, follow', canonical: 'auto' },
-    de: { title: title.de, description: ui.subtitle.de, robots: 'noindex, follow', canonical: 'auto' },
-    es: { title: title.es, description: ui.subtitle.es, robots: 'noindex, follow', canonical: 'auto' },
-    nl: { title: title.nl, description: ui.subtitle.nl, robots: 'noindex, follow', canonical: 'auto' },
-    sv: { title: title.sv, description: ui.subtitle.sv, robots: 'noindex, follow', canonical: 'auto' }
+    en: { title: placeholderTitle.en, description: ui.subtitle.en, robots: 'noindex, follow', canonical: 'auto' },
+    de: { title: de.seo.title, description: de.seo.description, robots: 'index, follow', canonical: 'auto' },
+    es: { title: placeholderTitle.es, description: ui.subtitle.es, robots: 'noindex, follow', canonical: 'auto' },
+    nl: { title: placeholderTitle.nl, description: ui.subtitle.nl, robots: 'noindex, follow', canonical: 'auto' },
+    sv: { title: placeholderTitle.sv, description: ui.subtitle.sv, robots: 'noindex, follow', canonical: 'auto' }
   }
 };
 
@@ -92,6 +99,13 @@ const footerHighlights: LabeledLink[] = [
   { token: 'tarifa_bildungsurlaub', label: t(ui.navLabel) },
   { token: 'tarifa_kitecamp', label: t(ui.campLink) }
 ];
+
+const hero = isGerman
+  ? { eyebrow: de.hero.eyebrow, title: de.hero.title, subtitle: de.hero.subtitle, lead: de.hero.lead, updated: de.hero.updated, note: de.hero.note }
+  : { eyebrow: t(ui.eyebrow), title: t(ui.title), subtitle: t(ui.subtitle), lead: t(ui.lead), updated: t(ui.updated), note: t(ui.note) };
+
+const fieldClass = 'am-form-control am-text-form-value mt-2';
+const labelClass = 'block text-on-surface-variant am-text-label am-text-label--sm';
 ---
 
 <LocationAuthorityLayout seo={seo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-spoke">
@@ -103,16 +117,16 @@ const footerHighlights: LabeledLink[] = [
     <KiteClusterNav lang={currentLang} currentId="education" />
 
     <LocationGuideHero
-      eyebrow={t(ui.eyebrow)}
-      title={t(ui.title)}
-      subtitle={t(ui.subtitle)}
-      paragraphs={[t(ui.lead)]}
+      eyebrow={hero.eyebrow}
+      title={hero.title}
+      subtitle={hero.subtitle}
+      paragraphs={[hero.lead]}
       family="experience"
       role="spoke"
       topic="educational-leave"
       visualBreakpoint="lg"
     >
-      <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={t(ui.updated)} note={t(ui.note)} />
+      <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={hero.updated} note={hero.note} />
       <AmaraImage
         slot="visual"
         src={tarifaSurfClubTeamImage}
@@ -128,13 +142,245 @@ const footerHighlights: LabeledLink[] = [
       />
     </LocationGuideHero>
 
-    <LocationModule id="placeholder-links" spacing="compact" data-am-topic="placeholder">
-      <div class="mx-auto flex max-w-screen-2xl flex-wrap gap-x-8 gap-y-3">
-        <a href={campHref} class="am-cta-link">{t(ui.campLink)}</a>
-        <AmaraActionLink href="https://worksurfbalance.com" variant="editorial" external class="inline-flex">{t(ui.providerLink)}</AmaraActionLink>
-      </div>
-    </LocationModule>
+    {isGerman ? (
+      <Fragment>
+        <LocationModule id="woche" labelledby="woche-title" surface="tint" data-am-topic="week">
+          <div class="mx-auto max-w-screen-2xl">
+            <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+              <div class="max-w-xl">
+                <p class="text-primary am-text-label am-text-label--wide">{de.week.eyebrow}</p>
+                <h2 id="woche-title" class="am-text-title mt-5 text-balance text-on-surface">{de.week.title}</h2>
+                <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.week.intro}</p>
+              </div>
+              <div class="max-w-3xl space-y-6 lg:pt-1">
+                {de.week.paragraphs.map((paragraph) => (
+                  <p class="am-text-body leading-relaxed text-on-surface"><InlineEmphasis text={paragraph} /></p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </LocationModule>
+
+        <LocationModule id="seminare" labelledby="seminare-title" data-am-topic="seminars">
+          <div class="mx-auto max-w-screen-2xl">
+            <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+              <div class="max-w-xl">
+                <p class="text-primary am-text-label am-text-label--wide">{de.seminars.eyebrow}</p>
+                <h2 id="seminare-title" class="am-text-title mt-5 text-balance text-on-surface">{de.seminars.title}</h2>
+                <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.seminars.intro}</p>
+                <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.seminars.combos}</p>
+              </div>
+              <div class="grid gap-5 sm:grid-cols-2">
+                {de.seminars.items.map((item) => (
+                  <section class="border-t border-border-subtle bg-surface-container-low/60 px-5 pb-7 pt-6">
+                    <p class="text-primary am-text-label am-text-label--sm">{item.kicker}</p>
+                    <h3 class="am-text-subtitle mt-4 text-on-surface">{item.title}</h3>
+                    <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{item.text}</p>
+                  </section>
+                ))}
+              </div>
+            </div>
+          </div>
+        </LocationModule>
+
+        <LocationModule id="anerkennung" labelledby="anerkennung-title" surface="tint" data-am-topic="recognition">
+          <div class="mx-auto max-w-screen-2xl">
+            <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+              <div class="max-w-xl">
+                <p class="text-primary am-text-label am-text-label--wide">{de.states.eyebrow}</p>
+                <h2 id="anerkennung-title" class="am-text-title mt-5 text-balance text-on-surface">{de.states.title}</h2>
+                <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.states.intro}</p>
+                <p class="am-text-body mt-6 leading-relaxed text-on-surface"><InlineEmphasis text={de.states.howTo} /></p>
+              </div>
+              <div class="grid gap-5 sm:grid-cols-2">
+                <section class="border-t border-border-subtle bg-surface/70 px-5 pb-7 pt-6 sm:col-span-2">
+                  <h3 class="text-primary am-text-label am-text-label--sm">{de.states.recognisedTitle}</h3>
+                  <ul class="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2">
+                    {de.states.recognised.map((state) => (
+                      <li class="am-text-body leading-relaxed text-on-surface">{state}</li>
+                    ))}
+                  </ul>
+                </section>
+                {de.states.notes.map((note) => (
+                  <section class="border-t border-border-subtle bg-surface/70 px-5 pb-7 pt-6">
+                    <h3 class="am-text-subtitle text-on-surface">{note.title}</h3>
+                    <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{note.text}</p>
+                  </section>
+                ))}
+              </div>
+            </div>
+          </div>
+        </LocationModule>
+
+        <LocationModule id="preise" labelledby="preise-title" data-am-topic="prices">
+          <div class="mx-auto max-w-screen-2xl">
+            <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+              <div class="max-w-xl">
+                <p class="text-primary am-text-label am-text-label--wide">{de.prices.eyebrow}</p>
+                <h2 id="preise-title" class="am-text-title mt-5 text-balance text-on-surface">{de.prices.title}</h2>
+                <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.prices.intro}</p>
+                <p class="am-text-body mt-6 leading-relaxed text-on-surface"><InlineEmphasis text={de.prices.dates} /></p>
+              </div>
+              <dl class="grid gap-5">
+                {de.prices.rows.map((row) => (
+                  <div class="border-t border-border-subtle bg-surface-container-low/60 px-5 pb-7 pt-6 md:grid md:grid-cols-[minmax(0,1fr)_auto] md:gap-x-10">
+                    <div>
+                      <dt class="am-text-subtitle text-on-surface">{row.label}</dt>
+                      <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{row.note}</dd>
+                    </div>
+                    <dd class="am-text-subtitle mt-4 text-on-surface md:mt-0 md:text-right">{row.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </LocationModule>
+
+        <LocationModule id="wohnen" labelledby="wohnen-title" surface="tint" data-am-topic="stay">
+          <div class="mx-auto max-w-screen-2xl">
+            <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+              <div class="max-w-xl">
+                <p class="text-primary am-text-label am-text-label--wide">{de.stay.eyebrow}</p>
+                <h2 id="wohnen-title" class="am-text-title mt-5 text-balance text-on-surface">{de.stay.title}</h2>
+                <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.stay.intro}</p>
+              </div>
+              <div class="max-w-3xl space-y-6 lg:pt-1">
+                {de.stay.paragraphs.map((paragraph) => (
+                  <p class="am-text-body leading-relaxed text-on-surface"><InlineEmphasis text={paragraph} /></p>
+                ))}
+                <div class="flex flex-wrap gap-x-8 gap-y-3 pt-2">
+                  <a href={campHref} class="am-cta-link">{t(ui.campLink)}</a>
+                  <a href={requiredLink('tarifa_kite_school')} class="am-cta-link">{de.stay.clubLinkLabel}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </LocationModule>
+
+        <LocationModule id="team" labelledby="team-title" data-am-topic="team">
+          <div class="mx-auto max-w-screen-2xl">
+            <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+              <div class="max-w-xl">
+                <p class="text-primary am-text-label am-text-label--wide">{de.team.eyebrow}</p>
+                <h2 id="team-title" class="am-text-title mt-5 text-balance text-on-surface">{de.team.title}</h2>
+                <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.team.intro}</p>
+              </div>
+              <dl class="grid gap-5 sm:grid-cols-2">
+                {de.team.people.map((person) => (
+                  <div class="border-t border-border-subtle bg-surface-container-low/60 px-5 pb-7 pt-6">
+                    <dt class="am-text-subtitle text-on-surface">{person.name}</dt>
+                    <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{person.role}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </LocationModule>
+
+        <LocationModule id="anfrage" labelledby="anfrage-title" surface="tint" data-am-topic="request">
+          <div class="mx-auto max-w-screen-2xl">
+            <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
+              <div class="max-w-xl">
+                <p class="text-primary am-text-label am-text-label--wide">{de.form.eyebrow}</p>
+                <h2 id="anfrage-title" class="am-text-title mt-5 text-balance text-on-surface">{de.form.title}</h2>
+                <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.form.intro}</p>
+                <div class="mt-8 flex flex-col gap-3">
+                  <a href={`mailto:${de.form.mail.to}`} class="am-cta-link">{de.form.contact.emailLabel}</a>
+                  <AmaraActionLink href={de.form.contact.whatsappHref} variant="editorial" external class="inline-flex">{de.form.contact.whatsappLabel}</AmaraActionLink>
+                  <p class="am-text-body leading-relaxed text-on-surface-variant">{de.form.contact.hours}</p>
+                </div>
+              </div>
+              <form
+                class="max-w-3xl bg-surface px-6 py-8 md:px-10 md:py-10"
+                action={`mailto:${de.form.mail.to}?subject=${encodeURIComponent(de.form.mail.subject)}&body=${encodeURIComponent(de.form.mail.template)}`}
+                method="post"
+                enctype="text/plain"
+                data-am-bildungsurlaub-form
+                data-mail-to={de.form.mail.to}
+                data-mail-subject={de.form.mail.subject}
+                data-mail-template={de.form.mail.template}
+              >
+                <div class="grid gap-5 sm:grid-cols-2">
+                  <label class={labelClass}>{de.form.labels.firstName}<input class={fieldClass} type="text" name="Vorname" autocomplete="given-name" required /></label>
+                  <label class={labelClass}>{de.form.labels.lastName}<input class={fieldClass} type="text" name="Nachname" autocomplete="family-name" /></label>
+                  <label class={labelClass}>{de.form.labels.email}<input class={fieldClass} type="email" name="E-Mail" autocomplete="email" required /></label>
+                  <label class={labelClass}>{de.form.labels.phone}<input class={fieldClass} type="tel" name="Telefon" autocomplete="tel" /></label>
+                </div>
+                <label class:list={[labelClass, 'mt-5']}>{de.form.labels.message}<textarea class:list={[fieldClass, 'min-h-32']} name="Nachricht und Terminwunsch" rows="5"></textarea></label>
+                <div class="mt-5 grid gap-5 sm:grid-cols-2">
+                  <label class={labelClass}>{de.form.labels.state}
+                    <select class={fieldClass} name="Bundesland des Arbeitgebers">
+                      <option value="">{de.form.labels.choose}</option>
+                      {de.form.states.map((state) => <option value={state}>{state}</option>)}
+                    </select>
+                  </label>
+                  <label class={labelClass}>{de.form.labels.topic}
+                    <select class={fieldClass} name="Seminarthema">
+                      <option value="">{de.form.labels.choose}</option>
+                      {de.form.topics.map((topic) => <option value={topic}>{topic}</option>)}
+                    </select>
+                  </label>
+                </div>
+                <button type="submit" class="am-btn am-btn--primary mt-8 w-full justify-center sm:w-auto">{de.form.labels.submit}</button>
+              </form>
+            </div>
+          </div>
+        </LocationModule>
+
+        <EditorialSources eyebrow={de.sources.eyebrow} title={de.sources.title} updated={de.hero.updated} text={de.sources.text} items={de.sources.items.map((item) => ({ label: item.label, href: item.href }))} data-am-topic="sources" />
+
+        <AuthorityStayBridge
+          eyebrow={experienceStayBridge.eyebrow[currentLang]}
+          title={de.bridge.title}
+          reason={de.bridge.reason}
+          stayHref={requiredLink('tarifa')}
+          stayLabel={t(ui.propertyLabel)}
+          availabilityHref={requiredLink('book')}
+          availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
+        />
+      </Fragment>
+    ) : (
+      <LocationModule id="placeholder-links" spacing="compact" data-am-topic="placeholder">
+        <div class="mx-auto flex max-w-screen-2xl flex-wrap gap-x-8 gap-y-3">
+          <a href={campHref} class="am-cta-link">{t(ui.campLink)}</a>
+          <AmaraActionLink href="https://worksurfbalance.com" variant="editorial" external class="inline-flex">{t(ui.providerLink)}</AmaraActionLink>
+        </div>
+      </LocationModule>
+    )}
 
     <KitePartnerLogoBand lang={currentLang} />
   </article>
 </LocationAuthorityLayout>
+
+<script>
+  /**
+   * The request form builds a mailto link from the template and the field
+   * values and hands it to the guest's mail program. Without JavaScript the
+   * form posts itself as text/plain to the same address, which every mail
+   * client turns into a readable message.
+   */
+  const form = document.querySelector<HTMLFormElement>('[data-am-bildungsurlaub-form]');
+  if (form) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const value = (name: string) => String(data.get(name) ?? '').trim();
+      const name = [value('Vorname'), value('Nachname')].filter(Boolean).join(' ');
+      const lines = [
+        form.dataset.mailTemplate ?? '',
+        '',
+        `Name: ${name}`,
+        `E-Mail: ${value('E-Mail')}`,
+        `Telefon: ${value('Telefon')}`,
+        `Bundesland des Arbeitgebers: ${value('Bundesland des Arbeitgebers')}`,
+        `Seminarthema: ${value('Seminarthema')}`,
+        '',
+        'Nachricht und Terminwunsch:',
+        value('Nachricht und Terminwunsch')
+      ];
+      const subject = encodeURIComponent(form.dataset.mailSubject ?? '');
+      const body = encodeURIComponent(lines.join('\n'));
+      window.location.href = `mailto:${form.dataset.mailTo}?subject=${subject}&body=${body}`;
+    });
+  }
+</script>
