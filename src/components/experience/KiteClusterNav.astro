@@ -35,13 +35,13 @@ const ariaLabel: LocalizedText = { en: 'More pages on kitesurfing in Tarifa', de
 
 const items: Array<{ id: KiteClusterPageId; token: LinkToken; label: LocalizedText; languages?: AmaraLanguage[] }> = [
   { id: 'hub', token: 'tarifa_kitesurfing_hub', label: { en: 'Overview', de: 'Überblick', es: 'Resumen', nl: 'Overzicht', sv: 'Översikt' } },
-  { id: 'spots', token: 'tarifa_kitesurf_spots', label: { en: 'Spots', de: 'Kitespots', es: 'Spots', nl: 'Spots', sv: 'Spots' } },
-  { id: 'wind', token: 'tarifa_wind_kitesurfing_authority', label: { en: 'Wind', de: 'Wind & Vorhersage', es: 'Viento', nl: 'Wind', sv: 'Vind' } },
-  { id: 'school', token: 'tarifa_kite_school', label: { en: 'Kite school', de: 'Kiteschule', es: 'Escuela', nl: 'Kiteschool', sv: 'Kiteskola' } },
-  { id: 'camp', token: 'tarifa_kitecamp', label: { en: 'Kitecamp', de: 'Kitecamps', es: 'Kitecamp', nl: 'Kitecamp', sv: 'Kitecamp' } },
+  { id: 'spots', token: 'tarifa_kitesurf_spots', label: { en: 'Kite spots', de: 'Kitespots', es: 'Spots de kite', nl: 'Kitespots', sv: 'Kitespots' } },
+  { id: 'wind', token: 'tarifa_wind_kitesurfing_authority', label: { en: 'Wind & forecast', de: 'Wind & Vorhersage', es: 'Viento y previsión', nl: 'Wind & voorspelling', sv: 'Vind & prognos' } },
+  { id: 'school', token: 'tarifa_kite_school', label: { en: 'Kite school', de: 'Kiteschule', es: 'Escuela de kite', nl: 'Kiteschool', sv: 'Kiteskola' } },
+  { id: 'camp', token: 'tarifa_kitecamp', label: { en: 'Kitecamps', de: 'Kitecamps', es: 'Kitecamps', nl: 'Kitecamps', sv: 'Kitecamps' } },
   { id: 'education', token: 'tarifa_bildungsurlaub', label: { en: 'Educational leave', de: 'Bildungsurlaub', es: 'Bildungsurlaub', nl: 'Bildungsurlaub', sv: 'Bildungsurlaub' }, languages: ['de'] },
-  { id: 'equipment', token: 'tarifa_kite_equipment', label: { en: 'Gear', de: 'Materialverleih & Shop', es: 'Material', nl: 'Materiaal', sv: 'Utrustning' } },
-  { id: 'partner', token: 'amara_tarifa_surf_club', label: { en: 'Partnership', de: 'AMARA × Tarifa Surf Club', es: 'Colaboración', nl: 'Partnerschap', sv: 'Partnerskap' } }
+  { id: 'equipment', token: 'tarifa_kite_equipment', label: { en: 'Gear rental & shop', de: 'Materialverleih & Shop', es: 'Alquiler y tienda', nl: 'Materiaalverhuur & shop', sv: 'Uthyrning & butik' } },
+  { id: 'partner', token: 'amara_tarifa_surf_club', label: { en: 'AMARA × Tarifa Surf Club', de: 'AMARA × Tarifa Surf Club', es: 'AMARA × Tarifa Surf Club', nl: 'AMARA × Tarifa Surf Club', sv: 'AMARA × Tarifa Surf Club' } }
 ];
 
 const links = items.filter((item) => item.id !== currentId && (!item.languages || item.languages.includes(lang)));
