@@ -118,6 +118,7 @@ export const linkRegistry = {
     tarifa_kitesurfing_hub: buildOwnedLinks('tarifa.kitesurfing'),
     amara_tarifa_surf_club: buildOwnedLinks('tarifa.kitesurfing.surf-club'),
     tarifa_bildungsurlaub: buildOwnedLinks('tarifa.kitesurfing.bildungsurlaub'),
+    tarifa_kitesurf_beginner_guide: buildOwnedLinks('tarifa.kitesurfing.beginner-guide'),
     tarifa_beaches_authority: buildOwnedLinks('tarifa.experience.beaches'),
     tarifa_food_evening_life: buildOwnedLinks('tarifa.experience.food-evening-life'),
     tarifa_nature_wildlife: buildOwnedLinks('tarifa.experience.nature-wildlife'),

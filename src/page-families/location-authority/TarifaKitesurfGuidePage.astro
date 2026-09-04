@@ -1,0 +1,182 @@
+---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import Navigation from '../../components/Navigation.astro';
+import ExperienceArticleHero from '../../components/experience/ExperienceArticleHero.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import {
+  tarifaKitesurfBeginnerGuide,
+  type LocalizedGuideText
+} from '../../content/tarifaKitesurfGuideContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import AuthorityStayBridge from './AuthorityStayBridge.astro';
+import AuthorityTextSection from './AuthorityTextSection.astro';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
+
+/**
+ * Editorial beginner guide beneath the Tarifa kitesurf cluster. It reuses the
+ * clean experience-spoke editorial layout, but its navigation context is
+ * kitesurfing (breadcrumb, hub and related links), because this page teaches
+ * rather than sells a co-branded offer.
+ */
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const content = tarifaKitesurfBeginnerGuide;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const t = (value: LocalizedGuideText) => value[currentLang];
+
+const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf guide');
+
+const aboutHref = requiredLink('about');
+const propertyHref = requiredLink('tarifa');
+const footerHighlights: LabeledLink[] = [
+  { token: content.token, label: t(content.navLabel) },
+  { token: 'tarifa_kitesurfing_hub', label: t(content.closing.hubLabel) },
+  ...content.related.links.slice(0, 2).map((link) => ({
+    token: link.token,
+    label: t(link.label)
+  }))
+];
+const localizedSections = content.sections.map((section) => ({
+  id: section.id,
+  eyebrow: t(section.eyebrow),
+  title: t(section.title),
+  paragraphs: section.paragraphs.map(t)
+}));
+---
+
+<LocationAuthorityLayout
+  seo={content.seo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+  pageFamily="experience-tarifa-guide"
+>
+  <Navigation
+    slot="navigation"
+    contextDestination="tarifa"
+    currentLang={currentLang}
+    languageToken={content.token}
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="kitesurfing" destination="tarifa" lang={currentLang} />
+  </Navigation>
+
+  <article
+    class="bg-surface"
+    data-am-page={`tarifa-${content.id}`}
+    data-am-family="experience"
+    data-am-role="spoke"
+    data-am-topic={content.id}
+  >
+    <ExperienceArticleHero
+      eyebrow={t(content.hero.eyebrow)}
+      title={t(content.hero.title)}
+      standfirst={t(content.hero.standfirst)}
+      lang={currentLang}
+      authorName={content.seo.article!.authorName}
+      authorHref={aboutHref}
+      updated={t(content.hero.updated)}
+      note={t(content.hero.note)}
+      mark="Tarifa"
+      topic={content.id}
+    />
+
+    <section class="bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
+      <dl class="mx-auto grid max-w-screen-2xl gap-x-10 gap-y-8 md:grid-cols-3">
+        {content.facts.map((fact) => (
+          <div class="border-t border-primary/30 pt-5">
+            <dt class="text-primary am-text-label am-text-label--sm">{t(fact.label)}</dt>
+            <dd class="am-text-subtitle mt-3 text-on-surface">{t(fact.value)}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    {localizedSections.map((section, index) => (
+      <AuthorityTextSection
+        section={section}
+        index={index}
+        data-am-experience-section={section.id}
+      />
+    ))}
+
+    <aside class="bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="am-text-eyebrow text-primary-fixed-dim">{t(content.host.eyebrow)}</p>
+          <h2 class="am-text-title mt-5 max-w-xl text-balance text-inverted-on-surface">{t(content.host.title)}</h2>
+        </div>
+        <div class="max-w-4xl space-y-5 lg:col-span-7">
+          {content.host.paragraphs.map((paragraph, index) => (
+            <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-inverted-on-surface/78']}>
+              {t(paragraph)}
+            </p>
+          ))}
+        </div>
+      </div>
+    </aside>
+
+    <section class="bg-surface px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <p class="am-text-eyebrow text-primary">{t(content.related.eyebrow)}</p>
+        <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(content.related.title)}</h2>
+        <div class="mt-12 grid gap-5 lg:grid-cols-3">
+          {content.related.links.map((link) => (
+            <AmaraActionLink
+              href={requiredLink(link.token)}
+              variant="card"
+              class="group border-t border-border-subtle bg-surface-container-low px-6 pb-8 pt-7 transition-colors hover:border-primary/45"
+            >
+              <h3 class="am-text-subtitle text-on-surface transition-colors group-hover:text-primary">{t(link.label)}</h3>
+              <span class="am-text-body mt-4 block leading-relaxed text-on-surface-variant">{t(link.text)}</span>
+              <span aria-hidden="true" class="mt-6 inline-flex text-primary transition-transform group-hover:translate-x-1">→</span>
+            </AmaraActionLink>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-4">
+          <p class="am-text-eyebrow text-primary">{t(content.sources.eyebrow)}</p>
+          <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(content.sources.title)}</h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(content.sources.intro)} /></p>
+          <p class="mt-6 am-text-label am-text-label--sm text-muted">{t(content.sources.checked)}</p>
+        </div>
+        <div class="border-t border-border-subtle lg:col-span-8">
+          {content.sources.links.map((source) => (
+            <a
+              href={source.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group grid grid-cols-[1fr_auto] gap-8 border-b border-border-subtle py-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25"
+            >
+              <span>
+                <span class="am-text-subtitle block text-on-surface transition-colors group-hover:text-primary">{t(source.label)}</span>
+                <span class="am-text-body mt-2 block leading-relaxed text-on-surface-variant">{t(source.text)}</span>
+              </span>
+              <span aria-hidden="true" class="am-text-subtitle text-primary">↗</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <AuthorityStayBridge
+      eyebrow={t(content.closing.eyebrow)}
+      title={t(content.closing.title)}
+      reason={t(content.closing.body)}
+      stayHref={propertyHref}
+      stayLabel={t(content.closing.propertyLabel)}
+      availabilityHref={requiredLink('book')}
+      availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
+    />
+  </article>
+</LocationAuthorityLayout>

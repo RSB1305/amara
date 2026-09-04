@@ -612,7 +612,14 @@ const definitions = [
     segment: { es: 'material', en: 'gear', de: 'material', nl: 'materiaal', sv: 'utrustning' }
   },
   { key: 'tarifa.kitesurfing.bildungsurlaub', legacySlug: 'tarifa-bildungsurlaub', family: 'tarifa-bildungsurlaub', parent: 'tarifa.kitesurfing', segment: shared('bildungsurlaub') },
-  { key: 'tarifa.kitesurfing.surf-club', legacySlug: 'amara-tarifa-surf-club', family: 'tarifa-kite-partner', parent: 'tarifa.kitesurfing', segment: shared('tarifa-surf-club') }
+  { key: 'tarifa.kitesurfing.surf-club', legacySlug: 'amara-tarifa-surf-club', family: 'tarifa-kite-partner', parent: 'tarifa.kitesurfing', segment: shared('tarifa-surf-club') },
+  {
+    key: 'tarifa.kitesurfing.beginner-guide',
+    legacySlug: 'tarifa-kitesurf-beginner-guide',
+    family: 'tarifa-kitesurf-guide',
+    parent: 'tarifa.kitesurfing',
+    segment: { es: 'iniciacion', en: 'beginner-guide', de: 'anfaenger-guide', nl: 'beginnersgids', sv: 'nyborjarguide' }
+  }
 ];
 
 /** @type {Map<string, PublicRoute>} */

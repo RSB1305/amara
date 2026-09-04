@@ -507,12 +507,13 @@ const equipment: TarifaKitesurfSpokeContent = {
 };
 
 const relatedMap: Record<TarifaKitesurfSpokeId, LinkToken[]> = {
-  'kite-school': ['tarifa_kitecamp', 'tarifa_kite_equipment', 'tarifa_wind_kitesurfing_authority'],
+  'kite-school': ['tarifa_kitesurf_beginner_guide', 'tarifa_kite_equipment', 'tarifa_wind_kitesurfing_authority'],
   kitecamp: ['tarifa_kite_school', 'tarifa_kite_equipment', 'tarifa_wind_kitesurfing_authority'],
   equipment: ['tarifa_kite_school', 'tarifa_kitecamp', 'tarifa_wind_kitesurfing_authority']
 };
 
 const relatedText: Record<LinkToken & string, LocalizedText | undefined> = {
+  tarifa_kitesurf_beginner_guide: l('Read the wind, the safety cascade and the learning path before your first lesson.', 'Lest Wind, Safety-Kaskade und Lernweg vor eurer ersten Stunde.', 'Lee el viento, la cascada de seguridad y el aprendizaje antes de tu primera clase.', 'Lees de wind, de veiligheidscascade en het leerpad vóór je eerste les.', 'Läs vinden, säkerhetskaskaden och inlärningsvägen före din första lektion.'),
   tarifa_kite_school: l('Semi-private, private or Help 2 Kite, with prices and what is included.', 'Semi-privat, privat oder Help 2 Kite, mit Preisen und Inklusivleistungen.', 'Semiprivado, privado o Help 2 Kite, con precios y lo que incluye.', 'Semi-privé, privé of Help 2 Kite, met prijzen en wat inbegrepen is.', 'Semiprivat, privat eller Help 2 Kite, med priser och vad som ingår.'),
   tarifa_kitecamp: l('A week in the low season with course, bed, gear and rescue, from 599 €.', 'Eine Woche in der Nebensaison mit Kurs, Bett, Material und Rescue, ab 599 €.', 'Una semana en temporada baja con curso, cama, material y rescate, desde 599 €.', 'Een week in het laagseizoen met les, bed, materiaal en rescue, vanaf 599 €.', 'En vecka i lågsäsong med kurs, säng, utrustning och räddning, från 599 €.'),
   tarifa_kite_equipment: l('Sets from 60 € a day, deposit through AMARA, gear waiting at the apartment.', 'Sets ab 60 € am Tag, Kaution über AMARA, Material bereit in der Wohnung.', 'Sets desde 60 € al día, fianza a través de AMARA, material esperando en el apartamento.', 'Sets vanaf 60 € per dag, borg via AMARA, materiaal klaar in het appartement.', 'Set från 60 € per dag, deposition via AMARA, utrustning redo i lägenheten.'),
@@ -520,6 +521,7 @@ const relatedText: Record<LinkToken & string, LocalizedText | undefined> = {
 } as Record<LinkToken & string, LocalizedText | undefined>;
 
 const relatedLabel: Record<LinkToken & string, LocalizedText | undefined> = {
+  tarifa_kitesurf_beginner_guide: l('Beginner guide', 'Anfänger-Guide', 'Guía de iniciación', 'Beginnersgids', 'Nybörjarguide'),
   tarifa_kite_school: school.navLabel,
   tarifa_kitecamp: camp.navLabel,
   tarifa_kite_equipment: equipment.navLabel,
