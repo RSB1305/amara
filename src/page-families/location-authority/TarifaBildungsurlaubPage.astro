@@ -1,5 +1,5 @@
 ---
-import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-surf-club-team.webp';
+import bildungHeroImage from '../../assets/images/content/tarifa/IMG_9084.jpg';
 import kiteSetupImage from '../../assets/images/content/tarifa/_DCS9465_Sebastian_Lang.jpg';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
@@ -59,7 +59,7 @@ const ui = {
     nl: 'Deze pagina wordt nog geschreven. Wat al vaststaat: de erkende seminarweken worden georganiseerd door Work Surf Balance GmbH, vijf dagen per jaar, over AI en mentale gezondheid, en het kiten boek je bij Tarifa Surf Club. Tot de pagina klaar is, staat de korte versie op de kitecamp-pagina.',
     sv: 'Den här sidan skrivs just nu. Det som redan är klart: de erkända seminarieveckorna arrangeras av Work Surf Balance GmbH, fem dagar om året, om AI och mental hälsa, och kitingen bokas hos Tarifa Surf Club. Tills sidan är klar finns den korta versionen på kitecamp-sidan.'
   },
-  imageAlt: { en: 'Tarifa Surf Club team together at the beach in Tarifa', de: 'Das Team des Tarifa Surf Club gemeinsam am Strand von Tarifa', es: 'El equipo de Tarifa Surf Club reunido en la playa de Tarifa', nl: 'Het team van Tarifa Surf Club samen op het strand van Tarifa', sv: 'Tarifa Surf Club-teamet samlat på stranden i Tarifa' },
+  imageAlt: { en: 'A Tarifa Surf Club member with a longboard on the beach in Tarifa', de: 'Ein Mitglied des Tarifa Surf Club mit Longboard am Strand von Tarifa', es: 'Un miembro del Tarifa Surf Club con un longboard en la playa de Tarifa', nl: 'Een lid van de Tarifa Surf Club met een longboard op het strand van Tarifa', sv: 'En medlem i Tarifa Surf Club med en longboard på stranden i Tarifa' },
   weekImageAlt: { en: 'A rider setting up a yellow Airush kite with a board on the beach', de: 'Kiterin baut am Strand einen gelben Airush-Kite mit Board auf', es: 'Una rider preparando una cometa Airush amarilla con la tabla en la playa', nl: 'Een rider bouwt op het strand een gele Airush-kite op met board', sv: 'En rider riggar en gul Airush-kite med bräda på stranden' },
   weekImageCaption: { en: 'Mornings for the seminar, afternoons on the water — the day has room for both.', de: 'Vormittags das Seminar, nachmittags aufs Wasser — der Tag hat für beides Platz.', es: 'Por la mañana el seminario, por la tarde al agua: el día tiene sitio para ambos.', nl: '’s Ochtends het seminar, ’s middags het water op — de dag heeft ruimte voor beide.', sv: 'Förmiddag seminarium, eftermiddag på vattnet — dagen har plats för båda.' },
   updated: { en: 'In preparation, September 2026', de: 'In Arbeit, September 2026', es: 'En preparación, septiembre de 2026', nl: 'In voorbereiding, september 2026', sv: 'Under arbete, september 2026' },
@@ -132,13 +132,13 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
       <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={hero.updated} note={hero.note} />
       <AmaraImage
         slot="visual"
-        src={tarifaSurfClubTeamImage}
+        src={bildungHeroImage}
         alt={t(ui.imageAlt)}
         profile="hero"
-        width={1200}
-        widths={[480, 640, 800, 1200]}
+        width={1080}
+        widths={[480, 640, 800, 1080]}
         sizes="(max-width: 1023px) 100vw, 36vw"
-        class="aspect-[3/2] w-full object-cover"
+        class="aspect-[3/4] w-full object-cover"
         loading="eager"
         decoding="async"
         fetchpriority="high"

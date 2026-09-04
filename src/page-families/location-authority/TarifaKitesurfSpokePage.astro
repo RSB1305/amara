@@ -1,7 +1,9 @@
 ---
 import type { ImageMetadata } from 'astro';
 import markTarifaImage from '../../assets/images/content/tarifa/mark-tarifa-surf-club.webp';
-import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-surf-club-team.webp';
+import schoolHeroImage from '../../assets/images/content/tarifa/IMG_2971_Max_Gifted.jpeg';
+import campHeroImage from '../../assets/images/content/tarifa/IMG_9169.jpg';
+import equipmentHeroImage from '../../assets/images/content/tarifa/AM-6309_Andre_Magaro.jpg';
 import kiteWalkingOutImage from '../../assets/images/content/tarifa/kite-walking-out.jpg';
 import surfclubPromenadeImage from '../../assets/images/content/tarifa/IMG_8749.jpg';
 import kiteBarSandImage from '../../assets/images/content/tarifa/kite-bar-sand.jpg';
@@ -64,6 +66,21 @@ const spokePhoto: Record<TarifaKitesurfSpokeId, { src: ImageMetadata; alt: Local
   }
 };
 const photo = spokePhoto[spoke];
+const spokeHero: Record<TarifaKitesurfSpokeId, { src: ImageMetadata; alt: LocalizedText }> = {
+  'kite-school': {
+    src: schoolHeroImage,
+    alt: { en: 'A kitesurfer landing a strapless board trick over the water', de: 'Kitesurfer bei einem Strapless-Trick über dem Wasser', es: 'Un kitesurfista ejecutando un truco strapless sobre el agua', nl: 'Een kitesurfer die een strapless boardtrick maakt boven het water', sv: 'En kitesurfare som gör ett strapless brädtrick över vattnet' }
+  },
+  kitecamp: {
+    src: campHeroImage,
+    alt: { en: 'Two members of the Tarifa Surf Club by a palm on the beach promenade', de: 'Zwei vom Tarifa Surf Club an einer Palme auf der Strandpromenade', es: 'Dos del Tarifa Surf Club junto a una palmera en el paseo marítimo', nl: 'Twee van de Tarifa Surf Club bij een palm op de strandboulevard', sv: 'Två från Tarifa Surf Club vid en palm på strandpromenaden' }
+  },
+  equipment: {
+    src: equipmentHeroImage,
+    alt: { en: 'A yellow Airush Lithium kite above turquoise water at Tarifa', de: 'Ein gelber Airush-Lithium-Kite über türkisem Wasser bei Tarifa', es: 'Una cometa Airush Lithium amarilla sobre agua turquesa en Tarifa', nl: 'Een gele Airush Lithium-kite boven turquoise water bij Tarifa', sv: 'En gul Airush Lithium-kite över turkost vatten vid Tarifa' }
+  }
+};
+const heroPhoto = spokeHero[spoke];
 const footerHighlights: LabeledLink[] = [
   { token: 'tarifa_kitesurfing_hub', label: t(hubLabel) },
   ...content.related.slice(0, 3).map((item) => ({ token: item.token, label: item.label }))
@@ -91,13 +108,13 @@ const footerHighlights: LabeledLink[] = [
       <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={t(ui.updated)} note={t(ui.note)} />
       <AmaraImage
         slot="visual"
-        src={tarifaSurfClubTeamImage}
-        alt={content.hero.imageAlt}
+        src={heroPhoto.src}
+        alt={t(heroPhoto.alt)}
         profile="hero"
-        width={1200}
-        widths={[480, 640, 800, 1200]}
+        width={1080}
+        widths={[480, 640, 800, 1080]}
         sizes="(max-width: 1023px) 100vw, 36vw"
-        class="aspect-[3/2] w-full object-cover"
+        class="aspect-[3/4] w-full object-cover"
         loading="eager"
         decoding="async"
         fetchpriority="high"
