@@ -5,6 +5,7 @@ import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
+import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -133,5 +134,7 @@ const footerHighlights: LabeledLink[] = [
         <AmaraActionLink href="https://worksurfbalance.com" variant="editorial" external class="inline-flex">{t(ui.providerLink)}</AmaraActionLink>
       </div>
     </LocationModule>
+
+    <KitePartnerLogoBand lang={currentLang} />
   </article>
 </LocationAuthorityLayout>

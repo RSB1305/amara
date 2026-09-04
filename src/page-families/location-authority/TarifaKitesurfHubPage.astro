@@ -9,6 +9,7 @@ import LocationExperienceHero from '../../components/location/LocationExperience
 import Navigation from '../../components/Navigation.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
+import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import { tarifaGuideContent, type LocalizedText, type TarifaTopicGuideContent } from '../../content/tarifaGuideContent';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
@@ -243,5 +244,7 @@ const footerHighlights: LabeledLink[] = [
       availabilityHref={requiredLink('book')}
       availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
     />
+
+    <KitePartnerLogoBand lang={currentLang} />
   </article>
 </LocationAuthorityLayout>

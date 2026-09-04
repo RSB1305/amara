@@ -7,7 +7,7 @@ import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
-import KiteCoBrandingBand from '../../components/experience/KiteCoBrandingBand.astro';
+import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
 import WindguruExampleRow from '../../components/experience/WindguruExampleRow.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -295,8 +295,6 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </LocationModule>
 
-    <KiteCoBrandingBand lang={currentLang} surface="white" />
-
     <LocationModule id="related-kite-guides" labelledby="related-kite-guides-title" surface="tint" spacing="compact" data-am-topic="related">
       <div class="mx-auto max-w-screen-2xl">
         <p class="am-text-eyebrow text-primary">{content.related.eyebrow}</p>
@@ -325,5 +323,7 @@ const footerHighlights: LabeledLink[] = [
         <p class="am-text-body mx-auto mt-14 max-w-3xl leading-relaxed text-muted" data-am-final-line>{content.closing.finalLine}</p>
       </div>
     </LocationModule>
+
+    <KitePartnerLogoBand lang={currentLang} />
   </article>
 </LocationAuthorityLayout>

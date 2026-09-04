@@ -150,6 +150,10 @@ Vierte Korrektur 04.09. (abgestimmt): neue Reihenfolge und Begriffe, deutsch: Ü
 
 Dritte Korrektur 04.09.: Die fette Versalschrift auf Schwarz war noch zu mächtig. Neuer Modifikator `am-text-nav-primary--quiet` in `global.css` (gleiche Schrift, Größe, Laufweite und Versalien, Gewicht 400 statt 700); ein heller Hintergrund wurde kurz probiert und verworfen, das Band bleibt schwarz (`bg-inverse-surface`).
 
+### Stufe 15 — Partner-Logo-Band über dem Footer (Operator-Entscheidung vom 04.09.2026)
+
+Gegenstück zum Cluster-Band oben: `src/components/experience/KitePartnerLogoBand.astro`, schwarzes `LocationModule` (inverse, compact) als letztes Element jeder der acht Kite-Seiten, direkt über dem Footer. WSB und Airush links, das runde Club-Logo größer in der Mitte (verlinkt auf tarifasurfclub.com), Vaerial und Core rechts; VDWS bewusst weggelassen (Verband, keine Marke). Auf Wunsch des Operators so flach wie beim Club: `AmaraSection` inverse mit `py-0`, innen 20–24 px Abstand, flache Logos 28 px, Club-Logo 80 px, Band am Desktop 128 px hoch, am Handy 200 px mit Club-Logo oben und den vier flachen in zwei Reihen. Die Zeile „Partner des Tarifa Surf Club“ ist nur noch für Screenreader vorhanden (`sr-only`), sichtbar sind allein die Logos. Logos vom Operator geliefert (weiß auf transparent), abgelegt unter `src/assets/images/content/tarifa/logos/` in Kleinschreibung (`airush`, `core`, `tarifa-surf-club`, `vaerial`, `wsb`, alle WebP; das PNG von WSB verlustfrei umgewandelt), als importierte Assets über `AmaraImage`. Das Co-Branding-Band `KiteCoBrandingBand` ist entfernt; die Kontaktknöpfe stehen auf jeder Seite im Partner- oder Schlussmodul, `kiteCoBranding` bleibt als Inhalt für die Partnerseite. „Tarifa Surf Club Logo.jpg“ (mit Leerzeichen, opak) bleibt unversioniert liegen.
+
 ## Was als Nächstes ansteht
 
 - Betrieb: nach dem nächsten Release den Kite-Endpunkt auf Staging live prüfen (Stundenwerte, Böen, Strandprodukt).
