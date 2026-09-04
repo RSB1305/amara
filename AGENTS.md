@@ -146,6 +146,8 @@ $env:ASTRO_TELEMETRY_DISABLED='1'; $env:PUBLIC_SITE_URL='https://amara-lodging.e
 
 Do not precede the build with `npm run check` merely out of habit; the build already invokes the required production lifecycle.
 
+The browser suite (`npm run test:browser`) is a CI job, not a local release step. Every spec starts its own Astro dev server on port 4322 inside the checkout; next to another dev server, or right after a build in the same checkout, that server is unhealthy and every test times out, so a run that should take three minutes takes forty. Run it locally only to reproduce a red CI job, and then in a detached worktree with its own `npm ci` (`git worktree add --detach ../amara-validate <branch>`), removed afterwards. The local config stops after three failures and twelve minutes so a sick environment is visible in minutes; an aborted local run says nothing about the code.
+
 Inspect the working tree, preserve unrelated changes, stage only explicit task files, verify the staged set and `git diff --cached --check`, and make one coherent local commit when requested. Do not push without explicit instruction.
 
 ## External build budget and release batching
@@ -153,11 +155,11 @@ Inspect the working tree, preserve unrelated changes, stage only explicit task f
 Treat the operator-reported Cloudflare Pages limit of 500 builds as a hard shared budget. A local commit consumes no external build; a branch push, pull-request update or merge can trigger GitHub Actions and Cloudflare builds.
 
 - Keep validated Class 0–2 changes and behavior-preserving cleanup commits local by default, and batch them into intentional release points.
-- Do not propose or perform a separate push or pull request for every micro change. Do not use remote CI or Cloudflare as the first validation when the relevant checks can run locally.
-- Before requesting or performing any push, inspect the active workflow and deployment triggers and tell the operator the exact commits and scope in the batch, the expected GitHub Actions runs and Cloudflare builds through pull request and merge, and why this is a sensible release boundary.
+- Do not propose or perform a separate push or pull request for every micro change. Typecheck, the build gates and the contract suite run locally before a push; the browser suite is what the pull request's CI is for.
+- Before a push, name the batch in one line: which commits, what they change. A pull request costs one GitHub Actions run and one Cloudflare preview, the merge the same again; that is the expected price of a release and needs no separate disclosure each time.
 - Push authorization applies only to the named batch after that cost disclosure. It does not authorize additional update or fix pushes; finish known local corrections first and batch necessary follow-up fixes whenever practical.
 - Standing Codex Cloud handoff authorization: explicitly commissioning an implementation in Codex Cloud authorizes exactly one dedicated task-branch push and creation or update of its pull request for handoff, without a separate cost-approval round. State the expected external triggers before the task starts when known. This standing authorization does not permit merge, deployment, unrelated pushes or direct changes to `main`.
-- Use targeted validation while accumulating local commits. Run the complete release validation once at the batch boundary, then prefer one branch push, one pull request and one merge for the approved batch.
+- Use targeted validation while accumulating local commits. At the batch boundary run the local release validation once, `npm run build` with `PUBLIC_SITE_URL` plus `npm run test:contracts`, about three minutes, then one branch push, one pull request and one merge for the approved batch. CI runs build and browser suite on the pull request in about eight minutes; report its result and merge on the operator's word. The operator's time between "done" and staging should be that one word, not a waiting period.
 - Exceptions require either an urgent production or security need, or an explicit operator override after the external build cost has been disclosed.
 
 ## Operator commands
