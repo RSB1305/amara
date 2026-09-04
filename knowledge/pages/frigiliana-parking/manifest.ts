@@ -10,7 +10,7 @@ export const frigilianaParkingKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1UssktQjoekSxSm5bmwu_g__Wj4QDijKJ',
     url: 'https://drive.google.com/drive/folders/1UssktQjoekSxSm5bmwu_g__Wj4QDijKJ',
-    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/frigiliana-parking-accessibility',
+    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/parking',
   },
   publicContentPath: 'src/content/frigilianaParkingGuideContent.ts',
   researchRunIds: ['2026-08-21__184630__parking-accessibility__research-001'],

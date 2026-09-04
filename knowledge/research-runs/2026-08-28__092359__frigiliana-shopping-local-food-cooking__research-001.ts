@@ -17,7 +17,7 @@ export const frigilianaShoppingLocalFoodCookingResearch001 = defineKnowledgeRese
   driveFolder: {
     id: '1sgmfPBSOAkhlMnFSJNh8EJLB-edglXek',
     url: 'https://drive.google.com/drive/folders/1sgmfPBSOAkhlMnFSJNh8EJLB-edglXek',
-    path: 'AMARA – Research Vault/00_INBOX/2026-08-28__092359__frigiliana-shopping-local-food-cooking__research-001',
+    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/supermarkets/2026-08-28__092359__frigiliana-shopping-local-food-cooking__research-001',
   },
   inputs: [
     {

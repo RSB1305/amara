@@ -10,7 +10,7 @@ export const frigilianaHikingKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1VyecWPTXEgcAwxY5ZRQModN7evS19LmK',
     url: 'https://drive.google.com/drive/folders/1VyecWPTXEgcAwxY5ZRQModN7evS19LmK',
-    path: 'AMARA – Research Vault/00_INBOX/2026-08-28__092357__frigiliana-hiking-weather-return__research-001',
+    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/experiences/hiking/2026-08-28__092357__frigiliana-hiking-weather-return__research-001',
   },
   publicContentPath: 'src/content/frigilianaHikingContent.ts',
   researchRunIds: ['2026-08-28__092357__frigiliana-hiking-weather-return__research-001'],

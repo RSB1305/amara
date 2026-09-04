@@ -10,7 +10,7 @@ export const tarifaWinterStaysKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1nWymxiU-IzfILM0t5rzISp8ZivLYfOgd',
     url: 'https://drive.google.com/drive/folders/1nWymxiU-IzfILM0t5rzISp8ZivLYfOgd',
-    path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/tarifa-winter-stays',
+    path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/winter',
   },
   publicContentPath: 'src/content/tarifaWinterStaysContent.ts',
   researchRunIds: ['2026-08-21__161609__winter-stays__research-001'],

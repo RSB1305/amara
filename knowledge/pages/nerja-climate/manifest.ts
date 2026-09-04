@@ -10,7 +10,7 @@ export const nerjaClimateKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1NR0CQC9Gp1EOaj42w2phdQ9XGMKYhrn5',
     url: 'https://drive.google.com/drive/folders/1NR0CQC9Gp1EOaj42w2phdQ9XGMKYhrn5',
-    path: 'AMARA – Research Vault/10_LOCATIONS/nerja/nerja-climate',
+    path: 'AMARA – Research Vault/10_LOCATIONS/nerja/weather',
   },
   publicContentPath: 'src/page-families/location-authority/NerjaWeatherPage.astro',
   researchRunIds: [
