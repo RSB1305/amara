@@ -1,6 +1,12 @@
 ---
+import type { ImageMetadata } from 'astro';
 import markTarifaImage from '../../assets/images/content/tarifa/mark-tarifa-surf-club.webp';
-import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-surf-club-team.webp';
+import schoolHeroImage from '../../assets/images/content/tarifa/IMG_2971_Max_Gifted.jpeg';
+import campHeroImage from '../../assets/images/content/tarifa/IMG_9169.jpg';
+import equipmentHeroImage from '../../assets/images/content/tarifa/AM-6309_Andre_Magaro.jpg';
+import kiteWalkingOutImage from '../../assets/images/content/tarifa/kite-walking-out.jpg';
+import surfclubPromenadeImage from '../../assets/images/content/tarifa/IMG_8749.jpg';
+import kiteBarSandImage from '../../assets/images/content/tarifa/kite-bar-sand.jpg';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
@@ -42,6 +48,39 @@ const ui = {
   includes: { en: 'Included', de: 'Inklusive', es: 'Incluido', nl: 'Inbegrepen', sv: 'Ingår' }
 } satisfies Record<string, LocalizedText>;
 const t = (value: LocalizedText) => value[currentLang];
+const spokePhoto: Record<TarifaKitesurfSpokeId, { src: ImageMetadata; alt: LocalizedText; caption: LocalizedText }> = {
+  'kite-school': {
+    src: kiteWalkingOutImage,
+    alt: { en: 'A rider walking to the water with board and bar at Tarifa', de: 'Kiter geht mit Board und Bar bei Tarifa ins Wasser', es: 'Un rider caminando hacia el agua con tabla y barra en Tarifa', nl: 'Een rider loopt met board en bar het water in bij Tarifa', sv: 'En rider går ut i vattnet med bräda och bar i Tarifa' },
+    caption: { en: 'From the first flight of the kite to riding out on your own — one step at a time.', de: 'Vom ersten Flug des Kites bis zum eigenen Losfahren — Schritt für Schritt.', es: 'Del primer vuelo de la cometa a salir por tu cuenta, paso a paso.', nl: 'Van de eerste vlucht van de kite tot zelf wegvaren — stap voor stap.', sv: 'Från kitens första flygtur till att åka ut själv — steg för steg.' }
+  },
+  kitecamp: {
+    src: surfclubPromenadeImage,
+    alt: { en: 'People with skateboards on the beach promenade in Tarifa', de: 'Leute mit Skateboards auf der Strandpromenade von Tarifa', es: 'Gente con monopatines en el paseo marítimo de Tarifa', nl: 'Mensen met skateboards op de strandboulevard van Tarifa', sv: 'Folk med skateboards på strandpromenaden i Tarifa' },
+    caption: { en: 'A camp is more than the sessions — it is the days around them.', de: 'Ein Camp ist mehr als die Sessions — es sind die Tage drumherum.', es: 'Un camp es más que las sesiones: son los días alrededor.', nl: 'Een camp is meer dan de sessies — het zijn de dagen eromheen.', sv: 'Ett camp är mer än passen — det är dagarna runt omkring.' }
+  },
+  equipment: {
+    src: kiteBarSandImage,
+    alt: { en: 'An Airush control bar with quick release lying in the sand', de: 'Airush-Bar mit Quick-Release im Sand', es: 'Una barra de control Airush con quick release sobre la arena', nl: 'Een Airush-bar met quick release in het zand', sv: 'En Airush-bar med quick release i sanden' },
+    caption: { en: 'Current Airush gear, checked and ready — rent it or buy it through the club.', de: 'Aktuelles Airush-Material, geprüft und bereit — leihen oder kaufen über den Club.', es: 'Material Airush actual, revisado y listo: de alquiler o compra a través del club.', nl: 'Actueel Airush-materiaal, gecontroleerd en klaar — huren of kopen via de club.', sv: 'Aktuell Airush-utrustning, kontrollerad och redo — hyr eller köp via klubben.' }
+  }
+};
+const photo = spokePhoto[spoke];
+const spokeHero: Record<TarifaKitesurfSpokeId, { src: ImageMetadata; alt: LocalizedText }> = {
+  'kite-school': {
+    src: schoolHeroImage,
+    alt: { en: 'A kitesurfer landing a strapless board trick over the water', de: 'Kitesurfer bei einem Strapless-Trick über dem Wasser', es: 'Un kitesurfista ejecutando un truco strapless sobre el agua', nl: 'Een kitesurfer die een strapless boardtrick maakt boven het water', sv: 'En kitesurfare som gör ett strapless brädtrick över vattnet' }
+  },
+  kitecamp: {
+    src: campHeroImage,
+    alt: { en: 'Two members of the Tarifa Surf Club by a palm on the beach promenade', de: 'Zwei vom Tarifa Surf Club an einer Palme auf der Strandpromenade', es: 'Dos del Tarifa Surf Club junto a una palmera en el paseo marítimo', nl: 'Twee van de Tarifa Surf Club bij een palm op de strandboulevard', sv: 'Två från Tarifa Surf Club vid en palm på strandpromenaden' }
+  },
+  equipment: {
+    src: equipmentHeroImage,
+    alt: { en: 'A yellow Airush Lithium kite above turquoise water at Tarifa', de: 'Ein gelber Airush-Lithium-Kite über türkisem Wasser bei Tarifa', es: 'Una cometa Airush Lithium amarilla sobre agua turquesa en Tarifa', nl: 'Een gele Airush Lithium-kite boven turquoise water bij Tarifa', sv: 'En gul Airush Lithium-kite över turkost vatten vid Tarifa' }
+  }
+};
+const heroPhoto = spokeHero[spoke];
 const footerHighlights: LabeledLink[] = [
   { token: 'tarifa_kitesurfing_hub', label: t(hubLabel) },
   ...content.related.slice(0, 3).map((item) => ({ token: item.token, label: item.label }))
@@ -69,13 +108,13 @@ const footerHighlights: LabeledLink[] = [
       <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={t(ui.updated)} note={t(ui.note)} />
       <AmaraImage
         slot="visual"
-        src={tarifaSurfClubTeamImage}
-        alt={content.hero.imageAlt}
+        src={heroPhoto.src}
+        alt={t(heroPhoto.alt)}
         profile="hero"
-        width={1200}
-        widths={[480, 640, 800, 1200]}
+        width={1080}
+        widths={[480, 640, 800, 1080]}
         sizes="(max-width: 1023px) 100vw, 36vw"
-        class="aspect-[3/2] w-full object-cover"
+        class="aspect-[3/4] w-full object-cover"
         loading="eager"
         decoding="async"
         fetchpriority="high"
@@ -143,6 +182,13 @@ const footerHighlights: LabeledLink[] = [
         </div>
       </LocationModule>
     ))}
+
+    <LocationModule spacing="compact" data-am-topic="editorial-photo">
+      <figure class="mx-auto max-w-screen-2xl">
+        <AmaraImage src={photo.src} alt={t(photo.alt)} profile="hero" width={2000} widths={[768, 1200, 1600, 2000]} sizes="(max-width: 1535px) 100vw, 1440px" class="aspect-[4/5] w-full object-cover sm:aspect-[16/9] lg:aspect-[16/7]" focalPoint="50% 48%" />
+        <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{t(photo.caption)}</figcaption>
+      </figure>
+    </LocationModule>
 
     {content.quote && (
       <LocationModule id="voice" labelledby="voice-title" surface={content.sections.length % 2 === 0 ? 'tint' : 'white'} spacing="compact" data-am-topic="voice">

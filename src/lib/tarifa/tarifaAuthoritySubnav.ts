@@ -17,7 +17,8 @@ export type TarifaExperienceChildId =
   | 'food-evening-life'
   | 'nature-wildlife'
   | 'old-town-history'
-  | 'bolonia-baelo-claudia';
+  | 'bolonia-baelo-claudia'
+  | 'yoga';
 
 export type TarifaAuthorityChildId = LocationGuideTopicId | TarifaExperienceChildId;
 
@@ -68,7 +69,8 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'food-evening-life': 'Food & evening life',
       'nature-wildlife': 'Nature & wildlife',
       'old-town-history': 'Old Town & history',
-      'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia'
+      'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
+      yoga: 'Yoga'
     }
   },
   de: {
@@ -82,7 +84,8 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'food-evening-life': 'Essen & Ausgehen',
       'nature-wildlife': 'Natur & Tierwelt',
       'old-town-history': 'Altstadt & Geschichte',
-      'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia'
+      'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
+      yoga: 'Yoga'
     }
   },
   es: {
@@ -96,7 +99,8 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'food-evening-life': 'Gastronomía y vida nocturna',
       'nature-wildlife': 'Naturaleza y fauna',
       'old-town-history': 'Casco antiguo e historia',
-      'bolonia-baelo-claudia': 'Bolonia y Baelo Claudia'
+      'bolonia-baelo-claudia': 'Bolonia y Baelo Claudia',
+      yoga: 'Yoga'
     }
   },
   nl: {
@@ -110,7 +114,8 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'food-evening-life': 'Eten & uitgaan',
       'nature-wildlife': 'Natuur & dieren',
       'old-town-history': 'Oude stad & geschiedenis',
-      'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia'
+      'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
+      yoga: 'Yoga'
     }
   },
   sv: {
@@ -124,7 +129,8 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'food-evening-life': 'Mat & kvällsliv',
       'nature-wildlife': 'Natur & djurliv',
       'old-town-history': 'Gamla stan & historia',
-      'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia'
+      'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
+      yoga: 'Yoga'
     }
   }
 };
@@ -149,7 +155,8 @@ const experienceChildren: readonly (readonly [TarifaExperienceChildId, LinkToken
   ['food-evening-life', 'tarifa_food_evening_life'],
   ['nature-wildlife', 'tarifa_nature_wildlife'],
   ['old-town-history', 'tarifa_old_town_history'],
-  ['bolonia-baelo-claudia', 'tarifa_bolonia_baelo_claudia']
+  ['bolonia-baelo-claudia', 'tarifa_bolonia_baelo_claudia'],
+  ['yoga', 'tarifa_yoga']
 ];
 
 export function getTarifaAuthoritySubnav(

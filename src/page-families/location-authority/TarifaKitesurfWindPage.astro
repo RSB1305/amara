@@ -1,8 +1,9 @@
 ---
 import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
 import markTarifaImage from '../../assets/images/content/tarifa/mark-tarifa-surf-club.webp';
-import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-surf-club-team.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
+import windHeroImage from '../../assets/images/content/tarifa/Airush_Valentin_Tadzio-Rurka_DSC_3203.jpg';
+import windSunsetImage from '../../assets/images/content/tarifa/_DCS2079_Sebastian_Lang.jpg';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -41,6 +42,28 @@ const footerHighlights: LabeledLink[] = [
   { token: content.token, label: content.hero.title },
   ...content.related.links.map((link) => ({ token: link.token, label: link.title }))
 ];
+
+const windHeroAlt = {
+  en: 'A kitesurfer high above the waves in front of Tarifa’s old tuna-fishery buildings',
+  de: 'Kitesurfer hoch über den Wellen vor den alten Almadraba-Gebäuden bei Tarifa',
+  es: 'Un kitesurfista muy alto sobre las olas frente a las antiguas naves de la almadraba de Tarifa',
+  nl: 'Een kitesurfer hoog boven de golven voor de oude almadraba-gebouwen bij Tarifa',
+  sv: 'En kitesurfare högt över vågorna framför Tarifas gamla tonfiskeribyggnader'
+}[currentLang];
+const windSunsetAlt = {
+  en: 'A kitesurfer jumping against the setting sun over the sea at Tarifa',
+  de: 'Kitesurfer im Sprung vor der untergehenden Sonne über dem Meer bei Tarifa',
+  es: 'Un kitesurfista saltando contra el sol poniente sobre el mar en Tarifa',
+  nl: 'Een kitesurfer die springt tegen de ondergaande zon boven de zee bij Tarifa',
+  sv: 'En kitesurfare i ett hopp mot den nedgående solen över havet vid Tarifa'
+}[currentLang];
+const windSunsetCaption = {
+  en: 'The Levante often eases at dusk — the last session of the day is frequently the cleanest.',
+  de: 'Der Levante lässt zum Abend oft nach — die letzte Session des Tages ist häufig die sauberste.',
+  es: 'El levante suele amainar al anochecer: la última sesión del día es a menudo la más limpia.',
+  nl: 'De levante zwakt tegen de avond vaak af — de laatste sessie van de dag is vaak de schoonste.',
+  sv: 'Levanten mojnar ofta mot kvällen — dagens sista pass är ofta det renaste.'
+}[currentLang];
 ---
 
 <LocationAuthorityLayout seo={tarifaKitesurfWindSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-spoke">
@@ -62,16 +85,15 @@ const footerHighlights: LabeledLink[] = [
       visualBreakpoint="lg"
     >
       <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
-      {/* The team photo is landscape; the hero's default portrait crop would cut people at both edges. */}
       <AmaraImage
         slot="visual"
-        src={tarifaSurfClubTeamImage}
-        alt={content.hero.imageAlt}
+        src={windHeroImage}
+        alt={windHeroAlt}
         profile="hero"
-        width={1200}
-        widths={[480, 640, 800, 1200]}
+        width={1080}
+        widths={[480, 640, 800, 1080]}
         sizes="(max-width: 1023px) 100vw, 36vw"
-        class="aspect-[3/2] w-full object-cover"
+        class="aspect-[3/4] w-full object-cover"
         loading="eager"
         decoding="async"
         fetchpriority="high"
@@ -160,6 +182,13 @@ const footerHighlights: LabeledLink[] = [
           {content.localWind.spotLink.after}
         </p>
       </div>
+    </LocationModule>
+
+    <LocationModule spacing="compact" data-am-topic="editorial-photo">
+      <figure class="mx-auto max-w-screen-2xl">
+        <AmaraImage src={windSunsetImage} alt={windSunsetAlt} profile="hero" width={2000} widths={[768, 1200, 1600, 2000]} sizes="(max-width: 1535px) 100vw, 1440px" class="aspect-[4/5] w-full object-cover sm:aspect-[16/9] lg:aspect-[16/7]" focalPoint="50% 45%" />
+        <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{windSunsetCaption}</figcaption>
+      </figure>
     </LocationModule>
 
     <LocationModule id="safety" labelledby="safety-title" spacing="compact" data-am-topic="official-rules">

@@ -6,7 +6,7 @@ export type LocalizedExperienceText = Record<AmaraLanguage, string>;
 
 export type TarifaExperienceSpokeId = Extract<
   TarifaAuthorityChildId,
-  'food-evening-life' | 'nature-wildlife' | 'old-town-history' | 'bolonia-baelo-claudia'
+  'food-evening-life' | 'nature-wildlife' | 'old-town-history' | 'bolonia-baelo-claudia' | 'yoga'
 >;
 
 export interface TarifaExperienceSpokeSection {
@@ -84,12 +84,13 @@ const article = {
 const buildSeo = (
   version: string,
   titles: LocalizedExperienceText,
-  descriptions: LocalizedExperienceText
+  descriptions: LocalizedExperienceText,
+  articleMeta: typeof article = article
 ): AmaraAuthoringSeo => ({
   version,
   pageType: 'B',
   entityKey: 'amara-brand',
-  article,
+  article: articleMeta,
   languages: {
     en: { title: titles.en, description: descriptions.en, robots: 'index, follow', canonical: 'auto' },
     de: { title: titles.de, description: descriptions.de, robots: 'index, follow', canonical: 'auto' },
@@ -127,7 +128,9 @@ const sourceHrefs = {
   castillo: 'https://turismodetarifa.com/que-visitar/castillo-guzman-bueno/',
   walls: 'https://turismodetarifa.com/ruta-de-las-murallas/',
   baelo: 'https://www.juntadeandalucia.es/organismos/culturaydeporte/servicios/directorio-instituciones/detalle/2580.html',
-  boloniaDune: 'https://www.juntadeandalucia.es/medioambiente/portal/documents/20151/970015b9-a138-8d17-6b86-7b2cebad3964'
+  boloniaDune: 'https://www.juntadeandalucia.es/medioambiente/portal/documents/20151/970015b9-a138-8d17-6b86-7b2cebad3964',
+  mandalablue: 'https://www.mandalablueyoga.es/yoga-meditation-tarifa-schedule-and-bookings',
+  respira: 'https://www.respirayogatarifa.com'
 } as const;
 
 const food: TarifaExperienceSpokeContent = {
@@ -894,6 +897,194 @@ const bolonia: TarifaExperienceSpokeContent = {
   }
 };
 
+const yoga: TarifaExperienceSpokeContent = {
+  id: 'yoga',
+  token: 'tarifa_yoga',
+  seo: buildSeo(
+    '2026-09-04-tarifa-yoga-v1.0',
+    l(
+      'Yoga in Tarifa | Beach, Studio & Retreat Guide',
+      'Yoga in Tarifa | Strand, Studios & Retreats',
+      'Yoga en Tarifa | Playa, estudios y retiros',
+      'Yoga in Tarifa | Strand, studio’s & retreats',
+      'Yoga i Tarifa | Strand, studior & retreat'
+    ),
+    l(
+      'Discover yoga in Tarifa — studios, ocean and beach classes, family and aerial formats and retreats — with mats already waiting at AMARA Family & Surf in La Marina.',
+      'Entdeckt Yoga in Tarifa – Studios, Ocean- und Beach-Kurse, Familien- und Aerial-Formate und Retreats – mit Yogamatten, die bei AMARA Family & Surf in La Marina schon bereitliegen.',
+      'Descubre el yoga en Tarifa: estudios, clases junto al mar, formatos familiares y aéreos y retiros, con esterillas ya listas en AMARA Family & Surf, en La Marina.',
+      'Ontdek yoga in Tarifa: studio’s, lessen aan zee, familie- en aerial-vormen en retreats, met matten die al klaarliggen bij AMARA Family & Surf in La Marina.',
+      'Upptäck yoga i Tarifa: studior, klasser vid havet, familje- och aerialformer och retreat, med mattor som redan väntar på AMARA Family & Surf i La Marina.'
+    ),
+    { ...article, datePublished: '2026-09-04', dateModified: '2026-09-04' }
+  ),
+  navLabel: l('Yoga', 'Yoga', 'Yoga', 'Yoga', 'Yoga'),
+  breadcrumbLabel: l('Yoga', 'Yoga', 'Yoga', 'Yoga', 'Yoga'),
+  hero: {
+    eyebrow: l('Tarifa experience guide', 'Tarifa erleben', 'Experiencias en Tarifa', 'Tarifa beleven', 'Upplev Tarifa'),
+    title: l(
+      'Yoga at the pace of the Atlantic',
+      'Yoga im Rhythmus des Atlantiks',
+      'Yoga al ritmo del Atlántico',
+      'Yoga op het ritme van de Atlantische Oceaan',
+      'Yoga i Atlantens takt'
+    ),
+    standfirst: l(
+      'For its size, Tarifa carries an unusually broad yoga scene: town studios, classes by the sea, family and aerial formats and multi-day retreats. From Family & Surf in La Marina you begin inside a small wellness cluster on Calle Mar Adriático, with yoga mats already in the apartment for your own morning flow.',
+      'Für seine Größe hat Tarifa eine ungewöhnlich breite Yoga-Szene: Studios im Ort, Kurse am Meer, Familien- und Aerial-Formate und mehrtägige Retreats. Von Family & Surf in La Marina startet ihr mitten in einem kleinen Wellness-Cluster an der Calle Mar Adriático, mit Yogamatten, die schon in der Unterkunft liegen.',
+      'Para su tamaño, Tarifa reúne una escena de yoga sorprendentemente amplia: estudios en el pueblo, clases junto al mar, formatos familiares y aéreos y retiros de varios días. Desde Family & Surf, en La Marina, empezáis dentro de un pequeño núcleo de bienestar en la calle Mar Adriático, con esterillas ya en el apartamento para vuestra práctica de la mañana.',
+      'Voor haar formaat heeft Tarifa een opvallend brede yogascene: studio’s in het dorp, lessen aan zee, familie- en aerial-vormen en meerdaagse retreats. Vanaf Family & Surf in La Marina begin je midden in een klein wellnesscluster aan de Calle Mar Adriático, met yogamatten die al in het appartement liggen voor je eigen ochtendflow.',
+      'För sin storlek har Tarifa en ovanligt bred yogascen: studior i stan, klasser vid havet, familje- och aerialformer och flerdagarsretreat. Från Family & Surf i La Marina börjar ni mitt i ett litet wellnesskluster vid Calle Mar Adriático, med yogamattor som redan finns i lägenheten för er egen morgonflow.'
+    ),
+    note: l(
+      'A host-written guide to the character of yoga in Tarifa. Schedules, prices, teachers and formats change by season and studio; confirm current details directly before you book.',
+      'Ein Host-Guide zum Charakter von Yoga in Tarifa. Stundenpläne, Preise, Lehrer und Formate wechseln je nach Saison und Studio; prüft aktuelle Details vor der Buchung direkt.',
+      'Una guía del anfitrión sobre el carácter del yoga en Tarifa. Horarios, precios, profesores y formatos cambian según la temporada y el estudio; confirmad los detalles vigentes antes de reservar.',
+      'Een gids van de host over het karakter van yoga in Tarifa. Roosters, prijzen, docenten en vormen verschillen per seizoen en studio; controleer actuele details vóór het boeken.',
+      'En guide från värden om yogans karaktär i Tarifa. Scheman, priser, lärare och former varierar mellan säsong och studio; bekräfta aktuella uppgifter direkt innan ni bokar.'
+    ),
+    updated: l('Yoga scene checked in September 2026', 'Yoga-Szene geprüft im September 2026', 'Escena de yoga revisada en septiembre de 2026', 'Yogascene gecontroleerd in september 2026', 'Yogascenen kontrollerad i september 2026')
+  },
+  facts: [
+    { label: l('The scene', 'Die Szene', 'La escena', 'De scene', 'Scenen'), value: l('Studios · beach yoga · family · retreats', 'Studios · Beach-Yoga · Familie · Retreats', 'Estudios · yoga en la playa · familia · retiros', 'Studio’s · strandyoga · familie · retreats', 'Studior · strandyoga · familj · retreat') },
+    { label: l('In your street', 'In eurer Straße', 'En vuestra calle', 'In je straat', 'På er gata'), value: l('A wellness cluster on Calle Mar Adriático', 'Ein Wellness-Cluster an der Calle Mar Adriático', 'Un núcleo de bienestar en la calle Mar Adriático', 'Een wellnesscluster aan de Calle Mar Adriático', 'Ett wellnesskluster vid Calle Mar Adriático') },
+    { label: l('From AMARA', 'Von AMARA', 'Desde AMARA', 'Vanaf AMARA', 'Från AMARA'), value: l('Yoga mats already in the apartment', 'Yogamatten schon in der Unterkunft', 'Esterillas ya en el apartamento', 'Yogamatten al in het appartement', 'Yogamattor redan i lägenheten') }
+  ],
+  sections: [
+    {
+      id: 'broad-scene',
+      eyebrow: l('01 · A broad scene', '01 · Eine breite Szene', '01 · Una escena amplia', '01 · Een brede scene', '01 · En bred scen'),
+      title: l('More yoga than a small town suggests', 'Mehr Yoga, als ein kleiner Ort vermuten lässt', 'Más yoga del que sugiere un pueblo pequeño', 'Meer yoga dan een klein dorp doet vermoeden', 'Mer yoga än en liten stad antyder'),
+      paragraphs: [
+        l(
+          'Tarifa gathers several kinds of yoga in a compact place: town studios with regular weekly classes, teachers who run sessions by the sea, family, children and aerial formats, and multi-day retreats in the surrounding countryside. That range means you can find a single drop-in morning or a deeper week without leaving the area.',
+          'Tarifa versammelt mehrere Arten von Yoga auf engem Raum: Studios im Ort mit festen Wochenkursen, Lehrer mit Stunden am Meer, Familien-, Kinder- und Aerial-Formate und mehrtägige Retreats im Umland. Diese Bandbreite heißt: Ihr findet einen einzelnen Morgen zum Reinschnuppern oder eine ganze, intensivere Woche, ohne die Gegend zu verlassen.',
+          'Tarifa reúne varios tipos de yoga en un espacio reducido: estudios en el pueblo con clases semanales, profesores que dan sesiones junto al mar, formatos familiares, infantiles y aéreos, y retiros de varios días en el entorno. Esa variedad permite encontrar una sola mañana suelta o una semana más profunda sin salir de la zona.',
+          'Tarifa brengt verschillende soorten yoga samen op een compacte plek: studio’s in het dorp met vaste weeklessen, docenten die lessen aan zee geven, familie-, kinder- en aerial-vormen en meerdaagse retreats in de omgeving. Door die breedte vind je één losse ochtend of een diepere week zonder het gebied te verlaten.',
+          'Tarifa samlar flera slags yoga på en liten yta: studior i stan med veckoklasser, lärare som håller pass vid havet, familje-, barn- och aerialformer och flerdagarsretreat i omgivningarna. Bredden gör att ni kan hitta en enskild morgon eller en djupare vecka utan att lämna området.'
+        ),
+        l(
+          'Because so much of it is seasonal and personally run, the useful skill here is not memorising a timetable but knowing which format you want. We keep track of what is currently running and point you to the right teacher for a calm morning, a beach class or a family session.',
+          'Weil vieles saisonal und persönlich organisiert ist, geht es hier weniger darum, einen Stundenplan zu lernen, als zu wissen, welches Format ihr möchtet. Wir behalten im Blick, was gerade läuft, und verweisen euch an die passende Lehrkraft – für einen ruhigen Morgen, eine Strandstunde oder eine Familiensession.',
+          'Como buena parte es estacional y de gestión personal, aquí lo útil no es memorizar un horario, sino saber qué formato queréis. Nosotros seguimos lo que está activo y os orientamos hacia el profesor adecuado para una mañana tranquila, una clase en la playa o una sesión en familia.',
+          'Omdat veel seizoensgebonden en persoonlijk geregeld is, is de nuttige vaardigheid hier niet een rooster onthouden maar weten welke vorm je wilt. Wij houden bij wat er loopt en wijzen je naar de juiste docent voor een rustige ochtend, een strandles of een gezinssessie.',
+          'Eftersom mycket är säsongsbetonat och personligt drivet handlar det här inte om att lära sig ett schema, utan om att veta vilken form ni vill ha. Vi håller koll på vad som pågår och lotsar er till rätt lärare för en lugn morgon, en strandklass eller ett familjepass.'
+        )
+      ]
+    },
+    {
+      id: 'ocean-yoga',
+      eyebrow: l('02 · Yoga by the sea', '02 · Yoga am Meer', '02 · Yoga junto al mar', '02 · Yoga aan zee', '02 · Yoga vid havet'),
+      title: l('Beach and ocean classes read the day’s conditions', 'Beach- und Ocean-Kurse lesen die Bedingungen des Tages', 'Las clases junto al mar leen las condiciones del día', 'Lessen aan zee lezen de omstandigheden van de dag', 'Klasser vid havet läser dagens förhållanden'),
+      paragraphs: [
+        l(
+          'Several teachers move their practice to the sand or the water’s edge, which gives a Tarifa morning a strong coastal character. Places such as Mandalablue run ocean and beach sessions with mats provided, and a session outdoors depends on wind, light and comfort as much as on the schedule.',
+          'Mehrere Lehrer verlegen ihre Praxis auf den Sand oder ans Wasser, was einem Tarifa-Morgen einen klaren Küstencharakter gibt. Anbieter wie Mandalablue bieten Ocean- und Beach-Stunden mit gestellten Matten; eine Session im Freien hängt von Wind, Licht und Wohlgefühl ebenso ab wie vom Stundenplan.',
+          'Varios profesores llevan su práctica a la arena o a la orilla, lo que da a la mañana en Tarifa un carácter costero muy marcado. Propuestas como Mandalablue ofrecen clases junto al mar con esterillas incluidas, y una sesión al aire libre depende del viento, la luz y la comodidad tanto como del horario.',
+          'Verschillende docenten verplaatsen hun praktijk naar het zand of de waterkant, wat een ochtend in Tarifa een sterk kustkarakter geeft. Aanbieders als Mandalablue geven zee- en strandlessen met matten erbij, en een sessie buiten hangt van wind, licht en comfort af, net zozeer als van het rooster.',
+          'Flera lärare flyttar sin praktik till sanden eller vattenbrynet, vilket ger en morgon i Tarifa en tydlig kustkaraktär. Aktörer som Mandalablue håller havs- och strandklasser med mattor, och ett pass utomhus beror på vind, ljus och komfort lika mycket som på schemat.'
+        ),
+        l(
+          'Treat a beach class as an opportunity rather than a fixed promise. On a windy day a teacher may move indoors or change the time, so it helps to keep the plan flexible and confirm the meeting point the same day.',
+          'Betrachtet eine Strandstunde als Möglichkeit, nicht als festes Versprechen. An einem windigen Tag kann eine Lehrkraft nach drinnen wechseln oder die Zeit ändern; deshalb hilft es, flexibel zu bleiben und den Treffpunkt am selben Tag zu bestätigen.',
+          'Tomad una clase en la playa como una posibilidad, no como una promesa fija. Un día de viento el profesor puede pasar a un interior o cambiar la hora, así que conviene mantener el plan flexible y confirmar el punto de encuentro el mismo día.',
+          'Zie een strandles als een kans, niet als een vaste belofte. Op een winderige dag kan een docent naar binnen gaan of de tijd wijzigen, dus houd het plan flexibel en bevestig het ontmoetingspunt dezelfde dag.',
+          'Se en strandklass som en möjlighet, inte ett fast löfte. En blåsig dag kan läraren gå inomhus eller ändra tiden, så håll planen flexibel och bekräfta mötesplatsen samma dag.'
+        )
+      ]
+    },
+    {
+      id: 'mar-adriatico',
+      eyebrow: l('03 · Your own street', '03 · Eure eigene Straße', '03 · Vuestra propia calle', '03 · Je eigen straat', '03 · Er egen gata'),
+      title: l('A small wellness cluster around Family & Surf', 'Ein kleiner Wellness-Cluster rund um Family & Surf', 'Un pequeño núcleo de bienestar junto a Family & Surf', 'Een klein wellnesscluster rond Family & Surf', 'Ett litet wellnesskluster runt Family & Surf'),
+      paragraphs: [
+        l(
+          'Family & Surf sits on Calle Mar Adriático in La Marina, and the same street carries a small run of wellness addresses — among them the Mama Tierra holistic and yoga space. That proximity lets you keep a yoga morning simple: a short walk rather than a drive across town.',
+          'Family & Surf liegt an der Calle Mar Adriático in La Marina, und dieselbe Straße trägt eine kleine Reihe von Wellness-Adressen – darunter den holistischen Yoga-Raum Mama Tierra. Diese Nähe macht einen Yoga-Morgen einfach: ein kurzer Weg zu Fuß statt einer Fahrt quer durch den Ort.',
+          'Family & Surf está en la calle Mar Adriático, en La Marina, y esa misma calle reúne una pequeña serie de direcciones de bienestar, entre ellas el espacio holístico y de yoga Mama Tierra. Esa cercanía permite mantener sencilla una mañana de yoga: un paseo corto en lugar de un trayecto en coche.',
+          'Family & Surf ligt aan de Calle Mar Adriático in La Marina, en diezelfde straat telt een klein rijtje wellnessadressen — waaronder de holistische yogaruimte Mama Tierra. Door die nabijheid blijft een yoga-ochtend eenvoudig: een korte wandeling in plaats van een rit door de stad.',
+          'Family & Surf ligger vid Calle Mar Adriático i La Marina, och samma gata rymmer en liten rad wellnessadresser — bland dem det holistiska yogarummet Mama Tierra. Närheten gör en yogamorgon enkel: en kort promenad i stället för en bilfärd genom stan.'
+        ),
+        l(
+          'Use the apartment as your base. The mats are already there for a quiet practice on the terrace or indoors, and the nearby addresses are there for the mornings you want a teacher, company or a different room.',
+          'Nutzt die Unterkunft als Basis. Die Matten liegen schon bereit – für eine ruhige Praxis auf der Terrasse oder drinnen – und die nahen Adressen sind für die Morgen da, an denen ihr eine Lehrkraft, Gesellschaft oder einen anderen Raum möchtet.',
+          'Usad el apartamento como base. Las esterillas ya están para una práctica tranquila en la terraza o dentro, y las direcciones cercanas están para las mañanas en las que queréis profesor, compañía u otro espacio.',
+          'Gebruik het appartement als basis. De matten liggen er al voor een rustige praktijk op het terras of binnen, en de nabije adressen zijn er voor de ochtenden waarop je een docent, gezelschap of een andere ruimte wilt.',
+          'Använd lägenheten som bas. Mattorna finns redan för en lugn praktik på terrassen eller inomhus, och adresserna i närheten finns för de morgnar då ni vill ha en lärare, sällskap eller ett annat rum.'
+        )
+      ]
+    },
+    {
+      id: 'active-stay',
+      eyebrow: l('04 · Around an active stay', '04 · Rund um einen aktiven Aufenthalt', '04 · En torno a una estancia activa', '04 · Rond een actief verblijf', '04 · Kring en aktiv vistelse'),
+      title: l('Balance the water with recovery and calm', 'Das Wasser mit Erholung und Ruhe ausgleichen', 'Equilibrar el mar con recuperación y calma', 'Het water balanceren met herstel en rust', 'Balansera vattnet med återhämtning och lugn'),
+      paragraphs: [
+        l(
+          'Tarifa is a strong kitesurfing and watersports base, and yoga fits naturally around an active day. A slow morning session or an evening stretch supports mobility and recovery after time on the water, which is why several local providers pair yoga with surf and kite.',
+          'Tarifa ist eine starke Basis für Kitesurfen und Wassersport, und Yoga fügt sich natürlich um einen aktiven Tag. Eine ruhige Morgensession oder ein Abend-Stretch unterstützt Mobilität und Erholung nach der Zeit auf dem Wasser – deshalb verbinden mehrere lokale Anbieter Yoga mit Surf und Kite.',
+          'Tarifa es una base fuerte de kitesurf y deportes de agua, y el yoga encaja de forma natural alrededor de un día activo. Una sesión tranquila por la mañana o un estiramiento al atardecer apoyan la movilidad y la recuperación tras el mar, y por eso varios proveedores locales combinan yoga con surf y kite.',
+          'Tarifa is een sterke basis voor kitesurfen en watersport, en yoga past er natuurlijk omheen een actieve dag. Een rustige ochtendsessie of een avondstretch ondersteunt mobiliteit en herstel na tijd op het water, en daarom combineren verschillende lokale aanbieders yoga met surf en kite.',
+          'Tarifa är en stark bas för kitesurfing och vattensport, och yoga passar naturligt kring en aktiv dag. Ett lugnt morgonpass eller en kvällsstretch stödjer rörlighet och återhämtning efter tid på vattnet, och därför kombinerar flera lokala aktörer yoga med surf och kite.'
+        ),
+        l(
+          'Families are just as well served: local studios such as Respira run children’s, pregnancy and aerial formats alongside regular classes. Choose the kind of session that suits the day, and keep the practice as light or as committed as you want it to be.',
+          'Familien sind ebenso gut versorgt: Lokale Studios wie Respira bieten Kinder-, Schwangerschafts- und Aerial-Formate neben regulären Kursen. Wählt die Art der Session, die zum Tag passt, und haltet die Praxis so leicht oder so verbindlich, wie ihr möchtet.',
+          'Las familias también están bien atendidas: estudios locales como Respira ofrecen formatos infantiles, de embarazo y aéreos junto a las clases habituales. Elegid el tipo de sesión que encaje con el día y mantened la práctica tan ligera o tan comprometida como queráis.',
+          'Gezinnen zijn net zo goed bediend: lokale studio’s zoals Respira bieden kinder-, zwangerschaps- en aerial-vormen naast reguliere lessen. Kies het soort sessie dat bij de dag past en houd de praktijk zo licht of zo toegewijd als je wilt.',
+          'Familjer är lika väl försedda: lokala studior som Respira erbjuder barn-, gravid- och aerialformer vid sidan av vanliga klasser. Välj den sorts pass som passar dagen och håll praktiken så lätt eller så engagerad som ni vill.'
+        )
+      ]
+    }
+  ],
+  host: {
+    eyebrow: l('AMARA host perspective', 'AMARA Host-Perspektive', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
+    title: l('Yoga-ready before you unpack', 'Yoga-ready, bevor ihr auspackt', 'Listos para el yoga antes de deshacer las maletas', 'Yoga-klaar voordat je uitpakt', 'Yogaklara innan ni packar upp'),
+    paragraphs: [
+      l(
+        'At Family & Surf the yoga mats are already in the apartment, so a morning practice needs no planning: roll one out on the terrace or indoors and start. It is a small thing, but it means the day can begin with your own quiet hour before anything else.',
+        'Bei Family & Surf liegen die Yogamatten schon in der Unterkunft, ein Morgen-Flow braucht also keine Planung: einfach auf der Terrasse oder drinnen ausrollen und beginnen. Eine Kleinigkeit – aber so kann der Tag mit eurer eigenen ruhigen Stunde starten, bevor irgendetwas anderes kommt.',
+        'En Family & Surf las esterillas ya están en el apartamento, así que una práctica matinal no exige planificación: la desplegáis en la terraza o dentro y empezáis. Es un detalle pequeño, pero permite que el día comience con vuestra propia hora tranquila antes que cualquier otra cosa.',
+        'Bij Family & Surf liggen de yogamatten al in het appartement, dus een ochtendpraktijk vraagt geen planning: rol er een uit op het terras of binnen en begin. Een klein ding, maar zo kan de dag beginnen met je eigen rustige uur voordat er iets anders komt.',
+        'På Family & Surf finns yogamattorna redan i lägenheten, så en morgonpraktik kräver ingen planering: rulla ut en på terrassen eller inomhus och börja. En liten sak, men den låter dagen börja med er egen stilla stund före allt annat.'
+      ),
+      l(
+        'When you want more than a solo session, just ask us. We can point you to the class that is actually running that week, and on request we help arrange a private session for you, a couple or the family — with the teacher and style confirmed rather than assumed.',
+        'Wenn ihr mehr als eine Solo-Session möchtet, fragt uns einfach. Wir verweisen euch auf den Kurs, der in dieser Woche tatsächlich läuft, und organisieren auf Wunsch eine private Session für euch, ein Paar oder die Familie – mit bestätigter Lehrkraft und bestätigtem Stil, nicht auf gut Glück.',
+        'Cuando queráis algo más que una sesión en solitario, pedídnoslo. Os indicamos la clase que realmente se imparte esa semana y, si lo deseáis, ayudamos a organizar una sesión privada para vosotros, una pareja o la familia, con profesor y estilo confirmados, no supuestos.',
+        'Wil je meer dan een solosessie, vraag het ons gerust. We wijzen je op de les die die week echt loopt en helpen op verzoek een privésessie te regelen voor jou, een stel of het gezin — met docent en stijl bevestigd in plaats van aangenomen.',
+        'När ni vill ha mer än ett eget pass, fråga oss bara. Vi pekar er mot klassen som faktiskt hålls den veckan och hjälper på begäran till att ordna ett privat pass för er, ett par eller familjen — med lärare och stil bekräftade, inte förutsatta.'
+      )
+    ]
+  },
+  related: {
+    eyebrow: shared.relatedEyebrow,
+    title: shared.relatedTitle,
+    links: [
+      { token: 'tarifa_kitesurfing_hub', label: l('Kitesurfing in Tarifa', 'Kitesurfen in Tarifa', 'Kitesurf en Tarifa', 'Kitesurfen in Tarifa', 'Kitesurfing i Tarifa'), text: l('Balance a day on the water with a recovery or mobility session.', 'Gleicht einen Tag auf dem Wasser mit einer Erholungs- oder Mobility-Session aus.', 'Equilibrad un día en el agua con una sesión de recuperación o movilidad.', 'Balanceer een dag op het water met een herstel- of mobiliteitssessie.', 'Balansera en dag på vattnet med ett återhämtnings- eller rörlighetspass.') },
+      { token: 'tarifa_food_evening_life', label: l('Food & Evening Life', 'Essen & Ausgehen', 'Gastronomía y vida nocturna', 'Eten & uitgaan', 'Mat & kvällsliv'), text: l('Let a calm morning lead into the Old Town’s evening rhythm.', 'Lasst einen ruhigen Morgen in den Abendrhythmus der Altstadt übergehen.', 'Dejad que una mañana tranquila desemboque en el ritmo nocturno del casco antiguo.', 'Laat een rustige ochtend overgaan in het avondritme van de oude stad.', 'Låt en lugn morgon leda in i Gamla stans kvällsrytm.') },
+      { token: 'tarifa_experience_hub', label: l('Tarifa Experiences', 'Tarifa-Erlebnisse', 'Experiencias en Tarifa', 'Ervaringen in Tarifa', 'Upplevelser i Tarifa'), text: l('Return to all the ways of shaping a Tarifa stay.', 'Zurück zu allen Möglichkeiten für euren Tarifa-Aufenthalt.', 'Volved a todas las formas de vivir una estancia en Tarifa.', 'Ga terug naar alle manieren om Tarifa te beleven.', 'Gå tillbaka till alla sätt att forma en vistelse i Tarifa.') }
+    ]
+  },
+  sources: {
+    eyebrow: shared.sourceEyebrow,
+    title: shared.sourceTitle,
+    intro: shared.sourceIntro,
+    checked: l('Sources checked in September 2026', 'Quellen geprüft im September 2026', 'Fuentes consultadas en septiembre de 2026', 'Bronnen gecontroleerd in september 2026', 'Källor kontrollerade i september 2026'),
+    links: [
+      { label: l('Tarifa Tourism · Official visitor guide', 'Tarifa Tourismus · Offizieller Besucherführer', 'Turismo de Tarifa · Guía turística oficial', 'Tarifa Toerisme · Officiële bezoekersgids', 'Tarifa Turism · Officiell besöksguide'), text: l('Local context for wellness and yoga addresses in Tarifa.', 'Ortskontext zu Wellness- und Yoga-Adressen in Tarifa.', 'Contexto local sobre direcciones de bienestar y yoga en Tarifa.', 'Plaatselijke context over wellness- en yogaadressen in Tarifa.', 'Lokal bakgrund om wellness- och yogaadresser i Tarifa.'), href: sourceHrefs.tarifaTourismGuide },
+      { label: l('Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness'), text: l('Ocean and beach classes, aerial yoga and current booking details.', 'Ocean- und Beach-Kurse, Aerial-Yoga und aktuelle Buchungsdetails.', 'Clases junto al mar, yoga aéreo y detalles de reserva vigentes.', 'Lessen aan zee, aerial yoga en actuele boekingsinformatie.', 'Havs- och strandklasser, aerialyoga och aktuell bokningsinfo.'), href: sourceHrefs.mandalablue },
+      { label: l('Respira Centro Holístico Tarifa', 'Respira Centro Holístico Tarifa', 'Respira Centro Holístico Tarifa', 'Respira Centro Holístico Tarifa', 'Respira Centro Holístico Tarifa'), text: l('Studio classes plus family, children, pregnancy and aerial formats.', 'Studiokurse plus Familien-, Kinder-, Schwangerschafts- und Aerial-Formate.', 'Clases de estudio y formatos de familia, infantil, embarazo y aéreo.', 'Studiolessen plus familie-, kinder-, zwangerschaps- en aerial-vormen.', 'Studioklasser samt familje-, barn-, gravid- och aerialformer.'), href: sourceHrefs.respira }
+    ]
+  },
+  closing: {
+    eyebrow: shared.closingEyebrow,
+    title: l('Make yoga part of the stay, not a separate errand', 'Macht Yoga zum Teil des Aufenthalts, nicht zur Extrabesorgung', 'Haced del yoga parte de la estancia, no un recado aparte', 'Maak yoga onderdeel van het verblijf, geen aparte klus', 'Låt yogan bli en del av vistelsen, inte ett separat ärende'),
+    body: l('With mats already in the apartment and a small wellness cluster in the same street, a morning practice costs nothing to begin. Family & Surf keeps town, beach and teachers within easy reach, and on request we help arrange a private session so the practice fits your stay rather than a fixed timetable.', 'Mit Matten, die schon in der Unterkunft liegen, und einem kleinen Wellness-Cluster in derselben Straße kostet ein Morgen-Flow keinen Aufwand zum Start. Family & Surf hält Ort, Strand und Lehrkräfte in leichter Reichweite, und auf Wunsch organisieren wir eine private Session, damit die Praxis zu eurem Aufenthalt passt statt zu einem festen Stundenplan.', 'Con esterillas ya en el apartamento y un pequeño núcleo de bienestar en la misma calle, empezar una práctica matinal no cuesta nada. Family & Surf mantiene cerca el pueblo, la playa y los profesores y, si lo deseáis, ayudamos a organizar una sesión privada para que la práctica se ajuste a vuestra estancia y no a un horario fijo.', 'Met matten die al in het appartement liggen en een klein wellnesscluster in dezelfde straat kost het beginnen van een ochtendpraktijk niets. Family & Surf houdt stad, strand en docenten binnen handbereik, en op verzoek helpen we een privésessie te regelen zodat de praktijk bij je verblijf past in plaats van bij een vast rooster.', 'Med mattor redan i lägenheten och ett litet wellnesskluster på samma gata kostar det inget att börja en morgonpraktik. Family & Surf håller stad, strand och lärare inom nära räckhåll, och på begäran hjälper vi till att ordna ett privat pass så att praktiken passar er vistelse i stället för ett fast schema.'),
+    hubLabel: shared.hubLabel,
+    propertyLabel: shared.propertyLabel
+  }
+};
+
 export const tarifaExperienceSpokeContent: Record<
   TarifaExperienceSpokeId,
   TarifaExperienceSpokeContent
@@ -901,5 +1092,6 @@ export const tarifaExperienceSpokeContent: Record<
   'food-evening-life': food,
   'nature-wildlife': nature,
   'old-town-history': oldTown,
-  'bolonia-baelo-claudia': bolonia
+  'bolonia-baelo-claudia': bolonia,
+  yoga
 };

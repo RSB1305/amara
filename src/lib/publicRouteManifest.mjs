@@ -555,6 +555,14 @@ const definitions = [
     props: { spoke: 'bolonia-baelo-claudia' },
     segment: shared('bolonia-baelo-claudia')
   },
+  {
+    key: 'tarifa.experience.yoga',
+    legacySlug: 'tarifa-yoga',
+    family: 'tarifa-experience-spoke',
+    parent: 'tarifa.experience',
+    props: { spoke: 'yoga' },
+    segment: shared('yoga')
+  },
   // Kitesurfing is Tarifa's largest cluster: one hub beneath Experiences with
   // its spokes nested under the hub, mirroring the cluster navigation.
   {
@@ -604,7 +612,14 @@ const definitions = [
     segment: { es: 'material', en: 'gear', de: 'material', nl: 'materiaal', sv: 'utrustning' }
   },
   { key: 'tarifa.kitesurfing.bildungsurlaub', legacySlug: 'tarifa-bildungsurlaub', family: 'tarifa-bildungsurlaub', parent: 'tarifa.kitesurfing', segment: shared('bildungsurlaub') },
-  { key: 'tarifa.kitesurfing.surf-club', legacySlug: 'amara-tarifa-surf-club', family: 'tarifa-kite-partner', parent: 'tarifa.kitesurfing', segment: shared('tarifa-surf-club') }
+  { key: 'tarifa.kitesurfing.surf-club', legacySlug: 'amara-tarifa-surf-club', family: 'tarifa-kite-partner', parent: 'tarifa.kitesurfing', segment: shared('tarifa-surf-club') },
+  {
+    key: 'tarifa.kitesurfing.beginner-guide',
+    legacySlug: 'tarifa-kitesurf-beginner-guide',
+    family: 'tarifa-kitesurf-guide',
+    parent: 'tarifa.kitesurfing',
+    segment: { es: 'iniciacion', en: 'beginner-guide', de: 'anfaenger-guide', nl: 'beginnersgids', sv: 'nyborjarguide' }
+  }
 ];
 
 /** @type {Map<string, PublicRoute>} */

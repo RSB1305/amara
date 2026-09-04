@@ -1,0 +1,258 @@
+---
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import Navigation from '../../components/Navigation.astro';
+import ExperienceArticleHero from '../../components/experience/ExperienceArticleHero.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
+import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
+import {
+  tarifaKitesurfBeginnerGuide,
+  type LocalizedGuideText
+} from '../../content/tarifaKitesurfGuideContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import AuthorityStayBridge from './AuthorityStayBridge.astro';
+import AuthorityTextSection from './AuthorityTextSection.astro';
+import KiteWindWindowDiagram from '../../components/experience/KiteWindWindowDiagram.astro';
+import KiteSafetyCascadeDiagram from '../../components/experience/KiteSafetyCascadeDiagram.astro';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
+import kiteHeroImage from '../../assets/images/content/tarifa/Airush_Valentin_Tadzio-Rurka_DSC_1412.jpg';
+import kiteBeginnerImage from '../../assets/images/content/tarifa/kite-beginner-twintip.jpg';
+
+/**
+ * Editorial beginner guide beneath the Tarifa kitesurf cluster. It reuses the
+ * clean experience-spoke editorial layout, but its navigation context is
+ * kitesurfing (breadcrumb, hub and related links), because this page teaches
+ * rather than sells a co-branded offer.
+ */
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const content = tarifaKitesurfBeginnerGuide;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const t = (value: LocalizedGuideText) => value[currentLang];
+
+const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf guide');
+
+const aboutHref = requiredLink('about');
+const propertyHref = requiredLink('tarifa');
+const footerHighlights: LabeledLink[] = [
+  { token: content.token, label: t(content.navLabel) },
+  { token: 'tarifa_kitesurfing_hub', label: t(content.closing.hubLabel) },
+  ...content.related.links.slice(0, 2).map((link) => ({
+    token: link.token,
+    label: t(link.label)
+  }))
+];
+const localizedSections = content.sections.map((section) => ({
+  id: section.id,
+  eyebrow: t(section.eyebrow),
+  title: t(section.title),
+  paragraphs: section.paragraphs.map(t)
+}));
+
+const heroImageAlt: LocalizedGuideText = {
+  en: 'A kiteboarder jumping high over the water beside Tarifa’s island fortress',
+  de: 'Kitesurfer beim hohen Sprung über dem Wasser neben Tarifas Inselfestung',
+  es: 'Un kitesurfista saltando alto sobre el agua junto a la fortaleza de la isla de Tarifa',
+  nl: 'Een kitesurfer die hoog over het water springt bij het eilandfort van Tarifa',
+  sv: 'En kitesurfare i ett högt hopp över vattnet vid Tarifas öfästning'
+};
+const heroImageCaption: LocalizedGuideText = {
+  en: 'Kitesurfing off Tarifa’s Isla de las Palomas',
+  de: 'Kitesurfen vor Tarifas Isla de las Palomas',
+  es: 'Kitesurf frente a la isla de las Palomas de Tarifa',
+  nl: 'Kitesurfen bij Tarifa’s Isla de las Palomas',
+  sv: 'Kitesurfing vid Tarifas Isla de las Palomas'
+};
+
+const beginnerImageAlt: LocalizedGuideText = {
+  en: 'A learner on the beach holding an Airush twintip before going out',
+  de: 'Einsteigerin am Strand mit einem Airush-Twintip, bevor es aufs Wasser geht',
+  es: 'Una principiante en la playa con una tabla twintip de Airush antes de entrar al agua',
+  nl: 'Een beginner op het strand met een Airush-twintip voor het het water op gaat',
+  sv: 'En nybörjare på stranden med en Airush-twintip innan hon ska ut'
+};
+const beginnerImageCaption: LocalizedGuideText = {
+  en: 'The board comes after the kite: first the wind, then the water',
+  de: 'Das Board kommt nach dem Kite: erst der Wind, dann das Wasser',
+  es: 'La tabla llega después de la cometa: primero el viento, luego el agua',
+  nl: 'De board komt na de kite: eerst de wind, dan het water',
+  sv: 'Brädan kommer efter kiten: först vinden, sedan vattnet'
+};
+---
+
+<LocationAuthorityLayout
+  seo={content.seo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+  pageFamily="experience-tarifa-guide"
+>
+  <Navigation
+    slot="navigation"
+    contextDestination="tarifa"
+    currentLang={currentLang}
+    languageToken={content.token}
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="kitesurfing" destination="tarifa" lang={currentLang} />
+  </Navigation>
+
+  <article
+    class="bg-surface"
+    data-am-page={`tarifa-${content.id}`}
+    data-am-family="experience"
+    data-am-role="spoke"
+    data-am-topic={content.id}
+  >
+    <KiteClusterNav lang={currentLang} currentId="guide" />
+
+    <ExperienceArticleHero
+      eyebrow={t(content.hero.eyebrow)}
+      title={t(content.hero.title)}
+      standfirst={t(content.hero.standfirst)}
+      lang={currentLang}
+      authorName={content.seo.article!.authorName}
+      authorHref={aboutHref}
+      updated={t(content.hero.updated)}
+      note={t(content.hero.note)}
+      mark="Tarifa"
+      topic={content.id}
+    />
+
+    <figure class="bg-surface px-6 md:px-12">
+      <div class="mx-auto max-w-screen-2xl overflow-hidden">
+        <AmaraImage
+          src={kiteHeroImage}
+          alt={t(heroImageAlt)}
+          profile="hero"
+          width={2400}
+          widths={[768, 1200, 1600, 2400]}
+          sizes="100vw"
+          class="aspect-[4/5] w-full object-cover sm:aspect-[16/9] lg:aspect-[16/7]"
+          focalPoint="50% 46%"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <figcaption class="mx-auto mt-3 max-w-screen-2xl text-right am-text-caption normal-case tracking-normal text-muted">{t(heroImageCaption)}</figcaption>
+    </figure>
+
+    <section class="bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
+      <dl class="mx-auto grid max-w-screen-2xl gap-x-10 gap-y-8 md:grid-cols-3">
+        {content.facts.map((fact) => (
+          <div class="border-t border-primary/30 pt-5">
+            <dt class="text-primary am-text-label am-text-label--sm">{t(fact.label)}</dt>
+            <dd class="am-text-subtitle mt-3 text-on-surface">{t(fact.value)}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <figure class="bg-surface px-6 md:px-12">
+      <div class="mx-auto max-w-screen-2xl overflow-hidden">
+        <AmaraImage
+          src={kiteBeginnerImage}
+          alt={t(beginnerImageAlt)}
+          profile="hero"
+          width={2000}
+          widths={[768, 1200, 1600, 2000]}
+          sizes="100vw"
+          class="aspect-[4/5] w-full object-cover sm:aspect-[16/9] lg:aspect-[16/7]"
+          focalPoint="50% 42%"
+        />
+      </div>
+      <figcaption class="mx-auto mt-3 max-w-screen-2xl text-right am-text-caption normal-case tracking-normal text-muted">{t(beginnerImageCaption)}</figcaption>
+    </figure>
+
+    {localizedSections.map((section, index) => (
+      <Fragment>
+        <AuthorityTextSection
+          section={section}
+          index={index}
+          data-am-experience-section={section.id}
+        />
+        {section.id === 'wind-window' && <KiteWindWindowDiagram lang={currentLang} />}
+        {section.id === 'safety' && <KiteSafetyCascadeDiagram lang={currentLang} />}
+      </Fragment>
+    ))}
+
+    <aside class="bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="am-text-eyebrow text-primary-fixed-dim">{t(content.host.eyebrow)}</p>
+          <h2 class="am-text-title mt-5 max-w-xl text-balance text-inverted-on-surface">{t(content.host.title)}</h2>
+        </div>
+        <div class="max-w-4xl space-y-5 lg:col-span-7">
+          {content.host.paragraphs.map((paragraph, index) => (
+            <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-inverted-on-surface/78']}>
+              {t(paragraph)}
+            </p>
+          ))}
+        </div>
+      </div>
+    </aside>
+
+    <section class="bg-surface px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <p class="am-text-eyebrow text-primary">{t(content.related.eyebrow)}</p>
+        <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(content.related.title)}</h2>
+        <div class="mt-12 grid gap-5 lg:grid-cols-3">
+          {content.related.links.map((link) => (
+            <AmaraActionLink
+              href={requiredLink(link.token)}
+              variant="card"
+              class="group border-t border-border-subtle bg-surface-container-low px-6 pb-8 pt-7 transition-colors hover:border-primary/45"
+            >
+              <h3 class="am-text-subtitle text-on-surface transition-colors group-hover:text-primary">{t(link.label)}</h3>
+              <span class="am-text-body mt-4 block leading-relaxed text-on-surface-variant">{t(link.text)}</span>
+              <span aria-hidden="true" class="mt-6 inline-flex text-primary transition-transform group-hover:translate-x-1">→</span>
+            </AmaraActionLink>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-screen-2xl gap-12 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-4">
+          <p class="am-text-eyebrow text-primary">{t(content.explore.eyebrow)}</p>
+          <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(content.explore.title)}</h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(content.explore.intro)} /></p>
+        </div>
+        <div class="border-t border-border-subtle lg:col-span-8">
+          {content.explore.links.map((link) => (
+            <a
+              href={requiredLink(link.token)}
+              class="group grid grid-cols-[1fr_auto] gap-8 border-b border-border-subtle py-7 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25"
+            >
+              <span>
+                <span class="am-text-subtitle block text-on-surface transition-colors group-hover:text-primary">{t(link.label)}</span>
+                <span class="am-text-body mt-2 block leading-relaxed text-on-surface-variant">{t(link.text)}</span>
+              </span>
+              <span aria-hidden="true" class="am-text-subtitle text-primary transition-transform group-hover:translate-x-1">→</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <AuthorityStayBridge
+      eyebrow={t(content.closing.eyebrow)}
+      title={t(content.closing.title)}
+      reason={t(content.closing.body)}
+      stayHref={propertyHref}
+      stayLabel={t(content.closing.propertyLabel)}
+      availabilityHref={requiredLink('book')}
+      availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
+    />
+
+    <KitePartnerLogoBand lang={currentLang} />
+  </article>
+</LocationAuthorityLayout>
