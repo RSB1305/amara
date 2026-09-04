@@ -1,6 +1,7 @@
 ---
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import { getAmaraContentModuleAttributes } from '../content/moduleContract';
+import PaymentMethodLogos from './PaymentMethodLogos.astro';
 
 interface ActionLink {
   href: string;
@@ -82,6 +83,10 @@ const moduleAttributes = getAmaraContentModuleAttributes({
       ))}
     </div>
   )}
+
+  <div class="am-booking-decision__payment">
+    <PaymentMethodLogos />
+  </div>
 </div>
 
 <style>
@@ -126,7 +131,8 @@ const moduleAttributes = getAmaraContentModuleAttributes({
     }
 
     .am-booking-decision__note,
-    .am-booking-decision__support {
+    .am-booking-decision__support,
+    .am-booking-decision__payment {
       grid-column: 1 / -1;
     }
 
