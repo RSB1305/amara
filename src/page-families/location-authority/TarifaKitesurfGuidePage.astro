@@ -17,6 +17,8 @@ import KiteWindWindowDiagram from '../../components/experience/KiteWindWindowDia
 import KiteSafetyCascadeDiagram from '../../components/experience/KiteSafetyCascadeDiagram.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
+import kiteHeroImage from '../../assets/images/content/tarifa/Airush_Valentin_Tadzio-Rurka_DSC_1412.jpg';
 
 /**
  * Editorial beginner guide beneath the Tarifa kitesurf cluster. It reuses the
@@ -51,6 +53,21 @@ const localizedSections = content.sections.map((section) => ({
   title: t(section.title),
   paragraphs: section.paragraphs.map(t)
 }));
+
+const heroImageAlt: LocalizedGuideText = {
+  en: 'A kiteboarder jumping high over the water beside Tarifa’s island fortress',
+  de: 'Kitesurfer beim hohen Sprung über dem Wasser neben Tarifas Inselfestung',
+  es: 'Un kitesurfista saltando alto sobre el agua junto a la fortaleza de la isla de Tarifa',
+  nl: 'Een kitesurfer die hoog over het water springt bij het eilandfort van Tarifa',
+  sv: 'En kitesurfare i ett högt hopp över vattnet vid Tarifas öfästning'
+};
+const heroImageCaption: LocalizedGuideText = {
+  en: 'Kitesurfing off Tarifa’s Isla de las Palomas',
+  de: 'Kitesurfen vor Tarifas Isla de las Palomas',
+  es: 'Kitesurf frente a la isla de las Palomas de Tarifa',
+  nl: 'Kitesurfen bij Tarifa’s Isla de las Palomas',
+  sv: 'Kitesurfing vid Tarifas Isla de las Palomas'
+};
 ---
 
 <LocationAuthorityLayout
@@ -88,6 +105,24 @@ const localizedSections = content.sections.map((section) => ({
       mark="Tarifa"
       topic={content.id}
     />
+
+    <figure class="bg-surface px-6 md:px-12">
+      <div class="mx-auto max-w-screen-2xl overflow-hidden">
+        <AmaraImage
+          src={kiteHeroImage}
+          alt={t(heroImageAlt)}
+          profile="hero"
+          width={2400}
+          widths={[768, 1200, 1600, 2400]}
+          sizes="100vw"
+          class="aspect-[4/5] w-full object-cover sm:aspect-[16/9] lg:aspect-[16/7]"
+          focalPoint="50% 46%"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+      <figcaption class="mx-auto mt-3 max-w-screen-2xl text-right am-text-caption normal-case tracking-normal text-muted">{t(heroImageCaption)}</figcaption>
+    </figure>
 
     <section class="bg-surface-container-low px-6 py-16 md:px-12 md:py-20">
       <dl class="mx-auto grid max-w-screen-2xl gap-x-10 gap-y-8 md:grid-cols-3">
