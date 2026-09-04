@@ -1,5 +1,8 @@
 ---
 import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
+import clubCoupleImage from '../../assets/images/content/tarifa/IMG_8741.jpg';
+import clubDogImage from '../../assets/images/content/tarifa/IMG_9004.jpg';
+import clubAfterworkImage from '../../assets/images/content/tarifa/IMG_9007.jpg';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
@@ -39,6 +42,22 @@ const pathHref = (token: Parameters<typeof requiredLink>[0], anchor?: string) =>
 const footerHighlights: LabeledLink[] = [
   { token: content.token, label: content.navLabel },
   ...content.knowledge.links.map((link) => ({ token: link.token, label: link.title }))
+];
+
+const galleryEyebrow = {
+  en: 'Off the water', de: 'Neben dem Wasser', es: 'Fuera del agua', nl: 'Naast het water', sv: 'Utanför vattnet'
+}[currentLang];
+const galleryTitle = {
+  en: 'A club, not just a school',
+  de: 'Ein Club, nicht nur eine Schule',
+  es: 'Un club, no solo una escuela',
+  nl: 'Een club, niet alleen een school',
+  sv: 'En klubb, inte bara en skola'
+}[currentLang];
+const galleryImages = [
+  { src: clubCoupleImage, alt: { en: 'Two people in Tarifa Surf Club shirts on the beach promenade', de: 'Zwei Personen in Tarifa-Surf-Club-Shirts auf der Strandpromenade', es: 'Dos personas con camisetas de Tarifa Surf Club en el paseo marítimo', nl: 'Twee mensen in Tarifa-Surf-Club-shirts op de strandboulevard', sv: 'Två personer i Tarifa Surf Club-tröjor på strandpromenaden' }[currentLang], focalPoint: '50% 40%' },
+  { src: clubDogImage, alt: { en: 'A small dog carrying a kite bar leash on the Tarifa promenade', de: 'Kleiner Hund mit einer Bar-Leash auf der Promenade von Tarifa', es: 'Un perro pequeño llevando un leash de barra en el paseo de Tarifa', nl: 'Een klein hondje met een bar-leash op de promenade van Tarifa', sv: 'En liten hund som bär en bar-leash på Tarifas promenad' }[currentLang], focalPoint: '35% 55%' },
+  { src: clubAfterworkImage, alt: { en: 'Two members of the club with a longboard after a session', de: 'Zwei aus dem Club mit einem Longboard nach der Session', es: 'Dos del club con un longboard después de la sesión', nl: 'Twee van de club met een longboard na de sessie', sv: 'Två från klubben med en longboard efter passet' }[currentLang], focalPoint: '50% 40%' }
 ];
 ---
 
@@ -163,6 +182,20 @@ const footerHighlights: LabeledLink[] = [
               <figcaption class="am-text-label am-text-label--sm mt-3 text-primary">— {content.season.quote.name} · {content.season.quote.role}</figcaption>
             </div>
           </figure>
+        </div>
+      </div>
+    </LocationModule>
+
+    <LocationModule spacing="compact" data-am-topic="club-life">
+      <div class="mx-auto max-w-screen-2xl">
+        <p class="am-text-eyebrow text-primary">{galleryEyebrow}</p>
+        <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{galleryTitle}</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          {galleryImages.map((image) => (
+            <figure class="m-0">
+              <AmaraImage src={image.src} alt={image.alt} profile="hero" width={900} widths={[360, 540, 720, 900]} sizes="(max-width: 767px) 100vw, 30vw" class="aspect-[4/3] w-full object-cover" focalPoint={image.focalPoint} />
+            </figure>
+          ))}
         </div>
       </div>
     </LocationModule>

@@ -21,6 +21,7 @@ import { experienceStayBridge } from '../../content/experienceStayBridgeContent'
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import kiteHeroImage from '../../assets/images/content/tarifa/Airush_Valentin_Tadzio-Rurka_DSC_1412.jpg';
+import kiteBeginnerImage from '../../assets/images/content/tarifa/kite-beginner-twintip.jpg';
 
 /**
  * Editorial beginner guide beneath the Tarifa kitesurf cluster. It reuses the
@@ -69,6 +70,21 @@ const heroImageCaption: LocalizedGuideText = {
   es: 'Kitesurf frente a la isla de las Palomas de Tarifa',
   nl: 'Kitesurfen bij Tarifa’s Isla de las Palomas',
   sv: 'Kitesurfing vid Tarifas Isla de las Palomas'
+};
+
+const beginnerImageAlt: LocalizedGuideText = {
+  en: 'A learner on the beach holding an Airush twintip before going out',
+  de: 'Einsteigerin am Strand mit einem Airush-Twintip, bevor es aufs Wasser geht',
+  es: 'Una principiante en la playa con una tabla twintip de Airush antes de entrar al agua',
+  nl: 'Een beginner op het strand met een Airush-twintip voor het het water op gaat',
+  sv: 'En nybörjare på stranden med en Airush-twintip innan hon ska ut'
+};
+const beginnerImageCaption: LocalizedGuideText = {
+  en: 'The board comes after the kite: first the wind, then the water',
+  de: 'Das Board kommt nach dem Kite: erst der Wind, dann das Wasser',
+  es: 'La tabla llega después de la cometa: primero el viento, luego el agua',
+  nl: 'De board komt na de kite: eerst de wind, dan het water',
+  sv: 'Brädan kommer efter kiten: först vinden, sedan vattnet'
 };
 ---
 
@@ -138,6 +154,22 @@ const heroImageCaption: LocalizedGuideText = {
         ))}
       </dl>
     </section>
+
+    <figure class="bg-surface px-6 md:px-12">
+      <div class="mx-auto max-w-screen-2xl overflow-hidden">
+        <AmaraImage
+          src={kiteBeginnerImage}
+          alt={t(beginnerImageAlt)}
+          profile="hero"
+          width={2000}
+          widths={[768, 1200, 1600, 2000]}
+          sizes="100vw"
+          class="aspect-[4/5] w-full object-cover sm:aspect-[16/9] lg:aspect-[16/7]"
+          focalPoint="50% 42%"
+        />
+      </div>
+      <figcaption class="mx-auto mt-3 max-w-screen-2xl text-right am-text-caption normal-case tracking-normal text-muted">{t(beginnerImageCaption)}</figcaption>
+    </figure>
 
     {localizedSections.map((section, index) => (
       <Fragment>

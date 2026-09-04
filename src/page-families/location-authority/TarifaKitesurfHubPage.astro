@@ -1,5 +1,6 @@
 ---
 import kiteBoardImage from '../../assets/images/content/tarifa/tarifa-kite-board-sand.webp';
+import kiteWaveTurnImage from '../../assets/images/content/tarifa/kite-wave-turn.jpg';
 import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
@@ -51,6 +52,8 @@ const contactHref = `https://wa.me/34604440964?text=${encodeURIComponent(t(partn
 const ui = {
   hubLabel: { en: 'Kitesurfing in Tarifa', de: 'Kitesurfen in Tarifa', es: 'Kitesurf en Tarifa', nl: 'Kitesurfen in Tarifa', sv: 'Kitesurfing i Tarifa' },
   heroImageAlt: { en: 'Kiteboard with foot pads lying in the sand in low evening light', de: 'Kiteboard mit Fußpads im Sand bei tiefstehender Sonne', es: 'Tabla de kite con pads sobre la arena con el sol bajo', nl: 'Kiteboard met voetpads in het zand bij laagstaande zon', sv: 'Kiteboard med fotpads i sanden i lågt kvällsljus' },
+  waveImageAlt: { en: 'A kitesurfer carving off the lip of a wave off Tarifa', de: 'Kitesurfer beim Turn im Wellenkamm vor Tarifa', es: 'Un kitesurfista trazando un giro en la cresta de una ola frente a Tarifa', nl: 'Een kitesurfer die een turn maakt op de top van een golf voor Tarifa', sv: 'En kitesurfare som skär av vågkammen utanför Tarifa' },
+  waveImageCaption: { en: 'When the swell lines up, Tarifa is a wave spot too — not just flat-water freeride.', de: 'Wenn die Welle steht, ist Tarifa auch ein Wellenspot — nicht nur Flachwasser-Freeride.', es: 'Cuando entra la ola, Tarifa también es un spot de olas, no solo freeride en agua plana.', nl: 'Als de deining staat, is Tarifa ook een golfspot — niet alleen flatwater-freeride.', sv: 'När svallet ligger rätt är Tarifa också en vågspot — inte bara flatwater-freeride.' },
   pathsEyebrow: { en: 'Next', de: 'Weiter', es: 'Seguir', nl: 'Verder', sv: 'Vidare' },
   pathsTitle: { en: 'Learning to kite, wind and spots, the partnership', de: 'Kiten lernen, Wind und Spots, die Partnerschaft', es: 'Aprender a navegar, viento y spots, la colaboración', nl: 'Leren kiten, wind en spots, het partnerschap', sv: 'Lära sig kita, vind och spots, partnerskapet' },
   pathsIntro: { en: 'Three pages with what is only touched on here: **courses and prices with their date**, the two winds in detail, and how AMARA and the club work together.', de: 'Drei Seiten mit dem, was hier nur angerissen ist: **Kurse und Preise mit Stand**, die zwei Winde im Detail, und wie AMARA und der Club zusammenarbeiten.', es: 'Tres páginas con lo que aquí solo se apunta: **cursos y precios con fecha**, los dos vientos en detalle y cómo trabajamos AMARA y el club.', nl: 'Drie pagina’s met wat hier alleen wordt aangestipt: **lessen en prijzen met datum**, de twee winden in detail, en hoe AMARA en de club samenwerken.', sv: 'Tre sidor med det som bara snuddas vid här: **kurser och priser med datum**, de två vindarna i detalj, och hur AMARA och klubben arbetar ihop.' },
@@ -129,6 +132,13 @@ const footerHighlights: LabeledLink[] = [
           </div>
         ))}
       </dl>
+    </LocationModule>
+
+    <LocationModule spacing="compact" data-am-topic="editorial-photo">
+      <figure class="mx-auto max-w-screen-2xl">
+        <AmaraImage src={kiteWaveTurnImage} alt={t(ui.waveImageAlt)} profile="hero" width={2000} widths={[768, 1200, 1600, 2000]} sizes="(max-width: 1535px) 100vw, 1440px" class="aspect-[4/5] w-full object-cover sm:aspect-[16/9] lg:aspect-[16/7]" focalPoint="50% 45%" />
+        <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{t(ui.waveImageCaption)}</figcaption>
+      </figure>
     </LocationModule>
 
     {content.sections.map((section, index) => {
