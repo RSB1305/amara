@@ -13,6 +13,8 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
+import KiteWindWindowDiagram from '../../components/experience/KiteWindWindowDiagram.astro';
+import KiteSafetyCascadeDiagram from '../../components/experience/KiteSafetyCascadeDiagram.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 
@@ -99,11 +101,15 @@ const localizedSections = content.sections.map((section) => ({
     </section>
 
     {localizedSections.map((section, index) => (
-      <AuthorityTextSection
-        section={section}
-        index={index}
-        data-am-experience-section={section.id}
-      />
+      <Fragment>
+        <AuthorityTextSection
+          section={section}
+          index={index}
+          data-am-experience-section={section.id}
+        />
+        {section.id === 'wind-window' && <KiteWindWindowDiagram lang={currentLang} />}
+        {section.id === 'safety' && <KiteSafetyCascadeDiagram lang={currentLang} />}
+      </Fragment>
     ))}
 
     <aside class="bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28">

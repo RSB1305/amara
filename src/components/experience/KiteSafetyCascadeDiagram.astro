@@ -1,0 +1,127 @@
+---
+/**
+ * Safety cascade for the Tarifa kitesurf beginner guide: sheet out, then the
+ * chicken-loop quick release, then the leash release. Three escalating stages
+ * with a visible claim boundary — the exact motion and reset vary by bar, so it
+ * must be trained on the rider's own system. Theme-aware via design tokens.
+ */
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang: AmaraLanguage;
+}
+
+const { lang } = Astro.props;
+type L = Record<AmaraLanguage, string>;
+const t = (v: L) => v[lang];
+
+const copy = {
+  eyebrow: { en: 'The safety cascade', de: 'Die Safety-Kaskade', es: 'La cascada de seguridad', nl: 'De veiligheidscascade', sv: 'Säkerhetskaskaden' } satisfies L,
+  title: { en: 'Three steps, always in order', de: 'Drei Stufen, immer der Reihe nach', es: 'Tres pasos, siempre en orden', nl: 'Drie stappen, altijd op volgorde', sv: 'Tre steg, alltid i ordning' } satisfies L,
+  trigger: {
+    en: 'Too much pull or loss of control? You escalate only as far as you need to.',
+    de: 'Zu viel Zug oder Kontrollverlust? Ihr eskaliert nur so weit wie nötig.',
+    es: '¿Demasiada tracción o pérdida de control? Escalas solo hasta donde haga falta.',
+    nl: 'Te veel trek of controleverlies? Je escaleert alleen zover als nodig.',
+    sv: 'För mycket drag eller tappad kontroll? Du eskalerar bara så långt som behövs.'
+  } satisfies L,
+  footnote: {
+    en: 'The exact motion, flag-out and reset differ by bar and manufacturer. Learn and practise it on your own system, with an instructor — this is a principle, not a manual.',
+    de: 'Bewegung, Ausflaggen und Reset unterscheiden sich je Bar und Hersteller. Lernt und übt es an eurem eigenen System, mit einer Lehrkraft – das ist ein Prinzip, keine Anleitung.',
+    es: 'El movimiento, el abanderamiento y el rearme varían según la barra y el fabricante. Apréndelo y practícalo en tu propio sistema, con un instructor: es un principio, no un manual.',
+    nl: 'Beweging, uitvlaggen en reset verschillen per bar en fabrikant. Leer en oefen het op je eigen systeem, met een instructeur — dit is een principe, geen handleiding.',
+    sv: 'Rörelse, utflaggning och återställning skiljer sig mellan bar och tillverkare. Lär och öva det på ditt eget system, med en instruktör — detta är en princip, inte en manual.'
+  } satisfies L,
+  steps: [
+    {
+      title: { en: 'Sheet out', de: 'Auspowern', es: 'Despotenciar', nl: 'Uitsheeten', sv: 'Släpp trycket' } satisfies L,
+      note: { en: 'Let the bar out. On a working depower kite, most of the normal pull disappears.', de: 'Bar loslassen. Bei einem funktionierenden Depower-Kite verschwindet der meiste normale Zug.', es: 'Suelta la barra. En una cometa con depower que funciona, casi toda la tracción normal desaparece.', nl: 'Laat de bar los. Bij een werkende depowerkite verdwijnt het meeste normale trek.', sv: 'Släpp ut baren. På en fungerande depowerkite försvinner det mesta av det normala draget.' } satisfies L
+    },
+    {
+      title: { en: 'Chicken-loop release', de: 'Chicken-Loop-Release', es: 'Soltar el chicken loop', nl: 'Chicken-loop los', sv: 'Chicken loop-release' } satisfies L,
+      note: { en: 'Not enough? Trigger the quick release; the kite flags out on its safety line.', de: 'Reicht nicht? Quick Release auslösen; der Kite flaggt an der Safety-Line aus.', es: '¿No basta? Activa el quick release; la cometa queda en bandera en su línea de seguridad.', nl: 'Niet genoeg? Activeer de quick release; de kite vlagt uit aan zijn veiligheidslijn.', sv: 'Räcker inte? Utlös quick release; kiten flaggar ut på sin säkerhetslina.' } satisfies L
+    },
+    {
+      title: { en: 'Leash release', de: 'Leash-Release', es: 'Soltar el leash', nl: 'Leash los', sv: 'Leash-release' } satisfies L,
+      note: { en: 'Real emergency only: release the leash for a full separation from the kite.', de: 'Nur im echten Notfall: Leash lösen für die vollständige Trennung vom Kite.', es: 'Solo en emergencia real: suelta el leash para separarte del todo de la cometa.', nl: 'Alleen bij echte nood: laat de leash los voor volledige loskoppeling van de kite.', sv: 'Endast vid verklig nöd: släpp leash-en för full frikoppling från kiten.' } satisfies L
+    }
+  ]
+};
+
+const stepIcons = ['sheet', 'loop', 'cut'] as const;
+---
+
+<section class="bg-surface px-6 py-16 md:px-12 md:py-24" data-am-topic="safety-cascade-diagram">
+  <div class="mx-auto max-w-screen-2xl">
+    <div class="max-w-2xl">
+      <p class="am-text-eyebrow text-primary">{t(copy.eyebrow)}</p>
+      <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(copy.title)}</h2>
+      <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{t(copy.trigger)}</p>
+    </div>
+
+    <ol class="cascade mt-12 grid gap-x-6 gap-y-8 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-stretch">
+      {copy.steps.map((step, index) => (
+        <>
+          {index > 0 && (
+            <li class="chevron hidden items-center justify-center md:flex" aria-hidden="true">
+              <svg viewBox="0 0 24 24" class="h-6 w-6"><path d="M8 4 L16 12 L8 20" /></svg>
+            </li>
+          )}
+          <li class="step flex flex-col border-t-2 border-primary/70 bg-surface-container-low px-6 pb-8 pt-6" data-stage={index + 1}>
+            <div class="flex items-center gap-4">
+              <span class="step-num">{index + 1}</span>
+              <svg class="step-icon h-8 w-8" viewBox="0 0 32 32" aria-hidden="true">
+                {stepIcons[index] === 'sheet' && (
+                  <g>
+                    <path d="M16 5 V27" />
+                    <path d="M9 12 L4 12 M6.5 9 L4 12 L6.5 15" />
+                    <path d="M23 12 L28 12 M25.5 9 L28 12 L25.5 15" />
+                  </g>
+                )}
+                {stepIcons[index] === 'loop' && (
+                  <g>
+                    <path d="M16 6 C10 6 8 11 8 15 C8 22 12 26 16 26 C20 26 24 22 24 15 C24 11 22 6 16 6 Z" />
+                    <path d="M16 6 L21 2" />
+                    <circle cx="21" cy="2" r="1.6" class="fill" />
+                  </g>
+                )}
+                {stepIcons[index] === 'cut' && (
+                  <g>
+                    <path d="M5 16 L13 16 M19 16 L27 16" />
+                    <path d="M13 11 L13 21 M19 11 L19 21" />
+                  </g>
+                )}
+              </svg>
+            </div>
+            <h3 class="am-text-subtitle mt-5 text-on-surface">{t(step.title)}</h3>
+            <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{t(step.note)}</p>
+          </li>
+        </>
+      ))}
+    </ol>
+
+    <p class="mt-8 max-w-3xl am-text-body leading-relaxed text-muted">{t(copy.footnote)}</p>
+  </div>
+</section>
+
+<style>
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 9999px;
+    background: var(--color-primary);
+    color: var(--color-inverted-on-surface);
+    font-family: var(--font-label);
+    font-size: 0.9rem;
+    font-weight: 800;
+  }
+  .step-icon { fill: none; stroke: var(--color-primary); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .step-icon .fill { fill: var(--color-primary); stroke: none; }
+  .chevron svg { fill: none; stroke: color-mix(in srgb, var(--color-primary) 55%, transparent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  /* escalation cue: each stage reads slightly stronger than the last */
+  .step[data-stage='2'] { border-top-color: color-mix(in srgb, var(--color-primary) 85%, var(--color-on-surface)); }
+  .step[data-stage='3'] { border-top-color: var(--color-on-surface); }
+</style>
