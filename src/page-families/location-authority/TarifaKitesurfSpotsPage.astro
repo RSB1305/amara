@@ -3,6 +3,7 @@ import type { ImageMetadata } from 'astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
 import KiteCoBrandingBand from '../../components/experience/KiteCoBrandingBand.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -48,6 +49,8 @@ const spotNumber = (index: number) => String(index + 1).padStart(2, '0');
   </Navigation>
 
   <article class="bg-surface" data-am-page="tarifa-kitesurf-spots" data-am-family="experience" data-am-role="spoke" data-am-topic="kitesurf-spots">
+    <KiteClusterNav lang={currentLang} currentId="spots" />
+
     <LocationGuideHero
       eyebrow={content.hero.eyebrow}
       title={content.hero.headline}

@@ -4,6 +4,7 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
 import KiteCoBrandingBand from '../../components/experience/KiteCoBrandingBand.astro';
 import WindguruWidget from '../../components/experience/WindguruWidget.astro';
 import AemetForecastPanel from '../../components/location/AemetForecastPanel.astro';
@@ -53,6 +54,8 @@ const footerHighlights: LabeledLink[] = [
   </Navigation>
 
   <article class="bg-surface" data-am-page="tarifa-kitesurf-forecast" data-am-family="experience" data-am-role="spoke" data-am-topic="kitesurf-forecast">
+    <KiteClusterNav lang={currentLang} currentId="forecast" />
+
     <LocationGuideHero
       eyebrow={content.hero.eyebrow}
       title={content.hero.title}
