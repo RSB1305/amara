@@ -42,7 +42,7 @@ Die AEMET ist der offizielle spanische Wetterdienst. Ihre Warnungen und ihre Gem
 
 **H2:** Was die Modelle gerade rechnen
 
-⟨Stufe 2: Open-Meteo-Briefing. Bis dahin bleibt dieser Abschnitt auf der Seite und erklärt, was er zeigen wird — ohne leere Werteboxen.⟩
+⟨Stufe 2 und 12: Kite-Briefing aus der AEMET-Stundenvorhersage, siehe Contract §18. Bis dahin bleibt dieser Abschnitt auf der Seite und erklärt, was er zeigen wird — ohne leere Werteboxen.⟩
 
 **Struktur des Briefings, wenn es steht:**
 
@@ -53,7 +53,7 @@ Die AEMET ist der offizielle spanische Wetterdienst. Ihre Warnungen und ihre Gem
 
 **Provenienz-Zeile unter den Werten:**
 
-> Wetterdaten: Open-Meteo · Modell: ⟨konfigurierte Modell-ID⟩ · Originalquelle: ⟨DWD / ECMWF / Météo-France⟩ · abgerufen: ⟨Zeit⟩ · Vorhersage gültig für: ⟨Zeit⟩
+> Wetter: AEMET · Wellen und Wassertemperatur: AEMET · Warnungen: AEMET · Stand ⟨Uhrzeit⟩ · Daten: AEMET (Contract §18d)
 
 **Wenn keine Daten kommen:**
 

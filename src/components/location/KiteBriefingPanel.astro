@@ -2,14 +2,17 @@
 /**
  * KiteBriefingPanel
  *
- * The live data object of the Tarifa wind page. It fetches the server-side
- * Open-Meteo gateway and shows the modelled values for the current model hour
- * together with the explanation layer: one authored sentence per situation,
- * selected by fixed rules from the values. No text is generated at runtime,
- * so the panel structurally cannot approve a session, name a kite size, pick
- * a spot, score anything or promise rescue — none of that exists in the
- * sentence library it draws from.
+ * The live data object of the Tarifa values page. It fetches the server-side
+ * AEMET kite gateway (hourly municipality forecast plus beach forecast) and
+ * the AEMET warnings gateway, and shows only what a kitesurfer decides by:
+ * wind, gusts and direction, the trend of the next hours, sea state and water
+ * temperature, sky, rain, air temperature and the end of daylight, the
+ * official warning status, the next six hours and tomorrow's outlook.
  *
+ * The explanation layer is one authored sentence per situation, selected by
+ * fixed rules from the values. No text is generated at runtime, so the panel
+ * structurally cannot approve a session, name a kite size, pick a spot, score
+ * anything or promise rescue: none of that exists in its sentence library.
  * When data is missing the panel says so. It never estimates.
  */
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
@@ -18,27 +21,29 @@ import type { Resolved } from '../../types/content';
 import type { TarifaKiteBriefingCopy } from '../../content/tarifaKiteBriefingContent';
 import type { AmaraLanguage } from '../../types/seo';
 
-interface Headings {
-  wind: string;
-  wave: string;
-  sky: string;
-  check: string;
-}
-
 interface Props {
   endpoint: string;
+  warningsEndpoint: string;
   lang: AmaraLanguage;
   timezone: string;
   copy: Resolved<TarifaKiteBriefingCopy>;
-  headings: Headings;
-  notes: Omit<Headings, 'check'>;
+  /** Localised names of the AEMET warning levels, keyed by AEMET's own code. */
+  warningLevels: Record<string, string>;
   aemetHref: string;
   aemetLabel: string;
 }
 
-const { endpoint, lang, timezone, copy, headings, notes, aemetHref, aemetLabel } = Astro.props;
+const { endpoint, warningsEndpoint, lang, timezone, copy, warningLevels, aemetHref, aemetLabel } = Astro.props;
 const widgetId = 'am-kite-briefing';
-const { labels } = copy;
+const { labels, blocks } = copy;
+const lines = [
+  ['wind', blocks.wind],
+  ['trend', blocks.trend],
+  ['water', blocks.water],
+  ['sky', blocks.sky],
+  ['official', blocks.official]
+] as const;
+const rowHeadClass = 'whitespace-nowrap px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant';
 ---
 
 <div id={widgetId} class="mt-10" aria-live="polite" aria-busy="true" data-am-kite-briefing>
@@ -48,81 +53,42 @@ const { labels } = copy;
   </div>
 
   <div data-briefing-body class="hidden">
-    <p class="am-text-label am-text-label--sm text-primary">
-      <span>{labels.modelHour}</span> · <span data-briefing-hour>—</span>
-    </p>
+    <p class="am-text-subtitle text-on-surface"><span>{labels.nowIn}</span>, <span data-briefing-hour>—</span></p>
 
-    <dl class="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-      <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-briefing-block="wind">
-        <dt class="am-text-label am-text-label--sm text-primary">{headings.wind}</dt>
-        <dd class="mt-3">
-          <p class="am-text-title tabular-nums text-on-surface"><span data-value="wind">—</span> <span class="am-text-subtitle">kn</span></p>
-          <p class="am-text-caption mt-2 normal-case tracking-normal text-muted">
-            <span>{labels.columnDirection}</span> <span data-value="direction">—</span> · <span>{labels.columnGusts}</span> <span data-value="gusts">—</span> kn
-          </p>
-          <p class="am-text-body mt-4 leading-relaxed text-on-surface" data-sentence="wind"></p>
-          <p class="am-text-body mt-2 leading-relaxed text-on-surface" data-sentence="beaufort"></p>
-          <p class="am-text-body mt-2 leading-relaxed text-on-surface" data-sentence="gusts"></p>
-          <p class="am-text-body mt-2 leading-relaxed text-on-surface" data-sentence="trend"></p>
-          <p class="am-text-caption mt-4 normal-case tracking-normal text-muted">{notes.wind}</p>
-        </dd>
-      </div>
-
-      <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-briefing-block="sea">
-        <dt class="am-text-label am-text-label--sm text-primary">{headings.wave}</dt>
-        <dd class="mt-3">
-          <p class="am-text-title tabular-nums text-on-surface"><span data-value="wave">—</span> <span class="am-text-subtitle">m</span></p>
-          <p class="am-text-caption mt-2 normal-case tracking-normal text-muted">
-            <span>{labels.columnDirection}</span> <span data-value="waveDirection">—</span> · <span data-value="wavePeriod">—</span> s
-          </p>
-          <p class="am-text-body mt-4 leading-relaxed text-on-surface" data-sentence="sea"></p>
-          <p class="am-text-caption mt-4 normal-case tracking-normal text-muted">{notes.wave}</p>
-        </dd>
-      </div>
-
-      <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-briefing-block="sky">
-        <dt class="am-text-label am-text-label--sm text-primary">{headings.sky}</dt>
-        <dd class="mt-3">
-          <p class="am-text-title tabular-nums text-on-surface"><span data-value="cloud">—</span> <span class="am-text-subtitle">%</span></p>
-          <p class="am-text-caption mt-2 normal-case tracking-normal text-muted">
-            <span>{labels.cloudLayers}</span> <span data-value="cloudLayers">—</span> · <span data-value="radiation">—</span> W/m²
-          </p>
-          <p class="am-text-body mt-4 leading-relaxed text-on-surface" data-sentence="sky"></p>
-          <p class="am-text-caption mt-4 normal-case tracking-normal text-muted">{notes.sky}</p>
-        </dd>
-      </div>
-
-      <div class="min-w-0 border-l-2 border-on-surface bg-surface-container-low px-6 py-6" data-briefing-block="check">
-        <dt class="am-text-label am-text-label--sm text-on-surface">{headings.check}</dt>
-        <dd class="mt-3">
-          <p class="am-text-body leading-relaxed text-on-surface">{copy.situations.check}</p>
-        </dd>
-      </div>
+    <dl class="mt-6 divide-y divide-border-subtle border-y border-border-subtle">
+      {lines.map(([key, label]) => (
+        <div class="grid gap-1 py-4 sm:grid-cols-[7rem_minmax(0,1fr)] sm:gap-6">
+          <dt class="am-text-label am-text-label--sm text-primary sm:pt-1">{label}</dt>
+          <dd class="am-text-body leading-relaxed text-on-surface" data-line={key}>—</dd>
+        </div>
+      ))}
     </dl>
 
     <div class="mt-8">
       <p class="am-text-label am-text-label--sm text-on-surface">{labels.nextHours}</p>
       <div class="mt-3 overflow-x-auto bg-surface-container-lowest" role="region" aria-label={labels.nextHours} tabindex="0">
-        <table class="w-full min-w-[32rem] border-collapse text-left">
+        <table class="w-full min-w-[30rem] border-collapse text-left">
           <caption class="sr-only">{labels.nextHours}</caption>
           <thead>
-            <tr class="border-b border-border-subtle">
-              <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{labels.columnTime}</th>
-              <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{labels.columnWind}</th>
-              <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{labels.columnGusts}</th>
-              <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{labels.columnDirection}</th>
-              <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{labels.columnWave}</th>
+            <tr class="border-b border-border-subtle" data-briefing-head>
+              <th scope="col" class="px-4 py-3"><span class="sr-only">{labels.nextHours}</span></th>
             </tr>
           </thead>
-          <tbody data-briefing-rows></tbody>
+          <tbody>
+            <tr class="border-b border-border-subtle" data-briefing-row="wind"><th scope="row" class={rowHeadClass}>{labels.rowWind}</th></tr>
+            <tr class="border-b border-border-subtle" data-briefing-row="gusts"><th scope="row" class={rowHeadClass}>{labels.rowGusts}</th></tr>
+            <tr data-briefing-row="direction"><th scope="row" class={rowHeadClass}>{labels.rowDirection}</th></tr>
+          </tbody>
         </table>
       </div>
     </div>
 
+    <p class="am-text-body mt-6 leading-relaxed text-on-surface"><strong>{labels.tomorrow}:</strong> <span data-line="tomorrow">—</span></p>
+    <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant">{copy.situations.check}</p>
+
     <div class="mt-6 am-text-caption normal-case tracking-normal text-muted" data-briefing-attribution>
-      <p data-attribution-forecast></p>
-      <p class="mt-1" data-attribution-marine></p>
-      <p class="mt-2"><a class="am-link" data-attribution-link href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">{labels.openMeteoLink}</a></p>
+      <p data-attribution-line></p>
+      <p class="mt-2"><a class="am-link" data-attribution-link href="https://www.aemet.es/" target="_blank" rel="noopener noreferrer">{labels.aemetLink}</a></p>
     </div>
   </div>
 
@@ -137,7 +103,7 @@ const { labels } = copy;
   </noscript>
 </div>
 
-<script is:inline define:vars={{ endpoint, lang, timezone, copy, widgetId }}>
+<script is:inline define:vars={{ endpoint, warningsEndpoint, lang, timezone, copy, warningLevels, widgetId }}>
   (function () {
     const root = document.getElementById(widgetId);
     if (!root) return;
@@ -146,10 +112,8 @@ const { labels } = copy;
     const loading = query('[data-briefing-loading]');
     const body = query('[data-briefing-body]');
     const fallback = query('[data-briefing-fallback]');
-    const values = {};
-    root.querySelectorAll('[data-value]').forEach((node) => { values[node.dataset.value] = node; });
-    const sentences = {};
-    root.querySelectorAll('[data-sentence]').forEach((node) => { sentences[node.dataset.sentence] = node; });
+    const lineNodes = {};
+    root.querySelectorAll('[data-line]').forEach((node) => { lineNodes[node.dataset.line] = node; });
 
     const COMPASS = ['n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw'];
     // Rule thresholds of the explanation layer. They select an authored
@@ -157,15 +121,21 @@ const { labels } = copy;
     const GUST_GAP_KN = 8;
     const TREND_STEP_KN = 6;
     const TREND_WINDOW_HOURS = 6;
-    const SEA_SMALL_M = 0.4;
-    const SEA_PART_M = 0.3;
-    const SEA_CROSSED_DEGREES = 60;
-    const TABLE_ROWS = 6;
+    const TABLE_COLUMNS = 6;
+    const CALM_KN = 1;
+    const RAIN_PROBABILITY_PCT = 30;
+    const AFTERNOON_FROM_HOUR = 14;
+    const OUTLOOK_HOURS = [12, 18];
+    const LEVEL_ORDER = ['amarillo', 'naranja', 'rojo'];
+    // Beaufort upper limits in knots for forces 0–11; anything above is force 12.
+    const BEAUFORT_LIMITS = [0.9, 3.4, 6.4, 10.4, 16.4, 21.4, 27.4, 33.4, 40.4, 47.4, 55.4, 63.4];
 
-    const hourFormat = new Intl.DateTimeFormat(lang, { hour: '2-digit', minute: '2-digit', timeZone: timezone });
-    const stampFormat = new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: timezone });
-    const oneDecimal = new Intl.NumberFormat(lang, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+    const hourFormat = new Intl.DateTimeFormat(lang, { hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZone: timezone });
+    const stampFormat = new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZone: timezone });
+    const dateFormat = new Intl.DateTimeFormat('en-CA', { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: timezone });
+    const hourNumberFormat = new Intl.DateTimeFormat('en-US', { hour: 'numeric', hourCycle: 'h23', timeZone: timezone });
     const integer = new Intl.NumberFormat(lang, { maximumFractionDigits: 0 });
+    const oneDecimal = new Intl.NumberFormat(lang, { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 
     function finish() {
       root.setAttribute('aria-busy', 'false');
@@ -179,26 +149,22 @@ const { labels } = copy;
 
     const isNumber = (value) => typeof value === 'number' && Number.isFinite(value);
     const knots = (value) => (isNumber(value) ? integer.format(Math.round(value)) : copy.labels.noValue);
-    const metres = (value) => (isNumber(value) ? oneDecimal.format(value) : copy.labels.noValue);
     const compass = (degrees) => (isNumber(degrees) ? copy.compass[COMPASS[Math.round(degrees / 45) % 8]] : copy.labels.noValue);
     const hourOf = (time) => hourFormat.format(new Date(time));
+    const dateOf = (time) => dateFormat.format(new Date(time));
+    const hourNumber = (time) => Number(hourNumberFormat.format(new Date(time)));
     const fill = (template, data) => template.replace(/\{(\w+)\}/g, (match, key) => (key in data ? String(data[key]) : match));
-    // Beaufort upper limits in knots for forces 0–11; anything above is force 12.
-    const BEAUFORT_LIMITS = [0.9, 3.4, 6.4, 10.4, 16.4, 21.4, 27.4, 33.4, 40.4, 47.4, 55.4, 63.4];
-    const beaufort = (knotsValue) => {
-      const force = BEAUFORT_LIMITS.findIndex((limit) => knotsValue <= limit);
+    const beaufort = (value) => {
+      const force = BEAUFORT_LIMITS.findIndex((limit) => value <= limit);
       return force === -1 ? 12 : force;
     };
-    const sector = (degrees) => {
-      if (!isNumber(degrees)) return '';
-      if (degrees >= 45 && degrees <= 135) return copy.sectors.levante;
-      if (degrees >= 225 && degrees <= 315) return copy.sectors.poniente;
-      return '';
+    const sectorKey = (degrees) => {
+      if (!isNumber(degrees)) return null;
+      if (degrees >= 45 && degrees <= 135) return 'levante';
+      if (degrees >= 225 && degrees <= 315) return 'poniente';
+      return null;
     };
-    const angleBetween = (a, b) => {
-      const difference = Math.abs(a - b) % 360;
-      return difference > 180 ? 360 - difference : difference;
-    };
+    const setLine = (key, text) => { if (lineNodes[key]) lineNodes[key].textContent = text; };
 
     function currentIndex(hours, now) {
       const stamps = hours.map((hour) => Date.parse(hour.time));
@@ -207,126 +173,157 @@ const { labels } = copy;
       return index;
     }
 
-    function trendSentence(hours, index) {
+    function windLine(hour) {
+      const wind = hour.wind;
+      if (!isNumber(wind.speed)) return copy.labels.noValue;
+      if (wind.speed < CALM_KN || wind.directionCode === 'C') return copy.situations.calm;
+      const sector = sectorKey(wind.direction);
+      const parts = [
+        fill(copy.situations.wind, { speed: knots(wind.speed), dir: compass(wind.direction), sector: sector ? copy.sectors[sector] : '' }),
+        fill(copy.situations.beaufort, { bft: String(beaufort(wind.speed)), name: copy.beaufortNames[beaufort(wind.speed)] })
+      ];
+      if (isNumber(wind.gusts)) {
+        const gap = wind.gusts - wind.speed;
+        parts.push(fill(gap >= GUST_GAP_KN ? copy.situations.gustsWide : copy.situations.gustsClose, { gusts: knots(wind.gusts), gap: knots(gap) }));
+      } else {
+        parts.push(copy.situations.gustsNone);
+      }
+      return parts.join(' ');
+    }
+
+    function trendLine(hours, index) {
       const current = hours[index].wind.speed;
-      if (!isNumber(current)) return '';
+      if (!isNumber(current)) return copy.labels.noValue;
       const window = hours.slice(index + 1, index + 1 + TREND_WINDOW_HOURS).filter((hour) => isNumber(hour.wind.speed));
-      if (window.length === 0) return '';
+      if (window.length === 0) return copy.situations.trendFlat;
       const max = window.reduce((best, hour) => (hour.wind.speed > best.wind.speed ? hour : best));
       const min = window.reduce((best, hour) => (hour.wind.speed < best.wind.speed ? hour : best));
       const rise = max.wind.speed - current;
       const fall = current - min.wind.speed;
-      if (rise >= TREND_STEP_KN && rise >= fall) {
-        return fill(copy.situations.trendRising, { max: knots(max.wind.speed), maxHour: hourOf(max.time) });
-      }
-      if (fall >= TREND_STEP_KN) {
-        return fill(copy.situations.trendFalling, { min: knots(min.wind.speed), minHour: hourOf(min.time) });
-      }
+      if (rise >= TREND_STEP_KN && rise >= fall) return fill(copy.situations.trendRising, { max: knots(max.wind.speed), maxHour: hourOf(max.time) });
+      if (fall >= TREND_STEP_KN) return fill(copy.situations.trendFalling, { min: knots(min.wind.speed), minHour: hourOf(min.time) });
       return copy.situations.trendFlat;
     }
 
-    function seaSentence(hour) {
-      const wave = hour.wave;
-      if (!isNumber(wave.height)) return copy.situations.seaUnavailable;
-      const data = {
-        wave: metres(wave.height),
-        period: isNumber(wave.period) ? oneDecimal.format(wave.period) : copy.labels.noValue,
-        windWave: metres(hour.windWave.height),
-        windWaveDir: compass(hour.windWave.direction),
-        swell: metres(hour.swell.height),
-        swellDir: compass(hour.swell.direction),
-        swellPeriod: isNumber(hour.swell.period) ? oneDecimal.format(hour.swell.period) : copy.labels.noValue
-      };
-      if (wave.height < SEA_SMALL_M) return fill(copy.situations.seaSmall, data);
-      const crossed =
-        isNumber(hour.windWave.height) && hour.windWave.height >= SEA_PART_M &&
-        isNumber(hour.swell.height) && hour.swell.height >= SEA_PART_M &&
-        isNumber(hour.windWave.direction) && isNumber(hour.swell.direction) &&
-        angleBetween(hour.windWave.direction, hour.swell.direction) > SEA_CROSSED_DEGREES;
-      return fill(crossed ? copy.situations.seaCrossed : copy.situations.seaAligned, data);
+    function waterLine(briefing, hour) {
+      const today = dateOf(hour.time);
+      const day = Array.isArray(briefing.beach) ? briefing.beach.find((entry) => entry.date === today) : null;
+      if (!day) return copy.situations.waterUnavailable;
+      const stateKey = hourNumber(hour.time) < AFTERNOON_FROM_HOUR ? day.wave.morning : day.wave.afternoon;
+      const state = stateKey && copy.waves[stateKey];
+      if (!state) return copy.situations.waterUnavailable;
+      if (!isNumber(day.waterTemperature)) return fill(copy.situations.waterNoTemperature, { state });
+      return fill(copy.situations.water, { state, water: integer.format(Math.round(day.waterTemperature)) });
     }
 
-    function render(briefing) {
+    function skyLine(briefing, hour) {
+      const sky = copy.sky[hour.sky && hour.sky.category] || copy.sky.unknown;
+      let rain = copy.situations.rainNone;
+      if (isNumber(hour.precipitation) && hour.precipitation > 0) {
+        rain = fill(copy.situations.rainExpected, { amount: oneDecimal.format(hour.precipitation) });
+      } else if (isNumber(hour.precipitationProbability) && hour.precipitationProbability >= RAIN_PROBABILITY_PCT) {
+        rain = fill(copy.situations.rainPossible, { probability: integer.format(hour.precipitationProbability) });
+      }
+      const today = dateOf(hour.time);
+      const day = Array.isArray(briefing.days) ? briefing.days.find((entry) => entry.date === today) : null;
+      const daylight = day && day.sunset ? fill(copy.situations.daylight, { sunset: day.sunset }) : '';
+      return fill(copy.situations.sky, { sky, rain, temp: isNumber(hour.temperature) ? integer.format(Math.round(hour.temperature)) : copy.labels.noValue, daylight });
+    }
+
+    function officialLine(warnings) {
+      if (!warnings || !Array.isArray(warnings.warnings)) return copy.situations.officialUnavailable;
+      const zone = (warnings.zone && warnings.zone.name) || '';
+      if (warnings.warnings.length === 0) return fill(copy.situations.officialNone, { zone });
+      const highest = warnings.warnings.reduce((best, warning) => (LEVEL_ORDER.indexOf(warning.level) > LEVEL_ORDER.indexOf(best) ? warning.level : best), warnings.warnings[0].level);
+      return fill(copy.situations.officialSome, { count: String(warnings.warnings.length), zone, level: warningLevels[highest] || highest || copy.labels.noValue });
+    }
+
+    function tomorrowLine(hours, hour) {
+      const tomorrow = dateOf(new Date(Date.parse(hour.time) + 24 * 3600 * 1000).toISOString());
+      const window = hours.filter((entry) => dateOf(entry.time) === tomorrow && hourNumber(entry.time) >= OUTLOOK_HOURS[0] && hourNumber(entry.time) <= OUTLOOK_HOURS[1] && isNumber(entry.wind.speed));
+      if (window.length === 0) return copy.situations.tomorrowNone;
+      const speeds = window.map((entry) => entry.wind.speed);
+      const counts = {};
+      window.forEach((entry) => {
+        const key = sectorKey(entry.wind.direction) || (isNumber(entry.wind.direction) ? 'dir:' + COMPASS[Math.round(entry.wind.direction / 45) % 8] : 'calm');
+        counts[key] = (counts[key] || 0) + 1;
+      });
+      const dominant = Object.keys(counts).sort((a, b) => counts[b] - counts[a])[0];
+      let sector;
+      if (dominant === 'levante' || dominant === 'poniente') sector = copy.sectorNames[dominant];
+      else if (dominant && dominant.indexOf('dir:') === 0) sector = fill(copy.situations.fromDirection, { dir: copy.compass[dominant.slice(4)] });
+      else sector = copy.beaufortNames[0];
+      return fill(copy.situations.tomorrow, { sector, min: knots(Math.min.apply(null, speeds)), max: knots(Math.max.apply(null, speeds)) });
+    }
+
+    function renderTable(hours, index) {
+      const columns = hours.slice(index + 1, index + 1 + TABLE_COLUMNS);
+      const head = query('[data-briefing-head]');
+      columns.forEach((entry) => {
+        const cell = document.createElement('th');
+        cell.setAttribute('scope', 'col');
+        cell.className = 'whitespace-nowrap px-4 py-3 am-text-label am-text-label--sm text-on-surface';
+        cell.textContent = hourOf(entry.time);
+        head.appendChild(cell);
+      });
+      const rows = {
+        wind: (entry) => knots(entry.wind.speed),
+        gusts: (entry) => (isNumber(entry.wind.gusts) ? knots(entry.wind.gusts) : '–'),
+        direction: (entry) => (entry.wind.directionCode === 'C' ? copy.beaufortNames[0] : compass(entry.wind.direction))
+      };
+      Object.keys(rows).forEach((key) => {
+        const row = query('[data-briefing-row="' + key + '"]');
+        columns.forEach((entry) => {
+          const cell = document.createElement('td');
+          cell.className = 'whitespace-nowrap px-4 py-3 am-text-body tabular-nums text-on-surface-variant';
+          cell.textContent = rows[key](entry);
+          row.appendChild(cell);
+        });
+      });
+    }
+
+    function render(briefing, warnings) {
       const hours = briefing.hours;
       const index = currentIndex(hours, Date.now());
       const hour = hours[index];
-      const wind = hour.wind;
 
-      query('[data-briefing-hour]').textContent = stampFormat.format(new Date(hour.time));
-      values.wind.textContent = knots(wind.speed);
-      values.direction.textContent = isNumber(wind.direction) ? compass(wind.direction) + ' (' + integer.format(Math.round(wind.direction)) + '°)' : copy.labels.noValue;
-      values.gusts.textContent = knots(wind.gusts);
-      values.wave.textContent = metres(hour.wave.height);
-      values.waveDirection.textContent = compass(hour.wave.direction);
-      values.wavePeriod.textContent = isNumber(hour.wave.period) ? oneDecimal.format(hour.wave.period) : copy.labels.noValue;
-      values.cloud.textContent = isNumber(hour.cloud.total) ? integer.format(hour.cloud.total) : copy.labels.noValue;
-      values.cloudLayers.textContent = [hour.cloud.low, hour.cloud.mid, hour.cloud.high]
-        .map((layer) => (isNumber(layer) ? integer.format(layer) + ' %' : copy.labels.noValue)).join(' · ');
-      values.radiation.textContent = isNumber(hour.radiation) ? integer.format(Math.round(hour.radiation)) : copy.labels.noValue;
-
-      sentences.wind.textContent = isNumber(wind.speed)
-        ? fill(copy.situations.wind, { hour: hourOf(hour.time), speed: knots(wind.speed), dir: compass(wind.direction), deg: isNumber(wind.direction) ? integer.format(Math.round(wind.direction)) : copy.labels.noValue, sector: sector(wind.direction) })
-        : '';
-      if (isNumber(wind.speed)) {
-        const force = beaufort(wind.speed);
-        sentences.beaufort.textContent = fill(copy.situations.beaufort, { speed: knots(wind.speed), bft: String(force), name: copy.beaufortNames[force] });
-      } else {
-        sentences.beaufort.textContent = '';
-      }
-      if (isNumber(wind.gusts) && isNumber(wind.speed)) {
-        const gap = wind.gusts - wind.speed;
-        sentences.gusts.textContent = fill(gap >= GUST_GAP_KN ? copy.situations.gustsWide : copy.situations.gustsClose, { gusts: knots(wind.gusts), gap: knots(gap) });
-      } else {
-        sentences.gusts.textContent = '';
-      }
-      sentences.trend.textContent = trendSentence(hours, index);
-      sentences.sea.textContent = seaSentence(hour);
-      sentences.sky.textContent = isNumber(hour.cloud.total)
-        ? fill(copy.situations.sky, { cloud: integer.format(hour.cloud.total), radiation: isNumber(hour.radiation) ? integer.format(Math.round(hour.radiation)) : copy.labels.noValue })
-        : '';
-
-      const rows = query('[data-briefing-rows]');
-      rows.textContent = '';
-      hours.slice(index, index + TABLE_ROWS).forEach((entry) => {
-        const row = document.createElement('tr');
-        row.className = 'border-b border-border-subtle last:border-b-0';
-        [hourOf(entry.time), knots(entry.wind.speed) + ' kn', knots(entry.wind.gusts) + ' kn', compass(entry.wind.direction), isNumber(entry.wave.height) ? metres(entry.wave.height) + ' m' : copy.labels.noValue].forEach((text, column) => {
-          const cell = document.createElement(column === 0 ? 'th' : 'td');
-          if (column === 0) cell.setAttribute('scope', 'row');
-          cell.className = 'whitespace-nowrap px-4 py-3 am-text-body tabular-nums ' + (column === 0 ? 'text-on-surface' : 'text-on-surface-variant');
-          cell.textContent = text;
-          row.appendChild(cell);
-        });
-        rows.appendChild(row);
-      });
+      query('[data-briefing-hour]').textContent = hourOf(hour.time);
+      setLine('wind', windLine(hour));
+      setLine('trend', trendLine(hours, index));
+      setLine('water', waterLine(briefing, hour));
+      setLine('sky', skyLine(briefing, hour));
+      setLine('official', officialLine(warnings));
+      setLine('tomorrow', tomorrowLine(hours, hour));
+      renderTable(hours, index);
 
       const source = briefing.source;
-      const forecast = source.forecast;
-      query('[data-attribution-forecast]').textContent =
-        copy.labels.weatherData + ': ' + source.provider +
-        ' · ' + copy.labels.model + ': ' + forecast.modelLabel + ' (' + forecast.configuredModel + ')' +
-        ' · ' + copy.labels.originalSource + ': ' + forecast.originalSourceName +
-        ' · ' + copy.labels.fetched + ': ' + stampFormat.format(new Date(source.requestedAt)) +
-        ' · ' + copy.labels.validFor + ': ' + stampFormat.format(new Date(hour.time));
-      const marine = source.marine;
-      query('[data-attribution-marine]').textContent = marine && marine.status === 'ok'
-        ? copy.labels.waveData + ': ' + marine.modelLabel + ' (' + marine.configuredModel + ') · ' + copy.labels.originalSource + ': ' + marine.originalSourceName
-        : copy.labels.seaUnavailable;
+      const parts = [copy.labels.attributionWeather + ': AEMET'];
+      if (source.beach && source.beach.status === 'ok') parts.push(copy.labels.attributionSea + ': AEMET');
+      if (warnings) parts.push(copy.labels.attributionWarnings + ': AEMET');
+      parts.push(copy.labels.attributionUpdated + ' ' + stampFormat.format(new Date(source.requestedAt)));
+      query('[data-attribution-line]').textContent = parts.join(' · ');
       if (source.attributionUrl) query('[data-attribution-link]').setAttribute('href', source.attributionUrl);
 
       finish();
       if (body) body.classList.remove('hidden');
     }
 
+    async function fetchJson(url) {
+      const response = await fetch(url, { method: 'GET', headers: { Accept: 'application/json' } });
+      if (!response.ok) throw new Error('unavailable');
+      return response.json();
+    }
+
     (async function () {
       try {
-        const response = await fetch(endpoint, { method: 'GET', headers: { Accept: 'application/json' } });
-        if (!response.ok) throw new Error('briefing unavailable');
-        const briefing = await response.json();
-        if (!briefing || !Array.isArray(briefing.hours) || briefing.hours.length === 0 || !briefing.source || !briefing.source.forecast) {
+        const [briefing, warnings] = await Promise.all([
+          fetchJson(endpoint),
+          fetchJson(warningsEndpoint).catch(() => null)
+        ]);
+        if (!briefing || !Array.isArray(briefing.hours) || briefing.hours.length === 0 || !briefing.source) {
           throw new Error('briefing malformed');
         }
-        render(briefing);
+        render(briefing, warnings);
       } catch {
         showFallback();
       }

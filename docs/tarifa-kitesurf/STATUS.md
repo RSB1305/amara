@@ -104,9 +104,23 @@ Befund: Der Hub aus Stufe 10 zeichnete seine Sektionsgrenzen mit Tailwind-Klasse
 
 Maßnahmen: (1) Build-Gate `scripts/check-section-boundary-policy.mjs`, in `prebuild` und `npm run check`; es scheitert für jedes Außenband mit Seitenraster (`px-6 md:px-12`), das `border-t`, `border-b` oder `border-y` trägt, sowie für jeden `AmaraSection`- oder `LocationModule`-Aufruf mit solcher Klasse. (2) CSS-Guard in `global.css` gehärtet: greift jetzt für jedes Kind der Seite unabhängig von Attributen und für jedes Rasterband in beliebiger Tiefe. (3) Alle 38 Außenbänder bereinigt. (4) Hub und `EditorialSources` auf `LocationModule` gestellt; Trennlinien kommen dort vom zentralen Inset-Owner. Register 1.66.0 und `AGENTS.md` ergänzt. Prüfung im Browser: kein rahmenbreites Element mit Rand mehr auf Hub, Strände, Frigiliana Lage, Erlebnisse, Kiteschule, Partnerseite.
 
+### Stufe 12 — Live-Briefing auf AEMET umgestellt, nur Kite-relevante Werte (Operator-Entscheidung vom 04.09.2026)
+
+Entscheidung: kein Open-Meteo-Abo; die kostenlose Open-Meteo-API ist nicht-kommerziell. MET Norway wurde geprüft und liefert für Tarifa keine Böen, deshalb kommt alles aus zwei amtlichen AEMET-Produkten: Stundenvorhersage Tarifa (11035) für Wind, Böen, Richtung, Himmel, Temperatur, Regen und Sonnenuntergang, Strandvorhersage Los Lances (1103506) für Wellengang und Wassertemperatur. Contract §18 hält Quellen, Feldregeln und Attribution fest.
+
+| Datei | Rolle |
+|---|---|
+| `weather-gateway/aemet-kite.mjs` | Neues Gateway: zweistufiger OpenData-Abruf beider Produkte, km/h → kn, Kompass → Grad, Himmelscodes → Kategorien, Ortszeit mit Offset, Strandprodukt optional; ersetzt `open-meteo-kite.mjs` |
+| `functions/api/weather/tarifa-kite.js` | Route auf das neue Gateway, Schlüssel `AEMET_API_KEY` |
+| `src/content/tarifaKiteBriefingContent.ts` | Satzbibliothek neu: fünf Zeilen (Wind, Trend, Wasser, Himmel, Amtlich), Himmels- und Wellenbegriffe, Ausblick morgen, in fünf Sprachen |
+| `src/components/location/KiteBriefingPanel.astro` | Panel neu nach dem freigegebenen Muster: Jetzt-Zeile, fünf Zeilen, Tabelle der nächsten sechs Stunden, Morgen-Zeile, Prüfsatz, Attribution; liest zusätzlich den Warnendpunkt |
+| `tests/contracts/weatherGateway.test.ts` | Open-Meteo-Tests ersetzt durch neun AEMET-Kite-Tests (Normalisierung, Strand, Zwei-Schritt-Download, Ausfall Strand, Fail-closed, Cache) |
+
+Geprüft: Normalisierung auf einem echten AEMET-Stundenpayload (Home-Assistant-Fixture), Panel im Browser mit Fixture-Daten in DE und EN, typecheck, 130 Kontrakttests, voller Build. **Noch offen:** Live-Abruf der beiden Produkte mit echtem Schlüssel; lokal liegt kein `AEMET_API_KEY`. Erster Lauf auf Staging nach dem nächsten Release, dabei prüfen, dass das Strandprodukt 1103506 antwortet und die Böen ankommen. `OPEN_METEO_API_KEY` ist nicht mehr nötig.
+
 ## Was als Nächstes ansteht
 
-- Betrieb: `OPEN_METEO_API_KEY` in Cloudflare Pages setzen; Live-Test des Warnendpunkts mit `AEMET_API_KEY`.
+- Betrieb: nach dem nächsten Release den Kite-Endpunkt auf Staging live prüfen (Stundenwerte, Böen, Strandprodukt).
 - Bildstrecke Kite-Vibes: nach Rechteklärung 8 bis 12 Motive aus den Rohordnern auswählen, optimieren, in Hub-Galerie und Spoke-Heros einbauen.
 - Release-Grenze gemäß `AGENTS.md`: gesammelte lokale Commits, einmal volle Validierung, dann ein Push, ein Pull Request, ein Merge.
 
@@ -126,4 +140,4 @@ Maßnahmen: (1) Build-Gate `scripts/check-section-boundary-policy.mjs`, in `preb
 - Hub-Hero: Board-Foto `tarifa-kite-board-sand.webp` (Quelle `_DCS1448_Sebastian_Lang.jpg`, Fotograf laut Dateiname Sebastian Lang, Einsatz auf Anweisung des Operators vom 03.09.2026). Schriftliche Freigabe des Fotografen noch nicht dokumentiert; vor dem Release nachtragen.
 - Release: PR #66 am 03.09.2026 per Merge-Commit `b945d1c` auf `main`, CI grün (Build-Job mit 127 Kontrakttests, Browser-Job mit 84 Tests), Staging-Deployment `a2788303` live.
 - AEMET-Warnblock: Live-Test bestanden am 03.09.2026 auf Staging. `/api/weather/tarifa-warnings` antwortet 200 mit Zone 611104 „Estrecho“, Area-Code 61 wird akzeptiert, das Archivformat wird gelesen; zum Testzeitpunkt 0 aktive Meldung(en). Damit ist der offene Punkt aus Stufe 6 geschlossen.
-- Open-Meteo: `/api/weather/tarifa-kite` antwortet auf Staging 503 `kite_briefing_unavailable`, weil `OPEN_METEO_API_KEY` im Pages-Projekt `amara-staging` fehlt (vorhandene Secrets: `AMARA_EXPERIENCE_SESSION_SECRET`, `LODGIFY_API_KEY`). Setzen durch den Operator: `npx wrangler pages secret put OPEN_METEO_API_KEY --project-name amara-staging`.
+- Open-Meteo entfällt (Stufe 12); der Kite-Endpunkt läuft nach dem nächsten Release über AEMET mit dem vorhandenen Schlüssel.

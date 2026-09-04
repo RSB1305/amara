@@ -25,7 +25,7 @@ import LocationModule from './LocationModule.astro';
 
 /**
  * Live-values page under the wind spoke. Three data objects in the order the
- * editorial contract fixes: official AEMET context first, the Open-Meteo
+ * editorial contract fixes: official AEMET context first, the hourly AEMET
  * briefing second, Windguru's own table last. The evergreen explanation of
  * the numbers lives on the wind spoke; this page stays light and links back.
  */
@@ -127,11 +127,11 @@ const footerHighlights: LabeledLink[] = [
         </div>
         <KiteBriefingPanel
           endpoint="/api/weather/tarifa-kite"
+          warningsEndpoint="/api/weather/tarifa-warnings"
           lang={currentLang}
           timezone="Europe/Madrid"
           copy={briefingCopy}
-          headings={{ wind: wind.live.windHeading, wave: wind.live.waveHeading, sky: wind.live.skyHeading, check: wind.live.checkHeading }}
-          notes={{ wind: wind.live.windText, wave: wind.live.waveText, sky: wind.live.skyText }}
+          warningLevels={resolveLocale(tarifaWeatherWarningsCopy, currentLang).levels}
           aemetHref={wind.safety.aemetHref}
           aemetLabel={wind.safety.aemetLabel}
         />

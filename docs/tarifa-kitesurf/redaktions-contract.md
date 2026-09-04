@@ -416,3 +416,46 @@ Operator-Entscheidung vom 03.09.2026: Der Hub `tarifa-kitesurfing` und die Spoke
 | Einzelteile | Kite und Bar 40 €/Tag, Board 25 €/Tag, Foilboard mit Foil 50 €/Tag, Neopren oder Trapez je 10 €/Tag | — |
 | Kaution und Schäden | Kaution 150 €; reparable Schäden pauschal 80 € pro Schaden; Totalschaden zum Zeitwert. Für AMARA-Gäste hinterlegt AMARA die Kaution | Bedingungen des Clubs, nicht AMARAs |
 | Marken und Shop | Airush, Blankforce, AK, Core, v-aerial; Test & Buy: Leihgebühr wird zu 100 % auf einen Kauf angerechnet; Shop mit Blankforce Pro Center | Keine Öffnungszeiten, keine Lagerbestände behaupten |
+
+
+---
+
+## 18. Nachtrag Datenquelle des Live-Briefings (Stand 04.09.2026)
+
+Entscheidung des Operators vom 04.09.2026: kein kostenpflichtiges Open-Meteo-Abo. Die kostenlose Open-Meteo-API ist laut deren Bedingungen auf nicht-kommerzielle Nutzung beschränkt und scheidet für eine Vermieter-Website aus. MET Norway (Locationforecast 2.0, CC BY 4.0, kommerziell erlaubt) wurde geprüft und liefert für Tarifa keine Böenwerte; das Complete-Format vom 04.09.2026 enthält kein `wind_speed_of_gust`. Ohne Böen ist ein Kite-Briefing unvollständig. Damit ersetzt §18 die Quellenentscheidung aus §9 („Datenquelle: entschieden") und den Satz in §10, Open-Meteo bleibe die einzige Forecast-Quelle des Briefings.
+
+### 18a. Quellen des Briefings ab Stufe 12
+
+- **AEMET OpenData, Predicción horaria por municipios, Tarifa (11035):** Wind in km/h (umgerechnet in kn), Richtung als Kompasspunkt (N, NE, E, SE, S, SO, O, NO; „C" = calma), Böenspitze `vientoAndRachaMax` (AEMET veröffentlicht sie erst ab rund 20 km/h Wind), Temperatur, Himmelszustand (Codes 11–83, Nacht-Suffix „n"), Niederschlag in mm je Stunde, Niederschlagswahrscheinlichkeit je 6-Stunden-Periode, Sonnenauf- und -untergang (`orto`, `ocaso`). Horizont: heute ab der laufenden Stunde, morgen vollständig, übermorgen in Teilen.
+- **AEMET OpenData, Predicción de playas, Playa de Los Lances (1103506):** Wellengang (débil / moderado / fuerte, vormittags und nachmittags), Wassertemperatur, Tagesmaximum, UV-Index.
+- **AEMET Meteoalerta-Warnungen** (§10, Zone 611104 Estrecho): unverändert, jetzt zusätzlich als Einzeiler „Amtlich" im Briefing mit Verweis auf den Warnblock darüber.
+
+### 18b. Was das Briefing zeigt, und nur das
+
+Jetzt in Tarifa mit Stunde; Wind (kn, Richtung, Sektorname, Beaufort, Böen und Abstand zum Mittel); Trend der nächsten sechs Stunden; Wasser (Wellengang, Wassertemperatur); Himmel (Zustand, Regen, Lufttemperatur, Licht bis Sonnenuntergang); Amtlich (Warnstatus); Tabelle der nächsten sechs Stunden mit Wind, Böen und Richtung; Ausblick morgen (Sektor und Spanne 12 bis 18 Uhr); Prüfsatz „Vor dem Wasser". Nicht mehr gezeigt: Luftdruck, Luftfeuchte, Wolkenanteile in Prozent, Einstrahlung, Modellnamen, Rasterzelle, Wellenrichtung und -periode, Swell.
+
+### 18c. Felder und zulässige Formulierung
+
+| Feld | Zulässig | Grenze |
+|---|---|---|
+| `velocidad` (km/h → kn) | „19 kn aus Ost" | Nicht „du wirst 19 kn am Kite haben" |
+| `direccion` | Kompasspunkt; Sektorname Levante (NE bis SE) oder Poniente (SO bis NO) nur als Benennung | Keine Spot-Eignung aus der Richtung |
+| `rachaMax` | „Böen bis 27 kn, also böig, 8 kn über dem Mittel" nur, wenn AEMET den Wert liefert; sonst der Satz, dass AEMET erst ab rund 20 km/h eine Böenspitze nennt | Nie schätzen |
+| `estadoCielo` | Himmel als Wort aus der freigegebenen Liste | Kein Schluss „wenig Wolken = Thermik" |
+| `precipitacion`, `probPrecipitacion` | „Regen erwartet (0,4 mm)" bei Niederschlag > 0 mm; „Regen möglich (40 %)" ab 30 %; sonst „kein Regen erwartet" | Keine Gewittervorhersage aus dem Himmelscode ableiten |
+| `oleaje` | „Wellengang mäßig" | Keine Aussage über einzelne Wellen oder den Shorebreak |
+| `tAgua` | „Wasser 21 °C" | Keine Neoprenempfehlung |
+| `ocaso` | „Licht bis 20:46" | Keine Aussage zur Sessionlänge |
+| Ausblick morgen | Sektor und Spanne aus den Stundenwerten 12 bis 18 Uhr | Keine Tagesbewertung, kein Score |
+
+Die Regeln aus §9 zur Erklärschicht gelten weiter: Sätze entstehen zur Autorenzeit in fünf Sprachen, feste Regeln wählen zur Laufzeit, kein Sprachmodell erzeugt Text, keine Freigabe, keine Kitegröße, keine Spotwahl, kein Score, kein Rescue-Versprechen.
+
+### 18d. Attribution — sichtbar am Datenobjekt, nicht im Impressum
+
+> **Wetter:** AEMET · **Wellen und Wassertemperatur:** AEMET · **Warnungen:** AEMET · **Stand** [Uhrzeit], mit Link „Daten: AEMET" auf aemet.es.
+
+Die Quellenangabe „AEMET" ist Bedingung der OpenData-Nutzung.
+
+### 18e. Technik
+
+Beide Produkte laufen serverseitig über `functions/api/weather/tarifa-kite.js` und `weather-gateway/aemet-kite.mjs` mit dem vorhandenen `AEMET_API_KEY`; Edge-Cache 15 Minuten; das Strandprodukt ist optional, bei Ausfall steht „keine Wellenwerte". Ein Open-Meteo-Schlüssel ist nicht mehr nötig; `OPEN_METEO_API_KEY` entfällt aus `.env.example` und aus dem Pages-Projekt.

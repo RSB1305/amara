@@ -4,7 +4,7 @@ import type { AmaraAuthoringSeo } from '../types/seo';
 
 /**
  * The live-values page of the Tarifa kitesurf cluster: official AEMET context,
- * the Open-Meteo briefing and Windguru's own table, each in its own block.
+ * the hourly AEMET briefing and Windguru's own table, each in its own block.
  * The evergreen explanation of wind, wave and swell stays on the wind spoke;
  * this page links back to it. Labels of the data objects themselves live with
  * the wind content and the briefing copy and are reused here.
@@ -12,19 +12,19 @@ import type { AmaraAuthoringSeo } from '../types/seo';
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
 
 const title = l(
-  'Tarifa today: wind, gusts, wave and swell | AMARA',
-  'Tarifa heute: Wind, Böen, Welle und Swell | AMARA',
-  'Tarifa hoy: viento, rachas, ola y mar de fondo | AMARA',
-  'Tarifa vandaag: wind, vlagen, golf en swell | AMARA',
-  'Tarifa i dag: vind, byar, våg och swell | AMARA'
+  'Tarifa today: wind, gusts, sea state and water | AMARA',
+  'Tarifa heute: Wind, Böen, Wellengang und Wasser | AMARA',
+  'Tarifa hoy: viento, rachas, oleaje y agua | AMARA',
+  'Tarifa vandaag: wind, vlagen, golfslag en water | AMARA',
+  'Tarifa i dag: vind, byar, sjögång och vatten | AMARA'
 );
 
 const description = l(
-  'The current values for kitesurfing in Tarifa: official AEMET warnings and forecast, the Open-Meteo model briefing with explanation, and Windguru’s table.',
-  'Die aktuellen Werte fürs Kitesurfen in Tarifa: amtliche AEMET-Warnungen und -Vorhersage, das Open-Meteo-Modellbriefing mit Einordnung und die Windguru-Tabelle.',
-  'Los valores actuales para el kitesurf en Tarifa: avisos y previsión oficiales de AEMET, el briefing del modelo Open-Meteo con explicación y la tabla de Windguru.',
-  'De actuele waarden voor kitesurfen in Tarifa: officiële AEMET-waarschuwingen en -verwachting, de Open-Meteo-modelbriefing met duiding en de tabel van Windguru.',
-  'De aktuella värdena för kitesurfing i Tarifa: officiella AEMET-varningar och -prognos, Open-Meteo-modellbriefingen med förklaring och Windgurus tabell.'
+  'The current values for kitesurfing in Tarifa: official AEMET warnings and forecast, the hourly AEMET briefing with explanation, and Windguru’s table.',
+  'Die aktuellen Werte fürs Kitesurfen in Tarifa: amtliche AEMET-Warnungen und -Vorhersage, das AEMET-Stundenbriefing mit Einordnung und die Windguru-Tabelle.',
+  'Los valores actuales para el kitesurf en Tarifa: avisos y previsión oficiales de AEMET, el briefing horario de AEMET con explicación y la tabla de Windguru.',
+  'De actuele waarden voor kitesurfen in Tarifa: officiële AEMET-waarschuwingen en -verwachting, de AEMET-uurbriefing met duiding en de tabel van Windguru.',
+  'De aktuella värdena för kitesurfing i Tarifa: officiella AEMET-varningar och -prognos, AEMET:s timbriefing med förklaring och Windgurus tabell.'
 );
 
 export const tarifaKiteForecastSeo: AmaraAuthoringSeo = {
@@ -94,13 +94,13 @@ export const tarifaKiteForecastContent: TarifaKiteForecastContent = {
   hero: {
     eyebrow: l('Today in Tarifa', 'Heute in Tarifa', 'Hoy en Tarifa', 'Vandaag in Tarifa', 'I dag i Tarifa'),
     title: l('The current values', 'Die aktuellen Werte', 'Los valores actuales', 'De actuele waarden', 'De aktuella värdena'),
-    subtitle: l('Wind, gusts, wave and swell: what the models are calculating right now', 'Wind, Böen, Welle und Swell: was die Modelle gerade rechnen', 'Viento, rachas, ola y mar de fondo: qué calculan los modelos ahora mismo', 'Wind, vlagen, golf en swell: wat de modellen nu berekenen', 'Vind, byar, våg och swell: vad modellerna räknar just nu'),
+    subtitle: l('Wind, gusts, sea state and water: what AEMET’s hourly forecast says right now', 'Wind, Böen, Wellengang und Wasser: was die AEMET-Stundenvorhersage gerade sagt', 'Viento, rachas, oleaje y agua: qué dice ahora mismo la previsión horaria de AEMET', 'Wind, vlagen, golfslag en water: wat de AEMET-uurverwachting nu zegt', 'Vind, byar, sjögång och vatten: vad AEMET:s timprognos säger just nu'),
     lead: l(
-      'Three blocks, in a fixed order. First the official word of AEMET, the Spanish weather service: its warnings and forecast rank above everything that follows. Then the model briefing from Open-Meteo, read for you by fixed rules. Finally Windguru’s own table, so you can compare. All of it describes model hours; none of it is a riding approval. How to read these tables, and what Levante and Poniente do on the beaches, we explain on the wind page.',
-      'Drei Blöcke, in fester Reihenfolge. Zuerst das amtliche Wort der AEMET, des spanischen Wetterdienstes: Ihre Warnungen und ihre Vorhersage stehen über allem, was folgt. Dann das Modellbriefing aus Open-Meteo, nach festen Regeln für euch eingeordnet. Zuletzt die Windguru-Tabelle selbst, zum Vergleichen. Alles davon beschreibt Modellstunden; nichts davon ist eine Fahrfreigabe. Wie man diese Tabellen liest und was Levante und Poniente an den Stränden machen, erklären wir auf der Wind-Seite.',
-      'Tres bloques, en un orden fijo. Primero la palabra oficial de AEMET, el servicio meteorológico español: sus avisos y su previsión están por encima de todo lo que sigue. Después, el briefing del modelo de Open-Meteo, leído para vosotros con reglas fijas. Por último, la propia tabla de Windguru, para comparar. Todo describe horas de modelo; nada de ello es una autorización para navegar. Cómo se leen estas tablas y qué hacen el levante y el poniente en las playas lo explicamos en la página del viento.',
-      'Drie blokken, in vaste volgorde. Eerst het officiële woord van AEMET, de Spaanse weerdienst: zijn waarschuwingen en verwachting staan boven alles wat volgt. Dan de modelbriefing van Open-Meteo, met vaste regels voor jullie geduid. Tot slot de tabel van Windguru zelf, om te vergelijken. Alles beschrijft modeluren; niets ervan is een toestemming om te varen. Hoe je deze tabellen leest en wat levante en poniente op de stranden doen, leggen we uit op de windpagina.',
-      'Tre block, i fast ordning. Först det officiella ordet från AEMET, den spanska vädertjänsten: dess varningar och prognos står över allt som följer. Sedan modellbriefingen från Open-Meteo, tolkad åt er med fasta regler. Sist Windgurus egen tabell, för jämförelse. Allt beskriver modelltimmar; inget av det är ett godkännande att köra. Hur man läser tabellerna och vad levante och poniente gör på stränderna förklarar vi på vindsidan.'
+      'Three blocks, in a fixed order. First the official word of AEMET, the Spanish weather service: its warnings and forecast rank above everything that follows. Then the kite briefing from AEMET’s hourly forecast, read for you by fixed rules. Finally Windguru’s own table, to compare.',
+      'Drei Blöcke, in fester Reihenfolge. Zuerst das amtliche Wort der AEMET, des spanischen Wetterdienstes: Ihre Warnungen und ihre Vorhersage stehen über allem, was folgt. Dann das Kite-Briefing aus der AEMET-Stundenvorhersage, nach festen Regeln für euch eingeordnet. Zum Schluss Windgurus eigene Tabelle, zum Vergleichen.',
+      'Tres bloques, en un orden fijo. Primero la palabra oficial de AEMET, el servicio meteorológico español: sus avisos y su previsión están por encima de todo lo que sigue. Después, el briefing de kite a partir de la previsión horaria de AEMET, leído para vosotros con reglas fijas. Por último, la tabla de Windguru, para comparar.',
+      'Drie blokken, in vaste volgorde. Eerst het officiële woord van AEMET, de Spaanse weerdienst: zijn waarschuwingen en verwachting staan boven alles wat volgt. Dan de kitebriefing uit de AEMET-uurverwachting, met vaste regels voor jullie geduid. Tot slot de tabel van Windguru, om te vergelijken.',
+      'Tre block, i fast ordning. Först det officiella ordet från AEMET, den spanska vädertjänsten: dess varningar och prognos står över allt som följer. Sedan kitebriefingen ur AEMET:s timprognos, tolkad åt er med fasta regler. Sist Windgurus egen tabell, för jämförelse.',
     ),
     updated: l('Checked September 2026', 'Geprüft im September 2026', 'Revisado en septiembre de 2026', 'Gecontroleerd in september 2026', 'Kontrollerat i september 2026'),
     note: l('Official warnings, model values and a third-party table are kept visibly apart.', 'Amtliche Warnungen, Modellwerte und eine Fremdtabelle bleiben sichtbar getrennt.', 'Avisos oficiales, valores de modelo y una tabla de terceros se mantienen visiblemente separados.', 'Officiële waarschuwingen, modelwaarden en een externe tabel blijven zichtbaar gescheiden.', 'Officiella varningar, modellvärden och en extern tabell hålls synligt åtskilda.')
