@@ -118,6 +118,36 @@ Entscheidung: kein Open-Meteo-Abo; die kostenlose Open-Meteo-API ist nicht-komme
 
 Geprüft: Normalisierung auf einem echten AEMET-Stundenpayload (Home-Assistant-Fixture), Panel im Browser mit Fixture-Daten in DE und EN, typecheck, 130 Kontrakttests, voller Build. **Noch offen:** Live-Abruf der beiden Produkte mit echtem Schlüssel; lokal liegt kein `AEMET_API_KEY`. Erster Lauf auf Staging nach dem nächsten Release, dabei prüfen, dass das Strandprodukt 1103506 antwortet und die Böen ankommen. `OPEN_METEO_API_KEY` ist nicht mehr nötig.
 
+### Stufe 13 — Hub in neuer Stimme (Operator-Auftrag vom 04.09.2026)
+
+Vorlage: `entwurf-hub-stimme.md` (Entwurf vom 04.09.2026), mit einer Änderung des Operators: Überschriften sagen die Sache selbst („Morgens Kaffee auf der Terrasse, mittags Wind, abends Altstadt“) statt sie anzukündigen („So sieht ein Tag hier aus“). Die Ankündigung wandert in die Eyebrow.
+
+Neue Reihenfolge des Hubs: Hero (Ort, H1, Unterzeile, Lead, Pull-Line) · Faktenleiste als Orientierung (Levante, Poniente, Los Lances) · vier Prosa-Abschnitte (Warum Tarifa, Ein Tag, Kiten lernen, Wohnen bei AMARA) · Mark und Robert · Sicherheit einmal · drei Weiter-Karten (Kiten lernen, Wind/Spots/heute, Partnerschaft) · FAQ · Quellen · Basis-Abschluss. Footer-Links: Anreise, Unterkünfte, Strände, Ort, Kitesurf-Spots, Verfügbarkeit.
+
+| Datei | Änderung |
+|---|---|
+| `src/content/tarifaGuideContent.ts` | `TarifaGuideSection` kann `paragraphs` statt `cards` tragen; Hero hat optional `accent`. Wind-Thema neu: SEO-Titel und -Beschreibung, Hero, Fakten, vier Prosa-Abschnitte, Hinweis, Partnerschaft (Titel, Intro, Notiz, Kontakt), Quelle GKA-Jugend-WM. Alle fünf Sprachen; Deutsch ist die Referenz. FAQ unverändert. Version `2026-09-04-tarifa-kitesurfing-hub-v4.0` |
+| `src/page-families/location-authority/TarifaKitesurfHubPage.astro` | Prosa-Abschnitte im Themenraster (Titel links, Text rechts), Partnermodul vor dem Sicherheitsband, drei Karten am Ende, Basis-Abschluss mit eigener Begründung, Footer-Links |
+| `src/page-families/location-authority/TarifaGuidePage.astro` | Guard für optionale Karten |
+
+Entscheidungen zu den offenen Fragen des Entwurfs: „Weltmeisterschaften“ ist als **Jugend-Weltmeisterschaft** belegt (GKA Youth Kite World Championships Tarifa 2025 und 2026; auf der Haupttour 2026 ist Tarifa keine Station, deshalb nicht „Stationen der Kite-Weltserie“). „Einer der besten Kitespots Europas“ steht als „gilt als“. Keine Zahlen außer in FAQ-Preisen. Guesthouse: „bucht ihr direkt bei Mark“ statt „vermitteln wir“, weil der Club seine Unterkünfte selbst verkauft. Abweichungen von der Vorlage wegen `AGENTS.md` (kein Wert über Verneinung, Gäste immer im Plural): „Kein Hype“ entfällt zugunsten der Pull-Line, „nicht trotz des Windes, sondern wegen ihm“ und „kein Anfängerteich“ positiv umformuliert, „Wenn du … kannst“ wird „Wer … kann“. „Platz für vier“ wurde „Platz für zwei oder eine kleine Familie“ (Wohnungsdaten: Hochbett, Treppe).
+
+**Nachtrag 04.09.2026, nur Deutsch (Operator-Entscheidung):** Ab hier wird zuerst der deutsche Text fertig gemacht, die anderen vier Sprachen folgen am Ende in einem Zug. Damit tragen ES, EN, NL und SV vorübergehend den alten Text, wo Deutsch schon neu ist:
+
+- Hub-FAQ `tarifaGuideContent.wind.faq`: acht Antworten in der neuen Stimme, Fragen aus Gästesicht („Können wir …?“). Fakten unverändert aus §17; Pflichtsatz zu Bojen und Beschilderung in der Los-Lances-Antwort.
+- Wind-Seite `tarifaKitesurfWindContent.ts`: 78 deutsche Schlüssel neu, H1 jetzt „Wind in Tarifa“, Unterzeile „Levante, Poniente, und die Tabelle, auf die hier morgens alle schauen“. AMARA-Stimme durchgehend wir/ihr, Überschriften sagen die Sache selbst („Bei Flut wird Los Lances schmal“, „1 km ist feiner als 9 km, aber nicht genauer“). Unverändert: Roberts Passage, Marks vier Zitate, der Pflichtsatz, die Bindung der 35 kn an New Angels, die Trennung privat/staatlich, Rescue nur bei Kurs, Camp und Help 2 Kite. Deutsche Labels, die auf die Seite zeigen, auf „Wind in Tarifa“ nachgezogen (Breadcrumb in `resolve-structured-data.ts`, Karten auf Werte- und Partnerseite, Nav-Label in `tarifaKitesurfContent.ts`).
+- Offen, vom Operator angesprochen: Die Live-Werte (AEMET-Warnungen, Stundenbriefing, Windguru-Tabelle) wieder auf die Wind-Seite ziehen statt auf `tarifa-kitesurf-forecast`. Das kehrt den Nachtrag vom 03.09. um und ist ein Strukturumbau; vor dem Bauen abstimmen.
+
+### Stufe 14 — Cluster-Leiste unter dem Hero (Operator-Entscheidung vom 04.09.2026)
+
+Befund des Operators: Die Kite-Seiten sind unübersichtlich, es fehlt eine Subnavigation. Entscheidung: eine Leiste direkt unter dem Hero, auf allen acht Seiten des Clusters gleich, aktuelle Seite markiert. Nicht in der Kontextzeile, weil DR-IA-006 dort keine dritte dauerhafte Ebene erlaubt und der Wortlaut der Kontextzeile in Browser-Tests gepinnt ist.
+
+`src/components/experience/KiteClusterNav.astro`: schlankes dunkles Band **über dem Hero**, direkt unter der Kontextzeile, nach drei Operator-Korrekturen am 04.09.: (1) unter dem Hero lag es eine Bildschirmhöhe tief und war in `am-text-nav-context` zu klein; (2) ein blaues Band mit Kolumnentitel war zu laut; (3) endgültig: schwarz statt blau, kleiner, linksbündig, ohne den Themennamen. `AmaraSection` mit `surface="inverse"`, `bg-inverse-surface` und `py-0`; die acht Seiten linksbündig in `am-text-nav-primary` (12 px, wie die Hauptnavigation), aktive Seite in voller Helligkeit mit Linie direkt unter dem Wort, die anderen gedämpft. Kein eigenes Farbtoken, keine eigene Schriftrolle mehr. Reihenfolge Überblick · Wind · Spots · Heute · Kiteschule · Kitecamp · Material · Partnerschaft, Labels in fünf Sprachen im Modul; auf dem Handy horizontal scrollbar. Seit dem 04.09. auf allen acht Seiten (Hub, Wind, Spots, Werte, Kiteschule, Kitecamp, Material, Partnerseite), jeweils direkt nach dem `<article>`-Anfang vor dem Hero; die Spoke-Familie bildet ihre `spoke`-Id auf die Cluster-Id ab. **Die aktuelle Seite fehlt im Band** (Operator-Entscheidung 04.09.: „immer das Aktive rausnehmen“), es zeigt nur die sieben anderen Ziele; das Band trägt `data-am-kite-cluster-current` mit der weggelassenen Seite.
+
+Abnahme 04.09. mit zwei Korrekturen: Band von 52 auf 44 px (nur noch die Linkhöhe, kein Außenabstand), und deutsche Begriffe präziser, ohne dass jedes Wort mit „Kite“ beginnt: Überblick · Windsysteme · Kitespots · Windvorhersage · Kiteschule · Kitecamp · Material & Verleih · AMARA × Tarifa Surf Club. Nur Deutsch geändert; die anderen vier Sprachen folgen im Übersetzungslauf am Ende. Offen laut Operator: Das Band nutzt die Schriftrolle der Hauptnavigation, sitzt aber unterhalb der Kontextzeile; die Hierarchie wird später geklärt.
+
+Dritte Korrektur 04.09.: Die fette Versalschrift auf Schwarz war noch zu mächtig. Neuer Modifikator `am-text-nav-primary--quiet` in `global.css` (gleiche Schrift, Größe, Laufweite und Versalien, Gewicht 400 statt 700); ein heller Hintergrund wurde kurz probiert und verworfen, das Band bleibt schwarz (`bg-inverse-surface`).
+
 ## Was als Nächstes ansteht
 
 - Betrieb: nach dem nächsten Release den Kite-Endpunkt auf Staging live prüfen (Stundenwerte, Böen, Strandprodukt).
