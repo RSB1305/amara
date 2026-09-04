@@ -357,6 +357,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'AMARA × Tarifa Surf Club',
     sv: 'AMARA × Tarifa Surf Club'
   },
+  'tarifa-bildungsurlaub': {
+    en: 'Educational leave',
+    de: 'Bildungsurlaub',
+    es: 'Bildungsurlaub',
+    nl: 'Bildungsurlaub',
+    sv: 'Bildungsurlaub'
+  },
   'tarifa-beaches': {
     en: 'Beaches',
     de: 'Strände',
@@ -566,6 +573,7 @@ const TARIFA_EXPERIENCE_SLUGS = new Set([
   'tarifa-wind-kitesurfing',
   'tarifa-kitesurf-forecast',
   'amara-tarifa-surf-club',
+  'tarifa-bildungsurlaub',
   'tarifa-beaches',
   'tarifa-food-evening-life',
   'tarifa-nature-wildlife',

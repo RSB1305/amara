@@ -13,12 +13,14 @@ import type { AmaraLanguage } from '../../types/seo';
  * gains no third persistent tier. The band is a slim dark rail directly under
  * the context row, left-aligned, in the primary navigation role at regular
  * weight, on the inverse surface the site already uses for dark bands. The
- * current page is
- * left out rather than marked (operator decision of 4 September 2026): the
- * band shows only where you can still go. No caption: the breadcrumb above
- * already names the topic.
+ * current page is left out rather than marked (operator decision of
+ * 4 September 2026): the band shows only where you can still go. Wind and
+ * forecast share one entry that leads to the wind page; the live-values page
+ * stays reachable from there. Educational leave is a German concept and is
+ * shown in German only. No caption: the breadcrumb above already names the
+ * topic.
  */
-export type KiteClusterPageId = 'hub' | 'wind' | 'spots' | 'forecast' | 'school' | 'camp' | 'equipment' | 'partner';
+export type KiteClusterPageId = 'hub' | 'spots' | 'wind' | 'forecast' | 'school' | 'camp' | 'education' | 'equipment' | 'partner';
 
 interface Props {
   lang: AmaraLanguage;
@@ -31,18 +33,18 @@ const requiredLink = createRequiredLinkResolver(lang, 'Tarifa kite cluster nav')
 
 const ariaLabel: LocalizedText = { en: 'More pages on kitesurfing in Tarifa', de: 'Weitere Seiten zum Kitesurfen in Tarifa', es: 'Más páginas sobre kitesurf en Tarifa', nl: 'Meer pagina’s over kitesurfen in Tarifa', sv: 'Fler sidor om kitesurfing i Tarifa' };
 
-const items: Array<{ id: KiteClusterPageId; token: LinkToken; label: LocalizedText }> = [
+const items: Array<{ id: KiteClusterPageId; token: LinkToken; label: LocalizedText; languages?: AmaraLanguage[] }> = [
   { id: 'hub', token: 'tarifa_kitesurfing_hub', label: { en: 'Overview', de: 'Überblick', es: 'Resumen', nl: 'Overzicht', sv: 'Översikt' } },
-  { id: 'wind', token: 'tarifa_wind_kitesurfing_authority', label: { en: 'Wind', de: 'Windsysteme', es: 'Viento', nl: 'Wind', sv: 'Vind' } },
   { id: 'spots', token: 'tarifa_kitesurf_spots', label: { en: 'Spots', de: 'Kitespots', es: 'Spots', nl: 'Spots', sv: 'Spots' } },
-  { id: 'forecast', token: 'tarifa_kitesurf_forecast', label: { en: 'Today', de: 'Windvorhersage', es: 'Hoy', nl: 'Vandaag', sv: 'I dag' } },
+  { id: 'wind', token: 'tarifa_wind_kitesurfing_authority', label: { en: 'Wind', de: 'Wind & Vorhersage', es: 'Viento', nl: 'Wind', sv: 'Vind' } },
   { id: 'school', token: 'tarifa_kite_school', label: { en: 'Kite school', de: 'Kiteschule', es: 'Escuela', nl: 'Kiteschool', sv: 'Kiteskola' } },
-  { id: 'camp', token: 'tarifa_kitecamp', label: { en: 'Kitecamp', de: 'Kitecamp', es: 'Kitecamp', nl: 'Kitecamp', sv: 'Kitecamp' } },
-  { id: 'equipment', token: 'tarifa_kite_equipment', label: { en: 'Gear', de: 'Material & Verleih', es: 'Material', nl: 'Materiaal', sv: 'Utrustning' } },
+  { id: 'camp', token: 'tarifa_kitecamp', label: { en: 'Kitecamp', de: 'Kitecamps', es: 'Kitecamp', nl: 'Kitecamp', sv: 'Kitecamp' } },
+  { id: 'education', token: 'tarifa_bildungsurlaub', label: { en: 'Educational leave', de: 'Bildungsurlaub', es: 'Bildungsurlaub', nl: 'Bildungsurlaub', sv: 'Bildungsurlaub' }, languages: ['de'] },
+  { id: 'equipment', token: 'tarifa_kite_equipment', label: { en: 'Gear', de: 'Materialverleih & Shop', es: 'Material', nl: 'Materiaal', sv: 'Utrustning' } },
   { id: 'partner', token: 'amara_tarifa_surf_club', label: { en: 'Partnership', de: 'AMARA × Tarifa Surf Club', es: 'Colaboración', nl: 'Partnerschap', sv: 'Partnerskap' } }
 ];
 
-const links = items.filter((item) => item.id !== currentId);
+const links = items.filter((item) => item.id !== currentId && (!item.languages || item.languages.includes(lang)));
 ---
 
 <AmaraSection surface="inverse" family="location" class="mx-0 bg-inverse-surface px-6 py-0 text-inverted-on-surface md:px-12" data-am-topic="kite-cluster-nav" data-am-kite-cluster-nav data-am-kite-cluster-current={currentId}>
