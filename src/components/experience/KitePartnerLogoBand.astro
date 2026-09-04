@@ -18,7 +18,7 @@ import type { AmaraLanguage } from '../../types/seo';
  * buttons, which every page carries in its partner or closing module anyway.
  * The band is as flat as the logos allow (operator decision of 4 September
  * 2026): no visible caption, the section name stays for assistive
- * technology. Only the club mark links out.
+ * technology. Every mark links to its brand; the club mark to the club.
  */
 interface Props { lang: AmaraLanguage; }
 
@@ -53,16 +53,24 @@ const flatLogoClass = 'h-6 w-auto max-w-full object-contain opacity-90 md:h-7';
         </a>
       </li>
       <li class="flex justify-center md:order-1">
-        <AmaraImage src={wsbLogo} alt="Work Surf Balance" profile="card" width={600} widths={[300, 600]} sizes="100px" class={flatLogoClass} />
+        <a href="https://worksurfbalance.com/" target="_blank" rel="noopener noreferrer" aria-label="Work Surf Balance" class="inline-flex transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40">
+          <AmaraImage src={wsbLogo} alt="Work Surf Balance" profile="card" width={600} widths={[300, 600]} sizes="100px" class={flatLogoClass} />
+        </a>
       </li>
       <li class="flex justify-center md:order-2">
-        <AmaraImage src={airushLogo} alt="Airush Kiteboarding" profile="card" width={500} widths={[250, 500]} sizes="100px" class={flatLogoClass} />
+        <a href="https://airush.com/" target="_blank" rel="noopener noreferrer" aria-label="Airush Kiteboarding" class="inline-flex transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40">
+          <AmaraImage src={airushLogo} alt="Airush Kiteboarding" profile="card" width={500} widths={[250, 500]} sizes="100px" class={flatLogoClass} />
+        </a>
       </li>
       <li class="flex justify-center md:order-4">
-        <AmaraImage src={vaerialLogo} alt="Vaerial Kiteboarding" profile="card" width={800} widths={[400, 800]} sizes="120px" class={flatLogoClass} />
+        <a href="https://vaerial-kiteboarding.com/" target="_blank" rel="noopener noreferrer" aria-label="Vaerial Kiteboarding" class="inline-flex transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40">
+          <AmaraImage src={vaerialLogo} alt="Vaerial Kiteboarding" profile="card" width={800} widths={[400, 800]} sizes="120px" class={flatLogoClass} />
+        </a>
       </li>
       <li class="flex justify-center md:order-5">
-        <AmaraImage src={coreLogo} alt="Core Kiteboarding" profile="card" width={800} widths={[400, 800]} sizes="160px" class={flatLogoClass} />
+        <a href="https://ridecore.com/" target="_blank" rel="noopener noreferrer" aria-label="Core Kiteboarding" class="inline-flex transition-opacity hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40">
+          <AmaraImage src={coreLogo} alt="Core Kiteboarding" profile="card" width={800} widths={[400, 800]} sizes="160px" class={flatLogoClass} />
+        </a>
       </li>
     </ul>
   </div>
