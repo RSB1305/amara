@@ -1,6 +1,15 @@
 ---
+// Tarifa Experience Hub in the Tarifa art direction (DR-DESIGN-020). Deliberately a
+// different composition from the Location Hub: a portrait split hero opens the page,
+// the six-topic chooser follows at once because routing to the spokes is the page job,
+// and the authored editorial sections (our Tarifa day, stay length, Tangier) that
+// were not rendered before become the magazine part: a panorama band with the copy
+// panel rising into it, a portrait photograph with a copy panel over its edge, and a
+// quiet text section. The shared stay bridge closes the page unchanged.
 import { resolveLocale } from '../../types/content';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import ExperienceHubTopicGrid from '../../components/experience/ExperienceHubTopicGrid.astro';
@@ -17,6 +26,9 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import heroImage from '../../assets/images/content/tarifa/IMG_8742.jpg';
+import panoramaImage from '../../assets/images/content/tarifa/_DCS9465_Sebastian_Lang.jpg';
+import oldTownImage from '../../assets/images/content/tarifa/IMG_9004.jpg';
 
 interface Props {
   lang?: string;
@@ -32,6 +44,10 @@ const dayTopics = copy.dayChooser.days.map((day) => ({
   href: day.token ? requiredLink(day.token) : undefined,
   linkLabel: day.linkLabel
 }));
+const sectionById = (id: string) => copy.sections.find((section) => section.id === id);
+const ourDay = sectionById('our-day');
+const stayLength = sectionById('stay-length');
+const tangier = sectionById('tangier');
 
 const footerHighlights: LabeledLink[] = [
   { token: 'location_tarifa', label: tarifaGuideContent.overview.navLabel[currentLang] },
@@ -58,41 +74,98 @@ const footerHighlights: LabeledLink[] = [
     <ExperienceContextNav slot="context-navigation" destination="tarifa" lang={currentLang} />
   </Navigation>
 
-  <article class="bg-surface" data-am-page="tarifa-experience" data-am-family="experience" data-am-role="hub">
+  <article class="am-tarifa-surface overflow-x-clip bg-surface" data-am-page="tarifa-experience" data-am-family="experience" data-am-role="hub">
     <LocationExperienceHero
       role="hub"
       topic="overview"
       eyebrow={`Tarifa · ${copy.navLabel}`}
       title={copy.hero.title}
       paragraphs={copy.hero.lead}
-      imageSrc="/images/amara-tarifa/amara-tarifa-apartment10.webp"
+      imageSrc={heroImage}
       imageAlt={copy.hero.imageAlt}
       imageWidth={1080}
     />
 
-    {/*
-      The six-topic link list was removed: it repeated the context navigation
-      directly above it, and the day chooser below now routes to the same six
-      guides with a reason to click. `copy.discovery` stays as the authoring
-      source for the footer highlight labels.
-    */}
-
-    <section class="bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+    <!-- The page job first: six ways into Tarifa, each routing to its spoke. -->
+    <section id="day-chooser" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
-        <div class="max-w-3xl">
-          <h2 class="am-text-title text-balance text-on-surface">{copy.dayChooser.title}</h2>
+        <div class="grid gap-8 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-5">
+            <p class="am-text-eyebrow text-primary">{copy.discovery.title}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{copy.dayChooser.title}</h2>
+          </div>
           {copy.dayChooser.intro.length > 0 && (
-            <div class="mt-6 space-y-4">
+            <div class="space-y-4 lg:col-span-7 lg:mt-2">
               {copy.dayChooser.intro.map((paragraph) => (
                 <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
               ))}
             </div>
           )}
         </div>
-
         <div class="mt-14"><ExperienceHubTopicGrid topics={dayTopics} accent="primary" /></div>
       </div>
     </section>
+
+    <!-- Our Tarifa day: the panorama moment of this page, copy panel rising into the photograph. -->
+    {ourDay && (
+      <section id={ourDay.id} class="scroll-mt-28 bg-surface">
+        <AmaraMediaFrame role="panorama" caption={copy.media.panoramaCaption}>
+          <AmaraImage src={panoramaImage} alt={copy.media.panoramaAlt} profile="background" class="h-full w-full object-cover" focalPoint="50% 50%" />
+        </AmaraMediaFrame>
+        <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
+          <div class="am-overlap-up bg-surface pb-16 pt-10 md:pb-24">
+            <p class="am-text-eyebrow text-primary">{copy.navLabel}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{ourDay.title}</h2>
+            <div class="mt-8 grid gap-6 md:grid-cols-2 md:gap-10">
+              {ourDay.paragraphs.map((paragraph, index) => (
+                <p class:list={['leading-relaxed text-on-surface-variant', index === 0 ? 'am-text-subtitle md:col-span-2' : 'am-text-body']}>
+                  <InlineEmphasis text={paragraph} />
+                </p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Stay length: the portrait runs to the start edge, the white copy panel lies over its edge. -->
+    {stayLength && (
+      <section id={stayLength.id} class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
+        <div class="mx-auto max-w-screen-2xl">
+          <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+            <figure class="am-bleed-start lg:col-span-5">
+              <AmaraImage src={oldTownImage} alt={copy.media.oldTownAlt} profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint="50% 45%" />
+            </figure>
+            <div class="am-overlap-start bg-surface-white lg:col-span-7">
+              <h2 class="am-text-title text-balance text-on-surface">{stayLength.title}</h2>
+              <div class="mt-6 max-w-2xl space-y-5">
+                {stayLength.paragraphs.map((paragraph) => (
+                  <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Tangier: quiet, text only. An option, not a reason. -->
+    {tangier && (
+      <section id={tangier.id} class="scroll-mt-28 bg-surface px-6 py-16 md:px-12 md:py-20">
+        <div class="mx-auto max-w-screen-2xl">
+          <div class="grid gap-6 lg:grid-cols-12 lg:gap-16">
+            <div class="lg:col-span-5">
+              <h2 class="am-text-title text-balance text-on-surface">{tangier.title}</h2>
+            </div>
+            <div class="space-y-4 lg:col-span-7 lg:mt-1">
+              {tangier.paragraphs.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
 
     <AuthorityStayBridge
       eyebrow={experienceStayBridge.eyebrow[currentLang]}

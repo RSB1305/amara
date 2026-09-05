@@ -1239,3 +1239,11 @@
 :where(.am-page-shell) :is(.px-6.md\:px-12, .am-page-section):is(.border-t, .border-y) {
   border-top-width: 0;
 }
+
+/* Outside the base layer on purpose (DR-DESIGN-020): the shared hero owners set the
+ * serif display italic through a call-site utility, and utilities beat layered rules.
+ * Inside the Tarifa surface the display is the upright functional sans, so this one
+ * unlayered rule wins that conflict instead of every Tarifa consumer having to know it. */
+.am-tarifa-surface .am-text-display {
+  font-style: normal;
+}
