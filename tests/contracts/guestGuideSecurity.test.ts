@@ -82,8 +82,8 @@ test('each hub checks availability in the AMARA stay search with its destination
       expect(hub.ctaHref[lang]).not.toContain('lodgify');
     }
   }
-  expect(staySearchHref('de', 'frigiliana')).toBe('/de/unterkuenfte/suche?destination=frigiliana');
-  expect(staySearchHref('es', 'nerja')).toBe('/alojamientos/buscar?destination=nerja');
+  expect(staySearchHref('de', 'frigiliana')).toBe('/de/unterkuenfte/verfuegbarkeit-buchung?destination=frigiliana');
+  expect(staySearchHref('es', 'nerja')).toBe('/alojamientos/disponibilidad-reserva?destination=nerja');
 });
 
 test('location essentials use the correct destination page and are not duplicated inside the stay', () => {

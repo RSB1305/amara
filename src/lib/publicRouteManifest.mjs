@@ -263,7 +263,14 @@ const definitions = [
     legacySlug: 'find-a-stay',
     family: 'stay-search',
     parent: 'stays',
-    segment: { es: 'buscar', en: 'search', de: 'suche', nl: 'zoeken', sv: 'sok' }
+    // The availability + direct-booking page: the slug carries both, not "search".
+    segment: {
+      es: 'disponibilidad-reserva',
+      en: 'availability-booking',
+      de: 'verfuegbarkeit-buchung',
+      nl: 'beschikbaarheid-boeking',
+      sv: 'tillganglighet-bokning'
+    }
   },
   {
     key: 'stays.last-minute',

@@ -12,7 +12,7 @@ import {
   type DestinationId
 } from '../../lib/location/destinationBranchNavigation';
 import { getDestinationContextGroups } from '../../lib/location/destinationContextNavigation';
-import { defaultCtaShortLabels } from './globalNavigationContent';
+import { availabilityBookingLabels } from './globalNavigationContent';
 import { resolveLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -161,7 +161,7 @@ const navLabelForPage =
   : isCollection ? copy.allStays
   : isAmenities ? trustLabels.amenities[lang]
   : isFaq ? trustLabels.faq_general[lang]
-  : isStaySearchResults ? defaultCtaShortLabels[lang]
+  : isStaySearchResults ? availabilityBookingLabels[lang]
   : isAbout ? trustLabels.about[lang]
   : isLegalNotice ? trustLabels.legal_notice[lang]
   : isBookingStayTerms ? trustLabels.booking_stay_terms[lang]

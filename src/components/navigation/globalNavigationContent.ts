@@ -21,13 +21,13 @@ export const navigationLanguages: NavigationLanguageOption[] = [
   { code: 'sv', label: AMARA_LANGUAGE_LABELS.sv }
 ];
 
-/** Compact label for the mobile header rail, where space next to the menu trigger is tight. */
-export const defaultCtaShortLabels: Record<AmaraLanguage, string> = {
-  en: 'Availability',
-  de: 'Verfügbarkeit',
-  es: 'Disponibilidad',
-  nl: 'Beschikbaarheid',
-  sv: 'Tillgänglighet'
+/** Breadcrumb label of the availability + direct-booking page (the stays search results). */
+export const availabilityBookingLabels: Record<AmaraLanguage, string> = {
+  en: 'Availability and Booking',
+  de: 'Verfügbarkeit und Buchung',
+  es: 'Disponibilidad y reserva',
+  nl: 'Beschikbaarheid en boeking',
+  sv: 'Tillgänglighet och bokning'
 };
 
 /** Narrowest supported header label; the destination is still the availability search. */

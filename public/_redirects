@@ -677,11 +677,11 @@
 /de/romantic-hideaways /de/unterkuenfte 301
 /nl/romantic-hideaways /nl/verblijven 301
 /sv/romantic-hideaways /sv/boenden 301
-/find-a-stay /alojamientos/buscar 301
-/en/find-a-stay /en/stays/search 301
-/de/find-a-stay /de/unterkuenfte/suche 301
-/nl/find-a-stay /nl/verblijven/zoeken 301
-/sv/find-a-stay /sv/boenden/sok 301
+/find-a-stay /alojamientos/disponibilidad-reserva 301
+/en/find-a-stay /en/stays/availability-booking 301
+/de/find-a-stay /de/unterkuenfte/verfuegbarkeit-buchung 301
+/nl/find-a-stay /nl/verblijven/beschikbaarheid-boeking 301
+/sv/find-a-stay /sv/boenden/tillganglighet-bokning 301
 /last-minute-stays /alojamientos/ultima-hora 301
 /en/last-minute-stays /en/stays/last-minute 301
 /de/last-minute-stays /de/unterkuenfte/last-minute 301

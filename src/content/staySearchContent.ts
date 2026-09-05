@@ -99,7 +99,7 @@ export const staySearchCopy = {
   }),
   invalidSearch: localized({ en: 'Choose arrival and departure to see available stays and total prices.', de: 'Wählt An- und Abreise. Dann seht ihr freie Unterkünfte mit Gesamtpreis.', es: 'Elegid la llegada y la salida para ver alojamientos disponibles y precios totales.', nl: 'Kies aankomst en vertrek om beschikbare verblijven en totaalprijzen te zien.', sv: 'Välj ankomst och avresa för att se lediga boenden och totalpriser.' }),
   resultsEyebrow: localized({ en: 'Your AMARA stay', de: 'Euer AMARA-Aufenthalt', es: 'Vuestra estancia AMARA', nl: 'Jullie AMARA-verblijf', sv: 'Er AMARA-vistelse' }),
-  resultsTitle: localized({ en: 'Find your dates and book direct with us', de: 'Findet eure Reisedaten und bucht direkt bei uns', es: 'Encontrad vuestras fechas y reservad directamente con nosotros', nl: 'Vind jullie reisdata en boek rechtstreeks bij ons', sv: 'Hitta era resdatum och boka direkt hos oss' }),
+  resultsTitle: localized({ en: 'See our availability and book direct with us', de: 'Seht unsere Verfügbarkeit und bucht direkt bei uns', es: 'Consultad nuestra disponibilidad y reservad directamente con nosotros', nl: 'Bekijk onze beschikbaarheid en boek rechtstreeks bij ons', sv: 'Se vår tillgänglighet och boka direkt hos oss' }),
   directBookingNote: localized({
     en: 'Direct bookings include our lowest available price, with all applicable fees.',
     de: 'Bei einer Direktbuchung gilt unser niedrigster verfügbarer Preis inklusive aller anfallenden Gebühren.',
