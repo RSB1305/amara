@@ -1,5 +1,5 @@
 import type { GuestGuideAccordionItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
-import { buildBookingLandingUrl } from '../lib/directBooking';
+import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHref';
 
 const FRIGILIANA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
 const NEED_HELP: LocalizedText = {
@@ -87,14 +87,15 @@ const AMARA_SIGN_OFF: LocalizedText = {
   sv: 'Varma hälsningar,<br>Robert'
 };
 
-// Booking CTA must stay on the guide page's own language route (never hardcode one locale).
-function bookingCta(query: string): LocalizedText {
+// The availability CTA opens AMARA's own stay search in the guide page's language,
+// with the hub's destination preselected (never the booking provider's landing page).
+function searchCta(destination: StaySearchDestination): LocalizedText {
   return {
-    en: `${buildBookingLandingUrl('en')}?${query}`,
-    de: `${buildBookingLandingUrl('de')}?${query}`,
-    es: `${buildBookingLandingUrl('es')}?${query}`,
-    nl: `${buildBookingLandingUrl('nl')}?${query}`,
-    sv: `${buildBookingLandingUrl('sv')}?${query}`
+    en: staySearchHref('en', destination),
+    de: staySearchHref('de', destination),
+    es: staySearchHref('es', destination),
+    nl: staySearchHref('nl', destination),
+    sv: staySearchHref('sv', destination)
   };
 }
 
@@ -823,7 +824,7 @@ const frigilianaFarahHub: GuestGuideEntry = {
       sv: 'Om Frigiliana får en plats i ert hjärta och ni vill stanna lite längre – nu eller vid ett framtida besök – välkomnar vi er varmt tillbaka. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
     }
   ],
-  ctaHref: bookingCta('adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306383&city=Frigiliana&children=0&infants=0&pets=0'),
+  ctaHref: searchCta('frigiliana'),
   ctaLabel: {
     en: 'Check Availability',
     de: 'Verfügbarkeit prüfen',
@@ -4772,7 +4773,7 @@ const frigilianaLounisHub: GuestGuideEntry = {
       sv: 'Om Frigiliana får en plats i ert hjärta och ni vill stanna lite längre – nu eller vid ett framtida besök – välkomnar vi er varmt tillbaka. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
     }
   ],
-  ctaHref: bookingCta('adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306383&city=Frigiliana&children=0&infants=0&pets=0'),
+  ctaHref: searchCta('frigiliana'),
   ctaLabel: {
     en: 'Check Availability',
     de: 'Verfügbarkeit prüfen',
@@ -4979,7 +4980,7 @@ const frigilianaZaidHub: GuestGuideEntry = {
       sv: 'Om Frigiliana får en plats i ert hjärta och ni vill stanna lite längre – nu eller vid ett framtida besök – välkomnar vi er varmt tillbaka. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
     }
   ],
-  ctaHref: bookingCta('adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306383&city=Frigiliana&children=0&infants=0&pets=0'),
+  ctaHref: searchCta('frigiliana'),
   ctaLabel: {
     en: 'Check Availability',
     de: 'Verfügbarkeit prüfen',
@@ -5180,7 +5181,7 @@ const frigilianaMahaHub: GuestGuideEntry = {
       sv: 'Om Frigiliana får en plats i ert hjärta och ni vill stanna lite längre – nu eller vid ett framtida besök – välkomnar vi er varmt tillbaka. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
     }
   ],
-  ctaHref: bookingCta('adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306383&city=Frigiliana&children=0&infants=0&pets=0'),
+  ctaHref: searchCta('frigiliana'),
   ctaLabel: {
     en: 'Check Availability',
     de: 'Verfügbarkeit prüfen',
@@ -5381,7 +5382,7 @@ const nerjaPlayaHub: GuestGuideEntry = {
       sv: 'Om Nerja får en plats i ert hjärta, välkomnar vi er gärna tillbaka igen. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
     }
   ],
-  ctaHref: bookingCta('adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306298&city=Nerja&children=0&infants=0&pets=0'),
+  ctaHref: searchCta('nerja'),
   ctaLabel: {
     en: 'Check Availability',
     de: 'Verfügbarkeit prüfen',
