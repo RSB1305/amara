@@ -42,3 +42,6 @@ src/assets/images/content/**/*.heic
 
 # jetbrains setting folder
 .idea/
+
+# Local sitemap export for external SEO reviews (copy of dist/sitemap-0.xml)
+sitemap-full.xml
