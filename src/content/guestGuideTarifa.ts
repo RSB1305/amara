@@ -1,4 +1,11 @@
-import type { GuestGuideCategoryLinkItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
+import type {
+  GuestGuideAccordionItem,
+  GuestGuideCategoryLinkItem,
+  GuestGuideEntry,
+  GuestGuideIconName,
+  GuestGuideMenuLink,
+  LocalizedText
+} from '../types/guestGuide';
 import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHref';
 
 const TARIFA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
@@ -147,6 +154,31 @@ const tarifaBulletList = (items: LocalizedText[]): LocalizedText => {
   };
 };
 
+interface TarifaVenue {
+  name: string;
+  href: string;
+  description: LocalizedText;
+}
+
+/**
+ * One accordion card per venue. The trailing map link uses the exact pattern that
+ * GuestGuideAccordionItem lifts out of the copy and shows as a pin in the row.
+ */
+const tarifaVenueCards = (icon: GuestGuideIconName, venues: TarifaVenue[]): GuestGuideAccordionItem[] =>
+  venues.map(({ name, href, description }) => ({
+    icon,
+    title: tarifaText(name, name, name, name, name),
+    body: [
+      {
+        en: `${description.en}<br><br><a class="am-link" href="${href}" target="_blank" rel="noopener">Open in Google Maps</a>`,
+        de: `${description.de}<br><br><a class="am-link" href="${href}" target="_blank" rel="noopener">In Google Maps öffnen</a>`,
+        es: `${description.es}<br><br><a class="am-link" href="${href}" target="_blank" rel="noopener">Abrir en Google Maps</a>`,
+        nl: `${description.nl}<br><br><a class="am-link" href="${href}" target="_blank" rel="noopener">Openen in Google Maps</a>`,
+        sv: `${description.sv}<br><br><a class="am-link" href="${href}" target="_blank" rel="noopener">Öppna i Google Maps</a>`
+      }
+    ]
+  }));
+
 const tarifaFamilySurfHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-tarifa-family-surf',
@@ -227,11 +259,11 @@ const tarifaFamilySurfHub: GuestGuideEntry = {
         sv: 'AMARA Experience'
       },
       subtitle: {
-        en: 'Hidden treasures · Insider tips · Authentic local food · Beyond the crowds',
-        de: 'Versteckte Schätze · Insider-Tipps · Authentische lokale Küche · Abseits der Massen',
-        es: 'Rincones escondidos · Consejos locales · Cocina local auténtica · Lejos de las multitudes',
-        nl: 'Verborgen parels · Insidertips · Authentiek lokaal eten · Buiten de drukte',
-        sv: 'Dolda pärlor · Insidertips · Genuin lokal mat · Bortom trängseln'
+        en: 'Kitesurfing · Food & drinks · Beaches · Activities',
+        de: 'Kitesurfen · Essen & Trinken · Strände · Aktivitäten',
+        es: 'Kitesurf · Comer y beber · Playas · Actividades',
+        nl: 'Kitesurfen · Eten & drinken · Stranden · Activiteiten',
+        sv: 'Kitesurfing · Mat & dryck · Stränder · Aktiviteter'
       }
     }
   ],
@@ -1892,11 +1924,11 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
     'AMARA Experience | AMARA Gästguide'
   ),
   seoDescription: tarifaText(
-    'Hidden treasures, insider tips, authentic local food and lesser-known places in Tarifa, selected by your AMARA hosts.',
-    'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte in Tarifa, ausgewählt von euren AMARA-Gastgebern.',
-    'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos de Tarifa, seleccionados por vuestros anfitriones de AMARA.',
-    'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken in Tarifa, geselecteerd door jullie AMARA-gastheren.',
-    'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser i Tarifa, utvalda av era AMARA-värdar.'
+    'Our selection for Tarifa: kitesurfing, food and drinks, beaches, activities, sightseeing and nightlife, with what you need to know on the spot.',
+    'Unsere Auswahl für Tarifa: Kitesurfen, Essen und Trinken, Strände, Aktivitäten, Sightseeing und Nachtleben, mit dem, was ihr vor Ort wissen müsst.',
+    'Nuestra selección para Tarifa: kitesurf, comer y beber, playas, actividades, lugares que ver y noche, con lo que necesitáis saber sobre el terreno.',
+    'Onze selectie voor Tarifa: kitesurfen, eten en drinken, stranden, activiteiten, bezienswaardigheden en nachtleven, met wat jullie ter plekke moeten weten.',
+    'Vårt urval för Tarifa: kitesurfing, mat och dryck, stränder, aktiviteter, sevärdheter och nattliv, med det ni behöver veta på plats.'
   ),
   kicker: tarifaText(
     'TARIFA GUEST GUIDE',
@@ -1913,11 +1945,11 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
     'Våra personliga rekommendationer för Tarifa'
   ),
   intro: tarifaText(
-    'Hidden treasures, insider tips, authentic local food and lesser-known places — with practical details for more time together away from the busiest routes.',
-    'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte – mit praktischen Details für mehr gemeinsame Zeit abseits der meistbesuchten Wege.',
-    'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos, con detalles prácticos para disfrutar más tiempo juntos fuera de las rutas más concurridas.',
-    'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken — met praktische details voor meer tijd samen buiten de drukste routes.',
-    'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser — med praktiska detaljer för mer tid tillsammans bortom de mest välbesökta stråken.'
+    'What we would choose ourselves in Tarifa: kitesurfing, food and drinks, beaches, activities, sightseeing and nightlife, each with the map and what matters on the spot.',
+    'Was wir selbst wählen würden in Tarifa: Kitesurfen, Essen und Trinken, Strände, Aktivitäten, Sightseeing und Nachtleben, jeweils mit Karte und dem, was vor Ort zählt.',
+    'Lo que elegiríamos nosotros en Tarifa: kitesurf, comer y beber, playas, actividades, lugares que ver y noche, cada uno con el mapa y lo que importa sobre el terreno.',
+    'Wat we zelf zouden kiezen in Tarifa: kitesurfen, eten en drinken, stranden, activiteiten, bezienswaardigheden en nachtleven, elk met kaart en wat ter plekke telt.',
+    'Det vi själva skulle välja i Tarifa: kitesurfing, mat och dryck, stränder, aktiviteter, sevärdheter och nattliv, var och en med karta och det som räknas på plats.'
   ),
   categories: [
     {
@@ -2040,105 +2072,77 @@ const tarifaFamilySurfFoodDrink: GuestGuideEntry = {
   categories: [
     {
       heading: tarifaText(
-        'Our culinary recommendations',
-        'Unsere kulinarischen Empfehlungen',
-        'Nuestras recomendaciones gastronómicas',
-        'Onze culinaire aanbevelingen',
-        'Våra kulinariska rekommendationer'
+        "Breakfast / Brunch",
+        "Frühstück / Brunch",
+        "Desayuno y brunch",
+        "Ontbijt / Brunch",
+        "Frukost / Brunch"
       ),
-      intro: tarifaParagraphs({
-        en: [
-          'Whether you love seafood, prefer vegetarian food, or are looking for authentic local cuisine, Tarifa has something for everyone. Look forward to delightful flavours, charming atmospheres, and memorable dining experiences.',
-          'Let us guide you through Tarifa’s culinary landscape and help you discover the restaurant that best suits your palate.',
-          '<strong>Let’s dive into the culinary delights that await you in Tarifa:</strong>'
-        ],
-        de: [
-          'Egal, ob ihr Meeresfrüchte liebt, euch vegetarisch ernährt oder authentische lokale Küche sucht – Tarifa hat für jeden etwas zu bieten. Freut euch auf köstliche Aromen, charmante Atmosphären und unvergessliche Restaurantbesuche.',
-          'Lasst euch von uns durch Tarifas kulinarische Landschaft führen und entdeckt genau das Restaurant, auf das ihr gerade Appetit habt.',
-          '<strong>Tauchen wir ein in die kulinarischen Highlights, die euch in Tarifa erwarten:</strong>'
-        ],
-        es: [
-          'Tanto si sois amantes del marisco, entusiastas de la comida vegetariana o buscáis auténtica cocina local, Tarifa tiene algo para todos. Preparaos para disfrutar de sabores deliciosos, ambientes con encanto y experiencias inolvidables.',
-          'Dejadnos guiaros por el panorama culinario de Tarifa y ayudaros a descubrir el restaurante perfecto para vuestro paladar.',
-          '<strong>Sumerjámonos en las delicias culinarias que os esperan en Tarifa:</strong>'
-        ],
-        nl: [
-          'Of jullie nu van zeevruchten houden, graag vegetarisch eten of op zoek zijn naar authentieke lokale gerechten: Tarifa heeft voor ieder wat wils. Geniet van heerlijke smaken, sfeervolle locaties en onvergetelijke etentjes.',
-          'Laat ons jullie door het culinaire landschap van Tarifa gidsen en helpen het restaurant te vinden dat perfect bij jullie smaak past.',
-          '<strong>Duik mee in de culinaire hoogtepunten die jullie in Tarifa te wachten staan:</strong>'
-        ],
-        sv: [
-          'Oavsett om ni älskar fisk och skaldjur, föredrar vegetariskt eller söker autentisk lokal mat har Tarifa något för alla. Se fram emot härliga smaker, charmiga miljöer och minnesvärda restaurangbesök.',
-          'Låt oss guida er genom Tarifas kulinariska landskap och hjälpa er att hitta restaurangen som passar just er smak.',
-          '<strong>Låt oss dyka in i de kulinariska upplevelser som väntar er i Tarifa:</strong>'
-        ]
-      }),
-      items: [
+      intro: [
+        tarifaText(
+          "<strong>Fuel your Tarifa adventures with breakfast and brunch.</strong><br><br>Start the day with a delicious breakfast or brunch at one of these inviting cafés:",
+          "<strong>Stärkt euch für eure Tarifa-Abenteuer mit Frühstück und Brunch.</strong><br><br>Startet den Tag mit einem leckeren Frühstück oder Brunch in einem dieser einladenden Cafés:",
+          "<strong>Coged fuerzas para vuestras aventuras en Tarifa con un buen desayuno o brunch.</strong><br><br>Empezad el día en una de estas atractivas cafeterías:",
+          "<strong>Begin jullie avonturen in Tarifa met een goed ontbijt of brunch.</strong><br><br>Start de dag bij een van deze uitnodigende cafés:",
+          "<strong>Ladda inför era äventyr i Tarifa med frukost eller brunch.</strong><br><br>Börja dagen på något av dessa trevliga kaféer:"
+        )
+      ],
+      items: tarifaVenueCards('breakfast', [
         {
-          icon: 'breakfast',
-          title: tarifaText(
-            'Breakfast / Brunch',
-            'Frühstück / Brunch',
-            'Desayuno y brunch',
-            'Ontbijt / Brunch',
-            'Frukost / Brunch'
-          ),
-          body: [
-            tarifaText(
-              '<strong>Fuel your Tarifa adventures with breakfast and brunch.</strong><br><br>Start the day with a delicious breakfast or brunch at one of these inviting cafés:',
-              '<strong>Stärkt euch für eure Tarifa-Abenteuer mit Frühstück und Brunch.</strong><br><br>Startet den Tag mit einem leckeren Frühstück oder Brunch in einem dieser einladenden Cafés:',
-              '<strong>Coged fuerzas para vuestras aventuras en Tarifa con un buen desayuno o brunch.</strong><br><br>Empezad el día en una de estas atractivas cafeterías:',
-              '<strong>Begin jullie avonturen in Tarifa met een goed ontbijt of brunch.</strong><br><br>Start de dag bij een van deze uitnodigende cafés:',
-              '<strong>Ladda inför era äventyr i Tarifa med frukost eller brunch.</strong><br><br>Börja dagen på något av dessa trevliga kaféer:'
-            ),
-            tarifaRecommendationList([
-              {
-                name: 'SURLA',
-                href: 'https://www.google.com/maps/search/?api=1&query=SURLA+Tarifa',
-                description: tarifaText(
-                  'This surfer haven serves superfood-packed breakfasts, perfect for health-conscious travellers looking for high-quality fuel.',
-                  'Dieser Surfer-Treffpunkt serviert Frühstück voller Superfoods – perfekt, wenn ihr Wert auf gesunde, hochwertige Energie legt.',
-                  'Este refugio de surfistas sirve desayunos repletos de superalimentos, perfectos si buscáis energía sana y de calidad.',
-                  'Deze surfershotspot serveert ontbijt vol superfoods, perfect als jullie op zoek zijn naar gezonde energie van hoge kwaliteit.',
-                  'Detta surftillhåll serverar frukostar fulla av superfoods, perfekt för er som söker hälsosam energi av hög kvalitet.'
-                )
-              },
-              {
-                name: 'POWERHOUSE',
-                href: 'https://www.google.com/maps/search/?api=1&query=POWERHOUSE+Tarifa',
-                description: tarifaText(
-                  'Beside the road to Valdevaqueros, Powerhouse offers hearty breakfasts for kitesurfing and action-packed days.',
-                  'Direkt an der Straße zu den Stränden von Valdevaqueros bietet das Powerhouse ein herzhaftes Frühstück für Kitesurf-Sessions und actionreiche Tage.',
-                  'Junto a la carretera hacia Valdevaqueros, Powerhouse ofrece desayunos contundentes para vuestros días de kitesurf y acción.',
-                  'Aan de weg naar Valdevaqueros biedt Powerhouse stevige ontbijtjes voor een dag vol kitesurfen en actie.',
-                  'Vid vägen mot Valdevaqueros erbjuder Powerhouse rejäla frukostar för kitesurfing och actionfyllda dagar.'
-                )
-              },
-              {
-                name: 'CAFÉ AZUL',
-                href: 'https://www.google.com/maps/search/?api=1&query=CAF%C3%89+AZUL+Tarifa',
-                description: tarifaText(
-                  'A Tarifa institution for decades and a classic place for a relaxed breakfast by Puerta de Jerez.',
-                  'Seit Jahrzehnten eine Institution in Tarifa und ein Klassiker für ein entspanntes Frühstück an der Puerta de Jerez.',
-                  'Toda una institución en Tarifa desde hace décadas y un clásico para desayunar tranquilamente junto a la Puerta de Jerez.',
-                  'Al decennia een begrip in Tarifa en een klassieke plek voor een ontspannen ontbijt bij de Puerta de Jerez.',
-                  'En institution i Tarifa sedan decennier och ett klassiskt ställe för en lugn frukost vid Puerta de Jerez.'
-                )
-              },
-              {
-                name: 'HELENA’S KITCHEN',
-                href: 'https://www.google.com/maps/search/?api=1&query=HELENA%E2%80%99S+KITCHEN+Tarifa',
-                description: tarifaText(
-                  'This cooking school is in the same building as your apartment and also serves excellent breakfasts.',
-                  'Diese Kochschule befindet sich im selben Gebäude wie euer Apartment und serviert ebenfalls ein hervorragendes Frühstück.',
-                  'Esta escuela de cocina está en el mismo edificio que vuestro apartamento y también sirve desayunos excelentes.',
-                  'Deze kookschool zit in hetzelfde gebouw als jullie appartement en serveert ook uitstekende ontbijtjes.',
-                  'Denna matlagningsskola ligger i samma byggnad som er lägenhet och serverar även utmärkt frukost.'
-                )
-              }
-            ])
-          ]
+          name: "SURLA",
+          href: "https://www.google.com/maps/search/?api=1&query=SURLA+Tarifa",
+          description: tarifaText(
+            "This surfer haven serves superfood-packed breakfasts, perfect for health-conscious travellers looking for high-quality fuel.",
+            "Dieser Surfer-Treffpunkt serviert Frühstück voller Superfoods – perfekt, wenn ihr Wert auf gesunde, hochwertige Energie legt.",
+            "Este refugio de surfistas sirve desayunos repletos de superalimentos, perfectos si buscáis energía sana y de calidad.",
+            "Deze surfershotspot serveert ontbijt vol superfoods, perfect als jullie op zoek zijn naar gezonde energie van hoge kwaliteit.",
+            "Detta surftillhåll serverar frukostar fulla av superfoods, perfekt för er som söker hälsosam energi av hög kvalitet."
+          )
         },
+        {
+          name: "POWERHOUSE",
+          href: "https://www.google.com/maps/search/?api=1&query=POWERHOUSE+Tarifa",
+          description: tarifaText(
+            "Beside the road to Valdevaqueros, Powerhouse offers hearty breakfasts for kitesurfing and action-packed days.",
+            "Direkt an der Straße zu den Stränden von Valdevaqueros bietet das Powerhouse ein herzhaftes Frühstück für Kitesurf-Sessions und actionreiche Tage.",
+            "Junto a la carretera hacia Valdevaqueros, Powerhouse ofrece desayunos contundentes para vuestros días de kitesurf y acción.",
+            "Aan de weg naar Valdevaqueros biedt Powerhouse stevige ontbijtjes voor een dag vol kitesurfen en actie.",
+            "Vid vägen mot Valdevaqueros erbjuder Powerhouse rejäla frukostar för kitesurfing och actionfyllda dagar."
+          )
+        },
+        {
+          name: "CAFÉ AZUL",
+          href: "https://www.google.com/maps/search/?api=1&query=CAF%C3%89+AZUL+Tarifa",
+          description: tarifaText(
+            "A Tarifa institution for decades and a classic place for a relaxed breakfast by Puerta de Jerez.",
+            "Seit Jahrzehnten eine Institution in Tarifa und ein Klassiker für ein entspanntes Frühstück an der Puerta de Jerez.",
+            "Toda una institución en Tarifa desde hace décadas y un clásico para desayunar tranquilamente junto a la Puerta de Jerez.",
+            "Al decennia een begrip in Tarifa en een klassieke plek voor een ontspannen ontbijt bij de Puerta de Jerez.",
+            "En institution i Tarifa sedan decennier och ett klassiskt ställe för en lugn frukost vid Puerta de Jerez."
+          )
+        },
+        {
+          name: "HELENA’S KITCHEN",
+          href: "https://www.google.com/maps/search/?api=1&query=HELENA%E2%80%99S+KITCHEN+Tarifa",
+          description: tarifaText(
+            "This cooking school is in the same building as your apartment and also serves excellent breakfasts.",
+            "Diese Kochschule befindet sich im selben Gebäude wie euer Apartment und serviert ebenfalls ein hervorragendes Frühstück.",
+            "Esta escuela de cocina está en el mismo edificio que vuestro apartamento y también sirve desayunos excelentes.",
+            "Deze kookschool zit in hetzelfde gebouw als jullie appartement en serveert ook uitstekende ontbijtjes.",
+            "Denna matlagningsskola ligger i samma byggnad som er lägenhet och serverar även utmärkt frukost."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Beach Bars (Chiringuitos)",
+        "Strandbars (Chiringuitos)",
+        "Chiringuitos",
+        "Strandbars (Chiringuitos)",
+        "Strandbarer (Chiringuitos)"
+      ),
+      items: [
         {
           icon: 'wave',
           title: tarifaText(
@@ -2171,382 +2175,381 @@ const tarifaFamilySurfFoodDrink: GuestGuideEntry = {
               '<em>Viktigt: Vissa ställen har endast öppet under säsong. Kontrollera öppettider och strandregler före besöket.</em>'
             )
           ]
+        }
+      ]
+    },
+    {
+      heading: tarifaText(
+        "Fish & Seafood",
+        "Fisch & Meeresfrüchte",
+        "Pescado y marisco",
+        "Vis & zeevruchten",
+        "Fisk & skaldjur"
+      ),
+      items: tarifaVenueCards('fish', [
+        {
+          name: "Marisquería del Puerto",
+          href: "https://www.google.com/maps/search/?api=1&query=Marisquer%C3%ADa+del+Puerto+Tarifa",
+          description: tarifaText(
+            "Fresh seafood dishes with outdoor seating overlooking the harbour.",
+            "Frische Meeresfrüchte mit Außenbereich und Blick auf den Hafen.",
+            "Platos de marisco fresco con terraza y vistas al puerto.",
+            "Verse visgerechten met een buitenterras dat uitkijkt over de haven.",
+            "Färska skaldjursrätter på en uteservering med utsikt över hamnen."
+          )
         },
         {
-          icon: 'fish',
-          title: tarifaText(
-            'Fish & Seafood',
-            'Fisch & Meeresfrüchte',
-            'Pescado y marisco',
-            'Vis & zeevruchten',
-            'Fisk & skaldjur'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'Marisquería del Puerto',
-                href: 'https://www.google.com/maps/search/?api=1&query=Marisquer%C3%ADa+del+Puerto+Tarifa',
-                description: tarifaText(
-                  'Fresh seafood dishes with outdoor seating overlooking the harbour.',
-                  'Frische Meeresfrüchte mit Außenbereich und Blick auf den Hafen.',
-                  'Platos de marisco fresco con terraza y vistas al puerto.',
-                  'Verse visgerechten met een buitenterras dat uitkijkt over de haven.',
-                  'Färska skaldjursrätter på en uteservering med utsikt över hamnen.'
-                )
-              },
-              {
-                name: 'El Campero',
-                href: 'https://www.google.com/maps/search/?api=1&query=El+Campero+Tarifa',
-                description: tarifaText(
-                  'Renowned for its tuna specialities and also offers gluten-free options.',
-                  'Bekannt für seine Thunfisch-Spezialitäten und mit glutenfreien Optionen.',
-                  'Famoso por sus especialidades de atún y con opciones sin gluten.',
-                  'Beroemd om zijn tonijnspecialiteiten en met glutenvrije opties.',
-                  'Känt för sina tonfiskspecialiteter och med glutenfria alternativ.'
-                )
-              },
-              {
-                name: 'Varadero',
-                href: 'https://www.google.com/maps/search/?api=1&query=Varadero+Tarifa',
-                description: tarifaText(
-                  'Seafood delicacies in a beachfront setting.',
-                  'Köstlichkeiten aus dem Meer in direkter Strandlage.',
-                  'Delicias del mar en primera línea de playa.',
-                  'Delicatessen uit de zee direct aan het strand.',
-                  'Skaldjursdelikatesser i en härlig strandmiljö.'
-                )
-              }
-            ])
-          ]
+          name: "El Campero",
+          href: "https://www.google.com/maps/search/?api=1&query=El+Campero+Tarifa",
+          description: tarifaText(
+            "Renowned for its tuna specialities and also offers gluten-free options.",
+            "Bekannt für seine Thunfisch-Spezialitäten und mit glutenfreien Optionen.",
+            "Famoso por sus especialidades de atún y con opciones sin gluten.",
+            "Beroemd om zijn tonijnspecialiteiten en met glutenvrije opties.",
+            "Känt för sina tonfiskspecialiteter och med glutenfria alternativ."
+          )
         },
         {
-          icon: 'watering-can',
-          title: tarifaText(
-            'Vegetarian & Vegan',
-            'Vegetarisch & Vegan',
-            'Vegetariano y vegano',
-            'Vegetarisch & vegan',
-            'Vegetariskt & veganskt'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'El Vegetariano de Tarifa',
-                href: 'https://www.google.com/maps/search/?api=1&query=El+Vegetariano+de+Tarifa',
-                description: tarifaText(
-                  'A cosy restaurant serving vegetarian and vegan dishes with outdoor seating.',
-                  'Gemütliches Restaurant mit vegetarischen und veganen Gerichten sowie Sitzplätzen im Freien.',
-                  'Acogedor restaurante con platos vegetarianos y veganos y mesas al aire libre.',
-                  'Gezellig restaurant met vegetarische en veganistische gerechten en zitplaatsen buiten.',
-                  'Mysig restaurang med vegetariska och veganska rätter samt uteservering.'
-                )
-              },
-              {
-                name: 'Raices',
-                href: 'https://www.google.com/maps/search/?api=1&query=Raices+Tarifa',
-                description: tarifaText(
-                  'Creative vegetarian and vegan options made with locally sourced ingredients.',
-                  'Kreative vegetarische und vegane Optionen aus regionalen Zutaten.',
-                  'Opciones creativas vegetarianas y veganas elaboradas con ingredientes locales.',
-                  'Creatieve vegetarische en veganistische opties met lokale ingrediënten.',
-                  'Kreativa vegetariska och veganska alternativ tillagade med lokala råvaror.'
-                )
-              },
-              {
-                name: 'Raw Cakes Tarifa',
-                href: 'https://www.google.com/maps/search/?api=1&query=Raw+Cakes+Tarifa',
-                description: tarifaText(
-                  'Delicious plant-based desserts in a relaxed setting.',
-                  'Herrliche pflanzenbasierte Desserts in entspannter Umgebung.',
-                  'Deliciosos postres vegetales en un ambiente relajado.',
-                  'Heerlijke plantaardige desserts in een ontspannen sfeer.',
-                  'Ljuvliga växtbaserade desserter i en avslappnad miljö.'
-                )
-              }
-            ])
-          ]
+          name: "Varadero",
+          href: "https://www.google.com/maps/search/?api=1&query=Varadero+Tarifa",
+          description: tarifaText(
+            "Seafood delicacies in a beachfront setting.",
+            "Köstlichkeiten aus dem Meer in direkter Strandlage.",
+            "Delicias del mar en primera línea de playa.",
+            "Delicatessen uit de zee direct aan het strand.",
+            "Skaldjursdelikatesser i en härlig strandmiljö."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Vegetarian & Vegan",
+        "Vegetarisch & Vegan",
+        "Vegetariano y vegano",
+        "Vegetarisch & vegan",
+        "Vegetariskt & veganskt"
+      ),
+      items: tarifaVenueCards('watering-can', [
+        {
+          name: "El Vegetariano de Tarifa",
+          href: "https://www.google.com/maps/search/?api=1&query=El+Vegetariano+de+Tarifa",
+          description: tarifaText(
+            "A cosy restaurant serving vegetarian and vegan dishes with outdoor seating.",
+            "Gemütliches Restaurant mit vegetarischen und veganen Gerichten sowie Sitzplätzen im Freien.",
+            "Acogedor restaurante con platos vegetarianos y veganos y mesas al aire libre.",
+            "Gezellig restaurant met vegetarische en veganistische gerechten en zitplaatsen buiten.",
+            "Mysig restaurang med vegetariska och veganska rätter samt uteservering."
+          )
         },
         {
-          icon: 'goblet',
-          title: tarifaText(
-            'Local Cuisine',
-            'Lokale Küche',
-            'Cocina local',
-            'Lokale keuken',
-            'Lokal mat'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'El Lola',
-                href: 'https://www.google.com/maps/search/?api=1&query=El+Lola+Tarifa',
-                description: tarifaText(
-                  'Authentic local cuisine in a charming setting with a terrace.',
-                  'Authentische lokale Küche in charmantem Ambiente mit Terrasse.',
-                  'Auténtica cocina local en un entorno encantador con terraza.',
-                  'Authentieke lokale gerechten in een sfeervolle setting met terras.',
-                  'Autentisk lokal mat i en charmig miljö med terrass.'
-                )
-              },
-              {
-                name: 'El Varadero',
-                href: 'https://www.google.com/maps/search/?api=1&query=El+Varadero+Tarifa',
-                description: tarifaText(
-                  'Traditional dishes with fresh ingredients and views of the coastline.',
-                  'Traditionelle Gerichte mit frischen Zutaten und Blick auf die Küste.',
-                  'Platos tradicionales con ingredientes frescos y vistas a la costa.',
-                  'Traditionele gerechten met verse ingrediënten en uitzicht op de kust.',
-                  'Traditionella rätter med färska ingredienser och utsikt över kusten.'
-                )
-              },
-              {
-                name: 'Otero',
-                href: 'https://www.google.com/maps/search/?api=1&query=Otero+Tarifa',
-                description: tarifaText(
-                  'Local specialities and classic Spanish dishes in a warm atmosphere.',
-                  'Lokale Spezialitäten und spanische Klassiker in herzlicher Atmosphäre.',
-                  'Especialidades locales y clásicos españoles en un ambiente cálido.',
-                  'Lokale specialiteiten en klassieke Spaanse gerechten in een warme sfeer.',
-                  'Lokala specialiteter och klassiska spanska rätter i en varm atmosfär.'
-                )
-              }
-            ])
-          ]
+          name: "Raices",
+          href: "https://www.google.com/maps/search/?api=1&query=Raices+Tarifa",
+          description: tarifaText(
+            "Creative vegetarian and vegan options made with locally sourced ingredients.",
+            "Kreative vegetarische und vegane Optionen aus regionalen Zutaten.",
+            "Opciones creativas vegetarianas y veganas elaboradas con ingredientes locales.",
+            "Creatieve vegetarische en veganistische opties met lokale ingrediënten.",
+            "Kreativa vegetariska och veganska alternativ tillagade med lokala råvaror."
+          )
         },
         {
-          icon: 'flame',
-          title: tarifaText(
-            'Meat Lovers',
-            'Für Fleischliebhaber',
-            'Para amantes de la carne',
-            'Voor vleesliefhebbers',
-            'För köttälskare'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'Asador La Burla',
-                href: 'https://www.google.com/maps/search/?api=1&query=Asador+La+Burla+Tarifa',
-                description: tarifaText(
-                  'Grilled meat dishes in beautiful surroundings.',
-                  'Gegrillte Fleischspezialitäten in wunderschöner Umgebung.',
-                  'Carnes a la brasa en un entorno precioso.',
-                  'Gegrilde vleesgerechten in een prachtige omgeving.',
-                  'Grillade kötträtter i vackra omgivningar.'
-                )
-              },
-              {
-                name: 'El Rancho',
-                href: 'https://www.google.com/maps/search/?api=1&query=El+Rancho+Tarifa',
-                description: tarifaText(
-                  'Known for steaks and barbecue specialities.',
-                  'Bekannt für Steaks und BBQ-Spezialitäten.',
-                  'Conocido por sus chuletones y especialidades a la barbacoa.',
-                  'Bekend om zijn steaks en barbecuespecialiteiten.',
-                  'Känt för sina stekar och BBQ-specialiteter.'
-                )
-              },
-              {
-                name: 'La Torre',
-                href: 'https://www.google.com/maps/search/?api=1&query=La+Torre+Tarifa',
-                description: tarifaText(
-                  'Meat dishes made with local ingredients and accompanied by stunning views.',
-                  'Fleischgerichte mit regionalen Zutaten und herrlichem Ausblick.',
-                  'Platos de carne con ingredientes locales y vistas impresionantes.',
-                  'Vleesgerechten met lokale ingrediënten en een prachtig uitzicht.',
-                  'Kötträtter med lokala råvaror och fantastisk utsikt.'
-                )
-              }
-            ])
-          ]
+          name: "Raw Cakes Tarifa",
+          href: "https://www.google.com/maps/search/?api=1&query=Raw+Cakes+Tarifa",
+          description: tarifaText(
+            "Delicious plant-based desserts in a relaxed setting.",
+            "Herrliche pflanzenbasierte Desserts in entspannter Umgebung.",
+            "Deliciosos postres vegetales en un ambiente relajado.",
+            "Heerlijke plantaardige desserts in een ontspannen sfeer.",
+            "Ljuvliga växtbaserade desserter i en avslappnad miljö."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Local Cuisine",
+        "Lokale Küche",
+        "Cocina local",
+        "Lokale keuken",
+        "Lokal mat"
+      ),
+      items: tarifaVenueCards('goblet', [
+        {
+          name: "El Lola",
+          href: "https://www.google.com/maps/search/?api=1&query=El+Lola+Tarifa",
+          description: tarifaText(
+            "Authentic local cuisine in a charming setting with a terrace.",
+            "Authentische lokale Küche in charmantem Ambiente mit Terrasse.",
+            "Auténtica cocina local en un entorno encantador con terraza.",
+            "Authentieke lokale gerechten in een sfeervolle setting met terras.",
+            "Autentisk lokal mat i en charmig miljö med terrass."
+          )
         },
         {
-          icon: 'dish',
-          title: tarifaText('Tapas', 'Tapas', 'Tapas', 'Tapas', 'Tapas'),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'La Lola',
-                href: 'https://www.google.com/maps/search/?api=1&query=La+Lola+Tarifa',
-                description: tarifaText(
-                  'An authentic Andalusian tapas experience.',
-                  'Ein authentisches andalusisches Tapas-Erlebnis.',
-                  'Una auténtica experiencia de tapas andaluzas.',
-                  'Een authentieke Andalusische tapaservaring.',
-                  'En autentisk andalusisk tapasupplevelse.'
-                )
-              },
-              {
-                name: 'Bar El Francés',
-                href: 'https://www.google.com/maps/search/?api=1&query=Bar+El+Franc%C3%A9s+Tarifa',
-                description: tarifaText(
-                  'A popular tapas spot with outdoor seating.',
-                  'Beliebte Tapas-Bar mit Sitzplätzen im Freien.',
-                  'Popular bar de tapas con mesas al aire libre.',
-                  'Populaire tapasplek met zitplaatsen buiten.',
-                  'Populärt tapasställe med uteservering.'
-                )
-              },
-              {
-                name: 'Mesón el Patio',
-                href: 'https://www.google.com/maps/search/?api=1&query=Mes%C3%B3n+el+Patio+Tarifa',
-                description: tarifaText(
-                  'Traditional Spanish tapas in a cosy atmosphere.',
-                  'Traditionelle spanische Tapas in gemütlicher Atmosphäre.',
-                  'Tapas tradicionales españolas en un ambiente acogedor.',
-                  'Traditionele Spaanse tapas in een gezellige sfeer.',
-                  'Traditionella spanska tapas i en mysig atmosfär.'
-                )
-              },
-              {
-                name: 'Bar El Pupilo',
-                href: 'https://www.google.com/maps/search/?api=1&query=Bar+El+Pupilo+Tarifa',
-                description: tarifaText(
-                  'Classic and creative tapas in a lively setting.',
-                  'Klassische und kreative Tapas in lebendiger Umgebung.',
-                  'Tapas clásicas y creativas en un ambiente animado.',
-                  'Klassieke en creatieve tapas in een levendige omgeving.',
-                  'Klassiska och kreativa tapas i en livlig miljö.'
-                )
-              }
-            ])
-          ]
+          name: "El Varadero",
+          href: "https://www.google.com/maps/search/?api=1&query=El+Varadero+Tarifa",
+          description: tarifaText(
+            "Traditional dishes with fresh ingredients and views of the coastline.",
+            "Traditionelle Gerichte mit frischen Zutaten und Blick auf die Küste.",
+            "Platos tradicionales con ingredientes frescos y vistas a la costa.",
+            "Traditionele gerechten met verse ingrediënten en uitzicht op de kust.",
+            "Traditionella rätter med färska ingredienser och utsikt över kusten."
+          )
         },
         {
-          icon: 'dish',
-          title: tarifaText('Pizza', 'Pizza', 'Pizza', 'Pizza', 'Pizza'),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'Pueblo Nómada',
-                href: 'https://www.google.com/maps/search/?api=1&query=Pueblo+N%C3%B3mada+Tarifa',
-                description: tarifaText(
-                  'Delicious pizza with wonderful ocean views near the apartment.',
-                  'Köstliche Pizza mit herrlichem Meerblick in der Nähe des Apartments.',
-                  'Pizza deliciosa con impresionantes vistas al mar cerca del apartamento.',
-                  'Heerlijke pizza met prachtig uitzicht op zee vlak bij het appartement.',
-                  'Utsökt pizza med fantastisk havsutsikt nära lägenheten.'
-                )
-              },
-              {
-                name: 'La Dolce Vita',
-                href: 'https://www.google.com/maps/search/?api=1&query=La+Dolce+Vita+Tarifa',
-                description: tarifaText(
-                  'Authentic Italian pizza, including gluten-free options.',
-                  'Authentische italienische Pizza, auch mit glutenfreien Optionen.',
-                  'Auténtica pizza italiana, también con opciones sin gluten.',
-                  'Authentieke Italiaanse pizza, ook met glutenvrije opties.',
-                  'Autentisk italiensk pizza, inklusive glutenfria alternativ.'
-                )
-              },
-              {
-                name: 'La Ruota',
-                href: 'https://www.google.com/maps/search/?api=1&query=La+Ruota+Tarifa',
-                description: tarifaText(
-                  'Pizza made with fresh ingredients, with vegetarian and gluten-free choices.',
-                  'Pizza aus frischen Zutaten mit vegetarischen und glutenfreien Varianten.',
-                  'Pizzas con ingredientes frescos y opciones vegetarianas y sin gluten.',
-                  'Pizza met verse ingrediënten en vegetarische en glutenvrije keuzes.',
-                  'Pizzor med färska råvaror samt vegetariska och glutenfria alternativ.'
-                )
-              }
-            ])
-          ]
+          name: "Otero",
+          href: "https://www.google.com/maps/search/?api=1&query=Otero+Tarifa",
+          description: tarifaText(
+            "Local specialities and classic Spanish dishes in a warm atmosphere.",
+            "Lokale Spezialitäten und spanische Klassiker in herzlicher Atmosphäre.",
+            "Especialidades locales y clásicos españoles en un ambiente cálido.",
+            "Lokale specialiteiten en klassieke Spaanse gerechten in een warme sfeer.",
+            "Lokala specialiteter och klassiska spanska rätter i en varm atmosfär."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Meat Lovers",
+        "Für Fleischliebhaber",
+        "Para amantes de la carne",
+        "Voor vleesliefhebbers",
+        "För köttälskare"
+      ),
+      items: tarifaVenueCards('flame', [
+        {
+          name: "Asador La Burla",
+          href: "https://www.google.com/maps/search/?api=1&query=Asador+La+Burla+Tarifa",
+          description: tarifaText(
+            "Grilled meat dishes in beautiful surroundings.",
+            "Gegrillte Fleischspezialitäten in wunderschöner Umgebung.",
+            "Carnes a la brasa en un entorno precioso.",
+            "Gegrilde vleesgerechten in een prachtige omgeving.",
+            "Grillade kötträtter i vackra omgivningar."
+          )
         },
         {
-          icon: 'tumbler',
-          title: tarifaText(
-            'Moroccan',
-            'Marokkanisch',
-            'Marroquí',
-            'Marokkaans',
-            'Marockanskt'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'Mandragora',
-                href: 'https://www.google.com/maps/search/?api=1&query=Mandragora+Tarifa',
-                description: tarifaText(
-                  'Delicious Moroccan cuisine with outdoor seating.',
-                  'Köstliche marokkanische Küche mit Außenbereich.',
-                  'Deliciosa cocina marroquí con mesas al aire libre.',
-                  'Heerlijke Marokkaanse gerechten met terras.',
-                  'Utsökt marockansk mat med uteservering.'
-                )
-              },
-              {
-                name: 'Tajinaste',
-                href: 'https://www.google.com/maps/search/?api=1&query=Tajinaste+Tarifa',
-                description: tarifaText(
-                  'Authentic Moroccan dishes with a modern twist.',
-                  'Authentische marokkanische Gerichte mit modernem Touch.',
-                  'Auténticos platos marroquíes con un toque moderno.',
-                  'Authentieke Marokkaanse gerechten met een moderne twist.',
-                  'Autentiska marockanska rätter med en modern touch.'
-                )
-              }
-            ])
-          ]
+          name: "El Rancho",
+          href: "https://www.google.com/maps/search/?api=1&query=El+Rancho+Tarifa",
+          description: tarifaText(
+            "Known for steaks and barbecue specialities.",
+            "Bekannt für Steaks und BBQ-Spezialitäten.",
+            "Conocido por sus chuletones y especialidades a la barbacoa.",
+            "Bekend om zijn steaks en barbecuespecialiteiten.",
+            "Känt för sina stekar och BBQ-specialiteter."
+          )
         },
         {
-          icon: 'star',
-          title: tarifaText(
-            'Our Favorite Restaurants',
-            'Unsere Lieblingsrestaurants',
-            'Nuestros restaurantes favoritos',
-            'Onze favoriete restaurants',
-            'Våra favoritrestauranger'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'LIA.me',
-                href: 'https://www.google.com/maps/search/?api=1&query=LIA.me+Tarifa',
-                description: tarifaText(
-                  'For us, the best Italian restaurant in Tarifa.',
-                  'Für uns das beste italienische Restaurant in Tarifa.',
-                  'Para nosotros, el mejor restaurante italiano de Tarifa.',
-                  'Voor ons het beste Italiaanse restaurant in Tarifa.',
-                  'För oss den bästa italienska restaurangen i Tarifa.'
-                )
-              },
-              {
-                name: 'OSTERIA DEL SOLE',
-                href: 'https://www.google.com/maps/search/?api=1&query=OSTERIA+DEL+SOLE+Tarifa',
-                description: tarifaText(
-                  'Italian cuisine in one of the loveliest chiringuitos, with ocean views.',
-                  'Italienische Küche in einem der schönsten Chiringuitos mit Meerblick.',
-                  'Cocina italiana en uno de los chiringuitos más bonitos, con vistas al mar.',
-                  'Italiaanse keuken in een van de leukste chiringuitos met uitzicht op zee.',
-                  'Italiensk mat i en av de trevligaste chiringuitos med havsutsikt.'
-                )
-              },
-              {
-                name: 'Silos 19',
-                href: 'https://www.google.com/maps/search/?api=1&query=Silos+19+Tarifa',
-                description: tarifaText(
-                  'Modern Andalusian cuisine in an elegant atmosphere.',
-                  'Moderne andalusische Küche in eleganter Atmosphäre.',
-                  'Cocina andaluza moderna en un ambiente elegante.',
-                  'Moderne Andalusische keuken in een elegante sfeer.',
-                  'Modern andalusisk mat i en elegant atmosfär.'
-                )
-              },
-              {
-                name: 'Boccabuena Plaza',
-                href: 'https://www.google.com/maps/search/?api=1&query=Boccabuena+Plaza+Tarifa',
-                description: tarifaText(
-                  'Set on a car-free plaza in the heart of the old town, making it a relaxed choice for families with young children.',
-                  'Perfekt für Familien an einer ruhigen, sicheren Plaza.',
-                  'Perfecto para familias en una plaza tranquila y segura.',
-                  'Perfect voor gezinnen aan een rustig en veilig plein.',
-                  'Perfekt för familjer vid ett lugnt och tryggt torg.'
-                )
-              }
-            ])
-          ]
+          name: "La Torre",
+          href: "https://www.google.com/maps/search/?api=1&query=La+Torre+Tarifa",
+          description: tarifaText(
+            "Meat dishes made with local ingredients and accompanied by stunning views.",
+            "Fleischgerichte mit regionalen Zutaten und herrlichem Ausblick.",
+            "Platos de carne con ingredientes locales y vistas impresionantes.",
+            "Vleesgerechten met lokale ingrediënten en een prachtig uitzicht.",
+            "Kötträtter med lokala råvaror och fantastisk utsikt."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Tapas",
+        "Tapas",
+        "Tapas",
+        "Tapas",
+        "Tapas"
+      ),
+      items: tarifaVenueCards('dish', [
+        {
+          name: "La Lola",
+          href: "https://www.google.com/maps/search/?api=1&query=La+Lola+Tarifa",
+          description: tarifaText(
+            "An authentic Andalusian tapas experience.",
+            "Ein authentisches andalusisches Tapas-Erlebnis.",
+            "Una auténtica experiencia de tapas andaluzas.",
+            "Een authentieke Andalusische tapaservaring.",
+            "En autentisk andalusisk tapasupplevelse."
+          )
         },
+        {
+          name: "Bar El Francés",
+          href: "https://www.google.com/maps/search/?api=1&query=Bar+El+Franc%C3%A9s+Tarifa",
+          description: tarifaText(
+            "A popular tapas spot with outdoor seating.",
+            "Beliebte Tapas-Bar mit Sitzplätzen im Freien.",
+            "Popular bar de tapas con mesas al aire libre.",
+            "Populaire tapasplek met zitplaatsen buiten.",
+            "Populärt tapasställe med uteservering."
+          )
+        },
+        {
+          name: "Mesón el Patio",
+          href: "https://www.google.com/maps/search/?api=1&query=Mes%C3%B3n+el+Patio+Tarifa",
+          description: tarifaText(
+            "Traditional Spanish tapas in a cosy atmosphere.",
+            "Traditionelle spanische Tapas in gemütlicher Atmosphäre.",
+            "Tapas tradicionales españolas en un ambiente acogedor.",
+            "Traditionele Spaanse tapas in een gezellige sfeer.",
+            "Traditionella spanska tapas i en mysig atmosfär."
+          )
+        },
+        {
+          name: "Bar El Pupilo",
+          href: "https://www.google.com/maps/search/?api=1&query=Bar+El+Pupilo+Tarifa",
+          description: tarifaText(
+            "Classic and creative tapas in a lively setting.",
+            "Klassische und kreative Tapas in lebendiger Umgebung.",
+            "Tapas clásicas y creativas en un ambiente animado.",
+            "Klassieke en creatieve tapas in een levendige omgeving.",
+            "Klassiska och kreativa tapas i en livlig miljö."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Pizza",
+        "Pizza",
+        "Pizza",
+        "Pizza",
+        "Pizza"
+      ),
+      items: tarifaVenueCards('dish', [
+        {
+          name: "Pueblo Nómada",
+          href: "https://www.google.com/maps/search/?api=1&query=Pueblo+N%C3%B3mada+Tarifa",
+          description: tarifaText(
+            "Delicious pizza with wonderful ocean views near the apartment.",
+            "Köstliche Pizza mit herrlichem Meerblick in der Nähe des Apartments.",
+            "Pizza deliciosa con impresionantes vistas al mar cerca del apartamento.",
+            "Heerlijke pizza met prachtig uitzicht op zee vlak bij het appartement.",
+            "Utsökt pizza med fantastisk havsutsikt nära lägenheten."
+          )
+        },
+        {
+          name: "La Dolce Vita",
+          href: "https://www.google.com/maps/search/?api=1&query=La+Dolce+Vita+Tarifa",
+          description: tarifaText(
+            "Authentic Italian pizza, including gluten-free options.",
+            "Authentische italienische Pizza, auch mit glutenfreien Optionen.",
+            "Auténtica pizza italiana, también con opciones sin gluten.",
+            "Authentieke Italiaanse pizza, ook met glutenvrije opties.",
+            "Autentisk italiensk pizza, inklusive glutenfria alternativ."
+          )
+        },
+        {
+          name: "La Ruota",
+          href: "https://www.google.com/maps/search/?api=1&query=La+Ruota+Tarifa",
+          description: tarifaText(
+            "Pizza made with fresh ingredients, with vegetarian and gluten-free choices.",
+            "Pizza aus frischen Zutaten mit vegetarischen und glutenfreien Varianten.",
+            "Pizzas con ingredientes frescos y opciones vegetarianas y sin gluten.",
+            "Pizza met verse ingrediënten en vegetarische en glutenvrije keuzes.",
+            "Pizzor med färska råvaror samt vegetariska och glutenfria alternativ."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Moroccan",
+        "Marokkanisch",
+        "Marroquí",
+        "Marokkaans",
+        "Marockanskt"
+      ),
+      items: tarifaVenueCards('tumbler', [
+        {
+          name: "Mandragora",
+          href: "https://www.google.com/maps/search/?api=1&query=Mandragora+Tarifa",
+          description: tarifaText(
+            "Delicious Moroccan cuisine with outdoor seating.",
+            "Köstliche marokkanische Küche mit Außenbereich.",
+            "Deliciosa cocina marroquí con mesas al aire libre.",
+            "Heerlijke Marokkaanse gerechten met terras.",
+            "Utsökt marockansk mat med uteservering."
+          )
+        },
+        {
+          name: "Tajinaste",
+          href: "https://www.google.com/maps/search/?api=1&query=Tajinaste+Tarifa",
+          description: tarifaText(
+            "Authentic Moroccan dishes with a modern twist.",
+            "Authentische marokkanische Gerichte mit modernem Touch.",
+            "Auténticos platos marroquíes con un toque moderno.",
+            "Authentieke Marokkaanse gerechten met een moderne twist.",
+            "Autentiska marockanska rätter med en modern touch."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Our Favorite Restaurants",
+        "Unsere Lieblingsrestaurants",
+        "Nuestros restaurantes favoritos",
+        "Onze favoriete restaurants",
+        "Våra favoritrestauranger"
+      ),
+      items: tarifaVenueCards('star', [
+        {
+          name: "LIA.me",
+          href: "https://www.google.com/maps/search/?api=1&query=LIA.me+Tarifa",
+          description: tarifaText(
+            "For us, the best Italian restaurant in Tarifa.",
+            "Für uns das beste italienische Restaurant in Tarifa.",
+            "Para nosotros, el mejor restaurante italiano de Tarifa.",
+            "Voor ons het beste Italiaanse restaurant in Tarifa.",
+            "För oss den bästa italienska restaurangen i Tarifa."
+          )
+        },
+        {
+          name: "OSTERIA DEL SOLE",
+          href: "https://www.google.com/maps/search/?api=1&query=OSTERIA+DEL+SOLE+Tarifa",
+          description: tarifaText(
+            "Italian cuisine in one of the loveliest chiringuitos, with ocean views.",
+            "Italienische Küche in einem der schönsten Chiringuitos mit Meerblick.",
+            "Cocina italiana en uno de los chiringuitos más bonitos, con vistas al mar.",
+            "Italiaanse keuken in een van de leukste chiringuitos met uitzicht op zee.",
+            "Italiensk mat i en av de trevligaste chiringuitos med havsutsikt."
+          )
+        },
+        {
+          name: "Silos 19",
+          href: "https://www.google.com/maps/search/?api=1&query=Silos+19+Tarifa",
+          description: tarifaText(
+            "Modern Andalusian cuisine in an elegant atmosphere.",
+            "Moderne andalusische Küche in eleganter Atmosphäre.",
+            "Cocina andaluza moderna en un ambiente elegante.",
+            "Moderne Andalusische keuken in een elegante sfeer.",
+            "Modern andalusisk mat i en elegant atmosfär."
+          )
+        },
+        {
+          name: "Boccabuena Plaza",
+          href: "https://www.google.com/maps/search/?api=1&query=Boccabuena+Plaza+Tarifa",
+          description: tarifaText(
+            "Set on a car-free plaza in the heart of the old town, making it a relaxed choice for families with young children.",
+            "Perfekt für Familien an einer ruhigen, sicheren Plaza.",
+            "Perfecto para familias en una plaza tranquila y segura.",
+            "Perfect voor gezinnen aan een rustig en veilig plein.",
+            "Perfekt för familjer vid ett lugnt och tryggt torg."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Ice Cream",
+        "Eis",
+        "Heladerías",
+        "IJs",
+        "Glass"
+      ),
+      items: [
         {
           icon: 'store',
           title: tarifaText(

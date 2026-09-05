@@ -65,7 +65,7 @@ test('the guest access page stays focused on booking verification', async ({ pag
   // Since DR-GUEST-004 the guide name is the heading itself; the intro carries no second label.
   await expect(page.locator('.am-experience-app__intro strong')).toHaveCount(0);
   await expect(page.locator('main')).toContainText(
-    'Findet Informationen zu eurer Unterkunft, Wichtiges vor Ort und unsere persönlichen Insider-Tipps für eine besondere Zeit bei AMARA.'
+    'Findet Informationen zu eurer Unterkunft, Wichtiges vor Ort und unsere persönlichen Empfehlungen für eine besondere Zeit bei AMARA.'
   );
   await expect(page.locator('.am-experience-app__intro p')).toHaveCount(2);
   await expect(page.locator('.am-experience-app__intro p').nth(1)).toContainText(
@@ -95,7 +95,7 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page).toHaveURL(/\/en\/guest-guide\/access$/);
   await expect(page.locator('.am-experience-app__intro strong')).toHaveCount(0);
   await expect(page.locator('main')).toContainText(
-    'Access information about your accommodation, local essentials and our personal insider tips for a special stay with AMARA.'
+    'Access information about your accommodation, local essentials and our personal recommendations for a special stay with AMARA.'
   );
   await expect(page.locator('.am-experience-app__intro p').nth(1)).toContainText(
     'Use your guide before and during your stay. Enter the first name on your reservation and your arrival date.'
@@ -124,7 +124,7 @@ test('the protected AMARA stay hub contains the accommodation, local essentials 
   await expect(menuItems.nth(0)).toContainText('Eure Unterkunft Farah');
   await expect(menuItems.nth(1)).toContainText('Wichtiges vor Ort in Frigiliana');
   await expect(menuItems.nth(2)).toContainText('AMARA Experience');
-  await expect(menuItems.nth(2)).toContainText('Versteckte Schätze');
+  await expect(menuItems.nth(2)).toContainText('Frühstück · Restaurants');
   await expect(menuItems.nth(0)).toHaveAttribute(
     'href',
     '/de/gaesteguide/farah/unterkunft'
