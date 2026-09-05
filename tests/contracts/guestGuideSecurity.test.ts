@@ -2,13 +2,12 @@ import { expect, test } from '@playwright/test';
 import { guestGuideEntries } from '../../src/content/guestGuideEntries';
 import { guideHref } from '../../src/lib/guestGuideHref';
 import { SUPPORTED_LANGUAGES } from '../../src/lib/routeOwnership';
+import { staySearchHref, type StaySearchDestination } from '../../src/lib/staySearchHref';
 
+// Operator decision 2026-09-05: the Wi-Fi password of each accommodation is authored guest
+// content again, because the Guest Guide sits behind the booking check. Physical-access
+// secrets (doorbells, door and lockbox codes) stay out of the content.
 const PUBLIC_GUEST_SECRET_LABELS = [
-  /(?:wi-?fi )?password\s*:/i,
-  /wlan-passwort\s*:/i,
-  /contraseña(?: del wi-?fi)?\s*:/i,
-  /wifiwachtwoord\s*:/i,
-  /wi-?fi-lösenord\s*:/i,
   /doorbell/i,
   /klingel(?:nummer)?/i,
   /número (?:del )?timbre/i,
@@ -61,6 +60,30 @@ test('each accommodation hub exposes the stay, location essentials and personal 
     // Since DR-GUEST-004 the personal recommendations carry the AMARA Experience name inside the Guest Guide.
     expect(hub.menuLinks[2]?.title.en).toBe('AMARA Experience');
   }
+});
+
+test('each hub checks availability in the AMARA stay search with its destination preselected', () => {
+  const destinationByHub = new Map<string, StaySearchDestination>([
+    ['guestwelcome-frigiliana-farah', 'frigiliana'],
+    ['guestwelcome-frigiliana-lounis', 'frigiliana'],
+    ['guestwelcome-frigiliana-zaid', 'frigiliana'],
+    ['guestwelcome-frigiliana-maha', 'frigiliana'],
+    ['guestwelcome-nerja-playa', 'nerja'],
+    ['guestwelcome-tarifa-family-surf', 'tarifa']
+  ]);
+
+  for (const [hubSlug, destination] of destinationByHub) {
+    const hub = guestGuideEntries.find((entry) => entry.slug === hubSlug);
+    expect(hub?.type).toBe('hub');
+    if (hub?.type !== 'hub') continue;
+    for (const lang of SUPPORTED_LANGUAGES) {
+      // The guest stays on AMARA's own finder; the booking provider only appears at checkout.
+      expect(hub.ctaHref[lang]).toBe(staySearchHref(lang, destination));
+      expect(hub.ctaHref[lang]).not.toContain('lodgify');
+    }
+  }
+  expect(staySearchHref('de', 'frigiliana')).toBe('/de/unterkuenfte/suche?destination=frigiliana');
+  expect(staySearchHref('es', 'nerja')).toBe('/alojamientos/buscar?destination=nerja');
 });
 
 test('location essentials use the correct destination page and are not duplicated inside the stay', () => {

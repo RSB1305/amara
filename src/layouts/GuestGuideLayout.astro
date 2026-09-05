@@ -25,9 +25,19 @@ const pathname = Astro.url.pathname;
 const currentLang = normalizeLanguage(pageLang);
 const origin = Astro.url.origin;
 const head = resolveSeoHead(seo, origin, pathname, currentLang);
-import { experienceAccessHref } from '../../guest-experience/guide-routes.mjs';
+import {
+  GUEST_GUIDE_PAGES,
+  experienceAccessHref,
+  experienceGuideEntryHref
+} from '../../guest-experience/guide-routes.mjs';
 import { getAmaraExperienceContent } from '../content/amaraExperienceContent';
 const accessHref = experienceAccessHref(currentLang);
+// Every guide slug resolved to its address in this page's language. SmartBackButton
+// retraces the nav stack of slugs through this catalogue, so the back target is the
+// real localized page (DR-GUEST-004) and never a guessed `/<lang>/<slug>` path.
+const guidePaths = Object.fromEntries(
+  Object.keys(GUEST_GUIDE_PAGES).map((slug) => [slug, experienceGuideEntryHref(slug, currentLang)])
+);
 // The Guest Guide is the umbrella of the booked-guest area (DR-GUEST-004); its
 // localized name is owned by the access copy and reused here as the session brand.
 const guideBrand = getAmaraExperienceContent(currentLang).accessGuideLabel;
@@ -64,6 +74,8 @@ const logoutLabel: Record<AmaraLanguage, string> = {
       <slot />
     </div>
     <GuestGuideSupportFloat href={supportHref} label={supportLabel} />
+
+    <script type="application/json" data-am-guide-paths set:html={JSON.stringify(guidePaths)} />
 
     <script is:inline>
       (function () {

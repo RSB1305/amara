@@ -161,3 +161,22 @@ test('a legacy anonymous Guest Welcome URL redirects to the localized access pag
   await page.goto('/de/guestwelcome-frigiliana-farah');
   await expect(page).toHaveURL(/\/de\/gaesteguide\/zugang$/);
 });
+
+test('the back control on a guide page retraces the hub under its localized address', async ({ page }) => {
+  await page.route('**/api/guest/profile', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ firstName: 'Guest' })
+    });
+  });
+  await page.goto('/de/gaesteguide/zaid');
+  await page.locator('a.am-ios-item[href="/de/gaesteguide/frigiliana/wichtiges"]').click();
+  await expect(page).toHaveURL(/\/de\/gaesteguide\/frigiliana\/wichtiges$/);
+
+  // The nav stack holds the hub's slug; the back control must resolve it to the
+  // localized hub address, never to the legacy `/de/<slug>` path that redirects
+  // to the access page.
+  await page.locator('[data-smart-back]').click();
+  await expect(page).toHaveURL(/\/de\/gaesteguide\/zaid$/);
+});

@@ -1,5 +1,5 @@
 import type { GuestGuideAccordionItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
-import { buildBookingLandingUrl } from '../lib/directBooking';
+import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHref';
 
 const FRIGILIANA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
 const NEED_HELP: LocalizedText = {
@@ -87,14 +87,15 @@ const AMARA_SIGN_OFF: LocalizedText = {
   sv: 'Varma hälsningar,<br>Robert'
 };
 
-// Booking CTA must stay on the guide page's own language route (never hardcode one locale).
-function bookingCta(query: string): LocalizedText {
+// The availability CTA opens AMARA's own stay search in the guide page's language,
+// with the hub's destination preselected (never the booking provider's landing page).
+function searchCta(destination: StaySearchDestination): LocalizedText {
   return {
-    en: `${buildBookingLandingUrl('en')}?${query}`,
-    de: `${buildBookingLandingUrl('de')}?${query}`,
-    es: `${buildBookingLandingUrl('es')}?${query}`,
-    nl: `${buildBookingLandingUrl('nl')}?${query}`,
-    sv: `${buildBookingLandingUrl('sv')}?${query}`
+    en: staySearchHref('en', destination),
+    de: staySearchHref('de', destination),
+    es: staySearchHref('es', destination),
+    nl: staySearchHref('nl', destination),
+    sv: staySearchHref('sv', destination)
   };
 }
 
@@ -206,11 +207,11 @@ const sharedAmaraWifiItem: GuestGuideAccordionItem = {
   title: { en: 'Wi-Fi', de: 'WLAN', es: 'Wi-Fi', nl: 'Wifi', sv: 'Wi-Fi' },
   body: [
     {
-      en: 'Stay connected with high-speed Wi-Fi.<br>Network name: <strong>AMARA</strong><br><br>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.',
-      de: 'Bleibt mit Highspeed-WLAN verbunden.<br>Netzwerkname: <strong>AMARA</strong><br><br>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.',
-      es: 'Manteneos conectados con Wi-Fi de alta velocidad.<br>Nombre de la red: <strong>AMARA</strong><br><br>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.',
-      nl: 'Blijf verbonden met snelle wifi.<br>Netwerknaam: <strong>AMARA</strong><br><br>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.',
-      sv: 'Håll er uppkopplade med snabbt Wi-Fi.<br>Nätverksnamn: <strong>AMARA</strong><br><br>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.'
+      en: 'Stay connected with high-speed Wi-Fi.<br>Network name: <strong>AMARA</strong><br><br>Password: <strong>AMARA29788</strong>',
+      de: 'Bleibt mit Highspeed-WLAN verbunden.<br>Netzwerkname: <strong>AMARA</strong><br><br>Passwort: <strong>AMARA29788</strong>',
+      es: 'Manteneos conectados con Wi-Fi de alta velocidad.<br>Nombre de la red: <strong>AMARA</strong><br><br>Contraseña: <strong>AMARA29788</strong>',
+      nl: 'Blijf verbonden met snelle wifi.<br>Netwerknaam: <strong>AMARA</strong><br><br>Wachtwoord: <strong>AMARA29788</strong>',
+      sv: 'Håll er uppkopplade med snabbt Wi-Fi.<br>Nätverksnamn: <strong>AMARA</strong><br><br>Lösenord: <strong>AMARA29788</strong>'
     }
   ]
 };
@@ -823,7 +824,7 @@ const frigilianaFarahHub: GuestGuideEntry = {
       sv: 'Om Frigiliana får en plats i ert hjärta och ni vill stanna lite längre – nu eller vid ett framtida besök – välkomnar vi er varmt tillbaka. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
     }
   ],
-  ctaHref: bookingCta('adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306383&city=Frigiliana&children=0&infants=0&pets=0'),
+  ctaHref: searchCta('frigiliana'),
   ctaLabel: {
     en: 'Check Availability',
     de: 'Verfügbarkeit prüfen',
@@ -4772,7 +4773,7 @@ const frigilianaLounisHub: GuestGuideEntry = {
       sv: 'Om Frigiliana får en plats i ert hjärta och ni vill stanna lite längre – nu eller vid ett framtida besök – välkomnar vi er varmt tillbaka. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
     }
   ],
-  ctaHref: bookingCta('adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306383&city=Frigiliana&children=0&infants=0&pets=0'),
+  ctaHref: searchCta('frigiliana'),
   ctaLabel: {
     en: 'Check Availability',
     de: 'Verfügbarkeit prüfen',
@@ -4979,7 +4980,7 @@ const frigilianaZaidHub: GuestGuideEntry = {
       sv: 'Om Frigiliana får en plats i ert hjärta och ni vill stanna lite längre – nu eller vid ett framtida besök – välkomnar vi er varmt tillbaka. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
     }
   ],
-  ctaHref: bookingCta('adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306383&city=Frigiliana&children=0&infants=0&pets=0'),
+  ctaHref: searchCta('frigiliana'),
   ctaLabel: {
     en: 'Check Availability',
     de: 'Verfügbarkeit prüfen',
@@ -5180,7 +5181,7 @@ const frigilianaMahaHub: GuestGuideEntry = {
       sv: 'Om Frigiliana får en plats i ert hjärta och ni vill stanna lite längre – nu eller vid ett framtida besök – välkomnar vi er varmt tillbaka. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
     }
   ],
-  ctaHref: bookingCta('adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306383&city=Frigiliana&children=0&infants=0&pets=0'),
+  ctaHref: searchCta('frigiliana'),
   ctaLabel: {
     en: 'Check Availability',
     de: 'Verfügbarkeit prüfen',
@@ -5381,7 +5382,7 @@ const nerjaPlayaHub: GuestGuideEntry = {
       sv: 'Om Nerja får en plats i ert hjärta, välkomnar vi er gärna tillbaka igen. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
     }
   ],
-  ctaHref: bookingCta('adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6306298&city=Nerja&children=0&infants=0&pets=0'),
+  ctaHref: searchCta('nerja'),
   ctaLabel: {
     en: 'Check Availability',
     de: 'Verfügbarkeit prüfen',
@@ -5519,11 +5520,11 @@ const nerjaPlayaAccommodation: GuestGuideEntry = {
           title: { en: 'Wi-Fi', de: 'WLAN', es: 'Wi-Fi', nl: 'Wifi', sv: 'Wi-Fi' },
           body: [
             {
-              en: 'Stay connected with high-speed Wi-Fi during your stay.<br><br><strong>Network name:</strong><br>HUAWEI-2.4G-aB3Y<br><br>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.',
-              de: 'Während eures Aufenthalts steht euch schnelles WLAN zur Verfügung.<br><br><strong>Netzwerkname:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.',
-              es: 'Durante vuestra estancia tenéis acceso a Wi-Fi de alta velocidad.<br><br><strong>Nombre de la red:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.',
-              nl: 'Tijdens jullie verblijf is er snelle Wi-Fi beschikbaar.<br><br><strong>Netwerknaam:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.',
-              sv: 'Under er vistelse har ni tillgång till snabbt Wi-Fi.<br><br><strong>Nätverksnamn:</strong><br>HUAWEI-2.4G-aB3Y<br><br>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.'
+              en: 'Stay connected with high-speed Wi-Fi during your stay.<br><br><strong>Network name:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Password: <strong>k46n9jF6</strong>',
+              de: 'Während eures Aufenthalts steht euch schnelles WLAN zur Verfügung.<br><br><strong>Netzwerkname:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Passwort: <strong>k46n9jF6</strong>',
+              es: 'Durante vuestra estancia tenéis acceso a Wi-Fi de alta velocidad.<br><br><strong>Nombre de la red:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Contraseña: <strong>k46n9jF6</strong>',
+              nl: 'Tijdens jullie verblijf is er snelle Wi-Fi beschikbaar.<br><br><strong>Netwerknaam:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Wachtwoord: <strong>k46n9jF6</strong>',
+              sv: 'Under er vistelse har ni tillgång till snabbt Wi-Fi.<br><br><strong>Nätverksnamn:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Lösenord: <strong>k46n9jF6</strong>'
             },
           ]
         },

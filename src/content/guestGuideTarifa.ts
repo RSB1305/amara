@@ -1,5 +1,5 @@
 import type { GuestGuideCategoryLinkItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
-import { buildBookingLandingUrl } from '../lib/directBooking';
+import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHref';
 
 const TARIFA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
 const TARIFA_GOOGLE_REVIEW_URL = 'https://g.page/r/CfOMtRVdxhzKEAE/review';
@@ -67,14 +67,15 @@ const TARIFA_EXPERIENCE_KITESURF_LINK: GuestGuideCategoryLinkItem = {
   }
 };
 
-// Booking CTA must stay on the guide page's own language route (never hardcode one locale).
-function bookingCta(query: string): LocalizedText {
+// The availability CTA opens AMARA's own stay search in the guide page's language,
+// with the hub's destination preselected (never the booking provider's landing page).
+function searchCta(destination: StaySearchDestination): LocalizedText {
   return {
-    en: `${buildBookingLandingUrl('en')}?${query}`,
-    de: `${buildBookingLandingUrl('de')}?${query}`,
-    es: `${buildBookingLandingUrl('es')}?${query}`,
-    nl: `${buildBookingLandingUrl('nl')}?${query}`,
-    sv: `${buildBookingLandingUrl('sv')}?${query}`
+    en: staySearchHref('en', destination),
+    de: staySearchHref('de', destination),
+    es: staySearchHref('es', destination),
+    nl: staySearchHref('nl', destination),
+    sv: staySearchHref('sv', destination)
   };
 }
 
@@ -257,7 +258,7 @@ const tarifaFamilySurfHub: GuestGuideEntry = {
       sv: 'Om Tarifa får en plats i ert hjärta, välkomnar vi er gärna tillbaka igen. Vår nuvarande och framtida tillgänglighet kan ni alltid se online.'
     }
   ],
-  ctaHref: bookingCta('adults=1&sort=price&selectedlocationid=0,67,0,1143,0,6320826&city=Tarifa&children=0&infants=0&pets=0'),
+  ctaHref: searchCta('tarifa'),
   ctaLabel: {
     en: 'Check Availability',
     de: 'Verfügbarkeit prüfen',
@@ -417,27 +418,27 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
           body: tarifaParagraphs({
             en: [
               `Stay connected with our high-speed fiber connection.`,
-              `Network name: <strong>AMARATarifa</strong><br>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.`,
+              `Network name: <strong>AMARATarifa</strong><br>Password: <strong>AMARA11380</strong>`,
               `If you prefer a wired connection, a USB-C to LAN adapter is available at the desk, offering speeds of up to 1 Gbps.`
             ],
             de: [
               `Bleibt in Verbindung mit unserem Highspeed-Glasfaseranschluss.`,
-              `Netzwerkname: <strong>AMARATarifa</strong><br>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.`,
+              `Netzwerkname: <strong>AMARATarifa</strong><br>Passwort: <strong>AMARA11380</strong>`,
               `Wenn ihr eine Kabelverbindung bevorzugt, liegt am Schreibtisch ein USB-C-auf-LAN-Adapter bereit, der Geschwindigkeiten von bis zu 1 Gbit/s bietet.`
             ],
             es: [
               `Manteneos conectados con nuestra conexión de fibra de alta velocidad.`,
-              `Nombre de red: <strong>AMARATarifa</strong><br>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.`,
+              `Nombre de red: <strong>AMARATarifa</strong><br>Contraseña: <strong>AMARA11380</strong>`,
               `Si preferís una conexión por cable, hay disponible un adaptador de USB-C a LAN en el escritorio, con velocidades de hasta 1 Gbps.`
             ],
             nl: [
               `Blijf verbonden met onze snelle glasvezelverbinding.`,
-              `Netwerknaam: <strong>AMARATarifa</strong><br>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.`,
+              `Netwerknaam: <strong>AMARATarifa</strong><br>Wachtwoord: <strong>AMARA11380</strong>`,
               `Als jullie de voorkeur geven aan een bekabelde verbinding, is er een USB-C-naar-LAN-adapter beschikbaar op het bureau, met snelheden tot 1 Gbps.`
             ],
             sv: [
               `Håll er uppkopplade med vår snabba fiberanslutning.`,
-              `Nätverksnamn: <strong>AMARATarifa</strong><br>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.`,
+              `Nätverksnamn: <strong>AMARATarifa</strong><br>Lösenord: <strong>AMARA11380</strong>`,
               `Om ni föredrar en trådbunden anslutning finns en USB-C till LAN-adapter vid skrivbordet, med hastigheter upp till 1 Gbps.`
             ]
           })
