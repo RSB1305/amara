@@ -1,6 +1,7 @@
 ---
 import type { LabeledLink } from '../../lib/linkResolver';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -33,11 +34,6 @@ const footerHighlights: LabeledLink[] = [
   { token: 'location_frigiliana', label: copy.footerHighlights.guide },
   { token: 'romantic_hideaways', label: copy.footerHighlights.stays }
 ];
-
-const heroImage = {
-  src: '/images/hero-frigiliana.jpg',
-  width: 1080
-};
 
 const routeIcons: Record<string, LocationGuideIconName> = {
   'cruz-de-pinto': 'walkable',
@@ -82,10 +78,9 @@ const combineIcons: Record<string, LocationGuideIconName> = {
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-        imageSrc={heroImage.src}
-        imageAlt={copy.hero.imageAlt}
-        imageWidth={heroImage.width}
-      />
+      >
+        <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Weg oberhalb von Frigiliana in der Sierra Almijara, Blick auf Dorf und Meer" format="hochkant 3:4" light="morgens" />
+      </LocationExperienceHero>
 
       {
         copy.routeSections.map((section, index) => (

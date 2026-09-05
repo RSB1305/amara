@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
@@ -47,12 +48,6 @@ const combineItems = copy.combine.items.map((item) => ({
   })
 }));
 
-const heroImage = {
-  src: '/images/amara-playa/apartment/chaparril-13.webp',
-  width: 1600,
-  sizes:
-    '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 40vw'
-};
 ---
 
 <LocationAuthorityLayout
@@ -77,11 +72,9 @@ const heroImage = {
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-        imageSrc={heroImage.src}
-        imageAlt={copy.hero.imageAlt}
-        imageWidth={heroImage.width}
-        imageSizes={heroImage.sizes}
-      />
+      >
+        <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Balcón de Europa bei Nacht, Lichter, Menschen" format="hochkant 3:4" light="blaue Stunde bis Nacht" />
+      </LocationExperienceHero>
 
       <AuthorityFeatureSection
         id="overview"

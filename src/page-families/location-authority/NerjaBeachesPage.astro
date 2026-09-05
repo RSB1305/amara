@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
@@ -32,10 +33,6 @@ const footerHighlights: LabeledLink[] = [
   { token: 'nerja_balcon_de_europa', label: copy.related.items[1].title }
 ];
 
-const heroImage = {
-  src: '/images/amara-playa/apartment/chaparril-22.webp',
-  width: 1920
-};
 ---
 
 <LocationAuthorityLayout seo={nerjaBeachesSeo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="experience-nerja-beaches">
@@ -49,10 +46,9 @@ const heroImage = {
       eyebrow={copy.hero.kicker}
       title={copy.hero.title}
       paragraphs={copy.hero.paragraphs}
-      imageSrc={heroImage.src}
-      imageAlt={copy.hero.imageAlt}
-      imageWidth={heroImage.width}
-    />
+    >
+      <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Playa de Burriana oder Playa Carabeo vom Weg oberhalb, Bucht und Wasser" format="hochkant 3:4" light="vormittags" />
+    </LocationExperienceHero>
 
     <AuthorityFeatureSection
       id="coast"

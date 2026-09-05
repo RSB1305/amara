@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
@@ -47,7 +48,6 @@ const footerHighlights: LabeledLink[] = [
   { token: 'nerja_beaches_authority', label: copy.related.items[0].title },
   { token: 'nerja_food_authority', label: copy.related.items[1].title }
 ];
-const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg', width: 2000 };
 ---
 
 <LocationAuthorityLayout seo={nerjaDayTripsSeo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="experience-nerja-day-trips">
@@ -61,10 +61,9 @@ const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpe
       eyebrow={copy.hero.kicker}
       title={copy.hero.title}
       paragraphs={copy.hero.paragraphs}
-      imageSrc={heroImage.src}
-      imageAlt={copy.hero.imageAlt}
-      imageWidth={heroImage.width}
-    />
+    >
+      <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Blick vom Balcón de Europa nach Osten zu den Klippen von Maro" format="hochkant 3:4" light="Tageslicht" />
+    </LocationExperienceHero>
 
     <AuthorityFeatureSection
       id="overview"

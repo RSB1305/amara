@@ -5,7 +5,7 @@
 // The page shell carries `am-tarifa-surface`, the opening is the panorama hero,
 // verified key figures follow, photographs run to the frame edge with copy panels
 // over their edges. Where the intended photograph does not exist yet, a photo
-// brief takes its slot (TarifaPhotoBrief) so the composition can be judged and the
+// brief takes its slot (PhotoBrief) so the composition can be judged and the
 // missing motif is named; the kite photograph stays only where wind is the topic.
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
@@ -25,7 +25,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import TarifaPhotoBrief from './TarifaPhotoBrief.astro';
+import PhotoBrief from './PhotoBrief.astro';
 
 interface Props {
   lang?: string;
@@ -112,7 +112,7 @@ const byline = tarifaLocationContent.seo.article
               </a>
             )}
           </div>
-          <TarifaPhotoBrief
+          <PhotoBrief
             class="am-bleed-end aspect-[3/2] lg:col-span-7"
             motif="Playa Chica mit dem Damm zur Isla de Tarifa, dahinter die Meerenge"
             format="quer 3:2"
@@ -134,7 +134,7 @@ const byline = tarifaLocationContent.seo.article
     <section id="arrival-mobility" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <TarifaPhotoBrief
+          <PhotoBrief
             class="am-bleed-start aspect-[4/5] lg:col-span-4"
             motif="Altstadtgasse mit Kopfsteinpflaster, Puerta de Jerez oder Calle Sancho IV"
             format="hochkant 4:5"
@@ -184,7 +184,7 @@ const byline = tarifaLocationContent.seo.article
     <section id="who-tarifa-suits" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
-          <TarifaPhotoBrief
+          <PhotoBrief
             class="am-bleed-start aspect-[4/5] lg:col-span-4 lg:sticky lg:top-32"
             motif="Ein Abend in der Altstadt oder in der Calle Batalla del Salado: Tisch, Licht, Leute"
             format="hochkant 4:5"
@@ -289,7 +289,7 @@ const byline = tarifaLocationContent.seo.article
     <!-- Close: evening panorama (photo brief), the sand panel with the closing line rises into it. -->
     <section id="experiences" class="scroll-mt-28 bg-surface">
       <AmaraMediaFrame role="panorama">
-        <TarifaPhotoBrief
+        <PhotoBrief
           class="h-full w-full"
           motif="Sonnenuntergang über Los Lances vom Strand oder vom Balkon, ohne Kites im Bild"
           format="Panorama quer, mindestens 3:2, wird auf 21:9 beschnitten"

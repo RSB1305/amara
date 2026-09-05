@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
 import AmaraStatusBadge from '../../components/chips/AmaraStatusBadge.astro';
@@ -46,10 +47,6 @@ const combineItems = copy.combine.items.map((item) => ({
   })
 }));
 
-const heroImage = {
-  src: '/images/hero-frigiliana.jpg',
-  width: 1080
-};
 ---
 
 <LocationAuthorityLayout
@@ -74,10 +71,9 @@ const heroImage = {
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-        imageSrc={heroImage.src}
-        imageAlt={copy.hero.imageAlt}
-        imageWidth={heroImage.width}
-      />
+      >
+        <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Festival de las 3 Culturas: Gasse mit Fahnen, Ständen und Menschen" format="hochkant 3:4" light="abends" />
+      </LocationExperienceHero>
 
       <AuthorityFeatureSection
         id="choose"
