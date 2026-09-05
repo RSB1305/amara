@@ -1,0 +1,325 @@
+---
+// Design Lab study: the Tarifa Location Hub in the "AMARA × Tarifa" art direction.
+// Muster 1 (Panorama hero, subject H1, light surfaces, interlocking text/image) was
+// chosen by the operator on 2026-09-05 from three static mockups. This page is
+// internal and experimental (DR-DESIGN-005): it avoids the public layouts but uses the
+// real Navigation, Footer and image pipeline so the AMARA chrome around the study is
+// genuine. Nothing here is promoted; promotion needs the owner touches recorded in the
+// study notes (Tarifa typographic surface, panorama hero variant, key-facts module).
+import '../../../styles/global.css';
+import Navigation from '../../../components/Navigation.astro';
+import Footer from '../../../components/Footer.astro';
+import AmaraImage from '../../../components/AmaraImage.astro';
+import TarifaContextNav from '../../../components/location/TarifaContextNav.astro';
+import { tarifaLocationContent } from '../../../content/tarifaLocationContent';
+import { createRequiredLinkResolver, type LinkToken } from '../../../lib/linkResolver';
+import heroImage from '../../../assets/images/content/tarifa/AM-3040_Andre_Magaro.jpg';
+import walkImage from '../../../assets/images/content/tarifa/kite-walking-out.jpg';
+import barImage from '../../../assets/images/content/tarifa/kite-bar-sand.jpg';
+import castleImage from '../../../assets/images/content/tarifa/_DCS1404_Sebastian_Lang.jpg';
+import stayImage from '../../../assets/images/home/amara-tarifa-apartment01.webp';
+import waveImage from '../../../assets/images/content/tarifa/kite-wave-turn.jpg';
+
+const lang = 'de' as const;
+const content = tarifaLocationContent.locales[lang];
+const link = createRequiredLinkResolver(lang, 'Design Lab Tarifa hub');
+const footerHighlights: { token: LinkToken; label: string }[] = [
+  { token: 'location_tarifa', label: 'Tarifa' },
+  { token: 'tarifa_where_to_stay', label: content.areas.link?.label ?? 'Wo wohnen' },
+  { token: 'tarifa_experience_hub', label: content.experience.links[0].label }
+];
+
+// Study copy that does not exist in the content module yet (hero and the shortened
+// geography intro). It becomes authored, five-language copy on promotion.
+const study = {
+  eyebrow: 'Tarifa · Atlantikküste · Lage & Aufenthalt',
+  title: 'Tarifa, Europas südlichste Festlandstadt',
+  lead: 'Atlantik im Westen, Meerenge im Osten, die Altstadt dazwischen. Und unser Apartment in La Marina.',
+  geographyTitle: 'Zwischen Atlantik und Meerenge',
+  geographyBody:
+    'Am Damm zur Isla de Tarifa liegt Playa Chica auf der Seite der Meerenge, während sich die lange Küste von Los Lances bis Valdevaqueros westwärts am Atlantik erstreckt. Der Ort selbst ist kompakt: Altstadt, neuerer Teil und Strandkante liegen für viele Alltagswege nah genug beieinander.',
+  walkCaption: 'Los Lances, Blick nach Westen. Die westlichen Strände und Bolonia brauchen einen eigenen Weg.',
+  castleCaption: 'Santa Catalina über der Isla. Im Winter gehört der Ort wieder den Leuten, die hier leben.',
+  kiteLink: 'Kitesurfen in Tarifa'
+};
+
+// Key figures from knowledge/facts/locations/tarifa/geography.ts
+// (coast.atlantic-mediterranean-lengths, europe-africa.minimum-distance, los-lances.protected-area).
+const keyFigures = [
+  { value: '33,5 km', label: 'Atlantikküste der Gemeinde' },
+  { value: '10,5 km', label: 'Mittelmeerküste der Gemeinde' },
+  { value: '14,4 km', label: 'Europa – Afrika an der engsten Stelle' },
+  { value: '226 ha', label: 'Naturschutzgebiet Playa de los Lances' }
+];
+const keyFiguresNote =
+  'Küstenlängen nach dem gemeindlichen Notfallplan, Abstand nach MITECO. Der Abstand gilt für die Meerenge, nicht für den Ort oder die Wohnung, und verspricht keine Sicht auf Afrika.';
+
+const winterQuote = content.winter.paragraphs[1].replace(/^Ab September wird es dann ruhiger\.\s*/, '');
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Design Lab · Tarifa-Hub · AMARA × Tarifa</title>
+  </head>
+  <body class="bg-surface font-body text-on-surface antialiased">
+    <div class="relative z-[10] pt-[104px] lg:pt-[112px]">
+      <Navigation currentLang={lang} contextDestination="tarifa" languageToken={tarifaLocationContent.token}>
+        <TarifaContextNav slot="context-navigation" activeId="overview" currentLabel="Tarifa" lang={lang} />
+      </Navigation>
+
+      <p class="am-text-label am-text-label--wide bg-surface-container-low px-6 py-3 text-primary md:px-12" aria-label="Interne Designstudie">
+        Design Lab · Tarifa-Hub · Muster 1 · Panorama, Themen-H1, hell, verzahnt
+      </p>
+
+      <main id="am-main-content" class="lab">
+        <article data-am-page="design-lab-tarifa-hub">
+          <!-- Panorama: image edge to edge, the sand copy panel pushes into it from bottom left. -->
+          <header class="lab-pano">
+            <AmaraImage
+              src={heroImage}
+              alt="Gelber Kite über türkisem Wasser vor Tarifa"
+              profile="hero"
+              class="lab-pano__img w-full object-cover"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+              focalPoint="50% 50%"
+            />
+            <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
+              <div class="lab-panel-up bg-surface">
+                <p class="am-text-eyebrow text-primary">{study.eyebrow}</p>
+                <h1 class="lab-display mt-5 text-on-surface">{study.title}</h1>
+                <p class="lab-lead mt-6 text-on-surface-variant">{study.lead}</p>
+                <p class="am-text-caption mt-6 normal-case tracking-normal text-muted">{content.hero.note} · {content.hero.updated}</p>
+              </div>
+            </div>
+          </header>
+
+          <!-- Key figures, light. -->
+          <section class="bg-surface px-6 pb-16 pt-12 md:px-12 md:pb-20" aria-label="Kennwerte">
+            <div class="mx-auto max-w-screen-2xl">
+              <dl class="lab-kpi">
+                {keyFigures.map((figure) => (
+                  <div>
+                    <dd class="lab-kpi__value text-on-surface">{figure.value}</dd>
+                    <dt class="lab-kpi__label text-on-surface-variant">{figure.label}</dt>
+                  </div>
+                ))}
+              </dl>
+              <p class="am-text-caption mt-10 max-w-3xl normal-case tracking-normal text-muted">{keyFiguresNote}</p>
+            </div>
+          </section>
+
+          <!-- Where you are: photo bleeds right, the white copy panel lies over its left edge. -->
+          <section id="geography-orientation" class="bg-surface-white px-6 pb-20 md:px-12 md:pb-28">
+            <div class="mx-auto max-w-screen-2xl">
+              <div class="lab-grid">
+                <div class="lab-c5 lab-over-r bg-surface-white">
+                  <p class="am-text-eyebrow text-primary">{content.geography.eyebrow}</p>
+                  <h2 class="lab-title mt-5 text-on-surface">{study.geographyTitle}</h2>
+                  <p class="am-text-body mt-6 max-w-2xl leading-relaxed text-on-surface-variant">{study.geographyBody}</p>
+                  {content.geography.link?.token && (
+                    <a href={link(content.geography.link.token)} class="am-cta-link mt-8 inline-flex">{content.geography.link.label}</a>
+                  )}
+                </div>
+                <figure class="lab-c7 lab-bleed-r">
+                  <AmaraImage src={walkImage} alt="Kiter geht mit Board am Strand von Los Lances ins Wasser" profile="hero" class="aspect-[3/2] h-full w-full object-cover" focalPoint="50% 55%" />
+                </figure>
+              </div>
+              <dl class="lab-markers lab-markers--over bg-surface-white">
+                {content.geography.markers.map((marker) => (
+                  <div>
+                    <dt class="am-text-label am-text-label--sm text-primary">{marker.label}</dt>
+                    <dd class="mt-2 text-on-surface">{marker.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p class="am-text-caption mt-4 normal-case tracking-normal text-muted">{study.walkCaption}</p>
+            </div>
+          </section>
+
+          <!-- Arrival: photo bleeds left, the sand copy panel pushes in from the right. -->
+          <section id="arrival-mobility" class="bg-surface px-6 py-20 md:px-12 md:py-28">
+            <div class="mx-auto max-w-screen-2xl">
+              <div class="lab-grid">
+                <figure class="lab-c4 lab-bleed-l">
+                  <AmaraImage src={barImage} alt="Kitebar im Sand von Los Lances" profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint="50% 50%" />
+                </figure>
+                <div class="lab-c8 lab-over-l bg-surface">
+                  <p class="am-text-eyebrow text-primary">{content.arrival.eyebrow}</p>
+                  <h2 class="lab-title mt-5 text-on-surface">{content.arrival.title}</h2>
+                  <div class="mt-6 max-w-3xl space-y-5">
+                    {content.arrival.paragraphs.slice(1).map((paragraph) => (
+                      <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+                    ))}
+                  </div>
+                  {content.arrival.link?.token && (
+                    <a href={link(content.arrival.link.token)} class="am-cta-link mt-8 inline-flex">{content.arrival.link.label}</a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Where to stay: text only, numbered. -->
+          <section id="where-to-stay" class="bg-surface-white px-6 py-20 md:px-12 md:py-28">
+            <div class="mx-auto max-w-screen-2xl">
+              <p class="am-text-eyebrow text-primary">{content.areas.eyebrow}</p>
+              <h2 class="lab-title lab-title--lg mt-5 max-w-4xl text-on-surface">{content.areas.title}</h2>
+              <p class="lab-lead mt-6 max-w-2xl text-on-surface-variant">{content.areas.paragraphs[0]}</p>
+              <div class="lab-areas">
+                {content.areas.archetypes.map((archetype, index) => (
+                  <div>
+                    <span class="am-text-label am-text-label--wide text-primary">{String(index + 1).padStart(2, '0')}</span>
+                    <h3 class="lab-area mt-4 text-on-surface">{archetype.title}</h3>
+                    <p class="mt-3 text-on-surface-variant">{archetype.consequence}</p>
+                  </div>
+                ))}
+              </div>
+              {content.areas.link?.token && (
+                <a href={link(content.areas.link.token)} class="am-cta-link mt-12 inline-flex">{content.areas.link.label}</a>
+              )}
+            </div>
+          </section>
+
+          <!-- From September: the serif quote reaches into the photo column, the portrait hangs into the next section. -->
+          <section id="from-september" class="bg-surface px-6 pt-20 md:px-12 md:pt-28">
+            <div class="mx-auto max-w-screen-2xl">
+              <div class="lab-grid lab-grid--top">
+                <div class="lab-c7 lg:pt-8">
+                  <p class="am-text-eyebrow text-primary">{content.winter.eyebrow}</p>
+                  <h2 class="lab-title mt-5 text-on-surface">{content.winter.title}</h2>
+                  <p class="lab-quote lab-quote--over mt-8 bg-surface text-on-surface">{winterQuote}</p>
+                  <p class="am-text-body mt-8 max-w-2xl leading-relaxed text-on-surface-variant">{content.winter.paragraphs[2]}</p>
+                  {content.weather.link?.token && (
+                    <a href={link(content.weather.link.token)} class="am-cta-link mt-8 inline-flex">{content.weather.link.label}</a>
+                  )}
+                </div>
+                <figure class="lab-c5 lab-bleed-r lab-hang">
+                  <AmaraImage src={castleImage} alt="Castillo de Santa Catalina über Tarifa" profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint="50% 40%" />
+                </figure>
+              </div>
+            </div>
+          </section>
+
+          <!-- The stay: photo bleeds left, facts as a white panel over its edge. -->
+          <section id="amara-family-surf" class="bg-surface-white px-6 pb-20 pt-24 md:px-12 md:pb-28 lg:pt-36">
+            <div class="mx-auto max-w-screen-2xl">
+              <div class="lab-grid">
+                <figure class="lab-c6 lab-bleed-l">
+                  <AmaraImage src={stayImage} alt={content.amara.imageAlt} profile="hero" class="aspect-[4/3] h-full w-full object-cover" focalPoint="50% 50%" />
+                </figure>
+                <div class="lab-c6 lab-over-l bg-surface-white">
+                  <p class="am-text-eyebrow text-primary">{content.amara.eyebrow}</p>
+                  <h2 class="lab-title mt-5 text-on-surface">{content.amara.title}</h2>
+                  <p class="am-text-body mt-6 max-w-2xl leading-relaxed text-on-surface-variant">{content.amara.paragraphs[1]}</p>
+                  <ul class="lab-facts mt-8">
+                    {content.amara.facts.map((fact) => <li>{fact}</li>)}
+                  </ul>
+                  {content.amara.link && (
+                    <a href={link('tarifa')} class="am-btn am-btn--primary mt-10">{content.amara.link.label}</a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Close: bright wave edge to edge, the white quote panel pushes up into it. -->
+          <section id="closing" class="lab-close bg-surface-white">
+            <AmaraImage src={waveImage} alt="Kiter dreht in der Welle vor Tarifa" profile="background" class="lab-close__img w-full object-cover" focalPoint="50% 45%" />
+            <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
+              <div class="lab-panel-up bg-surface-white">
+                <p class="am-text-eyebrow text-primary">{content.experience.eyebrow}</p>
+                {content.closing && (
+                  <>
+                    <p class="lab-quote mt-5 max-w-3xl text-on-surface">{content.closing.title}</p>
+                    <p class="lab-lead mt-5 max-w-2xl text-on-surface-variant">{content.closing.lead}</p>
+                  </>
+                )}
+                <div class="mt-4 flex flex-wrap gap-x-8 gap-y-4">
+                  {content.experience.links.map((item) => (
+                    <a href={link(item.token!)} class="am-cta-link">{item.label}</a>
+                  ))}
+                  <a href={link('tarifa_kitesurfing_hub')} class="am-cta-link">{study.kiteLink}</a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </article>
+      </main>
+
+      <Footer currentLang={lang} highlights={footerHighlights} />
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  /* Design Lab study styles. Global on purpose: several rules address the <img> that
+   * AmaraImage renders, which Astro scoping cannot reach. Everything is prefixed
+   * `lab-` and lives only on this internal page. On promotion the type steps become
+   * roles in global.css (Tarifa surface, sans display) and the geometry moves into
+   * the family owners (panorama hero, key-facts module, bleed/overlap section variant). */
+  .lab {
+    --lab-edge: max(1.5rem, calc((100vw - 96rem) / 2 + 1.5rem));
+    overflow-x: clip;
+  }
+  @media (min-width: 768px) {
+    .lab { --lab-edge: max(3rem, calc((100vw - 96rem) / 2 + 3rem)); }
+  }
+
+  /* Sans hierarchy for Tarifa: same typefaces, inverted ratio (serif only for quotes). */
+  /* Two visible lines for the subject H1 at the reference desktop viewport (TR §6). */
+  .lab-display { font-family: var(--font-body); font-size: clamp(2.5rem, 4.4vw, 4.25rem); font-weight: 700; line-height: 1; letter-spacing: -0.035em; text-wrap: balance; }
+  .lab-title { font-family: var(--font-body); font-size: clamp(1.75rem, 3.1vw, 2.75rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.025em; text-wrap: balance; }
+  .lab-title--lg { font-size: clamp(2.25rem, 4.2vw, 3.75rem); letter-spacing: -0.03em; }
+  .lab-area { font-family: var(--font-body); font-size: 1.5rem; font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+  .lab-lead { font-family: var(--font-body); font-size: clamp(1.125rem, 1.4vw, 1.35rem); font-weight: 400; line-height: 1.5; }
+  .lab-quote { font-family: var(--font-headline); font-style: italic; font-weight: 300; font-size: clamp(1.75rem, 3.4vw, 3rem); line-height: 1.15; text-wrap: balance; }
+
+  /* Panorama hero. */
+  .lab-pano__img { aspect-ratio: 4 / 5; }
+  @media (min-width: 640px) { .lab-pano__img { aspect-ratio: 16 / 9; } }
+  @media (min-width: 1024px) { .lab-pano__img { aspect-ratio: 21 / 9; } }
+  .lab-panel-up { padding: 2.75rem 0 3rem; }
+
+  /* Close. */
+  .lab-close__img { aspect-ratio: 4 / 5; }
+  @media (min-width: 640px) { .lab-close__img { aspect-ratio: 16 / 9; } }
+  @media (min-width: 1024px) { .lab-close__img { aspect-ratio: 21 / 9; } }
+
+  /* Key figures. */
+  .lab-kpi { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.25rem 2rem; margin: 0; }
+  @media (min-width: 900px) { .lab-kpi { grid-template-columns: repeat(4, 1fr); } }
+  .lab-kpi__value { margin: 0; font-family: var(--font-body); font-size: clamp(2.5rem, 5.4vw, 5rem); font-weight: 700; line-height: 1; letter-spacing: -0.045em; }
+  .lab-kpi__label { margin-top: 0.8rem; max-width: 14rem; font-family: var(--font-label); font-size: 0.75rem; line-height: 1.5; letter-spacing: 0.12em; text-transform: uppercase; }
+
+  /* Composition grid, mobile first: stacked; twelve columns from lg. */
+  .lab-grid { display: grid; gap: 2.5rem; }
+  .lab-markers { display: grid; gap: 1.25rem 2rem; margin: 3rem 0 0; }
+  @media (min-width: 768px) { .lab-markers { grid-template-columns: repeat(3, 1fr); } }
+  .lab-areas { display: grid; gap: 2.5rem 3rem; margin-top: 3.5rem; }
+  @media (min-width: 768px) { .lab-areas { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1200px) { .lab-areas { grid-template-columns: repeat(4, 1fr); } }
+  .lab-facts { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: 0.75rem; }
+  .lab-facts li { position: relative; padding-left: 1.25rem; }
+  .lab-facts li::before { content: ""; position: absolute; left: 0; top: 0.75em; width: 0.5rem; height: 1px; background: var(--color-primary); }
+  .lab-bleed-r { margin-right: calc(-1 * var(--lab-edge)); }
+  .lab-bleed-l { margin-left: calc(-1 * var(--lab-edge)); }
+
+  /* Interlocking text and image, from lg only. */
+  @media (min-width: 1024px) {
+    .lab-grid { grid-template-columns: repeat(12, 1fr); gap: 4rem; align-items: center; }
+    .lab-grid--top { align-items: start; }
+    .lab-c4 { grid-column: span 4; } .lab-c5 { grid-column: span 5; } .lab-c6 { grid-column: span 6; } .lab-c7 { grid-column: span 7; } .lab-c8 { grid-column: span 8; }
+    .lab-over-r { position: relative; z-index: 2; margin-right: -7rem; padding: 2.75rem 3rem 2.75rem 0; }
+    .lab-over-l { position: relative; z-index: 2; margin-left: -7rem; padding: 2.75rem 0 2.75rem 3rem; }
+    .lab-hang { position: relative; z-index: 1; margin-bottom: -5rem; }
+    .lab-panel-up { position: relative; z-index: 2; margin-top: -8rem; max-width: 70%; margin-left: calc(-1 * var(--lab-edge)); padding: 3rem 3.5rem 1rem var(--lab-edge); }
+    .lab-quote--over { position: relative; z-index: 2; margin-right: -11rem; padding-right: 2.5rem; max-width: 30ch; }
+    .lab-markers--over { position: relative; z-index: 2; margin-top: -4.5rem; max-width: 58rem; padding: 2.25rem 2.5rem 0 0; }
+  }
+</style>
