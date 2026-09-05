@@ -1232,6 +1232,8 @@
  * serif display italic through a call-site utility, and utilities beat layered rules.
  * Inside the Tarifa surface the display is the upright functional sans, so this one
  * unlayered rule wins that conflict instead of every Tarifa consumer having to know it. */
-.am-tarifa-surface .am-text-display {
+.am-tarifa-surface .am-text-display,
+.am-tarifa-surface .am-text-title,
+.am-tarifa-surface .am-text-subtitle {
   font-style: normal;
 }
