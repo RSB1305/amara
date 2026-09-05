@@ -534,11 +534,11 @@ const definitions = [
     parent: 'tarifa.experience',
     props: { spoke: 'food-evening-life' },
     segment: {
-      es: 'gastronomia-y-noche',
-      en: 'food-and-evenings',
-      de: 'essen-und-abende',
-      nl: 'eten-en-avonden',
-      sv: 'mat-och-kvallar'
+      es: 'comer-y-salir',
+      en: 'food-and-going-out',
+      de: 'essen-und-ausgehen',
+      nl: 'eten-en-uitgaan',
+      sv: 'mat-och-uteliv'
     }
   },
   {
