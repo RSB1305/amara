@@ -101,7 +101,7 @@ test('the guest access page stays focused on booking verification', async ({ pag
     'Use your guide before and during your stay. Enter the first name on your reservation and your arrival date.'
   );
   await expect(page.locator('[data-am-experience-landing-link]'))
-    .toHaveAttribute('href', '/en/guest-guide');
+    .toHaveAttribute('href', '/en/about-us/guest-guide');
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveText('← Learn more about the AMARA Guest Guide');
   await expect(page.locator('header > nav')).toHaveCount(0);
