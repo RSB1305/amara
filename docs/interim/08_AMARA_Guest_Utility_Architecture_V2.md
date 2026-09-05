@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
 title: AMARA Guest Utility Architecture V2.11
-version: 2.11.0
+version: 2.12.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-05T12:30:00+02:00
+last_modified: 2026-09-05T20:30:00+02:00
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -221,6 +221,39 @@ pages inside the marked Astro section, the access and guide roots and the guide 
 because guests hold these links in their booking e-mails. Booking-platform message templates outside the
 repository must be updated by the operator.
 
+## Approved repository amendment — honest promise, destination-first recommendations and fact projection
+
+Since 2026-09-05 (DR-GUEST-005) the personal-recommendations entry promises only what the guide delivers.
+The hub card subtitle lists the covered topics per destination, and the landing page, the access page and the
+recommendation pages speak of personal recommendations, local favourites and lesser-known places. The phrase
+"hidden treasures, insider tips, authentic local food and experiences away from the busiest routes" in the
+2.5.0 amendment above is superseded; the three-entry hub structure is unchanged.
+
+Every stay hub opens the recommendations page of its own destination first. The Frigiliana stays open
+`frigiliana-guest-recommendations` (Frigiliana listed before Nerja); AMARA Playa opens
+`nerja-guest-recommendations` (`/de/gaesteguide/nerja/experience`, mapped in `guide-routes.mjs` as destination
+`nerja`, topic `experience`) with the Nerja forecast and Nerja topics first, and the Nerja sub-pages use it as
+their return target. The entry count stays at 36 because the "coming soon" placeholder
+`frigiliana-guest-flamenco-bachata` was removed; its legacy paths redirect to the recommendations page.
+Placeholder pages are not published in the guide.
+
+Guide cards direct and help execute (Section 2). A card therefore never tells the guest to search Google
+Maps, Google or Komoot for a term. It names the place or provider with its map link, links the official route
+page, or, where AMARA has no verified provider yet, says that the host will name one on request. Tarifa
+venue lists are rendered as one card per venue through `tarifaVenueCards`, whose trailing map link the
+accordion lifts into the row pin.
+
+Verified facts from `knowledge/` may be projected into an existing card together with their observation
+date and check note (seasonal beach access and shuttles, official route length and duration, published
+opening hours and closing days, a dated car-park tariff, shop addresses). This projection does not change the
+content owner defined in the AMARA Experience Knowledge Product contract; adding a new venue or provider
+remains an approval under DR-EXPERIENCE-004.
+
+By operator decision of 2026-09-05 the Wi-Fi network name and password of each stay are authored guest
+content, because the guide is delivered only behind the booking check. The secret prohibition of the 2.2.0
+amendment continues to cover doorbell, door, lockbox and alarm codes, and the contract test
+`guestGuideSecurity.test.ts` enforces exactly that boundary.
+
 ## Revision history
 
 | Version | Timestamp | Change |
@@ -237,3 +270,4 @@ repository must be updated by the operator.
 | 2.9.0 | 2026-09-01T17:48:21+02:00 | Reduced guest-supplied access to booking-holder first name plus arrival date while retaining exact unique-match, fail-closed and server-owned departure-expiry semantics. |
 | 2.10.0 | 2026-09-01T18:00:51+02:00 | Added the booking holder's first name as the sole protected presentation field on every accommodation hub, with a native five-locale `Dear Guest` fallback. |
 | 2.11.0 | 2026-09-05T12:30:00+02:00 | Renamed the booked-guest umbrella to AMARA Guest Guide in five locales, made AMARA Experience the name of the personal-recommendations entry, replaced the guest-area paths with one localized system (`/de/gaesteguide/zaid`, `…/zaid/unterkunft`, `…/frigiliana/straende`) owned by `guest-experience/guide-routes.mjs` across pages, Functions, `_routes.json`, language switcher, route policy and audit, and redirected every previous path. |
+| 2.12.0 | 2026-09-05T20:30:00+02:00 | Bound the personal-recommendations promise to the delivered topics, superseded the hidden-treasures wording, added the Nerja-first recommendations page and its return targets, removed the flamenco placeholder, prohibited "search Google/Komoot" instructions in cards, introduced per-venue Tarifa cards, allowed dated knowledge-fact projection into existing cards and recorded the Wi-Fi password exception to the secret boundary. |
