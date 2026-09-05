@@ -307,13 +307,35 @@ const definitions = [
     parent: 'stays',
     segment: shared('casa-amara')
   },
-  // Branded stays live inside the localized stays silo, mirroring their
-  // breadcrumb parent by construction: /alojamientos/la-amara-farah,
-  // /de/unterkuenfte/la-amara-farah, and so on. The stay name is a shared brand
-  // identity, so the own segment is the same in every locale while the parent
-  // prefix localizes. The route key equals the stay slug; the flat pre-silo path
-  // is the legacy slug that drives the migration redirect.
-  ...['la-amara-farah', 'la-amara-lounis', 'la-amara-zaid', 'la-amara-maha', 'la-amara-playa', 'la-amara-family-and-surf'].map(
+  // Location collections inside the stays silo (Unterkünfte → Ort → Objekt).
+  // The location segment is a shared place identity; the collection page lists
+  // the stays whose city matches. Nerja and Tarifa follow the same shape once
+  // their collection pages are authored.
+  {
+    key: 'stays.frigiliana',
+    legacySlug: 'stays-frigiliana',
+    family: 'stays-in-location',
+    parent: 'stays',
+    props: { location: 'frigiliana' },
+    segment: shared('frigiliana')
+  },
+  // Branded stays nest under their location collection, mirroring their
+  // breadcrumb by construction: /de/unterkuenfte/frigiliana/la-amara-farah. The
+  // stay name is a shared brand identity, so the own segment is the same in
+  // every locale while the parent chain localizes. The route key equals the stay
+  // slug; the flat pre-silo path is the legacy slug that drives the migration.
+  ...['la-amara-farah', 'la-amara-lounis', 'la-amara-zaid', 'la-amara-maha'].map(
+    (slug) => ({
+      key: slug,
+      legacySlug: slug,
+      family: 'vacation-rental',
+      parent: 'stays.frigiliana',
+      segment: shared(slug)
+    })
+  ),
+  // Nerja and Tarifa stays stay directly under the stays hub until their own
+  // location collections are added (then they nest identically to Frigiliana).
+  ...['la-amara-playa', 'la-amara-family-and-surf'].map(
     (slug) => ({
       key: slug,
       legacySlug: slug,

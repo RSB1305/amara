@@ -67,6 +67,7 @@ interface AmaraPageFamilyProfile {
 export const AMARA_PAGE_FAMILY_PROFILES = {
   home: { type: 'explore', tier: 'approved' },
   'romantic-hideaways': { type: 'conversion', tier: 'approved', conversionOwnership: 'family-owned' },
+  'stays-in-location': { type: 'conversion', tier: 'approved', conversionOwnership: 'family-owned' },
   'comfort-amenities': { type: 'trust', tier: 'approved' },
   'group-stays': { type: 'conversion', tier: 'approved', conversionOwnership: 'page-end-owned' },
   'general-faq': { type: 'authority', tier: 'approved' },

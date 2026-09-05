@@ -66,10 +66,10 @@ const approvedBookingRedirects = new Map([
 ]);
 
 const approvedPropertyAliasRedirects = new Map([
-  ['/en/la-amara-farah-romantic-double-retreat', '/en/stays/la-amara-farah'],
-  ['/en/la-amara-lounis-historic-romantic-stay', '/en/stays/la-amara-lounis'],
-  ['/nl/la-amara-lounis-historic-romantic-stay', '/nl/verblijven/la-amara-lounis'],
-  ['/sv/la-amara-lounis-casa-rural-frigiliana', '/sv/boenden/la-amara-lounis'],
+  ['/en/la-amara-farah-romantic-double-retreat', '/en/stays/frigiliana/la-amara-farah'],
+  ['/en/la-amara-lounis-historic-romantic-stay', '/en/stays/frigiliana/la-amara-lounis'],
+  ['/nl/la-amara-lounis-historic-romantic-stay', '/nl/verblijven/frigiliana/la-amara-lounis'],
+  ['/sv/la-amara-lounis-casa-rural-frigiliana', '/sv/boenden/frigiliana/la-amara-lounis'],
   [
     '/en/la-amara-family-surf-with-oceanview-and-pool',
     '/en/stays/la-amara-family-and-surf'

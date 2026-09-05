@@ -309,29 +309,36 @@
 /es/romantic-hideaways /alojamientos 301
 /es/directions-arrival-guide /frigiliana/llegada-al-apartamento 301
 /es/instagram /instagram 301
-# Stays moved into the localized stays silo 2026-09-05 (Katalog model).
-# Every flat pre-silo path 301s to its nested owner in the same locale; the flat
-# slugs are printed in guest material, so they keep resolving.
-/la-amara-farah /alojamientos/la-amara-farah 301
-/en/la-amara-farah /en/stays/la-amara-farah 301
-/de/la-amara-farah /de/unterkuenfte/la-amara-farah 301
-/nl/la-amara-farah /nl/verblijven/la-amara-farah 301
-/sv/la-amara-farah /sv/boenden/la-amara-farah 301
-/la-amara-lounis /alojamientos/la-amara-lounis 301
-/en/la-amara-lounis /en/stays/la-amara-lounis 301
-/de/la-amara-lounis /de/unterkuenfte/la-amara-lounis 301
-/nl/la-amara-lounis /nl/verblijven/la-amara-lounis 301
-/sv/la-amara-lounis /sv/boenden/la-amara-lounis 301
-/la-amara-zaid /alojamientos/la-amara-zaid 301
-/en/la-amara-zaid /en/stays/la-amara-zaid 301
-/de/la-amara-zaid /de/unterkuenfte/la-amara-zaid 301
-/nl/la-amara-zaid /nl/verblijven/la-amara-zaid 301
-/sv/la-amara-zaid /sv/boenden/la-amara-zaid 301
-/la-amara-maha /alojamientos/la-amara-maha 301
-/en/la-amara-maha /en/stays/la-amara-maha 301
-/de/la-amara-maha /de/unterkuenfte/la-amara-maha 301
-/nl/la-amara-maha /nl/verblijven/la-amara-maha 301
-/sv/la-amara-maha /sv/boenden/la-amara-maha 301
+# Stays live inside the localized stays silo (2026-09-05). Frigiliana stays nest
+# one level deeper under their location collection (Unterkuenfte -> Frigiliana ->
+# Objekt); Nerja and Tarifa stays sit directly under the stays hub for now. Every
+# flat pre-silo path 301s to its current owner in the same locale; the flat slugs
+# are printed in guest material, so they keep resolving.
+/stays-frigiliana /alojamientos/frigiliana 301
+/en/stays-frigiliana /en/stays/frigiliana 301
+/de/stays-frigiliana /de/unterkuenfte/frigiliana 301
+/nl/stays-frigiliana /nl/verblijven/frigiliana 301
+/sv/stays-frigiliana /sv/boenden/frigiliana 301
+/la-amara-farah /alojamientos/frigiliana/la-amara-farah 301
+/en/la-amara-farah /en/stays/frigiliana/la-amara-farah 301
+/de/la-amara-farah /de/unterkuenfte/frigiliana/la-amara-farah 301
+/nl/la-amara-farah /nl/verblijven/frigiliana/la-amara-farah 301
+/sv/la-amara-farah /sv/boenden/frigiliana/la-amara-farah 301
+/la-amara-lounis /alojamientos/frigiliana/la-amara-lounis 301
+/en/la-amara-lounis /en/stays/frigiliana/la-amara-lounis 301
+/de/la-amara-lounis /de/unterkuenfte/frigiliana/la-amara-lounis 301
+/nl/la-amara-lounis /nl/verblijven/frigiliana/la-amara-lounis 301
+/sv/la-amara-lounis /sv/boenden/frigiliana/la-amara-lounis 301
+/la-amara-zaid /alojamientos/frigiliana/la-amara-zaid 301
+/en/la-amara-zaid /en/stays/frigiliana/la-amara-zaid 301
+/de/la-amara-zaid /de/unterkuenfte/frigiliana/la-amara-zaid 301
+/nl/la-amara-zaid /nl/verblijven/frigiliana/la-amara-zaid 301
+/sv/la-amara-zaid /sv/boenden/frigiliana/la-amara-zaid 301
+/la-amara-maha /alojamientos/frigiliana/la-amara-maha 301
+/en/la-amara-maha /en/stays/frigiliana/la-amara-maha 301
+/de/la-amara-maha /de/unterkuenfte/frigiliana/la-amara-maha 301
+/nl/la-amara-maha /nl/verblijven/frigiliana/la-amara-maha 301
+/sv/la-amara-maha /sv/boenden/frigiliana/la-amara-maha 301
 /la-amara-playa /alojamientos/la-amara-playa 301
 /en/la-amara-playa /en/stays/la-amara-playa 301
 /de/la-amara-playa /de/unterkuenfte/la-amara-playa 301
@@ -343,28 +350,28 @@
 /nl/la-amara-family-and-surf /nl/verblijven/la-amara-family-and-surf 301
 /sv/la-amara-family-and-surf /sv/boenden/la-amara-family-and-surf 301
 
-# es-prefixed and misspelled stay aliases now point straight at the silo owner.
-/es/la-amara-farah /alojamientos/la-amara-farah 301
-/es/la-amara-lounis /alojamientos/la-amara-lounis 301
-/es/la-amara-zaid /alojamientos/la-amara-zaid 301
-/es/la-amara-maha /alojamientos/la-amara-maha 301
+# es-prefixed and misspelled stay aliases point straight at the current owner.
+/es/la-amara-farah /alojamientos/frigiliana/la-amara-farah 301
+/es/la-amara-lounis /alojamientos/frigiliana/la-amara-lounis 301
+/es/la-amara-zaid /alojamientos/frigiliana/la-amara-zaid 301
+/es/la-amara-maha /alojamientos/frigiliana/la-amara-maha 301
 /es/la-amara-playa /alojamientos/la-amara-playa 301
 /es/la-amara-family-and-surf /alojamientos/la-amara-family-and-surf 301
 /es/lla-amara-family-and-surf /alojamientos/la-amara-family-and-surf 301
-/nl/de-amara-zaid /nl/verblijven/la-amara-zaid 301
+/nl/de-amara-zaid /nl/verblijven/frigiliana/la-amara-zaid 301
 /sv/la-amara-playa%20 /sv/boenden/la-amara-playa 301
-/en/la-amara-farah-romantic-double-retreat /en/stays/la-amara-farah 301
-/en/la-amara-lounis-historic-romantic-stay /en/stays/la-amara-lounis 301
-/nl/la-amara-lounis-historic-romantic-stay /nl/verblijven/la-amara-lounis 301
-/sv/la-amara-lounis-casa-rural-frigiliana /sv/boenden/la-amara-lounis 301
+/en/la-amara-farah-romantic-double-retreat /en/stays/frigiliana/la-amara-farah 301
+/en/la-amara-lounis-historic-romantic-stay /en/stays/frigiliana/la-amara-lounis 301
+/nl/la-amara-lounis-historic-romantic-stay /nl/verblijven/frigiliana/la-amara-lounis 301
+/sv/la-amara-lounis-casa-rural-frigiliana /sv/boenden/frigiliana/la-amara-lounis 301
 /en/la-amara-family-surf-with-oceanview-and-pool /en/stays/la-amara-family-and-surf 301
 /sv/amara-family-surf-with-oceanview-and-pool /sv/boenden/la-amara-family-and-surf 301
 
 # Apartment listing legacy URLs
-/es/la-amara-farah-habitacion-doble-romantica /alojamientos/la-amara-farah 301
-/es/la-amara-lounis-apartamento-historico /alojamientos/la-amara-lounis 301
-/es/la-amara-zaid-refugio-romantico-con-terraza /alojamientos/la-amara-zaid 301
-/es/la-amara-maha-apartamento-con-gran-terraza /alojamientos/la-amara-maha 301
+/es/la-amara-farah-habitacion-doble-romantica /alojamientos/frigiliana/la-amara-farah 301
+/es/la-amara-lounis-apartamento-historico /alojamientos/frigiliana/la-amara-lounis 301
+/es/la-amara-zaid-refugio-romantico-con-terraza /alojamientos/frigiliana/la-amara-zaid 301
+/es/la-amara-maha-apartamento-con-gran-terraza /alojamientos/frigiliana/la-amara-maha 301
 /es/la-amara-playa-apartamento-nerja /alojamientos/la-amara-playa 301
 /es/amara-casa-familiar-con-vista-al-mar-y-piscina /alojamientos/la-amara-family-and-surf 301
 
