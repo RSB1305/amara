@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
 title: AMARA Guest Utility Architecture V2.11
-version: 2.11.0
+version: 2.12.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -221,6 +221,24 @@ pages inside the marked Astro section, the access and guide roots and the guide 
 because guests hold these links in their booking e-mails. Booking-platform message templates outside the
 repository must be updated by the operator.
 
+## Approved repository amendment — Guest Wi-Fi credentials by authenticated delivery
+
+Since 2026-09-05 (DR-GUEST-005) the Wi-Fi password of the booked stay is shown inside the protected Guest Guide
+again, without ever entering the repository or the static output. The accommodation's Wi-Fi item authors three
+parts: the network name in `<strong data-am-guest-wifi-network>`, the support fallback in
+`<span data-am-guest-wifi-fallback>` and an empty `<span data-am-guest-wifi-secret hidden>`. The profile
+endpoint (`guest-experience/profile-handler.mjs`, `/api/guest/profile`) reads the `AMARA_GUEST_WIFI` Cloudflare
+Pages secret, a JSON table keyed by stay id (`zaid`, `lounis`, `maha`, `farah`, `playa`, `tarifa`, each
+`{ "network": "…", "password": "…" }`), and adds `wifi: { network, password }` for the session's own stay only,
+with the existing `no-store` headers. The guide layout fetches the profile on pages that carry a secret slot and
+fills the slot with the localized label and the password only where the page's network name equals the
+returned network, hiding the fallback; a guest on another stay's page therefore keeps the fallback. A missing
+secret, a foreign stay, a broken table or an empty password leave the response without `wifi` and the page
+unchanged. The content prohibition of the 2.2.0 boundary stays in force: the contract suite asserts that every
+authored Wi-Fi slot is empty and that no credential label appears in guest content, and the browser suite
+covers the filled slot and the untouched fallback. The operator maintains the table in Cloudflare Pages
+(staging and production); `.env.example` documents the variable without a value.
+
 ## Revision history
 
 | Version | Timestamp | Change |
@@ -237,3 +255,4 @@ repository must be updated by the operator.
 | 2.9.0 | 2026-09-01T17:48:21+02:00 | Reduced guest-supplied access to booking-holder first name plus arrival date while retaining exact unique-match, fail-closed and server-owned departure-expiry semantics. |
 | 2.10.0 | 2026-09-01T18:00:51+02:00 | Added the booking holder's first name as the sole protected presentation field on every accommodation hub, with a native five-locale `Dear Guest` fallback. |
 | 2.11.0 | 2026-09-05T12:30:00+02:00 | Renamed the booked-guest umbrella to AMARA Guest Guide in five locales, made AMARA Experience the name of the personal-recommendations entry, replaced the guest-area paths with one localized system (`/de/gaesteguide/zaid`, `…/zaid/unterkunft`, `…/frigiliana/straende`) owned by `guest-experience/guide-routes.mjs` across pages, Functions, `_routes.json`, language switcher, route policy and audit, and redirected every previous path. |
+| 2.12.0 | 2026-09-05T15:00:00+02:00 | Brought the booked stay's Wi-Fi password back into the protected Guest Guide by authenticated delivery only: the profile endpoint returns it from the `AMARA_GUEST_WIFI` Cloudflare secret for the session's own stay, the accommodation Wi-Fi items carry the network name, the support fallback and an empty secret slot, and the layout fills the slot only where the network name matches. Authored content and static output stay credential-free. |

@@ -180,3 +180,30 @@ test('the back control on a guide page retraces the hub under its localized addr
   await page.locator('[data-smart-back]').click();
   await expect(page).toHaveURL(/\/de\/gaesteguide\/zaid$/);
 });
+
+test('the accommodation Wi-Fi password comes from the profile and only for the matching network', async ({ page }) => {
+  await page.route('**/api/guest/profile', async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: 'application/json',
+      body: JSON.stringify({ firstName: 'Guest', wifi: { network: 'AMARA', password: 'stub-wifi-2026' } })
+    });
+  });
+
+  // Farah shares the Frigiliana network AMARA: the slot fills, the support fallback steps aside.
+  await page.goto('/de/gaesteguide/farah/unterkunft');
+  const secret = page.locator('[data-am-guest-wifi-secret]');
+  await expect(secret).toHaveText('WLAN-Passwort: stub-wifi-2026');
+  await expect(secret).not.toHaveAttribute('hidden', '');
+  await expect(page.locator('[data-am-guest-wifi-fallback]')).toHaveAttribute('hidden', '');
+  // The static page itself never carries the password.
+  const html = await page.content();
+  expect(html.match(/stub-wifi-2026/g)).toHaveLength(1);
+
+  // Playa runs its own network: the same session sees no password there.
+  await page.goto('/de/gaesteguide/playa/unterkunft');
+  await expect(page.locator('[data-am-guest-wifi-network]')).toHaveText('HUAWEI-2.4G-aB3Y');
+  await expect(page.locator('[data-am-guest-wifi-secret]')).toHaveText('');
+  await expect(page.locator('[data-am-guest-wifi-secret]')).toHaveAttribute('hidden', '');
+  await expect(page.locator('[data-am-guest-wifi-fallback]')).not.toHaveAttribute('hidden', '');
+});
