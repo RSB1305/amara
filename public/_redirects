@@ -287,7 +287,7 @@
 /sv/amara-about-us /sv/om-oss 301
 /es/staying-with-us /sobre-nosotros 301
 /es/comfort-amenities /sobre-nosotros/comodidades 301
-/es/direct-booking-benefits /sobre-nosotros/reserva-directa 301
+/es/direct-booking-benefits /sobre-nosotros/ventajas-reserva-directa 301
 /es/faq-general /sobre-nosotros/preguntas-frecuentes 301
 /es/frigiliana-location /frigiliana 301
 /es/nerja-location /nerja 301
@@ -642,11 +642,11 @@
 /de/guest-reviews /de/ueber-uns/gaestestimmen 301
 /nl/guest-reviews /nl/over-ons/gastenbeoordelingen 301
 /sv/guest-reviews /sv/om-oss/gastrecensioner 301
-/direct-booking-benefits /sobre-nosotros/reserva-directa 301
-/en/direct-booking-benefits /en/about-us/direct-booking 301
-/de/direct-booking-benefits /de/ueber-uns/direkt-buchen 301
-/nl/direct-booking-benefits /nl/over-ons/direct-boeken 301
-/sv/direct-booking-benefits /sv/om-oss/boka-direkt 301
+/direct-booking-benefits /sobre-nosotros/ventajas-reserva-directa 301
+/en/direct-booking-benefits /en/about-us/direct-booking-benefits 301
+/de/direct-booking-benefits /de/ueber-uns/vorteile-direktbuchung 301
+/nl/direct-booking-benefits /nl/over-ons/voordelen-direct-boeken 301
+/sv/direct-booking-benefits /sv/om-oss/fordelar-boka-direkt 301
 /comfort-amenities /sobre-nosotros/comodidades 301
 /en/comfort-amenities /en/about-us/amenities 301
 /de/comfort-amenities /de/ueber-uns/ausstattung 301

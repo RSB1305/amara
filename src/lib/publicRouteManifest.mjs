@@ -175,12 +175,14 @@ const definitions = [
     legacySlug: 'direct-booking-benefits',
     family: 'direct-booking-benefits',
     parent: 'about',
+    // The page is the benefits/why-book-direct page, not the booking action
+    // (that is the availability CTA). The slug carries the benefit, not the verb.
     segment: {
-      es: 'reserva-directa',
-      en: 'direct-booking',
-      de: 'direkt-buchen',
-      nl: 'direct-boeken',
-      sv: 'boka-direkt'
+      es: 'ventajas-reserva-directa',
+      en: 'direct-booking-benefits',
+      de: 'vorteile-direktbuchung',
+      nl: 'voordelen-direct-boeken',
+      sv: 'fordelar-boka-direkt'
     }
   },
   {
