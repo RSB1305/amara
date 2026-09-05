@@ -8,6 +8,7 @@ import {
   resolvePublicRoute,
   type PublicRoute
 } from './publicRouteManifest.mjs';
+import { localizeGuestGuidePath } from '../../guest-experience/guide-routes.mjs';
 
 export type { PublicRoute } from './publicRouteManifest.mjs';
 
@@ -61,6 +62,13 @@ export function getOwnedRouteFromPathname(pathname: string): OwnedRouteMatch | n
  * route outside the manifest.
  */
 export function buildPrivateLocalizedPath(pathname: string, lang: AmaraLanguage): string {
+  // The Guest Guide is the one private area with a fully localized path system
+  // (guest-experience/guide-routes.mjs); everything else shares its path body.
+  const guestGuidePath = localizeGuestGuidePath(normalizePublicPathname(pathname), lang);
+  if (guestGuidePath) {
+    return guestGuidePath;
+  }
+
   const segments = normalizePublicPathname(pathname).split('/').filter(Boolean);
 
   if (segments[0] && isSupportedLanguage(segments[0])) {

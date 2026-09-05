@@ -23,6 +23,15 @@ test-results/
 # machine-specific agent settings; .claude/launch.json stays versioned
 .claude/settings.local.json
 
+# raw photo drops (camera originals) stay out of the repo and out of the
+# Tailwind source scan, which honours this file and only filters lowercase
+# image extensions on its own.
+src/assets/images/content/**/*.JPEG
+src/assets/images/content/**/*.TIFF
+src/assets/images/content/**/*.tiff
+src/assets/images/content/**/*.HEIC
+src/assets/images/content/**/*.heic
+
 
 # environment variables and server-only secrets
 .env*

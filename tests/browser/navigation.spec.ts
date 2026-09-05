@@ -75,17 +75,17 @@ const backgroundSiblingInertStates = (page: Page) =>
       .map((child) => (child as HTMLElement).inert);
   });
 
-test('the header exposes three calm desktop groups with AMARA Experience inside About us', async ({ page }) => {
+test('the header exposes three calm desktop groups with the Guest Guide inside About us', async ({ page }) => {
   await openPage(page, resolveLink('home', 'en'));
 
   await expect(page.locator('header[data-am-navigation]')).toHaveCount(1);
   await expect(page.getByRole('banner')).toHaveCount(1);
   await expect(page.locator('[data-am-experience-access]')).toHaveAttribute(
     'href',
-    '/en/amara-experience/access'
+    '/en/guest-guide/access'
   );
   await expect(page.locator('[data-am-experience-access]')).toHaveAccessibleName(
-    'Open AMARA Experience'
+    'Open the Guest Guide'
   );
   await expect(page.locator('[data-am-availability-action]')).toHaveAccessibleName(
     'Check availability'
@@ -117,7 +117,7 @@ test('the header exposes three calm desktop groups with AMARA Experience inside 
   await triggers.nth(2).click();
   const aboutLinks = page.locator('#am-nav-dropdown-aboutAmara a');
   await expect(aboutLinks.nth(0).locator('.am-nav__dropdown-item-title')).toHaveText('Staying with us');
-  await expect(aboutLinks.nth(1).locator('.am-nav__dropdown-item-title')).toHaveText('AMARA Experience');
+  await expect(aboutLinks.nth(1).locator('.am-nav__dropdown-item-title')).toHaveText('AMARA Guest Guide');
 });
 
 test('opening a desktop group closes the previous one and Escape restores focus', async ({

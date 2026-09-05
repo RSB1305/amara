@@ -105,30 +105,30 @@ test('a cancelled booking fails the periodic session revalidation', async () => 
 
 test('the booking stay maps to its localized protected Guest Welcome hub', () => {
   expect(experienceGuideHubHref('farah', 'de')).toBe(
-    '/de/amara-experience/guide/guestwelcome-frigiliana-farah'
+    '/de/gaesteguide/farah'
   );
   expect(experienceGuideHubHref('playa', 'es')).toBe(
-    '/amara-experience/guide/guestwelcome-nerja-playa'
+    '/guia-huesped/playa'
   );
   expect(experienceGuideHubHref('tarifa', 'sv')).toBe(
-    '/sv/amara-experience/guide/guestwelcome-tarifa-family-surf'
+    '/sv/gastguide/family-surf'
   );
 });
 
 test('an unauthenticated guide request returns to the separate localized access page', async () => {
   const response = await handleExperienceGuide({
-    request: new Request('https://amara.test/de/amara-experience/guide'),
+    request: new Request('https://amara.test/de/gaesteguide/farah'),
     env: { AMARA_EXPERIENCE_SESSION_SECRET: SECRET },
     next: async () => new Response('must not render')
   });
 
   expect(response.status).toBe(302);
-  expect(response.headers.get('location')).toBe('https://amara.test/de/amara-experience/access?reason=session');
+  expect(response.headers.get('location')).toBe('https://amara.test/de/gaesteguide/zugang?reason=session');
   expect(response.headers.get('cache-control')).toBe('no-store, private');
   expect(response.headers.get('x-robots-tag')).toBe('noindex, nofollow, noarchive');
 });
 
-test('an authenticated guide-root request resolves to the booked accommodation hub', async () => {
+test('the public landing passes through the guard while an authenticated hub request is protected', async () => {
   const now = Math.floor(Date.now() / 1000);
   const claims = {
     v: 1,
@@ -142,17 +142,31 @@ test('an authenticated guide-root request resolves to the booked accommodation h
   };
   const token = await sealExperienceSession(claims, SECRET);
   const cookie = createExperienceCookie(token, claims.exp).split(';', 1)[0];
-  const response = await handleExperienceGuide({
+  // The root of the guide is its public landing (DR-GUEST-004): the guard hands it on untouched.
+  const landingResponse = await handleExperienceGuide({
     request: new Request(`https://amara.test${experienceGuideRootHref('nl')}`, {
       headers: { Cookie: cookie }
     }),
     env: { AMARA_EXPERIENCE_SESSION_SECRET: SECRET },
-    next: async () => new Response('must redirect')
+    next: async () => new Response('landing renders')
+  });
+  expect(landingResponse.status).toBe(200);
+  expect(await landingResponse.text()).toBe('landing renders');
+  expect(landingResponse.headers.get('cache-control')).toBeNull();
+
+  // The booked stay's hub renders through the guard with the protection headers.
+  const response = await handleExperienceGuide({
+    request: new Request(`https://amara.test${experienceGuideHubHref('lounis', 'nl')}`, {
+      headers: { Cookie: cookie }
+    }),
+    env: { AMARA_EXPERIENCE_SESSION_SECRET: SECRET },
+    next: async () => new Response('hub renders')
   });
 
-  expect(response.status).toBe(302);
-  expect(response.headers.get('location')).toBe(experienceGuideHubHref('lounis', 'nl'));
+  expect(response.status).toBe(200);
+  expect(await response.text()).toBe('hub renders');
   expect(response.headers.get('cache-control')).toBe('no-store, private');
+  expect(response.headers.get('x-robots-tag')).toBe('noindex, nofollow, noarchive');
 
   const profileResponse = await handleExperienceProfile({
     request: new Request('https://amara.test/api/guest/profile', {
@@ -166,7 +180,7 @@ test('an authenticated guide-root request resolves to the booked accommodation h
 });
 
 test('the access route remains outside the protected guide root', () => {
-  expect(experienceAccessHref('es')).toBe('/amara-experience/access');
-  expect(experienceAccessHref('de')).toBe('/de/amara-experience/access');
-  expect(experienceGuideRootHref('de')).toBe('/de/amara-experience/guide');
+  expect(experienceAccessHref('es')).toBe('/guia-huesped/acceso');
+  expect(experienceAccessHref('de')).toBe('/de/gaesteguide/zugang');
+  expect(experienceGuideRootHref('de')).toBe('/de/gaesteguide');
 });

@@ -64,35 +64,35 @@ export const navigationUtilityLabels: Record<AmaraLanguage, NavigationUtilityLab
   en: {
     menu: 'Open menu',
     closeMenu: 'Close menu',
-    openAmaraExperience: 'Open AMARA Experience',
+    openAmaraExperience: 'Open the Guest Guide',
     selectLanguage: 'Select language',
     mobileNavigation: 'Main navigation'
   },
   de: {
     menu: 'Menü öffnen',
     closeMenu: 'Menü schließen',
-    openAmaraExperience: 'AMARA Experience öffnen',
+    openAmaraExperience: 'Gästeguide öffnen',
     selectLanguage: 'Sprache auswählen',
     mobileNavigation: 'Hauptnavigation'
   },
   es: {
     menu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
-    openAmaraExperience: 'Abrir AMARA Experience',
+    openAmaraExperience: 'Abrir la guía para huéspedes',
     selectLanguage: 'Seleccionar idioma',
     mobileNavigation: 'Navegación principal'
   },
   nl: {
     menu: 'Menu openen',
     closeMenu: 'Menu sluiten',
-    openAmaraExperience: 'AMARA Experience openen',
+    openAmaraExperience: 'Gastengids openen',
     selectLanguage: 'Taal selecteren',
     mobileNavigation: 'Hoofdnavigatie'
   },
   sv: {
     menu: 'Öppna meny',
     closeMenu: 'Stäng meny',
-    openAmaraExperience: 'Öppna AMARA Experience',
+    openAmaraExperience: 'Öppna gästguiden',
     selectLanguage: 'Välj språk',
     mobileNavigation: 'Huvudnavigering'
   }
@@ -114,11 +114,11 @@ export const globalNavLabels = {
     sv: 'Boenden'
   },
   amaraExperience: {
-    en: 'AMARA Experience',
-    de: 'AMARA Experience',
-    es: 'AMARA Experience',
-    nl: 'AMARA Experience',
-    sv: 'AMARA Experience'
+    en: 'AMARA Guest Guide',
+    de: 'AMARA Gästeguide',
+    es: 'Guía para huéspedes de AMARA',
+    nl: 'AMARA Gastengids',
+    sv: 'AMARA Gästguide'
   },
   amaraExperienceMeta: {
     en: 'Personal recommendations for your booked destination and its region.',

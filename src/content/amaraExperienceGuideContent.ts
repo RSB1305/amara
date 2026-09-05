@@ -15,7 +15,7 @@ export const amaraExperienceCategories = [
 ] as const;
 
 const guideContent = {
-  title: text('AMARA Experience', 'AMARA Experience', 'AMARA Experience', 'AMARA Experience', 'AMARA Experience'),
+  title: text('AMARA Guest Guide', 'AMARA Gastguide', 'Guía para huéspedes de AMARA', 'AMARA Gastengids', 'AMARA Gästguide'),
   eyebrow: text('Your private stay guide', 'Euer privater Aufenthaltsguide', 'Vuestra guía privada', 'Jullie privégids', 'Er privata vistelseguide'),
   welcomeTitle: text('Welcome — the guide is ready for what comes next', 'Willkommen – der Guide ist bereit für die nächsten Inhalte', 'Bienvenidos: la guía está lista para lo que viene', 'Welkom — de gids staat klaar voor de volgende inhoud', 'Välkomna – guiden är redo för nästa innehåll'),
   emptyCopy: text(

@@ -6,6 +6,19 @@ import {
 } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { GUEST_GUIDE_SEGMENTS, LEGACY_GUEST_GUIDE_SEGMENT } from '../guest-experience/guide-routes.mjs';
+
+/**
+ * Everything below a localized Guest Guide root (access page, stay hubs, stay
+ * home pages, destination topics) in every segment owned by guide-routes.mjs,
+ * plus the legacy segment while its redirect stubs exist. These routes are
+ * noindex and must not carry JSON-LD; the root itself is the public landing.
+ */
+const PRIVATE_GUEST_GUIDE_ROUTE = new RegExp(
+  '^\\/(?:(?:de|en|nl|sv)\\/)?(?:' +
+    [...new Set([...Object.values(GUEST_GUIDE_SEGMENTS), LEGACY_GUEST_GUIDE_SEGMENT])].join('|') +
+    ')\\/.+$'
+);
 import {
   VACATION_RENTAL_ROUTE_KEYS,
   buildPublicRoutePath,
@@ -368,12 +381,12 @@ export function runStructuredDataAudit({
       )
     ];
 
-    if (/^\/(?:(?:de|en|nl|sv)\/)?amara-experience\/(?:access|guide(?:\/.*)?)$/.test(fileRoutePath)) {
+    if (PRIVATE_GUEST_GUIDE_ROUTE.test(fileRoutePath)) {
       if (jsonLdScripts.length !== 0) {
-        report(file, 'private AMARA Experience utility routes must not emit JSON-LD');
+        report(file, 'private Guest Guide utility routes must not emit JSON-LD');
       }
       if (!/<meta\b[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(html)) {
-        report(file, 'private AMARA Experience utility routes must declare noindex');
+        report(file, 'private Guest Guide utility routes must declare noindex');
       }
       continue;
     }

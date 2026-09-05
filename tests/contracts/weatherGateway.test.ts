@@ -37,11 +37,18 @@ test('Cloudflare Pages dispatches server-owned function and private guide routes
     '/api/booking/*',
     '/api/weather/*',
     '/api/guest/*',
-    '/amara-experience/guide*',
-    '/en/amara-experience/guide*',
-    '/de/amara-experience/guide*',
-    '/nl/amara-experience/guide*',
-    '/sv/amara-experience/guide*'
+    '/guia-huesped/*',
+    '/en/guest-guide/*',
+    '/de/gaesteguide/*',
+    '/nl/gastengids/*',
+    '/sv/gastguide/*'
+  ]);
+  expect(routes.exclude).toEqual([
+    '/guia-huesped/acceso',
+    '/en/guest-guide/access',
+    '/de/gaesteguide/zugang',
+    '/nl/gastengids/toegang',
+    '/sv/gastguide/atkomst'
   ]);
 });
 

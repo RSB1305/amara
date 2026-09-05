@@ -1,5 +1,6 @@
 ---
 import { guestGuideEntries } from '../content/guestGuideEntries';
+import { experienceAccessHref } from '../../guest-experience/guide-routes.mjs';
 
 export function getStaticPaths() {
   return guestGuideEntries.map((entry) => ({
@@ -8,5 +9,5 @@ export function getStaticPaths() {
   }));
 }
 
-return Astro.redirect('/amara-experience/access', 301);
+return Astro.redirect(experienceAccessHref('es'), 301);
 ---

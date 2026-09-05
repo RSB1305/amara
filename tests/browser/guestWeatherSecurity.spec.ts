@@ -51,7 +51,7 @@ test('Guest weather rejects a provider time field containing HTML', async ({ pag
     });
   });
 
-  await page.goto(`${ORIGIN}/amara-experience/guide/frigiliana-guest-recommendations`);
+  await page.goto(`${ORIGIN}/guia-huesped/frigiliana/experience`);
 
   await expect(page.locator('[data-provider-injection]')).toHaveCount(0);
   await expect(page.locator('[data-weather-temp]')).toHaveText('--°');

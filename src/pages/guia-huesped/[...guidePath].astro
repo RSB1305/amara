@@ -1,0 +1,12 @@
+---
+// Guest Guide, Spanish root (default language, no locale prefix): /guia-huesped/…
+import GuestGuideRouter from '../../page-families/guest-guide/GuestGuideRouter.astro';
+import { buildGuestGuideStaticPaths } from '../../lib/guestGuidePages';
+import { DEFAULT_LANGUAGE } from '../../lib/routeOwnership';
+
+export function getStaticPaths() {
+  return buildGuestGuideStaticPaths(DEFAULT_LANGUAGE);
+}
+---
+
+<GuestGuideRouter {...Astro.props} />

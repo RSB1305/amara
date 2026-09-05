@@ -1,0 +1,11 @@
+---
+// Guest Guide, Dutch root: /nl/gastengids/…
+import GuestGuideRouter from '../../../page-families/guest-guide/GuestGuideRouter.astro';
+import { buildGuestGuideStaticPaths } from '../../../lib/guestGuidePages';
+
+export function getStaticPaths() {
+  return buildGuestGuideStaticPaths('nl').map(({ params, props }) => ({ params: { lang: 'nl', ...params }, props }));
+}
+---
+
+<GuestGuideRouter {...Astro.props} />

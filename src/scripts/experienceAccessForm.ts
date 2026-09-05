@@ -263,7 +263,7 @@ function enhanceExperienceAccessForm(form: HTMLFormElement) {
           && payload.guideHref.startsWith('/')
           && !payload.guideHref.startsWith('//')
           ? payload.guideHref
-          : form.dataset.guideHref || '/amara-experience/guide';
+          : form.dataset.guideHref || '/guia-huesped';
         window.location.assign(guideHref);
         return;
       }
