@@ -1,16 +1,17 @@
 ---
-// Tarifa Location Hub in the Tarifa art direction (DR-DESIGN-020): the page shell
-// carries `am-tarifa-surface`, the opening is the panorama hero, verified key figures
-// follow, and photographs run to the viewport edge with copy panels over their edges.
-// Shared utility families around this hub stay in the plain system; Frigiliana and
-// Nerja keep the editorial grammar.
+// Tarifa Location Hub in the Tarifa art direction (DR-DESIGN-020), composed for every
+// guest, not for kitesurfers: the town, the two coasts, the old town or La Marina,
+// who Tarifa suits, the wind as one fact among others, the quiet season, the stay.
+// The page shell carries `am-tarifa-surface`, the opening is the panorama hero,
+// verified key figures follow, photographs run to the frame edge with copy panels
+// over their edges. Where the intended photograph does not exist yet, a photo
+// brief takes its slot (TarifaPhotoBrief) so the composition can be judged and the
+// missing motif is named; the kite photograph stays only where wind is the topic.
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
-import heroImage from '../../assets/images/content/tarifa/AM-3040_Andre_Magaro.jpg';
-import walkImage from '../../assets/images/content/tarifa/kite-walking-out.jpg';
-import barImage from '../../assets/images/content/tarifa/kite-bar-sand.jpg';
+import tarifaViewImage from '../../assets/images/content/amara-tarifa/amara-tarifa-apartment23.webp';
+import kiteWalkImage from '../../assets/images/content/tarifa/kite-walking-out.jpg';
 import castleImage from '../../assets/images/content/tarifa/_DCS1404_Sebastian_Lang.jpg';
-import waveImage from '../../assets/images/content/tarifa/kite-wave-turn.jpg';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraKeyFigures from '../../components/content/AmaraKeyFigures.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
@@ -19,10 +20,12 @@ import Navigation from '../../components/Navigation.astro';
 import LocationPanoramaHero from '../../components/location/LocationPanoramaHero.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import { tarifaLocationContent } from '../../content/tarifaLocationContent';
+import { tarifaGuideContent } from '../../content/tarifaGuideContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import TarifaPhotoBrief from './TarifaPhotoBrief.astro';
 
 interface Props {
   lang?: string;
@@ -31,6 +34,10 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const content = tarifaLocationContent.locales[currentLang];
+// "Four kinds of trip, four priorities" lives in the Tarifa location authority copy
+// and already exists in all five locales; the hub surfaces it instead of retelling it.
+const overviewGuide = tarifaGuideContent.overview;
+const stayFits = overviewGuide.id === 'overview' ? overviewGuide.location[currentLang].stayFits : undefined;
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa location hub');
 const aboutHref = requiredLink('about');
 const stayHref = requiredLink('tarifa');
@@ -72,8 +79,9 @@ const byline = tarifaLocationContent.seo.article
       title={content.hero.title}
       subtitle={content.hero.subtitle}
       paragraphs={[content.hero.standfirst]}
-      imageSrc={heroImage}
+      imageSrc={tarifaViewImage}
       imageAlt={content.media.heroAlt}
+      focalPoint="50% 60%"
       role="hub"
       topic="overview"
     >
@@ -86,7 +94,7 @@ const byline = tarifaLocationContent.seo.article
       </div>
     </section>
 
-    <!-- Where you are: the photograph runs to the end edge, the white copy panel lies over its start edge. -->
+    <!-- Where you are: the two coasts. Photo brief: Playa Chica and the causeway to the Isla. -->
     <section id="geography-orientation" class="scroll-mt-28 bg-surface-white px-6 pb-20 md:px-12 md:pb-28">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
@@ -104,9 +112,12 @@ const byline = tarifaLocationContent.seo.article
               </a>
             )}
           </div>
-          <figure class="am-bleed-end lg:col-span-7">
-            <AmaraImage src={walkImage} alt={content.media.walkAlt} profile="hero" class="aspect-[3/2] h-full w-full object-cover" focalPoint="50% 55%" />
-          </figure>
+          <TarifaPhotoBrief
+            class="am-bleed-end aspect-[3/2] lg:col-span-7"
+            motif="Playa Chica mit dem Damm zur Isla de Tarifa, dahinter die Meerenge"
+            format="quer 3:2"
+            light="vormittags, klare Sicht"
+          />
         </div>
         <dl class="am-overlap-up am-overlap-up--inset grid gap-5 bg-surface-white md:grid-cols-3 md:gap-8">
           {content.geography.markers.map((marker) => (
@@ -116,17 +127,19 @@ const byline = tarifaLocationContent.seo.article
             </div>
           ))}
         </dl>
-        <p class="am-text-caption mt-4 normal-case tracking-normal text-muted">{content.media.walkCaption}</p>
       </div>
     </section>
 
-    <!-- Arrival: the photograph runs to the start edge, the sand copy panel pushes in from the end. -->
+    <!-- Arrival: on foot in town, by car to the western beaches. Photo brief: an old-town lane with cobbles. -->
     <section id="arrival-mobility" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <figure class="am-bleed-start lg:col-span-4">
-            <AmaraImage src={barImage} alt={content.media.barAlt} profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint="50% 50%" />
-          </figure>
+          <TarifaPhotoBrief
+            class="am-bleed-start aspect-[4/5] lg:col-span-4"
+            motif="Altstadtgasse mit Kopfsteinpflaster, Puerta de Jerez oder Calle Sancho IV"
+            format="hochkant 4:5"
+            light="morgens, bevor die Terrassen aufbauen"
+          />
           <div class="am-overlap-start bg-surface lg:col-span-8">
             <p class="am-text-eyebrow text-primary">{content.arrival.eyebrow}</p>
             <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.arrival.title}</h2>
@@ -166,15 +179,47 @@ const byline = tarifaLocationContent.seo.article
       </div>
     </section>
 
-    <section id="weather-seasons" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
+    <!-- Who Tarifa suits: couples, couples who kite, families, long stays. Photo brief: an old-town evening. -->
+    {stayFits && (
+    <section id="who-tarifa-suits" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
-        <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
-          <div class="lg:col-span-5">
-            <p class="am-text-eyebrow text-primary">{content.weather.eyebrow}</p>
-            <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.weather.title}</h2>
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
+          <TarifaPhotoBrief
+            class="am-bleed-start aspect-[4/5] lg:col-span-4 lg:sticky lg:top-32"
+            motif="Ein Abend in der Altstadt oder in der Calle Batalla del Salado: Tisch, Licht, Leute"
+            format="hochkant 4:5"
+            light="blaue Stunde"
+          />
+          <div class="lg:col-span-8">
+            <p class="am-text-eyebrow text-primary">{content.areas.eyebrow}</p>
+            <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{stayFits.title}</h2>
+            <div class="mt-10 grid gap-8 md:grid-cols-2 md:gap-x-12 md:gap-y-10">
+              {stayFits.items.map((item, index) => (
+                <div>
+                  <span class="am-text-label am-text-label--wide text-primary">{String(index + 1).padStart(2, '0')}</span>
+                  <h3 class="am-text-functional-heading mt-4 text-on-surface">{item.title}</h3>
+                  <div class="mt-3 space-y-3">
+                    {item.paragraphs.map((paragraph) => (
+                      <p class="text-on-surface-variant">{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div class="lg:col-span-7">
-            <div class="space-y-5 lg:mt-2">
+        </div>
+      </div>
+    </section>
+    )}
+
+    <!-- Wind and seasons: the one place the kite photograph belongs. -->
+    <section id="weather-seasons" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+          <div class="am-overlap-end bg-surface-white lg:col-span-5">
+            <p class="am-text-eyebrow text-primary">{content.weather.eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.weather.title}</h2>
+            <div class="mt-6 max-w-2xl space-y-5">
               {[content.weather.paragraphs[0], content.weather.paragraphs[2]].filter(Boolean).map((paragraph) => (
                 <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
               ))}
@@ -183,18 +228,22 @@ const byline = tarifaLocationContent.seo.article
               <a href={requiredLink(content.weather.link.token!)} class="am-cta-link mt-8 inline-flex">{content.weather.link.label}</a>
             )}
           </div>
+          <figure class="am-bleed-end lg:col-span-7">
+            <AmaraImage src={kiteWalkImage} alt={content.media.walkAlt} profile="hero" class="aspect-[3/2] h-full w-full object-cover" focalPoint="50% 55%" />
+            <figcaption class="am-text-caption mt-3 normal-case tracking-normal text-muted">{content.media.walkCaption}</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- From September: the serif quote reaches into the photo column, the portrait hangs into the next section. -->
-    <section id="from-september" class="scroll-mt-28 bg-surface-white px-6 pt-20 md:px-12 md:pt-28">
+    <section id="from-september" class="scroll-mt-28 bg-surface px-6 pt-20 md:px-12 md:pt-28">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
           <div class="lg:col-span-7 lg:pt-8">
             <p class="am-text-eyebrow text-primary">{content.winter.eyebrow}</p>
             <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.winter.title}</h2>
-            <p class="am-text-quote am-overlap-end--text mt-8 bg-surface-white text-balance text-on-surface">{content.winter.paragraphs[1]}</p>
+            <p class="am-text-quote am-overlap-end--text mt-8 bg-surface text-balance text-on-surface">{content.winter.paragraphs[1]}</p>
             <div class="mt-8 max-w-2xl space-y-5">
               {[content.winter.paragraphs[0], content.winter.paragraphs[2]].map((paragraph) => (
                 <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
@@ -209,14 +258,14 @@ const byline = tarifaLocationContent.seo.article
       </div>
     </section>
 
-    <!-- The stay: the photograph runs to the start edge, facts as a sand panel over its edge. -->
-    <section id="amara-family-surf" class="scroll-mt-28 bg-surface px-6 pb-20 pt-24 md:px-12 md:pb-28 lg:pt-36">
+    <!-- The stay: the photograph runs to the start edge, facts as a white panel over its edge. -->
+    <section id="amara-family-surf" class="scroll-mt-28 bg-surface-white px-6 pb-20 pt-24 md:px-12 md:pb-28 lg:pt-36">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
           <figure class="am-bleed-start lg:col-span-6">
             <AmaraImage src={tarifaStayImage} alt={content.amara.imageAlt} profile="hero" class="aspect-[4/3] h-full w-full object-cover" focalPoint="50% 50%" />
           </figure>
-          <div class="am-overlap-start bg-surface lg:col-span-6">
+          <div class="am-overlap-start bg-surface-white lg:col-span-6">
             <p class="am-text-eyebrow text-primary">{content.amara.eyebrow}</p>
             <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.amara.title}</h2>
             <div class="mt-6 max-w-2xl space-y-5">
@@ -237,13 +286,18 @@ const byline = tarifaLocationContent.seo.article
       </div>
     </section>
 
-    <!-- Close: the bright wave runs edge to edge, the white panel with the closing line rises into it. -->
-    <section id="experiences" class="scroll-mt-28 bg-surface-white">
+    <!-- Close: evening panorama (photo brief), the sand panel with the closing line rises into it. -->
+    <section id="experiences" class="scroll-mt-28 bg-surface">
       <AmaraMediaFrame role="panorama">
-        <AmaraImage src={waveImage} alt={content.media.waveAlt} profile="background" class="h-full w-full object-cover" focalPoint="50% 45%" />
+        <TarifaPhotoBrief
+          class="h-full w-full"
+          motif="Sonnenuntergang über Los Lances vom Strand oder vom Balkon, ohne Kites im Bild"
+          format="Panorama quer, mindestens 3:2, wird auf 21:9 beschnitten"
+          light="letzte Sonne, Horizont frei"
+        />
       </AmaraMediaFrame>
       <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
-        <div class="am-overlap-up bg-surface-white py-12">
+        <div class="am-overlap-up bg-surface py-12">
           <p class="am-text-eyebrow text-primary">{content.experience.eyebrow}</p>
           {content.closing ? (
             <>
