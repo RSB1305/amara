@@ -8,6 +8,7 @@ export type AmaraHeroVariant =
   | 'authority-media'
   | 'authority-evidence'
   | 'authority-editorial'
+  | 'authority-panorama'
   | 'campaign-media';
 
 export interface AmaraHeroAction {

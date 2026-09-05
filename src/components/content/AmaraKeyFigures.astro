@@ -1,0 +1,55 @@
+---
+// Key figures: the `key-figures` content module (DR-DESIGN-020). A short row of large
+// verified numerals with quiet labels and one provenance note. It carries evidence,
+// not promotion: every value comes from a knowledge fact record, and the note states
+// the boundary of what the figures prove. The consuming page owns the section around
+// it (AmaraSection / LocationModule), this module owns only the row.
+import { getAmaraContentModuleAttributes } from './moduleContract';
+
+interface KeyFigure {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  figures: KeyFigure[];
+  /** Provenance and claim boundary, rendered beneath the row. */
+  note?: string;
+  family?: 'location' | 'experience';
+  class?: string;
+}
+
+const { figures, note, family = 'location', class: className } = Astro.props;
+const moduleAttributes = getAmaraContentModuleAttributes({ job: 'key-figures', status: 'family', family });
+---
+
+<div {...moduleAttributes} class:list={['am-key-figures', className]}>
+  <dl class="am-key-figures__row">
+    {figures.map((figure) => (
+      <div>
+        <dd class="am-text-key-figure text-on-surface">{figure.value}</dd>
+        <dt class="am-text-caption am-text-caption--upper mt-3 max-w-56 text-on-surface-variant">{figure.label}</dt>
+      </div>
+    ))}
+  </dl>
+  {note && <p class="am-text-caption mt-10 max-w-3xl normal-case tracking-normal text-muted">{note}</p>}
+</div>
+
+<style>
+  .am-key-figures__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.25rem 2rem;
+    margin: 0;
+  }
+
+  .am-key-figures__row dd {
+    margin: 0;
+  }
+
+  @media (min-width: 900px) {
+    .am-key-figures__row {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+</style>

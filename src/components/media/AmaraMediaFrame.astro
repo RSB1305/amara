@@ -55,5 +55,8 @@ const {
   .am-media__caption { margin-top: .75rem; }
   .am-media__caption cite { font-style: normal; }
   @media (min-width: 640px) { .am-media[data-am-media-role='gallery'] .am-media__viewport { aspect-ratio: 4 / 3; } }
+  .am-media[data-am-media-role='panorama'] .am-media__viewport { aspect-ratio: 4 / 5; }
+  @media (min-width: 640px) { .am-media[data-am-media-role='panorama'] .am-media__viewport { aspect-ratio: 16 / 9; } }
+  @media (min-width: 1024px) { .am-media[data-am-media-role='panorama'] .am-media__viewport { aspect-ratio: 16 / 7; } }
   @media (prefers-reduced-motion: reduce) { .am-media[data-am-media-interactive] .am-media__viewport :global(img) { transition: none; } }
 </style>
