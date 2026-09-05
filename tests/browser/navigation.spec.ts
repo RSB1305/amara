@@ -331,9 +331,10 @@ test('the destination disclosures use one responsive DOM tree', async ({ page })
   await locationDisclosure.locator('summary').click();
   await expect(locationDisclosure).toHaveAttribute('open', '');
   await expect(panel).toBeVisible();
-  await expect(panel.locator('[data-am-context-panel-title]')).toHaveText('Frigiliana');
+  await expect(locationDisclosure.locator('summary')).toHaveText('Frigiliana');
+  await expect(panel.locator('[data-am-context-panel-title]')).toHaveText('Überblick');
   await expect(panel.locator('[data-am-context-panel-description]')).toHaveText(
-    'Was ihr über einen Aufenthalt in Frigiliana wissen solltet.'
+    'Was ihr für euren Aufenthalt wissen solltet.'
   );
   await expect(panel.locator('section')).toHaveCount(4);
   await expect(panel.locator('[data-am-context-sibling]')).toHaveCount(8);
