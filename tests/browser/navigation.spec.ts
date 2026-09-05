@@ -116,7 +116,7 @@ test('the header exposes three calm desktop groups with the Guest Guide inside A
   await expect(page.locator('[data-am-navigation] .am-nav__center > ul > li > a')).toHaveCount(0);
   await triggers.nth(2).click();
   const aboutLinks = page.locator('#am-nav-dropdown-aboutAmara a');
-  await expect(aboutLinks.nth(0).locator('.am-nav__dropdown-item-title')).toHaveText('Staying with us');
+  await expect(aboutLinks.nth(0).locator('.am-nav__dropdown-item-title')).toHaveText('About us');
   await expect(aboutLinks.nth(1).locator('.am-nav__dropdown-item-title')).toHaveText('AMARA Guest Guide');
 });
 
@@ -459,14 +459,14 @@ test('the AMARA breadcrumb mark stays a black text heart on mobile', async ({ pa
 
 test('the availability context stays concise and separates its mobile link rail', async ({ page }) => {
   await page.setViewportSize(MOBILE_VIEWPORT);
-  await openPage(page, '/de/unterkuenfte/suche');
+  await openPage(page, '/de/unterkuenfte/verfuegbarkeit-buchung');
 
   const breadcrumb = page.locator('[data-am-context-breadcrumb-row]');
   const currentBreadcrumb = page.locator('[data-am-context-breadcrumb-current]');
   const linkRail = page.locator('[data-am-context-scroll-rail]');
   const contextLinks = linkRail.locator('a');
   await expect(breadcrumb).toBeVisible();
-  await expect(currentBreadcrumb).toHaveText('Verfügbarkeit');
+  await expect(currentBreadcrumb).toHaveText('Verfügbarkeit und Buchung');
   await expect(breadcrumb).not.toContainText('AMARA entdecken');
   await expect(contextLinks).toHaveCount(4);
   await expect(contextLinks).toHaveText(['Unterkünfte', 'Ausstattung', 'Bewertungen', 'FAQ']);

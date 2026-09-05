@@ -175,12 +175,14 @@ const definitions = [
     legacySlug: 'direct-booking-benefits',
     family: 'direct-booking-benefits',
     parent: 'about',
+    // The page is the benefits/why-book-direct page, not the booking action
+    // (that is the availability CTA). The slug carries the benefit, not the verb.
     segment: {
-      es: 'reserva-directa',
-      en: 'direct-booking',
-      de: 'direkt-buchen',
-      nl: 'direct-boeken',
-      sv: 'boka-direkt'
+      es: 'ventajas-reserva-directa',
+      en: 'direct-booking-benefits',
+      de: 'vorteile-direktbuchung',
+      nl: 'voordelen-direct-boeken',
+      sv: 'fordelar-boka-direkt'
     }
   },
   {
@@ -201,10 +203,12 @@ const definitions = [
     key: 'amara-experience',
     legacySlug: 'amara-experience',
     family: 'amara-experience',
-    // Public landing page of the AMARA Guest Guide (DR-GUEST-004). The protected
-    // access/guide pages below it are file-routed and share these segments via
-    // guest-experience/guide-routes.mjs; keep both in step.
-    paths: {
+    parent: 'about',
+    // Public marketing landing of the AMARA Guest Guide (DR-GUEST-004), under
+    // About: /de/ueber-uns/gaesteguide. The gated access/guide pages keep their
+    // own root /de/gaesteguide (guest-experience/guide-routes.mjs, guestGuideRootHref)
+    // and share these localized segments; keep both in step.
+    segment: {
       es: 'guia-huesped',
       en: 'guest-guide',
       de: 'gaesteguide',
@@ -259,7 +263,14 @@ const definitions = [
     legacySlug: 'find-a-stay',
     family: 'stay-search',
     parent: 'stays',
-    segment: { es: 'buscar', en: 'search', de: 'suche', nl: 'zoeken', sv: 'sok' }
+    // The availability + direct-booking page: the slug carries both, not "search".
+    segment: {
+      es: 'disponibilidad-reserva',
+      en: 'availability-booking',
+      de: 'verfuegbarkeit-buchung',
+      nl: 'beschikbaarheid-boeking',
+      sv: 'tillganglighet-bokning'
+    }
   },
   {
     key: 'stays.last-minute',
@@ -307,19 +318,64 @@ const definitions = [
     parent: 'stays',
     segment: shared('casa-amara')
   },
-  // Branded stay identifiers stay shared and flat: they are printed in guest
-  // material and referenced from the booking provider, so the route key equals
-  // the stay slug and the breadcrumb parent is the stays hub.
-  ...['la-amara-farah', 'la-amara-lounis', 'la-amara-zaid', 'la-amara-maha', 'la-amara-playa', 'la-amara-family-and-surf'].map(
+  // Location collections inside the stays silo (Unterkünfte → Ort → Objekt).
+  // The location segment is a shared place identity; the collection page lists
+  // the stays whose city matches. Nerja and Tarifa follow the same shape once
+  // their collection pages are authored.
+  {
+    key: 'stays.frigiliana',
+    legacySlug: 'stays-frigiliana',
+    family: 'stays-in-location',
+    parent: 'stays',
+    props: { location: 'frigiliana' },
+    segment: shared('frigiliana')
+  },
+  // Branded stays nest under their location collection, mirroring their
+  // breadcrumb by construction: /de/unterkuenfte/frigiliana/la-amara-farah. The
+  // stay name is a shared brand identity, so the own segment is the same in
+  // every locale while the parent chain localizes. The route key equals the stay
+  // slug; the flat pre-silo path is the legacy slug that drives the migration.
+  ...['la-amara-farah', 'la-amara-lounis', 'la-amara-zaid', 'la-amara-maha'].map(
     (slug) => ({
       key: slug,
       legacySlug: slug,
       family: 'vacation-rental',
-      parent: 'stays',
-      identity: true,
-      paths: shared(slug)
+      parent: 'stays.frigiliana',
+      segment: shared(slug)
     })
   ),
+  // Nerja and Tarifa each hold one stay; the location collection nests it the
+  // same way as Frigiliana, so the whole stays tree mirrors its hierarchy.
+  {
+    key: 'stays.nerja',
+    legacySlug: 'stays-nerja',
+    family: 'stays-in-location',
+    parent: 'stays',
+    props: { location: 'nerja' },
+    segment: shared('nerja')
+  },
+  {
+    key: 'la-amara-playa',
+    legacySlug: 'la-amara-playa',
+    family: 'vacation-rental',
+    parent: 'stays.nerja',
+    segment: shared('la-amara-playa')
+  },
+  {
+    key: 'stays.tarifa',
+    legacySlug: 'stays-tarifa',
+    family: 'stays-in-location',
+    parent: 'stays',
+    props: { location: 'tarifa' },
+    segment: shared('tarifa')
+  },
+  {
+    key: 'la-amara-family-and-surf',
+    legacySlug: 'la-amara-family-and-surf',
+    family: 'vacation-rental',
+    parent: 'stays.tarifa',
+    segment: shared('la-amara-family-and-surf')
+  },
 
   /* =========================================================
      FRIGILIANA
@@ -532,11 +588,11 @@ const definitions = [
     parent: 'tarifa.experience',
     props: { spoke: 'food-evening-life' },
     segment: {
-      es: 'gastronomia-y-noche',
-      en: 'food-and-evenings',
-      de: 'essen-und-abende',
-      nl: 'eten-en-avonden',
-      sv: 'mat-och-kvallar'
+      es: 'comer-y-salir',
+      en: 'food-and-going-out',
+      de: 'essen-und-ausgehen',
+      nl: 'eten-en-uitgaan',
+      sv: 'mat-och-uteliv'
     }
   },
   {

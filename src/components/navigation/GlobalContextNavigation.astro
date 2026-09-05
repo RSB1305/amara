@@ -12,7 +12,7 @@ import {
   type DestinationId
 } from '../../lib/location/destinationBranchNavigation';
 import { getDestinationContextGroups } from '../../lib/location/destinationContextNavigation';
-import { defaultCtaShortLabels } from './globalNavigationContent';
+import { availabilityBookingLabels } from './globalNavigationContent';
 import { resolveLink } from '../../lib/linkResolver';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -130,6 +130,9 @@ const isReviewsHub = currentPath === normalizePath(resolveLink('reviews_hub', la
 const isCollection = currentPath === normalizePath(resolveLink('romantic_hideaways', lang));
 const isAmenities = currentPath === normalizePath(resolveLink('amenities', lang));
 const isAbout = currentPath === normalizePath(resolveLink('about', lang));
+// The Guest Guide marketing landing now lives under About, so it reads as part
+// of the trust section rather than "Discover AMARA".
+const isAmaraExperience = currentPath === normalizePath(resolveLink('amara_experience', lang));
 const isFaq = currentPath === normalizePath(resolveLink('faq_general', lang));
 const isStaySearchResults =
   currentPath === normalizePath(resolveLink('stay_search_results', lang));
@@ -138,6 +141,7 @@ const isBookingStayTerms = currentPath === normalizePath(resolveLink('booking_st
 const isLegalDocument = isLegalNotice || isBookingStayTerms;
 const isPrimaryTrustPage =
   isAbout ||
+  isAmaraExperience ||
   isReviewsHub ||
   isDirectBookingBenefits ||
   isAmenities ||
@@ -157,7 +161,7 @@ const navLabelForPage =
   : isCollection ? copy.allStays
   : isAmenities ? trustLabels.amenities[lang]
   : isFaq ? trustLabels.faq_general[lang]
-  : isStaySearchResults ? defaultCtaShortLabels[lang]
+  : isStaySearchResults ? availabilityBookingLabels[lang]
   : isAbout ? trustLabels.about[lang]
   : isLegalNotice ? trustLabels.legal_notice[lang]
   : isBookingStayTerms ? trustLabels.booking_stay_terms[lang]
@@ -217,9 +221,11 @@ const branchGroups = isStay && destination
 const activeId = items.find(
   (item) => item.href !== undefined && normalizePath(item.href) === currentPath
 )?.id;
+// The About page is the landing of the trust section, so its own name is the
+// section name; a separate section crumb above it would just repeat the label.
 const breadcrumbs = isHome ? [] : [
   { label: 'AMARA', href: homeHref },
-  ...(!isLegalDocument && !isStaySearchResults
+  ...(!isLegalDocument && !isStaySearchResults && !isAbout
     ? [{ label: breadcrumbSection, href: breadcrumbSectionHref }]
     : []),
   { label: resolvedBreadcrumbTitle }

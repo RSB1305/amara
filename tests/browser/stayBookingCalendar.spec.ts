@@ -144,14 +144,14 @@ const dayButton = (page: Page, value: string) =>
   page.locator('[data-am-booking-day="' + value + '"]');
 
 const stayCases = [
-  { key: 'farah', path: '/en/la-amara-farah', name: 'Farah', occupancy: 2 },
-  { key: 'lounis', path: '/en/la-amara-lounis', name: 'Lounis', occupancy: 2 },
-  { key: 'zaid', path: '/en/la-amara-zaid', name: 'Zaid', occupancy: 2 },
-  { key: 'maha', path: '/en/la-amara-maha', name: 'Maha', occupancy: 2 },
-  { key: 'playa', path: '/en/la-amara-playa', name: 'Playa', occupancy: 2 },
+  { key: 'farah', path: '/en/stays/frigiliana/la-amara-farah', name: 'Farah', occupancy: 2 },
+  { key: 'lounis', path: '/en/stays/frigiliana/la-amara-lounis', name: 'Lounis', occupancy: 2 },
+  { key: 'zaid', path: '/en/stays/frigiliana/la-amara-zaid', name: 'Zaid', occupancy: 2 },
+  { key: 'maha', path: '/en/stays/frigiliana/la-amara-maha', name: 'Maha', occupancy: 2 },
+  { key: 'playa', path: '/en/stays/nerja/la-amara-playa', name: 'Playa', occupancy: 2 },
   {
     key: 'tarifa',
-    path: '/en/la-amara-family-and-surf',
+    path: '/en/stays/tarifa/la-amara-family-and-surf',
     name: 'Family & Surf',
     occupancy: 4
   }
@@ -190,7 +190,7 @@ test('desktop calendar loads only on open, enforces stay rules and quotes a vali
   const blocked = futureIso(10);
   const requests = await mockGateway(page, { blocked: new Set([blocked]), minStay: 3 });
 
-  await page.goto(ORIGIN + '/en/la-amara-maha', { waitUntil: 'domcontentloaded' });
+  await page.goto(ORIGIN + '/en/stays/frigiliana/la-amara-maha', { waitUntil: 'domcontentloaded' });
   expect(requests).toHaveLength(0);
 
   await page.getByRole('button', { name: 'Choose arrival' }).click();
@@ -311,7 +311,7 @@ test('month navigation requests only the newly visible month and reuses session 
 }) => {
   await page.setViewportSize(DESKTOP);
   const requests = await mockGateway(page);
-  await page.goto(ORIGIN + '/de/la-amara-maha', { waitUntil: 'domcontentloaded' });
+  await page.goto(ORIGIN + '/de/unterkuenfte/frigiliana/la-amara-maha', { waitUntil: 'domcontentloaded' });
 
   await page.getByRole('button', { name: 'Anreise wählen' }).click();
   await expect.poll(() => requests.length).toBe(4);
@@ -329,7 +329,7 @@ test('mobile calendar shows one full-width month without horizontal overflow', a
 }) => {
   await page.setViewportSize(MOBILE);
   const requests = await mockGateway(page);
-  await page.goto(ORIGIN + '/nl/la-amara-maha', { waitUntil: 'domcontentloaded' });
+  await page.goto(ORIGIN + '/nl/verblijven/frigiliana/la-amara-maha', { waitUntil: 'domcontentloaded' });
   await page.locator('[data-am-consent-choice="necessary"]').click();
 
   await page.getByRole('button', { name: 'Aankomst kiezen' }).click();
@@ -364,7 +364,7 @@ test('mobile calendar shows one full-width month without horizontal overflow', a
 test('mobile quote closes the calendar and reveals the booking button', async ({ page }) => {
   await page.setViewportSize(MOBILE);
   await mockGateway(page, { minStay: 1 });
-  await page.goto(ORIGIN + '/de/la-amara-lounis', { waitUntil: 'domcontentloaded' });
+  await page.goto(ORIGIN + '/de/unterkuenfte/frigiliana/la-amara-lounis', { waitUntil: 'domcontentloaded' });
   await page.locator('[data-am-consent-choice="necessary"]').click();
 
   await page.getByRole('button', { name: 'Anreise wählen' }).click();
@@ -396,7 +396,7 @@ test('mobile quote closes the calendar and reveals the booking button', async ({
 test('calendar and quote failures stay generic and never retry automatically', async ({ page }) => {
   await page.setViewportSize(MOBILE);
   const calendarRequests = await mockGateway(page, { calendarError: true });
-  await page.goto(ORIGIN + '/sv/la-amara-maha', { waitUntil: 'domcontentloaded' });
+  await page.goto(ORIGIN + '/sv/boenden/frigiliana/la-amara-maha', { waitUntil: 'domcontentloaded' });
   await page.getByRole('button', { name: 'Välj ankomst' }).click();
   await expect(page.locator('[data-am-booking-calendar-status]')).toContainText(
     'Vi kan inte läsa in kalendern just nu'
@@ -413,7 +413,7 @@ test('a failed quote exposes only the localized generic error and is not retried
 }) => {
   await page.setViewportSize(DESKTOP);
   const requests = await mockGateway(page, { quoteError: true });
-  await page.goto(ORIGIN + '/en/la-amara-maha', { waitUntil: 'domcontentloaded' });
+  await page.goto(ORIGIN + '/en/stays/frigiliana/la-amara-maha', { waitUntil: 'domcontentloaded' });
   await page.getByRole('button', { name: 'Choose arrival' }).click();
   await dayButton(page, futureIso(3)).click();
   await dayButton(page, futureIso(6)).click();
@@ -430,11 +430,11 @@ test('all five locales expose native calendar labels and localized total-price l
   page
 }) => {
   const cases = [
-    ['/en/la-amara-maha', 'Choose arrival', 'Current total price'],
-    ['/de/la-amara-maha', 'Anreise wählen', 'Aktueller Gesamtpreis'],
-    ['/la-amara-maha', 'Elegir llegada', 'Precio total actual'],
-    ['/nl/la-amara-maha', 'Aankomst kiezen', 'Actuele totaalprijs'],
-    ['/sv/la-amara-maha', 'Välj ankomst', 'Aktuellt totalpris']
+    ['/en/stays/frigiliana/la-amara-maha', 'Choose arrival', 'Current total price'],
+    ['/de/unterkuenfte/frigiliana/la-amara-maha', 'Anreise wählen', 'Aktueller Gesamtpreis'],
+    ['/alojamientos/frigiliana/la-amara-maha', 'Elegir llegada', 'Precio total actual'],
+    ['/nl/verblijven/frigiliana/la-amara-maha', 'Aankomst kiezen', 'Actuele totaalprijs'],
+    ['/sv/boenden/frigiliana/la-amara-maha', 'Välj ankomst', 'Aktuellt totalpris']
   ];
   const requests = await mockGateway(page);
 

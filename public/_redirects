@@ -55,12 +55,18 @@
 /en/explore-frigiliana-nerja /en/frigiliana/experiences 301
 /nl/explore-frigiliana-nerja /nl/frigiliana/ervaringen 301
 /sv/explore-frigiliana-nerja /sv/frigiliana/upplevelser 301
-# Guest Guide renamed 2026-09-05 (DR-GUEST-004): the public landing page per language.
-/amara-experience /guia-huesped 301
-/en/amara-experience /en/guest-guide 301
-/de/amara-experience /de/gaesteguide 301
-/nl/amara-experience /nl/gastengids 301
-/sv/amara-experience /sv/gastguide 301
+# Guest Guide marketing landing moved under About 2026-09-05 (DR-GUEST-004);
+# the gated guest area keeps its own root /<lang>/gaesteguide untouched.
+/amara-experience /sobre-nosotros/guia-huesped 301
+/en/amara-experience /en/about-us/guest-guide 301
+/de/amara-experience /de/ueber-uns/gaesteguide 301
+/nl/amara-experience /nl/over-ons/gastengids 301
+/sv/amara-experience /sv/om-oss/gastguide 301
+/guia-huesped /sobre-nosotros/guia-huesped 301
+/en/guest-guide /en/about-us/guest-guide 301
+/de/gaesteguide /de/ueber-uns/gaesteguide 301
+/nl/gastengids /nl/over-ons/gastengids 301
+/sv/gastguide /sv/om-oss/gastguide 301
 # @astro-redirects:end
 
 # Guest Guide private pages under the old segment (Cloudflare rules; the access page and every
@@ -287,7 +293,7 @@
 /sv/amara-about-us /sv/om-oss 301
 /es/staying-with-us /sobre-nosotros 301
 /es/comfort-amenities /sobre-nosotros/comodidades 301
-/es/direct-booking-benefits /sobre-nosotros/reserva-directa 301
+/es/direct-booking-benefits /sobre-nosotros/ventajas-reserva-directa 301
 /es/faq-general /sobre-nosotros/preguntas-frecuentes 301
 /es/frigiliana-location /frigiliana 301
 /es/nerja-location /nerja 301
@@ -309,29 +315,80 @@
 /es/romantic-hideaways /alojamientos 301
 /es/directions-arrival-guide /frigiliana/llegada-al-apartamento 301
 /es/instagram /instagram 301
-/es/la-amara-farah /la-amara-farah 301
-/es/la-amara-lounis /la-amara-lounis 301
-/es/la-amara-zaid /la-amara-zaid 301
-/es/la-amara-maha /la-amara-maha 301
-/es/la-amara-playa /la-amara-playa 301
-/es/la-amara-family-and-surf /la-amara-family-and-surf 301
-/es/lla-amara-family-and-surf /la-amara-family-and-surf 301
-/nl/de-amara-zaid /nl/la-amara-zaid 301
-/sv/la-amara-playa%20 /sv/la-amara-playa 301
-/en/la-amara-farah-romantic-double-retreat /en/la-amara-farah 301
-/en/la-amara-lounis-historic-romantic-stay /en/la-amara-lounis 301
-/nl/la-amara-lounis-historic-romantic-stay /nl/la-amara-lounis 301
-/sv/la-amara-lounis-casa-rural-frigiliana /sv/la-amara-lounis 301
-/en/la-amara-family-surf-with-oceanview-and-pool /en/la-amara-family-and-surf 301
-/sv/amara-family-surf-with-oceanview-and-pool /sv/la-amara-family-and-surf 301
+# Stays live inside the localized stays silo (2026-09-05), nested under a location
+# collection (Unterkuenfte -> Ort -> Objekt). Every flat pre-silo path 301s to its
+# current owner in the same locale; the flat slugs are printed in guest material,
+# so they keep resolving.
+/stays-frigiliana /alojamientos/frigiliana 301
+/en/stays-frigiliana /en/stays/frigiliana 301
+/de/stays-frigiliana /de/unterkuenfte/frigiliana 301
+/nl/stays-frigiliana /nl/verblijven/frigiliana 301
+/sv/stays-frigiliana /sv/boenden/frigiliana 301
+/stays-nerja /alojamientos/nerja 301
+/en/stays-nerja /en/stays/nerja 301
+/de/stays-nerja /de/unterkuenfte/nerja 301
+/nl/stays-nerja /nl/verblijven/nerja 301
+/sv/stays-nerja /sv/boenden/nerja 301
+/stays-tarifa /alojamientos/tarifa 301
+/en/stays-tarifa /en/stays/tarifa 301
+/de/stays-tarifa /de/unterkuenfte/tarifa 301
+/nl/stays-tarifa /nl/verblijven/tarifa 301
+/sv/stays-tarifa /sv/boenden/tarifa 301
+/la-amara-farah /alojamientos/frigiliana/la-amara-farah 301
+/en/la-amara-farah /en/stays/frigiliana/la-amara-farah 301
+/de/la-amara-farah /de/unterkuenfte/frigiliana/la-amara-farah 301
+/nl/la-amara-farah /nl/verblijven/frigiliana/la-amara-farah 301
+/sv/la-amara-farah /sv/boenden/frigiliana/la-amara-farah 301
+/la-amara-lounis /alojamientos/frigiliana/la-amara-lounis 301
+/en/la-amara-lounis /en/stays/frigiliana/la-amara-lounis 301
+/de/la-amara-lounis /de/unterkuenfte/frigiliana/la-amara-lounis 301
+/nl/la-amara-lounis /nl/verblijven/frigiliana/la-amara-lounis 301
+/sv/la-amara-lounis /sv/boenden/frigiliana/la-amara-lounis 301
+/la-amara-zaid /alojamientos/frigiliana/la-amara-zaid 301
+/en/la-amara-zaid /en/stays/frigiliana/la-amara-zaid 301
+/de/la-amara-zaid /de/unterkuenfte/frigiliana/la-amara-zaid 301
+/nl/la-amara-zaid /nl/verblijven/frigiliana/la-amara-zaid 301
+/sv/la-amara-zaid /sv/boenden/frigiliana/la-amara-zaid 301
+/la-amara-maha /alojamientos/frigiliana/la-amara-maha 301
+/en/la-amara-maha /en/stays/frigiliana/la-amara-maha 301
+/de/la-amara-maha /de/unterkuenfte/frigiliana/la-amara-maha 301
+/nl/la-amara-maha /nl/verblijven/frigiliana/la-amara-maha 301
+/sv/la-amara-maha /sv/boenden/frigiliana/la-amara-maha 301
+/la-amara-playa /alojamientos/nerja/la-amara-playa 301
+/en/la-amara-playa /en/stays/nerja/la-amara-playa 301
+/de/la-amara-playa /de/unterkuenfte/nerja/la-amara-playa 301
+/nl/la-amara-playa /nl/verblijven/nerja/la-amara-playa 301
+/sv/la-amara-playa /sv/boenden/nerja/la-amara-playa 301
+/la-amara-family-and-surf /alojamientos/tarifa/la-amara-family-and-surf 301
+/en/la-amara-family-and-surf /en/stays/tarifa/la-amara-family-and-surf 301
+/de/la-amara-family-and-surf /de/unterkuenfte/tarifa/la-amara-family-and-surf 301
+/nl/la-amara-family-and-surf /nl/verblijven/tarifa/la-amara-family-and-surf 301
+/sv/la-amara-family-and-surf /sv/boenden/tarifa/la-amara-family-and-surf 301
+
+# es-prefixed and misspelled stay aliases point straight at the current owner.
+/es/la-amara-farah /alojamientos/frigiliana/la-amara-farah 301
+/es/la-amara-lounis /alojamientos/frigiliana/la-amara-lounis 301
+/es/la-amara-zaid /alojamientos/frigiliana/la-amara-zaid 301
+/es/la-amara-maha /alojamientos/frigiliana/la-amara-maha 301
+/es/la-amara-playa /alojamientos/nerja/la-amara-playa 301
+/es/la-amara-family-and-surf /alojamientos/tarifa/la-amara-family-and-surf 301
+/es/lla-amara-family-and-surf /alojamientos/tarifa/la-amara-family-and-surf 301
+/nl/de-amara-zaid /nl/verblijven/frigiliana/la-amara-zaid 301
+/sv/la-amara-playa%20 /sv/boenden/nerja/la-amara-playa 301
+/en/la-amara-farah-romantic-double-retreat /en/stays/frigiliana/la-amara-farah 301
+/en/la-amara-lounis-historic-romantic-stay /en/stays/frigiliana/la-amara-lounis 301
+/nl/la-amara-lounis-historic-romantic-stay /nl/verblijven/frigiliana/la-amara-lounis 301
+/sv/la-amara-lounis-casa-rural-frigiliana /sv/boenden/frigiliana/la-amara-lounis 301
+/en/la-amara-family-surf-with-oceanview-and-pool /en/stays/tarifa/la-amara-family-and-surf 301
+/sv/amara-family-surf-with-oceanview-and-pool /sv/boenden/tarifa/la-amara-family-and-surf 301
 
 # Apartment listing legacy URLs
-/es/la-amara-farah-habitacion-doble-romantica /la-amara-farah 301
-/es/la-amara-lounis-apartamento-historico /la-amara-lounis 301
-/es/la-amara-zaid-refugio-romantico-con-terraza /la-amara-zaid 301
-/es/la-amara-maha-apartamento-con-gran-terraza /la-amara-maha 301
-/es/la-amara-playa-apartamento-nerja /la-amara-playa 301
-/es/amara-casa-familiar-con-vista-al-mar-y-piscina /la-amara-family-and-surf 301
+/es/la-amara-farah-habitacion-doble-romantica /alojamientos/frigiliana/la-amara-farah 301
+/es/la-amara-lounis-apartamento-historico /alojamientos/frigiliana/la-amara-lounis 301
+/es/la-amara-zaid-refugio-romantico-con-terraza /alojamientos/frigiliana/la-amara-zaid 301
+/es/la-amara-maha-apartamento-con-gran-terraza /alojamientos/frigiliana/la-amara-maha 301
+/es/la-amara-playa-apartamento-nerja /alojamientos/nerja/la-amara-playa 301
+/es/amara-casa-familiar-con-vista-al-mar-y-piscina /alojamientos/tarifa/la-amara-family-and-surf 301
 
 # Proven collection alias
 /en/romantic-getaway-frigiliana-nerja /en/stays 301
@@ -591,11 +648,11 @@
 /de/guest-reviews /de/ueber-uns/gaestestimmen 301
 /nl/guest-reviews /nl/over-ons/gastenbeoordelingen 301
 /sv/guest-reviews /sv/om-oss/gastrecensioner 301
-/direct-booking-benefits /sobre-nosotros/reserva-directa 301
-/en/direct-booking-benefits /en/about-us/direct-booking 301
-/de/direct-booking-benefits /de/ueber-uns/direkt-buchen 301
-/nl/direct-booking-benefits /nl/over-ons/direct-boeken 301
-/sv/direct-booking-benefits /sv/om-oss/boka-direkt 301
+/direct-booking-benefits /sobre-nosotros/ventajas-reserva-directa 301
+/en/direct-booking-benefits /en/about-us/direct-booking-benefits 301
+/de/direct-booking-benefits /de/ueber-uns/vorteile-direktbuchung 301
+/nl/direct-booking-benefits /nl/over-ons/voordelen-direct-boeken 301
+/sv/direct-booking-benefits /sv/om-oss/fordelar-boka-direkt 301
 /comfort-amenities /sobre-nosotros/comodidades 301
 /en/comfort-amenities /en/about-us/amenities 301
 /de/comfort-amenities /de/ueber-uns/ausstattung 301
@@ -620,11 +677,11 @@
 /de/romantic-hideaways /de/unterkuenfte 301
 /nl/romantic-hideaways /nl/verblijven 301
 /sv/romantic-hideaways /sv/boenden 301
-/find-a-stay /alojamientos/buscar 301
-/en/find-a-stay /en/stays/search 301
-/de/find-a-stay /de/unterkuenfte/suche 301
-/nl/find-a-stay /nl/verblijven/zoeken 301
-/sv/find-a-stay /sv/boenden/sok 301
+/find-a-stay /alojamientos/disponibilidad-reserva 301
+/en/find-a-stay /en/stays/availability-booking 301
+/de/find-a-stay /de/unterkuenfte/verfuegbarkeit-buchung 301
+/nl/find-a-stay /nl/verblijven/beschikbaarheid-boeking 301
+/sv/find-a-stay /sv/boenden/tillganglighet-bokning 301
 /last-minute-stays /alojamientos/ultima-hora 301
 /en/last-minute-stays /en/stays/last-minute 301
 /de/last-minute-stays /de/unterkuenfte/last-minute 301
@@ -915,11 +972,11 @@
 /de/tarifa-beaches /de/tarifa/erlebnisse/straende 301
 /nl/tarifa-beaches /nl/tarifa/ervaringen/stranden 301
 /sv/tarifa-beaches /sv/tarifa/upplevelser/strander 301
-/tarifa-food-evening-life /tarifa/experiencias/gastronomia-y-noche 301
-/en/tarifa-food-evening-life /en/tarifa/experiences/food-and-evenings 301
-/de/tarifa-food-evening-life /de/tarifa/erlebnisse/essen-und-abende 301
-/nl/tarifa-food-evening-life /nl/tarifa/ervaringen/eten-en-avonden 301
-/sv/tarifa-food-evening-life /sv/tarifa/upplevelser/mat-och-kvallar 301
+/tarifa-food-evening-life /tarifa/experiencias/comer-y-salir 301
+/en/tarifa-food-evening-life /en/tarifa/experiences/food-and-going-out 301
+/de/tarifa-food-evening-life /de/tarifa/erlebnisse/essen-und-ausgehen 301
+/nl/tarifa-food-evening-life /nl/tarifa/ervaringen/eten-en-uitgaan 301
+/sv/tarifa-food-evening-life /sv/tarifa/upplevelser/mat-och-uteliv 301
 /tarifa-nature-wildlife /tarifa/experiencias/naturaleza 301
 /en/tarifa-nature-wildlife /en/tarifa/experiences/nature-and-wildlife 301
 /de/tarifa-nature-wildlife /de/tarifa/erlebnisse/natur 301
