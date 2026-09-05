@@ -2,6 +2,7 @@
 import type { AmaraLanguage } from '../../types/seo';
 import type { VacationRentalBookingKey } from '../../content/vacationRentalEntities';
 import BookingDateRangeCalendar from '../booking/BookingDateRangeCalendar.astro';
+import PaymentMethodLogos from '../conversion/PaymentMethodLogos.astro';
 import AmaraSection from '../layout/AmaraSection.astro';
 import AmaraFormControl from '../forms/AmaraFormControl.astro';
 
@@ -407,13 +408,16 @@ const titleId = `${bookingKey}-booking-calendar-title`;
           <p class="am-text-title mt-2 text-on-surface" data-am-booking-price></p>
         </div>
         <p class="am-text-caption mt-4 font-normal leading-relaxed text-on-surface-variant" data-am-booking-note></p>
-        <a
-          class="am-btn am-btn--primary mt-5 w-full justify-center sm:w-auto"
-          hidden
-          data-am-booking-checkout
-        >
-          {t(copy.bookNow)}
-        </a>
+        <div class="am-stay-booking-calendar__checkout flex flex-wrap items-center gap-x-6">
+          <a
+            class="am-btn am-btn--primary mt-5 w-full justify-center sm:w-auto"
+            hidden
+            data-am-booking-checkout
+          >
+            {t(copy.bookNow)}
+          </a>
+          <PaymentMethodLogos class="mt-5" decorative />
+        </div>
       </div>
     </div>
   </div>
@@ -452,6 +456,12 @@ const titleId = `${bookingKey}-booking-calendar-title`;
   }
 
   [data-am-booking-enhanced='true'] .am-stay-booking-calendar__native-date {
+    display: none;
+  }
+
+  /* The payment row belongs to the checkout handoff: it follows the visibility
+     of the checkout button, so the booking runtime stays untouched. */
+  .am-stay-booking-calendar__checkout > [data-am-booking-checkout][hidden] ~ [data-am-component='payment-methods'] {
     display: none;
   }
 

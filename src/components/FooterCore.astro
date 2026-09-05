@@ -7,11 +7,13 @@
  * every page: postal address, the contact channels AMARA actually operates, the
  * public Instagram profile, the legal information and consent settings. AMARA
  * deliberately publishes no telephone number; WhatsApp and email are the
- * contact channels.
+ * contact channels. Beneath the legal links sits the quiet row of payment
+ * methods the guest meets in the governed external checkout.
  */
 import { MessageCircle } from '@lucide/astro';
 import { resolveLink } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
+import PaymentMethodLogos from './conversion/PaymentMethodLogos.astro';
 
 interface Props {
   currentLang: AmaraLanguage;
@@ -114,23 +116,26 @@ const labels = copy[currentLang] ?? copy.en;
         </a>
       </div>
 
-      <div class="footer-core__right inline-flex items-center gap-2 whitespace-nowrap">
-        <a
-          href={resolveLink('legal_notice', currentLang)}
-          aria-label={labels.legalAriaLabel}
-          class="text-on-surface-variant hover:text-primary am-text-label transition-colors"
-        >
-          {labels.legal}
-        </a>
-        <span class="flex items-center justify-center leading-none text-outline-variant/60" aria-hidden="true">·</span>
-        <a
-          href={resolveLink('legal_notice', currentLang)}
-          aria-label={labels.cookiesAriaLabel}
-          class="text-on-surface-variant hover:text-primary am-text-label transition-colors"
-          data-am-consent-settings
-        >
-          {labels.cookies}
-        </a>
+      <div class="footer-core__right flex flex-col items-start gap-3 md:items-end">
+        <div class="inline-flex items-center gap-2 whitespace-nowrap">
+          <a
+            href={resolveLink('legal_notice', currentLang)}
+            aria-label={labels.legalAriaLabel}
+            class="text-on-surface-variant hover:text-primary am-text-label transition-colors"
+          >
+            {labels.legal}
+          </a>
+          <span class="flex items-center justify-center leading-none text-outline-variant/60" aria-hidden="true">·</span>
+          <a
+            href={resolveLink('legal_notice', currentLang)}
+            aria-label={labels.cookiesAriaLabel}
+            class="text-on-surface-variant hover:text-primary am-text-label transition-colors"
+            data-am-consent-settings
+          >
+            {labels.cookies}
+          </a>
+        </div>
+        <PaymentMethodLogos />
       </div>
     </div>
   </div>
