@@ -4,12 +4,10 @@ import { guideHref } from '../../src/lib/guestGuideHref';
 import { SUPPORTED_LANGUAGES } from '../../src/lib/routeOwnership';
 import { staySearchHref, type StaySearchDestination } from '../../src/lib/staySearchHref';
 
+// Operator decision 2026-09-05: the Wi-Fi password of each accommodation is authored guest
+// content again, because the Guest Guide sits behind the booking check. Physical-access
+// secrets (doorbells, door and lockbox codes) stay out of the content.
 const PUBLIC_GUEST_SECRET_LABELS = [
-  /(?:wi-?fi )?password\s*:/i,
-  /wlan-passwort\s*:/i,
-  /contraseña(?: del wi-?fi)?\s*:/i,
-  /wifiwachtwoord\s*:/i,
-  /wi-?fi-lösenord\s*:/i,
   /doorbell/i,
   /klingel(?:nummer)?/i,
   /número (?:del )?timbre/i,
