@@ -19,11 +19,11 @@ const PERSONAL_RECOMMENDATIONS_MENU_TITLE: LocalizedText = {
 };
 
 const PERSONAL_RECOMMENDATIONS_MENU_SUBTITLE: LocalizedText = {
-  en: 'Hidden treasures · Insider tips · Authentic local food · Beyond the crowds',
-  de: 'Versteckte Schätze · Insider-Tipps · Authentische lokale Küche · Abseits der Massen',
-  es: 'Rincones escondidos · Consejos locales · Cocina local auténtica · Lejos de las multitudes',
-  nl: 'Verborgen parels · Insidertips · Authentiek lokaal eten · Buiten de drukte',
-  sv: 'Dolda pärlor · Insidertips · Genuin lokal mat · Bortom trängseln'
+  en: 'Breakfast · Restaurants · Beaches · Day trips',
+  de: 'Frühstück · Restaurants · Strände · Ausflüge',
+  es: 'Desayunos · Restaurantes · Playas · Excursiones',
+  nl: 'Ontbijt · Restaurants · Stranden · Dagtrips',
+  sv: 'Frukost · Restauranger · Stränder · Utflykter'
 };
 
 const STAY_ESSENTIALS_SUBTITLE: LocalizedText = {
@@ -1449,31 +1449,11 @@ const RECOMMENDATIONS_KICKER: LocalizedText = {
 };
 
 /** Sub-pages linked from AMARA Experience that haven't been supplied yet — kept live with placeholder copy so links never 404. */
-function createPlaceholderGuidePage(slug: string, title: LocalizedText): GuestGuideEntry {
-  return {
-    type: 'detail',
-    slug,
-    backSlug: 'frigiliana-guest-recommendations',
-    supportHref: FRIGILIANA_SUPPORT_EMAIL,
-    supportLabel: NEED_HELP,
-    seoTitle: {
-      en: `${title.en} | AMARA`,
-      de: `${title.de} | AMARA`,
-      es: `${title.es} | AMARA`,
-      nl: `${title.nl} | AMARA`,
-      sv: `${title.sv} | AMARA`
-    },
-    seoDescription: placeholderBody,
-    kicker: RECOMMENDATIONS_KICKER,
-    title,
-    categories: [{ heading: placeholderCategory, items: [{ icon: 'compass', title: placeholderCategory, body: [placeholderBody] }] }]
-  };
-}
 
 const nerjaGuestBreakfast: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-breakfast',
-  backSlug: 'frigiliana-guest-recommendations',
+  backSlug: 'nerja-guest-recommendations',
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
@@ -2009,7 +1989,7 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
 const nerjaGuestRestaurants: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-restaurants',
-  backSlug: 'frigiliana-guest-recommendations',
+  backSlug: 'nerja-guest-recommendations',
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
@@ -2697,11 +2677,11 @@ const frigilianaGuestHiking: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A panoramic loop above the village with open slopes and wide coastal views — one of the most dependable choices. Good after rain since the terrain drains quickly, but still wear shoes with grip.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Search on Komoot</a>',
-              de: 'Ein Panoramarundweg oberhalb des Dorfes mit weiten Hängen und herrlichem Blick auf die Küste – eine der besten und verlässlichsten Touren. Auch nach Regen gut machbar, da das Wasser hier schnell abfließt – zieht aber trotzdem Schuhe mit gutem Profil an.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Auf Komoot suchen</a>',
-              es: 'Una ruta circular panorámica por encima del pueblo con laderas abiertas y amplias vistas a la costa: una de las opciones más fiables. Buena opción después de llover porque el terreno suele drenar rápido, pero llevad calzado con buen agarre.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Buscar en Komoot</a>',
-              nl: 'Een panoramische rondwandeling boven het dorp met open hellingen en weids uitzicht op de kust — een van de meest betrouwbare keuzes. Goed te doen na regen omdat het terrein snel droogt, maar draag wel schoenen met goede grip.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Zoeken op Komoot</a>',
-              sv: 'En panoramisk rundslinga ovanför byn med öppna sluttningar och vidsträckt kustutsikt – ett av de mest pålitliga valen. Bra alternativ efter regn eftersom terrängen torkar snabbt, men använd ändå skor med bra grepp.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Sök på Komoot</a>'
+              en: 'A panoramic loop above the village with open slopes and wide coastal views — one of the most dependable choices. Good after rain since the terrain drains quickly, but still wear shoes with grip.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/cruz-de-pinto.html" target="_blank" rel="noopener">Route description (Turismo de Frigiliana, Spanish)</a>',
+              de: 'Ein Panoramarundweg oberhalb des Dorfes mit weiten Hängen und herrlichem Blick auf die Küste – eine der besten und verlässlichsten Touren. Auch nach Regen gut machbar, da das Wasser hier schnell abfließt – zieht aber trotzdem Schuhe mit gutem Profil an.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/cruz-de-pinto.html" target="_blank" rel="noopener">Routenbeschreibung (Turismo de Frigiliana, Spanisch)</a>',
+              es: 'Una ruta circular panorámica por encima del pueblo con laderas abiertas y amplias vistas a la costa: una de las opciones más fiables. Buena opción después de llover porque el terreno suele drenar rápido, pero llevad calzado con buen agarre.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/cruz-de-pinto.html" target="_blank" rel="noopener">Descripción de la ruta (Turismo de Frigiliana)</a>',
+              nl: 'Een panoramische rondwandeling boven het dorp met open hellingen en weids uitzicht op de kust — een van de meest betrouwbare keuzes. Goed te doen na regen omdat het terrein snel droogt, maar draag wel schoenen met goede grip.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/cruz-de-pinto.html" target="_blank" rel="noopener">Routebeschrijving (Turismo de Frigiliana, Spaans)</a>',
+              sv: 'En panoramisk rundslinga ovanför byn med öppna sluttningar och vidsträckt kustutsikt – ett av de mest pålitliga valen. Bra alternativ efter regn eftersom terrängen torkar snabbt, men använd ändå skor med bra grepp.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/cruz-de-pinto.html" target="_blank" rel="noopener">Ruttbeskrivning (Turismo de Frigiliana, spanska)</a>'
             }
           ]
         },
@@ -2717,11 +2697,11 @@ const frigilianaGuestHiking: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'The classic route behind Frigiliana — you don\'t need the full summit to get amazing views. After rain, the rocky parts can be slippery; go slow and bring water.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Search on Komoot</a>',
-              de: 'Der klassische Weg hinter Frigiliana – ihr müsst nicht ganz bis zum Gipfel hinauf, um eine fantastische Aussicht zu genießen. Nach Regen können die felsigen Stellen rutschig sein – geht es langsam an und nehmt ausreichend Wasser mit.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Auf Komoot suchen</a>',
-              es: 'El camino clásico detrás de Frigiliana: no hace falta llegar a la cima para disfrutar de unas vistas increíbles. Después de llover, las zonas rocosas pueden resbalar; id con calma y llevad agua.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Buscar en Komoot</a>',
-              nl: 'De klassieke route achter Frigiliana — jullie hoeven niet helemaal naar de top voor een geweldig uitzicht. Na regen kunnen de rotsachtige delen glad zijn; doe het rustig aan en neem water mee.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Zoeken op Komoot</a>',
-              sv: 'Den klassiska leden bakom Frigiliana – ni behöver inte gå hela vägen till toppen för att få fantastiska vyer. Efter regn kan de steniga partierna vara hala; ta det lugnt och ta med vatten.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Sök på Komoot</a>'
+              en: 'The classic route behind Frigiliana — you don\'t need the full summit to get amazing views. After rain, the rocky parts can be slippery; go slow and bring water.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/el-fuerte.html" target="_blank" rel="noopener">Route description (Turismo de Frigiliana, Spanish)</a>',
+              de: 'Der klassische Weg hinter Frigiliana – ihr müsst nicht ganz bis zum Gipfel hinauf, um eine fantastische Aussicht zu genießen. Nach Regen können die felsigen Stellen rutschig sein – geht es langsam an und nehmt ausreichend Wasser mit.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/el-fuerte.html" target="_blank" rel="noopener">Routenbeschreibung (Turismo de Frigiliana, Spanisch)</a>',
+              es: 'El camino clásico detrás de Frigiliana: no hace falta llegar a la cima para disfrutar de unas vistas increíbles. Después de llover, las zonas rocosas pueden resbalar; id con calma y llevad agua.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/el-fuerte.html" target="_blank" rel="noopener">Descripción de la ruta (Turismo de Frigiliana)</a>',
+              nl: 'De klassieke route achter Frigiliana — jullie hoeven niet helemaal naar de top voor een geweldig uitzicht. Na regen kunnen de rotsachtige delen glad zijn; doe het rustig aan en neem water mee.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/el-fuerte.html" target="_blank" rel="noopener">Routebeschrijving (Turismo de Frigiliana, Spaans)</a>',
+              sv: 'Den klassiska leden bakom Frigiliana – ni behöver inte gå hela vägen till toppen för att få fantastiska vyer. Efter regn kan de steniga partierna vara hala; ta det lugnt och ta med vatten.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/el-fuerte.html" target="_blank" rel="noopener">Ruttbeskrivning (Turismo de Frigiliana, spanska)</a>'
             }
           ]
         },
@@ -2798,11 +2778,11 @@ const frigilianaGuestHiking: GuestGuideEntry = {
               sv: 'Det lugnare lokala flodalternativet nära Frigiliana – vada genom vatten, små pooler och en uppfriskande utflykt på sommaren.'
             },
             {
-              en: 'Water shoes (or grippy sports sandals) are strongly recommended. Avoid after heavy rain.',
-              de: 'Wasserschuhe (oder gut sitzende Sportsandalen) sind sehr zu empfehlen. Meidet diese Tour nach starkem Regen.',
-              es: 'Se recomiendan encarecidamente escarpines (o sandalias deportivas con agarre). Evitad esta ruta después de lluvias fuertes.',
-              nl: 'Waterschoenen (of stevige sportsandalen) worden sterk aanbevolen. Vermijd deze route na hevige regenval.',
-              sv: 'Badskor (eller sportsandaler med bra grepp) rekommenderas starkt. Undvik efter kraftigt regn.'
+              en: 'Water shoes (or grippy sports sandals) are strongly recommended. Avoid after heavy rain.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/cahorros-del-rio-higueron.html" target="_blank" rel="noopener">Route description (Turismo de Frigiliana, Spanish)</a>',
+              de: 'Wasserschuhe (oder gut sitzende Sportsandalen) sind sehr zu empfehlen. Meidet diese Tour nach starkem Regen.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/cahorros-del-rio-higueron.html" target="_blank" rel="noopener">Routenbeschreibung (Turismo de Frigiliana, Spanisch)</a>',
+              es: 'Se recomiendan encarecidamente escarpines (o sandalias deportivas con agarre). Evitad esta ruta después de lluvias fuertes.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/cahorros-del-rio-higueron.html" target="_blank" rel="noopener">Descripción de la ruta (Turismo de Frigiliana)</a>',
+              nl: 'Waterschoenen (of stevige sportsandalen) worden sterk aanbevolen. Vermijd deze route na hevige regenval.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/cahorros-del-rio-higueron.html" target="_blank" rel="noopener">Routebeschrijving (Turismo de Frigiliana, Spaans)</a>',
+              sv: 'Badskor (eller sportsandaler med bra grepp) rekommenderas starkt. Undvik efter kraftigt regn.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/cahorros-del-rio-higueron.html" target="_blank" rel="noopener">Ruttbeskrivning (Turismo de Frigiliana, spanska)</a>'
             }
           ]
         },
@@ -2810,11 +2790,11 @@ const frigilianaGuestHiking: GuestGuideEntry = {
           icon: 'star',
           title: { en: 'Río Chíllar (Nerja)', de: 'Río Chíllar (Nerja)', es: 'Río Chíllar (Nerja)', nl: 'Río Chíllar (Nerja)', sv: 'Río Chíllar (Nerja)' },
           subtitle: {
-            en: '4–5 h · Very popular',
-            de: '4–5 Std. · Sehr beliebt',
-            es: '4–5 h · Muy popular',
-            nl: '4–5 uur · Erg populair',
-            sv: '4–5 tim · Väldigt populärt'
+            en: '4–5 h · Access currently restricted',
+            de: '4–5 Std. · Zugang derzeit eingeschränkt',
+            es: '4–5 h · Acceso restringido actualmente',
+            nl: '4–5 uur · Toegang momenteel beperkt',
+            sv: '4–5 tim · Tillträde för närvarande begränsat'
           },
           body: [
             {
@@ -2825,11 +2805,11 @@ const frigilianaGuestHiking: GuestGuideEntry = {
               sv: 'Den berömda "flodvandringen" – vacker, svalkande och mycket välbesökt under högsäsong.'
             },
             {
-              en: 'Go early (around 08:00) and prefer weekdays. Check current access rules locally before you go.',
-              de: 'Geht früh los (gegen 08:00 Uhr) und am besten unter der Woche. Bitte prüft vorab lokal die aktuellen Zugangsregeln.',
-              es: 'Id temprano (sobre las 08:00) y preferiblemente entre semana. Consultad las normas de acceso actuales antes de ir.',
-              nl: 'Ga vroeg op pad (rond 08:00 uur) en bij voorkeur op een doordeweekse dag. Controleer vooraf lokaal de actuele toegangsregels.',
-              sv: 'Gå tidigt (runt 08:00) och helst på vardagar. Kontrollera aktuella tillträdesregler lokalt innan ni åker.'
+              en: 'Go early (around 08:00) and prefer weekdays. Access to the river has been closed by the authorities for long stretches since summer 2025, and a procedure for controlled access is under way. Check the current status before you set off; we will gladly look it up for you.',
+              de: 'Geht früh los (gegen 08:00 Uhr) und am besten unter der Woche. Der Zugang zum Fluss war seit Sommer 2025 über lange Strecken behördlich gesperrt, ein Verfahren für einen kontrollierten Zugang läuft. Prüft vor dem Aufbruch den aktuellen Stand; wir schauen gern für euch nach.',
+              es: 'Id temprano (sobre las 08:00) y preferiblemente entre semana. El acceso al río ha estado cerrado por las autoridades durante largos periodos desde el verano de 2025 y hay en marcha un procedimiento de acceso controlado. Consultad el estado actual antes de salir; lo comprobamos con gusto por vosotros.',
+              nl: 'Ga vroeg op pad (rond 08:00 uur) en bij voorkeur op een doordeweekse dag. De toegang tot de rivier is sinds de zomer van 2025 lange tijd door de autoriteiten gesloten geweest en er loopt een procedure voor gecontroleerde toegang. Controleer de actuele status voor vertrek; we zoeken het graag voor jullie op.',
+              sv: 'Gå tidigt (runt 08:00) och helst på vardagar. Tillträdet till floden har varit stängt av myndigheterna under långa perioder sedan sommaren 2025, och ett förfarande för kontrollerat tillträde pågår. Kontrollera aktuell status innan ni ger er av; vi kollar gärna åt er.'
             }
           ]
         },
@@ -2852,11 +2832,11 @@ const frigilianaGuestHiking: GuestGuideEntry = {
               sv: 'En givande vandring genom tallskog till den "Förlorade byn" – fantastiskt om ni vill ha ett mål med en rustik måltid.'
             },
             {
-              en: 'Reserve lunch in advance if you go in high season. Bring water and a bit of cash.',
-              de: 'Reserviert das Mittagessen in der Hochsaison am besten vorab. Nehmt Wasser und etwas Bargeld mit.',
-              es: 'Reservad el almuerzo con antelación si vais en temporada alta. Llevad agua y algo de efectivo.',
-              nl: 'Reserveer in het hoogseizoen de lunch van tevoren. Neem water en een beetje contant geld mee.',
-              sv: 'Boka lunchen i förväg om ni vandrar under högsäsong. Ta med vatten och lite kontanter.'
+              en: 'Reserve lunch in advance if you go in high season. Bring water and a bit of cash.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/el-acebuchal.html" target="_blank" rel="noopener">Route description (Turismo de Frigiliana, Spanish)</a>',
+              de: 'Reserviert das Mittagessen in der Hochsaison am besten vorab. Nehmt Wasser und etwas Bargeld mit.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/el-acebuchal.html" target="_blank" rel="noopener">Routenbeschreibung (Turismo de Frigiliana, Spanisch)</a>',
+              es: 'Reservad el almuerzo con antelación si vais en temporada alta. Llevad agua y algo de efectivo.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/el-acebuchal.html" target="_blank" rel="noopener">Descripción de la ruta (Turismo de Frigiliana)</a>',
+              nl: 'Reserveer in het hoogseizoen de lunch van tevoren. Neem water en een beetje contant geld mee.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/el-acebuchal.html" target="_blank" rel="noopener">Routebeschrijving (Turismo de Frigiliana, Spaans)</a>',
+              sv: 'Boka lunchen i förväg om ni vandrar under högsäsong. Ta med vatten och lite kontanter.<br><br><a class="am-link" href="https://www.turismofrigiliana.es/es/el-acebuchal.html" target="_blank" rel="noopener">Ruttbeskrivning (Turismo de Frigiliana, spanska)</a>'
             }
           ]
         }
@@ -3707,7 +3687,7 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
 const nerjaGuestAdventure: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-adventure',
-  backSlug: 'frigiliana-guest-recommendations',
+  backSlug: 'nerja-guest-recommendations',
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
@@ -3768,18 +3748,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
               sv: 'Kustlinjen öster om Nerja är ett skyddat naturreservat. Att paddla längs klipporna vid Maro-Cerro Gordo är ett av de vackraste sätten att utforska havsgrottor, gömda vikar (som den vackra Cala Blanco) och turkost vatten. De flesta guidade turer inkluderar ett stopp nära det berömda vattenfallet Cascada de Maro, där ni kan bada eller snorkla i lugnt vatten.'
             },
             {
-              en: '<ul><li><strong>Duration:</strong> approx. 2–2.5 hours.</li><li><strong>Season:</strong> available most of the year (best May–October).</li><li><strong>Prices:</strong> Guided tours range from 25 € to 35 €, while autonomous rentals start around 11 €.</li><li><strong>Top Providers:</strong> Look for "Educare Aventura" (pioneers since 2002) at Burriana Beach or "Local Experiences" for premium family tours.</li><li><strong>Tip:</strong> Book ahead in summer — tours sell out quickly. Arrive at least 15 minutes early as parking at Playa de Burriana is notoriously difficult.</li></ul>',
-              de: '<ul><li><strong>Dauer:</strong> ca. 2–2,5 Stunden.</li><li><strong>Saison:</strong> fast das ganze Jahr über verfügbar (am besten Mai–Oktober).</li><li><strong>Preise:</strong> Geführte Touren liegen zwischen 25 € und 35 €, während der eigene Verleih bei ca. 11 € beginnt.</li><li><strong>Top-Anbieter:</strong> Haltet Ausschau nach "Educare Aventura" (Pioniere seit 2002) am Burriana Beach oder "Local Experiences" für Premium-Familientouren.</li><li><strong>Tipp:</strong> Bucht im Sommer unbedingt im Voraus – die Touren sind schnell ausverkauft. Seid mindestens 15 Minuten früher da, da das Parken an der Playa de Burriana bekanntermaßen schwierig ist.</li></ul>',
-              es: '<ul><li><strong>Duración:</strong> aprox. 2–2,5 horas.</li><li><strong>Temporada:</strong> disponible casi todo el año (mejor de mayo a octubre).</li><li><strong>Precios:</strong> Las rutas guiadas oscilan entre 25 € y 35 €, mientras que el alquiler por libre empieza en unos 11 €.</li><li><strong>Mejores proveedores:</strong> Buscad "Educare Aventura" (pioneros desde 2002) en la Playa de Burriana o "Local Experiences" para excursiones familiares premium.</li><li><strong>Consejo:</strong> Reservad con antelación en verano, las plazas se agotan rápido. Llegad al menos 15 minutos antes, ya que aparcar en la Playa de Burriana es bastante difícil.</li></ul>',
-              nl: '<ul><li><strong>Duur:</strong> ca. 2–2,5 uur.</li><li><strong>Seizoen:</strong> het grootste deel van het jaar beschikbaar (beste van mei–oktober).</li><li><strong>Prijzen:</strong> Begeleide tours variëren van 25 € tot 35 €, zelf huren begint rond 11 €.</li><li><strong>Topaanbieders:</strong> Kijk naar "Educare Aventura" (pioniers sinds 2002) op Burriana Beach of "Local Experiences" voor premium familietours.</li><li><strong>Tip:</strong> Boek in de zomer vooraf — tours zijn snel uitverkocht. Zorg dat jullie zeker 15 minuten te vroeg zijn, want parkeren bij Playa de Burriana is berucht lastig.</li></ul>',
-              sv: '<ul><li><strong>Varaktighet:</strong> ca 2–2,5 timmar.</li><li><strong>Säsong:</strong> tillgängligt större delen av året (bäst maj–oktober).</li><li><strong>Priser:</strong> Guidade turer kostar mellan 25 € och 35 €, medan egen hyra börjar runt 11 €.</li><li><strong>Topparrangörer:</strong> Leta efter "Educare Aventura" (pionjärer sedan 2002) vid Burriana Beach eller "Local Experiences" för premiumturer för familjer.</li><li><strong>Tips:</strong> Boka i förväg på sommaren – turerna säljer slut snabbt. Kom minst 15 minuter för tidigt, eftersom parkering vid Playa de Burriana är ökänt svårt.</li></ul>'
-            },
-            {
-              en: 'To compare providers by rating, price and starting location, search <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kayak+Nerja" target="_blank" rel="noopener">"Kayak Nerja" on Google Maps</a>.',
-              de: 'Um Anbieter nach Bewertungen, Preisen und Startort zu vergleichen, sucht nach <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kayak+Nerja" target="_blank" rel="noopener">„Kayak Nerja" in Google Maps</a>.',
-              es: 'Para comparar proveedores por valoración, precio y ubicación de salida, buscad <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kayak+Nerja" target="_blank" rel="noopener">"Kayak Nerja" en Google Maps</a>.',
-              nl: 'Gebruik <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kayak+Nerja" target="_blank" rel="noopener">"Kayak Nerja" op Google Maps</a> om aanbieders te vergelijken op beoordeling, prijs en startlocatie.',
-              sv: 'Sök efter <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kayak+Nerja" target="_blank" rel="noopener">"Kayak Nerja" i Google Maps</a> för att jämföra arrangörer, omdömen och startplatser.'
+              en: '<ul><li><strong>Duration:</strong> approx. 2–2.5 hours.</li><li><strong>Season:</strong> available most of the year (best May–October).</li><li><strong>Prices:</strong> Guided tours range from 25 € to 35 €, while autonomous rentals start around 11 €.</li><li><strong>Providers:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Educare+Aventura+Nerja" target="_blank" rel="noopener">Educare Aventura</a> at Burriana beach (since 2002) or <a class="am-link" href="https://localexperiences.es/en/" target="_blank" rel="noopener">Local Experiences</a> for small-group family tours.</li><li><strong>Tip:</strong> Book ahead in summer — tours sell out quickly. Arrive at least 15 minutes early as parking at Playa de Burriana is notoriously difficult.</li></ul>',
+              de: '<ul><li><strong>Dauer:</strong> ca. 2–2,5 Stunden.</li><li><strong>Saison:</strong> fast das ganze Jahr über verfügbar (am besten Mai–Oktober).</li><li><strong>Preise:</strong> Geführte Touren liegen zwischen 25 € und 35 €, während der eigene Verleih bei ca. 11 € beginnt.</li><li><strong>Anbieter:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Educare+Aventura+Nerja" target="_blank" rel="noopener">Educare Aventura</a> an der Playa de Burriana (seit 2002) oder <a class="am-link" href="https://localexperiences.es/en/" target="_blank" rel="noopener">Local Experiences</a> für Familientouren in kleinen Gruppen.</li><li><strong>Tipp:</strong> Bucht im Sommer unbedingt im Voraus – die Touren sind schnell ausverkauft. Seid mindestens 15 Minuten früher da, da das Parken an der Playa de Burriana bekanntermaßen schwierig ist.</li></ul>',
+              es: '<ul><li><strong>Duración:</strong> aprox. 2–2,5 horas.</li><li><strong>Temporada:</strong> disponible casi todo el año (mejor de mayo a octubre).</li><li><strong>Precios:</strong> Las rutas guiadas oscilan entre 25 € y 35 €, mientras que el alquiler por libre empieza en unos 11 €.</li><li><strong>Proveedores:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Educare+Aventura+Nerja" target="_blank" rel="noopener">Educare Aventura</a> en la playa de Burriana (desde 2002) o <a class="am-link" href="https://localexperiences.es/en/" target="_blank" rel="noopener">Local Experiences</a> para salidas familiares en grupos pequeños.</li><li><strong>Consejo:</strong> Reservad con antelación en verano, las plazas se agotan rápido. Llegad al menos 15 minutos antes, ya que aparcar en la Playa de Burriana es bastante difícil.</li></ul>',
+              nl: '<ul><li><strong>Duur:</strong> ca. 2–2,5 uur.</li><li><strong>Seizoen:</strong> het grootste deel van het jaar beschikbaar (beste van mei–oktober).</li><li><strong>Prijzen:</strong> Begeleide tours variëren van 25 € tot 35 €, zelf huren begint rond 11 €.</li><li><strong>Aanbieders:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Educare+Aventura+Nerja" target="_blank" rel="noopener">Educare Aventura</a> aan het strand van Burriana (sinds 2002) of <a class="am-link" href="https://localexperiences.es/en/" target="_blank" rel="noopener">Local Experiences</a> voor familietours in kleine groepen.</li><li><strong>Tip:</strong> Boek in de zomer vooraf — tours zijn snel uitverkocht. Zorg dat jullie zeker 15 minuten te vroeg zijn, want parkeren bij Playa de Burriana is berucht lastig.</li></ul>',
+              sv: '<ul><li><strong>Varaktighet:</strong> ca 2–2,5 timmar.</li><li><strong>Säsong:</strong> tillgängligt större delen av året (bäst maj–oktober).</li><li><strong>Priser:</strong> Guidade turer kostar mellan 25 € och 35 €, medan egen hyra börjar runt 11 €.</li><li><strong>Arrangörer:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Educare+Aventura+Nerja" target="_blank" rel="noopener">Educare Aventura</a> vid Burriana-stranden (sedan 2002) eller <a class="am-link" href="https://localexperiences.es/en/" target="_blank" rel="noopener">Local Experiences</a> för familjeturer i små grupper.</li><li><strong>Tips:</strong> Boka i förväg på sommaren – turerna säljer slut snabbt. Kom minst 15 minuter för tidigt, eftersom parkering vid Playa de Burriana är ökänt svårt.</li></ul>'
             },
             {
               en: '<hr>',
@@ -3810,11 +3783,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
               sv: '<ul><li><strong>Typiska alternativ:</strong> 30 eller 60 minuter</li><li><strong>Upp till 2 personer per vattenskoter</strong></li><li><strong>Villkor:</strong> turerna beror på havets tillstånd och vädret</li></ul>'
             },
             {
-              en: 'Compare local operators and availability by searching <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Jet+Ski+Nerja" target="_blank" rel="noopener">"Jet Ski Nerja" on Google Maps</a>.',
-              de: 'Vergleicht lokale Anbieter und deren Verfügbarkeit, indem ihr nach <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Jet+Ski+Nerja" target="_blank" rel="noopener">„Jet Ski Nerja" in Google Maps</a> sucht.',
-              es: 'Comparad los operadores locales y la disponibilidad buscando <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Jet+Ski+Nerja" target="_blank" rel="noopener">"Jet Ski Nerja" en Google Maps</a>.',
-              nl: 'Vergelijk lokale aanbieders en beschikbaarheid via <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Jet+Ski+Nerja" target="_blank" rel="noopener">"Jet Ski Nerja" op Google Maps</a>.',
-              sv: 'Jämför lokala arrangörer och tillgänglighet genom att söka efter <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Jet+Ski+Nerja" target="_blank" rel="noopener">"Jet Ski Nerja" i Google Maps</a>.'
+              en: 'Which operator currently runs tours and has free slots changes with the season. Send us a short message and we will tell you who to call.',
+              de: 'Welcher Anbieter gerade Touren fährt und freie Plätze hat, wechselt mit der Saison. Schreibt uns kurz, wir sagen euch, wen ihr anrufen könnt.',
+              es: 'El operador que hace salidas y tiene plazas libres cambia con la temporada. Escribidnos un mensaje corto y os decimos a quién llamar.',
+              nl: 'Welke aanbieder op dit moment tours vaart en plek heeft, wisselt per seizoen. Stuur ons een kort bericht, dan zeggen we wie jullie kunnen bellen.',
+              sv: 'Vilken arrangör som kör turer just nu och har lediga platser skiftar med säsongen. Skicka oss ett kort meddelande så säger vi vem ni kan ringa.'
             },
             {
               en: '<em>Practical advice:</em> Bring swimwear, sunscreen, water, and ideally a waterproof phone case. Morning tours often have calmer sea conditions.',
@@ -3995,11 +3968,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
               sv: '<ul><li><strong>Varaktighet:</strong> från korta turer på 1 timme till halvdagsutflykter</li><li><strong>Miljö:</strong> havsutsikt, bergsvägar och traditionella byar</li><li><strong>Bra att veta:</strong> vissa operatörer pratar tyska</li></ul>'
             },
             {
-              en: 'To compare routes and reviews, search <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Harley+Davidson+Nerja" target="_blank" rel="noopener">"Harley Davidson Nerja" on Google Maps</a>.',
-              de: 'Um Routen und Bewertungen zu vergleichen, sucht nach <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Harley+Davidson+Nerja" target="_blank" rel="noopener">„Harley Davidson Nerja" in Google Maps</a>.',
-              es: 'Para comparar rutas y opiniones, buscad <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Harley+Davidson+Nerja" target="_blank" rel="noopener">"Harley Davidson Nerja" en Google Maps</a>.',
-              nl: 'Zoek naar <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Harley+Davidson+Nerja" target="_blank" rel="noopener">"Harley Davidson Nerja" op Google Maps</a> om routes en beoordelingen te vergelijken.',
-              sv: 'Sök efter <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Harley+Davidson+Nerja" target="_blank" rel="noopener">"Harley Davidson Nerja" i Google Maps</a> för att jämföra rutter och omdömen.'
+              en: 'We will gladly tell you which operator currently offers tours and in which language. Just send us a short message.',
+              de: 'Welcher Anbieter gerade Touren anbietet und in welcher Sprache, sagen wir euch gern. Schreibt uns einfach kurz.',
+              es: 'Os decimos con gusto qué operador ofrece rutas ahora mismo y en qué idioma. Escribidnos un mensaje corto.',
+              nl: 'We vertellen jullie graag welke aanbieder op dit moment tours aanbiedt en in welke taal. Stuur ons gewoon een kort bericht.',
+              sv: 'Vi berättar gärna vilken arrangör som erbjuder turer just nu och på vilket språk. Skicka oss bara ett kort meddelande.'
             },
             {
               en: 'These tours are especially enjoyable outside the hottest summer hours and during spring or autumn.',
@@ -4169,7 +4142,7 @@ const frigilianaGuestBreakfast: GuestGuideEntry = {
 const nerjaGuestNightlife: GuestGuideEntry = {
   "type": "detail",
   "slug": "nerja-guest-nightlife",
-  "backSlug": "frigiliana-guest-recommendations",
+  "backSlug": "nerja-guest-recommendations",
   "supportHref": FRIGILIANA_SUPPORT_EMAIL,
   "supportLabel": NEED_HELP,
   "seoTitle": {
@@ -4297,11 +4270,11 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "sv": "<ul><li><strong>Bäst för:</strong> par, lugna grupper, date night</li> <li><strong>Bästa tid:</strong> solnedgång till efter middagen</li> <li><strong>Stil:</strong> vackert, elegant, promenadvänligt</li></ul>"
             },
             {
-              "en": "Google Maps shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktail bars in Nerja</a>",
-              "de": "Google-Maps-Shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktailbars in Nerja</a>",
-              "es": "Acceso rápido en Google Maps: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktail bars in Nerja</a>",
-              "nl": "Google Maps-snelkoppeling: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktailbars in Nerja</a>",
-              "sv": "Google Maps-genväg: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktailbarer i Nerja</a>"
+              "en": "Our own tested version: in summer 2025 we left the car at AMARA Playa in Nerja, walked into the centre and watched the sunset from <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Cochran%27s+Terrace+Nerja\" target=\"_blank\" rel=\"noopener\">Cochran’s Terrace</a> over a Cuba Libre and a Mai Tai. The walk is roughly 450 metres. Check that the terrace is open before you set off.",
+              "de": "Unsere selbst erprobte Variante: Im Sommer 2025 ließen wir das Auto bei AMARA Playa in Nerja stehen, liefen ins Zentrum und sahen bei <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Cochran%27s+Terrace+Nerja\" target=\"_blank\" rel=\"noopener\">Cochran’s Terrace</a> mit Cuba Libre und Mai Tai den Sonnenuntergang. Der Weg sind ungefähr 450 Meter. Prüft vor dem Aufbruch, ob die Terrasse geöffnet ist.",
+              "es": "Nuestra versión probada: en verano de 2025 dejamos el coche en AMARA Playa, en Nerja, caminamos al centro y vimos la puesta de sol desde <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Cochran%27s+Terrace+Nerja\" target=\"_blank\" rel=\"noopener\">Cochran’s Terrace</a> con un Cuba Libre y un Mai Tai. El paseo son unos 450 metros. Comprobad antes de salir que la terraza esté abierta.",
+              "nl": "Onze zelf beproefde versie: in de zomer van 2025 lieten we de auto bij AMARA Playa in Nerja staan, liepen naar het centrum en zagen vanaf <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Cochran%27s+Terrace+Nerja\" target=\"_blank\" rel=\"noopener\">Cochran’s Terrace</a> de zon ondergaan met een Cuba Libre en een Mai Tai. De wandeling is ongeveer 450 meter. Controleer vóór vertrek of het terras open is.",
+              "sv": "Vår egen prövade version: sommaren 2025 lämnade vi bilen vid AMARA Playa i Nerja, promenerade in till centrum och såg solnedgången från <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Cochran%27s+Terrace+Nerja\" target=\"_blank\" rel=\"noopener\">Cochran’s Terrace</a> med en Cuba Libre och en Mai Tai. Promenaden är ungefär 450 meter. Kontrollera före avfärd att terrassen är öppen."
             }
           ]
         },
@@ -4323,19 +4296,12 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "sv": "Om ni vill ha en senare, livligare och mer social kväll ska ni gå till Plaza Tutti Frutti efter middagen. Det här är det enklaste området för bar-hopping och den tydligaste nattlivszonen i Nerja."
             },
             {
-              "en": "<ul><li><strong>Best for:</strong> groups, later starts, casual fun</li> <li><strong>Best time:</strong> after dinner, especially later in summer</li> <li><strong>Atmosphere:</strong> younger, busier, more energetic</li></ul>",
-              "de": "<ul><li><strong>Am besten für:</strong> Gruppen, spätere Starts, lockeren Spaß</li> <li><strong>Beste Zeit:</strong> nach dem Essen, im Sommer besonders später</li> <li><strong>Atmosphäre:</strong> jünger, voller, energiegeladener</li></ul>",
-              "es": "<ul><li><strong>Ideal para:</strong> grupos, empezar más tarde, plan informal</li> <li><strong>Mejor momento:</strong> después de cenar, en verano incluso más tarde</li> <li><strong>Ambiente:</strong> más joven, más lleno, más enérgico</li></ul>",
-              "nl": "<ul><li><strong>Het best voor:</strong> groepen, later beginnen, informele fun</li> <li><strong>Beste tijd:</strong> na het diner, vooral later in de zomer</li> <li><strong>Sfeer:</strong> jonger, drukker, energieker</li></ul>",
-              "sv": "<ul><li><strong>Bäst för:</strong> grupper, sena starter, avslappnat nöje</li> <li><strong>Bästa tid:</strong> efter middagen, särskilt senare på sommaren</li> <li><strong>Atmosfär:</strong> yngre, livligare, mer energi</li></ul>"
+              "en": "<ul><li><strong>Best for:</strong> groups, later starts, casual fun</li> <li><strong>Best time:</strong> after dinner, especially later in summer</li> <li><strong>Atmosphere:</strong> younger, busier, more energetic</li></ul><br><br><a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener\">Open in Google Maps</a>",
+              "de": "<ul><li><strong>Am besten für:</strong> Gruppen, spätere Starts, lockeren Spaß</li> <li><strong>Beste Zeit:</strong> nach dem Essen, im Sommer besonders später</li> <li><strong>Atmosphäre:</strong> jünger, voller, energiegeladener</li></ul><br><br><a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener\">In Google Maps öffnen</a>",
+              "es": "<ul><li><strong>Ideal para:</strong> grupos, empezar más tarde, plan informal</li> <li><strong>Mejor momento:</strong> después de cenar, en verano incluso más tarde</li> <li><strong>Ambiente:</strong> más joven, más lleno, más enérgico</li></ul><br><br><a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener\">Abrir en Google Maps</a>",
+              "nl": "<ul><li><strong>Het best voor:</strong> groepen, later beginnen, informele fun</li> <li><strong>Beste tijd:</strong> na het diner, vooral later in de zomer</li> <li><strong>Sfeer:</strong> jonger, drukker, energieker</li></ul><br><br><a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener\">Openen in Google Maps</a>",
+              "sv": "<ul><li><strong>Bäst för:</strong> grupper, sena starter, avslappnat nöje</li> <li><strong>Bästa tid:</strong> efter middagen, särskilt senare på sommaren</li> <li><strong>Atmosfär:</strong> yngre, livligare, mer energi</li></ul><br><br><a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener\">Öppna i Google Maps</a>"
             },
-            {
-              "en": "Google Maps shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
-              "de": "Google-Maps-Shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
-              "es": "Acceso rápido en Google Maps: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
-              "nl": "Google Maps-snelkoppeling: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
-              "sv": "Google Maps-genväg: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>"
-            }
           ]
         },
         {
@@ -4363,11 +4329,11 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "sv": "<ul><li><strong>Bäst för:</strong> par, kulturintresserade, en annorlunda kväll</li> <li><strong>Känsla:</strong> intim, lokal, stämningsfull</li></ul>"
             },
             {
-              "en": "Google Maps shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco in Nerja</a>",
-              "de": "Google-Maps-Shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco in Nerja</a>",
-              "es": "Acceso rápido en Google Maps: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco en Nerja</a>",
-              "nl": "Google Maps-snelkoppeling: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco in Nerja</a>",
-              "sv": "Google Maps-genväg: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco i Nerja</a>"
+              "en": "Flamenco evenings in Nerja are not a fixed weekly programme. Tell us which evening you have in mind and we will let you know what is on that week.",
+              "de": "Flamenco-Abende gibt es in Nerja nicht nach festem Wochenplan. Sagt uns, welcher Abend euch vorschwebt, und wir sagen euch, was in dieser Woche läuft.",
+              "es": "En Nerja las noches de flamenco no siguen un programa semanal fijo. Decidnos qué noche tenéis en mente y os contamos qué hay esa semana.",
+              "nl": "Flamenco-avonden in Nerja volgen geen vast weekprogramma. Laat ons weten welke avond jullie in gedachten hebben, dan vertellen we wat er die week is.",
+              "sv": "Flamencokvällar i Nerja följer inget fast veckoprogram. Säg vilken kväll ni tänker er så berättar vi vad som händer den veckan."
             }
           ]
         },
@@ -4413,9 +4379,6 @@ const recommendationSubPages: GuestGuideEntry[] = [
   frigilianaGuestSightseeing,
   frigilianaGuestDayTrips,
   frigilianaGuestFestivals,
-  createPlaceholderGuidePage('frigiliana-guest-flamenco-bachata', {
-    en: 'Flamenco & Bachata', de: 'Flamenco & Bachata', es: 'Flamenco y Bachata', nl: 'Flamenco & Bachata', sv: 'Flamenco & Bachata'
-  }),
   nerjaGuestNightlife,
   frigilianaGuestWellness,
   nerjaGuestAdventure
@@ -4435,26 +4398,26 @@ const frigilianaRecommendations: GuestGuideEntry = {
     sv: 'AMARA Experience | AMARA Gästguide'
   },
   seoDescription: {
-    en: 'Hidden treasures, insider tips, authentic local food and lesser-known places around Frigiliana and Nerja, selected by your AMARA hosts.',
-    de: 'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte rund um Frigiliana und Nerja, ausgewählt von euren AMARA-Gastgebern.',
-    es: 'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos de Frigiliana y Nerja, seleccionados por vuestros anfitriones de AMARA.',
-    nl: 'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken rond Frigiliana en Nerja, geselecteerd door jullie AMARA-gastheren.',
-    sv: 'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser runt Frigiliana och Nerja, utvalda av era AMARA-värdar.'
+    en: 'Our selection for Frigiliana, Nerja and nearby: breakfast, restaurants, beaches, hikes, day trips and evenings, with what you need to know on the spot.',
+    de: 'Unsere Auswahl für Frigiliana, Nerja und Umgebung: Frühstück, Restaurants, Strände, Wanderungen, Ausflüge und Abende, mit dem, was ihr vor Ort wissen müsst.',
+    es: 'Nuestra selección para Frigiliana, Nerja y alrededores: desayunos, restaurantes, playas, rutas, excursiones y noches, con lo que necesitáis saber sobre el terreno.',
+    nl: 'Onze selectie voor Frigiliana, Nerja en omgeving: ontbijt, restaurants, stranden, wandelingen, dagtrips en avonden, met wat jullie ter plekke moeten weten.',
+    sv: 'Vårt urval för Frigiliana, Nerja och närområdet: frukost, restauranger, stränder, vandringar, utflykter och kvällar, med det ni behöver veta på plats.'
   },
   kicker: RECOMMENDATIONS_KICKER,
   title: {
-    en: 'Our personal recommendations in Nerja, Frigiliana & nearby',
-    de: 'Unsere persönlichen Empfehlungen für Nerja, Frigiliana und Umgebung',
-    es: 'Nuestras recomendaciones personales en Nerja, Frigiliana y alrededores',
-    nl: 'Onze persoonlijke aanbevelingen voor Nerja, Frigiliana en omgeving',
-    sv: 'Våra personliga rekommendationer för Nerja, Frigiliana och närområdet'
+    en: 'Our personal recommendations in Frigiliana, Nerja & nearby',
+    de: 'Unsere persönlichen Empfehlungen für Frigiliana, Nerja und Umgebung',
+    es: 'Nuestras recomendaciones personales en Frigiliana, Nerja y alrededores',
+    nl: 'Onze persoonlijke aanbevelingen voor Frigiliana, Nerja en omgeving',
+    sv: 'Våra personliga rekommendationer för Frigiliana, Nerja och närområdet'
   },
   intro: {
-    en: 'Hidden treasures, insider tips, authentic local food and lesser-known places — with practical details for more time together away from the busiest routes.',
-    de: 'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte – mit praktischen Details für mehr gemeinsame Zeit abseits der meistbesuchten Wege.',
-    es: 'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos, con detalles prácticos para disfrutar más tiempo juntos fuera de las rutas más concurridas.',
-    nl: 'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken — met praktische details voor meer tijd samen buiten de drukste routes.',
-    sv: 'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser — med praktiska detaljer för mer tid tillsammans bortom de mest välbesökta stråken.'
+    en: 'What we would choose ourselves around Frigiliana and Nerja: breakfast, restaurants, beaches, hikes, day trips and evenings, each with the map and what matters on the spot.',
+    de: 'Was wir selbst wählen würden rund um Frigiliana und Nerja: Frühstück, Restaurants, Strände, Wanderungen, Ausflüge und Abende, jeweils mit Karte und dem, was vor Ort zählt.',
+    es: 'Lo que elegiríamos nosotros en Frigiliana y Nerja: desayunos, restaurantes, playas, rutas, excursiones y noches, cada uno con el mapa y lo que importa sobre el terreno.',
+    nl: 'Wat we zelf zouden kiezen rond Frigiliana en Nerja: ontbijt, restaurants, stranden, wandelingen, dagtrips en avonden, elk met kaart en wat ter plekke telt.',
+    sv: 'Det vi själva skulle välja runt Frigiliana och Nerja: frukost, restauranger, stränder, vandringar, utflykter och kvällar, var och en med karta och det som räknas på plats.'
   },
   categories: [
     {
@@ -4491,14 +4454,14 @@ const frigilianaRecommendations: GuestGuideEntry = {
         {
           kind: 'link',
           icon: 'breakfast',
-          targetSlug: 'nerja-guest-breakfast',
-          title: { en: 'Breakfast in Nerja', de: 'Frühstück in Nerja', es: 'Desayuno en Nerja', nl: 'Ontbijt in Nerja', sv: 'Frukost i Nerja' }
+          targetSlug: 'frigiliana-guest-breakfast',
+          title: { en: 'Breakfast in Frigiliana', de: 'Frühstück in Frigiliana', es: 'Desayuno en Frigiliana', nl: 'Ontbijt in Frigiliana', sv: 'Frukost i Frigiliana' }
         },
         {
           kind: 'link',
           icon: 'breakfast',
-          targetSlug: 'frigiliana-guest-breakfast',
-          title: { en: 'Breakfast in Frigiliana', de: 'Frühstück in Frigiliana', es: 'Desayuno en Frigiliana', nl: 'Ontbijt in Frigiliana', sv: 'Frukost i Frigiliana' }
+          targetSlug: 'nerja-guest-breakfast',
+          title: { en: 'Breakfast in Nerja', de: 'Frühstück in Nerja', es: 'Desayuno en Nerja', nl: 'Ontbijt in Nerja', sv: 'Frukost i Nerja' }
         }
       ]
     },
@@ -4516,15 +4479,15 @@ const frigilianaRecommendations: GuestGuideEntry = {
       items: [
         {
           kind: 'link',
-          icon: 'fish',
-          targetSlug: 'nerja-guest-restaurants',
-          title: { en: 'Restaurants in Nerja', de: 'Restaurants in Nerja', es: 'Restaurantes en Nerja', nl: 'Restaurants in Nerja', sv: 'Restauranger i Nerja' }
-        },
-        {
-          kind: 'link',
           icon: 'goblet',
           targetSlug: 'frigiliana-guest-restaurants',
           title: { en: 'Restaurants in Frigiliana', de: 'Restaurants in Frigiliana', es: 'Restaurantes en Frigiliana', nl: 'Restaurants in Frigiliana', sv: 'Restauranger i Frigiliana' }
+        },
+        {
+          kind: 'link',
+          icon: 'fish',
+          targetSlug: 'nerja-guest-restaurants',
+          title: { en: 'Restaurants in Nerja', de: 'Restaurants in Nerja', es: 'Restaurantes en Nerja', nl: 'Restaurants in Nerja', sv: 'Restauranger i Nerja' }
         }
       ]
     },
@@ -4661,12 +4624,6 @@ const frigilianaRecommendations: GuestGuideEntry = {
         },
         {
           kind: 'link',
-          icon: 'dance',
-          targetSlug: 'frigiliana-guest-flamenco-bachata',
-          title: { en: 'Flamenco & Bachata', de: 'Flamenco & Bachata', es: 'Flamenco y Bachata', nl: 'Flamenco & Bachata', sv: 'Flamenco & Bachata' }
-        },
-        {
-          kind: 'link',
           icon: 'music',
           targetSlug: 'nerja-guest-nightlife',
           title: { en: 'Nightlife in Nerja', de: 'Nachtleben in Nerja', es: 'Vida nocturna en Nerja', nl: 'Nachtleven in Nerja', sv: 'Nattliv i Nerja' }
@@ -4688,6 +4645,65 @@ const frigilianaRecommendations: GuestGuideEntry = {
           targetSlug: 'nerja-guest-adventure',
           title: { en: 'Adventure in Nerja', de: 'Abenteuer in Nerja', es: 'Aventura en Nerja', nl: 'Avontuur in Nerja', sv: 'Äventyr i Nerja' }
         }
+      ]
+    }
+  ]
+};
+
+const nerjaRecommendations: GuestGuideEntry = {
+  type: 'detail',
+  slug: 'nerja-guest-recommendations',
+  backSlug: 'guestwelcome-nerja-playa',
+  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportLabel: NEED_HELP,
+  seoTitle: {"en":"AMARA Experience | AMARA Guest Guide","de":"AMARA Experience | AMARA Gästeguide","es":"AMARA Experience | Guía para huéspedes de AMARA","nl":"AMARA Experience | AMARA Gastengids","sv":"AMARA Experience | AMARA Gästguide"},
+  seoDescription: {"en":"Our selection for Nerja, Frigiliana and nearby: breakfast, restaurants, beaches, evenings, hikes and day trips, with what you need to know on the spot.","de":"Unsere Auswahl für Nerja, Frigiliana und Umgebung: Frühstück, Restaurants, Strände, Abende, Wanderungen und Ausflüge, mit dem, was ihr vor Ort wissen müsst.","es":"Nuestra selección para Nerja, Frigiliana y alrededores: desayunos, restaurantes, playas, noches, rutas y excursiones, con lo que necesitáis saber sobre el terreno.","nl":"Onze selectie voor Nerja, Frigiliana en omgeving: ontbijt, restaurants, stranden, avonden, wandelingen en dagtrips, met wat jullie ter plekke moeten weten.","sv":"Vårt urval för Nerja, Frigiliana och närområdet: frukost, restauranger, stränder, kvällar, vandringar och utflykter, med det ni behöver veta på plats."},
+  kicker: RECOMMENDATIONS_KICKER,
+  title: {"en":"Our personal recommendations in Nerja, Frigiliana & nearby","de":"Unsere persönlichen Empfehlungen für Nerja, Frigiliana und Umgebung","es":"Nuestras recomendaciones personales en Nerja, Frigiliana y alrededores","nl":"Onze persoonlijke aanbevelingen voor Nerja, Frigiliana en omgeving","sv":"Våra personliga rekommendationer för Nerja, Frigiliana och närområdet"},
+  intro: {"en":"What we would choose ourselves around Nerja and Frigiliana: breakfast, restaurants, beaches, evenings, hikes and day trips, each with the map and what matters on the spot.","de":"Was wir selbst wählen würden rund um Nerja und Frigiliana: Frühstück, Restaurants, Strände, Abende, Wanderungen und Ausflüge, jeweils mit Karte und dem, was vor Ort zählt.","es":"Lo que elegiríamos nosotros en Nerja y Frigiliana: desayunos, restaurantes, playas, noches, rutas y excursiones, cada uno con el mapa y lo que importa sobre el terreno.","nl":"Wat we zelf zouden kiezen rond Nerja en Frigiliana: ontbijt, restaurants, stranden, avonden, wandelingen en dagtrips, elk met kaart en wat ter plekke telt.","sv":"Det vi själva skulle välja runt Nerja och Frigiliana: frukost, restauranger, stränder, kvällar, vandringar och utflykter, var och en med karta och det som räknas på plats."},
+  categories: [
+    {
+      heading: {"en":"Weather","de":"Wetter","es":"Tiempo","nl":"Weer","sv":"Väder"},
+      items: [
+        {"kind":"weather","icon":"weather","title":{"en":"Weather Forecast","de":"Wettervorhersage","es":"Previsión del tiempo","nl":"Weersverwachting","sv":"Väderprognos"},"lat":36.7448,"lon":-3.877,"locationName":"Nerja","introBody":[{"en":"The Costa del Sol is known for many sunny days and a mild climate throughout much of the year. In summer, the sun can feel very strong, especially around midday — sunscreen, water and a hat are always a good idea.","de":"Die Costa del Sol ist für viele Sonnentage und ein meist mildes Klima bekannt. Im Sommer kann die Sonne vor allem rund um die Mittagszeit sehr intensiv sein – Sonnencreme, Wasser und eine Kopfbedeckung sind immer sinnvoll.","es":"La Costa del Sol es conocida por sus muchos días de sol y su clima suave durante gran parte del año. En verano el sol puede sentirse muy fuerte, especialmente al mediodía: protector solar, agua y gorra siempre son una buena idea.","nl":"De Costa del Sol staat bekend om de vele zonnige dagen en het milde klimaat. In de zomer kan de zon vooral rond het middaguur erg fel zijn — zonnebrand, water en een pet zijn altijd verstandig.","sv":"Costa del Sol är känd för många soldagar och ett milt klimat under stora delar av året. På sommaren kan solen vara mycket stark, särskilt mitt på dagen — solskydd, vatten och hatt är alltid en bra idé."}]}
+      ]
+    },
+    {
+      heading: {"en":"Breakfast","de":"Frühstück","es":"Desayuno","nl":"Ontbijt","sv":"Frukost"},
+      items: [
+        {"kind":"link","icon":"breakfast","targetSlug":"nerja-guest-breakfast","title":{"en":"Breakfast in Nerja","de":"Frühstück in Nerja","es":"Desayuno en Nerja","nl":"Ontbijt in Nerja","sv":"Frukost i Nerja"}},
+        {"kind":"link","icon":"breakfast","targetSlug":"frigiliana-guest-breakfast","title":{"en":"Breakfast in Frigiliana","de":"Frühstück in Frigiliana","es":"Desayuno en Frigiliana","nl":"Ontbijt in Frigiliana","sv":"Frukost i Frigiliana"}}
+      ]
+    },
+    {
+      heading: {"en":"Dining","de":"Essen & Trinken","es":"Dónde comer","nl":"Eten & Drinken","sv":"Mat & Dryck"},
+      intro: [{"en":"A helpful local note: many restaurants open at lunchtime, then pause in the late afternoon for siesta. Most places usually reopen for dinner from around 7:30–8:00 pm.","de":"Ein hilfreicher lokaler Hinweis: Viele Restaurants öffnen mittags, machen am späten Nachmittag eine Pause bzw. Siesta und öffnen abends meist erst wieder ab etwa 19:30–20:00 Uhr.","es":"Una nota local útil: muchos restaurantes abren al mediodía, cierran por la tarde para la siesta y normalmente vuelven a abrir para la cena a partir de las 19:30–20:00 h.","nl":"Een handige lokale tip: veel restaurants zijn rond lunchtijd open, sluiten later in de middag voor een siësta en gaan voor het diner meestal pas weer open vanaf ongeveer 19:30–20:00 uur.","sv":"Ett bra lokalt tips: många restauranger öppnar vid lunchtid, stänger senare på eftermiddagen för siesta och öppnar oftast igen för middag från cirka 19.30–20.00."}],
+      items: [
+        {"kind":"link","icon":"fish","targetSlug":"nerja-guest-restaurants","title":{"en":"Restaurants in Nerja","de":"Restaurants in Nerja","es":"Restaurantes en Nerja","nl":"Restaurants in Nerja","sv":"Restauranger i Nerja"}},
+        {"kind":"link","icon":"goblet","targetSlug":"frigiliana-guest-restaurants","title":{"en":"Restaurants in Frigiliana","de":"Restaurants in Frigiliana","es":"Restaurantes en Frigiliana","nl":"Restaurants in Frigiliana","sv":"Restauranger i Frigiliana"}}
+      ]
+    },
+    {
+      heading: {"en":"Nature & Outdoors","de":"Natur & Outdoor","es":"Naturaleza y aire libre","nl":"Natuur & Buiten","sv":"Natur & Utomhus"},
+      items: [
+        {"kind":"link","icon":"wave","targetSlug":"frigiliana-guest-beaches","title":{"en":"Beaches","de":"Strände","es":"Playas","nl":"Stranden","sv":"Stränder"}},
+        {"kind":"link","icon":"hiking","targetSlug":"frigiliana-guest-hiking","title":{"en":"Hiking","de":"Wandern","es":"Senderismo","nl":"Wandelen","sv":"Vandring"}}
+      ]
+    },
+    {
+      heading: {"en":"Discover","de":"Entdecken","es":"Descubrir","nl":"Ontdekken","sv":"Upptäck"},
+      items: [
+        {"kind":"link","icon":"music","targetSlug":"nerja-guest-nightlife","title":{"en":"Nightlife in Nerja","de":"Nachtleben in Nerja","es":"Vida nocturna en Nerja","nl":"Nachtleven in Nerja","sv":"Nattliv i Nerja"}},
+        {"kind":"link","icon":"landmark","targetSlug":"frigiliana-guest-sightseeing","title":{"en":"Sightseeing","de":"Sightseeing","es":"Turismo","nl":"Bezienswaardigheden","sv":"Sevärdheter"}},
+        {"kind":"link","icon":"route","targetSlug":"frigiliana-guest-day-trips","title":{"en":"Day Trips","de":"Tagesausflüge","es":"Excursiones","nl":"Dagtripjes","sv":"Dagsutflykter"}},
+        {"kind":"link","icon":"flag","targetSlug":"frigiliana-guest-festivals","title":{"en":"Festivals","de":"Feste & Events","es":"Fiestas locales","nl":"Festivals","sv":"Festivaler"}},
+        {"kind":"link","icon":"heart","targetSlug":"frigiliana-guest-wellness","title":{"en":"Wellness","de":"Wellness","es":"Bienestar","nl":"Wellness","sv":"Wellness"}}
+      ]
+    },
+    {
+      heading: {"en":"Adventure","de":"Abenteuer","es":"Aventura","nl":"Avontuur","sv":"Äventyr"},
+      items: [
+        {"kind":"link","icon":"star","targetSlug":"nerja-guest-adventure","title":{"en":"Adventure in Nerja","de":"Abenteuer in Nerja","es":"Aventura en Nerja","nl":"Avontuur in Nerja","sv":"Äventyr i Nerja"}}
       ]
     }
   ]
@@ -5361,7 +5377,7 @@ const nerjaPlayaHub: GuestGuideEntry = {
     NERJA_ESSENTIALS_MENU_LINK,
     {
       icon: 'compass',
-      targetSlug: 'frigiliana-guest-recommendations',
+      targetSlug: 'nerja-guest-recommendations',
       title: PERSONAL_RECOMMENDATIONS_MENU_TITLE,
       subtitle: PERSONAL_RECOMMENDATIONS_MENU_SUBTITLE
     }
@@ -6283,5 +6299,6 @@ export const guestGuideFrigiliana: GuestGuideEntry[] = [
   nerjaEssentials,
   frigilianaEssentials,
   frigilianaRecommendations,
+  nerjaRecommendations,
   ...recommendationSubPages
 ];
