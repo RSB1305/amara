@@ -30,6 +30,19 @@ const lp = (
   sv: string[]
 ): LocalizedTextList => ({ en, de, es, nl, sv });
 
+interface StaysLocationCopy {
+  hero: { kicker: LocalizedText; title: LocalizedText; lead: LocalizedText; answer: LocalizedTextList };
+  collection: { title: LocalizedText; count: LocalizedText };
+  /** Short note per stay, keyed by the stay slug (city-specific set). */
+  stayNotes: Record<string, LocalizedText>;
+  handoff: {
+    advisory: { eyebrow: LocalizedText; text: LocalizedText; label: LocalizedText };
+    place: { eyebrow: LocalizedText; text: LocalizedText; label: LocalizedText };
+  };
+  closing: { title: LocalizedText; lead: LocalizedText; cta: LocalizedText; collectionCta: LocalizedText };
+  footerHighlights: { here: LocalizedText; stays: LocalizedText; place: LocalizedText; whereToStay: LocalizedText };
+}
+
 export const staysInLocationSeo: Record<StayLocation, AmaraAuthoringSeo> = {
   frigiliana: {
     version: '2026-09-05-stays-frigiliana-v1',
@@ -69,7 +82,7 @@ export const staysInLocationSeo: Record<StayLocation, AmaraAuthoringSeo> = {
   }
 };
 
-export const staysInLocationContent = {
+export const staysInLocationContent: Partial<Record<StayLocation, StaysLocationCopy>> = {
   frigiliana: {
     hero: {
       kicker: l('FOUR STAYS · ONE VILLAGE', 'VIER UNTERKÜNFTE · EIN BERGDORF', 'CUATRO ALOJAMIENTOS · UN PUEBLO', 'VIER VERBLIJVEN · ÉÉN DORP', 'FYRA BOENDEN · EN BY'),
@@ -129,8 +142,122 @@ export const staysInLocationContent = {
       place: l('Frigiliana', 'Frigiliana', 'Frigiliana', 'Frigiliana', 'Frigiliana'),
       whereToStay: l('Where to stay', 'Wo übernachten', 'Dónde alojarse', 'Waar overnachten', 'Var du bör bo')
     }
+  },
+  nerja: {
+    hero: {
+      kicker: l('ONE STAY · BY THE SEA', 'EINE UNTERKUNFT · AM MEER', 'UN ALOJAMIENTO · JUNTO AL MAR', 'ÉÉN VERBLIJF · AAN ZEE', 'ETT BOENDE · VID HAVET'),
+      title: l('AMARA stays in Nerja', 'AMARA-Unterkünfte in Nerja', 'Alojamientos AMARA en Nerja', 'AMARA-verblijven in Nerja', 'AMARA-boenden i Nerja'),
+      lead: l('One apartment for two, minutes from the beach', 'Ein Apartment für Zwei, wenige Minuten vom Strand', 'Un apartamento para dos, a minutos de la playa', 'Eén appartement voor twee, minuten van het strand', 'En lägenhet för två, minuter från stranden'),
+      answer: lp(
+        ['In Nerja we have one AMARA stay: AMARA Playa, an apartment for two with one bedroom and a 200 cm-wide bed. From the balcony with its side sea view it is about 200 metres to Torrecilla beach and around 500 metres to the Balcón de Europa, while the apartment itself stays pleasantly quiet. Check availability below, or first read which corner of Nerja suits you.'],
+        ['In Nerja haben wir eine AMARA-Unterkunft: AMARA Playa, ein Apartment für zwei mit einem Schlafzimmer und einem 200 cm breiten Bett. Vom Balkon mit seitlichem Meerblick sind es rund 200 Meter zum Strand Torrecilla und etwa 500 Meter zum Balcón de Europa; die Wohnung selbst bleibt angenehm ruhig. Prüft unten die Verfügbarkeit, oder lest zuerst, welche Ecke von Nerja zu euch passt.'],
+        ['En Nerja tenemos un alojamiento AMARA: AMARA Playa, un apartamento para dos con un dormitorio y una cama de 200 cm de ancho. Desde el balcón con vistas laterales al mar hay unos 200 metros a la playa de Torrecilla y unos 500 al Balcón de Europa, y el apartamento se mantiene agradablemente tranquilo. Consultad la disponibilidad abajo, o leed primero qué zona de Nerja os conviene.'],
+        ['In Nerja hebben we één AMARA-verblijf: AMARA Playa, een appartement voor twee met één slaapkamer en een bed van 200 cm breed. Vanaf het balkon met zijdelings zeezicht is het ongeveer 200 meter naar het Torrecilla-strand en zo’n 500 meter naar het Balcón de Europa, terwijl het appartement zelf aangenaam rustig blijft. Bekijk hieronder de beschikbaarheid, of lees eerst welke hoek van Nerja bij jullie past.'],
+        ['I Nerja har vi ett AMARA-boende: AMARA Playa, en lägenhet för två med ett sovrum och en 200 cm bred säng. Från balkongen med havsutsikt åt sidan är det cirka 200 meter till Torrecillastranden och omkring 500 meter till Balcón de Europa, samtidigt som lägenheten är behagligt lugn. Se tillgängligheten nedan, eller läs först vilken del av Nerja som passar er.']
+      )
+    },
+    collection: {
+      title: l('The apartment', 'Die Unterkunft', 'El apartamento', 'Het appartement', 'Lägenheten'),
+      count: l('1 stay · 2 guests', '1 Unterkunft · 2 Gäste', '1 alojamiento · 2 huéspedes', '1 verblijf · 2 gasten', '1 boende · 2 gäster')
+    },
+    stayNotes: {
+      'la-amara-playa': l('A quiet apartment with a 200 cm bed and a balcony, a short walk from Torrecilla beach.', 'Ruhiges Apartment mit 200-cm-Bett und Balkon, kurzer Weg zum Strand Torrecilla.', 'Un apartamento tranquilo con cama de 200 cm y balcón, a un paso de la playa de Torrecilla.', 'Een rustig appartement met een bed van 200 cm en een balkon, op loopafstand van het Torrecilla-strand.', 'En lugn lägenhet med 200 cm säng och balkong, en kort promenad från Torrecillastranden.')
+    },
+    handoff: {
+      advisory: {
+        eyebrow: l('Still deciding', 'Noch am Überlegen', 'Aún decidiendo', 'Nog aan het kiezen', 'Fortfarande osäkra'),
+        text: l(
+          'Nerja runs from the Balcón de Europa to the quieter coves, so it is worth a moment to decide how close to the bustle or the water you want to be.',
+          'Nerja reicht vom Balcón de Europa bis zu den ruhigeren Buchten — wie nah ihr am Trubel oder am Wasser wohnen wollt, lohnt kurz zu überlegen.',
+          'Nerja va del Balcón de Europa a las calas más tranquilas, así que conviene decidir qué tan cerca del bullicio o del agua queréis estar.',
+          'Nerja loopt van het Balcón de Europa tot de rustigere baaien, dus het loont even te bepalen hoe dicht bij de drukte of het water je wilt zitten.',
+          'Nerja sträcker sig från Balcón de Europa till de lugnare vikarna, så det är värt att fundera på hur nära vimlet eller vattnet ni vill bo.'
+        ),
+        label: l('Where to stay in Nerja', 'Wo übernachten in Nerja', 'Dónde alojarse en Nerja', 'Waar overnachten in Nerja', 'Var du bör bo i Nerja')
+      },
+      place: {
+        eyebrow: l('The town', 'Der Ort', 'El pueblo', 'De stad', 'Staden'),
+        text: l(
+          'Beaches in small coves, the Balcón de Europa above the sea and the Cuevas de Nerja a few minutes away.',
+          'Strände in kleinen Buchten, der Balcón de Europa über dem Meer und die Cuevas de Nerja wenige Minuten entfernt.',
+          'Playas en pequeñas calas, el Balcón de Europa sobre el mar y las Cuevas de Nerja a pocos minutos.',
+          'Stranden in kleine baaien, het Balcón de Europa boven zee en de Cuevas de Nerja op een paar minuten.',
+          'Stränder i små vikar, Balcón de Europa över havet och Cuevas de Nerja några minuter bort.'
+        ),
+        label: l('Discover Nerja', 'Nerja entdecken', 'Descubrir Nerja', 'Nerja ontdekken', 'Upptäck Nerja')
+      }
+    },
+    closing: {
+      title: l('Tell us what the two of you need', 'Sagt uns, was ihr zwei braucht', 'Contadnos qué necesitáis vosotros dos', 'Vertel ons wat jullie samen nodig hebben', 'Berätta vad ni två behöver'),
+      lead: l('Send us your dates and we will tell you whether AMARA Playa fits your stay.', 'Schickt uns eure Reisedaten — wir sagen euch, ob AMARA Playa zu eurem Aufenthalt passt.', 'Enviadnos las fechas y os diremos si AMARA Playa encaja con vuestra estancia.', 'Stuur ons jullie data en we vertellen of AMARA Playa bij jullie verblijf past.', 'Skicka era datum så säger vi om AMARA Playa passar er vistelse.'),
+      cta: l('Check availability', 'Verfügbarkeit prüfen', 'Consultar disponibilidad', 'Beschikbaarheid bekijken', 'Se tillgänglighet'),
+      collectionCta: l('All AMARA stays', 'Alle AMARA-Unterkünfte', 'Todos los alojamientos AMARA', 'Alle AMARA-verblijven', 'Alla AMARA-boenden')
+    },
+    footerHighlights: {
+      here: l('Stays in Nerja', 'Unterkünfte in Nerja', 'Alojamientos en Nerja', 'Verblijven in Nerja', 'Boenden i Nerja'),
+      stays: l('All stays', 'Alle Unterkünfte', 'Todos los alojamientos', 'Alle verblijven', 'Alla boenden'),
+      place: l('Nerja', 'Nerja', 'Nerja', 'Nerja', 'Nerja'),
+      whereToStay: l('Where to stay', 'Wo übernachten', 'Dónde alojarse', 'Waar overnachten', 'Var du bör bo')
+    }
+  },
+  tarifa: {
+    hero: {
+      kicker: l('ONE STAY · ATLANTIC COAST', 'EINE UNTERKUNFT · ATLANTIKKÜSTE', 'UN ALOJAMIENTO · COSTA ATLÁNTICA', 'ÉÉN VERBLIJF · ATLANTISCHE KUST', 'ETT BOENDE · ATLANTKUSTEN'),
+      title: l('AMARA stays in Tarifa', 'AMARA-Unterkünfte in Tarifa', 'Alojamientos AMARA en Tarifa', 'AMARA-verblijven in Tarifa', 'AMARA-boenden i Tarifa'),
+      lead: l('Room for up to four, with an Atlantic view', 'Platz für bis zu vier, mit Atlantikblick', 'Espacio para hasta cuatro, con vistas al Atlántico', 'Ruimte voor maximaal vier, met uitzicht op de oceaan', 'Plats för upp till fyra, med utsikt över Atlanten'),
+      answer: lp(
+        ['In Tarifa we have one AMARA stay: AMARA Family & Surf, 75 m² over two floors with two bedrooms and two bathrooms, room for up to four. A private terrace faces the Atlantic, and there is a shared pool and a reserved underground parking space. It is generous for two and comfortable for a family or surf crew. Check availability below, or first read which corner of Tarifa suits you.'],
+        ['In Tarifa haben wir eine AMARA-Unterkunft: AMARA Family & Surf, 75 m² auf zwei Etagen mit zwei Schlafzimmern und zwei Bädern, Platz für bis zu vier. Eine private Terrasse zeigt zum Atlantik; dazu kommen ein Gemeinschaftspool und ein reservierter Tiefgaragenplatz. Zu zweit wohnt ihr großzügig, als Familie oder Surf-Crew passt ihr bequem hinein. Prüft unten die Verfügbarkeit, oder lest zuerst, welche Ecke von Tarifa zu euch passt.'],
+        ['En Tarifa tenemos un alojamiento AMARA: AMARA Family & Surf, 75 m² en dos plantas con dos dormitorios y dos baños, espacio para hasta cuatro. Una terraza privada mira al Atlántico, y hay piscina comunitaria y plaza reservada en el garaje. Para dos resulta amplio y para una familia o un grupo de surf, cómodo. Consultad la disponibilidad abajo, o leed primero qué zona de Tarifa os conviene.'],
+        ['In Tarifa hebben we één AMARA-verblijf: AMARA Family & Surf, 75 m² over twee verdiepingen met twee slaapkamers en twee badkamers, plaats voor maximaal vier. Een privéterras kijkt uit op de Atlantische Oceaan, en er zijn een gedeeld zwembad en een gereserveerde parkeerplaats. Voor twee is het ruim en voor een gezin of surfploeg comfortabel. Bekijk hieronder de beschikbaarheid, of lees eerst welke hoek van Tarifa bij jullie past.'],
+        ['I Tarifa har vi ett AMARA-boende: AMARA Family & Surf, 75 m² i två plan med två sovrum och två badrum, plats för upp till fyra. En privat terrass vetter mot Atlanten, och det finns gemensam pool och reserverad garageplats. För två är det rymligt och för en familj eller ett surfgäng bekvämt. Se tillgängligheten nedan, eller läs först vilken del av Tarifa som passar er.']
+      )
+    },
+    collection: {
+      title: l('The apartment', 'Die Unterkunft', 'El apartamento', 'Het appartement', 'Lägenheten'),
+      count: l('1 stay · up to 4 guests', '1 Unterkunft · bis zu 4 Gäste', '1 alojamiento · hasta 4 huéspedes', '1 verblijf · tot 4 gasten', '1 boende · upp till 4 gäster')
+    },
+    stayNotes: {
+      'la-amara-family-and-surf': l('Two floors and two bathrooms with a private Atlantic-facing terrace, a shared pool and reserved parking.', 'Zwei Etagen und zwei Bäder mit privater Terrasse zum Atlantik, Gemeinschaftspool und reserviertem Parkplatz.', 'Dos plantas y dos baños con terraza privada hacia el Atlántico, piscina comunitaria y plaza reservada.', 'Twee verdiepingen en twee badkamers met een privéterras aan de Atlantische Oceaan, een gedeeld zwembad en gereserveerd parkeren.', 'Två plan och två badrum med privat terrass mot Atlanten, gemensam pool och reserverad parkering.')
+    },
+    handoff: {
+      advisory: {
+        eyebrow: l('Still deciding', 'Noch am Überlegen', 'Aún decidiendo', 'Nog aan het kiezen', 'Fortfarande osäkra'),
+        text: l(
+          'Tarifa runs from the old town to the kite beaches along the coast, so it is worth a moment to decide how close to the town or the wind you want to be.',
+          'Tarifa reicht von der Altstadt bis zu den Kite-Stränden der Küste — wie nah ihr am Ort oder am Wind wohnen wollt, lohnt kurz zu überlegen.',
+          'Tarifa va del casco antiguo a las playas de kite de la costa, así que conviene decidir qué tan cerca del pueblo o del viento queréis estar.',
+          'Tarifa loopt van de oude stad tot de kitestranden langs de kust, dus het loont even te bepalen hoe dicht bij de stad of de wind je wilt zitten.',
+          'Tarifa sträcker sig från gamla stan till kitestränderna längs kusten, så det är värt att fundera på hur nära staden eller vinden ni vill bo.'
+        ),
+        label: l('Where to stay in Tarifa', 'Wo übernachten in Tarifa', 'Dónde alojarse en Tarifa', 'Waar overnachten in Tarifa', 'Var du bör bo i Tarifa')
+      },
+      place: {
+        eyebrow: l('The town', 'Der Ort', 'El pueblo', 'De stad', 'Staden'),
+        text: l(
+          'Kilometres of Atlantic beach, the old town and one of Europe’s best kite spots a few minutes away.',
+          'Kilometerlange Atlantikstrände, die Altstadt und einer der besten Kitespots Europas wenige Minuten entfernt.',
+          'Kilómetros de playa atlántica, el casco antiguo y uno de los mejores spots de kite de Europa a pocos minutos.',
+          'Kilometers Atlantisch strand, de oude stad en een van de beste kitespots van Europa op een paar minuten.',
+          'Kilometervis av atlantstrand, gamla stan och en av Europas bästa kitespots några minuter bort.'
+        ),
+        label: l('Discover Tarifa', 'Tarifa entdecken', 'Descubrir Tarifa', 'Tarifa ontdekken', 'Upptäck Tarifa')
+      }
+    },
+    closing: {
+      title: l('Tell us what you need', 'Sagt uns, was ihr braucht', 'Contadnos qué necesitáis', 'Vertel ons wat jullie nodig hebben', 'Berätta vad ni behöver'),
+      lead: l('Send us your dates and we will tell you whether Family & Surf fits your stay.', 'Schickt uns eure Reisedaten — wir sagen euch, ob Family & Surf zu eurem Aufenthalt passt.', 'Enviadnos las fechas y os diremos si Family & Surf encaja con vuestra estancia.', 'Stuur ons jullie data en we vertellen of Family & Surf bij jullie verblijf past.', 'Skicka era datum så säger vi om Family & Surf passar er vistelse.'),
+      cta: l('Check availability', 'Verfügbarkeit prüfen', 'Consultar disponibilidad', 'Beschikbaarheid bekijken', 'Se tillgänglighet'),
+      collectionCta: l('All AMARA stays', 'Alle AMARA-Unterkünfte', 'Todos los alojamientos AMARA', 'Alle AMARA-verblijven', 'Alla AMARA-boenden')
+    },
+    footerHighlights: {
+      here: l('Stays in Tarifa', 'Unterkünfte in Tarifa', 'Alojamientos en Tarifa', 'Verblijven in Tarifa', 'Boenden i Tarifa'),
+      stays: l('All stays', 'Alle Unterkünfte', 'Todos los alojamientos', 'Alle verblijven', 'Alla boenden'),
+      place: l('Tarifa', 'Tarifa', 'Tarifa', 'Tarifa', 'Tarifa'),
+      whereToStay: l('Where to stay', 'Wo übernachten', 'Dónde alojarse', 'Waar overnachten', 'Var du bör bo')
+    }
   }
-} as const;
+};
 
 /** Localized unit words for the derived card spec line (city · N guests · size). */
 export const staysInLocationUnits = {

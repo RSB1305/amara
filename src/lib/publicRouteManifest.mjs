@@ -333,17 +333,38 @@ const definitions = [
       segment: shared(slug)
     })
   ),
-  // Nerja and Tarifa stays stay directly under the stays hub until their own
-  // location collections are added (then they nest identically to Frigiliana).
-  ...['la-amara-playa', 'la-amara-family-and-surf'].map(
-    (slug) => ({
-      key: slug,
-      legacySlug: slug,
-      family: 'vacation-rental',
-      parent: 'stays',
-      segment: shared(slug)
-    })
-  ),
+  // Nerja and Tarifa each hold one stay; the location collection nests it the
+  // same way as Frigiliana, so the whole stays tree mirrors its hierarchy.
+  {
+    key: 'stays.nerja',
+    legacySlug: 'stays-nerja',
+    family: 'stays-in-location',
+    parent: 'stays',
+    props: { location: 'nerja' },
+    segment: shared('nerja')
+  },
+  {
+    key: 'la-amara-playa',
+    legacySlug: 'la-amara-playa',
+    family: 'vacation-rental',
+    parent: 'stays.nerja',
+    segment: shared('la-amara-playa')
+  },
+  {
+    key: 'stays.tarifa',
+    legacySlug: 'stays-tarifa',
+    family: 'stays-in-location',
+    parent: 'stays',
+    props: { location: 'tarifa' },
+    segment: shared('tarifa')
+  },
+  {
+    key: 'la-amara-family-and-surf',
+    legacySlug: 'la-amara-family-and-surf',
+    family: 'vacation-rental',
+    parent: 'stays.tarifa',
+    segment: shared('la-amara-family-and-surf')
+  },
 
   /* =========================================================
      FRIGILIANA

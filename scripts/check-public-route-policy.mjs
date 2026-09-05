@@ -72,11 +72,11 @@ const approvedPropertyAliasRedirects = new Map([
   ['/sv/la-amara-lounis-casa-rural-frigiliana', '/sv/boenden/frigiliana/la-amara-lounis'],
   [
     '/en/la-amara-family-surf-with-oceanview-and-pool',
-    '/en/stays/la-amara-family-and-surf'
+    '/en/stays/tarifa/la-amara-family-and-surf'
   ],
   [
     '/sv/amara-family-surf-with-oceanview-and-pool',
-    '/sv/boenden/la-amara-family-and-surf'
+    '/sv/boenden/tarifa/la-amara-family-and-surf'
   ]
 ]);
 
