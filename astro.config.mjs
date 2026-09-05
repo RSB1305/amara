@@ -3,10 +3,9 @@ import { readFileSync } from 'node:fs';
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
-import { guestGuideEntries } from './src/content/guestGuideEntries.ts';
 import { stablePublicImages } from './src/integrations/stablePublicImages.ts';
 import { buildAstroRedirects } from './src/lib/redirectInfrastructure.mjs';
-import { buildPublicRoutePath, resolvePublicRoute } from './src/lib/publicRouteManifest.mjs';
+import { isSitemapPageAllowed, normalizeSitemapItem } from './src/lib/sitemapPolicy.mjs';
 
 // Internal tools live in src/pages/_tools, which Astro's file router ignores because
 // of the underscore. They are mounted as real /tools/* routes only where they are
@@ -65,117 +64,6 @@ const astroRedirects = buildAstroRedirects(
   readFileSync(new URL('./public/_redirects', import.meta.url), 'utf8')
 );
 
-const sitemapLocalePrefixes = new Set(['de', 'en', 'es', 'nl', 'sv']);
-/** Alternate order as published before the route migration. */
-const sitemapAlternateLocales = ['es', 'de', 'en', 'nl', 'sv'];
-/** Routes outside the manifest (private surfaces, legacy redirect pages) that must stay out of the sitemap. */
-const sitemapExcludedSlugs = new Set([
-  'arrival-parking-guide',
-  'frigiliana-arrival-parking-guide',
-  'frigiliana-stairs-layout',
-  'frigiliana-village-structure-stairs',
-  'mercado-de-frigiliana',
-  'frigiliana-markt',
-  'frigiliana-marknaden',
-  'frigiliana-ort-struktur-und-treppen',
-  'estructura-y-escaleras-del-sitio-de-frigiliana',
-  'structuur-en-trappen-van-de-frigiliana-site',
-  'frigiliana-tomtens-struktur-och-trappor',
-  'vacation-rentals-sitemap.xml',
-  'amara-experience/guide',
-  'test',
-  // Internal, noindex Guest Guide pages must never appear in the sitemap.
-  ...guestGuideEntries.map((entry) => entry.slug)
-]);
-const sitemapHomePathnames = new Set(['/']);
-
-/** @param {string} page @returns {string} */
-function getSitemapSlug(page) {
-  const pathname = new URL(page).pathname;
-  const cleanPath = pathname.replace(/^\/+|\/+$/g, '');
-
-  if (!cleanPath) {
-    return '';
-  }
-
-  const [firstSegment, ...restSegments] = cleanPath.split('/');
-
-  if (sitemapLocalePrefixes.has(firstSegment)) {
-    return restSegments.join('/');
-  }
-
-  return cleanPath;
-}
-
-/**
- * Public routes carry their own sitemap decision in the manifest; everything
- * else falls back to the explicit exclusion list above.
- * @param {string} page @returns {boolean}
- */
-function isSitemapPageAllowed(page) {
-  const match = resolvePublicRoute(new URL(page).pathname);
-
-  if (match) {
-    return match.route.indexable;
-  }
-
-  const slug = getSitemapSlug(page);
-
-  if (sitemapExcludedSlugs.has(slug)) {
-    return false;
-  }
-
-  return slug !== 'tools' && !slug.startsWith('tools/');
-}
-
-/**
- * Localized alternates come from the manifest, where every public route knows
- * its native path per language. A route outside the manifest shares one path
- * body across locale prefixes, as the sitemap i18n mode assumed before.
- * @param {string} page @returns {Array<{ lang: string; url: string }>}
- */
-function buildSitemapAlternates(page) {
-  const pageUrl = new URL(page);
-  const match = resolvePublicRoute(pageUrl.pathname);
-  const slug = getSitemapSlug(page);
-
-  return sitemapAlternateLocales.map((locale) => {
-    const pathname = match
-      ? buildPublicRoutePath(match.route.key, locale)
-      : locale === 'es'
-        ? `/${slug}`
-        : `/${locale}/${slug}`;
-
-    return { lang: locale, url: new URL(pathname, pageUrl.origin).href };
-  });
-}
-
-/** @param {string} url @returns {string} */
-function normalizeSitemapUrl(url) {
-  const parsedUrl = new URL(url);
-
-  if (!sitemapHomePathnames.has(parsedUrl.pathname) && parsedUrl.pathname.endsWith('/')) {
-    parsedUrl.pathname = parsedUrl.pathname.replace(/\/+$/g, '');
-  }
-
-  return parsedUrl.href;
-}
-
-/**
- * @param {import('@astrojs/sitemap').SitemapItem} item
- * @returns {import('@astrojs/sitemap').SitemapItem}
- */
-function normalizeSitemapItem(item) {
-  return {
-    ...item,
-    url: normalizeSitemapUrl(item.url),
-    links: buildSitemapAlternates(item.url).map((link) => ({
-      ...link,
-      url: normalizeSitemapUrl(link.url)
-    }))
-  };
-}
-
 export default defineConfig({
   site: siteOrigin,
   compressHTML: true,
@@ -199,7 +87,7 @@ export default defineConfig({
   integrations: [
     requirePublicSiteUrlForProduction(),
     sitemap({
-      // Alternates are resolved per route in `normalizeSitemapItem`; the
+      // Filter and alternates come from src/lib/sitemapPolicy.mjs; the
       // integration's own i18n mode assumes one shared path per locale.
       filter: isSitemapPageAllowed,
       serialize: normalizeSitemapItem

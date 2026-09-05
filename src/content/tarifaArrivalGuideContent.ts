@@ -8,11 +8,11 @@ export const tarifaArrivalGuideSeo: AmaraAuthoringSeo = {
   pageType: 'A',
   entityKey: 'amara-family-surf',
   languages: {
-    en: { title: 'Arrival at AMARA Family & Surf Tarifa: Garage & Bus', description: 'Arrive at AMARA Family & Surf, Mar Adriático 29 in La Marina: building approach, reserved underground parking, bus and luggage guidance.', robots: 'index, follow', canonical: 'auto' },
-    de: { title: 'Anreise zu AMARA Family & Surf Tarifa: Garage & Bus', description: 'Kommt zu AMARA Family & Surf in der Mar Adriático 29: Gebäudezufahrt, reservierte Tiefgarage, Bus und Gepäckhinweise.', robots: 'index, follow', canonical: 'auto' },
-    es: { title: 'Llegada a AMARA Family & Surf Tarifa: garaje y autobús', description: 'Llegad a AMARA Family & Surf, Mar Adriático 29: acceso al residencial, garaje reservado, autobús y consejos de equipaje.', robots: 'index, follow', canonical: 'auto' },
-    nl: { title: 'Aankomst bij AMARA Family & Surf Tarifa: garage en bus', description: 'Kom aan bij AMARA Family & Surf aan Mar Adriático 29: toegang tot het complex, gereserveerde garage, bus en bagageadvies.', robots: 'index, follow', canonical: 'auto' },
-    sv: { title: 'Ankomst till AMARA Family & Surf Tarifa: garage och buss', description: 'Kom till AMARA Family & Surf på Mar Adriático 29: infart till området, reserverat garage, buss och bagageråd.', robots: 'index, follow', canonical: 'auto' }
+    en: { title: 'Arrival at AMARA Family & Surf Tarifa: Garage & Bus', description: 'Arrive at AMARA Family & Surf, Mar Adriático 29 in La Marina: building approach, reserved underground parking, bus and luggage guidance.', robots: 'noindex, follow', canonical: 'auto' },
+    de: { title: 'Anreise zu AMARA Family & Surf Tarifa: Garage & Bus', description: 'Kommt zu AMARA Family & Surf in der Mar Adriático 29: Gebäudezufahrt, reservierte Tiefgarage, Bus und Gepäckhinweise.', robots: 'noindex, follow', canonical: 'auto' },
+    es: { title: 'Llegada a AMARA Family & Surf Tarifa: garaje y autobús', description: 'Llegad a AMARA Family & Surf, Mar Adriático 29: acceso al residencial, garaje reservado, autobús y consejos de equipaje.', robots: 'noindex, follow', canonical: 'auto' },
+    nl: { title: 'Aankomst bij AMARA Family & Surf Tarifa: garage en bus', description: 'Kom aan bij AMARA Family & Surf aan Mar Adriático 29: toegang tot het complex, gereserveerde garage, bus en bagageadvies.', robots: 'noindex, follow', canonical: 'auto' },
+    sv: { title: 'Ankomst till AMARA Family & Surf Tarifa: garage och buss', description: 'Kom till AMARA Family & Surf på Mar Adriático 29: infart till området, reserverat garage, buss och bagageråd.', robots: 'noindex, follow', canonical: 'auto' }
   }
 };
 

@@ -8,11 +8,11 @@ export const nerjaArrivalGuideSeo: AmaraAuthoringSeo = {
   pageType: 'A',
   entityKey: 'amara-playa',
   languages: {
-    en: { title: 'Arrival at AMARA Playa Nerja: Address, Parking & Bus', description: 'Arrive calmly at AMARA Playa, Calle Castilla Pérez 60 in Nerja: luggage stop, public parking, bus-station walk and final access.', robots: 'index, follow', canonical: 'auto' },
-    de: { title: 'Anreise zu AMARA Playa Nerja: Adresse, Parken & Bus', description: 'Kommt entspannt zu AMARA Playa in der Calle Castilla Pérez 60: Gepäckstopp, öffentliches Parken, Weg vom Busbahnhof und letzter Zugang.', robots: 'index, follow', canonical: 'auto' },
-    es: { title: 'Llegada a AMARA Playa Nerja: dirección, parking y autobús', description: 'Llegad con calma a AMARA Playa, Calle Castilla Pérez 60: parada para equipaje, aparcamiento público, camino desde la estación y acceso final.', robots: 'index, follow', canonical: 'auto' },
-    nl: { title: 'Aankomst bij AMARA Playa Nerja: adres, parkeren en bus', description: 'Kom rustig aan bij AMARA Playa aan Calle Castilla Pérez 60: bagagestop, openbaar parkeren, route vanaf het busstation en laatste toegang.', robots: 'index, follow', canonical: 'auto' },
-    sv: { title: 'Ankomst till AMARA Playa Nerja: adress, parkering och buss', description: 'Kom smidigt till AMARA Playa på Calle Castilla Pérez 60: bagagestopp, allmän parkering, väg från busstationen och sista sträckan.', robots: 'index, follow', canonical: 'auto' }
+    en: { title: 'Arrival at AMARA Playa Nerja: Address, Parking & Bus', description: 'Arrive calmly at AMARA Playa, Calle Castilla Pérez 60 in Nerja: luggage stop, public parking, bus-station walk and final access.', robots: 'noindex, follow', canonical: 'auto' },
+    de: { title: 'Anreise zu AMARA Playa Nerja: Adresse, Parken & Bus', description: 'Kommt entspannt zu AMARA Playa in der Calle Castilla Pérez 60: Gepäckstopp, öffentliches Parken, Weg vom Busbahnhof und letzter Zugang.', robots: 'noindex, follow', canonical: 'auto' },
+    es: { title: 'Llegada a AMARA Playa Nerja: dirección, parking y autobús', description: 'Llegad con calma a AMARA Playa, Calle Castilla Pérez 60: parada para equipaje, aparcamiento público, camino desde la estación y acceso final.', robots: 'noindex, follow', canonical: 'auto' },
+    nl: { title: 'Aankomst bij AMARA Playa Nerja: adres, parkeren en bus', description: 'Kom rustig aan bij AMARA Playa aan Calle Castilla Pérez 60: bagagestop, openbaar parkeren, route vanaf het busstation en laatste toegang.', robots: 'noindex, follow', canonical: 'auto' },
+    sv: { title: 'Ankomst till AMARA Playa Nerja: adress, parkering och buss', description: 'Kom smidigt till AMARA Playa på Calle Castilla Pérez 60: bagagestopp, allmän parkering, väg från busstationen och sista sträckan.', robots: 'noindex, follow', canonical: 'auto' }
   }
 };
 

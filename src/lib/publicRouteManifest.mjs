@@ -320,8 +320,9 @@ const definitions = [
   },
   // Location collections inside the stays silo (Unterkünfte → Ort → Objekt).
   // The location segment is a shared place identity; the collection page lists
-  // the stays whose city matches. Nerja and Tarifa follow the same shape once
-  // their collection pages are authored.
+  // the stays whose city matches. Nerja and Tarifa hold one stay each, so they
+  // stay in the tree for breadcrumbs and links but leave the sitemap until they
+  // carry a selection of their own.
   {
     key: 'stays.frigiliana',
     legacySlug: 'stays-frigiliana',
@@ -352,6 +353,7 @@ const definitions = [
     family: 'stays-in-location',
     parent: 'stays',
     props: { location: 'nerja' },
+    indexable: false,
     segment: shared('nerja')
   },
   {
@@ -367,6 +369,7 @@ const definitions = [
     family: 'stays-in-location',
     parent: 'stays',
     props: { location: 'tarifa' },
+    indexable: false,
     segment: shared('tarifa')
   },
   {
@@ -497,6 +500,9 @@ const definitions = [
     family: 'directions-arrival-guide',
     parent: 'nerja',
     props: { destination: 'nerja' },
+    // Stay-specific arrival guide for booked guests: out of the sitemap and
+    // noindex like the Frigiliana one; the content module carries the robots value.
+    indexable: false,
     segment: {
       es: 'llegada-a-amara-playa',
       en: 'amara-playa-arrival',
@@ -564,6 +570,9 @@ const definitions = [
     family: 'directions-arrival-guide',
     parent: 'tarifa',
     props: { destination: 'tarifa' },
+    // Stay-specific arrival guide for booked guests: out of the sitemap and
+    // noindex like the Frigiliana one; the content module carries the robots value.
+    indexable: false,
     segment: {
       es: 'llegada-a-amara-family-surf',
       en: 'amara-family-surf-arrival',
