@@ -10,7 +10,7 @@ export const tarifaClimateKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1GCJwGuy0_N3rRpQZNluPg0Hwk7Ainz8S',
     url: 'https://drive.google.com/drive/folders/1GCJwGuy0_N3rRpQZNluPg0Hwk7Ainz8S',
-    path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/tarifa-climate',
+    path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/weather',
   },
   publicContentPath: 'src/page-families/location-authority/TarifaWeatherPage.astro',
   researchRunIds: ['2026-08-21__142423__climate-seasons__research-001'],

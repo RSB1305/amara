@@ -3,7 +3,7 @@ import { defineKnowledgePageManifest } from '../../schema';
 export const frigilianaHealthEmergencyKnowledge = defineKnowledgePageManifest({
   id: 'page-frigiliana-health-emergency', destination: 'frigiliana', topic: 'health-emergency',
   createdAt: '2026-08-22T06:41:03+02:00', updatedAt: '2026-09-02T10:15:00+02:00', status: 'needs-review',
-  driveFolder: { id: '1EIWhrXY6f__IPTheQNeFWR7gLzSOGKd1', url: 'https://drive.google.com/drive/folders/1EIWhrXY6f__IPTheQNeFWR7gLzSOGKd1', path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/frigiliana-health-emergency' },
+  driveFolder: { id: '1EIWhrXY6f__IPTheQNeFWR7gLzSOGKd1', url: 'https://drive.google.com/drive/folders/1EIWhrXY6f__IPTheQNeFWR7gLzSOGKd1', path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/health' },
   publicContentPath: 'src/content/dailyLifeGuideContent.ts',
   researchRunIds: ['2026-08-22__064103__health-emergency__research-001'],
   coverage: [

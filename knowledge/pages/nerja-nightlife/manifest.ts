@@ -10,7 +10,7 @@ export const nerjaNightlifeKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1On8Jb0x-_pbWZ4fnl5sA7Wn5SsGbBYMn',
     url: 'https://drive.google.com/drive/folders/1On8Jb0x-_pbWZ4fnl5sA7Wn5SsGbBYMn',
-    path: 'AMARA – Research Vault/00_INBOX/2026-08-28__092358__frigiliana-nerja-restaurants-evenings__research-001',
+    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/experiences/restaurants/2026-08-28__092358__frigiliana-nerja-restaurants-evenings__research-001',
   },
   publicContentPath: 'src/content/nerjaNightlifeContent.ts',
   researchRunIds: ['2026-08-28__092358__frigiliana-nerja-restaurants-evenings__research-001'],

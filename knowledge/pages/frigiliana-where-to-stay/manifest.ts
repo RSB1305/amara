@@ -10,7 +10,7 @@ export const frigilianaWhereToStayKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1uDCU04Nxf4KQ7T6MGfOir7K3GBxt85Ng',
     url: 'https://drive.google.com/drive/folders/1uDCU04Nxf4KQ7T6MGfOir7K3GBxt85Ng',
-    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/frigiliana-where-to-stay',
+    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/where-to-stay',
   },
   publicContentPath: 'src/content/frigilianaStreetsStairsContent.ts',
   researchRunIds: ['2026-08-21__130535__where-to-stay-areas__research-001'],

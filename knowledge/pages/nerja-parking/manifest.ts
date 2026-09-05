@@ -10,7 +10,7 @@ export const nerjaParkingKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1sQx2aPUfNWmssda3NpQRFWnWf23qln9U',
     url: 'https://drive.google.com/drive/folders/1sQx2aPUfNWmssda3NpQRFWnWf23qln9U',
-    path: 'AMARA – Research Vault/10_LOCATIONS/nerja/nerja-parking-accessibility',
+    path: 'AMARA – Research Vault/10_LOCATIONS/nerja/parking',
   },
   publicContentPath: 'src/content/nerjaParkingContent.ts',
   researchRunIds: ['2026-08-21__184630__parking-accessibility__research-001'],

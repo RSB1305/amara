@@ -10,7 +10,7 @@ export const frigilianaGeographyKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1Lj0kiPAHq0_OZUOCpc00IP1degUBTckL',
     url: 'https://drive.google.com/drive/folders/1Lj0kiPAHq0_OZUOCpc00IP1degUBTckL',
-    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/frigiliana-geography',
+    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/geography',
   },
   publicContentPath: 'src/content/frigilianaGeographyContent.ts',
   researchRunIds: ['2026-08-21__112650__geography-orientation__research-001'],
