@@ -1,10 +1,22 @@
 ---
-import LocationStaySplitSection from './LocationStaySplitSection.astro';
-import LocationAreasBand from './LocationAreasBand.astro';
+// Tarifa Location Hub in the Tarifa art direction (DR-DESIGN-020): the page shell
+// carries `am-tarifa-surface`, the opening is the panorama hero, verified key figures
+// follow, and photographs run to the viewport edge with copy panels over their edges.
+// Shared utility families around this hub stay in the plain system; Frigiliana and
+// Nerja keep the editorial grammar.
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
+import heroImage from '../../assets/images/content/tarifa/AM-3040_Andre_Magaro.jpg';
+import walkImage from '../../assets/images/content/tarifa/kite-walking-out.jpg';
+import barImage from '../../assets/images/content/tarifa/kite-bar-sand.jpg';
+import castleImage from '../../assets/images/content/tarifa/_DCS1404_Sebastian_Lang.jpg';
+import waveImage from '../../assets/images/content/tarifa/kite-wave-turn.jpg';
+import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraKeyFigures from '../../components/content/AmaraKeyFigures.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import Navigation from '../../components/Navigation.astro';
-import LocationHubHero from '../../components/location/LocationHubHero.astro';
+import LocationPanoramaHero from '../../components/location/LocationPanoramaHero.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import { tarifaLocationContent } from '../../content/tarifaLocationContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -27,6 +39,15 @@ const footerHighlights: LabeledLink[] = [
   { token: 'tarifa_where_to_stay', label: content.areas.link?.label ?? 'Where to stay' },
   { token: 'tarifa_experience_hub', label: content.experience.links[0].label }
 ];
+const byline = tarifaLocationContent.seo.article
+  ? {
+      lang: currentLang,
+      authorName: tarifaLocationContent.seo.article.authorName,
+      authorHref: aboutHref,
+      updated: content.hero.updated,
+      note: content.hero.note
+    }
+  : undefined;
 ---
 
 <LocationAuthorityLayout
@@ -45,117 +66,199 @@ const footerHighlights: LabeledLink[] = [
     <TarifaContextNav slot="context-navigation" activeId="overview" currentLabel="Tarifa" lang={currentLang} />
   </Navigation>
 
-  <article class="bg-surface" data-am-page="tarifa-location-hub" data-am-family="location" data-am-role="hub">
-    <LocationHubHero
+  <article class="am-tarifa-surface overflow-x-clip bg-surface" data-am-page="tarifa-location-hub" data-am-family="location" data-am-role="hub">
+    <LocationPanoramaHero
       eyebrow={content.hero.eyebrow}
       title={content.hero.title}
       subtitle={content.hero.subtitle}
       paragraphs={[content.hero.standfirst]}
-      imageSrc={tarifaStayImage}
-      imageAlt={content.amara.imageAlt}
-      byline={tarifaLocationContent.seo.article ? {
-        lang: currentLang,
-        authorName: tarifaLocationContent.seo.article.authorName,
-        authorHref: aboutHref,
-        updated: content.hero.updated,
-        note: content.hero.note
-      } : undefined}
-    />
+      imageSrc={heroImage}
+      imageAlt={content.media.heroAlt}
+      role="hub"
+      topic="overview"
+    >
+      {byline && <EditorialByline slot="meta" {...byline} />}
+    </LocationPanoramaHero>
 
-    <section id="geography-orientation" class="scroll-mt-28 bg-surface px-6 py-24 md:px-12 md:py-32 lg:py-40">
-      <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-7">
-          <p class="am-text-eyebrow text-primary">{content.geography.eyebrow}</p>
-          <h2 class="am-text-title mt-6 max-w-5xl text-balance text-on-surface">{content.geography.title}</h2>
-          <div class="mt-10 max-w-3xl space-y-5">
-            {content.geography.paragraphs.slice(0, 1).map((paragraph) => (
-              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-            ))}
+    <section class="bg-surface px-6 pb-16 pt-12 md:px-12 md:pb-20" aria-label={content.keyFigures.figures.map((figure) => figure.label).join(' · ')}>
+      <div class="mx-auto max-w-screen-2xl">
+        <AmaraKeyFigures figures={content.keyFigures.figures} note={content.keyFigures.note} />
+      </div>
+    </section>
+
+    <!-- Where you are: the photograph runs to the end edge, the white copy panel lies over its start edge. -->
+    <section id="geography-orientation" class="scroll-mt-28 bg-surface-white px-6 pb-20 md:px-12 md:pb-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+          <div class="am-overlap-end bg-surface-white lg:col-span-5">
+            <p class="am-text-eyebrow text-primary">{content.geography.eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.geography.title}</h2>
+            <div class="mt-6 max-w-2xl space-y-5">
+              {content.geography.paragraphs.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+              ))}
+            </div>
+            {content.geography.link?.token && (
+              <a href={requiredLink(content.geography.link.token)} class="am-cta-link mt-8 inline-flex">
+                {content.geography.link.label}
+              </a>
+            )}
           </div>
-          {content.geography.link?.token && (
-            <a href={requiredLink(content.geography.link.token)} class="am-cta-link mt-8 inline-flex">
-              {content.geography.link.label}
-            </a>
-          )}
+          <figure class="am-bleed-end lg:col-span-7">
+            <AmaraImage src={walkImage} alt={content.media.walkAlt} profile="hero" class="aspect-[3/2] h-full w-full object-cover" focalPoint="50% 55%" />
+          </figure>
         </div>
-        <dl class="self-end border-y border-border-subtle lg:col-span-5">
-          {content.geography.markers.map((marker, index) => (
-            <div class:list={['grid grid-cols-[0.65fr_1.35fr] gap-6 py-7', index > 0 && 'border-t border-border-subtle']}>
-              <dt class="text-primary am-text-label am-text-label--sm">{marker.label}</dt>
-              <dd class="am-text-subtitle text-on-surface">{marker.value}</dd>
+        <dl class="am-overlap-up am-overlap-up--inset grid gap-5 bg-surface-white md:grid-cols-3 md:gap-8">
+          {content.geography.markers.map((marker) => (
+            <div>
+              <dt class="am-text-label am-text-label--sm text-primary">{marker.label}</dt>
+              <dd class="mt-2 text-on-surface">{marker.value}</dd>
             </div>
           ))}
         </dl>
+        <p class="am-text-caption mt-4 normal-case tracking-normal text-muted">{content.media.walkCaption}</p>
       </div>
     </section>
 
-    <section id="arrival-mobility" class="scroll-mt-28 bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
-      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-5">
-          <p class="am-text-eyebrow text-primary">{content.arrival.eyebrow}</p>
-          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.arrival.title}</h2>
+    <!-- Arrival: the photograph runs to the start edge, the sand copy panel pushes in from the end. -->
+    <section id="arrival-mobility" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+          <figure class="am-bleed-start lg:col-span-4">
+            <AmaraImage src={barImage} alt={content.media.barAlt} profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint="50% 50%" />
+          </figure>
+          <div class="am-overlap-start bg-surface lg:col-span-8">
+            <p class="am-text-eyebrow text-primary">{content.arrival.eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.arrival.title}</h2>
+            <div class="mt-6 max-w-3xl space-y-5">
+              {content.arrival.paragraphs.slice(1).map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              ))}
+            </div>
+            {content.arrival.link?.token && (
+              <a href={requiredLink(content.arrival.link.token)} class="am-cta-link mt-8 inline-flex">
+                {content.arrival.link.label}
+              </a>
+            )}
+          </div>
         </div>
-        <div class="max-w-4xl space-y-5 lg:col-span-7">
-          {content.arrival.paragraphs.slice(1).map((paragraph, index) => (
-            <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-on-surface-variant']}>{paragraph}</p>
+      </div>
+    </section>
+
+    <!-- Where to stay: light, numbered, no band. -->
+    <section id="where-to-stay" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <p class="am-text-eyebrow text-primary">{content.areas.eyebrow}</p>
+        <h2 class="am-text-title mt-5 max-w-4xl text-balance text-on-surface">{content.areas.title}</h2>
+        <p class="am-text-subtitle mt-6 max-w-2xl text-on-surface-variant">{content.areas.paragraphs[0]}</p>
+        <div class="mt-14 grid gap-10 md:grid-cols-2 md:gap-12 xl:grid-cols-4">
+          {content.areas.archetypes.map((archetype, index) => (
+            <div>
+              <span class="am-text-label am-text-label--wide text-primary">{String(index + 1).padStart(2, '0')}</span>
+              <h3 class="am-text-functional-heading mt-4 text-on-surface">{archetype.title}</h3>
+              <p class="mt-3 text-on-surface-variant">{archetype.consequence}</p>
+            </div>
           ))}
-          {content.arrival.link?.token && (
-            <a href={requiredLink(content.arrival.link.token)} class="am-cta-link inline-flex">
-              {content.arrival.link.label}
-            </a>
-          )}
         </div>
+        {content.areas.link?.token && (
+          <a href={requiredLink(content.areas.link.token)} class="am-cta-link mt-12 inline-flex">{content.areas.link.label}</a>
+        )}
       </div>
     </section>
-
-    <LocationAreasBand
-      eyebrow={content.areas.eyebrow}
-      title={content.areas.title}
-      paragraphs={content.areas.paragraphs.slice(1)}
-      archetypes={content.areas.archetypes}
-      link={content.areas.link ? { href: requiredLink(content.areas.link.token!), label: content.areas.link.label } : undefined}
-    />
 
     <section id="weather-seasons" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
-      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-5">
-          <p class="am-text-eyebrow text-primary">{content.weather.eyebrow}</p>
-          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.weather.title}</h2>
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-5">
+            <p class="am-text-eyebrow text-primary">{content.weather.eyebrow}</p>
+            <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.weather.title}</h2>
+          </div>
+          <div class="lg:col-span-7">
+            <div class="space-y-5 lg:mt-2">
+              {[content.weather.paragraphs[0], content.weather.paragraphs[2]].filter(Boolean).map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+              ))}
+            </div>
+            {content.weather.link && (
+              <a href={requiredLink(content.weather.link.token!)} class="am-cta-link mt-8 inline-flex">{content.weather.link.label}</a>
+            )}
+          </div>
         </div>
-        <div class="lg:col-span-7">
-          <div class="mt-7 space-y-5">
-            {[content.weather.paragraphs[0], content.weather.paragraphs[2]].filter(Boolean).map((paragraph) => (
+      </div>
+    </section>
+
+    <!-- From September: the serif quote reaches into the photo column, the portrait hangs into the next section. -->
+    <section id="from-september" class="scroll-mt-28 bg-surface-white px-6 pt-20 md:px-12 md:pt-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
+          <div class="lg:col-span-7 lg:pt-8">
+            <p class="am-text-eyebrow text-primary">{content.winter.eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.winter.title}</h2>
+            <p class="am-text-quote am-overlap-end--text mt-8 bg-surface-white text-balance text-on-surface">{content.winter.paragraphs[1]}</p>
+            <div class="mt-8 max-w-2xl space-y-5">
+              {[content.winter.paragraphs[0], content.winter.paragraphs[2]].map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              ))}
+            </div>
+          </div>
+          <figure class="am-bleed-end am-hang lg:col-span-5 lg:self-end">
+            <AmaraImage src={castleImage} alt={content.media.castleAlt} profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint="50% 40%" />
+            <figcaption class="am-text-caption mt-3 normal-case tracking-normal text-muted lg:hidden">{content.media.castleCaption}</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- The stay: the photograph runs to the start edge, facts as a sand panel over its edge. -->
+    <section id="amara-family-surf" class="scroll-mt-28 bg-surface px-6 pb-20 pt-24 md:px-12 md:pb-28 lg:pt-36">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+          <figure class="am-bleed-start lg:col-span-6">
+            <AmaraImage src={tarifaStayImage} alt={content.amara.imageAlt} profile="hero" class="aspect-[4/3] h-full w-full object-cover" focalPoint="50% 50%" />
+          </figure>
+          <div class="am-overlap-start bg-surface lg:col-span-6">
+            <p class="am-text-eyebrow text-primary">{content.amara.eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.amara.title}</h2>
+            <div class="mt-6 max-w-2xl space-y-5">
+              {[content.amara.paragraphs[0], content.amara.paragraphs.at(-1)!].map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+              ))}
+            </div>
+            <ul class="mt-8 grid gap-3">
+              {content.amara.facts.map((fact) => (
+                <li class="relative pl-5 text-on-surface before:absolute before:left-0 before:top-[0.75em] before:h-px before:w-2 before:bg-primary before:content-['']">{fact}</li>
+              ))}
+            </ul>
+            {content.amara.link && (
+              <a href={stayHref} class="am-btn am-btn--primary mt-10">{content.amara.link.label}</a>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Close: the bright wave runs edge to edge, the white panel with the closing line rises into it. -->
+    <section id="experiences" class="scroll-mt-28 bg-surface-white">
+      <AmaraMediaFrame role="panorama">
+        <AmaraImage src={waveImage} alt={content.media.waveAlt} profile="background" class="h-full w-full object-cover" focalPoint="50% 45%" />
+      </AmaraMediaFrame>
+      <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
+        <div class="am-overlap-up bg-surface-white py-12">
+          <p class="am-text-eyebrow text-primary">{content.experience.eyebrow}</p>
+          {content.closing ? (
+            <>
+              <p class="am-text-quote mt-5 max-w-3xl text-balance text-on-surface">{content.closing.title}</p>
+              <p class="am-text-subtitle mt-5 max-w-2xl text-on-surface-variant">{content.closing.lead}</p>
+            </>
+          ) : (
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.experience.title}</h2>
+          )}
+          <div class="mt-5 max-w-2xl">
+            {content.experience.paragraphs.map((paragraph) => (
               <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
-          {content.weather.link && (
-            <a href={requiredLink(content.weather.link.token!)} class="am-cta-link mt-8 inline-flex">{content.weather.link.label}</a>
-          )}
-        </div>
-      </div>
-    </section>
-
-    <LocationStaySplitSection
-      imageSrc={tarifaStayImage}
-      imageAlt={content.amara.imageAlt}
-      eyebrow={content.amara.eyebrow}
-      title={content.amara.title}
-      paragraphs={[content.amara.paragraphs[0], content.amara.paragraphs.at(-1)!]}
-      facts={content.amara.facts}
-      link={content.amara.link ? { href: stayHref, label: content.amara.link.label } : undefined}
-    />
-
-    <section class="bg-surface px-6 py-24 md:px-12 md:py-32">
-      <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
-        <div class="lg:col-span-7">
-          <p class="am-text-eyebrow text-primary">{content.experience.eyebrow}</p>
-          <h2 class="am-text-title mt-6 text-balance text-on-surface">{content.experience.title}</h2>
-        </div>
-        <div class="lg:col-span-5">
-          {content.experience.paragraphs.map((paragraph) => (
-            <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-          ))}
-          <div class="mt-8 flex flex-wrap gap-x-7 gap-y-4">
+          <div class="mt-6 flex flex-wrap gap-x-8 gap-y-4">
             {content.experience.links.map((link) => (
               <a href={requiredLink(link.token!)} class="am-cta-link">{link.label}</a>
             ))}
@@ -163,6 +266,5 @@ const footerHighlights: LabeledLink[] = [
         </div>
       </div>
     </section>
-
   </article>
 </LocationAuthorityLayout>
