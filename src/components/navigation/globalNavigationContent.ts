@@ -372,7 +372,8 @@ export function createGlobalNavGroups(currentLang: AmaraLanguage): GlobalNavGrou
         {
           token: 'about',
           label: trustLabels.about[currentLang],
-          description: t('aboutMeta')
+          description: t('aboutMeta'),
+          overview: true
         },
         {
           token: 'amara_experience',

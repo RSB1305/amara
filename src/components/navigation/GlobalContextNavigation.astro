@@ -217,9 +217,11 @@ const branchGroups = isStay && destination
 const activeId = items.find(
   (item) => item.href !== undefined && normalizePath(item.href) === currentPath
 )?.id;
+// The About page is the landing of the trust section, so its own name is the
+// section name; a separate section crumb above it would just repeat the label.
 const breadcrumbs = isHome ? [] : [
   { label: 'AMARA', href: homeHref },
-  ...(!isLegalDocument && !isStaySearchResults
+  ...(!isLegalDocument && !isStaySearchResults && !isAbout
     ? [{ label: breadcrumbSection, href: breadcrumbSectionHref }]
     : []),
   { label: resolvedBreadcrumbTitle }

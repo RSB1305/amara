@@ -22,12 +22,14 @@ export const trustLabels: Record<
   | 'romantic_hideaways',
   LocalizedTrustLabel
 > = {
+  // The landing page of the trust section is the About page itself (SEO title
+  // "Über AMARA"), so it carries the section name rather than a second label.
   about: {
-    en: 'Staying with us',
-    de: 'Bei uns übernachten',
-    es: 'Alojarse con nosotros',
-    nl: 'Bij ons overnachten',
-    sv: 'Bo hos oss'
+    en: 'About us',
+    de: 'Über uns',
+    es: 'Sobre nosotros',
+    nl: 'Over ons',
+    sv: 'Om oss'
   },
   reviews_hub: {
     en: 'Guest Reviews',
