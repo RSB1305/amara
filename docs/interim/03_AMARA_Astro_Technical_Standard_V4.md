@@ -599,7 +599,9 @@ The executable owners are:
   of large numerals from `knowledge/facts` records, quiet labels and one provenance note stating the claim boundary;
 - the `panorama` media role (4:5 on phones, 16:9 on tablets, 16:7 on wide viewports) in `AmaraMediaFrame`.
 
-Boundaries: the surface is applied only to Tarifa-owned Location and Experience families; shared utility families
+Boundaries: the surface is applied to Tarifa-owned Location and Experience families and, typography only, to the
+AMARA Family & Surf stay page, whose calendar, quote, sticky action and checkout handoff stay with the Conversion
+owners; shared utility families
 (arrival, parking, weather, geography, daily life, winter stays) render in the plain system regardless of
 destination. Light surfaces only: no dark gradients over photographs and no inverse key-figure bands; inverse
 surfaces remain limited to cluster navigation and safety notices. No second token set, font, navigation, footer,

@@ -500,7 +500,8 @@ const contextDestination: DestinationId | undefined =
   pageFamily="vacation-rental"
   navigationLanguageToken={rental.token}
 >
-  <AmaraPageShell family="vacation-rental">
+  {/* AMARA Family & Surf takes the Tarifa typographic surface (DR-DESIGN-020): sans hierarchy only; calendar, quote, sticky action and checkout handoff are untouched. */}
+  <AmaraPageShell family="vacation-rental" class={isFamilySurf ? 'am-tarifa-surface' : undefined}>
       <StayHero
         imageSrc={heroImage}
         imageAlt={imageAlts[0] ?? t(rental.imageAlt)}
