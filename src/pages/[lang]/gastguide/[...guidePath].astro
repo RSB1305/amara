@@ -1,0 +1,11 @@
+---
+// Guest Guide, Swedish root: /sv/gastguide/…
+import GuestGuideRouter from '../../../page-families/guest-guide/GuestGuideRouter.astro';
+import { buildGuestGuideStaticPaths } from '../../../lib/guestGuidePages';
+
+export function getStaticPaths() {
+  return buildGuestGuideStaticPaths('sv').map(({ params, props }) => ({ params: { lang: 'sv', ...params }, props }));
+}
+---
+
+<GuestGuideRouter {...Astro.props} />

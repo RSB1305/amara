@@ -25,7 +25,12 @@ const pathname = Astro.url.pathname;
 const currentLang = normalizeLanguage(pageLang);
 const origin = Astro.url.origin;
 const head = resolveSeoHead(seo, origin, pathname, currentLang);
-const accessHref = currentLang === 'es' ? '/amara-experience/access' : `/${currentLang}/amara-experience/access`;
+import { experienceAccessHref } from '../../guest-experience/guide-routes.mjs';
+import { getAmaraExperienceContent } from '../content/amaraExperienceContent';
+const accessHref = experienceAccessHref(currentLang);
+// The Guest Guide is the umbrella of the booked-guest area (DR-GUEST-004); its
+// localized name is owned by the access copy and reused here as the session brand.
+const guideBrand = getAmaraExperienceContent(currentLang).accessGuideLabel;
 const logoutLabel: Record<AmaraLanguage, string> = {
   en: 'Log out',
   de: 'Abmelden',
@@ -53,7 +58,7 @@ const logoutLabel: Record<AmaraLanguage, string> = {
   <body class="am-guide-root bg-surface text-on-surface font-body antialiased" data-guide-slug={currentSlug}>
     <div class="am-guide-wrap">
       <header class="am-guide-session-bar">
-        <span class="am-guide-session-brand">AMARA Experience</span>
+        <span class="am-guide-session-brand">{guideBrand}</span>
         <button class="am-guide-session-logout" type="button" data-am-guide-logout>{logoutLabel[currentLang]}</button>
       </header>
       <slot />

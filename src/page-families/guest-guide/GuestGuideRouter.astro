@@ -1,0 +1,17 @@
+---
+// One renderer for everything below a localized Guest Guide root: the access page
+// and every entry (stay hub, stay home, destination topic). The per-language route
+// files under src/pages only decide the root segment; the path system itself is
+// owned by guest-experience/guide-routes.mjs.
+import AmaraExperienceAccessPage from '../amara-experience/AmaraExperienceAccessPage.astro';
+import GuestGuidePage from './GuestGuidePage.astro';
+import type { GuestGuidePageProps } from '../../lib/guestGuidePages';
+
+const props = Astro.props as GuestGuidePageProps;
+---
+
+{props.kind === 'access' ? (
+  <AmaraExperienceAccessPage lang={props.lang} />
+) : (
+  <GuestGuidePage entry={props.entry} lang={props.lang} />
+)}

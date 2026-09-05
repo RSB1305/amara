@@ -4,14 +4,15 @@ import AmaraExperienceAccessLayout from '../../layouts/AmaraExperienceAccessLayo
 import AmaraActionButton from '../../components/actions/AmaraActionButton.astro';
 import BookingDateRangeCalendar from '../../components/booking/BookingDateRangeCalendar.astro';
 import { getAmaraExperienceContent } from '../../content/amaraExperienceContent';
+import { experienceGuideRootHref, guestGuideLandingHref } from '../../../guest-experience/guide-routes.mjs';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = getAmaraExperienceContent(currentLang);
-const guideHref = currentLang === 'es' ? '/amara-experience/guide' : `/${currentLang}/amara-experience/guide`;
-const landingHref = currentLang === 'es' ? '/amara-experience' : `/${currentLang}/amara-experience`;
+const guideHref = experienceGuideRootHref(currentLang);
+const landingHref = guestGuideLandingHref(currentLang);
 ---
 
 <AmaraExperienceAccessLayout lang={currentLang} title={copy.formTitle}>
@@ -19,7 +20,7 @@ const landingHref = currentLang === 'es' ? '/amara-experience' : `/${currentLang
     <div class="am-experience-app__intro">
       <h1 class="am-text-subtitle text-on-surface">{copy.formTitle}</h1>
       <p class="am-text-body mt-5 leading-relaxed text-on-surface-variant">
-        <strong class="text-on-surface">{copy.accessGuideLabel}</strong>{' '}{copy.accessIntro}
+        {copy.accessIntro}
       </p>
       <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{copy.accessInstructions}</p>
     </div>

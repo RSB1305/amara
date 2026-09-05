@@ -1,11 +1,11 @@
 import type { AmaraLanguage } from '../types/seo';
+import { experienceGuideEntryHref } from '../../guest-experience/guide-routes.mjs';
 
 /**
- * Guest Guide pages are noindex/internal and intentionally kept out of
- * the public route manifest, so this stays a small local helper rather than
- * routing through buildOwnedLocalizedPath()/the public slug policy.
+ * Guest Guide pages are noindex/internal and intentionally kept out of the
+ * public route manifest. The localized segments are owned by
+ * guest-experience/guide-routes.mjs, shared with the Cloudflare Functions.
  */
 export function guideHref(slug: string, lang: AmaraLanguage): string {
-  const root = lang === 'es' ? '/amara-experience/guide' : `/${lang}/amara-experience/guide`;
-  return `${root}/${slug}`;
+  return experienceGuideEntryHref(slug, lang);
 }

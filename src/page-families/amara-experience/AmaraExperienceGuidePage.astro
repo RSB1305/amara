@@ -8,7 +8,8 @@ const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = getAmaraExperienceGuideContent(currentLang);
 const visibleCategories = copy.categories.filter((category) => category.items.length > 0);
-const landingHref = currentLang === 'es' ? '/amara-experience' : `/${currentLang}/amara-experience`;
+import { guestGuideLandingHref } from '../../../guest-experience/guide-routes.mjs';
+const landingHref = guestGuideLandingHref(currentLang);
 ---
 
 <AmaraExperienceLayout

@@ -11,6 +11,11 @@ import {
   localizePublicPath
 } from '../src/lib/publicRouteManifest.mjs';
 import { parseAstroRedirects } from '../src/lib/redirectInfrastructure.mjs';
+import {
+  experienceAccessHref,
+  experienceGuideEntryHref,
+  experienceGuideRootHref
+} from '../guest-experience/guide-routes.mjs';
 
 /**
  * AMARA public route policy gate.
@@ -39,12 +44,13 @@ const approvedExplicitRouteFiles = new Set([
   'src/pages/[guideSlug].astro',
   'src/pages/[lang]/[...path].astro',
   'src/pages/[lang]/[guideSlug].astro',
-  'src/pages/amara-experience/access.astro',
-  'src/pages/amara-experience/guide.astro',
-  'src/pages/amara-experience/guide/[guideSlug].astro',
-  'src/pages/[lang]/amara-experience/access.astro',
-  'src/pages/[lang]/amara-experience/guide.astro',
-  'src/pages/[lang]/amara-experience/guide/[guideSlug].astro'
+  // Guest Guide (DR-GUEST-004): one localized root directory per language; the path
+  // system below the root is owned by guest-experience/guide-routes.mjs.
+  'src/pages/guia-huesped/[...guidePath].astro',
+  'src/pages/[lang]/gaesteguide/[...guidePath].astro',
+  'src/pages/[lang]/guest-guide/[...guidePath].astro',
+  'src/pages/[lang]/gastengids/[...guidePath].astro',
+  'src/pages/[lang]/gastguide/[...guidePath].astro'
 ]);
 
 const approvedBookingRedirects = new Map([
@@ -301,6 +307,18 @@ function buildCurrentRoutePaths(guestGuideSlugs) {
 
     for (const locale of nonDefaultLocalePrefixes) {
       paths.add(`/${locale}/${slug}`);
+    }
+  }
+
+  // The private Guest Guide area is file-routed outside the manifest; its
+  // localized access page and every entry are valid redirect targets, owned by
+  // guide-routes.mjs (the guide root is the public landing, already listed above).
+  for (const locale of PUBLIC_ROUTE_LOCALES) {
+    paths.add(experienceAccessHref(locale));
+    paths.add(experienceGuideRootHref(locale));
+
+    for (const slug of guestGuideSlugs) {
+      paths.add(experienceGuideEntryHref(slug, locale));
     }
   }
 

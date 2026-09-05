@@ -10,9 +10,8 @@ import {
 } from './session.mjs';
 import {
   experienceAccessHref,
-  experienceGuideHubHref,
-  experienceGuideRootHref,
-  experienceRouteLanguage
+  experienceRouteLanguage,
+  resolveGuestGuidePath
 } from './guide-routes.mjs';
 
 const GUIDE_CSP = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self'; manifest-src 'self'";
@@ -55,6 +54,13 @@ function protectResponse(response, refreshedCookie) {
 
 export async function handleExperienceGuide(context) {
   const { request, env } = context;
+  // The landing and access pages sit under the same localized root as the guide
+  // but are public by design; `_routes.json` keeps them out of Functions, and this
+  // guard makes the same decision if the dispatch ever changes.
+  const resolved = resolveGuestGuidePath(new URL(request.url).pathname);
+  if (resolved && (resolved.kind === 'landing' || resolved.kind === 'access')) {
+    return context.next();
+  }
   try {
     const secret = getExperienceSecret(env);
     const token = readExperienceCookie(request);
@@ -62,8 +68,6 @@ export async function handleExperienceGuide(context) {
     const claims = await openExperienceSession(token, secret);
     const now = Math.floor(Date.now() / 1000);
     if (claims.exp < now) return redirect(request, 'session');
-
-    const lang = experienceRouteLanguage(new URL(request.url).pathname);
 
     let refreshedCookie;
     if (claims.revalidateAfter <= now) {
@@ -73,13 +77,6 @@ export async function handleExperienceGuide(context) {
         await sealExperienceSession(refreshedClaims, secret),
         refreshedClaims.exp,
       );
-    }
-
-    if (new URL(request.url).pathname.replace(/\/$/, '') === experienceGuideRootHref(lang)) {
-      return protectResponse(new Response(null, {
-        status: 302,
-        headers: { Location: experienceGuideHubHref(claims.stay, lang) }
-      }), refreshedCookie);
     }
 
     return protectResponse(await context.next(), refreshedCookie);

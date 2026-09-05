@@ -44,10 +44,10 @@ test('all 36 Guest Guide entries publish under the protected route family in all
   expect(SUPPORTED_LANGUAGES).toEqual(['en', 'de', 'es', 'nl', 'sv']);
   expect(guestGuideEntries.length * SUPPORTED_LANGUAGES.length).toBe(180);
   expect(guideHref('guestwelcome-frigiliana-farah', 'es')).toBe(
-    '/amara-experience/guide/guestwelcome-frigiliana-farah'
+    '/guia-huesped/farah'
   );
   expect(guideHref('guestwelcome-frigiliana-farah', 'de')).toBe(
-    '/de/amara-experience/guide/guestwelcome-frigiliana-farah'
+    '/de/gaesteguide/farah'
   );
 });
 
@@ -58,7 +58,8 @@ test('each accommodation hub exposes the stay, location essentials and personal 
   for (const hub of hubs) {
     expect(hub.menuLinks).toHaveLength(3);
     expect(hub.menuLinks[1]?.targetSlug).toContain('essentials');
-    expect(hub.menuLinks[2]?.title.en).toBe('Our personal recommendations');
+    // Since DR-GUEST-004 the personal recommendations carry the AMARA Experience name inside the Guest Guide.
+    expect(hub.menuLinks[2]?.title.en).toBe('AMARA Experience');
   }
 });
 

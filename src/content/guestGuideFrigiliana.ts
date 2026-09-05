@@ -11,11 +11,11 @@ const NEED_HELP: LocalizedText = {
 };
 
 const PERSONAL_RECOMMENDATIONS_MENU_TITLE: LocalizedText = {
-  en: 'Our personal recommendations',
-  de: 'Unsere persönlichen Empfehlungen',
-  es: 'Nuestras recomendaciones personales',
-  nl: 'Onze persoonlijke aanbevelingen',
-  sv: 'Våra personliga rekommendationer'
+  en: 'AMARA Experience',
+  de: 'AMARA Experience',
+  es: 'AMARA Experience',
+  nl: 'AMARA Experience',
+  sv: 'AMARA Experience'
 };
 
 const PERSONAL_RECOMMENDATIONS_MENU_SUBTITLE: LocalizedText = {
@@ -750,11 +750,11 @@ const frigilianaFarahHub: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Your AMARA stay in Frigiliana | AMARA Experience',
-    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Experience',
-    es: 'Vuestra estancia con AMARA en Frigiliana | AMARA Experience',
-    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Experience',
-    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Experience'
+    en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Gästeguide',
+    es: 'Vuestra estancia con AMARA en Frigiliana | Guía para huéspedes de AMARA',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Gastengids',
+    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Gästguide'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
@@ -4427,11 +4427,11 @@ const frigilianaRecommendations: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Our personal recommendations | AMARA Experience',
-    de: 'Unsere persönlichen Empfehlungen | AMARA Experience',
-    es: 'Nuestras recomendaciones personales | AMARA Experience',
-    nl: 'Onze persoonlijke aanbevelingen | AMARA Experience',
-    sv: 'Våra personliga rekommendationer | AMARA Experience'
+    en: 'AMARA Experience | AMARA Guest Guide',
+    de: 'AMARA Experience | AMARA Gästeguide',
+    es: 'AMARA Experience | Guía para huéspedes de AMARA',
+    nl: 'AMARA Experience | AMARA Gastengids',
+    sv: 'AMARA Experience | AMARA Gästguide'
   },
   seoDescription: {
     en: 'Hidden treasures, insider tips, authentic local food and lesser-known places around Frigiliana and Nerja, selected by your AMARA hosts.',
@@ -4699,11 +4699,11 @@ const frigilianaLounisHub: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Your AMARA stay in Frigiliana | AMARA Experience',
-    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Experience',
-    es: 'Vuestra estancia con AMARA en Frigiliana | AMARA Experience',
-    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Experience',
-    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Experience'
+    en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Gästeguide',
+    es: 'Vuestra estancia con AMARA en Frigiliana | Guía para huéspedes de AMARA',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Gastengids',
+    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Gästguide'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
@@ -4906,11 +4906,11 @@ const frigilianaZaidHub: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Your AMARA stay in Frigiliana | AMARA Experience',
-    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Experience',
-    es: 'Vuestra estancia con AMARA en Frigiliana | AMARA Experience',
-    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Experience',
-    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Experience'
+    en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Gästeguide',
+    es: 'Vuestra estancia con AMARA en Frigiliana | Guía para huéspedes de AMARA',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Gastengids',
+    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Gästguide'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
@@ -5107,11 +5107,11 @@ const frigilianaMahaHub: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Your AMARA stay in Frigiliana | AMARA Experience',
-    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Experience',
-    es: 'Vuestra estancia con AMARA en Frigiliana | AMARA Experience',
-    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Experience',
-    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Experience'
+    en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
+    de: 'Euer Aufenthalt bei AMARA in Frigiliana | AMARA Gästeguide',
+    es: 'Vuestra estancia con AMARA en Frigiliana | Guía para huéspedes de AMARA',
+    nl: 'Jullie verblijf bij AMARA in Frigiliana | AMARA Gastengids',
+    sv: 'Er vistelse hos AMARA i Frigiliana | AMARA Gästguide'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Frigiliana: house info, local recommendations, and essentials for a smooth arrival.',
@@ -5308,11 +5308,11 @@ const nerjaPlayaHub: GuestGuideEntry = {
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Your AMARA stay in Nerja | AMARA Experience',
-    de: 'Euer Aufenthalt bei AMARA in Nerja | AMARA Experience',
-    es: 'Vuestra estancia con AMARA en Nerja | AMARA Experience',
-    nl: 'Jullie verblijf bij AMARA in Nerja | AMARA Experience',
-    sv: 'Er vistelse hos AMARA i Nerja | AMARA Experience'
+    en: 'Your AMARA stay in Nerja | AMARA Guest Guide',
+    de: 'Euer Aufenthalt bei AMARA in Nerja | AMARA Gästeguide',
+    es: 'Vuestra estancia con AMARA en Nerja | Guía para huéspedes de AMARA',
+    nl: 'Jullie verblijf bij AMARA in Nerja | AMARA Gastengids',
+    sv: 'Er vistelse hos AMARA i Nerja | AMARA Gästguide'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Nerja: house info, local recommendations, and essentials for a smooth arrival.',

@@ -1,6 +1,7 @@
 ---
 import { guestGuideEntries } from '../../content/guestGuideEntries';
 import { DEFAULT_LANGUAGE, SUPPORTED_LANGUAGES } from '../../lib/routeOwnership';
+import { experienceAccessHref } from '../../../guest-experience/guide-routes.mjs';
 
 export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
@@ -13,5 +14,5 @@ export function getStaticPaths() {
     );
 }
 
-return Astro.redirect(`/${Astro.params.lang}/amara-experience/access`, 301);
+return Astro.redirect(experienceAccessHref(Astro.params.lang), 301);
 ---

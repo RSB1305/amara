@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
-title: AMARA Guest Utility Architecture V2.10
-version: 2.10.0
+title: AMARA Guest Utility Architecture V2.11
+version: 2.11.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "08_AMARA_Guest_Utility_Architecture_V2(1).pdf"
 source_sha256: 873664ad2c175cb8a5fcb2b219c5b89ff605a8986445862cf59b10a7480db032
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-01T18:00:51+02:00
+last_modified: 2026-09-05T12:30:00+02:00
 ---
 
 # AMARA Guest Utility Architecture V2 — Interim Markdown Snapshot
@@ -195,6 +195,32 @@ Each accommodation hub presents three direct entries in this order:
 
 Protected hub titles use `Your AMARA stay` and the natural native equivalent. `AMARA Experience` remains the umbrella and access name and is not repeated as a child navigation label. The established Guest Welcome entries, detail pages, location grouping and accommodation-specific structure remain the single authoring basis. Location essentials are linked directly from the hub to the existing destination-specific page and are not duplicated inside the accommodation detail. Personal recommendations carry the former recommendations area and may add deeper verified content without introducing a second guide taxonomy. Empty speculative categories are not rendered. The existing content prohibition for credentials, access secrets, payment details and personal booking data remains in force.
 
+## Approved repository amendment — Guest Guide naming and localized routes
+
+Since 2026-09-05 (DR-GUEST-004) the booked-guest area is named **AMARA Guest Guide** in every locale
+(de AMARA Gästeguide, es Guía para huéspedes de AMARA, nl AMARA Gastengids, sv AMARA Gästguide). The name
+carries the public landing page, the separate access page, the header access icon, the session brand of
+the protected shell and the Guest Welcome hub titles. **AMARA Experience** is the name of the third hub
+entry, the personal recommendations, and remains the promise inside the direct-booking benefit. The
+amendment "AMARA Experience foundation" below keeps its access, session and protection semantics; only its
+naming sentence is superseded.
+
+The guest area has one localized path system mirroring the public site, owned by
+`guest-experience/guide-routes.mjs`: a root per language (`guia-huesped` es, `guest-guide` en, `gaesteguide` de,
+`gastengids` nl, `gastguide` sv), below it the localized access segment, the stay identity for its Guest Welcome
+hub (`/de/gaesteguide/zaid`), the stay with the localized home segment (`/de/gaesteguide/zaid/unterkunft`) and the
+destination with the localized topic (`/de/gaesteguide/frigiliana/straende`; the personal recommendations are
+`experience` in every language). Entry slugs stay the internal content ids. The same module feeds the Astro pages
+(`src/pages/guia-huesped/[...guidePath].astro` and one root directory per language under `src/pages/[lang]/`), the
+Cloudflare Functions directories that mount the guide middleware, `public/_routes.json` (roots included, access
+pages excluded), the private language switcher (`buildPrivateLocalizedPath` re-localizes every segment), the route
+policy and the structured-data audit. The guide middleware passes the landing and access pages through by itself. The public landing route keeps
+its manifest key `amara-experience` with localized paths. Internal identifiers, the session cookie and the
+secret names are unchanged. Every previous public path answers with a 301 in `public/_redirects`: the landing
+pages inside the marked Astro section, the access and guide roots and the guide splats as Cloudflare rules,
+because guests hold these links in their booking e-mails. Booking-platform message templates outside the
+repository must be updated by the operator.
+
 ## Revision history
 
 | Version | Timestamp | Change |
@@ -210,3 +236,4 @@ Protected hub titles use `Your AMARA stay` and the natural native equivalent. `A
 | 2.8.0 | 2026-09-01T17:02:23+02:00 | Clarified AMARA Experience as the single booked-guest umbrella and access, retained Guest Guide as its descriptive utility function and renamed the third hub entry to personal recommendations. |
 | 2.9.0 | 2026-09-01T17:48:21+02:00 | Reduced guest-supplied access to booking-holder first name plus arrival date while retaining exact unique-match, fail-closed and server-owned departure-expiry semantics. |
 | 2.10.0 | 2026-09-01T18:00:51+02:00 | Added the booking holder's first name as the sole protected presentation field on every accommodation hub, with a native five-locale `Dear Guest` fallback. |
+| 2.11.0 | 2026-09-05T12:30:00+02:00 | Renamed the booked-guest umbrella to AMARA Guest Guide in five locales, made AMARA Experience the name of the personal-recommendations entry, replaced the guest-area paths with one localized system (`/de/gaesteguide/zaid`, `…/zaid/unterkunft`, `…/frigiliana/straende`) owned by `guest-experience/guide-routes.mjs` across pages, Functions, `_routes.json`, language switcher, route policy and audit, and redirected every previous path. |

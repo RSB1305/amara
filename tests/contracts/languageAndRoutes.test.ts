@@ -60,18 +60,24 @@ test('resolves the owning route and language from localized and generated URLs',
   expect(getOwnedRouteFromPathname('/')?.route.key).toBe('home');
   expect(getOwnedRouteFromPathname('/en')?.route.key).toBe('home');
   expect(getOwnedRouteFromPathname('/de/frigiliana-beaches')).toBeNull();
-  expect(getOwnedRouteFromPathname('/de/amara-experience/access')).toBeNull();
+  expect(getOwnedRouteFromPathname('/de/gaesteguide/zugang')).toBeNull();
 });
 
 test('keeps private routes on their own language while public routes own all five', () => {
   const publicMatch = getOwnedRouteFromPathname('/de/frigiliana/anfahrt');
   expect(getOwnedLanguagesForRoute(publicMatch, 'de')).toEqual(SUPPORTED_LANGUAGES);
   expect(getOwnedLanguagesForRoute(null, 'de')).toEqual(['de']);
-  expect(buildPrivateLocalizedPath('/de/amara-experience/access', 'sv')).toBe(
-    '/sv/amara-experience/access'
+  expect(buildPrivateLocalizedPath('/de/gaesteguide/zugang', 'sv')).toBe(
+    '/sv/gastguide/atkomst'
   );
-  expect(buildPrivateLocalizedPath('/amara-experience/access', 'es')).toBe(
-    '/amara-experience/access'
+  expect(buildPrivateLocalizedPath('/guia-huesped/acceso', 'es')).toBe(
+    '/guia-huesped/acceso'
+  );
+  expect(buildPrivateLocalizedPath('/de/gaesteguide/zugang', 'en')).toBe(
+    '/en/guest-guide/access'
+  );
+  expect(buildPrivateLocalizedPath('/de/amara-experience/access', 'nl')).toBe(
+    '/nl/gastengids/toegang'
   );
 });
 

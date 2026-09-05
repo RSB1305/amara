@@ -201,8 +201,16 @@ const definitions = [
     key: 'amara-experience',
     legacySlug: 'amara-experience',
     family: 'amara-experience',
-    identity: true,
-    paths: shared('amara-experience')
+    // Public landing page of the AMARA Guest Guide (DR-GUEST-004). The protected
+    // access/guide pages below it are file-routed and share these segments via
+    // guest-experience/guide-routes.mjs; keep both in step.
+    paths: {
+      es: 'guia-huesped',
+      en: 'guest-guide',
+      de: 'gaesteguide',
+      nl: 'gastengids',
+      sv: 'gastguide'
+    }
   },
   {
     key: 'legal-notice',

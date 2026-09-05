@@ -82,7 +82,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direct Booking: Benefits for Your Stay',
 
-      description: 'Book AMARA direct: private AMARA Experience, our lowest available price, Robert personally involved from the start and a mid-stay clean from eight nights.',
+      description: 'Book AMARA direct: private AMARA Guest Guide, our lowest available price, Robert personally involved from the start and a mid-stay clean from eight nights.',
 
       robots: 'index, follow',
 
@@ -94,7 +94,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direktbuchung: Vorteile für euren Aufenthalt',
 
-      description: 'Bucht AMARA direkt: private AMARA Experience, niedrigster verfügbarer Preis, Robert von Anfang an persönlich eingebunden und Zwischenreinigung ab acht Nächten.',
+      description: 'Bucht AMARA direkt: privater AMARA Gästeguide, niedrigster verfügbarer Preis, Robert von Anfang an persönlich eingebunden und Zwischenreinigung ab acht Nächten.',
 
       robots: 'index, follow',
 
@@ -106,7 +106,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Reserva directa: precio y ventajas',
 
-      description: 'Reserva directa con AMARA: AMARA Experience privada, precio más bajo disponible, Robert implicado desde el principio y limpieza desde 8 noches.',
+      description: 'Reserva directa con AMARA: guía privada para huéspedes de AMARA, precio más bajo disponible, Robert implicado desde el principio y limpieza desde 8 noches.',
 
       robots: 'index, follow',
 
@@ -118,7 +118,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direct boeken: voordelen voor je verblijf',
 
-      description: 'Boek AMARA direct: privé AMARA Experience, laagste beschikbare prijs, Robert vanaf het begin persoonlijk betrokken en schoonmaak vanaf 8 nachten.',
+      description: 'Boek AMARA direct: privé AMARA Gastengids, laagste beschikbare prijs, Robert vanaf het begin persoonlijk betrokken en schoonmaak vanaf 8 nachten.',
 
       robots: 'index, follow',
 
@@ -130,7 +130,7 @@ export const directBookingBenefitsSeo: AmaraAuthoringSeo = {
 
       title: 'Direktbokning: fördelar för vistelsen',
 
-      description: 'Boka AMARA direkt: privat AMARA Experience, lägsta tillgängliga pris, Robert personligen med från början och mellanstädning från åtta nätter.',
+      description: 'Boka AMARA direkt: privat AMARA Gästguide, lägsta tillgängliga pris, Robert personligen med från början och mellanstädning från åtta nätter.',
 
       robots: 'index, follow',
 
@@ -198,15 +198,15 @@ export const directBookingBenefitsCopy = {
 
     lead: {
 
-      en: 'When you book direct with us, you receive your private AMARA Experience, our lowest available price and practical extras for your stay. Robert is personally involved from the start.',
+      en: 'When you book direct with us, you receive your private AMARA Guest Guide, our lowest available price and practical extras for your stay. Robert is personally involved from the start.',
 
-      de: 'Wenn ihr direkt bei uns bucht, erhaltet ihr eure private AMARA Experience, unseren niedrigsten verfügbaren Preis und praktische Extras für euren Aufenthalt. Robert ist von Anfang an persönlich eingebunden.',
+      de: 'Wenn ihr direkt bei uns bucht, erhaltet ihr euren privaten AMARA Gästeguide, unseren niedrigsten verfügbaren Preis und praktische Extras für euren Aufenthalt. Robert ist von Anfang an persönlich eingebunden.',
 
-      es: 'Al reservar directamente con nosotros recibís vuestra AMARA Experience privada, nuestro precio más bajo disponible y ventajas prácticas para vuestra estancia. Robert participa personalmente desde el principio.',
+      es: 'Al reservar directamente con nosotros recibís vuestra guía privada para huéspedes de AMARA, nuestro precio más bajo disponible y ventajas prácticas para vuestra estancia. Robert participa personalmente desde el principio.',
 
-      nl: 'Wanneer jullie direct bij ons boeken, krijgen jullie een privé AMARA Experience, onze laagste beschikbare prijs en praktische extra’s voor jullie verblijf. Robert is vanaf het begin persoonlijk betrokken.',
+      nl: 'Wanneer jullie direct bij ons boeken, krijgen jullie een privé AMARA Gastengids, onze laagste beschikbare prijs en praktische extra’s voor jullie verblijf. Robert is vanaf het begin persoonlijk betrokken.',
 
-      sv: 'När ni bokar direkt hos oss får ni en privat AMARA Experience, vårt lägsta tillgängliga pris och praktiska fördelar för vistelsen. Robert är personligen med från början.'
+      sv: 'När ni bokar direkt hos oss får ni en privat AMARA Gästguide, vårt lägsta tillgängliga pris och praktiska fördelar för vistelsen. Robert är personligen med från början.'
 
     },
 
@@ -234,29 +234,29 @@ export const directBookingBenefitsCopy = {
 
       title: {
 
-        en: 'Your private AMARA Experience',
+        en: 'Your private AMARA Guest Guide',
 
-        de: 'Eure private AMARA Experience',
+        de: 'Euer privater AMARA Gästeguide',
 
-        es: 'Vuestra AMARA Experience privada',
+        es: 'Vuestra guía privada para huéspedes de AMARA',
 
-        nl: 'Jullie privé AMARA Experience',
+        nl: 'Jullie privé AMARA Gastengids',
 
-        sv: 'Er privata AMARA Experience'
+        sv: 'Er privata AMARA Gästguide'
 
       },
 
       copy: {
 
-        en: 'A confirmed direct booking gives you **private access to AMARA Experience**, with personal recommendations for your booked destination and the surrounding area.',
+        en: 'A confirmed direct booking gives you **private access to the AMARA Guest Guide** with our AMARA Experience, personal recommendations for your booked destination and the surrounding area.',
 
-        de: 'Mit eurer bestätigten Direktbuchung erhaltet ihr **privaten Zugang zur AMARA Experience** – mit persönlichen Empfehlungen für euer gebuchtes Reiseziel und die Umgebung.',
+        de: 'Mit eurer bestätigten Direktbuchung erhaltet ihr **privaten Zugang zum AMARA Gästeguide** mit unserer AMARA Experience, persönlichen Empfehlungen für euer gebuchtes Reiseziel und die Umgebung.',
 
-        es: 'Vuestra reserva directa confirmada os da **acceso privado a AMARA Experience**, con recomendaciones personales para el destino de vuestra reserva y sus alrededores.',
+        es: 'Vuestra reserva directa confirmada os da **acceso privado a la guía para huéspedes de AMARA** con nuestra AMARA Experience, recomendaciones personales para el destino de vuestra reserva y sus alrededores.',
 
-        nl: 'Een bevestigde directe boeking geeft jullie **privétoegang tot AMARA Experience**, met persoonlijke aanbevelingen voor jullie geboekte bestemming en de omgeving.',
+        nl: 'Een bevestigde directe boeking geeft jullie **privétoegang tot de AMARA Gastengids** met onze AMARA Experience, persoonlijke aanbevelingen voor jullie geboekte bestemming en de omgeving.',
 
-        sv: 'En bekräftad direktbokning ger er **privat tillgång till AMARA Experience**, med personliga rekommendationer för resmålet ni har bokat och närområdet.'
+        sv: 'En bekräftad direktbokning ger er **privat tillgång till AMARA Gästguide** med vår AMARA Experience, personliga rekommendationer för resmålet ni har bokat och närområdet.'
 
       }
 

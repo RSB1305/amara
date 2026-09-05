@@ -19,35 +19,35 @@ export const amaraExperienceSeo: AmaraAuthoringSeo = {
   entityKey: "amara-brand",
   languages: {
     en: {
-      title: "AMARA Experience | Private local guide for couples",
+      title: "AMARA Guest Guide | Private local guide for couples",
       description:
         "Personal insider tips for romantic time, hidden treasures and quieter places in Frigiliana, Nerja and Tarifa — exclusively for AMARA direct bookers.",
       robots: "index, follow",
       canonical: "auto",
     },
     de: {
-      title: "AMARA Experience | Privater Reiseguide für Paare",
+      title: "AMARA Gästeguide | Privater Reiseguide für Paare",
       description:
         "Persönliche Insider-Tipps für romantische Zeit, versteckte Schätze und ruhige Orte in Frigiliana, Nerja und Tarifa – exklusiv für AMARA-Direktbucher.",
       robots: "index, follow",
       canonical: "auto",
     },
     es: {
-      title: "AMARA Experience | Guía local privada para parejas",
+      title: "Guía para huéspedes de AMARA | Guía local privada para parejas",
       description:
         "Recomendaciones personales para momentos románticos, rincones escondidos y lugares tranquilos en Frigiliana, Nerja y Tarifa, solo con reserva directa.",
       robots: "index, follow",
       canonical: "auto",
     },
     nl: {
-      title: "AMARA Experience | Privégids voor stellen",
+      title: "AMARA Gastengids | Privégids voor stellen",
       description:
         "Persoonlijke insidertips voor romantische tijd, verborgen parels en rustige plekken in Frigiliana, Nerja en Tarifa, exclusief bij direct boeken.",
       robots: "index, follow",
       canonical: "auto",
     },
     sv: {
-      title: "AMARA Experience | Privat lokalguide för par",
+      title: "AMARA Gästguide | Privat lokalguide för par",
       description:
         "Personliga insidertips för romantisk tid, dolda pärlor och lugnare platser i Frigiliana, Nerja och Tarifa – exklusivt vid direktbokning.",
       robots: "index, follow",
@@ -65,11 +65,11 @@ const content = {
     "Privat lokalguide vid direktbokning",
   ),
   title: text(
-    "AMARA Experience",
-    "AMARA Experience",
-    "AMARA Experience",
-    "AMARA Experience",
-    "AMARA Experience",
+    "AMARA Guest Guide",
+    "AMARA Gästeguide",
+    "Guía para huéspedes de AMARA",
+    "AMARA Gastengids",
+    "AMARA Gästguide",
   ),
   subtitle: text(
     "More local knowledge. More romantic time together in Frigiliana, Nerja and Tarifa.",
@@ -79,11 +79,11 @@ const content = {
     "Mer lokalkännedom. Mer romantisk tid tillsammans i Frigiliana, Nerja och Tarifa.",
   ),
   directAnswer: text(
-    "AMARA Experience is our exclusive direct-booking benefit for couples staying with us in Frigiliana, Nerja or Tarifa: a **private guide with personal insider tips** that go beyond the familiar sights. Once your direct booking is confirmed, we share **local favourites**, **hidden treasures** and **lesser-known places** — from a romantic restaurant or quiet beach to a walk, shared activity or town worth a day trip. Every recommendation has a reason. We check what fits each AMARA destination, explain why a place or time of day may be worthwhile and help you enjoy more time **off the beaten track**, away from the busiest routes. Your holiday holds more time to experience these places together.",
-    "AMARA Experience ist unser exklusiver Direktbucher-Vorteil für Paare mit einem Aufenthalt bei uns in Frigiliana, Nerja oder Tarifa: ein **privater Guide mit persönlichen Insider-Tipps**, die über die bekannten Sehenswürdigkeiten hinausgehen. Nach bestätigter Direktbuchung teilen wir **lokale Favoriten**, **versteckte Schätze** und **weniger bekannte Orte** – vom romantischen Restaurant und ruhigen Strand bis zur Wanderung, Aktivität oder Stadt für einen gemeinsamen Ausflug. Jede Empfehlung hat einen guten Grund. Wir prüfen, was zum jeweiligen AMARA-Reiseziel passt, erklären, warum sich ein Ort oder Zeitpunkt lohnt, und helfen euch, öfter **abseits der Touristenpfade** unterwegs zu sein. So bleibt euch im Urlaub mehr Zeit, diese Orte gemeinsam zu erleben.",
-    "AMARA Experience es nuestra ventaja exclusiva para parejas que os alojáis con nosotros en Frigiliana, Nerja o Tarifa y reserváis directamente: una **guía privada con recomendaciones locales** que van más allá de los lugares conocidos. Tras confirmar la reserva directa, compartimos **favoritos locales**, **rincones escondidos** y **sitios menos conocidos**, desde un restaurante romántico o una playa tranquila hasta una ruta, una actividad para dos o una localidad que merece una excursión. Cada recomendación tiene un motivo. Comprobamos qué encaja con cada destino AMARA, explicamos por qué merece la pena un lugar o un momento del día y os ayudamos a disfrutar **fuera de las rutas turísticas más transitadas**. Así tenéis más tiempo para vivir juntos estos lugares.",
-    "AMARA Experience is ons exclusieve voordeel voor stellen die hun verblijf bij ons in Frigiliana, Nerja of Tarifa rechtstreeks boeken: een **privégids met persoonlijke insidertips** die verder gaan dan de bekende bezienswaardigheden. Na bevestiging van jullie directe boeking delen we **lokale favorieten**, **verborgen parels** en **minder bekende plekken** — van een romantisch restaurant of rustig strand tot een wandeling, activiteit samen of plaats die een dagtrip waard is. Elke aanbeveling heeft een goede reden. We controleren wat bij elke AMARA-bestemming past, leggen uit waarom een plek of tijdstip de moeite waard kan zijn en helpen jullie vaker **buiten de gebaande toeristische paden** te komen. Zo blijft er meer tijd over om deze plekken samen te beleven.",
-    "AMARA Experience är vår exklusiva fördel för par som bokar direkt och bor hos oss i Frigiliana, Nerja eller Tarifa: en **privat guide med personliga insidertips** bortom de välkända sevärdheterna. När direktbokningen är bekräftad delar vi **lokala favoriter**, **dolda pärlor** och **mindre kända platser** — från en romantisk restaurang eller lugn strand till en vandring, gemensam aktivitet eller ort värd en dagsutflykt. Varje rekommendation har en tydlig anledning. Vi kontrollerar vad som passar varje AMARA-destination, förklarar varför en plats eller tid på dagen kan vara värd att välja och hjälper er att uppleva mer **bortom de mest välbesökta turiststråken**. Då får ni mer tid att upptäcka platserna tillsammans.",
+    "The AMARA Guest Guide is our exclusive direct-booking benefit for couples staying with us in Frigiliana, Nerja or Tarifa: a **private guide with the AMARA Experience, our personal insider tips**, that go beyond the familiar sights. Once your direct booking is confirmed, we share **local favourites**, **hidden treasures** and **lesser-known places** — from a romantic restaurant or quiet beach to a walk, shared activity or town worth a day trip. Every recommendation has a reason. We check what fits each AMARA destination, explain why a place or time of day may be worthwhile and help you enjoy more time **off the beaten track**, away from the busiest routes. Your holiday holds more time to experience these places together.",
+    "Der AMARA Gästeguide ist unser exklusiver Direktbucher-Vorteil für Paare mit einem Aufenthalt bei uns in Frigiliana, Nerja oder Tarifa: ein **privater Guide mit der AMARA Experience, unseren persönlichen Insider-Tipps**, die über die bekannten Sehenswürdigkeiten hinausgehen. Nach bestätigter Direktbuchung teilen wir **lokale Favoriten**, **versteckte Schätze** und **weniger bekannte Orte** – vom romantischen Restaurant und ruhigen Strand bis zur Wanderung, Aktivität oder Stadt für einen gemeinsamen Ausflug. Jede Empfehlung hat einen guten Grund. Wir prüfen, was zum jeweiligen AMARA-Reiseziel passt, erklären, warum sich ein Ort oder Zeitpunkt lohnt, und helfen euch, öfter **abseits der Touristenpfade** unterwegs zu sein. So bleibt euch im Urlaub mehr Zeit, diese Orte gemeinsam zu erleben.",
+    "La guía para huéspedes de AMARA es nuestra ventaja exclusiva para parejas que os alojáis con nosotros en Frigiliana, Nerja o Tarifa y reserváis directamente: una **guía privada con la AMARA Experience, nuestras recomendaciones locales**, que van más allá de los lugares conocidos. Tras confirmar la reserva directa, compartimos **favoritos locales**, **rincones escondidos** y **sitios menos conocidos**, desde un restaurante romántico o una playa tranquila hasta una ruta, una actividad para dos o una localidad que merece una excursión. Cada recomendación tiene un motivo. Comprobamos qué encaja con cada destino AMARA, explicamos por qué merece la pena un lugar o un momento del día y os ayudamos a disfrutar **fuera de las rutas turísticas más transitadas**. Así tenéis más tiempo para vivir juntos estos lugares.",
+    "De AMARA Gastengids is ons exclusieve voordeel voor stellen die hun verblijf bij ons in Frigiliana, Nerja of Tarifa rechtstreeks boeken: een **privégids met de AMARA Experience, onze persoonlijke insidertips**, die verder gaan dan de bekende bezienswaardigheden. Na bevestiging van jullie directe boeking delen we **lokale favorieten**, **verborgen parels** en **minder bekende plekken** — van een romantisch restaurant of rustig strand tot een wandeling, activiteit samen of plaats die een dagtrip waard is. Elke aanbeveling heeft een goede reden. We controleren wat bij elke AMARA-bestemming past, leggen uit waarom een plek of tijdstip de moeite waard kan zijn en helpen jullie vaker **buiten de gebaande toeristische paden** te komen. Zo blijft er meer tijd over om deze plekken samen te beleven.",
+    "AMARA Gästguide är vår exklusiva fördel för par som bokar direkt och bor hos oss i Frigiliana, Nerja eller Tarifa: en **privat guide med AMARA Experience, våra personliga insidertips**, bortom de välkända sevärdheterna. När direktbokningen är bekräftad delar vi **lokala favoriter**, **dolda pärlor** och **mindre kända platser** — från en romantisk restaurang eller lugn strand till en vandring, gemensam aktivitet eller ort värd en dagsutflykt. Varje rekommendation har en tydlig anledning. Vi kontrollerar vad som passar varje AMARA-destination, förklarar varför en plats eller tid på dagen kan vara värd att välja och hjälper er att uppleva mer **bortom de mest välbesökta turiststråken**. Då får ni mer tid att upptäcka platserna tillsammans.",
   ),
   heroAccent: text(
     "More time to experience it together.",
@@ -377,10 +377,10 @@ const content = {
   ),
   accessGuideLabel: text(
     "AMARA Guest Guide",
-    "AMARA Guest Guide",
+    "AMARA Gästeguide",
     "Guía para huéspedes de AMARA",
-    "AMARA-gastengids",
-    "AMARA-gästguide",
+    "AMARA Gastengids",
+    "AMARA Gästguide",
   ),
   accessIntro: text(
     "Access information about your accommodation, local essentials and our personal insider tips for a special stay with AMARA.",
@@ -397,18 +397,18 @@ const content = {
     "Använd er guide före och under vistelsen. Ange förnamnet i bokningen och ert ankomstdatum.",
   ),
   accessLandingLabel: text(
-    "Learn more about AMARA Experience",
-    "Mehr über AMARA Experience",
-    "Más sobre AMARA Experience",
-    "Meer over AMARA Experience",
-    "Läs mer om AMARA Experience",
+    "Learn more about the AMARA Guest Guide",
+    "Mehr über den AMARA Gästeguide",
+    "Más sobre la guía para huéspedes de AMARA",
+    "Meer over de AMARA Gastengids",
+    "Läs mer om AMARA Gästguide",
   ),
   formTitle: text(
-    "AMARA Experience",
-    "AMARA Experience",
-    "AMARA Experience",
-    "AMARA Experience",
-    "AMARA Experience",
+    "AMARA Guest Guide",
+    "AMARA Gästeguide",
+    "Guía para huéspedes de AMARA",
+    "AMARA Gastengids",
+    "AMARA Gästguide",
   ),
   firstNameLabel: text(
     "First name on reservation",
@@ -467,11 +467,11 @@ const content = {
     "Visa nästa månad",
   ),
   submitLabel: text(
-    "Open AMARA Experience",
-    "AMARA Experience öffnen",
-    "Abrir AMARA Experience",
-    "AMARA Experience openen",
-    "Öppna AMARA Experience",
+    "Open the Guest Guide",
+    "Gästeguide öffnen",
+    "Abrir la guía para huéspedes",
+    "Gastengids openen",
+    "Öppna gästguiden",
   ),
   pendingLabel: text(
     "Checking booking…",
@@ -516,11 +516,11 @@ const content = {
     "Tid tillsammans i ett AMARA Romantic Hideaway.",
   ),
   closingLead: text(
-    "Book your Romantic Hideaway directly with AMARA. Once confirmed, your private AMARA Experience opens for the dates of your stay.",
-    "Bucht euren Romantic Hideaway direkt bei AMARA. Nach der Bestätigung öffnet sich eure private AMARA Experience für die Reisedaten eures Aufenthalts.",
-    "Reservad vuestro Romantic Hideaway directamente con AMARA. Una vez confirmado, vuestra AMARA Experience privada se abrirá para las fechas de la estancia.",
-    "Boek jullie Romantic Hideaway rechtstreeks bij AMARA. Na bevestiging gaat jullie privé-AMARA Experience open voor de data van het verblijf.",
-    "Boka ert Romantic Hideaway direkt med AMARA. Efter bekräftelsen öppnas er privata AMARA Experience för datumen för vistelsen.",
+    "Book your Romantic Hideaway directly with AMARA. Once confirmed, your private AMARA Guest Guide opens for the dates of your stay.",
+    "Bucht euren Romantic Hideaway direkt bei AMARA. Nach der Bestätigung öffnet sich euer privater AMARA Gästeguide für die Reisedaten eures Aufenthalts.",
+    "Reservad vuestro Romantic Hideaway directamente con AMARA. Una vez confirmado, vuestra guía privada para huéspedes de AMARA se abrirá para las fechas de la estancia.",
+    "Boek jullie Romantic Hideaway rechtstreeks bij AMARA. Na bevestiging gaat jullie privé AMARA Gastengids open voor de data van het verblijf.",
+    "Boka ert Romantic Hideaway direkt med AMARA. Efter bekräftelsen öppnas er privata AMARA Gästguide för datumen för vistelsen.",
   ),
   availabilityLabel: text(
     "Check availability",

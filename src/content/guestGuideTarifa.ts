@@ -153,11 +153,11 @@ const tarifaFamilySurfHub: GuestGuideEntry = {
   supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
-    en: 'Your AMARA stay in Tarifa | AMARA Experience',
-    de: 'Euer Aufenthalt bei AMARA in Tarifa | AMARA Experience',
-    es: 'Vuestra estancia con AMARA en Tarifa | AMARA Experience',
-    nl: 'Jullie verblijf bij AMARA in Tarifa | AMARA Experience',
-    sv: 'Er vistelse hos AMARA i Tarifa | AMARA Experience'
+    en: 'Your AMARA stay in Tarifa | AMARA Guest Guide',
+    de: 'Euer Aufenthalt bei AMARA in Tarifa | AMARA Gästeguide',
+    es: 'Vuestra estancia con AMARA en Tarifa | Guía para huéspedes de AMARA',
+    nl: 'Jullie verblijf bij AMARA in Tarifa | AMARA Gastengids',
+    sv: 'Er vistelse hos AMARA i Tarifa | AMARA Gästguide'
   },
   seoDescription: {
     en: 'Your calm, practical guide for an effortless stay in Tarifa: apartment information, local recommendations, and wind and weather essentials.',
@@ -219,11 +219,11 @@ const tarifaFamilySurfHub: GuestGuideEntry = {
       icon: 'compass',
       targetSlug: 'tarifa-guest-local-guide',
       title: {
-        en: 'Our personal recommendations',
-        de: 'Unsere persönlichen Empfehlungen',
-        es: 'Nuestras recomendaciones personales',
-        nl: 'Onze persoonlijke aanbevelingen',
-        sv: 'Våra personliga rekommendationer'
+        en: 'AMARA Experience',
+        de: 'AMARA Experience',
+        es: 'AMARA Experience',
+        nl: 'AMARA Experience',
+        sv: 'AMARA Experience'
       },
       subtitle: {
         en: 'Hidden treasures · Insider tips · Authentic local food · Beyond the crowds',
@@ -1884,11 +1884,11 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
   supportHref: TARIFA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
-    'Our personal recommendations | AMARA Experience',
-    'Unsere persönlichen Empfehlungen | AMARA Experience',
-    'Nuestras recomendaciones personales | AMARA Experience',
-    'Onze persoonlijke aanbevelingen | AMARA Experience',
-    'Våra personliga rekommendationer | AMARA Experience'
+    'AMARA Experience | AMARA Guest Guide',
+    'AMARA Experience | AMARA Gästeguide',
+    'AMARA Experience | Guía para huéspedes de AMARA',
+    'AMARA Experience | AMARA Gastengids',
+    'AMARA Experience | AMARA Gästguide'
   ),
   seoDescription: tarifaText(
     'Hidden treasures, insider tips, authentic local food and lesser-known places in Tarifa, selected by your AMARA hosts.',
