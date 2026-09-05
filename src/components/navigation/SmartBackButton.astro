@@ -6,8 +6,9 @@
  * a specific recommendation page -> ...), not just one hop, and several hubs
  * share the same detail pages so a single fixed target isn't enough on its own.
  * Falls back to `fallbackHref` when the stack is empty (direct visit, bookmark,
- * or sessionStorage unavailable). Both targets are built for the current page's
- * active language, not window.history.back() — switching language via the
+ * or sessionStorage unavailable). The popped slug is resolved through the
+ * `data-am-guide-paths` catalogue GuestGuideLayout renders, so both targets are
+ * real addresses in the current page's active language, not window.history.back() — switching language via the
  * language switcher pushes a new history entry, so back() would land on the
  * same page in the previously selected language instead of the parent page in
  * the language the user is currently viewing.
@@ -88,7 +89,11 @@ const isLink = variant === 'link';
         var stack = raw ? JSON.parse(raw) : [];
         var previous = stack.pop();
         if (previous && /^[a-z0-9-]+$/.test(previous) && lang) {
-          target = lang === 'es' ? '/' + previous : '/' + lang + '/' + previous;
+          // The layout publishes every guide slug's address in the current language;
+          // a slug missing from it keeps the fallback rather than guessing a path.
+          var catalogue = document.querySelector('script[data-am-guide-paths]');
+          var paths = catalogue ? JSON.parse(catalogue.textContent || '{}') : {};
+          if (typeof paths[previous] === 'string') target = paths[previous];
           sessionStorage.setItem('amGuideNavStack', JSON.stringify(stack));
         }
       } catch (err) {
