@@ -1,6 +1,7 @@
 import type { LocalizedText } from '../types/content';
 import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { buildPublicRoutePath } from '../lib/publicRouteManifest.mjs';
 import { trustLabels } from './trustLabels';
 import {
   formatVacationRentalPriceRange,
@@ -523,7 +524,7 @@ function buildComfortProperty(rental: VacationRentalEntity): PropertyEntry {
   return {
     id: rental.propertyId,
     name: `${rental.name}, ${rental.city}`,
-    href: `/${rental.slug}`,
+    href: buildPublicRoutePath(rental.slug, 'es'),
     specs: {
       license: rental.license,
       maxOccupancy: localizeGuestCount(rental.occupancy),

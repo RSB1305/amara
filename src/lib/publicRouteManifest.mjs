@@ -307,17 +307,19 @@ const definitions = [
     parent: 'stays',
     segment: shared('casa-amara')
   },
-  // Branded stay identifiers stay shared and flat: they are printed in guest
-  // material and referenced from the booking provider, so the route key equals
-  // the stay slug and the breadcrumb parent is the stays hub.
+  // Branded stays live inside the localized stays silo, mirroring their
+  // breadcrumb parent by construction: /alojamientos/la-amara-farah,
+  // /de/unterkuenfte/la-amara-farah, and so on. The stay name is a shared brand
+  // identity, so the own segment is the same in every locale while the parent
+  // prefix localizes. The route key equals the stay slug; the flat pre-silo path
+  // is the legacy slug that drives the migration redirect.
   ...['la-amara-farah', 'la-amara-lounis', 'la-amara-zaid', 'la-amara-maha', 'la-amara-playa', 'la-amara-family-and-surf'].map(
     (slug) => ({
       key: slug,
       legacySlug: slug,
       family: 'vacation-rental',
       parent: 'stays',
-      identity: true,
-      paths: shared(slug)
+      segment: shared(slug)
     })
   ),
 

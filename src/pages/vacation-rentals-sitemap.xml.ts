@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { vacationRentalEntities } from '../content/vacationRentalEntities';
+import { buildPublicRoutePath } from '../lib/publicRouteManifest.mjs';
 
 export const prerender = true;
 
@@ -19,7 +20,7 @@ export const GET: APIRoute = ({ site }) => {
 
   const urls = eligibleRentals
     .map((rental) => {
-      const location = new URL(`/${rental.slug}`, origin).href;
+      const location = new URL(buildPublicRoutePath(rental.slug, 'es'), origin).href;
       return `  <url>\n    <loc>${escapeXml(location)}</loc>\n  </url>`;
     })
     .join('\n');
