@@ -442,11 +442,15 @@
     font-weight: 400;
   }
 
+  /* Context row (breadcrumb, destination disclosures, sibling links): one size,
+   * one weight, the primary navigation's tracking. Two sizes in the whole header
+   * instead of four; the current item is marked by colour or rule, never by
+   * weight (operator decision 2026-09-05). */
   .am-text-nav-context {
     font-family: var(--font-label);
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     font-weight: 400;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
   }
 
@@ -459,26 +463,10 @@
 
   .am-text-nav-breadcrumb {
     font-family: var(--font-label);
-    font-size: 0.625rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
+    font-size: 0.6875rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-  }
-
-  .am-text-nav-breadcrumb--responsive {
-    font-size: 9px;
-    letter-spacing: 0.08em;
-  }
-
-  @media (min-width: 80rem) {
-    .am-text-nav-breadcrumb--responsive {
-      font-size: 0.625rem;
-      letter-spacing: 0.14em;
-    }
-
-    .am-text-nav-context--compact-xl {
-      font-size: 9px;
-    }
   }
 
   /* Orientation-graphic roles. The two location graphics draw one label system

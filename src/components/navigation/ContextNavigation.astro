@@ -112,7 +112,7 @@ const hasSimpleItemNavigation =
           <ol
             class:list={[
               'flex w-full max-w-full items-center am-text-nav-breadcrumb text-on-surface/70',
-              'am-text-nav-breadcrumb--responsive min-w-0 flex-nowrap gap-1 overflow-hidden md:gap-2'
+              'min-w-0 flex-nowrap gap-1 overflow-hidden md:gap-2'
             ]}
           >
             {
@@ -237,7 +237,7 @@ const hasSimpleItemNavigation =
                       class:list={[
                         'inline-flex min-h-8 items-center border-b px-2 am-text-nav-context transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25',
                         isActiveItem
-                          ? 'border-primary font-bold text-on-surface'
+                          ? 'border-primary text-on-surface'
                           : 'border-transparent text-on-surface hover:border-primary/45'
                       ]}
                     >
