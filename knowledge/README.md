@@ -1,10 +1,10 @@
 ---
 document_id: AMARA-KNOWLEDGE-OPS-001
 title: AMARA Research and Knowledge Workflow
-version: 1.5.0
+version: 1.6.0
 status: ACTIVE
 created_at: 2026-08-21T11:26:50+02:00
-last_modified: 2026-09-04T13:30:00+02:00
+last_modified: 2026-09-05T22:00:00+02:00
 ---
 
 # AMARA Research and Knowledge Workflow
@@ -102,8 +102,9 @@ Each run has the standard `01_PROMPT`, `02_GPT_RAW`, `03_GEMINI_RAW`, `04_SOURCE
 - `facts/` stores atomic claims with verification status and claim boundaries.
 - `open-questions/` stores unresolved evidence needs, including targeted first-hand or field-validation requests.
 - `pages/` stores one manifest and coverage map per public page.
+- `recommendations/` stores one approved recommendation record per place, provider or route (`<destination>/<topic>.ts`, ids `<destination>.<topic>.<place-slug>` on route keys): the selection decision, its provenance, status, scope and basis, and the language-free place data (address, place id or map link, phone, WhatsApp, website, reservation link, distance from the AMARA stay, dated operating note). Guest and public copy are authored per surface and reference the record by id; the record is maintained once.
 
-The current `knowledge/schema.ts` models sources, facts, open questions, research runs and public page manifests. Dedicated structured records for Experience patterns, recommendation lifecycle and AMARA Experience manifests are an approved target but remain implementation-pending. Until that workstream is completed, do not create an ad-hoc parallel database or misclassify a recommendation as a `KnowledgeFact`.
+The current `knowledge/schema.ts` models sources, facts, open questions, research runs, public page manifests and, since 1.6.0, recommendation records (`KnowledgeRecommendation`, lifecycle states of DR-EXPERIENCE-006, provenance and scope of DR-EXPERIENCE-005). Records carried over from the already published Guest Guide use `basis: 'published-guide-carryover'` and `status: 'APPROVED'`; a new place enters as `research-candidate` and reaches `APPROVED` only through the operator (DR-EXPERIENCE-004). Experience-pattern records and AMARA Experience manifests remain implementation-pending. Do not create an ad-hoc parallel database or misclassify a recommendation as a `KnowledgeFact`.
 
 ## Experience research package
 
@@ -175,3 +176,4 @@ A page can become shorter or change layout without reducing its knowledge base. 
 | 2026-09-02T08:09:00+02:00 | 1.3.0 | Added the single-owner projection rule, three ownership models, duplicate-copy prohibition, separate-shell boundary and incremental consolidation reference cases. |
 | 2026-09-02T10:15:00+02:00 | 1.4.0 | Aligned Daily Life knowledge coverage to the two standalone public topics, retained the Practical & Local Rules intake as historical evidence and removed it as a public page target. |
 | 2026-09-04T13:30:00+02:00 | 1.5.0 | Re-shaped the Drive vault to mirror the public route hierarchy: route-key folder names, an `experiences/` subtree with Tarifa's kitesurf cluster, new `30_BRAND` and `40_SHARED` buckets, and normalized runs filed into their topic folder instead of a flat archive. Synced every `driveFolder.path` string. |
+| 2026-09-05T22:00:00+02:00 | 1.6.0 | Added recommendation records to the schema and `recommendations/`: 57 approved carry-over records for Frigiliana and Nerja restaurants, breakfast, beaches and hikes, each owning its map link, address, contact, distance from the stay and dated operating note; the Guest Guide cards reference them by `recommendationId`. |

@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-EXPERIENCE-KNOWLEDGE-001
 title: AMARA Experience Knowledge Product Feature Contract
-version: 1.1.0
+version: 1.2.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT
 activation_state: ACTIVE
 effective_from: 2026-09-02
-last_modified: 2026-09-02T08:09:00+02:00
+last_modified: 2026-09-05T22:00:00+02:00
 canonical_path: /docs/features/11_AMARA_Experience_Knowledge_Product_Feature_Contract_V1.md
 ---
 
@@ -504,9 +504,34 @@ An AMARA Experience knowledge topic is product-ready when:
 - review dates or triggers exist where volatility requires them;
 - no parallel Knowledge, route, resolver, content or Guest Utility system was introduced.
 
+## 22. Approved repository amendment — recommendation records (1.2.0)
+
+Since 2026-09-05 (DR-EXPERIENCE-008) the recommendation record exists in code. `knowledge/schema.ts` defines
+`KnowledgeRecommendation`; `knowledge/recommendations/<destination>/<topic>.ts` holds one record per place,
+provider or route under the id `<destination>.<topic>.<place-slug>`, both segments being route keys of the
+public manifest. The record is the approved selection decision with its structured, language-free data:
+
+- `status` uses the lifecycle of Section 13, `provenance` and `scope` the dimensions of Sections 13 and 14, and
+  `basis` records how the status came about (`published-guide-carryover`, `operator-review`,
+  `research-candidate`);
+- `place` carries name, kind, address, place id or map link, phone, WhatsApp, website and reservation link;
+  `access` the distance or time from the relevant AMARA stay; `operating` a dated hours or access note;
+  `factIds`, `checkedAt`, `reviewAfter`, `volatility` and `claimBoundary` follow the fact conventions;
+- `summary` is the English editorial reason for inclusion and is never rendered to guests.
+
+Guest and public copy are authored per surface and reference a record by id. In the Guest Guide a card's
+`recommendationId` yields the row's map pin, a fact strip (address, distance from the stay, check date) and
+direct actions; the localized prose stays in the guide content. Places that the guide already published were
+carried over as `APPROVED` with `basis: published-guide-carryover`; this records the operator's earlier
+publication decision, not a new review, and their provenance is `researched` unless a first-party fact
+exists. A new place enters as `research-candidate` and becomes `APPROVED` only through the operator
+(Section 12). The Section 20 boundary is amended accordingly: the schema and recommendation directories
+exist; Experience-pattern records and AMARA Experience manifests remain pending.
+
 ## Revision history
 
 | Version | Timestamp | Change |
 |---|---|---|
 | 1.0.0 | 2026-09-02T06:19:43+02:00 | Activated the public Experience versus AMARA Experience product boundary, research-to-recommendation architecture, human approval gate, provenance/channel separation, operating roles and two initial pilots. |
 | 1.1.0 | 2026-09-02T08:09:00+02:00 | Added the single-owner content and fact projection model, three ownership patterns, duplicate-copy prohibition, separate-shell boundary, incremental consolidation rule and two reference cases. |
+| 1.2.0 | 2026-09-05T22:00:00+02:00 | Implemented the recommendation record in `knowledge/schema.ts` and `knowledge/recommendations/`, defined carry-over versus candidate basis, and bound the Guest Guide card projection (map pin, fact strip, actions) to the record by id. |

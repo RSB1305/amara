@@ -15,9 +15,13 @@ interface Props {
   images?: { src: string; alt: string; caption?: string }[];
   video?: { src?: string; embedUrl?: string; title: string };
   actions?: { label: string; href: string; variant?: 'primary' | 'secondary' }[];
+  /** Map link owned by the recommendation record; wins over a link lifted from the copy. */
+  mapsUrl?: string;
+  /** Language-neutral fact strip from the recommendation record (address, distance, check date). */
+  facts?: { label: string; value: string; href?: string }[];
 }
 
-const { icon, title, subtitle, body, image, images, video, actions } = Astro.props;
+const { icon, title, subtitle, body, image, images, video, actions, facts } = Astro.props;
 
 /**
  * Entries used to end with a "Open in Google Maps" link on its own line, repeated
@@ -31,7 +35,7 @@ const { icon, title, subtitle, body, image, images, video, actions } = Astro.pro
 const TRAILING_MAP_LINK =
   /<br><br><a class="am-link" href="([^"]+)" target="_blank" rel="noopener">(?:Open in Google Maps|In Google Maps öffnen|Abrir en Google Maps|Openen in Google Maps|Öppna i Google Maps)<\/a>\s*$/;
 
-let mapsUrl: string | undefined;
+let mapsUrl: string | undefined = Astro.props.mapsUrl;
 const cleanedBody = body.map((paragraph) => {
   const match = paragraph.match(TRAILING_MAP_LINK);
   if (!match) return paragraph;
@@ -111,6 +115,16 @@ const mapLabel = `${title} — Google Maps`;
           loading="lazy"
         />
       </div>
+    )}
+    {facts && facts.length > 0 && (
+      <dl class="am-ios-facts">
+        {facts.map((fact) => (
+          <Fragment>
+            <dt>{fact.label}</dt>
+            <dd>{fact.href ? <a class="am-link" href={fact.href} target="_blank" rel="noopener">{fact.value}</a> : fact.value}</dd>
+          </Fragment>
+        ))}
+      </dl>
     )}
     {actions && actions.length > 0 && (
       <div class="am-actions">

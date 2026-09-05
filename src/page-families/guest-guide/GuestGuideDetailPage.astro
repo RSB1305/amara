@@ -8,6 +8,7 @@ import GuestGuideWeatherWidget from '../../components/guest-guide/GuestGuideWeat
 import GuestGuideLanguageSwitcher from '../../components/guest-guide/GuestGuideLanguageSwitcher.astro';
 import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
 import { guideHref } from '../../lib/guestGuideHref';
+import { buildRecommendationView } from '../../lib/guestGuideRecommendations';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import type { GuestGuideDetailEntry } from '../../types/guestGuide';
@@ -107,12 +108,21 @@ const seo: AmaraAuthoringSeo = {
               );
             }
 
+            const recommendation = item.recommendationId ? buildRecommendationView(item.recommendationId, lang) : undefined;
+            const ownActions = item.actions?.map((action) => ({
+              label: action.label[lang],
+              href: action.href,
+              variant: action.variant
+            })) ?? [];
+            const actions = [...(recommendation?.actions ?? []), ...ownActions];
             return (
               <GuestGuideAccordionItem
                 icon={item.icon}
                 title={item.title[lang]}
                 subtitle={item.subtitle?.[lang]}
                 body={item.body.map((paragraph) => paragraph[lang])}
+                mapsUrl={recommendation?.mapsUrl}
+                facts={recommendation?.rows}
                 image={item.image && {
                   src: item.image.src,
                   alt: item.image.alt[lang],
@@ -124,11 +134,7 @@ const seo: AmaraAuthoringSeo = {
                   caption: img.caption?.[lang]
                 }))}
                 video={item.video && { src: item.video.src, embedUrl: item.video.embedUrl, title: item.video.title[lang] }}
-                actions={item.actions?.map((action) => ({
-                  label: action.label[lang],
-                  href: action.href,
-                  variant: action.variant
-                }))}
+                actions={actions.length ? actions : undefined}
               />
             );
           })}
