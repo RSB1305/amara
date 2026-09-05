@@ -1,10 +1,10 @@
 ---
 document_id: AMARA-KNOWLEDGE-OPS-001
 title: AMARA Research and Knowledge Workflow
-version: 1.6.0
+version: 1.6.1
 status: ACTIVE
 created_at: 2026-08-21T11:26:50+02:00
-last_modified: 2026-09-05T22:00:00+02:00
+last_modified: 2026-09-05T23:30:00+02:00
 ---
 
 # AMARA Research and Knowledge Workflow
@@ -177,3 +177,4 @@ A page can become shorter or change layout without reducing its knowledge base. 
 | 2026-09-02T10:15:00+02:00 | 1.4.0 | Aligned Daily Life knowledge coverage to the two standalone public topics, retained the Practical & Local Rules intake as historical evidence and removed it as a public page target. |
 | 2026-09-04T13:30:00+02:00 | 1.5.0 | Re-shaped the Drive vault to mirror the public route hierarchy: route-key folder names, an `experiences/` subtree with Tarifa's kitesurf cluster, new `30_BRAND` and `40_SHARED` buckets, and normalized runs filed into their topic folder instead of a flat archive. Synced every `driveFolder.path` string. |
 | 2026-09-05T22:00:00+02:00 | 1.6.0 | Added recommendation records to the schema and `recommendations/`: 57 approved carry-over records for Frigiliana and Nerja restaurants, breakfast, beaches and hikes, each owning its map link, address, contact, distance from the stay and dated operating note; the Guest Guide cards reference them by `recommendationId`. |
+| 2026-09-05T23:30:00+02:00 | 1.6.1 | Migrated the remaining Guest Guide pages: 127 further carry-over records (Tarifa food and drink, nightlife, beaches, activities, sightseeing, kitesurfing and essentials; Frigiliana and Nerja sightseeing, day trips, wellness, adventure, nightlife and essentials), 184 in total. A card that lists several places references them through `recommendationIds` and renders a place list; providers and services (taxis, health centre, tourist office, car hire, laundries, cash machines, supermarkets) are records of kind `service`, `provider` or `shop`. |

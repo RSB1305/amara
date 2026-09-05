@@ -69,6 +69,11 @@ export interface GuestGuideAccordionItem {
    * localized prose stays here.
    */
   recommendationId?: string;
+  /**
+   * Records for a card that lists several places (beach bars, supermarkets, providers). The card
+   * renders them as a place list with map link, address and actions below the prose.
+   */
+  recommendationIds?: readonly string[];
   title: LocalizedText;
   /** Shown under the title even while collapsed, e.g. "Public outdoor pool during summer." */
   subtitle?: LocalizedText;

@@ -78,6 +78,31 @@ export function mapsUrlFor(record: KnowledgeRecommendation): string | undefined 
   return place.mapsUrl;
 }
 
+export interface GuestGuidePlaceRow {
+  name: string;
+  mapsUrl?: string;
+  address?: string;
+  actions: GuestGuideRecommendationAction[];
+}
+
+/** Place list for a card that references several records; unknown ids are skipped. */
+export function buildRecommendationPlaces(ids: readonly string[], lang: AmaraLanguage): GuestGuidePlaceRow[] {
+  const t = LABELS[lang];
+  const rows: GuestGuidePlaceRow[] = [];
+  for (const id of ids) {
+    const record = getRecommendation(id);
+    if (!record) continue;
+    const { place } = record;
+    const actions: GuestGuideRecommendationAction[] = [];
+    if (place.phone) actions.push({ label: t.call, href: `tel:${place.phone}` });
+    if (place.whatsapp) actions.push({ label: t.whatsapp, href: `https://wa.me/${place.whatsapp.replace(/[^0-9]/g, '')}` });
+    if (place.website) actions.push({ label: place.kind === 'hike' ? t.route : t.website, href: place.website });
+    if (place.reservationUrl) actions.push({ label: t.reserve, href: place.reservationUrl });
+    rows.push({ name: place.name, mapsUrl: mapsUrlFor(record), address: place.address, actions });
+  }
+  return rows;
+}
+
 export function buildRecommendationView(id: string, lang: AmaraLanguage): GuestGuideRecommendationView | undefined {
   const record = getRecommendation(id);
   if (!record) return undefined;

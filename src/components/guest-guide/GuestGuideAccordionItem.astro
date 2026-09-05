@@ -19,9 +19,11 @@ interface Props {
   mapsUrl?: string;
   /** Language-neutral fact strip from the recommendation record (address, distance, check date). */
   facts?: { label: string; value: string; href?: string }[];
+  /** Place list from several recommendation records (name, map link, address, actions). */
+  places?: { name: string; mapsUrl?: string; address?: string; actions: { label: string; href: string }[] }[];
 }
 
-const { icon, title, subtitle, body, image, images, video, actions, facts } = Astro.props;
+const { icon, title, subtitle, body, image, images, video, actions, facts, places } = Astro.props;
 
 /**
  * Entries used to end with a "Open in Google Maps" link on its own line, repeated
@@ -115,6 +117,23 @@ const mapLabel = `${title} — Google Maps`;
           loading="lazy"
         />
       </div>
+    )}
+    {places && places.length > 0 && (
+      <ul class="am-ios-places">
+        {places.map((place) => (
+          <li>
+            {place.mapsUrl ? (
+              <a class="am-link" href={place.mapsUrl} target="_blank" rel="noopener"><strong>{place.name}</strong></a>
+            ) : (
+              <strong>{place.name}</strong>
+            )}
+            {place.address && <span class="am-muted"> · {place.address}</span>}
+            {place.actions.map((action) => (
+              <Fragment> · <a class="am-link" href={action.href} target={action.href.startsWith('tel:') ? undefined : '_blank'} rel="noopener">{action.label}</a></Fragment>
+            ))}
+          </li>
+        ))}
+      </ul>
     )}
     {facts && facts.length > 0 && (
       <dl class="am-ios-facts">

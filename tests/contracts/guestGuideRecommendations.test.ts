@@ -27,9 +27,11 @@ test('every recommendation record has a unique route-key id, a map link and a da
     const [destination, topic] = record.id.split('.');
     expect(record.destination).toBe(destination);
     expect(record.topic).toBe(topic);
-    // A village walk may be described without a link; every other place must be findable.
+    // A village walk may be described without a link; every other place must be reachable
+    // by map, website, phone or WhatsApp.
     if (record.place.kind !== 'hike') {
-      expect(record.place.placeId || record.place.mapsUrl || record.place.website, `${record.id} has no link`).toBeTruthy();
+      const { placeId, mapsUrl, website, phone, whatsapp } = record.place;
+      expect(placeId || mapsUrl || website || phone || whatsapp, `${record.id} has no link or number`).toBeTruthy();
     }
     expect(record.checkedAt).toMatch(/^\d{4}-\d{2}-\d{2}$/);
     if (record.planB) expect(getRecommendation(record.planB), `${record.id} planB ${record.planB}`).toBeTruthy();
@@ -40,28 +42,41 @@ test('every recommendation record has a unique route-key id, a map link and a da
 test('every guide card with a recommendationId resolves to an APPROVED record and leaves the map link to it', () => {
   let linked = 0;
   for (const { entry, item } of accordionItems()) {
-    if (!item.recommendationId) continue;
+    const ids = [...(item.recommendationId ? [item.recommendationId] : []), ...(item.recommendationIds ?? [])];
+    if (!ids.length) continue;
     linked++;
-    const record = getRecommendation(item.recommendationId);
-    expect(record, `${entry.slug}: ${item.recommendationId}`).toBeTruthy();
-    expect(record?.status, `${item.recommendationId} is not approved`).toBe('APPROVED');
-    expect(record?.scope, `${item.recommendationId} scope`).not.toBe('internal');
-    for (const paragraph of item.body) {
-      for (const text of Object.values(paragraph)) {
-        expect(text, `${entry.slug}: ${item.recommendationId} still carries its own map link`).not.toMatch(MAP_LINK_LABEL);
+    for (const id of ids) {
+      const record = getRecommendation(id);
+      expect(record, `${entry.slug}: ${id}`).toBeTruthy();
+      expect(record?.status, `${id} is not approved`).toBe('APPROVED');
+      expect(record?.scope, `${id} scope`).not.toBe('internal');
+      const own = record ? [record.place.mapsUrl, record.place.website] : [];
+      for (const paragraph of item.body) {
+        for (const text of Object.values(paragraph)) {
+          expect(text, `${entry.slug}: ${id} still carries its own map link`).not.toMatch(MAP_LINK_LABEL);
+          for (const href of own) {
+            if (href) expect(text, `${entry.slug}: ${id} still links ${href} in the copy`).not.toContain(`href="${href}"`);
+          }
+        }
       }
     }
   }
-  expect(linked).toBeGreaterThan(50);
+  expect(linked).toBeGreaterThan(100);
 });
 
-test('the first migrated topics are fully linked to records', () => {
+test('the migrated topics are fully linked to records', () => {
   const migrated = [
     'frigiliana-guest-restaurants',
     'frigiliana-guest-breakfast',
     'nerja-guest-breakfast',
     'frigiliana-guest-beaches',
-    'frigiliana-guest-hiking'
+    'frigiliana-guest-hiking',
+    'frigiliana-guest-sightseeing',
+    'frigiliana-guest-day-trips',
+    'frigiliana-guest-wellness',
+    'tarifa-guest-food-drink',
+    'tarifa-guest-beaches',
+    'tarifa-guest-sightseeing'
   ];
   for (const slug of migrated) {
     const entry = guestGuideEntries.find((candidate) => candidate.slug === slug);
@@ -70,7 +85,10 @@ test('the first migrated topics are fully linked to records', () => {
     for (const category of entry.categories) {
       for (const item of category.items) {
         if (item.kind === undefined || item.kind === 'accordion') {
-          expect(item.recommendationId, `${slug}: ${item.title.en} has no recommendationId`).toBeTruthy();
+          expect(
+            item.recommendationId || (item.recommendationIds && item.recommendationIds.length > 0),
+            `${slug}: ${item.title.en} has no recommendation record`
+          ).toBeTruthy();
         }
       }
     }
