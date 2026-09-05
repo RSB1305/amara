@@ -1047,3 +1047,22 @@
 /de/amara-tarifa-surf-club /de/tarifa/erlebnisse/kitesurfen/tarifa-surf-club 301
 /nl/amara-tarifa-surf-club /nl/tarifa/ervaringen/kitesurfen/tarifa-surf-club 301
 /sv/amara-tarifa-surf-club /sv/tarifa/upplevelser/kitesurfing/tarifa-surf-club 301
+
+# Interim native-language slugs of 2026-09-04/05, renamed before the release
+# (stay search, direct-booking benefits, Tarifa food and going out). Only the
+# staging preview ever served them; they resolve so that shared links keep working.
+/alojamientos/buscar /alojamientos/disponibilidad-reserva 301
+/en/stays/search /en/stays/availability-booking 301
+/de/unterkuenfte/suche /de/unterkuenfte/verfuegbarkeit-buchung 301
+/nl/verblijven/zoeken /nl/verblijven/beschikbaarheid-boeking 301
+/sv/boenden/sok /sv/boenden/tillganglighet-bokning 301
+/sobre-nosotros/reserva-directa /sobre-nosotros/ventajas-reserva-directa 301
+/en/about-us/direct-booking /en/about-us/direct-booking-benefits 301
+/de/ueber-uns/direkt-buchen /de/ueber-uns/vorteile-direktbuchung 301
+/nl/over-ons/direct-boeken /nl/over-ons/voordelen-direct-boeken 301
+/sv/om-oss/boka-direkt /sv/om-oss/fordelar-boka-direkt 301
+/tarifa/experiencias/gastronomia-y-noche /tarifa/experiencias/comer-y-salir 301
+/en/tarifa/experiences/food-and-evenings /en/tarifa/experiences/food-and-going-out 301
+/de/tarifa/erlebnisse/essen-und-abende /de/tarifa/erlebnisse/essen-und-ausgehen 301
+/nl/tarifa/ervaringen/eten-en-avonden /nl/tarifa/ervaringen/eten-en-uitgaan 301
+/sv/tarifa/upplevelser/mat-och-kvallar /sv/tarifa/upplevelser/mat-och-uteliv 301
