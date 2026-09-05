@@ -78,51 +78,6 @@ const logoutLabel: Record<AmaraLanguage, string> = {
     <script type="application/json" data-am-guide-paths set:html={JSON.stringify(guidePaths)} />
 
     <script is:inline>
-      (async function () {
-        // Wi-Fi passwords never sit in the static page. The accommodation's Wi-Fi item
-        // ships an empty secret slot beside the support fallback; the authenticated
-        // profile endpoint returns the booked stay's credentials from a server-side
-        // table, and the slot is filled only where the page's network name matches,
-        // so a guest never sees another stay's password.
-        var slots = document.querySelectorAll('[data-am-guest-wifi-secret]');
-        if (!slots.length) return;
-        var labels = {
-          en: 'Wi-Fi password',
-          de: 'WLAN-Passwort',
-          es: 'Contraseña del Wi-Fi',
-          nl: 'Wifiwachtwoord',
-          sv: 'Wi-Fi-lösenord'
-        };
-        var label = labels[document.documentElement.lang] || labels.en;
-        try {
-          var response = await fetch('/api/guest/profile', {
-            method: 'GET',
-            credentials: 'same-origin',
-            headers: { Accept: 'application/json' }
-          });
-          if (!response.ok) return;
-          var profile = await response.json();
-          var wifi = profile && profile.wifi;
-          if (!wifi || typeof wifi.network !== 'string' || typeof wifi.password !== 'string' || !wifi.password) return;
-          slots.forEach(function (slot) {
-            var scope = slot.closest('p') || slot.parentElement;
-            var network = scope ? scope.querySelector('[data-am-guest-wifi-network]') : null;
-            if (!network || network.textContent.trim() !== wifi.network) return;
-            slot.textContent = label + ': ';
-            var value = document.createElement('strong');
-            value.textContent = wifi.password;
-            slot.appendChild(value);
-            slot.hidden = false;
-            var fallback = scope.querySelector('[data-am-guest-wifi-fallback]');
-            if (fallback) fallback.hidden = true;
-          });
-        } catch (error) {
-          // The support fallback stays visible when the protected profile is unavailable.
-        }
-      })();
-    </script>
-
-    <script is:inline>
       (function () {
         if (typeof window === 'undefined') return;
         if (window.__amaraNavTrackBound) return;

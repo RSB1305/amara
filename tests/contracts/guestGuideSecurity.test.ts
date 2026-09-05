@@ -125,26 +125,6 @@ test('location essentials use the correct destination page and are not duplicate
   }
 });
 
-test('every Wi-Fi item ships an empty secret slot beside its network name and support fallback', () => {
-  const wifiParagraphs = guestGuideEntries
-    .filter((entry) => entry.type === 'detail')
-    .flatMap((entry) => (entry.type === 'detail' ? entry.categories : []))
-    .flatMap((category) => category.items)
-    .filter((item) => item.kind !== 'link' && 'icon' in item && item.icon === 'wifi')
-    .flatMap((item) => ('body' in item ? item.body : []))
-    .flatMap((paragraph) => Object.values(paragraph))
-    .filter((text) => text.includes('data-am-guest-wifi-secret'));
-
-  // Six accommodations × five locales; the four Frigiliana stays share one network item.
-  expect(wifiParagraphs).toHaveLength(30);
-  for (const text of wifiParagraphs) {
-    expect(text).toMatch(/<strong data-am-guest-wifi-network>[^<]+<\/strong>/);
-    expect(text).toContain('<span data-am-guest-wifi-fallback>');
-    // The slot is filled only by the authenticated profile response; authored content leaves it empty.
-    expect(text).toContain('<span data-am-guest-wifi-secret hidden></span>');
-  }
-});
-
 test('Tarifa kitesurfing lives inside AMARA Experience', () => {
   const tarifaExperience = guestGuideEntries.find((entry) => entry.slug === 'tarifa-guest-local-guide');
   expect(tarifaExperience?.type).toBe('detail');

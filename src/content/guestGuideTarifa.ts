@@ -418,27 +418,27 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
           body: tarifaParagraphs({
             en: [
               `Stay connected with our high-speed fiber connection.`,
-              `Network name: <strong data-am-guest-wifi-network>AMARATarifa</strong><br><span data-am-guest-wifi-fallback>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.</span><span data-am-guest-wifi-secret hidden></span>`,
+              `Network name: <strong>AMARATarifa</strong><br>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.`,
               `If you prefer a wired connection, a USB-C to LAN adapter is available at the desk, offering speeds of up to 1 Gbps.`
             ],
             de: [
               `Bleibt in Verbindung mit unserem Highspeed-Glasfaseranschluss.`,
-              `Netzwerkname: <strong data-am-guest-wifi-network>AMARATarifa</strong><br><span data-am-guest-wifi-fallback>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.</span><span data-am-guest-wifi-secret hidden></span>`,
+              `Netzwerkname: <strong>AMARATarifa</strong><br>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.`,
               `Wenn ihr eine Kabelverbindung bevorzugt, liegt am Schreibtisch ein USB-C-auf-LAN-Adapter bereit, der Geschwindigkeiten von bis zu 1 Gbit/s bietet.`
             ],
             es: [
               `Manteneos conectados con nuestra conexión de fibra de alta velocidad.`,
-              `Nombre de red: <strong data-am-guest-wifi-network>AMARATarifa</strong><br><span data-am-guest-wifi-fallback>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.</span><span data-am-guest-wifi-secret hidden></span>`,
+              `Nombre de red: <strong>AMARATarifa</strong><br>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.`,
               `Si preferís una conexión por cable, hay disponible un adaptador de USB-C a LAN en el escritorio, con velocidades de hasta 1 Gbps.`
             ],
             nl: [
               `Blijf verbonden met onze snelle glasvezelverbinding.`,
-              `Netwerknaam: <strong data-am-guest-wifi-network>AMARATarifa</strong><br><span data-am-guest-wifi-fallback>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.</span><span data-am-guest-wifi-secret hidden></span>`,
+              `Netwerknaam: <strong>AMARATarifa</strong><br>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.`,
               `Als jullie de voorkeur geven aan een bekabelde verbinding, is er een USB-C-naar-LAN-adapter beschikbaar op het bureau, met snelheden tot 1 Gbps.`
             ],
             sv: [
               `Håll er uppkopplade med vår snabba fiberanslutning.`,
-              `Nätverksnamn: <strong data-am-guest-wifi-network>AMARATarifa</strong><br><span data-am-guest-wifi-fallback>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.</span><span data-am-guest-wifi-secret hidden></span>`,
+              `Nätverksnamn: <strong>AMARATarifa</strong><br>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.`,
               `Om ni föredrar en trådbunden anslutning finns en USB-C till LAN-adapter vid skrivbordet, med hastigheter upp till 1 Gbps.`
             ]
           })

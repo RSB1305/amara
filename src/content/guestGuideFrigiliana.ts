@@ -207,11 +207,11 @@ const sharedAmaraWifiItem: GuestGuideAccordionItem = {
   title: { en: 'Wi-Fi', de: 'WLAN', es: 'Wi-Fi', nl: 'Wifi', sv: 'Wi-Fi' },
   body: [
     {
-      en: 'Stay connected with high-speed Wi-Fi.<br>Network name: <strong data-am-guest-wifi-network>AMARA</strong><br><br><span data-am-guest-wifi-fallback>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.</span><span data-am-guest-wifi-secret hidden></span>',
-      de: 'Bleibt mit Highspeed-WLAN verbunden.<br>Netzwerkname: <strong data-am-guest-wifi-network>AMARA</strong><br><br><span data-am-guest-wifi-fallback>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.</span><span data-am-guest-wifi-secret hidden></span>',
-      es: 'Manteneos conectados con Wi-Fi de alta velocidad.<br>Nombre de la red: <strong data-am-guest-wifi-network>AMARA</strong><br><br><span data-am-guest-wifi-fallback>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.</span><span data-am-guest-wifi-secret hidden></span>',
-      nl: 'Blijf verbonden met snelle wifi.<br>Netwerknaam: <strong data-am-guest-wifi-network>AMARA</strong><br><br><span data-am-guest-wifi-fallback>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.</span><span data-am-guest-wifi-secret hidden></span>',
-      sv: 'Håll er uppkopplade med snabbt Wi-Fi.<br>Nätverksnamn: <strong data-am-guest-wifi-network>AMARA</strong><br><br><span data-am-guest-wifi-fallback>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.</span><span data-am-guest-wifi-secret hidden></span>'
+      en: 'Stay connected with high-speed Wi-Fi.<br>Network name: <strong>AMARA</strong><br><br>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.',
+      de: 'Bleibt mit Highspeed-WLAN verbunden.<br>Netzwerkname: <strong>AMARA</strong><br><br>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.',
+      es: 'Manteneos conectados con Wi-Fi de alta velocidad.<br>Nombre de la red: <strong>AMARA</strong><br><br>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.',
+      nl: 'Blijf verbonden met snelle wifi.<br>Netwerknaam: <strong>AMARA</strong><br><br>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.',
+      sv: 'Håll er uppkopplade med snabbt Wi-Fi.<br>Nätverksnamn: <strong>AMARA</strong><br><br>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.'
     }
   ]
 };
@@ -5520,11 +5520,11 @@ const nerjaPlayaAccommodation: GuestGuideEntry = {
           title: { en: 'Wi-Fi', de: 'WLAN', es: 'Wi-Fi', nl: 'Wifi', sv: 'Wi-Fi' },
           body: [
             {
-              en: 'Stay connected with high-speed Wi-Fi during your stay.<br><br>Network name: <strong data-am-guest-wifi-network>HUAWEI-2.4G-aB3Y</strong><br><br><span data-am-guest-wifi-fallback>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.</span><span data-am-guest-wifi-secret hidden></span>',
-              de: 'Während eures Aufenthalts steht euch schnelles WLAN zur Verfügung.<br><br>Netzwerkname: <strong data-am-guest-wifi-network>HUAWEI-2.4G-aB3Y</strong><br><br><span data-am-guest-wifi-fallback>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.</span><span data-am-guest-wifi-secret hidden></span>',
-              es: 'Durante vuestra estancia tenéis acceso a Wi-Fi de alta velocidad.<br><br>Nombre de la red: <strong data-am-guest-wifi-network>HUAWEI-2.4G-aB3Y</strong><br><br><span data-am-guest-wifi-fallback>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.</span><span data-am-guest-wifi-secret hidden></span>',
-              nl: 'Tijdens jullie verblijf is er snelle Wi-Fi beschikbaar.<br><br>Netwerknaam: <strong data-am-guest-wifi-network>HUAWEI-2.4G-aB3Y</strong><br><br><span data-am-guest-wifi-fallback>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.</span><span data-am-guest-wifi-secret hidden></span>',
-              sv: 'Under er vistelse har ni tillgång till snabbt Wi-Fi.<br><br>Nätverksnamn: <strong data-am-guest-wifi-network>HUAWEI-2.4G-aB3Y</strong><br><br><span data-am-guest-wifi-fallback>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.</span><span data-am-guest-wifi-secret hidden></span>'
+              en: 'Stay connected with high-speed Wi-Fi during your stay.<br><br><strong>Network name:</strong><br>HUAWEI-2.4G-aB3Y<br><br>For the current Wi-Fi password, please use the communication channel connected to your booking or contact AMARA support.',
+              de: 'Während eures Aufenthalts steht euch schnelles WLAN zur Verfügung.<br><br><strong>Netzwerkname:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Das aktuelle WLAN-Passwort erhaltet ihr über den mit eurer Buchung verbundenen Kommunikationskanal oder beim AMARA-Support.',
+              es: 'Durante vuestra estancia tenéis acceso a Wi-Fi de alta velocidad.<br><br><strong>Nombre de la red:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Para obtener la contraseña actual del Wi-Fi, utilizad el canal de comunicación asociado a vuestra reserva o contactad con el soporte de AMARA.',
+              nl: 'Tijdens jullie verblijf is er snelle Wi-Fi beschikbaar.<br><br><strong>Netwerknaam:</strong><br>HUAWEI-2.4G-aB3Y<br><br>Voor het actuele wifiwachtwoord gebruiken jullie het communicatiekanaal van jullie boeking of nemen jullie contact op met AMARA-support.',
+              sv: 'Under er vistelse har ni tillgång till snabbt Wi-Fi.<br><br><strong>Nätverksnamn:</strong><br>HUAWEI-2.4G-aB3Y<br><br>För det aktuella Wi-Fi-lösenordet använder ni kommunikationskanalen för er bokning eller kontaktar AMARA-supporten.'
             },
           ]
         },
