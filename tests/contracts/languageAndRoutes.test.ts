@@ -37,7 +37,7 @@ test('builds unprefixed Spanish and prefixed native routes from the manifest', (
   expect(buildOwnedLocalizedPath('frigiliana.experience.beaches', 'sv')).toBe(
     '/sv/frigiliana/upplevelser/strander'
   );
-  expect(buildOwnedLocalizedPath('la-amara-farah', 'nl')).toBe('/nl/la-amara-farah');
+  expect(buildOwnedLocalizedPath('la-amara-farah', 'nl')).toBe('/nl/verblijven/frigiliana/la-amara-farah');
   expect(() => buildOwnedLocalizedPath('frigiliana-beaches', 'de')).toThrow(
     /Unknown public route key/
   );
