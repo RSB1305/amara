@@ -74,8 +74,8 @@ const hasMetaSlot = Astro.slots.has('meta');
 </header>
 
 <style>
-  /* Family-owned geometry. The image selector crosses into AmaraImage's <img>
-   * deliberately and locally: the hero owns its aspect ratio (TR §5.2, §7). */
+  /* Family-owned geometry. The image selector crosses into the element AmaraImage
+   * renders, deliberately and locally: the hero owns its aspect ratio (TR §5.2, §7). */
   .am-panorama-hero {
     --am-edge: max(1.5rem, calc((100vw - var(--container-page)) / 2 + 1.5rem));
   }
