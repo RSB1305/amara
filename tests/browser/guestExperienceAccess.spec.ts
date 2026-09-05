@@ -20,7 +20,7 @@ test.afterAll(async () => {
 });
 
 test('the public Guest Guide landing links to a separate guest access page', async ({ page }) => {
-  await page.goto('/de/gaesteguide');
+  await page.goto('/de/ueber-uns/gaesteguide');
   const access = page.locator('[data-am-component="amara-experience-access"]');
   await expect(access.locator('form')).toHaveCount(0);
   await expect(access.locator('a[href="/de/gaesteguide/zugang"]')).toBeVisible();
@@ -42,7 +42,7 @@ test('the guest access header uses the canonical AMARA brand and availability ac
   await expect(brand).toContainText('Lodging');
 
   const availabilityAction = page.locator('header [data-am-availability-action]');
-  await expect(availabilityAction).toHaveAttribute('href', '/de/unterkuenfte/suche');
+  await expect(availabilityAction).toHaveAttribute('href', '/de/unterkuenfte/verfuegbarkeit-buchung');
   await expect(availabilityAction).toHaveAccessibleName('Verfügbarkeit prüfen');
   await expect(availabilityAction.locator('svg')).toBeVisible();
   const availabilityStyle = await availabilityAction.evaluate((element) => {
@@ -72,7 +72,7 @@ test('the guest access page stays focused on booking verification', async ({ pag
     'Für den Zugang gebt einfach den Vornamen aus eurer Reservierung und euer Anreisedatum ein.'
   );
   await expect(page.locator('[data-am-experience-landing-link]'))
-    .toHaveAttribute('href', '/de/gaesteguide');
+    .toHaveAttribute('href', '/de/ueber-uns/gaesteguide');
   await expect(page.locator('[data-am-experience-landing-link]'))
     .toHaveText('← Mehr über den AMARA Gästeguide');
   await expect(page.locator('main .am-text-eyebrow')).toHaveCount(0);
