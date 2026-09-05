@@ -8,7 +8,8 @@ import {
 import {
   experienceAccessHref,
   experienceGuideHubHref,
-  experienceGuideRootHref
+  experienceGuideRootHref,
+  guestGuideRootHref
 } from '../../guest-experience/guide-routes.mjs';
 import { handleExperienceGuide } from '../../guest-experience/middleware.mjs';
 import { handleExperienceProfile } from '../../guest-experience/profile-handler.mjs';
@@ -142,9 +143,9 @@ test('the public landing passes through the guard while an authenticated hub req
   };
   const token = await sealExperienceSession(claims, SECRET);
   const cookie = createExperienceCookie(token, claims.exp).split(';', 1)[0];
-  // The root of the guide is its public landing (DR-GUEST-004): the guard hands it on untouched.
+  // The bare guest-guide root is public (DR-GUEST-004): the guard hands it on untouched.
   const landingResponse = await handleExperienceGuide({
-    request: new Request(`https://amara.test${experienceGuideRootHref('nl')}`, {
+    request: new Request(`https://amara.test${guestGuideRootHref('nl')}`, {
       headers: { Cookie: cookie }
     }),
     env: { AMARA_EXPERIENCE_SESSION_SECRET: SECRET },
@@ -182,5 +183,7 @@ test('the public landing passes through the guard while an authenticated hub req
 test('the access route remains outside the protected guide root', () => {
   expect(experienceAccessHref('es')).toBe('/guia-huesped/acceso');
   expect(experienceAccessHref('de')).toBe('/de/gaesteguide/zugang');
-  expect(experienceGuideRootHref('de')).toBe('/de/gaesteguide');
+  // The gated guide keeps its own root; the public marketing landing moved under About.
+  expect(guestGuideRootHref('de')).toBe('/de/gaesteguide');
+  expect(experienceGuideRootHref('de')).toBe('/de/ueber-uns/gaesteguide');
 });

@@ -55,12 +55,18 @@
 /en/explore-frigiliana-nerja /en/frigiliana/experiences 301
 /nl/explore-frigiliana-nerja /nl/frigiliana/ervaringen 301
 /sv/explore-frigiliana-nerja /sv/frigiliana/upplevelser 301
-# Guest Guide renamed 2026-09-05 (DR-GUEST-004): the public landing page per language.
-/amara-experience /guia-huesped 301
-/en/amara-experience /en/guest-guide 301
-/de/amara-experience /de/gaesteguide 301
-/nl/amara-experience /nl/gastengids 301
-/sv/amara-experience /sv/gastguide 301
+# Guest Guide marketing landing moved under About 2026-09-05 (DR-GUEST-004);
+# the gated guest area keeps its own root /<lang>/gaesteguide untouched.
+/amara-experience /sobre-nosotros/guia-huesped 301
+/en/amara-experience /en/about-us/guest-guide 301
+/de/amara-experience /de/ueber-uns/gaesteguide 301
+/nl/amara-experience /nl/over-ons/gastengids 301
+/sv/amara-experience /sv/om-oss/gastguide 301
+/guia-huesped /sobre-nosotros/guia-huesped 301
+/en/guest-guide /en/about-us/guest-guide 301
+/de/gaesteguide /de/ueber-uns/gaesteguide 301
+/nl/gastengids /nl/over-ons/gastengids 301
+/sv/gastguide /sv/om-oss/gastguide 301
 # @astro-redirects:end
 
 # Guest Guide private pages under the old segment (Cloudflare rules; the access page and every

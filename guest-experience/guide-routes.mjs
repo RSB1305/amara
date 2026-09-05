@@ -18,6 +18,8 @@
  * names are identities and stay the same in every language. Entry slugs remain the
  * internal ids of the content modules; only the rendered paths change.
  */
+import { buildPublicRoutePath } from '../src/lib/publicRouteManifest.mjs';
+
 export const GUEST_GUIDE_SEGMENTS = Object.freeze({
   es: 'guia-huesped',
   en: 'guest-guide',
@@ -130,18 +132,33 @@ export function guestGuideAccessSegment(lang) {
   return GUEST_GUIDE_ACCESS_SEGMENTS[languageOf(lang)];
 }
 
-/** The public landing page of the Guest Guide in one language (manifest route `amara-experience`). */
-export function guestGuideLandingHref(lang) {
+/**
+ * The gated Guest Guide root: /de/gaesteguide and its localized siblings. The
+ * access page and every entry are composed from it, so it stays put even though
+ * the public marketing landing now lives under About. Booked-guest links in
+ * booking e-mails point below this root and are unaffected.
+ */
+export function guestGuideRootHref(lang) {
   const language = languageOf(lang);
   const segment = GUEST_GUIDE_SEGMENTS[language];
   return LANGUAGE_PREFIXES.has(language) ? `/${language}/${segment}` : `/${segment}`;
 }
 
-export function experienceAccessHref(lang) {
-  return `${guestGuideLandingHref(lang)}/${guestGuideAccessSegment(lang)}`;
+/**
+ * The public marketing landing of the Guest Guide. It is a normal route in the
+ * manifest under About (route `amara-experience`, e.g. /de/ueber-uns/gaesteguide),
+ * separate from the gated root above. Used for the "back to the guide page" link
+ * on the access screen and as the guide's language-switch landing target.
+ */
+export function guestGuideLandingHref(lang) {
+  return buildPublicRoutePath('amara-experience', languageOf(lang));
 }
 
-/** The root of the guide is its landing page; there is no separate guide index any more. */
+export function experienceAccessHref(lang) {
+  return `${guestGuideRootHref(lang)}/${guestGuideAccessSegment(lang)}`;
+}
+
+/** Fallback target of the access form when the session cannot resolve a stay hub. */
 export function experienceGuideRootHref(lang) {
   return guestGuideLandingHref(lang);
 }
@@ -157,7 +174,7 @@ export function guestGuideEntryPathParts(slug, lang) {
 }
 
 export function experienceGuideEntryHref(slug, lang) {
-  return `${guestGuideLandingHref(lang)}/${guestGuideEntryPathParts(slug, lang).join('/')}`;
+  return `${guestGuideRootHref(lang)}/${guestGuideEntryPathParts(slug, lang).join('/')}`;
 }
 
 export function experienceGuideHubHref(stay, lang) {

@@ -203,10 +203,12 @@ const definitions = [
     key: 'amara-experience',
     legacySlug: 'amara-experience',
     family: 'amara-experience',
-    // Public landing page of the AMARA Guest Guide (DR-GUEST-004). The protected
-    // access/guide pages below it are file-routed and share these segments via
-    // guest-experience/guide-routes.mjs; keep both in step.
-    paths: {
+    parent: 'about',
+    // Public marketing landing of the AMARA Guest Guide (DR-GUEST-004), under
+    // About: /de/ueber-uns/gaesteguide. The gated access/guide pages keep their
+    // own root /de/gaesteguide (guest-experience/guide-routes.mjs, guestGuideRootHref)
+    // and share these localized segments; keep both in step.
+    segment: {
       es: 'guia-huesped',
       en: 'guest-guide',
       de: 'gaesteguide',
