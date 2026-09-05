@@ -63,21 +63,17 @@ export const frigilianaRestaurantRecommendations = defineKnowledgeRecommendation
     id: 'frigiliana.restaurants.el-acebuchal',
     destination: 'frigiliana',
     topic: 'restaurants',
-    place: { name: 'El Acebuchal', kind: 'restaurant', mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Bar+El+Acebuchal', website: 'https://www.turismofrigiliana.es/es/el-acebuchal.html' },
+    place: { name: 'El Acebuchal', kind: 'restaurant', mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Bar+El+Acebuchal' },
     summary: 'A memorable drive-into-the-hills lunch — the setting is the experience. Great for a daytime trip. Bring cash and don\'t rely on mobile signal; the road and remoteness are part of it.',
     access: [{ from: 'casa-amara', distanceMetres: 7000 }],
-    operating: { note: '13 km, about 4 h 20 min; starts Plaza del Ingenio and returns the same way', observedAt: '2026-08-28' },
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'split',
+    scope: 'amara-experience',
     basis: 'published-guide-carryover',
-    factIds: [
-      'frigiliana.hiking.acebuchal.official-route-profile'
-    ],
-    checkedAt: '2026-08-28',
-    reviewAfter: '2027-02-28',
+    checkedAt: '2026-09-05',
+    reviewAfter: '2027-03-05',
     volatility: 'medium',
-    claimBoundary: 'Carried over from the published guide; the referenced facts bound the verified details, everything else is editorial selection without a dated check.'
+    claimBoundary: 'Carried over from the published guide on 2026-09-05; identity and map link only, no operating details are verified. The hike of the same name is frigiliana.hiking.el-acebuchal.'
   },
   {
     id: 'frigiliana.restaurants.el-tangay',
