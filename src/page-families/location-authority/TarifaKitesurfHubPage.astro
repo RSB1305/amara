@@ -1,12 +1,15 @@
 ---
-import kiteBoardImage from '../../assets/images/content/tarifa/tarifa-kite-board-sand.webp';
+import kiteHeroImage from '../../assets/images/content/tarifa/AM-5788_Andre_Magaro.jpg';
 import kiteWaveTurnImage from '../../assets/images/content/tarifa/kite-wave-turn.jpg';
+import kiteJumpImage from '../../assets/images/content/tarifa/_DCS9847_Sebastian_Lang.jpg';
 import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialSources from '../../components/editorial/EditorialSources.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
-import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import LocationPanoramaHero from '../../components/location/LocationPanoramaHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
@@ -22,8 +25,10 @@ import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import LocationModule from './LocationModule.astro';
 
 /**
- * Hub of the Tarifa kitesurf cluster: the authority page for kitesurfing in
- * Tarifa, built on the AMARA topic-guide grid (title left and text right, one
+ * Hub of the Tarifa kitesurf cluster in the Tarifa art direction (DR-DESIGN-020):
+ * the cluster band stays above a panorama hero, the first section rises into the
+ * wave band, the day section carries a portrait photograph over its edge, and the
+ * rest keeps the AMARA topic-guide grid (title left and text right, one
  * card grid, one contact bar, the shared FAQ accordion, the compact source
  * list). Every band is a canonical section via LocationModule, so section
  * separators come from the central inset owner and never from page-local
@@ -51,7 +56,8 @@ const contactHref = `https://wa.me/34604440964?text=${encodeURIComponent(t(partn
 
 const ui = {
   hubLabel: { en: 'Kitesurfing in Tarifa', de: 'Kitesurfen in Tarifa', es: 'Kitesurf en Tarifa', nl: 'Kitesurfen in Tarifa', sv: 'Kitesurfing i Tarifa' },
-  heroImageAlt: { en: 'Kiteboard with foot pads lying in the sand in low evening light', de: 'Kiteboard mit Fußpads im Sand bei tiefstehender Sonne', es: 'Tabla de kite con pads sobre la arena con el sol bajo', nl: 'Kiteboard met voetpads in het zand bij laagstaande zon', sv: 'Kiteboard med fotpads i sanden i lågt kvällsljus' },
+  heroImageAlt: { en: 'Kitesurfer in the air under a blue sky off Tarifa', de: 'Kitesurfer in der Luft unter blauem Himmel vor Tarifa', es: 'Kitesurfista en el aire bajo un cielo azul frente a Tarifa', nl: 'Kitesurfer in de lucht onder een blauwe hemel voor Tarifa', sv: 'Kitesurfare i luften under blå himmel utanför Tarifa' },
+  jumpImageAlt: { en: 'Kitesurfer mid-jump over the water off Tarifa', de: 'Kitesurfer im Sprung über dem Wasser vor Tarifa', es: 'Kitesurfista en pleno salto sobre el agua frente a Tarifa', nl: 'Kitesurfer midden in een sprong boven het water voor Tarifa', sv: 'Kitesurfare mitt i ett hopp över vattnet utanför Tarifa' },
   waveImageAlt: { en: 'A kitesurfer carving off the lip of a wave off Tarifa', de: 'Kitesurfer beim Turn im Wellenkamm vor Tarifa', es: 'Un kitesurfista trazando un giro en la cresta de una ola frente a Tarifa', nl: 'Een kitesurfer die een turn maakt op de top van een golf voor Tarifa', sv: 'En kitesurfare som skär av vågkammen utanför Tarifa' },
   waveImageCaption: { en: 'When the swell lines up, Tarifa is a wave spot too — not just flat-water freeride.', de: 'Wenn die Welle steht, ist Tarifa auch ein Wellenspot — nicht nur Flachwasser-Freeride.', es: 'Cuando entra la ola, Tarifa también es un spot de olas, no solo freeride en agua plana.', nl: 'Als de deining staat, is Tarifa ook een golfspot — niet alleen flatwater-freeride.', sv: 'När svallet ligger rätt är Tarifa också en vågspot — inte bara flatwater-freeride.' },
   pathsEyebrow: { en: 'Next', de: 'Weiter', es: 'Seguir', nl: 'Verder', sv: 'Vidare' },
@@ -106,22 +112,23 @@ const footerHighlights: LabeledLink[] = [
     <ExperienceContextNav slot="context-navigation" currentId="kitesurfing" destination="tarifa" lang={currentLang} />
   </Navigation>
 
-  <article class="bg-surface" data-am-page="tarifa-kitesurf-hub" data-am-family="experience" data-am-role="hub" data-am-topic="kitesurfing">
+  <article class="am-tarifa-surface overflow-x-clip bg-surface" data-am-page="tarifa-kitesurf-hub" data-am-family="experience" data-am-role="hub" data-am-topic="kitesurfing">
     <KiteClusterNav lang={currentLang} currentId="hub" />
 
-    <LocationExperienceHero
+    <LocationPanoramaHero
+      family="experience"
       eyebrow={t(content.hero.eyebrow)}
       title={t(content.hero.title)}
       subtitle={t(content.hero.subtitle!)}
       paragraphs={[t(content.hero.lead)]}
-      accent={content.hero.accent ? t(content.hero.accent) : undefined}
-      imageSrc={kiteBoardImage}
+      imageSrc={kiteHeroImage}
       imageAlt={t(ui.heroImageAlt)}
-      imageWidth={1200}
+      focalPoint="50% 45%"
       role="hub"
       topic="kitesurfing"
-      byline={{ lang: currentLang, authorName: content.seo.article!.authorName, authorHref: aboutHref, updated: t(content.hero.updated), note: t(content.hero.editorialNote) }}
-    />
+    >
+      <EditorialByline slot="meta" lang={currentLang} authorName={content.seo.article!.authorName} authorHref={aboutHref} updated={t(content.hero.updated)} note={t(content.hero.editorialNote)} />
+    </LocationPanoramaHero>
 
     <LocationModule surface="tint" spacing="compact" data-am-topic="facts">
       <dl class="mx-auto grid max-w-screen-2xl gap-8 md:grid-cols-3">
@@ -134,15 +141,52 @@ const footerHighlights: LabeledLink[] = [
       </dl>
     </LocationModule>
 
-    <LocationModule spacing="compact" data-am-topic="editorial-photo">
-      <figure class="mx-auto max-w-screen-2xl">
-        <AmaraImage src={kiteWaveTurnImage} alt={t(ui.waveImageAlt)} profile="hero" width={2000} widths={[768, 1200, 1600, 2000]} sizes="(max-width: 1535px) 100vw, 1440px" class="aspect-[4/5] w-full object-cover sm:aspect-[16/9] lg:aspect-[16/7]" focalPoint="50% 45%" />
-        <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{t(ui.waveImageCaption)}</figcaption>
-      </figure>
-    </LocationModule>
+    {/* The wave band is the panorama moment of this page; the first section rises into it. */}
+    {content.sections.slice(0, 1).map((section) => (
+      <section id={section.id} aria-labelledby={`${section.id}-title`} class="scroll-mt-28 bg-surface" data-am-topic={section.id}>
+        <AmaraMediaFrame role="panorama" caption={t(ui.waveImageCaption)}>
+          <AmaraImage src={kiteWaveTurnImage} alt={t(ui.waveImageAlt)} profile="background" class="h-full w-full object-cover" focalPoint="50% 45%" />
+        </AmaraMediaFrame>
+        <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
+          <div class="am-overlap-up bg-surface pb-16 pt-10 md:pb-24">
+            <p class="text-primary am-text-label am-text-label--wide">{t(section.eyebrow)}</p>
+            <h2 id={`${section.id}-title`} class="am-text-title mt-5 max-w-4xl text-balance text-on-surface">{t(section.title)}</h2>
+            <p class="am-text-subtitle mt-6 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(section.intro)} /></p>
+            <div class="mt-8 grid gap-6 md:grid-cols-2 md:gap-10">
+              {(section.paragraphs ?? []).map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface"><InlineEmphasis text={t(paragraph)} /></p>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    ))}
 
-    {content.sections.map((section, index) => {
-      const tint = index % 2 === 1;
+    {content.sections.slice(1).map((section, index) => {
+      const tint = index % 2 === 0;
+      if (section.id === 'day') {
+        return (
+          <LocationModule id={section.id} labelledby={`${section.id}-title`} surface={tint ? 'tint' : 'white'} data-am-topic={section.id}>
+            <div class="mx-auto max-w-screen-2xl">
+              <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+                <figure class="am-bleed-start lg:col-span-5">
+                  <AmaraImage src={kiteJumpImage} alt={t(ui.jumpImageAlt)} profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint="50% 40%" />
+                </figure>
+                <div class:list={['am-overlap-start lg:col-span-7', tint ? 'bg-surface-container-low' : 'bg-surface']}>
+                  <p class="text-primary am-text-label am-text-label--wide">{t(section.eyebrow)}</p>
+                  <h2 id={`${section.id}-title`} class="am-text-title mt-5 text-balance text-on-surface">{t(section.title)}</h2>
+                  <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(section.intro)} /></p>
+                  <div class="mt-6 max-w-3xl space-y-5">
+                    {(section.paragraphs ?? []).map((paragraph) => (
+                      <p class="am-text-body leading-relaxed text-on-surface"><InlineEmphasis text={t(paragraph)} /></p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </LocationModule>
+        );
+      }
       const paragraphs = section.paragraphs ?? [];
       const sectionCards = section.cards ?? [];
       return (
@@ -198,9 +242,9 @@ const footerHighlights: LabeledLink[] = [
             <figcaption class="px-5 py-4 text-on-surface-variant am-text-label am-text-label--sm">{t(partnership.imageCaption)}</figcaption>
           </figure>
         </div>
-        <div class="mt-12 flex flex-col gap-6 bg-inverse-surface p-7 text-inverted-on-surface md:flex-row md:items-center md:justify-between md:p-9">
-          <p class="am-text-body max-w-4xl leading-relaxed text-inverted-on-surface/80">{t(partnership.contactText)}</p>
-          <a href={contactHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--primary am-btn--inverse shrink-0 justify-center">{t(partnership.contactLabel)}</a>
+        <div class="mt-12 flex flex-col gap-6 bg-surface-container-low p-7 md:flex-row md:items-center md:justify-between md:p-9">
+          <p class="am-text-body max-w-4xl leading-relaxed text-on-surface-variant">{t(partnership.contactText)}</p>
+          <a href={contactHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--primary shrink-0 justify-center">{t(partnership.contactLabel)}</a>
         </div>
       </div>
     </LocationModule>
