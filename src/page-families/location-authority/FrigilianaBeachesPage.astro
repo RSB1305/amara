@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -48,10 +49,6 @@ const baseDecisionHref = resolveOptionalLink(
   { suppressMissing: true }
 );
 
-const heroImage = {
-  src: '/images/amara-playa/apartment/chaparril-22.webp',
-  width: 1920
-};
 ---
 
 <LocationAuthorityLayout
@@ -76,10 +73,9 @@ const heroImage = {
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-        imageSrc={heroImage.src}
-        imageAlt={copy.hero.imageAlt}
-        imageWidth={heroImage.width}
-      />
+      >
+        <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Playa de Burriana oder Playa de Maro von oben, mit Wasser und Klippen" format="hochkant 3:4" light="vormittags" />
+      </LocationExperienceHero>
 
       <AuthorityFeatureSection
         id="coast"

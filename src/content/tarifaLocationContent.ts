@@ -145,7 +145,7 @@ export const tarifaLocationContent: {
         note: 'Coastline lengths from the municipal emergency plan, distance from MITECO. The distance applies to the Strait, not to the town or the apartment, and promises no view of Africa.'
       },
       media: {
-        heroAlt: 'Yellow kite over turquoise water off Tarifa',
+        heroAlt: 'View from AMARA over Tarifa toward the Atlantic coast',
         walkAlt: 'Kiter walking into the water with a board at Los Lances beach',
         walkCaption: 'Los Lances, looking west. The western beaches and Bolonia need a journey of their own.',
         barAlt: 'Kite bar in the sand at Los Lances',
@@ -274,7 +274,7 @@ export const tarifaLocationContent: {
         note: 'Küstenlängen nach dem gemeindlichen Notfallplan, Abstand nach MITECO. Der Abstand gilt für die Meerenge, nicht für den Ort oder die Wohnung, und verspricht keine Sicht auf Afrika.'
       },
       media: {
-        heroAlt: 'Gelber Kite über türkisem Wasser vor Tarifa',
+        heroAlt: 'Blick von AMARA über Tarifa zur Atlantikküste',
         walkAlt: 'Kiter geht mit Board am Strand von Los Lances ins Wasser',
         walkCaption: 'Los Lances, Blick nach Westen. Die westlichen Strände und Bolonia brauchen einen eigenen Weg.',
         barAlt: 'Kitebar im Sand von Los Lances',
@@ -403,7 +403,7 @@ export const tarifaLocationContent: {
         note: 'Longitudes de costa según el plan municipal de emergencias; distancia según MITECO. La distancia se refiere al Estrecho, no al pueblo ni al apartamento, y no garantiza ver África.'
       },
       media: {
-        heroAlt: 'Cometa amarilla sobre el agua turquesa frente a Tarifa',
+        heroAlt: 'Vista desde AMARA sobre Tarifa hacia la costa atlántica',
         walkAlt: 'Kitesurfista entrando al agua con la tabla en la playa de Los Lances',
         walkCaption: 'Los Lances, mirando al oeste. Las playas del oeste y Bolonia requieren un desplazamiento propio.',
         barAlt: 'Barra de kite en la arena de Los Lances',
@@ -532,7 +532,7 @@ export const tarifaLocationContent: {
         note: 'Kustlengtes volgens het gemeentelijke rampenplan, afstand volgens MITECO. De afstand geldt voor de Straat, niet voor het dorp of het appartement, en belooft geen zicht op Afrika.'
       },
       media: {
-        heroAlt: 'Gele kite boven turquoise water voor Tarifa',
+        heroAlt: 'Uitzicht vanaf AMARA over Tarifa richting de Atlantische kust',
         walkAlt: 'Kiter loopt met board het water in op het strand van Los Lances',
         walkCaption: 'Los Lances, kijkend naar het westen. De westelijke stranden en Bolonia vragen om een eigen tocht.',
         barAlt: 'Kitebar in het zand van Los Lances',
@@ -661,7 +661,7 @@ export const tarifaLocationContent: {
         note: 'Kustlängder enligt kommunens beredskapsplan, avstånd enligt MITECO. Avståndet gäller sundet, inte staden eller lägenheten, och utlovar ingen utsikt mot Afrika.'
       },
       media: {
-        heroAlt: 'Gul kite över turkost vatten utanför Tarifa',
+        heroAlt: 'Utsikt från AMARA över Tarifa mot Atlantkusten',
         walkAlt: 'Kitesurfare går ut i vattnet med brädan på stranden Los Lances',
         walkCaption: 'Los Lances, vy västerut. De västra stränderna och Bolonia kräver en egen färd.',
         barAlt: 'Kitebar i sanden på Los Lances',

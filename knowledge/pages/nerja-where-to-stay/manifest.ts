@@ -10,7 +10,7 @@ export const nerjaWhereToStayKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1MFXlupSIrS1J2_frNAAihHVm1gRhuG1S',
     url: 'https://drive.google.com/drive/folders/1MFXlupSIrS1J2_frNAAihHVm1gRhuG1S',
-    path: 'AMARA – Research Vault/10_LOCATIONS/nerja/nerja-where-to-stay',
+    path: 'AMARA – Research Vault/10_LOCATIONS/nerja/where-to-stay',
   },
   publicContentPath: 'src/content/nerjaLocationContent.ts',
   researchRunIds: ['2026-08-21__130535__where-to-stay-areas__research-001'],

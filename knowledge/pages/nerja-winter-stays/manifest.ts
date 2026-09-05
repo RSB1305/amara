@@ -10,7 +10,7 @@ export const nerjaWinterStaysKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1IQ3Er0CHGYcMrYx7LFz8KbkCAAyyivLh',
     url: 'https://drive.google.com/drive/folders/1IQ3Er0CHGYcMrYx7LFz8KbkCAAyyivLh',
-    path: 'AMARA – Research Vault/10_LOCATIONS/nerja/nerja-winter-stays',
+    path: 'AMARA – Research Vault/10_LOCATIONS/nerja/winter',
   },
   publicContentPath: 'src/content/nerjaWinterStaysContent.ts',
   researchRunIds: ['2026-08-21__161609__winter-stays__research-001'],

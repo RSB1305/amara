@@ -1,10 +1,10 @@
 ---
 document_id: AMARA-KNOWLEDGE-OPS-001
 title: AMARA Research and Knowledge Workflow
-version: 1.4.0
+version: 1.5.0
 status: ACTIVE
 created_at: 2026-08-21T11:26:50+02:00
-last_modified: 2026-09-02T10:15:00+02:00
+last_modified: 2026-09-04T13:30:00+02:00
 ---
 
 # AMARA Research and Knowledge Workflow
@@ -52,12 +52,16 @@ Until dedicated projection fields are implemented, record the selected model and
 
 The Drive root is [AMARA – Research Vault](https://drive.google.com/drive/folders/1YlfuHYxBGAVZIZIzAOXBegNfOUkhzyvG).
 
-- `00_INBOX` receives new timestamped research runs.
-- `10_LOCATIONS` contains durable destination/page folders.
-- `20_PROPERTIES` is reserved for property-specific evidence.
-- `90_ARCHIVE` receives completed or superseded raw runs without changing their folder IDs.
+- `00_INBOX` receives new timestamped research runs that are not yet normalized.
+- `10_LOCATIONS` mirrors the public route hierarchy in `src/lib/publicRouteManifest.mjs`: one durable folder per destination, each holding its topic folders (`geography`, `parking`, `where-to-stay`, `weather`, `winter`, `supermarkets`, `health`, …) plus an `experiences/` subtree with a `_hub` and every experience topic; Tarifa's `experiences/kitesurfing/` carries the full kitesurf cluster. Folder names are the stable English route-key segment, not the localized path and not the pre-migration flat slug.
+- `20_PROPERTIES` holds one folder per branded stay plus a `_collections` folder for the stays-hub topics.
+- `30_BRAND` holds brand, trust and company evidence (about, guest-reviews, direct-booking, amenities, amara-experience, booking-terms).
+- `40_SHARED` holds cross-destination and market evidence (`markets`, `methodology`) and retired page intake such as `*-practical-local-rules`.
+- `90_ARCHIVE` receives only superseded or replaced raw runs, without changing their folder IDs.
 
-Each research run has a unique ID in the form `YYYY-MM-DD__HHMMSS__topic__research-NNN`. Existing run contents are not overwritten. A later investigation receives a new run ID.
+Folder names in `10_LOCATIONS`, the topic-key in `knowledge/` and the route-key in the public route manifest are one shared address space, so a page, its evidence folder and its knowledge records carry the same name.
+
+Each research run has a unique ID in the form `YYYY-MM-DD__HHMMSS__topic__research-NNN`. Existing run contents are not overwritten. A later investigation receives a new run ID. Once a run is normalized it moves out of `00_INBOX` into the topic folder it belongs to under `10_LOCATIONS`, `20_PROPERTIES`, `30_BRAND` or `40_SHARED`; the raw run then lives beside the page it supports, and its Drive folder ID stays stable. A cross-destination run is filed under the destination named first in its run ID, with the second destination recorded in the run's `subjects`.
 
 The current combined Geography & Orientation run is:
 
@@ -142,7 +146,7 @@ Only the human AMARA operator may approve an official recommendation. The availa
 7. Record the operator's decision and any required field validation before an item is treated as an AMARA recommendation.
 8. Map reviewed fact and approved recommendation IDs to the appropriate public and/or private authoring scope once the dedicated schema/manifests are implemented.
 9. Update public or Guest Utility content only through a separately approved authoring/implementation scope; retain evidence and rejected/deferred candidates for traceability.
-10. Mark the run `normalized`, then move its Drive folder from `00_INBOX` to `90_ARCHIVE`. The stable Drive folder ID remains the audit link.
+10. Mark the run `normalized`, then move its Drive folder from `00_INBOX` into the topic folder it supports under `10_LOCATIONS`, `20_PROPERTIES`, `30_BRAND` or `40_SHARED`. `90_ARCHIVE` is used only when a run is later superseded or replaced. The stable Drive folder ID remains the audit link.
 
 ## Organizational boundary
 
@@ -170,3 +174,4 @@ A page can become shorter or change layout without reducing its knowledge base. 
 | 2026-09-02T06:19:43+02:00 | 1.2.0 | Added the public Experience versus AMARA Experience knowledge-product flow, recommendation candidates, human approval gate, publication scopes and role separation while leaving the dedicated schema implementation pending. |
 | 2026-09-02T08:09:00+02:00 | 1.3.0 | Added the single-owner projection rule, three ownership models, duplicate-copy prohibition, separate-shell boundary and incremental consolidation reference cases. |
 | 2026-09-02T10:15:00+02:00 | 1.4.0 | Aligned Daily Life knowledge coverage to the two standalone public topics, retained the Practical & Local Rules intake as historical evidence and removed it as a public page target. |
+| 2026-09-04T13:30:00+02:00 | 1.5.0 | Re-shaped the Drive vault to mirror the public route hierarchy: route-key folder names, an `experiences/` subtree with Tarifa's kitesurf cluster, new `30_BRAND` and `40_SHARED` buckets, and normalized runs filed into their topic folder instead of a flat archive. Synced every `driveFolder.path` string. |

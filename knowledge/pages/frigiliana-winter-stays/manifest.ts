@@ -10,7 +10,7 @@ export const frigilianaWinterStaysKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1epXT7IKdXDk9tCUWMLJSm_YXMEUJp3Te',
     url: 'https://drive.google.com/drive/folders/1epXT7IKdXDk9tCUWMLJSm_YXMEUJp3Te',
-    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/frigiliana-winter-stays',
+    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/winter',
   },
   publicContentPath: 'src/content/frigilianaWinterStaysContent.ts',
   researchRunIds: ['2026-08-21__161609__winter-stays__research-001'],

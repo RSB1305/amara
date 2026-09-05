@@ -10,7 +10,7 @@ export const tarifaGeographyKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '18j95VcyhCe2aOsRX0XmXFKHZ07TForA1',
     url: 'https://drive.google.com/drive/folders/18j95VcyhCe2aOsRX0XmXFKHZ07TForA1',
-    path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/tarifa-geography',
+    path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/geography',
   },
   publicContentPath: 'src/content/tarifaGeographyContent.ts',
   researchRunIds: ['2026-08-21__112650__geography-orientation__research-001'],

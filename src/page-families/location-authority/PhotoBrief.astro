@@ -1,0 +1,34 @@
+---
+// Photo brief in place of a photograph that does not exist yet (Location Authority pages,
+// 2026-09-05). The frame takes the exact slot and aspect of the intended image so the
+// composition can be judged, and it names the motif, format and light the operator
+// still has to deliver. Temporary editorial device: it is removed slot by slot as
+// the photographs arrive, and it never becomes a permanent pattern.
+interface Props {
+  /** The motif to shoot or pick from the archive. */
+  motif: string;
+  /** Orientation and ratio, e.g. "quer 3:2". */
+  format: string;
+  /** Light or time of day, e.g. "morgens". */
+  light?: string;
+  /** Aspect and sizing classes of the slot the photograph will take. */
+  class?: string;
+}
+
+const { motif, format, light, class: className } = Astro.props;
+---
+
+<figure
+  class:list={['bg-surface-container-low', className]}
+  data-am-photo-brief
+  role="img"
+  aria-label={`Foto fehlt: ${motif}`}
+>
+  <div class="flex h-full w-full flex-col justify-between border border-dashed border-primary/40 p-6 md:p-8">
+    <p class="am-text-label am-text-label--wide text-primary">Foto fehlt</p>
+    <div>
+      <p class="am-text-functional-heading max-w-md text-on-surface">{motif}</p>
+      <p class="am-text-caption mt-3 normal-case tracking-normal text-muted">{format}{light && ` · ${light}`}</p>
+    </div>
+  </div>
+</figure>

@@ -10,7 +10,7 @@ export const frigilianaBeachesKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1FxPa56b3GnZt8XwUUcx5qEnlscUbjvA6',
     url: 'https://drive.google.com/drive/folders/1FxPa56b3GnZt8XwUUcx5qEnlscUbjvA6',
-    path: 'AMARA – Research Vault/00_INBOX/2026-08-28__092356__nerja-frigiliana-beaches-connections__research-001',
+    path: 'AMARA – Research Vault/10_LOCATIONS/nerja/experiences/beaches/2026-08-28__092356__nerja-frigiliana-beaches-connections__research-001',
   },
   publicContentPath: 'src/content/frigilianaBeachesContent.ts',
   researchRunIds: ['2026-08-28__092356__nerja-frigiliana-beaches-connections__research-001'],

@@ -10,8 +10,9 @@ interface Props {
   title: string;
   subtitle?: string;
   paragraphs: string[];
-  imageSrc: ImageMetadata | string;
-  imageAlt: string;
+  /** Either an image or a `visual` slot (e.g. a photo brief while the photograph is missing). */
+  imageSrc?: ImageMetadata | string;
+  imageAlt?: string;
   imageWidth?: number;
   imageSizes?: string;
   accent?: string;
@@ -36,6 +37,7 @@ const {
   role = 'spoke',
   topic
 } = Astro.props;
+const hasVisualSlot = Astro.slots.has('visual');
 ---
 
 <LocationGuideHero
@@ -52,6 +54,7 @@ const {
   role={role}
   topic={topic}
 >
+  {hasVisualSlot && <div slot="visual" class="h-full"><slot name="visual" /></div>}
   {byline && <EditorialByline slot="meta" {...byline} />}
   {actions.length > 0 && (
     <div slot="actions" class="flex flex-wrap gap-4">

@@ -10,7 +10,7 @@ export const nerjaGeographyKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '18Vnw5W18dwxP-uk6CHO7fGq8YSMvtTQC',
     url: 'https://drive.google.com/drive/folders/18Vnw5W18dwxP-uk6CHO7fGq8YSMvtTQC',
-    path: 'AMARA – Research Vault/10_LOCATIONS/nerja/nerja-geography',
+    path: 'AMARA – Research Vault/10_LOCATIONS/nerja/geography',
   },
   publicContentPath: 'src/content/nerjaGeographyContent.ts',
   researchRunIds: ['2026-08-21__112650__geography-orientation__research-001'],

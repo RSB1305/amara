@@ -10,7 +10,7 @@ export const tarifaWhereToStayKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1II1pfQfz7S9JanfoMe-v6aizMkP3z8N6',
     url: 'https://drive.google.com/drive/folders/1II1pfQfz7S9JanfoMe-v6aizMkP3z8N6',
-    path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/tarifa-where-to-stay',
+    path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/where-to-stay',
   },
   publicContentPath: 'src/content/tarifaGuideContent.ts',
   researchRunIds: ['2026-08-21__130535__where-to-stay-areas__research-001'],

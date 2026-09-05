@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -52,10 +53,6 @@ const combineItems = copy.combine.items.map((item) => ({
   })
 }));
 
-const heroImage = {
-  src: '/images/hero-frigiliana.jpg',
-  width: 1080
-};
 ---
 
 <LocationAuthorityLayout
@@ -80,9 +77,6 @@ const heroImage = {
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-        imageSrc={heroImage.src}
-        imageAlt={copy.hero.imageAlt}
-        imageWidth={heroImage.width}
         byline={frigilianaRestaurantsSeo.article ? {
           lang: currentLang,
           authorName: frigilianaRestaurantsSeo.article.authorName,
@@ -90,7 +84,9 @@ const heroImage = {
           updated: copy.overview.reviewed,
           note: copy.planning.note
         } : undefined}
-      />
+      >
+        <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Terrassentisch in Frigiliana mit Blick über die Dächer, gedeckt" format="hochkant 3:4" light="früher Abend" />
+      </LocationExperienceHero>
 
       <AuthorityFeatureSection
         id="choose"

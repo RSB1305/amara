@@ -10,7 +10,7 @@ export const frigilianaClimateKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1EQa8NwKyKEG9HuzNwLBwe2D6VjItYT3v',
     url: 'https://drive.google.com/drive/folders/1EQa8NwKyKEG9HuzNwLBwe2D6VjItYT3v',
-    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/frigiliana-climate',
+    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/weather',
   },
   publicContentPath: 'src/content/locationWeatherAuthorityContent.ts',
   researchRunIds: [

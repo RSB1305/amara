@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
@@ -31,7 +32,6 @@ const footerHighlights: LabeledLink[] = [
   { token: 'nerja_beaches_authority', label: copy.related.items[0].title },
   { token: 'nerja_nightlife_authority', label: copy.related.items[1].title }
 ];
-const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg', width: 2000 };
 ---
 
 <LocationAuthorityLayout seo={nerjaFoodSeo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="experience-nerja-food">
@@ -45,9 +45,6 @@ const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpe
       eyebrow={copy.hero.kicker}
       title={copy.hero.title}
       paragraphs={copy.hero.paragraphs}
-      imageSrc={heroImage.src}
-      imageAlt={copy.hero.imageAlt}
-      imageWidth={heroImage.width}
       byline={nerjaFoodSeo.article ? {
         lang: currentLang,
         authorName: nerjaFoodSeo.article.authorName,
@@ -55,7 +52,9 @@ const heroImage = { src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpe
         updated: updated[currentLang],
         note: shared.planning.note
       } : undefined}
-    />
+    >
+      <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Chiringuito am Burriana-Strand, Espetos am Feuer" format="hochkant 3:4" light="mittags" />
+    </LocationExperienceHero>
 
     <AuthorityFeatureSection
       id="choose"

@@ -10,7 +10,7 @@ export const tarifaParkingKnowledge = defineKnowledgePageManifest({
   driveFolder: {
     id: '1jkOsn2qRwF_a7mw871MH21PzVDqMsLVo',
     url: 'https://drive.google.com/drive/folders/1jkOsn2qRwF_a7mw871MH21PzVDqMsLVo',
-    path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/tarifa-parking-accessibility',
+    path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/parking',
   },
   publicContentPath: 'src/content/tarifaParkingContent.ts',
   researchRunIds: ['2026-08-21__184630__parking-accessibility__research-001'],
