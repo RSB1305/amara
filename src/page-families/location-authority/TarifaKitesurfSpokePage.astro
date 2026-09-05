@@ -8,6 +8,7 @@ import kiteWalkingOutImage from '../../assets/images/content/tarifa/kite-walking
 import surfclubPromenadeImage from '../../assets/images/content/tarifa/IMG_8749.jpg';
 import kiteBarSandImage from '../../assets/images/content/tarifa/kite-bar-sand.jpg';
 import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -92,7 +93,7 @@ const footerHighlights: LabeledLink[] = [
     <ExperienceContextNav slot="context-navigation" currentId="kitesurfing" destination="tarifa" lang={currentLang} />
   </Navigation>
 
-  <article class="bg-surface" data-am-page={`tarifa-${content.id}`} data-am-family="experience" data-am-role="spoke" data-am-topic={content.id}>
+  <article class="am-tarifa-surface overflow-x-clip bg-surface" data-am-page={`tarifa-${content.id}`} data-am-family="experience" data-am-role="spoke" data-am-topic={content.id}>
     <KiteClusterNav lang={currentLang} currentId={clusterPageId} />
 
     <LocationGuideHero
@@ -183,25 +184,25 @@ const footerHighlights: LabeledLink[] = [
       </LocationModule>
     ))}
 
-    <LocationModule spacing="compact" data-am-topic="editorial-photo">
-      <figure class="mx-auto max-w-screen-2xl">
-        <AmaraImage src={photo.src} alt={t(photo.alt)} profile="hero" width={2000} widths={[768, 1200, 1600, 2000]} sizes="(max-width: 1535px) 100vw, 1440px" class="aspect-[4/5] w-full object-cover sm:aspect-[16/9] lg:aspect-[16/7]" focalPoint="50% 48%" />
-        <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{t(photo.caption)}</figcaption>
-      </figure>
-    </LocationModule>
-
-    {content.quote && (
-      <LocationModule id="voice" labelledby="voice-title" surface={content.sections.length % 2 === 0 ? 'tint' : 'white'} spacing="compact" data-am-topic="voice">
-        <figure class="mx-auto flex max-w-screen-2xl items-start gap-5 md:gap-8" data-am-voice={content.quote.portrait}>
-          <AmaraImage src={content.quote.portrait === 'mark' ? markTarifaImage : robertPortrait} alt={content.quote.name} profile="card" width={192} widths={[96, 144, 192]} sizes="5rem" class="h-16 w-16 shrink-0 rounded-full object-cover md:h-20 md:w-20" focalPoint={content.quote.portrait === 'mark' ? '50% 25%' : '50% 32%'} />
-          <div class="min-w-0">
-            <h2 id="voice-title" class="sr-only">{content.quote.name}</h2>
-            <blockquote class="m-0"><p class="am-text-subtitle max-w-3xl leading-relaxed text-on-surface">{content.quote.text}</p></blockquote>
-            <figcaption class="am-text-label am-text-label--sm mt-4 text-primary">— {content.quote.name} · {content.quote.role}</figcaption>
-          </div>
-        </figure>
-      </LocationModule>
-    )}
+    {/* Panorama band with the voice of the house rising into it (Tarifa art direction). */}
+    <section class="bg-surface" data-am-topic="editorial-photo">
+      <AmaraMediaFrame role="panorama">
+        <AmaraImage src={photo.src} alt={t(photo.alt)} profile="background" class="h-full w-full object-cover" focalPoint="50% 48%" />
+      </AmaraMediaFrame>
+      <div class="mx-auto max-w-screen-2xl px-6 md:px-12 lg:flex lg:items-start lg:gap-8">
+        {content.quote ? (
+          <figure id="voice" class="am-overlap-up flex items-start gap-5 bg-surface pb-12 pt-10 md:gap-8" data-am-topic="voice" data-am-voice={content.quote.portrait} aria-labelledby="voice-title">
+            <AmaraImage src={content.quote.portrait === 'mark' ? markTarifaImage : robertPortrait} alt={content.quote.name} profile="card" width={192} widths={[96, 144, 192]} sizes="5rem" class="h-16 w-16 shrink-0 rounded-full object-cover md:h-20 md:w-20" />
+            <div class="min-w-0">
+              <h2 id="voice-title" class="sr-only">{content.quote.name}</h2>
+              <blockquote class="m-0"><p class="am-text-quote max-w-3xl text-balance text-on-surface">{content.quote.text}</p></blockquote>
+              <figcaption class="am-text-label am-text-label--sm mt-5 text-primary">— {content.quote.name} · {content.quote.role}</figcaption>
+            </div>
+          </figure>
+        ) : null}
+        <p class="am-text-caption mt-3 normal-case tracking-normal text-muted lg:flex-1 lg:text-right">{t(photo.caption)}</p>
+      </div>
+    </section>
 
     <LocationModule id="related" labelledby="related-title" surface="tint" spacing="compact" data-am-topic="related">
       <div class="mx-auto max-w-screen-2xl">

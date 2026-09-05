@@ -64,7 +64,7 @@ const localizedSections = content.sections.map((section) => ({
   </Navigation>
 
   <article
-    class="bg-surface"
+    class="am-tarifa-surface overflow-x-clip bg-surface"
     data-am-page={`tarifa-${content.id}`}
     data-am-family="experience"
     data-am-role="spoke"
@@ -99,19 +99,20 @@ const localizedSections = content.sections.map((section) => ({
       <AuthorityTextSection
         section={section}
         index={index}
+        variant={(['lead', 'columns', 'reverse', 'rail'] as const)[index % 4]}
         data-am-experience-section={section.id}
       />
     ))}
 
-    <aside class="bg-inverse-surface px-6 py-20 text-inverted-on-surface md:px-12 md:py-28">
+    <aside class="bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
         <div class="lg:col-span-5">
-          <p class="am-text-eyebrow text-primary-fixed-dim">{t(content.host.eyebrow)}</p>
-          <h2 class="am-text-title mt-5 max-w-xl text-balance text-inverted-on-surface">{t(content.host.title)}</h2>
+          <p class="am-text-eyebrow text-primary">{t(content.host.eyebrow)}</p>
+          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{t(content.host.title)}</h2>
         </div>
         <div class="max-w-4xl space-y-5 lg:col-span-7">
           {content.host.paragraphs.map((paragraph, index) => (
-            <p class:list={[index === 0 ? 'am-text-subtitle' : 'am-text-body', 'leading-relaxed text-inverted-on-surface/78']}>
+            <p class:list={[index === 0 ? 'am-text-quote text-balance text-on-surface' : 'am-text-body leading-relaxed text-on-surface-variant']}>
               {t(paragraph)}
             </p>
           ))}

@@ -2,6 +2,7 @@
 import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
 import markTarifaImage from '../../assets/images/content/tarifa/mark-tarifa-surf-club.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import windHeroImage from '../../assets/images/content/tarifa/Airush_Valentin_Tadzio-Rurka_DSC_3203.jpg';
 import windSunsetImage from '../../assets/images/content/tarifa/_DCS2079_Sebastian_Lang.jpg';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
@@ -71,7 +72,7 @@ const windSunsetCaption = {
     <ExperienceContextNav slot="context-navigation" currentId="kitesurfing" destination="tarifa" lang={currentLang} />
   </Navigation>
 
-  <article class="bg-surface" data-am-page="tarifa-wind-kitesurfing" data-am-family="experience" data-am-role="spoke" data-am-topic="kitesurf-wind-safety">
+  <article class="am-tarifa-surface overflow-x-clip bg-surface" data-am-page="tarifa-wind-kitesurfing" data-am-family="experience" data-am-role="spoke" data-am-topic="kitesurf-wind-safety">
     <KiteClusterNav lang={currentLang} currentId="wind" />
 
     <LocationGuideHero
@@ -184,12 +185,11 @@ const windSunsetCaption = {
       </div>
     </LocationModule>
 
-    <LocationModule spacing="compact" data-am-topic="editorial-photo">
-      <figure class="mx-auto max-w-screen-2xl">
-        <AmaraImage src={windSunsetImage} alt={windSunsetAlt} profile="hero" width={2000} widths={[768, 1200, 1600, 2000]} sizes="(max-width: 1535px) 100vw, 1440px" class="aspect-[4/5] w-full object-cover sm:aspect-[16/9] lg:aspect-[16/7]" focalPoint="50% 45%" />
-        <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{windSunsetCaption}</figcaption>
-      </figure>
-    </LocationModule>
+    <section class="bg-surface" data-am-topic="editorial-photo">
+      <AmaraMediaFrame role="panorama" caption={windSunsetCaption}>
+        <AmaraImage src={windSunsetImage} alt={windSunsetAlt} profile="background" class="h-full w-full object-cover" focalPoint="50% 45%" />
+      </AmaraMediaFrame>
+    </section>
 
     <LocationModule id="safety" labelledby="safety-title" spacing="compact" data-am-topic="official-rules">
       <div class="mx-auto max-w-screen-2xl">

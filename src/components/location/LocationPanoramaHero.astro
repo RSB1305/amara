@@ -1,0 +1,117 @@
+---
+// Panorama hero: the `authority-panorama` variant of the Location/Experience hero
+// family (DR-DESIGN-020). The photograph runs edge to edge; the copy panel rises into
+// it from the page's leading edge on wide viewports and simply follows it on phones.
+// Geometry is family-owned here; the semantic classification comes from the hero
+// contract. No dark gradient sits over the image: legibility comes from the panel.
+import type { ImageMetadata } from 'astro';
+import AmaraImage from '../AmaraImage.astro';
+import { getAmaraHeroAttributes, type AmaraHeroFamily } from '../hero/heroContract';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  subtitle?: string;
+  paragraphs?: string[];
+  imageSrc: ImageMetadata | string;
+  imageAlt: string;
+  focalPoint?: string;
+  family?: Extract<AmaraHeroFamily, 'location' | 'experience'>;
+  role?: 'hub' | 'spoke';
+  topic?: string;
+  /** Surface of the copy panel; must match the surface the hero sits on. */
+  panelSurface?: 'surface' | 'white';
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  paragraphs = [],
+  imageSrc,
+  imageAlt,
+  focalPoint = '50% 50%',
+  family = 'location',
+  role = 'hub',
+  topic,
+  panelSurface = 'surface'
+} = Astro.props;
+
+const heroAttributes = getAmaraHeroAttributes({ family, variant: 'authority-panorama', role, topic });
+const hasMetaSlot = Astro.slots.has('meta');
+---
+
+<header {...heroAttributes} class="am-panorama-hero" data-am-panorama-hero>
+  <AmaraImage
+    src={imageSrc}
+    alt={imageAlt}
+    profile="hero"
+    class="am-panorama-hero__image w-full object-cover"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+    focalPoint={focalPoint}
+  />
+  <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
+    <div class:list={['am-panorama-hero__panel', panelSurface === 'white' ? 'bg-surface-white' : 'bg-surface']}>
+      <p class="am-text-eyebrow text-primary">{eyebrow}</p>
+      <h1 class="am-text-display mt-5 max-w-5xl text-balance text-on-surface">{title}</h1>
+      {subtitle && <p class="am-text-subtitle mt-6 max-w-3xl text-balance text-on-surface-variant">{subtitle}</p>}
+      {paragraphs.length > 0 && (
+        <div class="mt-5 max-w-2xl space-y-4">
+          {paragraphs.map((paragraph) => (
+            <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+          ))}
+        </div>
+      )}
+      {hasMetaSlot && (
+        <div class="mt-6">
+          <slot name="meta" />
+        </div>
+      )}
+    </div>
+  </div>
+</header>
+
+<style>
+  /* Family-owned geometry. The image selector crosses into the element AmaraImage
+   * renders, deliberately and locally: the hero owns its aspect ratio (TR §5.2, §7). */
+  .am-panorama-hero {
+    --am-edge: max(1.5rem, calc((100vw - var(--container-page)) / 2 + 1.5rem));
+  }
+
+  .am-panorama-hero :global(.am-panorama-hero__image) {
+    aspect-ratio: 4 / 5;
+  }
+
+  .am-panorama-hero__panel {
+    padding: 2.75rem 0 3rem;
+  }
+
+  @media (min-width: 640px) {
+    .am-panorama-hero :global(.am-panorama-hero__image) {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .am-panorama-hero {
+      --am-edge: max(3rem, calc((100vw - var(--container-page)) / 2 + 3rem));
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .am-panorama-hero :global(.am-panorama-hero__image) {
+      aspect-ratio: 21 / 9;
+    }
+
+    .am-panorama-hero__panel {
+      position: relative;
+      z-index: 2;
+      margin-top: -8rem;
+      max-width: 70%;
+      margin-inline-start: calc(-1 * var(--am-edge));
+      padding: 3rem 3.5rem 1rem var(--am-edge);
+    }
+  }
+</style>

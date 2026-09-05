@@ -61,6 +61,12 @@ export interface TarifaExperiencePageCopy {
     lead: string[];
     imageAlt: string;
   };
+  /** Alt texts and captions of the hub photography (Tarifa art direction). */
+  media: {
+    panoramaAlt: string;
+    panoramaCaption: string;
+    oldTownAlt: string;
+  };
   discovery: {
     title: string;
     intro: string;
@@ -135,7 +141,12 @@ export const tarifaExperienceContent = {
     lead: [
       l("Tarifa days rarely need much planning. From AMARA Family & Surf, walk to Los Lances, wait for the wind or stay by the water, then head into the Old Town for dinner. Bolonia fills a whole day; the Strait brings viewpoints, migrating birds and boat trips when conditions are right. With only two or three nights, the beach, Old Town and one outing are plenty. If you stay longer, leave a day open — the wind often makes the decision for you.", "In Tarifa müsst ihr nicht viel vorausplanen. Von AMARA Family & Surf lauft ihr zu Los Lances, wartet auf Wind oder bleibt einfach am Wasser und geht abends in die Altstadt essen. Bolonia füllt einen ganzen Tag; an der Meerenge kommen Aussichtspunkte, Zugvögel und bei passenden Bedingungen Bootsausflüge dazu. Bei zwei oder drei Nächten reichen Strand, Altstadt und ein Ausflug völlig aus. Wenn ihr länger bleibt, lasst einen Tag frei – oft entscheidet der Wind für euch.", "En Tarifa no hace falta planificar demasiado. Desde AMARA Family & Surf podéis ir andando a Los Lances, esperar el viento o quedaros junto al agua y cenar después en el casco antiguo. Bolonia ocupa un día entero; el Estrecho ofrece miradores, aves migratorias y salidas en barco cuando las condiciones acompañan. Con dos o tres noches bastan la playa, el casco antiguo y una excursión. Si os quedáis más tiempo, dejad un día libre: muchas veces decide el viento.", "In Tarifa hoeven jullie weinig vooruit te plannen. Vanuit AMARA Family & Surf lopen jullie naar Los Lances, wachten op de wind of blijven aan het water en gaan ’s avonds in de oude stad eten. Bolonia vult een hele dag; rond de Straat zijn er uitzichtpunten, trekvogels en boottochten als de omstandigheden goed zijn. Bij twee of drie nachten zijn het strand, de oude stad en één uitstapje genoeg. Blijven jullie langer, laat dan een dag open — vaak beslist de wind.", "I Tarifa behöver ni sällan planera särskilt mycket. Från AMARA Family & Surf går ni till Los Lances, väntar på vinden eller stannar vid vattnet och äter sedan middag i gamla stan. Bolonia fyller en hel dag; vid sundet finns utsiktsplatser, flyttfåglar och båtturer när förhållandena är rätt. Under två eller tre nätter räcker stranden, gamla stan och en utflykt. Stannar ni längre kan en dag vara öppen – ofta avgör vinden.")
     ],
-    imageAlt: l("Whale artwork and writing desk at AMARA Family & Surf in Tarifa", "Walbild und Schreibtisch bei AMARA Family & Surf in Tarifa", "Ilustración de una ballena y escritorio de AMARA Family & Surf en Tarifa", "Walviskunst en schrijftafel bij AMARA Family & Surf in Tarifa", "Valkonst och skrivbord på AMARA Family & Surf i Tarifa")
+    imageAlt: l("Two friends with a board under a palm tree at Los Lances beach, Tarifa", "Zwei Freunde mit Board unter einer Palme am Strand von Los Lances, Tarifa", "Dos amigos con una tabla bajo una palmera en la playa de Los Lances, Tarifa", "Twee vrienden met een board onder een palmboom op het strand van Los Lances, Tarifa", "Två vänner med en bräda under en palm på stranden Los Lances, Tarifa")
+  },
+  media: {
+    panoramaAlt: l("Yellow kite over the beach at Los Lances, Tarifa", "Gelber Kite über dem Strand von Los Lances, Tarifa", "Cometa amarilla sobre la playa de Los Lances, Tarifa", "Gele kite boven het strand van Los Lances, Tarifa", "Gul kite över stranden Los Lances, Tarifa"),
+    panoramaCaption: l("Los Lances in the afternoon, when the wind arrives.", "Los Lances am Nachmittag, wenn der Wind kommt.", "Los Lances por la tarde, cuando llega el viento.", "Los Lances in de middag, als de wind komt.", "Los Lances på eftermiddagen, när vinden kommer."),
+    oldTownAlt: l("Skater at the old town wall of Tarifa", "Skater an der alten Stadtmauer von Tarifa", "Patinador junto a la muralla del casco antiguo de Tarifa", "Skater bij de oude stadsmuur van Tarifa", "Skateåkare vid Tarifas gamla stadsmur")
   },
   discovery: {
     title: l("Six ways into Tarifa", "Sechs Seiten von Tarifa", "Seis maneras de vivir Tarifa", "Zes kanten van Tarifa", "Sex sidor av Tarifa"),

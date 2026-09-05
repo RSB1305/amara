@@ -2,6 +2,7 @@
 import bildungHeroImage from '../../assets/images/content/tarifa/IMG_9084.jpg';
 import kiteSetupImage from '../../assets/images/content/tarifa/_DCS9465_Sebastian_Lang.jpg';
 import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import EditorialSources from '../../components/editorial/EditorialSources.astro';
@@ -116,7 +117,7 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
     <ExperienceContextNav slot="context-navigation" currentId="kitesurfing" destination="tarifa" lang={currentLang} />
   </Navigation>
 
-  <article class="bg-surface" data-am-page="tarifa-bildungsurlaub" data-am-family="experience" data-am-role="spoke" data-am-topic="educational-leave">
+  <article class="am-tarifa-surface overflow-x-clip bg-surface" data-am-page="tarifa-bildungsurlaub" data-am-family="experience" data-am-role="spoke" data-am-topic="educational-leave">
     <KiteClusterNav lang={currentLang} currentId="education" />
 
     <LocationGuideHero
@@ -164,12 +165,11 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
           </div>
         </LocationModule>
 
-        <LocationModule spacing="compact" data-am-topic="editorial-photo">
-          <figure class="mx-auto max-w-screen-2xl">
-            <AmaraImage src={kiteSetupImage} alt={t(ui.weekImageAlt)} profile="hero" width={2000} widths={[768, 1200, 1600, 2000]} sizes="(max-width: 1535px) 100vw, 1440px" class="aspect-[4/5] w-full object-cover sm:aspect-[16/9] lg:aspect-[16/7]" focalPoint="50% 45%" />
-            <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{t(ui.weekImageCaption)}</figcaption>
-          </figure>
-        </LocationModule>
+        <section class="bg-surface" data-am-topic="editorial-photo">
+          <AmaraMediaFrame role="panorama" caption={t(ui.weekImageCaption)}>
+            <AmaraImage src={kiteSetupImage} alt={t(ui.weekImageAlt)} profile="background" class="h-full w-full object-cover" focalPoint="50% 45%" />
+          </AmaraMediaFrame>
+        </section>
 
         <LocationModule id="seminare" labelledby="seminare-title" data-am-topic="seminars">
           <div class="mx-auto max-w-screen-2xl">

@@ -9,7 +9,8 @@ export type AmaraContentModuleJob =
   | 'editorial-comparison'
   | 'experience-hub-topic-grid'
   | 'booking-decision'
-  | 'editorial-statement';
+  | 'editorial-statement'
+  | 'key-figures';
 
 interface AmaraContentModuleContract {
   job: AmaraContentModuleJob;

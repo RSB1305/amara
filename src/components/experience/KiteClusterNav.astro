@@ -38,7 +38,7 @@ const requiredLink = createRequiredLinkResolver(lang, 'Tarifa kite cluster nav')
 const ariaLabel: LocalizedText = { en: 'More pages on kitesurfing in Tarifa', de: 'Weitere Seiten zum Kitesurfen in Tarifa', es: 'Más páginas sobre kitesurf en Tarifa', nl: 'Meer pagina’s over kitesurfen in Tarifa', sv: 'Fler sidor om kitesurfing i Tarifa' };
 
 const items: Array<{ id: KiteClusterPageId; token: LinkToken; label: LocalizedText; languages?: AmaraLanguage[] }> = [
-  { id: 'hub', token: 'tarifa_kitesurfing_hub', label: { en: 'Overview', de: 'Überblick', es: 'Resumen', nl: 'Overzicht', sv: 'Översikt' } },
+  { id: 'hub', token: 'tarifa_kitesurfing_hub', label: { en: 'Intro', de: 'Intro', es: 'Intro', nl: 'Intro', sv: 'Intro' } },
   { id: 'spots', token: 'tarifa_kitesurf_spots', label: { en: 'Kite spots', de: 'Kitespots', es: 'Spots de kite', nl: 'Kitespots', sv: 'Kitespots' } },
   { id: 'wind', token: 'tarifa_wind_kitesurfing_authority', label: { en: 'Wind & forecast', de: 'Wind & Vorhersage', es: 'Viento y previsión', nl: 'Wind & voorspelling', sv: 'Vind & prognos' } },
   { id: 'school', token: 'tarifa_kite_school', label: { en: 'Kite school', de: 'Kiteschule', es: 'Escuela de kite', nl: 'Kiteschool', sv: 'Kiteskola' } },
@@ -58,7 +58,7 @@ const links = items.filter((item) => item.id !== currentId && (!item.languages |
         <li class="shrink-0">
           <a
             href={requiredLink(item.token)}
-            class="group inline-flex min-h-11 items-center px-3 am-text-nav-primary am-text-nav-primary--quiet text-inverted-on-surface/90 transition-colors hover:text-inverted-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40"
+            class="group inline-flex min-h-9 items-center px-3 am-text-nav-context text-inverted-on-surface transition-colors hover:text-inverted-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inverted-on-surface/40"
           >
             <span class="border-b border-transparent pb-1 transition-colors group-hover:border-inverted-on-surface/50">{t(item.label)}</span>
           </a>

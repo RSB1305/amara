@@ -19,6 +19,7 @@ const INTERNAL_TOOL_ROUTES = [
   ['/tools/design-lab', './src/pages/_tools/design-lab/index.astro'],
   ['/tools/design-lab/home-contemporary', './src/pages/_tools/design-lab/home-contemporary.astro'],
   ['/tools/design-lab/navigation-context-preview', './src/pages/_tools/design-lab/navigation-context-preview.astro'],
+  ['/tools/design-lab/tarifa-hub', './src/pages/_tools/design-lab/tarifa-hub.astro'],
   ['/tools/guest-welcome', './src/pages/_tools/guest-welcome/index.astro'],
   ['/tools/styleguide', './src/pages/_tools/styleguide/index.astro']
 ];

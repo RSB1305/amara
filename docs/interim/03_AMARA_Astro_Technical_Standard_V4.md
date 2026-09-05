@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-ASTRO-003
 title: AMARA Astro & Design Architecture Contract V4
-version: 4.25.0
+version: 4.26.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -9,7 +9,7 @@ source_attachment: "03_AMARA_Astro_Technical_Standard_V4 (1).pdf"
 source_sha256: b3d8a3e780b29b5be42922aec838c7f56f455184cca8336d9a0f3564ba43f9aa
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-09-02T08:45:00+02:00
+last_modified: 2026-09-05T08:30:00+02:00
 ---
 
 # AMARA Astro & Design Architecture Contract V4 — Interim Markdown Snapshot
@@ -162,7 +162,9 @@ The active family variants are:
 - `ExperienceArticleHero` / `authority-editorial` for narrative Experience articles with standfirst and
   provenance;
 - `Hero` / `campaign-media` for the bounded campaign/editorial split composition that predates the authority
-  family and remains a named family variant.
+  family and remains a named family variant;
+- `LocationPanoramaHero` / `authority-panorama` for the Tarifa art direction: an edge-to-edge photograph with the
+  copy panel rising into it from the leading edge on wide viewports, no dark gradient over the image (17.17).
 
 Hero media is not a card. Do not add card borders, shadows, fake frames, or reusable-card radius behavior to
 hero media. Hero geometry, semantic order, action path and image priority follow the named family owner. Each
@@ -576,6 +578,37 @@ search/calendar/quote/checkout components, or create a universal Conversion temp
 attributes only; no public CSS or client-script selector consumes them in this release, so visible composition and
 the external booking provider boundary remain unchanged.
 
+17.17 Destination art direction: Tarifa
+
+AMARA stays one system with one brand chrome, but a destination may own a deliberate visual grammar inside it
+(DR-DESIGN-020). Frigiliana and Nerja keep the editorial grammar of this contract: serif-led hierarchy, portrait
+split heroes, calm text-and-image composition. Tarifa uses the same typefaces, tokens, navigation, footer, booking
+infrastructure, Link Registry and image pipeline with a different composition: sans-led hierarchy, a panorama hero,
+large verified key figures, photographs that run to the viewport edge and copy panels that lie over their edges.
+
+The executable owners are:
+
+- `.am-tarifa-surface` in `global.css`: a typographic surface applied once on the page shell of a Tarifa-owned
+  family. Inside it `am-text-display`, `am-text-title` and `am-text-subtitle` render in the functional sans; the
+  serif is reserved for `am-text-quote`. The roles keep their names and semantics, exactly as `.am-document-surface`
+  does for documentary Authority. The surface also defines `--am-edge` and the bleed/overlap helpers
+  (`am-bleed-start/end`, `am-overlap-start/end`, `am-overlap-end--text`, `am-overlap-up`, `am-overlap-up--inset`,
+  `am-hang`), which are inert below the lg breakpoint so the mobile composition stays the canonical stacked order;
+- `LocationPanoramaHero` / `authority-panorama` in the hero contract (section 7);
+- `AmaraKeyFigures` / `key-figures` in the content-module contract with the `am-text-key-figure` role: a short row
+  of large numerals from `knowledge/facts` records, quiet labels and one provenance note stating the claim boundary;
+- the `panorama` media role (4:5 on phones, 16:9 on tablets, 16:7 on wide viewports) in `AmaraMediaFrame`.
+
+Boundaries: the surface is applied to Tarifa-owned Location and Experience families and, typography only, to the
+AMARA Family & Surf stay page, whose calendar, quote, sticky action and checkout handoff stay with the Conversion
+owners; shared utility families
+(arrival, parking, weather, geography, daily life, winter stays) render in the plain system regardless of
+destination. Light surfaces only: no dark gradients over photographs and no inverse key-figure bands; inverse
+surfaces remain limited to cluster navigation and safety notices. No second token set, font, navigation, footer,
+CSS base or booking path may be introduced for a destination; a treatment that needs one is a contract change, not
+a destination variant. The reference consumer is `/tools/design-lab/tarifa-hub`; production pages adopt the owners
+family by family in explicit implementation tasks.
+
 ## Revision history
 
 | Version | Date | Change |
@@ -607,3 +640,4 @@ the external booking provider boundary remain unchanged.
 | 4.23.0 | 2026-09-01T14:24:17+02:00 | Replaced the persistent header availability text treatment with the shared calendar-check icon at every viewport while preserving the localized accessible name, owned stay-search target and visible mobile-menu wording. |
 | 4.24.0 | 2026-09-01T14:29:20+02:00 | Inverted the calendar-check action into a white circular emphasis with a dark calendar mark, fine boundary and restrained shadow while preserving its shared size, route and accessible name. |
 | 4.25.0 | 2026-09-02T08:45:00+02:00 | Added the concise editorial-hero hierarchy: H1 limited to two visible lines by native authoring, medium subtitle for the promise and explanatory/direct-answer copy beneath; explicitly prohibited heading truncation. |
+| 4.26.0 | 2026-09-05T08:30:00+02:00 | Activated the Tarifa destination art direction (DR-DESIGN-020): the `am-tarifa-surface` typographic surface with bleed/overlap helpers, the `am-text-key-figure` and `am-text-quote` roles, the `authority-panorama` hero variant owned by `LocationPanoramaHero`, the `key-figures` module owned by `AmaraKeyFigures` and the `panorama` media role, with the Design Lab Tarifa hub as reference consumer and no change to public rendering. |

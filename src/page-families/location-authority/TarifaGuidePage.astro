@@ -4,6 +4,8 @@ import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.w
 import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-surf-club-team.webp';
 import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
+import beachesPanoramaImage from '../../assets/images/content/tarifa/DSCF9576_Adriaan_Yellow_Union_GlenCarin_Dolphin_MDMARKGRAAFF.jpg';
 import Navigation from '../../components/Navigation.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
@@ -49,6 +51,20 @@ const locationSections = locationCopy
   : [];
 
 const ui = {
+  beachesPanoramaAlt: {
+    en: 'Two kites over the Atlantic off Tarifa in evening light',
+    de: 'Zwei Kites über dem Atlantik vor Tarifa im Abendlicht',
+    es: 'Dos cometas sobre el Atlántico frente a Tarifa a la luz de la tarde',
+    nl: 'Twee kites boven de Atlantische Oceaan voor Tarifa in avondlicht',
+    sv: 'Två kites över Atlanten utanför Tarifa i kvällsljus'
+  },
+  beachesPanoramaCaption: {
+    en: 'Los Lances toward evening. Which beach works today is decided by the wind, not the calendar.',
+    de: 'Los Lances gegen Abend. Welcher Strand heute passt, entscheidet der Wind, nicht der Kalender.',
+    es: 'Los Lances al caer la tarde. Qué playa funciona hoy lo decide el viento, no el calendario.',
+    nl: 'Los Lances tegen de avond. Welk strand vandaag past, bepaalt de wind, niet de kalender.',
+    sv: 'Los Lances mot kvällen. Vilken strand som passar i dag avgör vinden, inte kalendern.'
+  },
   faq: {
     en: 'Practical questions',
     de: 'Praktische Fragen',
@@ -199,7 +215,7 @@ const footerHighlights: LabeledLink[] = [
   </Navigation>
 
   {locationCopy ? (
-    <article class="bg-surface" data-am-page="tarifa-overview">
+    <article class="am-tarifa-surface overflow-x-clip bg-surface" data-am-page="tarifa-overview">
       <header class="bg-surface px-6 py-20 md:px-12 md:py-28">
         <div class="mx-auto max-w-screen-2xl">
           <div class="max-w-5xl">
@@ -400,7 +416,7 @@ const footerHighlights: LabeledLink[] = [
     </article>
   ) : topicContent ? (
   <article
-    class="bg-surface"
+    class="am-tarifa-surface overflow-x-clip bg-surface"
     data-am-page={`tarifa-${content.id}`}
     data-am-family="experience"
     data-am-role="spoke"
@@ -435,6 +451,14 @@ const footerHighlights: LabeledLink[] = [
         ))}
       </dl>
     </section>
+
+    {content.id === 'beaches' && (
+      <section class="bg-surface" data-am-topic="editorial-photo">
+        <AmaraMediaFrame role="panorama" caption={t(ui.beachesPanoramaCaption)}>
+          <AmaraImage src={beachesPanoramaImage} alt={t(ui.beachesPanoramaAlt)} profile="background" class="h-full w-full object-cover" focalPoint="50% 45%" />
+        </AmaraMediaFrame>
+      </section>
+    )}
 
     {kitePartnership && kiteEnquiryHref && (
       <section id="kite-stay" class="scroll-mt-40 bg-surface px-6 py-20 md:px-12 md:py-28" data-am-section="kite-partnership">
@@ -505,15 +529,15 @@ const footerHighlights: LabeledLink[] = [
             </div>
           </div>
 
-          <div class="mt-12 flex flex-col gap-6 bg-inverse-surface p-7 text-inverted-on-surface md:flex-row md:items-center md:justify-between md:p-9">
-            <p class="am-text-body max-w-4xl leading-relaxed text-inverted-on-surface/80">
+          <div class="mt-12 flex flex-col gap-6 bg-surface-container-low p-7 md:flex-row md:items-center md:justify-between md:p-9">
+            <p class="am-text-body max-w-4xl leading-relaxed text-on-surface-variant">
               {t(kitePartnership.contactText)}
             </p>
             <a
               href={kiteEnquiryHref}
               target="_blank"
               rel="noopener noreferrer"
-              class="am-btn am-btn--primary am-btn--inverse shrink-0 justify-center"
+              class="am-btn am-btn--primary shrink-0 justify-center"
             >
               {t(kitePartnership.contactLabel)}
             </a>

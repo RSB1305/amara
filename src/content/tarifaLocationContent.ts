@@ -8,6 +8,7 @@ export type TarifaLocationHubLinkToken =
   | 'tarifa_experience_hub'
   | 'tarifa_beaches_authority'
   | 'tarifa_wind_kitesurfing_authority'
+  | 'tarifa_kitesurfing_hub'
   | 'tarifa';
 
 export interface TarifaLocationHubLink {
@@ -31,6 +32,21 @@ interface TarifaLocationHubLocale {
     standfirst: string;
     note: string;
     updated: string;
+  };
+  /** Verified figures from knowledge/facts/locations/tarifa/geography.ts with their claim boundary. */
+  keyFigures: {
+    figures: Array<{ value: string; label: string }>;
+    note: string;
+  };
+  /** Alt texts and captions of the hub photography. */
+  media: {
+    heroAlt: string;
+    walkAlt: string;
+    walkCaption: string;
+    barAlt: string;
+    castleAlt: string;
+    castleCaption: string;
+    waveAlt: string;
   };
   geography: TarifaLocationHubFeature & {
     markers: Array<{ label: string; value: string }>;
@@ -58,12 +74,12 @@ interface TarifaLocationHubLocale {
 }
 
 const seo: AmaraAuthoringSeo = {
-  version: '2026-08-31-tarifa-location-hub-v4.1',
+  version: '2026-09-05-tarifa-location-hub-v5.0',
   pageType: 'A',
   entityKey: 'amara-brand',
   article: {
     datePublished: '2026-08-03',
-    dateModified: '2026-08-31',
+    dateModified: '2026-09-05',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorRoute: 'about'
@@ -113,17 +129,35 @@ export const tarifaLocationContent: {
     en: {
       hero: {
         eyebrow: 'Tarifa · Location & stay',
-        title: 'Tarifa and our apartment in La Marina',
-        subtitle: 'Town, beach and the Atlantic',
+        title: 'Tarifa, Europe’s southernmost mainland city',
+        subtitle: 'Atlantic to the west, the Strait to the east, the Old Town in between. And our apartment in La Marina.',
         standfirst: 'Tarifa’s Old Town, beach edge and newer neighbourhoods are close enough that much of the town works on foot, while Valdevaqueros and Bolonia require a separate journey west. The Old Town puts historic streets and restaurants around you; La Marina places you on the newer west/north-west edge near Los Lances. AMARA Family & Surf is in La Marina. Its underground space and the supermarket opposite are property facts, not promises about the whole area.',
         note: 'An AMARA guide written from experience – not a live service for wind and weather.',
         updated: 'Reviewed August 2026'
       },
+      keyFigures: {
+        figures: [
+          { value: '33.5 km', label: 'Atlantic coastline of the municipality' },
+          { value: '10.5 km', label: 'Mediterranean coastline of the municipality' },
+          { value: '14.4 km', label: 'Europe – Africa at the narrowest point' },
+          { value: '226 ha', label: 'Playa de los Lances protected area' }
+        ],
+        note: 'Coastline lengths from the municipal emergency plan, distance from MITECO. The distance applies to the Strait, not to the town or the apartment, and promises no view of Africa.'
+      },
+      media: {
+        heroAlt: 'Yellow kite over turquoise water off Tarifa',
+        walkAlt: 'Kiter walking into the water with a board at Los Lances beach',
+        walkCaption: 'Los Lances, looking west. The western beaches and Bolonia need a journey of their own.',
+        barAlt: 'Kite bar in the sand at Los Lances',
+        castleAlt: 'Castillo de Santa Catalina above Tarifa',
+        castleCaption: 'Santa Catalina above the Isla. In winter the town belongs to the people who live here again.',
+        waveAlt: 'Kiter turning on a wave off Tarifa'
+      },
       geography: {
         eyebrow: 'Where you are',
-        title: 'Europe’s southernmost mainland city, between Atlantic and Strait',
+        title: 'Between the Atlantic and the Strait',
         paragraphs: [
-          'Tarifa is Europe’s southernmost mainland city. At the causeway to Isla de Tarifa, Playa Chica lies on the Strait side while the long Los Lances–Valdevaqueros coast extends west along the Atlantic.',
+          'At the causeway to Isla de Tarifa, Playa Chica lies on the Strait side while the long Los Lances–Valdevaqueros coast extends west along the Atlantic.',
           'The town itself is compact. Old Town, newer quarter and beach edge sit close enough for many everyday journeys on foot. The western beaches and Bolonia lie outside that town pattern and require a separate journey.'
         ],
         markers: [
@@ -211,7 +245,8 @@ export const tarifaLocationContent: {
         paragraphs: ['Use our experience guide to choose between beaches, wind and watersports, food, nature, the Old Town and a full day in Bolonia.'],
         links: [
           { label: 'Things to do in Tarifa', token: 'tarifa_experience_hub' },
-          { label: 'Explore Tarifa beaches', token: 'tarifa_beaches_authority' }
+          { label: 'Explore Tarifa beaches', token: 'tarifa_beaches_authority' },
+          { label: 'Kitesurfing in Tarifa', token: 'tarifa_kitesurfing_hub' }
         ]
       },
       closing: {
@@ -223,17 +258,35 @@ export const tarifaLocationContent: {
     de: {
       hero: {
         eyebrow: 'Tarifa · Lage & Aufenthalt',
-        title: 'Tarifa und unser Apartment in La Marina',
-        subtitle: 'Altstadt, Strand und Atlantik',
+        title: 'Tarifa, Europas südlichste Festlandstadt',
+        subtitle: 'Atlantik im Westen, Meerenge im Osten, die Altstadt dazwischen. Und unser Apartment in La Marina.',
         standfirst: 'Tarifas Altstadt, Strandkante und neuere Viertel liegen so nah beieinander, dass viele Wege im Ort zu Fuß funktionieren; Valdevaqueros und Bolonia erfordern dagegen einen eigenen Weg nach Westen. In der Altstadt liegen historische Gassen und Restaurants um euch herum. La Marina befindet sich am neueren westlichen bis nordwestlichen Ortsrand nahe Los Lances. Dort liegt AMARA Family & Surf. Der Tiefgaragenplatz und der Supermarkt gegenüber gehören zur konkreten Unterkunft, nicht allgemein zu La Marina.',
         note: 'Ein AMARA-Guide aus eigener Erfahrung – keine Live-Auskunft zu Wind und Wetter.',
         updated: 'Geprüft im August 2026'
       },
+      keyFigures: {
+        figures: [
+          { value: '33,5 km', label: 'Atlantikküste der Gemeinde' },
+          { value: '10,5 km', label: 'Mittelmeerküste der Gemeinde' },
+          { value: '14,4 km', label: 'Europa – Afrika an der engsten Stelle' },
+          { value: '226 ha', label: 'Naturschutzgebiet Playa de los Lances' }
+        ],
+        note: 'Küstenlängen nach dem gemeindlichen Notfallplan, Abstand nach MITECO. Der Abstand gilt für die Meerenge, nicht für den Ort oder die Wohnung, und verspricht keine Sicht auf Afrika.'
+      },
+      media: {
+        heroAlt: 'Gelber Kite über türkisem Wasser vor Tarifa',
+        walkAlt: 'Kiter geht mit Board am Strand von Los Lances ins Wasser',
+        walkCaption: 'Los Lances, Blick nach Westen. Die westlichen Strände und Bolonia brauchen einen eigenen Weg.',
+        barAlt: 'Kitebar im Sand von Los Lances',
+        castleAlt: 'Castillo de Santa Catalina über Tarifa',
+        castleCaption: 'Santa Catalina über der Isla. Im Winter gehört der Ort wieder den Leuten, die hier leben.',
+        waveAlt: 'Kiter dreht in der Welle vor Tarifa'
+      },
       geography: {
         eyebrow: 'Wo ihr seid',
-        title: 'Europas südlichste Festlandstadt zwischen Atlantik und Meerenge',
+        title: 'Zwischen Atlantik und Meerenge',
         paragraphs: [
-          'Tarifa ist die südlichste Festlandstadt Europas. Am Damm zur Isla de Tarifa liegt Playa Chica auf der Seite der Meerenge, während sich die lange Küste von Los Lances bis Valdevaqueros westwärts am Atlantik erstreckt.',
+          'Am Damm zur Isla de Tarifa liegt Playa Chica auf der Seite der Meerenge, während sich die lange Küste von Los Lances bis Valdevaqueros westwärts am Atlantik erstreckt.',
           'Der Ort selbst ist kompakt. Altstadt, neuerer Teil und Strandkante liegen für viele Alltagswege nah genug beieinander. Die westlichen Strände und Bolonia liegen außerhalb dieses Ortsgefüges und brauchen einen eigenen Weg.'
         ],
         markers: [
@@ -321,7 +374,8 @@ export const tarifaLocationContent: {
         paragraphs: ['Im Erlebnis-Guide wählt ihr zwischen Strand, Wind und Wassersport, Essen, Natur, Altstadt und einem ganzen Tag in Bolonia.'],
         links: [
           { label: 'Tarifa erleben', token: 'tarifa_experience_hub' },
-          { label: 'Tarifas Strände entdecken', token: 'tarifa_beaches_authority' }
+          { label: 'Tarifas Strände entdecken', token: 'tarifa_beaches_authority' },
+          { label: 'Kitesurfen in Tarifa', token: 'tarifa_kitesurfing_hub' }
         ]
       },
       closing: {
@@ -333,17 +387,35 @@ export const tarifaLocationContent: {
     es: {
       hero: {
         eyebrow: 'Tarifa · Ubicación y estancia',
-        title: 'Tarifa y nuestro apartamento en La Marina',
-        subtitle: 'Casco antiguo, playa y Atlántico',
+        title: 'Tarifa, la ciudad continental más meridional de Europa',
+        subtitle: 'Atlántico al oeste, Estrecho al este y el casco antiguo en medio. Y nuestro apartamento en La Marina.',
         standfirst: 'El casco antiguo, el borde de playa y los barrios más nuevos de Tarifa están lo bastante próximos para resolver muchos trayectos a pie; Valdevaqueros y Bolonia requieren, en cambio, un desplazamiento propio hacia el oeste. En el casco antiguo tendréis calles históricas y restaurantes alrededor. La Marina queda en el borde oeste o noroeste de la localidad, cerca de Los Lances. Allí se encuentra AMARA Family & Surf. Su plaza subterránea y el supermercado de enfrente son características del alojamiento, no promesas sobre toda La Marina.',
         note: 'Una guía de AMARA escrita desde la experiencia; no es un servicio de condiciones en directo.',
         updated: 'Revisado en agosto de 2026'
       },
+      keyFigures: {
+        figures: [
+          { value: '33,5 km', label: 'Costa atlántica del municipio' },
+          { value: '10,5 km', label: 'Costa mediterránea del municipio' },
+          { value: '14,4 km', label: 'Europa – África en el punto más estrecho' },
+          { value: '226 ha', label: 'Paraje protegido Playa de los Lances' }
+        ],
+        note: 'Longitudes de costa según el plan municipal de emergencias; distancia según MITECO. La distancia se refiere al Estrecho, no al pueblo ni al apartamento, y no garantiza ver África.'
+      },
+      media: {
+        heroAlt: 'Cometa amarilla sobre el agua turquesa frente a Tarifa',
+        walkAlt: 'Kitesurfista entrando al agua con la tabla en la playa de Los Lances',
+        walkCaption: 'Los Lances, mirando al oeste. Las playas del oeste y Bolonia requieren un desplazamiento propio.',
+        barAlt: 'Barra de kite en la arena de Los Lances',
+        castleAlt: 'Castillo de Santa Catalina sobre Tarifa',
+        castleCaption: 'Santa Catalina sobre la Isla. En invierno el pueblo vuelve a ser de quienes viven aquí.',
+        waveAlt: 'Kitesurfista girando en la ola frente a Tarifa'
+      },
       geography: {
         eyebrow: 'Dónde estáis',
-        title: 'La ciudad continental más meridional de Europa, entre Atlántico y Estrecho',
+        title: 'Entre el Atlántico y el Estrecho',
         paragraphs: [
-          'Tarifa es la ciudad continental más meridional de Europa. En el espigón de acceso a la Isla de Tarifa, Playa Chica queda del lado del Estrecho, mientras la larga costa de Los Lances a Valdevaqueros se extiende hacia el oeste por el Atlántico.',
+          'En el espigón de acceso a la Isla de Tarifa, Playa Chica queda del lado del Estrecho, mientras la larga costa de Los Lances a Valdevaqueros se extiende hacia el oeste por el Atlántico.',
           'La localidad es compacta. Casco antiguo, parte nueva y borde de playa quedan cerca para muchos trayectos cotidianos a pie. Las playas del oeste y Bolonia están fuera de ese tejido urbano y requieren un desplazamiento propio.'
         ],
         markers: [
@@ -431,7 +503,8 @@ export const tarifaLocationContent: {
         paragraphs: ['En la guía de experiencias podéis elegir entre playa, viento y deportes acuáticos, gastronomía, naturaleza, casco antiguo y un día completo en Bolonia.'],
         links: [
           { label: 'Qué hacer en Tarifa', token: 'tarifa_experience_hub' },
-          { label: 'Explorar las playas de Tarifa', token: 'tarifa_beaches_authority' }
+          { label: 'Explorar las playas de Tarifa', token: 'tarifa_beaches_authority' },
+          { label: 'Kitesurf en Tarifa', token: 'tarifa_kitesurfing_hub' }
         ]
       },
       closing: {
@@ -443,17 +516,35 @@ export const tarifaLocationContent: {
     nl: {
       hero: {
         eyebrow: 'Tarifa · Ligging & verblijf',
-        title: 'Tarifa en ons appartement in La Marina',
-        subtitle: 'Oude stad, strand en Atlantische Oceaan',
+        title: 'Tarifa, de zuidelijkste stad van het Europese vasteland',
+        subtitle: 'De Atlantische Oceaan in het westen, de Straat in het oosten, de oude stad ertussen. En ons appartement in La Marina.',
         standfirst: 'De oude stad, de strandrand en de nieuwere wijken van Tarifa liggen dicht genoeg bij elkaar om veel routes te voet af te leggen; Valdevaqueros en Bolonia vragen om een aparte tocht naar het westen. In de oude stad liggen historische straten en restaurants om jullie heen. La Marina ligt aan de nieuwere westelijke tot noordwestelijke stadsrand bij Los Lances. Daar ligt AMARA Family & Surf. De ondergrondse parkeerplaats en supermarkt aan de overkant horen bij deze accommodatie en zijn geen belofte voor heel La Marina.',
         note: 'Een AMARA-gids uit eigen ervaring — geen live informatiedienst voor wind en weer.',
         updated: 'Gecontroleerd in augustus 2026'
       },
+      keyFigures: {
+        figures: [
+          { value: '33,5 km', label: 'Atlantische kust van de gemeente' },
+          { value: '10,5 km', label: 'Middellandse Zeekust van de gemeente' },
+          { value: '14,4 km', label: 'Europa – Afrika op het smalste punt' },
+          { value: '226 ha', label: 'Beschermd natuurgebied Playa de los Lances' }
+        ],
+        note: 'Kustlengtes volgens het gemeentelijke rampenplan, afstand volgens MITECO. De afstand geldt voor de Straat, niet voor het dorp of het appartement, en belooft geen zicht op Afrika.'
+      },
+      media: {
+        heroAlt: 'Gele kite boven turquoise water voor Tarifa',
+        walkAlt: 'Kiter loopt met board het water in op het strand van Los Lances',
+        walkCaption: 'Los Lances, kijkend naar het westen. De westelijke stranden en Bolonia vragen om een eigen tocht.',
+        barAlt: 'Kitebar in het zand van Los Lances',
+        castleAlt: 'Castillo de Santa Catalina boven Tarifa',
+        castleCaption: 'Santa Catalina boven de Isla. In de winter is het dorp weer van de mensen die hier wonen.',
+        waveAlt: 'Kiter draait in de golf voor Tarifa'
+      },
       geography: {
         eyebrow: 'Waar jullie zijn',
-        title: 'De zuidelijkste stad op het Europese vasteland, tussen oceaan en Straat',
+        title: 'Tussen de Atlantische Oceaan en de Straat',
         paragraphs: [
-          'Tarifa is de zuidelijkste stad op het Europese vasteland. Bij de dam naar Isla de Tarifa ligt Playa Chica aan de zijde van de Straat, terwijl de lange kust van Los Lances tot Valdevaqueros zich westwaarts langs de Atlantische Oceaan uitstrekt.',
+          'Bij de dam naar Isla de Tarifa ligt Playa Chica aan de zijde van de Straat, terwijl de lange kust van Los Lances tot Valdevaqueros zich westwaarts langs de Atlantische Oceaan uitstrekt.',
           'De plaats zelf is compact. Oude stad, nieuwer deel en strandrand liggen voor veel dagelijkse routes dicht genoeg bij elkaar. De westelijke stranden en Bolonia liggen buiten dit stadsweefsel en vragen om een aparte tocht.'
         ],
         markers: [
@@ -541,7 +632,8 @@ export const tarifaLocationContent: {
         paragraphs: ['Kies in de ervaringsgids tussen strand, wind en watersport, eten, natuur, de oude stad en een hele dag in Bolonia.'],
         links: [
           { label: 'Wat te doen in Tarifa', token: 'tarifa_experience_hub' },
-          { label: 'Ontdek de stranden van Tarifa', token: 'tarifa_beaches_authority' }
+          { label: 'Ontdek de stranden van Tarifa', token: 'tarifa_beaches_authority' },
+          { label: 'Kitesurfen in Tarifa', token: 'tarifa_kitesurfing_hub' }
         ]
       },
       closing: {
@@ -553,17 +645,35 @@ export const tarifaLocationContent: {
     sv: {
       hero: {
         eyebrow: 'Tarifa · Läge & vistelse',
-        title: 'Tarifa och vår lägenhet i La Marina',
-        subtitle: 'Gamla stan, stranden och Atlanten',
+        title: 'Tarifa, Europas sydligaste fastlandsstad',
+        subtitle: 'Atlanten i väster, sundet i öster och gamla stan däremellan. Och vår lägenhet i La Marina.',
         standfirst: 'Tarifas gamla stad, strandkant och nyare kvarter ligger så nära varandra att många sträckor fungerar till fots; Valdevaqueros och Bolonia kräver däremot en separat färd västerut. I gamla stan har ni historiska gränder och restauranger omkring er. La Marina ligger i stadens nyare västra till nordvästra kant nära Los Lances. Där ligger AMARA Family & Surf. Garageplatsen och mataffären mittemot hör till just boendet och är inga löften om hela La Marina.',
         note: 'En AMARA-guide ur egen erfarenhet – inte en tjänst för aktuella vind- och väderförhållanden.',
         updated: 'Granskad i augusti 2026'
       },
+      keyFigures: {
+        figures: [
+          { value: '33,5 km', label: 'Kommunens atlantkust' },
+          { value: '10,5 km', label: 'Kommunens medelhavskust' },
+          { value: '14,4 km', label: 'Europa – Afrika på det smalaste stället' },
+          { value: '226 ha', label: 'Naturskyddsområdet Playa de los Lances' }
+        ],
+        note: 'Kustlängder enligt kommunens beredskapsplan, avstånd enligt MITECO. Avståndet gäller sundet, inte staden eller lägenheten, och utlovar ingen utsikt mot Afrika.'
+      },
+      media: {
+        heroAlt: 'Gul kite över turkost vatten utanför Tarifa',
+        walkAlt: 'Kitesurfare går ut i vattnet med brädan på stranden Los Lances',
+        walkCaption: 'Los Lances, vy västerut. De västra stränderna och Bolonia kräver en egen färd.',
+        barAlt: 'Kitebar i sanden på Los Lances',
+        castleAlt: 'Castillo de Santa Catalina ovanför Tarifa',
+        castleCaption: 'Santa Catalina ovanför Isla. På vintern tillhör staden åter dem som bor här.',
+        waveAlt: 'Kitesurfare svänger i vågen utanför Tarifa'
+      },
       geography: {
         eyebrow: 'Var ni är',
-        title: 'Europas sydligaste fastlandsstad, mellan Atlanten och sundet',
+        title: 'Mellan Atlanten och sundet',
         paragraphs: [
-          'Tarifa är Europas sydligaste fastlandsstad. Vid vägbanken till Isla de Tarifa ligger Playa Chica på sundets sida, medan den långa kusten från Los Lances till Valdevaqueros sträcker sig västerut längs Atlanten.',
+          'Vid vägbanken till Isla de Tarifa ligger Playa Chica på sundets sida, medan den långa kusten från Los Lances till Valdevaqueros sträcker sig västerut längs Atlanten.',
           'Staden är kompakt. Gamla stan, den nyare delen och strandkanten ligger nära nog för många vardagssträckor till fots. Stränderna i väster och Bolonia ligger utanför detta stadsmönster och kräver en separat färd.'
         ],
         markers: [
@@ -651,7 +761,8 @@ export const tarifaLocationContent: {
         paragraphs: ['I upplevelseguiden väljer ni mellan strand, vind och vattensport, mat, natur, gamla stan och en heldag i Bolonia.'],
         links: [
           { label: 'Att göra i Tarifa', token: 'tarifa_experience_hub' },
-          { label: 'Upptäck Tarifas stränder', token: 'tarifa_beaches_authority' }
+          { label: 'Upptäck Tarifas stränder', token: 'tarifa_beaches_authority' },
+          { label: 'Kitesurfing i Tarifa', token: 'tarifa_kitesurfing_hub' }
         ]
       },
       closing: {
