@@ -1,6 +1,7 @@
 import type { LinkToken } from '../lib/linkResolver';
 import type { LocalizedText, LocalizedTextList } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
 const ll = (en: string[], de: string[], es: string[], nl: string[], sv: string[]): LocalizedTextList => ({ en, de, es, nl, sv });
@@ -126,10 +127,8 @@ export interface TarifaKitesurfWindContent {
     eyebrow: LocalizedText;
     title: LocalizedText;
     intro: LocalizedText;
-    imageAlt: LocalizedText;
-    imageCaption: LocalizedText;
     benefits: Array<{ id: string; title: LocalizedText; text: LocalizedText }>;
-    voice: { name: string; role: LocalizedText; title: LocalizedText; imageAlt: LocalizedText; quotes: TarifaKitesurfVoiceQuote[] };
+    voice: { name: string; role: LocalizedText; title: LocalizedText; quotes: TarifaKitesurfVoiceQuote[] };
     partnerHref: string;
     partnerLabel: LocalizedText;
     contactLabel: LocalizedText;
@@ -164,7 +163,7 @@ export const tarifaKitesurfWindSeo: AmaraAuthoringSeo = {
   version: '2026-09-03-tarifa-wind-kitesurfing-v3.0',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/robert-amara-host.jpg',
+  ogImage: routeOgImage('tarifa.kitesurfing.wind'),
   article: {
     datePublished: '2026-09-03',
     dateModified: '2026-09-03',
@@ -437,8 +436,6 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
     eyebrow: l('Together', 'AMARA × Tarifa Surf Club', 'Juntos', 'Samen', 'Tillsammans'),
     title: l('Why we send you to Tarifa Surf Club', 'Material in der Wohnung, Kaution geregelt, bei Levante ein Boot', 'Por qué os mandamos a Tarifa Surf Club', 'Waarom we jullie naar Tarifa Surf Club sturen', 'Varför vi skickar er till Tarifa Surf Club'),
     intro: l('Tarifa Surf Club is an official AMARA partner, and Robert and Mark are personal friends. What that means for you in practice:', 'Mark führt den Tarifa Surf Club mit Simone, wir kennen uns seit Jahren und sehen uns fast täglich. Für euch heißt das:', 'Tarifa Surf Club es socio oficial de AMARA, y Robert y Mark son amigos personales. Lo que eso significa para vosotros en la práctica:', 'Tarifa Surf Club is officiële AMARA-partner, en Robert en Mark zijn persoonlijk bevriend. Wat dat voor jullie in de praktijk betekent:', 'Tarifa Surf Club är officiell AMARA-partner, och Robert och Mark är personliga vänner. Vad det betyder för er i praktiken:'),
-    imageAlt: l('Mark from Tarifa Surf Club and Robert from AMARA in Tarifa', 'Mark vom Tarifa Surf Club und Robert von AMARA in Tarifa', 'Mark de Tarifa Surf Club y Robert de AMARA en Tarifa', 'Mark van Tarifa Surf Club en Robert van AMARA in Tarifa', 'Mark från Tarifa Surf Club och Robert från AMARA i Tarifa'),
-    imageCaption: l('Mark and Robert: direct coordination in Tarifa', 'Mark und Robert in Tarifa', 'Mark y Robert: coordinación directa en Tarifa', 'Mark en Robert: directe afstemming in Tarifa', 'Mark och Robert: direkt samordning i Tarifa'),
     benefits: [
       {
         id: 'equipment-before-arrival',
@@ -460,7 +457,6 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
       name: 'Mark',
       role: l('Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club'),
       title: l('Mark’s view', 'Drei Dinge, die Mark am Strand sagt', 'La mirada de Mark', 'Marks kijk', 'Marks blick'),
-      imageAlt: l('Mark from Tarifa Surf Club sitting on a wall at a beach access, sand and dunes behind him', 'Mark vom Tarifa Surf Club sitzt auf einer Mauer am Strandzugang, im Hintergrund Sand und Dünen', 'Mark, de Tarifa Surf Club, sentado en un muro en un acceso a la playa, con arena y dunas al fondo', 'Mark van Tarifa Surf Club zit op een muurtje bij een strandopgang, met zand en duinen op de achtergrond', 'Mark från Tarifa Surf Club sitter på en mur vid en strandnedgång, med sand och dyner i bakgrunden'),
       quotes: [
         {
           id: 'first-levante',

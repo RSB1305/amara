@@ -1,6 +1,7 @@
 import type { LinkToken } from '../lib/linkResolver';
 import type { LocalizedText, LocalizedTextList } from '../types/content';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 /**
  * The three practical spokes of the co-branded Tarifa kitesurf cluster: kite
@@ -75,11 +76,11 @@ const article = {
   authorRoute: 'about'
 };
 
-const seo = (version: string, title: LocalizedText, description: LocalizedText): AmaraAuthoringSeo => ({
+const seo = (routeKey: string, version: string, title: LocalizedText, description: LocalizedText): AmaraAuthoringSeo => ({
   version,
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/tarifa/mark-robert-tarifa-surf-club.webp',
+  ogImage: routeOgImage(routeKey),
   article,
   languages: {
     en: { title: title.en, description: description.en, robots: 'index, follow', canonical: 'auto' },
@@ -104,6 +105,7 @@ const school: TarifaKitesurfSpokeContent = {
   id: 'kite-school',
   token: 'tarifa_kite_school',
   seo: seo(
+    'tarifa.kitesurfing.school',
     '2026-09-03-tarifa-kite-school-v2.0',
     l('Kite school Tarifa: courses, prices and Help 2 Kite | AMARA', 'Kiteschule Tarifa: Kurse, Preise und Help 2 Kite | AMARA', 'Escuela de kite en Tarifa: cursos, precios y Help 2 Kite | AMARA', 'Kiteschool Tarifa: lessen, prijzen en Help 2 Kite | AMARA', 'Kiteskola Tarifa: kurser, priser och Help 2 Kite | AMARA'),
     l('Learn to kite with Tarifa Surf Club and stay with AMARA: semi-private and private courses with gear and rescue included, Help 2 Kite for independent riders, prices as of September 2026.', 'Kiten lernen beim Tarifa Surf Club, wohnen bei AMARA: semi-private und private Kurse mit Material und Rescue inklusive, Help 2 Kite für selbstständige Fahrer, Preise mit Stand September 2026.', 'Aprender kite con Tarifa Surf Club y alojarse en AMARA: cursos semiprivados y privados con material y rescate incluidos, Help 2 Kite para riders independientes, precios a septiembre de 2026.', 'Leren kiten bij Tarifa Surf Club en logeren bij AMARA: semi-privé- en privélessen met materiaal en rescue inbegrepen, Help 2 Kite voor zelfstandige kiters, prijzen per september 2026.', 'Lär er kita med Tarifa Surf Club och bo hos AMARA: semiprivata och privata kurser med utrustning och räddning, Help 2 Kite för självständiga åkare, priser per september 2026.')
@@ -236,6 +238,7 @@ const camp: TarifaKitesurfSpokeContent = {
   id: 'kitecamp',
   token: 'tarifa_kitecamp',
   seo: seo(
+    'tarifa.kitesurfing.kitecamp',
     '2026-09-03-tarifa-kitecamp-v2.0',
     l('Kitecamp Tarifa, mid-September to mid-June | AMARA', 'Kitecamp Tarifa, Mitte September bis Mitte Juni | AMARA', 'Kitecamp en Tarifa, de mediados de septiembre a mediados de junio | AMARA', 'Kitecamp Tarifa, half september tot half juni | AMARA', 'Kitecamp Tarifa, mitten av september till mitten av juni | AMARA'),
     l('Tarifa Surf Club kitecamps in the low season: seven days, six nights, course days, gear and rescue included, from 599 €, plus recognised educational leave with kiting on the side.', 'Kitecamps des Tarifa Surf Club in der Nebensaison: sieben Tage, sechs Nächte, Kurstage, Material und Rescue inklusive, ab 599 €, dazu anerkannter Bildungsurlaub mit Kiten nebenbei.', 'Kitecamps de Tarifa Surf Club en temporada baja: siete días, seis noches, días de curso, material y rescate incluidos, desde 599 €, más permiso de formación reconocido con kite aparte.', 'Kitecamps van Tarifa Surf Club in het laagseizoen: zeven dagen, zes nachten, lesdagen, materiaal en rescue inbegrepen, vanaf 599 €, plus erkend educatief verlof met kiten erbij.', 'Tarifa Surf Clubs kitecamps i lågsäsong: sju dagar, sex nätter, kursdagar, utrustning och räddning ingår, från 599 €, plus erkänd bildningsledighet med kitesurfing vid sidan av.')
@@ -364,6 +367,7 @@ const equipment: TarifaKitesurfSpokeContent = {
   id: 'equipment',
   token: 'tarifa_kite_equipment',
   seo: seo(
+    'tarifa.kitesurfing.equipment',
     '2026-09-03-tarifa-kite-equipment-v2.0',
     l('Kite gear in Tarifa: rent, test, buy | AMARA', 'Kitematerial in Tarifa: leihen, testen, kaufen | AMARA', 'Material de kite en Tarifa: alquilar, probar, comprar | AMARA', 'Kitemateriaal in Tarifa: huren, testen, kopen | AMARA', 'Kiteutrustning i Tarifa: hyra, testa, köpa | AMARA'),
     l('Rental sets from Tarifa Surf Club from 60 € a day, deposit placed by AMARA for its guests, gear waiting at the apartment, Test & Buy with the rental fee credited. Prices as of September 2026.', 'Leihsets vom Tarifa Surf Club ab 60 € am Tag, Kaution für AMARA-Gäste durch AMARA hinterlegt, Material bereit in der Wohnung, Test & Buy mit angerechneter Leihgebühr. Preise mit Stand September 2026.', 'Sets de alquiler de Tarifa Surf Club desde 60 € al día, fianza depositada por AMARA para sus huéspedes, material esperando en el apartamento, Test & Buy con el alquiler descontado. Precios a septiembre de 2026.', 'Huursets van Tarifa Surf Club vanaf 60 € per dag, borg door AMARA gesteld voor zijn gasten, materiaal klaar in het appartement, Test & Buy met verrekende huur. Prijzen per september 2026.', 'Hyrset från Tarifa Surf Club från 60 € per dag, deposition som AMARA lämnar för sina gäster, utrustning redo i lägenheten, Test & Buy med avräknad hyra. Priser per september 2026.')

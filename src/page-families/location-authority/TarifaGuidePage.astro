@@ -2,10 +2,8 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-surf-club-team.webp';
-import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
-import beachesPanoramaImage from '../../assets/images/content/tarifa/DSCF9576_Adriaan_Yellow_Union_GlenCarin_Dolphin_MDMARKGRAAFF.jpg';
 import Navigation from '../../components/Navigation.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
@@ -52,13 +50,6 @@ const locationSections = locationCopy
   : [];
 
 const ui = {
-  beachesPanoramaAlt: {
-    en: 'Two kites over the Atlantic off Tarifa in evening light',
-    de: 'Zwei Kites über dem Atlantik vor Tarifa im Abendlicht',
-    es: 'Dos cometas sobre el Atlántico frente a Tarifa a la luz de la tarde',
-    nl: 'Twee kites boven de Atlantische Oceaan voor Tarifa in avondlicht',
-    sv: 'Två kites över Atlanten utanför Tarifa i kvällsljus'
-  },
   beachesPanoramaCaption: {
     en: 'Los Lances toward evening. Which beach works today is decided by the wind, not the calendar.',
     de: 'Los Lances gegen Abend. Welcher Strand heute passt, entscheidet der Wind, nicht der Kalender.',
@@ -166,6 +157,8 @@ const ui = {
   }
 } satisfies Record<string, LocalizedText>;
 
+const beachesPanorama = content.id === 'beaches' ? requireRouteImage('tarifa.experience.beaches', 'panorama', currentLang) : undefined;
+const partnershipImage = content.id === 'wind' ? requireRouteImage('tarifa.kitesurfing', 'partnership', currentLang) : undefined;
 const topicHeroMedia = content.id === 'beaches'
   ? requireRouteImage('tarifa.experience.beaches', 'hero', currentLang)
   : content.id === 'wind'
@@ -445,7 +438,7 @@ const footerHighlights: LabeledLink[] = [
     {content.id === 'beaches' && (
       <section class="bg-surface" data-am-topic="editorial-photo">
         <AmaraMediaFrame role="panorama" caption={t(ui.beachesPanoramaCaption)}>
-          <AmaraImage src={beachesPanoramaImage} alt={t(ui.beachesPanoramaAlt)} profile="background" class="h-full w-full object-cover" focalPoint="50% 45%" />
+          <AmaraImage src={beachesPanorama!.src} alt={beachesPanorama!.alt} profile="background" class="h-full w-full object-cover" focalPoint={beachesPanorama!.focalPoint} />
         </AmaraMediaFrame>
       </section>
     )}
@@ -482,15 +475,15 @@ const footerHighlights: LabeledLink[] = [
 
             <figure class="am-mobile-full-bleed bg-surface-container-high">
               <AmaraImage
-                src={markRobertTarifaImage}
-                alt={t(kitePartnership.imageAlt)}
+                src={partnershipImage!.src}
+                alt={partnershipImage!.alt}
                 profile="hero"
                 class="aspect-[4/3] h-full w-full object-cover"
                 sizes="(max-width: 1023px) 100vw, 40vw"
-                focalPoint="50% 42%"
+                focalPoint={partnershipImage!.focalPoint}
               />
               <figcaption class="px-5 py-4 text-on-surface-variant am-text-label am-text-label--sm">
-                {t(kitePartnership.imageCaption)}
+                {partnershipImage!.caption}
               </figcaption>
             </figure>
           </div>

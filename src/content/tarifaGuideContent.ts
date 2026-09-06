@@ -41,8 +41,6 @@ export interface TarifaKitePartnership {
   title: LocalizedText;
   intro: LocalizedText;
   personalNote: LocalizedText;
-  imageAlt: LocalizedText;
-  imageCaption: LocalizedText;
   servicesTitle: LocalizedText;
   services: TarifaPartnershipService[];
   contactText: LocalizedText;
@@ -927,20 +925,6 @@ const wind: TarifaGuideContent = {
       'Podéis reservar cada cosa por separado o las dos juntas: el apartamento con nosotros, el kite con el club. En cualquier caso, con un mensaje basta.',
       'Jullie kunnen allebei apart boeken of samen: het appartement bij ons, het kiten bij de club. Hoe dan ook is één bericht genoeg.',
       'Ni kan boka var sak för sig eller båda tillsammans: lägenheten hos oss, kitingen hos klubben. Hur som helst räcker ett meddelande.'
-    ),
-    imageAlt: l(
-      'Mark from Tarifa Surf Club and Robert from AMARA in Tarifa',
-      'Mark vom Tarifa Surf Club und Robert von AMARA in Tarifa',
-      'Mark de Tarifa Surf Club y Robert de AMARA en Tarifa',
-      'Mark van Tarifa Surf Club en Robert van AMARA in Tarifa',
-      'Mark från Tarifa Surf Club och Robert från AMARA i Tarifa'
-    ),
-    imageCaption: l(
-      'Mark and Robert in Tarifa',
-      'Mark und Robert in Tarifa',
-      'Mark y Robert en Tarifa',
-      'Mark en Robert in Tarifa',
-      'Mark och Robert i Tarifa'
     ),
     servicesTitle: l(
       'The complete Tarifa Surf Club offer',

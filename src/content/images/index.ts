@@ -1,50 +1,70 @@
 import type { RouteImageSet } from '../../lib/images/routeImageContract';
-import { frigilianaImages } from './frigiliana';
-import { frigilianaFaqImages } from './frigiliana-faq';
-import { frigilianaOrNerjaImages } from './frigiliana-or-nerja';
-import { frigilianaExperienceImages } from './frigiliana-experience';
-import { frigilianaExperienceMarketImages } from './frigiliana-experience-market';
-import { frigilianaExperienceOldTownImages } from './frigiliana-experience-old-town';
-import { frigilianaExperienceDosTumbasImages } from './frigiliana-experience-dos-tumbas';
-import { frigilianaExperienceWellnessImages } from './frigiliana-experience-wellness';
-import { frigilianaExperienceHikingImages } from './frigiliana-experience-hiking';
 import { frigilianaExperienceBeachesImages } from './frigiliana-experience-beaches';
 import { frigilianaExperienceDayTripsImages } from './frigiliana-experience-day-trips';
-import { frigilianaExperienceRestaurantsImages } from './frigiliana-experience-restaurants';
+import { frigilianaExperienceDosTumbasImages } from './frigiliana-experience-dos-tumbas';
 import { frigilianaExperienceFestivalsImages } from './frigiliana-experience-festivals';
-import { nerjaImages } from './nerja';
-import { nerjaExperienceImages } from './nerja-experience';
+import { frigilianaExperienceHikingImages } from './frigiliana-experience-hiking';
+import { frigilianaExperienceMarketImages } from './frigiliana-experience-market';
+import { frigilianaExperienceOldTownImages } from './frigiliana-experience-old-town';
+import { frigilianaExperienceRestaurantsImages } from './frigiliana-experience-restaurants';
+import { frigilianaExperienceWellnessImages } from './frigiliana-experience-wellness';
+import { frigilianaExperienceImages } from './frigiliana-experience';
+import { frigilianaFaqImages } from './frigiliana-faq';
+import { frigilianaOrNerjaImages } from './frigiliana-or-nerja';
+import { frigilianaImages } from './frigiliana';
 import { nerjaExperienceBeachesImages } from './nerja-experience-beaches';
 import { nerjaExperienceDayTripsImages } from './nerja-experience-day-trips';
 import { nerjaExperienceFoodImages } from './nerja-experience-food';
 import { nerjaExperienceNightlifeImages } from './nerja-experience-nightlife';
-import { tarifaImages } from './tarifa';
-import { tarifaExperienceImages } from './tarifa-experience';
+import { nerjaExperienceImages } from './nerja-experience';
+import { nerjaImages } from './nerja';
 import { tarifaExperienceBeachesImages } from './tarifa-experience-beaches';
+import { tarifaExperienceImages } from './tarifa-experience';
+import { tarifaKitesurfingBeginnerGuideImages } from './tarifa-kitesurfing-beginner-guide';
+import { tarifaKitesurfingBildungsurlaubImages } from './tarifa-kitesurfing-bildungsurlaub';
+import { tarifaKitesurfingEquipmentImages } from './tarifa-kitesurfing-equipment';
+import { tarifaKitesurfingForecastImages } from './tarifa-kitesurfing-forecast';
+import { tarifaKitesurfingKitecampImages } from './tarifa-kitesurfing-kitecamp';
+import { tarifaKitesurfingSchoolImages } from './tarifa-kitesurfing-school';
+import { tarifaKitesurfingSpotsImages } from './tarifa-kitesurfing-spots';
+import { tarifaKitesurfingSurfClubImages } from './tarifa-kitesurfing-surf-club';
+import { tarifaKitesurfingWindImages } from './tarifa-kitesurfing-wind';
+import { tarifaKitesurfingImages } from './tarifa-kitesurfing';
+import { tarifaImages } from './tarifa';
 
 const sets: readonly RouteImageSet[] = [
-  frigilianaImages,
-  frigilianaFaqImages,
-  frigilianaOrNerjaImages,
-  frigilianaExperienceImages,
-  frigilianaExperienceMarketImages,
-  frigilianaExperienceOldTownImages,
-  frigilianaExperienceDosTumbasImages,
-  frigilianaExperienceWellnessImages,
-  frigilianaExperienceHikingImages,
   frigilianaExperienceBeachesImages,
   frigilianaExperienceDayTripsImages,
-  frigilianaExperienceRestaurantsImages,
+  frigilianaExperienceDosTumbasImages,
   frigilianaExperienceFestivalsImages,
-  nerjaImages,
-  nerjaExperienceImages,
+  frigilianaExperienceHikingImages,
+  frigilianaExperienceMarketImages,
+  frigilianaExperienceOldTownImages,
+  frigilianaExperienceRestaurantsImages,
+  frigilianaExperienceWellnessImages,
+  frigilianaExperienceImages,
+  frigilianaFaqImages,
+  frigilianaOrNerjaImages,
+  frigilianaImages,
   nerjaExperienceBeachesImages,
   nerjaExperienceDayTripsImages,
   nerjaExperienceFoodImages,
   nerjaExperienceNightlifeImages,
-  tarifaImages,
+  nerjaExperienceImages,
+  nerjaImages,
+  tarifaExperienceBeachesImages,
   tarifaExperienceImages,
-  tarifaExperienceBeachesImages
+  tarifaKitesurfingBeginnerGuideImages,
+  tarifaKitesurfingBildungsurlaubImages,
+  tarifaKitesurfingEquipmentImages,
+  tarifaKitesurfingForecastImages,
+  tarifaKitesurfingKitecampImages,
+  tarifaKitesurfingSchoolImages,
+  tarifaKitesurfingSpotsImages,
+  tarifaKitesurfingSurfClubImages,
+  tarifaKitesurfingWindImages,
+  tarifaKitesurfingImages,
+  tarifaImages
 ];
 
 /** Every route key with an image source, keyed by route key (DR-DESIGN-021). */

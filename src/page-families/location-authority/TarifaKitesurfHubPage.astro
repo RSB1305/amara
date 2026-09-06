@@ -1,8 +1,4 @@
 ---
-import kiteHeroImage from '../../assets/images/content/tarifa/AM-5788_Andre_Magaro.jpg';
-import kiteWaveTurnImage from '../../assets/images/content/tarifa/kite-wave-turn.jpg';
-import kiteJumpImage from '../../assets/images/content/tarifa/_DCS9847_Sebastian_Lang.jpg';
-import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialSources from '../../components/editorial/EditorialSources.astro';
@@ -22,6 +18,7 @@ import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkReso
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
+import { requireRouteImage } from '../../lib/images/routeImages';
 import LocationModule from './LocationModule.astro';
 
 /**
@@ -45,6 +42,10 @@ interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = requireRouteImage('tarifa.kitesurfing', 'hero', currentLang);
+const waveImage = requireRouteImage('tarifa.kitesurfing', 'wave', currentLang);
+const jumpImage = requireRouteImage('tarifa.kitesurfing', 'jump', currentLang);
+const partnershipImage = requireRouteImage('tarifa.kitesurfing', 'partnership', currentLang);
 const t = (value: LocalizedText) => value[currentLang];
 const content = tarifaGuideContent.wind as TarifaTopicGuideContent;
 const partnership = content.partnership!;
@@ -56,10 +57,6 @@ const contactHref = `https://wa.me/34604440964?text=${encodeURIComponent(t(partn
 
 const ui = {
   hubLabel: { en: 'Kitesurfing in Tarifa', de: 'Kitesurfen in Tarifa', es: 'Kitesurf en Tarifa', nl: 'Kitesurfen in Tarifa', sv: 'Kitesurfing i Tarifa' },
-  heroImageAlt: { en: 'Kitesurfer in the air under a blue sky off Tarifa', de: 'Kitesurfer in der Luft unter blauem Himmel vor Tarifa', es: 'Kitesurfista en el aire bajo un cielo azul frente a Tarifa', nl: 'Kitesurfer in de lucht onder een blauwe hemel voor Tarifa', sv: 'Kitesurfare i luften under blå himmel utanför Tarifa' },
-  jumpImageAlt: { en: 'Kitesurfer mid-jump over the water off Tarifa', de: 'Kitesurfer im Sprung über dem Wasser vor Tarifa', es: 'Kitesurfista en pleno salto sobre el agua frente a Tarifa', nl: 'Kitesurfer midden in een sprong boven het water voor Tarifa', sv: 'Kitesurfare mitt i ett hopp över vattnet utanför Tarifa' },
-  waveImageAlt: { en: 'A kitesurfer carving off the lip of a wave off Tarifa', de: 'Kitesurfer beim Turn im Wellenkamm vor Tarifa', es: 'Un kitesurfista trazando un giro en la cresta de una ola frente a Tarifa', nl: 'Een kitesurfer die een turn maakt op de top van een golf voor Tarifa', sv: 'En kitesurfare som skär av vågkammen utanför Tarifa' },
-  waveImageCaption: { en: 'When the swell lines up, Tarifa is a wave spot too — not just flat-water freeride.', de: 'Wenn die Welle steht, ist Tarifa auch ein Wellenspot — nicht nur Flachwasser-Freeride.', es: 'Cuando entra la ola, Tarifa también es un spot de olas, no solo freeride en agua plana.', nl: 'Als de deining staat, is Tarifa ook een golfspot — niet alleen flatwater-freeride.', sv: 'När svallet ligger rätt är Tarifa också en vågspot — inte bara flatwater-freeride.' },
   pathsEyebrow: { en: 'Next', de: 'Weiter', es: 'Seguir', nl: 'Verder', sv: 'Vidare' },
   pathsTitle: { en: 'Learning to kite, wind and spots, the partnership', de: 'Kiten lernen, Wind und Spots, die Partnerschaft', es: 'Aprender a navegar, viento y spots, la colaboración', nl: 'Leren kiten, wind en spots, het partnerschap', sv: 'Lära sig kita, vind och spots, partnerskapet' },
   pathsIntro: { en: 'Three pages with what is only touched on here: **courses and prices with their date**, the two winds in detail, and how AMARA and the club work together.', de: 'Drei Seiten mit dem, was hier nur angerissen ist: **Kurse und Preise mit Stand**, die zwei Winde im Detail, und wie AMARA und der Club zusammenarbeiten.', es: 'Tres páginas con lo que aquí solo se apunta: **cursos y precios con fecha**, los dos vientos en detalle y cómo trabajamos AMARA y el club.', nl: 'Drie pagina’s met wat hier alleen wordt aangestipt: **lessen en prijzen met datum**, de twee winden in detail, en hoe AMARA en de club samenwerken.', sv: 'Tre sidor med det som bara snuddas vid här: **kurser och priser med datum**, de två vindarna i detalj, och hur AMARA och klubben arbetar ihop.' },
@@ -121,9 +118,9 @@ const footerHighlights: LabeledLink[] = [
       title={t(content.hero.title)}
       subtitle={t(content.hero.subtitle!)}
       paragraphs={[t(content.hero.lead)]}
-      imageSrc={kiteHeroImage}
-      imageAlt={t(ui.heroImageAlt)}
-      focalPoint="50% 45%"
+      imageSrc={hero.src}
+      imageAlt={hero.alt}
+      focalPoint={hero.focalPoint}
       role="hub"
       topic="kitesurfing"
     >
@@ -145,7 +142,7 @@ const footerHighlights: LabeledLink[] = [
     {content.sections.slice(0, 1).map((section) => (
       <section id={section.id} aria-labelledby={`${section.id}-title`} class="scroll-mt-28 bg-surface" data-am-topic={section.id}>
         <AmaraMediaFrame role="panorama">
-          <AmaraImage src={kiteWaveTurnImage} alt={t(ui.waveImageAlt)} profile="background" class="h-full w-full object-cover" focalPoint="50% 45%" />
+          <AmaraImage src={waveImage.src} alt={waveImage.alt} profile="background" class="h-full w-full object-cover" focalPoint={waveImage.focalPoint} />
         </AmaraMediaFrame>
         <div class="mx-auto max-w-screen-2xl px-6 md:px-12 lg:flex lg:items-start lg:gap-8">
           <div class="am-overlap-up bg-surface pb-16 pt-10 md:pb-24">
@@ -158,7 +155,7 @@ const footerHighlights: LabeledLink[] = [
               ))}
             </div>
           </div>
-          <p class="am-text-caption mt-3 normal-case tracking-normal text-muted lg:flex-1 lg:text-right">{t(ui.waveImageCaption)}</p>
+          <p class="am-text-caption mt-3 normal-case tracking-normal text-muted lg:flex-1 lg:text-right">{waveImage.caption}</p>
         </div>
       </section>
     ))}
@@ -171,7 +168,7 @@ const footerHighlights: LabeledLink[] = [
             <div class="mx-auto max-w-screen-2xl">
               <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
                 <figure class="am-bleed-start lg:col-span-5">
-                  <AmaraImage src={kiteJumpImage} alt={t(ui.jumpImageAlt)} profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint="50% 40%" />
+                  <AmaraImage src={jumpImage.src} alt={jumpImage.alt} profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint={jumpImage.focalPoint} />
                 </figure>
                 <div class:list={['am-overlap-start lg:col-span-7', tint ? 'bg-surface-container-low' : 'bg-surface']}>
                   <p class="text-primary am-text-label am-text-label--wide">{t(section.eyebrow)}</p>
@@ -239,8 +236,8 @@ const footerHighlights: LabeledLink[] = [
             </div>
           </div>
           <figure class="am-mobile-full-bleed bg-surface-container-high">
-            <AmaraImage src={markRobertTarifaImage} alt={t(partnership.imageAlt)} profile="hero" class="aspect-[4/3] h-full w-full object-cover" widths={[480, 720, 960, 1200]} sizes="(max-width: 1023px) 100vw, 40vw" focalPoint="50% 42%" />
-            <figcaption class="px-5 py-4 text-on-surface-variant am-text-label am-text-label--sm">{t(partnership.imageCaption)}</figcaption>
+            <AmaraImage src={partnershipImage.src} alt={partnershipImage.alt} profile="hero" class="aspect-[4/3] h-full w-full object-cover" widths={[480, 720, 960, 1200]} sizes="(max-width: 1023px) 100vw, 40vw" focalPoint={partnershipImage.focalPoint} />
+            <figcaption class="px-5 py-4 text-on-surface-variant am-text-label am-text-label--sm">{partnershipImage.caption}</figcaption>
           </figure>
         </div>
         <div class="mt-12 flex flex-col gap-6 bg-surface-container-low p-7 md:flex-row md:items-center md:justify-between md:p-9">

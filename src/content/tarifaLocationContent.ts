@@ -38,15 +38,6 @@ interface TarifaLocationHubLocale {
     figures: Array<{ value: string; label: string }>;
     note: string;
   };
-  /** Alt texts and captions of the hub photography. */
-  media: {
-    walkAlt: string;
-    walkCaption: string;
-    barAlt: string;
-    castleAlt: string;
-    castleCaption: string;
-    waveAlt: string;
-  };
   geography: TarifaLocationHubFeature & {
     markers: Array<{ label: string; value: string }>;
   };
@@ -59,7 +50,6 @@ interface TarifaLocationHubLocale {
   winter: TarifaLocationHubFeature;
   amara: TarifaLocationHubFeature & {
     facts: string[];
-    imageAlt: string;
   };
   experience: TarifaLocationHubFeature & {
     links: TarifaLocationHubLink[];
@@ -142,14 +132,6 @@ export const tarifaLocationContent: {
           { value: '226 ha', label: 'Playa de los Lances protected area' }
         ],
         note: 'Coastline lengths from the municipal emergency plan, distance from MITECO. The distance applies to the Strait, not to the town or the apartment, and promises no view of Africa.'
-      },
-      media: {
-        walkAlt: 'Kiter walking into the water with a board at Los Lances beach',
-        walkCaption: 'Los Lances, looking west. The western beaches and Bolonia need a journey of their own.',
-        barAlt: 'Kite bar in the sand at Los Lances',
-        castleAlt: 'Castillo de Santa Catalina above Tarifa',
-        castleCaption: 'Santa Catalina above the Isla. In winter the town belongs to the people who live here again.',
-        waveAlt: 'Kiter turning on a wave off Tarifa'
       },
       geography: {
         eyebrow: 'Where you are',
@@ -234,7 +216,6 @@ export const tarifaLocationContent: {
           'Supermarket directly opposite this accommodation',
           'Old Town is a separate walk, not the immediate doorstep'
         ],
-        imageAlt: 'AMARA Family & Surf in La Marina, Tarifa',
         link: { label: 'View AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {
@@ -270,14 +251,6 @@ export const tarifaLocationContent: {
           { value: '226 ha', label: 'Naturschutzgebiet Playa de los Lances' }
         ],
         note: 'Küstenlängen nach dem gemeindlichen Notfallplan, Abstand nach MITECO. Der Abstand gilt für die Meerenge, nicht für den Ort oder die Wohnung, und verspricht keine Sicht auf Afrika.'
-      },
-      media: {
-        walkAlt: 'Kiter geht mit Board am Strand von Los Lances ins Wasser',
-        walkCaption: 'Los Lances, Blick nach Westen. Die westlichen Strände und Bolonia brauchen einen eigenen Weg.',
-        barAlt: 'Kitebar im Sand von Los Lances',
-        castleAlt: 'Castillo de Santa Catalina über Tarifa',
-        castleCaption: 'Santa Catalina über der Isla. Im Winter gehört der Ort wieder den Leuten, die hier leben.',
-        waveAlt: 'Kiter dreht in der Welle vor Tarifa'
       },
       geography: {
         eyebrow: 'Wo ihr seid',
@@ -362,7 +335,6 @@ export const tarifaLocationContent: {
           'Supermarkt direkt gegenüber dieser Unterkunft',
           'Die Altstadt ist ein eigener Fußweg und liegt nicht direkt vor der Tür'
         ],
-        imageAlt: 'AMARA Family & Surf in La Marina, Tarifa',
         link: { label: 'AMARA Family & Surf ansehen', token: 'tarifa' }
       },
       experience: {
@@ -398,14 +370,6 @@ export const tarifaLocationContent: {
           { value: '226 ha', label: 'Paraje protegido Playa de los Lances' }
         ],
         note: 'Longitudes de costa según el plan municipal de emergencias; distancia según MITECO. La distancia se refiere al Estrecho, no al pueblo ni al apartamento, y no garantiza ver África.'
-      },
-      media: {
-        walkAlt: 'Kitesurfista entrando al agua con la tabla en la playa de Los Lances',
-        walkCaption: 'Los Lances, mirando al oeste. Las playas del oeste y Bolonia requieren un desplazamiento propio.',
-        barAlt: 'Barra de kite en la arena de Los Lances',
-        castleAlt: 'Castillo de Santa Catalina sobre Tarifa',
-        castleCaption: 'Santa Catalina sobre la Isla. En invierno el pueblo vuelve a ser de quienes viven aquí.',
-        waveAlt: 'Kitesurfista girando en la ola frente a Tarifa'
       },
       geography: {
         eyebrow: 'Dónde estáis',
@@ -490,7 +454,6 @@ export const tarifaLocationContent: {
           'Supermercado justo enfrente de este alojamiento',
           'El casco antiguo requiere otro paseo y no queda a la puerta'
         ],
-        imageAlt: 'AMARA Family & Surf en La Marina, Tarifa',
         link: { label: 'Ver AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {
@@ -526,14 +489,6 @@ export const tarifaLocationContent: {
           { value: '226 ha', label: 'Beschermd natuurgebied Playa de los Lances' }
         ],
         note: 'Kustlengtes volgens het gemeentelijke rampenplan, afstand volgens MITECO. De afstand geldt voor de Straat, niet voor het dorp of het appartement, en belooft geen zicht op Afrika.'
-      },
-      media: {
-        walkAlt: 'Kiter loopt met board het water in op het strand van Los Lances',
-        walkCaption: 'Los Lances, kijkend naar het westen. De westelijke stranden en Bolonia vragen om een eigen tocht.',
-        barAlt: 'Kitebar in het zand van Los Lances',
-        castleAlt: 'Castillo de Santa Catalina boven Tarifa',
-        castleCaption: 'Santa Catalina boven de Isla. In de winter is het dorp weer van de mensen die hier wonen.',
-        waveAlt: 'Kiter draait in de golf voor Tarifa'
       },
       geography: {
         eyebrow: 'Waar jullie zijn',
@@ -618,7 +573,6 @@ export const tarifaLocationContent: {
           'Supermarkt direct tegenover deze accommodatie',
           'De oude stad is een aparte wandeling en ligt niet direct voor de deur'
         ],
-        imageAlt: 'AMARA Family & Surf in La Marina, Tarifa',
         link: { label: 'Bekijk AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {
@@ -654,14 +608,6 @@ export const tarifaLocationContent: {
           { value: '226 ha', label: 'Naturskyddsområdet Playa de los Lances' }
         ],
         note: 'Kustlängder enligt kommunens beredskapsplan, avstånd enligt MITECO. Avståndet gäller sundet, inte staden eller lägenheten, och utlovar ingen utsikt mot Afrika.'
-      },
-      media: {
-        walkAlt: 'Kitesurfare går ut i vattnet med brädan på stranden Los Lances',
-        walkCaption: 'Los Lances, vy västerut. De västra stränderna och Bolonia kräver en egen färd.',
-        barAlt: 'Kitebar i sanden på Los Lances',
-        castleAlt: 'Castillo de Santa Catalina ovanför Tarifa',
-        castleCaption: 'Santa Catalina ovanför Isla. På vintern tillhör staden åter dem som bor här.',
-        waveAlt: 'Kitesurfare svänger i vågen utanför Tarifa'
       },
       geography: {
         eyebrow: 'Var ni är',
@@ -746,7 +692,6 @@ export const tarifaLocationContent: {
           'Mataffär direkt mittemot detta boende',
           'Gamla stan är en separat promenad och ligger inte utanför dörren'
         ],
-        imageAlt: 'AMARA Family & Surf i La Marina, Tarifa',
         link: { label: 'Visa AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {

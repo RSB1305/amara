@@ -1,5 +1,4 @@
 ---
-import spotMapImage from '../../assets/images/content/tarifa/tarifa-spots-map.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
@@ -14,7 +13,6 @@ import LocationGuideHero from '../../components/location/LocationGuideHero.astro
 import Navigation from '../../components/Navigation.astro';
 import { tarifaKiteBriefingCopy } from '../../content/tarifaKiteBriefingContent';
 import { tarifaKiteForecastContent, tarifaKiteForecastSeo } from '../../content/tarifaKiteForecastContent';
-import { tarifaKitesurfSpotsContent } from '../../content/tarifaKitesurfSpotsContent';
 import { tarifaKitesurfWindContent } from '../../content/tarifaKitesurfWindContent';
 import { tarifaWeatherWarningsCopy } from '../../content/tarifaWeatherWarningsContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -23,6 +21,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import { resolveLocale } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import LocationModule from './LocationModule.astro';
+import { requireRouteImage } from '../../lib/images/routeImages';
 
 /**
  * Live-values page under the wind spoke. Three data objects in the order the
@@ -38,7 +37,7 @@ const content = resolveLocale(tarifaKiteForecastContent, currentLang);
 const wind = resolveLocale(tarifaKitesurfWindContent, currentLang);
 const briefingCopy = resolveLocale(tarifaKiteBriefingCopy, currentLang);
 const warningsCopy = resolveLocale(tarifaWeatherWarningsCopy, currentLang);
-const mapAlt = tarifaKitesurfSpotsContent.orientation.mapAlt[currentLang];
+const mapImage = requireRouteImage('tarifa.kitesurfing.spots', 'map', currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf forecast');
 const aboutHref = requiredLink('about');
 const windPageHref = requiredLink('tarifa_wind_kitesurfing_authority');
@@ -69,8 +68,8 @@ const footerHighlights: LabeledLink[] = [
       <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
       <AmaraImage
         slot="visual"
-        src={spotMapImage}
-        alt={mapAlt}
+        src={mapImage.src}
+        alt={mapImage.alt}
         profile="hero"
         width={1536}
         widths={[640, 960, 1280, 1536]}

@@ -1,6 +1,7 @@
 import type { LinkToken } from '../lib/linkResolver';
 import type { LocalizedText } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 /**
  * The live-values page of the Tarifa kitesurf cluster: official AEMET context,
@@ -31,7 +32,7 @@ export const tarifaKiteForecastSeo: AmaraAuthoringSeo = {
   version: '2026-09-03-tarifa-kitesurf-forecast-v1.0',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/robert-amara-host.jpg',
+  ogImage: routeOgImage('tarifa.kitesurfing.forecast'),
   article: {
     datePublished: '2026-09-03',
     dateModified: '2026-09-03',

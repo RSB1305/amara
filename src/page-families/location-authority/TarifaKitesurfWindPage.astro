@@ -1,10 +1,6 @@
 ---
-import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
-import markTarifaImage from '../../assets/images/content/tarifa/mark-tarifa-surf-club.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
-import windHeroImage from '../../assets/images/content/tarifa/Airush_Valentin_Tadzio-Rurka_DSC_3203.jpg';
-import windSunsetImage from '../../assets/images/content/tarifa/_DCS2079_Sebastian_Lang.jpg';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -20,6 +16,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import { resolveLocale } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import LocationModule from './LocationModule.astro';
+import { requireRouteImage } from '../../lib/images/routeImages';
 
 /**
  * Wind, weather and safety spoke of the Tarifa kitesurf cluster.
@@ -34,6 +31,10 @@ interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = requireRouteImage('tarifa.kitesurfing.wind', 'hero', currentLang);
+const sunsetImage = requireRouteImage('tarifa.kitesurfing.wind', 'sunset', currentLang);
+const partnerImage = requireRouteImage('tarifa.kitesurfing.wind', 'partner', currentLang);
+const markImage = requireRouteImage('tarifa.kitesurfing.surf-club', 'mark', currentLang);
 const content = resolveLocale(tarifaKitesurfWindContent, currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf wind spoke');
 const aboutHref = requiredLink('about');
@@ -44,27 +45,6 @@ const footerHighlights: LabeledLink[] = [
   ...content.related.links.map((link) => ({ token: link.token, label: link.title }))
 ];
 
-const windHeroAlt = {
-  en: 'A kitesurfer high above the waves in front of Tarifa’s old tuna-fishery buildings',
-  de: 'Kitesurfer hoch über den Wellen vor den alten Almadraba-Gebäuden bei Tarifa',
-  es: 'Un kitesurfista muy alto sobre las olas frente a las antiguas naves de la almadraba de Tarifa',
-  nl: 'Een kitesurfer hoog boven de golven voor de oude almadraba-gebouwen bij Tarifa',
-  sv: 'En kitesurfare högt över vågorna framför Tarifas gamla tonfiskeribyggnader'
-}[currentLang];
-const windSunsetAlt = {
-  en: 'A kitesurfer jumping against the setting sun over the sea at Tarifa',
-  de: 'Kitesurfer im Sprung vor der untergehenden Sonne über dem Meer bei Tarifa',
-  es: 'Un kitesurfista saltando contra el sol poniente sobre el mar en Tarifa',
-  nl: 'Een kitesurfer die springt tegen de ondergaande zon boven de zee bij Tarifa',
-  sv: 'En kitesurfare i ett hopp mot den nedgående solen över havet vid Tarifa'
-}[currentLang];
-const windSunsetCaption = {
-  en: 'The Levante often eases at dusk — the last session of the day is frequently the cleanest.',
-  de: 'Der Levante lässt zum Abend oft nach — die letzte Session des Tages ist häufig die sauberste.',
-  es: 'El levante suele amainar al anochecer: la última sesión del día es a menudo la más limpia.',
-  nl: 'De levante zwakt tegen de avond vaak af — de laatste sessie van de dag is vaak de schoonste.',
-  sv: 'Levanten mojnar ofta mot kvällen — dagens sista pass är ofta det renaste.'
-}[currentLang];
 ---
 
 <LocationAuthorityLayout seo={tarifaKitesurfWindSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-spoke">
@@ -88,8 +68,8 @@ const windSunsetCaption = {
       <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
       <AmaraImage
         slot="visual"
-        src={windHeroImage}
-        alt={windHeroAlt}
+        src={hero.src}
+        alt={hero.alt}
         profile="hero"
         width={1080}
         widths={[480, 640, 800, 1080]}
@@ -186,8 +166,8 @@ const windSunsetCaption = {
     </LocationModule>
 
     <section class="bg-surface" data-am-topic="editorial-photo">
-      <AmaraMediaFrame role="panorama" caption={windSunsetCaption}>
-        <AmaraImage src={windSunsetImage} alt={windSunsetAlt} profile="background" class="h-full w-full object-cover" focalPoint="50% 45%" />
+      <AmaraMediaFrame role="panorama" caption={sunsetImage.caption}>
+        <AmaraImage src={sunsetImage.src} alt={sunsetImage.alt} profile="background" class="h-full w-full object-cover" focalPoint={sunsetImage.focalPoint} />
       </AmaraMediaFrame>
     </section>
 
@@ -242,7 +222,7 @@ const windSunsetCaption = {
 
           <p class="am-text-label am-text-label--sm mt-10 text-primary">{content.safety.rescueQuote.lead}</p>
           <figure class="mt-4 flex items-start gap-5" data-am-voice="mark-rescue">
-            <AmaraImage src={markTarifaImage} alt={content.partner.voice.imageAlt} profile="card" width={192} widths={[96, 144, 192]} sizes="4rem" class="h-16 w-16 shrink-0 rounded-full object-cover" focalPoint="50% 25%" />
+            <AmaraImage src={markImage.src} alt={markImage.alt} profile="card" width={192} widths={[96, 144, 192]} sizes="4rem" class="h-16 w-16 shrink-0 rounded-full object-cover" focalPoint="50% 25%" />
             <div class="min-w-0">
               <blockquote class="m-0 space-y-4">
                 {content.safety.rescueQuote.paragraphs.map((paragraph) => <p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{paragraph}</p>)}
@@ -296,14 +276,14 @@ const windSunsetCaption = {
             </div>
           </div>
           <figure class="lg:col-span-6">
-            <AmaraImage src={markRobertTarifaImage} alt={content.partner.imageAlt} profile="hero" width={1200} widths={[480, 720, 960, 1200]} sizes="(max-width: 1023px) 100vw, 48vw" class="aspect-video w-full object-cover" />
-            <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{content.partner.imageCaption}</figcaption>
+            <AmaraImage src={partnerImage.src} alt={partnerImage.alt} profile="hero" width={1200} widths={[480, 720, 960, 1200]} sizes="(max-width: 1023px) 100vw, 48vw" class="aspect-video w-full object-cover" />
+            <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{partnerImage.caption}</figcaption>
           </figure>
         </div>
 
         <div class="mt-16 grid gap-10 lg:grid-cols-12 lg:gap-20" data-am-voice="mark">
           <figure class="m-0 lg:col-span-4">
-            <AmaraImage src={markTarifaImage} alt={content.partner.voice.imageAlt} profile="card" width={900} widths={[320, 480, 600, 900]} sizes="(max-width: 1023px) calc(100vw - 3rem), 30vw" class="aspect-[3/4] w-full max-w-sm object-cover" />
+            <AmaraImage src={markImage.src} alt={markImage.alt} profile="card" width={900} widths={[320, 480, 600, 900]} sizes="(max-width: 1023px) calc(100vw - 3rem), 30vw" class="aspect-[3/4] w-full max-w-sm object-cover" />
             <figcaption class="am-text-label am-text-label--sm mt-4 text-primary">{content.partner.voice.name} · {content.partner.voice.role}</figcaption>
           </figure>
           <div class="lg:col-span-8">
