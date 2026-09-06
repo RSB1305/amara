@@ -11,13 +11,6 @@ export const frigilianaWellnessPlaceCopy = definePlaceCopy({
         nl: "Frigiliana Wellness",
         sv: "Frigiliana Wellness"
       },
-      imageAlt: {
-        en: "Outdoor massage beside a pool in the hills around Frigiliana",
-        de: "Massage im Freien an einem Pool in den Hügeln rund um Frigiliana",
-        es: "Masaje al aire libre junto a una piscina en las colinas de Frigiliana",
-        nl: "Massage in de buitenlucht bij een zwembad in de heuvels rond Frigiliana",
-        sv: "Utomhusmassage vid en pool i kullarna runt Frigiliana"
-      },
       title: {
         en: "Mobile spa & pamper days",
         de: "Mobiler Spa- und Verwöhntag",
@@ -116,13 +109,6 @@ export const frigilianaWellnessPlaceCopy = definePlaceCopy({
         es: "Masaje Californiano con Lidia",
         nl: "Masaje Californiano con Lidia",
         sv: "Masaje Californiano con Lidia"
-      },
-      imageAlt: {
-        en: "Close-up of a Californian massage treatment on the neck and shoulders",
-        de: "Nahaufnahme einer kalifornischen Massage an Nacken und Schultern",
-        es: "Primer plano de un masaje californiano en el cuello y los hombros",
-        nl: "Close-up van een Californische massage van nek en schouders",
-        sv: "Närbild av kalifornisk massage av nacke och axlar"
       },
       title: {
         en: "Californian massage in the countryside",

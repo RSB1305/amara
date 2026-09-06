@@ -1,6 +1,5 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
-import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
@@ -16,12 +15,14 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import ExperienceRelatedSection from './ExperienceRelatedSection.astro';
+import { routeHero } from '../../lib/images/routeImages';
 import RestaurantSectionList from './RestaurantSectionList.astro';
 
 interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('nerja.experience.food', currentLang);
 const shared = getNerjaDiningGuideFacts(currentLang);
 const copy = nerjaFoodPageContent[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja food');
@@ -41,6 +42,7 @@ const footerHighlights: LabeledLink[] = [
 
   <div data-am-page="nerja-food">
     <LocationExperienceHero
+      {...hero}
       topic="food"
       eyebrow={copy.hero.kicker}
       title={copy.hero.title}
@@ -52,9 +54,7 @@ const footerHighlights: LabeledLink[] = [
         updated: updated[currentLang],
         note: shared.planning.note
       } : undefined}
-    >
-      <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Chiringuito am Burriana-Strand, Espetos am Feuer" format="hochkant 3:4" light="mittags" />
-    </LocationExperienceHero>
+    />
 
     <AuthorityFeatureSection
       id="choose"

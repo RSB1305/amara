@@ -1,6 +1,5 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
-import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
@@ -17,12 +16,14 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import DayTripDestinationList from './DayTripDestinationList.astro';
+import { routeHero } from '../../lib/images/routeImages';
 import ExperienceRelatedSection from './ExperienceRelatedSection.astro';
 
 interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('nerja.experience.day-trips', currentLang);
 const shared = getAndalusiaDayTripFacts(currentLang);
 const copy = nerjaDayTripsPageContent[currentLang];
 const origin = nerjaDayTripOriginContext[currentLang];
@@ -57,13 +58,12 @@ const footerHighlights: LabeledLink[] = [
 
   <div data-am-page="nerja-day-trips">
     <LocationExperienceHero
+      {...hero}
       topic="day-trips"
       eyebrow={copy.hero.kicker}
       title={copy.hero.title}
       paragraphs={copy.hero.paragraphs}
-    >
-      <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Blick vom Balcón de Europa nach Osten zu den Klippen von Maro" format="hochkant 3:4" light="Tageslicht" />
-    </LocationExperienceHero>
+    />
 
     <AuthorityFeatureSection
       id="overview"

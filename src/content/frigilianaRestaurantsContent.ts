@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 export interface FrigilianaRestaurantSection {
   id: 'frigiliana' | 'special-nerja' | 'tapas-seafood' | 'acebuchal';
@@ -78,7 +79,7 @@ export const frigilianaRestaurantsSeo: AmaraAuthoringSeo = {
   version: '2026-08-27-frigiliana-restaurants-v1.1-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/hero-frigiliana.jpg',
+  ogImage: routeOgImage('frigiliana.experience.restaurants'),
   article: {
     datePublished: '2026-07-01',
     dateModified: '2026-08-27',

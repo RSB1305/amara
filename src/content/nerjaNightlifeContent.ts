@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 interface NightlifeArea {
   title: string;
@@ -145,7 +146,7 @@ export const nerjaNightlifeSeo: AmaraAuthoringSeo = {
   version: '2026-07-29-nerja-nightlife-v1.0-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-playa/apartment/chaparril-13.webp',
+  ogImage: routeOgImage('nerja.experience.nightlife'),
   languages: {
     en: {
       title: 'Nightlife in Nerja: Areas, Bars & Evening Guide',

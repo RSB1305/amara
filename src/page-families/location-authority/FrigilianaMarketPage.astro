@@ -16,6 +16,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import { routeHero } from '../../lib/images/routeImages';
 import GuideClosingSection from './GuideClosingSection.astro';
 
 interface Props {
@@ -26,6 +27,7 @@ type LocalizedRow = { readonly [K in AmaraLanguage]: string };
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.market', currentLang);
 const copy = frigilianaMarketCopy;
 
 function t(row: LocalizedRow): string {
@@ -83,11 +85,6 @@ const footerHighlights: LabeledLink[] = [
   }
 ];
 
-const heroImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/06-frigiliana-pueblo.jpg',
-  width: 2000
-};
-
 const ingenioImage = {
   src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/05-frigiliana-pueblo.jpg',
   width: 2000,
@@ -117,9 +114,7 @@ const ingenioImage = {
         eyebrow={t(copy.hero.eyebrow)}
         title={t(copy.hero.title)}
         paragraphs={[t(copy.hero.lead), t(copy.hero.body)]}
-        imageSrc={heroImage.src}
-        imageAlt={t(copy.hero.imageAlt)}
-        imageWidth={heroImage.width}
+        {...hero}
         actions={[
           { href: '#market-facts', label: t(copy.hero.primaryCta), style: 'primary' },
           { href: parkingHref, label: t(copy.hero.secondaryCta), style: 'secondary' }

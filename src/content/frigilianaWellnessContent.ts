@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 export interface FrigilianaWellnessPageCopy {
   cardLabels: {
@@ -15,7 +16,6 @@ export interface FrigilianaWellnessPageCopy {
     kicker: string;
     title: string;
     paragraphs: string[];
-    imageAlt: string;
   };
   sectionNav: {
     choose: string;
@@ -86,7 +86,7 @@ export const frigilianaWellnessSeo: AmaraAuthoringSeo = {
   version: '2026-07-29-frigiliana-wellness-v1.0-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/hero-frigiliana.jpg',
+  ogImage: routeOgImage('frigiliana.experience.wellness'),
   languages: {
     en: {
       title: 'Wellness & Spa in Frigiliana',
@@ -153,8 +153,6 @@ export const frigilianaWellnessContent: Record<
         'If you want to set aside a few hours for a treatment, there are two quite different options near Frigiliana.',
         'Frigiliana Wellness comes to your villa or apartment and offers a broader spa and beauty menu. Lidia receives guests for Californian massage at her countryside location near Frigiliana. Both are independent providers, and you book with them directly.'
       ],
-      imageAlt:
-        'Two guests on outdoor massage tables beneath a pergola with mountain views near Frigiliana'
     },
     sectionNav: {
       choose: 'Choose by location',
@@ -301,8 +299,6 @@ export const frigilianaWellnessContent: Record<
         'Wenn ihr ein paar Stunden für eine Anwendung reservieren möchtet, gibt es bei Frigiliana zwei recht unterschiedliche Möglichkeiten.',
         'Frigiliana Wellness kommt in eure Villa oder euer Apartment und bietet ein breiteres Spa- und Beauty-Angebot. Lidia empfängt Gäste zur kalifornischen Massage an ihrem Ort auf dem Land bei Frigiliana. Beide arbeiten unabhängig; ihr bucht direkt bei ihnen.'
       ],
-      imageAlt:
-        'Zwei Gäste auf Massageliegen im Freien unter einer Pergola mit Bergblick bei Frigiliana'
     },
     sectionNav: {
       choose: 'Nach Ort wählen',
@@ -449,8 +445,6 @@ export const frigilianaWellnessContent: Record<
         'Si queréis reservar unas horas para un tratamiento, hay dos opciones bastante distintas cerca de Frigiliana.',
         'Frigiliana Wellness se desplaza hasta vuestra villa o apartamento y ofrece una carta más amplia de spa y belleza. Lidia recibe para masaje californiano en su espacio rural cerca de Frigiliana. Ambos son proveedores independientes y se reserva directamente con ellos.'
       ],
-      imageAlt:
-        'Dos huéspedes en camillas de masaje al aire libre bajo una pérgola con vistas a la montaña cerca de Frigiliana'
     },
     sectionNav: {
       choose: 'Elegir por ubicación',
@@ -597,8 +591,6 @@ export const frigilianaWellnessContent: Record<
         'Als jullie een paar uur voor een behandeling willen reserveren, zijn er twee heel verschillende opties bij Frigiliana.',
         'Frigiliana Wellness komt naar jullie villa of appartement en biedt een breder spa- en beautymenu. Lidia ontvangt gasten voor Californische massage op haar landelijke locatie bij Frigiliana. Beide aanbieders zijn onafhankelijk; jullie boeken rechtstreeks bij hen.'
       ],
-      imageAlt:
-        'Twee gasten op massagetafels in de buitenlucht onder een pergola met bergzicht bij Frigiliana'
     },
     sectionNav: {
       choose: 'Kies op locatie',
@@ -745,8 +737,6 @@ export const frigilianaWellnessContent: Record<
         'Om ni vill avsätta några timmar för en behandling finns det två ganska olika alternativ nära Frigiliana.',
         'Frigiliana Wellness kommer till er villa eller lägenhet och erbjuder en bredare meny av spa- och skönhetsbehandlingar. Lidia tar emot för kalifornisk massage på sin plats på landsbygden nära Frigiliana. Båda är oberoende aktörer och ni bokar direkt med dem.'
       ],
-      imageAlt:
-        'Två gäster på massagebänkar utomhus under en pergola med utsikt över bergen nära Frigiliana'
     },
     sectionNav: {
       choose: 'Välj efter plats',

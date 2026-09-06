@@ -20,6 +20,7 @@ import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import { requireRouteImage } from '../../lib/images/routeImages';
 
 interface Props {
   guide: TarifaGuideId;
@@ -156,13 +157,6 @@ const ui = {
     nl: 'Woonruimte van AMARA Family & Surf in Tarifa',
     sv: 'Vardagsrum på AMARA Family & Surf i Tarifa'
   },
-  beachesImageAlt: {
-    en: 'View from AMARA over Tarifa toward the Atlantic coast',
-    de: 'Blick von AMARA über Tarifa zur Atlantikküste',
-    es: 'Vista desde AMARA sobre Tarifa hacia la costa atlántica',
-    nl: 'Uitzicht vanaf AMARA over Tarifa richting de Atlantische kust',
-    sv: 'Utsikt från AMARA över Tarifa mot Atlantkusten'
-  },
   windImageAlt: {
     en: 'Tarifa Surf Club team together at the beach in Tarifa',
     de: 'Das Team des Tarifa Surf Club gemeinsam am Strand von Tarifa',
@@ -173,11 +167,7 @@ const ui = {
 } satisfies Record<string, LocalizedText>;
 
 const topicHeroMedia = content.id === 'beaches'
-  ? {
-      src: '/images/amara-tarifa/amara-tarifa-apartment23.webp',
-      alt: t(ui.beachesImageAlt),
-      width: 1600
-    }
+  ? requireRouteImage('tarifa.experience.beaches', 'hero', currentLang)
   : content.id === 'wind'
     ? {
         src: tarifaSurfClubTeamImage,

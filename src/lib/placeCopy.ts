@@ -63,7 +63,6 @@ export interface PublicDayTripCopy {
 export interface PublicWellnessCopy {
   kind: 'wellness';
   name: LocalizedText;
-  imageAlt?: LocalizedText;
   title: LocalizedText;
   summary: LocalizedText;
   highlights: readonly { title: LocalizedText; text: LocalizedText }[];

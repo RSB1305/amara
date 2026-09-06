@@ -1,6 +1,5 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
-import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
 import AmaraStatusBadge from '../../components/chips/AmaraStatusBadge.astro';
@@ -16,6 +15,7 @@ import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
+import { routeHero } from '../../lib/images/routeImages';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
 
 interface Props {
@@ -24,6 +24,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.festivals', currentLang);
 const copy = frigilianaFestivalsContent[currentLang];
 
 const footerHighlights: LabeledLink[] = [
@@ -68,13 +69,12 @@ const combineItems = copy.combine.items.map((item) => ({
   <div data-am-page="frigiliana-festivals">
     <div class="w-full">
       <LocationExperienceHero
+        {...hero}
         topic="festivals"
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-      >
-        <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Festival de las 3 Culturas: Gasse mit Fahnen, Ständen und Menschen" format="hochkant 3:4" light="abends" />
-      </LocationExperienceHero>
+      />
 
       <AuthorityFeatureSection
         id="choose"

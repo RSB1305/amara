@@ -1,4 +1,5 @@
 import type { LocalizedText } from '../types/content';
+import { routeOgImage } from '../lib/images/routeImages';
 import type { AmaraAuthoringSeo } from '../types/seo';
 
 
@@ -21,7 +22,7 @@ export const frigilianaMarketSeo: AmaraAuthoringSeo = {
   version: '2026-07-27-frigiliana-market-v1.0-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/06-frigiliana-pueblo.jpg',
+  ogImage: routeOgImage('frigiliana.experience.market'),
   languages: {
     en: {
       title: 'Frigiliana Market: Day, Time & What to Expect',
@@ -122,13 +123,6 @@ export const frigilianaMarketCopy = {
       'Plan parkeren',
       'Planera parkering'
     ),
-    imageAlt: l(
-      'Whitewashed lanes in Frigiliana near the historic quarter',
-      'Weiße Gassen in Frigiliana nahe der Altstadt',
-      'Calles blancas de Frigiliana cerca del casco histórico',
-      'Witte straatjes in Frigiliana bij de oude kern',
-      'Vitkalkade gränder i Frigiliana nära gamla stan'
-    )
   },
   facts: {
     title: l(

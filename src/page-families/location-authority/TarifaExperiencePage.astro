@@ -26,8 +26,8 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import heroImage from '../../assets/images/content/tarifa/IMG_8742.jpg';
 import panoramaImage from '../../assets/images/content/tarifa/_DCS9465_Sebastian_Lang.jpg';
+import { routeHero } from '../../lib/images/routeImages';
 import oldTownImage from '../../assets/images/content/tarifa/IMG_9004.jpg';
 
 interface Props {
@@ -36,6 +36,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('tarifa.experience', currentLang);
 const copy = resolveLocale(tarifaExperienceContent, currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa Experience');
 const dayTopics = copy.dayChooser.days.map((day) => ({
@@ -81,9 +82,7 @@ const footerHighlights: LabeledLink[] = [
       eyebrow={`Tarifa · ${copy.navLabel}`}
       title={copy.hero.title}
       paragraphs={copy.hero.lead}
-      imageSrc={heroImage}
-      imageAlt={copy.hero.imageAlt}
-      imageWidth={1080}
+      {...hero}
     />
 
     <!-- The page job first: six ways into Tarifa, each routing to its spoke. -->

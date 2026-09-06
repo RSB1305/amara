@@ -3,6 +3,7 @@ import type { LocalizedText, LocalizedTextList, Resolved } from '../types/conten
 import { resolveLocale } from '../types/content';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import { stayCollectionLabels } from './stayCollectionLabels';
+import { routeOgImage } from '../lib/images/routeImages';
 
 const text = (
   en: string,
@@ -203,7 +204,7 @@ export const frigilianaHikingSeo: AmaraAuthoringSeo = {
   version: '2026-08-27-frigiliana-hiking-v2.2',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/hero-frigiliana.jpg',
+  ogImage: routeOgImage('frigiliana.experience.hiking'),
   languages: {
     en: {
       title: 'Hiking in Frigiliana: 4 routes & current advice',

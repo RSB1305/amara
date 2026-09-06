@@ -10,7 +10,6 @@ export interface FrigilianaDosTumbasPageCopy {
     kicker: string;
     title: string;
     paragraphs: string[];
-    imageAlt: string;
   };
   trailer: {
     label: string;
@@ -130,7 +129,6 @@ export const frigilianaDosTumbasContent: Record<
         'This guide is not a plot summary. It is a practical companion for guests who are already staying in the village and want to recognise the streets, squares and coastline that appear on screen.',
         'Production coverage confirms the crew filmed in the old town in 2024, including scenes shot during the real Feria de San Antonio, and along the coast between Nerja and Torrox. Exact shot-by-shot locations have not been officially published, so treat the details below as a well-sourced orientation, not a scene-by-scene map.'
       ],
-      imageAlt: 'Whitewashed lanes of Frigiliana’s old town in afternoon light'
     },
     trailer: {
       label: 'Official trailer',
@@ -234,7 +232,6 @@ export const frigilianaDosTumbasContent: Record<
         'Dieser Guide ist keine Inhaltsangabe. Er richtet sich an Gäste, die bereits im Dorf wohnen und die Gassen, Plätze und die Küste wiedererkennen möchten, die im Bild zu sehen sind.',
         'Berichte über die Produktion bestätigen Dreharbeiten 2024 in der Altstadt, teilweise während der echten Feria de San Antonio, sowie an der Küste zwischen Nerja und Torrox. Einzelne Einstellungsorte wurden nicht offiziell veröffentlicht — die folgenden Angaben sind daher eine gut belegte Orientierung, keine Szene-für-Szene-Karte.'
       ],
-      imageAlt: 'Weiße Gassen der Altstadt von Frigiliana im Nachmittagslicht'
     },
     trailer: {
       label: 'Offizieller Trailer',
@@ -338,7 +335,6 @@ export const frigilianaDosTumbasContent: Record<
         'Esta guía no es un resumen del argumento. Es un acompañante práctico para quienes ya se alojan en el pueblo y quieren reconocer las calles, plazas y la costa que aparecen en la serie.',
         'La cobertura de la producción confirma rodaje en el casco antiguo en 2024, incluidas escenas durante la Feria de San Antonio real, y a lo largo de la costa entre Nerja y Torrox. No se han publicado localizaciones oficiales plano a plano, así que tomad lo que sigue como una orientación bien documentada, no como un mapa exacto.'
       ],
-      imageAlt: 'Callejuelas encaladas del casco antiguo de Frigiliana por la tarde'
     },
     trailer: {
       label: 'Tráiler oficial',
@@ -442,7 +438,6 @@ export const frigilianaDosTumbasContent: Record<
         'Deze gids is geen verhaalsamenvatting. Het is een praktisch hulpmiddel voor gasten die al in het dorp verblijven en de straten, pleintjes en kustlijn willen herkennen die in beeld komen.',
         'Berichtgeving over de productie bevestigt opnames in de oude kern in 2024, waaronder tijdens de echte Feria de San Antonio, en langs de kust tussen Nerja en Torrox. Exacte locaties per scène zijn niet officieel gepubliceerd — zie onderstaande details dus als een goed onderbouwde oriëntatie, geen scène-voor-scène kaart.'
       ],
-      imageAlt: 'Witte straatjes van Frigiliana’s oude kern in het middaglicht'
     },
     trailer: {
       label: 'Officiële trailer',
@@ -546,7 +541,6 @@ export const frigilianaDosTumbasContent: Record<
         'Den här guiden är ingen handlingssammanfattning. Den är en praktisk följeslagare för gäster som redan bor i byn och vill känna igen gator, torg och kustlinjen som syns i serien.',
         'Rapportering om inspelningen bekräftar att teamet filmade i gamla stan under 2024, bland annat under den verkliga Feria de San Antonio, samt längs kusten mellan Nerja och Torrox. Exakta platser scen för scen har inte publicerats officiellt — se därför detaljerna nedan som en väl underbyggd orientering, inte en exakt karta.'
       ],
-      imageAlt: 'Vitkalkade gränder i Frigilianas gamla stad i eftermiddagsljus'
     },
     trailer: {
       label: 'Officiell trailer',

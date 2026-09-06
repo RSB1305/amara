@@ -13,6 +13,7 @@ import { experienceStayBridge } from '../../content/experienceStayBridgeContent'
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import { routeHero } from '../../lib/images/routeImages';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -21,6 +22,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('nerja.experience', currentLang);
 const copy = resolveLocale(nerjaExperienceHubContent, currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja experience hub');
 
@@ -68,9 +70,7 @@ const footerHighlights: LabeledLink[] = [
       eyebrow={copy.hero.eyebrow}
       title={copy.hero.title}
       paragraphs={[copy.hero.standfirst]}
-      imageSrc="/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg"
-      imageAlt={copy.hero.imageAlt}
-      imageWidth={2000}
+      {...hero}
       actions={[
         { href: '#experiences', label: copy.intro.eyebrow, style: 'primary' }
       ]}

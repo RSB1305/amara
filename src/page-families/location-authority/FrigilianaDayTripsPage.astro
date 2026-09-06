@@ -1,6 +1,5 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
-import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
@@ -16,6 +15,7 @@ import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import DayTripDestinationList from './DayTripDestinationList.astro';
 import { publicDayTrip } from '../../lib/placeProjection';
+import { routeHero } from '../../lib/images/routeImages';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
 
 interface Props {
@@ -24,6 +24,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.day-trips', currentLang);
 const copy = frigilianaDayTripsContent[currentLang];
 
 const footerHighlights: LabeledLink[] = [
@@ -70,13 +71,12 @@ const combineItems = copy.combine.items.map((item) => ({
   <div data-am-page="frigiliana-day-trips">
     <div class="w-full">
       <LocationExperienceHero
+        {...hero}
         topic="day-trips"
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-      >
-        <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Caminito del Rey auf dem Steg oder die Alhambra vom Albaicín aus" format="hochkant 3:4" light="Tageslicht" />
-      </LocationExperienceHero>
+      />
 
       <AuthorityFeatureSection
         id="overview"

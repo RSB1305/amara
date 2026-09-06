@@ -15,6 +15,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
+import { placeImage, routeHero } from '../../lib/images/routeImages';
 import { publicWellnessProvider } from '../../lib/placeProjection';
 
 interface Props {
@@ -23,6 +24,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.wellness', currentLang);
 const copy = frigilianaWellnessContent[currentLang];
 
 const footerHighlights: LabeledLink[] = [
@@ -46,16 +48,6 @@ const combineItems = copy.combine.items.map((item) => ({
     suppressMissing: true
   })
 }));
-
-const heroImage = {
-  src: '/images/wellness/frigiliana-wellness-2.jpeg',
-  width: 1512
-};
-
-const providerImages: Record<string, string> = {
-  'frigiliana.wellness.frigiliana-wellness': '/images/wellness/frigiliana-wellness-1.jpeg',
-  'frigiliana.wellness.lidia-california-massage': '/images/wellness/masaje_californiano-1.webp'
-};
 
 const providers = copy.providers.providerIds.map((id) => publicWellnessProvider(id, currentLang));
 ---
@@ -82,9 +74,7 @@ const providers = copy.providers.providerIds.map((id) => publicWellnessProvider(
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-        imageSrc={heroImage.src}
-        imageAlt={copy.hero.imageAlt}
-        imageWidth={heroImage.width}
+        {...hero}
       />
 
       <AuthorityFeatureSection
@@ -112,7 +102,7 @@ const providers = copy.providers.providerIds.map((id) => publicWellnessProvider(
           {
             providers.map((provider) => {
               const titleId = `provider-${provider.id.replace(/[^a-z0-9]+/g, '-')}`;
-              const imageSrc = providerImages[provider.id];
+              const image = placeImage(provider.id, currentLang);
 
               return (
                 <article
@@ -120,11 +110,11 @@ const providers = copy.providers.providerIds.map((id) => publicWellnessProvider(
                   aria-labelledby={titleId}
                 >
                   {
-                    imageSrc && provider.imageAlt && (
+                    image && (
                       <div class="mb-8 overflow-hidden bg-surface-container-low">
                         <AmaraImage
-                          src={imageSrc}
-                          alt={provider.imageAlt}
+                          src={image.src}
+                          alt={image.alt}
                           profile="card"
                           width={720}
                           widths={[360, 480, 720]}

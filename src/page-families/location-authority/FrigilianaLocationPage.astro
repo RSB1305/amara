@@ -7,7 +7,6 @@ import Navigation from '../../components/Navigation.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import decisionImage from '../../assets/images/content/amara-lounis/15-amara-frigiliana.jpg';
 import {
-  frigilianaLocationHeroImageAlt,
   frigilianaLocationSeo,
   getFrigilianaLocationCopy
 } from '../../content/frigilianaLocationContent';
@@ -18,6 +17,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import LocationModule from './LocationModule.astro';
 import LocationStaySplitSection from './LocationStaySplitSection.astro';
+import { routeHeroImage } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -143,12 +143,7 @@ const experienceAltById = {
   beaches: imageAlt.beaches
 } as const;
 
-const heroImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
-  alt: frigilianaLocationHeroImageAlt[currentLang],
-  width: 2000,
-  sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 35vw'
-};
+const hero = routeHeroImage('frigiliana', currentLang);
 
 const editorialImages = {
   evening:
@@ -197,10 +192,7 @@ const casaFacts = [
           subtitle={c.h1Subtitle}
           paragraphs={c.intro}
           accent={c.introPullLine}
-          imageSrc={heroImage.src}
-          imageAlt={heroImage.alt}
-          imageWidth={heroImage.width}
-          imageSizes={heroImage.sizes}
+          {...hero}
           byline={frigilianaLocationSeo.article && aboutHref ? {
             lang: currentLang,
             authorName: frigilianaLocationSeo.article.authorName,

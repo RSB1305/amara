@@ -1,6 +1,5 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
-import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
@@ -18,6 +17,7 @@ import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import BeachPracticalSection from './BeachPracticalSection.astro';
 import BeachSectionList from './BeachSectionList.astro';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
+import { routeHero } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -25,6 +25,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.beaches', currentLang);
 const copy = frigilianaBeachesContent[currentLang];
 
 const footerHighlights: LabeledLink[] = [
@@ -76,13 +77,12 @@ const baseDecisionHref = resolveOptionalLink(
   <div data-am-page="frigiliana-beaches">
     <div class="w-full">
       <LocationExperienceHero
+        {...hero}
         topic="beaches"
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-      >
-        <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Playa de Burriana oder Playa de Maro von oben, mit Wasser und Klippen" format="hochkant 3:4" light="vormittags" />
-      </LocationExperienceHero>
+      />
 
       <AuthorityFeatureSection
         id="coast"

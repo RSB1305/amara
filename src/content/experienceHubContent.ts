@@ -1,6 +1,7 @@
 import { MARKET_CURATED } from '../types/content';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import { stayCollectionLabels } from './stayCollectionLabels';
+import { routeOgImage } from '../lib/images/routeImages';
 
 export type ExperienceId =
   | 'hiking'
@@ -57,7 +58,6 @@ interface ExperienceHubPageCopy {
     kicker: string;
     title: string;
     paragraphs: string[];
-    imageAlt: string;
     exploreCta: string;
   };
   sectionNav: {
@@ -305,7 +305,7 @@ export const experienceHubSeo: AmaraAuthoringSeo = {
   version: '2026-08-29-frigiliana-experience-hub-v2.1-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/hero-frigiliana.jpg',
+  ogImage: routeOgImage('frigiliana.experience'),
   languages: {
     en: {
       title: 'Things to Do in Frigiliana',
@@ -364,8 +364,6 @@ export const experienceHubContent: Record<
       paragraphs: [
         'At Casa AMARA, the day begins in the middle of Frigiliana. Pick up bread, wander through the old lanes, walk into the hills or head down to Nerja for the beach. In the evening, you can eat in the village and simply walk home. There is no programme to complete — every day can be different.'
       ],
-      imageAlt:
-        'A whitewashed street in Frigiliana opening towards the surrounding hills',
       exploreCta: 'See how the day could unfold'
     },
     sectionNav: {
@@ -532,8 +530,6 @@ export const experienceHubContent: Record<
       paragraphs: [
         'Bei Casa AMARA beginnt der Tag mitten in Frigiliana. Ihr holt morgens Brot, lauft durch die alten Gassen, startet in die Berge oder fahrt für einen Strandtag hinunter nach Nerja. Abends könnt ihr im Dorf essen gehen und danach einfach nach Hause laufen. Es gibt kein Programm, das ihr abhaken müsst – macht das, was an diesem Tag zu euch passt.'
       ],
-      imageAlt:
-        'Weiße Gasse in Frigiliana mit Blick auf die umliegenden Berge',
       exploreCta: 'So könnte euer Tag aussehen'
     },
     sectionNav: {
@@ -699,8 +695,6 @@ export const experienceHubContent: Record<
       paragraphs: [
         'En Casa AMARA el día empieza en pleno Frigiliana. Podéis comprar pan, pasear por las calles antiguas, salir a la montaña o bajar a Nerja para pasar el día en la playa. Por la noche cenáis en el pueblo y volvéis a casa andando. No hay ningún programa que completar: cada día puede ser distinto.'
       ],
-      imageAlt:
-        'Calle blanca de Frigiliana abierta hacia las montañas cercanas',
       exploreCta: 'Así podría ser vuestro día'
     },
     sectionNav: {
@@ -866,8 +860,6 @@ export const experienceHubContent: Record<
       paragraphs: [
         'Bij Casa AMARA begint de dag midden in Frigiliana. Haal brood, wandel door de oude straatjes, trek de heuvels in of ga naar Nerja voor een stranddag. ’s Avonds eten jullie in het dorp en lopen daarna gewoon naar huis. Er is geen programma om af te werken: elke dag mag anders zijn.'
       ],
-      imageAlt:
-        'Witte straat in Frigiliana met uitzicht richting de bergen',
       exploreCta: 'Zo kan jullie dag eruitzien'
     },
     sectionNav: {
@@ -1033,8 +1025,6 @@ export const experienceHubContent: Record<
       paragraphs: [
         'På Casa AMARA börjar dagen mitt i Frigiliana. Hämta bröd, promenera genom de gamla gränderna, ge er ut i bergen eller åk till Nerja för en stranddag. På kvällen äter ni i byn och går sedan bara hem. Det finns inget program att hinna med – varje dag får se olika ut.'
       ],
-      imageAlt:
-        'Vitkalkad gata i Frigiliana med utsikt mot bergen',
       exploreCta: 'Så kan er dag se ut'
     },
     sectionNav: {

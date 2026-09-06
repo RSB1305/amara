@@ -35,7 +35,8 @@ const {
   topic
 } = Astro.props;
 
-const hasVisualSlot = Astro.slots.has('visual');
+const visualHtml = Astro.slots.has('visual') ? ((await Astro.slots.render('visual')) ?? '') : '';
+const hasVisualSlot = visualHtml.trim().length > 0;
 
 if (!hasVisualSlot && (!imageSrc || !imageAlt)) {
   throw new Error('[AMARA] LocationTopicHero requires either an image or a visual slot.');
@@ -55,7 +56,7 @@ if (!hasVisualSlot && (!imageSrc || !imageAlt)) {
   role="spoke"
   topic={topic}
 >
-  {hasVisualSlot && <div slot="visual" class="h-full"><slot name="visual" /></div>}
+  {hasVisualSlot && <div slot="visual" class="h-full"><Fragment set:html={visualHtml} /></div>}
   {byline && <EditorialByline slot="meta" {...byline} />}
   {actions.length > 0 && (
     <div slot="actions" class="flex flex-wrap gap-4">

@@ -147,7 +147,6 @@ export function publicDayTrip(id: string, lang: AmaraLanguage): PublicDayTrip {
 export interface PublicWellnessProvider {
   id: string;
   name: string;
-  imageAlt?: string;
   title: string;
   summary: string;
   highlights: { title: string; text: string }[];
@@ -163,7 +162,6 @@ export function publicWellnessProvider(id: string, lang: AmaraLanguage): PublicW
   return {
     id,
     name: copy.name[lang],
-    imageAlt: copy.imageAlt?.[lang],
     title: copy.title[lang],
     summary: copy.summary[lang],
     highlights: copy.highlights.map((highlight) => ({ title: highlight.title[lang], text: highlight.text[lang] })),

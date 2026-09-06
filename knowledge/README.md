@@ -1,10 +1,10 @@
 ---
 document_id: AMARA-KNOWLEDGE-OPS-001
 title: AMARA Research and Knowledge Workflow
-version: 1.7.0
+version: 1.8.0
 status: ACTIVE
 created_at: 2026-08-21T11:26:50+02:00
-last_modified: 2026-09-06T15:30:00+02:00
+last_modified: 2026-09-06T17:00:00+02:00
 ---
 
 # AMARA Research and Knowledge Workflow
@@ -55,6 +55,7 @@ The Drive root is [AMARA – Research Vault](https://drive.google.com/drive/fold
 - `00_INBOX` receives new timestamped research runs that are not yet normalized.
 - `10_LOCATIONS` mirrors the public route hierarchy in `src/lib/publicRouteManifest.mjs`: one durable folder per destination, each holding its topic folders (`geography`, `parking`, `where-to-stay`, `weather`, `winter`, `supermarkets`, `health`, …) plus an `experiences/` subtree with a `_hub` and every experience topic; Tarifa's `experiences/kitesurfing/` carries the full kitesurf cluster. Folder names are the stable English route-key segment, not the localized path and not the pre-migration flat slug.
 - `20_PROPERTIES` holds one folder per branded stay plus a `_collections` folder for the stays-hub topics.
+- Photographs follow the same address: the originals of a route key (camera files, RAW, full-size exports) go into a `photos/` folder inside that route key's topic folder, for example `10_LOCATIONS/frigiliana/experiences/hiking/photos/`, never into the repository. The repository keeps only web-ready derivatives under `src/assets/images/content/`, and the image source of the route key (`src/content/images/<route-key>.ts`, DR-DESIGN-021) names the derivative, its role, alt text, credit and date. Paths that are already published stay where they are; only new photographs use the route-key folder.
 - `30_BRAND` holds brand, trust and company evidence (about, guest-reviews, direct-booking, amenities, amara-experience, booking-terms).
 - `40_SHARED` holds cross-destination and market evidence (`markets`, `methodology`) and retired page intake such as `*-practical-local-rules`.
 - `90_ARCHIVE` receives only superseded or replaced raw runs, without changing their folder IDs.
@@ -179,3 +180,4 @@ A page can become shorter or change layout without reducing its knowledge base. 
 | 2026-09-05T22:00:00+02:00 | 1.6.0 | Added recommendation records to the schema and `recommendations/`: 57 approved carry-over records for Frigiliana and Nerja restaurants, breakfast, beaches and hikes, each owning its map link, address, contact, distance from the stay and dated operating note; the Guest Guide cards reference them by `recommendationId`. |
 | 2026-09-05T23:30:00+02:00 | 1.6.1 | Migrated the remaining Guest Guide pages: 127 further carry-over records (Tarifa food and drink, nightlife, beaches, activities, sightseeing, kitesurfing and essentials; Frigiliana and Nerja sightseeing, day trips, wellness, adventure, nightlife and essentials), 184 in total. A card that lists several places references them through `recommendationIds` and renders a place list; providers and services (taxis, health centre, tourist office, car hire, laundries, cash machines, supermarkets) are records of kind `service`, `provider` or `shop`. |
 | 2026-09-06T15:30:00+02:00 | 1.7.0 | Recorded the place-copy layer as the projection model for places: one entry per record id with both projections, projections in code, record ids in the public content, `recordId` declarations on Tarifa's editorial sections. |
+| 2026-09-06T17:00:00+02:00 | 1.8.0 | Added the photo convention: originals in the `photos/` folder of the route key on Drive, web derivatives in the repository, named by the route key's image source (DR-DESIGN-021). |

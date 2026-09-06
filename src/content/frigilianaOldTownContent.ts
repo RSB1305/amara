@@ -142,13 +142,6 @@ export const frigilianaOldTownCopy = {
         'Där den populära och den dokumenterade versionen av historien skiljer sig åt säger vi det. Oftast blir byn mer intressant av det, inte mindre.'
       )
     ],
-    imageAlt: l(
-      'Whitewashed lanes and stepped streets in Frigiliana’s historic centre',
-      'Weiße Gassen und Treppenwege im historischen Zentrum von Frigiliana',
-      'Calles encaladas y escalonadas del casco histórico de Frigiliana',
-      'Witte straatjes en trappen in de historische kern van Frigiliana',
-      'Vitkalkade gränder och trappgator i Frigilianas historiska kärna'
-    )
   },
   sights: {
     title: l(

@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 export interface FrigilianaDayTripsPageCopy {
   footerHighlights: {
@@ -65,7 +66,7 @@ export const frigilianaDayTripsSeo: AmaraAuthoringSeo = {
   version: '2026-07-29-frigiliana-day-trips-v1.0-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/hero-frigiliana.jpg',
+  ogImage: routeOgImage('frigiliana.experience.day-trips'),
   languages: {
     en: {
       title: 'Day Trips from Frigiliana: Málaga, Granada & Ronda',

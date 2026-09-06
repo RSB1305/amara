@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 import { stayCollectionLabels } from './stayCollectionLabels';
 
 export interface FrigilianaBeachSection {
@@ -102,7 +103,7 @@ export const frigilianaBeachesSeo: AmaraAuthoringSeo = {
   version: '2026-08-27-frigiliana-beaches-v1.1-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-playa/apartment/chaparril-22.webp',
+  ogImage: routeOgImage('frigiliana.experience.beaches'),
   languages: {
     en: {
       title: 'Beaches near Frigiliana & Nerja: Coastal Guide',

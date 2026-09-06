@@ -1,6 +1,7 @@
 import type { LinkToken } from '../lib/linkResolver';
 import type { LocalizedText, LocalizedTextList } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 /** One authored string in the five AMARA locales, in EN, DE, ES, NL, SV order. */
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
@@ -59,7 +60,6 @@ export interface TarifaExperiencePageCopy {
   hero: {
     title: string;
     lead: string[];
-    imageAlt: string;
   };
   /** Alt texts and captions of the hub photography (Tarifa art direction). */
   media: {
@@ -93,7 +93,7 @@ export const tarifaExperienceSeo: AmaraAuthoringSeo = {
   version: '2026-08-12-tarifa-experience-v1.0',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-tarifa/amara-tarifa-apartment10.webp',
+  ogImage: routeOgImage('tarifa.experience'),
   languages: {
     en: {
       title: 'Things to Do in Tarifa: Beaches, Kitesurfing & Nature',
@@ -141,7 +141,6 @@ export const tarifaExperienceContent = {
     lead: [
       l("Tarifa days rarely need much planning. From AMARA Family & Surf, walk to Los Lances, wait for the wind or stay by the water, then head into the Old Town for dinner. Bolonia fills a whole day; the Strait brings viewpoints, migrating birds and boat trips when conditions are right. With only two or three nights, the beach, Old Town and one outing are plenty. If you stay longer, leave a day open — the wind often makes the decision for you.", "In Tarifa müsst ihr nicht viel vorausplanen. Von AMARA Family & Surf lauft ihr zu Los Lances, wartet auf Wind oder bleibt einfach am Wasser und geht abends in die Altstadt essen. Bolonia füllt einen ganzen Tag; an der Meerenge kommen Aussichtspunkte, Zugvögel und bei passenden Bedingungen Bootsausflüge dazu. Bei zwei oder drei Nächten reichen Strand, Altstadt und ein Ausflug völlig aus. Wenn ihr länger bleibt, lasst einen Tag frei – oft entscheidet der Wind für euch.", "En Tarifa no hace falta planificar demasiado. Desde AMARA Family & Surf podéis ir andando a Los Lances, esperar el viento o quedaros junto al agua y cenar después en el casco antiguo. Bolonia ocupa un día entero; el Estrecho ofrece miradores, aves migratorias y salidas en barco cuando las condiciones acompañan. Con dos o tres noches bastan la playa, el casco antiguo y una excursión. Si os quedáis más tiempo, dejad un día libre: muchas veces decide el viento.", "In Tarifa hoeven jullie weinig vooruit te plannen. Vanuit AMARA Family & Surf lopen jullie naar Los Lances, wachten op de wind of blijven aan het water en gaan ’s avonds in de oude stad eten. Bolonia vult een hele dag; rond de Straat zijn er uitzichtpunten, trekvogels en boottochten als de omstandigheden goed zijn. Bij twee of drie nachten zijn het strand, de oude stad en één uitstapje genoeg. Blijven jullie langer, laat dan een dag open — vaak beslist de wind.", "I Tarifa behöver ni sällan planera särskilt mycket. Från AMARA Family & Surf går ni till Los Lances, väntar på vinden eller stannar vid vattnet och äter sedan middag i gamla stan. Bolonia fyller en hel dag; vid sundet finns utsiktsplatser, flyttfåglar och båtturer när förhållandena är rätt. Under två eller tre nätter räcker stranden, gamla stan och en utflykt. Stannar ni längre kan en dag vara öppen – ofta avgör vinden.")
     ],
-    imageAlt: l("Two friends with a board under a palm tree at Los Lances beach, Tarifa", "Zwei Freunde mit Board unter einer Palme am Strand von Los Lances, Tarifa", "Dos amigos con una tabla bajo una palmera en la playa de Los Lances, Tarifa", "Twee vrienden met een board onder een palmboom op het strand van Los Lances, Tarifa", "Två vänner med en bräda under en palm på stranden Los Lances, Tarifa")
   },
   media: {
     panoramaAlt: l("Yellow kite over the beach at Los Lances, Tarifa", "Gelber Kite über dem Strand von Los Lances, Tarifa", "Cometa amarilla sobre la playa de Los Lances, Tarifa", "Gele kite boven het strand van Los Lances, Tarifa", "Gul kite över stranden Los Lances, Tarifa"),
