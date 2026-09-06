@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.79.0
+version: 1.80.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-06T22:30:00+02:00
+last_modified: 2026-09-06T23:30:00+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -218,6 +218,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-09-06T23:30:00+02:00 | Guest Guide: exclusive places visible; Stage 3 worksheet | Inside the guide, a place whose record is `amara-experience` now carries the label "Guest Guide only" (five languages) and comes first within its category; a data-backed line under the intro says how many addresses the page holds and how many exist only here (`src/lib/guestGuideExclusive.ts`, contract test `guestGuideExclusive.test.ts`). Generated the Stage 3 worksheet `knowledge/open-questions/gaesteguide-stufe-3-arbeitsbogen.md` (120 linked places on 15 guide pages, 12 with a first-hand sentence today) for the operator to fill with reservation lines, on-the-day notes, plan B and dated notes; answers go into the guide fields of the place copy only. Register 1.80.0. | DR-GUEST-006, DR-GUEST-005, DR-EXPERIENCE-004 | local |
 | 2026-09-06T22:30:00+02:00 | Image source: Guest Guide photographs | Extended the image source to the Guest Guide: the six accommodation hubs (`guestwelcome-*`) own their hero photograph, the coffee-machine figure belongs to `guesthome-frigiliana-farah` and the three induction-hob figures to `guesthome-frigiliana-lounis`; the shared guide items reference them through `routeImageFigure` / `routeImageFigures`, and the hub entries read `heroImage` and `heroAlt` from the source. New role `utility` for device figures, every guide entry marked `surfaces: ['guide']`; `routeImages.test.ts` accepts Guest Guide page keys and requires the guide-only mark on them. Register 1.79.0. | DR-DESIGN-021, DR-GUEST-006, DR-DESIGN-010 | local |
 | 2026-09-06T21:30:00+02:00 | Image source: campaign pages; home folder retired | Added the image source for the stays hub (six cards), honeymoon and wedding anniversary (hero and choice photograph), Casa AMARA groups (hero, four cards, connection, house), Frigiliana weddings (hero, village, house, prepare) and the Tarifa where-to-stay photograph, which the unrouted overview and wind branches of the Tarifa guide page share. The alt texts moved out of six content files into the entries; the honeymoon and anniversary pages take their Open Graph image from the source as a stable public path instead of a hashed build asset. The seven duplicate files under `src/assets/images/home` are deleted after their last importers (campaign pages, two design-lab tools, `stayCardImages`) moved to the content root. Noted for the operator: the Zaid card on the stays hub shows `amara-lounis/17-amara-frigiliana.jpg` under Zaid's alt text, unchanged from before. Register 1.78.0. | DR-DESIGN-021, DR-DESIGN-010 | local |
 | 2026-09-06T20:30:00+02:00 | Image source: stay galleries and card photographs | Added the image source for the six stay routes: 131 gallery photographs with their alt texts in five languages (composed once from the former subject vocabulary and the stay name) and the card photograph with the stay's identifying alt. `vacationRentalEntities` now reads `images` and `imageAlt` from the source, so the rental page, the listing cards, the stays hub and the VacationRental JSON-LD share one order; `stayCardImageByToken` resolves to the source's card path instead of duplicate files under `src/assets/images/home`; `vacationRentalImageAlts.ts` is retired. The contract test requires a card and at least eight stable gallery paths per stay. Register 1.77.0. | DR-DESIGN-021, DR-DESIGN-010 | local |
