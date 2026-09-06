@@ -25,6 +25,16 @@ export interface PropertySaleUseCase {
   copy: string;
 }
 
+export interface PropertySaleRestorationPoint {
+  title: string;
+  copy: string;
+}
+
+export interface PropertySaleAmenityGroup {
+  title: string;
+  items: string[];
+}
+
 export interface PropertySaleLocalizedContent {
   navigation: {
     brandName: string;
@@ -50,6 +60,20 @@ export interface PropertySaleLocalizedContent {
     imageAlt: string;
     details: PropertySalePositionDetail[];
   };
+  restoration: {
+    kicker: string;
+    title: string;
+    paragraphs: string[];
+    imageAlt: string;
+    points: PropertySaleRestorationPoint[];
+  };
+  amenities: {
+    kicker: string;
+    title: string;
+    intro: string;
+    imageAlt: string;
+    groups: PropertySaleAmenityGroup[];
+  };
   units: {
     kicker: string;
     title: string;
@@ -63,6 +87,15 @@ export interface PropertySaleLocalizedContent {
     intro: string;
     items: PropertySaleUseCase[];
     requirements: string;
+  };
+  operation: {
+    kicker: string;
+    title: string;
+    paragraphs: string[];
+    handoverTitle: string;
+    handoverIntro: string;
+    handoverItems: string[];
+    handoverNotice: string;
   };
   enquiry: {
     kicker: string;
@@ -81,7 +114,9 @@ export interface PropertySaleLocalizedContent {
 
 export const propertySaleImages = {
   hero: '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza.jpg',
-  position: '/images/amara-maha/30-amara-frigiliana.jpg'
+  position: '/images/amara-maha/30-amara-frigiliana.jpg',
+  restoration: '/images/amara-maha/42-amara-frigiliana.jpg',
+  amenities: '/images/amara-zaid/cara-rural-frigiliana-amara-said-bano.jpg'
 } as const;
 
 export const propertySaleSeo: AmaraAuthoringSeo = {
@@ -92,35 +127,35 @@ export const propertySaleSeo: AmaraAuthoringSeo = {
     en: {
       title: 'Historic Boutique Property for Sale in Frigiliana | AMARA',
       description:
-        'Discover Casa AMARA, a complete historic property in Frigiliana with direct car access, three terraces, open views and an established hospitality operation.',
+        'Casa AMARA: a complete historic property in Frigiliana, carefully restored and renovated in 2020–2022, with three terraces, direct car access, open views and a high-quality present-day finish.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'Historische Immobilie in Frigiliana zu verkaufen | AMARA',
       description:
-        'Casa AMARA in Frigiliana: historische Immobilie mit direkter Autozufahrt, drei Terrassen, freiem Blick und etabliertem Beherbergungsbetrieb.',
+        'Casa AMARA: vollständige historische Immobilie in Frigiliana, 2020–2022 aufwendig restauriert und renoviert, mit drei Terrassen, direkter Autozufahrt, freiem Blick und hochwertiger heutiger Ausstattung.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Propiedad boutique histórica en venta en Frigiliana | AMARA',
       description:
-        'Casa AMARA en Frigiliana: propiedad histórica con acceso directo en coche, tres terrazas, vistas abiertas y actividad de alojamiento consolidada.',
+        'Casa AMARA: propiedad histórica completa en Frigiliana, restaurada y renovada con cuidado entre 2020 y 2022, con tres terrazas, acceso directo en coche, vistas abiertas y un acabado actual de alta calidad.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Historisch boutiquepand te koop in Frigiliana | AMARA',
       description:
-        'Ontdek Casa AMARA, een compleet historisch pand in Frigiliana met directe auto-toegang, drie terrassen, vrij uitzicht en een gevestigde logiesexploitatie.',
+        'Casa AMARA: compleet historisch pand in Frigiliana, in 2020–2022 zorgvuldig gerestaureerd en gerenoveerd, met drie terrassen, directe auto-toegang, vrij uitzicht en een hoogwaardige actuele afwerking.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Historisk boutiquefastighet till salu i Frigiliana | AMARA',
       description:
-        'Upptäck Casa AMARA, en komplett historisk fastighet i Frigiliana med direkt bilaccess, tre terrasser, fri utsikt och en etablerad logiverksamhet.',
+        'Casa AMARA: komplett historisk fastighet i Frigiliana, varsamt restaurerad och renoverad 2020–2022, med tre terrasser, direkt bilaccess, fri utsikt och en högklassig nutida standard.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -135,7 +170,7 @@ export const propertySaleContent = {
   hero: {
     kicker: l("Private Sale · Frigiliana Old Town", "Privatverkauf · Altstadt von Frigiliana", "Venta privada · Casco histórico de Frigiliana", "Particuliere verkoop · Historisch centrum van Frigiliana", "Privat försäljning · Frigilianas historiska stadskärna"),
     title: l("Historic Boutique Property for Sale in Frigiliana", "Historische Boutique-Immobilie in Frigiliana zu verkaufen", "Propiedad boutique histórica en venta en Frigiliana", "Historisch boutiquepand te koop in Frigiliana", "Historisk fastighet i boutiquestil till salu i Frigiliana"),
-    lead: l("A fully rebuilt historic property with direct car access, three terraces, open countryside views and an established four-unit hospitality operation.", "Eine umfassend rekonstruierte historische Immobilie mit direkter Autozufahrt, drei Terrassen, freiem Blick über die Landschaft und einem etablierten touristischen Betrieb mit vier Einheiten.", "Una propiedad histórica reconstruida integralmente, con acceso directo en coche, tres terrazas, vistas abiertas al campo y una actividad de alojamiento consolidada con cuatro unidades.", "Een volledig herbouwd historisch pand, direct bereikbaar met de auto, met drie terrassen, vrij uitzicht over het landschap en een gevestigde logiesexploitatie met vier verblijfsunits.", "En historisk fastighet som har byggts om i grunden, direkt tillgänglig med bil, med tre terrasser, fri utsikt över landskapet och en etablerad logiverksamhet med fyra enheter."),
+    lead: l("A historic house in Frigiliana’s old town, carefully restored and renovated in 2020–2022, with a high-quality present-day finish, three terraces, direct car access and open views — today run as a boutique accommodation.", "Ein historisches Haus in der Altstadt von Frigiliana, in den Jahren 2020 bis 2022 aufwendig restauriert und renoviert, mit hochwertiger heutiger Ausstattung, drei Terrassen, direkter Autozufahrt und freiem Blick – heute als Boutique-Unterkunft betrieben.", "Una casa histórica en el casco antiguo de Frigiliana, restaurada y renovada con esmero entre 2020 y 2022, con un acabado actual de alta calidad, tres terrazas, acceso directo en coche y vistas abiertas; hoy en funcionamiento como alojamiento boutique.", "Een historisch huis in het oude centrum van Frigiliana, in 2020–2022 zorgvuldig gerestaureerd en gerenoveerd, met een hoogwaardige actuele afwerking, drie terrassen, directe auto-toegang en vrij uitzicht — vandaag in bedrijf als boutique-accommodatie.", "Ett historiskt hus i Frigilianas gamla stad, varsamt restaurerat och renoverat 2020–2022, med en högklassig nutida standard, tre terrasser, direkt bilaccess och fri utsikt – i dag i drift som ett boutiqueboende."),
     saleScope: l("Casa AMARA is offered **only as one complete freehold property**. The apartments and room are not available for individual purchase.", "Casa AMARA wird **ausschließlich als eine vollständige Immobilie in Alleineigentum** angeboten. Die Apartments und das Zimmer stehen nicht einzeln zum Verkauf.", "Casa AMARA se ofrece **únicamente como una propiedad completa en pleno dominio**. Los apartamentos y la habitación no se venden por separado.", "Casa AMARA wordt **uitsluitend als één complete onroerende zaak in volle eigendom** aangeboden. De appartementen en de kamer zijn niet afzonderlijk te koop.", "Casa AMARA erbjuds **endast som en komplett friköpt fastighet**. Lägenheterna och rummet säljs inte separat."),
     price: l("Price on request.", "Preis auf Anfrage.", "Precio a consultar.", "Prijs op aanvraag.", "Pris på begäran."),
     imageAlt: l("Terrace at Casa AMARA overlooking the countryside and the Mediterranean landscape near Frigiliana", "Terrasse der Casa AMARA mit Blick über die Landschaft und auf die mediterrane Umgebung bei Frigiliana", "Terraza de Casa AMARA con vistas al campo y al paisaje mediterráneo próximo a Frigiliana", "Terras van Casa AMARA met uitzicht over het landschap en de mediterrane omgeving bij Frigiliana", "Terrass på Casa AMARA med utsikt över landskapet och medelhavsmiljön nära Frigiliana")
@@ -174,8 +209,8 @@ export const propertySaleContent = {
         value: l("Open countryside views with a lateral sea view", "Freier Blick über die Landschaft mit seitlichem Meerblick", "Vistas abiertas al campo y vista lateral al mar", "Vrij uitzicht over het landschap en zijdelings zeezicht", "Fri utsikt över landskapet och havsutsikt åt sidan")
       },
       {
-        label: l("Reconstruction", "Rekonstruktion", "Reconstrucción", "Herbouw", "Ombyggnad"),
-        value: l("Comprehensively reconstructed and renovated from 2020 to 2022; completed in 2022", "Von 2020 bis 2022 umfassend rekonstruiert und renoviert; Fertigstellung 2022", "Reconstruida y renovada integralmente entre 2020 y 2022; finalizada en 2022", "Grondig herbouwd en gerenoveerd tussen 2020 en 2022; afgerond in 2022", "Omfattande ombyggnad och renovering 2020–2022; färdigställd 2022")
+        label: l("Restoration & renovation", "Restaurierung & Renovierung", "Restauración y renovación", "Restauratie & renovatie", "Restaurering & renovering"),
+        value: l("Carefully restored and renovated in 2020–2022; works completed in 2022", "In den Jahren 2020 bis 2022 aufwendig restauriert und renoviert; Fertigstellung 2022", "Restaurada y renovada con esmero entre 2020 y 2022; finalizada en 2022", "In 2020–2022 zorgvuldig gerestaureerd en gerenoveerd; afgerond in 2022", "Varsamt restaurerad och renoverad 2020–2022; färdigställd 2022")
       },
       {
         label: l("Current use", "Heutige Nutzung", "Uso actual", "Huidig gebruik", "Nuvarande användning"),
@@ -196,11 +231,11 @@ export const propertySaleContent = {
     ]
   },
   position: {
-    kicker: l("Setting and access", "Lage und Zufahrt", "Entorno y acceso", "Ligging en bereikbaarheid", "Läge och tillgänglighet"),
-    title: l("A rare position in Frigiliana", "Eine besondere Lage in Frigiliana", "Una ubicación poco común en Frigiliana", "Een bijzondere positie in Frigiliana", "Ett ovanligt läge i Frigiliana"),
+    kicker: l("Setting and outdoor space", "Lage und Außenbereiche", "Entorno y exteriores", "Ligging en buitenruimte", "Läge och utomhusytor"),
+    title: l("Setting, views and outdoor space", "Lage, Aussicht und Außenbereiche", "Entorno, vistas y exteriores", "Ligging, uitzicht en buitenruimte", "Läge, utsikt och utomhusytor"),
     paragraphs: [
-      l("Casa AMARA combines a quiet position within Frigiliana’s historic old town with direct car access. Comparable combinations of historic setting, vehicle access, substantial outdoor space and open views are inherently limited.", "Casa AMARA verbindet eine ruhige Lage in der historischen Altstadt von Frigiliana mit direkter Autozufahrt. Vergleichbare Kombinationen aus historischem Umfeld, Fahrzeugzugang, großzügigen Außenflächen und freiem Ausblick sind naturgemäß begrenzt.", "Casa AMARA combina una ubicación tranquila en el casco histórico de Frigiliana con acceso directo en coche. Las propiedades que reúnen entorno histórico, acceso para vehículos, amplios espacios exteriores y vistas abiertas son, por su propia naturaleza, poco frecuentes.", "Casa AMARA ligt rustig in het historische centrum van Frigiliana en is direct bereikbaar met de auto. Vergelijkbare combinaties van een historische omgeving, bereikbaarheid per auto, royale buitenruimte en vrij uitzicht zijn van nature beperkt aanwezig.", "Casa AMARA har ett lugnt läge i Frigilianas historiska stadskärna och är samtidigt direkt tillgänglig med bil. Jämförbara kombinationer av historisk miljö, bilaccess, generösa utomhusytor och fri utsikt är av naturliga skäl begränsade."),
-      l("Approximately 170 m² of interior space and 130 m² of terraces and outdoor areas provide around 300 m² in combined use. The three usable terraces support outdoor living and outdoor-kitchen use, with open countryside views and a lateral view towards the sea.", "Rund 170 m² Innenfläche und 130 m² Terrassen- und Außenflächen ergeben zusammen etwa 300 m² nutzbare Fläche. Die drei Terrassen ermöglichen verschiedene Formen des Aufenthalts im Freien und eine Außenküchennutzung – mit freiem Landschaftsblick und seitlichem Blick zum Meer.", "Aproximadamente 170 m² interiores y 130 m² de terrazas y zonas exteriores suman unos 300 m² de uso combinado. Las tres terrazas permiten disfrutar de distintos ambientes al aire libre y de una cocina exterior, con vistas abiertas al campo y una vista lateral hacia el mar.", "Circa 170 m² binnenruimte en 130 m² aan terrassen en buitenruimte bieden samen ongeveer 300 m² gebruiksruimte. De drie bruikbare terrassen ondersteunen verschillende vormen van buitenleven en het gebruik van een buitenkeuken, met vrij uitzicht over het landschap en zijdelings zicht op zee.", "Cirka 170 m² invändig yta och 130 m² terrasser och utomhusytor ger totalt omkring 300 m² kombinerad användningsyta. De tre terrasserna möjliggör olika former av utomhusliv och användning av ett utomhuskök, med fri utsikt över landskapet och havsutsikt åt sidan.")
+      l("Casa AMARA sits in a quiet spot within Frigiliana’s historic old town, with direct car access — a combination of historic setting, easy access, generous outdoor space and open views that gives the property its character.", "Casa AMARA liegt ruhig in der historischen Altstadt von Frigiliana und ist zugleich direkt mit dem Auto erreichbar – eine Verbindung aus historischem Umfeld, bequemem Zugang, großzügigen Außenflächen und freiem Ausblick, die den Charakter der Immobilie prägt.", "Casa AMARA se ubica en un punto tranquilo del casco histórico de Frigiliana, con acceso directo en coche: una combinación de entorno histórico, acceso cómodo, amplios espacios exteriores y vistas abiertas que define el carácter de la propiedad.", "Casa AMARA ligt rustig in het historische centrum van Frigiliana en is tegelijk direct met de auto bereikbaar — een combinatie van historische omgeving, gemakkelijke toegang, royale buitenruimte en vrij uitzicht die het karakter van het pand bepaalt.", "Casa AMARA ligger lugnt i Frigilianas historiska stadskärna och är samtidigt direkt tillgänglig med bil – en kombination av historisk miljö, bekväm access, generösa utomhusytor och fri utsikt som ger fastigheten dess karaktär."),
+      l("Approximately 170 m² of interior space and roughly 130 m² of terraces and outdoor areas make up around 300 m² of combined indoor and outdoor space. The three usable terraces support outdoor living and an outdoor kitchen, with open countryside views and a lateral view towards the sea.", "Rund 170 m² Innenfläche und etwa 130 m² Terrassen und Außenflächen ergeben zusammen rund 300 m² kombinierte Innen- und Außenflächen. Die drei nutzbaren Terrassen ermöglichen das Leben im Freien und eine Außenküche – mit freiem Landschaftsblick und seitlichem Blick zum Meer.", "Aproximadamente 170 m² de superficie interior y unos 130 m² de terrazas y zonas exteriores conforman en total unos 300 m² de espacio interior y exterior combinado. Las tres terrazas utilizables permiten la vida al aire libre y una cocina exterior, con vistas abiertas al campo y una vista lateral hacia el mar.", "Circa 170 m² binnenruimte en ongeveer 130 m² aan terrassen en buitenruimte vormen samen zo’n 300 m² gecombineerde binnen- en buitenruimte. De drie bruikbare terrassen bieden ruimte voor buitenleven en een buitenkeuken, met vrij uitzicht over het landschap en zijdelings zicht op zee.", "Cirka 170 m² invändig yta och omkring 130 m² terrasser och utomhusytor utgör tillsammans runt 300 m² kombinerad inne- och uteyta. De tre användbara terrasserna ger plats för utomhusliv och ett utomhuskök, med fri utsikt över landskapet och havsutsikt åt sidan.")
     ],
     imageAlt: l("Outdoor kitchen and terrace at Casa AMARA with open countryside views near Frigiliana", "Außenküche und Terrasse der Casa AMARA mit freiem Landschaftsblick bei Frigiliana", "Cocina exterior y terraza de Casa AMARA con vistas abiertas al campo cerca de Frigiliana", "Buitenkeuken en terras van Casa AMARA met vrij uitzicht over het landschap bij Frigiliana", "Utomhuskök och terrass på Casa AMARA med fri utsikt över landskapet nära Frigiliana"),
     details: [
@@ -215,6 +250,66 @@ export const propertySaleContent = {
       {
         title: l("Outdoor living", "Leben im Freien", "Vida al aire libre", "Buitenleven", "Utomhusliv"),
         copy: l("Three usable terraces create distinct outdoor areas across the property.", "Drei nutzbare Terrassen schaffen eigenständige Außenbereiche.", "Tres terrazas utilizables crean zonas exteriores diferenciadas.", "Drie bruikbare terrassen vormen afzonderlijke buitenruimtes.", "Tre användbara terrasser skapar separata utomhusmiljöer.")
+      }
+    ]
+  },
+  restoration: {
+    kicker: l("Restoration and renovation", "Restaurierung und Renovierung", "Restauración y renovación", "Restauratie en renovatie", "Restaurering och renovering"),
+    title: l("Restored and renovated, 2020–2022", "Restauriert und renoviert, 2020–2022", "Restaurada y renovada, 2020–2022", "Gerestaureerd en gerenoveerd, 2020–2022", "Restaurerad och renoverad, 2020–2022"),
+    paragraphs: [
+      l("Casa AMARA was carefully restored and renovated between 2020 and 2022, with the works completed in 2022. The aim throughout was to preserve the historic character of the house and combine it with a considered, high-quality contemporary design.", "Casa AMARA wurde in den Jahren 2020 bis 2022 aufwendig restauriert und renoviert; die Arbeiten wurden 2022 abgeschlossen. Leitgedanke war dabei, den historischen Charakter des Hauses zu bewahren und mit einer durchdachten, hochwertigen zeitgemäßen Gestaltung zu verbinden.", "Casa AMARA se restauró y renovó con esmero entre 2020 y 2022, y las obras se completaron en 2022. La idea rectora fue preservar el carácter histórico de la casa y combinarlo con un diseño contemporáneo cuidado y de alta calidad.", "Casa AMARA werd tussen 2020 en 2022 zorgvuldig gerestaureerd en gerenoveerd; de werkzaamheden werden in 2022 afgerond. Uitgangspunt was steeds om het historische karakter van het huis te bewaren en te verbinden met een doordacht, hoogwaardig eigentijds ontwerp.", "Casa AMARA restaurerades och renoverades varsamt mellan 2020 och 2022, och arbetet slutfördes 2022. Den bärande tanken var att bevara husets historiska karaktär och förena den med en genomtänkt, högklassig samtida gestaltning."),
+      l("Today, historic materials and surfaces meet a calm, contemporary interior. Traces of the old house — natural stone, brick and hand-finished lime surfaces — remain part of the atmosphere and give each area its own character.", "Heute treffen historische Materialien und Oberflächen auf ein ruhiges, zeitgemäßes Interieur. Spuren des alten Hauses – Naturstein, Ziegel und handwerkliche Kalkoberflächen – bleiben Teil der Atmosphäre und geben jedem Bereich seinen eigenen Charakter.", "Hoy, los materiales y las superficies históricas conviven con un interior sereno y actual. Las huellas de la casa antigua —piedra natural, ladrillo y superficies de cal trabajadas a mano— siguen formando parte del ambiente y dan a cada zona su propio carácter.", "Vandaag ontmoeten historische materialen en oppervlakken een rustig, eigentijds interieur. Sporen van het oude huis — natuursteen, baksteen en ambachtelijke kalkafwerkingen — blijven deel van de sfeer en geven elke ruimte een eigen karakter.", "I dag möter historiska material och ytor ett lugnt, samtida inredningsuttryck. Spår av det gamla huset – natursten, tegel och hantverksmässiga kalkytor – är fortfarande en del av atmosfären och ger varje del sin egen karaktär.")
+    ],
+    imageAlt: l("Interior of Casa AMARA combining historic materials such as exposed brick and lime surfaces with a contemporary finish", "Innenraum der Casa AMARA, in dem historische Materialien wie Sichtziegel und Kalkoberflächen mit zeitgemäßer Gestaltung verbunden sind", "Interior de Casa AMARA que combina materiales históricos como el ladrillo visto y las superficies de cal con un acabado contemporáneo", "Interieur van Casa AMARA waarin historische materialen zoals zichtbaar metselwerk en kalkafwerkingen samengaan met een eigentijdse afwerking", "Interiör i Casa AMARA där historiska material som synligt tegel och kalkytor förenas med ett samtida uttryck"),
+    points: [
+      {
+        title: l("Historic character", "Historischer Charakter", "Carácter histórico", "Historisch karakter", "Historisk karaktär"),
+        copy: l("The character of the old house has been kept and remains visible throughout.", "Der Charakter des alten Hauses wurde bewahrt und bleibt überall spürbar.", "Se ha conservado el carácter de la casa antigua, presente en todos los espacios.", "Het karakter van het oude huis is behouden en overal voelbaar.", "Det gamla husets karaktär har bevarats och märks genomgående.")
+      },
+      {
+        title: l("Materials", "Materialität", "Materiales", "Materialen", "Material"),
+        copy: l("Natural stone, brick and traditional lime surfaces set the tone of the interiors.", "Naturstein, Ziegel und traditionelle Kalkoberflächen prägen die Innenräume.", "La piedra natural, el ladrillo y las superficies de cal tradicionales marcan el tono de los interiores.", "Natuursteen, baksteen en traditionele kalkafwerkingen bepalen de sfeer van de interieurs.", "Natursten, tegel och traditionella kalkytor sätter tonen i interiörerna.")
+      },
+      {
+        title: l("Old and new", "Alt und Neu", "Lo antiguo y lo nuevo", "Oud en nieuw", "Gammalt och nytt")
+        ,
+        copy: l("Historic fabric and contemporary comfort are brought together with care.", "Historische Substanz und zeitgemäßer Komfort sind behutsam miteinander verbunden.", "El tejido histórico y el confort actual se unen con cuidado.", "Historische substantie en eigentijds comfort zijn met zorg samengebracht.", "Historisk byggnad och samtida komfort förenas med omsorg.")
+      }
+    ]
+  },
+  amenities: {
+    kicker: l("Today’s fit-out and comfort", "Ausstattung und Komfort heute", "Equipamiento y confort hoy", "Uitrusting en comfort vandaag", "Utrustning och komfort i dag"),
+    title: l("Fit-out and comfort today", "Ausstattung und Komfort heute", "Equipamiento y confort hoy", "Uitrusting en comfort vandaag", "Utrustning och komfort i dag"),
+    intro: l("Today, Casa AMARA combines historic materials and surfaces with contemporary comfort. The features described below reflect the property in its current state.", "Heute verbindet Casa AMARA historische Materialien und Oberflächen mit zeitgemäßem Komfort. Die nachfolgend beschriebenen Merkmale zeigen die Immobilie in ihrem heutigen Zustand.", "Hoy, Casa AMARA combina materiales y superficies históricas con un confort actual. Las características descritas a continuación reflejan la propiedad en su estado actual.", "Vandaag verbindt Casa AMARA historische materialen en oppervlakken met eigentijds comfort. De hieronder beschreven kenmerken tonen het pand in de huidige staat.", "I dag förenar Casa AMARA historiska material och ytor med samtida komfort. De egenskaper som beskrivs nedan visar fastigheten i dess nuvarande skick."),
+    imageAlt: l("Bathroom at Casa AMARA with handmade lime tiles, patterned floor tiles and timber joinery", "Badezimmer der Casa AMARA mit handgefertigten Kalkfliesen, gemustertem Boden und Holzarbeiten", "Baño de Casa AMARA con azulejos de cal artesanales, suelo con dibujo y carpintería de madera", "Badkamer van Casa AMARA met handgemaakte kalktegels, een gedessineerde vloer en houten schrijnwerk", "Badrum i Casa AMARA med handgjort kalkkakel, mönstrat golv och snickerier i trä"),
+    groups: [
+      {
+        title: l("Comfort", "Komfort", "Confort", "Comfort", "Komfort"),
+        items: [
+          l("Air conditioning", "Klimaanlagen", "Aire acondicionado", "Airconditioning", "Luftkonditionering"),
+          l("Underfloor heating in the bathrooms", "Fußbodenheizung in den Badezimmern", "Suelo radiante en los baños", "Vloerverwarming in de badkamers", "Golvvärme i badrummen")
+        ]
+      },
+      {
+        title: l("Bathrooms", "Bäder", "Baños", "Badkamers", "Badrum"),
+        items: [
+          l("Well-appointed bathrooms", "Hochwertig ausgestattete Bäder", "Baños de buena calidad", "Hoogwaardig ingerichte badkamers", "Välutrustade badrum"),
+          l("Double and outdoor showers", "Doppel- und Außenduschen", "Duchas dobles y exteriores", "Dubbele en buitendouches", "Dubbel- och utomhusduschar")
+        ]
+      },
+      {
+        title: l("Kitchens and outdoors", "Küchen und Außenbereich", "Cocinas y exterior", "Keukens en buitenruimte", "Kök och utomhus"),
+        items: [
+          l("Fitted kitchens", "Ausgestattete Küchen", "Cocinas equipadas", "Ingerichte keukens", "Utrustade kök"),
+          l("Outdoor kitchen and furnished terraces", "Außenküche und möblierte Terrassen", "Cocina exterior y terrazas amuebladas", "Buitenkeuken en gemeubileerde terrassen", "Utomhuskök och möblerade terrasser")
+        ]
+      },
+      {
+        title: l("Surfaces", "Oberflächen", "Superficies", "Oppervlakken", "Ytor"),
+        items: [
+          l("Quality tiles and surfaces", "Hochwertige Fliesen und Oberflächen", "Azulejos y superficies de calidad", "Hoogwaardige tegels en oppervlakken", "Kakel och ytor av god kvalitet"),
+          l("Traditional lime finishes", "Traditionelle Kalkoberflächen", "Superficies de cal tradicionales", "Traditionele kalkafwerkingen", "Traditionella kalkytor")
+        ]
       }
     ]
   },
@@ -266,6 +361,24 @@ export const propertySaleContent = {
     ],
     requirements: l("No future use, licence continuity, approval transfer or commercial performance is represented or guaranteed. Each buyer must confirm the requirements relevant to their intended use.", "Eine künftige Nutzung, der Fortbestand oder die Übertragung von Lizenzen und Genehmigungen sowie die wirtschaftliche Entwicklung werden weder zugesichert noch garantiert. Jeder Käufer muss die Anforderungen für die beabsichtigte Nutzung eigenständig prüfen.", "No se declara ni garantiza ningún uso futuro, continuidad o transmisión de licencias y autorizaciones, ni rendimiento comercial. Cada comprador deberá confirmar los requisitos correspondientes al uso que pretenda dar a la propiedad.", "Er worden geen toezeggingen of garanties gedaan over toekomstig gebruik, voortzetting of overdracht van vergunningen en goedkeuringen, of commerciële prestaties. Iedere koper moet zelf de vereisten voor het beoogde gebruik bevestigen.", "Ingen framtida användning, fortsatt giltighet eller överföring av licenser och godkännanden, eller kommersiell utveckling utfästs eller garanteras. Varje köpare måste själv bekräfta kraven för den avsedda användningen.")
   },
+  operation: {
+    kicker: l("Established operation", "Bestehender Betrieb", "Actividad consolidada", "Gevestigde exploitatie", "Etablerad verksamhet"),
+    title: l("The established operation and possible handover", "Bestehender Betrieb und mögliche Übergabe", "La actividad consolidada y una posible entrega", "De gevestigde exploitatie en een mogelijke overdracht", "Den etablerade verksamheten och en möjlig överlämning"),
+    paragraphs: [
+      l("Casa AMARA is run today as a boutique accommodation with four guest units. The established operation is an additional source of value — but the property itself remains at the centre of the offer.", "Casa AMARA wird heute als Boutique-Unterkunft mit vier Gästebereichen betrieben. Der bestehende Betrieb ist ein zusätzlicher Werttreiber – im Vordergrund steht jedoch die Immobilie selbst.", "Hoy Casa AMARA funciona como alojamiento boutique con cuatro unidades para huéspedes. La actividad consolidada aporta un valor adicional, pero la propiedad en sí sigue siendo el centro de la oferta.", "Casa AMARA wordt vandaag geëxploiteerd als boutique-accommodatie met vier gastenunits. De gevestigde exploitatie is een extra waardebron — maar het pand zelf blijft centraal staan in het aanbod.", "Casa AMARA drivs i dag som ett boutiqueboende med fyra gästenheter. Den etablerade verksamheten är en extra värdekälla – men själva fastigheten står i centrum för erbjudandet."),
+      l("Depending on the transaction structure agreed later, defined operational or digital components of the Frigiliana operation may, in addition to the property, form part of a handover. The exact scope is determined solely within the confidential buyer process.", "Je nach später vereinbarter Transaktionsstruktur können neben der Immobilie auch definierte betriebliche oder digitale Bestandteile des Frigiliana-Betriebs Gegenstand einer Übergabe sein. Der konkrete Umfang wird ausschließlich im vertraulichen Käuferprozess festgelegt.", "Según la estructura de la transacción que se acuerde más adelante, además de la propiedad podrían formar parte de una entrega determinados componentes operativos o digitales de la actividad en Frigiliana. El alcance concreto se define únicamente dentro del proceso confidencial para compradores.", "Afhankelijk van de later overeengekomen transactiestructuur kunnen naast het pand ook bepaalde operationele of digitale onderdelen van de exploitatie in Frigiliana deel uitmaken van een overdracht. De precieze omvang wordt uitsluitend binnen het vertrouwelijke kopersproces bepaald.", "Beroende på den transaktionsstruktur som avtalas senare kan, utöver fastigheten, definierade operativa eller digitala delar av verksamheten i Frigiliana ingå i en överlämning. Den exakta omfattningen fastställs enbart inom den konfidentiella köparprocessen.")
+    ],
+    handoverTitle: l("Components that may be included", "Mögliche Bestandteile einer Übergabe", "Componentes que podrían incluirse", "Onderdelen die deel kunnen uitmaken", "Delar som kan ingå"),
+    handoverIntro: l("Depending on the agreed structure, a handover could, for example, include:", "Je nach vereinbarter Struktur könnte eine Übergabe beispielsweise umfassen:", "Según la estructura acordada, una entrega podría incluir, por ejemplo:", "Afhankelijk van de overeengekomen structuur kan een overdracht bijvoorbeeld omvatten:", "Beroende på den avtalade strukturen kan en överlämning till exempel omfatta:"),
+    handoverItems: [
+      l("Frigiliana-specific website and digital content", "Frigiliana-spezifische Website- und digitale Inhalte", "Contenidos web y digitales específicos de Frigiliana", "Frigiliana-specifieke website- en digitale content", "Frigiliana-specifikt webb- och digitalt innehåll"),
+      l("Image material and associated usage rights", "Bildmaterial und zugehörige Nutzungsrechte", "Material fotográfico y los derechos de uso correspondientes", "Beeldmateriaal en bijbehorende gebruiksrechten", "Bildmaterial och tillhörande nyttjanderätter"),
+      l("Direct-booking infrastructure", "Direktbuchungs-Infrastruktur", "Infraestructura de reserva directa", "Infrastructuur voor directe boekingen", "Infrastruktur för direktbokning"),
+      l("Documented operating processes and operating history", "Dokumentierte Betriebsprozesse und Betriebshistorie", "Procesos operativos documentados e historial de la actividad", "Gedocumenteerde bedrijfsprocessen en exploitatiehistorie", "Dokumenterade driftsprocesser och verksamhetshistorik"),
+      l("Selected online presences", "Ausgewählte Online-Präsenzen", "Presencias en línea seleccionadas", "Geselecteerde online aanwezigheden", "Utvalda närvaror online")
+    ],
+    handoverNotice: l("Detailed operational and financial information is reserved for qualified prospective buyers. It is not represented that the accounts or reviews of individual booking platforms are automatically transferable.", "Detaillierte betriebliche und wirtschaftliche Informationen sind qualifizierten Kaufinteressenten vorbehalten. Es wird nicht zugesichert, dass Konten oder Bewertungen einzelner Buchungsplattformen automatisch übertragbar sind.", "La información operativa y económica detallada está reservada a posibles compradores cualificados. No se afirma que las cuentas ni las valoraciones de plataformas de reserva concretas sean automáticamente transmisibles.", "Gedetailleerde operationele en financiële informatie is voorbehouden aan gekwalificeerde aspirant-kopers. Er wordt niet gesteld dat de accounts of beoordelingen van afzonderlijke boekingsplatforms automatisch overdraagbaar zijn.", "Detaljerad operativ och ekonomisk information är förbehållen kvalificerade potentiella köpare. Det utfästs inte att konton eller omdömen på enskilda bokningsplattformar automatiskt kan överföras.")
+  },
   enquiry: {
     kicker: l("Private buyer process", "Privater Käuferprozess", "Proceso privado para compradores", "Besloten kopersproces", "Privat köparprocess"),
     title: l("Confidential information and buyer enquiry", "Vertrauliche Informationen und Käuferanfrage", "Información confidencial y consulta del comprador", "Vertrouwelijke informatie en kopersaanvraag", "Konfidentiell information och köparförfrågan"),
@@ -273,14 +386,15 @@ export const propertySaleContent = {
     confidentialTitle: l("Information available through the confidential process", "Informationen im vertraulichen Verfahren", "Información disponible en el proceso confidencial", "Informatie binnen het vertrouwelijke proces", "Information i den konfidentiella processen"),
     confidentialItems: [
       l("Asking price", "Angebotspreis", "Precio de venta solicitado", "Vraagprijs", "Begärt försäljningspris"),
-      l("Ownership documentation", "Eigentumsdokumentation", "Documentación de titularidad", "Eigendomsdocumentatie", "Ägardokumentation"),
-      l("Plans and measurements", "Pläne und Maßangaben", "Planos y mediciones", "Plattegronden en maatvoering", "Planritningar och mått"),
-      l("Reconstruction documentation", "Dokumentation der Rekonstruktion", "Documentación de reconstrucción", "Documentatie van de herbouw", "Dokumentation om ombyggnaden"),
+      l("Floor plans and area information", "Grundrisse und Flächeninformationen", "Planos y información de superficies", "Plattegronden en oppervlakte-informatie", "Planritningar och ytinformation"),
+      l("Ownership and property documentation", "Eigentums- und Objektunterlagen", "Documentación de titularidad y del inmueble", "Eigendoms- en objectdocumentatie", "Ägar- och fastighetsdokumentation"),
+      l("Available restoration and renovation documentation (2020–2022)", "Verfügbare Unterlagen zur Restaurierung und Renovierung (2020–2022)", "Documentación disponible sobre la restauración y renovación (2020–2022)", "Beschikbare documentatie over de restauratie en renovatie (2020–2022)", "Tillgänglig dokumentation om restaureringen och renoveringen (2020–2022)"),
       l("Operating history", "Betriebshistorie", "Historial de la actividad", "Exploitatiehistorie", "Verksamhetshistorik"),
-      l("Revenue and cost information", "Umsatz- und Kosteninformationen", "Información sobre ingresos y costes", "Informatie over opbrengsten en kosten", "Information om intäkter och kostnader"),
-      l("Inventory information", "Inventarinformationen", "Información de inventario", "Inventarisinformatie", "Inventarieinformation"),
+      l("Selected revenue and cost information", "Ausgewählte Umsatz- und Kosteninformationen", "Información seleccionada de ingresos y costes", "Geselecteerde informatie over opbrengsten en kosten", "Utvald information om intäkter och kostnader"),
+      l("Inventory documentation", "Inventardokumentation", "Documentación de inventario", "Inventarisdocumentatie", "Inventariedokumentation"),
+      l("Relevant technical documentation", "Relevante technische Unterlagen", "Documentación técnica relevante", "Relevante technische documentatie", "Relevant teknisk dokumentation"),
       l("Relevant compliance documentation", "Relevante Compliance-Unterlagen", "Documentación relevante de cumplimiento", "Relevante nalevingsdocumentatie", "Relevant dokumentation om regelefterlevnad"),
-      l("Transaction and handover structure", "Transaktions- und Übergabestruktur", "Estructura de la transacción y la entrega", "Structuur van transactie en overdracht", "Struktur för transaktion och överlämning")
+      l("Information on the possible transaction and handover structure", "Informationen zur möglichen Transaktions- und Übergabestruktur", "Información sobre la posible estructura de transacción y entrega", "Informatie over de mogelijke transactie- en overdrachtsstructuur", "Information om möjlig transaktions- och överlämningsstruktur")
     ],
     qualificationTitle: l("Initial buyer enquiry", "Erste Käuferanfrage", "Consulta inicial del comprador", "Eerste kopersaanvraag", "Inledande köparförfrågan"),
     qualificationItems: [
