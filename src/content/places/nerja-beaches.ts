@@ -3,6 +3,7 @@ import { definePlaceCopy } from '../../lib/placeCopy';
 export const nerjaBeachPlaceCopy = definePlaceCopy({
   'nerja.beaches.carabeillo': {
     public: {
+      kind: 'beach',
       title: {
         en: "Carabeíllo Beach",
         de: "Playa Carabeíllo",
@@ -53,6 +54,7 @@ export const nerjaBeachPlaceCopy = definePlaceCopy({
   },
   'nerja.beaches.el-playazo': {
     public: {
+      kind: 'beach',
       title: {
         en: "El Playazo",
         de: "El Playazo",
@@ -103,6 +105,7 @@ export const nerjaBeachPlaceCopy = definePlaceCopy({
   },
   'nerja.beaches.maro-beach': {
     public: {
+      kind: 'beach',
       title: {
         en: "Maro Beach",
         de: "Playa de Maro",
@@ -160,6 +163,7 @@ export const nerjaBeachPlaceCopy = definePlaceCopy({
   },
   'nerja.beaches.cantarrijan': {
     public: {
+      kind: 'beach',
       title: {
         en: "Cantarriján",
         de: "Cantarriján",
@@ -210,6 +214,7 @@ export const nerjaBeachPlaceCopy = definePlaceCopy({
   },
   'nerja.beaches.calahonda': {
     public: {
+      kind: 'beach',
       title: {
         en: "Calahonda",
         de: "Calahonda",
@@ -260,6 +265,7 @@ export const nerjaBeachPlaceCopy = definePlaceCopy({
   },
   'nerja.beaches.burriana-beach': {
     public: {
+      kind: 'beach',
       title: {
         en: "Burriana Beach",
         de: "Playa Burriana",

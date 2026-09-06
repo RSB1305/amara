@@ -2,7 +2,7 @@ import type { AmaraLanguage } from '../types/seo';
 import { frigilianaBeachesContent } from './frigilianaBeachesContent';
 import { frigilianaDayTripsContent } from './frigilianaDayTripsContent';
 import { frigilianaRestaurantsContent } from './frigilianaRestaurantsContent';
-import { publicBeachCard, publicRestaurantCard } from '../lib/placeProjection';
+import { publicBeachCard, publicDayTrip, publicRestaurantCard } from '../lib/placeProjection';
 
 /**
  * Read-only projections of facts that are genuinely shared across destination
@@ -45,7 +45,7 @@ export function getAndalusiaDayTripFacts(lang: AmaraLanguage) {
   const copy = frigilianaDayTripsContent[lang];
 
   return {
-    destinations: copy.destinations,
+    destinations: copy.destinationIds.map((id) => publicDayTrip(id, lang)),
     practical: copy.practical
   };
 }

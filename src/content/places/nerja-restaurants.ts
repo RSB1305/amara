@@ -3,6 +3,7 @@ import { definePlaceCopy } from '../../lib/placeCopy';
 export const nerjaRestaurantPlaceCopy = definePlaceCopy({
   'nerja.restaurants.restaurant-34': {
     public: {
+      kind: 'restaurant',
       title: {
         en: "Restaurant 34",
         de: "Restaurant 34",
@@ -67,6 +68,7 @@ export const nerjaRestaurantPlaceCopy = definePlaceCopy({
   },
   'nerja.restaurants.oliva': {
     public: {
+      kind: 'restaurant',
       title: {
         en: "Restaurante Oliva",
         de: "Restaurante Oliva",
@@ -131,6 +133,7 @@ export const nerjaRestaurantPlaceCopy = definePlaceCopy({
   },
   'nerja.restaurants.mo-gastrotapas': {
     public: {
+      kind: 'restaurant',
       title: {
         en: "Mo Gastrotapas",
         de: "Mo Gastrotapas",
@@ -170,6 +173,7 @@ export const nerjaRestaurantPlaceCopy = definePlaceCopy({
   },
   'nerja.restaurants.la-puntilla': {
     public: {
+      kind: 'restaurant',
       title: {
         en: "La Puntilla",
         de: "La Puntilla",
@@ -234,6 +238,7 @@ export const nerjaRestaurantPlaceCopy = definePlaceCopy({
   },
   'nerja.restaurants.el-pulguilla': {
     public: {
+      kind: 'restaurant',
       title: {
         en: "El Pulguilla",
         de: "El Pulguilla",
@@ -298,6 +303,7 @@ export const nerjaRestaurantPlaceCopy = definePlaceCopy({
   },
   'nerja.restaurants.chiringuito-ayo': {
     public: {
+      kind: 'restaurant',
       title: {
         en: "Chiringuito AYO",
         de: "Chiringuito AYO",

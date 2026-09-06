@@ -15,6 +15,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import DayTripDestinationList from './DayTripDestinationList.astro';
+import { publicDayTrip } from '../../lib/placeProjection';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
 
 interface Props {
@@ -39,6 +40,8 @@ const footerHighlights: LabeledLink[] = [
     label: copy.footerHighlights.restaurants
   }
 ];
+
+const destinations = copy.destinationIds.map((id) => publicDayTrip(id, currentLang));
 
 const combineItems = copy.combine.items.map((item) => ({
   ...item,
@@ -84,7 +87,7 @@ const combineItems = copy.combine.items.map((item) => ({
         reviewed={copy.overview.reviewed}
       />
 
-      <DayTripDestinationList destinations={copy.destinations} />
+      <DayTripDestinationList destinations={destinations} />
 
       <AuthorityFeatureSection
         id="practical"

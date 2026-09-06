@@ -15,6 +15,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
+import { publicWellnessProvider } from '../../lib/placeProjection';
 
 interface Props {
   lang?: string;
@@ -51,10 +52,12 @@ const heroImage = {
   width: 1512
 };
 
-const providerImages = {
-  frigilianaWellness: '/images/wellness/frigiliana-wellness-1.jpeg',
-  lidia: '/images/wellness/masaje_californiano-1.webp'
-} as const;
+const providerImages: Record<string, string> = {
+  'frigiliana.wellness.frigiliana-wellness': '/images/wellness/frigiliana-wellness-1.jpeg',
+  'frigiliana.wellness.lidia-california-massage': '/images/wellness/masaje_californiano-1.webp'
+};
+
+const providers = copy.providers.providerIds.map((id) => publicWellnessProvider(id, currentLang));
 ---
 
 <LocationAuthorityLayout
@@ -107,8 +110,8 @@ const providerImages = {
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16">
           {
-            copy.providers.items.map((provider) => {
-              const titleId = `provider-${provider.id}`;
+            providers.map((provider) => {
+              const titleId = `provider-${provider.id.replace(/[^a-z0-9]+/g, '-')}`;
               const imageSrc = providerImages[provider.id];
 
               return (

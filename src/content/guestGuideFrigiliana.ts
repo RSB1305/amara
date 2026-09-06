@@ -1966,188 +1966,13 @@ const frigilianaGuestHiking: GuestGuideEntry = {
         sv: 'Vandringsleder nära Frigiliana'
       },
       items: [
-        {
-          icon: 'hiking',
-          recommendationId: 'frigiliana.hiking.cruz-de-pinto',
-          title: { en: 'Cruz de Pinto', de: 'Cruz de Pinto', es: 'Cruz de Pinto', nl: 'Cruz de Pinto', sv: 'Cruz de Pinto' },
-          subtitle: {
-            en: '5.8 km · approx. 3 h · Out and back',
-            de: '5,8 km · ca. 3 Std. · Hin und zurück',
-            es: '5,8 km · aprox. 3 h · Ida y vuelta',
-            nl: '5,8 km · ca. 3 uur · Heen en terug',
-            sv: '5,8 km · ca 3 tim · Tur och retur'
-          },
-          body: [
-            {
-              en: 'A panoramic loop above the village with open slopes and wide coastal views — one of the most dependable choices. Good after rain since the terrain drains quickly, but still wear shoes with grip. Officially 5.8 km from Plaza del Ingenio, via the Río Higuerón bed and back the same way.',
-              de: 'Ein Panoramarundweg oberhalb des Dorfes mit weiten Hängen und herrlichem Blick auf die Küste – eine der besten und verlässlichsten Touren. Auch nach Regen gut machbar, da das Wasser hier schnell abfließt – zieht aber trotzdem Schuhe mit gutem Profil an. Offiziell 5,8 km ab Plaza del Ingenio, durch das Bett des Río Higuerón und auf demselben Weg zurück.',
-              es: 'Una ruta circular panorámica por encima del pueblo con laderas abiertas y amplias vistas a la costa: una de las opciones más fiables. Buena opción después de llover porque el terreno suele drenar rápido, pero llevad calzado con buen agarre. Oficialmente 5,8 km desde la Plaza del Ingenio, por el cauce del río Higuerón y vuelta por el mismo camino.',
-              nl: 'Een panoramische rondwandeling boven het dorp met open hellingen en weids uitzicht op de kust — een van de meest betrouwbare keuzes. Goed te doen na regen omdat het terrein snel droogt, maar draag wel schoenen met goede grip. Officieel 5,8 km vanaf Plaza del Ingenio, door de bedding van de Río Higuerón en langs dezelfde weg terug.',
-              sv: 'En panoramisk rundslinga ovanför byn med öppna sluttningar och vidsträckt kustutsikt – ett av de mest pålitliga valen. Bra alternativ efter regn eftersom terrängen torkar snabbt, men använd ändå skor med bra grepp. Officiellt 5,8 km från Plaza del Ingenio, genom Río Higueróns flodbädd och tillbaka samma väg.'
-            }
-          ]
-        },
-        {
-          icon: 'location-pin',
-          recommendationId: 'frigiliana.hiking.el-fuerte',
-          title: { en: 'El Fuerte (Viewpoints)', de: 'El Fuerte (Aussichtspunkte)', es: 'El Fuerte (Miradores)', nl: 'El Fuerte (Uitzichtpunten)', sv: 'El Fuerte (Utsiktsplatser)' },
-          subtitle: {
-            en: '7.4 km · approx. 4 h · Summit 963 m',
-            de: '7,4 km · ca. 4 Std. · Gipfel 963 m',
-            es: '7,4 km · aprox. 4 h · Cima a 963 m',
-            nl: '7,4 km · ca. 4 uur · Top op 963 m',
-            sv: '7,4 km · ca 4 tim · Topp 963 m'
-          },
-          body: [
-            {
-              en: 'The classic route behind Frigiliana — you don\'t need the full summit to get amazing views. After rain, the rocky parts can be slippery; go slow and bring water. The official route starts at Plaza del Ingenio and reaches Pozo de Lízar after about 750 metres through the village (Calle Real, Hernando el Darra, Amargura, Chorrera); the mountain path begins there. Listed as medium difficulty.',
-              de: 'Der klassische Weg hinter Frigiliana – ihr müsst nicht ganz bis zum Gipfel hinauf, um eine fantastische Aussicht zu genießen. Nach Regen können die felsigen Stellen rutschig sein – geht es langsam an und nehmt ausreichend Wasser mit. Die offizielle Route beginnt an der Plaza del Ingenio und erreicht nach rund 750 Metern durchs Dorf (Calle Real, Hernando el Darra, Amargura, Chorrera) den Pozo de Lízar; dort beginnt der Bergweg. Eingestuft als mittelschwer.',
-              es: 'El camino clásico detrás de Frigiliana: no hace falta llegar a la cima para disfrutar de unas vistas increíbles. Después de llover, las zonas rocosas pueden resbalar; id con calma y llevad agua. La ruta oficial empieza en la Plaza del Ingenio y llega al Pozo de Lízar tras unos 750 metros por el pueblo (calle Real, Hernando el Darra, Amargura, Chorrera); allí empieza el sendero de montaña. Catalogada como dificultad media.',
-              nl: 'De klassieke route achter Frigiliana — jullie hoeven niet helemaal naar de top voor een geweldig uitzicht. Na regen kunnen de rotsachtige delen glad zijn; doe het rustig aan en neem water mee. De officiële route begint op Plaza del Ingenio en bereikt na zo\'n 750 meter door het dorp (Calle Real, Hernando el Darra, Amargura, Chorrera) de Pozo de Lízar; daar begint het bergpad. Ingedeeld als gemiddeld zwaar.',
-              sv: 'Den klassiska leden bakom Frigiliana – ni behöver inte gå hela vägen till toppen för att få fantastiska vyer. Efter regn kan de steniga partierna vara hala; ta det lugnt och ta med vatten. Den officiella leden börjar vid Plaza del Ingenio och når Pozo de Lízar efter cirka 750 meter genom byn (Calle Real, Hernando el Darra, Amargura, Chorrera); där börjar bergsstigen. Klassad som medelsvår.'
-            }
-          ]
-        },
-        {
-          icon: 'compass',
-          recommendationId: 'frigiliana.hiking.lizar-acequia-trail',
-          title: { en: 'Lizar & Acequia Trail', de: 'Lizar & Acequia Trail', es: 'Sendero de Lízar y la Acequia', nl: 'Lizar & Acequia Pad', sv: 'Lizar & Acequia-leden' },
-          subtitle: {
-            en: '~1 h · Easy · Sunset',
-            de: '~1 Std. · Leicht · Sonnenuntergang',
-            es: '~1 h · Fácil · Atardecer',
-            nl: '~1 uur · Makkelijk · Zonsondergang',
-            sv: '~1 tim · Enkelt · Solnedgång'
-          },
-          body: [
-            {
-              en: 'A gentle "active rest day" walk along old irrigation channels above the village — flat and scenic.',
-              de: 'Ein sanfter Spaziergang für einen "aktiven Ruhetag" entlang der alten Bewässerungskanäle oberhalb des Dorfes – flach und sehr malerisch.',
-              es: 'Un paseo suave para un "día de descanso activo" por las antiguas acequias sobre el pueblo: llano y muy pintoresco.',
-              nl: 'Een rustige wandeling voor een "actieve rustdag" langs de oude irrigatiekanalen boven het dorp — vlak en schilderachtig.',
-              sv: 'En lugn promenad för en "aktiv vilodag" längs de gamla bevattningskanalerna ovanför byn – plant och vackert.'
-            },
-            {
-              en: 'Perfect for golden hour. Bring a light layer if you go late — it cools down quickly.',
-              de: 'Perfekt für das weiche Licht am späten Nachmittag. Nehmt euch eine leichte Jacke mit, falls ihr spät losgeht, es kühlt schnell ab.',
-              es: 'Perfecto para la luz del atardecer. Llevad algo de abrigo ligero si vais tarde, refresca rápido.',
-              nl: 'Perfect voor het gouden uur. Neem een extra laagje mee als jullie laat gaan, het koelt hier snel af.',
-              sv: 'Perfekt för solnedgångsljuset. Ta med en lätt tröja om ni går sent, det blir snabbt svalt.'
-            }
-          ]
-        },
-        {
-          icon: 'landmark',
-          recommendationId: 'frigiliana.hiking.historic-quarter-loop',
-          title: { en: 'Historic Quarter Loop', de: 'Rundweg durch die Altstadt', es: 'Paseo por el Casco Histórico', nl: 'Rondwandeling Historisch Centrum', sv: 'Promenad i gamla stan' },
-          subtitle: {
-            en: '~45 min · Steps & views',
-            de: '~45 Min. · Treppen & Aussicht',
-            es: '~45 min · Escaleras y vistas',
-            nl: '~45 min · Trappen & uitzicht',
-            sv: '~45 min · Trappor & utsikt'
-          },
-          body: [
-            {
-              en: 'A simple village walk through upper lanes, archways and viewpoints — ideal if you want "movement" without a hike.',
-              de: 'Ein einfacher Dorfspaziergang durch die oberen Gassen, Torbögen und zu schönen Aussichtspunkten – ideal, wenn ihr euch bewegen, aber keine echte Wanderung machen wollt.',
-              es: 'Un sencillo paseo por las calles altas del pueblo, arcos y miradores: ideal si queréis "moveros" un poco sin hacer una ruta larga.',
-              nl: 'Een eenvoudige dorpswandeling door de hoger gelegen straatjes, poortjes en langs uitzichtpunten — ideaal als jullie wel willen "bewegen" maar niet echt willen wandelen.',
-              sv: 'En enkel bypromenad genom de övre gränderna, valven och utsiktsplatserna – perfekt om ni vill "röra på er" utan att vandra.'
-            },
-            {
-              en: 'Expect stairs and some steep sections. Great before dinner.',
-              de: 'Stellt euch auf Treppen und einige steile Abschnitte ein. Wunderbar vor dem Abendessen.',
-              es: 'Preparaos para subir escaleras y algunos tramos empinados. Genial para antes de cenar.',
-              nl: 'Verwacht trappen en enkele steile stukken. Heerlijk voor het avondeten.',
-              sv: 'Räkna med trappor och några branta partier. Härligt före middagen.'
-            }
-          ]
-        },
-        {
-          icon: 'wave',
-          recommendationId: 'frigiliana.hiking.rio-higueron',
-          title: { en: 'Río Higuerón', de: 'Río Higuerón', es: 'Río Higuerón', nl: 'Río Higuerón', sv: 'Río Higuerón' },
-          subtitle: {
-            en: '4.6 km · approx. 2.5 h · Water trail · Quieter',
-            de: '4,6 km · ca. 2,5 Std. · Wasserweg · Ruhiger',
-            es: '4,6 km · aprox. 2,5 h · Ruta acuática · Más tranquilo',
-            nl: '4,6 km · ca. 2,5 uur · Waterroute · Rustiger',
-            sv: '4,6 km · ca 2,5 tim · Vattenled · Lugnare'
-          },
-          body: [
-            {
-              en: 'The calmer local river option near Frigiliana — wading, small pools, and a refreshing summer escape.',
-              de: 'Die ruhigere lokale Flussvariante in der Nähe von Frigiliana – Waten durchs Wasser, kleine Becken und eine herrlich erfrischende Auszeit im Sommer.',
-              es: 'La opción de río local más tranquila cerca de Frigiliana: vadear, pequeñas pozas y una refrescante escapada en verano.',
-              nl: 'De rustigere lokale rivieroptie vlakbij Frigiliana — waden door het water, kleine poeltjes en een heerlijk verfrissende ontsnapping in de zomer.',
-              sv: 'Det lugnare lokala flodalternativet nära Frigiliana – vada genom vatten, små pooler och en uppfriskande utflykt på sommaren.'
-            },
-            {
-              en: 'Water shoes (or grippy sports sandals) are strongly recommended. Avoid after heavy rain.',
-              de: 'Wasserschuhe (oder gut sitzende Sportsandalen) sind sehr zu empfehlen. Meidet diese Tour nach starkem Regen.',
-              es: 'Se recomiendan encarecidamente escarpines (o sandalias deportivas con agarre). Evitad esta ruta después de lluvias fuertes.',
-              nl: 'Waterschoenen (of stevige sportsandalen) worden sterk aanbevolen. Vermijd deze route na hevige regenval.',
-              sv: 'Badskor (eller sportsandaler med bra grepp) rekommenderas starkt. Undvik efter kraftigt regn.'
-            }
-          ]
-        },
-        {
-          icon: 'star',
-          recommendationId: 'nerja.hiking.rio-chillar',
-          title: { en: 'Río Chíllar (Nerja)', de: 'Río Chíllar (Nerja)', es: 'Río Chíllar (Nerja)', nl: 'Río Chíllar (Nerja)', sv: 'Río Chíllar (Nerja)' },
-          subtitle: {
-            en: '4–5 h · Access currently restricted',
-            de: '4–5 Std. · Zugang derzeit eingeschränkt',
-            es: '4–5 h · Acceso restringido actualmente',
-            nl: '4–5 uur · Toegang momenteel beperkt',
-            sv: '4–5 tim · Tillträde för närvarande begränsat'
-          },
-          body: [
-            {
-              en: 'The famous "walk in the river" route — beautiful, cool, and busy in peak season.',
-              de: 'Die berühmte "Flusswanderung" – wunderschön, angenehm kühl und in der Hochsaison sehr gut besucht.',
-              es: 'La famosa ruta para "caminar por el río": preciosa, fresca y muy concurrida en temporada alta.',
-              nl: 'De beroemde "rivierwandeling" — prachtig, lekker verkoelend en erg druk in het hoogseizoen.',
-              sv: 'Den berömda "flodvandringen" – vacker, svalkande och mycket välbesökt under högsäsong.'
-            },
-            {
-              en: 'Go early (around 08:00) and prefer weekdays. Access to the river has been closed by the authorities for long stretches since summer 2025, and a procedure for controlled access is under way. Check the current status before you set off; we will gladly look it up for you.',
-              de: 'Geht früh los (gegen 08:00 Uhr) und am besten unter der Woche. Der Zugang zum Fluss war seit Sommer 2025 über lange Strecken behördlich gesperrt, ein Verfahren für einen kontrollierten Zugang läuft. Prüft vor dem Aufbruch den aktuellen Stand; wir schauen gern für euch nach.',
-              es: 'Id temprano (sobre las 08:00) y preferiblemente entre semana. El acceso al río ha estado cerrado por las autoridades durante largos periodos desde el verano de 2025 y hay en marcha un procedimiento de acceso controlado. Consultad el estado actual antes de salir; lo comprobamos con gusto por vosotros.',
-              nl: 'Ga vroeg op pad (rond 08:00 uur) en bij voorkeur op een doordeweekse dag. De toegang tot de rivier is sinds de zomer van 2025 lange tijd door de autoriteiten gesloten geweest en er loopt een procedure voor gecontroleerde toegang. Controleer de actuele status voor vertrek; we zoeken het graag voor jullie op.',
-              sv: 'Gå tidigt (runt 08:00) och helst på vardagar. Tillträdet till floden har varit stängt av myndigheterna under långa perioder sedan sommaren 2025, och ett förfarande för kontrollerat tillträde pågår. Kontrollera aktuell status innan ni ger er av; vi kollar gärna åt er.'
-            }
-          ]
-        },
-        {
-          icon: 'flag',
-          recommendationId: 'frigiliana.hiking.el-acebuchal',
-          title: { en: 'El Acebuchal', de: 'El Acebuchal', es: 'El Acebuchal', nl: 'El Acebuchal', sv: 'El Acebuchal' },
-          subtitle: {
-            en: '13 km · approx. 4 h 20 min · Out and back · Lunch stop',
-            de: '13 km · ca. 4 Std. 20 Min. · Hin und zurück · Einkehr',
-            es: '13 km · aprox. 4 h 20 min · Ida y vuelta · Parada para comer',
-            nl: '13 km · ca. 4 uur 20 min · Heen en terug · Lunchstop',
-            sv: '13 km · ca 4 tim 20 min · Tur och retur · Lunchstopp'
-          },
-          body: [
-            {
-              en: 'A rewarding hike through pine forest to the "Lost Village" — great if you want a destination with a rustic meal.',
-              de: 'Eine lohnende Tour durch Pinienwälder zum "Verlorenen Dorf" – fantastisch, wenn ihr ein Ziel mit einem rustikalen Essen verbinden wollt.',
-              es: 'Una ruta gratificante por pinares hasta el "Pueblo Perdido": genial si buscáis un destino donde tomar una comida rústica.',
-              nl: 'Een mooie wandelroute door dennenbossen naar het "Verloren Dorp" — geweldig als jullie een bestemming willen combineren met een rustieke maaltijd.',
-              sv: 'En givande vandring genom tallskog till den "Förlorade byn" – fantastiskt om ni vill ha ett mål med en rustik måltid.'
-            },
-            {
-              en: 'Reserve lunch in advance if you go in high season. Bring water and a bit of cash. The official route starts at Plaza del Ingenio and returns the same way, so plan the full 13 km.',
-              de: 'Reserviert das Mittagessen in der Hochsaison am besten vorab. Nehmt Wasser und etwas Bargeld mit. Die offizielle Route beginnt an der Plaza del Ingenio und führt auf demselben Weg zurück; rechnet also mit den vollen 13 Kilometern.',
-              es: 'Reservad el almuerzo con antelación si vais en temporada alta. Llevad agua y algo de efectivo. La ruta oficial empieza en la Plaza del Ingenio y vuelve por el mismo camino, así que contad con los 13 kilómetros completos.',
-              nl: 'Reserveer in het hoogseizoen de lunch van tevoren. Neem water en een beetje contant geld mee. De officiële route begint op Plaza del Ingenio en gaat langs dezelfde weg terug, reken dus op de volle 13 kilometer.',
-              sv: 'Boka lunchen i förväg om ni vandrar under högsäsong. Ta med vatten och lite kontanter. Den officiella leden börjar vid Plaza del Ingenio och går tillbaka samma väg, så räkna med hela 13 kilometer.'
-            }
-          ]
-        }
+        guidePlaceItem('frigiliana.hiking.cruz-de-pinto', 'hiking'),
+        guidePlaceItem('frigiliana.hiking.el-fuerte', 'location-pin'),
+        guidePlaceItem('frigiliana.hiking.lizar-acequia-trail', 'compass'),
+        guidePlaceItem('frigiliana.hiking.historic-quarter-loop', 'landmark'),
+        guidePlaceItem('frigiliana.hiking.rio-higueron', 'wave'),
+        guidePlaceItem('nerja.hiking.rio-chillar', 'star'),
+        guidePlaceItem('frigiliana.hiking.el-acebuchal', 'flag')
       ]
     }
   ]
@@ -2208,90 +2033,10 @@ const frigilianaGuestDayTrips: GuestGuideEntry = {
         sv: 'Resmål för dagsutflykter'
       },
       items: [
-        {
-          icon: 'route',
-          recommendationId: 'frigiliana.day-trips.malaga-city',
-          title: { en: 'Málaga City', de: 'Málaga Stadt', es: 'Málaga', nl: 'Málaga stad', sv: 'Málaga' },
-          subtitle: {
-            en: '~50 min · Museums & easy day',
-            de: '~50 Min. · Museen & ein entspannter Tag',
-            es: '~50 min · Museos y un día tranquilo',
-            nl: '~50 min · Musea & een ontspannen dag',
-            sv: '~50 min · Museer & en avslappnad dag'
-          },
-          body: [
-            {
-              en: 'The most flexible cultural day trip: walkable streets, museums, great food, and a modern port atmosphere. Parking tip: park at <em>Muelle Uno</em> and walk into the center along the promenade.',
-              de: 'Der flexibelste kulturelle Tagesausflug: gut begehbare Gassen, Museen, großartiges Essen und eine moderne Hafenatmosphäre. Unser Park-Tipp: Parkt am <em>Muelle Uno</em> und spaziert gemütlich an der Promenade entlang ins Zentrum.',
-              es: 'La excursión cultural más flexible: calles perfectas para pasear, museos, comida estupenda y un ambiente portuario muy moderno. Consejo de aparcamiento: aparcad en el <em>Muelle Uno</em> y caminad hacia el centro por el paseo marítimo.',
-              nl: 'De meest flexibele culturele dagtrip: wandelvriendelijke straatjes, musea, geweldig eten en een moderne havensfeer. Onze parkeertip: parkeer bij <em>Muelle Uno</em> en wandel langs de boulevard zo het centrum in.',
-              sv: 'Den mest flexibla kulturella dagsutflykten: promenadvänliga gator, museer, fantastisk mat och en modern hamnatmosfär. Vårt parkeringstips: parkera vid <em>Muelle Uno</em> och promenera in till centrum längs hamnpromenaden.'
-            }
-          ]
-        },
-        {
-          icon: 'star',
-          recommendationId: 'frigiliana.day-trips.granada-alhambra',
-          title: { en: 'Granada & Alhambra', de: 'Granada & Alhambra', es: 'Granada y la Alhambra', nl: 'Granada & het Alhambra', sv: 'Granada & Alhambra' },
-          subtitle: {
-            en: '~1h 10m · Full day classic',
-            de: '~1 Std. 10 Min. · Der absolute Klassiker',
-            es: '~1h 10m · Un clásico de día completo',
-            nl: '~1 uur 10 min · De ultieme klassieker',
-            sv: '~1 tim 10 min · En riktig klassiker'
-          },
-          body: [
-            {
-              en: 'Moorish architecture, tea houses, the Albaicín, and the Alhambra with Sierra Nevada behind it — a true classic. Ticket reality: Alhambra tickets can sell out far ahead, so book as soon as you have dates. If tickets are gone, go anyway for the Albaicín and <em>Mirador de San Nicolás</em>.',
-              de: 'Maurische Architektur, traditionelle Teehäuser, das Albaicín-Viertel und die Alhambra mit der Sierra Nevada im Hintergrund – ein echter Klassiker. Wichtiger Hinweis zu den Tickets: Die Eintrittskarten für die Alhambra sind oft lange im Voraus ausverkauft – bucht sie, sobald eure Reisedaten feststehen. Falls es keine Tickets mehr gibt, fahrt trotzdem hin und genießt das Albaicín und den <em>Mirador de San Nicolás</em>.',
-              es: 'Arquitectura morisca, teterías, el Albaicín y la Alhambra con Sierra Nevada de fondo: un verdadero clásico. Advertencia importante sobre las entradas: las de la Alhambra pueden agotarse con mucha antelación; reservadlas en cuanto tengáis fechas. Si ya no quedan, id de todos modos a disfrutar del Albaicín y el <em>Mirador de San Nicolás</em>.',
-              nl: 'Moorse architectuur, theehuisjes, de wijk Albaicín en het Alhambra met de Sierra Nevada op de achtergrond — een absolute klassieker. Een belangrijke tip over de tickets: kaartjes voor het Alhambra zijn vaak ver van tevoren uitverkocht — boek zodra jullie reisdata vaststaan. Zijn er geen tickets meer? Ga dan alsnog voor het Albaicín en het <em>Mirador de San Nicolás</em>.',
-              sv: 'Morisk arkitektur, tehus, stadsdelen Albaicín och Alhambra med Sierra Nevada i bakgrunden – en sann klassiker. Ett viktigt tips om biljetter: biljetterna till Alhambra säljer ofta slut långt i förväg – boka så snart ni vet era datum. Om biljetterna är slut, åk ändå för att uppleva Albaicín och <em>Mirador de San Nicolás</em>.'
-            }
-          ]
-        },
-        {
-          icon: 'compass',
-          recommendationId: 'frigiliana.day-trips.caminito-del-rey',
-          title: { en: 'Caminito del Rey', de: 'Caminito del Rey', es: 'Caminito del Rey', nl: 'Caminito del Rey', sv: 'Caminito del Rey' },
-          subtitle: {
-            en: '~1h 30m · Booking + shuttle',
-            de: '~1 Std. 30 Min. · Buchung & Shuttle',
-            es: '~1h 30m · Reserva y autobús lanzadera',
-            nl: '~1 uur 30 min · Boeken & shuttle',
-            sv: '~1 tim 30 min · Bokning & buss'
-          },
-          body: [
-            {
-              en: 'A dramatic walkway attached to the gorge walls — one of the most unique "big view" experiences in the region. Good to know: it\'s a linear walk with a shuttle back, not ideal if you have a strong fear of heights. Book in advance (weeks ahead in peak season).',
-              de: 'Ein spektakulärer Steg, der direkt an den Felswänden der Schlucht befestigt ist – eines der beeindruckendsten Naturerlebnisse der Region. Gut zu wissen: Es ist keine Rundtour, sondern ein Streckenweg mit einem Shuttlebus zurück, nicht ideal bei starker Höhenangst. Unbedingt im Voraus buchen (in der Hochsaison teils Wochen vorher).',
-              es: 'Una pasarela espectacular colgada de las paredes del desfiladero: una de las experiencias con mejores vistas de toda la región. Conviene saber: es una ruta lineal con un autobús lanzadera para volver, no es ideal si tenéis mucho miedo a las alturas. Reservad con antelación (incluso semanas antes en temporada alta).',
-              nl: 'Een spectaculair wandelpad dat vastzit aan de wanden van de kloof — een van de meest unieke natuurervaringen in de regio. Goed om te weten: het is een route van A naar B, waarna jullie met een shuttlebus teruggaan, niet ideaal bij erge hoogtevrees. Boek vooraf (in het hoogseizoen vaak weken van tevoren).',
-              sv: 'En dramatisk gångbro fäst vid ravinens väggar – en av de mest unika naturupplevelserna i regionen. Bra att veta: det är en linjär vandring med en buss tillbaka, inte optimalt vid stark höjdrädsla. Boka i förväg (ibland veckor i förväg under högsäsong).'
-            }
-          ]
-        },
-        {
-          icon: 'location-pin',
-          recommendationId: 'frigiliana.day-trips.ronda',
-          title: { en: 'Ronda', de: 'Ronda', es: 'Ronda', nl: 'Ronda', sv: 'Ronda' },
-          subtitle: {
-            en: '~2 h · Scenic "big day out"',
-            de: '~2 Std. · Malerischer Tagesausflug',
-            es: '~2 h · Una gran excursión panorámica',
-            nl: '~2 uur · Schilderachtig dagje uit',
-            sv: '~2 tim · En vacker heldagsutflykt'
-          },
-          body: [
-            {
-              en: 'Defined by the Puente Nuevo over the gorge — cinematic, historic, and intensely scenic. Timing tip: leave by 09:00, enjoy a relaxed lunch, then return before late evening. The drive is part of the reward.',
-              de: 'Bekannt für die atemberaubende Brücke Puente Nuevo über der Schlucht – filmreif, historisch und unheimlich malerisch. Zeitplan-Tipp: Fahrt gegen 09:00 Uhr los, genießt ein entspanntes Mittagessen und kommt vor dem späten Abend zurück. Die Fahrt dorthin ist bereits Teil des Erlebnisses.',
-              es: 'Conocida por el Puente Nuevo sobre el Tajo: de película, histórica e intensamente pintoresca. Consejo de tiempo: salid sobre las 09:00, disfrutad de un almuerzo tranquilo y volved antes de que caiga la noche. El viaje en coche ya es parte de la experiencia.',
-              nl: 'Beroemd om de Puente Nuevo brug over de kloof — filmisch, historisch en waanzinnig mooi. Tijdsplanning: vertrek rond 09:00 uur, geniet van een ontspannen lunch en kom voor de late avond weer terug. De rit ernaartoe is al onderdeel van de ervaring.',
-              sv: 'Känd för bron Puente Nuevo över ravinen – filmatisk, historisk och otroligt vacker. Tidsplan: åk vid 09:00, njut av en avkopplande lunch och kom tillbaka före sen kväll. Bilturen dit är en del av upplevelsen i sig.'
-            }
-          ]
-        }
+        guidePlaceItem('frigiliana.day-trips.malaga-city', 'route'),
+        guidePlaceItem('frigiliana.day-trips.granada-alhambra', 'star'),
+        guidePlaceItem('frigiliana.day-trips.caminito-del-rey', 'compass'),
+        guidePlaceItem('frigiliana.day-trips.ronda', 'location-pin')
       ]
     }
   ]
@@ -2634,88 +2379,14 @@ const frigilianaGuestWellness: GuestGuideEntry = {
     {
       heading: { en: 'Frigiliana', de: 'Frigiliana', es: 'Frigiliana', nl: 'Frigiliana', sv: 'Frigiliana' },
       items: [
-        {
-          icon: 'accommodation',
-          recommendationId: 'frigiliana.wellness.frigiliana-wellness',
-          title: { en: 'Frigiliana Wellness', de: 'Frigiliana Wellness', es: 'Frigiliana Wellness', nl: 'Frigiliana Wellness', sv: 'Frigiliana Wellness' },
-          subtitle: {
-            en: 'Nearby · Or massage in your AMARA apartment',
-            de: 'Ganz in der Nähe · Oder Massage in eurem AMARA Apartment',
-            es: 'Muy cerca · O masaje en vuestro apartamento AMARA',
-            nl: 'Vlakbij · Of massage in jullie AMARA-appartement',
-            sv: 'Nära · Eller massage i er AMARA-lägenhet'
-          },
-          body: [
-            {
-              en: 'You can visit them at Cam. C. San Sebastián, 6, 29788 Frigiliana — just 600 m away, around a 10-minute walk from AMARA. If you prefer, they can also come to your AMARA apartment for a massage, perfect if you would rather stay in and enjoy a quiet treatment at home.',
-              de: 'Ihr könnt sie direkt aufsuchen: Cam. C. San Sebastián, 6, 29788 Frigiliana – nur 600 m entfernt, etwa 10 Minuten zu Fuß von AMARA. Wenn ihr möchtet, kommt Frigiliana Wellness aber auch direkt in euer AMARA Apartment, ideal, wenn ihr lieber in Ruhe bleiben und die Behandlung ganz entspannt zu Hause genießen möchtet.',
-              es: 'Podéis ir directamente a Cam. C. San Sebastián, 6, 29788 Frigiliana: a solo 600 m, unos 10 minutos andando desde AMARA. Si lo preferís, también pueden ir a vuestro apartamento AMARA para daros un masaje, ideal si os apetece quedaros tranquilos en casa y disfrutar allí mismo del tratamiento.',
-              nl: 'Jullie kunnen terecht op Cam. C. San Sebastián, 6, 29788 Frigiliana — op slechts 600 m afstand, ongeveer 10 minuten lopen vanaf AMARA. Als jullie liever willen, kunnen ze ook naar jullie AMARA-appartement komen voor een massage, ideaal als jullie rustig thuis willen blijven en daar van de behandeling willen genieten.',
-              sv: 'Ni kan besöka dem på Cam. C. San Sebastián, 6, 29788 Frigiliana — bara 600 m bort, cirka 10 minuters promenad från AMARA. Om ni föredrar det kan de också komma till er AMARA-lägenhet för en massage, perfekt om ni hellre vill stanna hemma och njuta av en lugn behandling där.'
-            },
-            {
-              en: 'What we especially like here is that the treatment is tailored to how you feel on the day. They first talk with you about what your body needs in that moment and then decide together which treatment, or combination of treatments, would be best — aromatherapy massage, deep tissue massage, Indian head massage, sports massage, reflexology or a facial treatment. In practice, you simply book the time and decide together on the day what feels right for you.',
-              de: 'Was wir hier besonders schön finden: Die Behandlung wird ganz individuell daran angepasst, wie ihr euch an dem jeweiligen Tag fühlt. Zuerst wird gemeinsam besprochen, was euer Körper in diesem Moment braucht, und dann entscheidet ihr zusammen, welche Behandlung oder Kombination am besten passt – Aromatherapie-Massage, Deep-Tissue-Massage, indische Kopfmassage, Sportmassage, Reflexzonenbehandlung oder eine Gesichtsbehandlung. Praktisch bedeutet das: Ihr bucht einfach die Zeit und entscheidet dann am Tag selbst gemeinsam, was sich für euch am besten anfühlt.',
-              es: 'Lo que nos parece especialmente bonito aquí es que el tratamiento se adapta a cómo os sintáis ese mismo día. Primero hablan con vosotros sobre lo que vuestro cuerpo necesita en ese momento y luego decidís juntos qué tratamiento, o combinación de tratamientos, encaja mejor: masaje con aromaterapia, masaje de tejido profundo, masaje indio de cabeza, masaje deportivo, reflexología o un tratamiento facial. En la práctica, simplemente reserváis el tiempo y decidís juntos ese mismo día qué os apetece más.',
-              nl: 'Wat wij hier vooral fijn aan vinden, is dat de behandeling helemaal wordt afgestemd op hoe jullie je die dag voelen. Eerst bespreken ze samen met jullie wat jullie lichaam op dat moment nodig heeft, en daarna beslissen jullie samen welke behandeling, of combinatie van behandelingen, het beste past — aromatherapiemassage, diepe weefselmassage, Indiase hoofdmassage, sportmassage, reflexologie of een gezichtsbehandeling. In de praktijk boeken jullie dus gewoon de tijd, en beslissen jullie op de dag zelf samen wat het beste voelt.',
-              sv: 'Det vi särskilt tycker om här är att behandlingen anpassas efter hur ni känner er just den dagen. Först pratar de med er om vad kroppen behöver i stunden, och sedan bestämmer ni tillsammans vilken behandling, eller kombination av behandlingar, som passar bäst — aromaterapimassage, djupvävnadsmassage, indisk huvudmassage, idrottsmassage, reflexologi eller en ansiktsbehandling. I praktiken bokar ni alltså bara tiden och bestämmer sedan tillsammans på dagen vad som känns rätt för er.'
-            }
-          ]
-        },
-        {
-          icon: 'moon',
-          recommendationId: 'frigiliana.wellness.lidia-california-massage',
-          title: { en: 'Lidia — California Massage', de: 'Lidia — Kalifornische Massage', es: 'Lidia — Masaje Californiano', nl: 'Lidia — Californische Massage', sv: 'Lidia — Kalifornisk massage' },
-          subtitle: {
-            en: 'Countryside · Deep unwind',
-            de: 'Auf dem Land · Tiefenentspannung',
-            es: 'En el campo · Desconexión profunda',
-            nl: 'Op het platteland · Diepe ontspanning',
-            sv: 'På landet · Djup avkoppling'
-          },
-          body: [
-            {
-              en: 'A quieter, more retreat-like experience. You visit her countryside location for a slower, deeper kind of relaxation — ideal if you want silence, calm, and a more personal session.',
-              de: 'Eine noch ruhigere Erfahrung, fast wie in einem Retreat. Ihr besucht sie an ihrem Standort auf dem Land für eine besonders langsame und tiefe Art der Entspannung – ideal, wenn ihr absolute Stille, Ruhe und eine sehr persönliche Session sucht.',
-              es: 'Una experiencia más tranquila, casi de retiro. Visitaréis su espacio en el campo para una relajación más pausada y profunda: ideal si buscáis silencio, calma y una sesión mucho más personal.',
-              nl: 'Een stillere ervaring die meer aanvoelt als een retreat. Jullie bezoeken haar locatie op het platteland voor een langzamere, diepere vorm van ontspanning — ideaal als jullie op zoek zijn naar stilte, rust en een persoonlijkere sessie.',
-              sv: 'En tystare upplevelse som påminner om ett retreat. Ni besöker hennes plats på landet för en långsammare, djupare form av avkoppling – idealiskt om ni vill ha tystnad, lugn och en mer personlig session.'
-            }
-          ]
-        }
+        guidePlaceItem('frigiliana.wellness.frigiliana-wellness', 'accommodation'),
+        guidePlaceItem('frigiliana.wellness.lidia-california-massage', 'moon')
       ]
     },
     {
       heading: { en: 'Nerja', de: 'Nerja', es: 'Nerja', nl: 'Nerja', sv: 'Nerja' },
       items: [
-        {
-          icon: 'pool',
-          recommendationId: 'nerja.wellness.ona-marinas-spa',
-          title: { en: 'Ona Marinas de Nerja Spa', de: 'Ona Marinas de Nerja Spa', es: 'Ona Marinas de Nerja Spa', nl: 'Ona Marinas de Nerja Spa', sv: 'Ona Marinas de Nerja Spa' },
-          subtitle: {
-            en: 'Thalassotherapy · Beachfront',
-            de: 'Thalassotherapie · Direkt am Strand',
-            es: 'Talasoterapia · Frente al mar',
-            nl: 'Thalassotherapie · Aan het strand',
-            sv: 'Thalassoterapi · Vid stranden'
-          },
-          body: [
-            {
-              en: 'If you are looking for a more classic spa setting in Nerja, this is a good beachfront option with a thalassotherapy focus. You will find thermal water facilities, a calm spa atmosphere, and a more hotel-style wellness experience than the smaller private treatments around Frigiliana.',
-              de: 'Wenn ihr in Nerja eher ein klassisches Spa-Ambiente sucht, ist das eine gute Option direkt am Meer mit Fokus auf Thalassotherapie. Ihr findet dort Thermalwasser-Angebote, eine ruhige Spa-Atmosphäre und insgesamt ein stärker hotelgeprägtes Wellness-Erlebnis als bei den kleineren, privaten Behandlungen rund um Frigiliana.',
-              es: 'Si buscáis en Nerja un spa más clásico, esta es una buena opción frente al mar con enfoque en talasoterapia. Encontraréis instalaciones de agua termal, un ambiente tranquilo de spa y una experiencia de bienestar más de hotel que los tratamientos privados y pequeños de la zona de Frigiliana.',
-              nl: 'Als jullie in Nerja op zoek zijn naar een meer klassieke spa-omgeving, dan is dit een goede optie aan zee met een focus op thalassotherapie. Je vindt er thermale waterfaciliteiten, een rustige spa-sfeer en een meer hotelgerichte wellnesservaring dan bij de kleinere privébehandelingen rond Frigiliana.',
-              sv: 'Om ni söker en mer klassisk spa-miljö i Nerja är detta ett bra alternativ vid stranden med fokus på thalassoterapi. Här finns termalvatten, en lugn spa-atmosfär och en mer hotellbaserad wellnessupplevelse än de mindre privata behandlingarna runt Frigiliana.'
-            },
-            {
-              en: 'It is a good fit if you want sea-facing surroundings, a structured spa setting, and a slower half day focused on rest.',
-              de: 'Es passt besonders gut, wenn ihr Meeresnähe, ein klares Spa-Setting und einen entspannten halben Tag mit Fokus auf Erholung sucht.',
-              es: 'Encaja muy bien si os apetece estar junto al mar, disfrutar de un entorno de spa más estructurado y dedicar medio día a descansar.',
-              nl: 'Het past goed als jullie uitzicht op zee willen, een duidelijke spa-setting zoeken en een rustige halve dag aan ontspanning willen besteden.',
-              sv: 'Det passar särskilt bra om ni vill ha havsnära omgivning, en tydlig spa-miljö och en lugn halvdag med fokus på vila.'
-            }
-          ]
-        },
+        guidePlaceItem('nerja.wellness.ona-marinas-spa', 'pool'),
         {
           icon: 'medical',
           recommendationIds: ['nerja.wellness.enerveda', 'nerja.wellness.rut-montiel'],

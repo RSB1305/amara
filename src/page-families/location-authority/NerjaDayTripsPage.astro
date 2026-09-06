@@ -31,7 +31,7 @@ const destinations = shared.destinations.map((destination) => ({
   ...destination,
   summary: destination.id === 'malaga' ? origin.malagaSummary : destination.summary,
   facts: destination.facts.map((fact, index) =>
-    index === 0 ? { ...fact, value: origin.driveTimes[destination.id] } : fact
+    index === 0 ? { ...fact, value: (origin.driveTimes[destination.id as keyof typeof origin.driveTimes] ?? fact.value) } : fact
   ),
   details: destination.id === 'ronda' ? origin.rondaDetails : destination.details
 }));

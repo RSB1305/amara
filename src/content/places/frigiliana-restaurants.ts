@@ -3,6 +3,7 @@ import { definePlaceCopy } from '../../lib/placeCopy';
 export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
   'frigiliana.restaurants.el-jardin': {
     public: {
+      kind: 'restaurant',
       title: {
         en: "The Garden Restaurant",
         de: "The Garden Restaurant",
@@ -60,6 +61,7 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
   },
   'frigiliana.restaurants.gloria-bendita': {
     public: {
+      kind: 'restaurant',
       title: {
         en: "Gloria Bendita",
         de: "Gloria Bendita",
@@ -117,6 +119,7 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
   },
   'frigiliana.restaurants.la-taperia': {
     public: {
+      kind: 'restaurant',
       title: {
         en: "La Tapería",
         de: "La Tapería",
@@ -174,6 +177,7 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
   },
   'frigiliana.restaurants.el-acebuchal': {
     public: {
+      kind: 'restaurant',
       title: {
         en: "Restaurante El Acebuchal",
         de: "Restaurante El Acebuchal",
