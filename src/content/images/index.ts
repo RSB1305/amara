@@ -13,6 +13,14 @@ import { frigilianaExperienceImages } from './frigiliana-experience';
 import { frigilianaFaqImages } from './frigiliana-faq';
 import { frigilianaOrNerjaImages } from './frigiliana-or-nerja';
 import { frigilianaImages } from './frigiliana';
+import { guesthomeFrigilianaFarahImages } from './guesthome-frigiliana-farah';
+import { guesthomeFrigilianaLounisImages } from './guesthome-frigiliana-lounis';
+import { guestwelcomeFrigilianaFarahImages } from './guestwelcome-frigiliana-farah';
+import { guestwelcomeFrigilianaLounisImages } from './guestwelcome-frigiliana-lounis';
+import { guestwelcomeFrigilianaMahaImages } from './guestwelcome-frigiliana-maha';
+import { guestwelcomeFrigilianaZaidImages } from './guestwelcome-frigiliana-zaid';
+import { guestwelcomeNerjaPlayaImages } from './guestwelcome-nerja-playa';
+import { guestwelcomeTarifaFamilySurfImages } from './guestwelcome-tarifa-family-surf';
 import { laAmaraFamilyAndSurfImages } from './la-amara-family-and-surf';
 import { laAmaraFarahImages } from './la-amara-farah';
 import { laAmaraLounisImages } from './la-amara-lounis';
@@ -59,6 +67,14 @@ const sets: readonly RouteImageSet[] = [
   frigilianaFaqImages,
   frigilianaOrNerjaImages,
   frigilianaImages,
+  guesthomeFrigilianaFarahImages,
+  guesthomeFrigilianaLounisImages,
+  guestwelcomeFrigilianaFarahImages,
+  guestwelcomeFrigilianaLounisImages,
+  guestwelcomeFrigilianaMahaImages,
+  guestwelcomeFrigilianaZaidImages,
+  guestwelcomeNerjaPlayaImages,
+  guestwelcomeTarifaFamilySurfImages,
   laAmaraFamilyAndSurfImages,
   laAmaraFarahImages,
   laAmaraLounisImages,

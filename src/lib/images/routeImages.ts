@@ -142,6 +142,28 @@ export function routeImageAltText(routeKey: string, id: string): LocalizedText {
   return image.alt;
 }
 
+/** A figure as the Guest Guide authors it: stable path plus localized alt and caption. */
+export interface RouteImageFigure {
+  src: string;
+  alt: LocalizedText;
+  caption?: LocalizedText;
+}
+
+const figure = (image: RouteImage): RouteImageFigure => {
+  if (!image.alt) throw new Error(`[AMARA images] ${image.src} needs alt text.`);
+  return image.caption ? { src: image.src, alt: image.alt, caption: image.caption } : { src: image.src, alt: image.alt };
+};
+
+export function routeImageFigure(routeKey: string, id: string): RouteImageFigure {
+  const image = requireSet(routeKey).images.find((entry) => (entry.id ?? entry.role) === id);
+  if (!image) throw new Error(`[AMARA images] ${routeKey} has no image for slot "${id}".`);
+  return figure(image);
+}
+
+export function routeImageFigures(routeKey: string, role: RouteImageRole): RouteImageFigure[] {
+  return requireSet(routeKey).images.filter((image) => image.role === role).map(figure);
+}
+
 /** The photograph of one recommended place, wherever the place is shown; undefined while none exists. */
 export function placeImage(
   recommendationId: string,

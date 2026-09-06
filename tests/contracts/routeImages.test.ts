@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
 import { getRecommendation } from '../../knowledge/recommendations';
 import { routeImageSets } from '../../src/content/images';
+import { GUEST_GUIDE_PAGES } from '../../guest-experience/guide-routes.mjs';
 import { PUBLIC_ROUTE_KEYS, VACATION_RENTAL_ROUTE_KEYS } from '../../src/lib/publicRouteManifest.mjs';
 import { STABLE_PUBLIC_IMAGE_PATHS } from '../../src/lib/images/stablePublicImages';
 import { SUPPORTED_LANGUAGES } from '../../src/lib/routeOwnership';
@@ -11,12 +12,13 @@ import { SUPPORTED_LANGUAGES } from '../../src/lib/routeOwnership';
 
 const contentRoot = join(process.cwd(), 'src', 'assets', 'images', 'content');
 const stablePaths = new Set<string>(STABLE_PUBLIC_IMAGE_PATHS);
-const routeKeys = new Set<string>(PUBLIC_ROUTE_KEYS as readonly string[]);
+const guideKeys = new Set<string>(Object.keys(GUEST_GUIDE_PAGES));
+const routeKeys = new Set<string>([...(PUBLIC_ROUTE_KEYS as readonly string[]), ...guideKeys]);
 
 test('every image set belongs to a public route and every image file exists in the content root', () => {
   for (const [key, set] of Object.entries(routeImageSets)) {
     expect(set.routeKey, `${key} keyed by its own route key`).toBe(key);
-    expect(routeKeys.has(key), `${key} is a public route key`).toBe(true);
+    expect(routeKeys.has(key), `${key} is a public route key or a Guest Guide page`).toBe(true);
     for (const image of set.images) {
       expect(image.src.startsWith('/images/'), `${key}: ${image.src} is a stable /images/ path`).toBe(true);
       expect(existsSync(join(contentRoot, image.src.slice('/images/'.length))), `${key}: ${image.src} exists under src/assets/images/content`).toBe(true);
@@ -78,6 +80,18 @@ test('every stay carries its card photograph and a gallery whose first eight ent
     expect(gallery.length, `${key} gallery size`).toBeGreaterThanOrEqual(8);
     for (const image of gallery.slice(0, 8)) {
       expect(stablePaths.has(image.src), `${key}: JSON-LD image ${image.src} must be a stable public path`).toBe(true);
+    }
+  }
+});
+
+test('Guest Guide photographs are guide-only and public routes never mark a hero as guide-only', () => {
+  for (const [key, set] of Object.entries(routeImageSets)) {
+    for (const image of set.images) {
+      if (guideKeys.has(key)) {
+        expect(image.surfaces, `${key}: ${image.src} belongs to the protected guide`).toEqual(['guide']);
+      } else if (image.role === 'hero' || image.role === 'og') {
+        expect(image.surfaces ?? ['public'], `${key}: ${image.src} is a public hero`).toContain('public');
+      }
     }
   }
 });

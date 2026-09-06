@@ -14,7 +14,7 @@ import type { LocalizedText } from '../../types/content';
  * URL contract stays `stablePublicImages.ts`: an `og` image must be listed there.
  * The raw originals of a route key live in the Drive folder of the same route key.
  */
-export type RouteImageRole = 'hero' | 'og' | 'split' | 'card' | 'gallery' | 'panorama' | 'editorial' | 'place';
+export type RouteImageRole = 'hero' | 'og' | 'split' | 'card' | 'gallery' | 'panorama' | 'editorial' | 'place' | 'utility';
 
 export type RouteImageSurface = 'public' | 'guide';
 

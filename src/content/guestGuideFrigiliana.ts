@@ -1,6 +1,7 @@
 import type { GuestGuideAccordionItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
 import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHref';
 import { guidePlaceItem } from '../lib/placeProjection';
+import { routeImageAltText, routeImageFigure, routeImageFigures, routeImageSrc } from '../lib/images/routeImages';
 
 const FRIGILIANA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
 const NEED_HELP: LocalizedText = {
@@ -291,23 +292,7 @@ const sharedAmaraCoffeeMachineItem: GuestGuideAccordionItem = {
       sv: 'Skumma mjölk: fyll en liten kanna med kall mjölk, vrid på ångvredet, håll munstycket precis under ytan tills mjölken blir silkeslen, stäng av ångan och torka av röret.'
     }
   ],
-  image: {
-    src: '/images/amara-farah/coffee-machine-filters.jpg',
-    alt: {
-      en: 'DeLonghi portafilter C1 with filter inserts C2 (single shot), C3 (double shot) and C4 (ESE pods)',
-      de: 'DeLonghi-Siebträger C1 mit den Einsätzen C2 (einfacher Espresso), C3 (doppelter Espresso) und C4 (E.S.E.-Pads)',
-      es: 'Portafiltro DeLonghi C1 con los filtros C2 (espresso simple), C3 (espresso doble) y C4 (monodosis ESE)',
-      nl: 'DeLonghi-piston C1 met filterbakjes C2 (enkele espresso), C3 (dubbele espresso) en C4 (ESE-servings)',
-      sv: 'DeLonghi-portafilter C1 med insatserna C2 (enkel espresso), C3 (dubbel espresso) och C4 (ESE-pods)'
-    },
-    caption: {
-      en: 'A6 portafilter handle · C1 filter holder · C2/C3/C4 inserts',
-      de: 'A6 Siebträgergriff · C1 Siebhalter · C2/C3/C4 Einsätze',
-      es: 'A6 mango del portafiltro · C1 soporte del filtro · Filtros C2/C3/C4',
-      nl: 'A6 handvat piston · C1 filterhouder · C2/C3/C4 filterbakjes',
-      sv: 'A6 portafilterhandtag · C1 filterhållare · C2/C3/C4-insatser'
-    }
-  }
+  image: routeImageFigure('guesthome-frigiliana-farah', 'coffee-filters')
 };
 
 // Shared across Lounis and Zaid (identical induction hob / pellet stove hardware); Farah has neither.
@@ -344,59 +329,7 @@ const sharedAmaraInductionHobItem: GuestGuideAccordionItem = {
       sv: 'Lägre nivåer är idealiska för att sjuda försiktigt; högre nivåer passar bäst för att koka upp vatten eller bryna maten.'
     }
   ],
-  images: [
-    {
-      src: '/images/amara-lounis/induction-hob-zones.jpg',
-      alt: {
-        en: 'Induction hob control panel showing zone selection and On/Off button',
-        de: 'Bedienfeld des Induktionsherds mit Kochzonenauswahl und Ein/Aus-Taste',
-        es: 'Panel de control de la placa de inducción con selección de zona y botón de encendido/apagado',
-        nl: 'Bedieningspaneel van de inductiekookplaat met zone-selectie en aan/uit-knop',
-        sv: 'Induktionshällens kontrollpanel med zonval och På/Av-knapp'
-      },
-      caption: {
-        en: 'Zone selection and On/Off button',
-        de: 'Kochzonenauswahl und Ein/Aus-Taste',
-        es: 'Selección de zona y botón de encendido/apagado',
-        nl: 'Zone-selectie en aan/uit-knop',
-        sv: 'Zonval och På/Av-knapp'
-      }
-    },
-    {
-      src: '/images/amara-lounis/induction-hob-child-lock.jpg',
-      alt: {
-        en: 'Induction hob control panel with the child lock button highlighted',
-        de: 'Bedienfeld des Induktionsherds mit hervorgehobener Kindersicherungstaste',
-        es: 'Panel de control de la placa de inducción con el botón de bloqueo infantil resaltado',
-        nl: 'Bedieningspaneel van de inductiekookplaat met de kinderslotknop gemarkeerd',
-        sv: 'Induktionshällens kontrollpanel med barnspärrsknappen markerad'
-      },
-      caption: {
-        en: 'Child lock button',
-        de: 'Kindersicherungstaste',
-        es: 'Botón de bloqueo infantil',
-        nl: 'Kinderslotknop',
-        sv: 'Barnspärrsknapp'
-      }
-    },
-    {
-      src: '/images/amara-lounis/induction-hob-power-levels.jpg',
-      alt: {
-        en: 'Induction hob control panel showing the power level slider (1-9)',
-        de: 'Bedienfeld des Induktionsherds mit dem Regler für die Leistungsstufen (1–9)',
-        es: 'Panel de control de la placa de inducción con el control deslizante de potencia (1-9)',
-        nl: 'Bedieningspaneel van de inductiekookplaat met de vermogensschuif (1-9)',
-        sv: 'Induktionshällens kontrollpanel med reglaget för effektnivå (1–9)'
-      },
-      caption: {
-        en: 'Power level (1–9)',
-        de: 'Leistungsstufe (1–9)',
-        es: 'Nivel de potencia (1–9)',
-        nl: 'Vermogensniveau (1–9)',
-        sv: 'Effektnivå (1–9)'
-      }
-    }
-  ]
+  images: routeImageFigures('guesthome-frigiliana-lounis', 'utility')
 };
 
 const sharedAmaraPelletStoveItem: GuestGuideAccordionItem = {
@@ -772,14 +705,8 @@ const frigilianaFarahHub: GuestGuideEntry = {
     nl: 'Een rustige, praktische gids voor jullie verblijf in Frigiliana: huisinfo, lokale tips en essentials voor een soepele aankomst.',
     sv: 'En lugn och praktisk guide för er vistelse i Frigiliana: boendeinfo, lokala tips och det viktigaste för en smidig ankomst.'
   },
-  heroImage: '/images/amara-farah/65-amara-frigiliana.jpg',
-  heroAlt: {
-    en: 'AMARA Farah apartment in Frigiliana',
-    de: 'AMARA Farah Apartment in Frigiliana',
-    es: 'Apartamento AMARA Farah en Frigiliana',
-    nl: 'AMARA Farah appartement in Frigiliana',
-    sv: 'AMARA Farah-lägenhet i Frigiliana'
-  },
+  heroImage: routeImageSrc('guestwelcome-frigiliana-farah', 'hero'),
+  heroAlt: routeImageAltText('guestwelcome-frigiliana-farah', 'hero'),
   kicker: { en: 'AMARA FARAH', de: 'AMARA FARAH', es: 'AMARA FARAH', nl: 'AMARA FARAH', sv: 'AMARA FARAH' },
   title: {
     en: 'Your AMARA stay in Frigiliana',
@@ -3634,14 +3561,8 @@ const frigilianaLounisHub: GuestGuideEntry = {
     nl: 'Een rustige, praktische gids voor jullie verblijf in Frigiliana: huisinfo, lokale tips en essentials voor een soepele aankomst.',
     sv: 'En lugn och praktisk guide för er vistelse i Frigiliana: boendeinfo, lokala tips och det viktigaste för en smidig ankomst.'
   },
-  heroImage: '/images/amara-lounis/104-amara-frigiliana.jpg',
-  heroAlt: {
-    en: 'AMARA Lounis apartment in Frigiliana',
-    de: 'AMARA Lounis Apartment in Frigiliana',
-    es: 'Apartamento AMARA Lounis en Frigiliana',
-    nl: 'AMARA Lounis appartement in Frigiliana',
-    sv: 'AMARA Lounis-lägenhet i Frigiliana'
-  },
+  heroImage: routeImageSrc('guestwelcome-frigiliana-lounis', 'hero'),
+  heroAlt: routeImageAltText('guestwelcome-frigiliana-lounis', 'hero'),
   kicker: { en: 'AMARA LOUNIS', de: 'AMARA LOUNIS', es: 'AMARA LOUNIS', nl: 'AMARA LOUNIS', sv: 'AMARA LOUNIS' },
   title: {
     en: 'Your AMARA stay in Frigiliana',
@@ -3841,14 +3762,8 @@ const frigilianaZaidHub: GuestGuideEntry = {
     nl: 'Een rustige, praktische gids voor jullie verblijf in Frigiliana: huisinfo, lokale tips en essentials voor een soepele aankomst.',
     sv: 'En lugn och praktisk guide för er vistelse i Frigiliana: boendeinfo, lokala tips och det viktigaste för en smidig ankomst.'
   },
-  heroImage: '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg',
-  heroAlt: {
-    en: 'AMARA Zaid terrace apartment in Frigiliana',
-    de: 'AMARA Zaid Terrassenapartment in Frigiliana',
-    es: 'Apartamento con terraza AMARA Zaid en Frigiliana',
-    nl: 'AMARA Zaid terrasappartement in Frigiliana',
-    sv: 'AMARA Zaid terrasslägenhet i Frigiliana'
-  },
+  heroImage: routeImageSrc('guestwelcome-frigiliana-zaid', 'hero'),
+  heroAlt: routeImageAltText('guestwelcome-frigiliana-zaid', 'hero'),
   kicker: { en: 'AMARA ZAID', de: 'AMARA ZAID', es: 'AMARA ZAID', nl: 'AMARA ZAID', sv: 'AMARA ZAID' },
   title: {
     en: 'Your AMARA stay in Frigiliana',
@@ -4042,14 +3957,8 @@ const frigilianaMahaHub: GuestGuideEntry = {
     nl: 'Een rustige, praktische gids voor jullie verblijf in Frigiliana: huisinfo, lokale tips en essentials voor een soepele aankomst.',
     sv: 'En lugn och praktisk guide för er vistelse i Frigiliana: boendeinfo, lokala tips och det viktigaste för en smidig ankomst.'
   },
-  heroImage: '/images/amara-maha/29-amara-frigiliana.jpg',
-  heroAlt: {
-    en: 'AMARA Maha apartment in Frigiliana',
-    de: 'AMARA Maha Apartment in Frigiliana',
-    es: 'Apartamento AMARA Maha en Frigiliana',
-    nl: 'AMARA Maha appartement in Frigiliana',
-    sv: 'AMARA Maha lägenhet i Frigiliana'
-  },
+  heroImage: routeImageSrc('guestwelcome-frigiliana-maha', 'hero'),
+  heroAlt: routeImageAltText('guestwelcome-frigiliana-maha', 'hero'),
   kicker: { en: 'AMARA MAHA', de: 'AMARA MAHA', es: 'AMARA MAHA', nl: 'AMARA MAHA', sv: 'AMARA MAHA' },
   title: {
     en: 'Your AMARA stay in Frigiliana',
@@ -4243,14 +4152,8 @@ const nerjaPlayaHub: GuestGuideEntry = {
     nl: 'Jullie rustige, praktische gids voor een ontspannen verblijf in Nerja: accommodatie-info, lokale tips en essentials voor een soepele aankomst.',
     sv: 'Er lugna, praktiska guide för en smidig vistelse i Nerja: boendeinfo, lokala tips och det viktigaste för en enkel ankomst.'
   },
-  heroImage: '/images/amara-playa/apartment/chaparril-13.webp',
-  heroAlt: {
-    en: 'AMARA Playa apartment in Nerja',
-    de: 'AMARA Playa Apartment in Nerja',
-    es: 'Apartamento AMARA Playa en Nerja',
-    nl: 'AMARA Playa appartement in Nerja',
-    sv: 'AMARA Playa-lägenhet i Nerja'
-  },
+  heroImage: routeImageSrc('guestwelcome-nerja-playa', 'hero'),
+  heroAlt: routeImageAltText('guestwelcome-nerja-playa', 'hero'),
   kicker: { en: 'AMARA PLAYA', de: 'AMARA PLAYA', es: 'AMARA PLAYA', nl: 'AMARA PLAYA', sv: 'AMARA PLAYA' },
   title: {
     en: 'Your AMARA stay in Nerja',
