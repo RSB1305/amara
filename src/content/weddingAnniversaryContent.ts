@@ -50,7 +50,6 @@ export const weddingAnniversaryContent = {
       ['AMARA har sex boenden i Frigiliana, Nerja och Tarifa. Beroende på hideaway får ni ett rymligt badrum, dubbeldusch, en 180 eller 200 centimeter bred säng, privat terrass med hängmatta, lugn eller utsikt mot havet. Inget boende har allt. En terrass i Frigiliana, gångavstånd till stranden i Nerja eller mer utrymme med utsikt över Atlanten ger dagarna helt olika karaktär. Vi tar hand om varje boende själva och berättar ärligt var ni hittar detaljerna som betyder mest för er.']
     ),
     cta: l('See which stay fits', 'Schaut, welche Unterkunft passt', 'Ver qué alojamiento encaja', 'Bekijk welk verblijf past', 'Se vilket boende som passar'),
-    imageAlt: l('Private terrace with white walls and palms at AMARA Lounis in Frigiliana', 'Private Terrasse mit weißen Mauern und Palmen bei AMARA Lounis in Frigiliana', 'Terraza privada con paredes blancas y palmeras en AMARA Lounis, Frigiliana', 'Privéterras met witte muren en palmen bij AMARA Lounis in Frigiliana', 'Privat terrass med vita väggar och palmer vid AMARA Lounis i Frigiliana')
   },
   choice: {
     title: l('Make the stay the celebration', 'Macht den Aufenthalt selbst zum Fest', 'Que la estancia sea la celebración', 'Laat het verblijf zelf de viering zijn', 'Låt vistelsen vara firandet'),
@@ -61,7 +60,6 @@ export const weddingAnniversaryContent = {
       ['Uitslapen, buiten ontbijten en spontaan uit eten gaan: een privéterras, een ruime douche of een weids uitzicht doet vaak meer voor jullie tijd samen dan een vooraf bedacht programma.', 'We houden het eenvoudig: stuur ons jullie data en vraag het als een detail belangrijk is. We zeggen precies in welke hideaway jullie het vinden.'],
       ['Sov länge, ät frukost ute och gå ut på middag när ni känner för det. En privat terrass, en rymlig dusch eller vid utsikt gör ofta mer för tiden tillsammans än ett färdigt program.', 'Vi håller det enkelt: skicka era datum och fråga om en detalj är viktig. Vi säger exakt vilket hideaway som har den.']
     ),
-    imageAlt: l('Outdoor shower and handmade tiles on AMARA Zaid’s private terrace', 'Außendusche und handgefertigte Fliesen auf der privaten Terrasse von AMARA Zaid', 'Ducha exterior y azulejos artesanales en la terraza privada de AMARA Zaid', 'Buitendouche en handgemaakte tegels op het privéterras van AMARA Zaid', 'Utedusch och handgjort kakel på AMARA Zaids privata terrass')
   },
   stayOptions: honeymoonContent.stayOptions,
   closing: {

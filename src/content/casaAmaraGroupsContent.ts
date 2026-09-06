@@ -63,7 +63,6 @@ export const casaAmaraGroupsContent = {
     qualifier: l("Designed for small groups who value privacy and quiet. **It is not a party house or an event venue.**", "Für kleine Gruppen, denen Privatsphäre und Ruhe wichtig sind. **Kein Partyhaus und keine Eventlocation.**", "Pensado para grupos pequeños que valoran la privacidad y la tranquilidad. **No es una casa de fiestas ni un espacio para eventos.**", "Voor kleine groepen die privacy en rust waarderen. **Geen feesthuis en geen evenementenlocatie.**", "För små grupper som värdesätter avskildhet och lugn. **Inget partyhus och ingen evenemangslokal.**"),
     primaryCta: l("Enquire for 4–8 guests", "Für 4–8 Gäste anfragen", "Consultar para 4–8 huéspedes", "Informeer voor 4–8 gasten", "Skicka förfrågan för 4–8 gäster"),
     secondaryCta: l("Compare the four stays", "Die vier Unterkünfte vergleichen", "Comparar los cuatro alojamientos", "Vergelijk de vier verblijven", "Jämför de fyra boendena"),
-    imageAlt: l("Large shaded terrace at Casa AMARA Maha in Frigiliana", "Große schattige Terrasse von Casa AMARA Maha in Frigiliana", "Gran terraza con sombra de Casa AMARA Maha en Frigiliana", "Groot schaduwrijk terras van Casa AMARA Maha in Frigiliana", "Stor skuggig terrass vid Casa AMARA Maha i Frigiliana")
   },
   model: {
     eyebrow: l("ONE HOUSE, SEVERAL STAYS", "EIN HAUS, MEHRERE UNTERKÜNFTE", "UNA CASA, VARIOS ALOJAMIENTOS", "ÉÉN HUIS, MEERDERE VERBLIJVEN", "ETT HUS, FLERA BOENDEN"),
@@ -129,7 +128,6 @@ export const casaAmaraGroupsContent = {
         text: l("When all four stays are reserved together, no other guests stay in Casa AMARA.", "Sind alle vier Unterkünfte gemeinsam gebucht, wohnen keine anderen Gäste in Casa AMARA.", "Cuando se reservan juntos los cuatro alojamientos, no se alojan otros huéspedes en Casa AMARA.", "Wanneer alle vier verblijven samen zijn geboekt, verblijven er geen andere gasten in Casa AMARA.", "När alla fyra boenden bokas tillsammans bor inga andra gäster i Casa AMARA.")
       }
     ],
-    imageAlt: l("Outdoor staircase and lockable connection between the Zaid and Maha terraces at Casa AMARA", "Außentreppe und verschließbare Verbindung zwischen den Terrassen von Zaid und Maha in Casa AMARA", "Escalera exterior y puerta de conexión entre las terrazas de Zaid y Maha en Casa AMARA", "Buitentrap en afsluitbare verbinding tussen de terrassen van Zaid en Maha in Casa AMARA", "Utomhustrappa och låsbar förbindelse mellan terrasserna vid Zaid och Maha i Casa AMARA")
   },
   fit: {
     eyebrow: l("IS CASA AMARA RIGHT FOR YOU?", "PASST CASA AMARA ZU EUCH?", "¿ES CASA AMARA PARA VOSOTROS?", "PAST CASA AMARA BIJ JULLIE?", "PASSAR CASA AMARA ER?"),
@@ -150,7 +148,6 @@ export const casaAmaraGroupsContent = {
       l("Steps and stairs differ by stay", "Stufen und Treppen unterscheiden sich je Unterkunft", "Los escalones y escaleras varían según el alojamiento", "Treden en trappen verschillen per verblijf", "Trappsteg och trappor skiljer sig mellan boendena")
     ],
     note: l("This is not an eight-person villa behind one front door. It is a small house of four independent stays that can be coordinated for one group.", "Dies ist keine Villa für acht Personen hinter einer gemeinsamen Eingangstür, sondern ein kleines Haus mit vier eigenständigen Unterkünften, die für eine Gruppe koordiniert werden können.", "No es una villa para ocho personas tras una sola puerta, sino una pequeña casa con cuatro alojamientos independientes que pueden coordinarse para un grupo.", "Dit is geen villa voor acht personen achter één voordeur. Het is een klein huis met vier zelfstandige verblijven die voor één groep kunnen worden gecoördineerd.", "Det här är inte en villa för åtta personer bakom en gemensam ytterdörr, utan ett litet hus med fyra fristående boenden som kan samordnas för en grupp."),
-    imageAlt: l("White façade of Casa AMARA in Frigiliana old town", "Weiße Fassade von Casa AMARA in der Altstadt von Frigiliana", "Fachada blanca de Casa AMARA en el casco antiguo de Frigiliana", "Witte gevel van Casa AMARA in de oude kern van Frigiliana", "Vit fasad på Casa AMARA i Frigilianas gamla stad")
   },
   location: {
     eyebrow: l("IN FRIGILIANA OLD TOWN", "IN FRIGILIANAS ALTSTADT", "EN EL CASCO ANTIGUO DE FRIGILIANA", "IN DE OUDE KERN VAN FRIGILIANA", "I FRIGILIANAS GAMLA STAD"),

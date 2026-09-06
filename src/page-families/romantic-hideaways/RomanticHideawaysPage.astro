@@ -3,7 +3,6 @@
  * AMARA stay collection — six-property shortlist page.
  * The legacy route remains unchanged; stable property facts come from the rental SSOT.
  */
-import type { ImageMetadata } from 'astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustHero from '../../components/hero/TrustHero.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
@@ -12,12 +11,6 @@ import ApartmentCard from '../../components/location/ApartmentCard.astro';
 import ApartmentGrid from '../../components/location/ApartmentGrid.astro';
 import GuestReviewsSummary from '../../components/location/GuestReviewsSummary.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
-import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
-import imgLounisMain from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
-import imgLounisTerrace from '../../assets/images/home/amara-lounis-17-amara-frigiliana.jpg';
-import imgMaha from '../../assets/images/home/amara-maha-29-amara-frigiliana.jpg';
-import imgPlaya from '../../assets/images/home/amara-playa-chaparril-13.webp';
-import imgTarifa from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import { comfortAmenitiesLinkLabel } from '../../content/comfortAmenitiesLinkLabel';
@@ -29,6 +22,7 @@ import {
   type VacationRentalEntity,
   type VacationRentalEntityKey
 } from '../../content/vacationRentalEntities';
+import { routeImageAltText, routeImageSrc } from '../../lib/images/routeImages';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -259,15 +253,6 @@ const reviewFeaturesByLang: Record<AmaraLanguage, ReviewFeature[]> = {
 
 type ApartmentToken = VacationRentalEntity['token'];
 
-const apartmentImages: Record<ApartmentToken, ImageMetadata> = {
-  farah: imgFarah,
-  lounis: imgLounisMain,
-  zaid: imgLounisTerrace,
-  maha: imgMaha,
-  playa: imgPlaya,
-  tarifa: imgTarifa
-};
-
 const guestCountLabels: Record<AmaraLanguage, (count: number) => string> = {
   en: (count) => `${count} guests`,
   de: (count) => `${count} Gäste`,
@@ -430,8 +415,8 @@ const apartmentRows = stayCollectionEntityKeys.map((entityKey) => {
   return {
     token,
     href,
-    image: apartmentImages[token],
-    imageAlt: rental.imageAlt,
+    image: routeImageSrc('stays', token),
+    imageAlt: routeImageAltText('stays', token),
     meta: `${rental.city} · ${guestCountLabels[currentLang](rental.occupancy)}`,
     title: rental.name,
     description: cardDescription(token, rental),

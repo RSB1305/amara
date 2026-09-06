@@ -1,6 +1,5 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
 import tarifaSurfClubTeamImage from '../../assets/images/content/tarifa/tarifa-surf-club-team.webp';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
@@ -141,13 +140,6 @@ const ui = {
     nl: 'Beschikbaarheid bekijken',
     sv: 'Se tillgänglighet'
   },
-  imageAlt: {
-    en: 'Living space at AMARA Family & Surf in Tarifa',
-    de: 'Wohnbereich bei AMARA Family & Surf in Tarifa',
-    es: 'Salón de AMARA Family & Surf en Tarifa',
-    nl: 'Woonruimte van AMARA Family & Surf in Tarifa',
-    sv: 'Vardagsrum på AMARA Family & Surf i Tarifa'
-  },
   windImageAlt: {
     en: 'Tarifa Surf Club team together at the beach in Tarifa',
     de: 'Das Team des Tarifa Surf Club gemeinsam am Strand von Tarifa',
@@ -157,6 +149,7 @@ const ui = {
   }
 } satisfies Record<string, LocalizedText>;
 
+const stayImage = requireRouteImage('tarifa.where-to-stay', 'stay', currentLang);
 const beachesPanorama = content.id === 'beaches' ? requireRouteImage('tarifa.experience.beaches', 'panorama', currentLang) : undefined;
 const partnershipImage = content.id === 'wind' ? requireRouteImage('tarifa.kitesurfing', 'partnership', currentLang) : undefined;
 const topicHeroMedia = content.id === 'beaches'
@@ -357,8 +350,8 @@ const footerHighlights: LabeledLink[] = [
         <div class="mx-auto grid max-w-screen-2xl overflow-hidden bg-surface lg:grid-cols-2">
           <figure class="am-mobile-full-bleed min-h-[360px] bg-surface-container-high lg:min-h-[560px]">
             <AmaraImage
-              src={tarifaStayImage}
-              alt={locationCopy.amara.imageAlt}
+              src={stayImage.src}
+              alt={stayImage.alt}
               profile="hero"
               class="h-full w-full object-cover"
               sizes="(max-width: 1023px) 100vw, 50vw"
@@ -658,8 +651,8 @@ const footerHighlights: LabeledLink[] = [
     >
       <figure slot="visual" class="am-mobile-full-bleed min-h-[360px] bg-surface-container-high lg:min-h-[560px]">
         <AmaraImage
-          src={tarifaStayImage}
-          alt={t(ui.imageAlt)}
+          src={stayImage.src}
+          alt={stayImage.alt}
           profile="hero"
           class="h-full w-full object-cover"
           sizes="(max-width: 1023px) 100vw, 50vw"

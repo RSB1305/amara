@@ -6,14 +6,12 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
-import heroImage from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
-import choiceImage from '../../assets/images/home/amara-zaid-terraza-5.jpg';
 import { weddingAnniversaryContent, weddingAnniversarySeo } from '../../content/weddingAnniversaryContent';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import { resolveLocale } from '../../types/content';
+import { requireRouteImage, routeOgImage } from '../../lib/images/routeImages';
 import type { AmaraLanguage } from '../../types/seo';
 
 interface Props {
@@ -22,9 +20,10 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = requireRouteImage('stays.wedding-anniversary', 'hero', currentLang);
+const choiceImage = requireRouteImage('stays.wedding-anniversary', 'choice', currentLang);
 const copy = resolveLocale(weddingAnniversaryContent, currentLang);
-const seoHeroImage = await createAmaraImage(heroImage, 'hero');
-const seo = { ...weddingAnniversarySeo, ogImage: seoHeroImage.src };
+const seo = { ...weddingAnniversarySeo, ogImage: routeOgImage('stays.wedding-anniversary') };
 const requiredLink = createRequiredLinkResolver(currentLang, 'Wedding anniversary in Andalusia');
 
 const links = {
@@ -57,8 +56,8 @@ const footerHighlights: (LabeledLink & { decoration: 'heart' })[] = [
 >
   <AmaraPageShell family="wedding-anniversary" dataLang={currentLang} flush whiteCanvas>
     <ExploreCampaignHero
-      imageSrc={heroImage}
-      imageAlt={copy.hero.imageAlt}
+      imageSrc={hero.src}
+      imageAlt={hero.alt}
       kicker={copy.hero.kicker}
       kickerDecoration="heart"
       title={copy.hero.title}
@@ -76,8 +75,8 @@ const footerHighlights: (LabeledLink & { decoration: 'heart' })[] = [
         <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div class="lg:col-span-6">
             <AmaraImage
-              src={choiceImage}
-              alt={copy.choice.imageAlt}
+              src={choiceImage.src}
+              alt={choiceImage.alt}
               profile="gallery"
               class="aspect-[4/3] h-full w-full object-cover"
               loading="lazy"

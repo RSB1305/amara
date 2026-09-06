@@ -7,6 +7,7 @@ import { frigilianaExperienceHikingImages } from './frigiliana-experience-hiking
 import { frigilianaExperienceMarketImages } from './frigiliana-experience-market';
 import { frigilianaExperienceOldTownImages } from './frigiliana-experience-old-town';
 import { frigilianaExperienceRestaurantsImages } from './frigiliana-experience-restaurants';
+import { frigilianaExperienceWeddingsImages } from './frigiliana-experience-weddings';
 import { frigilianaExperienceWellnessImages } from './frigiliana-experience-wellness';
 import { frigilianaExperienceImages } from './frigiliana-experience';
 import { frigilianaFaqImages } from './frigiliana-faq';
@@ -24,6 +25,10 @@ import { nerjaExperienceFoodImages } from './nerja-experience-food';
 import { nerjaExperienceNightlifeImages } from './nerja-experience-nightlife';
 import { nerjaExperienceImages } from './nerja-experience';
 import { nerjaImages } from './nerja';
+import { staysCasaAmaraImages } from './stays-casa-amara';
+import { staysHoneymoonImages } from './stays-honeymoon';
+import { staysWeddingAnniversaryImages } from './stays-wedding-anniversary';
+import { staysImages } from './stays';
 import { tarifaExperienceBeachesImages } from './tarifa-experience-beaches';
 import { tarifaExperienceImages } from './tarifa-experience';
 import { tarifaKitesurfingBeginnerGuideImages } from './tarifa-kitesurfing-beginner-guide';
@@ -36,6 +41,7 @@ import { tarifaKitesurfingSpotsImages } from './tarifa-kitesurfing-spots';
 import { tarifaKitesurfingSurfClubImages } from './tarifa-kitesurfing-surf-club';
 import { tarifaKitesurfingWindImages } from './tarifa-kitesurfing-wind';
 import { tarifaKitesurfingImages } from './tarifa-kitesurfing';
+import { tarifaWhereToStayImages } from './tarifa-where-to-stay';
 import { tarifaImages } from './tarifa';
 
 const sets: readonly RouteImageSet[] = [
@@ -47,6 +53,7 @@ const sets: readonly RouteImageSet[] = [
   frigilianaExperienceMarketImages,
   frigilianaExperienceOldTownImages,
   frigilianaExperienceRestaurantsImages,
+  frigilianaExperienceWeddingsImages,
   frigilianaExperienceWellnessImages,
   frigilianaExperienceImages,
   frigilianaFaqImages,
@@ -64,6 +71,10 @@ const sets: readonly RouteImageSet[] = [
   nerjaExperienceNightlifeImages,
   nerjaExperienceImages,
   nerjaImages,
+  staysCasaAmaraImages,
+  staysHoneymoonImages,
+  staysWeddingAnniversaryImages,
+  staysImages,
   tarifaExperienceBeachesImages,
   tarifaExperienceImages,
   tarifaKitesurfingBeginnerGuideImages,
@@ -76,6 +87,7 @@ const sets: readonly RouteImageSet[] = [
   tarifaKitesurfingSurfClubImages,
   tarifaKitesurfingWindImages,
   tarifaKitesurfingImages,
+  tarifaWhereToStayImages,
   tarifaImages
 ];
 
