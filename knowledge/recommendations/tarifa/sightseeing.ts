@@ -44,7 +44,7 @@ export const tarifaSightseeingRecommendations = defineKnowledgeRecommendations([
     summary: 'Located in the heart of the old town, St. Matthew’s Church , dating from the 16th century, combines late-Gothic architecture with a neoclassical façade. Stained-glass windows and expressive statues create a powerful interior atmosphere. After the Catholic Monarchs reclaimed Tarifa, the church offered forgiveness to anyone who settled here for one year and one day — a historic gesture intended to repopulate what had been a dangerous frontier town.',
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'split',
+    scope: 'amara-experience',
     basis: 'published-guide-carryover',
     factIds: [
       'tarifa.heritage.san-mateo.early-sixteenth-century'
@@ -62,7 +62,7 @@ export const tarifaSightseeingRecommendations = defineKnowledgeRecommendations([
     summary: 'From the old city wall on Calle Amargura, Mirador África offers one of the most impressive views in southern Spain. At the narrowest point of the Strait of Gibraltar, Morocco lies only 14 km away. The view across two continents is peaceful and unforgettable. Tip: Come for sunset.',
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'split',
+    scope: 'amara-experience',
     basis: 'published-guide-carryover',
     factIds: [
       'tarifa.old-town.miramar.strait-viewpoint'
@@ -116,7 +116,7 @@ export const tarifaSightseeingRecommendations = defineKnowledgeRecommendations([
     summary: 'The Strait of Gibraltar is one of Europe’s best places to observe whales and dolphins in their natural habitat. You may see striped dolphins, common dolphins, pilot whales, sperm whales from May to July, and even orcas from June to September. Tours usually last around 2–3 hours and depart several times daily from Tarifa harbour. Choose a calm-sea day for the most comfortable experience. Established operator: Firmm España Calle Alcalde Juan Núñez 10, L-1 +34 956 627 008 firmm.org',
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'split',
+    scope: 'amara-experience',
     basis: 'published-guide-carryover',
     factIds: [
       'tarifa.nature.cetacean-excursions.from-port',

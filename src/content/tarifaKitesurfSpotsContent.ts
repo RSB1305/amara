@@ -38,6 +38,8 @@ export const tarifaKitesurfSpotsSeo: AmaraAuthoringSeo = {
 };
 
 interface SpotSection extends LocalizedTextSection {
+  /** Recommendation record this spot section presents (DR-GUEST-006). */
+  recordId?: string;
   observation?: LocalizedText;
   link?: { token: LinkToken; text: LocalizedText; label: LocalizedText };
 }
@@ -45,6 +47,7 @@ interface SpotSection extends LocalizedTextSection {
 const sections: SpotSection[] = [
   {
     id: 'los-lances',
+    recordId: 'tarifa.beaches.playa-los-lances',
     title: l('Los Lances: kiting right in front of Tarifa', 'Los Lances: Das Kitesurfen direkt vor Tarifa', 'Los Lances: navegar frente a Tarifa', 'Los Lances: kitesurfen vlak voor Tarifa', 'Los Lances: kitesurfing precis framför Tarifa'),
     paragraphs: {
       en: ['With Poniente, we look first at Los Lances. This open Atlantic coast can have wind waves, chop and shorebreak; the water at the launch matters as much as the wind direction. A beach that looks spacious still needs a permitted, usable launch area.', 'Sur is the stretch closer to town; Norte continues farther along the coast and has separately marked bathing, school and watersport areas. Independent riders need the zone designated for them. During the bathing season, a familiar town-side launch is no assurance of permission. Levante can blow offshore or cross-offshore here, making Los Lances a poor default for that direction.'],
@@ -73,6 +76,7 @@ const sections: SpotSection[] = [
   },
   {
     id: 'valdevaqueros',
+    recordId: 'tarifa.beaches.playa-de-valdevaqueros',
     title: l('Valdevaqueros: the bay option for Levante', 'Valdevaqueros: Die Levante-Option in der Bucht', 'Valdevaqueros: la opción de la bahía con levante', 'Valdevaqueros: de baai bij levante', 'Valdevaqueros: bukten vid levante'),
     paragraphs: {
       en: ['With a suitable Levante angle, the curve of Valdevaqueros bay can leave a stretch of coast downwind of a rider. That can offer a more favourable coastal geometry than open Los Lances. It is a conditional advantage, not a safety guarantee: the exact launch point, wind angle, strength, gusts and your ability still determine whether a session is appropriate.', 'Punta Paloma belongs to the same decision, as the northern part of the bay. The curved shoreline changes the wind’s angle to the beach; the designated kite, windsurf and bathing areas still apply. Outside high summer, Valdevaqueros can be a suitable alternative when the conditions and permitted zone fit.'],

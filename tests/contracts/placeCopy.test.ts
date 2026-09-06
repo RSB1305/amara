@@ -7,6 +7,9 @@ import { frigilianaHikingContent } from '../../src/content/frigilianaHikingConte
 import { frigilianaRestaurantsContent } from '../../src/content/frigilianaRestaurantsContent';
 import { frigilianaWellnessContent } from '../../src/content/frigilianaWellnessContent';
 import { guestGuideEntries } from '../../src/content/guestGuideEntries';
+import { tarifaExperienceSpokeContent } from '../../src/content/tarifaExperienceSpokeContent';
+import { tarifaGuideContent } from '../../src/content/tarifaGuideContent';
+import { tarifaKitesurfSpotsContent } from '../../src/content/tarifaKitesurfSpotsContent';
 import { hasGuideOnlyCopy, publicStrings } from '../../src/lib/placeCopy';
 import { SUPPORTED_LANGUAGES } from '../../src/lib/routeOwnership';
 
@@ -17,11 +20,21 @@ const publicRestaurantIds = new Set(
     frigilianaRestaurantsContent[lang].restaurantSections.flatMap((section) => section.restaurantIds)
   )
 );
-const publicBeachIds = new Set(
-  SUPPORTED_LANGUAGES.flatMap((lang) =>
+/** Tarifa's public pages are editorial; a card or section that presents one place declares its record. */
+const tarifaDeclaredIds = [
+  ...Object.values(tarifaGuideContent).flatMap((guide) =>
+    ('sections' in guide ? guide.sections : []).flatMap((section) => (section.cards ?? []).map((card) => card.recordId))
+  ),
+  ...Object.values(tarifaExperienceSpokeContent).flatMap((spoke) => spoke.sections.map((section) => section.recordId)),
+  ...tarifaKitesurfSpotsContent.sections.map((section) => section.recordId)
+].filter((id): id is string => Boolean(id));
+const publicBeachIds = new Set([
+  ...SUPPORTED_LANGUAGES.flatMap((lang) =>
     frigilianaBeachesContent[lang].beachSections.flatMap((section) => section.beachIds)
-  )
-);
+  ),
+  ...tarifaDeclaredIds.filter((id) => id.includes('.beaches.'))
+]);
+const publicSightseeingIds = new Set(tarifaDeclaredIds.filter((id) => id.includes('.sightseeing.')));
 const publicHikeIds = new Set(frigilianaHikingContent.routeSections.flatMap((section) => section.routeIds));
 const publicDayTripIds = new Set(SUPPORTED_LANGUAGES.flatMap((lang) => frigilianaDayTripsContent[lang].destinationIds));
 const publicWellnessIds = new Set(
@@ -33,12 +46,23 @@ const publicIdsByTopic: Record<string, Set<string>> = {
   beaches: publicBeachIds,
   hiking: publicHikeIds,
   'day-trips': publicDayTripIds,
-  wellness: publicWellnessIds
+  wellness: publicWellnessIds,
+  sightseeing: publicSightseeingIds
 };
-/** Destinations whose public pages build from the place copy; Tarifa follows with its own migration. */
-const migratedDestinations = new Set(['frigiliana', 'nerja']);
+/**
+ * Which destinations' records each public topic surface covers: Frigiliana and Nerja through the place copy,
+ * Tarifa through recordId on its editorial sections. A record outside this coverage has no declared public surface yet.
+ */
+const coveredDestinationsByTopic: Record<string, readonly string[]> = {
+  restaurants: ['frigiliana', 'nerja'],
+  beaches: ['frigiliana', 'nerja', 'tarifa'],
+  hiking: ['frigiliana', 'nerja'],
+  'day-trips': ['frigiliana', 'nerja'],
+  wellness: ['frigiliana', 'nerja'],
+  sightseeing: ['tarifa']
+};
 /** How many places each public page shows; a change here is a content decision, not a side effect. */
-const expectedPublicCounts: Record<string, number> = { restaurants: 10, beaches: 6, hiking: 4, 'day-trips': 4, wellness: 2 };
+const expectedPublicCounts: Record<string, number> = { restaurants: 10, beaches: 9, hiking: 4, 'day-trips': 4, wellness: 2, sightseeing: 2 };
 
 function guideIds(): Set<string> {
   const ids = new Set<string>();
@@ -94,7 +118,7 @@ test('public pages only show shared or public records, and only through the plac
     for (const id of publicIds) {
       const record = getRecommendation(id);
       expect(record?.scope, `${id} on the public ${topic} page`).toMatch(/^(public|split)$/);
-      expect(placeCopyById[id]?.public, `${id} needs public copy`).toBeTruthy();
+      if (record?.destination !== 'tarifa') expect(placeCopyById[id]?.public, `${id} needs public copy`).toBeTruthy();
     }
   }
 });
@@ -102,7 +126,7 @@ test('public pages only show shared or public records, and only through the plac
 test('guide-only records never appear on the public page and public-only records never in the guide', () => {
   const inGuide = guideIds();
   for (const record of allRecommendations) {
-    if (!migratedDestinations.has(record.destination)) continue;
+    if (!coveredDestinationsByTopic[record.topic]?.includes(record.destination)) continue;
     const publicIds = publicIdsByTopic[record.topic];
     if (!publicIds) continue;
     if (record.scope === 'amara-experience') expect(publicIds.has(record.id), `${record.id} leaked to the public page`).toBe(false);

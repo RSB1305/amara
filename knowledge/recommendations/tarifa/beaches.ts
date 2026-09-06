@@ -29,7 +29,7 @@ export const tarifaBeachesRecommendations = defineKnowledgeRecommendations([
     summary: 'A short drive or bike ride from here, Playa Chica offers calmer water and a more sheltered setting. It is often a good option when Los Lances feels too windy. Its location near the old town makes it easy to combine with lunch.',
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'split',
+    scope: 'amara-experience',
     basis: 'published-guide-carryover',
     factIds: [
       'tarifa.beaches.playa-chica.compact-town-beach',
@@ -67,7 +67,7 @@ export const tarifaBeachesRecommendations = defineKnowledgeRecommendations([
     summary: 'Around 10 km west of here, Punta Paloma feels more secluded and natural. It is known for its dunes and turquoise water. Bring water and sun protection, as shade is limited.',
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'split',
+    scope: 'amara-experience',
     basis: 'published-guide-carryover',
     factIds: [
       'tarifa.beaches.valdevaqueros-punta-paloma.western-system'
