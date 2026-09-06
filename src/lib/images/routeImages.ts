@@ -1,4 +1,5 @@
 import { routeImageSets } from '../../content/images';
+import type { LocalizedText } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import type { RouteImage, RouteImageBrief, RouteImageRole, RouteImageSet, RouteImageSurface } from './routeImageContract';
 
@@ -120,6 +121,25 @@ export function routeOgImage(routeKey: string): string {
   const og = set.images.find((image) => image.role === 'og') ?? set.images.find((image) => image.role === 'hero');
   if (!og) throw new Error(`[AMARA images] ${routeKey} has no Open Graph image and no hero photograph to fall back on.`);
   return og.src;
+}
+
+/** Stable paths of every image of one role on a route, in authored order (e.g. a stay gallery for JSON-LD). */
+export function routeImageSources(routeKey: string, role: RouteImageRole): string[] {
+  return requireSet(routeKey).images.filter((image) => image.role === role).map((image) => image.src);
+}
+
+/** The stable path of one slot, for consumers that resolve the image themselves. */
+export function routeImageSrc(routeKey: string, id: string): string {
+  const image = requireSet(routeKey).images.find((entry) => (entry.id ?? entry.role) === id);
+  if (!image) throw new Error(`[AMARA images] ${routeKey} has no image for slot "${id}".`);
+  return image.src;
+}
+
+/** The alt text of one slot in every language, for content that stays localized as a whole. */
+export function routeImageAltText(routeKey: string, id: string): LocalizedText {
+  const image = requireSet(routeKey).images.find((entry) => (entry.id ?? entry.role) === id);
+  if (!image?.alt) throw new Error(`[AMARA images] ${routeKey} has no alt text for slot "${id}".`);
+  return image.alt;
 }
 
 /** The photograph of one recommended place, wherever the place is shown; undefined while none exists. */

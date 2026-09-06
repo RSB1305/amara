@@ -12,6 +12,12 @@ import { frigilianaExperienceImages } from './frigiliana-experience';
 import { frigilianaFaqImages } from './frigiliana-faq';
 import { frigilianaOrNerjaImages } from './frigiliana-or-nerja';
 import { frigilianaImages } from './frigiliana';
+import { laAmaraFamilyAndSurfImages } from './la-amara-family-and-surf';
+import { laAmaraFarahImages } from './la-amara-farah';
+import { laAmaraLounisImages } from './la-amara-lounis';
+import { laAmaraMahaImages } from './la-amara-maha';
+import { laAmaraPlayaImages } from './la-amara-playa';
+import { laAmaraZaidImages } from './la-amara-zaid';
 import { nerjaExperienceBeachesImages } from './nerja-experience-beaches';
 import { nerjaExperienceDayTripsImages } from './nerja-experience-day-trips';
 import { nerjaExperienceFoodImages } from './nerja-experience-food';
@@ -46,6 +52,12 @@ const sets: readonly RouteImageSet[] = [
   frigilianaFaqImages,
   frigilianaOrNerjaImages,
   frigilianaImages,
+  laAmaraFamilyAndSurfImages,
+  laAmaraFarahImages,
+  laAmaraLounisImages,
+  laAmaraMahaImages,
+  laAmaraPlayaImages,
+  laAmaraZaidImages,
   nerjaExperienceBeachesImages,
   nerjaExperienceDayTripsImages,
   nerjaExperienceFoodImages,

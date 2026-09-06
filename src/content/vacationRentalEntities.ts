@@ -1,4 +1,5 @@
 import type { LocalizedText, LocalizedTextList } from '../types/content';
+import { routeImageAltText, routeImageSources } from '../lib/images/routeImages';
 import type {
   AmaraAuthoringSeo,
   AmaraEntityKey,
@@ -96,11 +97,13 @@ export interface VacationRentalEntity {
   /** Shown under the full address. */
   addressNote?: LocalizedText;
   /**
-   * The first eight entries form both the visible listing set and the
-   * VacationRental JSON-LD image set. They must include at least one bedroom,
-   * one bathroom and one common-area image.
+   * Gallery in listing order, read from the stay's image source (DR-DESIGN-021,
+   * `src/content/images/<slug>.ts`). The first eight entries form both the visible
+   * listing set and the VacationRental JSON-LD image set; they must include at least
+   * one bedroom, one bathroom and one common-area image.
    */
   images: string[];
+  /** Alt text of the card photograph that identifies the stay; also from the image source. */
   imageAlt: LocalizedText;
   amenityFeatures: VacationRentalAmenityFeature[];
 }
@@ -343,29 +346,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       nl: 'Dorpsstraat',
       sv: 'Bygata'
     },
-    images: [
-      '/images/amara-farah/67-amara-frigiliana.jpg',
-      '/images/amara-farah/65-amara-frigiliana.jpg',
-      '/images/amara-farah/66-amara-frigiliana.jpg',
-      '/images/amara-farah/68-amara-frigiliana.jpg',
-      '/images/amara-farah/69-amara-frigiliana.jpg',
-      '/images/amara-farah/72-amara-frigiliana.jpg',
-      '/images/amara-entrada/casa-amara-frigiliana-entrada.jpg',
-      '/images/amara-insta-facebook/casa-amara-frigiliana-bonita-purta-de-madeira-farah.jpg',
-      '/images/amara-entrada/casa-amara-frigiliana-entrada-ii.jpg',
-      '/images/amara-entrada/casa-amara-frigiliana-entrada-iii.jpg',
-      '/images/amara-entrada/casa-amara-frigiliana-fuerra-ii.jpg',
-      '/images/amara-entrada/casa-amara-frigiliana-fuerra.jpg',
-      '/images/amara-entrada/casa-amara-frigiliana-guia-de-claves-ii.jpg',
-      '/images/amara-entrada/casa-amara-frigiliana-guia-de-claves.jpg'
-    ],
-    imageAlt: {
-      en: 'AMARA Farah self-contained boutique suite in Frigiliana',
-      de: 'Abgeschlossene Boutique-Suite AMARA Farah in Frigiliana',
-      es: 'Suite boutique independiente AMARA Farah en Frigiliana',
-      nl: 'Zelfstandige boutique-suite AMARA Farah in Frigiliana',
-      sv: 'Självständig boutique-svit AMARA Farah i Frigiliana'
-    },
+    images: routeImageSources('la-amara-farah', 'gallery'),
+    imageAlt: routeImageAltText('la-amara-farah', 'card'),
     amenityFeatures: withLicense('A/MA/01767', [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },
@@ -506,39 +488,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       nl: 'Plantages op de voorgrond, zee daarachter',
       sv: 'Odlingar närmast, havet bortom'
     },
-    images: [
-      '/images/amara-lounis/104-amara-frigiliana.jpg',
-      '/images/amara-lounis/09-amara-frigiliana.jpg',
-      '/images/amara-lounis/15-amara-frigiliana.jpg',
-      '/images/amara-lounis/17-amara-frigiliana.jpg',
-      '/images/amara-lounis/18-amara-frigiliana.jpg',
-      '/images/amara-lounis/20-amara-frigiliana.jpg',
-      '/images/amara-lounis/21-amara-frigiliana.jpg',
-      '/images/amara-lounis/28-amara-frigiliana.jpg',
-      '/images/amara-lounis/01-amara-frigiliana.jpg',
-      '/images/amara-lounis/04-amara-frigiliana.jpg',
-      '/images/amara-lounis/05-amara-frigiliana.jpg',
-      '/images/amara-lounis/10-amara-frigiliana.jpg',
-      '/images/amara-lounis/11-amara-frigiliana.jpg',
-      '/images/amara-lounis/12-amara-frigiliana.jpg',
-      '/images/amara-lounis/13-amara-frigiliana.jpg',
-      '/images/amara-lounis/14-amara-frigiliana.jpg',
-      '/images/amara-lounis/16-amara-frigiliana.jpg',
-      '/images/amara-lounis/19-amara-frigiliana.jpg',
-      '/images/amara-lounis/22-amara-frigiliana.jpg',
-      '/images/amara-lounis/23-amara-frigiliana.jpg',
-      '/images/amara-lounis/25-amara-frigiliana.jpg',
-      '/images/amara-lounis/26-amara-frigiliana.jpg',
-      '/images/amara-lounis/110-amara-frigiliana.jpg',
-      '/images/amara-insta-facebook/casa-amara-frigiliana-lounis-ducha-exterior.jpg'
-    ],
-    imageAlt: {
-      en: 'AMARA Lounis historic apartment in Frigiliana',
-      de: 'AMARA Lounis historisches Apartment in Frigiliana',
-      es: 'Apartamento histórico AMARA Lounis en Frigiliana',
-      nl: 'AMARA Lounis historisch appartement in Frigiliana',
-      sv: 'AMARA Lounis historisk lägenhet i Frigiliana'
-    },
+    images: routeImageSources('la-amara-lounis', 'gallery'),
+    imageAlt: routeImageAltText('la-amara-lounis', 'card'),
     amenityFeatures: withLicense('A/MA/01767', [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },
@@ -686,36 +637,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       nl: 'Plantages op de voorgrond, zee daarachter, een verdieping hoger',
       sv: 'Odlingar närmast, havet bortom — från en våning högre'
     },
-    images: [
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-5.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-dormitorio.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-dormitorio-2.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-bano.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-bano-2.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-cocina.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-cocina-2.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-bano-3.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-cocina-3.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-dormitorio-3.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-dormitorio-4.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-escalera.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-escritorio.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-2.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-3.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-4.jpg',
-      '/images/amara-zaid/cara-rural-frigiliana-amara-said-terraza-6.jpg',
-      '/images/amara-insta-facebook/casa-amara-frigiliana-zaid-ducha-exterior.jpg',
-      '/images/amara-insta-facebook/casa-amara-frigiliana-zaid-ducha-exterior-ii.jpg',
-      '/images/amara-insta-facebook/casa-amara-frigiliana-zaid-ducha-exterior-iii.jpg'
-    ],
-    imageAlt: {
-      en: 'AMARA Zaid terrace apartment in Frigiliana',
-      de: 'AMARA Zaid Terrassenapartment in Frigiliana',
-      es: 'Apartamento con terraza AMARA Zaid en Frigiliana',
-      nl: 'AMARA Zaid terrasappartement in Frigiliana',
-      sv: 'AMARA Zaid terrasslägenhet i Frigiliana'
-    },
+    images: routeImageSources('la-amara-zaid', 'gallery'),
+    imageAlt: routeImageAltText('la-amara-zaid', 'card'),
     amenityFeatures: withLicense('A/MA/01767', [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },
@@ -862,39 +785,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       nl: 'Plantages en zee, vanaf het hoogste punt van het huis',
       sv: 'Odlingar och hav, från husets högsta punkt'
     },
-    images: [
-      '/images/amara-maha/29-amara-frigiliana.jpg',
-      '/images/amara-maha/30-amara-frigiliana.jpg',
-      '/images/amara-maha/31-amara-frigiliana.jpg',
-      '/images/amara-maha/35-amara-frigiliana.jpg',
-      '/images/amara-maha/38-amara-frigiliana.jpg',
-      '/images/amara-maha/40-amara-frigiliana.jpg',
-      '/images/amara-maha/42-amara-frigiliana.jpg',
-      '/images/amara-maha/91-amara-frigiliana.jpg',
-      '/images/amara-maha/32-amara-frigiliana.jpg',
-      '/images/amara-maha/33-amara-frigiliana.jpg',
-      '/images/amara-maha/34-amara-frigiliana.jpg',
-      '/images/amara-maha/36-amara-frigiliana.jpg',
-      '/images/amara-maha/37-amara-frigiliana.jpg',
-      '/images/amara-maha/39-amara-frigiliana.jpg',
-      '/images/amara-maha/41-amara-frigiliana.jpg',
-      '/images/amara-maha/43-amara-frigiliana.jpg',
-      '/images/amara-maha/44-amara-frigiliana.jpg',
-      '/images/amara-maha/45-amara-frigiliana.jpg',
-      '/images/amara-maha/46-amara-frigiliana.jpg',
-      '/images/amara-maha/88-amara-frigiliana.jpg',
-      '/images/amara-maha/109-amara-frigiliana.jpg',
-      '/images/amara-maha/111-amara-frigiliana.jpg',
-      '/images/amara-maha/112-amara-frigiliana.jpg',
-      '/images/amara-insta-facebook/casa-amara-frigiliana-maha-chimenea.jpg'
-    ],
-    imageAlt: {
-      en: 'AMARA Maha apartment with large terrace in Frigiliana',
-      de: 'AMARA Maha Apartment mit großer Terrasse in Frigiliana',
-      es: 'Apartamento AMARA Maha con gran terraza en Frigiliana',
-      nl: 'AMARA Maha appartement met groot terras in Frigiliana',
-      sv: 'AMARA Maha lägenhet med stor terrass i Frigiliana'
-    },
+    images: routeImageSources('la-amara-maha', 'gallery'),
+    imageAlt: routeImageAltText('la-amara-maha', 'card'),
     amenityFeatures: withLicense('A/MA/01767', [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },
@@ -1052,39 +944,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       nl: 'Zijdelings zeezicht vanaf het balkon',
       sv: 'Havsutsikt från sidan, från balkongen'
     },
-    images: [
-      '/images/amara-playa/apartment/chaparril-13.webp',
-      '/images/amara-playa/apartment/chaparril-01.webp',
-      '/images/amara-playa/apartment/chaparril-02.webp',
-      '/images/amara-playa/apartment/chaparril-03.webp',
-      '/images/amara-playa/apartment/chaparril-04.webp',
-      '/images/amara-playa/apartment/chaparril-05.webp',
-      '/images/amara-playa/apartment/chaparril-06.webp',
-      '/images/amara-playa/apartment/chaparril-07.webp',
-      '/images/amara-playa/apartment/chaparril-08.webp',
-      '/images/amara-playa/apartment/chaparril-09.webp',
-      '/images/amara-playa/apartment/chaparril-10.webp',
-      '/images/amara-playa/apartment/chaparril-11.webp',
-      '/images/amara-playa/apartment/chaparril-12.webp',
-      '/images/amara-playa/apartment/chaparril-14.webp',
-      '/images/amara-playa/apartment/chaparril-15.webp',
-      '/images/amara-playa/apartment/chaparril-16.webp',
-      '/images/amara-playa/apartment/chaparril-17.webp',
-      '/images/amara-playa/apartment/chaparril-18.webp',
-      '/images/amara-playa/apartment/chaparril-19.webp',
-      '/images/amara-playa/apartment/chaparril-20.webp',
-      '/images/amara-playa/apartment/chaparril-21.webp',
-      '/images/amara-playa/apartment/chaparril-22.webp',
-      '/images/amara-playa/apartment/chaparril-23.webp',
-      '/images/amara-playa/apartment/chaparril-24.webp'
-    ],
-    imageAlt: {
-      en: 'AMARA Playa Nerja beach apartment with sea view',
-      de: 'AMARA Playa Strandapartment in Nerja mit Meerblick',
-      es: 'Apartamento AMARA Playa en Nerja con vistas al mar',
-      nl: 'AMARA Playa strandappartement in Nerja met zeezicht',
-      sv: 'AMARA Playa strandlägenhet i Nerja med havsutsikt'
-    },
+    images: routeImageSources('la-amara-playa', 'gallery'),
+    imageAlt: routeImageAltText('la-amara-playa', 'card'),
     amenityFeatures: withLicense('VFT/MA/19212', [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },
@@ -1244,39 +1105,8 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       nl: 'Direct zicht over de Atlantische Oceaan',
       sv: 'Direkt utsikt över Atlanten'
     },
-    images: [
-      '/images/amara-tarifa/amara-tarifa-apartment01.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment02.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment03.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment04.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment05.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment06.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment11.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment13.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment07.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment08.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment09.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment10.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment12.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment14.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment15.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment16.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment17.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment18.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment19.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment20.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment21.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment22.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment23.webp',
-      '/images/amara-tarifa/amara-tarifa-apartment24.webp'
-    ],
-    imageAlt: {
-      en: 'AMARA Family & Surf ocean-view house in Tarifa',
-      de: 'AMARA Family & Surf Haus mit Meerblick in Tarifa',
-      es: 'Casa AMARA Family & Surf con vistas al mar en Tarifa',
-      nl: 'AMARA Family & Surf huis met zeezicht in Tarifa',
-      sv: 'AMARA Family & Surf hus med havsutsikt i Tarifa'
-    },
+    images: routeImageSources('la-amara-family-and-surf', 'gallery'),
+    imageAlt: routeImageAltText('la-amara-family-and-surf', 'card'),
     amenityFeatures: withLicense('VFT/CA/17038', [
       { name: 'wifi', value: true },
       { name: 'internetType', value: 'Free' },

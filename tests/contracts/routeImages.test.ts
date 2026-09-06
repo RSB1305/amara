@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { expect, test } from '@playwright/test';
 import { getRecommendation } from '../../knowledge/recommendations';
 import { routeImageSets } from '../../src/content/images';
-import { PUBLIC_ROUTE_KEYS } from '../../src/lib/publicRouteManifest.mjs';
+import { PUBLIC_ROUTE_KEYS, VACATION_RENTAL_ROUTE_KEYS } from '../../src/lib/publicRouteManifest.mjs';
 import { STABLE_PUBLIC_IMAGE_PATHS } from '../../src/lib/images/stablePublicImages';
 import { SUPPORTED_LANGUAGES } from '../../src/lib/routeOwnership';
 
@@ -64,6 +64,20 @@ test('slots are unique per route, briefs never duplicate an existing image, plac
       } else {
         expect(image.recommendationId, `${key}: only place images reference a record`).toBeUndefined();
       }
+    }
+  }
+});
+
+test('every stay carries its card photograph and a gallery whose first eight entries are stable public paths', () => {
+  for (const key of VACATION_RENTAL_ROUTE_KEYS as readonly string[]) {
+    const set = routeImageSets[key];
+    expect(set, `${key} has an image source`).toBeTruthy();
+    if (!set) continue;
+    expect(set.images.some((image) => image.role === 'card'), `${key} has a card photograph`).toBe(true);
+    const gallery = set.images.filter((image) => image.role === 'gallery');
+    expect(gallery.length, `${key} gallery size`).toBeGreaterThanOrEqual(8);
+    for (const image of gallery.slice(0, 8)) {
+      expect(stablePaths.has(image.src), `${key}: JSON-LD image ${image.src} must be a stable public path`).toBe(true);
     }
   }
 });
