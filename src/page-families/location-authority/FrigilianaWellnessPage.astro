@@ -3,6 +3,7 @@ import LocationExperienceHero from '../../components/location/LocationExperience
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   frigilianaWellnessContent,
@@ -14,6 +15,8 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
+import { placeImage, routeHero } from '../../lib/images/routeImages';
+import { publicWellnessProvider } from '../../lib/placeProjection';
 
 interface Props {
   lang?: string;
@@ -21,6 +24,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.wellness', currentLang);
 const copy = frigilianaWellnessContent[currentLang];
 
 const footerHighlights: LabeledLink[] = [
@@ -45,15 +49,7 @@ const combineItems = copy.combine.items.map((item) => ({
   })
 }));
 
-const heroImage = {
-  src: '/images/wellness/frigiliana-wellness-2.jpeg',
-  width: 1512
-};
-
-const providerImages = {
-  frigilianaWellness: '/images/wellness/frigiliana-wellness-1.jpeg',
-  lidia: '/images/wellness/masaje_californiano-1.webp'
-} as const;
+const providers = copy.providers.providerIds.map((id) => publicWellnessProvider(id, currentLang));
 ---
 
 <LocationAuthorityLayout
@@ -78,9 +74,7 @@ const providerImages = {
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-        imageSrc={heroImage.src}
-        imageAlt={copy.hero.imageAlt}
-        imageWidth={heroImage.width}
+        {...hero}
       />
 
       <AuthorityFeatureSection
@@ -106,9 +100,9 @@ const providerImages = {
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-16">
           {
-            copy.providers.items.map((provider) => {
-              const titleId = `provider-${provider.id}`;
-              const imageSrc = providerImages[provider.id];
+            providers.map((provider) => {
+              const titleId = `provider-${provider.id.replace(/[^a-z0-9]+/g, '-')}`;
+              const image = placeImage(provider.id, currentLang);
 
               return (
                 <article
@@ -116,11 +110,11 @@ const providerImages = {
                   aria-labelledby={titleId}
                 >
                   {
-                    imageSrc && provider.imageAlt && (
+                    image && (
                       <div class="mb-8 overflow-hidden bg-surface-container-low">
                         <AmaraImage
-                          src={imageSrc}
-                          alt={provider.imageAlt}
+                          src={image.src}
+                          alt={image.alt}
                           profile="card"
                           width={720}
                           widths={[360, 480, 720]}
@@ -259,6 +253,12 @@ const providerImages = {
         intro={copy.combine.intro}
         items={combineItems}
         surface="tint"
+      />
+
+      <GuestGuideBridge
+        lang={currentLang}
+        destination="frigiliana"
+        guideSlugs={['frigiliana-guest-wellness']}
       />
 
       <GuideClosingSection

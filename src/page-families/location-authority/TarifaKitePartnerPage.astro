@@ -1,8 +1,4 @@
 ---
-import markRobertTarifaImage from '../../assets/images/content/tarifa/mark-robert-tarifa-surf-club.webp';
-import clubCoupleImage from '../../assets/images/content/tarifa/IMG_8741.jpg';
-import clubDogImage from '../../assets/images/content/tarifa/IMG_9004.jpg';
-import clubAfterworkImage from '../../assets/images/content/tarifa/IMG_9007.jpg';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
@@ -20,6 +16,7 @@ import { resolveLocale } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import LocationModule from './LocationModule.astro';
+import { requireRouteImage, routeImages } from '../../lib/images/routeImages';
 
 /**
  * Partner spoke of the Tarifa kitesurf cluster: AMARA and Tarifa Surf Club
@@ -31,6 +28,8 @@ interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = requireRouteImage('tarifa.kitesurfing.surf-club', 'hero', currentLang);
+const storyImage = requireRouteImage('tarifa.kitesurfing.surf-club', 'story', currentLang);
 const content = resolveLocale(tarifaKitePartnerContent, currentLang);
 const branding = resolveLocale(kiteCoBranding, currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'AMARA × Tarifa Surf Club');
@@ -54,11 +53,7 @@ const galleryTitle = {
   nl: 'Een club, niet alleen een school',
   sv: 'En klubb, inte bara en skola'
 }[currentLang];
-const galleryImages = [
-  { src: clubCoupleImage, alt: { en: 'Two people in Tarifa Surf Club shirts on the beach promenade', de: 'Zwei Personen in Tarifa-Surf-Club-Shirts auf der Strandpromenade', es: 'Dos personas con camisetas de Tarifa Surf Club en el paseo marítimo', nl: 'Twee mensen in Tarifa-Surf-Club-shirts op de strandboulevard', sv: 'Två personer i Tarifa Surf Club-tröjor på strandpromenaden' }[currentLang], focalPoint: '50% 40%' },
-  { src: clubDogImage, alt: { en: 'A small dog carrying a kite bar leash on the Tarifa promenade', de: 'Kleiner Hund mit einer Bar-Leash auf der Promenade von Tarifa', es: 'Un perro pequeño llevando un leash de barra en el paseo de Tarifa', nl: 'Een klein hondje met een bar-leash op de promenade van Tarifa', sv: 'En liten hund som bär en bar-leash på Tarifas promenad' }[currentLang], focalPoint: '35% 55%' },
-  { src: clubAfterworkImage, alt: { en: 'Two members of the club with a longboard after a session', de: 'Zwei aus dem Club mit einem Longboard nach der Session', es: 'Dos del club con un longboard después de la sesión', nl: 'Twee van de club met een longboard na de sessie', sv: 'Två från klubben med en longboard efter passet' }[currentLang], focalPoint: '50% 40%' }
-];
+const galleryImages = routeImages('tarifa.kitesurfing.surf-club', 'gallery', currentLang);
 ---
 
 <LocationAuthorityLayout seo={tarifaKitePartnerSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-spoke">
@@ -82,8 +77,8 @@ const galleryImages = [
       <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
       <AmaraImage
         slot="visual"
-        src={markRobertTarifaImage}
-        alt={content.hero.imageAlt}
+        src={hero.src}
+        alt={hero.alt}
         profile="hero"
         width={1200}
         widths={[480, 640, 800, 1200]}
@@ -246,8 +241,8 @@ const galleryImages = [
     <LocationModule id="story" labelledby="story-title" spacing="compact" data-am-topic="partnership">
       <div class="mx-auto grid max-w-screen-2xl items-center gap-12 lg:grid-cols-12 lg:gap-20">
         <figure class="lg:col-span-5">
-          <AmaraImage src={markRobertTarifaImage} alt={content.story.imageAlt} profile="hero" class="aspect-video w-full object-cover" widths={[480, 720, 960, 1200]} sizes="(max-width: 1023px) 100vw, 42vw" />
-          <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{content.story.imageCaption}</figcaption>
+          <AmaraImage src={storyImage.src} alt={storyImage.alt} profile="hero" class="aspect-video w-full object-cover" widths={[480, 720, 960, 1200]} sizes="(max-width: 1023px) 100vw, 42vw" />
+          <figcaption class="am-text-caption mt-4 normal-case tracking-normal text-muted">{storyImage.caption}</figcaption>
         </figure>
         <div class="lg:col-span-7">
           <div class="flex items-center gap-5">

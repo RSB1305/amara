@@ -18,6 +18,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import { routeHero } from '../../lib/images/routeImages';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
 
 interface Props {
@@ -28,6 +29,7 @@ type LocalizedRow = { readonly [K in AmaraLanguage]: string };
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.old-town', currentLang);
 const copy = frigilianaOldTownCopy;
 
 function t(row: LocalizedRow): string {
@@ -77,11 +79,6 @@ const combineItems = copy.combine.items.map((item) => ({
   linkLabel: t(item.linkLabel),
   href: resolveOptionalLink(item.token, currentLang, { suppressMissing: true })
 }));
-
-const heroImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
-  width: 2000
-};
 
 const visualAlts = {
   sights: {
@@ -133,9 +130,7 @@ const visualAlts = {
           title={t(copy.hero.title)}
           subtitle={t(copy.hero.subtitle)}
           paragraphs={copy.hero.paragraphs.map((paragraph) => t(paragraph))}
-          imageSrc={heroImage.src}
-          imageAlt={t(copy.hero.imageAlt)}
-          imageWidth={heroImage.width}
+          {...hero}
         />
       </div>
 

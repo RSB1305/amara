@@ -1,6 +1,5 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
-import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
@@ -16,6 +15,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
+import { routeHero } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -23,6 +23,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('nerja.experience.nightlife', currentLang);
 const copy = nerjaNightlifeContent[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja nightlife');
 
@@ -68,13 +69,12 @@ const combineItems = copy.combine.items.map((item) => ({
   <div data-am-page="nerja-nightlife">
     <div class="w-full">
       <LocationExperienceHero
+        {...hero}
         topic="nightlife"
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-      >
-        <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Balcón de Europa bei Nacht, Lichter, Menschen" format="hochkant 3:4" light="blaue Stunde bis Nacht" />
-      </LocationExperienceHero>
+      />
 
       <AuthorityFeatureSection
         id="overview"

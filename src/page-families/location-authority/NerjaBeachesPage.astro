@@ -1,6 +1,5 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
-import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
@@ -18,11 +17,13 @@ import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import BeachPracticalSection from './BeachPracticalSection.astro';
 import BeachSectionList from './BeachSectionList.astro';
 import ExperienceRelatedSection from './ExperienceRelatedSection.astro';
+import { routeHero } from '../../lib/images/routeImages';
 
 interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('nerja.experience.beaches', currentLang);
 const shared = getNerjaCoastGuideFacts(currentLang);
 const copy = nerjaBeachesPageContent[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja beaches');
@@ -42,13 +43,12 @@ const footerHighlights: LabeledLink[] = [
 
   <div data-am-page="nerja-beaches">
     <LocationExperienceHero
+      {...hero}
       topic="beaches"
       eyebrow={copy.hero.kicker}
       title={copy.hero.title}
       paragraphs={copy.hero.paragraphs}
-    >
-      <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Playa de Burriana oder Playa Carabeo vom Weg oberhalb, Bucht und Wasser" format="hochkant 3:4" light="vormittags" />
-    </LocationExperienceHero>
+    />
 
     <AuthorityFeatureSection
       id="coast"

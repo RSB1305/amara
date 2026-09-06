@@ -7,7 +7,6 @@ export interface FrigilianaOrNerjaPageCopy {
     subtitle: string;
     lead: string;
     body: string[];
-    imageAlt: string;
   };
   coreQuestion: {
     eyebrow: string;
@@ -130,8 +129,6 @@ export const frigilianaOrNerjaContent: Record<
         'Stay in Frigiliana and the historic village becomes home, with Nerja and the coast available for beach days and outings. Stay in Nerja and the sea, town and everyday coastal life become your starting point, while Frigiliana remains close enough to visit easily.',
         'You are not choosing which place to miss. You are choosing where you want to wake up.'
       ],
-      imageAlt:
-        'White houses and alleys in Frigiliana with a view towards the coast'
     },
     coreQuestion: {
       eyebrow: 'The real question',
@@ -247,8 +244,6 @@ export const frigilianaOrNerjaContent: Record<
         'Wohnt ihr in Frigiliana, wird das historische Dorf zu eurem Zuhause, während Nerja und die Küste für Strandtage und Ausflüge erreichbar bleiben. Wohnt ihr in Nerja, beginnen eure Tage am Meer und in der Stadt; Frigiliana lässt sich trotzdem leicht besuchen.',
         'Ihr entscheidet also nicht, auf welchen Ort ihr verzichtet. Ihr entscheidet, wo ihr aufwachen möchtet.'
       ],
-      imageAlt:
-        'Weiße Häuser und Gassen in Frigiliana mit Blick Richtung Küste'
     },
     coreQuestion: {
       eyebrow: 'Die eigentliche Frage',
@@ -364,8 +359,6 @@ export const frigilianaOrNerjaContent: Record<
         'Si os alojáis en Frigiliana, el pueblo histórico se convierte en vuestro hogar, mientras Nerja y la costa quedan a mano para días de playa y excursiones. Si os alojáis en Nerja, el mar, la localidad y la vida cotidiana de la costa son el punto de partida; Frigiliana sigue lo bastante cerca para visitarla con facilidad.',
         'No estáis eligiendo qué lugar perderos. Estáis eligiendo dónde queréis despertar.'
       ],
-      imageAlt:
-        'Casas blancas y callejuelas de Frigiliana con vistas hacia la costa'
     },
     coreQuestion: {
       eyebrow: 'La pregunta clave',
@@ -481,8 +474,6 @@ export const frigilianaOrNerjaContent: Record<
         'Verblijven jullie in Frigiliana, dan wordt het historische dorp jullie thuisplek en blijven Nerja en de kust binnen bereik voor stranddagen en uitstapjes. Verblijven jullie in Nerja, dan beginnen de dagen bij de zee en in de kustplaats; Frigiliana blijft dichtbij genoeg voor een ontspannen bezoek.',
         'Jullie kiezen dus niet welke plek jullie moeten missen. Jullie kiezen waar jullie wakker willen worden.'
       ],
-      imageAlt:
-        'Witte huizen en steegjes in Frigiliana met uitzicht richting de kust'
     },
     coreQuestion: {
       eyebrow: 'De echte vraag',
@@ -598,8 +589,6 @@ export const frigilianaOrNerjaContent: Record<
         'Bor ni i Frigiliana blir den historiska byn ert hem, medan Nerja och kusten finns nära till hands för stranddagar och utflykter. Bor ni i Nerja börjar dagen vid havet och i kuststaden; Frigiliana ligger fortfarande nära nog för ett enkelt besök.',
         'Ni väljer alltså inte vilken plats ni ska avstå från. Ni väljer var ni vill vakna.'
       ],
-      imageAlt:
-        'Vita hus och gränder i Frigiliana med utsikt mot kusten'
     },
     coreQuestion: {
       eyebrow: 'Den verkliga frågan',

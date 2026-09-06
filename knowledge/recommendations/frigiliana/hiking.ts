@@ -98,7 +98,7 @@ export const frigilianaHikingRecommendations = defineKnowledgeRecommendations([
     operating: { note: '13 km, about 4 h 20 min; starts Plaza del Ingenio and returns the same way', observedAt: '2026-08-28' },
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'split',
+    scope: 'amara-experience',
     basis: 'published-guide-carryover',
     factIds: [
       'frigiliana.hiking.acebuchal.official-route-profile'
@@ -107,5 +107,23 @@ export const frigilianaHikingRecommendations = defineKnowledgeRecommendations([
     reviewAfter: '2027-02-28',
     volatility: 'medium',
     claimBoundary: 'Carried over from the published guide; the referenced facts bound the verified details, everything else is editorial selection without a dated check.'
+  },
+  {
+    id: 'frigiliana.hiking.gr-249-stage-6',
+    destination: 'frigiliana',
+    topic: 'hiking',
+    place: { name: 'GR 249 Stage 6, Frigiliana to Cómpeta', kind: 'hike', website: 'https://static.malaga.es/malaga/subidas/descargas/archivos/7/1/370917/topoguia-gr-249-gran-senda-de-malaga-%28edicion-noviembre-2021%29.pdf' },
+    summary: 'Linear mountain stage of the Gran Senda de Málaga through El Acebuchal and the Sierra de Almijara; on the public hiking page as a committed day, not in the Guest Guide.',
+    provenance: 'researched',
+    status: 'APPROVED',
+    scope: 'public',
+    basis: 'published-guide-carryover',
+    factIds: [
+      'frigiliana.hiking.gr249-stage6.route-profile'
+    ],
+    checkedAt: '2026-08-28',
+    reviewAfter: '2027-02-28',
+    volatility: 'medium',
+    claimBoundary: 'The 2021 topoguide gives 24.7 km and about 8 h 15 min; closures, water, transport and return logistics are live checks, and the stage is linear.'
   }
 ]);

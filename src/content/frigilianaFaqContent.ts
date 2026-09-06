@@ -1,4 +1,5 @@
 import type { LocalizedText } from '../types/content';
+import { routeOgImage } from '../lib/images/routeImages';
 import type { AmaraAuthoringSeo } from '../types/seo';
 
 
@@ -23,7 +24,7 @@ export const frigilianaFaqSeo: AmaraAuthoringSeo = {
   version: '2026-07-27-frigiliana-faq-v1.0-A',
   pageType: 'A',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
+  ogImage: routeOgImage('frigiliana.faq'),
   languages: {
     en: {
       title: 'Frigiliana FAQ: Practical Answers for Your Visit',
@@ -124,13 +125,6 @@ export const frigilianaFaqCopy = {
       'Plan de reis',
       'Planera resan'
     ),
-    imageAlt: l(
-      'Frigiliana and its whitewashed hillside streets',
-      'Frigiliana mit seinen weißen Gassen am Hang',
-      'Frigiliana y sus calles blancas en la ladera',
-      'Frigiliana met de witte straten tegen de heuvel',
-      'Frigiliana med sina vitkalkade gränder på sluttningen'
-    )
   },
   orientation: {
     title: l(

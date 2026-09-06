@@ -1,6 +1,7 @@
 import type { LocalizedText, LocalizedTextSection } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
 import type { LinkToken } from '../lib/linkResolver';
+import { routeOgImage } from '../lib/images/routeImages';
 
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
 
@@ -23,7 +24,7 @@ export const tarifaKitesurfSpotsSeo: AmaraAuthoringSeo = {
   version: '2026-09-03-tarifa-kitesurf-spots-v1.0',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-tarifa/amara-tarifa-apartment23.webp',
+  ogImage: routeOgImage('tarifa.kitesurfing.spots'),
   article: {
     datePublished: '2026-09-03', dateModified: '2026-09-03',
     authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about'
@@ -38,6 +39,8 @@ export const tarifaKitesurfSpotsSeo: AmaraAuthoringSeo = {
 };
 
 interface SpotSection extends LocalizedTextSection {
+  /** Recommendation record this spot section presents (DR-GUEST-006). */
+  recordId?: string;
   observation?: LocalizedText;
   link?: { token: LinkToken; text: LocalizedText; label: LocalizedText };
 }
@@ -45,6 +48,7 @@ interface SpotSection extends LocalizedTextSection {
 const sections: SpotSection[] = [
   {
     id: 'los-lances',
+    recordId: 'tarifa.beaches.playa-los-lances',
     title: l('Los Lances: kiting right in front of Tarifa', 'Los Lances: Das Kitesurfen direkt vor Tarifa', 'Los Lances: navegar frente a Tarifa', 'Los Lances: kitesurfen vlak voor Tarifa', 'Los Lances: kitesurfing precis framför Tarifa'),
     paragraphs: {
       en: ['With Poniente, we look first at Los Lances. This open Atlantic coast can have wind waves, chop and shorebreak; the water at the launch matters as much as the wind direction. A beach that looks spacious still needs a permitted, usable launch area.', 'Sur is the stretch closer to town; Norte continues farther along the coast and has separately marked bathing, school and watersport areas. Independent riders need the zone designated for them. During the bathing season, a familiar town-side launch is no assurance of permission. Levante can blow offshore or cross-offshore here, making Los Lances a poor default for that direction.'],
@@ -73,6 +77,7 @@ const sections: SpotSection[] = [
   },
   {
     id: 'valdevaqueros',
+    recordId: 'tarifa.beaches.playa-de-valdevaqueros',
     title: l('Valdevaqueros: the bay option for Levante', 'Valdevaqueros: Die Levante-Option in der Bucht', 'Valdevaqueros: la opción de la bahía con levante', 'Valdevaqueros: de baai bij levante', 'Valdevaqueros: bukten vid levante'),
     paragraphs: {
       en: ['With a suitable Levante angle, the curve of Valdevaqueros bay can leave a stretch of coast downwind of a rider. That can offer a more favourable coastal geometry than open Los Lances. It is a conditional advantage, not a safety guarantee: the exact launch point, wind angle, strength, gusts and your ability still determine whether a session is appropriate.', 'Punta Paloma belongs to the same decision, as the northern part of the bay. The curved shoreline changes the wind’s angle to the beach; the designated kite, windsurf and bathing areas still apply. Outside high summer, Valdevaqueros can be a suitable alternative when the conditions and permitted zone fit.'],
@@ -139,24 +144,9 @@ export const tarifaKitesurfSpotsContent = {
     ),
     updated: l('Checked 3 September 2026', 'Geprüft am 3. September 2026', 'Comprobado el 3 de septiembre de 2026', 'Gecontroleerd op 3 september 2026', 'Kontrollerat den 3 september 2026'),
     note: l('Official beach sources and clearly attributed personal observations.', 'Offizielle Strandquellen und ausdrücklich gekennzeichnete persönliche Beobachtungen.', 'Fuentes oficiales de playa y observaciones personales identificadas.', 'Officiële strandbronnen en herkenbaar toegeschreven persoonlijke observaties.', 'Officiella strandkällor och tydligt angivna personliga iakttagelser.'),
-    imageAlt: l('View from AMARA across Tarifa towards the Atlantic coast', 'Blick von AMARA über Tarifa zur Atlantikküste', 'Vista desde AMARA sobre Tarifa hacia la costa atlántica', 'Uitzicht vanaf AMARA over Tarifa naar de Atlantische kust', 'Utsikt från AMARA över Tarifa mot Atlantkusten')
   },
   orientation: {
     title: l('The spot map: Tarifa at a glance', 'Die Spot-Landkarte: Tarifa auf einen Blick', 'El mapa de spots: Tarifa de un vistazo', 'De spots: Tarifa in één oogopslag', 'Spotkartan: Tarifa i överblick'),
-    mapAlt: l(
-      'Illustrated map of the Tarifa coast with the numbered spots from Los Caños de Meca to Palmones, the town, the Strait of Gibraltar and the two wind directions Poniente and Levante',
-      'Illustrierte Karte der Küste von Tarifa mit den nummerierten Spots von Los Caños de Meca bis Palmones, der Stadt, der Straße von Gibraltar und den beiden Windrichtungen Poniente und Levante',
-      'Mapa ilustrado de la costa de Tarifa con los spots numerados de Los Caños de Meca a Palmones, el pueblo, el estrecho de Gibraltar y las dos direcciones de viento, poniente y levante',
-      'Geïllustreerde kaart van de kust van Tarifa met de genummerde spots van Los Caños de Meca tot Palmones, de stad, de Straat van Gibraltar en de twee windrichtingen poniente en levante',
-      'Illustrerad karta över Tarifas kust med de numrerade spotsen från Los Caños de Meca till Palmones, staden, Gibraltar sund och de två vindriktningarna poniente och levante'
-    ),
-    mapCaption: l(
-      'Illustration for orientation, not a zoning map. The numbers follow the coast from west to east; the symbols on the map are no statement about permitted use. Which stretch is open for what is set by the beach plan, the signs and the buoys on site.',
-      'Illustration zur Orientierung, keine Zonenkarte. Die Nummern folgen der Küste von Westen nach Osten; die Symbole der Karte sind keine Aussage über erlaubte Nutzung. Welcher Abschnitt wofür freigegeben ist, regeln Strandplan, Beschilderung und Bojen vor Ort.',
-      'Ilustración para orientarse, no un mapa de zonas. Los números siguen la costa de oeste a este; los símbolos del mapa no dicen nada sobre el uso permitido. Qué tramo está abierto para qué lo fijan el plan de playas, la señalización y las boyas sobre el terreno.',
-      'Illustratie ter oriëntatie, geen zonekaart. De nummers volgen de kust van west naar oost; de symbolen op de kaart zeggen niets over toegestaan gebruik. Welk deel waarvoor open is, bepalen het strandplan, de bebording en de boeien ter plaatse.',
-      'Illustration för orientering, ingen zonkarta. Numren följer kusten från väst till öst; symbolerna på kartan säger inget om tillåten användning. Vilken sträcka som är öppen för vad avgörs av strandplanen, skyltarna och bojarna på plats.'
-    ),
     columns: [
       { id: 'spot', label: l('Spot', 'Spot', 'Spot', 'Spot', 'Spot') },
       { id: 'role', label: l('Role', 'Rolle', 'Función', 'Rol', 'Roll') },

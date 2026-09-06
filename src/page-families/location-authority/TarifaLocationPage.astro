@@ -8,10 +8,6 @@
 // brief takes its slot (PhotoBrief) so the composition can be judged and the
 // missing motif is named; the kite photograph stays only where wind is the topic.
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import tarifaStayImage from '../../assets/images/home/amara-tarifa-apartment01.webp';
-import tarifaViewImage from '../../assets/images/content/amara-tarifa/amara-tarifa-apartment23.webp';
-import kiteWalkImage from '../../assets/images/content/tarifa/kite-walking-out.jpg';
-import castleImage from '../../assets/images/content/tarifa/_DCS1404_Sebastian_Lang.jpg';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraKeyFigures from '../../components/content/AmaraKeyFigures.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
@@ -25,7 +21,8 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import PhotoBrief from './PhotoBrief.astro';
+import { requireRouteBrief, requireRouteImage } from '../../lib/images/routeImages';
+import PhotoBrief from '../../components/media/PhotoBrief.astro';
 
 interface Props {
   lang?: string;
@@ -33,6 +30,10 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = requireRouteImage('tarifa', 'hero', currentLang);
+const walkImage = requireRouteImage('tarifa', 'walk', currentLang);
+const castleImage = requireRouteImage('tarifa', 'castle', currentLang);
+const stayImage = requireRouteImage('tarifa', 'stay', currentLang);
 const content = tarifaLocationContent.locales[currentLang];
 // "Four kinds of trip, four priorities" lives in the Tarifa location authority copy
 // and already exists in all five locales; the hub surfaces it instead of retelling it.
@@ -79,9 +80,9 @@ const byline = tarifaLocationContent.seo.article
       title={content.hero.title}
       subtitle={content.hero.subtitle}
       paragraphs={[content.hero.standfirst]}
-      imageSrc={tarifaViewImage}
-      imageAlt={content.media.heroAlt}
-      focalPoint="50% 60%"
+      imageSrc={hero.src}
+      imageAlt={hero.alt}
+      focalPoint={hero.focalPoint}
       role="hub"
       topic="overview"
     >
@@ -112,12 +113,7 @@ const byline = tarifaLocationContent.seo.article
               </a>
             )}
           </div>
-          <PhotoBrief
-            class="am-bleed-end aspect-[3/2] lg:col-span-7"
-            motif="Playa Chica mit dem Damm zur Isla de Tarifa, dahinter die Meerenge"
-            format="quer 3:2"
-            light="vormittags, klare Sicht"
-          />
+          <PhotoBrief class="am-bleed-end aspect-[3/2] lg:col-span-7" {...requireRouteBrief('tarifa', 'strait')} />
         </div>
         <dl class="am-overlap-up am-overlap-up--inset grid gap-5 bg-surface-white md:grid-cols-3 md:gap-8">
           {content.geography.markers.map((marker) => (
@@ -134,12 +130,7 @@ const byline = tarifaLocationContent.seo.article
     <section id="arrival-mobility" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <PhotoBrief
-            class="am-bleed-start aspect-[4/5] lg:col-span-4"
-            motif="Altstadtgasse mit Kopfsteinpflaster, Puerta de Jerez oder Calle Sancho IV"
-            format="hochkant 4:5"
-            light="morgens, bevor die Terrassen aufbauen"
-          />
+          <PhotoBrief class="am-bleed-start aspect-[4/5] lg:col-span-4" {...requireRouteBrief('tarifa', 'old-town')} />
           <div class="am-overlap-start bg-surface lg:col-span-8">
             <p class="am-text-eyebrow text-primary">{content.arrival.eyebrow}</p>
             <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.arrival.title}</h2>
@@ -184,12 +175,7 @@ const byline = tarifaLocationContent.seo.article
     <section id="who-tarifa-suits" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
-          <PhotoBrief
-            class="am-bleed-start aspect-[4/5] lg:col-span-4 lg:sticky lg:top-32"
-            motif="Ein Abend in der Altstadt oder in der Calle Batalla del Salado: Tisch, Licht, Leute"
-            format="hochkant 4:5"
-            light="blaue Stunde"
-          />
+          <PhotoBrief class="am-bleed-start aspect-[4/5] lg:col-span-4 lg:sticky lg:top-32" {...requireRouteBrief('tarifa', 'evening')} />
           <div class="lg:col-span-8">
             <p class="am-text-eyebrow text-primary">{content.areas.eyebrow}</p>
             <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{stayFits.title}</h2>
@@ -229,8 +215,8 @@ const byline = tarifaLocationContent.seo.article
             )}
           </div>
           <figure class="am-bleed-end lg:col-span-7">
-            <AmaraImage src={kiteWalkImage} alt={content.media.walkAlt} profile="hero" class="aspect-[3/2] h-full w-full object-cover" focalPoint="50% 55%" />
-            <figcaption class="am-text-caption mt-3 normal-case tracking-normal text-muted">{content.media.walkCaption}</figcaption>
+            <AmaraImage src={walkImage.src} alt={walkImage.alt} profile="hero" class="aspect-[3/2] h-full w-full object-cover" focalPoint={walkImage.focalPoint} />
+            <figcaption class="am-text-caption mt-3 normal-case tracking-normal text-muted">{walkImage.caption}</figcaption>
           </figure>
         </div>
       </div>
@@ -251,8 +237,8 @@ const byline = tarifaLocationContent.seo.article
             </div>
           </div>
           <figure class="am-bleed-end am-hang lg:col-span-5 lg:self-end">
-            <AmaraImage src={castleImage} alt={content.media.castleAlt} profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint="50% 40%" />
-            <figcaption class="am-text-caption mt-3 normal-case tracking-normal text-muted lg:hidden">{content.media.castleCaption}</figcaption>
+            <AmaraImage src={castleImage.src} alt={castleImage.alt} profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint={castleImage.focalPoint} />
+            <figcaption class="am-text-caption mt-3 normal-case tracking-normal text-muted lg:hidden">{castleImage.caption}</figcaption>
           </figure>
         </div>
       </div>
@@ -263,7 +249,7 @@ const byline = tarifaLocationContent.seo.article
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
           <figure class="am-bleed-start lg:col-span-6">
-            <AmaraImage src={tarifaStayImage} alt={content.amara.imageAlt} profile="hero" class="aspect-[4/3] h-full w-full object-cover" focalPoint="50% 50%" />
+            <AmaraImage src={stayImage.src} alt={stayImage.alt} profile="hero" class="aspect-[4/3] h-full w-full object-cover" focalPoint={stayImage.focalPoint} />
           </figure>
           <div class="am-overlap-start bg-surface-white lg:col-span-6">
             <p class="am-text-eyebrow text-primary">{content.amara.eyebrow}</p>
@@ -289,12 +275,7 @@ const byline = tarifaLocationContent.seo.article
     <!-- Close: evening panorama (photo brief), the sand panel with the closing line rises into it. -->
     <section id="experiences" class="scroll-mt-28 bg-surface">
       <AmaraMediaFrame role="panorama">
-        <PhotoBrief
-          class="h-full w-full"
-          motif="Sonnenuntergang über Los Lances vom Strand oder vom Balkon, ohne Kites im Bild"
-          format="Panorama quer, mindestens 3:2, wird auf 21:9 beschnitten"
-          light="letzte Sonne, Horizont frei"
-        />
+        <PhotoBrief class="h-full w-full" {...requireRouteBrief('tarifa', 'sunset')} />
       </AmaraMediaFrame>
       <div class="mx-auto max-w-screen-2xl px-6 md:px-12">
         <div class="am-overlap-up bg-surface py-12">

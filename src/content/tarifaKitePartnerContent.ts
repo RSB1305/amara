@@ -1,6 +1,7 @@
 import type { LinkToken } from '../lib/linkResolver';
 import type { LocalizedText, LocalizedTextList } from '../types/content';
 import type { AmaraAuthoringSeo } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 /**
  * The partner spoke of the Tarifa kitesurf cluster: AMARA and Tarifa Surf
@@ -32,7 +33,7 @@ export const tarifaKitePartnerSeo: AmaraAuthoringSeo = {
   version: '2026-09-03-amara-tarifa-surf-club-v1.0',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/tarifa/mark-robert-tarifa-surf-club.webp',
+  ogImage: routeOgImage('tarifa.kitesurfing.surf-club'),
   article: {
     datePublished: '2026-09-02',
     dateModified: '2026-09-03',
@@ -83,7 +84,6 @@ export interface TarifaKitePartnerContent {
     title: LocalizedText;
     subtitle: LocalizedText;
     lead: LocalizedText;
-    imageAlt: LocalizedText;
     updated: LocalizedText;
     note: LocalizedText;
   };
@@ -126,8 +126,6 @@ export interface TarifaKitePartnerContent {
     eyebrow: LocalizedText;
     title: LocalizedText;
     text: LocalizedText;
-    imageAlt: LocalizedText;
-    imageCaption: LocalizedText;
     partnerLabel: LocalizedText;
   };
   closing: {
@@ -152,7 +150,6 @@ export const tarifaKitePartnerContent: TarifaKitePartnerContent = {
       'Tarifa heeft twee sterke partners die elkaar goed kennen: AMARA voor het verblijf, Tarifa Surf Club voor alles op het water. We delen deze pagina omdat we elkaar gasten sturen en omdat de vragen altijd dezelfde zijn. Waar leer ik het, wanneer is de beste tijd, wat kost het, waar slaap ik en hoe lees ik de wind. Hier vinden jullie de antwoorden voor beginners en voor wie al vaart — met het laagseizoen van half september tot half juni als onze eerlijke aanbeveling.',
       'Tarifa har två starka partner som känner varandra väl: AMARA för boendet, Tarifa Surf Club för allt på vattnet. Vi delar den här sidan eftersom vi skickar gäster till varandra och eftersom frågorna alltid är desamma. Var lär jag mig, när är bästa tiden, vad kostar det, var sover jag och hur läser jag vinden. Här finns svaren för nybörjare och för er som redan åker – med lågsäsongen från mitten av september till mitten av juni som vår ärliga rekommendation.'
     ),
-    imageAlt: l('Mark from Tarifa Surf Club and Robert from AMARA together in Tarifa', 'Mark vom Tarifa Surf Club und Robert von AMARA gemeinsam in Tarifa', 'Mark, de Tarifa Surf Club, y Robert, de AMARA, juntos en Tarifa', 'Mark van Tarifa Surf Club en Robert van AMARA samen in Tarifa', 'Mark från Tarifa Surf Club och Robert från AMARA tillsammans i Tarifa'),
     updated: l('Checked September 2026', 'Geprüft im September 2026', 'Revisado en septiembre de 2026', 'Gecontroleerd in september 2026', 'Kontrollerat i september 2026'),
     note: l('Club facts and prices from tarifasurfclub.com, 3 September 2026. Teaching, conditions and water decisions stay with the school.', 'Club-Fakten und Preise von tarifasurfclub.com, 3. September 2026. Unterricht, Bedingungen und Entscheidungen am Wasser bleiben bei der Schule.', 'Datos y precios del club de tarifasurfclub.com, 3 de septiembre de 2026. La enseñanza, las condiciones y las decisiones en el agua siguen siendo cosa de la escuela.', 'Clubfeiten en prijzen van tarifasurfclub.com, 3 september 2026. Les, omstandigheden en beslissingen op het water blijven bij de school.', 'Klubbfakta och priser från tarifasurfclub.com, 3 september 2026. Undervisning, förhållanden och beslut på vattnet ligger hos skolan.')
   },
@@ -326,8 +323,6 @@ export const tarifaKitePartnerContent: TarifaKitePartnerContent = {
       'We kennen Mark, die Tarifa Surf Club samen met Simone leidt, al vele jaren. In Tarifa zien en spreken we elkaar bijna dagelijks, dus vragen en wijzigingen worden persoonlijk en snel geregeld. De club promoot AMARA op zijn site, wij promoten de club hier. Dat is geen affiliatedeal; het zijn twee partners die elkaar gasten sturen omdat het werkt.',
       'Vi har känt Mark, som driver Tarifa Surf Club tillsammans med Simone, i många år. I Tarifa ses och hörs vi nästan varje dag, så frågor och ändringar löses personligt och snabbt. Klubben marknadsför AMARA på sin sida, vi marknadsför klubben här. Det är inget affiliateupplägg; det är två partner som skickar gäster till varandra för att det fungerar.'
     ),
-    imageAlt: l('Mark from Tarifa Surf Club and Robert from AMARA in Tarifa', 'Mark vom Tarifa Surf Club und Robert von AMARA in Tarifa', 'Mark de Tarifa Surf Club y Robert de AMARA en Tarifa', 'Mark van Tarifa Surf Club en Robert van AMARA in Tarifa', 'Mark från Tarifa Surf Club och Robert från AMARA i Tarifa'),
-    imageCaption: l('Mark and Robert: direct coordination in Tarifa', 'Mark und Robert: direkte Abstimmung in Tarifa', 'Mark y Robert: coordinación directa en Tarifa', 'Mark en Robert: directe afstemming in Tarifa', 'Mark och Robert: direkt samordning i Tarifa'),
     partnerLabel: l('Visit Tarifa Surf Club', 'Tarifa Surf Club besuchen', 'Visitar Tarifa Surf Club', 'Bezoek Tarifa Surf Club', 'Besök Tarifa Surf Club')
   },
   closing: {

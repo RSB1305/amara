@@ -11,6 +11,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import { routeHeroImage } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -18,6 +19,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHeroImage('frigiliana.or-nerja', currentLang);
 const copy = frigilianaOrNerjaContent[currentLang];
 
 const requiredLink = createRequiredLinkResolver(currentLang, 'Frigiliana or Nerja');
@@ -73,10 +75,6 @@ const footerHighlights: LabeledLink[] = [
   }
 ];
 
-const heroImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
-  width: 2000
-};
 ---
 
 <LocationAuthorityLayout
@@ -103,9 +101,7 @@ const heroImage = {
           subtitle={copy.hero.subtitle}
           accent={copy.hero.lead}
           paragraphs={copy.hero.body}
-          imageSrc={heroImage.src}
-          imageAlt={copy.hero.imageAlt}
-          imageWidth={heroImage.width}
+          {...hero}
           topic="comparison"
         />
       </div>

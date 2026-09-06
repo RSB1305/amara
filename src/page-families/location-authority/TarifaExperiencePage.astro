@@ -26,9 +26,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import heroImage from '../../assets/images/content/tarifa/IMG_8742.jpg';
-import panoramaImage from '../../assets/images/content/tarifa/_DCS9465_Sebastian_Lang.jpg';
-import oldTownImage from '../../assets/images/content/tarifa/IMG_9004.jpg';
+import { requireRouteImage, routeHero } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -36,6 +34,9 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('tarifa.experience', currentLang);
+const panorama = requireRouteImage('tarifa.experience', 'panorama', currentLang);
+const oldTown = requireRouteImage('tarifa.experience', 'old-town', currentLang);
 const copy = resolveLocale(tarifaExperienceContent, currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa Experience');
 const dayTopics = copy.dayChooser.days.map((day) => ({
@@ -81,9 +82,7 @@ const footerHighlights: LabeledLink[] = [
       eyebrow={`Tarifa · ${copy.navLabel}`}
       title={copy.hero.title}
       paragraphs={copy.hero.lead}
-      imageSrc={heroImage}
-      imageAlt={copy.hero.imageAlt}
-      imageWidth={1080}
+      {...hero}
     />
 
     <!-- The page job first: six ways into Tarifa, each routing to its spoke. -->
@@ -110,7 +109,7 @@ const footerHighlights: LabeledLink[] = [
     {ourDay && (
       <section id={ourDay.id} class="scroll-mt-28 bg-surface">
         <AmaraMediaFrame role="panorama">
-          <AmaraImage src={panoramaImage} alt={copy.media.panoramaAlt} profile="background" class="h-full w-full object-cover" focalPoint="50% 50%" />
+          <AmaraImage src={panorama.src} alt={panorama.alt} profile="background" class="h-full w-full object-cover" focalPoint={panorama.focalPoint} />
         </AmaraMediaFrame>
         <div class="mx-auto max-w-screen-2xl px-6 md:px-12 lg:flex lg:items-start lg:gap-8">
           <div class="am-overlap-up bg-surface pb-16 pt-10 md:pb-24">
@@ -124,7 +123,7 @@ const footerHighlights: LabeledLink[] = [
               ))}
             </div>
           </div>
-          <p class="am-text-caption mt-3 normal-case tracking-normal text-muted lg:flex-1 lg:text-right">{copy.media.panoramaCaption}</p>
+          <p class="am-text-caption mt-3 normal-case tracking-normal text-muted lg:flex-1 lg:text-right">{panorama.caption}</p>
         </div>
       </section>
     )}
@@ -135,7 +134,7 @@ const footerHighlights: LabeledLink[] = [
         <div class="mx-auto max-w-screen-2xl">
           <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
             <figure class="am-bleed-start lg:col-span-5">
-              <AmaraImage src={oldTownImage} alt={copy.media.oldTownAlt} profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint="50% 45%" />
+              <AmaraImage src={oldTown.src} alt={oldTown.alt} profile="card" class="aspect-[4/5] h-full w-full object-cover" focalPoint={oldTown.focalPoint} />
             </figure>
             <div class="am-overlap-start bg-surface-white lg:col-span-7">
               <h2 class="am-text-title text-balance text-on-surface">{stayLength.title}</h2>

@@ -6,6 +6,7 @@ import type {
   GuestGuideMenuLink,
   LocalizedText
 } from '../types/guestGuide';
+import { routeImageAltText, routeImageSrc } from '../lib/images/routeImages';
 import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHref';
 
 const TARIFA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
@@ -203,14 +204,8 @@ const tarifaFamilySurfHub: GuestGuideEntry = {
     nl: 'Een rustige, praktische gids voor jullie verblijf in Tarifa: informatie over het appartement, lokale tips en alles over wind en weer.',
     sv: 'En lugn och praktisk guide för er vistelse i Tarifa: information om lägenheten, lokala tips samt det viktigaste om vind och väder.'
   },
-  heroImage: '/images/amara-tarifa/amara-tarifa-apartment01.webp',
-  heroAlt: {
-    en: 'AMARA Family & Surf apartment in Tarifa',
-    de: 'AMARA Family & Surf Apartment in Tarifa',
-    es: 'Apartamento AMARA Family & Surf en Tarifa',
-    nl: 'AMARA Family & Surf appartement in Tarifa',
-    sv: 'AMARA Family & Surf-lägenhet i Tarifa'
-  },
+  heroImage: routeImageSrc('guestwelcome-tarifa-family-surf', 'hero'),
+  heroAlt: routeImageAltText('guestwelcome-tarifa-family-surf', 'hero'),
   kicker: {
     en: 'AMARA FAMILY & SURF',
     de: 'AMARA FAMILY & SURF',

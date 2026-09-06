@@ -1,8 +1,9 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
-import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
+import { publicBeachCard } from '../../lib/placeProjection';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   frigilianaBeachesContent,
@@ -16,6 +17,7 @@ import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import BeachPracticalSection from './BeachPracticalSection.astro';
 import BeachSectionList from './BeachSectionList.astro';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
+import { routeHero } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -23,6 +25,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.beaches', currentLang);
 const copy = frigilianaBeachesContent[currentLang];
 
 const footerHighlights: LabeledLink[] = [
@@ -36,6 +39,11 @@ const footerHighlights: LabeledLink[] = [
   },
   { token: 'romantic_hideaways', label: copy.footerHighlights.stays }
 ];
+
+const beachSections = copy.beachSections.map((section) => ({
+  ...section,
+  beaches: section.beachIds.map((id) => publicBeachCard(id, currentLang))
+}));
 
 const combineItems = copy.combine.items.map((item) => ({
   ...item,
@@ -69,13 +77,12 @@ const baseDecisionHref = resolveOptionalLink(
   <div data-am-page="frigiliana-beaches">
     <div class="w-full">
       <LocationExperienceHero
+        {...hero}
         topic="beaches"
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-      >
-        <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Playa de Burriana oder Playa de Maro von oben, mit Wasser und Klippen" format="hochkant 3:4" light="vormittags" />
-      </LocationExperienceHero>
+      />
 
       <AuthorityFeatureSection
         id="coast"
@@ -84,7 +91,7 @@ const baseDecisionHref = resolveOptionalLink(
         items={copy.overview.items}
       />
 
-      <BeachSectionList sections={copy.beachSections} labels={copy.beachCardLabels} />
+      <BeachSectionList sections={beachSections} labels={copy.beachCardLabels} />
 
       <AuthorityFeatureSection
         id="conditions"
@@ -112,6 +119,12 @@ const baseDecisionHref = resolveOptionalLink(
           label: copy.combine.baseDecision.linkLabel,
           after: copy.combine.baseDecision.after
         }}
+      />
+
+      <GuestGuideBridge
+        lang={currentLang}
+        destination="frigiliana"
+        guideSlugs={['frigiliana-guest-beaches']}
       />
 
       <GuideClosingSection

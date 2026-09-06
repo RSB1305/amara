@@ -6,6 +6,8 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 export type TarifaGuideId = 'overview' | 'wind' | 'beaches';
 
 export interface TarifaGuideCard {
+  /** Recommendation record this card presents, when it is about one place (DR-GUEST-006). */
+  recordId?: string;
   kicker: LocalizedText;
   title: LocalizedText;
   text: LocalizedText;
@@ -39,8 +41,6 @@ export interface TarifaKitePartnership {
   title: LocalizedText;
   intro: LocalizedText;
   personalNote: LocalizedText;
-  imageAlt: LocalizedText;
-  imageCaption: LocalizedText;
   servicesTitle: LocalizedText;
   services: TarifaPartnershipService[];
   contactText: LocalizedText;
@@ -103,7 +103,6 @@ export interface TarifaLocationAuthorityCopy {
     title: string;
     paragraphs: string[];
     facts: string[];
-    imageAlt: string;
   };
   closing: {
     title: string;
@@ -454,7 +453,6 @@ export const overview: TarifaLocationGuideContent = {
           'the Old Town can be reached on foot, with the exact route and destination determining the walk;',
           `a position in Tarifa's newer north-western urban fabric, while each westbound driving route depends on current traffic.`
         ],
-        imageAlt: 'Living space at AMARA Family & Surf in La Marina, Tarifa'
       },
       closing: {
         title: 'Once you know how you want Tarifa to work for you, choosing where to stay becomes much easier.',
@@ -538,7 +536,6 @@ export const overview: TarifaLocationGuideContent = {
         title: 'Warum AMARA in La Marina liegt',
         paragraphs: ['AMARA Family & Surf befindet sich in der Urbanización La Marina.', 'Für uns ist La Marina kein Kompromiss, sondern eine praktische Basis: Ihr geht abends zu Fuß in die Altstadt, fahrt tagsüber zum Strand oder Kitesurfen und habt bei der Rückkehr einen festen Stellplatz.'],
         facts: ['eigener Tiefgaragenstellplatz;', 'Supermarkt direkt gegenüber;', 'die Altstadt ist zu Fuß erreichbar, wobei Zielpunkt und genaue Route den Weg bestimmen;', 'Lage im neueren nordwestlichen Stadtgefüge; die konkrete Fahrt nach Westen hängt von der aktuellen Verkehrsführung ab.'],
-        imageAlt: 'Wohnbereich bei AMARA Family & Surf in La Marina, Tarifa'
       },
       closing: {
         title: 'Wenn ihr wisst, wie ihr Tarifa nutzen möchtet, wird die Wahl der richtigen Lage deutlich einfacher.',
@@ -618,7 +615,6 @@ export const overview: TarifaLocationGuideContent = {
         title: 'Por qué AMARA está en La Marina',
         paragraphs: ['AMARA Family & Surf se encuentra en Urbanización La Marina.', 'Para nuestros huéspedes, la ubicación combina varios elementos prácticos:', 'Para nosotros, eso convierte La Marina en una base especialmente flexible para quienes quieren disfrutar Tarifa a pie y seguir teniendo libertad para moverse por la costa.'],
         facts: ['plaza propia en garaje subterráneo;', 'supermercado justo enfrente;', 'el casco antiguo se puede alcanzar a pie, pero el recorrido depende del destino y de la ruta exacta;', 'posición en el tejido urbano más reciente del noroeste; la salida concreta hacia poniente depende del tráfico vigente.'],
-        imageAlt: 'Salón de AMARA Family & Surf en La Marina, Tarifa'
       },
       closing: {
         title: 'Cuando sabéis cómo queréis vivir Tarifa, elegir dónde alojaros resulta mucho más fácil.',
@@ -728,7 +724,6 @@ export const overview: TarifaLocationGuideContent = {
         title: 'Waarom AMARA in La Marina ligt',
         paragraphs: ['AMARA Family & Surf ligt in Urbanización La Marina.', 'Voor onze gasten betekent dat:', 'Daardoor zien we La Marina als een bijzonder flexibele uitvalsbasis voor gasten die Tarifa te voet willen beleven én vrij willen zijn om met de auto de kust te verkennen.'],
         facts: ['een eigen ondergrondse parkeerplaats;', 'een supermarkt direct aan de overkant;', 'de oude stad is te voet bereikbaar, waarbij bestemming en exacte route de wandeling bepalen;', 'ligging in het nieuwere noordwestelijke stadsweefsel; de concrete route naar het westen hangt af van het actuele verkeer.'],
-        imageAlt: 'Woonruimte van AMARA Family & Surf in La Marina, Tarifa'
       },
       closing: {
         title: 'Als jullie weten hoe jullie Tarifa willen gebruiken, wordt kiezen waar jullie verblijven veel eenvoudiger.',
@@ -810,7 +805,6 @@ export const overview: TarifaLocationGuideContent = {
         title: 'Varför AMARA ligger i La Marina',
         paragraphs: ['AMARA Family & Surf ligger i Urbanización La Marina.', 'För våra gäster innebär läget:', 'Därför ser vi La Marina som en särskilt flexibel bas för gäster som vill uppleva Tarifa till fots och samtidigt kunna använda bilen fritt för kust, kitesurfing och utflykter.'],
         facts: ['egen plats i underjordiskt garage;', 'mataffär direkt mittemot;', 'gamla stan kan nås till fots, men målpunkt och exakt väg avgör promenaden;', 'läge i den nyare nordvästra stadsstrukturen; den konkreta vägen västerut beror på aktuell trafik.'],
-        imageAlt: 'Vardagsrum på AMARA Family & Surf i La Marina, Tarifa'
       },
       closing: {
         title: 'När ni vet hur ni vill använda Tarifa blir det mycket enklare att välja var ni ska bo.',
@@ -925,20 +919,6 @@ const wind: TarifaGuideContent = {
       'Podéis reservar cada cosa por separado o las dos juntas: el apartamento con nosotros, el kite con el club. En cualquier caso, con un mensaje basta.',
       'Jullie kunnen allebei apart boeken of samen: het appartement bij ons, het kiten bij de club. Hoe dan ook is één bericht genoeg.',
       'Ni kan boka var sak för sig eller båda tillsammans: lägenheten hos oss, kitingen hos klubben. Hur som helst räcker ett meddelande.'
-    ),
-    imageAlt: l(
-      'Mark from Tarifa Surf Club and Robert from AMARA in Tarifa',
-      'Mark vom Tarifa Surf Club und Robert von AMARA in Tarifa',
-      'Mark de Tarifa Surf Club y Robert de AMARA en Tarifa',
-      'Mark van Tarifa Surf Club en Robert van AMARA in Tarifa',
-      'Mark från Tarifa Surf Club och Robert från AMARA i Tarifa'
-    ),
-    imageCaption: l(
-      'Mark and Robert in Tarifa',
-      'Mark und Robert in Tarifa',
-      'Mark y Robert en Tarifa',
-      'Mark en Robert in Tarifa',
-      'Mark och Robert i Tarifa'
     ),
     servicesTitle: l(
       'The complete Tarifa Surf Club offer',
@@ -1265,10 +1245,10 @@ const beaches: TarifaGuideContent = {
       title: l('Four coastlines, four different days', 'Vier Küstenabschnitte, vier unterschiedliche Tage', 'Cuatro costas para cuatro días distintos', 'Vier kustgebieden, vier verschillende dagen', 'Fyra kustavsnitt för fyra olika dagar'),
       intro: l('Distance alone should not decide. Services, exposure, protected landscape and current zoning shape the experience.', 'Nicht nur die Entfernung entscheidet. Infrastruktur, Exposition, Naturschutz und aktuelle Zonierung prägen das Erlebnis.', 'La distancia no debe ser el único criterio. Servicios, exposición, paisaje protegido y zonificación vigente marcan la experiencia.', 'Afstand is niet het enige criterium. Voorzieningen, ligging, beschermd landschap en actuele zonering bepalen de ervaring.', 'Avståndet ska inte avgöra ensamt. Service, exponering, skyddat landskap och aktuella zoner formar upplevelsen.'),
       cards: [
-        { kicker: l('Closest to town', 'Stadtnah', 'Junto a la ciudad', 'Dicht bij de stad', 'Nära staden'), title: l('Los Lances Sur', 'Los Lances Sur', 'Los Lances Sur', 'Los Lances Sur', 'Los Lances Sur'), text: l('The urban-facing section offers straightforward access and more services. It can suit a classic beach visit, subject to current wind, bathing flags and marked activity areas.', 'Der stadtnahe Abschnitt bietet einfachen Zugang und mehr Infrastruktur. Er eignet sich für einen klassischen Strandtag – abhängig von aktuellem Wind, Badeflaggen und markierten Aktivitätsbereichen.', 'El tramo urbano ofrece acceso sencillo y más servicios. Puede encajar para un día de playa clásico, siempre según el viento, las banderas y las zonas de actividad señalizadas.', 'Het stedelijke deel biedt eenvoudige toegang en meer voorzieningen. Het kan passen bij een klassieke stranddag, afhankelijk van wind, zwemvlaggen en gemarkeerde activiteitenzones.', 'Den stadsnära delen har enkel tillgång och mer service. Den kan passa för en klassisk stranddag beroende på vind, badflaggor och markerade aktivitetsområden.') },
-        { kicker: l('Space and wind', 'Weite und Wind', 'Espacio y viento', 'Ruimte en wind', 'Rymd och vind'), title: l('Los Lances Norte', 'Los Lances Norte', 'Los Lances Norte', 'Los Lances Norte', 'Los Lances Norte'), text: l('A broad Atlantic setting associated with wind sports and protected natural areas. Choose the correct bathing or sport zone rather than treating the full beach as one shared space.', 'Ein weiter Atlantikstrand, geprägt von Windsport und geschützten Naturräumen. Wählt den passenden Bade- oder Sportbereich, statt den gesamten Strand als gemeinsame Fläche zu betrachten.', 'Un amplio paisaje atlántico ligado a los deportes de viento y a espacios naturales protegidos. Conviene elegir la zona de baño o deporte adecuada y no considerar toda la playa como un único espacio compartido.', 'Een breed Atlantisch strand met windsport en beschermde natuur. Kies de juiste zwem- of sportzone en behandel niet het hele strand als één gedeelde ruimte.', 'En bred Atlantmiljö förknippad med vindsport och skyddad natur. Välj rätt bad- eller sportzon i stället för att se hela stranden som en gemensam yta.') },
-        { kicker: l('Wind-sport landscape', 'Windsport-Landschaft', 'Paisaje de deportes de viento', 'Windsportlandschap', 'Vindsportlandskap'), title: l('Valdevaqueros', 'Valdevaqueros', 'Valdevaqueros', 'Valdevaqueros', 'Valdevaqueros'), text: l('A celebrated wind-sport beach with substantial dune scenery and marked areas for watersports and bathers. On busy days, the atmosphere is energetic rather than secluded.', 'Ein bekannter Windsportstrand mit eindrucksvoller Dünenlandschaft und markierten Bereichen für Wassersport und Badende. An vollen Tagen ist die Atmosphäre lebendig, nicht abgeschieden.', 'Una playa emblemática para los deportes de viento, con grandes dunas y zonas señalizadas para deporte y baño. En días concurridos, el ambiente es animado y no solitario.', 'Een bekende windsportplek met imposante duinen en gemarkeerde zones voor sporters en zwemmers. Op drukke dagen is de sfeer levendig, niet afgelegen.', 'En välkänd vindsportstrand med stora dyner och markerade områden för sport och bad. Under välbesökta dagar är stämningen livlig snarare än avskild.') },
-        { kicker: l('Landscape and history', 'Landschaft und Geschichte', 'Paisaje e historia', 'Landschap en geschiedenis', 'Landskap och historia'), title: l('Bolonia', 'Bolonia', 'Bolonia', 'Bolonia', 'Bolonia'), text: l('A more remote bay known for its dune, natural setting and proximity to Baelo Claudia. Treat it as a full-day landscape visit and respect protected areas and access controls.', 'Eine abgelegenere Bucht, bekannt für Düne, Naturkulisse und die Nähe zu Baelo Claudia. Plant sie als ganzen Landschaftstag und respektiert Schutzbereiche sowie Zufahrtsregelungen.', 'Una bahía más apartada, conocida por su duna, su entorno natural y la cercanía de Baelo Claudia. Conviene plantearla como excursión de día completo y respetar espacios protegidos y controles de acceso.', 'Een meer afgelegen baai, bekend om de duin, natuur en nabijheid van Baelo Claudia. Zie het als een volledige dag in het landschap en respecteer beschermde zones en toegangsregels.', 'En mer avskild vik känd för sin dyn, naturmiljö och närheten till Baelo Claudia. Planera den som en heldag och respektera skyddade områden och tillträdesregler.') }
+        { recordId: 'tarifa.beaches.playa-los-lances', kicker: l('Closest to town', 'Stadtnah', 'Junto a la ciudad', 'Dicht bij de stad', 'Nära staden'), title: l('Los Lances Sur', 'Los Lances Sur', 'Los Lances Sur', 'Los Lances Sur', 'Los Lances Sur'), text: l('The urban-facing section offers straightforward access and more services. It can suit a classic beach visit, subject to current wind, bathing flags and marked activity areas.', 'Der stadtnahe Abschnitt bietet einfachen Zugang und mehr Infrastruktur. Er eignet sich für einen klassischen Strandtag – abhängig von aktuellem Wind, Badeflaggen und markierten Aktivitätsbereichen.', 'El tramo urbano ofrece acceso sencillo y más servicios. Puede encajar para un día de playa clásico, siempre según el viento, las banderas y las zonas de actividad señalizadas.', 'Het stedelijke deel biedt eenvoudige toegang en meer voorzieningen. Het kan passen bij een klassieke stranddag, afhankelijk van wind, zwemvlaggen en gemarkeerde activiteitenzones.', 'Den stadsnära delen har enkel tillgång och mer service. Den kan passa för en klassisk stranddag beroende på vind, badflaggor och markerade aktivitetsområden.') },
+        { recordId: 'tarifa.beaches.playa-los-lances', kicker: l('Space and wind', 'Weite und Wind', 'Espacio y viento', 'Ruimte en wind', 'Rymd och vind'), title: l('Los Lances Norte', 'Los Lances Norte', 'Los Lances Norte', 'Los Lances Norte', 'Los Lances Norte'), text: l('A broad Atlantic setting associated with wind sports and protected natural areas. Choose the correct bathing or sport zone rather than treating the full beach as one shared space.', 'Ein weiter Atlantikstrand, geprägt von Windsport und geschützten Naturräumen. Wählt den passenden Bade- oder Sportbereich, statt den gesamten Strand als gemeinsame Fläche zu betrachten.', 'Un amplio paisaje atlántico ligado a los deportes de viento y a espacios naturales protegidos. Conviene elegir la zona de baño o deporte adecuada y no considerar toda la playa como un único espacio compartido.', 'Een breed Atlantisch strand met windsport en beschermde natuur. Kies de juiste zwem- of sportzone en behandel niet het hele strand als één gedeelde ruimte.', 'En bred Atlantmiljö förknippad med vindsport och skyddad natur. Välj rätt bad- eller sportzon i stället för att se hela stranden som en gemensam yta.') },
+        { recordId: 'tarifa.beaches.playa-de-valdevaqueros', kicker: l('Wind-sport landscape', 'Windsport-Landschaft', 'Paisaje de deportes de viento', 'Windsportlandschap', 'Vindsportlandskap'), title: l('Valdevaqueros', 'Valdevaqueros', 'Valdevaqueros', 'Valdevaqueros', 'Valdevaqueros'), text: l('A celebrated wind-sport beach with substantial dune scenery and marked areas for watersports and bathers. On busy days, the atmosphere is energetic rather than secluded.', 'Ein bekannter Windsportstrand mit eindrucksvoller Dünenlandschaft und markierten Bereichen für Wassersport und Badende. An vollen Tagen ist die Atmosphäre lebendig, nicht abgeschieden.', 'Una playa emblemática para los deportes de viento, con grandes dunas y zonas señalizadas para deporte y baño. En días concurridos, el ambiente es animado y no solitario.', 'Een bekende windsportplek met imposante duinen en gemarkeerde zones voor sporters en zwemmers. Op drukke dagen is de sfeer levendig, niet afgelegen.', 'En välkänd vindsportstrand med stora dyner och markerade områden för sport och bad. Under välbesökta dagar är stämningen livlig snarare än avskild.') },
+        { recordId: 'tarifa.beaches.playa-de-bolonia', kicker: l('Landscape and history', 'Landschaft und Geschichte', 'Paisaje e historia', 'Landschap en geschiedenis', 'Landskap och historia'), title: l('Bolonia', 'Bolonia', 'Bolonia', 'Bolonia', 'Bolonia'), text: l('A more remote bay known for its dune, natural setting and proximity to Baelo Claudia. Treat it as a full-day landscape visit and respect protected areas and access controls.', 'Eine abgelegenere Bucht, bekannt für Düne, Naturkulisse und die Nähe zu Baelo Claudia. Plant sie als ganzen Landschaftstag und respektiert Schutzbereiche sowie Zufahrtsregelungen.', 'Una bahía más apartada, conocida por su duna, su entorno natural y la cercanía de Baelo Claudia. Conviene plantearla como excursión de día completo y respetar espacios protegidos y controles de acceso.', 'Een meer afgelegen baai, bekend om de duin, natuur en nabijheid van Baelo Claudia. Zie het als een volledige dag in het landschap en respecteer beschermde zones en toegangsregels.', 'En mer avskild vik känd för sin dyn, naturmiljö och närheten till Baelo Claudia. Planera den som en heldag och respektera skyddade områden och tillträdesregler.') }
       ]
     },
     {

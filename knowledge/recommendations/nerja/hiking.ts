@@ -10,7 +10,7 @@ export const nerjaHikingRecommendations = defineKnowledgeRecommendations([
     operating: { note: 'Closed by the authorities for long stretches since summer 2025; a controlled-access procedure opened in February 2026; current status must be checked before guest use', observedAt: '2026-08-28' },
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'split',
+    scope: 'amara-experience',
     basis: 'published-guide-carryover',
     factIds: [
       'nerja.hiking.rio-chillar.official-closure-2025',

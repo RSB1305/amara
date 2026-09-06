@@ -9,10 +9,6 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialCallout from '../../components/content/EditorialCallout.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
-import churchImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg';
-import villageImage from '../../assets/images/content/hero-frigiliana.jpg';
-import houseImage from '../../assets/images/content/amara-entrada/casa-amara-frigiliana-fuerra.jpg';
-import prepareImage from '../../assets/images/content/amara-zaid/cara-rural-frigiliana-amara-said-bano.jpg';
 import {
   frigilianaWeddingsContent,
   frigilianaWeddingsSeo
@@ -21,6 +17,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import { requireRouteImage } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -28,6 +25,10 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = requireRouteImage('frigiliana.experience.weddings', 'hero', currentLang);
+const villageImage = requireRouteImage('frigiliana.experience.weddings', 'village', currentLang);
+const houseImage = requireRouteImage('frigiliana.experience.weddings', 'house', currentLang);
+const prepareImage = requireRouteImage('frigiliana.experience.weddings', 'prepare', currentLang);
 const copy = frigilianaWeddingsContent[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Frigiliana weddings');
 
@@ -85,8 +86,8 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
 >
   <AmaraPageShell family="frigiliana-weddings" dataLang={currentLang} flush whiteCanvas>
     <ExploreCampaignHero
-      imageSrc={churchImage}
-      imageAlt={copy.hero.imageAlt}
+      imageSrc={hero.src}
+      imageAlt={hero.alt}
       kicker={copy.hero.kicker}
       kickerDecoration="heart"
       title={copy.hero.title}
@@ -96,7 +97,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
     />
 
     <AmaraSection dataComponent="wedding-village">
-      <ExploreCampaignMediaSplit title={copy.village.title} paragraphs={copy.village.paragraphs} image={villageImage} imageAlt={copy.village.imageAlt}>
+      <ExploreCampaignMediaSplit title={copy.village.title} paragraphs={copy.village.paragraphs} image={villageImage.src} imageAlt={villageImage.alt}>
         {copy.village.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>)}
       </ExploreCampaignMediaSplit>
     </AmaraSection>
@@ -114,8 +115,8 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
         <div class="mt-14 grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div class="lg:col-span-6">
             <AmaraImage
-              src={houseImage}
-              alt={copy.nearChurch.imageAlt}
+              src={houseImage.src}
+              alt={houseImage.alt}
               profile="gallery"
               class="aspect-[4/3] h-full w-full object-cover"
               loading="lazy"
@@ -194,8 +195,8 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
         </div>
         <div class="lg:col-span-6 lg:col-start-7">
           <AmaraImage
-            src={prepareImage}
-            alt={copy.prepare.imageAlt}
+            src={prepareImage.src}
+            alt={prepareImage.alt}
             profile="gallery"
             class="aspect-[4/3] h-full w-full object-cover"
             loading="lazy"

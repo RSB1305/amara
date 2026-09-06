@@ -2,8 +2,6 @@
 import LocationStaySplitSection from './LocationStaySplitSection.astro';
 import LocationAreasBand from './LocationAreasBand.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import nerjaStayImage from '../../assets/images/home/amara-playa-chaparril-13.webp';
-import nerjaCoastImage from '../../assets/images/content/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg';
 import Navigation from '../../components/Navigation.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
@@ -12,6 +10,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import { requireRouteImage, routeHeroImage } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -19,6 +18,8 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHeroImage('nerja', currentLang);
+const stayImage = requireRouteImage('nerja', 'stay', currentLang);
 const content = getNerjaLocationHubLocale(currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja location hub');
 const featureHref = (link?: { token?: LinkToken; anchor?: string }) =>
@@ -75,8 +76,7 @@ const footerHighlights: LabeledLink[] = [
       title={content.hero.title}
       subtitle={content.hero.subtitle}
       paragraphs={[content.hero.standfirst]}
-      imageSrc={nerjaCoastImage}
-      imageAlt={content.hero.imageAlt ?? content.amara.imageAlt}
+      {...hero}
       byline={nerjaLocationHubContent.seo.article ? {
         lang: currentLang,
         authorName: nerjaLocationHubContent.seo.article.authorName,
@@ -183,8 +183,8 @@ const footerHighlights: LabeledLink[] = [
     </section>
 
     <LocationStaySplitSection
-      imageSrc={nerjaStayImage}
-      imageAlt={content.amara.imageAlt}
+      imageSrc={stayImage.src}
+      imageAlt={stayImage.alt}
       eyebrow={content.amara.eyebrow}
       title={content.amara.title}
       paragraphs={[content.amara.paragraphs[1], content.amara.paragraphs[3]]}

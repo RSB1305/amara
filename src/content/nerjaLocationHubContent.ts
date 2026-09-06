@@ -1,4 +1,5 @@
 import type { LinkToken } from '../lib/linkResolver';
+import { routeOgImage } from '../lib/images/routeImages';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 export interface NerjaLocationHubLink {
@@ -21,7 +22,6 @@ interface NerjaLocationHubLocale {
     title: string;
     subtitle?: string;
     standfirst: string;
-    imageAlt?: string;
     note: string;
     updated: string;
   };
@@ -41,10 +41,7 @@ interface NerjaLocationHubLocale {
   coast: NerjaLocationHubFeature;
   dailyLife: NerjaLocationHubFeature;
   seasons: NerjaLocationHubFeature;
-  amara: NerjaLocationHubFeature & {
-    facts: string[];
-    imageAlt: string;
-  };
+  amara: NerjaLocationHubFeature & { facts: string[] };
   experience: NerjaLocationHubFeature;
 }
 
@@ -52,7 +49,7 @@ const seo: AmaraAuthoringSeo = {
   version: '2026-08-20-nerja-location-hub-v1.1',
   pageType: 'A',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
+  ogImage: routeOgImage('nerja'),
   article: {
     datePublished: '2026-08-13',
     dateModified: '2026-08-20',
@@ -204,7 +201,6 @@ export const nerjaLocationHubContent: {
           'Private balcony, full kitchen and washing machine',
           'Air conditioning and heating; no private parking'
         ],
-        imageAlt: 'Bright living room at AMARA Playa in Nerja',
         link: { label: 'See AMARA Playa', token: 'playa' }
       },
       experience: {
@@ -318,7 +314,6 @@ export const nerjaLocationHubContent: {
           'Privater Balkon, vollständige Küche und Waschmaschine',
           'Klimaanlage und Heizung; kein privater Stellplatz'
         ],
-        imageAlt: 'Helles Wohnzimmer von AMARA Playa in Nerja',
         link: { label: 'AMARA Playa ansehen', token: 'playa' }
       },
       experience: {
@@ -432,7 +427,6 @@ export const nerjaLocationHubContent: {
           'Balcón privado, cocina completa y lavadora',
           'Aire acondicionado y calefacción; sin aparcamiento privado'
         ],
-        imageAlt: 'Salón luminoso de AMARA Playa en Nerja',
         link: { label: 'Ver AMARA Playa', token: 'playa' }
       },
       experience: {
@@ -546,7 +540,6 @@ export const nerjaLocationHubContent: {
           'Privébalkon, complete keuken en wasmachine',
           'Airconditioning en verwarming; geen privéparkeerplaats'
         ],
-        imageAlt: 'Lichte woonkamer van AMARA Playa in Nerja',
         link: { label: 'Bekijk AMARA Playa', token: 'playa' }
       },
       experience: {
@@ -660,7 +653,6 @@ export const nerjaLocationHubContent: {
           'Privat balkong, fullt kök och tvättmaskin',
           'Luftkonditionering och värme; ingen privat parkering'
         ],
-        imageAlt: 'Ljust vardagsrum på AMARA Playa i Nerja',
         link: { label: 'Se AMARA Playa', token: 'playa' }
       },
       experience: {
@@ -682,7 +674,6 @@ const nerjaLocationPeopleFirstCopy = {
       title: 'Nerja as a place to stay: beaches, old town and distinct areas',
       subtitle: 'A compact coastal town whose slopes and neighbourhoods still change the stay',
       standfirst: 'Nerja works well as a holiday base when you want beaches, an old town, restaurants and everyday services close enough for many days on foot. The exact area still matters: Torrecilla and the centre support a compact routine, Burriana has its own beach focus, and upper Nerja brings more slopes into every journey. It suits couples who want the sea and town life together; it is less natural for a stay built around rural seclusion or effortless parking at the door.',
-      imageAlt: 'Nerja on the Mediterranean coast with the town rising inland',
       note: 'Our honest guide to Nerja as a holiday base, written from local guest and host experience.',
       updated: 'Reviewed August 2026'
     },
@@ -729,7 +720,6 @@ const nerjaLocationPeopleFirstCopy = {
       title: 'Nerja als Aufenthaltsort: Strände, Altstadt und unterschiedliche Lagen',
       subtitle: 'Ein kompakter Küstenort, in dem Steigungen und Wohnlage den Aufenthalt prägen',
       standfirst: 'Nerja funktioniert gut als Urlaubsbasis, wenn ihr Strände, Altstadt, Restaurants und Versorgung an vielen Tagen zu Fuß verbinden möchtet. Die genaue Lage bleibt wichtig: Torrecilla und Zentrum ermöglichen einen kompakten Alltag, Burriana bildet einen eigenen Strandmittelpunkt, und im oberen Nerja gehören mehr Steigungen zu den täglichen Wegen. Der Ort passt zu Paaren, die Meer und Stadtleben nah beieinander suchen; für ländliche Abgeschiedenheit oder bequemes Parken direkt vor der Tür ist er weniger selbstverständlich.',
-      imageAlt: 'Nerja an der Mittelmeerküste mit dem landeinwärts ansteigenden Ort',
       note: 'Unser ehrlicher Gastgeberblick auf Nerja als Urlaubsbasis.',
       updated: 'Geprüft im August 2026'
     },
@@ -776,7 +766,6 @@ const nerjaLocationPeopleFirstCopy = {
       title: 'Nerja como lugar de estancia: playas, casco antiguo y zonas distintas',
       subtitle: 'Un pueblo costero compacto donde las cuestas y la zona cambian la estancia',
       standfirst: 'Nerja funciona bien como base de vacaciones cuando queréis combinar playas, casco antiguo, restaurantes y servicios cotidianos a pie durante muchos días. La zona concreta sigue importando: Torrecilla y el centro facilitan una rutina compacta, Burriana tiene su propio núcleo de playa y la parte alta incorpora más cuestas a cada recorrido. Encaja con parejas que buscan mar y vida urbana juntos; resulta menos natural para quien prioriza aislamiento rural o aparcar sin esfuerzo delante de la puerta.',
-      imageAlt: 'Nerja en la costa mediterránea con el pueblo ascendiendo hacia el interior',
       note: 'Nuestra mirada sincera de anfitriones a Nerja como base de vacaciones.',
       updated: 'Revisado en agosto de 2026'
     },
@@ -823,7 +812,6 @@ const nerjaLocationPeopleFirstCopy = {
       title: 'Nerja als verblijfplaats: stranden, oude stad en verschillende buurten',
       subtitle: 'Een compacte kustplaats waar hellingen en buurt het verblijf veranderen',
       standfirst: 'Nerja werkt goed als vakantiebasis wanneer jullie stranden, oude stad, restaurants en dagelijkse voorzieningen vaak te voet willen combineren. De precieze buurt blijft belangrijk: Torrecilla en het centrum ondersteunen een compact dagritme, Burriana heeft een eigen strandkern en hoger in Nerja worden hellingen deel van meer routes. De plaats past bij stellen die zee en stadsleven dichtbij willen; voor landelijke afzondering of moeiteloos parkeren voor de deur is Nerja minder vanzelfsprekend.',
-      imageAlt: 'Nerja aan de Middellandse Zeekust met de stad die landinwaarts omhoogloopt',
       note: 'Onze eerlijke blik als hosts op Nerja als vakantiebasis.',
       updated: 'Gecontroleerd in augustus 2026'
     },
@@ -870,7 +858,6 @@ const nerjaLocationPeopleFirstCopy = {
       title: 'Nerja som bas: stränder, gamla stan och områden med olika rytm',
       subtitle: 'En kompakt kuststad där backar och område ändå förändrar vistelsen',
       standfirst: 'Nerja fungerar bra som semesterbas när ni vill förena stränder, gamla stan, restauranger och vardagsservice till fots under många dagar. Det exakta området spelar fortfarande roll: Torrecilla och centrum ger en kompakt vardag, Burriana har ett eget strandcentrum och högre upp blir backar en större del av varje väg. Orten passar par som vill ha hav och stadsliv nära varandra; den är mindre självklar för lantlig avskildhet eller enkel parkering precis utanför dörren.',
-      imageAlt: 'Nerja vid Medelhavskusten med staden som stiger inåt land',
       note: 'Vår ärliga värdblick på Nerja som semesterbas.',
       updated: 'Granskad i augusti 2026'
     },

@@ -45,9 +45,14 @@ const {
   variant = 'authority-media'
 } = Astro.props;
 
-const hasVisualSlot = Astro.slots.has('visual');
-const hasMetaSlot = Astro.slots.has('meta');
-const hasActionsSlot = Astro.slots.has('actions');
+// A slot counts only when it renders something: a wrapper's `{cond && <div slot="visual" />}` registers the
+// slot even when cond is false, and a registered-but-empty visual slot would otherwise replace the photograph.
+const visualHtml = Astro.slots.has('visual') ? ((await Astro.slots.render('visual')) ?? '') : '';
+const metaHtml = Astro.slots.has('meta') ? ((await Astro.slots.render('meta')) ?? '') : '';
+const actionsHtml = Astro.slots.has('actions') ? ((await Astro.slots.render('actions')) ?? '') : '';
+const hasVisualSlot = visualHtml.trim().length > 0;
+const hasMetaSlot = metaHtml.trim().length > 0;
+const hasActionsSlot = actionsHtml.trim().length > 0;
 
 if (!hasVisualSlot && (!imageSrc || !imageAlt)) {
   throw new Error('[AMARA] LocationGuideHero requires either an image or a visual slot.');
@@ -94,7 +99,7 @@ const heroAttributes = getAmaraHeroAttributes({ family, variant, role, topic });
         ]}
       >
         {hasVisualSlot ? (
-          <slot name="visual" />
+          <Fragment set:html={visualHtml} />
         ) : (
           <AmaraImage
             src={imageSrc!}
@@ -136,8 +141,8 @@ const heroAttributes = getAmaraHeroAttributes({ family, variant, role, topic });
             )}
           </div>
         )}
-        {hasMetaSlot && <div><slot name="meta" /></div>}
-        {hasActionsSlot && <div class="mt-10"><slot name="actions" /></div>}
+        {hasMetaSlot && <div><Fragment set:html={metaHtml} /></div>}
+        {hasActionsSlot && <div class="mt-10"><Fragment set:html={actionsHtml} /></div>}
       </div>
     </div>
   ) : (
@@ -197,10 +202,10 @@ const heroAttributes = getAmaraHeroAttributes({ family, variant, role, topic });
 
         {hasMetaSlot && (
           <div class:list={visualBeforeMetaOnMobile ? 'order-3 md:order-none' : undefined}>
-            <slot name="meta" />
+            <Fragment set:html={metaHtml} />
           </div>
         )}
-        {hasActionsSlot && <div class="mt-10"><slot name="actions" /></div>}
+        {hasActionsSlot && <div class="mt-10"><Fragment set:html={actionsHtml} /></div>}
       </div>
 
       <div
@@ -211,7 +216,7 @@ const heroAttributes = getAmaraHeroAttributes({ family, variant, role, topic });
         ]}
       >
         {hasVisualSlot ? (
-          <slot name="visual" />
+          <Fragment set:html={visualHtml} />
         ) : (
           <AmaraImage
             src={imageSrc!}

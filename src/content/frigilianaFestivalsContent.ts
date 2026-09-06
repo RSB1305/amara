@@ -1,4 +1,5 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 type FestivalSeasonId =
   | 'january'
@@ -121,7 +122,7 @@ export const frigilianaFestivalsSeo: AmaraAuthoringSeo = {
   version: '2026-07-29-frigiliana-festivals-v1.0-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/hero-frigiliana.jpg',
+  ogImage: routeOgImage('frigiliana.experience.festivals'),
   languages: {
     en: {
       title: 'Festivals in Frigiliana & Nerja',

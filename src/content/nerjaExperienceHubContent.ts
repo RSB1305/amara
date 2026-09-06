@@ -1,6 +1,7 @@
 import type { LocalizedText } from '../types/content';
 import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraAuthoringSeo } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 /** One authored string in the five AMARA locales, in EN, DE, ES, NL, SV order. */
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
@@ -22,7 +23,7 @@ export const nerjaExperienceHubSeo: AmaraAuthoringSeo = {
   version: '2026-08-14-nerja-experience-hub-v1.0-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
+  ogImage: routeOgImage('nerja.experience'),
   languages: {
     en: {
       title: 'Things to Do in Nerja: Coast, Caves & Evenings',
@@ -62,7 +63,6 @@ export const nerjaExperienceHubContent = {
     eyebrow: l("Experiences in Nerja", "Erlebnisse in Nerja", "Experiencias en Nerja", "Ervaringen in Nerja", "Upplevelser i Nerja"),
     title: l("Beach in the morning, Nerja in the evening.", "Morgens an den Strand, abends durch Nerja.", "Playa por la mañana, Nerja al caer la tarde.", "'s Ochtends naar het strand, 's avonds Nerja in.", "Strand på morgonen, Nerja på kvällen."),
     standfirst: l("From AMARA Playa, Torrecilla is about 200 metres away and the Balcón de Europa about 500 metres. That makes an easy Nerja day wonderfully simple: swim before breakfast, wander through the old town later and choose a terrace for dinner. The caves, Maro and longer day trips are there when you want a change of scene.", "Von AMARA Playa sind es etwa 200 Meter bis Torrecilla und ungefähr 500 Meter bis zum Balcón de Europa. Ein schöner Tag in Nerja ist deshalb ganz unkompliziert: vor dem Frühstück ins Meer, später durch die Altstadt und am Abend auf eine Terrasse. Für Abwechslung liegen die Höhlen, Maro und längere Tagesausflüge nah genug.", "Desde AMARA Playa hay unos 200 metros hasta Torrecilla y unos 500 hasta el Balcón de Europa. Así, un buen día en Nerja puede ser muy sencillo: un baño antes del desayuno, un paseo por el casco antiguo y una terraza para cenar. Las cuevas, Maro y las excursiones más largas quedan para cuando apetezca cambiar de ambiente.", "Vanaf AMARA Playa is het ongeveer 200 meter naar Torrecilla en 500 meter naar het Balcón de Europa. Een fijne dag in Nerja is daardoor heel eenvoudig: zwemmen voor het ontbijt, later door de oude stad slenteren en 's avonds eten op een terras. De grotten, Maro en langere dagtochten zorgen voor afwisseling.", "Från AMARA Playa är det cirka 200 meter till Torrecilla och cirka 500 meter till Balcón de Europa. En fin dag i Nerja kan därför vara enkel: ett morgondopp före frukost, en promenad i gamla stan senare och middag på en terrass. Grottorna, Maro och längre dagsutflykter finns nära när ni vill byta miljö."),
-    imageAlt: l("Aerial view of Nerja and the Mediterranean coast", "Luftaufnahme von Nerja und der Mittelmeerküste", "Vista aérea de Nerja y la costa mediterránea", "Luchtfoto van Nerja en de Middellandse Zeekust", "Flygvy över Nerja och Medelhavskusten")
   },
   intro: {
     eyebrow: l("Four good ways to spend a day", "Vier gute Ideen für euren Tag", "Cuatro buenas formas de pasar el día", "Vier fijne manieren om de dag door te brengen", "Fyra fina sätt att tillbringa dagen"),

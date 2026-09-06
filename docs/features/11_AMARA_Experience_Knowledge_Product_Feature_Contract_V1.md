@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-EXPERIENCE-KNOWLEDGE-001
 title: AMARA Experience Knowledge Product Feature Contract
-version: 1.2.0
+version: 1.3.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT
 activation_state: ACTIVE
 effective_from: 2026-09-02
-last_modified: 2026-09-05T22:00:00+02:00
+last_modified: 2026-09-06T15:30:00+02:00
 canonical_path: /docs/features/11_AMARA_Experience_Knowledge_Product_Feature_Contract_V1.md
 ---
 
@@ -528,6 +528,31 @@ exists. A new place enters as `research-candidate` and becomes `APPROVED` only t
 (Section 12). The Section 20 boundary is amended accordingly: the schema and recommendation directories
 exist; Experience-pattern records and AMARA Experience manifests remain pending.
 
+## 23. Approved repository amendment — place copy and the two projections (1.3.0)
+
+Since 2026-09-06 (DR-GUEST-006) the localized words of a place live in one entry per record id in
+`src/content/places/<destination>-<topic>.ts`, typed by `src/lib/placeCopy.ts`. The `public` projection
+explains and differentiates and is a union by kind (`restaurant`, `beach`, `hike`, `day-trip`,
+`wellness`); the `guide` projection directs and helps execute and carries the paragraphs (`why`) plus the
+guide-only fields `reservationLine`, `onTheDay`, `planB` and the dated `hostNote`. The record keeps the
+language-free data of Section 22 and the scope decides the surfaces: `amara-experience` never public,
+`public` never in the guide, `split` on both with different projections and at least one guide-only field or
+guide-only record data (phone, WhatsApp, reservation link, access). The two projections of one place are never
+identical; a guide paragraph must not repeat the public text.
+
+`src/lib/placeProjection.ts` builds the cards: `publicRestaurantCard`, `publicBeachCard`, `publicHikeRoute`,
+`publicDayTrip` and `publicWellnessProvider` for the public page families, `guidePlaceItem` for the Guest
+Guide (title, subtitle, paragraphs, labelled guide-only lines; pin, fact strip and actions still come from the
+record at render time). The public content files hold record ids per section (`restaurantIds`, `beachIds`,
+`routeIds`, `destinationIds`, `providerIds`); icons and images are mapped by record id. Where a public page is
+editorial rather than a place list, as in Tarifa, the comparison card, spot section or spoke section that
+presents a place declares its `recordId`, and the guide cards stay authored in the guide content with their
+`recommendationId`. Sentences moved from prose into guide-only fields are re-labelled, never rewritten with new
+facts; a plan B references the guide's own records. `tests/contracts/placeCopy.test.ts` enforces the scope
+rule, both projections, the guide-only requirement, non-identical copy and the leak rule for every declared
+public surface. The sentence of Section 22 that copy is authored per surface applies only to topics not yet on
+this path.
+
 ## Revision history
 
 | Version | Timestamp | Change |
@@ -535,3 +560,4 @@ exist; Experience-pattern records and AMARA Experience manifests remain pending.
 | 1.0.0 | 2026-09-02T06:19:43+02:00 | Activated the public Experience versus AMARA Experience product boundary, research-to-recommendation architecture, human approval gate, provenance/channel separation, operating roles and two initial pilots. |
 | 1.1.0 | 2026-09-02T08:09:00+02:00 | Added the single-owner content and fact projection model, three ownership patterns, duplicate-copy prohibition, separate-shell boundary, incremental consolidation rule and two reference cases. |
 | 1.2.0 | 2026-09-05T22:00:00+02:00 | Implemented the recommendation record in `knowledge/schema.ts` and `knowledge/recommendations/`, defined carry-over versus candidate basis, and bound the Guest Guide card projection (map pin, fact strip, actions) to the record by id. |
+| 1.3.0 | 2026-09-06T15:30:00+02:00 | Added the place-copy layer with the public and guide projections, the guide-only fields, the projection functions, record ids in the public content, `recordId` declarations for editorial pages and the contract test that enforces DR-GUEST-006. |

@@ -30,7 +30,7 @@ export const nerjaNightlifeRecommendations = defineKnowledgeRecommendations([
     summary: 'If you want a later, louder and more social night, head to Plaza Tutti Frutti after dinner. This is the easiest area for bar-hopping and the clearest “nightlife zone” in Nerja. Best for: groups, later starts, casual fun Best time: after dinner, especially later in summer Atmosphere: younger, busier, more energetic',
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'amara-experience',
+    scope: 'split',
     basis: 'published-guide-carryover',
     checkedAt: '2026-09-05',
     reviewAfter: '2027-03-05',

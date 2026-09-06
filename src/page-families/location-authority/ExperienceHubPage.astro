@@ -17,6 +17,7 @@ import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
+import { routeHero } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -24,6 +25,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience', currentLang);
 const copy = experienceHubContent[currentLang];
 const connectionsCopy = experienceHubConnections[currentLang];
 const navigation = experienceNavigationContent[currentLang];
@@ -69,10 +71,6 @@ const footerHighlights: LabeledLink[] = [
   }
 ];
 
-const heroImage = {
-  src: '/images/hero-frigiliana.jpg',
-  width: 1080
-};
 ---
 
 <LocationAuthorityLayout
@@ -99,9 +97,7 @@ const heroImage = {
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-        imageSrc={heroImage.src}
-        imageAlt={copy.hero.imageAlt}
-        imageWidth={heroImage.width}
+        {...hero}
         actions={[
           { href: '#experiences', label: copy.hero.exploreCta, style: 'primary' }
         ]}

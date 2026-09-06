@@ -1,4 +1,5 @@
 import type { LinkToken } from '../lib/linkResolver';
+import { routeOgImage } from '../lib/images/routeImages';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 interface NerjaExperienceAdditionCopy {
@@ -38,7 +39,7 @@ export const nerjaBeachesSeo: AmaraAuthoringSeo = {
   version: '2026-08-16-nerja-beaches-v1.0-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-playa/apartment/chaparril-22.webp',
+  ogImage: routeOgImage('nerja.experience.beaches'),
   languages: {
     en: { title: 'Beaches in Nerja: Town Coves, Burriana & Maro', description: 'Compare Nerja’s town beaches, Burriana and the natural coves near Maro by access, atmosphere, facilities and sea conditions.', robots: 'index, follow', canonical: 'auto' },
     de: { title: 'Strände in Nerja: Stadtbuchten, Burriana & Maro', description: 'Vergleicht Nerjas Stadtstrände, Burriana und die Naturbuchten bei Maro nach Zugang, Atmosphäre, Ausstattung und Meeresbedingungen.', robots: 'index, follow', canonical: 'auto' },
@@ -52,7 +53,7 @@ export const nerjaDayTripsSeo: AmaraAuthoringSeo = {
   version: '2026-08-16-nerja-day-trips-v1.0-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
+  ogImage: routeOgImage('nerja.experience.day-trips'),
   languages: {
     en: { title: 'Day Trips from Nerja: Málaga, Granada & Ronda', description: 'Plan day trips from Nerja to Málaga, Granada, Caminito del Rey and Ronda with ticket advice and realistic, relaxed itineraries.', robots: 'index, follow', canonical: 'auto' },
     de: { title: 'Tagesausflüge ab Nerja: Málaga, Granada & Ronda', description: 'Plant Tagesausflüge von Nerja nach Málaga, Granada, zum Caminito del Rey und nach Ronda mit Ticket-Tipps und entspannten Abläufen.', robots: 'index, follow', canonical: 'auto' },
@@ -66,7 +67,7 @@ export const nerjaFoodSeo: AmaraAuthoringSeo = {
   version: '2026-08-16-nerja-food-v1.0-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
+  ogImage: routeOgImage('nerja.experience.food'),
   article,
   languages: {
     en: { title: 'Where to Eat in Nerja: Seafood, Tapas & Special Dinners', description: 'Choose where to eat in Nerja, from seafood tapas and a Burriana paella lunch to contemporary restaurants for a special evening.', robots: 'index, follow', canonical: 'auto' },

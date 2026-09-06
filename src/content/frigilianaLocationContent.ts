@@ -1,6 +1,7 @@
 import type { LocalizedText, LocalizedTextList } from '../types/content';
 import { resolveLocale } from '../types/content';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 
 const text = (
   en: string,
@@ -179,7 +180,7 @@ export const frigilianaLocationSeo: AmaraAuthoringSeo = {
     authorType: 'Person',
     authorRoute: 'about'
   },
-  ogImage: '/images/amara-lounis/15-amara-frigiliana.jpg',
+  ogImage: routeOgImage('frigiliana'),
   languages: {
     de: {
       title: 'Frigiliana: Dorf zwischen Bergen & Meer | AMARA',
@@ -222,14 +223,6 @@ export const frigilianaLocationNav = {
     { token: 'arrival_guide', label: text('Arrival at AMARA', 'Ankunft bei AMARA', 'Llegada a AMARA', 'Aankomst bij AMARA', 'Ankomst till AMARA') }
   ]
 } as const;
-
-export const frigilianaLocationHeroImageAlt: Record<AmaraLanguage, string> = {
-  en: 'Frigiliana hillside homes in afternoon light',
-  de: 'Häuser am Hang von Frigiliana im Nachmittagslicht',
-  es: 'Casas en la ladera de Frigiliana a la luz de la tarde',
-  nl: 'Huizen tegen de heuvel van Frigiliana in het middaglicht',
-  sv: 'Hus på Frigilianas sluttning i eftermiddagsljus'
-};
 
 export const frigilianaLocationCopy = {
   heroKicker: text('FRIGILIANA · ANDALUSIA', 'FRIGILIANA · ANDALUSIEN', 'FRIGILIANA · ANDALUCÍA', 'FRIGILIANA · ANDALUSIË', 'FRIGILIANA · ANDALUSIEN'),

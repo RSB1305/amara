@@ -4,6 +4,8 @@ import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import EditorialByline from '../editorial/EditorialByline.astro';
 import type { AmaraHeroByline, AmaraHeroStyledAction } from '../hero/heroContract';
 import LocationGuideHero from './LocationGuideHero.astro';
+import PhotoBrief from '../media/PhotoBrief.astro';
+import type { PhotoBriefProps } from '../../lib/images/routeImages';
 
 interface Props {
   eyebrow: string;
@@ -15,6 +17,8 @@ interface Props {
   imageAlt?: string;
   imageWidth?: number;
   imageSizes?: string;
+  /** Holds the hero slot while the photograph is missing (`routeHero` supplies it from the image source). */
+  brief?: PhotoBriefProps;
   accent?: string;
   actions?: AmaraHeroStyledAction[];
   byline?: AmaraHeroByline;
@@ -31,13 +35,15 @@ const {
   imageAlt,
   imageWidth,
   imageSizes,
+  brief,
   accent,
   actions = [],
   byline,
   role = 'spoke',
   topic
 } = Astro.props;
-const hasVisualSlot = Astro.slots.has('visual');
+const visualHtml = Astro.slots.has('visual') ? ((await Astro.slots.render('visual')) ?? '') : '';
+const hasVisualSlot = visualHtml.trim().length > 0;
 ---
 
 <LocationGuideHero
@@ -54,7 +60,15 @@ const hasVisualSlot = Astro.slots.has('visual');
   role={role}
   topic={topic}
 >
-  {hasVisualSlot && <div slot="visual" class="h-full"><slot name="visual" /></div>}
+  {(hasVisualSlot || (!imageSrc && brief)) && (
+    <div slot="visual" class="h-full">
+      {hasVisualSlot ? (
+        <Fragment set:html={visualHtml} />
+      ) : (
+        brief && <PhotoBrief class="aspect-[3/4] h-full w-full" motif={brief.motif} format={brief.format} light={brief.light} />
+      )}
+    </div>
+  )}
   {byline && <EditorialByline slot="meta" {...byline} />}
   {actions.length > 0 && (
     <div slot="actions" class="flex flex-wrap gap-4">

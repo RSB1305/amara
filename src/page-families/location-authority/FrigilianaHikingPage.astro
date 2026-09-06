@@ -1,11 +1,12 @@
 ---
 import type { LabeledLink } from '../../lib/linkResolver';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
-import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import HikingRouteStatStrip from './HikingRouteStatStrip.astro';
+import { publicHikeRoute } from '../../lib/placeProjection';
 import {
   frigilianaHikingSeo,
   getFrigilianaHikingContent
@@ -14,6 +15,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import { routeHero } from '../../lib/images/routeImages';
 import LocationGuideIcon, {
   type LocationGuideIconName
 } from '../../components/location/LocationGuideIcon.astro';
@@ -24,6 +26,7 @@ interface Props {
 
 const { lang = 'de' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.hiking', currentLang);
 const copy = getFrigilianaHikingContent(currentLang);
 
 const footerHighlights: LabeledLink[] = [
@@ -36,11 +39,16 @@ const footerHighlights: LabeledLink[] = [
 ];
 
 const routeIcons: Record<string, LocationGuideIconName> = {
-  'cruz-de-pinto': 'walkable',
-  'rio-higueron-cahorros': 'walking-surface',
-  'el-fuerte-summit': 'elevation',
-  'gr-249-stage-6': 'distance'
+  'frigiliana.hiking.cruz-de-pinto': 'walkable',
+  'frigiliana.hiking.rio-higueron': 'walking-surface',
+  'frigiliana.hiking.el-fuerte': 'elevation',
+  'frigiliana.hiking.gr-249-stage-6': 'distance'
 };
+
+const routeSections = copy.routeSections.map((section) => ({
+  ...section,
+  routes: section.routeIds.map((id) => publicHikeRoute(id, currentLang))
+}));
 
 const practicalIcons: Record<string, LocationGuideIconName> = {
   weather: 'temperature',
@@ -74,16 +82,15 @@ const combineIcons: Record<string, LocationGuideIconName> = {
   <div data-am-page="frigiliana-hiking">
     <div class="w-full">
       <LocationExperienceHero
+        {...hero}
         topic="hiking"
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-      >
-        <PhotoBrief slot="visual" class="aspect-[3/4] h-full w-full" motif="Weg oberhalb von Frigiliana in der Sierra Almijara, Blick auf Dorf und Meer" format="hochkant 3:4" light="morgens" />
-      </LocationExperienceHero>
+      />
 
       {
-        copy.routeSections.map((section, index) => (
+        routeSections.map((section, index) => (
           <section
             id={section.id}
             class:list={[
@@ -210,6 +217,12 @@ const combineIcons: Record<string, LocationGuideIconName> = {
           ))}
         </div>
       </section>
+
+      <GuestGuideBridge
+        lang={currentLang}
+        destination="frigiliana"
+        guideSlugs={['frigiliana-guest-hiking']}
+      />
 
       <GuideClosingSection
         title={copy.closing.title}

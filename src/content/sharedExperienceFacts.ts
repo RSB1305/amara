@@ -2,6 +2,7 @@ import type { AmaraLanguage } from '../types/seo';
 import { frigilianaBeachesContent } from './frigilianaBeachesContent';
 import { frigilianaDayTripsContent } from './frigilianaDayTripsContent';
 import { frigilianaRestaurantsContent } from './frigilianaRestaurantsContent';
+import { publicBeachCard, publicDayTrip, publicRestaurantCard } from '../lib/placeProjection';
 
 /**
  * Read-only projections of facts that are genuinely shared across destination
@@ -13,7 +14,10 @@ export function getNerjaCoastGuideFacts(lang: AmaraLanguage) {
 
   return {
     cardLabels: copy.beachCardLabels,
-    sections: copy.beachSections,
+    sections: copy.beachSections.map((section) => ({
+      ...section,
+      beaches: section.beachIds.map((id) => publicBeachCard(id, lang))
+    })),
     conditions: copy.conditions,
     practical: copy.practical
   };
@@ -24,9 +28,12 @@ export function getNerjaDiningGuideFacts(lang: AmaraLanguage) {
 
   return {
     cardLabels: copy.cardLabels,
-    sections: copy.restaurantSections.filter(
-      (section) => section.id === 'special-nerja' || section.id === 'tapas-seafood'
-    ),
+    sections: copy.restaurantSections
+      .filter((section) => section.id === 'special-nerja' || section.id === 'tapas-seafood')
+      .map((section) => ({
+        ...section,
+        restaurants: section.restaurantIds.map((id) => publicRestaurantCard(id, lang))
+      })),
     planning: {
       ...copy.planning,
       items: copy.planning.items.filter((_, index) => index !== 2)
@@ -38,7 +45,7 @@ export function getAndalusiaDayTripFacts(lang: AmaraLanguage) {
   const copy = frigilianaDayTripsContent[lang];
 
   return {
-    destinations: copy.destinations,
+    destinations: copy.destinationIds.map((id) => publicDayTrip(id, lang)),
     practical: copy.practical
   };
 }

@@ -26,13 +26,8 @@ import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkReso
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import { resolveLocale } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
+import { routeImageSrc } from '../../lib/images/routeImages';
 
-import imgFarah from '../../assets/images/home/amara-farah-67-amara-frigiliana.jpg';
-import imgLounis from '../../assets/images/home/amara-lounis-15-amara-frigiliana.jpg';
-import imgZaid from '../../assets/images/home/amara-zaid-terraza-5.jpg';
-import imgMaha from '../../assets/images/home/amara-maha-29-amara-frigiliana.jpg';
-import imgPlaya from '../../assets/images/home/amara-playa-chaparril-13.webp';
-import imgFamilySurf from '../../assets/images/home/amara-tarifa-apartment01.webp';
 
 interface Props {
   location: StayLocation;
@@ -58,15 +53,6 @@ const cityByLocation: Record<StayLocation, string> = {
   tarifa: 'Tarifa'
 };
 
-const stayImages: Record<string, ImageMetadata> = {
-  'la-amara-farah': imgFarah,
-  'la-amara-lounis': imgLounis,
-  'la-amara-zaid': imgZaid,
-  'la-amara-maha': imgMaha,
-  'la-amara-playa': imgPlaya,
-  'la-amara-family-and-surf': imgFamilySurf
-};
-
 const rentals = vacationRentalEntities.filter(
   (rental) => rental.city === cityByLocation[location]
 );
@@ -86,7 +72,7 @@ const cards = rentals.map((rental) => {
   return {
     slug: rental.slug,
     name: rental.name,
-    image: stayImages[rental.slug],
+    image: routeImageSrc(rental.slug, 'card'),
     alt: `${rental.name}, ${rental.city}`,
     specs: specs.join(' · '),
     note: stayNotes[rental.slug],

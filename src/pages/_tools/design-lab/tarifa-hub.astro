@@ -21,11 +21,12 @@ import heroImage from '../../../assets/images/content/tarifa/AM-3040_Andre_Magar
 import walkImage from '../../../assets/images/content/tarifa/kite-walking-out.jpg';
 import barImage from '../../../assets/images/content/tarifa/kite-bar-sand.jpg';
 import castleImage from '../../../assets/images/content/tarifa/_DCS1404_Sebastian_Lang.jpg';
-import stayImage from '../../../assets/images/home/amara-tarifa-apartment01.webp';
 import waveImage from '../../../assets/images/content/tarifa/kite-wave-turn.jpg';
+import { requireRouteImage } from '../../../lib/images/routeImages';
 
 const lang = 'de' as const;
 const content = tarifaLocationContent.locales[lang];
+const stayFigure = requireRouteImage('tarifa', 'stay', lang);
 const link = createRequiredLinkResolver(lang, 'Design Lab Tarifa hub');
 const footerHighlights: { token: LinkToken; label: string }[] = [
   { token: 'location_tarifa', label: 'Tarifa' },
@@ -196,7 +197,7 @@ const winterQuote = content.winter.paragraphs[1].replace(/^Ab September wird es 
             <div class="mx-auto max-w-screen-2xl">
               <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
                 <figure class="am-bleed-start lg:col-span-6">
-                  <AmaraImage src={stayImage} alt={content.amara.imageAlt} profile="hero" class="aspect-[4/3] h-full w-full object-cover" focalPoint="50% 50%" />
+                  <AmaraImage src={stayFigure.src} alt={stayFigure.alt} profile="hero" class="aspect-[4/3] h-full w-full object-cover" focalPoint="50% 50%" />
                 </figure>
                 <div class="am-overlap-start bg-surface-white lg:col-span-6">
                   <p class="am-text-eyebrow text-primary">{content.amara.eyebrow}</p>

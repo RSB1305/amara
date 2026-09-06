@@ -11,6 +11,8 @@ export type TarifaExperienceSpokeId = Extract<
 
 export interface TarifaExperienceSpokeSection {
   id: string;
+  /** Recommendation record this section presents, when it is about one place (DR-GUEST-006). */
+  recordId?: string;
   eyebrow: LocalizedExperienceText;
   title: LocalizedExperienceText;
   paragraphs: LocalizedExperienceText[];
@@ -605,6 +607,7 @@ const oldTown: TarifaExperienceSpokeContent = {
     },
     {
       id: 'castle-walls',
+      recordId: 'tarifa.sightseeing.castillo-de-guzman-el-bueno',
       eyebrow: l('03 · Castle & walls', '03 · Burg & Mauern', '03 · Castillo y murallas', '03 · Kasteel & muren', '03 · Borg & murar'),
       title: l('The castle anchors a layered fortified town', 'Die Burg verankert eine vielschichtige Festungsstadt', 'El castillo articula una ciudad fortificada y compleja', 'Het kasteel verankert een gelaagde vestingstad', 'Borgen förankrar en stad med många försvarslager'),
       paragraphs: [
@@ -765,6 +768,7 @@ const bolonia: TarifaExperienceSpokeContent = {
     },
     {
       id: 'beach-dune',
+      recordId: 'tarifa.beaches.playa-de-bolonia',
       eyebrow: l('02 · Beach & dune', '02 · Strand & Düne', '02 · Playa y duna', '02 · Strand & duin', '02 · Strand & dyn'),
       title: l('Atlantic space beside a protected monument', 'Atlantische Weite neben einem geschützten Naturdenkmal', 'Espacio atlántico junto a un monumento protegido', 'Atlantische ruimte naast een beschermd natuurmonument', 'Atlantisk rymd intill ett skyddat naturmonument'),
       paragraphs: [
@@ -786,6 +790,7 @@ const bolonia: TarifaExperienceSpokeContent = {
     },
     {
       id: 'roman-city',
+      recordId: 'tarifa.sightseeing.baelo-claudia',
       eyebrow: l('03 · Baelo Claudia', '03 · Baelo Claudia', '03 · Baelo Claudia', '03 · Baelo Claudia', '03 · Baelo Claudia'),
       title: l('A Roman city with its structure still visible', 'Eine römische Stadt mit sichtbarer Struktur', 'Una ciudad romana cuya estructura aún se reconoce', 'Een Romeinse stad waarvan de structuur zichtbaar blijft', 'En romersk stad vars struktur fortfarande syns'),
       paragraphs: [

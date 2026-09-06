@@ -1,17 +1,10 @@
 ---
 import { resolveLocale } from '../../types/content';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
-import type { ImageMetadata } from 'astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import Hero from '../../components/Hero.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
-import farahImage from '../../assets/images/content/amara-farah/67-amara-frigiliana.jpg';
-import lounisImage from '../../assets/images/content/amara-lounis/15-amara-frigiliana.jpg';
-import zaidImage from '../../assets/images/content/amara-zaid/cara-rural-frigiliana-amara-said-terraza.jpg';
-import mahaImage from '../../assets/images/content/amara-maha/29-amara-frigiliana.jpg';
-import connectionImage from '../../assets/images/content/casa-amara-groups/47-amara-frigiliana-connection-stairs.jpg';
-import houseImage from '../../assets/images/content/amara-entrada/casa-amara-frigiliana-fuerra.jpg';
 import {
   casaAmaraGroupsContent,
   casaAmaraGroupsSeo
@@ -25,6 +18,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import { requireRouteImage } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -34,6 +28,9 @@ type GroupStayToken = Extract<VacationRentalToken, 'farah' | 'lounis' | 'zaid' |
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = requireRouteImage('stays.casa-amara', 'hero', currentLang);
+const connectionImage = requireRouteImage('stays.casa-amara', 'connection', currentLang);
+const houseImage = requireRouteImage('stays.casa-amara', 'house', currentLang);
 const copy = resolveLocale(casaAmaraGroupsContent, currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Casa AMARA groups');
 
@@ -42,18 +39,11 @@ const links = {
   stays: requiredLink('romantic_hideaways')
 };
 
-const stayImages: Record<GroupStayToken, ImageMetadata> = {
-  farah: farahImage,
-  lounis: lounisImage,
-  zaid: zaidImage,
-  maha: mahaImage
-};
-
 const groupStayTokens: GroupStayToken[] = ['farah', 'lounis', 'zaid', 'maha'];
 const stays = groupStayTokens.map((token) => ({
   token,
   entity: vacationRentalEntitiesByToken[token],
-  image: stayImages[token],
+  image: requireRouteImage('stays.casa-amara', token, currentLang),
   href: requiredLink(token),
   context: copy.stays.contexts[token]
 }));
@@ -81,7 +71,7 @@ const footerHighlights: LabeledLink[] = [
   navigationLanguageToken="casa_amara_groups"
 >
   <AmaraPageShell family="casa-amara-groups" dataLang={currentLang} flush whiteCanvas>
-    <Hero imageSrc={mahaImage} imageAlt={copy.hero.imageAlt}>
+    <Hero imageSrc={hero.src} imageAlt={hero.alt}>
       <span class="am-text-label mb-8 block text-primary">{copy.hero.kicker}</span>
       <h1 class="am-text-display mb-7 break-words text-on-surface md:mb-8">
         {copy.hero.title}
@@ -141,8 +131,8 @@ const footerHighlights: LabeledLink[] = [
           {stays.map(({ entity, image, href, context }) => (
             <article class="border-t border-outline-variant/15 pt-6">
               <AmaraImage
-                src={image}
-                alt={entity.imageAlt[currentLang]}
+                src={image.src}
+                alt={image.alt}
                 profile="card"
                 sizes="(max-width: 767px) calc(100vw - 3rem), 50vw"
                 class="aspect-[4/3] w-full object-cover"
@@ -191,8 +181,8 @@ const footerHighlights: LabeledLink[] = [
       <div class="mx-auto grid max-w-screen-2xl items-center gap-12 px-6 pb-20 md:px-12 md:pb-28 lg:grid-cols-12 lg:gap-16">
         <div class="lg:col-span-6">
           <AmaraImage
-            src={connectionImage}
-            alt={copy.connection.imageAlt}
+            src={connectionImage.src}
+            alt={connectionImage.alt}
             profile="gallery"
             sizes="(max-width: 1023px) 100vw, 50vw"
             class="aspect-[3/2] w-full object-cover"
@@ -231,8 +221,8 @@ const footerHighlights: LabeledLink[] = [
         </div>
         <div class="lg:col-span-6 lg:col-start-7">
           <AmaraImage
-            src={houseImage}
-            alt={copy.fit.imageAlt}
+            src={houseImage.src}
+            alt={houseImage.alt}
             profile="gallery"
             sizes="(max-width: 1023px) 100vw, 50vw"
             class="aspect-[4/3] w-full object-cover"

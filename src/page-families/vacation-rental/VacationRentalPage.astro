@@ -65,7 +65,7 @@ import { directBookingTrustSignals } from '../../content/directBookingBenefitsCo
 import { airbnbRatingLabel, airbnbReviewEvidence } from '../../content/reviewEvidence';
 import { stayCollectionLabels } from '../../content/stayCollectionLabels';
 import { trustLabels } from '../../content/trustLabels';
-import { getVacationRentalImageAlts } from '../../content/vacationRentalImageAlts';
+import { routeImages } from '../../lib/images/routeImages';
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import type { DestinationId } from '../../lib/location/destinationBranchNavigation';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -446,7 +446,7 @@ const stayPlanningLinks = [
 // Additional lightbox images remain unloaded until a guest opens the gallery.
 const visibleImages = rental.images.slice(0, 8);
 const heroImage = visibleImages[0];
-const imageAlts = getVacationRentalImageAlts(rental, currentLang);
+const imageAlts = routeImages(rental.slug, 'gallery', currentLang).map((image) => image.alt);
 // The live booking module owns the conversion path. Page-level calls to action
 // hand over to it in place; the external booking site stays available as the
 // resilience fallback when the gateway cannot answer.

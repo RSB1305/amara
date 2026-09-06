@@ -1,0 +1,63 @@
+import { defineRouteImages } from '../../lib/images/routeImageContract';
+
+export const tarifaKitesurfingWindImages = defineRouteImages({
+  routeKey: 'tarifa.kitesurfing.wind',
+  images: [
+    {
+      role: 'hero',
+      src: '/images/tarifa/Airush_Valentin_Tadzio-Rurka_DSC_3203.jpg',
+      credit: "Tadzio Rurka / Airush",
+      alt: {
+        en: "A kitesurfer high above the waves in front of Tarifa’s old tuna-fishery buildings",
+        de: "Kitesurfer hoch über den Wellen vor den alten Almadraba-Gebäuden bei Tarifa",
+        es: "Un kitesurfista muy alto sobre las olas frente a las antiguas naves de la almadraba de Tarifa",
+        nl: "Een kitesurfer hoog boven de golven voor de oude almadraba-gebouwen bij Tarifa",
+        sv: "En kitesurfare högt över vågorna framför Tarifas gamla tonfiskeribyggnader"
+      }
+    },
+    {
+      role: 'panorama',
+      id: 'sunset',
+      src: '/images/tarifa/_DCS2079_Sebastian_Lang.jpg',
+      focalPoint: '50% 45%',
+      credit: "Sebastian Lang",
+      alt: {
+        en: "A kitesurfer jumping against the setting sun over the sea at Tarifa",
+        de: "Kitesurfer im Sprung vor der untergehenden Sonne über dem Meer bei Tarifa",
+        es: "Un kitesurfista saltando contra el sol poniente sobre el mar en Tarifa",
+        nl: "Een kitesurfer die springt tegen de ondergaande zon boven de zee bij Tarifa",
+        sv: "En kitesurfare i ett hopp mot den nedgående solen över havet vid Tarifa"
+      },
+      caption: {
+        en: "The Levante often eases at dusk — the last session of the day is frequently the cleanest.",
+        de: "Der Levante lässt zum Abend oft nach — die letzte Session des Tages ist häufig die sauberste.",
+        es: "El levante suele amainar al anochecer: la última sesión del día es a menudo la más limpia.",
+        nl: "De levante zwakt tegen de avond vaak af — de laatste sessie van de dag is vaak de schoonste.",
+        sv: "Levanten mojnar ofta mot kvällen — dagens sista pass är ofta det renaste."
+      }
+    },
+    {
+      role: 'split',
+      id: 'partner',
+      src: '/images/tarifa/mark-robert-tarifa-surf-club.webp',
+      alt: {
+        en: "Mark from Tarifa Surf Club and Robert from AMARA in Tarifa",
+        de: "Mark vom Tarifa Surf Club und Robert von AMARA in Tarifa",
+        es: "Mark de Tarifa Surf Club y Robert de AMARA en Tarifa",
+        nl: "Mark van Tarifa Surf Club en Robert van AMARA in Tarifa",
+        sv: "Mark från Tarifa Surf Club och Robert från AMARA i Tarifa"
+      },
+      caption: {
+        en: "Mark and Robert: direct coordination in Tarifa",
+        de: "Mark und Robert in Tarifa",
+        es: "Mark y Robert: coordinación directa en Tarifa",
+        nl: "Mark en Robert: directe afstemming in Tarifa",
+        sv: "Mark och Robert: direkt samordning i Tarifa"
+      }
+    },
+    {
+      role: 'og',
+      src: '/images/robert-amara-host.jpg'
+    }
+  ]
+});

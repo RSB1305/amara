@@ -13,6 +13,7 @@ import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
+import { routeHero } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -20,6 +21,7 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.dos-tumbas', currentLang);
 const copy = frigilianaDosTumbasContent[currentLang];
 
 const footerHighlights: LabeledLink[] = [
@@ -44,10 +46,6 @@ const combineItems = copy.combine.items.map((item) => ({
   })
 }));
 
-const heroImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/03-frigiliana-pueblo.jpg',
-  width: 2000
-};
 ---
 
 <LocationAuthorityLayout
@@ -74,9 +72,7 @@ const heroImage = {
           eyebrow={copy.hero.kicker}
           title={copy.hero.title}
           paragraphs={copy.hero.paragraphs}
-          imageSrc={heroImage.src}
-          imageAlt={copy.hero.imageAlt}
-          imageWidth={heroImage.width}
+          {...hero}
         />
       </div>
 

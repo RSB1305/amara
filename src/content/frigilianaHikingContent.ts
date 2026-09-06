@@ -3,6 +3,7 @@ import type { LocalizedText, LocalizedTextList, Resolved } from '../types/conten
 import { resolveLocale } from '../types/content';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 import { stayCollectionLabels } from './stayCollectionLabels';
+import { routeOgImage } from '../lib/images/routeImages';
 
 const text = (
   en: string,
@@ -20,30 +21,12 @@ const textList = (
   sv: string[]
 ): LocalizedTextList => ({ en, de, es, nl, sv });
 
-interface HikingSourceLink {
-  id: string;
-  label: LocalizedText;
-  context: LocalizedText;
-  href: string;
-}
-
-interface HikingRoute {
-  id: 'cruz-de-pinto' | 'rio-higueron-cahorros' | 'el-fuerte-summit' | 'gr-249-stage-6';
-  title: LocalizedText;
-  duration?: LocalizedText;
-  elevationGain?: LocalizedText;
-  distance?: LocalizedText;
-  difficulty: LocalizedText;
-  experience: LocalizedText;
-  paragraphs: LocalizedTextList;
-  links: HikingSourceLink[];
-}
-
 interface HikingRouteSection {
   id: 'village-routes' | 'mountain-routes';
   title: LocalizedText;
   intro: LocalizedText;
-  routes: HikingRoute[];
+  /** Recommendation record ids; the route cards are built from the place copy (DR-GUEST-006). */
+  routeIds: readonly string[];
 }
 
 interface HikingContextLink {
@@ -118,66 +101,7 @@ export const frigilianaHikingContent = {
         'Cruz de Pinto is de open panoramaroute; de Higuerón loopt door de wisselende rivierbedding. Voor beide geldt: het gelinkte spoor is nauwkeuriger dan elke beschrijving uit het hoofd — neem het mee.',
         'Cruz de Pinto är den öppna panoramaturen; Higuerón går genom den skiftande flodbädden. För båda gäller att det länkade spåret är exaktare än någon vägbeskrivning ur minnet — ta med det.'
       ),
-      routes: [
-        {
-          id: 'cruz-de-pinto',
-          title: text('Cruz de Pinto circuit', 'Cruz-de-Pinto-Rundweg', 'Ruta circular de la Cruz de Pinto', 'Rondwandeling Cruz de Pinto', 'Rundslingan Cruz de Pinto'),
-          duration: text('3 hrs · official route', '3 Std. · offizielle Route', '3 h · ruta oficial', '3 uur · officiële route', '3 tim · officiell rutt'),
-          distance: text('5.8 km · official route', '5,8 km · offizielle Route', '5,8 km · ruta oficial', '5,8 km · officiële route', '5,8 km · officiell rutt'),
-          difficulty: text('Easy in the official listing; footing still matters', 'Offiziell leicht; Trittsicherheit bleibt wichtig', 'Fácil en la ficha oficial; el terreno sigue importando', 'Officieel eenvoudig; tredzekerheid blijft belangrijk', 'Lätt enligt den officiella listan; stadigt steg behövs ändå'),
-          experience: text('Open slopes, the small shrine and views back to village and coast.', 'Offene Hänge, die kleine Kapelle und der Blick zurück auf Dorf und Küste.', 'Laderas abiertas, la pequeña ermita y vistas al pueblo y la costa.', 'Open hellingen, de kleine kapel en uitzicht terug op dorp en kust.', 'Öppna sluttningar, det lilla kapellet och vyer tillbaka mot byn och kusten.'),
-          paragraphs: textList(
-            ['Choose Cruz de Pinto when you want a defined circuit and broad views without committing to a summit day. The official route listing supplies the baseline; use the current Komoot route for the exact line and any route notices. Open ground means sun and wind are part of the decision.'],
-            ['Cruz de Pinto passt, wenn ihr einen klaren Rundweg mit weitem Blick sucht, ohne einen Gipfeltag daraus zu machen. Die offizielle Routenübersicht liefert die Basis; für den genauen Verlauf und aktuelle Hinweise nutzt ihr Komoot. Auf dem offenen Gelände gehören Sonne und Wind zur Entscheidung.'],
-            ['La Cruz de Pinto encaja si buscáis un circuito definido y buenas vistas sin dedicar el día a una cumbre. La ficha oficial aporta la base; usad la ruta actual de Komoot para el trazado exacto y posibles avisos. En terreno abierto, el sol y el viento forman parte de la decisión.'],
-            ['Cruz de Pinto past als jullie een duidelijke rondwandeling met weids uitzicht zoeken, zonder er een topdag van te maken. De officiële route geeft de basis; gebruik de actuele Komoot-route voor het exacte verloop en eventuele meldingen. Op open terrein horen zon en wind bij de keuze.'],
-            ['Cruz de Pinto passar när ni vill ha en tydlig rundslinga med vid utsikt utan att göra dagen till en topptur. Den officiella rutten ger basuppgifterna; använd den aktuella Komoot-rutten för exakt sträckning och eventuella meddelanden. På öppen mark påverkar sol och vind beslutet.']
-          ),
-          links: [
-            {
-              id: 'cruz-official',
-              label: text('Official Cruz de Pinto route', 'Offizielle Route Cruz de Pinto', 'Ruta oficial de la Cruz de Pinto', 'Officiële route Cruz de Pinto', 'Officiell rutt Cruz de Pinto'),
-              context: text('Route baseline from Frigiliana Tourism.', 'Routenbasis von Frigiliana Turismo.', 'Ficha base de Turismo de Frigiliana.', 'Routebasis van Frigiliana Tourism.', 'Grunduppgifter från Frigiliana Turismo.'),
-              href: 'https://www.turismofrigiliana.es/en/frigiliana-cruz-de-pinto-en.html'
-            },
-            {
-              id: 'cruz-komoot',
-              label: text('Open the route on Komoot', 'Route auf Komoot öffnen', 'Abrir la ruta en Komoot', 'Open de route in Komoot', 'Öppna rutten på Komoot'),
-              context: text('Track, map and navigation.', 'Track, Karte und Navigation.', 'Track, mapa y navegación.', 'Track, kaart en navigatie.', 'Spår, karta och navigering.'),
-              href: 'https://www.komoot.com/es-es/smarttour/44782526'
-            }
-          ]
-        },
-        {
-          id: 'rio-higueron-cahorros',
-          title: text('Río Higuerón and the Cahorros', 'Río Higuerón und die Cahorros', 'Río Higuerón y los Cahorros', 'Río Higuerón en de Cahorros', 'Río Higuerón och Cahorros'),
-          duration: text('2.5 hrs · official Cahorros route', '2,5 Std. · offizielle Cahorros-Route', '2,5 h · ruta oficial de los Cahorros', '2,5 uur · officiële Cahorros-route', '2,5 tim · officiell Cahorros-rutt'),
-          distance: text('4.6 km · official Cahorros route', '4,6 km · offizielle Cahorros-Route', '4,6 km · ruta oficial de los Cahorros', '4,6 km · officiële Cahorros-route', '4,6 km · officiell Cahorros-rutt'),
-          difficulty: text('Easy in the official listing; conditions can change', 'Offiziell leicht; Bedingungen können wechseln', 'Fácil en la ficha oficial; las condiciones cambian', 'Officieel eenvoudig; omstandigheden kunnen veranderen', 'Lätt enligt den officiella listan; förhållanden kan skifta'),
-          experience: text('A riverbed route into narrow rock passages close to Frigiliana.', 'Eine Flussbett-Route durch schmale Felspassagen nahe Frigiliana.', 'Una ruta por el cauce entre pasos estrechos de roca cerca de Frigiliana.', 'Een route door de rivierbedding en smalle rotspassages bij Frigiliana.', 'En tur i flodbädden genom smala klippassager nära Frigiliana.'),
-          paragraphs: textList(
-            ['The Higuerón is the local gorge choice, but a riverbed is not a fixed surface. Water, loose stone and passability change after weather. Check the forecast first, then use the linked route rather than following an improvised line. If conditions are doubtful, choose an open route instead.'],
-            ['Der Higuerón ist die ortsnahe Schluchtenroute, doch ein Flussbett ist kein gleichbleibender Weg. Wasser, loses Gestein und Passierbarkeit verändern sich mit dem Wetter. Prüft zuerst die Vorhersage und folgt dann dem verlinkten Track statt einer improvisierten Linie. Bei Zweifel wählt ihr eine offene Route.'],
-            ['El Higuerón es la opción local de garganta, pero un cauce no es una superficie fija. El agua, la piedra suelta y la posibilidad de paso cambian con el tiempo. Consultad primero la previsión y seguid después el track enlazado, no una línea improvisada. Si hay dudas, elegid una ruta abierta.'],
-            ['De Higuerón is de lokale kloofroute, maar een rivierbedding is geen vaste ondergrond. Water, losse stenen en begaanbaarheid veranderen met het weer. Bekijk eerst de verwachting en volg daarna de gelinkte route in plaats van zelf een lijn te improviseren. Kies bij twijfel een open route.'],
-            ['Higuerón är den lokala ravinturen, men en flodbädd är inget fast underlag. Vatten, lösa stenar och framkomlighet förändras med vädret. Kontrollera prognosen först och följ sedan den länkade rutten i stället för en improviserad linje. Välj en öppen rutt om ni är osäkra.']
-          ),
-          links: [
-            {
-              id: 'cahorros-official',
-              label: text('Official Frigiliana walking routes', 'Offizielle Wanderwege Frigilianas', 'Rutas oficiales de Frigiliana', 'Officiële wandelroutes van Frigiliana', 'Frigilianas officiella vandringsleder'),
-              context: text('Cahorros route baseline from Frigiliana Tourism.', 'Basisdaten zur Cahorros-Route von Frigiliana Turismo.', 'Ficha base de los Cahorros de Turismo de Frigiliana.', 'Basisgegevens voor de Cahorros-route van Frigiliana Tourism.', 'Grunduppgifter för Cahorros från Frigiliana Turismo.'),
-              href: 'https://www.turismofrigiliana.es/en/walking-routes.html'
-            },
-            {
-              id: 'cahorros-komoot',
-              label: text('Open a Cahorros route on Komoot', 'Cahorros-Route auf Komoot öffnen', 'Abrir una ruta de los Cahorros en Komoot', 'Open een Cahorros-route in Komoot', 'Öppna en Cahorros-rutt på Komoot'),
-              context: text('Track, map and navigation.', 'Track, Karte und Navigation.', 'Track, mapa y navegación.', 'Track, kaart en navigatie.', 'Spår, karta och navigering.'),
-              href: 'https://www.komoot.com/de-de/smarttour/e995581742/ruta-cahorros-y-cruz-de-felix-circular-desde-frigiliana-por-el-parque-natural-sierra-de-tejeda-almijara-y-alhama'
-            }
-          ]
-        }
-      ]
+      routeIds: ['frigiliana.hiking.cruz-de-pinto', 'frigiliana.hiking.rio-higueron']
     },
     {
       id: 'mountain-routes',
@@ -189,67 +113,7 @@ export const frigilianaHikingContent = {
         'El Fuerte betekent hier de volledige route naar de top. Etappe 6 van de GR 249 is een lineaire bergdag naar Cómpeta. Voor beide is vroeg een duidelijke keuze nodig op basis van weer, conditie en terugreis.',
         'El Fuerte avser här hela turen till toppen. GR 249 etapp 6 är en linjär bergsdag till Cómpeta. Båda kräver ett tidigt beslut utifrån väder, kondition och hemresa.'
       ),
-      routes: [
-        {
-          id: 'el-fuerte-summit',
-          title: text('El Fuerte summit', 'El Fuerte – Gipfel', 'Cumbre de El Fuerte', 'Top van El Fuerte', 'El Fuerte – toppen'),
-          duration: text('4 hrs · official route', '4 Std. · offizielle Route', '4 h · ruta oficial', '4 uur · officiële route', '4 tim · officiell rutt'),
-          elevationGain: text('631–633 m · official route', '631–633 Hm · offizielle Route', '631–633 m · ruta oficial', '631–633 hm · officiële route', '631–633 höjdmeter · officiell rutt'),
-          distance: text('7.4 km · official route', '7,4 km · offizielle Route', '7,4 km · ruta oficial', '7,4 km · officiële route', '7,4 km · officiell rutt'),
-          difficulty: text('Moderate officially; steep and rocky in practice', 'Offiziell mittel; praktisch steil und felsig', 'Media oficialmente; en la práctica, empinada y rocosa', 'Officieel gemiddeld; in de praktijk steil en rotsachtig', 'Medelsvår officiellt; i praktiken brant och stenig'),
-          experience: text('The full ascent above Frigiliana to a 360-degree summit panorama.', 'Der vollständige Aufstieg über Frigiliana zu einem 360-Grad-Panorama.', 'La subida completa sobre Frigiliana hasta una panorámica de 360 grados.', 'De volledige klim boven Frigiliana naar een panorama van 360 graden.', 'Hela stigningen ovanför Frigiliana till ett 360-graders panorama.'),
-          paragraphs: textList(
-            ['This is the complete summit route. The official description begins at Plaza del Ingenio and climbs through the old town before continuing onto exposed, rocky terrain. Use that description for the official start and route facts, and check weather before committing to the ascent.'],
-            ['Das ist die vollständige Gipfelroute. Die offizielle Beschreibung beginnt an der Plaza del Ingenio, führt durch die Altstadt und anschließend in offenes, felsiges Gelände. Nutzt sie für offiziellen Start und Routendaten und prüft das Wetter, bevor ihr euch für den Aufstieg entscheidet.'],
-            ['Esta es la ruta completa hasta la cumbre. La descripción oficial comienza en la plaza del Ingenio, atraviesa el casco histórico y continúa por terreno abierto y rocoso. Usadla para la salida y los datos oficiales y comprobad el tiempo antes de iniciar la subida.'],
-            ['Dit is de volledige route naar de top. De officiële beschrijving begint op Plaza del Ingenio, gaat door de oude kern en loopt daarna over open, rotsachtig terrein. Gebruik die voor de officiële start en routegegevens en controleer het weer voor de klim.'],
-            ['Det här är hela toppturen. Den officiella beskrivningen börjar på Plaza del Ingenio, går genom den gamla bykärnan och fortsätter över öppen, stenig terräng. Använd den för officiell start och ruttfakta och kontrollera vädret före stigningen.']
-          ),
-          links: [
-            {
-              id: 'fuerte-official',
-              label: text('Official El Fuerte route', 'Offizielle El-Fuerte-Route', 'Ruta oficial de El Fuerte', 'Officiële route El Fuerte', 'Officiell rutt El Fuerte'),
-              context: text('Start, route description and official figures.', 'Start, Routenbeschreibung und offizielle Werte.', 'Salida, descripción y datos oficiales.', 'Start, routebeschrijving en officiële gegevens.', 'Start, ruttbeskrivning och officiella uppgifter.'),
-              href: 'https://www.turismofrigiliana.es/es/el-fuerte.html'
-            },
-            {
-              id: 'fuerte-komoot',
-              label: text('Compare the current track on Komoot', 'Aktuellen Track auf Komoot vergleichen', 'Comparar el track actual en Komoot', 'Vergelijk de actuele track op Komoot', 'Jämför aktuellt spår på Komoot'),
-              context: text('Map and device navigation.', 'Karte und Gerätenavigation.', 'Mapa y navegación en el dispositivo.', 'Kaart en apparaatnavigatie.', 'Karta och enhetsnavigering.'),
-              href: 'https://www.komoot.com/es-es/guide/1588959/rutas-de-senderismo-en-frigiliana'
-            }
-          ]
-        },
-        {
-          id: 'gr-249-stage-6',
-          title: text('GR 249 · Stage 6: Frigiliana to Cómpeta', 'GR 249 · Etappe 6: Frigiliana–Cómpeta', 'GR 249 · Etapa 6: Frigiliana–Cómpeta', 'GR 249 · Etappe 6: Frigiliana–Cómpeta', 'GR 249 · Etapp 6: Frigiliana–Cómpeta'),
-          duration: text('Full day · linear stage', 'Ganzer Tag · lineare Etappe', 'Día completo · etapa lineal', 'Volle dag · lineaire etappe', 'Heldag · linjär etapp'),
-          distance: text('23.7 km · linked Komoot stage', '23,7 km · verlinkte Komoot-Etappe', '23,7 km · etapa enlazada de Komoot', '23,7 km · gelinkte Komoot-etappe', '23,7 km · länkad Komoot-etapp'),
-          difficulty: text('Challenging', 'Anspruchsvoll', 'Exigente', 'Zwaar', 'Krävande'),
-          experience: text('A committed mountain crossing to Cómpeta, with the return arranged first.', 'Eine anspruchsvolle Bergquerung bis Cómpeta – mit vorher geklärter Rückfahrt.', 'Una travesía exigente hasta Cómpeta, con el regreso organizado de antemano.', 'Een serieuze bergtocht naar Cómpeta, met de terugreis vooraf geregeld.', 'En krävande bergsetapp till Cómpeta, med hemresan ordnad i förväg.'),
-          paragraphs: textList(
-            ['Stage 6 is the one route here that does not bring you back to Frigiliana. It crosses mountain terrain to Cómpeta, so arrange the return before departure and treat the official topoguide as the authority for the stage. Komoot can carry the track on your device; it does not replace weather judgment or the official route information.'],
-            ['Etappe 6 ist die einzige Route dieser Auswahl, die nicht nach Frigiliana zurückführt. Sie quert das Bergland bis Cómpeta: Organisiert die Rückfahrt vor dem Start und behandelt die offizielle Topoguía als maßgebliche Quelle. Komoot bringt den Track aufs Gerät, ersetzt aber weder Wetterentscheidung noch offizielle Routeninformation.'],
-            ['La etapa 6 es la única ruta de esta selección que no regresa a Frigiliana. Cruza la sierra hasta Cómpeta: organizad la vuelta antes de salir y tomad la topoguía oficial como referencia principal. Komoot lleva el track al dispositivo, pero no sustituye la valoración meteorológica ni la información oficial.'],
-            ['Etappe 6 is de enige route in deze selectie die niet terugkeert naar Frigiliana. Ze steekt het berggebied over naar Cómpeta: regel de terugreis voor vertrek en gebruik de officiële topogids als leidende bron. Komoot zet de track op jullie apparaat, maar vervangt de weerinschatting of officiële route-informatie niet.'],
-            ['Etapp 6 är den enda turen här som inte återvänder till Frigiliana. Den korsar bergsterräng till Cómpeta: ordna hemresan före start och använd den officiella topoguiden som huvudkälla. Komoot ger spåret i enheten men ersätter varken väderbedömning eller officiell ruttinformation.']
-          ),
-          links: [
-            {
-              id: 'gr249-official',
-              label: text('Official GR 249 topoguide', 'Offizielle Topoguía des GR 249', 'Topoguía oficial del GR 249', 'Officiële topogids van de GR 249', 'Officiell topoguide för GR 249'),
-              context: text('Diputación de Málaga · Stage 6.', 'Diputación de Málaga · Etappe 6.', 'Diputación de Málaga · Etapa 6.', 'Diputación de Málaga · Etappe 6.', 'Diputación de Málaga · Etapp 6.'),
-              href: 'https://static.malaga.es/malaga/subidas/descargas/archivos/7/1/370917/topoguia-gr-249-gran-senda-de-malaga-%28edicion-noviembre-2021%29.pdf'
-            },
-            {
-              id: 'gr249-komoot',
-              label: text('Open Stage 6 on Komoot', 'Etappe 6 auf Komoot öffnen', 'Abrir la etapa 6 en Komoot', 'Open etappe 6 in Komoot', 'Öppna etapp 6 på Komoot'),
-              context: text('Track, map and device navigation.', 'Track, Karte und Gerätenavigation.', 'Track, mapa y navegación en el dispositivo.', 'Track, kaart en apparaatnavigatie.', 'Spår, karta och enhetsnavigering.'),
-              href: 'https://www.komoot.com/es-es/tour/898242181'
-            }
-          ]
-        }
-      ]
+      routeIds: ['frigiliana.hiking.el-fuerte', 'frigiliana.hiking.gr-249-stage-6']
     }
   ] satisfies HikingRouteSection[],
   closureNotice: {
@@ -340,7 +204,7 @@ export const frigilianaHikingSeo: AmaraAuthoringSeo = {
   version: '2026-08-27-frigiliana-hiking-v2.2',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/hero-frigiliana.jpg',
+  ogImage: routeOgImage('frigiliana.experience.hiking'),
   languages: {
     en: {
       title: 'Hiking in Frigiliana: 4 routes & current advice',

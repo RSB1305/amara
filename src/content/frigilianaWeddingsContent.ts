@@ -13,19 +13,16 @@ interface FrigilianaWeddingsCopy {
     lead: string;
     paragraphs: string[];
     cta: string;
-    imageAlt: string;
   };
   village: {
     title: string;
     paragraphs: string[];
-    imageAlt: string;
   };
   nearChurch: {
     title: string;
     paragraphs: string[];
     distance: string;
     distanceLabel: string;
-    imageAlt: string;
   };
   stayOptions: {
     title: string;
@@ -47,7 +44,6 @@ interface FrigilianaWeddingsCopy {
       text: string;
     }>;
     note: string;
-    imageAlt: string;
   };
   planning: {
     title: string;
@@ -140,7 +136,6 @@ export const frigilianaWeddingsContent: Record<
         'That makes the house a particularly practical base for the couple, close family or wedding guests who want to stay in the village and avoid another journey immediately before the ceremony.'
       ],
       cta: 'See the accommodation options',
-      imageAlt: 'Entrance of San Antonio de Padua church in Frigiliana'
     },
     village: {
       title: 'Why couples choose Frigiliana for their wedding',
@@ -149,7 +144,6 @@ export const frigilianaWeddingsContent: Record<
         'The parish church is San Antonio de Padua, built in the seventeenth century. Church arrangements, available dates and current requirements must always be agreed directly with the parish.',
         'For guests, the practical question comes next: where to stay, get ready and return after the celebration. This is where Casa AMARA’s location is unusual.'
       ],
-      imageAlt: 'White houses in the historic centre of Frigiliana'
     },
     nearChurch: {
       title: 'Accommodation diagonally opposite the church',
@@ -160,7 +154,6 @@ export const frigilianaWeddingsContent: Record<
       ],
       distance: '≈ 15 m',
       distanceLabel: 'from Casa AMARA to San Antonio church',
-      imageAlt: 'Casa AMARA on Calle Chorruelo in Frigiliana old town'
     },
     stayOptions: {
       title: 'Stay at AMARA',
@@ -214,7 +207,6 @@ export const frigilianaWeddingsContent: Record<
       ],
       note:
         'Access for getting ready is part of the confirmed overnight stay. Any early arrival or timing outside the booked check-in period must be agreed in advance.',
-      imageAlt: 'Private bathroom and mirror in an AMARA apartment in Frigiliana'
     },
     planning: {
       title: 'Plan a wedding stay in Frigiliana',
@@ -309,7 +301,6 @@ export const frigilianaWeddingsContent: Record<
         'Damit ist das Haus eine besonders praktische Basis für das Brautpaar, enge Familie oder Hochzeitsgäste, die im Dorf übernachten und unmittelbar vor der Trauung keine weitere Anreise möchten.'
       ],
       cta: 'Unterkunftsmöglichkeiten ansehen',
-      imageAlt: 'Eingang der Kirche San Antonio de Padua in Frigiliana'
     },
     village: {
       title: 'Warum Paare in Frigiliana heiraten',
@@ -318,7 +309,6 @@ export const frigilianaWeddingsContent: Record<
         'Die Pfarrkirche San Antonio de Padua wurde im 17. Jahrhundert erbaut. Kirchliche Voraussetzungen, mögliche Termine und die aktuellen Abläufe stimmt ihr immer direkt mit der Pfarrei ab.',
         'Für die Gäste folgt gleich die praktische Frage: Wo können sie übernachten, sich in Ruhe fertig machen und nach der Feier zurückkehren? Genau hier ist die Lage von Casa AMARA außergewöhnlich.'
       ],
-      imageAlt: 'Weiße Häuser im historischen Zentrum von Frigiliana'
     },
     nearChurch: {
       title: 'Die Unterkunft schräg gegenüber',
@@ -329,7 +319,6 @@ export const frigilianaWeddingsContent: Record<
       ],
       distance: '≈ 15 m',
       distanceLabel: 'von Casa AMARA bis zur Kirche San Antonio',
-      imageAlt: 'Casa AMARA in der Calle Chorruelo in Frigilianas Altstadt'
     },
     stayOptions: {
       title: 'Übernachten bei AMARA',
@@ -383,7 +372,6 @@ export const frigilianaWeddingsContent: Record<
       ],
       note:
         'Das Fertigmachen ist während des bestätigten Übernachtungsaufenthalts möglich. Eine frühere Anreise oder ein Zugang außerhalb der gebuchten Check-in-Zeit muss vorab abgestimmt werden.',
-      imageAlt: 'Privates Badezimmer mit Spiegel in einem AMARA-Apartment in Frigiliana'
     },
     planning: {
       title: 'Hochzeit in Frigiliana praktisch planen',
@@ -478,7 +466,6 @@ export const frigilianaWeddingsContent: Record<
         'Por eso es una base especialmente práctica para la pareja, la familia cercana o los invitados que quieren dormir en el pueblo y evitar otro desplazamiento justo antes de la ceremonia.'
       ],
       cta: 'Ver opciones de alojamiento',
-      imageAlt: 'Entrada de la iglesia de San Antonio de Padua en Frigiliana'
     },
     village: {
       title: 'Por qué las parejas eligen Frigiliana para su boda',
@@ -487,7 +474,6 @@ export const frigilianaWeddingsContent: Record<
         'La parroquia de San Antonio de Padua se construyó en el siglo XVII. Los requisitos religiosos, las fechas disponibles y la organización vigente deben acordarse siempre directamente con la parroquia.',
         'Después llega la cuestión práctica para los invitados: dónde dormir, prepararse con calma y volver tras la celebración. Ahí es donde la ubicación de Casa AMARA resulta excepcional.'
       ],
-      imageAlt: 'Casas blancas del centro histórico de Frigiliana'
     },
     nearChurch: {
       title: 'El alojamiento justo enfrente, en diagonal',
@@ -498,7 +484,6 @@ export const frigilianaWeddingsContent: Record<
       ],
       distance: '≈ 15 m',
       distanceLabel: 'desde Casa AMARA hasta la iglesia de San Antonio',
-      imageAlt: 'Casa AMARA en la calle Chorruelo del casco antiguo de Frigiliana'
     },
     stayOptions: {
       title: 'Alojarse en AMARA',
@@ -552,7 +537,6 @@ export const frigilianaWeddingsContent: Record<
       ],
       note:
         'El uso para prepararos forma parte de la estancia confirmada. Cualquier llegada anticipada o acceso fuera del horario de entrada reservado debe acordarse previamente.',
-      imageAlt: 'Baño privado con espejo en un apartamento AMARA de Frigiliana'
     },
     planning: {
       title: 'Planificar una boda en Frigiliana',
@@ -647,7 +631,6 @@ export const frigilianaWeddingsContent: Record<
         'Daardoor is het huis een bijzonder praktische uitvalsbasis voor het bruidspaar, naaste familie of bruiloftsgasten die in het dorp willen overnachten en vlak voor de ceremonie geen extra rit willen maken.'
       ],
       cta: 'Bekijk de verblijfsmogelijkheden',
-      imageAlt: 'Ingang van de kerk San Antonio de Padua in Frigiliana'
     },
     village: {
       title: 'Waarom stellen kiezen voor trouwen in Frigiliana',
@@ -656,7 +639,6 @@ export const frigilianaWeddingsContent: Record<
         'De parochiekerk San Antonio de Padua werd in de zeventiende eeuw gebouwd. Kerkelijke voorwaarden, beschikbare data en de actuele procedure moeten altijd rechtstreeks met de parochie worden afgestemd.',
         'Daarna volgt voor gasten de praktische vraag: waar kunnen zij slapen, zich rustig klaarmaken en na de viering terugkomen? Juist daar is de ligging van Casa AMARA uitzonderlijk.'
       ],
-      imageAlt: 'Witte huizen in het historische centrum van Frigiliana'
     },
     nearChurch: {
       title: 'Het verblijf schuin tegenover de kerk',
@@ -667,7 +649,6 @@ export const frigilianaWeddingsContent: Record<
       ],
       distance: '≈ 15 m',
       distanceLabel: 'van Casa AMARA naar de San Antonio-kerk',
-      imageAlt: 'Casa AMARA aan Calle Chorruelo in de oude kern van Frigiliana'
     },
     stayOptions: {
       title: 'Overnachten bij AMARA',
@@ -721,7 +702,6 @@ export const frigilianaWeddingsContent: Record<
       ],
       note:
         'Klaarmaken is mogelijk tijdens het bevestigde overnachtingsverblijf. Vroege aankomst of toegang buiten de geboekte inchecktijd moet vooraf worden afgesproken.',
-      imageAlt: 'Privébadkamer met spiegel in een AMARA-appartement in Frigiliana'
     },
     planning: {
       title: 'Een bruiloftsverblijf in Frigiliana plannen',
@@ -816,7 +796,6 @@ export const frigilianaWeddingsContent: Record<
         'Det gör huset till en ovanligt praktisk bas för brudparet, den närmaste familjen eller bröllopsgäster som vill bo i byn och slippa ännu en resa strax före vigseln.'
       ],
       cta: 'Se boendealternativen',
-      imageAlt: 'Ingången till San Antonio de Padua-kyrkan i Frigiliana'
     },
     village: {
       title: 'Varför par väljer att gifta sig i Frigiliana',
@@ -825,7 +804,6 @@ export const frigilianaWeddingsContent: Record<
         'Församlingskyrkan San Antonio de Padua byggdes på 1600-talet. Kyrkliga krav, möjliga datum och aktuella rutiner måste alltid stämmas av direkt med församlingen.',
         'Sedan kommer den praktiska frågan för gästerna: var kan de sova, göra sig i ordning i lugn och ro och återvända efter firandet? Där är Casa AMARAs läge ovanligt.'
       ],
-      imageAlt: 'Vita hus i Frigilianas historiska centrum'
     },
     nearChurch: {
       title: 'Boendet snett mittemot kyrkan',
@@ -836,7 +814,6 @@ export const frigilianaWeddingsContent: Record<
       ],
       distance: '≈ 15 m',
       distanceLabel: 'från Casa AMARA till San Antonio-kyrkan',
-      imageAlt: 'Casa AMARA på Calle Chorruelo i Frigilianas gamla by'
     },
     stayOptions: {
       title: 'Bo hos AMARA',
@@ -890,7 +867,6 @@ export const frigilianaWeddingsContent: Record<
       ],
       note:
         'Möjligheten att göra sig i ordning gäller under den bekräftade övernattningen. Tidig ankomst eller tillträde utanför bokad incheckningstid måste avtalas i förväg.',
-      imageAlt: 'Privat badrum med spegel i en AMARA-lägenhet i Frigiliana'
     },
     planning: {
       title: 'Planera ett bröllopsboende i Frigiliana',

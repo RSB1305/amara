@@ -1,19 +1,13 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+import { routeOgImage } from '../lib/images/routeImages';
 import { stayCollectionLabels } from './stayCollectionLabels';
-
-export interface FrigilianaBeachCard {
-  title: string;
-  bestFor: string;
-  description: string;
-  tip: string;
-  mapHref: string;
-}
 
 export interface FrigilianaBeachSection {
   id: 'quiet' | 'nature' | 'nerja';
   title: string;
   intro: string;
-  beaches: FrigilianaBeachCard[];
+  /** Recommendation record ids; the cards are built from the place copy (DR-GUEST-006). */
+  beachIds: readonly string[];
 }
 
 export interface FrigilianaBeachesPageCopy {
@@ -101,19 +95,6 @@ export interface FrigilianaBeachesPageCopy {
   };
 }
 
-const beachMaps = {
-  carabeillo:
-    'https://www.google.com/maps/search/?api=1&query=Playa+Carabeillo+Nerja',
-  playazo:
-    'https://www.google.com/maps/search/?api=1&query=Playa+El+Playazo+Nerja',
-  maro: 'https://www.google.com/maps/search/?api=1&query=Playa+de+Maro',
-  cantarrijan:
-    'https://www.google.com/maps/search/?api=1&query=Playa+de+Cantarrijan',
-  calahonda:
-    'https://www.google.com/maps/search/?api=1&query=Playa+Calahonda+Nerja',
-  burriana:
-    'https://www.google.com/maps/search/?api=1&query=Playa+Burriana+Nerja'
-} as const;
 
 const cantarrijanAccessInfo =
   'https://www.juntadeandalucia.es/medioambiente/portal/web/ventanadelvisitante/detalle-buscador-mapa/-/asset_publisher/Jlbxh2qB3NwR/content/acantilados-de-maro-cerro-gordo-2/255035';
@@ -122,7 +103,7 @@ export const frigilianaBeachesSeo: AmaraAuthoringSeo = {
   version: '2026-08-27-frigiliana-beaches-v1.1-B',
   pageType: 'B',
   entityKey: 'amara-brand',
-  ogImage: '/images/amara-playa/apartment/chaparril-22.webp',
+  ogImage: routeOgImage('frigiliana.experience.beaches'),
   languages: {
     en: {
       title: 'Beaches near Frigiliana & Nerja: Coastal Guide',
@@ -234,78 +215,21 @@ export const frigilianaBeachesContent: Record<
         title: 'Quiet coves & unhurried afternoons',
         intro:
           'These are the places we choose when the aim is a swim, a picnic or a few slow hours rather than a full-service beach day.',
-        beaches: [
-          {
-            title: 'Carabeíllo Beach',
-            bestFor: 'A quiet swim, couples and early hours',
-            description:
-              'A small cove tucked between Burriana and Nerja’s centre. Greenery spills down the cliffs and gives it a secluded, almost tropical character despite its town location.',
-            tip:
-              'We often choose Carabeíllo for a quiet afternoon swim for two. Early in the day it can feel surprisingly private; once the limited space fills, that intimacy disappears quickly.',
-            mapHref: beachMaps.carabeillo
-          },
-          {
-            title: 'El Playazo',
-            bestFor: 'Picnics, long walks and room to spread out',
-            description:
-              'Nerja’s longest and most spacious beach feels more rustic than the central coves. Its scale makes it easier to find breathing room when the smaller beaches feel crowded.',
-            tip:
-              'This is our favourite picnic beach. Pack local cheese and olives, walk a little beyond the main access points and settle where the beach feels less organised.',
-            mapHref: beachMaps.playazo
-          }
-        ]
+        beachIds: ['nerja.beaches.carabeillo', 'nerja.beaches.el-playazo']
       },
       {
         id: 'nature',
         title: 'Nature, snorkelling & kayak days',
         intro:
           'East of Nerja, the protected Maro–Cerro Gordo coast is less developed and more dependent on the sea. Come for cliffs, open water and landscape rather than guaranteed convenience.',
-        beaches: [
-          {
-            title: 'Maro Beach',
-            bestFor: 'Snorkelling, kayaking and dramatic scenery',
-            description:
-              'Cliffs rise directly behind this pebbly beach, and the water can be noticeably clearer than in town. It is the natural starting point for snorkelling and kayak trips along the coast.',
-            tip:
-              'If the sea is calm, renting a kayak is the memorable choice. Paddle for the cliffs and coves rather than for a promised waterfall: the falls depend on recent rain and are not always running.',
-            mapHref: beachMaps.maro
-          },
-          {
-            title: 'Cantarriján',
-            bestFor: 'Protected nature, relaxed bathing and a fish lunch',
-            description:
-              'Set inside the natural park, Cantarriján combines a wild setting with a relaxed, clothing-optional atmosphere and beach restaurants known for fresh seafood.',
-            tip:
-              'Make time for lunch at a chiringuito rather than treating this as a quick stop. In summer, vehicle access may be regulated, so check the current arrangements before leaving.',
-            mapHref: beachMaps.cantarrijan
-          }
-        ]
+        beachIds: ['nerja.beaches.maro-beach', 'nerja.beaches.cantarrijan']
       },
       {
         id: 'nerja',
         title: 'Classic Nerja & easy full beach days',
         intro:
           'Choose these when town, facilities and the beach should fit into one simple day. They are less secluded, but much easier to combine with lunch, a walk or the old centre.',
-        beaches: [
-          {
-            title: 'Calahonda',
-            bestFor: 'A morning swim, the old town and a short beach stop',
-            description:
-              'Nerja’s most recognisable little cove sits directly below the Balcón de Europa, framed by old fishermen’s cottages and the historic centre above.',
-            tip:
-              'Go before 10:00. The light on the white cottages and the calmer water make the morning feel special, before the Balcón and the cove become busy.',
-            mapHref: beachMaps.calahonda
-          },
-          {
-            title: 'Burriana Beach',
-            bestFor: 'An urban beach day with services and lunch nearby',
-            description:
-              'Official visitor information describes Burriana as a broad urban beach with a promenade, bus and parking access, plus listed beach and food services.',
-            tip:
-              'AYO is at Paseo Burriana 15 and works as a daytime option beside the beach. Check current operation before building the day around it.',
-            mapHref: beachMaps.burriana
-          }
-        ]
+        beachIds: ['nerja.beaches.calahonda', 'nerja.beaches.burriana-beach']
       }
     ],
     conditions: {
@@ -483,78 +407,21 @@ export const frigilianaBeachesContent: Record<
         title: 'Ruhige Buchten & langsame Nachmittage',
         intro:
           'Diese Strände wählen wir für eine Schwimmrunde, ein Picknick oder ein paar entspannte Stunden — nicht für den perfekt organisierten Ganztagesplatz.',
-        beaches: [
-          {
-            title: 'Playa Carabeíllo',
-            bestFor: 'Ruhiges Schwimmen, Paare und frühe Stunden',
-            description:
-              'Die kleine Bucht liegt versteckt zwischen Burriana und Nerjas Zentrum. Grün fällt über die Felsen herab und gibt ihr trotz der Stadtnähe eine intime, fast tropische Atmosphäre.',
-            tip:
-              'Wir kommen gern für eine ruhige Schwimmrunde zu zweit hierher. Früh am Tag wirkt Carabeíllo überraschend privat; sobald der begrenzte Platz voll wird, verschwindet genau dieser Reiz schnell.',
-            mapHref: beachMaps.carabeillo
-          },
-          {
-            title: 'El Playazo',
-            bestFor: 'Picknick, lange Spaziergänge und viel Platz',
-            description:
-              'Nerjas längster und weitläufigster Strand wirkt rustikaler als die zentralen Buchten. Seine Größe macht es leichter, noch Freiraum zu finden, wenn die kleinen Strände bereits voll sind.',
-            tip:
-              'El Playazo ist unser Lieblingsstrand für ein Picknick. Lokalen Käse und Oliven einpacken, ein Stück von den Hauptzugängen weggehen und dort bleiben, wo der Strand weniger organisiert wirkt.',
-            mapHref: beachMaps.playazo
-          }
-        ]
+        beachIds: ['nerja.beaches.carabeillo', 'nerja.beaches.el-playazo']
       },
       {
         id: 'nature',
         title: 'Natur, Schnorcheln & Kajaktage',
         intro:
           'Östlich von Nerja ist die geschützte Küste von Maro–Cerro Gordo weniger erschlossen und stärker vom Meer abhängig. Hier geht es um Felsen, offenes Wasser und Landschaft — nicht um garantierte Bequemlichkeit.',
-        beaches: [
-          {
-            title: 'Playa de Maro',
-            bestFor: 'Schnorcheln, Kajak und dramatische Küste',
-            description:
-              'Direkt hinter dem Kiesstrand steigen die Felsen auf; das Wasser kann deutlich klarer sein als in der Stadt. Maro ist der natürliche Ausgangspunkt für Schnorchel- und Kajaktouren entlang der Küste.',
-            tip:
-              'Bei ruhiger See ist ein Kajak die schönste Wahl. Paddelt wegen der Felsen und Buchten los, nicht wegen eines versprochenen Wasserfalls: Die Fälle hängen vom Regen ab und führen nicht immer Wasser.',
-            mapHref: beachMaps.maro
-          },
-          {
-            title: 'Cantarriján',
-            bestFor: 'Geschützte Natur, entspanntes Baden und Fischessen',
-            description:
-              'Mitten im Naturpark verbindet Cantarriján eine wilde Umgebung mit einer entspannten Atmosphäre, in der Baden mit oder ohne Badekleidung selbstverständlich nebeneinandersteht, und Strandrestaurants, die für frischen Fisch bekannt sind.',
-            tip:
-              'Plant Zeit für ein Mittagessen im Chiringuito ein, statt nur kurz vorbeizuschauen. Im Sommer kann die Zufahrt geregelt sein; prüft deshalb vor der Abfahrt die aktuellen Hinweise.',
-            mapHref: beachMaps.cantarrijan
-          }
-        ]
+        beachIds: ['nerja.beaches.maro-beach', 'nerja.beaches.cantarrijan']
       },
       {
         id: 'nerja',
         title: 'Nerja-Klassiker & unkomplizierte Strandtage',
         intro:
           'Diese Strände passen, wenn Ort, Infrastruktur und Meer in einen einfachen Tag gehören sollen. Sie sind weniger abgeschieden, lassen sich dafür bequem mit Mittagessen, Spaziergang oder Altstadt verbinden.',
-        beaches: [
-          {
-            title: 'Calahonda',
-            bestFor: 'Morgenbad, Altstadt und kurze Strandpause',
-            description:
-              'Nerjas bekannteste kleine Bucht liegt direkt unter dem Balcón de Europa, eingerahmt von alten Fischerhäuschen und der historischen Stadt oberhalb.',
-            tip:
-              'Kommt vor 10 Uhr. Das Morgenlicht auf den weißen Häusern und das ruhigere Wasser sind besonders schön, bevor Balcón und Bucht lebhaft werden.',
-            mapHref: beachMaps.calahonda
-          },
-          {
-            title: 'Playa Burriana',
-            bestFor: 'Urbaner Strandtag mit Services und Mittagessen vor Ort',
-            description:
-              'Die offizielle Besucherinformation beschreibt Burriana als breiten Stadtstrand mit Promenade, Bus- und Parkanbindung sowie ausgewiesenen Strand- und Gastronomieservices.',
-            tip:
-              'AYO liegt am Paseo Burriana 15 und ist eine Tagesoption direkt am Strand. Prüft den aktuellen Betrieb, bevor ihr den Tag darauf ausrichtet.',
-            mapHref: beachMaps.burriana
-          }
-        ]
+        beachIds: ['nerja.beaches.calahonda', 'nerja.beaches.burriana-beach']
       }
     ],
     conditions: {
@@ -732,78 +599,21 @@ export const frigilianaBeachesContent: Record<
         title: 'Calas tranquilas y tardes sin prisa',
         intro:
           'Son nuestras opciones para un baño, un pícnic o unas horas de calma, más que para pasar todo el día rodeados de servicios.',
-        beaches: [
-          {
-            title: 'Playa de Carabeíllo',
-            bestFor: 'Un baño tranquilo, parejas y primeras horas',
-            description:
-              'Esta pequeña cala se esconde entre Burriana y el centro de Nerja. La vegetación cae por los acantilados y crea un ambiente íntimo, casi tropical, pese a estar dentro del pueblo.',
-            tip:
-              'Solemos elegir Carabeíllo para nadar tranquilos en pareja. A primera hora puede parecer casi privada; cuando se llena su espacio reducido, pierde rápidamente esa intimidad.',
-            mapHref: beachMaps.carabeillo
-          },
-          {
-            title: 'El Playazo',
-            bestFor: 'Pícnic, paseos largos y espacio',
-            description:
-              'La playa más larga y amplia de Nerja tiene un aire más rústico que las calas del centro. Su tamaño permite encontrar un poco de distancia cuando las playas pequeñas ya están llenas.',
-            tip:
-              'Es nuestra favorita para llevar un pícnic. Comprad queso y aceitunas de la zona, alejaos un poco de los accesos principales y buscad el tramo menos organizado.',
-            mapHref: beachMaps.playazo
-          }
-        ]
+        beachIds: ['nerja.beaches.carabeillo', 'nerja.beaches.el-playazo']
       },
       {
         id: 'nature',
         title: 'Naturaleza, snorkel y días de kayak',
         intro:
           'Al este de Nerja, la costa protegida de Maro–Cerro Gordo está menos urbanizada y depende mucho más del mar. Venid por los acantilados, el agua abierta y el paisaje, no por una comodidad garantizada.',
-        beaches: [
-          {
-            title: 'Playa de Maro',
-            bestFor: 'Snorkel, kayak y paisaje de acantilados',
-            description:
-              'Los acantilados se levantan justo detrás de esta playa de guijarros y el agua puede estar bastante más clara que en el centro. Es un punto natural para hacer snorkel o recorrer la costa en kayak.',
-            tip:
-              'Con el mar en calma, alquilar un kayak es la opción más memorable. Id por las calas y los acantilados, no por la promesa de una cascada: depende de las lluvias y no siempre lleva agua.',
-            mapHref: beachMaps.maro
-          },
-          {
-            title: 'Cantarriján',
-            bestFor: 'Naturaleza protegida, baño relajado y pescado',
-            description:
-              'Dentro del paraje natural, Cantarriján combina un entorno salvaje con tradición naturista, bañador opcional y chiringuitos conocidos por el pescado fresco.',
-            tip:
-              'Reservad tiempo para comer en un chiringuito en lugar de convertirla en una parada rápida. En verano puede regularse el acceso de vehículos; comprobad las condiciones antes de salir.',
-            mapHref: beachMaps.cantarrijan
-          }
-        ]
+        beachIds: ['nerja.beaches.maro-beach', 'nerja.beaches.cantarrijan']
       },
       {
         id: 'nerja',
         title: 'Clásicos de Nerja y días de playa fáciles',
         intro:
           'Elegid estas playas cuando queráis reunir pueblo, servicios y mar en un solo día. Son menos solitarias, pero se combinan fácilmente con una comida, un paseo o el casco antiguo.',
-        beaches: [
-          {
-            title: 'Calahonda',
-            bestFor: 'Baño matinal, casco antiguo y visita corta',
-            description:
-              'La cala más reconocible de Nerja está justo debajo del Balcón de Europa, enmarcada por antiguas casas de pescadores y el centro histórico situado sobre ella.',
-            tip:
-              'Llegad antes de las 10:00. La luz de la mañana sobre las casas blancas y el agua más tranquila tienen algo especial, antes de que el Balcón y la cala se animen.',
-            mapHref: beachMaps.calahonda
-          },
-          {
-            title: 'Playa de Burriana',
-            bestFor: 'Un día de playa urbana con servicios y comida cerca',
-            description:
-              'La información oficial para visitantes describe Burriana como una playa urbana amplia, con paseo marítimo, acceso en autobús y aparcamiento, además de servicios de playa y restauración.',
-            tip:
-              'AYO está en Paseo Burriana 15 y funciona como opción diurna junto a la playa. Comprobad la actividad actual antes de organizar el día en torno al local.',
-            mapHref: beachMaps.burriana
-          }
-        ]
+        beachIds: ['nerja.beaches.calahonda', 'nerja.beaches.burriana-beach']
       }
     ],
     conditions: {
@@ -981,78 +791,21 @@ export const frigilianaBeachesContent: Record<
         title: 'Rustige baaien & trage middagen',
         intro:
           'Dit zijn onze keuzes voor een zwembeurt, een picknick of een paar kalme uren — niet voor een volledig georganiseerde stranddag.',
-        beaches: [
-          {
-            title: 'Playa Carabeíllo',
-            bestFor: 'Rustig zwemmen, koppels en vroege uren',
-            description:
-              'Deze kleine baai ligt verscholen tussen Burriana en het centrum van Nerja. Groen loopt langs de rotsen naar beneden en geeft de plek ondanks de stadse ligging een intieme, bijna tropische sfeer.',
-            tip:
-              'Wij kiezen Carabeíllo graag voor een rustige zwembeurt met z’n tweeën. Vroeg op de dag voelt de baai verrassend privé; zodra de beperkte ruimte volloopt, verdwijnt die intimiteit snel.',
-            mapHref: beachMaps.carabeillo
-          },
-          {
-            title: 'El Playazo',
-            bestFor: 'Picknicken, lange wandelingen en veel ruimte',
-            description:
-              'Het langste en ruimste strand van Nerja oogt rustieker dan de centrale baaien. Door de lengte is er eerder nog wat ademruimte als de kleinere stranden al vol aanvoelen.',
-            tip:
-              'Dit is ons favoriete picknickstrand. Neem lokale kaas en olijven mee, loop een stukje voorbij de belangrijkste toegangen en zoek het deel waar het strand minder georganiseerd voelt.',
-            mapHref: beachMaps.playazo
-          }
-        ]
+        beachIds: ['nerja.beaches.carabeillo', 'nerja.beaches.el-playazo']
       },
       {
         id: 'nature',
         title: 'Natuur, snorkelen & kajakken',
         intro:
           'Ten oosten van Nerja is de beschermde kust van Maro–Cerro Gordo minder ontwikkeld en sterker afhankelijk van de zee. Kom voor kliffen, open water en landschap, niet voor gegarandeerd gemak.',
-        beaches: [
-          {
-            title: 'Playa de Maro',
-            bestFor: 'Snorkelen, kajakken en indrukwekkende kliffen',
-            description:
-              'Direct achter dit kiezelstrand rijzen de kliffen op; het water kan merkbaar helderder zijn dan in de stad. Maro is een logisch vertrekpunt voor snorkelen en kajaktochten langs de kust.',
-            tip:
-              'Bij een kalme zee is een kajak de mooiste keuze. Peddel voor de kliffen en baaien, niet voor een beloofde waterval: de watervallen hangen af van recente regen en stromen lang niet altijd.',
-            mapHref: beachMaps.maro
-          },
-          {
-            title: 'Cantarriján',
-            bestFor: 'Beschermde natuur, ontspannen zwemmen en verse vis',
-            description:
-              'Midden in het natuurgebied combineert Cantarriján een wilde omgeving met een ontspannen sfeer waar badkleding optioneel is en chiringuitos verse vis serveren.',
-            tip:
-              'Maak tijd voor de lunch in plaats van hier alleen kort te stoppen. In de zomer kan autotoegang worden gereguleerd; controleer daarom voor vertrek de actuele regeling.',
-            mapHref: beachMaps.cantarrijan
-          }
-        ]
+        beachIds: ['nerja.beaches.maro-beach', 'nerja.beaches.cantarrijan']
       },
       {
         id: 'nerja',
         title: 'Nerja-klassiekers & gemakkelijke stranddagen',
         intro:
           'Kies deze stranden als stad, voorzieningen en zee in één eenvoudige dag moeten passen. Ze zijn minder afgelegen, maar gemakkelijk te combineren met lunch, een wandeling of het oude centrum.',
-        beaches: [
-          {
-            title: 'Calahonda',
-            bestFor: 'Een ochtendduik, de oude stad en een korte stop',
-            description:
-              'Het bekendste kleine strand van Nerja ligt direct onder het Balcón de Europa, omringd door oude vissershuisjes en het historische centrum erboven.',
-            tip:
-              'Ga vóór 10.00 uur. Het ochtendlicht op de witte huisjes en het kalmere water zijn bijzonder, voordat zowel het Balcón als de baai drukker worden.',
-            mapHref: beachMaps.calahonda
-          },
-          {
-            title: 'Playa Burriana',
-            bestFor: 'Een stedelijke stranddag met voorzieningen en lunch dichtbij',
-            description:
-              'De officiële bezoekersinformatie beschrijft Burriana als een breed stadsstrand met boulevard, bus- en parkeertoegang en vermelde strand- en horecavoorzieningen.',
-            tip:
-              'AYO ligt aan Paseo Burriana 15 en is een optie voor overdag direct aan het strand. Controleer de actuele werking voordat jullie de dag eromheen plannen.',
-            mapHref: beachMaps.burriana
-          }
-        ]
+        beachIds: ['nerja.beaches.calahonda', 'nerja.beaches.burriana-beach']
       }
     ],
     conditions: {
@@ -1230,78 +983,21 @@ export const frigilianaBeachesContent: Record<
         title: 'Lugna vikar & långsamma eftermiddagar',
         intro:
           'Hit går vi för en simtur, en picknick eller några stilla timmar — inte för en fullt organiserad heldag på stranden.',
-        beaches: [
-          {
-            title: 'Playa Carabeíllo',
-            bestFor: 'Lugna simturer, par och tidiga timmar',
-            description:
-              'Den lilla viken ligger gömd mellan Burriana och centrala Nerja. Grönskan faller ned längs klipporna och skapar en intim, nästan tropisk känsla trots närheten till staden.',
-            tip:
-              'Vi väljer gärna Carabeíllo för en lugn simtur på tu man hand. Tidigt kan viken kännas förvånansvärt privat; när den begränsade ytan fylls försvinner den känslan snabbt.',
-            mapHref: beachMaps.carabeillo
-          },
-          {
-            title: 'El Playazo',
-            bestFor: 'Picknick, långa promenader och gott om plats',
-            description:
-              'Nerjas längsta och rymligaste strand har en rustikare känsla än vikarna i centrum. Storleken gör det lättare att hitta luft när de mindre stränderna redan känns fulla.',
-            tip:
-              'Det här är vår favorit för picknick. Ta med lokal ost och oliver, gå en bit bort från huvudingångarna och slå er ned där stranden känns mindre organiserad.',
-            mapHref: beachMaps.playazo
-          }
-        ]
+        beachIds: ['nerja.beaches.carabeillo', 'nerja.beaches.el-playazo']
       },
       {
         id: 'nature',
         title: 'Natur, snorkling & kajakdagar',
         intro:
           'Öster om Nerja är den skyddade Maro–Cerro Gordo-kusten mindre exploaterad och mer beroende av havet. Kom för klipporna, det öppna vattnet och landskapet, inte för garanterad bekvämlighet.',
-        beaches: [
-          {
-            title: 'Playa de Maro',
-            bestFor: 'Snorkling, kajak och dramatisk kust',
-            description:
-              'Klipporna reser sig direkt bakom klapperstensstranden och vattnet kan vara märkbart klarare än inne i staden. Maro är en naturlig startpunkt för snorkling och kajakturer längs kusten.',
-            tip:
-              'När havet är lugnt är en kajak det mest minnesvärda valet. Paddla för vikarna och klipporna, inte för ett utlovat vattenfall: fallen beror på regn och rinner inte alltid.',
-            mapHref: beachMaps.maro
-          },
-          {
-            title: 'Cantarriján',
-            bestFor: 'Skyddad natur, avslappnade bad och färsk fisk',
-            description:
-              'Mitt i naturområdet kombinerar Cantarriján vild omgivning med en avslappnad atmosfär där badkläder är valfria och strandrestauranger serverar färsk fisk.',
-            tip:
-              'Avsätt tid för lunch på en chiringuito i stället för att bara göra ett kort stopp. Sommartid kan biltrafiken regleras, så kontrollera aktuell information innan ni åker.',
-            mapHref: beachMaps.cantarrijan
-          }
-        ]
+        beachIds: ['nerja.beaches.maro-beach', 'nerja.beaches.cantarrijan']
       },
       {
         id: 'nerja',
         title: 'Nerja-klassiker & enkla heldagar',
         intro:
           'Välj dessa stränder när stad, service och hav ska rymmas i en enkel dag. De är mindre avskilda men lätta att kombinera med lunch, promenad eller den gamla stadskärnan.',
-        beaches: [
-          {
-            title: 'Calahonda',
-            bestFor: 'Morgondopp, gamla stan och ett kort strandstopp',
-            description:
-              'Nerjas mest välkända lilla vik ligger direkt nedanför Balcón de Europa, inramad av gamla fiskarhus och den historiska stadskärnan ovanför.',
-            tip:
-              'Kom före klockan 10. Morgonljuset över de vita husen och det lugnare vattnet är speciellt, innan både Balcón och viken blir livligare.',
-            mapHref: beachMaps.calahonda
-          },
-          {
-            title: 'Playa Burriana',
-            bestFor: 'En stadsstranddag med service och lunch nära',
-            description:
-              'Den officiella besöksinformationen beskriver Burriana som en bred stadsstrand med strandpromenad, buss- och parkeringsmöjligheter samt angiven strand- och restaurangservice.',
-            tip:
-              'AYO ligger på Paseo Burriana 15 och är ett alternativ dagtid direkt vid stranden. Kontrollera aktuell verksamhet innan ni planerar dagen kring restaurangen.',
-            mapHref: beachMaps.burriana
-          }
-        ]
+        beachIds: ['nerja.beaches.calahonda', 'nerja.beaches.burriana-beach']
       }
     ],
     conditions: {
