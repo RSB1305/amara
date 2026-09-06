@@ -2,7 +2,7 @@ import type { AmaraLanguage } from '../types/seo';
 import { frigilianaBeachesContent } from './frigilianaBeachesContent';
 import { frigilianaDayTripsContent } from './frigilianaDayTripsContent';
 import { frigilianaRestaurantsContent } from './frigilianaRestaurantsContent';
-import { publicRestaurantCard } from '../lib/placeProjection';
+import { publicBeachCard, publicRestaurantCard } from '../lib/placeProjection';
 
 /**
  * Read-only projections of facts that are genuinely shared across destination
@@ -14,7 +14,10 @@ export function getNerjaCoastGuideFacts(lang: AmaraLanguage) {
 
   return {
     cardLabels: copy.beachCardLabels,
-    sections: copy.beachSections,
+    sections: copy.beachSections.map((section) => ({
+      ...section,
+      beaches: section.beachIds.map((id) => publicBeachCard(id, lang))
+    })),
     conditions: copy.conditions,
     practical: copy.practical
   };

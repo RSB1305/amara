@@ -1,6 +1,7 @@
 import type { PlaceCopyMap } from '../../lib/placeCopy';
 import { frigilianaRestaurantPlaceCopy } from './frigiliana-restaurants';
 import { nerjaRestaurantPlaceCopy } from './nerja-restaurants';
+import { nerjaBeachPlaceCopy } from './nerja-beaches';
 
 /**
  * Every place written once, both projections side by side (DR-GUEST-006).
@@ -8,5 +9,6 @@ import { nerjaRestaurantPlaceCopy } from './nerja-restaurants';
  */
 export const placeCopyById: PlaceCopyMap = {
   ...frigilianaRestaurantPlaceCopy,
-  ...nerjaRestaurantPlaceCopy
+  ...nerjaRestaurantPlaceCopy,
+  ...nerjaBeachPlaceCopy
 };

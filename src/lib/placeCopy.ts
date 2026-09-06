@@ -17,11 +17,13 @@ export interface PlacePublicCopy {
   description: LocalizedText;
   /** The public callout, labelled "Good to know". */
   goodToKnow: LocalizedText;
-  /** The reservation or visit hint, labelled "Before you go". */
-  beforeYouGo: LocalizedText;
+  /** The reservation or visit hint, labelled "Before you go"; restaurants carry it, beaches do not. */
+  beforeYouGo?: LocalizedText;
 }
 
 export interface PlaceGuideCopy {
+  /** Localized card title when the record name is not what guests read, e.g. "Burriana Strand"; defaults to the record name. */
+  title?: LocalizedText;
   /** Row summary under the title, e.g. "Frigiliana · terrace view · approx. 220 m". */
   subtitle?: LocalizedText;
   /** Paragraphs of the guide card; may carry trusted inline HTML. */

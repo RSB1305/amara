@@ -40,6 +40,7 @@ export function publicRestaurantCard(id: string, lang: AmaraLanguage): PublicRes
   if (!copy.public) throw new Error(`[AMARA places] ${id} has no public copy`);
   const mapHref = mapsUrlFor(record);
   if (!mapHref) throw new Error(`[AMARA places] ${id} has no map link`);
+  if (!copy.public.beforeYouGo) throw new Error(`[AMARA places] ${id} needs a "before you go" line for the restaurant card`);
   return {
     title: copy.public.title[lang],
     bestFor: copy.public.bestFor[lang],
@@ -48,6 +49,32 @@ export function publicRestaurantCard(id: string, lang: AmaraLanguage): PublicRes
     goodToKnow: copy.public.beforeYouGo[lang],
     mapHref,
     websiteHref: record.place.website ?? mapHref
+  };
+}
+
+export interface PublicBeachCard {
+  title: string;
+  bestFor: string;
+  description: string;
+  /** Rendered under the "Our take" label of the beach card. */
+  tip: string;
+  mapHref: string;
+}
+
+export function publicBeachCard(id: string, lang: AmaraLanguage): PublicBeachCard {
+  const { record, copy } = resolve(id);
+  if (record.scope === 'amara-experience' || record.scope === 'internal') {
+    throw new Error(`[AMARA places] ${id} is ${record.scope} and may not appear on a public page (DR-GUEST-006)`);
+  }
+  if (!copy.public) throw new Error(`[AMARA places] ${id} has no public copy`);
+  const mapHref = mapsUrlFor(record);
+  if (!mapHref) throw new Error(`[AMARA places] ${id} has no map link`);
+  return {
+    title: copy.public.title[lang],
+    bestFor: copy.public.bestFor[lang],
+    description: copy.public.description[lang],
+    tip: copy.public.goodToKnow[lang],
+    mapHref
   };
 }
 
@@ -93,7 +120,7 @@ export function guidePlaceItem(id: string, icon: GuestGuideIconName): GuestGuide
   return {
     icon,
     recommendationId: id,
-    title: localizedName(record.place.name),
+    title: copy.guide.title ?? localizedName(record.place.name),
     ...(copy.guide.subtitle ? { subtitle: copy.guide.subtitle } : {}),
     body
   };

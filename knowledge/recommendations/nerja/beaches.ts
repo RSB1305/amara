@@ -106,7 +106,7 @@ export const nerjaBeachRecommendations = defineKnowledgeRecommendations([
     id: 'nerja.beaches.cantarrijan',
     destination: 'nerja',
     topic: 'beaches',
-    place: { name: 'Cantarriján', kind: 'beach', address: 'Almuñécar (Granada); information and parking point at N-340 km 304', mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Playa+Cantarrijan' },
+    place: { name: 'Cantarriján', kind: 'beach', address: 'N-340 km 304, Almuñécar (Granada)', mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Playa+Cantarrijan' },
     summary: 'A beautiful beach in a protected reserve — relaxed atmosphere and a great option if you want a change from Nerja. There is a clothing-optional area, and it is also known for simple, good seafood right by the beach. The cove already lies in Granada province (Almuñécar). Normally from 15 June to 10 September cars are not allowed down: you park at the information point at kilometre 304 of the N-340 and continue by shuttle; in 2026 it ran from 15 June, 10:00–21:00. Check the current notice before you go.',
     access: [{ from: 'casa-amara', driveMinutes: 35, note: '35–40 min by car' }],
     operating: { note: 'Normally 15 June–10 September no car access: park at the N-340 km 304 information point and continue by shuttle; 2026 window 10:00–21:00 from 15 June', observedAt: '2026-08-28' },

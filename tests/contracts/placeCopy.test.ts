@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { allRecommendations, getRecommendation } from '../../knowledge/recommendations';
 import { placeCopyById } from '../../src/content/places';
+import { frigilianaBeachesContent } from '../../src/content/frigilianaBeachesContent';
 import { frigilianaRestaurantsContent } from '../../src/content/frigilianaRestaurantsContent';
 import { guestGuideEntries } from '../../src/content/guestGuideEntries';
 import { hasGuideOnlyCopy } from '../../src/lib/placeCopy';
@@ -13,6 +14,13 @@ const publicRestaurantIds = new Set(
     frigilianaRestaurantsContent[lang].restaurantSections.flatMap((section) => section.restaurantIds)
   )
 );
+const publicBeachIds = new Set(
+  SUPPORTED_LANGUAGES.flatMap((lang) =>
+    frigilianaBeachesContent[lang].beachSections.flatMap((section) => section.beachIds)
+  )
+);
+/** Public surface per topic: which records the public pages reference. */
+const publicIdsByTopic: Record<string, Set<string>> = { restaurants: publicRestaurantIds, beaches: publicBeachIds };
 
 function guideIds(): Set<string> {
   const ids = new Set<string>();
@@ -71,12 +79,22 @@ test('the public restaurants page only shows shared or public records, and only 
   }
 });
 
-test('guide-only restaurant records never appear on the public page and public-only records never in the guide', () => {
+test('the public beaches page only shows shared or public records, and only through the place copy', () => {
+  expect(publicBeachIds.size).toBe(6);
+  for (const id of publicBeachIds) {
+    const record = getRecommendation(id);
+    expect(record?.scope, `${id} on the public page`).toMatch(/^(public|split)$/);
+    expect(placeCopyById[id]?.public, `${id} needs public copy`).toBeTruthy();
+  }
+});
+
+test('guide-only records never appear on the public page and public-only records never in the guide', () => {
   const inGuide = guideIds();
   for (const record of allRecommendations) {
-    if (record.topic !== 'restaurants') continue;
-    if (record.scope === 'amara-experience') expect(publicRestaurantIds.has(record.id), `${record.id} leaked to the public page`).toBe(false);
+    const publicIds = publicIdsByTopic[record.topic];
+    if (!publicIds) continue;
+    if (record.scope === 'amara-experience') expect(publicIds.has(record.id), `${record.id} leaked to the public page`).toBe(false);
     if (record.scope === 'public') expect(inGuide.has(record.id), `${record.id} leaked into the guide`).toBe(false);
-    if (record.scope === 'split') expect(inGuide.has(record.id) && publicRestaurantIds.has(record.id), `${record.id} is split but not on both surfaces`).toBe(true);
+    if (record.scope === 'split') expect(inGuide.has(record.id) && publicIds.has(record.id), `${record.id} is split but not on both surfaces`).toBe(true);
   }
 });
