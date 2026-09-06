@@ -1,4 +1,4 @@
-> 120 Orte auf 15 Seiten; 12 davon haben heute schon einen Satz aus erster Hand.
+> 120 Orte auf 15 Seiten; 16 davon haben heute schon einen Satz aus erster Hand.
 
 # Gästeguide Stufe 3: Arbeitsbogen für Robert
 
@@ -13,28 +13,28 @@ Stand 2026-09-06. Je Ort steht, was der Gast heute im Guide liest, und darunter 
 
 ## Restaurants Frigiliana (5 Orte, Guide-Seite frigiliana-guest-restaurants)
 
-### 1. El Jardín (auch auf der Website)
+### 1. Stablo (nur im Guide)
+Heute im Guide: Frigiliana · direkt nebenan · an der Kirche
+Text heute: Direkt neben AMARA, an der Kirche: kein Weg, ihr tretet einfach vor die Tür.
+Schon erfasst: Weg: directly next door, by the church
+- Beim Reservieren: 
+- Vor Ort: 
+- Plan B: 
+- Notiz mit Datum: 
+
+### 2. El Jardín (auch auf der Website)
 Heute im Guide: Frigiliana · Aussicht von der Terrasse · ca. 220 m
 Text heute: Der absolute Klassiker für ein Abendessen mit traumhaftem Ausblick ganz oben im Dorf – ideal für einen entspannten, romantischen Abend. Wenn es euch möglich ist, kommt etwas früher zum Sonnenuntergang und fragt nach …
-Schon erfasst: Weg: 220 m
+Schon erfasst: Beim Reservieren: Reserviert auf jeden Fall und bittet um einen Tisch auf der großen Terrasse. · Vor Ort: Zu Fuß erreichbar, ein Stück den Berg hinauf; oben wartet die große Terrasse mit Blick ins Grüne. · Notiz (2026-09-06): Unser Lieblingsrestaurant in Frigiliana: Wenn wir im Dorf sind, essen wir hier auf jeden Fall. Der Küchenchef heißt ebenfalls Robert und ist ein Freund von uns. · Weg: 220 m
 - Beim Reservieren: 
 - Vor Ort: 
 - Plan B: 
 - Notiz mit Datum: 
 
-### 2. Gloria Bendita (auch auf der Website)
+### 3. Gloria Bendita (auch auf der Website)
 Heute im Guide: Frigiliana · Modern & lebhaft · ca. 350 m
 Text heute: Spannende, moderne Gerichte und eine etwas lebhaftere Atmosphäre – toll, wenn ihr Lust auf einen geselligen Abend habt. Eignet sich super, um sich ein paar Gerichte zu teilen und gemütlich einen Drink zu genießen, bevor …
-Schon erfasst: Weg: 350 m
-- Beim Reservieren: 
-- Vor Ort: 
-- Plan B: 
-- Notiz mit Datum: 
-
-### 3. La Tapería (auch auf der Website)
-Heute im Guide: Frigiliana · Klein & lokal · ca. 20 m
-Text heute: Ein ruhiges, kleines Restaurant, das sich wie ein echter lokaler Geheimtipp anfühlt – eine wunderbare Wahl, wenn ihr etwas Authentisches und Bodenständiges sucht. Ungefähr 2 Minuten von AMARA entfernt. Schließt um 20:00 …
-Schon erfasst: Weg: 20 m
+Schon erfasst: Beim Reservieren: Eine Reservierung ist hier nicht unbedingt nötig. · Vor Ort: Vom Haus aus ohne Stufen zu erreichen. · Notiz (2026-09-06): Für uns qualitativ eines der besten Restaurants im Dorf. · Weg: 350 m
 - Beim Reservieren: 
 - Vor Ort: 
 - Plan B: 
@@ -43,7 +43,7 @@ Schon erfasst: Weg: 20 m
 ### 4. El Acebuchal (auch auf der Website)
 Heute im Guide: Berge · Besonderes Ausflugsziel · ca. 7 km
 Text heute: Ein unvergessliches Mittagessen tief in den Hügeln – hier ist die Umgebung das eigentliche Erlebnis. Ein wunderschöner Ausflug für den Tag. Nehmt am besten Bargeld mit und verlasst euch nicht auf den Handyempfang: Die …
-Schon erfasst: Weg: 7000 m
+Schon erfasst: Beim Reservieren: Vorher reservieren und dabei gleich die aktuellen Öffnungszeiten erfragen. · Vor Ort: Nur mit dem Auto zu erreichen. · Notiz (2026-09-06): Ein Geheimtipp wie El Tangay: Hierher verirren sich nur wenige Touristen. · Weg: 7000 m
 - Beim Reservieren: 
 - Vor Ort: 
 - Plan B: 
@@ -52,7 +52,7 @@ Schon erfasst: Weg: 7000 m
 ### 5. El Tangay (nur im Guide)
 Heute im Guide: Frigiliana · Wo die Einheimischen hingehen · ca. 500 m
 Text heute: Ein herrlich entspanntes, authentisches Restaurant – hier geht es weniger um die Aussicht, sondern um die Atmosphäre und das echte Dorfleben. Perfekt für ein unkompliziertes Abendessen mitten unter Einheimischen.
-Schon erfasst: Weg: 500 m
+Schon erfasst: Vor Ort: Im neuen Teil von Frigiliana, wo viele Einheimische wohnen. Zu Fuß erreichbar, aber rechnet mit einem kleinen Spaziergang. · Notiz (2026-09-06): Wenn ihr essen wollt wie die Einheimischen, und mit ihnen: hierher. · Weg: 500 m
 - Beim Reservieren: 
 - Vor Ort: 
 - Plan B: 

@@ -203,31 +203,6 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
         nl: "De eetzaal is klein. Reserveer in het weekend en het hoogseizoen liever dan te rekenen op een vrije tafel.",
         sv: "Matsalen är liten. Boka hellre än att hoppas på ett ledigt bord, särskilt under helger och högsäsong."
       }
-    },
-    guide: {
-      subtitle: {
-        en: "Frigiliana · Small & local · approx. 20 m",
-        de: "Frigiliana · Klein & lokal · ca. 20 m",
-        es: "Frigiliana · Pequeño y local · aprox. 20 m",
-        nl: "Frigiliana · Klein & lokaal · ca. 20 m",
-        sv: "Frigiliana · Litet & lokalt · ca 20 m"
-      },
-      why: [
-        {
-          en: "A calm, small place that feels like a local find — a good option when you want something simple and authentic. About 2 minutes from AMARA. Closes at 20:00 (kitchen until 19:30). Reservation via WhatsApp: +34 711 027 581.",
-          de: "Ein ruhiges, kleines Restaurant, das sich wie ein echter lokaler Geheimtipp anfühlt – eine wunderbare Wahl, wenn ihr etwas Authentisches und Bodenständiges sucht. Ungefähr 2 Minuten von AMARA entfernt. Schließt um 20:00 Uhr (warme Küche bis 19:30 Uhr). Reservierung gerne über WhatsApp: +34 711 027 581.",
-          es: "Un lugar pequeño y tranquilo que parece un verdadero hallazgo local: una muy buena opción para algo sencillo y auténtico. A unos 2 minutos de AMARA. Cierra a las 20:00 (cocina hasta las 19:30). Reservas por WhatsApp: +34 711 027 581.",
-          nl: "Een rustige, kleine plek die aanvoelt als een echte lokale vondst — een fijne optie als jullie op zoek zijn naar iets simpels en authentieks. Op ongeveer 2 minuten lopen van AMARA. Sluit om 20:00 uur (keuken tot 19:30). Reserveren kan via WhatsApp: +34 711 027 581.",
-          sv: "Ett litet och rofyllt ställe som känns som ett genuint lokalt fynd – ett jättebra val när ni vill ha något enkelt och autentiskt. Ligger cirka 2 minuter från AMARA. Stänger kl. 20:00 (köket är öppet till 19:30). Bordsreservation via WhatsApp: +34 711 027 581."
-        }
-      ],
-      onTheDay: {
-        en: "Tucked into a small lane, with lanterns in the evening, very cosy and romantic.",
-        de: "Versteckt in einer kleinen Gasse, abends mit Lampions, sehr gemütlich und romantisch.",
-        es: "Escondido en una callejuela, con farolillos por la noche, muy acogedor y romántico.",
-        nl: "Verscholen in een klein steegje, 's avonds met lampionnen, heel gezellig en romantisch.",
-        sv: "Undangömd i en liten gränd, med lyktor på kvällen, mycket mysig och romantisk."
-      }
     }
   },
   'frigiliana.restaurants.el-acebuchal': {
@@ -310,6 +285,26 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
         },
         date: '2026-09-06'
       }
+    }
+  },
+  'frigiliana.restaurants.stablo': {
+    guide: {
+      subtitle: {
+        en: "Frigiliana · right next door · by the church",
+        de: "Frigiliana · direkt nebenan · an der Kirche",
+        es: "Frigiliana · justo al lado · junto a la iglesia",
+        nl: "Frigiliana · direct naast de deur · bij de kerk",
+        sv: "Frigiliana · alldeles intill · vid kyrkan"
+      },
+      why: [
+        {
+          en: "Directly next to AMARA, by the church: no walk at all, you just step out of the door.",
+          de: "Direkt neben AMARA, an der Kirche: kein Weg, ihr tretet einfach vor die Tür.",
+          es: "Justo al lado de AMARA, junto a la iglesia: sin camino, solo hay que salir por la puerta.",
+          nl: "Direct naast AMARA, bij de kerk: geen wandeling, gewoon de deur uit.",
+          sv: "Alldeles intill AMARA, vid kyrkan: ingen promenad, ni kliver bara ut genom dörren."
+        }
+      ]
     }
   },
   'frigiliana.restaurants.el-tangay': {

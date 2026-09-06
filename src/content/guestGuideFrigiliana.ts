@@ -1717,9 +1717,9 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
         sv: 'Frigiliana'
       },
       items: [
+        guidePlaceItem('frigiliana.restaurants.stablo', 'dish'),
         guidePlaceItem('frigiliana.restaurants.el-jardin', 'location-pin'),
         guidePlaceItem('frigiliana.restaurants.gloria-bendita', 'goblet'),
-        guidePlaceItem('frigiliana.restaurants.la-taperia', 'dish'),
         guidePlaceItem('frigiliana.restaurants.el-acebuchal', 'location-pin'),
         guidePlaceItem('frigiliana.restaurants.el-tangay', 'location-pin')
       ]
