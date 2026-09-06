@@ -133,6 +133,99 @@ export interface KnowledgePageManifest {
   coverage: readonly KnowledgeCoverageEntry[];
 }
 
+/**
+ * Recommendation records (Feature Contract 11, DR-EXPERIENCE-003…007).
+ * A record is the approved selection decision and its structured, language-free data.
+ * Guest and public copy are authored separately per surface; the record is maintained once.
+ */
+export type KnowledgeRecommendationStatus =
+  | 'CANDIDATE'
+  | 'HUMAN_REVIEW'
+  | 'FIELD_VALIDATION_REQUIRED'
+  | 'APPROVED'
+  | 'REJECTED'
+  | 'DEFERRED'
+  | 'PAUSED'
+  | 'RETIRED';
+
+/** DR-EXPERIENCE-005: provenance is independent of status and scope. */
+export type KnowledgeRecommendationProvenance = 'researched' | 'amara-first-hand' | 'mixed';
+
+/** DR-EXPERIENCE-005: where an approved recommendation may appear. */
+export type KnowledgeRecommendationScope = 'public' | 'amara-experience' | 'split' | 'internal';
+
+export type KnowledgeRecommendationPlaceKind =
+  | 'restaurant'
+  | 'cafe'
+  | 'bar'
+  | 'beach'
+  | 'hike'
+  | 'sight'
+  | 'shop'
+  | 'service'
+  | 'provider'
+  | 'venue';
+
+/** The AMARA stay a distance is measured from. Casa AMARA holds the four Frigiliana stays. */
+export type KnowledgeStayKey = 'casa-amara' | 'amara-playa' | 'amara-family-surf';
+
+export interface KnowledgeRecommendationPlace {
+  name: string;
+  kind: KnowledgeRecommendationPlaceKind;
+  /** Address or position as published by the operator or the municipality. */
+  address?: string;
+  /** Google place id; when present the guide links the place directly instead of a name search. */
+  placeId?: string;
+  /** Map link used until a place id is verified: a name search or a maps.app short link. */
+  mapsUrl?: string;
+  /** E.164 numbers. */
+  phone?: string;
+  whatsapp?: string;
+  website?: string;
+  reservationUrl?: string;
+}
+
+export interface KnowledgeRecommendationAccess {
+  from: KnowledgeStayKey;
+  distanceMetres?: number;
+  walkMinutes?: number;
+  driveMinutes?: number;
+  note?: string;
+}
+
+export interface KnowledgeRecommendationOperating {
+  /** Published hours, closing days or seasonal access regime as observed on the given date. */
+  note: string;
+  observedAt: string;
+}
+
+export interface KnowledgeRecommendation {
+  /** `<destination>.<topic>.<place-slug>`, destination and topic being route keys. */
+  id: string;
+  destination: string;
+  topic: string;
+  place: KnowledgeRecommendationPlace;
+  /** English editorial reason for inclusion from the host perspective; not guest copy. */
+  summary: string;
+  bestFor?: readonly string[];
+  access?: readonly KnowledgeRecommendationAccess[];
+  operating?: KnowledgeRecommendationOperating;
+  /** Id of the alternative to name when this place is closed, full or unsuitable that day. */
+  planB?: string;
+  provenance: KnowledgeRecommendationProvenance;
+  status: KnowledgeRecommendationStatus;
+  scope: KnowledgeRecommendationScope;
+  /** How the current status came about. */
+  basis: 'published-guide-carryover' | 'operator-review' | 'research-candidate';
+  factIds?: readonly string[];
+  sourceIds?: readonly string[];
+  checkedAt: string;
+  reviewAfter?: string;
+  volatility: KnowledgeVolatility;
+  claimBoundary?: string;
+  notes?: string;
+}
+
 export const defineKnowledgeSources = <const T extends readonly KnowledgeSource[]>(sources: T): T => sources;
 
 export const defineKnowledgeFacts = <const T extends readonly KnowledgeFact[]>(facts: T): T => facts;
@@ -143,3 +236,6 @@ export const defineKnowledgeOpenQuestions = <const T extends readonly KnowledgeO
 export const defineKnowledgeResearchRun = <const T extends KnowledgeResearchRun>(run: T): T => run;
 
 export const defineKnowledgePageManifest = <const T extends KnowledgePageManifest>(manifest: T): T => manifest;
+
+export const defineKnowledgeRecommendations = <const T extends readonly KnowledgeRecommendation[]>(records: T): T =>
+  records;

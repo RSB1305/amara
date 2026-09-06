@@ -298,6 +298,36 @@
     margin-top: 0.375rem;
   }
 
+  .am-ios-facts {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.25rem 0.75rem;
+    margin: 0 0 0.875rem;
+    padding: 0.625rem 0 0;
+    border-top: 1px solid var(--color-outline-variant);
+    font-size: 0.8125rem;
+  }
+
+  .am-ios-facts dt {
+    color: var(--color-muted);
+  }
+
+  .am-ios-facts dd {
+    margin: 0;
+  }
+
+  .am-ios-places {
+    margin: 0 0 0.875rem;
+    padding: 0.625rem 0 0;
+    border-top: 1px solid var(--color-outline-variant);
+    list-style: none;
+  }
+
+  .am-ios-places li {
+    margin: 0 0 0.5rem;
+    line-height: 1.5;
+  }
+
   .am-ios-video {
     position: relative;
     width: 100%;

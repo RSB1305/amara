@@ -19,11 +19,11 @@ const PERSONAL_RECOMMENDATIONS_MENU_TITLE: LocalizedText = {
 };
 
 const PERSONAL_RECOMMENDATIONS_MENU_SUBTITLE: LocalizedText = {
-  en: 'Hidden treasures · Insider tips · Authentic local food · Beyond the crowds',
-  de: 'Versteckte Schätze · Insider-Tipps · Authentische lokale Küche · Abseits der Massen',
-  es: 'Rincones escondidos · Consejos locales · Cocina local auténtica · Lejos de las multitudes',
-  nl: 'Verborgen parels · Insidertips · Authentiek lokaal eten · Buiten de drukte',
-  sv: 'Dolda pärlor · Insidertips · Genuin lokal mat · Bortom trängseln'
+  en: 'Breakfast · Restaurants · Beaches · Day trips',
+  de: 'Frühstück · Restaurants · Strände · Ausflüge',
+  es: 'Desayunos · Restaurantes · Playas · Excursiones',
+  nl: 'Ontbijt · Restaurants · Stranden · Dagtrips',
+  sv: 'Frukost · Restauranger · Stränder · Utflykter'
 };
 
 const STAY_ESSENTIALS_SUBTITLE: LocalizedText = {
@@ -198,6 +198,13 @@ const sharedFrigilianaCenterParkingItem: GuestGuideAccordionItem = {
       es: 'Para el trayecto más cómodo, os recomendamos aparcar cerca de la urbanización "La Fuente". Es un paseo corto, con algunas escaleras típicas del casco antiguo y un tramo suave cuesta arriba.',
       nl: 'Voor de meest comfortabele wandeling raden we aan om te parkeren in de buurt van de urbanisatie "La Fuente". De wandeling is kort, met een paar typische trapjes van de oude stad en een licht hellend stuk.',
       sv: 'För den bekvämaste promenaden rekommenderar vi att ni parkerar i närheten av urbanisationen "La Fuente". Promenaden är kort, med några typiska gamla trappor och en lätt uppförsbacke.'
+    },
+    {
+      en: '<strong>Plan B if the avenue is full:</strong> the paid central car park below <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Plaza+de+las+Tres+Culturas+Frigiliana" target="_blank" rel="noopener">Plaza de las Tres Culturas</a> in the lower village. In August 2026 it was signed at 0.0417 € per minute with a daily cap of 15 €; tariffs can change, the signs on site decide.',
+      de: '<strong>Plan B, wenn die Avenida voll ist:</strong> das kostenpflichtige zentrale Parkhaus unter der <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Plaza+de+las+Tres+Culturas+Frigiliana" target="_blank" rel="noopener">Plaza de las Tres Culturas</a> im unteren Ort. Im August 2026 war es mit 0,0417 € pro Minute und höchstens 15 € pro Tag ausgewiesen; Tarife können sich ändern, es gilt die Beschilderung vor Ort.',
+      es: '<strong>Plan B si la avenida está llena:</strong> el aparcamiento central de pago bajo la <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Plaza+de+las+Tres+Culturas+Frigiliana" target="_blank" rel="noopener">Plaza de las Tres Culturas</a>, en la zona baja del pueblo. En agosto de 2026 estaba señalizado a 0,0417 € por minuto con un máximo de 15 € al día; las tarifas pueden cambiar y manda la señalización del lugar.',
+      nl: '<strong>Plan B als de avenida vol staat:</strong> de betaalde centrale parkeergarage onder <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Plaza+de+las+Tres+Culturas+Frigiliana" target="_blank" rel="noopener">Plaza de las Tres Culturas</a> in het lagere dorp. In augustus 2026 stond die aangegeven op 0,0417 € per minuut met een dagmaximum van 15 €; tarieven kunnen veranderen, de borden ter plaatse zijn bepalend.',
+      sv: '<strong>Plan B om avenyn är full:</strong> den avgiftsbelagda centrala parkeringen under <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Plaza+de+las+Tres+Culturas+Frigiliana" target="_blank" rel="noopener">Plaza de las Tres Culturas</a> i nedre byn. I augusti 2026 var den skyltad till 0,0417 € per minut med ett dygnstak på 15 €; taxorna kan ändras och skyltningen på plats gäller.'
     }
   ]
 };
@@ -1012,11 +1019,11 @@ const frigilianaEssentials: GuestGuideEntry = {
           title: { en: 'Local Tip', de: 'Unser Tipp', es: 'Nuestro consejo', nl: 'Onze tip', sv: 'Vårt tips' },
           body: [
             {
-              en: '<strong>One truly local thing to try:</strong> if you see <em>miel de caña</em>, try it. It is Frigiliana\'s best-known local specialty — a rich cane syrup pressed from whole sugar cane, not bee honey and not molasses — and it is lovely with toast, yogurt, fresh cheese, or the classic <em>berenjenas fritas con miel</em>.',
-              de: '<strong>Eine wirklich lokale Spezialität:</strong> Wenn ihr irgendwo <em>miel de caña</em> seht, probiert es. Das ist die bekannteste Spezialität Frigilianas — ein kräftiger Zuckerrohrsirup aus eingedicktem Rohrsaft, kein Bienenhonig und keine Melasse — und passt sehr gut zu Toast, Joghurt, frischem Käse oder klassisch zu <em>berenjenas fritas con miel</em>.',
-              es: '<strong>Una especialidad realmente local:</strong> si veis <em>miel de caña</em>, probadla. Es una de las especialidades más conocidas de Frigiliana: un jarabe intenso de caña de azúcar elaborado concentrando el jugo entero, no es miel de abeja ni melaza, y combina muy bien con pan tostado, yogur, queso fresco o con las clásicas <em>berenjenas fritas con miel</em>.',
-              nl: '<strong>Eén echt lokale specialiteit:</strong> zie je ergens <em>miel de caña</em>, probeer het dan zeker. Het is een van de bekendste specialiteiten van Frigiliana — een rijke suikerrietsiroop van ingedikt rietsap, geen bijenhoning en geen melasse — en lekker op toast, bij yoghurt, verse kaas of klassiek bij <em>berenjenas fritas con miel</em>.',
-              sv: '<strong>En verkligt lokal specialitet:</strong> om ni ser <em>miel de caña</em>, prova det gärna. Det är en av Frigilianas mest kända specialiteter — en fyllig sockerrörssirap av indunstad rörsaft, varken bihonung eller melass — och passar fint till rostat bröd, yoghurt, färsk ost eller klassiskt till <em>berenjenas fritas con miel</em>.'
+              en: '<strong>One truly local thing to try:</strong> if you see <em>miel de caña</em>, try it. It is Frigiliana\'s best-known local specialty — a rich cane syrup pressed from whole sugar cane, not bee honey and not molasses — and it is lovely with toast, yogurt, fresh cheese, or the classic <em>berenjenas fritas con miel</em>. Tienda Bodega El Lagar at Calle Real 1-A lists miel de caña and Moscatel-based vino del terreno, according to the municipal directory.',
+              de: '<strong>Eine wirklich lokale Spezialität:</strong> Wenn ihr irgendwo <em>miel de caña</em> seht, probiert es. Das ist die bekannteste Spezialität Frigilianas — ein kräftiger Zuckerrohrsirup aus eingedicktem Rohrsaft, kein Bienenhonig und keine Melasse — und passt sehr gut zu Toast, Joghurt, frischem Käse oder klassisch zu <em>berenjenas fritas con miel</em>. Die Tienda Bodega El Lagar an der Calle Real 1-A führt laut Ortsverzeichnis miel de caña und Moscatel-basierten vino del terreno.',
+              es: '<strong>Una especialidad realmente local:</strong> si veis <em>miel de caña</em>, probadla. Es una de las especialidades más conocidas de Frigiliana: un jarabe intenso de caña de azúcar elaborado concentrando el jugo entero, no es miel de abeja ni melaza, y combina muy bien con pan tostado, yogur, queso fresco o con las clásicas <em>berenjenas fritas con miel</em>. Según el directorio municipal, la Tienda Bodega El Lagar, en la calle Real 1-A, tiene miel de caña y vino del terreno a base de moscatel.',
+              nl: '<strong>Eén echt lokale specialiteit:</strong> zie je ergens <em>miel de caña</em>, probeer het dan zeker. Het is een van de bekendste specialiteiten van Frigiliana — een rijke suikerrietsiroop van ingedikt rietsap, geen bijenhoning en geen melasse — en lekker op toast, bij yoghurt, verse kaas of klassiek bij <em>berenjenas fritas con miel</em>. Tienda Bodega El Lagar aan Calle Real 1-A voert volgens het gemeentelijke register miel de caña en op moscatel gebaseerde vino del terreno.',
+              sv: '<strong>En verkligt lokal specialitet:</strong> om ni ser <em>miel de caña</em>, prova det gärna. Det är en av Frigilianas mest kända specialiteter — en fyllig sockerrörssirap av indunstad rörsaft, varken bihonung eller melass — och passar fint till rostat bröd, yoghurt, färsk ost eller klassiskt till <em>berenjenas fritas con miel</em>. Tienda Bodega El Lagar på Calle Real 1-A har enligt kommunens register miel de caña och vino del terreno på moscatel.'
             },
             {
               en: '<strong>The easiest way to get down to Nerja:</strong> for beach time, dinner, or errands, the regular Frigiliana–Nerja bus is often easier than dealing with parking. Timetables can change, so it is worth checking the latest one before you go.',
@@ -1043,6 +1050,7 @@ const frigilianaEssentials: GuestGuideEntry = {
         },
         {
           icon: 'cart',
+          recommendationIds: ['frigiliana.essentials.supermarket-silvia', 'frigiliana.essentials.la-plazituela', 'frigiliana.essentials.tienda-silveria', 'frigiliana.essentials.eroski-city', 'nerja.essentials.lidl', 'nerja.essentials.mercadona'],
           title: { en: 'Supermarkets', de: 'Supermärkte', es: 'Supermercados', nl: 'Supermarkten', sv: 'Livsmedelsbutiker' },
           body: [
             {
@@ -1060,11 +1068,11 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: '<strong>Snabbaste alternativet från huset</strong>'
             },
             {
-              en: '• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJNSM8zbEkcg0RRKFBASEvIPc" target="_blank" rel="noopener"><strong>Supermarket Silvia</strong></a> — step outside the house and turn right.',
-              de: '• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJNSM8zbEkcg0RRKFBASEvIPc" target="_blank" rel="noopener"><strong>Supermarkt Silvia</strong></a> — einfach aus dem Haus treten und nach rechts gehen.',
-              es: '• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJNSM8zbEkcg0RRKFBASEvIPc" target="_blank" rel="noopener"><strong>Supermercado Silvia</strong></a> — salid de la casa y girad a la derecha.',
-              nl: '• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJNSM8zbEkcg0RRKFBASEvIPc" target="_blank" rel="noopener"><strong>Supermarkt Silvia</strong></a> — stap het huis uit en ga naar rechts.',
-              sv: '• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJNSM8zbEkcg0RRKFBASEvIPc" target="_blank" rel="noopener"><strong>Supermarket Silvia</strong></a> — gå ut ur huset och sväng höger.'
+              en: '• <strong>Supermarket Silvia</strong> (Calle Real 131) — step outside the house and turn right.',
+              de: '• <strong>Supermarkt Silvia</strong> (Calle Real 131) — einfach aus dem Haus treten und nach rechts gehen.',
+              es: '• <strong>Supermercado Silvia</strong> (Calle Real 131) — salid de la casa y girad a la derecha.',
+              nl: '• <strong>Supermarkt Silvia</strong> (Calle Real 131) — stap het huis uit en ga naar rechts.',
+              sv: '• <strong>Supermarket Silvia</strong> (Calle Real 131) — gå ut ur huset och sväng höger.'
             },
             {
               en: '<strong>Other village options</strong>',
@@ -1074,11 +1082,11 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: '<strong>Fler alternativ i byn</strong>'
             },
             {
-              en: 'If you want a little more choice, there are one or two other small supermarkets in the village as well:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/Vtimyw8gijGHRtsX7" target="_blank" rel="noopener"><strong>La Plazituela “Saboreando la Comarca”</strong></a><br><br>• <a class="am-link" href="https://maps.app.goo.gl/SwRmk8J7nDRTGQzf6" target="_blank" rel="noopener"><strong>Tienda Silveria</strong></a>',
-              de: 'Wenn ihr ein bisschen mehr Auswahl möchtet, gibt es im Dorf außerdem noch ein oder zwei weitere kleine Supermärkte:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/Vtimyw8gijGHRtsX7" target="_blank" rel="noopener"><strong>La Plazituela “Saboreando la Comarca”</strong></a><br><br>• <a class="am-link" href="https://maps.app.goo.gl/SwRmk8J7nDRTGQzf6" target="_blank" rel="noopener"><strong>Tienda Silveria</strong></a>',
-              es: 'Si queréis un poco más de variedad, en el pueblo también hay uno o dos pequeños supermercados más:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/Vtimyw8gijGHRtsX7" target="_blank" rel="noopener"><strong>La Plazituela “Saboreando la Comarca”</strong></a><br><br>• <a class="am-link" href="https://maps.app.goo.gl/SwRmk8J7nDRTGQzf6" target="_blank" rel="noopener"><strong>Tienda Silveria</strong></a>',
-              nl: 'Als jullie iets meer keuze willen, zijn er in het dorp ook nog een of twee andere kleine supermarkten:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/Vtimyw8gijGHRtsX7" target="_blank" rel="noopener"><strong>La Plazituela “Saboreando la Comarca”</strong></a><br><br>• <a class="am-link" href="https://maps.app.goo.gl/SwRmk8J7nDRTGQzf6" target="_blank" rel="noopener"><strong>Tienda Silveria</strong></a>',
-              sv: 'Om ni vill ha lite större urval finns det också ytterligare en eller två små livsmedelsbutiker i byn:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/Vtimyw8gijGHRtsX7" target="_blank" rel="noopener"><strong>La Plazituela “Saboreando la Comarca”</strong></a><br><br>• <a class="am-link" href="https://maps.app.goo.gl/SwRmk8J7nDRTGQzf6" target="_blank" rel="noopener"><strong>Tienda Silveria</strong></a>'
+              en: 'If you want a little more choice, there are one or two other small supermarkets in the village as well:<br><br>• <strong>La Plazituela “Saboreando la Comarca”</strong><br><br>• <strong>Tienda Silveria</strong>',
+              de: 'Wenn ihr ein bisschen mehr Auswahl möchtet, gibt es im Dorf außerdem noch ein oder zwei weitere kleine Supermärkte:<br><br>• <strong>La Plazituela “Saboreando la Comarca”</strong><br><br>• <strong>Tienda Silveria</strong>',
+              es: 'Si queréis un poco más de variedad, en el pueblo también hay uno o dos pequeños supermercados más:<br><br>• <strong>La Plazituela “Saboreando la Comarca”</strong><br><br>• <strong>Tienda Silveria</strong>',
+              nl: 'Als jullie iets meer keuze willen, zijn er in het dorp ook nog een of twee andere kleine supermarkten:<br><br>• <strong>La Plazituela “Saboreando la Comarca”</strong><br><br>• <strong>Tienda Silveria</strong>',
+              sv: 'Om ni vill ha lite större urval finns det också ytterligare en eller två små livsmedelsbutiker i byn:<br><br>• <strong>La Plazituela “Saboreando la Comarca”</strong><br><br>• <strong>Tienda Silveria</strong>'
             },
             {
               en: '<strong>A larger option in Frigiliana</strong>',
@@ -1088,11 +1096,11 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: '<strong>Ett större alternativ i Frigiliana</strong>'
             },
             {
-              en: '<strong>EROSKI/city Frigiliana</strong>, in the newer lower part of the village, has a wider range than the small shops in the historic centre. It is still much smaller than the large supermarket formats in Nerja.',
-              de: '<strong>EROSKI/city Frigiliana</strong> im neueren, unteren Ortsteil bietet mehr Auswahl als die kleinen Geschäfte im historischen Zentrum. Der Markt ist dennoch deutlich kleiner als die großen Supermarktformate in Nerja.',
-              es: '<strong>EROSKI/city Frigiliana</strong>, en la parte nueva y baja del pueblo, ofrece más variedad que las pequeñas tiendas del centro histórico. Sigue siendo bastante más pequeño que los grandes formatos de supermercado de Nerja.',
-              nl: '<strong>EROSKI/city Frigiliana</strong>, in het nieuwere lagere deel van het dorp, heeft meer keuze dan de kleine winkels in het historische centrum. De winkel is nog steeds duidelijk kleiner dan de grote supermarktformules in Nerja.',
-              sv: '<strong>EROSKI/city Frigiliana</strong>, i den nyare nedre delen av byn, har ett bredare utbud än de små butikerna i det historiska centrumet. Den är fortfarande tydligt mindre än de stora mataffärsformaten i Nerja.'
+              en: '<strong>EROSKI/city Frigiliana</strong> (Plaza Doña Amparo Guerrero 10), in the newer lower part of the village, has a wider range than the small shops in the historic centre. It is still much smaller than the large supermarket formats in Nerja.',
+              de: '<strong>EROSKI/city Frigiliana</strong> (Plaza Doña Amparo Guerrero 10) im neueren, unteren Ortsteil bietet mehr Auswahl als die kleinen Geschäfte im historischen Zentrum. Der Markt ist dennoch deutlich kleiner als die großen Supermarktformate in Nerja.',
+              es: '<strong>EROSKI/city Frigiliana</strong> (Plaza Doña Amparo Guerrero 10), en la parte nueva y baja del pueblo, ofrece más variedad que las pequeñas tiendas del centro histórico. Sigue siendo bastante más pequeño que los grandes formatos de supermercado de Nerja.',
+              nl: '<strong>EROSKI/city Frigiliana</strong> (Plaza Doña Amparo Guerrero 10), in het nieuwere lagere deel van het dorp, heeft meer keuze dan de kleine winkels in het historische centrum. De winkel is nog steeds duidelijk kleiner dan de grote supermarktformules in Nerja.',
+              sv: '<strong>EROSKI/city Frigiliana</strong> (Plaza Doña Amparo Guerrero 10), i den nyare nedre delen av byn, har ett bredare utbud än de små butikerna i det historiska centrumet. Den är fortfarande tydligt mindre än de stora mataffärsformaten i Nerja.'
             },
             {
               en: '<strong>Add Nerja when you want more choice</strong>',
@@ -1102,11 +1110,11 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: '<strong>Komplettera med Nerja när ni vill ha större utbud</strong>'
             },
             {
-              en: 'Frigiliana works well for normal daily shopping. For a larger basket or specialist products, you can combine a trip to Nerja or the coast with a bigger shop.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
-              de: 'Für normale tägliche Einkäufe funktioniert Frigiliana gut. Einen größeren Warenkorb oder spezielle Produkte könnt ihr bei Bedarf bequem mit einem Ausflug nach Nerja oder ans Meer verbinden.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
-              es: 'Frigiliana funciona bien para la compra diaria normal. Si necesitáis una compra más grande o productos específicos, podéis combinarla cómodamente con una visita a Nerja o a la costa.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
-              nl: 'Frigiliana werkt goed voor normale dagelijkse boodschappen. Voor een grotere winkelmand of specifieke producten kunnen jullie een bezoek aan Nerja of de kust gemakkelijk met een grotere boodschap combineren.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>',
-              sv: 'Frigiliana fungerar bra för vanliga vardagsinköp. För en större varukorg eller särskilda produkter kan ni enkelt kombinera ett besök i Nerja eller vid kusten med en större handling.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJjSZ_9hAlcg0ReZbcNgz4bh8" target="_blank" rel="noopener"><strong>Mercadona (Nerja)</strong></a>'
+              en: 'Frigiliana works well for normal daily shopping. For a larger basket or specialist products, you can combine a trip to Nerja or the coast with a bigger shop.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Mercadona (Nerja)</strong>',
+              de: 'Für normale tägliche Einkäufe funktioniert Frigiliana gut. Einen größeren Warenkorb oder spezielle Produkte könnt ihr bei Bedarf bequem mit einem Ausflug nach Nerja oder ans Meer verbinden.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Mercadona (Nerja)</strong>',
+              es: 'Frigiliana funciona bien para la compra diaria normal. Si necesitáis una compra más grande o productos específicos, podéis combinarla cómodamente con una visita a Nerja o a la costa.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Mercadona (Nerja)</strong>',
+              nl: 'Frigiliana werkt goed voor normale dagelijkse boodschappen. Voor een grotere winkelmand of specifieke producten kunnen jullie een bezoek aan Nerja of de kust gemakkelijk met een grotere boodschap combineren.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Mercadona (Nerja)</strong>',
+              sv: 'Frigiliana fungerar bra för vanliga vardagsinköp. För en större varukorg eller särskilda produkter kan ni enkelt kombinera ett besök i Nerja eller vid kusten med en större handling.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Mercadona (Nerja)</strong>'
             },
             {
               en: '<em>Please note:</em> shopping is also possible on Sundays, with more choice often available in summer. Hours vary by business and season, so check current details outside the main season and on public holidays.',
@@ -1119,14 +1127,15 @@ const frigilianaEssentials: GuestGuideEntry = {
         },
         {
           icon: 'bread',
+          recommendationIds: ['frigiliana.essentials.panaderia-manolo'],
           title: { en: 'Bakery', de: 'Bäckerei', es: 'Panadería', nl: 'Bakker', sv: 'Bageri' },
           body: [
             {
-              en: 'For fresh bread, we recommend <a class="am-link" href="https://maps.app.goo.gl/hLqVUPJwWETpmaqLA" target="_blank" rel="noopener"><strong>Panadería Manolo</strong></a>. You can get there in about <strong>4 minutes via Calle Real</strong>, and the route is easy because you do <strong>not need to take any stairs</strong>.<br><br>In our view, this is the nicest and simplest bakery option from the house, especially in the morning.',
-              de: 'Für frisches Brot empfehlen wir euch <a class="am-link" href="https://maps.app.goo.gl/hLqVUPJwWETpmaqLA" target="_blank" rel="noopener"><strong>Panadería Manolo</strong></a>. Ihr erreicht sie in etwa <strong>4 Minuten über die Calle Real</strong>, und der Weg ist angenehm, weil ihr <strong>keine Treppen</strong> nehmen müsst.<br><br>Aus unserer Sicht ist das vom Haus aus die schönste und einfachste Bäckerei-Option, besonders am Morgen.',
-              es: 'Para pan fresco, os recomendamos <a class="am-link" href="https://maps.app.goo.gl/hLqVUPJwWETpmaqLA" target="_blank" rel="noopener"><strong>Panadería Manolo</strong></a>. Se llega en unos <strong>4 minutos por Calle Real</strong>, y el camino es cómodo porque <strong>no hay que subir ni bajar escaleras</strong>.<br><br>Desde la casa, nos parece la opción de panadería más agradable y más fácil, sobre todo por la mañana.',
-              nl: 'Voor vers brood raden we <a class="am-link" href="https://maps.app.goo.gl/hLqVUPJwWETpmaqLA" target="_blank" rel="noopener"><strong>Panadería Manolo</strong></a> aan. Jullie lopen er in ongeveer <strong>4 minuten via Calle Real</strong> naartoe, en de route is prettig omdat jullie <strong>geen trappen</strong> hoeven te nemen.<br><br>Vanuit het huis vinden wij dit de fijnste en makkelijkste bakker, vooral in de ochtend.',
-              sv: 'För färskt bröd rekommenderar vi <a class="am-link" href="https://maps.app.goo.gl/hLqVUPJwWETpmaqLA" target="_blank" rel="noopener"><strong>Panadería Manolo</strong></a>. Ni tar er dit på cirka <strong>4 minuter via Calle Real</strong>, och vägen är enkel eftersom ni <strong>inte behöver ta några trappor</strong>.<br><br>Från huset tycker vi att detta är det trevligaste och enklaste bagerialternativet, särskilt på morgonen.'
+              en: 'For fresh bread, we recommend <strong>Panadería Manolo</strong>. You can get there in about <strong>4 minutes via Calle Real</strong>, and the route is easy because you do <strong>not need to take any stairs</strong>.<br><br>In our view, this is the nicest and simplest bakery option from the house, especially in the morning.',
+              de: 'Für frisches Brot empfehlen wir euch <strong>Panadería Manolo</strong>. Ihr erreicht sie in etwa <strong>4 Minuten über die Calle Real</strong>, und der Weg ist angenehm, weil ihr <strong>keine Treppen</strong> nehmen müsst.<br><br>Aus unserer Sicht ist das vom Haus aus die schönste und einfachste Bäckerei-Option, besonders am Morgen.',
+              es: 'Para pan fresco, os recomendamos <strong>Panadería Manolo</strong>. Se llega en unos <strong>4 minutos por Calle Real</strong>, y el camino es cómodo porque <strong>no hay que subir ni bajar escaleras</strong>.<br><br>Desde la casa, nos parece la opción de panadería más agradable y más fácil, sobre todo por la mañana.',
+              nl: 'Voor vers brood raden we <strong>Panadería Manolo</strong> aan. Jullie lopen er in ongeveer <strong>4 minuten via Calle Real</strong> naartoe, en de route is prettig omdat jullie <strong>geen trappen</strong> hoeven te nemen.<br><br>Vanuit het huis vinden wij dit de fijnste en makkelijkste bakker, vooral in de ochtend.',
+              sv: 'För färskt bröd rekommenderar vi <strong>Panadería Manolo</strong>. Ni tar er dit på cirka <strong>4 minuter via Calle Real</strong>, och vägen är enkel eftersom ni <strong>inte behöver ta några trappor</strong>.<br><br>Från huset tycker vi att detta är det trevligaste och enklaste bagerialternativet, särskilt på morgonen.'
             }
           ]
         }
@@ -1143,26 +1152,28 @@ const frigilianaEssentials: GuestGuideEntry = {
       items: [
         {
           icon: 'laundry',
+          recommendationIds: ['frigiliana.essentials.lavanderia-el-acebuchal', 'frigiliana.essentials.moeve-axarquia-laundry'],
           title: { en: 'Laundry', de: 'Wäsche', es: 'Lavandería', nl: 'Wasgoed', sv: 'Tvätt' },
           body: [
             {
-              en: 'If you would like a <strong>drop-off service</strong>, <strong>Lavandería El Acebuchal</strong> is a practical option in Frigiliana and only about <strong>4 minutes from the house</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
-              de: 'Wenn ihr einen <strong>Wäsche-Abgabe-Service</strong> möchtet, ist <strong>Lavandería El Acebuchal</strong> eine praktische Option in Frigiliana und nur etwa <strong>4 Minuten vom Haus entfernt</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
-              es: 'Si queréis un <strong>servicio para dejar la ropa</strong>, <strong>Lavandería El Acebuchal</strong> es una opción práctica en Frigiliana y está a solo unos <strong>4 minutos de la casa</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
-              nl: 'Als jullie een <strong>drop-off-service</strong> willen, is <strong>Lavandería El Acebuchal</strong> een praktische optie in Frigiliana en slechts ongeveer <strong>4 minuten van het huis</strong> verwijderd.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>',
-              sv: 'Om ni vill ha en <strong>drop-off-tjänst</strong> är <strong>Lavandería El Acebuchal</strong> ett praktiskt alternativ i Frigiliana och ligger bara cirka <strong>4 minuter från huset</strong>.<br><br>• <a class="am-link" href="https://maps.app.goo.gl/SGDiDiLSsXyMmUKY7" target="_blank" rel="noopener"><strong>Lavandería El Acebuchal</strong></a>'
+              en: 'If you would like a <strong>drop-off service</strong>, <strong>Lavandería El Acebuchal</strong> is a practical option in Frigiliana and only about <strong>4 minutes from the house</strong>.<br><br>• <strong>Lavandería El Acebuchal</strong>',
+              de: 'Wenn ihr einen <strong>Wäsche-Abgabe-Service</strong> möchtet, ist <strong>Lavandería El Acebuchal</strong> eine praktische Option in Frigiliana und nur etwa <strong>4 Minuten vom Haus entfernt</strong>.<br><br>• <strong>Lavandería El Acebuchal</strong>',
+              es: 'Si queréis un <strong>servicio para dejar la ropa</strong>, <strong>Lavandería El Acebuchal</strong> es una opción práctica en Frigiliana y está a solo unos <strong>4 minutos de la casa</strong>.<br><br>• <strong>Lavandería El Acebuchal</strong>',
+              nl: 'Als jullie een <strong>drop-off-service</strong> willen, is <strong>Lavandería El Acebuchal</strong> een praktische optie in Frigiliana en slechts ongeveer <strong>4 minuten van het huis</strong> verwijderd.<br><br>• <strong>Lavandería El Acebuchal</strong>',
+              sv: 'Om ni vill ha en <strong>drop-off-tjänst</strong> är <strong>Lavandería El Acebuchal</strong> ett praktiskt alternativ i Frigiliana och ligger bara cirka <strong>4 minuter från huset</strong>.<br><br>• <strong>Lavandería El Acebuchal</strong>'
             },
             {
-              en: 'If you prefer <strong>self-service laundry</strong>, the most practical external option is in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Moeve AXARQUIA (formerly Cepsa) · self-service laundry</strong></a>',
-              de: 'Wenn ihr lieber <strong>Self Service</strong> möchtet, ist die praktischste externe Option in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Moeve AXARQUIA (ehemals Cepsa) · SB-Wäscherei</strong></a>',
-              es: 'Si preferís <strong>autoservicio</strong>, la opción externa más práctica está en <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Moeve AXARQUIA (antes Cepsa) · lavandería autoservicio</strong></a>',
-              nl: 'Als jullie liever <strong>self-service</strong> willen, is de meest praktische externe optie in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Moeve AXARQUIA (voorheen Cepsa) · wasserette met zelfbediening</strong></a>',
-              sv: 'Om ni föredrar <strong>självservice</strong> är det mest praktiska externa alternativet i <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://maps.app.goo.gl/MivMQoL7q7xPo2dD8" target="_blank" rel="noopener"><strong>Moeve AXARQUIA (tidigare Cepsa) · självbetjäningstvätt</strong></a>'
+              en: 'If you prefer <strong>self-service laundry</strong>, the most practical external option is in <strong>Nerja</strong>:<br><br>• <strong>Moeve AXARQUIA (formerly Cepsa) · self-service laundry</strong>',
+              de: 'Wenn ihr lieber <strong>Self Service</strong> möchtet, ist die praktischste externe Option in <strong>Nerja</strong>:<br><br>• <strong>Moeve AXARQUIA (ehemals Cepsa) · SB-Wäscherei</strong>',
+              es: 'Si preferís <strong>autoservicio</strong>, la opción externa más práctica está en <strong>Nerja</strong>:<br><br>• <strong>Moeve AXARQUIA (antes Cepsa) · lavandería autoservicio</strong>',
+              nl: 'Als jullie liever <strong>self-service</strong> willen, is de meest praktische externe optie in <strong>Nerja</strong>:<br><br>• <strong>Moeve AXARQUIA (voorheen Cepsa) · wasserette met zelfbediening</strong>',
+              sv: 'Om ni föredrar <strong>självservice</strong> är det mest praktiska externa alternativet i <strong>Nerja</strong>:<br><br>• <strong>Moeve AXARQUIA (tidigare Cepsa) · självbetjäningstvätt</strong>'
             }
           ]
         },
         {
           icon: 'card',
+          recommendationIds: ['frigiliana.essentials.unicaja-atm', 'frigiliana.essentials.caixabank-atm'],
           title: { en: 'ATM', de: 'Geldautomat', es: 'Cajero automático', nl: 'Geldautomaat', sv: 'Bankomat' },
           body: [
             {
@@ -1180,11 +1191,11 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: '<strong>Bankomater i detta område</strong>'
             },
             {
-              en: '• <a class="am-link" href="https://maps.app.goo.gl/AiSbKswr1uxRHu4fA" target="_blank" rel="noopener"><strong>Unicaja ATM</strong></a><br><br>• <a class="am-link" href="https://maps.app.goo.gl/ZSDZ7xfZCku8i4Gb8" target="_blank" rel="noopener"><strong>CaixaBank ATM</strong></a>',
-              de: '• <a class="am-link" href="https://maps.app.goo.gl/AiSbKswr1uxRHu4fA" target="_blank" rel="noopener"><strong>Unicaja Geldautomat</strong></a><br><br>• <a class="am-link" href="https://maps.app.goo.gl/ZSDZ7xfZCku8i4Gb8" target="_blank" rel="noopener"><strong>CaixaBank Geldautomat</strong></a>',
-              es: '• <a class="am-link" href="https://maps.app.goo.gl/AiSbKswr1uxRHu4fA" target="_blank" rel="noopener"><strong>Cajero Unicaja</strong></a><br><br>• <a class="am-link" href="https://maps.app.goo.gl/ZSDZ7xfZCku8i4Gb8" target="_blank" rel="noopener"><strong>Cajero CaixaBank</strong></a>',
-              nl: '• <a class="am-link" href="https://maps.app.goo.gl/AiSbKswr1uxRHu4fA" target="_blank" rel="noopener"><strong>Unicaja geldautomaat</strong></a><br><br>• <a class="am-link" href="https://maps.app.goo.gl/ZSDZ7xfZCku8i4Gb8" target="_blank" rel="noopener"><strong>CaixaBank geldautomaat</strong></a>',
-              sv: '• <a class="am-link" href="https://maps.app.goo.gl/AiSbKswr1uxRHu4fA" target="_blank" rel="noopener"><strong>Unicaja bankomat</strong></a><br><br>• <a class="am-link" href="https://maps.app.goo.gl/ZSDZ7xfZCku8i4Gb8" target="_blank" rel="noopener"><strong>CaixaBank bankomat</strong></a>'
+              en: '• <strong>Unicaja ATM</strong><br><br>• <strong>CaixaBank ATM</strong>',
+              de: '• <strong>Unicaja Geldautomat</strong><br><br>• <strong>CaixaBank Geldautomat</strong>',
+              es: '• <strong>Cajero Unicaja</strong><br><br>• <strong>Cajero CaixaBank</strong>',
+              nl: '• <strong>Unicaja geldautomaat</strong><br><br>• <strong>CaixaBank geldautomaat</strong>',
+              sv: '• <strong>Unicaja bankomat</strong><br><br>• <strong>CaixaBank bankomat</strong>'
             },
             {
               en: '<em>Good to know:</em> this is the most convenient area to combine a few practical things at once if you are already heading down into the village.',
@@ -1197,6 +1208,7 @@ const frigilianaEssentials: GuestGuideEntry = {
         },
         {
           icon: 'info',
+          recommendationIds: ['frigiliana.essentials.oficina-de-turismo'],
           title: {
             en: 'Tourist Office',
             de: 'Touristeninformation',
@@ -1206,11 +1218,11 @@ const frigilianaEssentials: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'If you want a local map, current walking information, or a quick answer before heading out, the tourist office is the best place to ask in Frigiliana.<br><br>It is especially useful if you are planning a hike or want up-to-date local advice rather than relying only on general online information.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Oficina+de+Turismo+Frigiliana" target="_blank" rel="noopener"><strong>Tourist Office Frigiliana</strong></a><br>Cuesta del Apero s/n<br><a class="am-link" href="tel:+34952534261">Call +34 952 534 261</a>',
-              de: 'Wenn ihr einen Ortsplan, aktuelle Hinweise zu Spaziergängen oder Wanderungen oder einfach eine schnelle Auskunft vor Ort möchtet, ist die Touristeninformation in Frigiliana die beste Anlaufstelle.<br><br>Besonders sinnvoll ist sie, wenn ihr eine Wanderung plant oder lieber aktuelle lokale Hinweise haben möchtet, statt euch nur auf allgemeine Online-Infos zu verlassen.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Oficina+de+Turismo+Frigiliana" target="_blank" rel="noopener"><strong>Touristeninformation Frigiliana</strong></a><br>Cuesta del Apero s/n<br><a class="am-link" href="tel:+34952534261">Anrufen: +34 952 534 261</a>',
-              es: 'Si queréis un mapa del pueblo, información actual sobre paseos o rutas, o una respuesta rápida antes de salir, la oficina de turismo es el mejor lugar para preguntar en Frigiliana.<br><br>Es especialmente útil si estáis planeando una caminata o preferís información local actualizada en lugar de depender solo de información general de internet.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Oficina+de+Turismo+Frigiliana" target="_blank" rel="noopener"><strong>Oficina de turismo de Frigiliana</strong></a><br>Cuesta del Apero s/n<br><a class="am-link" href="tel:+34952534261">Llamar: +34 952 534 261</a>',
-              nl: 'Als jullie een plattegrond, actuele informatie over wandelingen of gewoon snel lokaal advies willen voordat jullie op pad gaan, is het VVV-kantoor in Frigiliana de beste plek om even te vragen.<br><br>Vooral handig als jullie een hike plannen of liever actuele lokale informatie hebben dan alleen algemene info van internet.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Oficina+de+Turismo+Frigiliana" target="_blank" rel="noopener"><strong>VVV-kantoor Frigiliana</strong></a><br>Cuesta del Apero s/n<br><a class="am-link" href="tel:+34952534261">Bellen: +34 952 534 261</a>',
-              sv: 'Om ni vill ha en karta, aktuell information om promenader eller vandringar eller bara ett snabbt lokalt svar innan ni går ut, är turistbyrån bästa stället att fråga på i Frigiliana.<br><br>Den är särskilt användbar om ni planerar en vandring eller vill ha uppdaterad lokal information i stället för att bara lita på allmän information på nätet.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Oficina+de+Turismo+Frigiliana" target="_blank" rel="noopener"><strong>Turistbyrå Frigiliana</strong></a><br>Cuesta del Apero s/n<br><a class="am-link" href="tel:+34952534261">Ring: +34 952 534 261</a>'
+              en: 'If you want a local map, current walking information, or a quick answer before heading out, the tourist office is the best place to ask in Frigiliana.<br><br>It is especially useful if you are planning a hike or want up-to-date local advice rather than relying only on general online information.<br><br>• <strong>Tourist Office Frigiliana</strong><br>Cuesta del Apero s/n<br>Call +34 952 534 261',
+              de: 'Wenn ihr einen Ortsplan, aktuelle Hinweise zu Spaziergängen oder Wanderungen oder einfach eine schnelle Auskunft vor Ort möchtet, ist die Touristeninformation in Frigiliana die beste Anlaufstelle.<br><br>Besonders sinnvoll ist sie, wenn ihr eine Wanderung plant oder lieber aktuelle lokale Hinweise haben möchtet, statt euch nur auf allgemeine Online-Infos zu verlassen.<br><br>• <strong>Touristeninformation Frigiliana</strong><br>Cuesta del Apero s/n<br>Anrufen: +34 952 534 261',
+              es: 'Si queréis un mapa del pueblo, información actual sobre paseos o rutas, o una respuesta rápida antes de salir, la oficina de turismo es el mejor lugar para preguntar en Frigiliana.<br><br>Es especialmente útil si estáis planeando una caminata o preferís información local actualizada en lugar de depender solo de información general de internet.<br><br>• <strong>Oficina de turismo de Frigiliana</strong><br>Cuesta del Apero s/n<br>Llamar: +34 952 534 261',
+              nl: 'Als jullie een plattegrond, actuele informatie over wandelingen of gewoon snel lokaal advies willen voordat jullie op pad gaan, is het VVV-kantoor in Frigiliana de beste plek om even te vragen.<br><br>Vooral handig als jullie een hike plannen of liever actuele lokale informatie hebben dan alleen algemene info van internet.<br><br>• <strong>VVV-kantoor Frigiliana</strong><br>Cuesta del Apero s/n<br>Bellen: +34 952 534 261',
+              sv: 'Om ni vill ha en karta, aktuell information om promenader eller vandringar eller bara ett snabbt lokalt svar innan ni går ut, är turistbyrån bästa stället att fråga på i Frigiliana.<br><br>Den är särskilt användbar om ni planerar en vandring eller vill ha uppdaterad lokal information i stället för att bara lita på allmän information på nätet.<br><br>• <strong>Turistbyrå Frigiliana</strong><br>Cuesta del Apero s/n<br>Ring: +34 952 534 261'
             }
           ]
         }
@@ -1227,6 +1239,7 @@ const frigilianaEssentials: GuestGuideEntry = {
       items: [
         {
           icon: 'car',
+          recommendationIds: ['frigiliana.essentials.taxi-2-frigiliana', 'frigiliana.essentials.taxi-3-frigiliana'],
           title: { en: 'Taxi', de: 'Taxi', es: 'Taxi', nl: 'Taxi', sv: 'Taxi' },
           body: [
             {
@@ -1244,11 +1257,11 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: '<strong>Lokala taxikontakter</strong>'
             },
             {
-              en: '• <strong>Taxi 2 Frigiliana</strong> — good option for local rides and airport transfers<br><a class="am-link" href="tel:+34696969469">Call +34 696 969 469</a><br><br>• <strong>Taxi 3 Frigiliana</strong> — useful if you need a larger vehicle or a longer transfer<br><a class="am-link" href="tel:+34616388964">Call +34 616 388 964</a>',
-              de: '• <strong>Taxi 2 Frigiliana</strong> — gute Option für lokale Fahrten und Flughafentransfers<br><a class="am-link" href="tel:+34696969469">Anrufen: +34 696 969 469</a><br><br>• <strong>Taxi 3 Frigiliana</strong> — sinnvoll, wenn ihr ein größeres Fahrzeug oder einen längeren Transfer braucht<br><a class="am-link" href="tel:+34616388964">Anrufen: +34 616 388 964</a>',
-              es: '• <strong>Taxi 2 Frigiliana</strong> — buena opción para trayectos locales y traslados al aeropuerto<br><a class="am-link" href="tel:+34696969469">Llamar: +34 696 969 469</a><br><br>• <strong>Taxi 3 Frigiliana</strong> — útil si necesitáis un vehículo más grande o un traslado más largo<br><a class="am-link" href="tel:+34616388964">Llamar: +34 616 388 964</a>',
-              nl: '• <strong>Taxi 2 Frigiliana</strong> — goede optie voor lokale ritten en luchthaventransfers<br><a class="am-link" href="tel:+34696969469">Bellen: +34 696 969 469</a><br><br>• <strong>Taxi 3 Frigiliana</strong> — handig als jullie een grotere auto of een langere transfer nodig hebben<br><a class="am-link" href="tel:+34616388964">Bellen: +34 616 388 964</a>',
-              sv: '• <strong>Taxi 2 Frigiliana</strong> — bra alternativ för lokala resor och flygplatstransfer<br><a class="am-link" href="tel:+34696969469">Ring: +34 696 969 469</a><br><br>• <strong>Taxi 3 Frigiliana</strong> — bra om ni behöver ett större fordon eller en längre transfer<br><a class="am-link" href="tel:+34616388964">Ring: +34 616 388 964</a>'
+              en: '• <strong>Taxi 2 Frigiliana</strong> — good option for local rides and airport transfers<br>Call +34 696 969 469<br><br>• <strong>Taxi 3 Frigiliana</strong> — useful if you need a larger vehicle or a longer transfer<br>Call +34 616 388 964',
+              de: '• <strong>Taxi 2 Frigiliana</strong> — gute Option für lokale Fahrten und Flughafentransfers<br>Anrufen: +34 696 969 469<br><br>• <strong>Taxi 3 Frigiliana</strong> — sinnvoll, wenn ihr ein größeres Fahrzeug oder einen längeren Transfer braucht<br>Anrufen: +34 616 388 964',
+              es: '• <strong>Taxi 2 Frigiliana</strong> — buena opción para trayectos locales y traslados al aeropuerto<br>Llamar: +34 696 969 469<br><br>• <strong>Taxi 3 Frigiliana</strong> — útil si necesitáis un vehículo más grande o un traslado más largo<br>Llamar: +34 616 388 964',
+              nl: '• <strong>Taxi 2 Frigiliana</strong> — goede optie voor lokale ritten en luchthaventransfers<br>Bellen: +34 696 969 469<br><br>• <strong>Taxi 3 Frigiliana</strong> — handig als jullie een grotere auto of een langere transfer nodig hebben<br>Bellen: +34 616 388 964',
+              sv: '• <strong>Taxi 2 Frigiliana</strong> — bra alternativ för lokala resor och flygplatstransfer<br>Ring: +34 696 969 469<br><br>• <strong>Taxi 3 Frigiliana</strong> — bra om ni behöver ett större fordon eller en längre transfer<br>Ring: +34 616 388 964'
             },
             {
               en: 'For airport runs or larger groups, booking ahead is especially worth it.',
@@ -1261,6 +1274,7 @@ const frigilianaEssentials: GuestGuideEntry = {
         },
         {
           icon: 'car',
+          recommendationIds: ['nerja.essentials.europcar-nerja', 'nerja.essentials.lessaggro-car-hire', 'nerja.essentials.bahia-sexi-rent-a-car'],
           title: { en: 'Rental Car', de: 'Mietwagen', es: 'Coche de alquiler', nl: 'Huurauto', sv: 'Hyrbil' },
           body: [
             {
@@ -1271,18 +1285,18 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: 'Om ni vill ha en hyrbil under vistelsen är den mest praktiska upphämtningsplatsen i närheten oftast <strong>Nerja</strong> snarare än Frigiliana i sig.<br><br>För de flesta gäster rekommenderar vi två enkla alternativ: <strong>hämta bilen lokalt i Nerja</strong> om ni bara behöver den under en del av vistelsen, eller <strong>hyra direkt på Málaga flygplats</strong> om ni vill ha störst utbud.'
             },
             {
-              en: '<strong>Local option in Nerja</strong><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Europcar+Nerja+Edificio+Toboso+II" target="_blank" rel="noopener"><strong>Europcar Nerja</strong></a> — practical if you want a proper town pickup point in Nerja.<br><a class="am-link" href="https://www.europcar.com/en-us/places/car-rental-spain/nerja/nerja" target="_blank" rel="noopener">Website</a>',
-              de: '<strong>Lokale Option in Nerja</strong><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Europcar+Nerja+Edificio+Toboso+II" target="_blank" rel="noopener"><strong>Europcar Nerja</strong></a> — praktisch, wenn ihr einen klassischen Abholpunkt direkt in Nerja möchtet.<br><a class="am-link" href="https://www.europcar.com/en-us/places/car-rental-spain/nerja/nerja" target="_blank" rel="noopener">Website</a>',
-              es: '<strong>Opción local en Nerja</strong><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Europcar+Nerja+Edificio+Toboso+II" target="_blank" rel="noopener"><strong>Europcar Nerja</strong></a> — práctico si queréis un punto de recogida claro dentro de Nerja.<br><a class="am-link" href="https://www.europcar.com/en-us/places/car-rental-spain/nerja/nerja" target="_blank" rel="noopener">Página web</a>',
-              nl: '<strong>Lokale optie in Nerja</strong><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Europcar+Nerja+Edificio+Toboso+II" target="_blank" rel="noopener"><strong>Europcar Nerja</strong></a> — praktisch als jullie een echt afhaalpunt in Nerja zelf willen.<br><a class="am-link" href="https://www.europcar.com/en-us/places/car-rental-spain/nerja/nerja" target="_blank" rel="noopener">Website</a>',
-              sv: '<strong>Lokalt alternativ i Nerja</strong><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Europcar+Nerja+Edificio+Toboso+II" target="_blank" rel="noopener"><strong>Europcar Nerja</strong></a> — praktiskt om ni vill ha en tydlig upphämtningsplats i själva Nerja.<br><a class="am-link" href="https://www.europcar.com/en-us/places/car-rental-spain/nerja/nerja" target="_blank" rel="noopener">Webbplats</a>'
+              en: '<strong>Local option in Nerja</strong><br><br>• <strong>Europcar Nerja</strong> — practical if you want a proper town pickup point in Nerja.<br>Website',
+              de: '<strong>Lokale Option in Nerja</strong><br><br>• <strong>Europcar Nerja</strong> — praktisch, wenn ihr einen klassischen Abholpunkt direkt in Nerja möchtet.<br>Website',
+              es: '<strong>Opción local en Nerja</strong><br><br>• <strong>Europcar Nerja</strong> — práctico si queréis un punto de recogida claro dentro de Nerja.<br>Página web',
+              nl: '<strong>Lokale optie in Nerja</strong><br><br>• <strong>Europcar Nerja</strong> — praktisch als jullie een echt afhaalpunt in Nerja zelf willen.<br>Website',
+              sv: '<strong>Lokalt alternativ i Nerja</strong><br><br>• <strong>Europcar Nerja</strong> — praktiskt om ni vill ha en tydlig upphämtningsplats i själva Nerja.<br>Webbplats'
             },
             {
-              en: '<strong>Convenient delivery-style options around Nerja</strong><br><br>If you prefer something more flexible, there are also local providers in the Nerja area that work with <strong>hotel / apartment delivery</strong>:<br><br>• <a class="am-link" href="https://carhirenerja.com/" target="_blank" rel="noopener"><strong>Lessaggro Car Hire Nerja</strong></a><br><br>• <a class="am-link" href="https://bahiasexirentacar.com/rent-a-car-in-nerja/" target="_blank" rel="noopener"><strong>Bahia Sexi Rent a Car</strong></a>',
-              de: '<strong>Praktische Delivery-Optionen rund um Nerja</strong><br><br>Wenn ihr es etwas flexibler möchtet, gibt es in der Nerja-Region auch lokale Anbieter mit <strong>Hotel- / Apartment-Lieferung</strong>:<br><br>• <a class="am-link" href="https://carhirenerja.com/" target="_blank" rel="noopener"><strong>Lessaggro Car Hire Nerja</strong></a><br><br>• <a class="am-link" href="https://bahiasexirentacar.com/rent-a-car-in-nerja/" target="_blank" rel="noopener"><strong>Bahia Sexi Rent a Car</strong></a>',
-              es: '<strong>Opciones prácticas con entrega en la zona de Nerja</strong><br><br>Si preferís algo más flexible, en la zona de Nerja también hay proveedores locales que trabajan con <strong>entrega en hotel o apartamento</strong>:<br><br>• <a class="am-link" href="https://carhirenerja.com/" target="_blank" rel="noopener"><strong>Lessaggro Car Hire Nerja</strong></a><br><br>• <a class="am-link" href="https://bahiasexirentacar.com/rent-a-car-in-nerja/" target="_blank" rel="noopener"><strong>Bahia Sexi Rent a Car</strong></a>',
-              nl: '<strong>Handige delivery-opties rond Nerja</strong><br><br>Als jullie iets flexibelers willen, zijn er in de regio Nerja ook lokale aanbieders met <strong>levering bij hotel of appartement</strong>:<br><br>• <a class="am-link" href="https://carhirenerja.com/" target="_blank" rel="noopener"><strong>Lessaggro Car Hire Nerja</strong></a><br><br>• <a class="am-link" href="https://bahiasexirentacar.com/rent-a-car-in-nerja/" target="_blank" rel="noopener"><strong>Bahia Sexi Rent a Car</strong></a>',
-              sv: '<strong>Praktiska leveransalternativ runt Nerja</strong><br><br>Om ni föredrar något mer flexibelt finns det också lokala aktörer i Nerja-området som erbjuder <strong>leverans till hotell eller lägenhet</strong>:<br><br>• <a class="am-link" href="https://carhirenerja.com/" target="_blank" rel="noopener"><strong>Lessaggro Car Hire Nerja</strong></a><br><br>• <a class="am-link" href="https://bahiasexirentacar.com/rent-a-car-in-nerja/" target="_blank" rel="noopener"><strong>Bahia Sexi Rent a Car</strong></a>'
+              en: '<strong>Convenient delivery-style options around Nerja</strong><br><br>If you prefer something more flexible, there are also local providers in the Nerja area that work with <strong>hotel / apartment delivery</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
+              de: '<strong>Praktische Delivery-Optionen rund um Nerja</strong><br><br>Wenn ihr es etwas flexibler möchtet, gibt es in der Nerja-Region auch lokale Anbieter mit <strong>Hotel- / Apartment-Lieferung</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
+              es: '<strong>Opciones prácticas con entrega en la zona de Nerja</strong><br><br>Si preferís algo más flexible, en la zona de Nerja también hay proveedores locales que trabajan con <strong>entrega en hotel o apartamento</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
+              nl: '<strong>Handige delivery-opties rond Nerja</strong><br><br>Als jullie iets flexibelers willen, zijn er in de regio Nerja ook lokale aanbieders met <strong>levering bij hotel of appartement</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
+              sv: '<strong>Praktiska leveransalternativ runt Nerja</strong><br><br>Om ni föredrar något mer flexibelt finns det också lokala aktörer i Nerja-området som erbjuder <strong>leverans till hotell eller lägenhet</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>'
             },
             {
               en: '<strong>Best choice for the widest selection</strong><br><br>If you are arriving by plane, <strong>Málaga Airport (AGP)</strong> usually gives you the easiest overall choice because several major rental brands operate there in one place.<br><br><a class="am-link" href="https://www.aena.es/en/malaga-costa-del-sol/airport-services/car-hire.html" target="_blank" rel="noopener">Málaga Airport car hire overview</a>',
@@ -1391,6 +1405,7 @@ const frigilianaEssentials: GuestGuideEntry = {
         },
         {
           icon: 'medical',
+          recommendationIds: ['nerja.essentials.centro-de-salud-nerja'],
           title: {
             en: 'Centro de Salud Nerja',
             de: 'Centro de Salud Nerja',
@@ -1400,11 +1415,11 @@ const frigilianaEssentials: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'For non-emergency public medical care, use <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, about <strong>10–15 minutes by car</strong>.',
-              de: 'Für öffentliche medizinische Hilfe ohne Notfall nutzt ihr das <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, etwa <strong>10–15 Autominuten entfernt</strong>.',
-              es: 'Para atención médica pública sin emergencia, acudid al <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, a unos <strong>10–15 minutos en coche</strong>.',
-              nl: 'Voor openbare medische zorg zonder noodgeval gaan jullie naar <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, op ongeveer <strong>10–15 minuten rijden</strong>.',
-              sv: 'För offentlig vård utan nödläge använder ni <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, cirka <strong>10–15 minuter med bil</strong>.'
+              en: 'For non-emergency public medical care, use <strong>Centro de Salud Nerja</strong>, about <strong>10–15 minutes by car</strong>.',
+              de: 'Für öffentliche medizinische Hilfe ohne Notfall nutzt ihr das <strong>Centro de Salud Nerja</strong>, etwa <strong>10–15 Autominuten entfernt</strong>.',
+              es: 'Para atención médica pública sin emergencia, acudid al <strong>Centro de Salud Nerja</strong>, a unos <strong>10–15 minutos en coche</strong>.',
+              nl: 'Voor openbare medische zorg zonder noodgeval gaan jullie naar <strong>Centro de Salud Nerja</strong>, op ongeveer <strong>10–15 minuten rijden</strong>.',
+              sv: 'För offentlig vård utan nödläge använder ni <strong>Centro de Salud Nerja</strong>, cirka <strong>10–15 minuter med bil</strong>.'
             },
             {
               en: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
@@ -1414,11 +1429,11 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>'
             },
             {
-              en: '<strong>Centre:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / appointments:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>The current SAS directory lists the centre as open throughout Monday to Friday. Services and hours can change, so call before travelling outside normal daytime hours or at a weekend.',
-              de: '<strong>Zentrum:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / Termine:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>Das aktuelle SAS-Verzeichnis führt das Zentrum montags bis freitags durchgehend geöffnet. Servicezeiten können sich ändern; ruft deshalb vor einem Weg außerhalb der üblichen Tageszeiten oder am Wochenende an.',
-              es: '<strong>Centro:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / citas:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>El directorio actual del SAS muestra el centro abierto de forma continuada de lunes a viernes. Los servicios y horarios pueden cambiar; llamad antes de desplazaros fuera del horario diurno habitual o durante el fin de semana.',
-              nl: '<strong>Centrum:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / afspraken:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>In de actuele SAS-gids staat het centrum van maandag tot en met vrijdag doorlopend als geopend vermeld. Diensten en openingstijden kunnen veranderen; bel daarom vóór een bezoek buiten normale uren overdag of in het weekend.',
-              sv: '<strong>Vårdcentralen:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / tidsbokning:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>I SAS aktuella register anges vårdcentralen som öppen hela måndag till fredag. Tjänster och öppettider kan ändras; ring därför före ett besök utanför normala dagtider eller på helgen.'
+              en: '<strong>Centre:</strong> +34 951 28 96 62<br><strong>Salud Responde / appointments:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>The current SAS directory lists the centre as open throughout Monday to Friday. Services and hours can change, so call before travelling outside normal daytime hours or at a weekend.',
+              de: '<strong>Zentrum:</strong> +34 951 28 96 62<br><strong>Salud Responde / Termine:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>Das aktuelle SAS-Verzeichnis führt das Zentrum montags bis freitags durchgehend geöffnet. Servicezeiten können sich ändern; ruft deshalb vor einem Weg außerhalb der üblichen Tageszeiten oder am Wochenende an.',
+              es: '<strong>Centro:</strong> +34 951 28 96 62<br><strong>Salud Responde / citas:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>El directorio actual del SAS muestra el centro abierto de forma continuada de lunes a viernes. Los servicios y horarios pueden cambiar; llamad antes de desplazaros fuera del horario diurno habitual o durante el fin de semana.',
+              nl: '<strong>Centrum:</strong> +34 951 28 96 62<br><strong>Salud Responde / afspraken:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>In de actuele SAS-gids staat het centrum van maandag tot en met vrijdag doorlopend als geopend vermeld. Diensten en openingstijden kunnen veranderen; bel daarom vóór een bezoek buiten normale uren overdag of in het weekend.',
+              sv: '<strong>Vårdcentralen:</strong> +34 951 28 96 62<br><strong>Salud Responde / tidsbokning:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>I SAS aktuella register anges vårdcentralen som öppen hela måndag till fredag. Tjänster och öppettider kan ändras; ring därför före ett besök utanför normala dagtider eller på helgen.'
             }
           ]
         },
@@ -1449,31 +1464,11 @@ const RECOMMENDATIONS_KICKER: LocalizedText = {
 };
 
 /** Sub-pages linked from AMARA Experience that haven't been supplied yet — kept live with placeholder copy so links never 404. */
-function createPlaceholderGuidePage(slug: string, title: LocalizedText): GuestGuideEntry {
-  return {
-    type: 'detail',
-    slug,
-    backSlug: 'frigiliana-guest-recommendations',
-    supportHref: FRIGILIANA_SUPPORT_EMAIL,
-    supportLabel: NEED_HELP,
-    seoTitle: {
-      en: `${title.en} | AMARA`,
-      de: `${title.de} | AMARA`,
-      es: `${title.es} | AMARA`,
-      nl: `${title.nl} | AMARA`,
-      sv: `${title.sv} | AMARA`
-    },
-    seoDescription: placeholderBody,
-    kicker: RECOMMENDATIONS_KICKER,
-    title,
-    categories: [{ heading: placeholderCategory, items: [{ icon: 'compass', title: placeholderCategory, body: [placeholderBody] }] }]
-  };
-}
 
 const nerjaGuestBreakfast: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-breakfast',
-  backSlug: 'frigiliana-guest-recommendations',
+  backSlug: 'nerja-guest-recommendations',
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
@@ -1523,6 +1518,7 @@ const nerjaGuestBreakfast: GuestGuideEntry = {
       items: [
         {
           icon: 'bread',
+          recommendationId: 'nerja.breakfast.panaderia-salvador',
           title: { en: 'Panaderia Salvador', de: 'Panaderia Salvador', es: 'Panaderia Salvador', nl: 'Panaderia Salvador', sv: 'Panaderia Salvador' },
           subtitle: {
             en: 'Nerja · Quick & easy · approx. 400 m',
@@ -1533,16 +1529,17 @@ const nerjaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'This is the easiest pick when you want something simple, quick and good value. Perfect for taking fresh pastries or bread back home and having breakfast on your own terrace after a short morning walk.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Panaderia+Salvador+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Das ist die einfachste Wahl, wenn ihr etwas Schnelles, Unkompliziertes und Preiswertes sucht. Perfekt, um frisches Gebäck oder Brot mitzunehmen und nach einem kurzen Morgenspaziergang ganz entspannt auf der eigenen Terrasse zu frühstücken.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Panaderia+Salvador+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Es la opción más fácil si queréis algo rápido, sencillo y con buena relación calidad-precio. Perfecto para llevaros pan o bollería fresca a casa y desayunar tranquilamente en vuestra terraza después de un pequeño paseo matutino.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Panaderia+Salvador+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Dit is de makkelijkste keuze als jullie iets snel, simpel en voordelig willen. Perfect om vers brood of gebak mee naar huis te nemen en daarna rustig op je eigen terras te ontbijten.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Panaderia+Salvador+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Det här är det enklaste valet när ni vill ha något snabbt, okomplicerat och prisvärt. Perfekt för att köpa med färskt bröd eller bakverk hem och sedan äta frukost lugnt på den egna terrassen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Panaderia+Salvador+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'This is the easiest pick when you want something simple, quick and good value. Perfect for taking fresh pastries or bread back home and having breakfast on your own terrace after a short morning walk.',
+              de: 'Das ist die einfachste Wahl, wenn ihr etwas Schnelles, Unkompliziertes und Preiswertes sucht. Perfekt, um frisches Gebäck oder Brot mitzunehmen und nach einem kurzen Morgenspaziergang ganz entspannt auf der eigenen Terrasse zu frühstücken.',
+              es: 'Es la opción más fácil si queréis algo rápido, sencillo y con buena relación calidad-precio. Perfecto para llevaros pan o bollería fresca a casa y desayunar tranquilamente en vuestra terraza después de un pequeño paseo matutino.',
+              nl: 'Dit is de makkelijkste keuze als jullie iets snel, simpel en voordelig willen. Perfect om vers brood of gebak mee naar huis te nemen en daarna rustig op je eigen terras te ontbijten.',
+              sv: 'Det här är det enklaste valet när ni vill ha något snabbt, okomplicerat och prisvärt. Perfekt för att köpa med färskt bröd eller bakverk hem och sedan äta frukost lugnt på den egna terrassen.'
             }
           ]
         },
         {
           icon: 'tumbler',
+          recommendationId: 'nerja.breakfast.good-stuff-cafe',
           title: { en: 'Good Stuff Café', de: 'Good Stuff Café', es: 'Good Stuff Café', nl: 'Good Stuff Café', sv: 'Good Stuff Café' },
           subtitle: {
             en: 'Nerja · Healthy & specialty · approx. 850 m',
@@ -1553,16 +1550,17 @@ const nerjaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A lovely option when you feel like a more modern breakfast with good coffee, fresh ingredients and a slightly more curated atmosphere. Especially nice if you want something healthier or more international before heading into town for the day.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Good+Stuff+Cafe+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine sehr schöne Wahl, wenn ihr Lust auf ein moderneres Frühstück mit gutem Kaffee, frischen Zutaten und etwas kuratierter Atmosphäre habt. Besonders angenehm, wenn ihr etwas Gesünderes oder Internationaleres möchtet, bevor ihr weiter in den Tag startet.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Good+Stuff+Cafe+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una opción muy bonita si os apetece un desayuno más moderno, con buen café, ingredientes frescos y un ambiente algo más cuidado. Especialmente agradable si buscáis algo más saludable o internacional antes de seguir con el día.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Good+Stuff+Cafe+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een heel fijne keuze als jullie zin hebben in een moderner ontbijt met goede koffie, verse ingrediënten en een wat meer verzorgde sfeer. Vooral prettig als jullie iets gezonders of internationalers willen voordat jullie dag in Nerja begint.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Good+Stuff+Cafe+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett väldigt fint val när ni känner för en modernare frukost med gott kaffe, fräscha råvaror och en lite mer genomtänkt atmosfär. Särskilt bra om ni vill ha något hälsosammare eller mer internationellt innan dagen fortsätter.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Good+Stuff+Cafe+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A lovely option when you feel like a more modern breakfast with good coffee, fresh ingredients and a slightly more curated atmosphere. Especially nice if you want something healthier or more international before heading into town for the day.',
+              de: 'Eine sehr schöne Wahl, wenn ihr Lust auf ein moderneres Frühstück mit gutem Kaffee, frischen Zutaten und etwas kuratierter Atmosphäre habt. Besonders angenehm, wenn ihr etwas Gesünderes oder Internationaleres möchtet, bevor ihr weiter in den Tag startet.',
+              es: 'Una opción muy bonita si os apetece un desayuno más moderno, con buen café, ingredientes frescos y un ambiente algo más cuidado. Especialmente agradable si buscáis algo más saludable o internacional antes de seguir con el día.',
+              nl: 'Een heel fijne keuze als jullie zin hebben in een moderner ontbijt met goede koffie, verse ingrediënten en een wat meer verzorgde sfeer. Vooral prettig als jullie iets gezonders of internationalers willen voordat jullie dag in Nerja begint.',
+              sv: 'Ett väldigt fint val när ni känner för en modernare frukost med gott kaffe, fräscha råvaror och en lite mer genomtänkt atmosfär. Särskilt bra om ni vill ha något hälsosammare eller mer internationellt innan dagen fortsätter.'
             }
           ]
         },
         {
           icon: 'tumbler',
+          recommendationId: 'nerja.breakfast.kafune-specialty-coffee',
           title: { en: 'Kafunè Specialty Coffee', de: 'Kafunè Specialty Coffee', es: 'Kafunè Specialty Coffee', nl: 'Kafunè Specialty Coffee', sv: 'Kafunè Specialty Coffee' },
           subtitle: {
             en: 'Nerja · Specialty coffee · approx. 800 m',
@@ -1573,16 +1571,17 @@ const nerjaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'For anyone who takes their coffee seriously. Properly made espresso and filter, and a good stop if you want a real flat white before the beach rather than a hotel pot.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Calle+San+Miguel+36+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Für alle, die Kaffee ernst nehmen. Sauber zubereiteter Espresso und Filterkaffee — die richtige Adresse, wenn ihr vor dem Strand einen echten Flat White möchtet statt Hotelkaffee.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Calle+San+Miguel+36+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Para quienes se toman el café en serio. Espresso y filtrado bien hechos: la parada adecuada si queréis un buen flat white antes de la playa en lugar del café del hotel.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Calle+San+Miguel+36+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Voor wie koffie serieus neemt. Goed gezette espresso en filterkoffie — het juiste adres als jullie vóór het strand een echte flat white willen in plaats van hotelkoffie.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Calle+San+Miguel+36+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'För er som tar kaffet på allvar. Ordentligt bryggd espresso och filterkaffe — rätt adress om ni vill ha en riktig flat white före stranden i stället för hotellkaffe.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kafune+Specialty+Coffee+Calle+San+Miguel+36+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'For anyone who takes their coffee seriously. Properly made espresso and filter, and a good stop if you want a real flat white before the beach rather than a hotel pot.',
+              de: 'Für alle, die Kaffee ernst nehmen. Sauber zubereiteter Espresso und Filterkaffee — die richtige Adresse, wenn ihr vor dem Strand einen echten Flat White möchtet statt Hotelkaffee.',
+              es: 'Para quienes se toman el café en serio. Espresso y filtrado bien hechos: la parada adecuada si queréis un buen flat white antes de la playa en lugar del café del hotel.',
+              nl: 'Voor wie koffie serieus neemt. Goed gezette espresso en filterkoffie — het juiste adres als jullie vóór het strand een echte flat white willen in plaats van hotelkoffie.',
+              sv: 'För er som tar kaffet på allvar. Ordentligt bryggd espresso och filterkaffe — rätt adress om ni vill ha en riktig flat white före stranden i stället för hotellkaffe.'
             }
           ]
         },
         {
           icon: 'dish',
+          recommendationId: 'nerja.breakfast.las-cuatro-esquinas',
           title: { en: 'Las Cuatro Esquinas', de: 'Las Cuatro Esquinas', es: 'Las Cuatro Esquinas', nl: 'Las Cuatro Esquinas', sv: 'Las Cuatro Esquinas' },
           subtitle: {
             en: 'Nerja · Traditional churros · approx. 950 m',
@@ -1593,16 +1592,17 @@ const nerjaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'If you want to try a more classic local breakfast, this is the place for it. Lovely for churros and hot chocolate, and easy to combine with a slow walk through the old center afterwards.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Las+Cuatro+Esquinas+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Wenn ihr ein klassischeres, lokales Frühstück erleben möchtet, seid ihr hier genau richtig. Sehr schön für Churros und heiße Schokolade, und danach kann man wunderbar noch entspannt durch das Zentrum spazieren.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Las+Cuatro+Esquinas+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Si queréis probar un desayuno más clásico y local, este es un sitio estupendo para hacerlo. Muy bonito para churros con chocolate caliente, y luego se puede seguir con un paseo tranquilo por el centro histórico.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Las+Cuatro+Esquinas+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Als jullie een meer klassiek en lokaal ontbijt willen proberen, dan is dit een heel fijne plek. Heerlijk voor churros met warme chocolademelk, en daarna kunnen jullie rustig verder wandelen door het oude centrum.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Las+Cuatro+Esquinas+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Om ni vill prova en mer klassisk och lokal frukost är det här ett väldigt bra ställe. Perfekt för churros och varm choklad, och lätt att kombinera med en lugn promenad genom den gamla stadskärnan efteråt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Las+Cuatro+Esquinas+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'If you want to try a more classic local breakfast, this is the place for it. Lovely for churros and hot chocolate, and easy to combine with a slow walk through the old center afterwards.',
+              de: 'Wenn ihr ein klassischeres, lokales Frühstück erleben möchtet, seid ihr hier genau richtig. Sehr schön für Churros und heiße Schokolade, und danach kann man wunderbar noch entspannt durch das Zentrum spazieren.',
+              es: 'Si queréis probar un desayuno más clásico y local, este es un sitio estupendo para hacerlo. Muy bonito para churros con chocolate caliente, y luego se puede seguir con un paseo tranquilo por el centro histórico.',
+              nl: 'Als jullie een meer klassiek en lokaal ontbijt willen proberen, dan is dit een heel fijne plek. Heerlijk voor churros met warme chocolademelk, en daarna kunnen jullie rustig verder wandelen door het oude centrum.',
+              sv: 'Om ni vill prova en mer klassisk och lokal frukost är det här ett väldigt bra ställe. Perfekt för churros och varm choklad, och lätt att kombinera med en lugn promenad genom den gamla stadskärnan efteråt.'
             }
           ]
         },
         {
           icon: 'hotel',
+          recommendationId: 'nerja.breakfast.hotel-riu-monica',
           title: { en: 'Hotel Riu Monica', de: 'Hotel Riu Monica', es: 'Hotel Riu Monica', nl: 'Hotel Riu Monica', sv: 'Hotel Riu Monica' },
           subtitle: {
             en: 'Torrecilla · Comfortable buffet · approx. 150 m',
@@ -1613,16 +1613,17 @@ const nerjaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A very comfortable option when you want a bigger breakfast and do not feel like deciding too much. Especially practical if you want a generous start to the day very close to the seafront.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Riu+Monica+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine sehr komfortable Wahl, wenn ihr ein größeres Frühstück möchtet und morgens nicht lange überlegen wollt. Besonders praktisch, wenn ihr ganz in Meeresnähe großzügig in den Tag starten möchtet.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Riu+Monica+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una opción muy cómoda si queréis un desayuno más grande y no os apetece pensar demasiado por la mañana. Especialmente práctica si queréis empezar el día muy cerca del mar y con una buena variedad.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Riu+Monica+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een heel comfortabele keuze als jullie een uitgebreider ontbijt willen en \'s ochtends niet te veel willen nadenken. Vooral handig als jullie dicht bij zee royaal aan de dag willen beginnen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Riu+Monica+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett väldigt bekvämt val när ni vill ha en större frukost och inte känner för att fundera så mycket på morgonen. Särskilt praktiskt om ni vill börja dagen ordentligt och väldigt nära havet.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Riu+Monica+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A very comfortable option when you want a bigger breakfast and do not feel like deciding too much. Especially practical if you want a generous start to the day very close to the seafront.',
+              de: 'Eine sehr komfortable Wahl, wenn ihr ein größeres Frühstück möchtet und morgens nicht lange überlegen wollt. Besonders praktisch, wenn ihr ganz in Meeresnähe großzügig in den Tag starten möchtet.',
+              es: 'Una opción muy cómoda si queréis un desayuno más grande y no os apetece pensar demasiado por la mañana. Especialmente práctica si queréis empezar el día muy cerca del mar y con una buena variedad.',
+              nl: 'Een heel comfortabele keuze als jullie een uitgebreider ontbijt willen en \'s ochtends niet te veel willen nadenken. Vooral handig als jullie dicht bij zee royaal aan de dag willen beginnen.',
+              sv: 'Ett väldigt bekvämt val när ni vill ha en större frukost och inte känner för att fundera så mycket på morgonen. Särskilt praktiskt om ni vill börja dagen ordentligt och väldigt nära havet.'
             }
           ]
         },
         {
           icon: 'hotel',
+          recommendationId: 'nerja.breakfast.hotel-plaza-cavana',
           title: { en: 'Hotel Plaza Cavana', de: 'Hotel Plaza Cavana', es: 'Hotel Plaza Cavana', nl: 'Hotel Plaza Cavana', sv: 'Hotel Plaza Cavana' },
           subtitle: {
             en: 'Center · Budget-friendly buffet · approx. 1.1 km',
@@ -1633,16 +1634,17 @@ const nerjaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A nice choice if you would like a buffet breakfast in a more central setting without it feeling too formal. Works well when you want to combine breakfast with a walk around Balcón de Europa afterwards.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Plaza+Cavana+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine schöne Wahl, wenn ihr ein Frühstücksbuffet in zentraler Lage möchtet, ohne dass es zu formell wirkt. Passt sehr gut, wenn ihr das Frühstück gleich mit einem Spaziergang rund um den Balcón de Europa verbinden möchtet.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Plaza+Cavana+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una opción muy agradable si queréis un desayuno buffet en una zona más céntrica y con un ambiente relajado. Va muy bien si queréis combinar el desayuno con un paseo por el Balcón de Europa.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Plaza+Cavana+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een fijne keuze als jullie graag een ontbijtbuffet willen op een centralere plek, zonder dat het te chic aanvoelt. Handig als jullie ontbijt meteen willen combineren met een wandeling rond Balcón de Europa.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Plaza+Cavana+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett fint val om ni vill ha frukostbuffé i ett mer centralt läge utan att det känns för formellt. Passar väldigt bra om ni vill kombinera frukosten med en promenad runt Balcón de Europa efteråt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Plaza+Cavana+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A nice choice if you would like a buffet breakfast in a more central setting without it feeling too formal. Works well when you want to combine breakfast with a walk around Balcón de Europa afterwards.',
+              de: 'Eine schöne Wahl, wenn ihr ein Frühstücksbuffet in zentraler Lage möchtet, ohne dass es zu formell wirkt. Passt sehr gut, wenn ihr das Frühstück gleich mit einem Spaziergang rund um den Balcón de Europa verbinden möchtet.',
+              es: 'Una opción muy agradable si queréis un desayuno buffet en una zona más céntrica y con un ambiente relajado. Va muy bien si queréis combinar el desayuno con un paseo por el Balcón de Europa.',
+              nl: 'Een fijne keuze als jullie graag een ontbijtbuffet willen op een centralere plek, zonder dat het te chic aanvoelt. Handig als jullie ontbijt meteen willen combineren met een wandeling rond Balcón de Europa.',
+              sv: 'Ett fint val om ni vill ha frukostbuffé i ett mer centralt läge utan att det känns för formellt. Passar väldigt bra om ni vill kombinera frukosten med en promenad runt Balcón de Europa efteråt.'
             }
           ]
         },
         {
           icon: 'bread',
+          recommendationId: 'nerja.breakfast.nybakat-bakery',
           title: { en: 'Nybakat Bakery', de: 'Nybakat Bakery', es: 'Nybakat Bakery', nl: 'Nybakat Bakery', sv: 'Nybakat Bakery' },
           subtitle: {
             en: 'Burriana area · Worth the walk · approx. 2.3 km',
@@ -1653,11 +1655,11 @@ const nerjaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'This is more of a "go there because you feel like it" breakfast — less about speed, more about quality and the little outing around it. A very nice idea when you are heading toward Burriana anyway and want something a little more artisanal.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Nybakat+Bakery+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Das ist eher ein Frühstücksziel für Tage, an denen ihr bewusst Lust darauf habt — weniger schnell und praktisch, dafür mit mehr Qualität und kleinem Ausflug dazu. Sehr schön, wenn ihr ohnehin Richtung Burriana unterwegs seid und etwas Handwerklicheres möchtet.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Nybakat+Bakery+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Este desayuno es más bien para cuando os apetece ir expresamente — menos por rapidez y más por calidad y por el pequeño paseo que lo acompaña. Muy buena idea si ya vais hacia Burriana y os apetece algo más artesanal.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Nybakat+Bakery+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Dit is meer een ontbijtplek voor dagen waarop jullie er echt zin in hebben — minder snel en functioneel, maar juist met meer kwaliteit en een klein uitstapje erbij. Heel fijn als jullie toch al richting Burriana gaan en zin hebben in iets ambachtelijkers.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Nybakat+Bakery+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Det här är mer ett frukostmål för dagar när ni verkligen känner för det — mindre om snabbhet och mer om kvalitet och den lilla utflykten i sig. Väldigt trevligt om ni ändå är på väg mot Burriana och vill ha något mer hantverksmässigt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Nybakat+Bakery+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'This is more of a "go there because you feel like it" breakfast — less about speed, more about quality and the little outing around it. A very nice idea when you are heading toward Burriana anyway and want something a little more artisanal.',
+              de: 'Das ist eher ein Frühstücksziel für Tage, an denen ihr bewusst Lust darauf habt — weniger schnell und praktisch, dafür mit mehr Qualität und kleinem Ausflug dazu. Sehr schön, wenn ihr ohnehin Richtung Burriana unterwegs seid und etwas Handwerklicheres möchtet.',
+              es: 'Este desayuno es más bien para cuando os apetece ir expresamente — menos por rapidez y más por calidad y por el pequeño paseo que lo acompaña. Muy buena idea si ya vais hacia Burriana y os apetece algo más artesanal.',
+              nl: 'Dit is meer een ontbijtplek voor dagen waarop jullie er echt zin in hebben — minder snel en functioneel, maar juist met meer kwaliteit en een klein uitstapje erbij. Heel fijn als jullie toch al richting Burriana gaan en zin hebben in iets ambachtelijkers.',
+              sv: 'Det här är mer ett frukostmål för dagar när ni verkligen känner för det — mindre om snabbhet och mer om kvalitet och den lilla utflykten i sig. Väldigt trevligt om ni ändå är på väg mot Burriana och vill ha något mer hantverksmässigt.'
             }
           ]
         }
@@ -1723,6 +1725,7 @@ const frigilianaGuestBeaches: GuestGuideEntry = {
       items: [
         {
           icon: 'wave',
+          recommendationId: 'nerja.beaches.burriana-beach',
           title: { en: 'Burriana Beach', de: 'Burriana Strand', es: 'Playa de Burriana', nl: 'Burriana strand', sv: 'Burriana strand' },
           subtitle: {
             en: '~20 min · Facilities & restaurants',
@@ -1733,16 +1736,17 @@ const frigilianaGuestBeaches: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'The classic full beach-day choice in Nerja: wide sand, sunbeds, showers, and plenty of places for lunch. Parking can be busy in high season — going before 10:30 or later in the afternoon usually feels calmer.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Burriana+Beach+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Der Klassiker für einen perfekten Strandtag in Nerja: Ein breiter Sandstrand, Sonnenliegen, Duschen und jede Menge Möglichkeiten, um mittags eine Kleinigkeit zu essen. In der Hochsaison kann es beim Parken eng werden – wenn ihr vor 10:30 Uhr oder am späteren Nachmittag kommt, ist es meist viel entspannter.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Burriana+Beach+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'La opción clásica para un día completo de playa en Nerja: arena amplia, hamacas, duchas y muchos lugares para comer. En temporada alta puede ser difícil aparcar; suele ser más tranquilo si vais antes de las 10:30 o a última hora de la tarde.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Burriana+Beach+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'De klassieke keuze voor een volledige stranddag in Nerja: breed zandstrand, zonnebedden, douches en volop leuke plekken voor de lunch. Parkeren kan in het hoogseizoen lastig zijn — vóór 10:30 uur of later in de middag gaan, voelt meestal een stuk rustiger aan.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Burriana+Beach+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Det klassiska valet för en heldag på stranden i Nerja: bred sandstrand, solstolar, duschar och gott om ställen för lunch. Parkeringen kan vara full under högsäsong – om ni åker innan 10:30 eller senare på eftermiddagen är det oftast mycket lugnare.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Burriana+Beach+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'The classic full beach-day choice in Nerja: wide sand, sunbeds, showers, and plenty of places for lunch. Parking can be busy in high season — going before 10:30 or later in the afternoon usually feels calmer. Nerja lists it as its urban beach with promenade, bus stop and parking; in 2026 the town renewed the reduced-mobility beach equipment here.',
+              de: 'Der Klassiker für einen perfekten Strandtag in Nerja: Ein breiter Sandstrand, Sonnenliegen, Duschen und jede Menge Möglichkeiten, um mittags eine Kleinigkeit zu essen. In der Hochsaison kann es beim Parken eng werden – wenn ihr vor 10:30 Uhr oder am späteren Nachmittag kommt, ist es meist viel entspannter. Nerja führt ihn als Stadtstrand mit Promenade, Bushaltestelle und Parkplatz; 2026 hat die Stadt hier die Ausstattung für Gäste mit eingeschränkter Mobilität erneuert.',
+              es: 'La opción clásica para un día completo de playa en Nerja: arena amplia, hamacas, duchas y muchos lugares para comer. En temporada alta puede ser difícil aparcar; suele ser más tranquilo si vais antes de las 10:30 o a última hora de la tarde. Nerja lo describe como su playa urbana con paseo, parada de autobús y aparcamiento; en 2026 el ayuntamiento renovó aquí el equipamiento para personas con movilidad reducida.',
+              nl: 'De klassieke keuze voor een volledige stranddag in Nerja: breed zandstrand, zonnebedden, douches en volop leuke plekken voor de lunch. Parkeren kan in het hoogseizoen lastig zijn — vóór 10:30 uur of later in de middag gaan, voelt meestal een stuk rustiger aan. Nerja beschrijft het als zijn stadsstrand met promenade, bushalte en parkeerplaats; in 2026 vernieuwde de gemeente hier de voorzieningen voor mensen met beperkte mobiliteit.',
+              sv: 'Det klassiska valet för en heldag på stranden i Nerja: bred sandstrand, solstolar, duschar och gott om ställen för lunch. Parkeringen kan vara full under högsäsong – om ni åker innan 10:30 eller senare på eftermiddagen är det oftast mycket lugnare. Nerja beskriver den som sin stadsstrand med strandpromenad, busshållplats och parkering; 2026 förnyade kommunen utrustningen för besökare med nedsatt rörlighet här.'
             }
           ]
         },
         {
           icon: 'landmark',
+          recommendationId: 'nerja.beaches.carabeillo',
           title: { en: 'Carabeíllo', de: 'Carabeíllo', es: 'Carabeíllo', nl: 'Carabeíllo', sv: 'Carabeíllo' },
           subtitle: {
             en: '~20 min · Small, quieter cove',
@@ -1753,16 +1757,17 @@ const frigilianaGuestBeaches: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A small cove between Burriana and the town area — great if you want something a bit more tucked away. Access involves steps and space is limited, so it\'s best earlier in the day.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Carabeillo+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine kleine Bucht zwischen Burriana und der Altstadt – ideal, wenn ihr einen Ort sucht, der etwas versteckter liegt. Der Zugang erfolgt über Treppen und der Platz ist begrenzt, weshalb es sich lohnt, eher früh am Tag hier zu sein.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Carabeillo+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una pequeña cala entre Burriana y la zona del centro: ideal si buscáis un rincón un poco más escondido. El acceso es por escaleras y el espacio es limitado, así que es mejor ir temprano.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Carabeillo+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een kleine baai tussen Burriana en het centrum — ideaal als jullie een plek zoeken die net even wat meer verborgen ligt. De toegang gaat via trappen en de ruimte is beperkt, dus het is aan te raden hier op tijd naartoe te gaan.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Carabeillo+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En liten badvik mellan Burriana och stadsområdet – perfekt om ni letar efter en plats som ligger lite mer undanskymd. Man når stranden via trappor och utrymmet är begränsat, så det är bäst att komma tidigt på dagen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Carabeillo+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A small cove between Burriana and the town area — great if you want something a bit more tucked away. Access involves steps and space is limited, so it\'s best earlier in the day.',
+              de: 'Eine kleine Bucht zwischen Burriana und der Altstadt – ideal, wenn ihr einen Ort sucht, der etwas versteckter liegt. Der Zugang erfolgt über Treppen und der Platz ist begrenzt, weshalb es sich lohnt, eher früh am Tag hier zu sein.',
+              es: 'Una pequeña cala entre Burriana y la zona del centro: ideal si buscáis un rincón un poco más escondido. El acceso es por escaleras y el espacio es limitado, así que es mejor ir temprano.',
+              nl: 'Een kleine baai tussen Burriana en het centrum — ideaal als jullie een plek zoeken die net even wat meer verborgen ligt. De toegang gaat via trappen en de ruimte is beperkt, dus het is aan te raden hier op tijd naartoe te gaan.',
+              sv: 'En liten badvik mellan Burriana och stadsområdet – perfekt om ni letar efter en plats som ligger lite mer undanskymd. Man når stranden via trappor och utrymmet är begränsat, så det är bäst att komma tidigt på dagen.'
             }
           ]
         },
         {
           icon: 'arrow',
+          recommendationId: 'nerja.beaches.calahonda',
           title: { en: 'Calahonda', de: 'Calahonda', es: 'Calahonda', nl: 'Calahonda', sv: 'Calahonda' },
           subtitle: {
             en: '~20 min · Iconic cove in town',
@@ -1773,16 +1778,17 @@ const frigilianaGuestBeaches: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'The postcard cove right under the Balcón de Europa — beautiful, central, and easy to combine with a stroll in Nerja. Best in the morning. For parking, use public garages or town parking areas rather than searching street spots.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Calahonda+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Die Postkarten-Bucht direkt unter dem Balcón de Europa – wunderschön, sehr zentral und perfekt mit einem Bummel durch Nerja kombinierbar. Am besten kommt ihr vormittags her. Zum Parken nutzt ihr am besten die öffentlichen Parkhäuser oder die großen Parkplätze im Ort, anstatt lange nach einem Platz am Straßenrand zu suchen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Calahonda+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'La cala de postal justo debajo del Balcón de Europa: preciosa, céntrica y muy fácil de combinar con un paseo por Nerja. Mucho mejor por la mañana. Para aparcar, utilizad los aparcamientos públicos o las zonas de aparcamiento del pueblo en lugar de buscar sitio en la calle.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Calahonda+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'De ansichtkaart-baai direct onder het Balcón de Europa — prachtig, heel centraal en perfect te combineren met een wandeling door Nerja. Het beste te bezoeken in de ochtend. Om te parkeren kunnen jullie het beste gebruik maken van de openbare parkeergarages of grote parkeerterreinen in plaats van te zoeken naar een plekje op straat.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Calahonda+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Vykortsviken precis nedanför Balcón de Europa – otroligt vacker, väldigt central och enkel att kombinera med en promenad i Nerja. Bäst att besöka på förmiddagen. Använd de offentliga parkeringshusen eller större parkeringar i staden istället för att leta efter platser på gatorna.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Calahonda+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'The postcard cove right under the Balcón de Europa — beautiful, central, and easy to combine with a stroll in Nerja. Best in the morning. For parking, use public garages or town parking areas rather than searching street spots. Access is by stone stairs from the Boquete de Calahonda beside the Balcón de Europa, so it is not the beach for a buggy or limited mobility.',
+              de: 'Die Postkarten-Bucht direkt unter dem Balcón de Europa – wunderschön, sehr zentral und perfekt mit einem Bummel durch Nerja kombinierbar. Am besten kommt ihr vormittags her. Zum Parken nutzt ihr am besten die öffentlichen Parkhäuser oder die großen Parkplätze im Ort, anstatt lange nach einem Platz am Straßenrand zu suchen. Der Zugang führt über Steintreppen vom Boquete de Calahonda neben dem Balcón de Europa; mit Kinderwagen oder eingeschränkter Mobilität ist das nicht der richtige Strand.',
+              es: 'La cala de postal justo debajo del Balcón de Europa: preciosa, céntrica y muy fácil de combinar con un paseo por Nerja. Mucho mejor por la mañana. Para aparcar, utilizad los aparcamientos públicos o las zonas de aparcamiento del pueblo en lugar de buscar sitio en la calle. Se accede por escaleras de piedra desde el Boquete de Calahonda, junto al Balcón de Europa, así que no es la playa adecuada con carrito o movilidad reducida.',
+              nl: 'De ansichtkaart-baai direct onder het Balcón de Europa — prachtig, heel centraal en perfect te combineren met een wandeling door Nerja. Het beste te bezoeken in de ochtend. Om te parkeren kunnen jullie het beste gebruik maken van de openbare parkeergarages of grote parkeerterreinen in plaats van te zoeken naar een plekje op straat. De toegang loopt via stenen trappen vanaf de Boquete de Calahonda naast de Balcón de Europa; met een kinderwagen of beperkte mobiliteit is dit niet het juiste strand.',
+              sv: 'Vykortsviken precis nedanför Balcón de Europa – otroligt vacker, väldigt central och enkel att kombinera med en promenad i Nerja. Bäst att besöka på förmiddagen. Använd de offentliga parkeringshusen eller större parkeringar i staden istället för att leta efter platser på gatorna. Man kommer ner via stentrappor från Boquete de Calahonda intill Balcón de Europa, så det är inte rätt strand med barnvagn eller nedsatt rörlighet.'
             }
           ]
         },
         {
           icon: 'location-pin',
+          recommendationId: 'nerja.beaches.el-playazo',
           title: { en: 'El Playazo', de: 'El Playazo', es: 'El Playazo', nl: 'El Playazo', sv: 'El Playazo' },
           subtitle: {
             en: '~20 min · Wide & more space',
@@ -1793,16 +1799,17 @@ const frigilianaGuestBeaches: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'One of the widest stretches near Nerja — ideal if you want room, long walks, and a more relaxed feel. Great for late afternoons. Bring water and a small snack if you plan to stay longer.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Playazo+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Einer der weitläufigsten Strandabschnitte bei Nerja – ideal, wenn ihr etwas mehr Platz für euch haben wollt, gerne lang am Strand spaziert und eine ruhigere Atmosphäre schätzt. Besonders schön für den späten Nachmittag. Denkt daran, Wasser und vielleicht einen kleinen Snack mitzunehmen, wenn ihr länger bleiben möchtet.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Playazo+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Uno de los tramos más amplios cerca de Nerja: ideal si buscáis espacio, paseos largos y un ambiente más relajado. Genial para las tardes. Llevad agua y algo de picar si planeáis quedaros más tiempo.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Playazo+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een van de breedste stranden in de buurt van Nerja — ideaal als jullie veel ruimte zoeken, van lange strandwandelingen houden en een relaxte sfeer waarderen. Vooral prachtig in de late namiddag. Neem wel wat water en een kleine snack mee als jullie wat langer willen blijven.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Playazo+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En av de bredaste strandsträckorna nära Nerja – perfekt om ni vill ha gott om utrymme, älskar långa strandpromenader och letar efter en lugnare atmosfär. Speciellt härligt sent på eftermiddagen. Ta gärna med lite vatten och ett litet snack om ni planerar att stanna lite längre.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Playazo+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'One of the widest stretches near Nerja — ideal if you want room, long walks, and a more relaxed feel. Great for late afternoons. Bring water and a small snack if you plan to stay longer. Nerja describes it as a 1.7-kilometre semi-urban beach with medium occupancy, bus access, parking, showers and beach food; a designated reduced-mobility point was added in 2026.',
+              de: 'Einer der weitläufigsten Strandabschnitte bei Nerja – ideal, wenn ihr etwas mehr Platz für euch haben wollt, gerne lang am Strand spaziert und eine ruhigere Atmosphäre schätzt. Besonders schön für den späten Nachmittag. Denkt daran, Wasser und vielleicht einen kleinen Snack mitzunehmen, wenn ihr länger bleiben möchtet. Nerja beschreibt ihn als 1,7 Kilometer langen, halbstädtischen Strand mit mittlerer Auslastung, Busanbindung, Parkplatz, Duschen und Strandgastronomie; 2026 kam ein Zugangspunkt für eingeschränkte Mobilität hinzu.',
+              es: 'Uno de los tramos más amplios cerca de Nerja: ideal si buscáis espacio, paseos largos y un ambiente más relajado. Genial para las tardes. Llevad agua y algo de picar si planeáis quedaros más tiempo. Nerja lo describe como una playa semiurbana de 1,7 kilómetros con ocupación media, autobús, aparcamiento, duchas y chiringuitos; en 2026 se añadió un punto de acceso para movilidad reducida.',
+              nl: 'Een van de breedste stranden in de buurt van Nerja — ideaal als jullie veel ruimte zoeken, van lange strandwandelingen houden en een relaxte sfeer waarderen. Vooral prachtig in de late namiddag. Neem wel wat water en een kleine snack mee als jullie wat langer willen blijven. Nerja beschrijft het als een semi-stedelijk strand van 1,7 kilometer met gemiddelde drukte, busverbinding, parkeerplaats, douches en strandhoreca; in 2026 kwam er een toegangspunt voor beperkte mobiliteit bij.',
+              sv: 'En av de bredaste strandsträckorna nära Nerja – perfekt om ni vill ha gott om utrymme, älskar långa strandpromenader och letar efter en lugnare atmosfär. Speciellt härligt sent på eftermiddagen. Ta gärna med lite vatten och ett litet snack om ni planerar att stanna lite längre. Nerja beskriver den som en 1,7 kilometer lång halvurban strand med måttlig beläggning, buss, parkering, duschar och strandservering; 2026 tillkom en tillgänglighetspunkt för nedsatt rörlighet.'
             }
           ]
         },
         {
           icon: 'star',
+          recommendationId: 'nerja.beaches.maro-beach',
           title: { en: 'Maro Beach', de: 'Maro Strand', es: 'Playa de Maro', nl: 'Maro strand', sv: 'Maro strand' },
           subtitle: {
             en: '~25 min · Clear water & kayaking',
@@ -1813,16 +1820,17 @@ const frigilianaGuestBeaches: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A nature-focused beach near the protected Maro area — often clearer water than in town, great for snorkeling. If you want an "activity beach day", this is the one: kayaking here can be fantastic. Parking is limited in summer, so go early.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Maro+Beach+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein Naturstrand direkt am Naturschutzgebiet von Maro – das Wasser ist hier oft noch klarer als im Ort, was ihn perfekt zum Schnorcheln macht. Wenn ihr Lust auf einen aktiven Tag am Strand habt, seid ihr hier genau richtig: Eine Kajaktour an dieser Steilküste ist fantastisch. Da die Parkplätze im Sommer begrenzt sind, solltet ihr früh losfahren.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Maro+Beach+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una playa en un entorno natural cerca del paraje protegido de Maro: a menudo tiene el agua más cristalina que en el pueblo y es genial para hacer snorkel. Si buscáis un "día de playa activo", esta es la vuestra: hacer kayak aquí es una experiencia fantástica. En verano el aparcamiento es limitado, así que id temprano.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Maro+Beach+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een prachtig strand midden in de natuur vlakbij het beschermde natuurgebied van Maro — het water is hier vaak nog helderder dan in het dorp, ideaal om te snorkelen. Als jullie zin hebben in een actieve stranddag, dan is dit de plek: kajakken is hier fantastisch. Omdat de parkeergelegenheid in de zomer beperkt is, raden we aan om op tijd te vertrekken.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Maro+Beach+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En riktig naturstrand i närheten av Maros naturreservat – vattnet är ofta mycket klarare här än inne i byn, vilket gör den perfekt för snorkling. Om ni vill ha en aktiv dag på stranden är det hit ni ska åka: att paddla kajak längs den här kusten är helt fantastiskt. Eftersom parkeringen är begränsad under sommaren rekommenderar vi att ni är ute i god tid.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Maro+Beach+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A nature-focused beach near the protected Maro area — often clearer water than in town, great for snorkeling. If you want an "activity beach day", this is the one: kayaking here can be fantastic. In summer private cars may not drive down: in 2026 the municipal shuttle ran from 12 June to 15 September, daily 10:00–20:30, €3 return. Check the current notice before you go.',
+              de: 'Ein Naturstrand direkt am Naturschutzgebiet von Maro – das Wasser ist hier oft noch klarer als im Ort, was ihn perfekt zum Schnorcheln macht. Wenn ihr Lust auf einen aktiven Tag am Strand habt, seid ihr hier genau richtig: Eine Kajaktour an dieser Steilküste ist fantastisch. Im Sommer dürfen Privatautos nicht hinunterfahren: 2026 fuhr der Shuttle der Gemeinde vom 12. Juni bis 15. September täglich von 10:00 bis 20:30 Uhr, Hin- und Rückfahrt 3 €. Prüft vor dem Aufbruch den aktuellen Aushang.',
+              es: 'Una playa en un entorno natural cerca del paraje protegido de Maro: a menudo tiene el agua más cristalina que en el pueblo y es genial para hacer snorkel. Si buscáis un "día de playa activo", esta es la vuestra: hacer kayak aquí es una experiencia fantástica. En verano los coches particulares no pueden bajar: en 2026 la lanzadera municipal funcionó del 12 de junio al 15 de septiembre, a diario de 10:00 a 20:30, por 3 € ida y vuelta. Consultad el aviso vigente antes de ir.',
+              nl: 'Een prachtig strand midden in de natuur vlakbij het beschermde natuurgebied van Maro — het water is hier vaak nog helderder dan in het dorp, ideaal om te snorkelen. Als jullie zin hebben in een actieve stranddag, dan is dit de plek: kajakken is hier fantastisch. In de zomer mogen privéauto\'s niet naar beneden: in 2026 reed de gemeentelijke shuttle van 12 juni tot 15 september, dagelijks van 10:00 tot 20:30, € 3 retour. Controleer het actuele bericht voor vertrek.',
+              sv: 'En riktig naturstrand i närheten av Maros naturreservat – vattnet är ofta mycket klarare här än inne i byn, vilket gör den perfekt för snorkling. Om ni vill ha en aktiv dag på stranden är det hit ni ska åka: att paddla kajak längs den här kusten är helt fantastiskt.På sommaren får privatbilar inte köra ner: 2026 gick kommunens skyttelbuss från 12 juni till 15 september, dagligen 10:00–20:30, 3 € tur och retur. Kontrollera aktuellt anslag innan ni åker.'
             }
           ]
         },
         {
           icon: 'flag',
+          recommendationId: 'nerja.beaches.cantarrijan',
           title: { en: 'Cantarriján', de: 'Cantarriján', es: 'Cantarriján', nl: 'Cantarriján', sv: 'Cantarriján' },
           subtitle: {
             en: '~35–40 min · Nature reserve',
@@ -1833,11 +1841,11 @@ const frigilianaGuestBeaches: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A beautiful beach in a protected reserve — relaxed atmosphere and a great option if you want a change from Nerja. There is a clothing-optional area, and it is also known for simple, good seafood right by the beach.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Cantarrijan" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein wunderschöner Strand inmitten eines Naturschutzgebiets – mit einer herrlich entspannten Atmosphäre und eine tolle Alternative, wenn ihr mal etwas anderes als Nerja sehen wollt. Es gibt hier auch einen Bereich für FKK, und die Bucht ist zudem bekannt für gute, frische Meeresfrüchte direkt am Strand.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Cantarrijan" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una playa preciosa en una reserva protegida: ambiente relajado y una gran opción si queréis cambiar un poco de Nerja. Hay una zona nudista, y también es conocida por su buen pescado y marisco a un paso de la playa.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Cantarrijan" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een prachtig strand in een beschermd natuurgebied — met een hele relaxte sfeer, perfect als jullie even iets anders willen dan Nerja. Er is ook een naaktstrand-gedeelte, en de baai staat daarnaast bekend om de goede, verse zeevruchten direct aan het strand.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Cantarrijan" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En underbar strand i ett skyddat naturreservat – en härligt avslappnad atmosfär och ett utmärkt val om ni vill se något annat än Nerja. Här finns även en del av stranden för nudister, och viken är också känd för god, nyfångad fisk och skaldjur precis vid stranden.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Cantarrijan" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A beautiful beach in a protected reserve — relaxed atmosphere and a great option if you want a change from Nerja. There is a clothing-optional area, and it is also known for simple, good seafood right by the beach. The cove already lies in Granada province (Almuñécar). Normally from 15 June to 10 September cars are not allowed down: you park at the information point at kilometre 304 of the N-340 and continue by shuttle; in 2026 it ran from 15 June, 10:00–21:00. Check the current notice before you go.',
+              de: 'Ein wunderschöner Strand inmitten eines Naturschutzgebiets – mit einer herrlich entspannten Atmosphäre und eine tolle Alternative, wenn ihr mal etwas anderes als Nerja sehen wollt. Es gibt hier auch einen Bereich für FKK, und die Bucht ist zudem bekannt für gute, frische Meeresfrüchte direkt am Strand. Die Bucht liegt schon in der Provinz Granada (Gemeinde Almuñécar). Normalerweise dürfen vom 15. Juni bis 10. September keine Autos hinunter: Ihr parkt am Infopunkt bei Kilometer 304 der N-340 und fahrt mit dem Shuttle weiter; 2026 lief er ab dem 15. Juni von 10:00 bis 21:00 Uhr. Prüft vor dem Aufbruch den aktuellen Aushang.',
+              es: 'Una playa preciosa en una reserva protegida: ambiente relajado y una gran opción si queréis cambiar un poco de Nerja. Hay una zona nudista, y también es conocida por su buen pescado y marisco a un paso de la playa. La cala ya está en la provincia de Granada (Almuñécar). Normalmente, del 15 de junio al 10 de septiembre no pueden bajar coches: se aparca en el punto de información del kilómetro 304 de la N-340 y se sigue en lanzadera; en 2026 funcionó desde el 15 de junio, de 10:00 a 21:00. Consultad el aviso vigente antes de ir.',
+              nl: 'Een prachtig strand in een beschermd natuurgebied — met een hele relaxte sfeer, perfect als jullie even iets anders willen dan Nerja. Er is ook een naaktstrand-gedeelte, en de baai staat daarnaast bekend om de goede, verse zeevruchten direct aan het strand. De baai ligt al in de provincie Granada (Almuñécar). Normaal mogen van 15 juni tot 10 september geen auto\'s naar beneden: jullie parkeren bij het informatiepunt op kilometer 304 van de N-340 en gaan verder met de shuttle; in 2026 reed die vanaf 15 juni, van 10:00 tot 21:00. Controleer het actuele bericht voor vertrek.',
+              sv: 'En underbar strand i ett skyddat naturreservat – en härligt avslappnad atmosfär och ett utmärkt val om ni vill se något annat än Nerja. Här finns även en del av stranden för nudister, och viken är också känd för god, nyfångad fisk och skaldjur precis vid stranden. Viken ligger redan i provinsen Granada (Almuñécar). Normalt får inga bilar köra ner mellan 15 juni och 10 september: ni parkerar vid informationspunkten vid kilometer 304 på N-340 och åker vidare med skyttelbuss; 2026 gick den från 15 juni, 10:00–21:00. Kontrollera aktuellt anslag innan ni åker.'
             }
           ]
         }
@@ -1903,6 +1911,7 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
       items: [
         {
           icon: 'location-pin',
+          recommendationId: 'frigiliana.restaurants.el-jardin',
           title: { en: 'El Jardín', de: 'El Jardín', es: 'El Jardín', nl: 'El Jardín', sv: 'El Jardín' },
           subtitle: {
             en: 'Frigiliana · Terrace views · approx. 220 m',
@@ -1913,16 +1922,17 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'The classic view dinner at the top of the village — ideal for an easy, romantic evening. If you can, arrive a little earlier for sunset and ask for a table near the railing.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+El+Jardin+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Der absolute Klassiker für ein Abendessen mit traumhaftem Ausblick ganz oben im Dorf – ideal für einen entspannten, romantischen Abend. Wenn es euch möglich ist, kommt etwas früher zum Sonnenuntergang und fragt nach einem Tisch direkt am Geländer.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+El+Jardin+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'El clásico "cena con vistas" en lo alto del pueblo: ideal para una velada romántica y tranquila. Si podéis, llegad un poco antes del atardecer y pedid una mesa cerca de la barandilla.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+El+Jardin+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Het klassieke diner met uitzicht bovenaan het dorp — ideaal voor een relaxte en romantische avond. Probeer iets eerder te komen voor zonsondergang en vraag om een tafeltje aan de rand voor het beste zicht.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+El+Jardin+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Den klassiska middagen med utsikt högst upp i byn – perfekt när ni vill ha en avkopplande och romantisk kväll. Om ni kan, kom lite tidigare lagom till solnedgången och be om ett bord vid räcket.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+El+Jardin+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'The classic view dinner at the top of the village — ideal for an easy, romantic evening. If you can, arrive a little earlier for sunset and ask for a table near the railing. Terrace and international Mediterranean kitchen.',
+              de: 'Der absolute Klassiker für ein Abendessen mit traumhaftem Ausblick ganz oben im Dorf – ideal für einen entspannten, romantischen Abend. Wenn es euch möglich ist, kommt etwas früher zum Sonnenuntergang und fragt nach einem Tisch direkt am Geländer. Terrasse und international-mediterrane Küche.',
+              es: 'El clásico "cena con vistas" en lo alto del pueblo: ideal para una velada romántica y tranquila. Si podéis, llegad un poco antes del atardecer y pedid una mesa cerca de la barandilla. Terraza y cocina mediterránea internacional.',
+              nl: 'Het klassieke diner met uitzicht bovenaan het dorp — ideaal voor een relaxte en romantische avond. Probeer iets eerder te komen voor zonsondergang en vraag om een tafeltje aan de rand voor het beste zicht. Terras en internationaal-mediterrane keuken.',
+              sv: 'Den klassiska middagen med utsikt högst upp i byn – perfekt när ni vill ha en avkopplande och romantisk kväll. Om ni kan, kom lite tidigare lagom till solnedgången och be om ett bord vid räcket. Terrass och internationellt medelhavskök.'
             }
           ]
         },
         {
           icon: 'goblet',
+          recommendationId: 'frigiliana.restaurants.gloria-bendita',
           title: { en: 'Gloria Bendita', de: 'Gloria Bendita', es: 'Gloria Bendita', nl: 'Gloria Bendita', sv: 'Gloria Bendita' },
           subtitle: {
             en: 'Frigiliana · Trendy & lively · approx. 350 m',
@@ -1933,16 +1943,17 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Fun, modern plates and a livelier vibe — great if you want something social rather than quiet. Works well for sharing a few dishes and one more drink before a night walk through the village.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Gloria+Bendita+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Spannende, moderne Gerichte und eine etwas lebhaftere Atmosphäre – toll, wenn ihr Lust auf einen geselligen Abend habt. Eignet sich super, um sich ein paar Gerichte zu teilen und gemütlich einen Drink zu genießen, bevor ihr zu einem abendlichen Spaziergang durchs Dorf aufbrecht.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Gloria+Bendita+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Platos modernos y divertidos, con un ambiente más animado: genial si preferís una noche social en lugar de algo muy tranquilo. Perfecto para compartir unas raciones y tomar algo más antes de un paseo nocturno por el pueblo.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Gloria+Bendita+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Lekkere, moderne gerechten en een wat meer levendige sfeer — perfect als jullie op zoek zijn naar wat gezelligheid in plaats van een muisstille avond. Werkt heel goed om een paar gerechtjes te delen en een drankje te doen voordat jullie \'s avonds door het dorp wandelen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Gloria+Bendita+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Spännande, moderna rätter och en lite livligare atmosfär – perfekt om ni är ute efter en social snarare än en stillsam kväll. Ett utmärkt ställe för att dela på några rätter och ta en drink innan ni promenerar genom byn på kvällen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Gloria+Bendita+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Fun, modern plates and a livelier vibe — great if you want something social rather than quiet. Works well for sharing a few dishes and one more drink before a night walk through the village. Changing Mediterranean menu with fusion influences.',
+              de: 'Spannende, moderne Gerichte und eine etwas lebhaftere Atmosphäre – toll, wenn ihr Lust auf einen geselligen Abend habt. Eignet sich super, um sich ein paar Gerichte zu teilen und gemütlich einen Drink zu genießen, bevor ihr zu einem abendlichen Spaziergang durchs Dorf aufbrecht. Wechselnde mediterrane Karte mit Fusion-Einflüssen.',
+              es: 'Platos modernos y divertidos, con un ambiente más animado: genial si preferís una noche social en lugar de algo muy tranquilo. Perfecto para compartir unas raciones y tomar algo más antes de un paseo nocturno por el pueblo. Carta mediterránea cambiante con toques de fusión.',
+              nl: 'Lekkere, moderne gerechten en een wat meer levendige sfeer — perfect als jullie op zoek zijn naar wat gezelligheid in plaats van een muisstille avond. Werkt heel goed om een paar gerechtjes te delen en een drankje te doen voordat jullie \'s avonds door het dorp wandelen. Wisselende mediterrane kaart met fusion-invloeden.',
+              sv: 'Spännande, moderna rätter och en lite livligare atmosfär – perfekt om ni är ute efter en social snarare än en stillsam kväll. Ett utmärkt ställe för att dela på några rätter och ta en drink innan ni promenerar genom byn på kvällen. Växlande medelhavsmeny med fusioninslag.'
             }
           ]
         },
         {
           icon: 'dish',
+          recommendationId: 'frigiliana.restaurants.la-taperia',
           title: { en: 'La Tapería', de: 'La Tapería', es: 'La Tapería', nl: 'La Tapería', sv: 'La Tapería' },
           subtitle: {
             en: 'Frigiliana · Small & local · approx. 20 m',
@@ -1953,16 +1964,17 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A calm, small place that feels like a local find — a good option when you want something simple and authentic. About 2 minutes from AMARA. Closes at 20:00 (kitchen until 19:30). Reservation via WhatsApp: +34 711 027 581.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Taperia+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein ruhiges, kleines Restaurant, das sich wie ein echter lokaler Geheimtipp anfühlt – eine wunderbare Wahl, wenn ihr etwas Authentisches und Bodenständiges sucht. Ungefähr 2 Minuten von AMARA entfernt. Schließt um 20:00 Uhr (warme Küche bis 19:30 Uhr). Reservierung gerne über WhatsApp: +34 711 027 581.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Taperia+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un lugar pequeño y tranquilo que parece un verdadero hallazgo local: una muy buena opción para algo sencillo y auténtico. A unos 2 minutos de AMARA. Cierra a las 20:00 (cocina hasta las 19:30). Reservas por WhatsApp: +34 711 027 581.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Taperia+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een rustige, kleine plek die aanvoelt als een echte lokale vondst — een fijne optie als jullie op zoek zijn naar iets simpels en authentieks. Op ongeveer 2 minuten lopen van AMARA. Sluit om 20:00 uur (keuken tot 19:30). Reserveren kan via WhatsApp: +34 711 027 581.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Taperia+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett litet och rofyllt ställe som känns som ett genuint lokalt fynd – ett jättebra val när ni vill ha något enkelt och autentiskt. Ligger cirka 2 minuter från AMARA. Stänger kl. 20:00 (köket är öppet till 19:30). Bordsreservation via WhatsApp: +34 711 027 581.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Taperia+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A calm, small place that feels like a local find — a good option when you want something simple and authentic. About 2 minutes from AMARA. Closes at 20:00 (kitchen until 19:30). Reservation via WhatsApp: +34 711 027 581.',
+              de: 'Ein ruhiges, kleines Restaurant, das sich wie ein echter lokaler Geheimtipp anfühlt – eine wunderbare Wahl, wenn ihr etwas Authentisches und Bodenständiges sucht. Ungefähr 2 Minuten von AMARA entfernt. Schließt um 20:00 Uhr (warme Küche bis 19:30 Uhr). Reservierung gerne über WhatsApp: +34 711 027 581.',
+              es: 'Un lugar pequeño y tranquilo que parece un verdadero hallazgo local: una muy buena opción para algo sencillo y auténtico. A unos 2 minutos de AMARA. Cierra a las 20:00 (cocina hasta las 19:30). Reservas por WhatsApp: +34 711 027 581.',
+              nl: 'Een rustige, kleine plek die aanvoelt als een echte lokale vondst — een fijne optie als jullie op zoek zijn naar iets simpels en authentieks. Op ongeveer 2 minuten lopen van AMARA. Sluit om 20:00 uur (keuken tot 19:30). Reserveren kan via WhatsApp: +34 711 027 581.',
+              sv: 'Ett litet och rofyllt ställe som känns som ett genuint lokalt fynd – ett jättebra val när ni vill ha något enkelt och autentiskt. Ligger cirka 2 minuter från AMARA. Stänger kl. 20:00 (köket är öppet till 19:30). Bordsreservation via WhatsApp: +34 711 027 581.'
             }
           ]
         },
         {
           icon: 'location-pin',
+          recommendationId: 'frigiliana.restaurants.el-acebuchal',
           title: { en: 'El Acebuchal', de: 'El Acebuchal', es: 'El Acebuchal', nl: 'El Acebuchal', sv: 'El Acebuchal' },
           subtitle: {
             en: 'Mountains · Destination lunch · approx. 7 km',
@@ -1973,16 +1985,17 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A memorable drive-into-the-hills lunch — the setting is the experience. Great for a daytime trip. Bring cash and don\'t rely on mobile signal; the road and remoteness are part of it.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+El+Acebuchal" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein unvergessliches Mittagessen tief in den Hügeln – hier ist die Umgebung das eigentliche Erlebnis. Ein wunderschöner Ausflug für den Tag. Nehmt am besten Bargeld mit und verlasst euch nicht auf den Handyempfang: Die abenteuerliche Straße und die Abgeschiedenheit gehören hier einfach dazu.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+El+Acebuchal" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un almuerzo inolvidable escondido en las colinas: el entorno en sí es toda una experiencia. Genial como excursión de día. Llevad efectivo y no dependáis de la cobertura del móvil; el camino y el aislamiento forman parte del encanto.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+El+Acebuchal" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een onvergetelijke lunch diep in de heuvels — alleen al de locatie is een hele ervaring. Echt een aanrader voor een dagtripje. Neem contant geld mee en vertrouw niet op mobiel bereik; de avontuurlijke weg en de afgelegen ligging maken het juist zo bijzonder.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+El+Acebuchal" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En minnesvärd lunch djupt inne i bergen – här är omgivningen själva upplevelsen. Ett fantastiskt utflyktsmål över dagen. Ta med kontanter och räkna inte med mobiltäckning; vägen dit och den avskilda känslan är en del av charmen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+El+Acebuchal" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A memorable drive-into-the-hills lunch — the setting is the experience. Great for a daytime trip. Bring cash and don\'t rely on mobile signal; the road and remoteness are part of it.',
+              de: 'Ein unvergessliches Mittagessen tief in den Hügeln – hier ist die Umgebung das eigentliche Erlebnis. Ein wunderschöner Ausflug für den Tag. Nehmt am besten Bargeld mit und verlasst euch nicht auf den Handyempfang: Die abenteuerliche Straße und die Abgeschiedenheit gehören hier einfach dazu.',
+              es: 'Un almuerzo inolvidable escondido en las colinas: el entorno en sí es toda una experiencia. Genial como excursión de día. Llevad efectivo y no dependáis de la cobertura del móvil; el camino y el aislamiento forman parte del encanto.',
+              nl: 'Een onvergetelijke lunch diep in de heuvels — alleen al de locatie is een hele ervaring. Echt een aanrader voor een dagtripje. Neem contant geld mee en vertrouw niet op mobiel bereik; de avontuurlijke weg en de afgelegen ligging maken het juist zo bijzonder.',
+              sv: 'En minnesvärd lunch djupt inne i bergen – här är omgivningen själva upplevelsen. Ett fantastiskt utflyktsmål över dagen. Ta med kontanter och räkna inte med mobiltäckning; vägen dit och den avskilda känslan är en del av charmen.'
             }
           ]
         },
         {
           icon: 'location-pin',
+          recommendationId: 'frigiliana.restaurants.el-tangay',
           title: { en: 'El Tangay', de: 'El Tangay', es: 'El Tangay', nl: 'El Tangay', sv: 'El Tangay' },
           subtitle: {
             en: 'Frigiliana · Where locals go · approx. 500 m',
@@ -1993,11 +2006,11 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A relaxed, authentic local spot — less about views, more about atmosphere and real village life. Great for an easy dinner surrounded by locals.<br><br><a class="am-link" href="https://share.google/klHKMa8MedhVjLNPJ" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein herrlich entspanntes, authentisches Restaurant – hier geht es weniger um die Aussicht, sondern um die Atmosphäre und das echte Dorfleben. Perfekt für ein unkompliziertes Abendessen mitten unter Einheimischen.<br><br><a class="am-link" href="https://share.google/klHKMa8MedhVjLNPJ" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un restaurante relajado y auténtico: no destaca tanto por las vistas, sino por el ambiente y la auténtica vida del pueblo. Ideal para una cena informal rodeados de gente local.<br><br><a class="am-link" href="https://share.google/klHKMa8MedhVjLNPJ" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een heerlijk relaxte en authentieke plek — hier draait het minder om het uitzicht en meer om de sfeer en het echte dorpsleven. Ideaal voor een ontspannen diner tussen de locals.<br><br><a class="am-link" href="https://share.google/klHKMa8MedhVjLNPJ" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett väldigt avslappnat och genuint ställe – här handlar det mindre om utsikten och mer om atmosfären och det riktiga bylivet. Perfekt för en okomplicerad middag bland byborna.<br><br><a class="am-link" href="https://share.google/klHKMa8MedhVjLNPJ" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A relaxed, authentic local spot — less about views, more about atmosphere and real village life. Great for an easy dinner surrounded by locals.',
+              de: 'Ein herrlich entspanntes, authentisches Restaurant – hier geht es weniger um die Aussicht, sondern um die Atmosphäre und das echte Dorfleben. Perfekt für ein unkompliziertes Abendessen mitten unter Einheimischen.',
+              es: 'Un restaurante relajado y auténtico: no destaca tanto por las vistas, sino por el ambiente y la auténtica vida del pueblo. Ideal para una cena informal rodeados de gente local.',
+              nl: 'Een heerlijk relaxte en authentieke plek — hier draait het minder om het uitzicht en meer om de sfeer en het echte dorpsleven. Ideaal voor een ontspannen diner tussen de locals.',
+              sv: 'Ett väldigt avslappnat och genuint ställe – här handlar det mindre om utsikten och mer om atmosfären och det riktiga bylivet. Perfekt för en okomplicerad middag bland byborna.'
             }
           ]
         }
@@ -2009,7 +2022,7 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
 const nerjaGuestRestaurants: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-restaurants',
-  backSlug: 'frigiliana-guest-recommendations',
+  backSlug: 'nerja-guest-recommendations',
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
@@ -2047,6 +2060,7 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
       items: [
         {
           icon: 'fish',
+          recommendationId: 'nerja.restaurants.el-pulguilla',
           title: { en: 'El Pulguilla', de: 'El Pulguilla', es: 'El Pulguilla', nl: 'El Pulguilla', sv: 'El Pulguilla' },
           subtitle: {
             en: 'Nerja · Seafood tapas · lively',
@@ -2057,16 +2071,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Classic Nerja seafood-tapas energy — casual, loud, and very Spanish. Great for fried fish and quick seafood rounds.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+El+Pulguilla+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Die klassische Seafood-Tapas-Energie von Nerja – unkompliziert, laut und wunderbar spanisch. Perfekt für frittierten Fisch und entspannte Tapas-Runden.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+El+Pulguilla+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'La clásica energía de tapas de marisco de Nerja: informal, ruidosa y muy española. Genial para pescaíto frito y unas rondas rápidas de marisco.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+El+Pulguilla+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'De klassieke seafood-tapas sfeer van Nerja — casual, druk en heerlijk Spaans. Geweldig voor gebakken vis en snelle rondes tapas.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+El+Pulguilla+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Den klassiska energin av fisk- och skaldjurstapas i Nerja – okomplicerat, högljutt och väldigt spanskt. Perfekt för friterad fisk och snabba tapasrundor.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+El+Pulguilla+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Classic Nerja seafood-tapas energy — casual, loud, and very Spanish. Great for fried fish and quick seafood rounds.',
+              de: 'Die klassische Seafood-Tapas-Energie von Nerja – unkompliziert, laut und wunderbar spanisch. Perfekt für frittierten Fisch und entspannte Tapas-Runden.',
+              es: 'La clásica energía de tapas de marisco de Nerja: informal, ruidosa y muy española. Genial para pescaíto frito y unas rondas rápidas de marisco.',
+              nl: 'De klassieke seafood-tapas sfeer van Nerja — casual, druk en heerlijk Spaans. Geweldig voor gebakken vis en snelle rondes tapas.',
+              sv: 'Den klassiska energin av fisk- och skaldjurstapas i Nerja – okomplicerat, högljutt och väldigt spanskt. Perfekt för friterad fisk och snabba tapasrundor.'
             }
           ]
         },
         {
           icon: 'fish',
+          recommendationId: 'nerja.restaurants.dolores-el-chispa',
           title: { en: 'Dolores El Chispa', de: 'Dolores El Chispa', es: 'Dolores El Chispa', nl: 'Dolores El Chispa', sv: 'Dolores El Chispa' },
           subtitle: {
             en: 'Nerja · Ultra-local seafood',
@@ -2077,16 +2092,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Raw, authentic taberna vibe with generous seafood — a true local experience. Perfect when you want "no frills, just great fish".<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Dolores+El+Chispa+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Authentische, ehrliche Taberna-Atmosphäre mit großzügigen Seafood-Portionen – ein echtes lokales Erlebnis. Perfekt, wenn ihr "keinen Schnickschnack, sondern einfach großartigen Fisch" wollt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Dolores+El+Chispa+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Auténtico ambiente de taberna con raciones generosas de marisco: una verdadera experiencia local. Perfecto para cuando queréis "sin lujos, solo buen pescado".<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Dolores+El+Chispa+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Authentieke, pure taberna-sfeer met royale porties vis en zeevruchten — een echte lokale ervaring. Perfect als jullie "geen poespas, gewoon geweldige vis" willen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Dolores+El+Chispa+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En rustik, äkta taberna-känsla med generösa portioner av fisk och skaldjur – en riktig lokal upplevelse. Perfekt när ni vill ha "inget krångel, bara fantastisk fisk".<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Dolores+El+Chispa+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Raw, authentic taberna vibe with generous seafood — a true local experience. Perfect when you want "no frills, just great fish".',
+              de: 'Authentische, ehrliche Taberna-Atmosphäre mit großzügigen Seafood-Portionen – ein echtes lokales Erlebnis. Perfekt, wenn ihr "keinen Schnickschnack, sondern einfach großartigen Fisch" wollt.',
+              es: 'Auténtico ambiente de taberna con raciones generosas de marisco: una verdadera experiencia local. Perfecto para cuando queréis "sin lujos, solo buen pescado".',
+              nl: 'Authentieke, pure taberna-sfeer met royale porties vis en zeevruchten — een echte lokale ervaring. Perfect als jullie "geen poespas, gewoon geweldige vis" willen.',
+              sv: 'En rustik, äkta taberna-känsla med generösa portioner av fisk och skaldjur – en riktig lokal upplevelse. Perfekt när ni vill ha "inget krångel, bara fantastisk fisk".'
             }
           ]
         },
         {
           icon: 'fish',
+          recommendationId: 'nerja.restaurants.la-puntilla',
           title: { en: 'La Puntilla', de: 'La Puntilla', es: 'La Puntilla', nl: 'La Puntilla', sv: 'La Puntilla' },
           subtitle: {
             en: 'Nerja · Great value seafood',
@@ -2097,16 +2113,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Reliable choice for seafood and tapas — great value and a proper Andalusian rhythm. Try gambas al pil-pil and mixed fried fish.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Puntilla+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Verlässliche Wahl für Seafood und Tapas – tolle Preise und echter andalusischer Rhythmus. Probiert unbedingt die Gambas al Pil-Pil und den gemischten frittierten Fisch.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Puntilla+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Elección fiable para marisco y tapas: muy buena relación calidad-precio y auténtico ritmo andaluz. Probad las gambas al pil-pil y el surtido de pescaíto frito.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Puntilla+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een betrouwbare keuze voor vis en tapas — geweldige prijzen en een echt Andalusisch ritme. Probeer zeker de gambas al pil-pil en de gemengde gebakken vis.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Puntilla+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett pålitligt val för fisk och tapas – bra priser och en genuin andalusisk rytm. Prova gambas al pil-pil och den mixade friterade fisken.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Puntilla+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Reliable choice for seafood and tapas — great value and a proper Andalusian rhythm. Try gambas al pil-pil and mixed fried fish.',
+              de: 'Verlässliche Wahl für Seafood und Tapas – tolle Preise und echter andalusischer Rhythmus. Probiert unbedingt die Gambas al Pil-Pil und den gemischten frittierten Fisch.',
+              es: 'Elección fiable para marisco y tapas: muy buena relación calidad-precio y auténtico ritmo andaluz. Probad las gambas al pil-pil y el surtido de pescaíto frito.',
+              nl: 'Een betrouwbare keuze voor vis en tapas — geweldige prijzen en een echt Andalusisch ritme. Probeer zeker de gambas al pil-pil en de gemengde gebakken vis.',
+              sv: 'Ett pålitligt val för fisk och tapas – bra priser och en genuin andalusisk rytm. Prova gambas al pil-pil och den mixade friterade fisken.'
             }
           ]
         },
         {
           icon: 'goblet',
+          recommendationId: 'nerja.restaurants.puerta-del-mar',
           title: { en: 'Puerta del Mar', de: 'Puerta del Mar', es: 'Puerta del Mar', nl: 'Puerta del Mar', sv: 'Puerta del Mar' },
           subtitle: {
             en: 'Balcón de Europa · Premium seafood',
@@ -2117,11 +2134,11 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A more premium seafood pick with a prime location near Balcón de Europa. Great when you want a calmer sit-down meal with sea views.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Puerta+del+Mar+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein etwas gehobeneres Seafood-Restaurant in bester Lage nahe dem Balcón de Europa. Wunderbar, wenn euch der Sinn nach einem ruhigeren Essen mit Meerblick steht.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Puerta+del+Mar+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una opción de marisco algo más exclusiva en una ubicación privilegiada cerca del Balcón de Europa. Genial cuando queréis una comida más tranquila con vistas al mar.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Puerta+del+Mar+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een wat luxere keuze voor visgerechten op een toplocatie vlakbij het Balcón de Europa. Geweldig als jullie zin hebben in een rustiger diner met uitzicht op zee.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Puerta+del+Mar+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett lite lyxigare alternativ för fisk och skaldjur med ett utmärkt läge nära Balcón de Europa. Perfekt när ni vill ha en lugnare middag med havsutsikt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Puerta+del+Mar+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A more premium seafood pick with a prime location near Balcón de Europa. Great when you want a calmer sit-down meal with sea views.',
+              de: 'Ein etwas gehobeneres Seafood-Restaurant in bester Lage nahe dem Balcón de Europa. Wunderbar, wenn euch der Sinn nach einem ruhigeren Essen mit Meerblick steht.',
+              es: 'Una opción de marisco algo más exclusiva en una ubicación privilegiada cerca del Balcón de Europa. Genial cuando queréis una comida más tranquila con vistas al mar.',
+              nl: 'Een wat luxere keuze voor visgerechten op een toplocatie vlakbij het Balcón de Europa. Geweldig als jullie zin hebben in een rustiger diner met uitzicht op zee.',
+              sv: 'Ett lite lyxigare alternativ för fisk och skaldjur med ett utmärkt läge nära Balcón de Europa. Perfekt när ni vill ha en lugnare middag med havsutsikt.'
             }
           ]
         }
@@ -2141,6 +2158,7 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
       items: [
         {
           icon: 'dish',
+          recommendationId: 'nerja.restaurants.chiringuito-ayo',
           title: { en: 'Chiringuito AYO', de: 'Chiringuito AYO', es: 'Chiringuito AYO', nl: 'Chiringuito AYO', sv: 'Chiringuito AYO' },
           subtitle: {
             en: 'Burriana · Paella classic',
@@ -2151,16 +2169,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Iconic beach paella at lunchtime — rustic, fast, and a local institution. Best combined with Burriana Beach: swim first, lunch after.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Chiringuito+Ayo+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ikonische Strand-Paella zur Mittagszeit – rustikal, schnell und eine echte lokale Institution. Am besten in Kombination mit dem Burriana-Strand: erst schwimmen, dann essen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Chiringuito+Ayo+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un icono para comer paella en la playa a mediodía: rústico, rápido y toda una institución local. Lo mejor es combinarlo con la playa de Burriana: primero un baño, luego a comer.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Chiringuito+Ayo+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Iconische strandpaella tijdens de lunch — rustiek, snel en een echt lokaal instituut. Het beste te combineren met Burriana Beach: eerst zwemmen, daarna lunchen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Chiringuito+Ayo+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ikonisk strandpaella till lunch – rustikt, snabbt och en riktig lokal institution. Kombineras bäst med Burriana-stranden: simma först, ät lunch sedan.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Chiringuito+Ayo+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Iconic beach paella at lunchtime — rustic, fast, and a local institution. Best combined with Burriana Beach: swim first, lunch after. Open 09:00–19:00 with kitchen 12:00–18:00 (2026), so it is a lunch place, not a dinner option.',
+              de: 'Ikonische Strand-Paella zur Mittagszeit – rustikal, schnell und eine echte lokale Institution. Am besten in Kombination mit dem Burriana-Strand: erst schwimmen, dann essen. Geöffnet 09:00–19:00 Uhr, Küche 12:00–18:00 Uhr (Stand 2026), also ein Mittags-, kein Abendlokal.',
+              es: 'Un icono para comer paella en la playa a mediodía: rústico, rápido y toda una institución local. Lo mejor es combinarlo con la playa de Burriana: primero un baño, luego a comer. Abierto de 09:00 a 19:00 con cocina de 12:00 a 18:00 (2026), así que es un sitio para comer, no para cenar.',
+              nl: 'Iconische strandpaella tijdens de lunch — rustiek, snel en een echt lokaal instituut. Het beste te combineren met Burriana Beach: eerst zwemmen, daarna lunchen. Open 09:00–19:00, keuken 12:00–18:00 (2026), dus een lunchadres en geen dineroptie.',
+              sv: 'Ikonisk strandpaella till lunch – rustikt, snabbt och en riktig lokal institution. Kombineras bäst med Burriana-stranden: simma först, ät lunch sedan. Öppet 09:00–19:00 med kök 12:00–18:00 (2026), alltså ett lunchställe och inget middagsalternativ.'
             }
           ]
         },
         {
           icon: 'dish',
+          recommendationId: 'nerja.restaurants.merendero-la-barca',
           title: { en: 'Merendero La Barca', de: 'Merendero La Barca', es: 'Merendero La Barca', nl: 'Merendero La Barca', sv: 'Merendero La Barca' },
           subtitle: {
             en: 'Burriana · Rice dishes (lobster)',
@@ -2171,16 +2190,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Great for rice dishes beyond "classic paella" — especially lobster rice (arroz con bogavante). Strong option when you want a proper lunch on a beach day.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Merendero+La+Barca+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Großartig für Reisgerichte abseits der "klassischen Paella" – besonders der Hummerreis (arroz con bogavante) ist ein Highlight. Eine starke Wahl, wenn ihr ein richtig gutes Mittagessen am Strand wollt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Merendero+La+Barca+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Genial para arroces más allá de la "paella clásica", especialmente el arroz con bogavante. Una opción muy fuerte cuando queréis un buen almuerzo en un día de playa.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Merendero+La+Barca+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Geweldig voor rijstgerechten buiten de "klassieke paella" om — vooral de rijst met kreeft (arroz con bogavante). Een sterke keuze als jullie goed willen lunchen tijdens een stranddag.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Merendero+La+Barca+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Fantastiskt för risrätter utöver den "klassiska paellan" – speciellt hummerris (arroz con bogavante). Ett starkt val när ni vill ha en riktigt bra lunch under en stranddag.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Merendero+La+Barca+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Great for rice dishes beyond "classic paella" — especially lobster rice (arroz con bogavante). Strong option when you want a proper lunch on a beach day.',
+              de: 'Großartig für Reisgerichte abseits der "klassischen Paella" – besonders der Hummerreis (arroz con bogavante) ist ein Highlight. Eine starke Wahl, wenn ihr ein richtig gutes Mittagessen am Strand wollt.',
+              es: 'Genial para arroces más allá de la "paella clásica", especialmente el arroz con bogavante. Una opción muy fuerte cuando queréis un buen almuerzo en un día de playa.',
+              nl: 'Geweldig voor rijstgerechten buiten de "klassieke paella" om — vooral de rijst met kreeft (arroz con bogavante). Een sterke keuze als jullie goed willen lunchen tijdens een stranddag.',
+              sv: 'Fantastiskt för risrätter utöver den "klassiska paellan" – speciellt hummerris (arroz con bogavante). Ett starkt val när ni vill ha en riktigt bra lunch under en stranddag.'
             }
           ]
         },
         {
           icon: 'dish',
+          recommendationId: 'nerja.restaurants.playa-sol-lounge',
           title: { en: 'Playa & Sol Lounge', de: 'Playa & Sol Lounge', es: 'Playa & Sol Lounge', nl: 'Playa & Sol Lounge', sv: 'Playa & Sol Lounge' },
           subtitle: {
             en: 'Burriana · Modern rice & fideuá',
@@ -2191,16 +2211,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A more modern take on the Burriana strip — good value paella and great fideuá. Nice pick when you want something relaxed but a bit more "current".<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+y+Sol+Lounge+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine etwas modernere Variante an der Burriana-Promenade – faire Preise für Paella und großartige Fideuá. Eine gute Wahl, wenn ihr es entspannt, aber etwas zeitgemäßer mögt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+y+Sol+Lounge+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un toque más moderno en el paseo de Burriana: paella a buen precio y una fideuá buenísima. Buena elección si buscáis algo relajado pero un poco más "actual".<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+y+Sol+Lounge+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een wat modernere variant aan de Burriana-boulevard — paella voor een goede prijs en geweldige fideuá. Een fijne keuze als jullie iets relaxeds maar nét wat "hipper" willen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+y+Sol+Lounge+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett lite modernare alternativ längs Burriana-stråket – prisvärd paella och fantastisk fideuá. Ett bra val när ni vill ha något avslappnat men lite mer nutida.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+y+Sol+Lounge+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A more modern take on the Burriana strip — good value paella and great fideuá. Nice pick when you want something relaxed but a bit more "current".',
+              de: 'Eine etwas modernere Variante an der Burriana-Promenade – faire Preise für Paella und großartige Fideuá. Eine gute Wahl, wenn ihr es entspannt, aber etwas zeitgemäßer mögt.',
+              es: 'Un toque más moderno en el paseo de Burriana: paella a buen precio y una fideuá buenísima. Buena elección si buscáis algo relajado pero un poco más "actual".',
+              nl: 'Een wat modernere variant aan de Burriana-boulevard — paella voor een goede prijs en geweldige fideuá. Een fijne keuze als jullie iets relaxeds maar nét wat "hipper" willen.',
+              sv: 'Ett lite modernare alternativ längs Burriana-stråket – prisvärd paella och fantastisk fideuá. Ett bra val när ni vill ha något avslappnat men lite mer nutida.'
             }
           ]
         },
         {
           icon: 'dish',
+          recommendationId: 'nerja.restaurants.la-torrecilla',
           title: { en: 'La Torrecilla', de: 'La Torrecilla', es: 'La Torrecilla', nl: 'La Torrecilla', sv: 'La Torrecilla' },
           subtitle: {
             en: 'Torrecilla · Arroz negro / veggie options',
@@ -2211,11 +2232,11 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Great choice if you want rice dishes with variety — including arroz negro. Also a strong option when you need a vegetarian-friendly rice dish.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+La+Torrecilla+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine tolle Wahl, wenn ihr Vielfalt bei den Reisgerichten sucht – inklusive Arroz Negro (schwarzer Reis). Auch eine super Option, wenn ihr vegetarische Reisgerichte braucht.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+La+Torrecilla+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una gran elección si queréis arroces con variedad, incluyendo el arroz negro. También es una opción muy buena si necesitáis un plato de arroz vegetariano.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+La+Torrecilla+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een geweldige keuze als jullie gevarieerde rijstgerechten zoeken — inclusief arroz negro (zwarte rijst). Ook een heel goede optie als jullie vegetarische rijstgerechten willen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+La+Torrecilla+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett utmärkt val om ni vill ha variation bland risrätterna – inklusive arroz negro (svart ris). Även ett riktigt bra alternativ om ni söker en vegetarisk risrätt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+La+Torrecilla+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Great choice if you want rice dishes with variety — including arroz negro. Also a strong option when you need a vegetarian-friendly rice dish.',
+              de: 'Eine tolle Wahl, wenn ihr Vielfalt bei den Reisgerichten sucht – inklusive Arroz Negro (schwarzer Reis). Auch eine super Option, wenn ihr vegetarische Reisgerichte braucht.',
+              es: 'Una gran elección si queréis arroces con variedad, incluyendo el arroz negro. También es una opción muy buena si necesitáis un plato de arroz vegetariano.',
+              nl: 'Een geweldige keuze als jullie gevarieerde rijstgerechten zoeken — inclusief arroz negro (zwarte rijst). Ook een heel goede optie als jullie vegetarische rijstgerechten willen.',
+              sv: 'Ett utmärkt val om ni vill ha variation bland risrätterna – inklusive arroz negro (svart ris). Även ett riktigt bra alternativ om ni söker en vegetarisk risrätt.'
             }
           ]
         }
@@ -2226,6 +2247,7 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
       items: [
         {
           icon: 'wave',
+          recommendationId: 'nerja.restaurants.burriana-beach-lunch-zone',
           title: { en: 'Burriana Beach lunch zone', de: 'Burriana Beach (Lunch-Zone)', es: 'Zona de almuerzo en Playa de Burriana', nl: 'Burriana Beach lunchgebied', sv: 'Burriana Beach lunchområde' },
           subtitle: {
             en: 'Burriana · Easiest beach + food combo',
@@ -2236,16 +2258,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Burriana is the easiest "full beach day + lunch" setup in Nerja. If you want a sure paella stop, AYO is the classic.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Burriana+Nerja" target="_blank" rel="noopener">Open Burriana Beach in Google Maps</a>',
-              de: 'Der Burriana-Strand ist das einfachste Setup für einen perfekten "Strandtag + Mittagessen" in Nerja. Wenn ihr unbedingt Paella wollt, ist AYO der absolute Klassiker.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Burriana+Nerja" target="_blank" rel="noopener">Burriana Strand in Google Maps öffnen</a>',
-              es: 'Burriana es la opción más sencilla para el plan "día entero de playa + almuerzo" en Nerja. Si queréis aseguraros una buena paella, AYO es el clásico.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Burriana+Nerja" target="_blank" rel="noopener">Abrir Playa de Burriana en Google Maps</a>',
-              nl: 'Burriana is de makkelijkste plek in Nerja voor de ideale "volledige stranddag + lunch". Als jullie gegarandeerd paella willen eten, is AYO de klassieker.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Burriana+Nerja" target="_blank" rel="noopener">Open Burriana Beach in Google Maps</a>',
-              sv: 'Burriana är den absolut enklaste platsen i Nerja för en "hel stranddag + lunch". Om ni vill ha ett säkert kort för paella, är AYO den stora klassikern.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Playa+Burriana+Nerja" target="_blank" rel="noopener">Öppna Burriana Beach i Google Maps</a>'
+              en: 'Burriana is the easiest "full beach day + lunch" setup in Nerja. If you want a sure paella stop, AYO is the classic.',
+              de: 'Der Burriana-Strand ist das einfachste Setup für einen perfekten "Strandtag + Mittagessen" in Nerja. Wenn ihr unbedingt Paella wollt, ist AYO der absolute Klassiker.',
+              es: 'Burriana es la opción más sencilla para el plan "día entero de playa + almuerzo" en Nerja. Si queréis aseguraros una buena paella, AYO es el clásico.',
+              nl: 'Burriana is de makkelijkste plek in Nerja voor de ideale "volledige stranddag + lunch". Als jullie gegarandeerd paella willen eten, is AYO de klassieker.',
+              sv: 'Burriana är den absolut enklaste platsen i Nerja för en "hel stranddag + lunch". Om ni vill ha ett säkert kort för paella, är AYO den stora klassikern.'
             }
           ]
         },
         {
           icon: 'wave',
+          recommendationId: 'nerja.restaurants.chiringuito-mauri',
           title: { en: 'Chiringuito Mauri', de: 'Chiringuito Mauri', es: 'Chiringuito Mauri', nl: 'Chiringuito Mauri', sv: 'Chiringuito Mauri' },
           subtitle: {
             en: 'Espetos · Classic beach craft',
@@ -2256,16 +2279,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A very strong pick for espetos (sardines on the fire) and classic beach food. Great when you want the "old-school coastal" experience.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Chiringuito+Mauri+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine erstklassige Wahl für Espetos (Sardinen am Spieß über dem Feuer) und klassisches Strandessen. Wunderbar, wenn ihr das echte "Old-School-Küsten-Gefühl" sucht.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Chiringuito+Mauri+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una elección fantástica para comer espetos (sardinas asadas al fuego) y la clásica comida de chiringuito. Genial cuando buscáis la experiencia "costera de toda la vida".<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Chiringuito+Mauri+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een absolute aanrader voor espetos (sardines op het vuur) en de klassieke strandkeuken. Geweldig als jullie die échte "old-school kustervaring" willen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Chiringuito+Mauri+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett riktigt bra val för espetos (sardiner grillade över öppen eld) och klassisk strandmat. Underbart när ni är ute efter den där genuina "old-school-kustkänslan".<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Chiringuito+Mauri+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A very strong pick for espetos (sardines on the fire) and classic beach food. Great when you want the "old-school coastal" experience.',
+              de: 'Eine erstklassige Wahl für Espetos (Sardinen am Spieß über dem Feuer) und klassisches Strandessen. Wunderbar, wenn ihr das echte "Old-School-Küsten-Gefühl" sucht.',
+              es: 'Una elección fantástica para comer espetos (sardinas asadas al fuego) y la clásica comida de chiringuito. Genial cuando buscáis la experiencia "costera de toda la vida".',
+              nl: 'Een absolute aanrader voor espetos (sardines op het vuur) en de klassieke strandkeuken. Geweldig als jullie die échte "old-school kustervaring" willen.',
+              sv: 'Ett riktigt bra val för espetos (sardiner grillade över öppen eld) och klassisk strandmat. Underbart när ni är ute efter den där genuina "old-school-kustkänslan".'
             }
           ]
         },
         {
           icon: 'wave',
+          recommendationId: 'nerja.restaurants.la-gustosa-beach',
           title: { en: 'La Gustosa Beach', de: 'La Gustosa Beach', es: 'La Gustosa Beach', nl: 'La Gustosa Beach', sv: 'La Gustosa Beach' },
           subtitle: {
             en: 'Beachfront · Views + casual food',
@@ -2276,16 +2300,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Beachfront option with a great setting — good when you want easy food with a view. Nice for a relaxed afternoon that can roll into evening.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Gustosa+Beach+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine Strand-Location mit tollem Setting – super, wenn ihr unkompliziertes Essen mit Aussicht sucht. Schön für einen entspannten Nachmittag, der nahtlos in den Abend übergeht.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Gustosa+Beach+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una opción a pie de playa en un entorno estupendo: perfecto para tomar algo sencillo con vistas. Ideal para una tarde relajada que se alarga hasta la noche.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Gustosa+Beach+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een optie direct aan het strand met een prachtige ligging — goed voor als jullie makkelijk willen eten met uitzicht. Lekker voor een ontspannen middag die zomaar overgaat in de avond.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Gustosa+Beach+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett strandnära alternativ med en härlig inramning – bra när ni vill ha okomplicerad mat med utsikt. Trevligt för en avkopplande eftermiddag som lätt kan övergå i kväll.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Gustosa+Beach+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Beachfront option with a great setting — good when you want easy food with a view. Nice for a relaxed afternoon that can roll into evening.',
+              de: 'Eine Strand-Location mit tollem Setting – super, wenn ihr unkompliziertes Essen mit Aussicht sucht. Schön für einen entspannten Nachmittag, der nahtlos in den Abend übergeht.',
+              es: 'Una opción a pie de playa en un entorno estupendo: perfecto para tomar algo sencillo con vistas. Ideal para una tarde relajada que se alarga hasta la noche.',
+              nl: 'Een optie direct aan het strand met een prachtige ligging — goed voor als jullie makkelijk willen eten met uitzicht. Lekker voor een ontspannen middag die zomaar overgaat in de avond.',
+              sv: 'Ett strandnära alternativ med en härlig inramning – bra när ni vill ha okomplicerad mat med utsikt. Trevligt för en avkopplande eftermiddag som lätt kan övergå i kväll.'
             }
           ]
         },
         {
           icon: 'wave',
+          recommendationId: 'nerja.restaurants.rincon-del-sol',
           title: { en: 'Rincón del Sol', de: 'Rincón del Sol', es: 'Rincón del Sol', nl: 'Rincón del Sol', sv: 'Rincón del Sol' },
           subtitle: {
             en: 'Burriana · Beach club vibe',
@@ -2296,11 +2321,11 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'More "lounge / beach club" atmosphere — good for cocktails and a stylish sunset feel. Best when you want ambience as much as food.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Rincon+del+Sol+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eher ein "Lounge / Beach Club"-Ambiente – toll für Cocktails und eine stilvolle Stimmung zum Sonnenuntergang. Am besten, wenn euch die Atmosphäre genauso wichtig ist wie das Essen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Rincon+del+Sol+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Más ambiente de "lounge / beach club": estupendo para tomar unos cócteles y disfrutar del atardecer con estilo. Ideal cuando buscáis tanto un buen ambiente como buena comida.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Rincon+del+Sol+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een wat meer "lounge / beachclub" sfeer — leuk voor cocktails en een stijlvol zonsondergang-gevoel. Het beste voor als de ambiance voor jullie net zo belangrijk is als het eten.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Rincon+del+Sol+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Mer av en "lounge / beach club"-atmosfär – bra för cocktails och en stilfull solnedgångskänsla. Bäst när ni vill ha lika mycket atmosfär som mat.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Rincon+del+Sol+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'More "lounge / beach club" atmosphere — good for cocktails and a stylish sunset feel. Best when you want ambience as much as food.',
+              de: 'Eher ein "Lounge / Beach Club"-Ambiente – toll für Cocktails und eine stilvolle Stimmung zum Sonnenuntergang. Am besten, wenn euch die Atmosphäre genauso wichtig ist wie das Essen.',
+              es: 'Más ambiente de "lounge / beach club": estupendo para tomar unos cócteles y disfrutar del atardecer con estilo. Ideal cuando buscáis tanto un buen ambiente como buena comida.',
+              nl: 'Een wat meer "lounge / beachclub" sfeer — leuk voor cocktails en een stijlvol zonsondergang-gevoel. Het beste voor als de ambiance voor jullie net zo belangrijk is als het eten.',
+              sv: 'Mer av en "lounge / beach club"-atmosfär – bra för cocktails och en stilfull solnedgångskänsla. Bäst när ni vill ha lika mycket atmosfär som mat.'
             }
           ]
         }
@@ -2311,6 +2336,7 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
       items: [
         {
           icon: 'goblet',
+          recommendationId: 'nerja.restaurants.lamalaka',
           title: { en: 'Lamalaka', de: 'Lamalaka', es: 'Lamalaka', nl: 'Lamalaka', sv: 'Lamalaka' },
           subtitle: {
             en: 'Playa Calahonda · New beach club',
@@ -2321,16 +2347,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Big "new Nerja" concept: beach club, restaurant, and cocktails in a prime location. Go when you want a modern lifestyle vibe (especially around sunset).<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lamalaka+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein echtes "New Nerja"-Konzept: Beach Club, Restaurant und Cocktails in bester Lage. Geht dorthin, wenn ihr Lust auf einen modernen Lifestyle-Vibe habt (besonders zum Sonnenuntergang).<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lamalaka+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'El gran concepto del "nuevo Nerja": beach club, restaurante y cócteles en una ubicación inmejorable. Id cuando os apetezca un ambiente moderno y con estilo (especialmente al atardecer).<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lamalaka+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een groots "nieuw Nerja"-concept: beachclub, restaurant en cocktails op een toplocatie. Ga hierheen als jullie zin hebben in een moderne lifestyle-vibe (vooral rond zonsondergang).<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lamalaka+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett stort "nya Nerja"-koncept: beach club, restaurang och cocktails på ett förstklassigt läge. Gå hit när ni är ute efter en modern livsstilskänsla (särskilt runt solnedgången).<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lamalaka+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Big "new Nerja" concept: beach club, restaurant, and cocktails in a prime location. Go when you want a modern lifestyle vibe (especially around sunset).',
+              de: 'Ein echtes "New Nerja"-Konzept: Beach Club, Restaurant und Cocktails in bester Lage. Geht dorthin, wenn ihr Lust auf einen modernen Lifestyle-Vibe habt (besonders zum Sonnenuntergang).',
+              es: 'El gran concepto del "nuevo Nerja": beach club, restaurante y cócteles en una ubicación inmejorable. Id cuando os apetezca un ambiente moderno y con estilo (especialmente al atardecer).',
+              nl: 'Een groots "nieuw Nerja"-concept: beachclub, restaurant en cocktails op een toplocatie. Ga hierheen als jullie zin hebben in een moderne lifestyle-vibe (vooral rond zonsondergang).',
+              sv: 'Ett stort "nya Nerja"-koncept: beach club, restaurang och cocktails på ett förstklassigt läge. Gå hit när ni är ute efter en modern livsstilskänsla (särskilt runt solnedgången).'
             }
           ]
         },
         {
           icon: 'moon',
+          recommendationId: 'nerja.restaurants.oculto',
           title: { en: 'OCULTO', de: 'OCULTO', es: 'OCULTO', nl: 'OCULTO', sv: 'OCULTO' },
           subtitle: {
             en: 'Nerja · Dinner & cocktails',
@@ -2341,16 +2368,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Speakeasy-style "night restaurant" — modern, energetic, and very experience-driven. Booking ahead is important in peak season.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=OCULTO+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein "Night Restaurant" im Speakeasy-Stil – modern, energiegeladen und ein echtes Erlebnis. In der Hochsaison ist es wichtig, im Voraus zu reservieren.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=OCULTO+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un "restaurante nocturno" de estilo speakeasy: moderno, con mucha energía y centrado en la experiencia. Es importante reservar con antelación en temporada alta.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=OCULTO+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een "avondrestaurant" in speakeasy-stijl — modern, vol energie en echt gericht op de ervaring. Vooraf reserveren is belangrijk in het hoogseizoen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=OCULTO+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En "kvällsrestaurang" i speakeasy-stil – modern, energisk och väldigt upplevelsedriven. Det är viktigt att boka i förväg under högsäsong.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=OCULTO+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Speakeasy-style "night restaurant" — modern, energetic, and very experience-driven. Booking ahead is important in peak season.',
+              de: 'Ein "Night Restaurant" im Speakeasy-Stil – modern, energiegeladen und ein echtes Erlebnis. In der Hochsaison ist es wichtig, im Voraus zu reservieren.',
+              es: 'Un "restaurante nocturno" de estilo speakeasy: moderno, con mucha energía y centrado en la experiencia. Es importante reservar con antelación en temporada alta.',
+              nl: 'Een "avondrestaurant" in speakeasy-stijl — modern, vol energie en echt gericht op de ervaring. Vooraf reserveren is belangrijk in het hoogseizoen.',
+              sv: 'En "kvällsrestaurang" i speakeasy-stil – modern, energisk och väldigt upplevelsedriven. Det är viktigt att boka i förväg under högsäsong.'
             }
           ]
         },
         {
           icon: 'sparkle',
+          recommendationId: 'nerja.restaurants.botanic',
           title: { en: 'Botanic', de: 'Botanic', es: 'Botanic', nl: 'Botanic', sv: 'Botanic' },
           subtitle: {
             en: 'Nerja · Modern menu & gin bar',
@@ -2361,16 +2389,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Stylish, contemporary and calm — strong if you care about plating, seasonal food, and gin. Great for a date night that\'s not too formal.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Botanic+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Stilvoll, zeitgemäß und ruhig – eine sehr gute Wahl, wenn ihr Wert auf schön angerichtete, saisonale Speisen und guten Gin legt. Perfekt für eine Date Night, die nicht zu formell ist.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Botanic+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Elegante, actual y tranquilo: una gran opción si valoráis una buena presentación, comida de temporada y la ginebra. Perfecto para una noche de cita, pero no demasiado formal.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Botanic+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Stijlvol, eigentijds en rustig — een sterke keuze als jullie houden van mooi opgemaakte borden, seizoensgebonden gerechten en gin. Ideaal voor een date night, maar niet te formeel.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Botanic+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Stilfullt, modernt och lugnt – ett starkt val om ni uppskattar vackra uppläggningar, säsongsbaserad mat och gin. Perfekt för en date night, men inte för formellt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Botanic+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Stylish, contemporary and calm — strong if you care about plating, seasonal food, and gin. Great for a date night that\'s not too formal.',
+              de: 'Stilvoll, zeitgemäß und ruhig – eine sehr gute Wahl, wenn ihr Wert auf schön angerichtete, saisonale Speisen und guten Gin legt. Perfekt für eine Date Night, die nicht zu formell ist.',
+              es: 'Elegante, actual y tranquilo: una gran opción si valoráis una buena presentación, comida de temporada y la ginebra. Perfecto para una noche de cita, pero no demasiado formal.',
+              nl: 'Stijlvol, eigentijds en rustig — een sterke keuze als jullie houden van mooi opgemaakte borden, seizoensgebonden gerechten en gin. Ideaal voor een date night, maar niet te formeel.',
+              sv: 'Stilfullt, modernt och lugnt – ett starkt val om ni uppskattar vackra uppläggningar, säsongsbaserad mat och gin. Perfekt för en date night, men inte för formellt.'
             }
           ]
         },
         {
           icon: 'heart',
+          recommendationId: 'nerja.restaurants.trattoria-italia',
           title: { en: 'Trattoria Italia', de: 'Trattoria Italia', es: 'Trattoria Italia', nl: 'Trattoria Italia', sv: 'Trattoria Italia' },
           subtitle: {
             en: 'Nerja · Romantic courtyard',
@@ -2381,11 +2410,11 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A newer crowd favorite for a classic Italian dinner with a very nice ambience. Great when you want a break from tapas and seafood.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Trattoria+Italia+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein neuerer Publikumsliebling für ein klassisches italienisches Abendessen in sehr schönem Ambiente. Großartig, wenn ihr mal eine Pause von Tapas und Seafood braucht.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Trattoria+Italia+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un nuevo favorito del público para una cena italiana clásica con un ambiente muy agradable. Genial cuando os apetece un descanso de las tapas y el marisco.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Trattoria+Italia+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een nieuwe publieksfavoriet voor een klassiek Italiaans diner in een hele fijne sfeer. Geweldig voor als jullie even pauze willen van de tapas en visgerechten.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Trattoria+Italia+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En nyare publikfavorit för en klassisk italiensk middag med en väldigt trevlig atmosfär. Perfekt när ni vill ha en paus från tapas och fisk.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Trattoria+Italia+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A newer crowd favorite for a classic Italian dinner with a very nice ambience. Great when you want a break from tapas and seafood.',
+              de: 'Ein neuerer Publikumsliebling für ein klassisches italienisches Abendessen in sehr schönem Ambiente. Großartig, wenn ihr mal eine Pause von Tapas und Seafood braucht.',
+              es: 'Un nuevo favorito del público para una cena italiana clásica con un ambiente muy agradable. Genial cuando os apetece un descanso de las tapas y el marisco.',
+              nl: 'Een nieuwe publieksfavoriet voor een klassiek Italiaans diner in een hele fijne sfeer. Geweldig voor als jullie even pauze willen van de tapas en visgerechten.',
+              sv: 'En nyare publikfavorit för en klassisk italiensk middag med en väldigt trevlig atmosfär. Perfekt när ni vill ha en paus från tapas och fisk.'
             }
           ]
         }
@@ -2396,6 +2425,7 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
       items: [
         {
           icon: 'music',
+          recommendationId: 'nerja.restaurants.bar-redondo',
           title: { en: 'Bar Redondo', de: 'Bar Redondo', es: 'Bar Redondo', nl: 'Bar Redondo', sv: 'Bar Redondo' },
           subtitle: {
             en: 'Tapas · Lively night street',
@@ -2406,16 +2436,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Tapas institution and a social hotspot — great for a fun, busy evening out. Go early for a calmer start; later it gets packed.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Redondo+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine Tapas-Institution und ein geselliger Hotspot – super für einen lustigen, lebhaften Abend. Geht etwas früher hin für einen ruhigen Start; später wird es richtig voll.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Redondo+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Toda una institución de tapas y un punto de encuentro social: ideal para una noche divertida y concurrida. Id temprano para empezar con más calma; luego se llena.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Redondo+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een tapas-instituut en een sociale hotspot — perfect voor een gezellige, drukke avond uit. Ga vroeg voor een rustige start; later op de avond stroomt het vol.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Redondo+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En tapasinstitution och en social samlingspunkt – jättebra för en rolig och livlig utekväll. Gå dit tidigt för en lugnare start; senare blir det fullpackat.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Redondo+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Tapas institution and a social hotspot — great for a fun, busy evening out. Go early for a calmer start; later it gets packed.',
+              de: 'Eine Tapas-Institution und ein geselliger Hotspot – super für einen lustigen, lebhaften Abend. Geht etwas früher hin für einen ruhigen Start; später wird es richtig voll.',
+              es: 'Toda una institución de tapas y un punto de encuentro social: ideal para una noche divertida y concurrida. Id temprano para empezar con más calma; luego se llena.',
+              nl: 'Een tapas-instituut en een sociale hotspot — perfect voor een gezellige, drukke avond uit. Ga vroeg voor een rustige start; later op de avond stroomt het vol.',
+              sv: 'En tapasinstitution och en social samlingspunkt – jättebra för en rolig och livlig utekväll. Gå dit tidigt för en lugnare start; senare blir det fullpackat.'
             }
           ]
         },
         {
           icon: 'accommodation',
+          recommendationId: 'nerja.restaurants.el-refugio',
           title: { en: 'El Refugio', de: 'El Refugio', es: 'El Refugio', nl: 'El Refugio', sv: 'El Refugio' },
           subtitle: {
             en: 'Cozy local spot · Rustic terrace',
@@ -2426,16 +2457,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A cozy, rustic-feel place that\'s easy to love — great for classic tapas. Good choice when you want something simple and warm.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Refugio+Calle+Pintada+27+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein uriger, liebevoller Ort mit rustikalem Charme – toll für klassische Tapas. Eine gute Wahl, wenn ihr etwas Einfaches und Herzliches sucht.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Refugio+Calle+Pintada+27+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un sitio acogedor y de aire rústico al que es fácil cogerle cariño: genial para unas tapas clásicas. Buena elección cuando os apetece algo sencillo y cálido.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Refugio+Calle+Pintada+27+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een gezellige, rustieke plek waar je makkelijk verliefd op wordt — geweldig voor klassieke tapas. Een goede keuze als jullie iets simpels en warms zoeken.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Refugio+Calle+Pintada+27+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En inbjudande och rustik plats som är lätt att tycka om – fantastisk för klassiska tapas. Ett bra val när ni vill ha något enkelt och hjärtligt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Refugio+Calle+Pintada+27+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A cozy, rustic-feel place that\'s easy to love — great for classic tapas. Good choice when you want something simple and warm.',
+              de: 'Ein uriger, liebevoller Ort mit rustikalem Charme – toll für klassische Tapas. Eine gute Wahl, wenn ihr etwas Einfaches und Herzliches sucht.',
+              es: 'Un sitio acogedor y de aire rústico al que es fácil cogerle cariño: genial para unas tapas clásicas. Buena elección cuando os apetece algo sencillo y cálido.',
+              nl: 'Een gezellige, rustieke plek waar je makkelijk verliefd op wordt — geweldig voor klassieke tapas. Een goede keuze als jullie iets simpels en warms zoeken.',
+              sv: 'En inbjudande och rustik plats som är lätt att tycka om – fantastisk för klassiska tapas. Ett bra val när ni vill ha något enkelt och hjärtligt.'
             }
           ]
         },
         {
           icon: 'heart',
+          recommendationId: 'nerja.restaurants.la-rienda',
           title: { en: 'La Rienda', de: 'La Rienda', es: 'La Rienda', nl: 'La Rienda', sv: 'La Rienda' },
           subtitle: {
             en: 'Nerja · Relaxed tapas evening',
@@ -2446,16 +2478,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Easy, generous tapas with a calmer local crowd. Great for a relaxed "let\'s stay a bit longer" evening.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Rienda+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Unkomplizierte, großzügige Tapas bei einem ruhigeren, lokalen Publikum. Wunderbar für einen entspannten "Lass uns noch ein bisschen bleiben"-Abend.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Rienda+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Tapas sencillas y generosas con un público local más tranquilo. Ideal para una velada relajada del tipo "vamos a quedarnos un rato más".<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Rienda+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Lekkere, royale tapas met een wat rustiger, lokaal publiek. Geweldig voor een relaxte "laten we nog even blijven"-avond.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Rienda+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Okomplicerade och generösa tapas bland en lugnare lokal publik. Perfekt för en avslappnad "vi stannar en stund till"-kväll.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Rienda+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Easy, generous tapas with a calmer local crowd. Great for a relaxed "let\'s stay a bit longer" evening.',
+              de: 'Unkomplizierte, großzügige Tapas bei einem ruhigeren, lokalen Publikum. Wunderbar für einen entspannten "Lass uns noch ein bisschen bleiben"-Abend.',
+              es: 'Tapas sencillas y generosas con un público local más tranquilo. Ideal para una velada relajada del tipo "vamos a quedarnos un rato más".',
+              nl: 'Lekkere, royale tapas met een wat rustiger, lokaal publiek. Geweldig voor een relaxte "laten we nog even blijven"-avond.',
+              sv: 'Okomplicerade och generösa tapas bland en lugnare lokal publik. Perfekt för en avslappnad "vi stannar en stund till"-kväll.'
             }
           ]
         },
         {
           icon: 'tumbler',
+          recommendationId: 'nerja.restaurants.dvinos',
           title: { en: "D'Vinos", de: "D'Vinos", es: "D'Vinos", nl: "D'Vinos", sv: "D'Vinos" },
           subtitle: {
             en: 'Wine bar · Fun fusion tapas',
@@ -2466,16 +2499,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A fun, modern tapas and wine option — great if you want something different. Good for a relaxed evening with sharing plates.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=D%27Vinos+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine moderne Variante für Tapas & Wein – toll, wenn ihr Lust auf etwas anderes habt. Schön für einen entspannten Abend, bei dem man sich die Gerichte teilt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=D%27Vinos+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una opción de tapas modernas y vino muy divertida: genial si queréis probar algo distinto. Ideal para una velada relajada compartiendo platos.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=D%27Vinos+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een leuke, moderne tapas + wijn optie — perfect als jullie eens iets anders willen. Fijn voor een ontspannen avond met gerechtjes om te delen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=D%27Vinos+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett trevligt och modernt tapas- och vinalternativ – toppen om ni är sugna på något annorlunda. Bra för en avslappnad kväll där man delar på rätterna.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=D%27Vinos+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A fun, modern tapas and wine option — great if you want something different. Good for a relaxed evening with sharing plates.',
+              de: 'Eine moderne Variante für Tapas & Wein – toll, wenn ihr Lust auf etwas anderes habt. Schön für einen entspannten Abend, bei dem man sich die Gerichte teilt.',
+              es: 'Una opción de tapas modernas y vino muy divertida: genial si queréis probar algo distinto. Ideal para una velada relajada compartiendo platos.',
+              nl: 'Een leuke, moderne tapas + wijn optie — perfect als jullie eens iets anders willen. Fijn voor een ontspannen avond met gerechtjes om te delen.',
+              sv: 'Ett trevligt och modernt tapas- och vinalternativ – toppen om ni är sugna på något annorlunda. Bra för en avslappnad kväll där man delar på rätterna.'
             }
           ]
         },
         {
           icon: 'dish',
+          recommendationId: 'nerja.restaurants.esquina-paulina',
           title: { en: 'Esquina Paulina', de: 'Esquina Paulina', es: 'Esquina Paulina', nl: 'Esquina Paulina', sv: 'Esquina Paulina' },
           subtitle: {
             en: 'Cheese plates · Easy drinks',
@@ -2486,16 +2520,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Small, easygoing spot for cheese boards and a casual glass of wine. Nice for a light evening without a full sit-down meal.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Esquina+Paulina+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein kleiner, gemütlicher Ort für Käseplatten und ein lockeres Glas Wein. Schön für einen leichten Abend, wenn ihr kein großes Dinner braucht.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Esquina+Paulina+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un rincón pequeño y desenfadado para tomar tablas de quesos y una copa de vino informal. Perfecto para una noche ligera sin necesidad de una comida pesada.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Esquina+Paulina+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een klein, laagdrempelig plekje voor kaasplankjes en een ongedwongen glas wijn. Leuk voor een lichte avond zonder een uitgebreid diner.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Esquina+Paulina+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett litet, lättsamt ställe för ostbrickor och ett avslappnat glas vin. Trevligt för en lättare kväll utan en stor middag.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Esquina+Paulina+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Small, easygoing spot for cheese boards and a casual glass of wine. Nice for a light evening without a full sit-down meal.',
+              de: 'Ein kleiner, gemütlicher Ort für Käseplatten und ein lockeres Glas Wein. Schön für einen leichten Abend, wenn ihr kein großes Dinner braucht.',
+              es: 'Un rincón pequeño y desenfadado para tomar tablas de quesos y una copa de vino informal. Perfecto para una noche ligera sin necesidad de una comida pesada.',
+              nl: 'Een klein, laagdrempelig plekje voor kaasplankjes en een ongedwongen glas wijn. Leuk voor een lichte avond zonder een uitgebreid diner.',
+              sv: 'Ett litet, lättsamt ställe för ostbrickor och ett avslappnat glas vin. Trevligt för en lättare kväll utan en stor middag.'
             }
           ]
         },
         {
           icon: 'location-pin',
+          recommendationId: 'nerja.restaurants.bar-turry',
           title: { en: 'Bar Turry', de: 'Bar Turry', es: 'Bar Turry', nl: 'Bar Turry', sv: 'Bar Turry' },
           subtitle: {
             en: 'Nerja · Family-friendly & easy',
@@ -2506,11 +2541,11 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Reliable local favorite slightly outside the tourist core. Try the famous pollo al curry.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Turry+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein verlässlicher lokaler Favorit etwas abseits des touristischen Zentrums. Probiert unbedingt das berühmte Pollo al Curry.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Turry+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un favorito local de confianza ligeramente alejado del centro más turístico. Probad su famoso pollo al curry.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Turry+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een betrouwbare lokale favoriet, net buiten het drukke toeristische centrum. Probeer zeker de beroemde pollo al curry.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Turry+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En pålitlig lokal favorit strax utanför den mest turistiga stadskärnan. Prova den berömda pollo al curry (kycklingcurry).<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Turry+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Reliable local favorite slightly outside the tourist core. Try the famous pollo al curry.',
+              de: 'Ein verlässlicher lokaler Favorit etwas abseits des touristischen Zentrums. Probiert unbedingt das berühmte Pollo al Curry.',
+              es: 'Un favorito local de confianza ligeramente alejado del centro más turístico. Probad su famoso pollo al curry.',
+              nl: 'Een betrouwbare lokale favoriet, net buiten het drukke toeristische centrum. Probeer zeker de beroemde pollo al curry.',
+              sv: 'En pålitlig lokal favorit strax utanför den mest turistiga stadskärnan. Prova den berömda pollo al curry (kycklingcurry).'
             }
           ]
         }
@@ -2527,6 +2562,7 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
       items: [
         {
           icon: 'star',
+          recommendationId: 'nerja.restaurants.oliva',
           title: { en: 'Oliva', de: 'Oliva', es: 'Oliva', nl: 'Oliva', sv: 'Oliva' },
           subtitle: {
             en: 'Plaza de España · Tasting menu',
@@ -2537,16 +2573,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Top fine-dining pick in Nerja — ideal for a calm, high-quality dinner. Great if you enjoy tasting menus and seasonal cooking.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Oliva+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Unsere erste Wahl für Fine Dining in Nerja – ideal für ein ruhiges, sehr hochwertiges Abendessen. Großartig, wenn ihr Degustationsmenüs und saisonale Küche schätzt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Oliva+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'La mejor opción de alta cocina en Nerja: ideal para una cena tranquila y de alta calidad. Genial si disfrutáis de los menús degustación y la cocina de temporada.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Oliva+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Onze beste fine dining keuze in Nerja — ideaal voor een rustig diner van hoge kwaliteit. Geweldig als jullie houden van proeverijmenu\'s en seizoensgebonden koken.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Oliva+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Förstahandsvalet för fine dining i Nerja – perfekt för en lugn och högklassig middag. Fantastiskt om ni uppskattar avsmakningsmenyer och säsongsanpassad matlagning.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Oliva+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Top fine-dining pick in Nerja — ideal for a calm, high-quality dinner. Great if you enjoy tasting menus and seasonal cooking. Terrace facing the square; dinner orders daily 19:00–22:00 (as published in 2026, weather-dependent).',
+              de: 'Unsere erste Wahl für Fine Dining in Nerja – ideal für ein ruhiges, sehr hochwertiges Abendessen. Großartig, wenn ihr Degustationsmenüs und saisonale Küche schätzt. Terrasse zum Platz; Abendessen täglich 19:00–22:00 Uhr (Stand 2026, wetterabhängig).',
+              es: 'La mejor opción de alta cocina en Nerja: ideal para una cena tranquila y de alta calidad. Genial si disfrutáis de los menús degustación y la cocina de temporada. Terraza hacia la plaza; cenas a diario de 19:00 a 22:00 (según lo publicado en 2026, según el tiempo).',
+              nl: 'Onze beste fine dining keuze in Nerja — ideaal voor een rustig diner van hoge kwaliteit. Geweldig als jullie houden van proeverijmenu\'s en seizoensgebonden koken. Terras aan het plein; diner dagelijks 19:00–22:00 (zoals gepubliceerd in 2026, weersafhankelijk).',
+              sv: 'Förstahandsvalet för fine dining i Nerja – perfekt för en lugn och högklassig middag. Fantastiskt om ni uppskattar avsmakningsmenyer och säsongsanpassad matlagning. Terrass mot torget; middag dagligen 19:00–22:00 (enligt 2026 års uppgift, väderberoende).'
             }
           ]
         },
         {
           icon: 'heart',
+          recommendationId: 'nerja.restaurants.restaurant-34',
           title: { en: 'Restaurant 34', de: 'Restaurant 34', es: 'Restaurant 34', nl: 'Restaurant 34', sv: 'Restaurant 34' },
           subtitle: {
             en: 'Hotel Carabeo · Romantic setting',
@@ -2557,16 +2594,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A strong "celebration / romantic evening" pick with a refined feel. Reserve in summer — and ask for a calmer table if you prefer it quiet.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+34+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine wunderbare Wahl für einen feierlichen oder romantischen Abend mit einer sehr gepflegten Atmosphäre. Reserviert im Sommer unbedingt – und bittet um einen ruhigeren Tisch, falls ihr das bevorzugt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+34+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una gran elección para celebraciones o veladas románticas con un toque muy refinado. Reservad en verano, y pedid una mesa tranquila si preferís menos ruido.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+34+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een uitstekende keuze voor een viering of romantische avond met een verfijnde sfeer. Reserveren in de zomer is een must — en vraag om een rustiger tafeltje als jullie dat prettig vinden.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+34+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett starkt val för en firande eller romantisk kväll med en sofistikerad känsla. Boka bord under sommaren – och be om ett lugnare bord om ni föredrar tystnad.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+34+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A strong "celebration / romantic evening" pick with a refined feel. Reserve in summer — and ask for a calmer table if you prefer it quiet. In Hotel Carabeo: inside, by the pool or on the summer terrace above the sea; dinner 19:00–22:30, closed Mondays (as published in 2026).',
+              de: 'Eine wunderbare Wahl für einen feierlichen oder romantischen Abend mit einer sehr gepflegten Atmosphäre. Reserviert im Sommer unbedingt – und bittet um einen ruhigeren Tisch, falls ihr das bevorzugt. Im Hotel Carabeo: drinnen, am Pool oder auf der Sommerterrasse über dem Meer; Abendessen 19:00–22:30 Uhr, montags geschlossen (Stand 2026).',
+              es: 'Una gran elección para celebraciones o veladas románticas con un toque muy refinado. Reservad en verano, y pedid una mesa tranquila si preferís menos ruido. En el Hotel Carabeo: dentro, junto a la piscina o en la terraza de verano sobre el mar; cenas de 19:00 a 22:30, lunes cerrado (según lo publicado en 2026).',
+              nl: 'Een uitstekende keuze voor een viering of romantische avond met een verfijnde sfeer. Reserveren in de zomer is een must — en vraag om een rustiger tafeltje als jullie dat prettig vinden. In Hotel Carabeo: binnen, bij het zwembad of op het zomerterras boven zee; diner 19:00–22:30, maandag gesloten (zoals gepubliceerd in 2026).',
+              sv: 'Ett starkt val för en firande eller romantisk kväll med en sofistikerad känsla. Boka bord under sommaren – och be om ett lugnare bord om ni föredrar tystnad. I Hotel Carabeo: inomhus, vid poolen eller på sommarterrassen ovanför havet; middag 19:00–22:30, stängt måndagar (enligt 2026 års uppgift).'
             }
           ]
         },
         {
           icon: 'sparkle',
+          recommendationId: 'nerja.restaurants.sollun',
           title: { en: 'Sollun', de: 'Sollun', es: 'Sollun', nl: 'Sollun', sv: 'Sollun' },
           subtitle: {
             en: 'Modern Andalusian · Tasting menus',
@@ -2577,16 +2615,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Excellent modern Andalusian cooking in a warm, unpretentious setting. Great when you want a "serious meal" that still feels relaxed.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Sollun+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Hervorragende moderne andalusische Küche in einem warmen, unprätentiösen Ambiente. Toll, wenn ihr richtig gut essen gehen wollt, aber dennoch eine entspannte Atmosphäre schätzt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Sollun+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Excelente cocina andaluza moderna en un entorno cálido y sin pretensiones. Genial cuando queréis "comer de verdad" pero en un ambiente relajado.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Sollun+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Uitstekende moderne Andalusische keuken in een warme, pretentieloze setting. Geweldig voor als jullie echt goed willen eten, maar het wel ontspannen mag blijven.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Sollun+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Utmärkt modern andalusisk matlagning i en varm, opretentiös miljö. Ett bra val när ni vill ha en riktigt bra måltid som ändå känns avslappnad.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Sollun+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Excellent modern Andalusian cooking in a warm, unpretentious setting. Great when you want a "serious meal" that still feels relaxed. Cocina de autor by Juan Quintanilla.',
+              de: 'Hervorragende moderne andalusische Küche in einem warmen, unprätentiösen Ambiente. Toll, wenn ihr richtig gut essen gehen wollt, aber dennoch eine entspannte Atmosphäre schätzt. Autorenküche von Juan Quintanilla.',
+              es: 'Excelente cocina andaluza moderna en un entorno cálido y sin pretensiones. Genial cuando queréis "comer de verdad" pero en un ambiente relajado. Cocina de autor de Juan Quintanilla.',
+              nl: 'Uitstekende moderne Andalusische keuken in een warme, pretentieloze setting. Geweldig voor als jullie echt goed willen eten, maar het wel ontspannen mag blijven. Cocina de autor van Juan Quintanilla.',
+              sv: 'Utmärkt modern andalusisk matlagning i en varm, opretentiös miljö. Ett bra val när ni vill ha en riktigt bra måltid som ändå känns avslappnad. Cocina de autor av Juan Quintanilla.'
             }
           ]
         },
         {
           icon: 'goblet',
+          recommendationId: 'nerja.restaurants.patanegra-57',
           title: { en: 'Patanegra 57', de: 'Patanegra 57', es: 'Patanegra 57', nl: 'Patanegra 57', sv: 'Patanegra 57' },
           subtitle: {
             en: 'Elegant setting · Mediterranean with flair',
@@ -2597,16 +2636,17 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'High-end option with a beautiful atmosphere — great for a special night. Strong if you care about quality ingredients and a curated wine list.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Patanegra+57+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine gehobene Option mit wunderschöner Atmosphäre – perfekt für einen besonderen Abend. Sehr empfehlenswert, wenn ihr Wert auf erstklassige Zutaten und eine kuratierte Weinkarte legt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Patanegra+57+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Opción de alta gama con una atmósfera preciosa: ideal para una noche especial. Muy recomendable si valoráis los ingredientes de calidad y una selecta carta de vinos.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Patanegra+57+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een luxe optie met een prachtige sfeer — ideaal voor een speciale avond. Een aanrader als jullie houden van kwaliteitsingrediënten en een met zorg samengestelde wijnkaart.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Patanegra+57+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett exklusivt alternativ med en vacker atmosfär – perfekt för en speciell kväll. Ett starkt val om ni bryr er om kvalitetsråvaror och en noggrant utvald vinlista.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Patanegra+57+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'High-end option with a beautiful atmosphere — great for a special night. Strong if you care about quality ingredients and a curated wine list.',
+              de: 'Eine gehobene Option mit wunderschöner Atmosphäre – perfekt für einen besonderen Abend. Sehr empfehlenswert, wenn ihr Wert auf erstklassige Zutaten und eine kuratierte Weinkarte legt.',
+              es: 'Opción de alta gama con una atmósfera preciosa: ideal para una noche especial. Muy recomendable si valoráis los ingredientes de calidad y una selecta carta de vinos.',
+              nl: 'Een luxe optie met een prachtige sfeer — ideaal voor een speciale avond. Een aanrader als jullie houden van kwaliteitsingrediënten en een met zorg samengestelde wijnkaart.',
+              sv: 'Ett exklusivt alternativ med en vacker atmosfär – perfekt för en speciell kväll. Ett starkt val om ni bryr er om kvalitetsråvaror och en noggrant utvald vinlista.'
             }
           ]
         },
         {
           icon: 'dish',
+          recommendationId: 'nerja.restaurants.la-bottega',
           title: { en: 'La Bottega', de: 'La Bottega', es: 'La Bottega', nl: 'La Bottega', sv: 'La Bottega' },
           subtitle: {
             en: 'Nerja · Easy, reliable',
@@ -2617,11 +2657,11 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A comfortable, dependable choice when you want a smooth evening without overthinking it. Earlier is calmer; later feels more lively — choose based on your mood.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Bottega+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine gemütliche, sichere Wahl, wenn ihr einen entspannten Abend wollt, ohne lange nachdenken zu müssen. Früher am Abend ist es ruhiger, später wird es lebhafter – entscheidet einfach nach eurer Stimmung.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Bottega+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una opción cómoda y segura cuando buscáis una velada agradable sin darle muchas vueltas. Más temprano es más tranquilo; más tarde se vuelve más animado: elegid según lo que os apetezca.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Bottega+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een comfortabele, veilige keuze voor een zorgeloze avond zonder te veel nadenken. Vroeg is het rustiger; later op de avond is het levendiger — kies gewoon waar jullie zin in hebben.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Bottega+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett bekvämt och säkert val när ni vill ha en smidig kväll utan att tänka för mycket. Tidigare på kvällen är det lugnare; senare blir det mer livligt – välj efter humör.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Bottega+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A comfortable, dependable choice when you want a smooth evening without overthinking it. Earlier is calmer; later feels more lively — choose based on your mood.',
+              de: 'Eine gemütliche, sichere Wahl, wenn ihr einen entspannten Abend wollt, ohne lange nachdenken zu müssen. Früher am Abend ist es ruhiger, später wird es lebhafter – entscheidet einfach nach eurer Stimmung.',
+              es: 'Una opción cómoda y segura cuando buscáis una velada agradable sin darle muchas vueltas. Más temprano es más tranquilo; más tarde se vuelve más animado: elegid según lo que os apetezca.',
+              nl: 'Een comfortabele, veilige keuze voor een zorgeloze avond zonder te veel nadenken. Vroeg is het rustiger; later op de avond is het levendiger — kies gewoon waar jullie zin in hebben.',
+              sv: 'Ett bekvämt och säkert val när ni vill ha en smidig kväll utan att tänka för mycket. Tidigare på kvällen är det lugnare; senare blir det mer livligt – välj efter humör.'
             }
           ]
         }
@@ -2687,46 +2727,49 @@ const frigilianaGuestHiking: GuestGuideEntry = {
       items: [
         {
           icon: 'hiking',
-          title: { en: 'Cruz de Pinto (Loop)', de: 'Cruz de Pinto (Rundweg)', es: 'Cruz de Pinto (Circular)', nl: 'Cruz de Pinto (Rondwandeling)', sv: 'Cruz de Pinto (Rundslinga)' },
+          recommendationId: 'frigiliana.hiking.cruz-de-pinto',
+          title: { en: 'Cruz de Pinto', de: 'Cruz de Pinto', es: 'Cruz de Pinto', nl: 'Cruz de Pinto', sv: 'Cruz de Pinto' },
           subtitle: {
-            en: '3–4 h · Moderate · Reliable',
-            de: '3–4 Std. · Mittelschwer · Verlässlich',
-            es: '3–4 h · Moderado · Fiable',
-            nl: '3–4 uur · Gemiddeld · Betrouwbaar',
-            sv: '3–4 tim · Medelsvår · Pålitlig'
+            en: '5.8 km · approx. 3 h · Out and back',
+            de: '5,8 km · ca. 3 Std. · Hin und zurück',
+            es: '5,8 km · aprox. 3 h · Ida y vuelta',
+            nl: '5,8 km · ca. 3 uur · Heen en terug',
+            sv: '5,8 km · ca 3 tim · Tur och retur'
           },
           body: [
             {
-              en: 'A panoramic loop above the village with open slopes and wide coastal views — one of the most dependable choices. Good after rain since the terrain drains quickly, but still wear shoes with grip.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Search on Komoot</a>',
-              de: 'Ein Panoramarundweg oberhalb des Dorfes mit weiten Hängen und herrlichem Blick auf die Küste – eine der besten und verlässlichsten Touren. Auch nach Regen gut machbar, da das Wasser hier schnell abfließt – zieht aber trotzdem Schuhe mit gutem Profil an.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Auf Komoot suchen</a>',
-              es: 'Una ruta circular panorámica por encima del pueblo con laderas abiertas y amplias vistas a la costa: una de las opciones más fiables. Buena opción después de llover porque el terreno suele drenar rápido, pero llevad calzado con buen agarre.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Buscar en Komoot</a>',
-              nl: 'Een panoramische rondwandeling boven het dorp met open hellingen en weids uitzicht op de kust — een van de meest betrouwbare keuzes. Goed te doen na regen omdat het terrein snel droogt, maar draag wel schoenen met goede grip.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Zoeken op Komoot</a>',
-              sv: 'En panoramisk rundslinga ovanför byn med öppna sluttningar och vidsträckt kustutsikt – ett av de mest pålitliga valen. Bra alternativ efter regn eftersom terrängen torkar snabbt, men använd ändå skor med bra grepp.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+Cruz+de+Pinto+Frigiliana" target="_blank" rel="noopener">Sök på Komoot</a>'
+              en: 'A panoramic loop above the village with open slopes and wide coastal views — one of the most dependable choices. Good after rain since the terrain drains quickly, but still wear shoes with grip. Officially 5.8 km from Plaza del Ingenio, via the Río Higuerón bed and back the same way.',
+              de: 'Ein Panoramarundweg oberhalb des Dorfes mit weiten Hängen und herrlichem Blick auf die Küste – eine der besten und verlässlichsten Touren. Auch nach Regen gut machbar, da das Wasser hier schnell abfließt – zieht aber trotzdem Schuhe mit gutem Profil an. Offiziell 5,8 km ab Plaza del Ingenio, durch das Bett des Río Higuerón und auf demselben Weg zurück.',
+              es: 'Una ruta circular panorámica por encima del pueblo con laderas abiertas y amplias vistas a la costa: una de las opciones más fiables. Buena opción después de llover porque el terreno suele drenar rápido, pero llevad calzado con buen agarre. Oficialmente 5,8 km desde la Plaza del Ingenio, por el cauce del río Higuerón y vuelta por el mismo camino.',
+              nl: 'Een panoramische rondwandeling boven het dorp met open hellingen en weids uitzicht op de kust — een van de meest betrouwbare keuzes. Goed te doen na regen omdat het terrein snel droogt, maar draag wel schoenen met goede grip. Officieel 5,8 km vanaf Plaza del Ingenio, door de bedding van de Río Higuerón en langs dezelfde weg terug.',
+              sv: 'En panoramisk rundslinga ovanför byn med öppna sluttningar och vidsträckt kustutsikt – ett av de mest pålitliga valen. Bra alternativ efter regn eftersom terrängen torkar snabbt, men använd ändå skor med bra grepp. Officiellt 5,8 km från Plaza del Ingenio, genom Río Higueróns flodbädd och tillbaka samma väg.'
             }
           ]
         },
         {
           icon: 'location-pin',
+          recommendationId: 'frigiliana.hiking.el-fuerte',
           title: { en: 'El Fuerte (Viewpoints)', de: 'El Fuerte (Aussichtspunkte)', es: 'El Fuerte (Miradores)', nl: 'El Fuerte (Uitzichtpunten)', sv: 'El Fuerte (Utsiktsplatser)' },
           subtitle: {
-            en: '3–4 h · Steep sections',
-            de: '3–4 Std. · Steile Abschnitte',
-            es: '3–4 h · Tramos empinados',
-            nl: '3–4 uur · Steile stukken',
-            sv: '3–4 tim · Branta partier'
+            en: '7.4 km · approx. 4 h · Summit 963 m',
+            de: '7,4 km · ca. 4 Std. · Gipfel 963 m',
+            es: '7,4 km · aprox. 4 h · Cima a 963 m',
+            nl: '7,4 km · ca. 4 uur · Top op 963 m',
+            sv: '7,4 km · ca 4 tim · Topp 963 m'
           },
           body: [
             {
-              en: 'The classic route behind Frigiliana — you don\'t need the full summit to get amazing views. After rain, the rocky parts can be slippery; go slow and bring water.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Search on Komoot</a>',
-              de: 'Der klassische Weg hinter Frigiliana – ihr müsst nicht ganz bis zum Gipfel hinauf, um eine fantastische Aussicht zu genießen. Nach Regen können die felsigen Stellen rutschig sein – geht es langsam an und nehmt ausreichend Wasser mit.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Auf Komoot suchen</a>',
-              es: 'El camino clásico detrás de Frigiliana: no hace falta llegar a la cima para disfrutar de unas vistas increíbles. Después de llover, las zonas rocosas pueden resbalar; id con calma y llevad agua.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Buscar en Komoot</a>',
-              nl: 'De klassieke route achter Frigiliana — jullie hoeven niet helemaal naar de top voor een geweldig uitzicht. Na regen kunnen de rotsachtige delen glad zijn; doe het rustig aan en neem water mee.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Zoeken op Komoot</a>',
-              sv: 'Den klassiska leden bakom Frigiliana – ni behöver inte gå hela vägen till toppen för att få fantastiska vyer. Efter regn kan de steniga partierna vara hala; ta det lugnt och ta med vatten.<br><br><a class="am-link" href="https://www.google.com/search?q=site%3Akomoot.com+El+Fuerte+Frigiliana+viewpoint" target="_blank" rel="noopener">Sök på Komoot</a>'
+              en: 'The classic route behind Frigiliana — you don\'t need the full summit to get amazing views. After rain, the rocky parts can be slippery; go slow and bring water. The official route starts at Plaza del Ingenio and reaches Pozo de Lízar after about 750 metres through the village (Calle Real, Hernando el Darra, Amargura, Chorrera); the mountain path begins there. Listed as medium difficulty.',
+              de: 'Der klassische Weg hinter Frigiliana – ihr müsst nicht ganz bis zum Gipfel hinauf, um eine fantastische Aussicht zu genießen. Nach Regen können die felsigen Stellen rutschig sein – geht es langsam an und nehmt ausreichend Wasser mit. Die offizielle Route beginnt an der Plaza del Ingenio und erreicht nach rund 750 Metern durchs Dorf (Calle Real, Hernando el Darra, Amargura, Chorrera) den Pozo de Lízar; dort beginnt der Bergweg. Eingestuft als mittelschwer.',
+              es: 'El camino clásico detrás de Frigiliana: no hace falta llegar a la cima para disfrutar de unas vistas increíbles. Después de llover, las zonas rocosas pueden resbalar; id con calma y llevad agua. La ruta oficial empieza en la Plaza del Ingenio y llega al Pozo de Lízar tras unos 750 metros por el pueblo (calle Real, Hernando el Darra, Amargura, Chorrera); allí empieza el sendero de montaña. Catalogada como dificultad media.',
+              nl: 'De klassieke route achter Frigiliana — jullie hoeven niet helemaal naar de top voor een geweldig uitzicht. Na regen kunnen de rotsachtige delen glad zijn; doe het rustig aan en neem water mee. De officiële route begint op Plaza del Ingenio en bereikt na zo\'n 750 meter door het dorp (Calle Real, Hernando el Darra, Amargura, Chorrera) de Pozo de Lízar; daar begint het bergpad. Ingedeeld als gemiddeld zwaar.',
+              sv: 'Den klassiska leden bakom Frigiliana – ni behöver inte gå hela vägen till toppen för att få fantastiska vyer. Efter regn kan de steniga partierna vara hala; ta det lugnt och ta med vatten. Den officiella leden börjar vid Plaza del Ingenio och når Pozo de Lízar efter cirka 750 meter genom byn (Calle Real, Hernando el Darra, Amargura, Chorrera); där börjar bergsstigen. Klassad som medelsvår.'
             }
           ]
         },
         {
           icon: 'compass',
+          recommendationId: 'frigiliana.hiking.lizar-acequia-trail',
           title: { en: 'Lizar & Acequia Trail', de: 'Lizar & Acequia Trail', es: 'Sendero de Lízar y la Acequia', nl: 'Lizar & Acequia Pad', sv: 'Lizar & Acequia-leden' },
           subtitle: {
             en: '~1 h · Easy · Sunset',
@@ -2754,6 +2797,7 @@ const frigilianaGuestHiking: GuestGuideEntry = {
         },
         {
           icon: 'landmark',
+          recommendationId: 'frigiliana.hiking.historic-quarter-loop',
           title: { en: 'Historic Quarter Loop', de: 'Rundweg durch die Altstadt', es: 'Paseo por el Casco Histórico', nl: 'Rondwandeling Historisch Centrum', sv: 'Promenad i gamla stan' },
           subtitle: {
             en: '~45 min · Steps & views',
@@ -2781,13 +2825,14 @@ const frigilianaGuestHiking: GuestGuideEntry = {
         },
         {
           icon: 'wave',
+          recommendationId: 'frigiliana.hiking.rio-higueron',
           title: { en: 'Río Higuerón', de: 'Río Higuerón', es: 'Río Higuerón', nl: 'Río Higuerón', sv: 'Río Higuerón' },
           subtitle: {
-            en: '2–3 h · Water trail · Quieter',
-            de: '2–3 Std. · Wasserweg · Ruhiger',
-            es: '2–3 h · Ruta acuática · Más tranquilo',
-            nl: '2–3 uur · Waterroute · Rustiger',
-            sv: '2–3 tim · Vattenled · Lugnare'
+            en: '4.6 km · approx. 2.5 h · Water trail · Quieter',
+            de: '4,6 km · ca. 2,5 Std. · Wasserweg · Ruhiger',
+            es: '4,6 km · aprox. 2,5 h · Ruta acuática · Más tranquilo',
+            nl: '4,6 km · ca. 2,5 uur · Waterroute · Rustiger',
+            sv: '4,6 km · ca 2,5 tim · Vattenled · Lugnare'
           },
           body: [
             {
@@ -2808,13 +2853,14 @@ const frigilianaGuestHiking: GuestGuideEntry = {
         },
         {
           icon: 'star',
+          recommendationId: 'nerja.hiking.rio-chillar',
           title: { en: 'Río Chíllar (Nerja)', de: 'Río Chíllar (Nerja)', es: 'Río Chíllar (Nerja)', nl: 'Río Chíllar (Nerja)', sv: 'Río Chíllar (Nerja)' },
           subtitle: {
-            en: '4–5 h · Very popular',
-            de: '4–5 Std. · Sehr beliebt',
-            es: '4–5 h · Muy popular',
-            nl: '4–5 uur · Erg populair',
-            sv: '4–5 tim · Väldigt populärt'
+            en: '4–5 h · Access currently restricted',
+            de: '4–5 Std. · Zugang derzeit eingeschränkt',
+            es: '4–5 h · Acceso restringido actualmente',
+            nl: '4–5 uur · Toegang momenteel beperkt',
+            sv: '4–5 tim · Tillträde för närvarande begränsat'
           },
           body: [
             {
@@ -2825,23 +2871,24 @@ const frigilianaGuestHiking: GuestGuideEntry = {
               sv: 'Den berömda "flodvandringen" – vacker, svalkande och mycket välbesökt under högsäsong.'
             },
             {
-              en: 'Go early (around 08:00) and prefer weekdays. Check current access rules locally before you go.',
-              de: 'Geht früh los (gegen 08:00 Uhr) und am besten unter der Woche. Bitte prüft vorab lokal die aktuellen Zugangsregeln.',
-              es: 'Id temprano (sobre las 08:00) y preferiblemente entre semana. Consultad las normas de acceso actuales antes de ir.',
-              nl: 'Ga vroeg op pad (rond 08:00 uur) en bij voorkeur op een doordeweekse dag. Controleer vooraf lokaal de actuele toegangsregels.',
-              sv: 'Gå tidigt (runt 08:00) och helst på vardagar. Kontrollera aktuella tillträdesregler lokalt innan ni åker.'
+              en: 'Go early (around 08:00) and prefer weekdays. Access to the river has been closed by the authorities for long stretches since summer 2025, and a procedure for controlled access is under way. Check the current status before you set off; we will gladly look it up for you.',
+              de: 'Geht früh los (gegen 08:00 Uhr) und am besten unter der Woche. Der Zugang zum Fluss war seit Sommer 2025 über lange Strecken behördlich gesperrt, ein Verfahren für einen kontrollierten Zugang läuft. Prüft vor dem Aufbruch den aktuellen Stand; wir schauen gern für euch nach.',
+              es: 'Id temprano (sobre las 08:00) y preferiblemente entre semana. El acceso al río ha estado cerrado por las autoridades durante largos periodos desde el verano de 2025 y hay en marcha un procedimiento de acceso controlado. Consultad el estado actual antes de salir; lo comprobamos con gusto por vosotros.',
+              nl: 'Ga vroeg op pad (rond 08:00 uur) en bij voorkeur op een doordeweekse dag. De toegang tot de rivier is sinds de zomer van 2025 lange tijd door de autoriteiten gesloten geweest en er loopt een procedure voor gecontroleerde toegang. Controleer de actuele status voor vertrek; we zoeken het graag voor jullie op.',
+              sv: 'Gå tidigt (runt 08:00) och helst på vardagar. Tillträdet till floden har varit stängt av myndigheterna under långa perioder sedan sommaren 2025, och ett förfarande för kontrollerat tillträde pågår. Kontrollera aktuell status innan ni ger er av; vi kollar gärna åt er.'
             }
           ]
         },
         {
           icon: 'flag',
-          title: { en: 'El Acebuchal (Loop)', de: 'El Acebuchal (Rundweg)', es: 'El Acebuchal (Circular)', nl: 'El Acebuchal (Rondwandeling)', sv: 'El Acebuchal (Rundslinga)' },
+          recommendationId: 'frigiliana.hiking.el-acebuchal',
+          title: { en: 'El Acebuchal', de: 'El Acebuchal', es: 'El Acebuchal', nl: 'El Acebuchal', sv: 'El Acebuchal' },
           subtitle: {
-            en: '4–5 h · Forest · Lunch stop',
-            de: '4–5 Std. · Wald · Einkehr zum Mittag',
-            es: '4–5 h · Bosque · Parada para comer',
-            nl: '4–5 uur · Bos · Lunchstop',
-            sv: '4–5 tim · Skog · Lunchstopp'
+            en: '13 km · approx. 4 h 20 min · Out and back · Lunch stop',
+            de: '13 km · ca. 4 Std. 20 Min. · Hin und zurück · Einkehr',
+            es: '13 km · aprox. 4 h 20 min · Ida y vuelta · Parada para comer',
+            nl: '13 km · ca. 4 uur 20 min · Heen en terug · Lunchstop',
+            sv: '13 km · ca 4 tim 20 min · Tur och retur · Lunchstopp'
           },
           body: [
             {
@@ -2852,11 +2899,11 @@ const frigilianaGuestHiking: GuestGuideEntry = {
               sv: 'En givande vandring genom tallskog till den "Förlorade byn" – fantastiskt om ni vill ha ett mål med en rustik måltid.'
             },
             {
-              en: 'Reserve lunch in advance if you go in high season. Bring water and a bit of cash.',
-              de: 'Reserviert das Mittagessen in der Hochsaison am besten vorab. Nehmt Wasser und etwas Bargeld mit.',
-              es: 'Reservad el almuerzo con antelación si vais en temporada alta. Llevad agua y algo de efectivo.',
-              nl: 'Reserveer in het hoogseizoen de lunch van tevoren. Neem water en een beetje contant geld mee.',
-              sv: 'Boka lunchen i förväg om ni vandrar under högsäsong. Ta med vatten och lite kontanter.'
+              en: 'Reserve lunch in advance if you go in high season. Bring water and a bit of cash. The official route starts at Plaza del Ingenio and returns the same way, so plan the full 13 km.',
+              de: 'Reserviert das Mittagessen in der Hochsaison am besten vorab. Nehmt Wasser und etwas Bargeld mit. Die offizielle Route beginnt an der Plaza del Ingenio und führt auf demselben Weg zurück; rechnet also mit den vollen 13 Kilometern.',
+              es: 'Reservad el almuerzo con antelación si vais en temporada alta. Llevad agua y algo de efectivo. La ruta oficial empieza en la Plaza del Ingenio y vuelve por el mismo camino, así que contad con los 13 kilómetros completos.',
+              nl: 'Reserveer in het hoogseizoen de lunch van tevoren. Neem water en een beetje contant geld mee. De officiële route begint op Plaza del Ingenio en gaat langs dezelfde weg terug, reken dus op de volle 13 kilometer.',
+              sv: 'Boka lunchen i förväg om ni vandrar under högsäsong. Ta med vatten och lite kontanter. Den officiella leden börjar vid Plaza del Ingenio och går tillbaka samma väg, så räkna med hela 13 kilometer.'
             }
           ]
         }
@@ -2922,6 +2969,7 @@ const frigilianaGuestDayTrips: GuestGuideEntry = {
       items: [
         {
           icon: 'route',
+          recommendationId: 'frigiliana.day-trips.malaga-city',
           title: { en: 'Málaga City', de: 'Málaga Stadt', es: 'Málaga', nl: 'Málaga stad', sv: 'Málaga' },
           subtitle: {
             en: '~50 min · Museums & easy day',
@@ -2932,16 +2980,17 @@ const frigilianaGuestDayTrips: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'The most flexible cultural day trip: walkable streets, museums, great food, and a modern port atmosphere. Parking tip: park at <em>Muelle Uno</em> and walk into the center along the promenade.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Muelle+Uno+M%C3%A1laga" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Der flexibelste kulturelle Tagesausflug: gut begehbare Gassen, Museen, großartiges Essen und eine moderne Hafenatmosphäre. Unser Park-Tipp: Parkt am <em>Muelle Uno</em> und spaziert gemütlich an der Promenade entlang ins Zentrum.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Muelle+Uno+M%C3%A1laga" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'La excursión cultural más flexible: calles perfectas para pasear, museos, comida estupenda y un ambiente portuario muy moderno. Consejo de aparcamiento: aparcad en el <em>Muelle Uno</em> y caminad hacia el centro por el paseo marítimo.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Muelle+Uno+M%C3%A1laga" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'De meest flexibele culturele dagtrip: wandelvriendelijke straatjes, musea, geweldig eten en een moderne havensfeer. Onze parkeertip: parkeer bij <em>Muelle Uno</em> en wandel langs de boulevard zo het centrum in.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Muelle+Uno+M%C3%A1laga" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Den mest flexibla kulturella dagsutflykten: promenadvänliga gator, museer, fantastisk mat och en modern hamnatmosfär. Vårt parkeringstips: parkera vid <em>Muelle Uno</em> och promenera in till centrum längs hamnpromenaden.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Muelle+Uno+M%C3%A1laga" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'The most flexible cultural day trip: walkable streets, museums, great food, and a modern port atmosphere. Parking tip: park at <em>Muelle Uno</em> and walk into the center along the promenade.',
+              de: 'Der flexibelste kulturelle Tagesausflug: gut begehbare Gassen, Museen, großartiges Essen und eine moderne Hafenatmosphäre. Unser Park-Tipp: Parkt am <em>Muelle Uno</em> und spaziert gemütlich an der Promenade entlang ins Zentrum.',
+              es: 'La excursión cultural más flexible: calles perfectas para pasear, museos, comida estupenda y un ambiente portuario muy moderno. Consejo de aparcamiento: aparcad en el <em>Muelle Uno</em> y caminad hacia el centro por el paseo marítimo.',
+              nl: 'De meest flexibele culturele dagtrip: wandelvriendelijke straatjes, musea, geweldig eten en een moderne havensfeer. Onze parkeertip: parkeer bij <em>Muelle Uno</em> en wandel langs de boulevard zo het centrum in.',
+              sv: 'Den mest flexibla kulturella dagsutflykten: promenadvänliga gator, museer, fantastisk mat och en modern hamnatmosfär. Vårt parkeringstips: parkera vid <em>Muelle Uno</em> och promenera in till centrum längs hamnpromenaden.'
             }
           ]
         },
         {
           icon: 'star',
+          recommendationId: 'frigiliana.day-trips.granada-alhambra',
           title: { en: 'Granada & Alhambra', de: 'Granada & Alhambra', es: 'Granada y la Alhambra', nl: 'Granada & het Alhambra', sv: 'Granada & Alhambra' },
           subtitle: {
             en: '~1h 10m · Full day classic',
@@ -2952,16 +3001,17 @@ const frigilianaGuestDayTrips: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Moorish architecture, tea houses, the Albaicín, and the Alhambra with Sierra Nevada behind it — a true classic. Ticket reality: Alhambra tickets can sell out far ahead, so book as soon as you have dates. If tickets are gone, go anyway for the Albaicín and <em>Mirador de San Nicolás</em>.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Alhambra+Granada" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Maurische Architektur, traditionelle Teehäuser, das Albaicín-Viertel und die Alhambra mit der Sierra Nevada im Hintergrund – ein echter Klassiker. Wichtiger Hinweis zu den Tickets: Die Eintrittskarten für die Alhambra sind oft lange im Voraus ausverkauft – bucht sie, sobald eure Reisedaten feststehen. Falls es keine Tickets mehr gibt, fahrt trotzdem hin und genießt das Albaicín und den <em>Mirador de San Nicolás</em>.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Alhambra+Granada" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Arquitectura morisca, teterías, el Albaicín y la Alhambra con Sierra Nevada de fondo: un verdadero clásico. Advertencia importante sobre las entradas: las de la Alhambra pueden agotarse con mucha antelación; reservadlas en cuanto tengáis fechas. Si ya no quedan, id de todos modos a disfrutar del Albaicín y el <em>Mirador de San Nicolás</em>.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Alhambra+Granada" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Moorse architectuur, theehuisjes, de wijk Albaicín en het Alhambra met de Sierra Nevada op de achtergrond — een absolute klassieker. Een belangrijke tip over de tickets: kaartjes voor het Alhambra zijn vaak ver van tevoren uitverkocht — boek zodra jullie reisdata vaststaan. Zijn er geen tickets meer? Ga dan alsnog voor het Albaicín en het <em>Mirador de San Nicolás</em>.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Alhambra+Granada" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Morisk arkitektur, tehus, stadsdelen Albaicín och Alhambra med Sierra Nevada i bakgrunden – en sann klassiker. Ett viktigt tips om biljetter: biljetterna till Alhambra säljer ofta slut långt i förväg – boka så snart ni vet era datum. Om biljetterna är slut, åk ändå för att uppleva Albaicín och <em>Mirador de San Nicolás</em>.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Alhambra+Granada" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Moorish architecture, tea houses, the Albaicín, and the Alhambra with Sierra Nevada behind it — a true classic. Ticket reality: Alhambra tickets can sell out far ahead, so book as soon as you have dates. If tickets are gone, go anyway for the Albaicín and <em>Mirador de San Nicolás</em>.',
+              de: 'Maurische Architektur, traditionelle Teehäuser, das Albaicín-Viertel und die Alhambra mit der Sierra Nevada im Hintergrund – ein echter Klassiker. Wichtiger Hinweis zu den Tickets: Die Eintrittskarten für die Alhambra sind oft lange im Voraus ausverkauft – bucht sie, sobald eure Reisedaten feststehen. Falls es keine Tickets mehr gibt, fahrt trotzdem hin und genießt das Albaicín und den <em>Mirador de San Nicolás</em>.',
+              es: 'Arquitectura morisca, teterías, el Albaicín y la Alhambra con Sierra Nevada de fondo: un verdadero clásico. Advertencia importante sobre las entradas: las de la Alhambra pueden agotarse con mucha antelación; reservadlas en cuanto tengáis fechas. Si ya no quedan, id de todos modos a disfrutar del Albaicín y el <em>Mirador de San Nicolás</em>.',
+              nl: 'Moorse architectuur, theehuisjes, de wijk Albaicín en het Alhambra met de Sierra Nevada op de achtergrond — een absolute klassieker. Een belangrijke tip over de tickets: kaartjes voor het Alhambra zijn vaak ver van tevoren uitverkocht — boek zodra jullie reisdata vaststaan. Zijn er geen tickets meer? Ga dan alsnog voor het Albaicín en het <em>Mirador de San Nicolás</em>.',
+              sv: 'Morisk arkitektur, tehus, stadsdelen Albaicín och Alhambra med Sierra Nevada i bakgrunden – en sann klassiker. Ett viktigt tips om biljetter: biljetterna till Alhambra säljer ofta slut långt i förväg – boka så snart ni vet era datum. Om biljetterna är slut, åk ändå för att uppleva Albaicín och <em>Mirador de San Nicolás</em>.'
             }
           ]
         },
         {
           icon: 'compass',
+          recommendationId: 'frigiliana.day-trips.caminito-del-rey',
           title: { en: 'Caminito del Rey', de: 'Caminito del Rey', es: 'Caminito del Rey', nl: 'Caminito del Rey', sv: 'Caminito del Rey' },
           subtitle: {
             en: '~1h 30m · Booking + shuttle',
@@ -2972,16 +3022,17 @@ const frigilianaGuestDayTrips: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A dramatic walkway attached to the gorge walls — one of the most unique "big view" experiences in the region. Good to know: it\'s a linear walk with a shuttle back, not ideal if you have a strong fear of heights. Book in advance (weeks ahead in peak season).<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caminito+del+Rey" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein spektakulärer Steg, der direkt an den Felswänden der Schlucht befestigt ist – eines der beeindruckendsten Naturerlebnisse der Region. Gut zu wissen: Es ist keine Rundtour, sondern ein Streckenweg mit einem Shuttlebus zurück, nicht ideal bei starker Höhenangst. Unbedingt im Voraus buchen (in der Hochsaison teils Wochen vorher).<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caminito+del+Rey" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una pasarela espectacular colgada de las paredes del desfiladero: una de las experiencias con mejores vistas de toda la región. Conviene saber: es una ruta lineal con un autobús lanzadera para volver, no es ideal si tenéis mucho miedo a las alturas. Reservad con antelación (incluso semanas antes en temporada alta).<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caminito+del+Rey" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een spectaculair wandelpad dat vastzit aan de wanden van de kloof — een van de meest unieke natuurervaringen in de regio. Goed om te weten: het is een route van A naar B, waarna jullie met een shuttlebus teruggaan, niet ideaal bij erge hoogtevrees. Boek vooraf (in het hoogseizoen vaak weken van tevoren).<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caminito+del+Rey" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En dramatisk gångbro fäst vid ravinens väggar – en av de mest unika naturupplevelserna i regionen. Bra att veta: det är en linjär vandring med en buss tillbaka, inte optimalt vid stark höjdrädsla. Boka i förväg (ibland veckor i förväg under högsäsong).<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caminito+del+Rey" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A dramatic walkway attached to the gorge walls — one of the most unique "big view" experiences in the region. Good to know: it\'s a linear walk with a shuttle back, not ideal if you have a strong fear of heights. Book in advance (weeks ahead in peak season).',
+              de: 'Ein spektakulärer Steg, der direkt an den Felswänden der Schlucht befestigt ist – eines der beeindruckendsten Naturerlebnisse der Region. Gut zu wissen: Es ist keine Rundtour, sondern ein Streckenweg mit einem Shuttlebus zurück, nicht ideal bei starker Höhenangst. Unbedingt im Voraus buchen (in der Hochsaison teils Wochen vorher).',
+              es: 'Una pasarela espectacular colgada de las paredes del desfiladero: una de las experiencias con mejores vistas de toda la región. Conviene saber: es una ruta lineal con un autobús lanzadera para volver, no es ideal si tenéis mucho miedo a las alturas. Reservad con antelación (incluso semanas antes en temporada alta).',
+              nl: 'Een spectaculair wandelpad dat vastzit aan de wanden van de kloof — een van de meest unieke natuurervaringen in de regio. Goed om te weten: het is een route van A naar B, waarna jullie met een shuttlebus teruggaan, niet ideaal bij erge hoogtevrees. Boek vooraf (in het hoogseizoen vaak weken van tevoren).',
+              sv: 'En dramatisk gångbro fäst vid ravinens väggar – en av de mest unika naturupplevelserna i regionen. Bra att veta: det är en linjär vandring med en buss tillbaka, inte optimalt vid stark höjdrädsla. Boka i förväg (ibland veckor i förväg under högsäsong).'
             }
           ]
         },
         {
           icon: 'location-pin',
+          recommendationId: 'frigiliana.day-trips.ronda',
           title: { en: 'Ronda', de: 'Ronda', es: 'Ronda', nl: 'Ronda', sv: 'Ronda' },
           subtitle: {
             en: '~2 h · Scenic "big day out"',
@@ -2992,11 +3043,11 @@ const frigilianaGuestDayTrips: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Defined by the Puente Nuevo over the gorge — cinematic, historic, and intensely scenic. Timing tip: leave by 09:00, enjoy a relaxed lunch, then return before late evening. The drive is part of the reward.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Puente+Nuevo+Ronda" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Bekannt für die atemberaubende Brücke Puente Nuevo über der Schlucht – filmreif, historisch und unheimlich malerisch. Zeitplan-Tipp: Fahrt gegen 09:00 Uhr los, genießt ein entspanntes Mittagessen und kommt vor dem späten Abend zurück. Die Fahrt dorthin ist bereits Teil des Erlebnisses.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Puente+Nuevo+Ronda" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Conocida por el Puente Nuevo sobre el Tajo: de película, histórica e intensamente pintoresca. Consejo de tiempo: salid sobre las 09:00, disfrutad de un almuerzo tranquilo y volved antes de que caiga la noche. El viaje en coche ya es parte de la experiencia.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Puente+Nuevo+Ronda" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Beroemd om de Puente Nuevo brug over de kloof — filmisch, historisch en waanzinnig mooi. Tijdsplanning: vertrek rond 09:00 uur, geniet van een ontspannen lunch en kom voor de late avond weer terug. De rit ernaartoe is al onderdeel van de ervaring.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Puente+Nuevo+Ronda" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Känd för bron Puente Nuevo över ravinen – filmatisk, historisk och otroligt vacker. Tidsplan: åk vid 09:00, njut av en avkopplande lunch och kom tillbaka före sen kväll. Bilturen dit är en del av upplevelsen i sig.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Puente+Nuevo+Ronda" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Defined by the Puente Nuevo over the gorge — cinematic, historic, and intensely scenic. Timing tip: leave by 09:00, enjoy a relaxed lunch, then return before late evening. The drive is part of the reward.',
+              de: 'Bekannt für die atemberaubende Brücke Puente Nuevo über der Schlucht – filmreif, historisch und unheimlich malerisch. Zeitplan-Tipp: Fahrt gegen 09:00 Uhr los, genießt ein entspanntes Mittagessen und kommt vor dem späten Abend zurück. Die Fahrt dorthin ist bereits Teil des Erlebnisses.',
+              es: 'Conocida por el Puente Nuevo sobre el Tajo: de película, histórica e intensamente pintoresca. Consejo de tiempo: salid sobre las 09:00, disfrutad de un almuerzo tranquilo y volved antes de que caiga la noche. El viaje en coche ya es parte de la experiencia.',
+              nl: 'Beroemd om de Puente Nuevo brug over de kloof — filmisch, historisch en waanzinnig mooi. Tijdsplanning: vertrek rond 09:00 uur, geniet van een ontspannen lunch en kom voor de late avond weer terug. De rit ernaartoe is al onderdeel van de ervaring.',
+              sv: 'Känd för bron Puente Nuevo över ravinen – filmatisk, historisk och otroligt vacker. Tidsplan: åk vid 09:00, njut av en avkopplande lunch och kom tillbaka före sen kväll. Bilturen dit är en del av upplevelsen i sig.'
             }
           ]
         }
@@ -3344,6 +3395,7 @@ const frigilianaGuestWellness: GuestGuideEntry = {
       items: [
         {
           icon: 'accommodation',
+          recommendationId: 'frigiliana.wellness.frigiliana-wellness',
           title: { en: 'Frigiliana Wellness', de: 'Frigiliana Wellness', es: 'Frigiliana Wellness', nl: 'Frigiliana Wellness', sv: 'Frigiliana Wellness' },
           subtitle: {
             en: 'Nearby · Or massage in your AMARA apartment',
@@ -3367,21 +3419,11 @@ const frigilianaGuestWellness: GuestGuideEntry = {
               nl: 'Wat wij hier vooral fijn aan vinden, is dat de behandeling helemaal wordt afgestemd op hoe jullie je die dag voelen. Eerst bespreken ze samen met jullie wat jullie lichaam op dat moment nodig heeft, en daarna beslissen jullie samen welke behandeling, of combinatie van behandelingen, het beste past — aromatherapiemassage, diepe weefselmassage, Indiase hoofdmassage, sportmassage, reflexologie of een gezichtsbehandeling. In de praktijk boeken jullie dus gewoon de tijd, en beslissen jullie op de dag zelf samen wat het beste voelt.',
               sv: 'Det vi särskilt tycker om här är att behandlingen anpassas efter hur ni känner er just den dagen. Först pratar de med er om vad kroppen behöver i stunden, och sedan bestämmer ni tillsammans vilken behandling, eller kombination av behandlingar, som passar bäst — aromaterapimassage, djupvävnadsmassage, indisk huvudmassage, idrottsmassage, reflexologi eller en ansiktsbehandling. I praktiken bokar ni alltså bara tiden och bestämmer sedan tillsammans på dagen vad som känns rätt för er.'
             }
-          ],
-          actions: [
-            {
-              label: { en: 'Open website', de: 'Website öffnen', es: 'Abrir página web', nl: 'Open website', sv: 'Öppna webbplats' },
-              href: 'https://www.frigilianawellness.com/'
-            },
-            {
-              label: { en: 'WhatsApp', de: 'WhatsApp', es: 'WhatsApp', nl: 'WhatsApp', sv: 'WhatsApp' },
-              href: 'https://wa.me/34711074662',
-              variant: 'secondary'
-            }
           ]
         },
         {
           icon: 'moon',
+          recommendationId: 'frigiliana.wellness.lidia-california-massage',
           title: { en: 'Lidia — California Massage', de: 'Lidia — Kalifornische Massage', es: 'Lidia — Masaje Californiano', nl: 'Lidia — Californische Massage', sv: 'Lidia — Kalifornisk massage' },
           subtitle: {
             en: 'Countryside · Deep unwind',
@@ -3398,17 +3440,6 @@ const frigilianaGuestWellness: GuestGuideEntry = {
               nl: 'Een stillere ervaring die meer aanvoelt als een retreat. Jullie bezoeken haar locatie op het platteland voor een langzamere, diepere vorm van ontspanning — ideaal als jullie op zoek zijn naar stilte, rust en een persoonlijkere sessie.',
               sv: 'En tystare upplevelse som påminner om ett retreat. Ni besöker hennes plats på landet för en långsammare, djupare form av avkoppling – idealiskt om ni vill ha tystnad, lugn och en mer personlig session.'
             }
-          ],
-          actions: [
-            {
-              label: { en: 'Open website', de: 'Website öffnen', es: 'Abrir página web', nl: 'Open website', sv: 'Öppna webbplats' },
-              href: 'https://www.masajecalifornianoconlidia.com/'
-            },
-            {
-              label: { en: 'WhatsApp', de: 'WhatsApp', es: 'WhatsApp', nl: 'WhatsApp', sv: 'WhatsApp' },
-              href: 'https://wa.me/34696555875',
-              variant: 'secondary'
-            }
           ]
         }
       ]
@@ -3418,6 +3449,7 @@ const frigilianaGuestWellness: GuestGuideEntry = {
       items: [
         {
           icon: 'pool',
+          recommendationId: 'nerja.wellness.ona-marinas-spa',
           title: { en: 'Ona Marinas de Nerja Spa', de: 'Ona Marinas de Nerja Spa', es: 'Ona Marinas de Nerja Spa', nl: 'Ona Marinas de Nerja Spa', sv: 'Ona Marinas de Nerja Spa' },
           subtitle: {
             en: 'Thalassotherapy · Beachfront',
@@ -3441,16 +3473,11 @@ const frigilianaGuestWellness: GuestGuideEntry = {
               nl: 'Het past goed als jullie uitzicht op zee willen, een duidelijke spa-setting zoeken en een rustige halve dag aan ontspanning willen besteden.',
               sv: 'Det passar särskilt bra om ni vill ha havsnära omgivning, en tydlig spa-miljö och en lugn halvdag med fokus på vila.'
             }
-          ],
-          actions: [
-            {
-              label: { en: 'Open website', de: 'Website öffnen', es: 'Abrir página web', nl: 'Open website', sv: 'Öppna webbplats' },
-              href: 'https://www.onahotels.com/es/apart-hotel-marinas-nerja/'
-            }
           ]
         },
         {
           icon: 'medical',
+          recommendationIds: ['nerja.wellness.enerveda', 'nerja.wellness.rut-montiel'],
           title: {
             en: 'Holistic & Clinical Wellness',
             de: 'Ganzheitliche Gesundheit',
@@ -3472,17 +3499,6 @@ const frigilianaGuestWellness: GuestGuideEntry = {
               es: 'En Nerja también hay opciones más especializadas si buscáis un tratamiento más concreto y no tanto una visita clásica de spa. EnerVeda es una buena opción para quienes se interesan por el Ayurveda y un enfoque más holístico, mientras que Rut Montiel Wellness encaja mejor si buscáis fisioterapia, trabajo corporal más específico o formatos más activos como yoga.',
               nl: 'In Nerja zijn er ook meer gespecialiseerde opties als jullie op zoek zijn naar een heel specifieke behandeling en niet per se naar een klassieke spa-ervaring. EnerVeda is een goede keuze voor gasten die geïnteresseerd zijn in Ayurveda en een meer holistische benadering, terwijl Rut Montiel Wellness beter past als jullie fysiotherapie, gerichte bodywork of actievere vormen zoals yoga zoeken.',
               sv: 'I Nerja finns också mer specialiserade alternativ om ni söker en mer specifik behandling snarare än ett klassiskt spa-besök. EnerVeda passar bra för gäster som är intresserade av Ayurveda och ett mer holistiskt upplägg, medan Rut Montiel Wellness passar bättre om ni söker fysioterapi, mer riktad kroppsterapi eller aktivare format som yoga.'
-            }
-          ],
-          actions: [
-            {
-              label: { en: 'EnerVeda website', de: 'EnerVeda Website', es: 'Página web de EnerVeda', nl: 'EnerVeda website', sv: 'EnerVeda webbplats' },
-              href: 'https://enerveda.com/'
-            },
-            {
-              label: { en: 'Rut Montiel website', de: 'Rut Montiel Website', es: 'Página web de Rut Montiel', nl: 'Rut Montiel website', sv: 'Rut Montiel webbplats' },
-              href: 'https://rutmontiel.com/',
-              variant: 'secondary'
             }
           ]
         }
@@ -3548,6 +3564,7 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
       items: [
         {
           icon: 'star',
+          recommendationId: 'nerja.sightseeing.cueva-de-nerja',
           title: { en: 'Nerja Cave', de: 'Höhlen von Nerja', es: 'Cueva de Nerja', nl: 'Grotten van Nerja', sv: 'Nerjas grottor' },
           subtitle: {
             en: '~20–25 min · Iconic landmark',
@@ -3564,21 +3581,11 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
               nl: 'Een van de beroemdste grotten in Andalusië, met enorme zalen en indrukwekkende rotsformaties. Geweldig om te bezoeken, het hele jaar door — en vooral fijn op hete dagen. Tip: ga lekker vroeg of juist later op de dag om de grootste drukte voor te zijn. Houd de middag daarna lekker rustig en ontspannen.',
               sv: 'Ett av Andalusiens mest kända grottbesök, med enorma salar och dramatiska droppstensformationer. Fantastiskt året runt – och särskilt skönt på varma dagar. Tips: åk tidigt eller sent för att undvika den värsta trängseln, och håll sedan resten av eftermiddagen avsiktligt lättsam.'
             }
-          ],
-          actions: [
-            {
-              label: { en: 'Open in Google Maps', de: 'In Google Maps öffnen', es: 'Abrir en Google Maps', nl: 'Openen in Google Maps', sv: 'Öppna i Google Maps' },
-              href: 'https://www.google.com/maps/search/?api=1&query=Cueva+de+Nerja'
-            },
-            {
-              label: { en: 'Official site', de: 'Offizielle Website', es: 'Sitio web oficial', nl: 'Officiële website', sv: 'Officiell webbplats' },
-              href: 'https://cuevadenerja.es/en/',
-              variant: 'secondary'
-            }
           ]
         },
         {
           icon: 'info',
+          recommendationId: 'nerja.sightseeing.museo-de-nerja',
           title: { en: 'Cave Museum', de: 'Höhlenmuseum', es: 'Museo de la Cueva', nl: 'Grottenmuseum', sv: 'Grottmuseum' },
           subtitle: {
             en: 'Next to caves · Quick context',
@@ -3595,21 +3602,11 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
               nl: 'Een klein museum dat context geeft aan het natuurlijke en culturele erfgoed van de regio. Een slimme toevoeging als jullie toch al naar de grotten gaan. Perfecte planning: museum + grot, en daarna een ontspannen lunch (Maro is een heerlijk rustig plekje vlakbij).',
               sv: 'Ett litet museum som ger en bra inblick i områdets natur- och kulturarv. Ett smart tillägg om ni ändå ska besöka grottorna. Ett bra upplägg: museum + grotta, och därefter en långsam lunch (Maro är en lugn plats i närheten för att varva ner).'
             }
-          ],
-          actions: [
-            {
-              label: { en: 'Open in Google Maps', de: 'In Google Maps öffnen', es: 'Abrir en Google Maps', nl: 'Openen in Google Maps', sv: 'Öppna i Google Maps' },
-              href: 'https://www.google.com/maps/search/?api=1&query=Museo+Cueva+de+Nerja'
-            },
-            {
-              label: { en: 'Official site', de: 'Offizielle Website', es: 'Sitio web oficial', nl: 'Officiële website', sv: 'Officiell webbplats' },
-              href: 'https://cuevadenerja.es/en/',
-              variant: 'secondary'
-            }
           ]
         },
         {
           icon: 'location-pin',
+          recommendationId: 'nerja.sightseeing.balcon-de-europa',
           title: { en: 'Balcón de Europa', de: 'Balcón de Europa', es: 'Balcón de Europa', nl: 'Balcón de Europa', sv: 'Balcón de Europa' },
           subtitle: {
             en: 'Nerja · 10-minute pause',
@@ -3620,16 +3617,17 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Nerja\'s famous seaside viewpoint — best as a short pause, not a long "tourist stop". Best moment: early morning or dusk. Then drift into side streets for a calmer version of town.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Balc%C3%B3n+de+Europa" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Nerjas berühmter Aussichtspunkt direkt am Meer – am besten einfach als kurzer Zwischenstopp und nicht als abendfüllendes Sightseeing-Programm. Die schönste Zeit: Frühmorgens oder in der Dämmerung. Lasst euch danach einfach durch die kleinen Gassen treiben, dort ist es wesentlich ruhiger.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Balc%C3%B3n+de+Europa" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'El famoso mirador frente al mar de Nerja: mejor como una breve pausa que como una larga parada turística. El mejor momento: a primera hora de la mañana o al anochecer. Después, perdeos por las callejuelas para disfrutar de una versión más tranquila del pueblo.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Balc%C3%B3n+de+Europa" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Nerja\'s beroemde uitzichtpunt aan zee — ideaal voor een korte pauze in plaats van een lange "toeristische stop". Het mooiste moment: vroeg in de ochtend of in de schemering. Dwaal daarna lekker de zijstraatjes in voor de rustigere kant van het stadje.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Balc%C3%B3n+de+Europa" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Nerjas berömda utsiktsplats vid havet – bäst som ett kort stopp, inte som en utdragen turistattraktion. Bästa tiden: tidig morgon eller i skymningen. Strosa sedan vidare in i sidogränderna för att uppleva en lugnare del av staden.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Balc%C3%B3n+de+Europa" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'Nerja\'s famous seaside viewpoint — best as a short pause, not a long "tourist stop". Best moment: early morning or dusk. Then drift into side streets for a calmer version of town.',
+              de: 'Nerjas berühmter Aussichtspunkt direkt am Meer – am besten einfach als kurzer Zwischenstopp und nicht als abendfüllendes Sightseeing-Programm. Die schönste Zeit: Frühmorgens oder in der Dämmerung. Lasst euch danach einfach durch die kleinen Gassen treiben, dort ist es wesentlich ruhiger.',
+              es: 'El famoso mirador frente al mar de Nerja: mejor como una breve pausa que como una larga parada turística. El mejor momento: a primera hora de la mañana o al anochecer. Después, perdeos por las callejuelas para disfrutar de una versión más tranquila del pueblo.',
+              nl: 'Nerja\'s beroemde uitzichtpunt aan zee — ideaal voor een korte pauze in plaats van een lange "toeristische stop". Het mooiste moment: vroeg in de ochtend of in de schemering. Dwaal daarna lekker de zijstraatjes in voor de rustigere kant van het stadje.',
+              sv: 'Nerjas berömda utsiktsplats vid havet – bäst som ett kort stopp, inte som en utdragen turistattraktion. Bästa tiden: tidig morgon eller i skymningen. Strosa sedan vidare in i sidogränderna för att uppleva en lugnare del av staden.'
             }
           ]
         },
         {
           icon: 'flag',
+          recommendationId: 'frigiliana.sightseeing.old-town-panels',
           title: { en: 'Old Town & Panels', de: 'Altstadt & die Keramiktafeln', es: 'Casco Antiguo y los paneles', nl: 'Oude stad & de keramiekpanelen', sv: 'Gamla stan & Keramikpanelerna' },
           subtitle: {
             en: 'Frigiliana · Blue-hour walk',
@@ -3649,10 +3647,6 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
           ],
           actions: [
             {
-              label: { en: 'Open in Google Maps', de: 'In Google Maps öffnen', es: 'Abrir en Google Maps', nl: 'Openen in Google Maps', sv: 'Öppna i Google Maps' },
-              href: 'https://www.google.com/maps/search/?api=1&query=Frigiliana+Barribarto'
-            },
-            {
               label: { en: 'Panels info', de: 'Infos zu den Tafeln', es: 'Info de los paneles', nl: 'Info over de panelen', sv: 'Info om panelerna' },
               href: 'https://www.turismofrigiliana.es/en/the-12-panels/the-panels.html',
               variant: 'secondary'
@@ -3661,6 +3655,7 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
         },
         {
           icon: 'landmark',
+          recommendationId: 'nerja.sightseeing.acueducto-del-aguila',
           title: { en: 'El Águila Aqueduct', de: 'Aquädukt El Águila', es: 'Acueducto del Águila', nl: 'Aquaduct El Águila', sv: 'El Águila Akvedukt' },
           subtitle: {
             en: 'Maro · 5-minute wow',
@@ -3671,16 +3666,17 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A striking 19th-century aqueduct spanning a ravine — a quick stop with a big visual reward. It pairs perfectly with a caves day: stop, look, take one photo, then move on.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Acueducto+del+%C3%81guila" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein beeindruckendes Aquädukt aus dem 19. Jahrhundert, das sich über eine Schlucht spannt – ein kurzer Stopp, der visuell richtig viel hermacht. Lässt sich ideal mit dem Ausflug zu den Höhlen verbinden: kurz anhalten, staunen, ein Foto machen und entspannt weiterfahren.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Acueducto+del+%C3%81guila" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un llamativo acueducto del siglo XIX que cruza un barranco: una parada rápida con una gran recompensa visual. Combina a la perfección con el día de las cuevas: parar, mirar, hacer una foto y seguir.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Acueducto+del+%C3%81guila" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een opvallend 19e-eeuws aquaduct dat over een ravijn is gebouwd — een korte stop met een geweldig visueel resultaat. Perfect te combineren met jullie bezoek aan de grotten: even stoppen, kijken, een foto maken en weer rustig verder gaan.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Acueducto+del+%C3%81guila" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En slående 1800-talsakvedukt som sträcker sig över en ravin – ett snabbt stopp som ger mycket för ögat. Passar perfekt att kombinera med dagen vid grottorna: stanna till, titta, ta ett foto och åk vidare.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Acueducto+del+%C3%81guila" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A striking 19th-century aqueduct spanning a ravine — a quick stop with a big visual reward. It pairs perfectly with a caves day: stop, look, take one photo, then move on.',
+              de: 'Ein beeindruckendes Aquädukt aus dem 19. Jahrhundert, das sich über eine Schlucht spannt – ein kurzer Stopp, der visuell richtig viel hermacht. Lässt sich ideal mit dem Ausflug zu den Höhlen verbinden: kurz anhalten, staunen, ein Foto machen und entspannt weiterfahren.',
+              es: 'Un llamativo acueducto del siglo XIX que cruza un barranco: una parada rápida con una gran recompensa visual. Combina a la perfección con el día de las cuevas: parar, mirar, hacer una foto y seguir.',
+              nl: 'Een opvallend 19e-eeuws aquaduct dat over een ravijn is gebouwd — een korte stop met een geweldig visueel resultaat. Perfect te combineren met jullie bezoek aan de grotten: even stoppen, kijken, een foto maken en weer rustig verder gaan.',
+              sv: 'En slående 1800-talsakvedukt som sträcker sig över en ravin – ett snabbt stopp som ger mycket för ögat. Passar perfekt att kombinera med dagen vid grottorna: stanna till, titta, ta ett foto och åk vidare.'
             }
           ]
         },
         {
           icon: 'location-pin',
+          recommendationId: 'nerja.sightseeing.maro-village',
           title: { en: 'Maro Village', de: 'Dorf Maro', es: 'Pueblo de Maro', nl: 'Maro dorp', sv: 'Maro by' },
           subtitle: {
             en: 'Quiet detour · Slow coffee',
@@ -3691,11 +3687,11 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A small, calm village near the caves — good for a slow coffee and a quiet reset before heading back. Best use: one drink, one short stroll, then leave. The calm is the benefit.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Maro+Nerja" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Ein kleines, friedliches Dorf in der Nähe der Höhlen – wunderbar für einen gemütlichen Kaffee und ein wenig Ruhe, bevor es wieder zurückgeht. Am besten: einen Drink nehmen, kurz hindurchschlendern und die Stille genießen, denn genau darin liegt der Charme.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Maro+Nerja" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Un pueblo pequeño y tranquilo cerca de las cuevas: perfecto para tomar un café relajado y desconectar antes de volver. Nuestro consejo: tomad algo, dad un breve paseo y continuad. Su mayor atractivo es precisamente esa calma.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Maro+Nerja" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een klein, rustig dorpje vlakbij de grotten — fijn voor een relaxte koffie en een moment van rust voordat jullie weer teruggaan. De beste manier om het te ervaren: even een drankje doen, een korte wandeling maken en genieten van de stilte. Dat is de echte charme hier.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Maro+Nerja" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'En liten, tyst by i närheten av grottorna – ett trevligt ställe för en lugn kopp kaffe och lite andrum innan ni beger er tillbaka. Bästa upplägget: ta en drink, ta en kort promenad och känn in stillheten, det är själva poängen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Maro+Nerja" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A small, calm village near the caves — good for a slow coffee and a quiet reset before heading back. Best use: one drink, one short stroll, then leave. The calm is the benefit.',
+              de: 'Ein kleines, friedliches Dorf in der Nähe der Höhlen – wunderbar für einen gemütlichen Kaffee und ein wenig Ruhe, bevor es wieder zurückgeht. Am besten: einen Drink nehmen, kurz hindurchschlendern und die Stille genießen, denn genau darin liegt der Charme.',
+              es: 'Un pueblo pequeño y tranquilo cerca de las cuevas: perfecto para tomar un café relajado y desconectar antes de volver. Nuestro consejo: tomad algo, dad un breve paseo y continuad. Su mayor atractivo es precisamente esa calma.',
+              nl: 'Een klein, rustig dorpje vlakbij de grotten — fijn voor een relaxte koffie en een moment van rust voordat jullie weer teruggaan. De beste manier om het te ervaren: even een drankje doen, een korte wandeling maken en genieten van de stilte. Dat is de echte charme hier.',
+              sv: 'En liten, tyst by i närheten av grottorna – ett trevligt ställe för en lugn kopp kaffe och lite andrum innan ni beger er tillbaka. Bästa upplägget: ta en drink, ta en kort promenad och känn in stillheten, det är själva poängen.'
             }
           ]
         }
@@ -3707,7 +3703,7 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
 const nerjaGuestAdventure: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-adventure',
-  backSlug: 'frigiliana-guest-recommendations',
+  backSlug: 'nerja-guest-recommendations',
   supportHref: FRIGILIANA_SUPPORT_EMAIL,
   supportLabel: NEED_HELP,
   seoTitle: {
@@ -3718,11 +3714,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
     sv: 'Frigiliana Gästguide — Äventyr i Nerja | AMARA'
   },
   seoDescription: {
-    en: 'Practical adventure overview near Nerja — kayaking, canyoning, climbing, off-road and Harley tours with quick planning tips.',
-    de: 'Praktische Abenteuer-Übersicht rund um Nerja — Kajak, Canyoning, Klettern, Offroad und Harley-Touren mit kurzen Tipps.',
-    es: 'Resumen práctico de aventura cerca de Nerja: kayak, barranquismo, escalada, todoterreno y rutas en Harley con consejos rápidos.',
-    nl: 'Praktisch avontuuroverzicht bij Nerja — kajakken, canyoning, klimmen, offroad en Harley-tours met snelle planningstips.',
-    sv: 'Praktisk äventyrsöversikt nära Nerja — kajak, canyoning, klättring, off-road och Harley-turer med snabba planeringstips.'
+    en: 'Practical adventure overview near Nerja — kayaking, canyoning, climbing and off-road with quick planning tips.',
+    de: 'Praktische Abenteuer-Übersicht rund um Nerja — Kajak, Canyoning, Klettern und Offroad mit kurzen Tipps.',
+    es: 'Resumen práctico de aventura cerca de Nerja: kayak, barranquismo, escalada y todoterreno con consejos rápidos.',
+    nl: 'Praktisch avontuuroverzicht bij Nerja — kajakken, canyoning, klimmen en offroad met snelle planningstips.',
+    sv: 'Praktisk äventyrsöversikt nära Nerja — kajak, canyoning, klättring och off-road med snabba planeringstips.'
   },
   kicker: {
     en: 'AMARA LOCAL GUIDE',
@@ -3733,11 +3729,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
   },
   title: { en: 'Adventure in Nerja', de: 'Abenteuer in Nerja', es: 'Aventura en Nerja', nl: 'Avontuur in Nerja', sv: 'Äventyr i Nerja' },
   intro: {
-    en: 'Beyond beaches and village walks, Nerja offers some of the most beautiful coastal and mountain experiences in the region. The unique topographical convergence of the Mediterranean coastline and the rugged Sierra mountains creates an extraordinary terrain for outdoor sports. Whether you prefer quiet exploration by kayak, high-speed views by jet ski, or scenic mountain roads on a Harley, all options are easily accessible within 10–20 minutes from Frigiliana. Good to know: the high summer is perfect for water-based activities, while the months from October to May offer optimal conditions for physically demanding terrestrial adventures like climbing and biking.',
-    de: 'Jenseits von Stränden und gemütlichen Dorfspaziergängen bietet Nerja einige der schönsten Küsten- und Bergerlebnisse der gesamten Region. Das einzigartige topografische Zusammentreffen der Mittelmeerküste und der schroffen Sierra-Berge schafft ein außergewöhnliches Terrain für Outdoor-Sportarten. Ganz gleich, ob ihr lieber in Ruhe mit dem Kajak auf Erkundungstour geht, schnelle Action auf dem Jetski sucht oder die malerischen Bergstraßen auf einer Harley genießen wollt – alle Optionen sind von Frigiliana aus in 10–20 Minuten bequem erreichbar. Gut zu wissen: Der Hochsommer ist perfekt für Wasseraktivitäten, während die Monate von Oktober bis Mai optimale Bedingungen für körperlich anspruchsvollere Abenteuer an Land wie Klettern und Mountainbiken bieten.',
-    es: 'Más allá de las playas y los paseos por el pueblo, Nerja ofrece algunas de las experiencias costeras y de montaña más hermosas de la región. La singular convergencia topográfica de la costa mediterránea y las escarpadas montañas de la Sierra crea un terreno extraordinario para los deportes al aire libre. Tanto si preferís una exploración tranquila en kayak, vistas a toda velocidad en moto de agua o rutas panorámicas por la montaña en Harley, todas las opciones están fácilmente accesibles a unos 10-20 minutos de Frigiliana. Conviene saber: el pleno verano es perfecto para actividades acuáticas, mientras que los meses de octubre a mayo ofrecen condiciones óptimas para aventuras terrestres más exigentes físicamente, como la escalada y el ciclismo.',
-    nl: 'Naast stranden en dorpswandelingen biedt Nerja een paar van de mooiste kust- en bergervaringen in de wijde omtrek. De unieke topografische samenkomst van de Middellandse Zeekust en het ruige Sierra-gebergte creëert een buitengewoon terrein voor buitensporten. Of jullie nu de voorkeur geven aan een rustige ontdekkingstocht per kajak, razendsnelle actie op een jetski of schilderachtige bergwegen op een Harley — alle opties zijn makkelijk bereikbaar op slechts 10-20 minuten van Frigiliana. Goed om te weten: de hoogzomer is perfect voor wateractiviteiten, terwijl de maanden van oktober tot mei optimale omstandigheden bieden voor fysiek veeleisendere avonturen op het land, zoals klimmen en mountainbiken.',
-    sv: 'Utöver stränder och bypromenader erbjuder Nerja några av de vackraste kust- och bergsupplevelserna i regionen. Den unika topografiska mötesplatsen mellan Medelhavskusten och de karga Sierra-bergen skapar en extraordinär terräng för utomhussporter. Oavsett om ni föredrar en lugn upptäcktsfärd i kajak, fartfylld spänning på en vattenskoter eller vackra bergsvägar på en Harley, så ligger alla alternativ lättillgängligt inom 10–20 minuter från Frigiliana. Bra att veta: högsommaren är perfekt för vattenaktiviteter, medan månaderna från oktober till maj erbjuder optimala förhållanden för mer fysiskt krävande äventyr på land som klättring och cykling.'
+    en: 'Beyond beaches and village walks, Nerja offers some of the most beautiful coastal and mountain experiences in the region. The unique topographical convergence of the Mediterranean coastline and the rugged Sierra mountains creates an extraordinary terrain for outdoor sports. Whether you prefer quiet exploration by kayak or high-speed views by jet ski, all options are easily accessible within 10–20 minutes from Frigiliana. Good to know: the high summer is perfect for water-based activities, while the months from October to May offer optimal conditions for physically demanding terrestrial adventures like climbing and biking.',
+    de: 'Jenseits von Stränden und gemütlichen Dorfspaziergängen bietet Nerja einige der schönsten Küsten- und Bergerlebnisse der gesamten Region. Das einzigartige topografische Zusammentreffen der Mittelmeerküste und der schroffen Sierra-Berge schafft ein außergewöhnliches Terrain für Outdoor-Sportarten. Ganz gleich, ob ihr lieber in Ruhe mit dem Kajak auf Erkundungstour geht oder schnelle Action auf dem Jetski sucht – alle Optionen sind von Frigiliana aus in 10–20 Minuten bequem erreichbar. Gut zu wissen: Der Hochsommer ist perfekt für Wasseraktivitäten, während die Monate von Oktober bis Mai optimale Bedingungen für körperlich anspruchsvollere Abenteuer an Land wie Klettern und Mountainbiken bieten.',
+    es: 'Más allá de las playas y los paseos por el pueblo, Nerja ofrece algunas de las experiencias costeras y de montaña más hermosas de la región. La singular convergencia topográfica de la costa mediterránea y las escarpadas montañas de la Sierra crea un terreno extraordinario para los deportes al aire libre. Tanto si preferís una exploración tranquila en kayak como vistas a toda velocidad en moto de agua, todas las opciones están fácilmente accesibles a unos 10-20 minutos de Frigiliana. Conviene saber: el pleno verano es perfecto para actividades acuáticas, mientras que los meses de octubre a mayo ofrecen condiciones óptimas para aventuras terrestres más exigentes físicamente, como la escalada y el ciclismo.',
+    nl: 'Naast stranden en dorpswandelingen biedt Nerja een paar van de mooiste kust- en bergervaringen in de wijde omtrek. De unieke topografische samenkomst van de Middellandse Zeekust en het ruige Sierra-gebergte creëert een buitengewoon terrein voor buitensporten. Of jullie nu de voorkeur geven aan een rustige ontdekkingstocht per kajak of razendsnelle actie op een jetski — alle opties zijn makkelijk bereikbaar op slechts 10-20 minuten van Frigiliana. Goed om te weten: de hoogzomer is perfect voor wateractiviteiten, terwijl de maanden van oktober tot mei optimale omstandigheden bieden voor fysiek veeleisendere avonturen op het land, zoals klimmen en mountainbiken.',
+    sv: 'Utöver stränder och bypromenader erbjuder Nerja några av de vackraste kust- och bergsupplevelserna i regionen. Den unika topografiska mötesplatsen mellan Medelhavskusten och de karga Sierra-bergen skapar en extraordinär terräng för utomhussporter. Oavsett om ni föredrar en lugn upptäcktsfärd i kajak eller fartfylld spänning på en vattenskoter, så ligger alla alternativ lättillgängligt inom 10–20 minuter från Frigiliana. Bra att veta: högsommaren är perfekt för vattenaktiviteter, medan månaderna från oktober till maj erbjuder optimala förhållanden för mer fysiskt krävande äventyr på land som klättring och cykling.'
   },
   categories: [
     {
@@ -3751,6 +3747,7 @@ const nerjaGuestAdventure: GuestGuideEntry = {
       items: [
         {
           icon: 'wave',
+          recommendationIds: ['nerja.adventure.educare-aventura', 'nerja.adventure.local-experiences', 'nerja.adventure.jet-ski-tours-nerja'],
           title: { en: 'Water Sports — Kayak & Jet Ski', de: 'Wassersport — Kajak & Jetski', es: 'Deportes acuáticos — Kayak y motos de agua', nl: 'Watersport — Kajak & Jetski', sv: 'Vattensport — Kajak & Vattenskoter' },
           body: [
             {
@@ -3768,18 +3765,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
               sv: 'Kustlinjen öster om Nerja är ett skyddat naturreservat. Att paddla längs klipporna vid Maro-Cerro Gordo är ett av de vackraste sätten att utforska havsgrottor, gömda vikar (som den vackra Cala Blanco) och turkost vatten. De flesta guidade turer inkluderar ett stopp nära det berömda vattenfallet Cascada de Maro, där ni kan bada eller snorkla i lugnt vatten.'
             },
             {
-              en: '<ul><li><strong>Duration:</strong> approx. 2–2.5 hours.</li><li><strong>Season:</strong> available most of the year (best May–October).</li><li><strong>Prices:</strong> Guided tours range from 25 € to 35 €, while autonomous rentals start around 11 €.</li><li><strong>Top Providers:</strong> Look for "Educare Aventura" (pioneers since 2002) at Burriana Beach or "Local Experiences" for premium family tours.</li><li><strong>Tip:</strong> Book ahead in summer — tours sell out quickly. Arrive at least 15 minutes early as parking at Playa de Burriana is notoriously difficult.</li></ul>',
-              de: '<ul><li><strong>Dauer:</strong> ca. 2–2,5 Stunden.</li><li><strong>Saison:</strong> fast das ganze Jahr über verfügbar (am besten Mai–Oktober).</li><li><strong>Preise:</strong> Geführte Touren liegen zwischen 25 € und 35 €, während der eigene Verleih bei ca. 11 € beginnt.</li><li><strong>Top-Anbieter:</strong> Haltet Ausschau nach "Educare Aventura" (Pioniere seit 2002) am Burriana Beach oder "Local Experiences" für Premium-Familientouren.</li><li><strong>Tipp:</strong> Bucht im Sommer unbedingt im Voraus – die Touren sind schnell ausverkauft. Seid mindestens 15 Minuten früher da, da das Parken an der Playa de Burriana bekanntermaßen schwierig ist.</li></ul>',
-              es: '<ul><li><strong>Duración:</strong> aprox. 2–2,5 horas.</li><li><strong>Temporada:</strong> disponible casi todo el año (mejor de mayo a octubre).</li><li><strong>Precios:</strong> Las rutas guiadas oscilan entre 25 € y 35 €, mientras que el alquiler por libre empieza en unos 11 €.</li><li><strong>Mejores proveedores:</strong> Buscad "Educare Aventura" (pioneros desde 2002) en la Playa de Burriana o "Local Experiences" para excursiones familiares premium.</li><li><strong>Consejo:</strong> Reservad con antelación en verano, las plazas se agotan rápido. Llegad al menos 15 minutos antes, ya que aparcar en la Playa de Burriana es bastante difícil.</li></ul>',
-              nl: '<ul><li><strong>Duur:</strong> ca. 2–2,5 uur.</li><li><strong>Seizoen:</strong> het grootste deel van het jaar beschikbaar (beste van mei–oktober).</li><li><strong>Prijzen:</strong> Begeleide tours variëren van 25 € tot 35 €, zelf huren begint rond 11 €.</li><li><strong>Topaanbieders:</strong> Kijk naar "Educare Aventura" (pioniers sinds 2002) op Burriana Beach of "Local Experiences" voor premium familietours.</li><li><strong>Tip:</strong> Boek in de zomer vooraf — tours zijn snel uitverkocht. Zorg dat jullie zeker 15 minuten te vroeg zijn, want parkeren bij Playa de Burriana is berucht lastig.</li></ul>',
-              sv: '<ul><li><strong>Varaktighet:</strong> ca 2–2,5 timmar.</li><li><strong>Säsong:</strong> tillgängligt större delen av året (bäst maj–oktober).</li><li><strong>Priser:</strong> Guidade turer kostar mellan 25 € och 35 €, medan egen hyra börjar runt 11 €.</li><li><strong>Topparrangörer:</strong> Leta efter "Educare Aventura" (pionjärer sedan 2002) vid Burriana Beach eller "Local Experiences" för premiumturer för familjer.</li><li><strong>Tips:</strong> Boka i förväg på sommaren – turerna säljer slut snabbt. Kom minst 15 minuter för tidigt, eftersom parkering vid Playa de Burriana är ökänt svårt.</li></ul>'
-            },
-            {
-              en: 'To compare providers by rating, price and starting location, search <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kayak+Nerja" target="_blank" rel="noopener">"Kayak Nerja" on Google Maps</a>.',
-              de: 'Um Anbieter nach Bewertungen, Preisen und Startort zu vergleichen, sucht nach <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kayak+Nerja" target="_blank" rel="noopener">„Kayak Nerja" in Google Maps</a>.',
-              es: 'Para comparar proveedores por valoración, precio y ubicación de salida, buscad <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kayak+Nerja" target="_blank" rel="noopener">"Kayak Nerja" en Google Maps</a>.',
-              nl: 'Gebruik <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kayak+Nerja" target="_blank" rel="noopener">"Kayak Nerja" op Google Maps</a> om aanbieders te vergelijken op beoordeling, prijs en startlocatie.',
-              sv: 'Sök efter <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Kayak+Nerja" target="_blank" rel="noopener">"Kayak Nerja" i Google Maps</a> för att jämföra arrangörer, omdömen och startplatser.'
+              en: '<ul><li><strong>Duration:</strong> approx. 2–2.5 hours.</li><li><strong>Season:</strong> available most of the year (best May–October).</li><li><strong>Prices:</strong> Guided tours range from 25 € to 35 €, while autonomous rentals start around 11 €.</li><li><strong>Providers:</strong> Educare Aventura at Burriana beach (since 2002) or Local Experiences for small-group family tours.</li><li><strong>Tip:</strong> Book ahead in summer — tours sell out quickly. Arrive at least 15 minutes early as parking at Playa de Burriana is notoriously difficult.</li></ul>',
+              de: '<ul><li><strong>Dauer:</strong> ca. 2–2,5 Stunden.</li><li><strong>Saison:</strong> fast das ganze Jahr über verfügbar (am besten Mai–Oktober).</li><li><strong>Preise:</strong> Geführte Touren liegen zwischen 25 € und 35 €, während der eigene Verleih bei ca. 11 € beginnt.</li><li><strong>Anbieter:</strong> Educare Aventura an der Playa de Burriana (seit 2002) oder Local Experiences für Familientouren in kleinen Gruppen.</li><li><strong>Tipp:</strong> Bucht im Sommer unbedingt im Voraus – die Touren sind schnell ausverkauft. Seid mindestens 15 Minuten früher da, da das Parken an der Playa de Burriana bekanntermaßen schwierig ist.</li></ul>',
+              es: '<ul><li><strong>Duración:</strong> aprox. 2–2,5 horas.</li><li><strong>Temporada:</strong> disponible casi todo el año (mejor de mayo a octubre).</li><li><strong>Precios:</strong> Las rutas guiadas oscilan entre 25 € y 35 €, mientras que el alquiler por libre empieza en unos 11 €.</li><li><strong>Proveedores:</strong> Educare Aventura en la playa de Burriana (desde 2002) o Local Experiences para salidas familiares en grupos pequeños.</li><li><strong>Consejo:</strong> Reservad con antelación en verano, las plazas se agotan rápido. Llegad al menos 15 minutos antes, ya que aparcar en la Playa de Burriana es bastante difícil.</li></ul>',
+              nl: '<ul><li><strong>Duur:</strong> ca. 2–2,5 uur.</li><li><strong>Seizoen:</strong> het grootste deel van het jaar beschikbaar (beste van mei–oktober).</li><li><strong>Prijzen:</strong> Begeleide tours variëren van 25 € tot 35 €, zelf huren begint rond 11 €.</li><li><strong>Aanbieders:</strong> Educare Aventura aan het strand van Burriana (sinds 2002) of Local Experiences voor familietours in kleine groepen.</li><li><strong>Tip:</strong> Boek in de zomer vooraf — tours zijn snel uitverkocht. Zorg dat jullie zeker 15 minuten te vroeg zijn, want parkeren bij Playa de Burriana is berucht lastig.</li></ul>',
+              sv: '<ul><li><strong>Varaktighet:</strong> ca 2–2,5 timmar.</li><li><strong>Säsong:</strong> tillgängligt större delen av året (bäst maj–oktober).</li><li><strong>Priser:</strong> Guidade turer kostar mellan 25 € och 35 €, medan egen hyra börjar runt 11 €.</li><li><strong>Arrangörer:</strong> Educare Aventura vid Burriana-stranden (sedan 2002) eller Local Experiences för familjeturer i små grupper.</li><li><strong>Tips:</strong> Boka i förväg på sommaren – turerna säljer slut snabbt. Kom minst 15 minuter för tidigt, eftersom parkering vid Playa de Burriana är ökänt svårt.</li></ul>'
             },
             {
               en: '<hr>',
@@ -3810,11 +3800,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
               sv: '<ul><li><strong>Typiska alternativ:</strong> 30 eller 60 minuter</li><li><strong>Upp till 2 personer per vattenskoter</strong></li><li><strong>Villkor:</strong> turerna beror på havets tillstånd och vädret</li></ul>'
             },
             {
-              en: 'Compare local operators and availability by searching <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Jet+Ski+Nerja" target="_blank" rel="noopener">"Jet Ski Nerja" on Google Maps</a>.',
-              de: 'Vergleicht lokale Anbieter und deren Verfügbarkeit, indem ihr nach <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Jet+Ski+Nerja" target="_blank" rel="noopener">„Jet Ski Nerja" in Google Maps</a> sucht.',
-              es: 'Comparad los operadores locales y la disponibilidad buscando <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Jet+Ski+Nerja" target="_blank" rel="noopener">"Jet Ski Nerja" en Google Maps</a>.',
-              nl: 'Vergelijk lokale aanbieders en beschikbaarheid via <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Jet+Ski+Nerja" target="_blank" rel="noopener">"Jet Ski Nerja" op Google Maps</a>.',
-              sv: 'Jämför lokala arrangörer och tillgänglighet genom att söka efter <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Jet+Ski+Nerja" target="_blank" rel="noopener">"Jet Ski Nerja" i Google Maps</a>.'
+              en: 'The guided tours are run by Jet Ski Tours Nerja; opening times and free slots change with the season, so book ahead.',
+              de: 'Die geführten Touren fährt Jet Ski Tours Nerja; Öffnungszeiten und freie Plätze wechseln mit der Saison, bucht also vorher.',
+              es: 'Las salidas guiadas las organiza Jet Ski Tours Nerja; horarios y plazas cambian con la temporada, así que reservad antes.',
+              nl: 'De begeleide tours worden gevaren door Jet Ski Tours Nerja; openingstijden en vrije plekken wisselen per seizoen, boek dus vooraf.',
+              sv: 'De guidade turerna körs av Jet Ski Tours Nerja; öppettider och lediga platser skiftar med säsongen, så boka i förväg.'
             },
             {
               en: '<em>Practical advice:</em> Bring swimwear, sunscreen, water, and ideally a waterproof phone case. Morning tours often have calmer sea conditions.',
@@ -3868,6 +3858,7 @@ const nerjaGuestAdventure: GuestGuideEntry = {
         },
         {
           icon: 'route',
+          recommendationIds: ['nerja.adventure.filoclimb', 'nerja.adventure.local-experiences', 'frigiliana.adventure.barranco-del-higueron', 'nerja.adventure.tirolina-de-comares', 'nerja.adventure.via-ferrata-zafarraya'],
           title: { en: 'Climbing, Vía Ferrata & Zipline', de: 'Klettern, Klettersteige & Zipline', es: 'Escalada, Vías Ferratas y Tirolina', nl: 'Klimmen, Klettersteig & Zipline', sv: 'Klättring, Via Ferrata & Zipline' },
           body: [
             {
@@ -3878,18 +3869,18 @@ const nerjaGuestAdventure: GuestGuideEntry = {
               sv: '<strong>Vertikala Äventyr</strong>'
             },
             {
-              en: 'The region is a globally recognized climbing destination. For beginners, local operators like <a class="am-link" href="https://filoclimb.com/" target="_blank" rel="noopener"><strong>Filoclimb</strong></a> (approx. 55 €) and <a class="am-link" href="https://localexperiences.es/en/" target="_blank" rel="noopener"><strong>Local Experiences</strong></a> (approx. 150 € for an exclusive VIP experience) offer safe, top-rope initiation courses on the beautiful limestone walls around Nerja and Frigiliana.',
-              de: 'Die Region ist eine weltweit anerkannte Kletterdestination. Für Anfänger bieten lokale Anbieter wie <a class="am-link" href="https://filoclimb.com/" target="_blank" rel="noopener"><strong>Filoclimb</strong></a> (ca. 55 €) und <a class="am-link" href="https://localexperiences.es/en/" target="_blank" rel="noopener"><strong>Local Experiences</strong></a> (ca. 150 € für ein exklusives VIP-Erlebnis) sichere Top-Rope-Schnupperkurse an den wunderschönen Kalksteinwänden rund um Nerja und Frigiliana an.',
-              es: 'La región es un destino de escalada reconocido a nivel mundial. Para principiantes, operadores locales como <a class="am-link" href="https://filoclimb.com/" target="_blank" rel="noopener"><strong>Filoclimb</strong></a> (aprox. 55 €) y <a class="am-link" href="https://localexperiences.es/en/" target="_blank" rel="noopener"><strong>Local Experiences</strong></a> (aprox. 150 € por una experiencia VIP exclusiva) ofrecen cursos de iniciación en top-rope de forma segura en las hermosas paredes de piedra caliza alrededor de Nerja y Frigiliana.',
-              nl: 'De regio is een wereldwijd erkende klimbestemming. Voor beginners bieden lokale aanbieders zoals <a class="am-link" href="https://filoclimb.com/" target="_blank" rel="noopener"><strong>Filoclimb</strong></a> (ca. 55 €) en <a class="am-link" href="https://localexperiences.es/en/" target="_blank" rel="noopener"><strong>Local Experiences</strong></a> (ca. 150 € voor een exclusieve VIP-ervaring) veilige top-rope introductiecursussen aan op de prachtige kalksteenwanden rond Nerja en Frigiliana.',
-              sv: 'Regionen är en globalt erkänd klättringsdestination. För nybörjare erbjuder lokala arrangörer som <a class="am-link" href="https://filoclimb.com/" target="_blank" rel="noopener"><strong>Filoclimb</strong></a> (ca 55 €) och <a class="am-link" href="https://localexperiences.es/en/" target="_blank" rel="noopener"><strong>Local Experiences</strong></a> (ca 150 € för en exklusiv VIP-upplevelse) säkra prova-på-kurser med topprep på de vackra kalkstensväggarna runt Nerja och Frigiliana.'
+              en: 'The region is a globally recognized climbing destination. For beginners, local operators like <strong>Filoclimb</strong> (approx. 55 €) and <strong>Local Experiences</strong> (approx. 150 € for an exclusive VIP experience) offer safe, top-rope initiation courses on the beautiful limestone walls around Nerja and Frigiliana.',
+              de: 'Die Region ist eine weltweit anerkannte Kletterdestination. Für Anfänger bieten lokale Anbieter wie <strong>Filoclimb</strong> (ca. 55 €) und <strong>Local Experiences</strong> (ca. 150 € für ein exklusives VIP-Erlebnis) sichere Top-Rope-Schnupperkurse an den wunderschönen Kalksteinwänden rund um Nerja und Frigiliana an.',
+              es: 'La región es un destino de escalada reconocido a nivel mundial. Para principiantes, operadores locales como <strong>Filoclimb</strong> (aprox. 55 €) y <strong>Local Experiences</strong> (aprox. 150 € por una experiencia VIP exclusiva) ofrecen cursos de iniciación en top-rope de forma segura en las hermosas paredes de piedra caliza alrededor de Nerja y Frigiliana.',
+              nl: 'De regio is een wereldwijd erkende klimbestemming. Voor beginners bieden lokale aanbieders zoals <strong>Filoclimb</strong> (ca. 55 €) en <strong>Local Experiences</strong> (ca. 150 € voor een exclusieve VIP-ervaring) veilige top-rope introductiecursussen aan op de prachtige kalksteenwanden rond Nerja en Frigiliana.',
+              sv: 'Regionen är en globalt erkänd klättringsdestination. För nybörjare erbjuder lokala arrangörer som <strong>Filoclimb</strong> (ca 55 €) och <strong>Local Experiences</strong> (ca 150 € för en exklusiv VIP-upplevelse) säkra prova-på-kurser med topprep på de vackra kalkstensväggarna runt Nerja och Frigiliana.'
             },
             {
-              en: 'If you prefer exploring autonomously, the <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Barranco+del+Higueron+Frigiliana" target="_blank" rel="noopener"><em>Barranco del Higuerón</em></a> gorge right in Frigiliana offers excellent scrambling and bouldering opportunities.',
-              de: 'Wenn ihr lieber auf eigene Faust unterwegs seid, bietet die Schlucht <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Barranco+del+Higueron+Frigiliana" target="_blank" rel="noopener"><em>Barranco del Higuerón</em></a> direkt in Frigiliana großartige Möglichkeiten zum Kraxeln und Bouldern.',
-              es: 'Si preferís explorar por vuestra cuenta, el <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Barranco+del+Higueron+Frigiliana" target="_blank" rel="noopener"><em>Barranco del Higuerón</em></a> en Frigiliana ofrece excelentes oportunidades para trepar y hacer boulder.',
-              nl: 'Als jullie liever op eigen houtje op ontdekking gaan, biedt de <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Barranco+del+Higueron+Frigiliana" target="_blank" rel="noopener"><em>Barranco del Higuerón</em></a> kloof direct in Frigiliana uitstekende mogelijkheden om te klauteren en te boulderen.',
-              sv: 'Om ni föredrar att utforska på egen hand erbjuder ravinen <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Barranco+del+Higueron+Frigiliana" target="_blank" rel="noopener"><em>Barranco del Higuerón</em></a> mitt i Frigiliana fantastiska möjligheter för scrambling och bouldering.'
+              en: 'If you prefer exploring autonomously, the <em>Barranco del Higuerón</em> gorge right in Frigiliana offers excellent scrambling and bouldering opportunities.',
+              de: 'Wenn ihr lieber auf eigene Faust unterwegs seid, bietet die Schlucht <em>Barranco del Higuerón</em> direkt in Frigiliana großartige Möglichkeiten zum Kraxeln und Bouldern.',
+              es: 'Si preferís explorar por vuestra cuenta, el <em>Barranco del Higuerón</em> en Frigiliana ofrece excelentes oportunidades para trepar y hacer boulder.',
+              nl: 'Als jullie liever op eigen houtje op ontdekking gaan, biedt de <em>Barranco del Higuerón</em> kloof direct in Frigiliana uitstekende mogelijkheden om te klauteren en te boulderen.',
+              sv: 'Om ni föredrar att utforska på egen hand erbjuder ravinen <em>Barranco del Higuerón</em> mitt i Frigiliana fantastiska möjligheter för scrambling och bouldering.'
             },
             {
               en: '<hr>',
@@ -3906,23 +3897,24 @@ const nerjaGuestAdventure: GuestGuideEntry = {
               sv: '<strong>Zipline i Comares &amp; Via Ferrata</strong>'
             },
             {
-              en: 'For a massive adrenaline rush, head to the picturesque mountain village of Comares. It hosts the <a class="am-link" href="https://www.turismointeriordemalaga.com/actividades/tirolina-de-comares/?lang=en" target="_blank" rel="noopener"><strong>Tirolina de Comares</strong></a>—at 436 meters long and over 100 meters high, it is the longest zipline in Spain with natural rock anchors.',
-              de: 'Für einen ordentlichen Adrenalinkick fahrt ihr am besten ins malerische Bergdorf Comares. Dort befindet sich die <a class="am-link" href="https://www.turismointeriordemalaga.com/actividades/tirolina-de-comares/?lang=en" target="_blank" rel="noopener"><strong>Tirolina de Comares</strong></a> – mit 436 Metern Länge und über 100 Metern Höhe ist sie die längste Zipline Spaniens, die an natürlichen Felsen verankert ist.',
-              es: 'Para una buena dosis de adrenalina, id al pintoresco pueblo de montaña de Comares. Allí se encuentra la <a class="am-link" href="https://www.turismointeriordemalaga.com/actividades/tirolina-de-comares/?lang=en" target="_blank" rel="noopener"><strong>Tirolina de Comares</strong></a>; con 436 metros de largo y más de 100 metros de altura, es la tirolina con anclajes en roca natural más larga de España.',
-              nl: 'Voor een enorme adrenalinekick gaan jullie naar het pittoreske bergdorpje Comares. Hier vinden jullie de <a class="am-link" href="https://www.turismointeriordemalaga.com/actividades/tirolina-de-comares/?lang=en" target="_blank" rel="noopener"><strong>Tirolina de Comares</strong></a> — met een lengte van 436 meter en een hoogte van meer dan 100 meter is dit de langste zipline van Spanje die verankerd is in natuurlijke rotsen.',
-              sv: 'För en riktig adrenalinkick ska ni åka till den pittoreska bergsbyn Comares. Här finns <a class="am-link" href="https://www.turismointeriordemalaga.com/actividades/tirolina-de-comares/?lang=en" target="_blank" rel="noopener"><strong>Tirolina de Comares</strong></a> – med sina 436 meter i längd och över 100 meter i höjd är det Spaniens längsta zipline med naturliga bergfästen.'
+              en: 'For a massive adrenaline rush, head to the picturesque mountain village of Comares. It hosts the <strong>Tirolina de Comares</strong>—at 436 meters long and over 100 meters high, it is the longest zipline in Spain with natural rock anchors.',
+              de: 'Für einen ordentlichen Adrenalinkick fahrt ihr am besten ins malerische Bergdorf Comares. Dort befindet sich die <strong>Tirolina de Comares</strong> – mit 436 Metern Länge und über 100 Metern Höhe ist sie die längste Zipline Spaniens, die an natürlichen Felsen verankert ist.',
+              es: 'Para una buena dosis de adrenalina, id al pintoresco pueblo de montaña de Comares. Allí se encuentra la <strong>Tirolina de Comares</strong>; con 436 metros de largo y más de 100 metros de altura, es la tirolina con anclajes en roca natural más larga de España.',
+              nl: 'Voor een enorme adrenalinekick gaan jullie naar het pittoreske bergdorpje Comares. Hier vinden jullie de <strong>Tirolina de Comares</strong> — met een lengte van 436 meter en een hoogte van meer dan 100 meter is dit de langste zipline van Spanje die verankerd is in natuurlijke rotsen.',
+              sv: 'För en riktig adrenalinkick ska ni åka till den pittoreska bergsbyn Comares. Här finns <strong>Tirolina de Comares</strong> – med sina 436 meter i längd och över 100 meter i höjd är det Spaniens längsta zipline med naturliga bergfästen.'
             },
             {
-              en: '<ul><li><strong>Zipline Price:</strong> Only 26 € (allows up to two rides!).</li><li><strong>Vía Ferrata (Iron Paths):</strong> Combine the zipline with <a class="am-link" href="https://www.turismointeriordemalaga.com/actividades/tirolina-de-comares/?lang=en" target="_blank" rel="noopener">beginner-friendly via ferrata routes in Comares</a>, or challenge yourself at the scenic <a class="am-link" href="https://viaferratajohnhogbin.com/" target="_blank" rel="noopener">Vía Ferrata Zafarraya</a> (75 € guided tour).</li></ul>',
-              de: '<ul><li><strong>Preis für die Zipline:</strong> Nur 26 € (gilt für bis zu zwei Fahrten!).</li><li><strong>Klettersteige (Vía Ferrata):</strong> Kombiniert die Zipline mit <a class="am-link" href="https://www.turismointeriordemalaga.com/actividades/tirolina-de-comares/?lang=en" target="_blank" rel="noopener">anfängerfreundlichen Klettersteigen in Comares</a> oder fordert euch auf dem atemberaubenden <a class="am-link" href="https://viaferratajohnhogbin.com/" target="_blank" rel="noopener">Vía Ferrata Zafarraya</a> heraus (75 € für eine geführte Tour).</li></ul>',
-              es: '<ul><li><strong>Precio de la tirolina:</strong> Solo 26 € (¡permite hasta dos viajes!).</li><li><strong>Vías Ferratas:</strong> Combinad la tirolina con <a class="am-link" href="https://www.turismointeriordemalaga.com/actividades/tirolina-de-comares/?lang=en" target="_blank" rel="noopener">las vías ferratas para principiantes en Comares</a>, o poneos a prueba en la espectacular <a class="am-link" href="https://viaferratajohnhogbin.com/" target="_blank" rel="noopener">Vía Ferrata de Zafarraya</a> (ruta guiada por 75 €).</li></ul>',
-              nl: '<ul><li><strong>Prijs Zipline:</strong> Slechts 26 € (goed voor maximaal twee ritten!).</li><li><strong>Klettersteig (Vía Ferrata):</strong> Combineer de zipline met <a class="am-link" href="https://www.turismointeriordemalaga.com/actividades/tirolina-de-comares/?lang=en" target="_blank" rel="noopener">de beginnersvriendelijke klettersteigroutes in Comares</a>, of daag jezelf uit op de prachtige <a class="am-link" href="https://viaferratajohnhogbin.com/" target="_blank" rel="noopener">Vía Ferrata Zafarraya</a> (75 € voor een begeleide tour).</li></ul>',
-              sv: '<ul><li><strong>Zipline Pris:</strong> Endast 26 € (ger er upp till två åk!).</li><li><strong>Via Ferrata:</strong> Kombinera ziplinen med <a class="am-link" href="https://www.turismointeriordemalaga.com/actividades/tirolina-de-comares/?lang=en" target="_blank" rel="noopener">nybörjarvänliga Via Ferrata-leder i Comares</a>, eller utmana er själva på den vackra <a class="am-link" href="https://viaferratajohnhogbin.com/" target="_blank" rel="noopener">Via Ferrata Zafarraya</a> (75 € för en guidad tur).</li></ul>'
+              en: '<ul><li><strong>Zipline Price:</strong> Only 26 € (allows up to two rides!).</li><li><strong>Vía Ferrata (Iron Paths):</strong> Combine the zipline with beginner-friendly via ferrata routes in Comares, or challenge yourself at the scenic Vía Ferrata Zafarraya (75 € guided tour).</li></ul>',
+              de: '<ul><li><strong>Preis für die Zipline:</strong> Nur 26 € (gilt für bis zu zwei Fahrten!).</li><li><strong>Klettersteige (Vía Ferrata):</strong> Kombiniert die Zipline mit anfängerfreundlichen Klettersteigen in Comares oder fordert euch auf dem atemberaubenden Vía Ferrata Zafarraya heraus (75 € für eine geführte Tour).</li></ul>',
+              es: '<ul><li><strong>Precio de la tirolina:</strong> Solo 26 € (¡permite hasta dos viajes!).</li><li><strong>Vías Ferratas:</strong> Combinad la tirolina con las vías ferratas para principiantes en Comares, o poneos a prueba en la espectacular Vía Ferrata de Zafarraya (ruta guiada por 75 €).</li></ul>',
+              nl: '<ul><li><strong>Prijs Zipline:</strong> Slechts 26 € (goed voor maximaal twee ritten!).</li><li><strong>Klettersteig (Vía Ferrata):</strong> Combineer de zipline met de beginnersvriendelijke klettersteigroutes in Comares, of daag jezelf uit op de prachtige Vía Ferrata Zafarraya (75 € voor een begeleide tour).</li></ul>',
+              sv: '<ul><li><strong>Zipline Pris:</strong> Endast 26 € (ger er upp till två åk!).</li><li><strong>Via Ferrata:</strong> Kombinera ziplinen med nybörjarvänliga Via Ferrata-leder i Comares, eller utmana er själva på den vackra Via Ferrata Zafarraya (75 € för en guidad tur).</li></ul>'
             }
           ]
         },
         {
           icon: 'compass',
+          recommendationIds: ['nerja.adventure.life-adventure', 'nerja.adventure.cyclenerja'],
           title: { en: 'Off-Road: Buggies, Quads & MTB', de: 'Offroad: Buggys, Quads & Mountainbikes', es: 'Todoterreno: Buggies, Quads y MTB', nl: 'Off-Road: Buggy\'s, Quads & MTB', sv: 'Off-Road: Buggys, Fyrhjulingar & MTB' },
           body: [
             {
@@ -3933,11 +3925,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
               sv: '<strong>Buggy- &amp; Fyrhjulingsexpeditioner</strong>'
             },
             {
-              en: 'The dusty, unpaved trails of the Axarquía are perfect for loud, motorized adventures. <a class="am-link" href="https://lifeadventure.eu/" target="_blank" rel="noopener"><strong>Life Adventure</strong></a> (located in Nerja\'s center) offers exceptional half-day guided tours in heavy 2-seater buggies (approx. 160 € per vehicle). These tours take you deep into the mountains to spot mountain goats and enjoy stunning panoramas.',
-              de: 'Die staubigen, unbefestigten Wege der Axarquía sind perfekt für laute, motorisierte Abenteuer. <a class="am-link" href="https://lifeadventure.eu/" target="_blank" rel="noopener"><strong>Life Adventure</strong></a> (mitten im Zentrum von Nerja) bietet hervorragende geführte Halbtagestouren in massiven 2-Sitzer-Buggys an (ca. 160 € pro Fahrzeug). Diese Touren führen euch tief in die Berge, wo ihr Bergziegen beobachten und atemberaubende Panoramen genießen könnt.',
-              es: 'Los polvorientos caminos de tierra de la Axarquía son perfectos para las aventuras ruidosas y motorizadas. <a class="am-link" href="https://lifeadventure.eu/" target="_blank" rel="noopener"><strong>Life Adventure</strong></a> (en el centro de Nerja) ofrece excepcionales excursiones guiadas de medio día en robustos buggies biplaza (aprox. 160 € por vehículo). Estas rutas os llevarán a lo más profundo de las montañas para avistar cabras montesas y disfrutar de unas panorámicas increíbles.',
-              nl: 'De stoffige, onverharde paden van de Axarquía zijn perfect voor ronkende, gemotoriseerde avonturen. <a class="am-link" href="https://lifeadventure.eu/" target="_blank" rel="noopener"><strong>Life Adventure</strong></a> (gelegen in het centrum van Nerja) biedt uitzonderlijke begeleide tochten van een halve dag in zware 2-persoons buggy\'s (ca. 160 € per voertuig). Deze ritten brengen jullie diep de bergen in om berggeiten te spotten en te genieten van prachtige vergezichten.',
-              sv: 'De dammiga, obelagda vägarna i Axarquía är perfekta för högljudda, motoriserade äventyr. <a class="am-link" href="https://lifeadventure.eu/" target="_blank" rel="noopener"><strong>Life Adventure</strong></a> (som ligger i centrala Nerja) erbjuder enastående guidade halvdagsturer i kraftiga 2-sitsiga buggys (ca 160 € per fordon). Dessa turer tar er djupt in i bergen där ni kan spana efter bergsgetter och njuta av fantastiska vyer.'
+              en: 'The dusty, unpaved trails of the Axarquía are perfect for loud, motorized adventures. <strong>Life Adventure</strong> (located in Nerja\'s center) offers exceptional half-day guided tours in heavy 2-seater buggies (approx. 160 € per vehicle). These tours take you deep into the mountains to spot mountain goats and enjoy stunning panoramas.',
+              de: 'Die staubigen, unbefestigten Wege der Axarquía sind perfekt für laute, motorisierte Abenteuer. <strong>Life Adventure</strong> (mitten im Zentrum von Nerja) bietet hervorragende geführte Halbtagestouren in massiven 2-Sitzer-Buggys an (ca. 160 € pro Fahrzeug). Diese Touren führen euch tief in die Berge, wo ihr Bergziegen beobachten und atemberaubende Panoramen genießen könnt.',
+              es: 'Los polvorientos caminos de tierra de la Axarquía son perfectos para las aventuras ruidosas y motorizadas. <strong>Life Adventure</strong> (en el centro de Nerja) ofrece excepcionales excursiones guiadas de medio día en robustos buggies biplaza (aprox. 160 € por vehículo). Estas rutas os llevarán a lo más profundo de las montañas para avistar cabras montesas y disfrutar de unas panorámicas increíbles.',
+              nl: 'De stoffige, onverharde paden van de Axarquía zijn perfect voor ronkende, gemotoriseerde avonturen. <strong>Life Adventure</strong> (gelegen in het centrum van Nerja) biedt uitzonderlijke begeleide tochten van een halve dag in zware 2-persoons buggy\'s (ca. 160 € per voertuig). Deze ritten brengen jullie diep de bergen in om berggeiten te spotten en te genieten van prachtige vergezichten.',
+              sv: 'De dammiga, obelagda vägarna i Axarquía är perfekta för högljudda, motoriserade äventyr. <strong>Life Adventure</strong> (som ligger i centrala Nerja) erbjuder enastående guidade halvdagsturer i kraftiga 2-sitsiga buggys (ca 160 € per fordon). Dessa turer tar er djupt in i bergen där ni kan spana efter bergsgetter och njuta av fantastiska vyer.'
             },
             {
               en: '<em>Note:</em> A valid, full driver\'s license is strictly required to drive. Due to the dust in the summer, wearing a bandana over your face is highly recommended.',
@@ -3961,11 +3953,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
               sv: '<strong>E-Bikes &amp; Mountainbike</strong>'
             },
             {
-              en: 'E-bikes have revolutionized mountain biking in this steep region, making the climbs much more manageable. <a class="am-link" href="https://cyclenerja.com/" target="_blank" rel="noopener"><strong>Cyclenerja</strong></a> provides highly professional rentals of analog mountain bikes (from 30 €/day) and powerful E-MTBs.',
-              de: 'E-Bikes haben das Mountainbiken in dieser steilen Region revolutioniert und machen die Anstiege weitaus entspannter. <a class="am-link" href="https://cyclenerja.com/" target="_blank" rel="noopener"><strong>Cyclenerja</strong></a> bietet einen sehr professionellen Verleih von klassischen Mountainbikes (ab 30 €/Tag) und leistungsstarken E-MTBs an.',
-              es: 'Las bicicletas eléctricas han revolucionado el ciclismo de montaña en esta empinada región, haciendo las subidas mucho más manejables. <a class="am-link" href="https://cyclenerja.com/" target="_blank" rel="noopener"><strong>Cyclenerja</strong></a> ofrece un servicio de alquiler muy profesional de bicicletas de montaña analógicas (desde 30 €/día) y potentes e-MTB.',
-              nl: 'E-bikes hebben het mountainbiken in deze steile regio een heel stuk toegankelijker gemaakt, waardoor de klimmetjes goed te doen zijn. <a class="am-link" href="https://cyclenerja.com/" target="_blank" rel="noopener"><strong>Cyclenerja</strong></a> verhuurt op zeer professionele wijze zowel analoge mountainbikes (vanaf 30 €/dag) als krachtige E-MTB\'s.',
-              sv: 'Elcyklar har revolutionerat mountainbike-cyklingen i denna branta region och gör stigningarna mycket mer lätthanterliga. <a class="am-link" href="https://cyclenerja.com/" target="_blank" rel="noopener"><strong>Cyclenerja</strong></a> erbjuder mycket professionell uthyrning av både klassiska mountainbikes (från 30 €/dag) och kraftfulla E-MTB:er.'
+              en: 'E-bikes have revolutionized mountain biking in this steep region, making the climbs much more manageable. <strong>Cyclenerja</strong> provides highly professional rentals of analog mountain bikes (from 30 €/day) and powerful E-MTBs.',
+              de: 'E-Bikes haben das Mountainbiken in dieser steilen Region revolutioniert und machen die Anstiege weitaus entspannter. <strong>Cyclenerja</strong> bietet einen sehr professionellen Verleih von klassischen Mountainbikes (ab 30 €/Tag) und leistungsstarken E-MTBs an.',
+              es: 'Las bicicletas eléctricas han revolucionado el ciclismo de montaña en esta empinada región, haciendo las subidas mucho más manejables. <strong>Cyclenerja</strong> ofrece un servicio de alquiler muy profesional de bicicletas de montaña analógicas (desde 30 €/día) y potentes e-MTB.',
+              nl: 'E-bikes hebben het mountainbiken in deze steile regio een heel stuk toegankelijker gemaakt, waardoor de klimmetjes goed te doen zijn. <strong>Cyclenerja</strong> verhuurt op zeer professionele wijze zowel analoge mountainbikes (vanaf 30 €/dag) als krachtige E-MTB\'s.',
+              sv: 'Elcyklar har revolutionerat mountainbike-cyklingen i denna branta region och gör stigningarna mycket mer lätthanterliga. <strong>Cyclenerja</strong> erbjuder mycket professionell uthyrning av både klassiska mountainbikes (från 30 €/dag) och kraftfulla E-MTB:er.'
             },
             {
               en: 'For a scenic autonomous ride, try the challenging triangle route: <em>Nerja - Frigiliana - Torrox - Nerja</em>.',
@@ -3976,40 +3968,6 @@ const nerjaGuestAdventure: GuestGuideEntry = {
             }
           ]
         },
-        {
-          icon: 'car',
-          title: { en: 'Harley Tours — Coast & Mountains', de: 'Harley-Touren — Küste & Berge', es: 'Rutas en Harley — Costa y Montañas', nl: 'Harley Tours — Kust & Bergen', sv: 'Harley-turer — Kust & Berg' },
-          body: [
-            {
-              en: 'For a completely different perspective, guided Harley-Davidson tours combine Mediterranean coastal roads with scenic mountain routes behind Nerja. Depending on the selected duration, routes can include Maro, Torrox, Almuñécar and white villages such as Frigiliana or Cómpeta.',
-              de: 'Für eine völlig neue Perspektive verbinden geführte Harley-Davidson-Touren die Küstenstraßen des Mittelmeers mit den malerischen Bergstraßen im Hinterland von Nerja. Je nach gewählter Dauer können die Routen über Maro, Torrox, Almuñécar und weiße Dörfer wie Frigiliana oder Cómpeta führen.',
-              es: 'Para una perspectiva completamente diferente, las rutas guiadas en Harley-Davidson combinan las carreteras costeras del Mediterráneo con los pintorescos caminos de montaña detrás de Nerja. Dependiendo de la duración, las rutas pueden incluir Maro, Torrox, Almuñécar y pueblos blancos como Frigiliana o Cómpeta.',
-              nl: 'Voor een compleet ander perspectief combineren begeleide Harley-Davidson tours de mediterrane kustwegen met schilderachtige bergwegen achter Nerja. Afhankelijk van de gekozen duur kunnen de routes langs Maro, Torrox, Almuñécar en witte dorpjes zoals Frigiliana of Cómpeta gaan.',
-              sv: 'För ett helt annorlunda perspektiv kombinerar guidade Harley-Davidson-turer kustvägarna vid Medelhavet med natursköna bergsvägar bakom Nerja. Beroende på vilken tidslängd ni väljer kan rutterna inkludera Maro, Torrox, Almuñécar och vita byar som Frigiliana eller Cómpeta.'
-            },
-            {
-              en: '<ul><li><strong>Duration:</strong> from short 1-hour rides to half-day tours</li><li><strong>Scenery:</strong> sea views, mountain roads and traditional villages</li><li><strong>Good to know:</strong> some operators speak German</li></ul>',
-              de: '<ul><li><strong>Dauer:</strong> von kurzen 1-stündigen Fahrten bis hin zu Halbtagestouren</li><li><strong>Landschaft:</strong> Meerblick, kurvige Bergstraßen und traditionelle Dörfer</li><li><strong>Gut zu wissen:</strong> Einige Anbieter sprechen Deutsch</li></ul>',
-              es: '<ul><li><strong>Duración:</strong> desde paseos cortos de 1 hora hasta rutas de medio día</li><li><strong>Paisaje:</strong> vistas al mar, carreteras de montaña y pueblos tradicionales</li><li><strong>Conviene saber:</strong> algunos operadores hablan alemán</li></ul>',
-              nl: '<ul><li><strong>Duur:</strong> van korte ritten van 1 uur tot tochten van een halve dag</li><li><strong>Landschap:</strong> zeezicht, bergwegen en traditionele dorpen</li><li><strong>Goed om te weten:</strong> sommige gidsen spreken Duits</li></ul>',
-              sv: '<ul><li><strong>Varaktighet:</strong> från korta turer på 1 timme till halvdagsutflykter</li><li><strong>Miljö:</strong> havsutsikt, bergsvägar och traditionella byar</li><li><strong>Bra att veta:</strong> vissa operatörer pratar tyska</li></ul>'
-            },
-            {
-              en: 'To compare routes and reviews, search <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Harley+Davidson+Nerja" target="_blank" rel="noopener">"Harley Davidson Nerja" on Google Maps</a>.',
-              de: 'Um Routen und Bewertungen zu vergleichen, sucht nach <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Harley+Davidson+Nerja" target="_blank" rel="noopener">„Harley Davidson Nerja" in Google Maps</a>.',
-              es: 'Para comparar rutas y opiniones, buscad <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Harley+Davidson+Nerja" target="_blank" rel="noopener">"Harley Davidson Nerja" en Google Maps</a>.',
-              nl: 'Zoek naar <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Harley+Davidson+Nerja" target="_blank" rel="noopener">"Harley Davidson Nerja" op Google Maps</a> om routes en beoordelingen te vergelijken.',
-              sv: 'Sök efter <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Harley+Davidson+Nerja" target="_blank" rel="noopener">"Harley Davidson Nerja" i Google Maps</a> för att jämföra rutter och omdömen.'
-            },
-            {
-              en: 'These tours are especially enjoyable outside the hottest summer hours and during spring or autumn.',
-              de: 'Diese Touren sind besonders außerhalb der heißesten Sommerstunden und natürlich im Frühling oder Herbst ein großer Genuss.',
-              es: 'Estas excursiones se disfrutan especialmente fuera de las horas de más calor en verano y durante la primavera o el otoño.',
-              nl: 'Deze tochten zijn vooral heerlijk buiten de heetste zomeruren om, en in het voor- en najaar.',
-              sv: 'Dessa turer är särskilt njutbara utanför de allra varmaste timmarna på sommaren, samt under vår och höst.'
-            }
-          ]
-        }
       ]
     }
   ]
@@ -4062,6 +4020,7 @@ const frigilianaGuestBreakfast: GuestGuideEntry = {
       items: [
         {
           icon: 'tumbler',
+          recommendationId: 'frigiliana.breakfast.caravansars-coffee',
           title: { en: "Caravansar's Coffee", de: "Caravansar's Coffee", es: "Caravansar's Coffee", nl: "Caravansar's Coffee", sv: "Caravansar's Coffee" },
           subtitle: {
             en: 'Frigiliana · Modern breakfast & coffee · approx. 650 m',
@@ -4072,16 +4031,17 @@ const frigilianaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'This is the most natural pick if you feel like a slower, more modern breakfast with very good coffee and a slightly more curated atmosphere. Especially nice for avocado-based dishes, house-made touches and a peaceful start outside the busiest village flow.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caravansar%27s+Coffee+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Das ist die naheliegendste Wahl, wenn ihr Lust auf ein langsameres, moderneres Frühstück mit sehr gutem Kaffee und etwas kuratierter Atmosphäre habt. Besonders schön für Avocado-Gerichte, hausgemachte Details und einen ruhigen Start etwas abseits vom stärksten Dorftrubel.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caravansar%27s+Coffee+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Es la opción más natural si os apetece un desayuno más pausado y moderno, con muy buen café y un ambiente algo más cuidado. Especialmente bonito para platos con aguacate, detalles caseros y un comienzo tranquilo algo más alejado del flujo turístico principal.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caravansar%27s+Coffee+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Dit is de meest logische keuze als jullie zin hebben in een rustiger, moderner ontbijt met heel goede koffie en een wat meer verzorgde sfeer. Vooral fijn voor avocado-gerechten, huisgemaakte accenten en een rustige start net buiten de drukste dorpsstroom.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caravansar%27s+Coffee+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Det här är det mest självklara valet om ni känner för en lugnare och modernare frukost med riktigt bra kaffe och en lite mer genomtänkt atmosfär. Särskilt trevligt för avokadorätter, hemlagade inslag och en rofylld start lite utanför den mest turisttäta delen av byn.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Caravansar%27s+Coffee+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'This is the most natural pick if you feel like a slower, more modern breakfast with very good coffee and a slightly more curated atmosphere. Especially nice for avocado-based dishes, house-made touches and a peaceful start outside the busiest village flow.',
+              de: 'Das ist die naheliegendste Wahl, wenn ihr Lust auf ein langsameres, moderneres Frühstück mit sehr gutem Kaffee und etwas kuratierter Atmosphäre habt. Besonders schön für Avocado-Gerichte, hausgemachte Details und einen ruhigen Start etwas abseits vom stärksten Dorftrubel.',
+              es: 'Es la opción más natural si os apetece un desayuno más pausado y moderno, con muy buen café y un ambiente algo más cuidado. Especialmente bonito para platos con aguacate, detalles caseros y un comienzo tranquilo algo más alejado del flujo turístico principal.',
+              nl: 'Dit is de meest logische keuze als jullie zin hebben in een rustiger, moderner ontbijt met heel goede koffie en een wat meer verzorgde sfeer. Vooral fijn voor avocado-gerechten, huisgemaakte accenten en een rustige start net buiten de drukste dorpsstroom.',
+              sv: 'Det här är det mest självklara valet om ni känner för en lugnare och modernare frukost med riktigt bra kaffe och en lite mer genomtänkt atmosfär. Särskilt trevligt för avokadorätter, hemlagade inslag och en rofylld start lite utanför den mest turisttäta delen av byn.'
             }
           ]
         },
         {
           icon: 'dish',
+          recommendationId: 'frigiliana.breakfast.churreria-chocolateria-alexis',
           title: { en: 'Churreria Chocolateria Alexis', de: 'Churreria Chocolateria Alexis', es: 'Churreria Chocolateria Alexis', nl: 'Churreria Chocolateria Alexis', sv: 'Churreria Chocolateria Alexis' },
           subtitle: {
             en: 'Frigiliana · Churros & hot chocolate · approx. 500 m',
@@ -4092,16 +4052,17 @@ const frigilianaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'If you want to try one truly local breakfast ritual, this is the one. Fresh churros with thick hot chocolate are the reason to come here. Great for a classic Andalusian-style morning treat, especially when you want something simple, warm and unmistakably traditional.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Churreria+Chocolateria+Alexis+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Wenn ihr ein wirklich lokales Frühstücksritual ausprobieren möchtet, dann dieses. Frische Churros mit dickflüssiger heißer Schokolade sind hier der eigentliche Grund zu kommen. Perfekt für einen klassischen andalusischen Morgenmoment, vor allem wenn ihr etwas Warmes, Einfaches und sehr Traditionelles möchtet.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Churreria+Chocolateria+Alexis+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Si queréis probar un ritual de desayuno realmente local, este es el sitio. Los churros recién hechos con chocolate caliente espeso son el verdadero motivo para venir. Perfecto para un momento clásico andaluz por la mañana, sobre todo si os apetece algo cálido, sencillo y claramente tradicional.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Churreria+Chocolateria+Alexis+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Als jullie één echt lokaal ontbijtritueel willen proberen, dan is dit het. Verse churros met dikke warme chocolademelk zijn hier de reden om te komen. Perfect voor een klassiek Andalusisch ochtendmoment, vooral als jullie zin hebben in iets warms, eenvoudigs en heel traditioneels.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Churreria+Chocolateria+Alexis+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Om ni vill prova en verkligt lokal frukosttradition är det här stället. Färska churros med tjock varm choklad är anledningen att komma hit. Perfekt för ett klassiskt andalusiskt morgonögonblick, särskilt när ni vill ha något varmt, enkelt och tydligt traditionellt.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Churreria+Chocolateria+Alexis+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'If you want to try one truly local breakfast ritual, this is the one. Fresh churros with thick hot chocolate are the reason to come here. Great for a classic Andalusian-style morning treat, especially when you want something simple, warm and unmistakably traditional.',
+              de: 'Wenn ihr ein wirklich lokales Frühstücksritual ausprobieren möchtet, dann dieses. Frische Churros mit dickflüssiger heißer Schokolade sind hier der eigentliche Grund zu kommen. Perfekt für einen klassischen andalusischen Morgenmoment, vor allem wenn ihr etwas Warmes, Einfaches und sehr Traditionelles möchtet.',
+              es: 'Si queréis probar un ritual de desayuno realmente local, este es el sitio. Los churros recién hechos con chocolate caliente espeso son el verdadero motivo para venir. Perfecto para un momento clásico andaluz por la mañana, sobre todo si os apetece algo cálido, sencillo y claramente tradicional.',
+              nl: 'Als jullie één echt lokaal ontbijtritueel willen proberen, dan is dit het. Verse churros met dikke warme chocolademelk zijn hier de reden om te komen. Perfect voor een klassiek Andalusisch ochtendmoment, vooral als jullie zin hebben in iets warms, eenvoudigs en heel traditioneels.',
+              sv: 'Om ni vill prova en verkligt lokal frukosttradition är det här stället. Färska churros med tjock varm choklad är anledningen att komma hit. Perfekt för ett klassiskt andalusiskt morgonögonblick, särskilt när ni vill ha något varmt, enkelt och tydligt traditionellt.'
             }
           ]
         },
         {
           icon: 'bread',
+          recommendationId: 'frigiliana.breakfast.la-tahona-del-zaidin',
           title: { en: 'La Tahona del Zaidín', de: 'La Tahona del Zaidín', es: 'La Tahona del Zaidín', nl: 'La Tahona del Zaidín', sv: 'La Tahona del Zaidín' },
           subtitle: {
             en: 'Frigiliana · Bakery & easy start · approx. 150 m',
@@ -4112,16 +4073,17 @@ const frigilianaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'This is the practical bakery choice when you want something easy, central and uncomplicated. Very good for grabbing fresh pastries, bread or coffee before taking breakfast back home or starting a morning walk through the village.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Tahona+del+Zaidin+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Das ist die praktische Bäckerei-Wahl, wenn ihr etwas Zentrales, Einfaches und völlig Unkompliziertes möchtet. Sehr gut, um frisches Gebäck, Brot oder Kaffee mitzunehmen und anschließend zu Hause oder bei einem kleinen Morgenspaziergang durchs Dorf zu genießen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Tahona+del+Zaidin+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Es la opción práctica de panadería cuando queréis algo céntrico, fácil y sin complicaciones. Muy buena para coger bollería, pan o café y luego desayunar en casa o seguir con un pequeño paseo por el pueblo.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Tahona+del+Zaidin+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Dit is de praktische bakkerijkeuze als jullie iets centraals, makkelijks en zonder gedoe willen. Ideaal om vers gebak, brood of koffie mee te nemen en daarna thuis of tijdens een ochtendwandeling door het dorp te ontbijten.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Tahona+del+Zaidin+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Det här är det praktiska bagerivalet när ni vill ha något centralt, enkelt och okomplicerat. Väldigt bra för att köpa med färska bakverk, bröd eller kaffe och sedan äta frukost hemma eller på en lugn morgonpromenad genom byn.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=La+Tahona+del+Zaidin+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'This is the practical bakery choice when you want something easy, central and uncomplicated. Very good for grabbing fresh pastries, bread or coffee before taking breakfast back home or starting a morning walk through the village.',
+              de: 'Das ist die praktische Bäckerei-Wahl, wenn ihr etwas Zentrales, Einfaches und völlig Unkompliziertes möchtet. Sehr gut, um frisches Gebäck, Brot oder Kaffee mitzunehmen und anschließend zu Hause oder bei einem kleinen Morgenspaziergang durchs Dorf zu genießen.',
+              es: 'Es la opción práctica de panadería cuando queréis algo céntrico, fácil y sin complicaciones. Muy buena para coger bollería, pan o café y luego desayunar en casa o seguir con un pequeño paseo por el pueblo.',
+              nl: 'Dit is de praktische bakkerijkeuze als jullie iets centraals, makkelijks en zonder gedoe willen. Ideaal om vers gebak, brood of koffie mee te nemen en daarna thuis of tijdens een ochtendwandeling door het dorp te ontbijten.',
+              sv: 'Det här är det praktiska bagerivalet när ni vill ha något centralt, enkelt och okomplicerat. Väldigt bra för att köpa med färska bakverk, bröd eller kaffe och sedan äta frukost hemma eller på en lugn morgonpromenad genom byn.'
             }
           ]
         },
         {
           icon: 'coffee',
+          recommendationId: 'frigiliana.breakfast.cafeteria-faes',
           title: { en: 'Cafetería Faes', de: 'Cafetería Faes', es: 'Cafetería Faes', nl: 'Cafetería Faes', sv: 'Cafetería Faes' },
           subtitle: {
             en: 'Frigiliana · Late coffee stop · approx. 120 m',
@@ -4132,16 +4094,17 @@ const frigilianaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'A good option for late risers or for mornings that start more with coffee than with a full breakfast table. Best when you want a relaxed coffee-and-snack stop later in the morning rather than an early classic breakfast.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Cafeteria+Faes+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Eine gute Wahl für Spätaufsteher oder für Morgen, die eher mit Kaffee als mit einem großen Frühstück beginnen. Am besten, wenn ihr später am Vormittag entspannt auf einen Kaffee und einen kleinen Snack einkehren möchtet, statt früh klassisch zu frühstücken.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Cafeteria+Faes+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Una buena opción para quienes se levantan más tarde o para mañanas que empiezan más con café que con una mesa completa de desayuno. Ideal si queréis parar a media mañana para un café relajado y algo pequeño, en lugar de un desayuno clásico temprano.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Cafeteria+Faes+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Een goede keuze voor uitslapers of voor ochtenden die eerder met koffie beginnen dan met een uitgebreid ontbijt. Het fijnst als jullie later in de ochtend rustig willen stoppen voor koffie en een kleine snack, in plaats van vroeg klassiek te ontbijten.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Cafeteria+Faes+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Ett bra val för er som vaknar lite senare eller för morgnar som börjar mer med kaffe än med ett stort frukostbord. Passar bäst när ni vill stanna till senare på förmiddagen för en lugn kaffe och något litet, snarare än en tidig klassisk frukost.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Cafeteria+Faes+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'A good option for late risers or for mornings that start more with coffee than with a full breakfast table. Best when you want a relaxed coffee-and-snack stop later in the morning rather than an early classic breakfast.',
+              de: 'Eine gute Wahl für Spätaufsteher oder für Morgen, die eher mit Kaffee als mit einem großen Frühstück beginnen. Am besten, wenn ihr später am Vormittag entspannt auf einen Kaffee und einen kleinen Snack einkehren möchtet, statt früh klassisch zu frühstücken.',
+              es: 'Una buena opción para quienes se levantan más tarde o para mañanas que empiezan más con café que con una mesa completa de desayuno. Ideal si queréis parar a media mañana para un café relajado y algo pequeño, en lugar de un desayuno clásico temprano.',
+              nl: 'Een goede keuze voor uitslapers of voor ochtenden die eerder met koffie beginnen dan met een uitgebreid ontbijt. Het fijnst als jullie later in de ochtend rustig willen stoppen voor koffie en een kleine snack, in plaats van vroeg klassiek te ontbijten.',
+              sv: 'Ett bra val för er som vaknar lite senare eller för morgnar som börjar mer med kaffe än med ett stort frukostbord. Passar bäst när ni vill stanna till senare på förmiddagen för en lugn kaffe och något litet, snarare än en tidig klassisk frukost.'
             }
           ]
         },
         {
           icon: 'landmark',
+          recommendationId: 'frigiliana.breakfast.bar-virtudes',
           title: { en: 'Bar Virtudes', de: 'Bar Virtudes', es: 'Bar Virtudes', nl: 'Bar Virtudes', sv: 'Bar Virtudes' },
           subtitle: {
             en: 'Frigiliana · Late breakfast / brunch feel · approx. 260 m',
@@ -4152,11 +4115,11 @@ const frigilianaGuestBreakfast: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'This is the one for days when breakfast turns naturally into a late morning stop, almost halfway between breakfast, brunch and an early lunch. Very well placed in the village center, with lovely views and a more social, open village feeling around it.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Virtudes+Frigiliana" target="_blank" rel="noopener">Open in Google Maps</a>',
-              de: 'Das ist die richtige Wahl für Tage, an denen Frühstück ganz natürlich in einen späten Vormittagsstopp übergeht — irgendwo zwischen Frühstück, Brunch und frühem Lunch. Sehr schön im Dorfzentrum gelegen, mit herrlichen Blicken und einer offeneren, geselligen Dorfatmosphäre drum herum.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Virtudes+Frigiliana" target="_blank" rel="noopener">In Google Maps öffnen</a>',
-              es: 'Es la opción para esos días en los que el desayuno se convierte de forma natural en una parada de media mañana, casi entre desayuno, brunch y primer almuerzo. Está muy bien situado en el centro del pueblo, con vistas bonitas y un ambiente más social y abierto alrededor.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Virtudes+Frigiliana" target="_blank" rel="noopener">Abrir en Google Maps</a>',
-              nl: 'Dit is de juiste plek voor dagen waarop ontbijt vanzelf overgaat in een late ochtendstop, ergens tussen ontbijt, brunch en een vroege lunch in. Mooi gelegen in het dorpscentrum, met fijne uitzichten en een wat socialere, open dorpssfeer eromheen.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Virtudes+Frigiliana" target="_blank" rel="noopener">Openen in Google Maps</a>',
-              sv: 'Det här är valet för dagar när frukosten naturligt glider över i ett sent förmiddagsstopp, någonstans mellan frukost, brunch och en tidig lunch. Väldigt fint beläget i byns centrum, med härliga utsikter och en mer social och öppen bykänsla runt omkring.<br><br><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Bar+Virtudes+Frigiliana" target="_blank" rel="noopener">Öppna i Google Maps</a>'
+              en: 'This is the one for days when breakfast turns naturally into a late morning stop, almost halfway between breakfast, brunch and an early lunch. Very well placed in the village center, with lovely views and a more social, open village feeling around it.',
+              de: 'Das ist die richtige Wahl für Tage, an denen Frühstück ganz natürlich in einen späten Vormittagsstopp übergeht — irgendwo zwischen Frühstück, Brunch und frühem Lunch. Sehr schön im Dorfzentrum gelegen, mit herrlichen Blicken und einer offeneren, geselligen Dorfatmosphäre drum herum.',
+              es: 'Es la opción para esos días en los que el desayuno se convierte de forma natural en una parada de media mañana, casi entre desayuno, brunch y primer almuerzo. Está muy bien situado en el centro del pueblo, con vistas bonitas y un ambiente más social y abierto alrededor.',
+              nl: 'Dit is de juiste plek voor dagen waarop ontbijt vanzelf overgaat in een late ochtendstop, ergens tussen ontbijt, brunch en een vroege lunch in. Mooi gelegen in het dorpscentrum, met fijne uitzichten en een wat socialere, open dorpssfeer eromheen.',
+              sv: 'Det här är valet för dagar när frukosten naturligt glider över i ett sent förmiddagsstopp, någonstans mellan frukost, brunch och en tidig lunch. Väldigt fint beläget i byns centrum, med härliga utsikter och en mer social och öppen bykänsla runt omkring.'
             }
           ]
         }
@@ -4169,7 +4132,7 @@ const frigilianaGuestBreakfast: GuestGuideEntry = {
 const nerjaGuestNightlife: GuestGuideEntry = {
   "type": "detail",
   "slug": "nerja-guest-nightlife",
-  "backSlug": "frigiliana-guest-recommendations",
+  "backSlug": "nerja-guest-recommendations",
   "supportHref": FRIGILIANA_SUPPORT_EMAIL,
   "supportLabel": NEED_HELP,
   "seoTitle": {
@@ -4274,6 +4237,7 @@ const nerjaGuestNightlife: GuestGuideEntry = {
         },
         {
           "icon": "goblet",
+          recommendationId: 'nerja.nightlife.cochrans-terrace',
           "title": {
             "en": "Cocktails & Sunset Drinks",
             "de": "Cocktails & Sunset-Drinks",
@@ -4297,16 +4261,17 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "sv": "<ul><li><strong>Bäst för:</strong> par, lugna grupper, date night</li> <li><strong>Bästa tid:</strong> solnedgång till efter middagen</li> <li><strong>Stil:</strong> vackert, elegant, promenadvänligt</li></ul>"
             },
             {
-              "en": "Google Maps shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktail bars in Nerja</a>",
-              "de": "Google-Maps-Shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktailbars in Nerja</a>",
-              "es": "Acceso rápido en Google Maps: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktail bars in Nerja</a>",
-              "nl": "Google Maps-snelkoppeling: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktailbars in Nerja</a>",
-              "sv": "Google Maps-genväg: <a href=\"https://www.google.com/maps/search/?api=1&query=cocktail+bar+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Cocktailbarer i Nerja</a>"
+              "en": "Our own tested version: in summer 2025 we left the car at AMARA Playa in Nerja, walked into the centre and watched the sunset from Cochran’s Terrace over a Cuba Libre and a Mai Tai. The walk is roughly 450 metres. Check that the terrace is open before you set off.",
+              "de": "Unsere selbst erprobte Variante: Im Sommer 2025 ließen wir das Auto bei AMARA Playa in Nerja stehen, liefen ins Zentrum und sahen bei Cochran’s Terrace mit Cuba Libre und Mai Tai den Sonnenuntergang. Der Weg sind ungefähr 450 Meter. Prüft vor dem Aufbruch, ob die Terrasse geöffnet ist.",
+              "es": "Nuestra versión probada: en verano de 2025 dejamos el coche en AMARA Playa, en Nerja, caminamos al centro y vimos la puesta de sol desde Cochran’s Terrace con un Cuba Libre y un Mai Tai. El paseo son unos 450 metros. Comprobad antes de salir que la terraza esté abierta.",
+              "nl": "Onze zelf beproefde versie: in de zomer van 2025 lieten we de auto bij AMARA Playa in Nerja staan, liepen naar het centrum en zagen vanaf Cochran’s Terrace de zon ondergaan met een Cuba Libre en een Mai Tai. De wandeling is ongeveer 450 meter. Controleer vóór vertrek of het terras open is.",
+              "sv": "Vår egen prövade version: sommaren 2025 lämnade vi bilen vid AMARA Playa i Nerja, promenerade in till centrum och såg solnedgången från Cochran’s Terrace med en Cuba Libre och en Mai Tai. Promenaden är ungefär 450 meter. Kontrollera före avfärd att terrassen är öppen."
             }
           ]
         },
         {
           "icon": "music",
+          recommendationId: 'nerja.nightlife.plaza-tutti-frutti',
           "title": {
             "en": "Late Bars & Livelier Nights",
             "de": "Späte Bars & lebhaftere Nächte",
@@ -4329,17 +4294,11 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "nl": "<ul><li><strong>Het best voor:</strong> groepen, later beginnen, informele fun</li> <li><strong>Beste tijd:</strong> na het diner, vooral later in de zomer</li> <li><strong>Sfeer:</strong> jonger, drukker, energieker</li></ul>",
               "sv": "<ul><li><strong>Bäst för:</strong> grupper, sena starter, avslappnat nöje</li> <li><strong>Bästa tid:</strong> efter middagen, särskilt senare på sommaren</li> <li><strong>Atmosfär:</strong> yngre, livligare, mer energi</li></ul>"
             },
-            {
-              "en": "Google Maps shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
-              "de": "Google-Maps-Shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
-              "es": "Acceso rápido en Google Maps: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
-              "nl": "Google Maps-snelkoppeling: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>",
-              "sv": "Google Maps-genväg: <a href=\"https://www.google.com/maps/search/?api=1&query=Plaza+Tutti+Frutti+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Plaza Tutti Frutti</a>"
-            }
           ]
         },
         {
           "icon": "dance",
+          recommendationId: 'nerja.nightlife.el-burro-blanco',
           "title": {
             "en": "Flamenco & Cultural Evenings",
             "de": "Flamenco & kulturelle Abende",
@@ -4363,11 +4322,11 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "sv": "<ul><li><strong>Bäst för:</strong> par, kulturintresserade, en annorlunda kväll</li> <li><strong>Känsla:</strong> intim, lokal, stämningsfull</li></ul>"
             },
             {
-              "en": "Google Maps shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco in Nerja</a>",
-              "de": "Google-Maps-Shortcut: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco in Nerja</a>",
-              "es": "Acceso rápido en Google Maps: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco en Nerja</a>",
-              "nl": "Google Maps-snelkoppeling: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco in Nerja</a>",
-              "sv": "Google Maps-genväg: <a href=\"https://www.google.com/maps/search/?api=1&query=flamenco+Nerja\" target=\"_blank\" rel=\"noopener noreferrer\">Flamenco i Nerja</a>"
+              "en": "Our address for it: El Burro Blanco, a flamenco bar in the old town on Calle de la Gloria. The shows last about 75 minutes, tickets start at around 25 € and sell online or at the door; check the dates for your week.",
+              "de": "Unsere Adresse dafür: El Burro Blanco, eine Flamenco-Bar in der Altstadt an der Calle de la Gloria. Die Shows dauern rund 75 Minuten, Tickets gibt es ab rund 25 € online oder an der Tür; prüft die Termine für eure Woche.",
+              "es": "Nuestra dirección para eso: El Burro Blanco, un bar de flamenco en el casco antiguo, en la calle de la Gloria. Los espectáculos duran unos 75 minutos, las entradas cuestan desde unos 25 € y se compran online o en la puerta; consultad las fechas de vuestra semana.",
+              "nl": "Ons adres daarvoor: El Burro Blanco, een flamencobar in de oude stad aan de Calle de la Gloria. De shows duren ongeveer 75 minuten, tickets zijn er vanaf circa 25 € online of aan de deur; check de data voor jullie week.",
+              "sv": "Vår adress för det: El Burro Blanco, en flamencobar i gamla stan på Calle de la Gloria. Föreställningarna varar cirka 75 minuter, biljetter från cirka 25 € online eller i dörren; kolla datumen för er vecka."
             }
           ]
         },
@@ -4413,9 +4372,6 @@ const recommendationSubPages: GuestGuideEntry[] = [
   frigilianaGuestSightseeing,
   frigilianaGuestDayTrips,
   frigilianaGuestFestivals,
-  createPlaceholderGuidePage('frigiliana-guest-flamenco-bachata', {
-    en: 'Flamenco & Bachata', de: 'Flamenco & Bachata', es: 'Flamenco y Bachata', nl: 'Flamenco & Bachata', sv: 'Flamenco & Bachata'
-  }),
   nerjaGuestNightlife,
   frigilianaGuestWellness,
   nerjaGuestAdventure
@@ -4435,26 +4391,26 @@ const frigilianaRecommendations: GuestGuideEntry = {
     sv: 'AMARA Experience | AMARA Gästguide'
   },
   seoDescription: {
-    en: 'Hidden treasures, insider tips, authentic local food and lesser-known places around Frigiliana and Nerja, selected by your AMARA hosts.',
-    de: 'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte rund um Frigiliana und Nerja, ausgewählt von euren AMARA-Gastgebern.',
-    es: 'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos de Frigiliana y Nerja, seleccionados por vuestros anfitriones de AMARA.',
-    nl: 'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken rond Frigiliana en Nerja, geselecteerd door jullie AMARA-gastheren.',
-    sv: 'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser runt Frigiliana och Nerja, utvalda av era AMARA-värdar.'
+    en: 'Our selection for Frigiliana, Nerja and nearby: breakfast, restaurants, beaches, hikes, day trips and evenings, with what you need to know on the spot.',
+    de: 'Unsere Auswahl für Frigiliana, Nerja und Umgebung: Frühstück, Restaurants, Strände, Wanderungen, Ausflüge und Abende, mit dem, was ihr vor Ort wissen müsst.',
+    es: 'Nuestra selección para Frigiliana, Nerja y alrededores: desayunos, restaurantes, playas, rutas, excursiones y noches, con lo que necesitáis saber sobre el terreno.',
+    nl: 'Onze selectie voor Frigiliana, Nerja en omgeving: ontbijt, restaurants, stranden, wandelingen, dagtrips en avonden, met wat jullie ter plekke moeten weten.',
+    sv: 'Vårt urval för Frigiliana, Nerja och närområdet: frukost, restauranger, stränder, vandringar, utflykter och kvällar, med det ni behöver veta på plats.'
   },
   kicker: RECOMMENDATIONS_KICKER,
   title: {
-    en: 'Our personal recommendations in Nerja, Frigiliana & nearby',
-    de: 'Unsere persönlichen Empfehlungen für Nerja, Frigiliana und Umgebung',
-    es: 'Nuestras recomendaciones personales en Nerja, Frigiliana y alrededores',
-    nl: 'Onze persoonlijke aanbevelingen voor Nerja, Frigiliana en omgeving',
-    sv: 'Våra personliga rekommendationer för Nerja, Frigiliana och närområdet'
+    en: 'Our personal recommendations in Frigiliana, Nerja & nearby',
+    de: 'Unsere persönlichen Empfehlungen für Frigiliana, Nerja und Umgebung',
+    es: 'Nuestras recomendaciones personales en Frigiliana, Nerja y alrededores',
+    nl: 'Onze persoonlijke aanbevelingen voor Frigiliana, Nerja en omgeving',
+    sv: 'Våra personliga rekommendationer för Frigiliana, Nerja och närområdet'
   },
   intro: {
-    en: 'Hidden treasures, insider tips, authentic local food and lesser-known places — with practical details for more time together away from the busiest routes.',
-    de: 'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte – mit praktischen Details für mehr gemeinsame Zeit abseits der meistbesuchten Wege.',
-    es: 'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos, con detalles prácticos para disfrutar más tiempo juntos fuera de las rutas más concurridas.',
-    nl: 'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken — met praktische details voor meer tijd samen buiten de drukste routes.',
-    sv: 'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser — med praktiska detaljer för mer tid tillsammans bortom de mest välbesökta stråken.'
+    en: 'What we would choose ourselves around Frigiliana and Nerja: breakfast, restaurants, beaches, hikes, day trips and evenings, each with the map and what matters on the spot.',
+    de: 'Was wir selbst wählen würden rund um Frigiliana und Nerja: Frühstück, Restaurants, Strände, Wanderungen, Ausflüge und Abende, jeweils mit Karte und dem, was vor Ort zählt.',
+    es: 'Lo que elegiríamos nosotros en Frigiliana y Nerja: desayunos, restaurantes, playas, rutas, excursiones y noches, cada uno con el mapa y lo que importa sobre el terreno.',
+    nl: 'Wat we zelf zouden kiezen rond Frigiliana en Nerja: ontbijt, restaurants, stranden, wandelingen, dagtrips en avonden, elk met kaart en wat ter plekke telt.',
+    sv: 'Det vi själva skulle välja runt Frigiliana och Nerja: frukost, restauranger, stränder, vandringar, utflykter och kvällar, var och en med karta och det som räknas på plats.'
   },
   categories: [
     {
@@ -4491,14 +4447,14 @@ const frigilianaRecommendations: GuestGuideEntry = {
         {
           kind: 'link',
           icon: 'breakfast',
-          targetSlug: 'nerja-guest-breakfast',
-          title: { en: 'Breakfast in Nerja', de: 'Frühstück in Nerja', es: 'Desayuno en Nerja', nl: 'Ontbijt in Nerja', sv: 'Frukost i Nerja' }
+          targetSlug: 'frigiliana-guest-breakfast',
+          title: { en: 'Breakfast in Frigiliana', de: 'Frühstück in Frigiliana', es: 'Desayuno en Frigiliana', nl: 'Ontbijt in Frigiliana', sv: 'Frukost i Frigiliana' }
         },
         {
           kind: 'link',
           icon: 'breakfast',
-          targetSlug: 'frigiliana-guest-breakfast',
-          title: { en: 'Breakfast in Frigiliana', de: 'Frühstück in Frigiliana', es: 'Desayuno en Frigiliana', nl: 'Ontbijt in Frigiliana', sv: 'Frukost i Frigiliana' }
+          targetSlug: 'nerja-guest-breakfast',
+          title: { en: 'Breakfast in Nerja', de: 'Frühstück in Nerja', es: 'Desayuno en Nerja', nl: 'Ontbijt in Nerja', sv: 'Frukost i Nerja' }
         }
       ]
     },
@@ -4516,15 +4472,15 @@ const frigilianaRecommendations: GuestGuideEntry = {
       items: [
         {
           kind: 'link',
-          icon: 'fish',
-          targetSlug: 'nerja-guest-restaurants',
-          title: { en: 'Restaurants in Nerja', de: 'Restaurants in Nerja', es: 'Restaurantes en Nerja', nl: 'Restaurants in Nerja', sv: 'Restauranger i Nerja' }
-        },
-        {
-          kind: 'link',
           icon: 'goblet',
           targetSlug: 'frigiliana-guest-restaurants',
           title: { en: 'Restaurants in Frigiliana', de: 'Restaurants in Frigiliana', es: 'Restaurantes en Frigiliana', nl: 'Restaurants in Frigiliana', sv: 'Restauranger i Frigiliana' }
+        },
+        {
+          kind: 'link',
+          icon: 'fish',
+          targetSlug: 'nerja-guest-restaurants',
+          title: { en: 'Restaurants in Nerja', de: 'Restaurants in Nerja', es: 'Restaurantes en Nerja', nl: 'Restaurants in Nerja', sv: 'Restauranger i Nerja' }
         }
       ]
     },
@@ -4661,12 +4617,6 @@ const frigilianaRecommendations: GuestGuideEntry = {
         },
         {
           kind: 'link',
-          icon: 'dance',
-          targetSlug: 'frigiliana-guest-flamenco-bachata',
-          title: { en: 'Flamenco & Bachata', de: 'Flamenco & Bachata', es: 'Flamenco y Bachata', nl: 'Flamenco & Bachata', sv: 'Flamenco & Bachata' }
-        },
-        {
-          kind: 'link',
           icon: 'music',
           targetSlug: 'nerja-guest-nightlife',
           title: { en: 'Nightlife in Nerja', de: 'Nachtleben in Nerja', es: 'Vida nocturna en Nerja', nl: 'Nachtleven in Nerja', sv: 'Nattliv i Nerja' }
@@ -4688,6 +4638,65 @@ const frigilianaRecommendations: GuestGuideEntry = {
           targetSlug: 'nerja-guest-adventure',
           title: { en: 'Adventure in Nerja', de: 'Abenteuer in Nerja', es: 'Aventura en Nerja', nl: 'Avontuur in Nerja', sv: 'Äventyr i Nerja' }
         }
+      ]
+    }
+  ]
+};
+
+const nerjaRecommendations: GuestGuideEntry = {
+  type: 'detail',
+  slug: 'nerja-guest-recommendations',
+  backSlug: 'guestwelcome-nerja-playa',
+  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportLabel: NEED_HELP,
+  seoTitle: {"en":"AMARA Experience | AMARA Guest Guide","de":"AMARA Experience | AMARA Gästeguide","es":"AMARA Experience | Guía para huéspedes de AMARA","nl":"AMARA Experience | AMARA Gastengids","sv":"AMARA Experience | AMARA Gästguide"},
+  seoDescription: {"en":"Our selection for Nerja, Frigiliana and nearby: breakfast, restaurants, beaches, evenings, hikes and day trips, with what you need to know on the spot.","de":"Unsere Auswahl für Nerja, Frigiliana und Umgebung: Frühstück, Restaurants, Strände, Abende, Wanderungen und Ausflüge, mit dem, was ihr vor Ort wissen müsst.","es":"Nuestra selección para Nerja, Frigiliana y alrededores: desayunos, restaurantes, playas, noches, rutas y excursiones, con lo que necesitáis saber sobre el terreno.","nl":"Onze selectie voor Nerja, Frigiliana en omgeving: ontbijt, restaurants, stranden, avonden, wandelingen en dagtrips, met wat jullie ter plekke moeten weten.","sv":"Vårt urval för Nerja, Frigiliana och närområdet: frukost, restauranger, stränder, kvällar, vandringar och utflykter, med det ni behöver veta på plats."},
+  kicker: RECOMMENDATIONS_KICKER,
+  title: {"en":"Our personal recommendations in Nerja, Frigiliana & nearby","de":"Unsere persönlichen Empfehlungen für Nerja, Frigiliana und Umgebung","es":"Nuestras recomendaciones personales en Nerja, Frigiliana y alrededores","nl":"Onze persoonlijke aanbevelingen voor Nerja, Frigiliana en omgeving","sv":"Våra personliga rekommendationer för Nerja, Frigiliana och närområdet"},
+  intro: {"en":"What we would choose ourselves around Nerja and Frigiliana: breakfast, restaurants, beaches, evenings, hikes and day trips, each with the map and what matters on the spot.","de":"Was wir selbst wählen würden rund um Nerja und Frigiliana: Frühstück, Restaurants, Strände, Abende, Wanderungen und Ausflüge, jeweils mit Karte und dem, was vor Ort zählt.","es":"Lo que elegiríamos nosotros en Nerja y Frigiliana: desayunos, restaurantes, playas, noches, rutas y excursiones, cada uno con el mapa y lo que importa sobre el terreno.","nl":"Wat we zelf zouden kiezen rond Nerja en Frigiliana: ontbijt, restaurants, stranden, avonden, wandelingen en dagtrips, elk met kaart en wat ter plekke telt.","sv":"Det vi själva skulle välja runt Nerja och Frigiliana: frukost, restauranger, stränder, kvällar, vandringar och utflykter, var och en med karta och det som räknas på plats."},
+  categories: [
+    {
+      heading: {"en":"Weather","de":"Wetter","es":"Tiempo","nl":"Weer","sv":"Väder"},
+      items: [
+        {"kind":"weather","icon":"weather","title":{"en":"Weather Forecast","de":"Wettervorhersage","es":"Previsión del tiempo","nl":"Weersverwachting","sv":"Väderprognos"},"lat":36.7448,"lon":-3.877,"locationName":"Nerja","introBody":[{"en":"The Costa del Sol is known for many sunny days and a mild climate throughout much of the year. In summer, the sun can feel very strong, especially around midday — sunscreen, water and a hat are always a good idea.","de":"Die Costa del Sol ist für viele Sonnentage und ein meist mildes Klima bekannt. Im Sommer kann die Sonne vor allem rund um die Mittagszeit sehr intensiv sein – Sonnencreme, Wasser und eine Kopfbedeckung sind immer sinnvoll.","es":"La Costa del Sol es conocida por sus muchos días de sol y su clima suave durante gran parte del año. En verano el sol puede sentirse muy fuerte, especialmente al mediodía: protector solar, agua y gorra siempre son una buena idea.","nl":"De Costa del Sol staat bekend om de vele zonnige dagen en het milde klimaat. In de zomer kan de zon vooral rond het middaguur erg fel zijn — zonnebrand, water en een pet zijn altijd verstandig.","sv":"Costa del Sol är känd för många soldagar och ett milt klimat under stora delar av året. På sommaren kan solen vara mycket stark, särskilt mitt på dagen — solskydd, vatten och hatt är alltid en bra idé."}]}
+      ]
+    },
+    {
+      heading: {"en":"Breakfast","de":"Frühstück","es":"Desayuno","nl":"Ontbijt","sv":"Frukost"},
+      items: [
+        {"kind":"link","icon":"breakfast","targetSlug":"nerja-guest-breakfast","title":{"en":"Breakfast in Nerja","de":"Frühstück in Nerja","es":"Desayuno en Nerja","nl":"Ontbijt in Nerja","sv":"Frukost i Nerja"}},
+        {"kind":"link","icon":"breakfast","targetSlug":"frigiliana-guest-breakfast","title":{"en":"Breakfast in Frigiliana","de":"Frühstück in Frigiliana","es":"Desayuno en Frigiliana","nl":"Ontbijt in Frigiliana","sv":"Frukost i Frigiliana"}}
+      ]
+    },
+    {
+      heading: {"en":"Dining","de":"Essen & Trinken","es":"Dónde comer","nl":"Eten & Drinken","sv":"Mat & Dryck"},
+      intro: [{"en":"A helpful local note: many restaurants open at lunchtime, then pause in the late afternoon for siesta. Most places usually reopen for dinner from around 7:30–8:00 pm.","de":"Ein hilfreicher lokaler Hinweis: Viele Restaurants öffnen mittags, machen am späten Nachmittag eine Pause bzw. Siesta und öffnen abends meist erst wieder ab etwa 19:30–20:00 Uhr.","es":"Una nota local útil: muchos restaurantes abren al mediodía, cierran por la tarde para la siesta y normalmente vuelven a abrir para la cena a partir de las 19:30–20:00 h.","nl":"Een handige lokale tip: veel restaurants zijn rond lunchtijd open, sluiten later in de middag voor een siësta en gaan voor het diner meestal pas weer open vanaf ongeveer 19:30–20:00 uur.","sv":"Ett bra lokalt tips: många restauranger öppnar vid lunchtid, stänger senare på eftermiddagen för siesta och öppnar oftast igen för middag från cirka 19.30–20.00."}],
+      items: [
+        {"kind":"link","icon":"fish","targetSlug":"nerja-guest-restaurants","title":{"en":"Restaurants in Nerja","de":"Restaurants in Nerja","es":"Restaurantes en Nerja","nl":"Restaurants in Nerja","sv":"Restauranger i Nerja"}},
+        {"kind":"link","icon":"goblet","targetSlug":"frigiliana-guest-restaurants","title":{"en":"Restaurants in Frigiliana","de":"Restaurants in Frigiliana","es":"Restaurantes en Frigiliana","nl":"Restaurants in Frigiliana","sv":"Restauranger i Frigiliana"}}
+      ]
+    },
+    {
+      heading: {"en":"Nature & Outdoors","de":"Natur & Outdoor","es":"Naturaleza y aire libre","nl":"Natuur & Buiten","sv":"Natur & Utomhus"},
+      items: [
+        {"kind":"link","icon":"wave","targetSlug":"frigiliana-guest-beaches","title":{"en":"Beaches","de":"Strände","es":"Playas","nl":"Stranden","sv":"Stränder"}},
+        {"kind":"link","icon":"hiking","targetSlug":"frigiliana-guest-hiking","title":{"en":"Hiking","de":"Wandern","es":"Senderismo","nl":"Wandelen","sv":"Vandring"}}
+      ]
+    },
+    {
+      heading: {"en":"Discover","de":"Entdecken","es":"Descubrir","nl":"Ontdekken","sv":"Upptäck"},
+      items: [
+        {"kind":"link","icon":"music","targetSlug":"nerja-guest-nightlife","title":{"en":"Nightlife in Nerja","de":"Nachtleben in Nerja","es":"Vida nocturna en Nerja","nl":"Nachtleven in Nerja","sv":"Nattliv i Nerja"}},
+        {"kind":"link","icon":"landmark","targetSlug":"frigiliana-guest-sightseeing","title":{"en":"Sightseeing","de":"Sightseeing","es":"Turismo","nl":"Bezienswaardigheden","sv":"Sevärdheter"}},
+        {"kind":"link","icon":"route","targetSlug":"frigiliana-guest-day-trips","title":{"en":"Day Trips","de":"Tagesausflüge","es":"Excursiones","nl":"Dagtripjes","sv":"Dagsutflykter"}},
+        {"kind":"link","icon":"flag","targetSlug":"frigiliana-guest-festivals","title":{"en":"Festivals","de":"Feste & Events","es":"Fiestas locales","nl":"Festivals","sv":"Festivaler"}},
+        {"kind":"link","icon":"heart","targetSlug":"frigiliana-guest-wellness","title":{"en":"Wellness","de":"Wellness","es":"Bienestar","nl":"Wellness","sv":"Wellness"}}
+      ]
+    },
+    {
+      heading: {"en":"Adventure","de":"Abenteuer","es":"Aventura","nl":"Avontuur","sv":"Äventyr"},
+      items: [
+        {"kind":"link","icon":"star","targetSlug":"nerja-guest-adventure","title":{"en":"Adventure in Nerja","de":"Abenteuer in Nerja","es":"Aventura en Nerja","nl":"Avontuur in Nerja","sv":"Äventyr i Nerja"}}
       ]
     }
   ]
@@ -5361,7 +5370,7 @@ const nerjaPlayaHub: GuestGuideEntry = {
     NERJA_ESSENTIALS_MENU_LINK,
     {
       icon: 'compass',
-      targetSlug: 'frigiliana-guest-recommendations',
+      targetSlug: 'nerja-guest-recommendations',
       title: PERSONAL_RECOMMENDATIONS_MENU_TITLE,
       subtitle: PERSONAL_RECOMMENDATIONS_MENU_SUBTITLE
     }
@@ -5844,6 +5853,7 @@ const nerjaEssentials: GuestGuideEntry = {
         },
         {
           icon: 'cart',
+          recommendationIds: ['nerja.essentials.carrefour-express', 'nerja.essentials.mas-supermercado', 'nerja.essentials.mercadona', 'nerja.essentials.lidl', 'nerja.essentials.aldi'],
           title: { en: 'Supermarkets', de: 'Supermärkte', es: 'Supermercados', nl: 'Supermarkten', sv: 'Livsmedelsbutiker' },
           body: [
             {
@@ -5861,11 +5871,11 @@ const nerjaEssentials: GuestGuideEntry = {
               sv: '<strong>Snabbaste alternativet från huset</strong>'
             },
             {
-              en: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Carrefour+Express+Nerja" target="_blank" rel="noopener"><strong>Carrefour Express</strong></a> – step outside the house and it is on the same street.',
-              de: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Carrefour+Express+Nerja" target="_blank" rel="noopener"><strong>Carrefour Express</strong></a> – einfach aus dem Haus treten, er befindet sich in derselben Straße.',
-              es: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Carrefour+Express+Nerja" target="_blank" rel="noopener"><strong>Carrefour Express</strong></a> – salid de la casa, está en la misma calle.',
-              nl: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Carrefour+Express+Nerja" target="_blank" rel="noopener"><strong>Carrefour Express</strong></a> – stap het huis uit, het is in dezelfde straat.',
-              sv: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Carrefour+Express+Nerja" target="_blank" rel="noopener"><strong>Carrefour Express</strong></a> – gå ut ur huset, den ligger på samma gata.'
+              en: '• <strong>Carrefour Express</strong> – step outside the house and it is on the same street.',
+              de: '• <strong>Carrefour Express</strong> – einfach aus dem Haus treten, er befindet sich in derselben Straße.',
+              es: '• <strong>Carrefour Express</strong> – salid de la casa, está en la misma calle.',
+              nl: '• <strong>Carrefour Express</strong> – stap het huis uit, het is in dezelfde straat.',
+              sv: '• <strong>Carrefour Express</strong> – gå ut ur huset, den ligger på samma gata.'
             },
             {
               en: '<strong>Other local options</strong>',
@@ -5875,11 +5885,11 @@ const nerjaEssentials: GuestGuideEntry = {
               sv: '<strong>Fler lokala alternativ</strong>'
             },
             {
-              en: 'If you want a little more choice nearby, there are other great supermarkets in the center as well:<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mas+Supermercado+Nerja" target="_blank" rel="noopener"><strong>Mas Supermercado</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercadona+Calle+San+Miguel+Nerja" target="_blank" rel="noopener"><strong>Mercadona (C. San Miguel)</strong></a>',
-              de: 'Wenn ihr in der Nähe ein bisschen mehr Auswahl möchtet, gibt es im Zentrum außerdem noch andere sehr gute Supermärkte:<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mas+Supermercado+Nerja" target="_blank" rel="noopener"><strong>Mas Supermercado</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercadona+Calle+San+Miguel+Nerja" target="_blank" rel="noopener"><strong>Mercadona (C. San Miguel)</strong></a>',
-              es: 'Si queréis un poco más de variedad cerca, en el centro también hay otros supermercados excelentes:<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mas+Supermercado+Nerja" target="_blank" rel="noopener"><strong>Mas Supermercado</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercadona+Calle+San+Miguel+Nerja" target="_blank" rel="noopener"><strong>Mercadona (C. San Miguel)</strong></a>',
-              nl: 'Als jullie in de buurt iets meer keuze willen, zijn er in het centrum ook nog andere uitstekende supermarkten:<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mas+Supermercado+Nerja" target="_blank" rel="noopener"><strong>Mas Supermercado</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercadona+Calle+San+Miguel+Nerja" target="_blank" rel="noopener"><strong>Mercadona (C. San Miguel)</strong></a>',
-              sv: 'Om ni vill ha lite större urval i närheten finns det också andra utmärkta livsmedelsbutiker i centrum:<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mas+Supermercado+Nerja" target="_blank" rel="noopener"><strong>Mas Supermercado</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercadona+Calle+San+Miguel+Nerja" target="_blank" rel="noopener"><strong>Mercadona (C. San Miguel)</strong></a>'
+              en: 'If you want a little more choice nearby, there are other great supermarkets in the center as well:<br><br>• <strong>Mas Supermercado</strong><br><br>• <strong>Mercadona (C. San Miguel)</strong>',
+              de: 'Wenn ihr in der Nähe ein bisschen mehr Auswahl möchtet, gibt es im Zentrum außerdem noch andere sehr gute Supermärkte:<br><br>• <strong>Mas Supermercado</strong><br><br>• <strong>Mercadona (C. San Miguel)</strong>',
+              es: 'Si queréis un poco más de variedad cerca, en el centro también hay otros supermercados excelentes:<br><br>• <strong>Mas Supermercado</strong><br><br>• <strong>Mercadona (C. San Miguel)</strong>',
+              nl: 'Als jullie in de buurt iets meer keuze willen, zijn er in het centrum ook nog andere uitstekende supermarkten:<br><br>• <strong>Mas Supermercado</strong><br><br>• <strong>Mercadona (C. San Miguel)</strong>',
+              sv: 'Om ni vill ha lite större urval i närheten finns det också andra utmärkta livsmedelsbutiker i centrum:<br><br>• <strong>Mas Supermercado</strong><br><br>• <strong>Mercadona (C. San Miguel)</strong>'
             },
             {
               en: '<strong>For a bigger shop, go just outside town</strong>',
@@ -5889,11 +5899,11 @@ const nerjaEssentials: GuestGuideEntry = {
               sv: '<strong>För större handling rekommenderar vi butikerna utanför centrum</strong>'
             },
             {
-              en: 'For a larger out-of-town shop, we recommend the big supermarkets just off the N-340.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Aldi+Nerja" target="_blank" rel="noopener"><strong>Aldi (Nerja)</strong></a>',
-              de: 'Für einen größeren Einkauf außerhalb des Zentrums empfehlen wir die großen Supermärkte direkt an der N-340.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Aldi+Nerja" target="_blank" rel="noopener"><strong>Aldi (Nerja)</strong></a>',
-              es: 'Para una compra más grande a las afueras, recomendamos los grandes supermercados junto a la N-340.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Aldi+Nerja" target="_blank" rel="noopener"><strong>Aldi (Nerja)</strong></a>',
-              nl: 'Voor een grotere boodschap buiten het centrum raden we de grote supermarkten net buiten de N-340 aan.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Aldi+Nerja" target="_blank" rel="noopener"><strong>Aldi (Nerja)</strong></a>',
-              sv: 'För en större handling utanför centrum rekommenderar vi de stora mataffärerna precis vid N-340.<br><br>• <a class="am-link" href="https://www.google.com/maps/place/?q=place_id:ChIJvymkvBglcg0R9Krp1OTyAao" target="_blank" rel="noopener"><strong>Lidl (Nerja)</strong></a><br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Aldi+Nerja" target="_blank" rel="noopener"><strong>Aldi (Nerja)</strong></a>'
+              en: 'For a larger out-of-town shop, we recommend the big supermarkets just off the N-340.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Aldi (Nerja)</strong>',
+              de: 'Für einen größeren Einkauf außerhalb des Zentrums empfehlen wir die großen Supermärkte direkt an der N-340.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Aldi (Nerja)</strong>',
+              es: 'Para una compra más grande a las afueras, recomendamos los grandes supermercados junto a la N-340.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Aldi (Nerja)</strong>',
+              nl: 'Voor een grotere boodschap buiten het centrum raden we de grote supermarkten net buiten de N-340 aan.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Aldi (Nerja)</strong>',
+              sv: 'För en större handling utanför centrum rekommenderar vi de stora mataffärerna precis vid N-340.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Aldi (Nerja)</strong>'
             },
             {
               en: '<em>Please note:</em> Opening hours can vary seasonally, and Sundays are often more limited.',
@@ -5906,14 +5916,15 @@ const nerjaEssentials: GuestGuideEntry = {
         },
         {
           icon: 'bread',
+          recommendationIds: ['nerja.breakfast.good-stuff-cafe'],
           title: { en: 'Bakery', de: 'Bäckerei', es: 'Panadería', nl: 'Bakker', sv: 'Bageri' },
           body: [
             {
-              en: 'For fresh bread, we recommend <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Good+Stuff+Cafe+Bakery+Nerja" target="_blank" rel="noopener"><strong>Good Stuff Cafe & Bakery</strong></a>. You can get there in about <strong>2 minutes via Calle Castilla Pérez</strong>, and the route is easy because you do <strong>not need to take any stairs</strong>.<br><br>In our view, this is the nicest and simplest bakery option from the house, especially in the morning.',
-              de: 'Für frisches Brot würden wir euch das <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Good+Stuff+Cafe+Bakery+Nerja" target="_blank" rel="noopener"><strong>Good Stuff Cafe & Bakery</strong></a> empfehlen. Ihr erreicht sie in etwa <strong>2 Minuten über die Calle Castilla Pérez</strong>, und der Weg ist angenehm, weil ihr <strong>keine Treppen</strong> nehmen müsst.<br><br>Aus unserer Sicht ist das vom Haus aus die schönste und einfachste Bäckerei-Option, besonders am Morgen.',
-              es: 'Para pan fresco, os recomendamos <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Good+Stuff+Cafe+Bakery+Nerja" target="_blank" rel="noopener"><strong>Good Stuff Cafe & Bakery</strong></a>. Se llega en unos <strong>2 minutos por Calle Castilla Pérez</strong>, y el camino es cómodo porque <strong>no hay que subir ni bajar escaleras</strong>.<br><br>Desde la casa, nos parece la opción de panadería más agradable y más fácil, sobre todo por la mañana.',
-              nl: 'Voor vers brood raden we <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Good+Stuff+Cafe+Bakery+Nerja" target="_blank" rel="noopener"><strong>Good Stuff Cafe & Bakery</strong></a> aan. Jullie lopen er in ongeveer <strong>2 minuten via Calle Castilla Pérez</strong> heen, en de route is prettig omdat jullie <strong>geen trappen</strong> hoeven te nemen.<br><br>Vanuit het huis vinden wij dit de fijnste en makkelijkste bakker, vooral in de ochtend.',
-              sv: 'För färskt bröd rekommenderar vi <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Good+Stuff+Cafe+Bakery+Nerja" target="_blank" rel="noopener"><strong>Good Stuff Cafe & Bakery</strong></a>. Ni tar er dit på cirka <strong>2 minuter via Calle Castilla Pérez</strong>, och vägen är enkel eftersom ni <strong>inte behöver ta några trappor</strong>.<br><br>Från huset tycker vi att detta är det trevligaste och enklaste bagerialternativet, särskilt på morgonen.'
+              en: 'For fresh bread, we recommend <strong>Good Stuff Cafe & Bakery</strong>. You can get there in about <strong>2 minutes via Calle Castilla Pérez</strong>, and the route is easy because you do <strong>not need to take any stairs</strong>.<br><br>In our view, this is the nicest and simplest bakery option from the house, especially in the morning.',
+              de: 'Für frisches Brot würden wir euch das <strong>Good Stuff Cafe & Bakery</strong> empfehlen. Ihr erreicht sie in etwa <strong>2 Minuten über die Calle Castilla Pérez</strong>, und der Weg ist angenehm, weil ihr <strong>keine Treppen</strong> nehmen müsst.<br><br>Aus unserer Sicht ist das vom Haus aus die schönste und einfachste Bäckerei-Option, besonders am Morgen.',
+              es: 'Para pan fresco, os recomendamos <strong>Good Stuff Cafe & Bakery</strong>. Se llega en unos <strong>2 minutos por Calle Castilla Pérez</strong>, y el camino es cómodo porque <strong>no hay que subir ni bajar escaleras</strong>.<br><br>Desde la casa, nos parece la opción de panadería más agradable y más fácil, sobre todo por la mañana.',
+              nl: 'Voor vers brood raden we <strong>Good Stuff Cafe & Bakery</strong> aan. Jullie lopen er in ongeveer <strong>2 minuten via Calle Castilla Pérez</strong> heen, en de route is prettig omdat jullie <strong>geen trappen</strong> hoeven te nemen.<br><br>Vanuit het huis vinden wij dit de fijnste en makkelijkste bakker, vooral in de ochtend.',
+              sv: 'För färskt bröd rekommenderar vi <strong>Good Stuff Cafe & Bakery</strong>. Ni tar er dit på cirka <strong>2 minuter via Calle Castilla Pérez</strong>, och vägen är enkel eftersom ni <strong>inte behöver ta några trappor</strong>.<br><br>Från huset tycker vi att detta är det trevligaste och enklaste bagerialternativet, särskilt på morgonen.'
             }
           ]
         }
@@ -5930,6 +5941,7 @@ const nerjaEssentials: GuestGuideEntry = {
       items: [
         {
           icon: 'laundry',
+          recommendationIds: ['nerja.essentials.lavanderia-nerja', 'nerja.essentials.open-wash-nerja'],
           title: { en: 'Laundry', de: 'Wäsche', es: 'Lavandería', nl: 'Wasgoed', sv: 'Tvätt' },
           body: [
             {
@@ -5940,23 +5952,24 @@ const nerjaEssentials: GuestGuideEntry = {
               sv: 'För en vanlig vistelse är det enklaste alternativet helt enkelt att använda tvättmaskinen hemma.'
             },
             {
-              en: 'If you prefer a <strong>drop-off service</strong>, <strong>Lavandería Nerja</strong> is a practical option in Nerja and only about <strong>4 minutes from the house</strong>.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lavanderia+Nerja" target="_blank" rel="noopener"><strong>Lavandería Nerja</strong></a>',
-              de: 'Wenn ihr lieber einen <strong>Wäsche-Abgabe-Service</strong> möchtet, ist <strong>Lavandería Nerja</strong> eine praktische Option in Nerja und nur etwa <strong>4 Minuten vom Haus entfernt</strong>.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lavanderia+Nerja" target="_blank" rel="noopener"><strong>Lavandería Nerja</strong></a>',
-              es: 'Si preferís un <strong>servicio para dejar la ropa</strong>, <strong>Lavandería Nerja</strong> es una opción práctica en Nerja y está a solo unos <strong>4 minutos de la casa</strong>.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lavanderia+Nerja" target="_blank" rel="noopener"><strong>Lavandería Nerja</strong></a>',
-              nl: 'Als jullie liever een <strong>drop-off-service</strong> gebruiken, is <strong>Lavandería Nerja</strong> een praktische optie in Nerja en slechts ongeveer <strong>4 minuten van het huis</strong> verwijderd.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lavanderia+Nerja" target="_blank" rel="noopener"><strong>Lavandería Nerja</strong></a>',
-              sv: 'Om ni föredrar en <strong>drop-off-tjänst</strong> är <strong>Lavandería Nerja</strong> ett praktiskt alternativ i Nerja och ligger bara cirka <strong>4 minuter från huset</strong>.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lavanderia+Nerja" target="_blank" rel="noopener"><strong>Lavandería Nerja</strong></a>'
+              en: 'If you prefer a <strong>drop-off service</strong>, <strong>Lavandería Nerja</strong> is a practical option in Nerja and only about <strong>4 minutes from the house</strong>.<br><br>• <strong>Lavandería Nerja</strong>',
+              de: 'Wenn ihr lieber einen <strong>Wäsche-Abgabe-Service</strong> möchtet, ist <strong>Lavandería Nerja</strong> eine praktische Option in Nerja und nur etwa <strong>4 Minuten vom Haus entfernt</strong>.<br><br>• <strong>Lavandería Nerja</strong>',
+              es: 'Si preferís un <strong>servicio para dejar la ropa</strong>, <strong>Lavandería Nerja</strong> es una opción práctica en Nerja y está a solo unos <strong>4 minutos de la casa</strong>.<br><br>• <strong>Lavandería Nerja</strong>',
+              nl: 'Als jullie liever een <strong>drop-off-service</strong> gebruiken, is <strong>Lavandería Nerja</strong> een praktische optie in Nerja en slechts ongeveer <strong>4 minuten van het huis</strong> verwijderd.<br><br>• <strong>Lavandería Nerja</strong>',
+              sv: 'Om ni föredrar en <strong>drop-off-tjänst</strong> är <strong>Lavandería Nerja</strong> ett praktiskt alternativ i Nerja och ligger bara cirka <strong>4 minuter från huset</strong>.<br><br>• <strong>Lavandería Nerja</strong>'
             },
             {
-              en: 'If you prefer <strong>self-service laundry</strong>, the most practical external option is also right in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lavanderia+Autoservicio+Open+Wash+Nerja" target="_blank" rel="noopener"><strong>Lavandería Autoservicio Open Wash Nerja</strong></a>',
-              de: 'Wenn ihr lieber <strong>Self Service</strong> möchtet, ist die praktischste externe Option ebenfalls direkt in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lavanderia+Autoservicio+Open+Wash+Nerja" target="_blank" rel="noopener"><strong>Lavandería Autoservicio Open Wash Nerja</strong></a>',
-              es: 'Si preferís <strong>autoservicio</strong>, la opción externa más práctica también está en <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lavanderia+Autoservicio+Open+Wash+Nerja" target="_blank" rel="noopener"><strong>Lavandería Autoservicio Open Wash Nerja</strong></a>',
-              nl: 'Als jullie liever <strong>self-service</strong> willen, is de meest praktische externe optie ook direct in <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lavanderia+Autoservicio+Open+Wash+Nerja" target="_blank" rel="noopener"><strong>Lavandería Autoservicio Open Wash Nerja</strong></a>',
-              sv: 'Om ni föredrar <strong>självservice</strong> är det mest praktiska externa alternativet också mitt i <strong>Nerja</strong>:<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lavanderia+Autoservicio+Open+Wash+Nerja" target="_blank" rel="noopener"><strong>Lavandería Autoservicio Open Wash Nerja</strong></a>'
+              en: 'If you prefer <strong>self-service laundry</strong>, the most practical external option is also right in <strong>Nerja</strong>:<br><br>• <strong>Lavandería Autoservicio Open Wash Nerja</strong>',
+              de: 'Wenn ihr lieber <strong>Self Service</strong> möchtet, ist die praktischste externe Option ebenfalls direkt in <strong>Nerja</strong>:<br><br>• <strong>Lavandería Autoservicio Open Wash Nerja</strong>',
+              es: 'Si preferís <strong>autoservicio</strong>, la opción externa más práctica también está en <strong>Nerja</strong>:<br><br>• <strong>Lavandería Autoservicio Open Wash Nerja</strong>',
+              nl: 'Als jullie liever <strong>self-service</strong> willen, is de meest praktische externe optie ook direct in <strong>Nerja</strong>:<br><br>• <strong>Lavandería Autoservicio Open Wash Nerja</strong>',
+              sv: 'Om ni föredrar <strong>självservice</strong> är det mest praktiska externa alternativet också mitt i <strong>Nerja</strong>:<br><br>• <strong>Lavandería Autoservicio Open Wash Nerja</strong>'
             }
           ]
         },
         {
           icon: 'card',
+          recommendationIds: ['nerja.essentials.unicaja-atm', 'nerja.essentials.caixabank-atm'],
           title: { en: 'ATM', de: 'Geldautomat', es: 'Cajero automático', nl: 'Geldautomaat', sv: 'Bankomat' },
           body: [
             {
@@ -5974,18 +5987,18 @@ const nerjaEssentials: GuestGuideEntry = {
               sv: '<strong>Bankomater i detta område</strong>'
             },
             {
-              en: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Unicaja+Nerja" target="_blank" rel="noopener"><strong>Unicaja ATM</strong></a>',
-              de: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Unicaja+Nerja" target="_blank" rel="noopener"><strong>Unicaja Geldautomat</strong></a>',
-              es: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Unicaja+Nerja" target="_blank" rel="noopener"><strong>Cajero Unicaja</strong></a>',
-              nl: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Unicaja+Nerja" target="_blank" rel="noopener"><strong>Unicaja geldautomaat</strong></a>',
-              sv: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Unicaja+Nerja" target="_blank" rel="noopener"><strong>Unicaja bankomat</strong></a>'
+              en: '• <strong>Unicaja ATM</strong>',
+              de: '• <strong>Unicaja Geldautomat</strong>',
+              es: '• <strong>Cajero Unicaja</strong>',
+              nl: '• <strong>Unicaja geldautomaat</strong>',
+              sv: '• <strong>Unicaja bankomat</strong>'
             },
             {
-              en: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=CaixaBank+Nerja" target="_blank" rel="noopener"><strong>CaixaBank ATM</strong></a>',
-              de: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=CaixaBank+Nerja" target="_blank" rel="noopener"><strong>CaixaBank Geldautomat</strong></a>',
-              es: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=CaixaBank+Nerja" target="_blank" rel="noopener"><strong>Cajero CaixaBank</strong></a>',
-              nl: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=CaixaBank+Nerja" target="_blank" rel="noopener"><strong>CaixaBank geldautomaat</strong></a>',
-              sv: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=CaixaBank+Nerja" target="_blank" rel="noopener"><strong>CaixaBank bankomat</strong></a>'
+              en: '• <strong>CaixaBank ATM</strong>',
+              de: '• <strong>CaixaBank Geldautomat</strong>',
+              es: '• <strong>Cajero CaixaBank</strong>',
+              nl: '• <strong>CaixaBank geldautomaat</strong>',
+              sv: '• <strong>CaixaBank bankomat</strong>'
             },
             {
               en: '<em>Good to know:</em> This is the most convenient area to combine a few practical things at once if you are already heading towards the center.',
@@ -5998,6 +6011,7 @@ const nerjaEssentials: GuestGuideEntry = {
         },
         {
           icon: 'info',
+          recommendationIds: ['nerja.essentials.oficina-de-turismo'],
           title: {
             en: 'Tourist Office',
             de: 'Touristeninformation',
@@ -6007,11 +6021,11 @@ const nerjaEssentials: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'If you want a local map, current walking information, or a quick answer before heading out, the tourist office is the best place to ask in Nerja.<br><br>It is especially useful if you are planning a hike or want up-to-date local advice rather than relying only on general online information.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Oficina+de+Turismo+Nerja" target="_blank" rel="noopener"><strong>Tourist Office Nerja</strong></a><br>Plaza Balcón de Europa, 1<br><a class="am-link" href="tel:+34952521531">Call +34 952 52 15 31</a>',
-              de: 'Wenn ihr einen Ortsplan, aktuelle Hinweise zu Spaziergängen oder Wanderungen oder einfach eine schnelle Auskunft vor Ort möchtet, ist die Touristeninformation in Nerja die beste Anlaufstelle.<br><br>Besonders sinnvoll ist sie, wenn ihr eine Wanderung plant oder lieber aktuelle lokale Hinweise haben möchtet, statt euch nur auf allgemeine Online-Infos zu verlassen.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Oficina+de+Turismo+Nerja" target="_blank" rel="noopener"><strong>Touristeninformation Nerja</strong></a><br>Plaza Balcón de Europa, 1<br><a class="am-link" href="tel:+34952521531">Anrufen: +34 952 52 15 31</a>',
-              es: 'Si queréis un mapa del pueblo, información actual sobre paseos o rutas, o una respuesta rápida antes de salir, la oficina de turismo es el mejor lugar para preguntar en Nerja.<br><br>Es especialmente útil si estáis planeando una caminata o preferís información local actualizada en lugar de depender solo de información general de internet.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Oficina+de+Turismo+Nerja" target="_blank" rel="noopener"><strong>Oficina de turismo de Nerja</strong></a><br>Plaza Balcón de Europa, 1<br><a class="am-link" href="tel:+34952521531">Llamar: +34 952 52 15 31</a>',
-              nl: 'Als jullie een plattegrond, actuele informatie over wandelingen of gewoon snel lokaal advies willen voordat jullie op pad gaan, is het VVV-kantoor in Nerja de beste plek om even te vragen.<br><br>Vooral handig als jullie een hike plannen of liever actuele lokale informatie hebben dan alleen algemene info van internet.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Oficina+de+Turismo+Nerja" target="_blank" rel="noopener"><strong>VVV-kantoor Nerja</strong></a><br>Plaza Balcón de Europa, 1<br><a class="am-link" href="tel:+34952521531">Bellen: +34 952 52 15 31</a>',
-              sv: 'Om ni vill ha en karta, aktuell information om promenader eller vandringar eller bara ett snabbt lokalt svar innan ni går ut, är turistbyrån bästa stället att fråga på i Nerja.<br><br>Den är särskilt användbar om ni planerar en vandring eller vill ha uppdaterad lokal information i stället för att bara lita på allmän information på nätet.<br><br>• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Oficina+de+Turismo+Nerja" target="_blank" rel="noopener"><strong>Turistbyrå Nerja</strong></a><br>Plaza Balcón de Europa, 1<br><a class="am-link" href="tel:+34952521531">Ring: +34 952 52 15 31</a>'
+              en: 'If you want a local map, current walking information, or a quick answer before heading out, the tourist office is the best place to ask in Nerja.<br><br>It is especially useful if you are planning a hike or want up-to-date local advice rather than relying only on general online information.<br><br>• <strong>Tourist Office Nerja</strong><br>Plaza Balcón de Europa, 1<br>Call +34 952 52 15 31',
+              de: 'Wenn ihr einen Ortsplan, aktuelle Hinweise zu Spaziergängen oder Wanderungen oder einfach eine schnelle Auskunft vor Ort möchtet, ist die Touristeninformation in Nerja die beste Anlaufstelle.<br><br>Besonders sinnvoll ist sie, wenn ihr eine Wanderung plant oder lieber aktuelle lokale Hinweise haben möchtet, statt euch nur auf allgemeine Online-Infos zu verlassen.<br><br>• <strong>Touristeninformation Nerja</strong><br>Plaza Balcón de Europa, 1<br>Anrufen: +34 952 52 15 31',
+              es: 'Si queréis un mapa del pueblo, información actual sobre paseos o rutas, o una respuesta rápida antes de salir, la oficina de turismo es el mejor lugar para preguntar en Nerja.<br><br>Es especialmente útil si estáis planeando una caminata o preferís información local actualizada en lugar de depender solo de información general de internet.<br><br>• <strong>Oficina de turismo de Nerja</strong><br>Plaza Balcón de Europa, 1<br>Llamar: +34 952 52 15 31',
+              nl: 'Als jullie een plattegrond, actuele informatie over wandelingen of gewoon snel lokaal advies willen voordat jullie op pad gaan, is het VVV-kantoor in Nerja de beste plek om even te vragen.<br><br>Vooral handig als jullie een hike plannen of liever actuele lokale informatie hebben dan alleen algemene info van internet.<br><br>• <strong>VVV-kantoor Nerja</strong><br>Plaza Balcón de Europa, 1<br>Bellen: +34 952 52 15 31',
+              sv: 'Om ni vill ha en karta, aktuell information om promenader eller vandringar eller bara ett snabbt lokalt svar innan ni går ut, är turistbyrån bästa stället att fråga på i Nerja.<br><br>Den är särskilt användbar om ni planerar en vandring eller vill ha uppdaterad lokal information i stället för att bara lita på allmän information på nätet.<br><br>• <strong>Turistbyrå Nerja</strong><br>Plaza Balcón de Europa, 1<br>Ring: +34 952 52 15 31'
             }
           ]
         }
@@ -6028,6 +6042,7 @@ const nerjaEssentials: GuestGuideEntry = {
       items: [
         {
           icon: 'car',
+          recommendationIds: ['nerja.essentials.radio-taxis-nerja', 'nerja.essentials.taxi-nerja-21'],
           title: { en: 'Taxi', de: 'Taxi', es: 'Taxi', nl: 'Taxi', sv: 'Taxi' },
           body: [
             {
@@ -6045,18 +6060,18 @@ const nerjaEssentials: GuestGuideEntry = {
               sv: '<strong>Lokala taxikontakter</strong>'
             },
             {
-              en: '• <strong>Radio Taxis Nerja</strong> – good option for local rides and airport transfers<br><a class="am-link" href="tel:+34952520537">Call +34 952 52 05 37</a>',
-              de: '• <strong>Radio Taxis Nerja</strong> – gute Option für lokale Fahrten und Flughafentransfers<br><a class="am-link" href="tel:+34952520537">Anrufen: +34 952 52 05 37</a>',
-              es: '• <strong>Radio Taxis Nerja</strong> – buena opción para trayectos locales y traslados al aeropuerto<br><a class="am-link" href="tel:+34952520537">Llamar: +34 952 52 05 37</a>',
-              nl: '• <strong>Radio Taxis Nerja</strong> – goede optie voor lokale ritten en luchthaventransfers<br><a class="am-link" href="tel:+34952520537">Bellen: +34 952 52 05 37</a>',
-              sv: '• <strong>Radio Taxis Nerja</strong> – bra alternativ för lokala resor och flygplatstransfer<br><a class="am-link" href="tel:+34952520537">Ring: +34 952 52 05 37</a>'
+              en: '• <strong>Radio Taxis Nerja</strong> – good option for local rides and airport transfers<br>Call +34 952 52 05 37',
+              de: '• <strong>Radio Taxis Nerja</strong> – gute Option für lokale Fahrten und Flughafentransfers<br>Anrufen: +34 952 52 05 37',
+              es: '• <strong>Radio Taxis Nerja</strong> – buena opción para trayectos locales y traslados al aeropuerto<br>Llamar: +34 952 52 05 37',
+              nl: '• <strong>Radio Taxis Nerja</strong> – goede optie voor lokale ritten en luchthaventransfers<br>Bellen: +34 952 52 05 37',
+              sv: '• <strong>Radio Taxis Nerja</strong> – bra alternativ för lokala resor och flygplatstransfer<br>Ring: +34 952 52 05 37'
             },
             {
-              en: '• <strong>Taxi Nerja 21</strong> – useful if you need a reliable alternative or a longer transfer<br><a class="am-link" href="tel:+34610795909">Call +34 610 795 909</a>',
-              de: '• <strong>Taxi Nerja 21</strong> – sinnvoll, wenn ihr eine zuverlässige Alternative oder einen längeren Transfer braucht<br><a class="am-link" href="tel:+34610795909">Anrufen: +34 610 795 909</a>',
-              es: '• <strong>Taxi Nerja 21</strong> – útil si necesitáis una alternativa fiable o un traslado más largo<br><a class="am-link" href="tel:+34610795909">Llamar: +34 610 795 909</a>',
-              nl: '• <strong>Taxi Nerja 21</strong> – handig als jullie een betrouwbaar alternatief of een langere transfer nodig hebben<br><a class="am-link" href="tel:+34610795909">Bellen: +34 610 795 909</a>',
-              sv: '• <strong>Taxi Nerja 21</strong> – bra om ni behöver ett pålitligt alternativ eller en längre transfer<br><a class="am-link" href="tel:+34610795909">Ring: +34 610 795 909</a>'
+              en: '• <strong>Taxi Nerja 21</strong> – useful if you need a reliable alternative or a longer transfer<br>Call +34 610 795 909',
+              de: '• <strong>Taxi Nerja 21</strong> – sinnvoll, wenn ihr eine zuverlässige Alternative oder einen längeren Transfer braucht<br>Anrufen: +34 610 795 909',
+              es: '• <strong>Taxi Nerja 21</strong> – útil si necesitáis una alternativa fiable o un traslado más largo<br>Llamar: +34 610 795 909',
+              nl: '• <strong>Taxi Nerja 21</strong> – handig als jullie een betrouwbaar alternatief of een langere transfer nodig hebben<br>Bellen: +34 610 795 909',
+              sv: '• <strong>Taxi Nerja 21</strong> – bra om ni behöver ett pålitligt alternativ eller en längre transfer<br>Ring: +34 610 795 909'
             },
             {
               en: 'For airport runs or larger groups, booking ahead is especially worth it.',
@@ -6069,6 +6084,7 @@ const nerjaEssentials: GuestGuideEntry = {
         },
         {
           icon: 'car',
+          recommendationIds: ['nerja.essentials.europcar-nerja', 'nerja.essentials.lessaggro-car-hire', 'nerja.essentials.bahia-sexi-rent-a-car'],
           title: { en: 'Rental Car', de: 'Mietwagen', es: 'Coche de alquiler', nl: 'Huurauto', sv: 'Hyrbil' },
           body: [
             {
@@ -6086,18 +6102,18 @@ const nerjaEssentials: GuestGuideEntry = {
               sv: '<strong>Lokalt alternativ i Nerja</strong>'
             },
             {
-              en: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Europcar+Nerja+Edificio+Toboso+II" target="_blank" rel="noopener"><strong>Europcar Nerja</strong></a> – practical if you want a proper town pickup point.<br><a class="am-link" href="https://www.europcar.com/en-us/places/car-rental-spain/nerja/nerja" target="_blank" rel="noopener">Website</a>',
-              de: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Europcar+Nerja+Edificio+Toboso+II" target="_blank" rel="noopener"><strong>Europcar Nerja</strong></a> – praktisch, wenn ihr einen klassischen Abholpunkt in der Stadt möchtet.<br><a class="am-link" href="https://www.europcar.com/en-us/places/car-rental-spain/nerja/nerja" target="_blank" rel="noopener">Website</a>',
-              es: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Europcar+Nerja+Edificio+Toboso+II" target="_blank" rel="noopener"><strong>Europcar Nerja</strong></a> – práctico si queréis un punto de recogida claro en el pueblo.<br><a class="am-link" href="https://www.europcar.com/en-us/places/car-rental-spain/nerja/nerja" target="_blank" rel="noopener">Página web</a>',
-              nl: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Europcar+Nerja+Edificio+Toboso+II" target="_blank" rel="noopener"><strong>Europcar Nerja</strong></a> – praktisch als jullie een echt afhaalpunt in de stad zelf willen.<br><a class="am-link" href="https://www.europcar.com/en-us/places/car-rental-spain/nerja/nerja" target="_blank" rel="noopener">Website</a>',
-              sv: '• <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Europcar+Nerja+Edificio+Toboso+II" target="_blank" rel="noopener"><strong>Europcar Nerja</strong></a> – praktiskt om ni vill ha en tydlig upphämtningsplats i själva staden.<br><a class="am-link" href="https://www.europcar.com/en-us/places/car-rental-spain/nerja/nerja" target="_blank" rel="noopener">Webbplats</a>'
+              en: '• <strong>Europcar Nerja</strong> – practical if you want a proper town pickup point.<br>Website',
+              de: '• <strong>Europcar Nerja</strong> – praktisch, wenn ihr einen klassischen Abholpunkt in der Stadt möchtet.<br>Website',
+              es: '• <strong>Europcar Nerja</strong> – práctico si queréis un punto de recogida claro en el pueblo.<br>Página web',
+              nl: '• <strong>Europcar Nerja</strong> – praktisch als jullie een echt afhaalpunt in de stad zelf willen.<br>Website',
+              sv: '• <strong>Europcar Nerja</strong> – praktiskt om ni vill ha en tydlig upphämtningsplats i själva staden.<br>Webbplats'
             },
             {
-              en: '<strong>Convenient delivery-style options around Nerja</strong><br><br>If you prefer something more flexible, there are also local providers in the Nerja area that work with <strong>hotel / apartment delivery</strong>:<br><br>• <a class="am-link" href="https://carhirenerja.com/" target="_blank" rel="noopener"><strong>Lessaggro Car Hire Nerja</strong></a><br><br>• <a class="am-link" href="https://bahiasexirentacar.com/rent-a-car-in-nerja/" target="_blank" rel="noopener"><strong>Bahia Sexi Rent a Car</strong></a>',
-              de: '<strong>Praktische Delivery-Optionen rund um Nerja</strong><br><br>Wenn ihr es etwas flexibler möchtet, gibt es in der Nerja-Region auch lokale Anbieter mit <strong>Hotel- / Apartment-Lieferung</strong>:<br><br>• <a class="am-link" href="https://carhirenerja.com/" target="_blank" rel="noopener"><strong>Lessaggro Car Hire Nerja</strong></a><br><br>• <a class="am-link" href="https://bahiasexirentacar.com/rent-a-car-in-nerja/" target="_blank" rel="noopener"><strong>Bahia Sexi Rent a Car</strong></a>',
-              es: '<strong>Opciones prácticas con entrega en la zona de Nerja</strong><br><br>Si preferís algo más flexible, en la zona de Nerja también hay proveedores locales que trabajan con <strong>entrega en hotel o apartamento</strong>:<br><br>• <a class="am-link" href="https://carhirenerja.com/" target="_blank" rel="noopener"><strong>Lessaggro Car Hire Nerja</strong></a><br><br>• <a class="am-link" href="https://bahiasexirentacar.com/rent-a-car-in-nerja/" target="_blank" rel="noopener"><strong>Bahia Sexi Rent a Car</strong></a>',
-              nl: '<strong>Handige delivery-opties rond Nerja</strong><br><br>Als jullie iets flexibelers willen, zijn er in de regio Nerja ook lokale aanbieders met <strong>levering bij hotel of appartement</strong>:<br><br>• <a class="am-link" href="https://carhirenerja.com/" target="_blank" rel="noopener"><strong>Lessaggro Car Hire Nerja</strong></a><br><br>• <a class="am-link" href="https://bahiasexirentacar.com/rent-a-car-in-nerja/" target="_blank" rel="noopener"><strong>Bahia Sexi Rent a Car</strong></a>',
-              sv: '<strong>Praktiska leveransalternativ runt Nerja</strong><br><br>Om ni föredrar något mer flexibelt finns det också lokala aktörer i Nerja-området som erbjuder <strong>leverans till hotell eller lägenhet</strong>:<br><br>• <a class="am-link" href="https://carhirenerja.com/" target="_blank" rel="noopener"><strong>Lessaggro Car Hire Nerja</strong></a><br><br>• <a class="am-link" href="https://bahiasexirentacar.com/rent-a-car-in-nerja/" target="_blank" rel="noopener"><strong>Bahia Sexi Rent a Car</strong></a>'
+              en: '<strong>Convenient delivery-style options around Nerja</strong><br><br>If you prefer something more flexible, there are also local providers in the Nerja area that work with <strong>hotel / apartment delivery</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
+              de: '<strong>Praktische Delivery-Optionen rund um Nerja</strong><br><br>Wenn ihr es etwas flexibler möchtet, gibt es in der Nerja-Region auch lokale Anbieter mit <strong>Hotel- / Apartment-Lieferung</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
+              es: '<strong>Opciones prácticas con entrega en la zona de Nerja</strong><br><br>Si preferís algo más flexible, en la zona de Nerja también hay proveedores locales que trabajan con <strong>entrega en hotel o apartamento</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
+              nl: '<strong>Handige delivery-opties rond Nerja</strong><br><br>Als jullie iets flexibelers willen, zijn er in de regio Nerja ook lokale aanbieders met <strong>levering bij hotel of appartement</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
+              sv: '<strong>Praktiska leveransalternativ runt Nerja</strong><br><br>Om ni föredrar något mer flexibelt finns det också lokala aktörer i Nerja-området som erbjuder <strong>leverans till hotell eller lägenhet</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>'
             },
             {
               en: '<strong>Best choice for the widest selection</strong>',
@@ -6213,6 +6229,7 @@ const nerjaEssentials: GuestGuideEntry = {
         },
         {
           icon: 'medical',
+          recommendationIds: ['nerja.essentials.centro-de-salud-nerja'],
           title: {
             en: 'Centro de Salud Nerja',
             de: 'Centro de Salud Nerja',
@@ -6222,11 +6239,11 @@ const nerjaEssentials: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'For non-emergency public medical care, use <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, about <strong>10 minutes on foot</strong>.',
-              de: 'Für öffentliche medizinische Hilfe ohne Notfall nutzt ihr das <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, etwa <strong>10 Minuten zu Fuß entfernt</strong>.',
-              es: 'Para atención médica pública sin emergencia, acudid al <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, a unos <strong>10 minutos a pie</strong>.',
-              nl: 'Voor openbare medische zorg zonder noodgeval gaan jullie naar <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, op ongeveer <strong>10 minuten lopen</strong>.',
-              sv: 'För offentlig vård utan nödläge använder ni <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Centro+de+Salud+Nerja" target="_blank" rel="noopener"><strong>Centro de Salud Nerja</strong></a>, cirka <strong>10 minuter till fots</strong>.'
+              en: 'For non-emergency public medical care, use <strong>Centro de Salud Nerja</strong>, about <strong>10 minutes on foot</strong>.',
+              de: 'Für öffentliche medizinische Hilfe ohne Notfall nutzt ihr das <strong>Centro de Salud Nerja</strong>, etwa <strong>10 Minuten zu Fuß entfernt</strong>.',
+              es: 'Para atención médica pública sin emergencia, acudid al <strong>Centro de Salud Nerja</strong>, a unos <strong>10 minutos a pie</strong>.',
+              nl: 'Voor openbare medische zorg zonder noodgeval gaan jullie naar <strong>Centro de Salud Nerja</strong>, op ongeveer <strong>10 minuten lopen</strong>.',
+              sv: 'För offentlig vård utan nödläge använder ni <strong>Centro de Salud Nerja</strong>, cirka <strong>10 minuter till fots</strong>.'
             },
             {
               en: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
@@ -6236,11 +6253,11 @@ const nerjaEssentials: GuestGuideEntry = {
               sv: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>'
             },
             {
-              en: '<strong>Centre:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / appointments:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>The current SAS directory lists the centre as open throughout Monday to Friday. Services and hours can change, so call before travelling outside normal daytime hours or at a weekend.',
-              de: '<strong>Zentrum:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / Termine:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>Das aktuelle SAS-Verzeichnis führt das Zentrum montags bis freitags durchgehend geöffnet. Servicezeiten können sich ändern; ruft deshalb vor einem Weg außerhalb der üblichen Tageszeiten oder am Wochenende an.',
-              es: '<strong>Centro:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / citas:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>El directorio actual del SAS muestra el centro abierto de forma continuada de lunes a viernes. Los servicios y horarios pueden cambiar; llamad antes de desplazaros fuera del horario diurno habitual o durante el fin de semana.',
-              nl: '<strong>Centrum:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / afspraken:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>In de actuele SAS-gids staat het centrum van maandag tot en met vrijdag doorlopend als geopend vermeld. Diensten en openingstijden kunnen veranderen; bel daarom vóór een bezoek buiten normale uren overdag of in het weekend.',
-              sv: '<strong>Vårdcentralen:</strong> <a class="am-link" href="tel:+34951289662">+34 951 28 96 62</a><br><strong>Salud Responde / tidsbokning:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>I SAS aktuella register anges vårdcentralen som öppen hela måndag till fredag. Tjänster och öppettider kan ändras; ring därför före ett besök utanför normala dagtider eller på helgen.'
+              en: '<strong>Centre:</strong> +34 951 28 96 62<br><strong>Salud Responde / appointments:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>The current SAS directory lists the centre as open throughout Monday to Friday. Services and hours can change, so call before travelling outside normal daytime hours or at a weekend.',
+              de: '<strong>Zentrum:</strong> +34 951 28 96 62<br><strong>Salud Responde / Termine:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>Das aktuelle SAS-Verzeichnis führt das Zentrum montags bis freitags durchgehend geöffnet. Servicezeiten können sich ändern; ruft deshalb vor einem Weg außerhalb der üblichen Tageszeiten oder am Wochenende an.',
+              es: '<strong>Centro:</strong> +34 951 28 96 62<br><strong>Salud Responde / citas:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>El directorio actual del SAS muestra el centro abierto de forma continuada de lunes a viernes. Los servicios y horarios pueden cambiar; llamad antes de desplazaros fuera del horario diurno habitual o durante el fin de semana.',
+              nl: '<strong>Centrum:</strong> +34 951 28 96 62<br><strong>Salud Responde / afspraken:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>In de actuele SAS-gids staat het centrum van maandag tot en met vrijdag doorlopend als geopend vermeld. Diensten en openingstijden kunnen veranderen; bel daarom vóór een bezoek buiten normale uren overdag of in het weekend.',
+              sv: '<strong>Vårdcentralen:</strong> +34 951 28 96 62<br><strong>Salud Responde / tidsbokning:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>I SAS aktuella register anges vårdcentralen som öppen hela måndag till fredag. Tjänster och öppettider kan ändras; ring därför före ett besök utanför normala dagtider eller på helgen.'
             }
           ]
         },
@@ -6283,5 +6300,6 @@ export const guestGuideFrigiliana: GuestGuideEntry[] = [
   nerjaEssentials,
   frigilianaEssentials,
   frigilianaRecommendations,
+  nerjaRecommendations,
   ...recommendationSubPages
 ];

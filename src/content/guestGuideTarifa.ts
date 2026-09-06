@@ -1,4 +1,11 @@
-import type { GuestGuideCategoryLinkItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
+import type {
+  GuestGuideAccordionItem,
+  GuestGuideCategoryLinkItem,
+  GuestGuideEntry,
+  GuestGuideIconName,
+  GuestGuideMenuLink,
+  LocalizedText
+} from '../types/guestGuide';
 import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHref';
 
 const TARIFA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
@@ -134,6 +141,19 @@ const tarifaRecommendationList = (recommendations: TarifaRecommendation[]): Loca
   };
 };
 
+const tarifaPlainList = (items: { name: string; description: LocalizedText }[]): LocalizedText => {
+  const render = (lang: keyof LocalizedText) =>
+    `<ul class="am-ios-bullets">${items.map(({ name, description }) => `<li><strong>${name}</strong> – ${description[lang]}</li>`).join('')}</ul>`;
+
+  return {
+    en: render('en'),
+    de: render('de'),
+    es: render('es'),
+    nl: render('nl'),
+    sv: render('sv')
+  };
+};
+
 const tarifaBulletList = (items: LocalizedText[]): LocalizedText => {
   const render = (lang: keyof LocalizedText) =>
     `<ul class="am-ios-bullets">${items.map((item) => `<li>${item[lang]}</li>`).join('')}</ul>`;
@@ -146,6 +166,22 @@ const tarifaBulletList = (items: LocalizedText[]): LocalizedText => {
     sv: render('sv')
   };
 };
+
+interface TarifaVenue {
+  /** Recommendation record that owns the map link and place data. */
+  id: string;
+  name: string;
+  description: LocalizedText;
+}
+
+/** One accordion card per venue; the map pin, address and actions come from the recommendation record. */
+const tarifaVenueCards = (icon: GuestGuideIconName, venues: TarifaVenue[]): GuestGuideAccordionItem[] =>
+  venues.map(({ id, name, description }) => ({
+    icon,
+    recommendationId: id,
+    title: tarifaText(name, name, name, name, name),
+    body: [description]
+  }));
 
 const tarifaFamilySurfHub: GuestGuideEntry = {
   type: 'hub',
@@ -227,11 +263,11 @@ const tarifaFamilySurfHub: GuestGuideEntry = {
         sv: 'AMARA Experience'
       },
       subtitle: {
-        en: 'Hidden treasures · Insider tips · Authentic local food · Beyond the crowds',
-        de: 'Versteckte Schätze · Insider-Tipps · Authentische lokale Küche · Abseits der Massen',
-        es: 'Rincones escondidos · Consejos locales · Cocina local auténtica · Lejos de las multitudes',
-        nl: 'Verborgen parels · Insidertips · Authentiek lokaal eten · Buiten de drukte',
-        sv: 'Dolda pärlor · Insidertips · Genuin lokal mat · Bortom trängseln'
+        en: 'Kitesurfing · Food & drinks · Beaches · Activities',
+        de: 'Kitesurfen · Essen & Trinken · Strände · Aktivitäten',
+        es: 'Kitesurf · Comer y beber · Playas · Actividades',
+        nl: 'Kitesurfen · Eten & drinken · Stranden · Activiteiten',
+        sv: 'Kitesurfing · Mat & dryck · Stränder · Aktiviteter'
       }
     }
   ],
@@ -1186,6 +1222,7 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
       items: [
         {
           icon: 'bread',
+          recommendationIds: ['tarifa.essentials.pastelito', 'tarifa.essentials.pasteleria-la-tarifena', 'tarifa.essentials.pasteleria-bernal'],
           title: tarifaText(
             'Patisserie & Bakery',
             'Bäckerei & Konditorei',
@@ -1195,67 +1232,67 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pastelito+C.+Los+Barrios+4+11380+Tarifa" target="_blank" rel="noopener">Pastelito</a></strong> <span class="am-muted">(350 m · 4 min.)</span>`,
+              `<strong>Pastelito</strong> <span class="am-muted">(350 m · 4 min.)</span>`,
               `A small French bakery with very good bread and pastries. This is the bakery we most often recommend for a simple morning bread run.`,
               `C. Los Barrios, 4, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+La+Tarife%C3%B1a+Cig%C3%BCe%C3%B1a+Negra+98+11380+Tarifa" target="_blank" rel="noopener">Pastelería La Tarifeña</a></strong> <span class="am-muted">(near the apartment)</span>`,
+              `<strong>Pastelería La Tarifeña</strong> <span class="am-muted">(near the apartment)</span>`,
               `A long-standing local pastry shop for cakes, pastries and classic Andalusian sweets. The branch near the apartment is especially practical during your stay.`,
               `C. Cigüeña Negra, 98, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+Bernal+C.+Sancho+IV+el+Bravo+3+11380+Tarifa" target="_blank" rel="noopener">Pastelería Bernal</a></strong> <span class="am-muted">(Old Town)</span>`,
+              `<strong>Pastelería Bernal</strong> <span class="am-muted">(Old Town)</span>`,
               `Best known for its traditional pastries and its famous Pan Macho. A very good stop if you are already strolling through the centre.`,
               `C. Sancho IV el Bravo, 3, Tarifa`
             ],
             de: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pastelito+C.+Los+Barrios+4+11380+Tarifa" target="_blank" rel="noopener">Pastelito</a></strong> <span class="am-muted">(350 m · 4 Min.)</span>`,
+              `<strong>Pastelito</strong> <span class="am-muted">(350 m · 4 Min.)</span>`,
               `Eine kleine französische Bäckerei mit sehr gutem Brot und Gebäck. Dies ist die Bäckerei, die wir für die morgendlichen Brötchen meistens empfehlen.`,
               `C. Los Barrios, 4, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+La+Tarife%C3%B1a+Cig%C3%BCe%C3%B1a+Negra+98+11380+Tarifa" target="_blank" rel="noopener">Pastelería La Tarifeña</a></strong> <span class="am-muted">(in der Nähe des Apartments)</span>`,
+              `<strong>Pastelería La Tarifeña</strong> <span class="am-muted">(in der Nähe des Apartments)</span>`,
               `Eine traditionsreiche lokale Konditorei für Kuchen, Gebäck und klassische andalusische Süßigkeiten. Die Filiale in der Nähe des Apartments ist besonders praktisch.`,
               `C. Cigüeña Negra, 98, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+Bernal+C.+Sancho+IV+el+Bravo+3+11380+Tarifa" target="_blank" rel="noopener">Pastelería Bernal</a></strong> <span class="am-muted">(Altstadt)</span>`,
+              `<strong>Pastelería Bernal</strong> <span class="am-muted">(Altstadt)</span>`,
               `Bekannt für traditionelles Gebäck und das berühmte Pan Macho. Ein sehr guter Stopp, wenn ihr ohnehin durch das Zentrum bummelt.`,
               `C. Sancho IV el Bravo, 3, Tarifa`
             ],
             es: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pastelito+C.+Los+Barrios+4+11380+Tarifa" target="_blank" rel="noopener">Pastelito</a></strong> <span class="am-muted">(350 m · 4 min)</span>`,
+              `<strong>Pastelito</strong> <span class="am-muted">(350 m · 4 min)</span>`,
               `Una pequeña panadería francesa con muy buen pan y bollería. Esta es la panadería que solemos recomendar para comprar el pan por la mañana.`,
               `C. Los Barrios, 4, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+La+Tarife%C3%B1a+Cig%C3%BCe%C3%B1a+Negra+98+11380+Tarifa" target="_blank" rel="noopener">Pastelería La Tarifeña</a></strong> <span class="am-muted">(cerca del apartamento)</span>`,
+              `<strong>Pastelería La Tarifeña</strong> <span class="am-muted">(cerca del apartamento)</span>`,
               `Una pastelería local tradicional con tartas, pasteles y dulces clásicos andaluces. La sucursal cerca del apartamento es muy práctica.`,
               `C. Cigüeña Negra, 98, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+Bernal+C.+Sancho+IV+el+Bravo+3+11380+Tarifa" target="_blank" rel="noopener">Pastelería Bernal</a></strong> <span class="am-muted">(Casco Antiguo)</span>`,
+              `<strong>Pastelería Bernal</strong> <span class="am-muted">(Casco Antiguo)</span>`,
               `Conocida por su repostería tradicional y su famoso Pan Macho. Una buena parada si ya estáis paseando por el centro.`,
               `C. Sancho IV el Bravo, 3, Tarifa`
             ],
             nl: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pastelito+C.+Los+Barrios+4+11380+Tarifa" target="_blank" rel="noopener">Pastelito</a></strong> <span class="am-muted">(350 m · 4 min.)</span>`,
+              `<strong>Pastelito</strong> <span class="am-muted">(350 m · 4 min.)</span>`,
               `Een kleine Franse bakker met heel goed brood en gebak. Dit is de bakkerij die we het vaakst aanraden voor vers brood in de ochtend.`,
               `C. Los Barrios, 4, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+La+Tarife%C3%B1a+Cig%C3%BCe%C3%B1a+Negra+98+11380+Tarifa" target="_blank" rel="noopener">Pastelería La Tarifeña</a></strong> <span class="am-muted">(vlak bij het appartement)</span>`,
+              `<strong>Pastelería La Tarifeña</strong> <span class="am-muted">(vlak bij het appartement)</span>`,
               `Een traditionele lokale patisserie voor taarten, gebakjes en klassieke Andalusische zoetigheden. De vestiging bij het appartement is erg praktisch.`,
               `C. Cigüeña Negra, 98, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+Bernal+C.+Sancho+IV+el+Bravo+3+11380+Tarifa" target="_blank" rel="noopener">Pastelería Bernal</a></strong> <span class="am-muted">(Oude Stad)</span>`,
+              `<strong>Pastelería Bernal</strong> <span class="am-muted">(Oude Stad)</span>`,
               `Bekend om het traditionele gebak en het beroemde Pan Macho. Een leuke stop als jullie toch al door het centrum wandelen.`,
               `C. Sancho IV el Bravo, 3, Tarifa`
             ],
             sv: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pastelito+C.+Los+Barrios+4+11380+Tarifa" target="_blank" rel="noopener">Pastelito</a></strong> <span class="am-muted">(350 m · 4 min.)</span>`,
+              `<strong>Pastelito</strong> <span class="am-muted">(350 m · 4 min.)</span>`,
               `Ett litet franskt bageri med mycket gott bröd och bakverk. Det här är det bageri vi oftast rekommenderar för att köpa morgonbrödet.`,
               `C. Los Barrios, 4, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+La+Tarife%C3%B1a+Cig%C3%BCe%C3%B1a+Negra+98+11380+Tarifa" target="_blank" rel="noopener">Pastelería La Tarifeña</a></strong> <span class="am-muted">(nära lägenheten)</span>`,
+              `<strong>Pastelería La Tarifeña</strong> <span class="am-muted">(nära lägenheten)</span>`,
               `Ett anrikt lokalt konditori för tårtor, bakverk och klassiska andalusiska sötsaker. Filialen nära lägenheten är väldigt praktisk under er vistelse.`,
               `C. Cigüeña Negra, 98, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Pasteler%C3%ADa+Bernal+C.+Sancho+IV+el+Bravo+3+11380+Tarifa" target="_blank" rel="noopener">Pastelería Bernal</a></strong> <span class="am-muted">(Gamla Stan)</span>`,
+              `<strong>Pastelería Bernal</strong> <span class="am-muted">(Gamla Stan)</span>`,
               `Mest känd för sina traditionella bakverk och sitt berömda Pan Macho. Ett bra stopp om ni redan strosar runt i centrum.`,
               `C. Sancho IV el Bravo, 3, Tarifa`
             ]
@@ -1263,6 +1300,7 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
         },
         {
           icon: 'cart',
+          recommendationIds: ['tarifa.essentials.mercadona', 'tarifa.essentials.lidl', 'tarifa.essentials.dia', 'tarifa.essentials.supeco'],
           title: tarifaText(
             'Supermarkets',
             'Supermärkte',
@@ -1272,87 +1310,87 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercadona+C.+Batalla+del+Salado+11380+Tarifa" target="_blank" rel="noopener">Mercadona</a></strong> <span class="am-muted">(directly across from the apartment)</span>`,
+              `<strong>Mercadona</strong> <span class="am-muted">(directly across from the apartment)</span>`,
               `Usually the easiest option for daily groceries. It is especially practical for staple items and a simple same-day shop.`,
               `C. Batalla del Salado, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lidl+C.+Coronel+Francisco+Vald%C3%A9s+27+11380+Tarifa" target="_blank" rel="noopener">Lidl</a></strong> <span class="am-muted">(larger-format option)</span>`,
+              `<strong>Lidl</strong> <span class="am-muted">(larger-format option)</span>`,
               `A useful option for a broader grocery shop, especially if you are already moving around by car.`,
               `C. Coronel Francisco Valdés, 27, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=DIA+C.+San+Sebasti%C3%A1n+30+11380+Tarifa" target="_blank" rel="noopener">DIA</a></strong> <span class="am-muted">(smaller local option)</span>`,
+              `<strong>DIA</strong> <span class="am-muted">(smaller local option)</span>`,
               `Handy for a quick grocery stop if you are already in town and do not want to do a full supermarket run.`,
               `C. San Sebastián, 30, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Supeco+Calle+San+Jos%C3%A9+67+11380+Tarifa" target="_blank" rel="noopener">Supeco</a></strong> <span class="am-muted">(for a larger stock-up)</span>`,
+              `<strong>Supeco</strong> <span class="am-muted">(for a larger stock-up)</span>`,
               `A practical option for bigger shopping runs and household basics at the edge of town.`,
               `Calle San José, 67, Tarifa`
             ],
             de: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercadona+C.+Batalla+del+Salado+11380+Tarifa" target="_blank" rel="noopener">Mercadona</a></strong> <span class="am-muted">(direkt gegenüber dem Apartment)</span>`,
+              `<strong>Mercadona</strong> <span class="am-muted">(direkt gegenüber dem Apartment)</span>`,
               `Normalerweise die einfachste Option für den täglichen Einkauf. Besonders praktisch für Grundnahrungsmittel und spontane Besorgungen.`,
               `C. Batalla del Salado, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lidl+C.+Coronel+Francisco+Vald%C3%A9s+27+11380+Tarifa" target="_blank" rel="noopener">Lidl</a></strong> <span class="am-muted">(größere Auswahl)</span>`,
+              `<strong>Lidl</strong> <span class="am-muted">(größere Auswahl)</span>`,
               `Eine gute Option für einen größeren Einkauf, besonders wenn ihr ohnehin mit dem Auto unterwegs seid.`,
               `C. Coronel Francisco Valdés, 27, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=DIA+C.+San+Sebasti%C3%A1n+30+11380+Tarifa" target="_blank" rel="noopener">DIA</a></strong> <span class="am-muted">(kleinere lokale Option)</span>`,
+              `<strong>DIA</strong> <span class="am-muted">(kleinere lokale Option)</span>`,
               `Praktisch für einen schnellen Einkauf, wenn ihr in der Stadt seid und keinen großen Supermarkt ansteuern wollt.`,
               `C. San Sebastián, 30, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Supeco+Calle+San+Jos%C3%A9+67+11380+Tarifa" target="_blank" rel="noopener">Supeco</a></strong> <span class="am-muted">(für den Großeinkauf)</span>`,
+              `<strong>Supeco</strong> <span class="am-muted">(für den Großeinkauf)</span>`,
               `Eine praktische Option für größere Einkäufe und Haushaltsbasics am Stadtrand.`,
               `Calle San José, 67, Tarifa`
             ],
             es: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercadona+C.+Batalla+del+Salado+11380+Tarifa" target="_blank" rel="noopener">Mercadona</a></strong> <span class="am-muted">(justo enfrente del apartamento)</span>`,
+              `<strong>Mercadona</strong> <span class="am-muted">(justo enfrente del apartamento)</span>`,
               `Normalmente la opción más fácil para la compra diaria. Es especialmente práctico para productos básicos y una compra rápida para el día.`,
               `C. Batalla del Salado, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lidl+C.+Coronel+Francisco+Vald%C3%A9s+27+11380+Tarifa" target="_blank" rel="noopener">Lidl</a></strong> <span class="am-muted">(opción de formato más grande)</span>`,
+              `<strong>Lidl</strong> <span class="am-muted">(opción de formato más grande)</span>`,
               `Una opción útil para una compra más amplia, especialmente si ya os movéis en coche.`,
               `C. Coronel Francisco Valdés, 27, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=DIA+C.+San+Sebasti%C3%A1n+30+11380+Tarifa" target="_blank" rel="noopener">DIA</a></strong> <span class="am-muted">(opción local más pequeña)</span>`,
+              `<strong>DIA</strong> <span class="am-muted">(opción local más pequeña)</span>`,
               `Práctico para una compra rápida si ya estáis en el pueblo y no queréis ir a un supermercado grande.`,
               `C. San Sebastián, 30, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Supeco+Calle+San+Jos%C3%A9+67+11380+Tarifa" target="_blank" rel="noopener">Supeco</a></strong> <span class="am-muted">(para una compra grande)</span>`,
+              `<strong>Supeco</strong> <span class="am-muted">(para una compra grande)</span>`,
               `Una opción práctica para compras más grandes y productos básicos del hogar en las afueras del pueblo.`,
               `Calle San José, 67, Tarifa`
             ],
             nl: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercadona+C.+Batalla+del+Salado+11380+Tarifa" target="_blank" rel="noopener">Mercadona</a></strong> <span class="am-muted">(direct tegenover het appartement)</span>`,
+              `<strong>Mercadona</strong> <span class="am-muted">(direct tegenover het appartement)</span>`,
               `Meestal de makkelijkste optie voor de dagelijkse boodschappen. Vooral praktisch voor basisproducten en een snelle boodschap voor dezelfde dag.`,
               `C. Batalla del Salado, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lidl+C.+Coronel+Francisco+Vald%C3%A9s+27+11380+Tarifa" target="_blank" rel="noopener">Lidl</a></strong> <span class="am-muted">(grotere winkel)</span>`,
+              `<strong>Lidl</strong> <span class="am-muted">(grotere winkel)</span>`,
               `Een handige optie voor grotere boodschappen, vooral als jullie toch al met de auto op pad zijn.`,
               `C. Coronel Francisco Valdés, 27, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=DIA+C.+San+Sebasti%C3%A1n+30+11380+Tarifa" target="_blank" rel="noopener">DIA</a></strong> <span class="am-muted">(kleinere lokale optie)</span>`,
+              `<strong>DIA</strong> <span class="am-muted">(kleinere lokale optie)</span>`,
               `Handig voor een snelle boodschap als jullie al in het centrum zijn en geen grote supermarkt willen bezoeken.`,
               `C. San Sebastián, 30, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Supeco+Calle+San+Jos%C3%A9+67+11380+Tarifa" target="_blank" rel="noopener">Supeco</a></strong> <span class="am-muted">(voor een grotere voorraad)</span>`,
+              `<strong>Supeco</strong> <span class="am-muted">(voor een grotere voorraad)</span>`,
               `Een praktische optie voor grote boodschappen en huishoudelijke basisproducten aan de rand van de stad.`,
               `Calle San José, 67, Tarifa`
             ],
             sv: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercadona+C.+Batalla+del+Salado+11380+Tarifa" target="_blank" rel="noopener">Mercadona</a></strong> <span class="am-muted">(mitt emot lägenheten)</span>`,
+              `<strong>Mercadona</strong> <span class="am-muted">(mitt emot lägenheten)</span>`,
               `Oftast det enklaste alternativet för dagliga matinköp. Det är särskilt praktiskt för basvaror och en snabb inköpsrunda.`,
               `C. Batalla del Salado, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Lidl+C.+Coronel+Francisco+Vald%C3%A9s+27+11380+Tarifa" target="_blank" rel="noopener">Lidl</a></strong> <span class="am-muted">(större alternativ)</span>`,
+              `<strong>Lidl</strong> <span class="am-muted">(större alternativ)</span>`,
               `Ett bra alternativ för större inköp, speciellt om ni ändå rör er med bil.`,
               `C. Coronel Francisco Valdés, 27, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=DIA+C.+San+Sebasti%C3%A1n+30+11380+Tarifa" target="_blank" rel="noopener">DIA</a></strong> <span class="am-muted">(mindre lokalt alternativ)</span>`,
+              `<strong>DIA</strong> <span class="am-muted">(mindre lokalt alternativ)</span>`,
               `Smidigt för ett snabbt stopp om ni redan är på stan och inte vill gå till en stor mataffär.`,
               `C. San Sebastián, 30, Tarifa`,
               `—`,
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Supeco+Calle+San+Jos%C3%A9+67+11380+Tarifa" target="_blank" rel="noopener">Supeco</a></strong> <span class="am-muted">(för storhandling)</span>`,
+              `<strong>Supeco</strong> <span class="am-muted">(för storhandling)</span>`,
               `Ett praktiskt alternativ för större inköp och hushållsartiklar i utkanten av staden.`,
               `Calle San José, 67, Tarifa`
             ]
@@ -1360,6 +1398,7 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
         },
         {
           icon: 'store',
+          recommendationIds: ['tarifa.essentials.mercado-publico'],
           title: tarifaText(
             'Local Market',
             'Lokaler Markt',
@@ -1369,27 +1408,27 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercado+P%C3%BAblico+de+Tarifa+C.+Col%C3%B3n+5+11380+Tarifa" target="_blank" rel="noopener">Mercado Público de Tarifa</a></strong> <span class="am-muted">(Old Town)</span>`,
+              `<strong>Mercado Público de Tarifa</strong> <span class="am-muted">(Old Town)</span>`,
               `For fresh fish, fruit, vegetables and a more everyday side of Tarifa, this is one of the nicest places to go.`,
               `C. Colón, 5, Tarifa`
             ],
             de: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercado+P%C3%BAblico+de+Tarifa+C.+Col%C3%B3n+5+11380+Tarifa" target="_blank" rel="noopener">Mercado Público de Tarifa</a></strong> <span class="am-muted">(Altstadt)</span>`,
+              `<strong>Mercado Público de Tarifa</strong> <span class="am-muted">(Altstadt)</span>`,
               `Für frischen Fisch, Obst, Gemüse und eine eher alltägliche Seite von Tarifa ist dies einer der schönsten Orte.`,
               `C. Colón, 5, Tarifa`
             ],
             es: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercado+P%C3%BAblico+de+Tarifa+C.+Col%C3%B3n+5+11380+Tarifa" target="_blank" rel="noopener">Mercado Público de Tarifa</a></strong> <span class="am-muted">(Casco Antiguo)</span>`,
+              `<strong>Mercado Público de Tarifa</strong> <span class="am-muted">(Casco Antiguo)</span>`,
               `Para pescado fresco, frutas, verduras y un lado más cotidiano de Tarifa, este es uno de los mejores lugares.`,
               `C. Colón, 5, Tarifa`
             ],
             nl: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercado+P%C3%BAblico+de+Tarifa+C.+Col%C3%B3n+5+11380+Tarifa" target="_blank" rel="noopener">Mercado Público de Tarifa</a></strong> <span class="am-muted">(Oude Stad)</span>`,
+              `<strong>Mercado Público de Tarifa</strong> <span class="am-muted">(Oude Stad)</span>`,
               `Voor verse vis, fruit, groenten en een meer alledaagse kant van Tarifa is dit een van de leukste plekken om naartoe te gaan.`,
               `C. Colón, 5, Tarifa`
             ],
             sv: [
-              `<strong><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mercado+P%C3%BAblico+de+Tarifa+C.+Col%C3%B3n+5+11380+Tarifa" target="_blank" rel="noopener">Mercado Público de Tarifa</a></strong> <span class="am-muted">(Gamla Stan)</span>`,
+              `<strong>Mercado Público de Tarifa</strong> <span class="am-muted">(Gamla Stan)</span>`,
               `För färsk fisk, frukt, grönsaker och en mer vardaglig sida av Tarifa är detta en av de trevligaste platserna att besöka.`,
               `C. Colón, 5, Tarifa`
             ]
@@ -1806,6 +1845,7 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
         },
         {
           icon: 'medical',
+          recommendationId: 'tarifa.essentials.centro-de-salud-tarifa',
           title: tarifaText(
             '24-Hour Medical Assistance',
             '24-Stunden medizinische Versorgung',
@@ -1816,23 +1856,23 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
           body: tarifaParagraphs({
             en: [
               `For non-emergency medical care, the nearest 24-hour public health centre is:`,
-              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener noreferrer">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Open 24 hours.`
+              `<strong>Centro de Salud Tarifa</strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Open 24 hours.`
             ],
             de: [
               `Für nicht akute medizinische Anliegen ist das nächstgelegene öffentliche 24-Stunden-Gesundheitszentrum:`,
-              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener noreferrer">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>24 Stunden geöffnet.`
+              `<strong>Centro de Salud Tarifa</strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>24 Stunden geöffnet.`
             ],
             es: [
               `Para asuntos médicos que no sean una emergencia, el centro de salud público de 24 horas más cercano es:`,
-              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener noreferrer">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Abierto 24 horas.`
+              `<strong>Centro de Salud Tarifa</strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Abierto 24 horas.`
             ],
             nl: [
               `Voor niet-spoedeisende medische zorg is het dichtstbijzijnde openbare 24-uurs gezondheidscentrum:`,
-              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener noreferrer">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>24 uur geopend.`
+              `<strong>Centro de Salud Tarifa</strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>24 uur geopend.`
             ],
             sv: [
               `För icke-akut medicinsk vård är närmaste offentliga vårdcentral med öppet dygnet runt:`,
-              `<strong><a class="am-link" href="https://share.google/kThtXHL43CfcwzfDC" target="_blank" rel="noopener noreferrer">Centro de Salud Tarifa</a></strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Öppet 24 timmar.`
+              `<strong>Centro de Salud Tarifa</strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Öppet 24 timmar.`
             ]
           })
         },
@@ -1892,11 +1932,11 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
     'AMARA Experience | AMARA Gästguide'
   ),
   seoDescription: tarifaText(
-    'Hidden treasures, insider tips, authentic local food and lesser-known places in Tarifa, selected by your AMARA hosts.',
-    'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte in Tarifa, ausgewählt von euren AMARA-Gastgebern.',
-    'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos de Tarifa, seleccionados por vuestros anfitriones de AMARA.',
-    'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken in Tarifa, geselecteerd door jullie AMARA-gastheren.',
-    'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser i Tarifa, utvalda av era AMARA-värdar.'
+    'Our selection for Tarifa: kitesurfing, food and drinks, beaches, activities, sightseeing and nightlife, with what you need to know on the spot.',
+    'Unsere Auswahl für Tarifa: Kitesurfen, Essen und Trinken, Strände, Aktivitäten, Sightseeing und Nachtleben, mit dem, was ihr vor Ort wissen müsst.',
+    'Nuestra selección para Tarifa: kitesurf, comer y beber, playas, actividades, lugares que ver y noche, con lo que necesitáis saber sobre el terreno.',
+    'Onze selectie voor Tarifa: kitesurfen, eten en drinken, stranden, activiteiten, bezienswaardigheden en nachtleven, met wat jullie ter plekke moeten weten.',
+    'Vårt urval för Tarifa: kitesurfing, mat och dryck, stränder, aktiviteter, sevärdheter och nattliv, med det ni behöver veta på plats.'
   ),
   kicker: tarifaText(
     'TARIFA GUEST GUIDE',
@@ -1913,11 +1953,11 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
     'Våra personliga rekommendationer för Tarifa'
   ),
   intro: tarifaText(
-    'Hidden treasures, insider tips, authentic local food and lesser-known places — with practical details for more time together away from the busiest routes.',
-    'Versteckte Schätze, Insider-Tipps, authentische lokale Küche und weniger bekannte Orte – mit praktischen Details für mehr gemeinsame Zeit abseits der meistbesuchten Wege.',
-    'Rincones escondidos, consejos locales, cocina local auténtica y lugares menos conocidos, con detalles prácticos para disfrutar más tiempo juntos fuera de las rutas más concurridas.',
-    'Verborgen parels, insidertips, authentiek lokaal eten en minder bekende plekken — met praktische details voor meer tijd samen buiten de drukste routes.',
-    'Dolda pärlor, insidertips, genuin lokal mat och mindre kända platser — med praktiska detaljer för mer tid tillsammans bortom de mest välbesökta stråken.'
+    'What we would choose ourselves in Tarifa: kitesurfing, food and drinks, beaches, activities, sightseeing and nightlife, each with the map and what matters on the spot.',
+    'Was wir selbst wählen würden in Tarifa: Kitesurfen, Essen und Trinken, Strände, Aktivitäten, Sightseeing und Nachtleben, jeweils mit Karte und dem, was vor Ort zählt.',
+    'Lo que elegiríamos nosotros en Tarifa: kitesurf, comer y beber, playas, actividades, lugares que ver y noche, cada uno con el mapa y lo que importa sobre el terreno.',
+    'Wat we zelf zouden kiezen in Tarifa: kitesurfen, eten en drinken, stranden, activiteiten, bezienswaardigheden en nachtleven, elk met kaart en wat ter plekke telt.',
+    'Det vi själva skulle välja i Tarifa: kitesurfing, mat och dryck, stränder, aktiviteter, sevärdheter och nattliv, var och en med karta och det som räknas på plats.'
   ),
   categories: [
     {
@@ -2040,107 +2080,80 @@ const tarifaFamilySurfFoodDrink: GuestGuideEntry = {
   categories: [
     {
       heading: tarifaText(
-        'Our culinary recommendations',
-        'Unsere kulinarischen Empfehlungen',
-        'Nuestras recomendaciones gastronómicas',
-        'Onze culinaire aanbevelingen',
-        'Våra kulinariska rekommendationer'
+        "Breakfast / Brunch",
+        "Frühstück / Brunch",
+        "Desayuno y brunch",
+        "Ontbijt / Brunch",
+        "Frukost / Brunch"
       ),
-      intro: tarifaParagraphs({
-        en: [
-          'Whether you love seafood, prefer vegetarian food, or are looking for authentic local cuisine, Tarifa has something for everyone. Look forward to delightful flavours, charming atmospheres, and memorable dining experiences.',
-          'Let us guide you through Tarifa’s culinary landscape and help you discover the restaurant that best suits your palate.',
-          '<strong>Let’s dive into the culinary delights that await you in Tarifa:</strong>'
-        ],
-        de: [
-          'Egal, ob ihr Meeresfrüchte liebt, euch vegetarisch ernährt oder authentische lokale Küche sucht – Tarifa hat für jeden etwas zu bieten. Freut euch auf köstliche Aromen, charmante Atmosphären und unvergessliche Restaurantbesuche.',
-          'Lasst euch von uns durch Tarifas kulinarische Landschaft führen und entdeckt genau das Restaurant, auf das ihr gerade Appetit habt.',
-          '<strong>Tauchen wir ein in die kulinarischen Highlights, die euch in Tarifa erwarten:</strong>'
-        ],
-        es: [
-          'Tanto si sois amantes del marisco, entusiastas de la comida vegetariana o buscáis auténtica cocina local, Tarifa tiene algo para todos. Preparaos para disfrutar de sabores deliciosos, ambientes con encanto y experiencias inolvidables.',
-          'Dejadnos guiaros por el panorama culinario de Tarifa y ayudaros a descubrir el restaurante perfecto para vuestro paladar.',
-          '<strong>Sumerjámonos en las delicias culinarias que os esperan en Tarifa:</strong>'
-        ],
-        nl: [
-          'Of jullie nu van zeevruchten houden, graag vegetarisch eten of op zoek zijn naar authentieke lokale gerechten: Tarifa heeft voor ieder wat wils. Geniet van heerlijke smaken, sfeervolle locaties en onvergetelijke etentjes.',
-          'Laat ons jullie door het culinaire landschap van Tarifa gidsen en helpen het restaurant te vinden dat perfect bij jullie smaak past.',
-          '<strong>Duik mee in de culinaire hoogtepunten die jullie in Tarifa te wachten staan:</strong>'
-        ],
-        sv: [
-          'Oavsett om ni älskar fisk och skaldjur, föredrar vegetariskt eller söker autentisk lokal mat har Tarifa något för alla. Se fram emot härliga smaker, charmiga miljöer och minnesvärda restaurangbesök.',
-          'Låt oss guida er genom Tarifas kulinariska landskap och hjälpa er att hitta restaurangen som passar just er smak.',
-          '<strong>Låt oss dyka in i de kulinariska upplevelser som väntar er i Tarifa:</strong>'
-        ]
-      }),
-      items: [
+      intro: [
+        tarifaText(
+          "<strong>Fuel your Tarifa adventures with breakfast and brunch.</strong><br><br>Start the day with a delicious breakfast or brunch at one of these inviting cafés:",
+          "<strong>Stärkt euch für eure Tarifa-Abenteuer mit Frühstück und Brunch.</strong><br><br>Startet den Tag mit einem leckeren Frühstück oder Brunch in einem dieser einladenden Cafés:",
+          "<strong>Coged fuerzas para vuestras aventuras en Tarifa con un buen desayuno o brunch.</strong><br><br>Empezad el día en una de estas atractivas cafeterías:",
+          "<strong>Begin jullie avonturen in Tarifa met een goed ontbijt of brunch.</strong><br><br>Start de dag bij een van deze uitnodigende cafés:",
+          "<strong>Ladda inför era äventyr i Tarifa med frukost eller brunch.</strong><br><br>Börja dagen på något av dessa trevliga kaféer:"
+        )
+      ],
+      items: tarifaVenueCards('breakfast', [
         {
-          icon: 'breakfast',
-          title: tarifaText(
-            'Breakfast / Brunch',
-            'Frühstück / Brunch',
-            'Desayuno y brunch',
-            'Ontbijt / Brunch',
-            'Frukost / Brunch'
-          ),
-          body: [
-            tarifaText(
-              '<strong>Fuel your Tarifa adventures with breakfast and brunch.</strong><br><br>Start the day with a delicious breakfast or brunch at one of these inviting cafés:',
-              '<strong>Stärkt euch für eure Tarifa-Abenteuer mit Frühstück und Brunch.</strong><br><br>Startet den Tag mit einem leckeren Frühstück oder Brunch in einem dieser einladenden Cafés:',
-              '<strong>Coged fuerzas para vuestras aventuras en Tarifa con un buen desayuno o brunch.</strong><br><br>Empezad el día en una de estas atractivas cafeterías:',
-              '<strong>Begin jullie avonturen in Tarifa met een goed ontbijt of brunch.</strong><br><br>Start de dag bij een van deze uitnodigende cafés:',
-              '<strong>Ladda inför era äventyr i Tarifa med frukost eller brunch.</strong><br><br>Börja dagen på något av dessa trevliga kaféer:'
-            ),
-            tarifaRecommendationList([
-              {
-                name: 'SURLA',
-                href: 'https://www.google.com/maps/search/?api=1&query=SURLA+Tarifa',
-                description: tarifaText(
-                  'This surfer haven serves superfood-packed breakfasts, perfect for health-conscious travellers looking for high-quality fuel.',
-                  'Dieser Surfer-Treffpunkt serviert Frühstück voller Superfoods – perfekt, wenn ihr Wert auf gesunde, hochwertige Energie legt.',
-                  'Este refugio de surfistas sirve desayunos repletos de superalimentos, perfectos si buscáis energía sana y de calidad.',
-                  'Deze surfershotspot serveert ontbijt vol superfoods, perfect als jullie op zoek zijn naar gezonde energie van hoge kwaliteit.',
-                  'Detta surftillhåll serverar frukostar fulla av superfoods, perfekt för er som söker hälsosam energi av hög kvalitet.'
-                )
-              },
-              {
-                name: 'POWERHOUSE',
-                href: 'https://www.google.com/maps/search/?api=1&query=POWERHOUSE+Tarifa',
-                description: tarifaText(
-                  'Beside the road to Valdevaqueros, Powerhouse offers hearty breakfasts for kitesurfing and action-packed days.',
-                  'Direkt an der Straße zu den Stränden von Valdevaqueros bietet das Powerhouse ein herzhaftes Frühstück für Kitesurf-Sessions und actionreiche Tage.',
-                  'Junto a la carretera hacia Valdevaqueros, Powerhouse ofrece desayunos contundentes para vuestros días de kitesurf y acción.',
-                  'Aan de weg naar Valdevaqueros biedt Powerhouse stevige ontbijtjes voor een dag vol kitesurfen en actie.',
-                  'Vid vägen mot Valdevaqueros erbjuder Powerhouse rejäla frukostar för kitesurfing och actionfyllda dagar.'
-                )
-              },
-              {
-                name: 'CAFÉ AZUL',
-                href: 'https://www.google.com/maps/search/?api=1&query=CAF%C3%89+AZUL+Tarifa',
-                description: tarifaText(
-                  'A Tarifa institution for decades and a classic place for a relaxed breakfast by Puerta de Jerez.',
-                  'Seit Jahrzehnten eine Institution in Tarifa und ein Klassiker für ein entspanntes Frühstück an der Puerta de Jerez.',
-                  'Toda una institución en Tarifa desde hace décadas y un clásico para desayunar tranquilamente junto a la Puerta de Jerez.',
-                  'Al decennia een begrip in Tarifa en een klassieke plek voor een ontspannen ontbijt bij de Puerta de Jerez.',
-                  'En institution i Tarifa sedan decennier och ett klassiskt ställe för en lugn frukost vid Puerta de Jerez.'
-                )
-              },
-              {
-                name: 'HELENA’S KITCHEN',
-                href: 'https://www.google.com/maps/search/?api=1&query=HELENA%E2%80%99S+KITCHEN+Tarifa',
-                description: tarifaText(
-                  'This cooking school is in the same building as your apartment and also serves excellent breakfasts.',
-                  'Diese Kochschule befindet sich im selben Gebäude wie euer Apartment und serviert ebenfalls ein hervorragendes Frühstück.',
-                  'Esta escuela de cocina está en el mismo edificio que vuestro apartamento y también sirve desayunos excelentes.',
-                  'Deze kookschool zit in hetzelfde gebouw als jullie appartement en serveert ook uitstekende ontbijtjes.',
-                  'Denna matlagningsskola ligger i samma byggnad som er lägenhet och serverar även utmärkt frukost.'
-                )
-              }
-            ])
-          ]
+          name: "SURLA",
+          id: 'tarifa.food-drink.surla',
+          description: tarifaText(
+            "This surfer haven serves superfood-packed breakfasts, perfect for health-conscious travellers looking for high-quality fuel.",
+            "Dieser Surfer-Treffpunkt serviert Frühstück voller Superfoods – perfekt, wenn ihr Wert auf gesunde, hochwertige Energie legt.",
+            "Este refugio de surfistas sirve desayunos repletos de superalimentos, perfectos si buscáis energía sana y de calidad.",
+            "Deze surfershotspot serveert ontbijt vol superfoods, perfect als jullie op zoek zijn naar gezonde energie van hoge kwaliteit.",
+            "Detta surftillhåll serverar frukostar fulla av superfoods, perfekt för er som söker hälsosam energi av hög kvalitet."
+          )
         },
         {
+          name: "POWERHOUSE",
+          id: 'tarifa.food-drink.powerhouse',
+          description: tarifaText(
+            "Beside the road to Valdevaqueros, Powerhouse offers hearty breakfasts for kitesurfing and action-packed days.",
+            "Direkt an der Straße zu den Stränden von Valdevaqueros bietet das Powerhouse ein herzhaftes Frühstück für Kitesurf-Sessions und actionreiche Tage.",
+            "Junto a la carretera hacia Valdevaqueros, Powerhouse ofrece desayunos contundentes para vuestros días de kitesurf y acción.",
+            "Aan de weg naar Valdevaqueros biedt Powerhouse stevige ontbijtjes voor een dag vol kitesurfen en actie.",
+            "Vid vägen mot Valdevaqueros erbjuder Powerhouse rejäla frukostar för kitesurfing och actionfyllda dagar."
+          )
+        },
+        {
+          name: "CAFÉ AZUL",
+          id: 'tarifa.food-drink.cafe-azul',
+          description: tarifaText(
+            "A Tarifa institution for decades and a classic place for a relaxed breakfast by Puerta de Jerez.",
+            "Seit Jahrzehnten eine Institution in Tarifa und ein Klassiker für ein entspanntes Frühstück an der Puerta de Jerez.",
+            "Toda una institución en Tarifa desde hace décadas y un clásico para desayunar tranquilamente junto a la Puerta de Jerez.",
+            "Al decennia een begrip in Tarifa en een klassieke plek voor een ontspannen ontbijt bij de Puerta de Jerez.",
+            "En institution i Tarifa sedan decennier och ett klassiskt ställe för en lugn frukost vid Puerta de Jerez."
+          )
+        },
+        {
+          name: "HELENA’S KITCHEN",
+          id: 'tarifa.food-drink.helenas-kitchen',
+          description: tarifaText(
+            "This cooking school is in the same building as your apartment and also serves excellent breakfasts.",
+            "Diese Kochschule befindet sich im selben Gebäude wie euer Apartment und serviert ebenfalls ein hervorragendes Frühstück.",
+            "Esta escuela de cocina está en el mismo edificio que vuestro apartamento y también sirve desayunos excelentes.",
+            "Deze kookschool zit in hetzelfde gebouw als jullie appartement en serveert ook uitstekende ontbijtjes.",
+            "Denna matlagningsskola ligger i samma byggnad som er lägenhet och serverar även utmärkt frukost."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Beach Bars (Chiringuitos)",
+        "Strandbars (Chiringuitos)",
+        "Chiringuitos",
+        "Strandbars (Chiringuitos)",
+        "Strandbarer (Chiringuitos)"
+      ),
+      items: [
+        {
           icon: 'wave',
+          recommendationIds: ['tarifa.food-drink.el-chiringuito', 'tarifa.food-drink.balneario-beach-club', 'tarifa.food-drink.waikiki', 'tarifa.food-drink.demente', 'tarifa.food-drink.carbones13', 'tarifa.food-drink.aqua', 'tarifa.food-drink.waves', 'tarifa.food-drink.tumbao'],
           title: tarifaText(
             'Beach Bars (Chiringuitos)',
             'Strandbars (Chiringuitos)',
@@ -2157,11 +2170,11 @@ const tarifaFamilySurfFoodDrink: GuestGuideEntry = {
               'Tarifas magi fortsätter efter dagens slut. När solen sjunker mot horisonten blir strandbarerna livliga mötesplatser med fantastisk utsikt, vackra solnedgångar, god mat, uppfriskande cocktails och musik.'
             ),
             tarifaText(
-              '<strong>Playa Los Lances Sur:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Chiringuito+Tarifa" target="_blank" rel="noopener noreferrer">El Chiringuito</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Balneario+Beach+Club+Tarifa" target="_blank" rel="noopener noreferrer">Balneario Beach Club Tarifa</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Waikiki+Tarifa" target="_blank" rel="noopener noreferrer">Waikiki</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=DEMENTE+Tarifa" target="_blank" rel="noopener noreferrer">DEMENTE</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=CARBONES13+Tarifa" target="_blank" rel="noopener noreferrer">CARBONES13</a><br><strong>Playa Los Lances Norte:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=AQUA+Tarifa" target="_blank" rel="noopener noreferrer">AQUA</a> and <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=WAVES+Tarifa" target="_blank" rel="noopener noreferrer">WAVES</a><br><strong>Playa Valdevaqueros:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=TUMBAO+Tarifa" target="_blank" rel="noopener noreferrer">TUMBAO</a>',
-              '<strong>Playa Los Lances Sur:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Chiringuito+Tarifa" target="_blank" rel="noopener noreferrer">El Chiringuito</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Balneario+Beach+Club+Tarifa" target="_blank" rel="noopener noreferrer">Balneario Beach Club Tarifa</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Waikiki+Tarifa" target="_blank" rel="noopener noreferrer">Waikiki</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=DEMENTE+Tarifa" target="_blank" rel="noopener noreferrer">DEMENTE</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=CARBONES13+Tarifa" target="_blank" rel="noopener noreferrer">CARBONES13</a><br><strong>Playa Los Lances Norte:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=AQUA+Tarifa" target="_blank" rel="noopener noreferrer">AQUA</a> und <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=WAVES+Tarifa" target="_blank" rel="noopener noreferrer">WAVES</a><br><strong>Playa Valdevaqueros:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=TUMBAO+Tarifa" target="_blank" rel="noopener noreferrer">TUMBAO</a>',
-              '<strong>Playa Los Lances Sur:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Chiringuito+Tarifa" target="_blank" rel="noopener noreferrer">El Chiringuito</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Balneario+Beach+Club+Tarifa" target="_blank" rel="noopener noreferrer">Balneario Beach Club Tarifa</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Waikiki+Tarifa" target="_blank" rel="noopener noreferrer">Waikiki</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=DEMENTE+Tarifa" target="_blank" rel="noopener noreferrer">DEMENTE</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=CARBONES13+Tarifa" target="_blank" rel="noopener noreferrer">CARBONES13</a><br><strong>Playa Los Lances Norte:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=AQUA+Tarifa" target="_blank" rel="noopener noreferrer">AQUA</a> y <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=WAVES+Tarifa" target="_blank" rel="noopener noreferrer">WAVES</a><br><strong>Playa Valdevaqueros:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=TUMBAO+Tarifa" target="_blank" rel="noopener noreferrer">TUMBAO</a>',
-              '<strong>Playa Los Lances Sur:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Chiringuito+Tarifa" target="_blank" rel="noopener noreferrer">El Chiringuito</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Balneario+Beach+Club+Tarifa" target="_blank" rel="noopener noreferrer">Balneario Beach Club Tarifa</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Waikiki+Tarifa" target="_blank" rel="noopener noreferrer">Waikiki</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=DEMENTE+Tarifa" target="_blank" rel="noopener noreferrer">DEMENTE</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=CARBONES13+Tarifa" target="_blank" rel="noopener noreferrer">CARBONES13</a><br><strong>Playa Los Lances Norte:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=AQUA+Tarifa" target="_blank" rel="noopener noreferrer">AQUA</a> en <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=WAVES+Tarifa" target="_blank" rel="noopener noreferrer">WAVES</a><br><strong>Playa Valdevaqueros:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=TUMBAO+Tarifa" target="_blank" rel="noopener noreferrer">TUMBAO</a>',
-              '<strong>Playa Los Lances Sur:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=El+Chiringuito+Tarifa" target="_blank" rel="noopener noreferrer">El Chiringuito</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Balneario+Beach+Club+Tarifa" target="_blank" rel="noopener noreferrer">Balneario Beach Club Tarifa</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Waikiki+Tarifa" target="_blank" rel="noopener noreferrer">Waikiki</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=DEMENTE+Tarifa" target="_blank" rel="noopener noreferrer">DEMENTE</a>, <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=CARBONES13+Tarifa" target="_blank" rel="noopener noreferrer">CARBONES13</a><br><strong>Playa Los Lances Norte:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=AQUA+Tarifa" target="_blank" rel="noopener noreferrer">AQUA</a> och <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=WAVES+Tarifa" target="_blank" rel="noopener noreferrer">WAVES</a><br><strong>Playa Valdevaqueros:</strong> <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=TUMBAO+Tarifa" target="_blank" rel="noopener noreferrer">TUMBAO</a>'
+              '<strong>Playa Los Lances Sur:</strong> El Chiringuito, Balneario Beach Club Tarifa, Waikiki, DEMENTE, CARBONES13<br><strong>Playa Los Lances Norte:</strong> AQUA and WAVES<br><strong>Playa Valdevaqueros:</strong> TUMBAO',
+              '<strong>Playa Los Lances Sur:</strong> El Chiringuito, Balneario Beach Club Tarifa, Waikiki, DEMENTE, CARBONES13<br><strong>Playa Los Lances Norte:</strong> AQUA und WAVES<br><strong>Playa Valdevaqueros:</strong> TUMBAO',
+              '<strong>Playa Los Lances Sur:</strong> El Chiringuito, Balneario Beach Club Tarifa, Waikiki, DEMENTE, CARBONES13<br><strong>Playa Los Lances Norte:</strong> AQUA y WAVES<br><strong>Playa Valdevaqueros:</strong> TUMBAO',
+              '<strong>Playa Los Lances Sur:</strong> El Chiringuito, Balneario Beach Club Tarifa, Waikiki, DEMENTE, CARBONES13<br><strong>Playa Los Lances Norte:</strong> AQUA en WAVES<br><strong>Playa Valdevaqueros:</strong> TUMBAO',
+              '<strong>Playa Los Lances Sur:</strong> El Chiringuito, Balneario Beach Club Tarifa, Waikiki, DEMENTE, CARBONES13<br><strong>Playa Los Lances Norte:</strong> AQUA och WAVES<br><strong>Playa Valdevaqueros:</strong> TUMBAO'
             ),
             tarifaText(
               '<em>Important: Some venues operate seasonally. Please check opening hours and beach restrictions before visiting.</em>',
@@ -2171,384 +2184,384 @@ const tarifaFamilySurfFoodDrink: GuestGuideEntry = {
               '<em>Viktigt: Vissa ställen har endast öppet under säsong. Kontrollera öppettider och strandregler före besöket.</em>'
             )
           ]
+        }
+      ]
+    },
+    {
+      heading: tarifaText(
+        "Fish & Seafood",
+        "Fisch & Meeresfrüchte",
+        "Pescado y marisco",
+        "Vis & zeevruchten",
+        "Fisk & skaldjur"
+      ),
+      items: tarifaVenueCards('fish', [
+        {
+          name: "Marisquería del Puerto",
+          id: 'tarifa.food-drink.marisqueria-del-puerto',
+          description: tarifaText(
+            "Fresh seafood dishes with outdoor seating overlooking the harbour.",
+            "Frische Meeresfrüchte mit Außenbereich und Blick auf den Hafen.",
+            "Platos de marisco fresco con terraza y vistas al puerto.",
+            "Verse visgerechten met een buitenterras dat uitkijkt over de haven.",
+            "Färska skaldjursrätter på en uteservering med utsikt över hamnen."
+          )
         },
         {
-          icon: 'fish',
-          title: tarifaText(
-            'Fish & Seafood',
-            'Fisch & Meeresfrüchte',
-            'Pescado y marisco',
-            'Vis & zeevruchten',
-            'Fisk & skaldjur'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'Marisquería del Puerto',
-                href: 'https://www.google.com/maps/search/?api=1&query=Marisquer%C3%ADa+del+Puerto+Tarifa',
-                description: tarifaText(
-                  'Fresh seafood dishes with outdoor seating overlooking the harbour.',
-                  'Frische Meeresfrüchte mit Außenbereich und Blick auf den Hafen.',
-                  'Platos de marisco fresco con terraza y vistas al puerto.',
-                  'Verse visgerechten met een buitenterras dat uitkijkt over de haven.',
-                  'Färska skaldjursrätter på en uteservering med utsikt över hamnen.'
-                )
-              },
-              {
-                name: 'El Campero',
-                href: 'https://www.google.com/maps/search/?api=1&query=El+Campero+Tarifa',
-                description: tarifaText(
-                  'Renowned for its tuna specialities and also offers gluten-free options.',
-                  'Bekannt für seine Thunfisch-Spezialitäten und mit glutenfreien Optionen.',
-                  'Famoso por sus especialidades de atún y con opciones sin gluten.',
-                  'Beroemd om zijn tonijnspecialiteiten en met glutenvrije opties.',
-                  'Känt för sina tonfiskspecialiteter och med glutenfria alternativ.'
-                )
-              },
-              {
-                name: 'Varadero',
-                href: 'https://www.google.com/maps/search/?api=1&query=Varadero+Tarifa',
-                description: tarifaText(
-                  'Seafood delicacies in a beachfront setting.',
-                  'Köstlichkeiten aus dem Meer in direkter Strandlage.',
-                  'Delicias del mar en primera línea de playa.',
-                  'Delicatessen uit de zee direct aan het strand.',
-                  'Skaldjursdelikatesser i en härlig strandmiljö.'
-                )
-              }
-            ])
-          ]
+          name: "El Campero",
+          id: 'tarifa.food-drink.el-campero',
+          description: tarifaText(
+            "Renowned for its tuna specialities and also offers gluten-free options.",
+            "Bekannt für seine Thunfisch-Spezialitäten und mit glutenfreien Optionen.",
+            "Famoso por sus especialidades de atún y con opciones sin gluten.",
+            "Beroemd om zijn tonijnspecialiteiten en met glutenvrije opties.",
+            "Känt för sina tonfiskspecialiteter och med glutenfria alternativ."
+          )
         },
         {
-          icon: 'watering-can',
-          title: tarifaText(
-            'Vegetarian & Vegan',
-            'Vegetarisch & Vegan',
-            'Vegetariano y vegano',
-            'Vegetarisch & vegan',
-            'Vegetariskt & veganskt'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'El Vegetariano de Tarifa',
-                href: 'https://www.google.com/maps/search/?api=1&query=El+Vegetariano+de+Tarifa',
-                description: tarifaText(
-                  'A cosy restaurant serving vegetarian and vegan dishes with outdoor seating.',
-                  'Gemütliches Restaurant mit vegetarischen und veganen Gerichten sowie Sitzplätzen im Freien.',
-                  'Acogedor restaurante con platos vegetarianos y veganos y mesas al aire libre.',
-                  'Gezellig restaurant met vegetarische en veganistische gerechten en zitplaatsen buiten.',
-                  'Mysig restaurang med vegetariska och veganska rätter samt uteservering.'
-                )
-              },
-              {
-                name: 'Raices',
-                href: 'https://www.google.com/maps/search/?api=1&query=Raices+Tarifa',
-                description: tarifaText(
-                  'Creative vegetarian and vegan options made with locally sourced ingredients.',
-                  'Kreative vegetarische und vegane Optionen aus regionalen Zutaten.',
-                  'Opciones creativas vegetarianas y veganas elaboradas con ingredientes locales.',
-                  'Creatieve vegetarische en veganistische opties met lokale ingrediënten.',
-                  'Kreativa vegetariska och veganska alternativ tillagade med lokala råvaror.'
-                )
-              },
-              {
-                name: 'Raw Cakes Tarifa',
-                href: 'https://www.google.com/maps/search/?api=1&query=Raw+Cakes+Tarifa',
-                description: tarifaText(
-                  'Delicious plant-based desserts in a relaxed setting.',
-                  'Herrliche pflanzenbasierte Desserts in entspannter Umgebung.',
-                  'Deliciosos postres vegetales en un ambiente relajado.',
-                  'Heerlijke plantaardige desserts in een ontspannen sfeer.',
-                  'Ljuvliga växtbaserade desserter i en avslappnad miljö.'
-                )
-              }
-            ])
-          ]
+          name: "Varadero",
+          id: 'tarifa.food-drink.varadero',
+          description: tarifaText(
+            "Seafood delicacies in a beachfront setting.",
+            "Köstlichkeiten aus dem Meer in direkter Strandlage.",
+            "Delicias del mar en primera línea de playa.",
+            "Delicatessen uit de zee direct aan het strand.",
+            "Skaldjursdelikatesser i en härlig strandmiljö."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Vegetarian & Vegan",
+        "Vegetarisch & Vegan",
+        "Vegetariano y vegano",
+        "Vegetarisch & vegan",
+        "Vegetariskt & veganskt"
+      ),
+      items: tarifaVenueCards('watering-can', [
+        {
+          name: "El Vegetariano de Tarifa",
+          id: 'tarifa.food-drink.el-vegetariano-de-tarifa',
+          description: tarifaText(
+            "A cosy restaurant serving vegetarian and vegan dishes with outdoor seating.",
+            "Gemütliches Restaurant mit vegetarischen und veganen Gerichten sowie Sitzplätzen im Freien.",
+            "Acogedor restaurante con platos vegetarianos y veganos y mesas al aire libre.",
+            "Gezellig restaurant met vegetarische en veganistische gerechten en zitplaatsen buiten.",
+            "Mysig restaurang med vegetariska och veganska rätter samt uteservering."
+          )
         },
         {
-          icon: 'goblet',
-          title: tarifaText(
-            'Local Cuisine',
-            'Lokale Küche',
-            'Cocina local',
-            'Lokale keuken',
-            'Lokal mat'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'El Lola',
-                href: 'https://www.google.com/maps/search/?api=1&query=El+Lola+Tarifa',
-                description: tarifaText(
-                  'Authentic local cuisine in a charming setting with a terrace.',
-                  'Authentische lokale Küche in charmantem Ambiente mit Terrasse.',
-                  'Auténtica cocina local en un entorno encantador con terraza.',
-                  'Authentieke lokale gerechten in een sfeervolle setting met terras.',
-                  'Autentisk lokal mat i en charmig miljö med terrass.'
-                )
-              },
-              {
-                name: 'El Varadero',
-                href: 'https://www.google.com/maps/search/?api=1&query=El+Varadero+Tarifa',
-                description: tarifaText(
-                  'Traditional dishes with fresh ingredients and views of the coastline.',
-                  'Traditionelle Gerichte mit frischen Zutaten und Blick auf die Küste.',
-                  'Platos tradicionales con ingredientes frescos y vistas a la costa.',
-                  'Traditionele gerechten met verse ingrediënten en uitzicht op de kust.',
-                  'Traditionella rätter med färska ingredienser och utsikt över kusten.'
-                )
-              },
-              {
-                name: 'Otero',
-                href: 'https://www.google.com/maps/search/?api=1&query=Otero+Tarifa',
-                description: tarifaText(
-                  'Local specialities and classic Spanish dishes in a warm atmosphere.',
-                  'Lokale Spezialitäten und spanische Klassiker in herzlicher Atmosphäre.',
-                  'Especialidades locales y clásicos españoles en un ambiente cálido.',
-                  'Lokale specialiteiten en klassieke Spaanse gerechten in een warme sfeer.',
-                  'Lokala specialiteter och klassiska spanska rätter i en varm atmosfär.'
-                )
-              }
-            ])
-          ]
+          name: "Raices",
+          id: 'tarifa.food-drink.raices',
+          description: tarifaText(
+            "Creative vegetarian and vegan options made with locally sourced ingredients.",
+            "Kreative vegetarische und vegane Optionen aus regionalen Zutaten.",
+            "Opciones creativas vegetarianas y veganas elaboradas con ingredientes locales.",
+            "Creatieve vegetarische en veganistische opties met lokale ingrediënten.",
+            "Kreativa vegetariska och veganska alternativ tillagade med lokala råvaror."
+          )
         },
         {
-          icon: 'flame',
-          title: tarifaText(
-            'Meat Lovers',
-            'Für Fleischliebhaber',
-            'Para amantes de la carne',
-            'Voor vleesliefhebbers',
-            'För köttälskare'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'Asador La Burla',
-                href: 'https://www.google.com/maps/search/?api=1&query=Asador+La+Burla+Tarifa',
-                description: tarifaText(
-                  'Grilled meat dishes in beautiful surroundings.',
-                  'Gegrillte Fleischspezialitäten in wunderschöner Umgebung.',
-                  'Carnes a la brasa en un entorno precioso.',
-                  'Gegrilde vleesgerechten in een prachtige omgeving.',
-                  'Grillade kötträtter i vackra omgivningar.'
-                )
-              },
-              {
-                name: 'El Rancho',
-                href: 'https://www.google.com/maps/search/?api=1&query=El+Rancho+Tarifa',
-                description: tarifaText(
-                  'Known for steaks and barbecue specialities.',
-                  'Bekannt für Steaks und BBQ-Spezialitäten.',
-                  'Conocido por sus chuletones y especialidades a la barbacoa.',
-                  'Bekend om zijn steaks en barbecuespecialiteiten.',
-                  'Känt för sina stekar och BBQ-specialiteter.'
-                )
-              },
-              {
-                name: 'La Torre',
-                href: 'https://www.google.com/maps/search/?api=1&query=La+Torre+Tarifa',
-                description: tarifaText(
-                  'Meat dishes made with local ingredients and accompanied by stunning views.',
-                  'Fleischgerichte mit regionalen Zutaten und herrlichem Ausblick.',
-                  'Platos de carne con ingredientes locales y vistas impresionantes.',
-                  'Vleesgerechten met lokale ingrediënten en een prachtig uitzicht.',
-                  'Kötträtter med lokala råvaror och fantastisk utsikt.'
-                )
-              }
-            ])
-          ]
+          name: "Raw Cakes Tarifa",
+          id: 'tarifa.food-drink.raw-cakes-tarifa',
+          description: tarifaText(
+            "Delicious plant-based desserts in a relaxed setting.",
+            "Herrliche pflanzenbasierte Desserts in entspannter Umgebung.",
+            "Deliciosos postres vegetales en un ambiente relajado.",
+            "Heerlijke plantaardige desserts in een ontspannen sfeer.",
+            "Ljuvliga växtbaserade desserter i en avslappnad miljö."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Local Cuisine",
+        "Lokale Küche",
+        "Cocina local",
+        "Lokale keuken",
+        "Lokal mat"
+      ),
+      items: tarifaVenueCards('goblet', [
+        {
+          name: "El Lola",
+          id: 'tarifa.food-drink.el-lola',
+          description: tarifaText(
+            "Authentic local cuisine in a charming setting with a terrace.",
+            "Authentische lokale Küche in charmantem Ambiente mit Terrasse.",
+            "Auténtica cocina local en un entorno encantador con terraza.",
+            "Authentieke lokale gerechten in een sfeervolle setting met terras.",
+            "Autentisk lokal mat i en charmig miljö med terrass."
+          )
         },
         {
-          icon: 'dish',
-          title: tarifaText('Tapas', 'Tapas', 'Tapas', 'Tapas', 'Tapas'),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'La Lola',
-                href: 'https://www.google.com/maps/search/?api=1&query=La+Lola+Tarifa',
-                description: tarifaText(
-                  'An authentic Andalusian tapas experience.',
-                  'Ein authentisches andalusisches Tapas-Erlebnis.',
-                  'Una auténtica experiencia de tapas andaluzas.',
-                  'Een authentieke Andalusische tapaservaring.',
-                  'En autentisk andalusisk tapasupplevelse.'
-                )
-              },
-              {
-                name: 'Bar El Francés',
-                href: 'https://www.google.com/maps/search/?api=1&query=Bar+El+Franc%C3%A9s+Tarifa',
-                description: tarifaText(
-                  'A popular tapas spot with outdoor seating.',
-                  'Beliebte Tapas-Bar mit Sitzplätzen im Freien.',
-                  'Popular bar de tapas con mesas al aire libre.',
-                  'Populaire tapasplek met zitplaatsen buiten.',
-                  'Populärt tapasställe med uteservering.'
-                )
-              },
-              {
-                name: 'Mesón el Patio',
-                href: 'https://www.google.com/maps/search/?api=1&query=Mes%C3%B3n+el+Patio+Tarifa',
-                description: tarifaText(
-                  'Traditional Spanish tapas in a cosy atmosphere.',
-                  'Traditionelle spanische Tapas in gemütlicher Atmosphäre.',
-                  'Tapas tradicionales españolas en un ambiente acogedor.',
-                  'Traditionele Spaanse tapas in een gezellige sfeer.',
-                  'Traditionella spanska tapas i en mysig atmosfär.'
-                )
-              },
-              {
-                name: 'Bar El Pupilo',
-                href: 'https://www.google.com/maps/search/?api=1&query=Bar+El+Pupilo+Tarifa',
-                description: tarifaText(
-                  'Classic and creative tapas in a lively setting.',
-                  'Klassische und kreative Tapas in lebendiger Umgebung.',
-                  'Tapas clásicas y creativas en un ambiente animado.',
-                  'Klassieke en creatieve tapas in een levendige omgeving.',
-                  'Klassiska och kreativa tapas i en livlig miljö.'
-                )
-              }
-            ])
-          ]
+          name: "El Varadero",
+          id: 'tarifa.food-drink.el-varadero',
+          description: tarifaText(
+            "Traditional dishes with fresh ingredients and views of the coastline.",
+            "Traditionelle Gerichte mit frischen Zutaten und Blick auf die Küste.",
+            "Platos tradicionales con ingredientes frescos y vistas a la costa.",
+            "Traditionele gerechten met verse ingrediënten en uitzicht op de kust.",
+            "Traditionella rätter med färska ingredienser och utsikt över kusten."
+          )
         },
         {
-          icon: 'dish',
-          title: tarifaText('Pizza', 'Pizza', 'Pizza', 'Pizza', 'Pizza'),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'Pueblo Nómada',
-                href: 'https://www.google.com/maps/search/?api=1&query=Pueblo+N%C3%B3mada+Tarifa',
-                description: tarifaText(
-                  'Delicious pizza with wonderful ocean views near the apartment.',
-                  'Köstliche Pizza mit herrlichem Meerblick in der Nähe des Apartments.',
-                  'Pizza deliciosa con impresionantes vistas al mar cerca del apartamento.',
-                  'Heerlijke pizza met prachtig uitzicht op zee vlak bij het appartement.',
-                  'Utsökt pizza med fantastisk havsutsikt nära lägenheten.'
-                )
-              },
-              {
-                name: 'La Dolce Vita',
-                href: 'https://www.google.com/maps/search/?api=1&query=La+Dolce+Vita+Tarifa',
-                description: tarifaText(
-                  'Authentic Italian pizza, including gluten-free options.',
-                  'Authentische italienische Pizza, auch mit glutenfreien Optionen.',
-                  'Auténtica pizza italiana, también con opciones sin gluten.',
-                  'Authentieke Italiaanse pizza, ook met glutenvrije opties.',
-                  'Autentisk italiensk pizza, inklusive glutenfria alternativ.'
-                )
-              },
-              {
-                name: 'La Ruota',
-                href: 'https://www.google.com/maps/search/?api=1&query=La+Ruota+Tarifa',
-                description: tarifaText(
-                  'Pizza made with fresh ingredients, with vegetarian and gluten-free choices.',
-                  'Pizza aus frischen Zutaten mit vegetarischen und glutenfreien Varianten.',
-                  'Pizzas con ingredientes frescos y opciones vegetarianas y sin gluten.',
-                  'Pizza met verse ingrediënten en vegetarische en glutenvrije keuzes.',
-                  'Pizzor med färska råvaror samt vegetariska och glutenfria alternativ.'
-                )
-              }
-            ])
-          ]
+          name: "Otero",
+          id: 'tarifa.food-drink.otero',
+          description: tarifaText(
+            "Local specialities and classic Spanish dishes in a warm atmosphere.",
+            "Lokale Spezialitäten und spanische Klassiker in herzlicher Atmosphäre.",
+            "Especialidades locales y clásicos españoles en un ambiente cálido.",
+            "Lokale specialiteiten en klassieke Spaanse gerechten in een warme sfeer.",
+            "Lokala specialiteter och klassiska spanska rätter i en varm atmosfär."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Meat Lovers",
+        "Für Fleischliebhaber",
+        "Para amantes de la carne",
+        "Voor vleesliefhebbers",
+        "För köttälskare"
+      ),
+      items: tarifaVenueCards('flame', [
+        {
+          name: "Asador La Burla",
+          id: 'tarifa.food-drink.asador-la-burla',
+          description: tarifaText(
+            "Grilled meat dishes in beautiful surroundings.",
+            "Gegrillte Fleischspezialitäten in wunderschöner Umgebung.",
+            "Carnes a la brasa en un entorno precioso.",
+            "Gegrilde vleesgerechten in een prachtige omgeving.",
+            "Grillade kötträtter i vackra omgivningar."
+          )
         },
         {
-          icon: 'tumbler',
-          title: tarifaText(
-            'Moroccan',
-            'Marokkanisch',
-            'Marroquí',
-            'Marokkaans',
-            'Marockanskt'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'Mandragora',
-                href: 'https://www.google.com/maps/search/?api=1&query=Mandragora+Tarifa',
-                description: tarifaText(
-                  'Delicious Moroccan cuisine with outdoor seating.',
-                  'Köstliche marokkanische Küche mit Außenbereich.',
-                  'Deliciosa cocina marroquí con mesas al aire libre.',
-                  'Heerlijke Marokkaanse gerechten met terras.',
-                  'Utsökt marockansk mat med uteservering.'
-                )
-              },
-              {
-                name: 'Tajinaste',
-                href: 'https://www.google.com/maps/search/?api=1&query=Tajinaste+Tarifa',
-                description: tarifaText(
-                  'Authentic Moroccan dishes with a modern twist.',
-                  'Authentische marokkanische Gerichte mit modernem Touch.',
-                  'Auténticos platos marroquíes con un toque moderno.',
-                  'Authentieke Marokkaanse gerechten met een moderne twist.',
-                  'Autentiska marockanska rätter med en modern touch.'
-                )
-              }
-            ])
-          ]
+          name: "El Rancho",
+          id: 'tarifa.food-drink.el-rancho',
+          description: tarifaText(
+            "Known for steaks and barbecue specialities.",
+            "Bekannt für Steaks und BBQ-Spezialitäten.",
+            "Conocido por sus chuletones y especialidades a la barbacoa.",
+            "Bekend om zijn steaks en barbecuespecialiteiten.",
+            "Känt för sina stekar och BBQ-specialiteter."
+          )
         },
         {
-          icon: 'star',
-          title: tarifaText(
-            'Our Favorite Restaurants',
-            'Unsere Lieblingsrestaurants',
-            'Nuestros restaurantes favoritos',
-            'Onze favoriete restaurants',
-            'Våra favoritrestauranger'
-          ),
-          body: [
-            tarifaRecommendationList([
-              {
-                name: 'LIA.me',
-                href: 'https://www.google.com/maps/search/?api=1&query=LIA.me+Tarifa',
-                description: tarifaText(
-                  'For us, the best Italian restaurant in Tarifa.',
-                  'Für uns das beste italienische Restaurant in Tarifa.',
-                  'Para nosotros, el mejor restaurante italiano de Tarifa.',
-                  'Voor ons het beste Italiaanse restaurant in Tarifa.',
-                  'För oss den bästa italienska restaurangen i Tarifa.'
-                )
-              },
-              {
-                name: 'OSTERIA DEL SOLE',
-                href: 'https://www.google.com/maps/search/?api=1&query=OSTERIA+DEL+SOLE+Tarifa',
-                description: tarifaText(
-                  'Italian cuisine in one of the loveliest chiringuitos, with ocean views.',
-                  'Italienische Küche in einem der schönsten Chiringuitos mit Meerblick.',
-                  'Cocina italiana en uno de los chiringuitos más bonitos, con vistas al mar.',
-                  'Italiaanse keuken in een van de leukste chiringuitos met uitzicht op zee.',
-                  'Italiensk mat i en av de trevligaste chiringuitos med havsutsikt.'
-                )
-              },
-              {
-                name: 'Silos 19',
-                href: 'https://www.google.com/maps/search/?api=1&query=Silos+19+Tarifa',
-                description: tarifaText(
-                  'Modern Andalusian cuisine in an elegant atmosphere.',
-                  'Moderne andalusische Küche in eleganter Atmosphäre.',
-                  'Cocina andaluza moderna en un ambiente elegante.',
-                  'Moderne Andalusische keuken in een elegante sfeer.',
-                  'Modern andalusisk mat i en elegant atmosfär.'
-                )
-              },
-              {
-                name: 'Boccabuena Plaza',
-                href: 'https://www.google.com/maps/search/?api=1&query=Boccabuena+Plaza+Tarifa',
-                description: tarifaText(
-                  'Set on a car-free plaza in the heart of the old town, making it a relaxed choice for families with young children.',
-                  'Perfekt für Familien an einer ruhigen, sicheren Plaza.',
-                  'Perfecto para familias en una plaza tranquila y segura.',
-                  'Perfect voor gezinnen aan een rustig en veilig plein.',
-                  'Perfekt för familjer vid ett lugnt och tryggt torg.'
-                )
-              }
-            ])
-          ]
+          name: "La Torre",
+          id: 'tarifa.food-drink.la-torre',
+          description: tarifaText(
+            "Meat dishes made with local ingredients and accompanied by stunning views.",
+            "Fleischgerichte mit regionalen Zutaten und herrlichem Ausblick.",
+            "Platos de carne con ingredientes locales y vistas impresionantes.",
+            "Vleesgerechten met lokale ingrediënten en een prachtig uitzicht.",
+            "Kötträtter med lokala råvaror och fantastisk utsikt."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Tapas",
+        "Tapas",
+        "Tapas",
+        "Tapas",
+        "Tapas"
+      ),
+      items: tarifaVenueCards('dish', [
+        {
+          name: "La Lola",
+          id: 'tarifa.food-drink.la-lola',
+          description: tarifaText(
+            "An authentic Andalusian tapas experience.",
+            "Ein authentisches andalusisches Tapas-Erlebnis.",
+            "Una auténtica experiencia de tapas andaluzas.",
+            "Een authentieke Andalusische tapaservaring.",
+            "En autentisk andalusisk tapasupplevelse."
+          )
         },
+        {
+          name: "Bar El Francés",
+          id: 'tarifa.food-drink.bar-el-frances',
+          description: tarifaText(
+            "A popular tapas spot with outdoor seating.",
+            "Beliebte Tapas-Bar mit Sitzplätzen im Freien.",
+            "Popular bar de tapas con mesas al aire libre.",
+            "Populaire tapasplek met zitplaatsen buiten.",
+            "Populärt tapasställe med uteservering."
+          )
+        },
+        {
+          name: "Mesón el Patio",
+          id: 'tarifa.food-drink.meson-el-patio',
+          description: tarifaText(
+            "Traditional Spanish tapas in a cosy atmosphere.",
+            "Traditionelle spanische Tapas in gemütlicher Atmosphäre.",
+            "Tapas tradicionales españolas en un ambiente acogedor.",
+            "Traditionele Spaanse tapas in een gezellige sfeer.",
+            "Traditionella spanska tapas i en mysig atmosfär."
+          )
+        },
+        {
+          name: "Bar El Pupilo",
+          id: 'tarifa.food-drink.bar-el-pupilo',
+          description: tarifaText(
+            "Classic and creative tapas in a lively setting.",
+            "Klassische und kreative Tapas in lebendiger Umgebung.",
+            "Tapas clásicas y creativas en un ambiente animado.",
+            "Klassieke en creatieve tapas in een levendige omgeving.",
+            "Klassiska och kreativa tapas i en livlig miljö."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Pizza",
+        "Pizza",
+        "Pizza",
+        "Pizza",
+        "Pizza"
+      ),
+      items: tarifaVenueCards('dish', [
+        {
+          name: "Pueblo Nómada",
+          id: 'tarifa.food-drink.pueblo-nomada',
+          description: tarifaText(
+            "Delicious pizza with wonderful ocean views near the apartment.",
+            "Köstliche Pizza mit herrlichem Meerblick in der Nähe des Apartments.",
+            "Pizza deliciosa con impresionantes vistas al mar cerca del apartamento.",
+            "Heerlijke pizza met prachtig uitzicht op zee vlak bij het appartement.",
+            "Utsökt pizza med fantastisk havsutsikt nära lägenheten."
+          )
+        },
+        {
+          name: "La Dolce Vita",
+          id: 'tarifa.food-drink.la-dolce-vita',
+          description: tarifaText(
+            "Authentic Italian pizza, including gluten-free options.",
+            "Authentische italienische Pizza, auch mit glutenfreien Optionen.",
+            "Auténtica pizza italiana, también con opciones sin gluten.",
+            "Authentieke Italiaanse pizza, ook met glutenvrije opties.",
+            "Autentisk italiensk pizza, inklusive glutenfria alternativ."
+          )
+        },
+        {
+          name: "La Ruota",
+          id: 'tarifa.food-drink.la-ruota',
+          description: tarifaText(
+            "Pizza made with fresh ingredients, with vegetarian and gluten-free choices.",
+            "Pizza aus frischen Zutaten mit vegetarischen und glutenfreien Varianten.",
+            "Pizzas con ingredientes frescos y opciones vegetarianas y sin gluten.",
+            "Pizza met verse ingrediënten en vegetarische en glutenvrije keuzes.",
+            "Pizzor med färska råvaror samt vegetariska och glutenfria alternativ."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Moroccan",
+        "Marokkanisch",
+        "Marroquí",
+        "Marokkaans",
+        "Marockanskt"
+      ),
+      items: tarifaVenueCards('tumbler', [
+        {
+          name: "Mandragora",
+          id: 'tarifa.food-drink.mandragora',
+          description: tarifaText(
+            "Delicious Moroccan cuisine with outdoor seating.",
+            "Köstliche marokkanische Küche mit Außenbereich.",
+            "Deliciosa cocina marroquí con mesas al aire libre.",
+            "Heerlijke Marokkaanse gerechten met terras.",
+            "Utsökt marockansk mat med uteservering."
+          )
+        },
+        {
+          name: "Tajinaste",
+          id: 'tarifa.food-drink.tajinaste',
+          description: tarifaText(
+            "Authentic Moroccan dishes with a modern twist.",
+            "Authentische marokkanische Gerichte mit modernem Touch.",
+            "Auténticos platos marroquíes con un toque moderno.",
+            "Authentieke Marokkaanse gerechten met een moderne twist.",
+            "Autentiska marockanska rätter med en modern touch."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Our Favorite Restaurants",
+        "Unsere Lieblingsrestaurants",
+        "Nuestros restaurantes favoritos",
+        "Onze favoriete restaurants",
+        "Våra favoritrestauranger"
+      ),
+      items: tarifaVenueCards('star', [
+        {
+          name: "LIA.me",
+          id: 'tarifa.food-drink.lia-me',
+          description: tarifaText(
+            "For us, the best Italian restaurant in Tarifa.",
+            "Für uns das beste italienische Restaurant in Tarifa.",
+            "Para nosotros, el mejor restaurante italiano de Tarifa.",
+            "Voor ons het beste Italiaanse restaurant in Tarifa.",
+            "För oss den bästa italienska restaurangen i Tarifa."
+          )
+        },
+        {
+          name: "OSTERIA DEL SOLE",
+          id: 'tarifa.food-drink.osteria-del-sole',
+          description: tarifaText(
+            "Italian cuisine in one of the loveliest chiringuitos, with ocean views.",
+            "Italienische Küche in einem der schönsten Chiringuitos mit Meerblick.",
+            "Cocina italiana en uno de los chiringuitos más bonitos, con vistas al mar.",
+            "Italiaanse keuken in een van de leukste chiringuitos met uitzicht op zee.",
+            "Italiensk mat i en av de trevligaste chiringuitos med havsutsikt."
+          )
+        },
+        {
+          name: "Silos 19",
+          id: 'tarifa.food-drink.silos-19',
+          description: tarifaText(
+            "Modern Andalusian cuisine in an elegant atmosphere.",
+            "Moderne andalusische Küche in eleganter Atmosphäre.",
+            "Cocina andaluza moderna en un ambiente elegante.",
+            "Moderne Andalusische keuken in een elegante sfeer.",
+            "Modern andalusisk mat i en elegant atmosfär."
+          )
+        },
+        {
+          name: "Boccabuena Plaza",
+          id: 'tarifa.food-drink.boccabuena-plaza',
+          description: tarifaText(
+            "Set on a car-free plaza in the heart of the old town, making it a relaxed choice for families with young children.",
+            "Perfekt für Familien an einer ruhigen, sicheren Plaza.",
+            "Perfecto para familias en una plaza tranquila y segura.",
+            "Perfect voor gezinnen aan een rustig en veilig plein.",
+            "Perfekt för familjer vid ett lugnt och tryggt torg."
+          )
+        }
+      ])
+    },
+    {
+      heading: tarifaText(
+        "Ice Cream",
+        "Eis",
+        "Heladerías",
+        "IJs",
+        "Glass"
+      ),
+      items: [
         {
           icon: 'store',
+          recommendationIds: ['tarifa.food-drink.gioelia-cremeria', 'tarifa.food-drink.fragola-helados'],
           title: tarifaText(
             'Ice Cream',
             'Eis',
@@ -2565,11 +2578,11 @@ const tarifaFamilySurfFoodDrink: GuestGuideEntry = {
               'Hoppa över desserten på restaurangen och unna er en glass medan ni strosar genom Tarifas gamla stad.'
             ),
             tarifaText(
-              '<ul class="am-ios-bullets"><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=GIOELIA+CREMERIA+Guzm%C3%A1n+el+Bueno+12+Tarifa" target="_blank" rel="noopener noreferrer"><strong>GIOELIA CREMERIA</strong></a> – Guzmán el Bueno 12</li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Fragola+Helados+Sancho+IV+el+Bravo+24+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Fragola Helados-Café C</strong></a> – Sancho IV el Bravo 24</li></ul>',
-              '<ul class="am-ios-bullets"><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=GIOELIA+CREMERIA+Guzm%C3%A1n+el+Bueno+12+Tarifa" target="_blank" rel="noopener noreferrer"><strong>GIOELIA CREMERIA</strong></a> – Guzmán el Bueno 12</li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Fragola+Helados+Sancho+IV+el+Bravo+24+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Fragola Helados-Café C</strong></a> – Sancho IV el Bravo 24</li></ul>',
-              '<ul class="am-ios-bullets"><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=GIOELIA+CREMERIA+Guzm%C3%A1n+el+Bueno+12+Tarifa" target="_blank" rel="noopener noreferrer"><strong>GIOELIA CREMERIA</strong></a> – Guzmán el Bueno 12</li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Fragola+Helados+Sancho+IV+el+Bravo+24+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Fragola Helados-Café C</strong></a> – Sancho IV el Bravo 24</li></ul>',
-              '<ul class="am-ios-bullets"><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=GIOELIA+CREMERIA+Guzm%C3%A1n+el+Bueno+12+Tarifa" target="_blank" rel="noopener noreferrer"><strong>GIOELIA CREMERIA</strong></a> – Guzmán el Bueno 12</li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Fragola+Helados+Sancho+IV+el+Bravo+24+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Fragola Helados-Café C</strong></a> – Sancho IV el Bravo 24</li></ul>',
-              '<ul class="am-ios-bullets"><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=GIOELIA+CREMERIA+Guzm%C3%A1n+el+Bueno+12+Tarifa" target="_blank" rel="noopener noreferrer"><strong>GIOELIA CREMERIA</strong></a> – Guzmán el Bueno 12</li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Fragola+Helados+Sancho+IV+el+Bravo+24+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Fragola Helados-Café C</strong></a> – Sancho IV el Bravo 24</li></ul>'
+              '<ul class="am-ios-bullets"><li><strong>GIOELIA CREMERIA</strong> – Guzmán el Bueno 12</li><li><strong>Fragola Helados-Café C</strong> – Sancho IV el Bravo 24</li></ul>',
+              '<ul class="am-ios-bullets"><li><strong>GIOELIA CREMERIA</strong> – Guzmán el Bueno 12</li><li><strong>Fragola Helados-Café C</strong> – Sancho IV el Bravo 24</li></ul>',
+              '<ul class="am-ios-bullets"><li><strong>GIOELIA CREMERIA</strong> – Guzmán el Bueno 12</li><li><strong>Fragola Helados-Café C</strong> – Sancho IV el Bravo 24</li></ul>',
+              '<ul class="am-ios-bullets"><li><strong>GIOELIA CREMERIA</strong> – Guzmán el Bueno 12</li><li><strong>Fragola Helados-Café C</strong> – Sancho IV el Bravo 24</li></ul>',
+              '<ul class="am-ios-bullets"><li><strong>GIOELIA CREMERIA</strong> – Guzmán el Bueno 12</li><li><strong>Fragola Helados-Café C</strong> – Sancho IV el Bravo 24</li></ul>'
             )
           ]
         }
@@ -2632,6 +2645,7 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
       items: [
         {
           icon: 'wave',
+          recommendationId: 'tarifa.beaches.playa-los-lances',
           title: tarifaText(
             'Playa Los Lances',
             'Playa Los Lances',
@@ -2648,29 +2662,30 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              "From here, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Los+Lances+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Los Lances</strong></a> is within walking distance, depending on the beach access point you choose.",
+              "From here, <strong>Playa Los Lances</strong> is within walking distance, depending on the beach access point you choose.",
               'It is ideal for long walks and wide-open space. Afternoons can be windy — perfect for watching the kitesurfers.'
             ],
             de: [
-              "Von hier aus ist die <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Los+Lances+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Los Lances</strong></a> gut zu Fuß erreichbar, je nachdem, welchen Strandzugang ihr wählt.",
+              "Von hier aus ist die <strong>Playa Los Lances</strong> gut zu Fuß erreichbar, je nachdem, welchen Strandzugang ihr wählt.",
               'Ideal für lange Spaziergänge und viel Weite. Nachmittags kann es windig werden – perfekt, um den Kitesurfern zuzusehen.'
             ],
             es: [
-              "Desde aquí, la <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Los+Lances+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Los Lances</strong></a> está a poca distancia a pie, dependiendo del acceso a la playa que elijáis.",
+              "Desde aquí, la <strong>Playa Los Lances</strong> está a poca distancia a pie, dependiendo del acceso a la playa que elijáis.",
               'Es ideal para dar largos paseos y disfrutar de grandes espacios abiertos. Por las tardes puede hacer viento, lo que es perfecto para ver a los kitesurfistas.'
             ],
             nl: [
-              "Vanaf hier ligt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Los+Lances+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Los Lances</strong></a> op loopafstand, afhankelijk van de strandopgang die jullie kiezen.",
+              "Vanaf hier ligt <strong>Playa Los Lances</strong> op loopafstand, afhankelijk van de strandopgang die jullie kiezen.",
               'Ideaal voor lange wandelingen en een weids gevoel. In de middag kan het winderig zijn — perfect om naar de kitesurfers te kijken.'
             ],
             sv: [
-              "Härifrån ligger <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Los+Lances+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Los Lances</strong></a> inom gångavstånd, beroende på vilken nedgång till stranden ni väljer.",
+              "Härifrån ligger <strong>Playa Los Lances</strong> inom gångavstånd, beroende på vilken nedgång till stranden ni väljer.",
               'Perfekt för långa promenader och stora öppna ytor. På eftermiddagen kan det bli blåsigt — perfekt för att titta på kitesurfare.'
             ]
           }),
         },
         {
           icon: 'pool',
+          recommendationId: 'tarifa.beaches.playa-chica',
           title: tarifaText(
             'Playa Chica',
             'Playa Chica',
@@ -2687,29 +2702,30 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              "A short drive or bike ride from here, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Chica+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Chica</strong></a> offers calmer water and a more sheltered setting.",
+              "A short drive or bike ride from here, <strong>Playa Chica</strong> offers calmer water and a more sheltered setting.",
               'It is often a good option when Los Lances feels too windy. Its location near the old town makes it easy to combine with lunch.'
             ],
             de: [
-              "Nur eine kurze Fahrt mit dem Auto oder Fahrrad entfernt bietet die <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Chica+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Chica</strong></a> ruhigeres Wasser und eine geschütztere Lage.",
+              "Nur eine kurze Fahrt mit dem Auto oder Fahrrad entfernt bietet die <strong>Playa Chica</strong> ruhigeres Wasser und eine geschütztere Lage.",
               'Oft eine gute Alternative, wenn es euch an der Playa Los Lances zu windig ist. Durch die Nähe zur Altstadt lässt sich der Strandbesuch gut mit einem Mittagessen verbinden.'
             ],
             es: [
-              "A un corto trayecto en coche o en bicicleta desde aquí, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Chica+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Chica</strong></a> ofrece aguas más tranquilas y un entorno más resguardado.",
+              "A un corto trayecto en coche o en bicicleta desde aquí, <strong>Playa Chica</strong> ofrece aguas más tranquilas y un entorno más resguardado.",
               'Suele ser una buena opción cuando en Los Lances hace demasiado viento. Está cerca del casco antiguo, por lo que es fácil combinar la visita con una comida.'
             ],
             nl: [
-              "Op een korte rit met de auto of fiets vanaf hier biedt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Chica+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Chica</strong></a> rustiger water en een meer beschutte ligging.",
+              "Op een korte rit met de auto of fiets vanaf hier biedt <strong>Playa Chica</strong> rustiger water en een meer beschutte ligging.",
               'Vaak een goed alternatief wanneer Los Lances te winderig aanvoelt. Het strand ligt dicht bij de oude stad en is daardoor makkelijk te combineren met een lunch.'
             ],
             sv: [
-              "En kort bil- eller cykeltur härifrån erbjuder <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Chica+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Playa Chica</strong></a> lugnare vatten och ett mer skyddat läge.",
+              "En kort bil- eller cykeltur härifrån erbjuder <strong>Playa Chica</strong> lugnare vatten och ett mer skyddat läge.",
               'Ofta ett bra alternativ när Los Lances känns för blåsigt. Stranden ligger nära gamla stan och är enkel att kombinera med lunch.'
             ]
           }),
         },
         {
           icon: 'route',
+          recommendationId: 'tarifa.beaches.playa-de-valdevaqueros',
           title: tarifaText(
             'Playa de Valdevaqueros',
             'Playa de Valdevaqueros',
@@ -2726,29 +2742,30 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              "About 10–15 minutes by car from here, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Valdevaqueros+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Valdevaqueros</strong></a> is one of Tarifa’s most iconic beaches.",
+              "About 10–15 minutes by car from here, <strong>Valdevaqueros</strong> is one of Tarifa’s most iconic beaches.",
               'It has a wide sandy shore and a lively atmosphere. Parking is usually straightforward but can fill up in peak season.'
             ],
             de: [
-              "Etwa 10–15 Autominuten von hier entfernt liegt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Valdevaqueros+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Valdevaqueros</strong></a>, einer der bekanntesten Strände Tarifas.",
+              "Etwa 10–15 Autominuten von hier entfernt liegt <strong>Valdevaqueros</strong>, einer der bekanntesten Strände Tarifas.",
               'Ein breiter Sandstrand und eine lebhafte Atmosphäre erwarten euch. Parken ist meist unkompliziert, in der Hochsaison kann es jedoch voll werden.'
             ],
             es: [
-              "A unos 10–15 minutos en coche desde aquí, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Valdevaqueros+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Valdevaqueros</strong></a> es una de las playas más emblemáticas de Tarifa.",
+              "A unos 10–15 minutos en coche desde aquí, <strong>Valdevaqueros</strong> es una de las playas más emblemáticas de Tarifa.",
               'Cuenta con una amplia playa de arena y un ambiente muy animado. Aparcar suele ser fácil, pero puede llenarse en temporada alta.'
             ],
             nl: [
-              "Op ongeveer 10–15 minuten rijden van hier ligt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Valdevaqueros+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Valdevaqueros</strong></a>, een van de bekendste stranden van Tarifa.",
+              "Op ongeveer 10–15 minuten rijden van hier ligt <strong>Valdevaqueros</strong>, een van de bekendste stranden van Tarifa.",
               'Het heeft een breed zandstrand en een levendige sfeer. Parkeren is meestal eenvoudig, maar in het hoogseizoen kan het vol raken.'
             ],
             sv: [
-              "Ungefär 10–15 minuter med bil härifrån ligger <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Valdevaqueros+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Valdevaqueros</strong></a>, en av Tarifas mest ikoniska stränder.",
+              "Ungefär 10–15 minuter med bil härifrån ligger <strong>Valdevaqueros</strong>, en av Tarifas mest ikoniska stränder.",
               'Här väntar en bred sandstrand och en livlig atmosfär. Det brukar vara enkelt att parkera, men under högsäsong kan det bli fullt.'
             ]
           }),
         },
         {
           icon: 'location-pin',
+          recommendationId: 'tarifa.beaches.playa-punta-paloma',
           title: tarifaText(
             'Playa Punta Paloma',
             'Playa Punta Paloma',
@@ -2765,29 +2782,30 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              "Around 10 km west of here, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Punta+Paloma+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Punta Paloma</strong></a> feels more secluded and natural.",
+              "Around 10 km west of here, <strong>Punta Paloma</strong> feels more secluded and natural.",
               'It is known for its dunes and turquoise water. Bring water and sun protection, as shade is limited.'
             ],
             de: [
-              "Etwa 10 km westlich von hier wirkt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Punta+Paloma+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Punta Paloma</strong></a> deutlich abgeschiedener und natürlicher.",
+              "Etwa 10 km westlich von hier wirkt <strong>Punta Paloma</strong> deutlich abgeschiedener und natürlicher.",
               'Der Strand ist für seine Dünen und das türkisfarbene Wasser bekannt. Bringt Wasser und Sonnenschutz mit, da es kaum Schatten gibt.'
             ],
             es: [
-              "A unos 10 km al oeste desde aquí, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Punta+Paloma+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Punta Paloma</strong></a> se siente más aislada y natural.",
+              "A unos 10 km al oeste desde aquí, <strong>Punta Paloma</strong> se siente más aislada y natural.",
               'Es conocida por sus dunas y sus aguas turquesas. Llevad agua y protección solar, ya que hay poca sombra.'
             ],
             nl: [
-              "Zo’n 10 km ten westen van hier voelt <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Punta+Paloma+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Punta Paloma</strong></a> een stuk meer afgelegen en natuurlijk aan.",
+              "Zo’n 10 km ten westen van hier voelt <strong>Punta Paloma</strong> een stuk meer afgelegen en natuurlijk aan.",
               'Het strand staat bekend om de duinen en het turquoise water. Neem water en zonnebrandcrème mee, want er is weinig schaduw.'
             ],
             sv: [
-              "Cirka 10 km västerut härifrån känns <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+Punta+Paloma+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Punta Paloma</strong></a> mer avskilt och naturnära.",
+              "Cirka 10 km västerut härifrån känns <strong>Punta Paloma</strong> mer avskilt och naturnära.",
               'Stranden är känd för sina sanddyner och sitt turkosa vatten. Ta med vatten och solskydd, eftersom det finns ont om skugga.'
             ]
           }),
         },
         {
           icon: 'star',
+          recommendationId: 'tarifa.beaches.playa-de-bolonia',
           title: tarifaText(
             'Playa de Bolonia',
             'Playa de Bolonia',
@@ -2804,23 +2822,23 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              "A 25–40 minute drive from here, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Bolonia+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Bolonia</strong></a> is ideal for a full beach day.",
+              "A 25–40 minute drive from here, <strong>Bolonia</strong> is ideal for a full beach day.",
               'Crystal-clear water, large dunes, and the Roman ruins of Baelo Claudia nearby create a beautiful combination of nature and history.'
             ],
             de: [
-              "Mit etwa 25–40 Minuten Fahrzeit ist <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Bolonia+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Bolonia</strong></a> ideal für einen ganzen Strandtag.",
+              "Mit etwa 25–40 Minuten Fahrzeit ist <strong>Bolonia</strong> ideal für einen ganzen Strandtag.",
               'Kristallklares Wasser, große Dünen und die römischen Ruinen von Baelo Claudia direkt nebenan ergeben eine wunderschöne Kombination aus Natur und Geschichte.'
             ],
             es: [
-              "A unos 25–40 minutos en coche, <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Bolonia+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Bolonia</strong></a> es ideal para pasar un día entero de playa.",
+              "A unos 25–40 minutos en coche, <strong>Bolonia</strong> es ideal para pasar un día entero de playa.",
               'Aguas cristalinas, grandes dunas y las cercanas ruinas romanas de Baelo Claudia forman una preciosa combinación de naturaleza e historia.'
             ],
             nl: [
-              "Op zo’n 25–40 minuten rijden hiervandaan is <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Bolonia+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Bolonia</strong></a> ideaal voor een volledige stranddag.",
+              "Op zo’n 25–40 minuten rijden hiervandaan is <strong>Bolonia</strong> ideaal voor een volledige stranddag.",
               'Kraakhelder water, grote duinen en de Romeinse ruïnes van Baelo Claudia vlakbij vormen een prachtige combinatie van natuur en geschiedenis.'
             ],
             sv: [
-              "Med en bilresa på 25–40 minuter härifrån är <a class=\"am-link\" href=\"https://www.google.com/maps/search/?api=1&query=Playa+de+Bolonia+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Bolonia</strong></a> perfekt för en heldag på stranden.",
+              "Med en bilresa på 25–40 minuter härifrån är <strong>Bolonia</strong> perfekt för en heldag på stranden.",
               'Kristallklart vatten, stora sanddyner och de romerska ruinerna av Baelo Claudia alldeles intill skapar en vacker kombination av natur och historia.'
             ]
           }),
@@ -2956,6 +2974,7 @@ const tarifaFamilySurfActivities: GuestGuideEntry = {
         },
         {
           icon: 'pool',
+          recommendationIds: ['tarifa.activities.swim-en-el-mar'],
           title: tarifaText(
             'Open Water Swim School',
             'Open-Water-Schwimmschule',
@@ -3009,11 +3028,11 @@ const tarifaFamilySurfActivities: GuestGuideEntry = {
               '<strong>Vad de erbjuder:</strong> Kvalificerade och erfarna simlärare, små grupper, flexibla tider, olika kursplatser, modern utrustning och fokus på säkerhet och glädje.'
             ),
             tarifaText(
-              '<strong>Information and prices:</strong><br><a class="am-link" href="https://www.swimenelmar.com" target="_blank" rel="noopener noreferrer">www.swimenelmar.com</a><br><a class="am-link" href="https://www.instagram.com/swimenelmar/" target="_blank" rel="noopener noreferrer">@swimenelmar</a><br><a class="am-link" href="tel:+34610984300">+34 610 984 300</a> or <a class="am-link" href="tel:+34618265294">+34 618 265 294</a><br>Direct messages are also possible via Instagram.',
-              '<strong>Informationen und Preise:</strong><br><a class="am-link" href="https://www.swimenelmar.com" target="_blank" rel="noopener noreferrer">www.swimenelmar.com</a><br><a class="am-link" href="https://www.instagram.com/swimenelmar/" target="_blank" rel="noopener noreferrer">@swimenelmar</a><br><a class="am-link" href="tel:+34610984300">+34 610 984 300</a> oder <a class="am-link" href="tel:+34618265294">+34 618 265 294</a><br>Direktnachrichten sind auch über Instagram möglich.',
-              '<strong>Información y precios:</strong><br><a class="am-link" href="https://www.swimenelmar.com" target="_blank" rel="noopener noreferrer">www.swimenelmar.com</a><br><a class="am-link" href="https://www.instagram.com/swimenelmar/" target="_blank" rel="noopener noreferrer">@swimenelmar</a><br><a class="am-link" href="tel:+34610984300">+34 610 984 300</a> o <a class="am-link" href="tel:+34618265294">+34 618 265 294</a><br>También podéis enviarles un mensaje directo por Instagram.',
-              '<strong>Informatie en prijzen:</strong><br><a class="am-link" href="https://www.swimenelmar.com" target="_blank" rel="noopener noreferrer">www.swimenelmar.com</a><br><a class="am-link" href="https://www.instagram.com/swimenelmar/" target="_blank" rel="noopener noreferrer">@swimenelmar</a><br><a class="am-link" href="tel:+34610984300">+34 610 984 300</a> of <a class="am-link" href="tel:+34618265294">+34 618 265 294</a><br>Een privébericht via Instagram is ook mogelijk.',
-              '<strong>Information och priser:</strong><br><a class="am-link" href="https://www.swimenelmar.com" target="_blank" rel="noopener noreferrer">www.swimenelmar.com</a><br><a class="am-link" href="https://www.instagram.com/swimenelmar/" target="_blank" rel="noopener noreferrer">@swimenelmar</a><br><a class="am-link" href="tel:+34610984300">+34 610 984 300</a> eller <a class="am-link" href="tel:+34618265294">+34 618 265 294</a><br>Det går även bra att skicka direktmeddelande via Instagram.'
+              '<strong>Information and prices:</strong><br>www.swimenelmar.com<br><a class="am-link" href="https://www.instagram.com/swimenelmar/" target="_blank" rel="noopener noreferrer">@swimenelmar</a><br>+34 610 984 300 or <a class="am-link" href="tel:+34618265294">+34 618 265 294</a><br>Direct messages are also possible via Instagram.',
+              '<strong>Informationen und Preise:</strong><br>www.swimenelmar.com<br><a class="am-link" href="https://www.instagram.com/swimenelmar/" target="_blank" rel="noopener noreferrer">@swimenelmar</a><br>+34 610 984 300 oder <a class="am-link" href="tel:+34618265294">+34 618 265 294</a><br>Direktnachrichten sind auch über Instagram möglich.',
+              '<strong>Información y precios:</strong><br>www.swimenelmar.com<br><a class="am-link" href="https://www.instagram.com/swimenelmar/" target="_blank" rel="noopener noreferrer">@swimenelmar</a><br>+34 610 984 300 o <a class="am-link" href="tel:+34618265294">+34 618 265 294</a><br>También podéis enviarles un mensaje directo por Instagram.',
+              '<strong>Informatie en prijzen:</strong><br>www.swimenelmar.com<br><a class="am-link" href="https://www.instagram.com/swimenelmar/" target="_blank" rel="noopener noreferrer">@swimenelmar</a><br>+34 610 984 300 of <a class="am-link" href="tel:+34618265294">+34 618 265 294</a><br>Een privébericht via Instagram is ook mogelijk.',
+              '<strong>Information och priser:</strong><br>www.swimenelmar.com<br><a class="am-link" href="https://www.instagram.com/swimenelmar/" target="_blank" rel="noopener noreferrer">@swimenelmar</a><br>+34 610 984 300 eller <a class="am-link" href="tel:+34618265294">+34 618 265 294</a><br>Det går även bra att skicka direktmeddelande via Instagram.'
             ),
             tarifaText(
               'Discover the joy of swimming in the ocean.',
@@ -3096,6 +3115,7 @@ const tarifaFamilySurfActivities: GuestGuideEntry = {
         },
         {
           icon: 'route',
+          recommendationIds: ['tarifa.activities.aventura-ecuestre', 'tarifa.activities.hurricane-hipica', 'tarifa.activities.south-adventures'],
           title: tarifaText('Horse Riding', 'Reiten', 'Montar a caballo', 'Paardrijden', 'Ridning'),
           body: [
             tarifaText(
@@ -3112,10 +3132,9 @@ const tarifaFamilySurfActivities: GuestGuideEntry = {
               '<strong>Boeken:</strong> Verschillende maneges bieden ritten voor uiteenlopende niveaus. Vergelijk de opties om de beste match te vinden.',
               '<strong>Bokning:</strong> Flera stall erbjuder turer för olika nivåer. Jämför alternativen för att hitta det som passar bäst.'
             ),
-            tarifaRecommendationList([
+            tarifaPlainList([
               {
                 name: 'Aventura Ecuestre',
-                href: 'https://www.aventuraecuestre.com/our-shop/?lang=en',
                 description: tarifaText(
                   'Options for all skill levels across varied landscapes.',
                   'Angebote für jedes Niveau durch unterschiedliche Landschaften.',
@@ -3126,7 +3145,6 @@ const tarifaFamilySurfActivities: GuestGuideEntry = {
               },
               {
                 name: 'Hurricane Hípica Tarifa',
-                href: 'https://www.tarifahip.com/en/',
                 description: tarifaText(
                   'Beach rides, lessons, and horseback tours.',
                   'Strandausritte, Reitstunden und Reittouren.',
@@ -3137,7 +3155,6 @@ const tarifaFamilySurfActivities: GuestGuideEntry = {
               },
               {
                 name: 'South Adventures',
-                href: 'https://www.thesouthadventures.com/',
                 description: tarifaText(
                   'Horse-riding excursions, rentals, and breeding programmes.',
                   'Reitausflüge, Verleih und Zuchtprogramme.',
@@ -3278,6 +3295,7 @@ const tarifaFamilySurfActivities: GuestGuideEntry = {
         },
         {
           icon: 'fish',
+          recommendationIds: ['tarifa.activities.explore-and-fishing-tarifa', 'tarifa.activities.toms-catch'],
           title: tarifaText('Fishing', 'Angeln', 'Pesca', 'Vissen', 'Fiske'),
           body: [
             tarifaText(
@@ -3288,18 +3306,18 @@ const tarifaFamilySurfActivities: GuestGuideEntry = {
               'Tarifa erbjuder fisketurer för erfarna sportfiskare och nybörjare, bland annat trolling efter storfisk, jiggfiske och andra tekniker.'
             ),
             tarifaText(
-              '<strong>Explore and Fishing Tarifa</strong> specialises in seasonal red-tuna fishing and offers charters for up to six people.<br><a class="am-link" href="https://www.exploreandfishingtarifa.com" target="_blank" rel="noopener noreferrer">exploreandfishingtarifa.com</a><br><a class="am-link" href="mailto:info@exploreandfishingtarifa.com">info@exploreandfishingtarifa.com</a>',
-              '<strong>Explore and Fishing Tarifa</strong> ist auf saisonales Angeln von Rotem Thunfisch spezialisiert und bietet Charter für bis zu sechs Personen.<br><a class="am-link" href="https://www.exploreandfishingtarifa.com" target="_blank" rel="noopener noreferrer">exploreandfishingtarifa.com</a><br><a class="am-link" href="mailto:info@exploreandfishingtarifa.com">info@exploreandfishingtarifa.com</a>',
-              '<strong>Explore and Fishing Tarifa</strong> está especializado en la pesca estacional del atún rojo y ofrece salidas para hasta seis personas.<br><a class="am-link" href="https://www.exploreandfishingtarifa.com" target="_blank" rel="noopener noreferrer">exploreandfishingtarifa.com</a><br><a class="am-link" href="mailto:info@exploreandfishingtarifa.com">info@exploreandfishingtarifa.com</a>',
-              '<strong>Explore and Fishing Tarifa</strong> is gespecialiseerd in seizoensgebonden vissen op blauwvintonijn en biedt charters voor maximaal zes personen.<br><a class="am-link" href="https://www.exploreandfishingtarifa.com" target="_blank" rel="noopener noreferrer">exploreandfishingtarifa.com</a><br><a class="am-link" href="mailto:info@exploreandfishingtarifa.com">info@exploreandfishingtarifa.com</a>',
-              '<strong>Explore and Fishing Tarifa</strong> specialiserar sig på säsongsbetonat fiske efter röd tonfisk och erbjuder turer för upp till sex personer.<br><a class="am-link" href="https://www.exploreandfishingtarifa.com" target="_blank" rel="noopener noreferrer">exploreandfishingtarifa.com</a><br><a class="am-link" href="mailto:info@exploreandfishingtarifa.com">info@exploreandfishingtarifa.com</a>'
+              '<strong>Explore and Fishing Tarifa</strong> specialises in seasonal red-tuna fishing and offers charters for up to six people.<br>exploreandfishingtarifa.com<br><a class="am-link" href="mailto:info@exploreandfishingtarifa.com">info@exploreandfishingtarifa.com</a>',
+              '<strong>Explore and Fishing Tarifa</strong> ist auf saisonales Angeln von Rotem Thunfisch spezialisiert und bietet Charter für bis zu sechs Personen.<br>exploreandfishingtarifa.com<br><a class="am-link" href="mailto:info@exploreandfishingtarifa.com">info@exploreandfishingtarifa.com</a>',
+              '<strong>Explore and Fishing Tarifa</strong> está especializado en la pesca estacional del atún rojo y ofrece salidas para hasta seis personas.<br>exploreandfishingtarifa.com<br><a class="am-link" href="mailto:info@exploreandfishingtarifa.com">info@exploreandfishingtarifa.com</a>',
+              '<strong>Explore and Fishing Tarifa</strong> is gespecialiseerd in seizoensgebonden vissen op blauwvintonijn en biedt charters voor maximaal zes personen.<br>exploreandfishingtarifa.com<br><a class="am-link" href="mailto:info@exploreandfishingtarifa.com">info@exploreandfishingtarifa.com</a>',
+              '<strong>Explore and Fishing Tarifa</strong> specialiserar sig på säsongsbetonat fiske efter röd tonfisk och erbjuder turer för upp till sex personer.<br>exploreandfishingtarifa.com<br><a class="am-link" href="mailto:info@exploreandfishingtarifa.com">info@exploreandfishingtarifa.com</a>'
             ),
             tarifaText(
-              '<strong>Tom’s Catch</strong> offers several fishing trips, including tuna fishing, with online booking.<br><a class="am-link" href="mailto:contact@tomscatch.com">contact@tomscatch.com</a><br><a class="am-link" href="tel:+34651377316">(+34) 651 377 316</a><br><a class="am-link" href="https://www.tomscatch.com/fishing-in-tarifa/explorer-191" target="_blank" rel="noopener noreferrer">tomscatch.com</a>',
-              '<strong>Tom’s Catch</strong> bietet verschiedene Angeltouren einschließlich Thunfisch-Angeln und Online-Buchung.<br><a class="am-link" href="mailto:contact@tomscatch.com">contact@tomscatch.com</a><br><a class="am-link" href="tel:+34651377316">(+34) 651 377 316</a><br><a class="am-link" href="https://www.tomscatch.com/fishing-in-tarifa/explorer-191" target="_blank" rel="noopener noreferrer">tomscatch.com</a>',
-              '<strong>Tom’s Catch</strong> ofrece diferentes salidas, incluida la pesca del atún, con reserva online.<br><a class="am-link" href="mailto:contact@tomscatch.com">contact@tomscatch.com</a><br><a class="am-link" href="tel:+34651377316">(+34) 651 377 316</a><br><a class="am-link" href="https://www.tomscatch.com/fishing-in-tarifa/explorer-191" target="_blank" rel="noopener noreferrer">tomscatch.com</a>',
-              '<strong>Tom’s Catch</strong> biedt verschillende vistrips, waaronder tonijnvissen, met online boeking.<br><a class="am-link" href="mailto:contact@tomscatch.com">contact@tomscatch.com</a><br><a class="am-link" href="tel:+34651377316">(+34) 651 377 316</a><br><a class="am-link" href="https://www.tomscatch.com/fishing-in-tarifa/explorer-191" target="_blank" rel="noopener noreferrer">tomscatch.com</a>',
-              '<strong>Tom’s Catch</strong> erbjuder flera fisketurer, inklusive tonfiskefiske, med bokning online.<br><a class="am-link" href="mailto:contact@tomscatch.com">contact@tomscatch.com</a><br><a class="am-link" href="tel:+34651377316">(+34) 651 377 316</a><br><a class="am-link" href="https://www.tomscatch.com/fishing-in-tarifa/explorer-191" target="_blank" rel="noopener noreferrer">tomscatch.com</a>'
+              '<strong>Tom’s Catch</strong> offers several fishing trips, including tuna fishing, with online booking.<br><a class="am-link" href="mailto:contact@tomscatch.com">contact@tomscatch.com</a><br>(+34) 651 377 316<br>tomscatch.com',
+              '<strong>Tom’s Catch</strong> bietet verschiedene Angeltouren einschließlich Thunfisch-Angeln und Online-Buchung.<br><a class="am-link" href="mailto:contact@tomscatch.com">contact@tomscatch.com</a><br>(+34) 651 377 316<br>tomscatch.com',
+              '<strong>Tom’s Catch</strong> ofrece diferentes salidas, incluida la pesca del atún, con reserva online.<br><a class="am-link" href="mailto:contact@tomscatch.com">contact@tomscatch.com</a><br>(+34) 651 377 316<br>tomscatch.com',
+              '<strong>Tom’s Catch</strong> biedt verschillende vistrips, waaronder tonijnvissen, met online boeking.<br><a class="am-link" href="mailto:contact@tomscatch.com">contact@tomscatch.com</a><br>(+34) 651 377 316<br>tomscatch.com',
+              '<strong>Tom’s Catch</strong> erbjuder flera fisketurer, inklusive tonfiskefiske, med bokning online.<br><a class="am-link" href="mailto:contact@tomscatch.com">contact@tomscatch.com</a><br>(+34) 651 377 316<br>tomscatch.com'
             )
           ]
         }
@@ -3362,6 +3380,7 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
       items: [
         {
           icon: 'landmark',
+          recommendationId: 'tarifa.sightseeing.isla-de-las-palomas',
           title: tarifaText(
             'Island Las Palomas (Punta Marroquí)',
             'Insel Las Palomas (Punta Marroquí)',
@@ -3371,27 +3390,27 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              "At <strong><a class=\"am-link\" href=\"https://maps.google.com/?q=Isla+de+Las+Palomas+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Isla de Las Palomas</strong></a></strong>, also known as Punta Marroquí, the Mediterranean and Atlantic meet. It marks the southernmost point of mainland Spain and continental Europe.",
+              "At <strong><strong>Isla de Las Palomas</strong></strong>, also known as Punta Marroquí, the Mediterranean and Atlantic meet. It marks the southernmost point of mainland Spain and continental Europe.",
               'A beautiful walk leads between the two seas toward the island, where a 43-metre lighthouse rises above the Strait of Gibraltar. On clear days, Africa feels astonishingly close.',
               'Just beside it lies <strong>Balneario Beach</strong>, a favourite surf spot with powerful waves. Tarifa is the only place where you can swim in both the Atlantic and the Mediterranean on the same day.'
             ],
             de: [
-              "An der <strong><a class=\"am-link\" href=\"https://maps.google.com/?q=Isla+de+Las+Palomas+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Isla de Las Palomas</strong></a></strong>, auch Punta Marroquí genannt, treffen Mittelmeer und Atlantik aufeinander. Sie markiert den südlichsten Punkt des spanischen Festlands und des europäischen Kontinents.",
+              "An der <strong><strong>Isla de Las Palomas</strong></strong>, auch Punta Marroquí genannt, treffen Mittelmeer und Atlantik aufeinander. Sie markiert den südlichsten Punkt des spanischen Festlands und des europäischen Kontinents.",
               'Ein wunderschöner Spaziergang führt zwischen den beiden Meeren zur Insel, wo sich ein 43 Meter hoher Leuchtturm über der Straße von Gibraltar erhebt. An klaren Tagen wirkt Afrika erstaunlich nah.',
               'Direkt daneben liegt der <strong>Balneario Beach</strong>, ein beliebter Surfspot mit kraftvollen Wellen. Tarifa ist der einzige Ort, an dem ihr am selben Tag sowohl im Atlantik als auch im Mittelmeer baden könnt.'
             ],
             es: [
-              "En la <strong><a class=\"am-link\" href=\"https://maps.google.com/?q=Isla+de+Las+Palomas+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Isla de Las Palomas</strong></a></strong>, también conocida como Punta Marroquí, se unen el Mediterráneo y el Atlántico. Marca el punto más meridional de la España peninsular y de Europa continental.",
+              "En la <strong><strong>Isla de Las Palomas</strong></strong>, también conocida como Punta Marroquí, se unen el Mediterráneo y el Atlántico. Marca el punto más meridional de la España peninsular y de Europa continental.",
               'Un precioso paseo conduce entre los dos mares hacia la isla, donde un faro de 43 metros se alza sobre el Estrecho de Gibraltar. En días claros, África parece increíblemente cerca.',
               'Justo al lado está la <strong>Playa del Balneario</strong>, un popular spot de surf con olas potentes. Tarifa es el único lugar donde podéis bañaros en el Atlántico y el Mediterráneo el mismo día.'
             ],
             nl: [
-              "Bij <strong><a class=\"am-link\" href=\"https://maps.google.com/?q=Isla+de+Las+Palomas+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Isla de Las Palomas</strong></a></strong>, ook bekend als Punta Marroquí, komen de Middellandse Zee en de Atlantische Oceaan samen. Het is het zuidelijkste punt van het Spaanse vasteland en continentaal Europa.",
+              "Bij <strong><strong>Isla de Las Palomas</strong></strong>, ook bekend als Punta Marroquí, komen de Middellandse Zee en de Atlantische Oceaan samen. Het is het zuidelijkste punt van het Spaanse vasteland en continentaal Europa.",
               'Een prachtige wandeling voert tussen de twee zeeën naar het eiland, waar een 43 meter hoge vuurtoren boven de Straat van Gibraltar uitsteekt. Op heldere dagen voelt Afrika verrassend dichtbij.',
               'Vlak ernaast ligt <strong>Balneario Beach</strong>, een populaire surfspot met krachtige golven. Tarifa is de enige plek waar jullie op dezelfde dag in zowel de Atlantische Oceaan als de Middellandse Zee kunnen zwemmen.'
             ],
             sv: [
-              "Vid <strong><a class=\"am-link\" href=\"https://maps.google.com/?q=Isla+de+Las+Palomas+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Isla de Las Palomas</strong></a></strong>, även känd som Punta Marroquí, möts Medelhavet och Atlanten. Här ligger den sydligaste punkten på Spaniens fastland och på den europeiska kontinenten.",
+              "Vid <strong><strong>Isla de Las Palomas</strong></strong>, även känd som Punta Marroquí, möts Medelhavet och Atlanten. Här ligger den sydligaste punkten på Spaniens fastland och på den europeiska kontinenten.",
               'En vacker promenad leder mellan de två haven mot ön, där en 43 meter hög fyr reser sig över Gibraltarsund. Under klara dagar känns Afrika förvånansvärt nära.',
               'Alldeles intill ligger <strong>Balneario Beach</strong>, en populär surfspot med kraftfulla vågor. Tarifa är den enda platsen där ni kan bada i både Atlanten och Medelhavet under samma dag.'
             ]
@@ -3399,6 +3418,7 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
         },
         {
           icon: 'landmark',
+          recommendationId: 'tarifa.sightseeing.castillo-de-guzman-el-bueno',
           title: tarifaText(
             'Guzmán el Bueno Castle',
             'Castillo de Guzmán el Bueno',
@@ -3408,31 +3428,31 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'Built by Caliph Abderramán III, <a class="am-link" href="https://maps.google.com/?q=Castillo+de+Guzman+el+Bueno+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Guzmán el Bueno Castle</strong></a> was designed as a strategic fortress controlling the Strait of Gibraltar.',
+              'Built by Caliph Abderramán III, <strong>Guzmán el Bueno Castle</strong> was designed as a strategic fortress controlling the Strait of Gibraltar.',
               'In 1294, Guzmán “the Good” became legendary for choosing to protect Tarifa rather than surrender it in exchange for his captured son. The castle remains a symbol of loyalty and courage.',
               'Today you can walk its walls in the old town and enjoy spectacular views across the Strait toward Tangier.',
               '<strong>Opening hours:</strong><br>Tue–Sat: 11:00–14:00 & 18:00–20:00<br>Sun: 11:00–14:00<br>Mon: Closed<br><em>Opening times can change seasonally. Check again on the day of your visit.</em>'
             ],
             de: [
-              'Das von Kalif Abderramán III. erbaute <a class="am-link" href="https://maps.google.com/?q=Castillo+de+Guzman+el+Bueno+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Castillo de Guzmán el Bueno</strong></a> diente als strategische Festung zur Kontrolle der Straße von Gibraltar.',
+              'Das von Kalif Abderramán III. erbaute <strong>Castillo de Guzmán el Bueno</strong> diente als strategische Festung zur Kontrolle der Straße von Gibraltar.',
               'Im Jahr 1294 wurde Guzmán „der Gute“ zur Legende, als er Tarifa verteidigte, anstatt die Stadt im Austausch für seinen gefangenen Sohn aufzugeben. Die Burg bleibt ein Symbol für Loyalität und Mut.',
               'Heute könnt ihr auf ihren Mauern in der Altstadt spazieren und einen spektakulären Blick über die Meerenge bis nach Tanger genießen.',
               '<strong>Öffnungszeiten:</strong><br>Di–Sa: 11:00–14:00 & 18:00–20:00 Uhr<br>So: 11:00–14:00 Uhr<br>Mo: geschlossen<br><em>Die Öffnungszeiten können saisonal variieren. Prüft sie am Besuchstag noch einmal.</em>'
             ],
             es: [
-              'Construido por el califa Abderramán III, el <a class="am-link" href="https://maps.google.com/?q=Castillo+de+Guzman+el+Bueno+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Castillo de Guzmán el Bueno</strong></a> fue concebido como una fortaleza estratégica para controlar el Estrecho de Gibraltar.',
+              'Construido por el califa Abderramán III, el <strong>Castillo de Guzmán el Bueno</strong> fue concebido como una fortaleza estratégica para controlar el Estrecho de Gibraltar.',
               'En 1294, Guzmán “el Bueno” se convirtió en leyenda al elegir defender Tarifa en lugar de entregarla a cambio de su hijo capturado. El castillo sigue siendo un símbolo de lealtad y valentía.',
               'Hoy podéis pasear por sus murallas en el casco antiguo y disfrutar de vistas espectaculares del Estrecho hacia Tánger.',
               '<strong>Horarios:</strong><br>Mar–Sáb: 11:00–14:00 y 18:00–20:00<br>Dom: 11:00–14:00<br>Lun: cerrado<br><em>Los horarios pueden variar según la temporada. Comprobadlos el mismo día de la visita.</em>'
             ],
             nl: [
-              'Het <a class="am-link" href="https://maps.google.com/?q=Castillo+de+Guzman+el+Bueno+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Kasteel van Guzmán el Bueno</strong></a> werd gebouwd door kalief Abderramán III en was bedoeld als strategisch fort om de Straat van Gibraltar te bewaken.',
+              'Het <strong>Kasteel van Guzmán el Bueno</strong> werd gebouwd door kalief Abderramán III en was bedoeld als strategisch fort om de Straat van Gibraltar te bewaken.',
               'In 1294 werd Guzmán “de Goede” een legende toen hij Tarifa verdedigde in plaats van de stad over te geven in ruil voor zijn gevangengenomen zoon. Het kasteel blijft een symbool van loyaliteit en moed.',
               'Tegenwoordig kunnen jullie over de muren in de oude stad wandelen en genieten van spectaculair uitzicht over de zeestraat richting Tanger.',
               '<strong>Openingstijden:</strong><br>Di–Za: 11:00–14:00 & 18:00–20:00 uur<br>Zo: 11:00–14:00 uur<br>Ma: gesloten<br><em>Openingstijden kunnen per seizoen verschillen. Controleer ze op de dag van jullie bezoek.</em>'
             ],
             sv: [
-              '<a class="am-link" href="https://maps.google.com/?q=Castillo+de+Guzman+el+Bueno+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Guzmán el Bueno-slottet</strong></a> byggdes av kalif Abderramán III som en strategisk fästning för att kontrollera Gibraltarsund.',
+              '<strong>Guzmán el Bueno-slottet</strong> byggdes av kalif Abderramán III som en strategisk fästning för att kontrollera Gibraltarsund.',
               'År 1294 blev Guzmán “den Gode” legendarisk när han valde att försvara Tarifa i stället för att överlämna staden i utbyte mot sin tillfångatagne son. Slottet är fortfarande en symbol för lojalitet och mod.',
               'Idag kan ni promenera på murarna i gamla stan och njuta av spektakulära vyer över sundet mot Tanger.',
               '<strong>Öppettider:</strong><br>Tis–Lör: 11:00–14:00 & 18:00–20:00<br>Sön: 11:00–14:00<br>Mån: stängt<br><em>Öppettiderna kan variera med säsongen. Kontrollera dem samma dag som ni besöker platsen.</em>'
@@ -3441,6 +3461,7 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
         },
         {
           icon: 'landmark',
+          recommendationId: 'tarifa.sightseeing.iglesia-de-san-mateo',
           title: tarifaText(
             'St. Matthew’s Church',
             'Iglesia de San Mateo',
@@ -3450,29 +3471,30 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'Located in the heart of the old town, <a class="am-link" href="https://maps.google.com/?q=Iglesia+de+San+Mateo+Tarifa" target="_blank" rel="noopener noreferrer"><strong>St. Matthew’s Church</strong></a>, dating from the 16th century, combines late-Gothic architecture with a neoclassical façade. Stained-glass windows and expressive statues create a powerful interior atmosphere.',
+              'Located in the heart of the old town, <strong>St. Matthew’s Church</strong>, dating from the 16th century, combines late-Gothic architecture with a neoclassical façade. Stained-glass windows and expressive statues create a powerful interior atmosphere.',
               'After the Catholic Monarchs reclaimed Tarifa, the church offered forgiveness to anyone who settled here for one year and one day — a historic gesture intended to repopulate what had been a dangerous frontier town.'
             ],
             de: [
-              'Die <a class="am-link" href="https://maps.google.com/?q=Iglesia+de+San+Mateo+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Iglesia de San Mateo</strong></a> aus dem 16. Jahrhundert liegt im Herzen der Altstadt und verbindet spätgotische Architektur mit einer neoklassizistischen Fassade. Buntglasfenster und ausdrucksstarke Statuen schaffen eine besondere Atmosphäre im Inneren.',
+              'Die <strong>Iglesia de San Mateo</strong> aus dem 16. Jahrhundert liegt im Herzen der Altstadt und verbindet spätgotische Architektur mit einer neoklassizistischen Fassade. Buntglasfenster und ausdrucksstarke Statuen schaffen eine besondere Atmosphäre im Inneren.',
               'Nachdem die Katholischen Könige Tarifa zurückerobert hatten, bot die Kirche jedem Vergebung an, der sich für ein Jahr und einen Tag hier niederließ – eine historische Geste, um die einst gefährliche Grenzstadt wieder zu bevölkern.'
             ],
             es: [
-              'Situada en pleno casco antiguo, la <a class="am-link" href="https://maps.google.com/?q=Iglesia+de+San+Mateo+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Iglesia de San Mateo</strong></a>, del siglo XVI, combina la arquitectura del gótico tardío con una fachada neoclásica. Las vidrieras y las expresivas estatuas crean una atmósfera interior muy especial.',
+              'Situada en pleno casco antiguo, la <strong>Iglesia de San Mateo</strong>, del siglo XVI, combina la arquitectura del gótico tardío con una fachada neoclásica. Las vidrieras y las expresivas estatuas crean una atmósfera interior muy especial.',
               'Tras la reconquista de Tarifa por los Reyes Católicos, la iglesia ofreció el perdón a quien se instalara aquí durante un año y un día, un gesto histórico para repoblar lo que había sido una peligrosa ciudad fronteriza.'
             ],
             nl: [
-              'De 16e-eeuwse <a class="am-link" href="https://maps.google.com/?q=Iglesia+de+San+Mateo+Tarifa" target="_blank" rel="noopener noreferrer"><strong>Sint-Mattheüskerk</strong></a> ligt in het hart van de oude stad en combineert laatgotische architectuur met een neoklassieke gevel. Glas-in-loodramen en expressieve beelden zorgen binnen voor een bijzondere sfeer.',
+              'De 16e-eeuwse <strong>Sint-Mattheüskerk</strong> ligt in het hart van de oude stad en combineert laatgotische architectuur met een neoklassieke gevel. Glas-in-loodramen en expressieve beelden zorgen binnen voor een bijzondere sfeer.',
               'Nadat de Katholieke Koningen Tarifa hadden heroverd, bood de kerk vergeving aan iedereen die zich hier een jaar en een dag vestigde — een historisch gebaar om de ooit gevaarlijke grensstad opnieuw te bevolken.'
             ],
             sv: [
-              '<a class="am-link" href="https://maps.google.com/?q=Iglesia+de+San+Mateo+Tarifa" target="_blank" rel="noopener noreferrer"><strong>San Mateo-kyrkan</strong></a> från 1500-talet ligger i hjärtat av gamla stan och förenar sengotisk arkitektur med en neoklassisk fasad. Målade glasfönster och uttrycksfulla statyer skapar en stark atmosfär inuti.',
+              '<strong>San Mateo-kyrkan</strong> från 1500-talet ligger i hjärtat av gamla stan och förenar sengotisk arkitektur med en neoklassisk fasad. Målade glasfönster och uttrycksfulla statyer skapar en stark atmosfär inuti.',
               'Efter att de katolska monarkerna återerövrat Tarifa erbjöd kyrkan förlåtelse till den som bosatte sig här i ett år och en dag — en historisk gest för att återbefolka den tidigare farliga gränsstaden.'
             ]
           }),
         },
         {
           icon: 'location-pin',
+          recommendationId: 'tarifa.sightseeing.mirador-africa',
           title: tarifaText(
             'Mirador África & Torre de Miramar',
             'Mirador África & Torre de Miramar',
@@ -3482,23 +3504,23 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              "From the old city wall on Calle Amargura, <a class=\"am-link\" href=\"https://maps.google.com/?q=Mirador+Africa+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mirador África</strong></a> offers one of the most impressive views in southern Spain.",
+              "From the old city wall on Calle Amargura, <strong>Mirador África</strong> offers one of the most impressive views in southern Spain.",
               'At the narrowest point of the Strait of Gibraltar, Morocco lies only 14 km away. The view across two continents is peaceful and unforgettable. <em>Tip: Come for sunset.</em>'
             ],
             de: [
-              "Von der alten Stadtmauer an der Calle Amargura bietet der <a class=\"am-link\" href=\"https://maps.google.com/?q=Mirador+Africa+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mirador África</strong></a> einen der beeindruckendsten Ausblicke Südspaniens.",
+              "Von der alten Stadtmauer an der Calle Amargura bietet der <strong>Mirador África</strong> einen der beeindruckendsten Ausblicke Südspaniens.",
               'An der engsten Stelle der Straße von Gibraltar ist Marokko nur 14 km entfernt. Der Blick über zwei Kontinente ist friedlich und unvergesslich. <em>Tipp: Kommt zum Sonnenuntergang.</em>'
             ],
             es: [
-              "Desde la antigua muralla de la Calle Amargura, el <a class=\"am-link\" href=\"https://maps.google.com/?q=Mirador+Africa+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mirador África</strong></a> ofrece una de las vistas más impresionantes del sur de España.",
+              "Desde la antigua muralla de la Calle Amargura, el <strong>Mirador África</strong> ofrece una de las vistas más impresionantes del sur de España.",
               'En el punto más estrecho del Estrecho de Gibraltar, Marruecos está a solo 14 km. La vista entre dos continentes transmite paz y resulta inolvidable. <em>Consejo: Venid al atardecer.</em>'
             ],
             nl: [
-              "Vanaf de oude stadsmuur aan de Calle Amargura biedt <a class=\"am-link\" href=\"https://maps.google.com/?q=Mirador+Africa+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mirador África</strong></a> een van de indrukwekkendste uitzichten van Zuid-Spanje.",
+              "Vanaf de oude stadsmuur aan de Calle Amargura biedt <strong>Mirador África</strong> een van de indrukwekkendste uitzichten van Zuid-Spanje.",
               'Op het smalste punt van de Straat van Gibraltar ligt Marokko slechts 14 km verderop. Het uitzicht over twee continenten is vredig en onvergetelijk. <em>Tip: Kom voor de zonsondergang.</em>'
             ],
             sv: [
-              "Från den gamla stadsmuren på Calle Amargura erbjuder <a class=\"am-link\" href=\"https://maps.google.com/?q=Mirador+Africa+Tarifa\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Mirador África</strong></a> en av södra Spaniens mest imponerande utsikter.",
+              "Från den gamla stadsmuren på Calle Amargura erbjuder <strong>Mirador África</strong> en av södra Spaniens mest imponerande utsikter.",
               'Vid Gibraltarsunds smalaste punkt ligger Marocko bara 14 km bort. Vyn över två kontinenter är fridfull och oförglömlig. <em>Tips: Kom vid solnedgången.</em>'
             ]
           }),
@@ -3517,6 +3539,7 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
       items: [
         {
           icon: 'route',
+          recommendationId: 'tarifa.sightseeing.duna-de-valdevaqueros',
           title: tarifaText(
             'Valdevaqueros Sand Dune',
             'Sanddüne von Valdevaqueros',
@@ -3526,27 +3549,27 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              'About 8 km from Tarifa toward Cádiz, near Punta Paloma, you will find the <a class="am-link" href="https://maps.google.com/?q=Duna+de+Valdevaqueros" target="_blank" rel="noopener noreferrer"><strong>Valdevaqueros Sand Dune</strong></a>, one of Andalusia’s most spectacular dunes.',
+              'About 8 km from Tarifa toward Cádiz, near Punta Paloma, you will find the <strong>Valdevaqueros Sand Dune</strong>, one of Andalusia’s most spectacular dunes.',
               'It is a protected nature reserve with untouched beaches and no buildings — only sea, wind, and wide horizons.',
               'From the top of the dune, the view of the African coastline is breathtaking.'
             ],
             de: [
-              'Etwa 8 km von Tarifa in Richtung Cádiz, nahe Punta Paloma, findet ihr die <a class="am-link" href="https://maps.google.com/?q=Duna+de+Valdevaqueros" target="_blank" rel="noopener noreferrer"><strong>Sanddüne von Valdevaqueros</strong></a>, eine der spektakulärsten Dünen Andalusiens.',
+              'Etwa 8 km von Tarifa in Richtung Cádiz, nahe Punta Paloma, findet ihr die <strong>Sanddüne von Valdevaqueros</strong>, eine der spektakulärsten Dünen Andalusiens.',
               'Sie liegt in einem geschützten Naturreservat mit unberührten Stränden und ganz ohne Gebäude – nur Meer, Wind und weite Horizonte.',
               'Von der Düne aus ist der Blick auf die afrikanische Küste atemberaubend.'
             ],
             es: [
-              'A unos 8 km de Tarifa en dirección a Cádiz, cerca de Punta Paloma, encontraréis la <a class="am-link" href="https://maps.google.com/?q=Duna+de+Valdevaqueros" target="_blank" rel="noopener noreferrer"><strong>Duna de Valdevaqueros</strong></a>, una de las dunas más espectaculares de Andalucía.',
+              'A unos 8 km de Tarifa en dirección a Cádiz, cerca de Punta Paloma, encontraréis la <strong>Duna de Valdevaqueros</strong>, una de las dunas más espectaculares de Andalucía.',
               'Está en una reserva natural protegida con playas vírgenes y sin edificios: solo mar, viento y amplios horizontes.',
               'Desde lo alto de la duna, las vistas de la costa africana son impresionantes.'
             ],
             nl: [
-              'Op ongeveer 8 km van Tarifa richting Cádiz, bij Punta Paloma, vinden jullie de <a class="am-link" href="https://maps.google.com/?q=Duna+de+Valdevaqueros" target="_blank" rel="noopener noreferrer"><strong>Zandduin van Valdevaqueros</strong></a>, een van de spectaculairste duinen van Andalusië.',
+              'Op ongeveer 8 km van Tarifa richting Cádiz, bij Punta Paloma, vinden jullie de <strong>Zandduin van Valdevaqueros</strong>, een van de spectaculairste duinen van Andalusië.',
               'Het is een beschermd natuurgebied met ongerepte stranden en zonder bebouwing — alleen zee, wind en weidse horizonten.',
               'Vanaf de top van het duin is het uitzicht op de Afrikaanse kust adembenemend.'
             ],
             sv: [
-              'Cirka 8 km från Tarifa i riktning mot Cádiz, nära Punta Paloma, hittar ni <a class="am-link" href="https://maps.google.com/?q=Duna+de+Valdevaqueros" target="_blank" rel="noopener noreferrer"><strong>Sanddynen i Valdevaqueros</strong></a>, en av Andalusiens mest spektakulära sanddyner.',
+              'Cirka 8 km från Tarifa i riktning mot Cádiz, nära Punta Paloma, hittar ni <strong>Sanddynen i Valdevaqueros</strong>, en av Andalusiens mest spektakulära sanddyner.',
               'Den ligger i ett skyddat naturreservat med orörda stränder och helt utan byggnader — bara hav, vind och vida horisonter.',
               'Från dynens topp är utsikten över Afrikas kust hisnande.'
             ]
@@ -3554,6 +3577,7 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
         },
         {
           icon: 'landmark',
+          recommendationId: 'tarifa.sightseeing.baelo-claudia',
           title: tarifaText(
             'Roman Ruins of Baelo Claudia (Bolonia)',
             'Römische Ruinen von Baelo Claudia (Bolonia)',
@@ -3563,31 +3587,31 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              "Just 15 km from Tarifa lies the ancient Roman city of <a class=\"am-link\" href=\"https://maps.google.com/?q=Baelo+Claudia+Bolonia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Baelo Claudia</strong></a>, more than 2,000 years old.",
+              "Just 15 km from Tarifa lies the ancient Roman city of <strong>Baelo Claudia</strong>, more than 2,000 years old.",
               'Once a prosperous trade centre, the city supplied the Roman Empire with garum, the famous fish-paste delicacy of its time.',
               'Today you can explore the theatre, basilica, Temple of Isis, aqueducts, thermal baths, and fish-salting factories.',
               '<strong>Opening hours:</strong> Vary by season. Closed Mondays.<br><em>Check the current hours on the day of your visit.</em>'
             ],
             de: [
-              "Nur 15 km von Tarifa entfernt liegt die mehr als 2.000 Jahre alte römische Stadt <a class=\"am-link\" href=\"https://maps.google.com/?q=Baelo+Claudia+Bolonia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Baelo Claudia</strong></a>.",
+              "Nur 15 km von Tarifa entfernt liegt die mehr als 2.000 Jahre alte römische Stadt <strong>Baelo Claudia</strong>.",
               'Einst ein florierendes Handelszentrum, versorgte die Stadt das Römische Reich mit Garum, der berühmten Fischpasten-Delikatesse ihrer Zeit.',
               'Heute könnt ihr Theater, Basilika, Isis-Tempel, Aquädukte, Thermalbäder und die alten Fischsalzfabriken erkunden.',
               '<strong>Öffnungszeiten:</strong> Je nach Saison unterschiedlich. Montags geschlossen.<br><em>Prüft die aktuellen Zeiten am Besuchstag.</em>'
             ],
             es: [
-              "A solo 15 km de Tarifa se encuentra la antigua ciudad romana de <a class=\"am-link\" href=\"https://maps.google.com/?q=Baelo+Claudia+Bolonia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Baelo Claudia</strong></a>, con más de 2.000 años de historia.",
+              "A solo 15 km de Tarifa se encuentra la antigua ciudad romana de <strong>Baelo Claudia</strong>, con más de 2.000 años de historia.",
               'Antiguo centro comercial próspero, la ciudad abastecía al Imperio romano de garum, la famosa pasta de pescado de la época.',
               'Hoy podéis explorar el teatro, la basílica, el templo de Isis, los acueductos, las termas y las fábricas de salazón.',
               '<strong>Horarios:</strong> Varían según la temporada. Cerrado los lunes.<br><em>Comprobad el horario actual el mismo día de la visita.</em>'
             ],
             nl: [
-              "Slechts 15 km van Tarifa ligt de meer dan 2.000 jaar oude Romeinse stad <a class=\"am-link\" href=\"https://maps.google.com/?q=Baelo+Claudia+Bolonia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Baelo Claudia</strong></a>.",
+              "Slechts 15 km van Tarifa ligt de meer dan 2.000 jaar oude Romeinse stad <strong>Baelo Claudia</strong>.",
               'Ooit een welvarend handelscentrum voorzag de stad het Romeinse Rijk van garum, de beroemde vispasta uit die tijd.',
               'Tegenwoordig kunnen jullie het theater, de basiliek, de Isistempel, aquaducten, thermale baden en viszouterijen verkennen.',
               '<strong>Openingstijden:</strong> Verschillen per seizoen. Maandag gesloten.<br><em>Controleer de actuele tijden op de dag van jullie bezoek.</em>'
             ],
             sv: [
-              "Bara 15 km från Tarifa ligger den mer än 2 000 år gamla romerska staden <a class=\"am-link\" href=\"https://maps.google.com/?q=Baelo+Claudia+Bolonia\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>Baelo Claudia</strong></a>.",
+              "Bara 15 km från Tarifa ligger den mer än 2 000 år gamla romerska staden <strong>Baelo Claudia</strong>.",
               'Som ett tidigare blomstrande handelscentrum försåg staden Romarriket med garum, den tidens berömda fiskpasta.',
               'Idag kan ni utforska teatern, basilikan, Isistemplet, akvedukterna, termalbaden och fabrikerna för fisksaltning.',
               '<strong>Öppettider:</strong> Varierar med säsongen. Stängt på måndagar.<br><em>Kontrollera aktuella tider samma dag som ni besöker platsen.</em>'
@@ -3608,6 +3632,7 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
       items: [
         {
           icon: 'wave',
+          recommendationId: 'tarifa.sightseeing.firmm-whale-watching',
           title: tarifaText(
             'Respectful Whale Watching',
             'Respektvolles Whale Watching',
@@ -3620,31 +3645,31 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
               'The Strait of Gibraltar is one of Europe’s best places to observe whales and dolphins in their natural habitat.',
               'You may see striped dolphins, common dolphins, pilot whales, sperm whales from May to July, and even orcas from June to September.',
               'Tours usually last around 2–3 hours and depart several times daily from Tarifa harbour. Choose a calm-sea day for the most comfortable experience.',
-              '<strong>Established operator:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br><a class="am-link" href="tel:+34956627008">+34 956 627 008</a><br><a class="am-link" href="https://www.firmm.org/" target="_blank" rel="noopener noreferrer">firmm.org</a>'
+              '<strong>Established operator:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org'
             ],
             de: [
               'Die Straße von Gibraltar ist einer der besten Orte Europas, um Wale und Delfine in ihrem natürlichen Lebensraum zu beobachten.',
               'Ihr könnt Streifendelfine, Gewöhnliche Delfine, Grindwale, Pottwale von Mai bis Juli und sogar Orcas von Juni bis September sehen.',
               'Die Touren dauern meist 2–3 Stunden und starten mehrmals täglich am Hafen von Tarifa. Wählt für ein möglichst angenehmes Erlebnis einen Tag mit ruhiger See.',
-              '<strong>Etablierter Anbieter:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br><a class="am-link" href="tel:+34956627008">+34 956 627 008</a><br><a class="am-link" href="https://www.firmm.org/" target="_blank" rel="noopener noreferrer">firmm.org</a>'
+              '<strong>Etablierter Anbieter:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org'
             ],
             es: [
               'El Estrecho de Gibraltar es uno de los mejores lugares de Europa para observar ballenas y delfines en su hábitat natural.',
               'Podéis ver delfines listados, delfines comunes, calderones, cachalotes de mayo a julio e incluso orcas de junio a septiembre.',
               'Las excursiones suelen durar 2–3 horas y salen varias veces al día desde el puerto de Tarifa. Elegid un día con el mar en calma para disfrutar de una experiencia más cómoda.',
-              '<strong>Operador de confianza:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br><a class="am-link" href="tel:+34956627008">+34 956 627 008</a><br><a class="am-link" href="https://www.firmm.org/" target="_blank" rel="noopener noreferrer">firmm.org</a>'
+              '<strong>Operador de confianza:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org'
             ],
             nl: [
               'De Straat van Gibraltar is een van de beste plekken in Europa om walvissen en dolfijnen in hun natuurlijke omgeving te zien.',
               'Jullie kunnen gestreepte en gewone dolfijnen, grienden, potvissen van mei tot juli en zelfs orka’s van juni tot september tegenkomen.',
               'Tours duren meestal 2–3 uur en vertrekken meerdere keren per dag vanuit de haven van Tarifa. Kies voor een comfortabele ervaring een dag met een rustige zee.',
-              '<strong>Ervaren aanbieder:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br><a class="am-link" href="tel:+34956627008">+34 956 627 008</a><br><a class="am-link" href="https://www.firmm.org/" target="_blank" rel="noopener noreferrer">firmm.org</a>'
+              '<strong>Ervaren aanbieder:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org'
             ],
             sv: [
               'Gibraltarsund är en av Europas bästa platser för att se valar och delfiner i deras naturliga miljö.',
               'Ni kan få se strimmiga och vanliga delfiner, grindvalar, kaskeloter från maj till juli och till och med späckhuggare från juni till september.',
               'Turerna tar vanligtvis 2–3 timmar och avgår flera gånger om dagen från Tarifas hamn. Välj en dag med lugnt hav för en så bekväm upplevelse som möjligt.',
-              '<strong>Etablerad arrangör:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br><a class="am-link" href="tel:+34956627008">+34 956 627 008</a><br><a class="am-link" href="https://www.firmm.org/" target="_blank" rel="noopener noreferrer">firmm.org</a>'
+              '<strong>Etablerad arrangör:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org'
             ]
           })
         }
@@ -3729,6 +3754,7 @@ const tarifaFamilySurfNightlife: GuestGuideEntry = {
       items: [
         {
           icon: 'moon',
+          recommendationIds: ['tarifa.nightlife.la-onda', 'tarifa.nightlife.surf-bar', 'tarifa.nightlife.taco-way', 'tarifa.nightlife.venice-cocktail-bar'],
           title: tarifaText(
             'Early Evening',
             'Der frühe Abend',
@@ -3739,33 +3765,29 @@ const tarifaFamilySurfNightlife: GuestGuideEntry = {
           body: tarifaParagraphs({
             en: [
               'Start with relaxed pre-dinner drinks in the old town:',
-              '<ul><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Onda+Tarifa" target="_blank" rel="noopener noreferrer">La Onda</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Surf+Bar+Tarifa" target="_blank" rel="noopener noreferrer">Surf Bar</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Taco+Way+Tarifa" target="_blank" rel="noopener noreferrer">Taco Way</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Venice+Cocktail+Bar+Tarifa" target="_blank" rel="noopener noreferrer">Venice Cocktail Bar</a></li></ul>',
               'It is the perfect atmosphere for meeting friends, enjoying cocktails and easing into the night.'
             ],
             de: [
               'Startet mit entspannten Drinks vor dem Abendessen in der Altstadt:',
-              '<ul><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Onda+Tarifa" target="_blank" rel="noopener noreferrer">La Onda</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Surf+Bar+Tarifa" target="_blank" rel="noopener noreferrer">Surf Bar</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Taco+Way+Tarifa" target="_blank" rel="noopener noreferrer">Taco Way</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Venice+Cocktail+Bar+Tarifa" target="_blank" rel="noopener noreferrer">Venice Cocktail Bar</a></li></ul>',
               'Die perfekte Atmosphäre, um Freunde zu treffen, Cocktails zu genießen und entspannt in die Nacht zu starten.'
             ],
             es: [
               'Empezad con unas copas tranquilas antes de cenar en el casco antiguo:',
-              '<ul><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Onda+Tarifa" target="_blank" rel="noopener noreferrer">La Onda</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Surf+Bar+Tarifa" target="_blank" rel="noopener noreferrer">Surf Bar</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Taco+Way+Tarifa" target="_blank" rel="noopener noreferrer">Taco Way</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Venice+Cocktail+Bar+Tarifa" target="_blank" rel="noopener noreferrer">Venice Cocktail Bar</a></li></ul>',
               'Es el ambiente perfecto para quedar con amigos, disfrutar de unos cócteles y dejar que la noche vaya cogiendo ritmo.'
             ],
             nl: [
               'Begin met een ontspannen drankje voor het eten in de oude stad:',
-              '<ul><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Onda+Tarifa" target="_blank" rel="noopener noreferrer">La Onda</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Surf+Bar+Tarifa" target="_blank" rel="noopener noreferrer">Surf Bar</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Taco+Way+Tarifa" target="_blank" rel="noopener noreferrer">Taco Way</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Venice+Cocktail+Bar+Tarifa" target="_blank" rel="noopener noreferrer">Venice Cocktail Bar</a></li></ul>',
               'De perfecte sfeer om vrienden te ontmoeten, van cocktails te genieten en rustig de nacht in te rollen.'
             ],
             sv: [
               'Börja med avslappnade drinkar före middagen i gamla stan:',
-              '<ul><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Onda+Tarifa" target="_blank" rel="noopener noreferrer">La Onda</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Surf+Bar+Tarifa" target="_blank" rel="noopener noreferrer">Surf Bar</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Taco+Way+Tarifa" target="_blank" rel="noopener noreferrer">Taco Way</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Venice+Cocktail+Bar+Tarifa" target="_blank" rel="noopener noreferrer">Venice Cocktail Bar</a></li></ul>',
               'Det är den perfekta stämningen för att träffa vänner, njuta av drinkar och låta kvällen komma igång i lugn takt.'
             ]
           })
         },
         {
           icon: 'star',
+          recommendationIds: ['tarifa.nightlife.la-ruina', 'tarifa.nightlife.mombassa', 'tarifa.nightlife.cafe-del-mar'],
           title: tarifaText(
             'Later Action',
             'Wenn es später wird',
@@ -3776,27 +3798,22 @@ const tarifaFamilySurfNightlife: GuestGuideEntry = {
           body: tarifaParagraphs({
             en: [
               'As the energy builds, the crowd moves on to clubs and dancing:',
-              '<ul><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Ruina+Tarifa" target="_blank" rel="noopener noreferrer">La Ruina</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mombassa+Tarifa" target="_blank" rel="noopener noreferrer">Mombassa</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+del+Mar+Tarifa" target="_blank" rel="noopener noreferrer">Café del Mar</a></li></ul>',
               'From here, it is all about music, movement and shared moments that can last until sunrise.'
             ],
             de: [
               'Wenn die Energie steigt, zieht es die Menge weiter in die Clubs und auf die Tanzflächen:',
-              '<ul><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Ruina+Tarifa" target="_blank" rel="noopener noreferrer">La Ruina</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mombassa+Tarifa" target="_blank" rel="noopener noreferrer">Mombassa</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+del+Mar+Tarifa" target="_blank" rel="noopener noreferrer">Café del Mar</a></li></ul>',
               'Ab jetzt geht es um Musik, Bewegung und gemeinsame Momente, die bis zum Sonnenaufgang dauern können.'
             ],
             es: [
               'Cuando sube la energía, la gente se mueve hacia los clubes y las pistas de baile:',
-              '<ul><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Ruina+Tarifa" target="_blank" rel="noopener noreferrer">La Ruina</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mombassa+Tarifa" target="_blank" rel="noopener noreferrer">Mombassa</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+del+Mar+Tarifa" target="_blank" rel="noopener noreferrer">Café del Mar</a></li></ul>',
               'A partir de aquí, todo gira en torno a la música, el baile y los momentos compartidos que pueden alargarse hasta el amanecer.'
             ],
             nl: [
               'Wanneer de energie toeneemt, trekt het publiek verder naar de clubs en de dansvloer:',
-              '<ul><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Ruina+Tarifa" target="_blank" rel="noopener noreferrer">La Ruina</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mombassa+Tarifa" target="_blank" rel="noopener noreferrer">Mombassa</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+del+Mar+Tarifa" target="_blank" rel="noopener noreferrer">Café del Mar</a></li></ul>',
               'Vanaf dat moment draait alles om muziek, beweging en gedeelde momenten die tot zonsopgang kunnen doorgaan.'
             ],
             sv: [
               'När energin stiger drar publiken vidare till klubbarna och dansgolven:',
-              '<ul><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=La+Ruina+Tarifa" target="_blank" rel="noopener noreferrer">La Ruina</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Mombassa+Tarifa" target="_blank" rel="noopener noreferrer">Mombassa</a></li><li><a class="am-link" href="https://www.google.com/maps/search/?api=1&amp;query=Caf%C3%A9+del+Mar+Tarifa" target="_blank" rel="noopener noreferrer">Café del Mar</a></li></ul>',
               'Därefter handlar allt om musik, rörelse och gemensamma stunder som kan fortsätta ända till soluppgången.'
             ]
           })
@@ -4226,6 +4243,7 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
       items: [
         {
           icon: "store",
+          recommendationId: 'tarifa.kitesurfing.tarifa-surf-club',
           title: tarifaText(
             "Tarifa Surf Club",
             "Tarifa Surf Club",
@@ -4263,11 +4281,11 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
             "Bland uthyrningsalternativen finns utrustning från <strong>Airush</strong> och <strong>North</strong>, och teamet hjälper er gärna att hitta rätt setup för er nivå och dagens vind."
           ),
           tarifaText(
-            "For anything related to rental, lessons, or rescue cards, please send a WhatsApp message here: <a class=\"am-link\" href=\"https://wa.me/34619548276\" target=\"_blank\" rel=\"noopener noreferrer\">+34 619 548 276</a>",
-            "Für alles rund um Verleih, Kurse oder Rescue-Karten schreibt bitte einfach eine WhatsApp-Nachricht an: <a class=\"am-link\" href=\"https://wa.me/34619548276\" target=\"_blank\" rel=\"noopener noreferrer\">+34 619 548 276</a>",
-            "Para cualquier consulta sobre alquileres, clases o tarjetas de rescate, podéis enviar un mensaje de WhatsApp aquí: <a class=\"am-link\" href=\"https://wa.me/34619548276\" target=\"_blank\" rel=\"noopener noreferrer\">+34 619 548 276</a>",
-            "Voor alles omtrent verhuur, lessen of rescue-kaarten kunnen jullie hier een WhatsApp-berichtje naartoe sturen: <a class=\"am-link\" href=\"https://wa.me/34619548276\" target=\"_blank\" rel=\"noopener noreferrer\">+34 619 548 276</a>",
-            "För frågor angående uthyrning, lektioner eller räddningskort, vänligen skicka ett WhatsApp-meddelande hit: <a class=\"am-link\" href=\"https://wa.me/34619548276\" target=\"_blank\" rel=\"noopener noreferrer\">+34 619 548 276</a>"
+            "For anything related to rental, lessons, or rescue cards, please send a WhatsApp message here: +34 619 548 276",
+            "Für alles rund um Verleih, Kurse oder Rescue-Karten schreibt bitte einfach eine WhatsApp-Nachricht an: +34 619 548 276",
+            "Para cualquier consulta sobre alquileres, clases o tarjetas de rescate, podéis enviar un mensaje de WhatsApp aquí: +34 619 548 276",
+            "Voor alles omtrent verhuur, lessen of rescue-kaarten kunnen jullie hier een WhatsApp-berichtje naartoe sturen: +34 619 548 276",
+            "För frågor angående uthyrning, lektioner eller räddningskort, vänligen skicka ett WhatsApp-meddelande hit: +34 619 548 276"
           ),
           tarifaText(
             "A short message with your level, the dates, and whether you need rental, lessons, or rescue is usually the simplest way to get started.",
@@ -4291,6 +4309,7 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
       items: [
         {
           icon: "location-pin",
+          recommendationId: 'tarifa.beaches.playa-los-lances',
           title: tarifaText(
             "Los Lances Sur",
             "Los Lances Sur",
@@ -4338,6 +4357,7 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
         },
         {
           icon: "wave",
+          recommendationId: 'tarifa.beaches.playa-los-lances',
           title: tarifaText(
             "Los Lances Norte",
             "Los Lances Norte",
@@ -4385,6 +4405,7 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
         },
         {
           icon: "star",
+          recommendationId: 'tarifa.beaches.playa-de-valdevaqueros',
           title: tarifaText(
             "Playa de Valdevaqueros",
             "Playa de Valdevaqueros",
@@ -4432,6 +4453,7 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
         },
         {
           icon: "heart",
+          recommendationId: 'tarifa.beaches.playa-punta-paloma',
           title: tarifaText(
             "Punta Paloma",
             "Punta Paloma",
