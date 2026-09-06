@@ -1,10 +1,10 @@
 ---
 document_id: AMARA-KNOWLEDGE-OPS-001
 title: AMARA Research and Knowledge Workflow
-version: 1.6.1
+version: 1.7.0
 status: ACTIVE
 created_at: 2026-08-21T11:26:50+02:00
-last_modified: 2026-09-05T23:30:00+02:00
+last_modified: 2026-09-06T15:30:00+02:00
 ---
 
 # AMARA Research and Knowledge Workflow
@@ -46,7 +46,7 @@ A fact may be projected into both surfaces, but it is maintained once. Identical
 
 Existing duplication is consolidated incrementally when a topic is materially revised. The first reference cases are Pharmacies in Nerja for shared facts and Hiking in Frigiliana for public editorial ownership.
 
-Until dedicated projection fields are implemented, record the selected model and canonical owner in the relevant non-public research dossier, synthesis or page manifest. Do not create a parallel database or a second authoring system.
+Since 2026-09-06 the projection fields exist for places (DR-GUEST-006). A place is written once in `src/content/places/<destination>-<topic>.ts`, keyed by its record id, with the `public` and `guide` projections side by side (`src/lib/placeCopy.ts`). The record stays language-free and owns name, kind, address, map, contacts, access, facts and scope; the place copy owns the words. Public pages and the Guest Guide build their cards through `src/lib/placeProjection.ts`, so neither surface authors a place card of its own; the public content files hold record ids per section. Where a public page is editorial rather than a place list (Tarifa), the card or section that presents a place declares its `recordId` instead. For topics not yet on this path, record the selected model and canonical owner in the relevant non-public research dossier, synthesis or page manifest. Do not create a parallel database or a second authoring system.
 
 ## Google Drive boundary
 
@@ -178,3 +178,4 @@ A page can become shorter or change layout without reducing its knowledge base. 
 | 2026-09-04T13:30:00+02:00 | 1.5.0 | Re-shaped the Drive vault to mirror the public route hierarchy: route-key folder names, an `experiences/` subtree with Tarifa's kitesurf cluster, new `30_BRAND` and `40_SHARED` buckets, and normalized runs filed into their topic folder instead of a flat archive. Synced every `driveFolder.path` string. |
 | 2026-09-05T22:00:00+02:00 | 1.6.0 | Added recommendation records to the schema and `recommendations/`: 57 approved carry-over records for Frigiliana and Nerja restaurants, breakfast, beaches and hikes, each owning its map link, address, contact, distance from the stay and dated operating note; the Guest Guide cards reference them by `recommendationId`. |
 | 2026-09-05T23:30:00+02:00 | 1.6.1 | Migrated the remaining Guest Guide pages: 127 further carry-over records (Tarifa food and drink, nightlife, beaches, activities, sightseeing, kitesurfing and essentials; Frigiliana and Nerja sightseeing, day trips, wellness, adventure, nightlife and essentials), 184 in total. A card that lists several places references them through `recommendationIds` and renders a place list; providers and services (taxis, health centre, tourist office, car hire, laundries, cash machines, supermarkets) are records of kind `service`, `provider` or `shop`. |
+| 2026-09-06T15:30:00+02:00 | 1.7.0 | Recorded the place-copy layer as the projection model for places: one entry per record id with both projections, projections in code, record ids in the public content, `recordId` declarations on Tarifa's editorial sections. |

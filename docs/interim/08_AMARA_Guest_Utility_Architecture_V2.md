@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-UTILITY-008
 title: AMARA Guest Utility Architecture V2.11
-version: 2.12.0
+version: 2.13.0
 status: ACTIVE
 authority_class: FEATURE CONTRACT / INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF + APPROVED REPOSITORY AMENDMENT
@@ -254,6 +254,19 @@ content, because the guide is delivered only behind the booking check. The secre
 amendment continues to cover doorbell, door, lockbox and alarm codes, and the contract test
 `guestGuideSecurity.test.ts` enforces exactly that boundary.
 
+## Approved repository amendment — one place, two projections
+
+Since 2026-09-06 (DR-GUEST-006) a place recommended on the public website and in the Guest Guide is written
+once: `src/content/places/<destination>-<topic>.ts` holds, per record id, the public projection (explains and
+differentiates) and the guide projection (directs and helps execute) side by side. The guide adds what the
+public page does not have: the reservation line, the on-the-day note, plan B, the dated host note, and from the
+record the distance from the stay, phone, WhatsApp and reservation link. Public pages build their cards through
+`src/lib/placeProjection.ts` and hold record ids per section; editorial public pages (Tarifa) declare the
+record a card or section presents. A place whose record is `amara-experience` never appears publicly, a
+`public` record never in the guide, and a `split` place appears on both surfaces with different words. The
+transition block of item 11 states from the records what booked guests receive; it is the only public place
+where the guide is promised. Feature Contract 11 Section 23 is the owner of the model.
+
 ## Revision history
 
 | Version | Timestamp | Change |
@@ -271,3 +284,4 @@ amendment continues to cover doorbell, door, lockbox and alarm codes, and the co
 | 2.10.0 | 2026-09-01T18:00:51+02:00 | Added the booking holder's first name as the sole protected presentation field on every accommodation hub, with a native five-locale `Dear Guest` fallback. |
 | 2.11.0 | 2026-09-05T12:30:00+02:00 | Renamed the booked-guest umbrella to AMARA Guest Guide in five locales, made AMARA Experience the name of the personal-recommendations entry, replaced the guest-area paths with one localized system (`/de/gaesteguide/zaid`, `…/zaid/unterkunft`, `…/frigiliana/straende`) owned by `guest-experience/guide-routes.mjs` across pages, Functions, `_routes.json`, language switcher, route policy and audit, and redirected every previous path. |
 | 2.12.0 | 2026-09-05T20:30:00+02:00 | Bound the personal-recommendations promise to the delivered topics, superseded the hidden-treasures wording, added the Nerja-first recommendations page and its return targets, removed the flamenco placeholder, prohibited "search Google/Komoot" instructions in cards, introduced per-venue Tarifa cards, allowed dated knowledge-fact projection into existing cards and recorded the Wi-Fi password exception to the secret boundary. |
+| 2.13.0 | 2026-09-06T15:30:00+02:00 | Recorded the place-copy model (one place, two projections) and the record-declared public surface for editorial pages as the implementation of the public-versus-guide boundary. |
