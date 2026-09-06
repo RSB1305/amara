@@ -1,5 +1,6 @@
 import type { GuestGuideAccordionItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
 import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHref';
+import { guidePlaceItem } from '../lib/placeProjection';
 
 const FRIGILIANA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
 const NEED_HELP: LocalizedText = {
@@ -1909,111 +1910,11 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
         sv: 'Frigiliana'
       },
       items: [
-        {
-          icon: 'location-pin',
-          recommendationId: 'frigiliana.restaurants.el-jardin',
-          title: { en: 'El Jardín', de: 'El Jardín', es: 'El Jardín', nl: 'El Jardín', sv: 'El Jardín' },
-          subtitle: {
-            en: 'Frigiliana · Terrace views · approx. 220 m',
-            de: 'Frigiliana · Aussicht von der Terrasse · ca. 220 m',
-            es: 'Frigiliana · Vistas desde la terraza · aprox. 220 m',
-            nl: 'Frigiliana · Uitzicht vanaf het terras · ca. 220 m',
-            sv: 'Frigiliana · Utsikt från terrassen · ca 220 m'
-          },
-          body: [
-            {
-              en: 'The classic view dinner at the top of the village — ideal for an easy, romantic evening. If you can, arrive a little earlier for sunset and ask for a table near the railing. Terrace and international Mediterranean kitchen.',
-              de: 'Der absolute Klassiker für ein Abendessen mit traumhaftem Ausblick ganz oben im Dorf – ideal für einen entspannten, romantischen Abend. Wenn es euch möglich ist, kommt etwas früher zum Sonnenuntergang und fragt nach einem Tisch direkt am Geländer. Terrasse und international-mediterrane Küche.',
-              es: 'El clásico "cena con vistas" en lo alto del pueblo: ideal para una velada romántica y tranquila. Si podéis, llegad un poco antes del atardecer y pedid una mesa cerca de la barandilla. Terraza y cocina mediterránea internacional.',
-              nl: 'Het klassieke diner met uitzicht bovenaan het dorp — ideaal voor een relaxte en romantische avond. Probeer iets eerder te komen voor zonsondergang en vraag om een tafeltje aan de rand voor het beste zicht. Terras en internationaal-mediterrane keuken.',
-              sv: 'Den klassiska middagen med utsikt högst upp i byn – perfekt när ni vill ha en avkopplande och romantisk kväll. Om ni kan, kom lite tidigare lagom till solnedgången och be om ett bord vid räcket. Terrass och internationellt medelhavskök.'
-            }
-          ]
-        },
-        {
-          icon: 'goblet',
-          recommendationId: 'frigiliana.restaurants.gloria-bendita',
-          title: { en: 'Gloria Bendita', de: 'Gloria Bendita', es: 'Gloria Bendita', nl: 'Gloria Bendita', sv: 'Gloria Bendita' },
-          subtitle: {
-            en: 'Frigiliana · Trendy & lively · approx. 350 m',
-            de: 'Frigiliana · Modern & lebhaft · ca. 350 m',
-            es: 'Frigiliana · Moderno y animado · aprox. 350 m',
-            nl: 'Frigiliana · Hip & levendig · ca. 350 m',
-            sv: 'Frigiliana · Modernt & livligt · ca 350 m'
-          },
-          body: [
-            {
-              en: 'Fun, modern plates and a livelier vibe — great if you want something social rather than quiet. Works well for sharing a few dishes and one more drink before a night walk through the village. Changing Mediterranean menu with fusion influences.',
-              de: 'Spannende, moderne Gerichte und eine etwas lebhaftere Atmosphäre – toll, wenn ihr Lust auf einen geselligen Abend habt. Eignet sich super, um sich ein paar Gerichte zu teilen und gemütlich einen Drink zu genießen, bevor ihr zu einem abendlichen Spaziergang durchs Dorf aufbrecht. Wechselnde mediterrane Karte mit Fusion-Einflüssen.',
-              es: 'Platos modernos y divertidos, con un ambiente más animado: genial si preferís una noche social en lugar de algo muy tranquilo. Perfecto para compartir unas raciones y tomar algo más antes de un paseo nocturno por el pueblo. Carta mediterránea cambiante con toques de fusión.',
-              nl: 'Lekkere, moderne gerechten en een wat meer levendige sfeer — perfect als jullie op zoek zijn naar wat gezelligheid in plaats van een muisstille avond. Werkt heel goed om een paar gerechtjes te delen en een drankje te doen voordat jullie \'s avonds door het dorp wandelen. Wisselende mediterrane kaart met fusion-invloeden.',
-              sv: 'Spännande, moderna rätter och en lite livligare atmosfär – perfekt om ni är ute efter en social snarare än en stillsam kväll. Ett utmärkt ställe för att dela på några rätter och ta en drink innan ni promenerar genom byn på kvällen. Växlande medelhavsmeny med fusioninslag.'
-            }
-          ]
-        },
-        {
-          icon: 'dish',
-          recommendationId: 'frigiliana.restaurants.la-taperia',
-          title: { en: 'La Tapería', de: 'La Tapería', es: 'La Tapería', nl: 'La Tapería', sv: 'La Tapería' },
-          subtitle: {
-            en: 'Frigiliana · Small & local · approx. 20 m',
-            de: 'Frigiliana · Klein & lokal · ca. 20 m',
-            es: 'Frigiliana · Pequeño y local · aprox. 20 m',
-            nl: 'Frigiliana · Klein & lokaal · ca. 20 m',
-            sv: 'Frigiliana · Litet & lokalt · ca 20 m'
-          },
-          body: [
-            {
-              en: 'A calm, small place that feels like a local find — a good option when you want something simple and authentic. About 2 minutes from AMARA. Closes at 20:00 (kitchen until 19:30). Reservation via WhatsApp: +34 711 027 581.',
-              de: 'Ein ruhiges, kleines Restaurant, das sich wie ein echter lokaler Geheimtipp anfühlt – eine wunderbare Wahl, wenn ihr etwas Authentisches und Bodenständiges sucht. Ungefähr 2 Minuten von AMARA entfernt. Schließt um 20:00 Uhr (warme Küche bis 19:30 Uhr). Reservierung gerne über WhatsApp: +34 711 027 581.',
-              es: 'Un lugar pequeño y tranquilo que parece un verdadero hallazgo local: una muy buena opción para algo sencillo y auténtico. A unos 2 minutos de AMARA. Cierra a las 20:00 (cocina hasta las 19:30). Reservas por WhatsApp: +34 711 027 581.',
-              nl: 'Een rustige, kleine plek die aanvoelt als een echte lokale vondst — een fijne optie als jullie op zoek zijn naar iets simpels en authentieks. Op ongeveer 2 minuten lopen van AMARA. Sluit om 20:00 uur (keuken tot 19:30). Reserveren kan via WhatsApp: +34 711 027 581.',
-              sv: 'Ett litet och rofyllt ställe som känns som ett genuint lokalt fynd – ett jättebra val när ni vill ha något enkelt och autentiskt. Ligger cirka 2 minuter från AMARA. Stänger kl. 20:00 (köket är öppet till 19:30). Bordsreservation via WhatsApp: +34 711 027 581.'
-            }
-          ]
-        },
-        {
-          icon: 'location-pin',
-          recommendationId: 'frigiliana.restaurants.el-acebuchal',
-          title: { en: 'El Acebuchal', de: 'El Acebuchal', es: 'El Acebuchal', nl: 'El Acebuchal', sv: 'El Acebuchal' },
-          subtitle: {
-            en: 'Mountains · Destination lunch · approx. 7 km',
-            de: 'Berge · Besonderes Ausflugsziel · ca. 7 km',
-            es: 'Montañas · Almuerzo y excursión · aprox. 7 km',
-            nl: 'Bergen · Bijzondere lunchbestemming · ca. 7 km',
-            sv: 'Bergen · Speciellt lunchutflyktsmål · ca 7 km'
-          },
-          body: [
-            {
-              en: 'A memorable drive-into-the-hills lunch — the setting is the experience. Great for a daytime trip. Bring cash and don\'t rely on mobile signal; the road and remoteness are part of it.',
-              de: 'Ein unvergessliches Mittagessen tief in den Hügeln – hier ist die Umgebung das eigentliche Erlebnis. Ein wunderschöner Ausflug für den Tag. Nehmt am besten Bargeld mit und verlasst euch nicht auf den Handyempfang: Die abenteuerliche Straße und die Abgeschiedenheit gehören hier einfach dazu.',
-              es: 'Un almuerzo inolvidable escondido en las colinas: el entorno en sí es toda una experiencia. Genial como excursión de día. Llevad efectivo y no dependáis de la cobertura del móvil; el camino y el aislamiento forman parte del encanto.',
-              nl: 'Een onvergetelijke lunch diep in de heuvels — alleen al de locatie is een hele ervaring. Echt een aanrader voor een dagtripje. Neem contant geld mee en vertrouw niet op mobiel bereik; de avontuurlijke weg en de afgelegen ligging maken het juist zo bijzonder.',
-              sv: 'En minnesvärd lunch djupt inne i bergen – här är omgivningen själva upplevelsen. Ett fantastiskt utflyktsmål över dagen. Ta med kontanter och räkna inte med mobiltäckning; vägen dit och den avskilda känslan är en del av charmen.'
-            }
-          ]
-        },
-        {
-          icon: 'location-pin',
-          recommendationId: 'frigiliana.restaurants.el-tangay',
-          title: { en: 'El Tangay', de: 'El Tangay', es: 'El Tangay', nl: 'El Tangay', sv: 'El Tangay' },
-          subtitle: {
-            en: 'Frigiliana · Where locals go · approx. 500 m',
-            de: 'Frigiliana · Wo die Einheimischen hingehen · ca. 500 m',
-            es: 'Frigiliana · Donde van los locales · aprox. 500 m',
-            nl: 'Frigiliana · Waar de locals naartoe gaan · ca. 500 m',
-            sv: 'Frigiliana · Där lokalbefolkningen samlas · ca 500 m'
-          },
-          body: [
-            {
-              en: 'A relaxed, authentic local spot — less about views, more about atmosphere and real village life. Great for an easy dinner surrounded by locals.',
-              de: 'Ein herrlich entspanntes, authentisches Restaurant – hier geht es weniger um die Aussicht, sondern um die Atmosphäre und das echte Dorfleben. Perfekt für ein unkompliziertes Abendessen mitten unter Einheimischen.',
-              es: 'Un restaurante relajado y auténtico: no destaca tanto por las vistas, sino por el ambiente y la auténtica vida del pueblo. Ideal para una cena informal rodeados de gente local.',
-              nl: 'Een heerlijk relaxte en authentieke plek — hier draait het minder om het uitzicht en meer om de sfeer en het echte dorpsleven. Ideaal voor een ontspannen diner tussen de locals.',
-              sv: 'Ett väldigt avslappnat och genuint ställe – här handlar det mindre om utsikten och mer om atmosfären och det riktiga bylivet. Perfekt för en okomplicerad middag bland byborna.'
-            }
-          ]
-        }
+        guidePlaceItem('frigiliana.restaurants.el-jardin', 'location-pin'),
+        guidePlaceItem('frigiliana.restaurants.gloria-bendita', 'goblet'),
+        guidePlaceItem('frigiliana.restaurants.la-taperia', 'dish'),
+        guidePlaceItem('frigiliana.restaurants.el-acebuchal', 'location-pin'),
+        guidePlaceItem('frigiliana.restaurants.el-tangay', 'location-pin')
       ]
     }
   ]
@@ -2058,90 +1959,10 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
     {
       heading: { en: 'Seafood', de: 'Seafood', es: 'Pescado y marisco', nl: 'Vis & zeevruchten', sv: 'Fisk & skaldjur' },
       items: [
-        {
-          icon: 'fish',
-          recommendationId: 'nerja.restaurants.el-pulguilla',
-          title: { en: 'El Pulguilla', de: 'El Pulguilla', es: 'El Pulguilla', nl: 'El Pulguilla', sv: 'El Pulguilla' },
-          subtitle: {
-            en: 'Nerja · Seafood tapas · lively',
-            de: 'Nerja · Seafood-Tapas · lebhaft',
-            es: 'Nerja · Tapas de marisco · animado',
-            nl: 'Nerja · Seafood tapas · levendig',
-            sv: 'Nerja · Fisk- och skaldjurstapas · livligt'
-          },
-          body: [
-            {
-              en: 'Classic Nerja seafood-tapas energy — casual, loud, and very Spanish. Great for fried fish and quick seafood rounds.',
-              de: 'Die klassische Seafood-Tapas-Energie von Nerja – unkompliziert, laut und wunderbar spanisch. Perfekt für frittierten Fisch und entspannte Tapas-Runden.',
-              es: 'La clásica energía de tapas de marisco de Nerja: informal, ruidosa y muy española. Genial para pescaíto frito y unas rondas rápidas de marisco.',
-              nl: 'De klassieke seafood-tapas sfeer van Nerja — casual, druk en heerlijk Spaans. Geweldig voor gebakken vis en snelle rondes tapas.',
-              sv: 'Den klassiska energin av fisk- och skaldjurstapas i Nerja – okomplicerat, högljutt och väldigt spanskt. Perfekt för friterad fisk och snabba tapasrundor.'
-            }
-          ]
-        },
-        {
-          icon: 'fish',
-          recommendationId: 'nerja.restaurants.dolores-el-chispa',
-          title: { en: 'Dolores El Chispa', de: 'Dolores El Chispa', es: 'Dolores El Chispa', nl: 'Dolores El Chispa', sv: 'Dolores El Chispa' },
-          subtitle: {
-            en: 'Nerja · Ultra-local seafood',
-            de: 'Nerja · Ultra-lokales Seafood',
-            es: 'Nerja · Marisco muy local',
-            nl: 'Nerja · Ultra-lokale zeevruchten',
-            sv: 'Nerja · Äkta lokal fisk & skaldjur'
-          },
-          body: [
-            {
-              en: 'Raw, authentic taberna vibe with generous seafood — a true local experience. Perfect when you want "no frills, just great fish".',
-              de: 'Authentische, ehrliche Taberna-Atmosphäre mit großzügigen Seafood-Portionen – ein echtes lokales Erlebnis. Perfekt, wenn ihr "keinen Schnickschnack, sondern einfach großartigen Fisch" wollt.',
-              es: 'Auténtico ambiente de taberna con raciones generosas de marisco: una verdadera experiencia local. Perfecto para cuando queréis "sin lujos, solo buen pescado".',
-              nl: 'Authentieke, pure taberna-sfeer met royale porties vis en zeevruchten — een echte lokale ervaring. Perfect als jullie "geen poespas, gewoon geweldige vis" willen.',
-              sv: 'En rustik, äkta taberna-känsla med generösa portioner av fisk och skaldjur – en riktig lokal upplevelse. Perfekt när ni vill ha "inget krångel, bara fantastisk fisk".'
-            }
-          ]
-        },
-        {
-          icon: 'fish',
-          recommendationId: 'nerja.restaurants.la-puntilla',
-          title: { en: 'La Puntilla', de: 'La Puntilla', es: 'La Puntilla', nl: 'La Puntilla', sv: 'La Puntilla' },
-          subtitle: {
-            en: 'Nerja · Great value seafood',
-            de: 'Nerja · Top Preis-Leistung',
-            es: 'Nerja · Marisco a buen precio',
-            nl: 'Nerja · Geweldige prijs-kwaliteit',
-            sv: 'Nerja · Prisvärd fisk & skaldjur'
-          },
-          body: [
-            {
-              en: 'Reliable choice for seafood and tapas — great value and a proper Andalusian rhythm. Try gambas al pil-pil and mixed fried fish.',
-              de: 'Verlässliche Wahl für Seafood und Tapas – tolle Preise und echter andalusischer Rhythmus. Probiert unbedingt die Gambas al Pil-Pil und den gemischten frittierten Fisch.',
-              es: 'Elección fiable para marisco y tapas: muy buena relación calidad-precio y auténtico ritmo andaluz. Probad las gambas al pil-pil y el surtido de pescaíto frito.',
-              nl: 'Een betrouwbare keuze voor vis en tapas — geweldige prijzen en een echt Andalusisch ritme. Probeer zeker de gambas al pil-pil en de gemengde gebakken vis.',
-              sv: 'Ett pålitligt val för fisk och tapas – bra priser och en genuin andalusisk rytm. Prova gambas al pil-pil och den mixade friterade fisken.'
-            }
-          ]
-        },
-        {
-          icon: 'goblet',
-          recommendationId: 'nerja.restaurants.puerta-del-mar',
-          title: { en: 'Puerta del Mar', de: 'Puerta del Mar', es: 'Puerta del Mar', nl: 'Puerta del Mar', sv: 'Puerta del Mar' },
-          subtitle: {
-            en: 'Balcón de Europa · Premium seafood',
-            de: 'Balcón de Europa · Premium Seafood',
-            es: 'Balcón de Europa · Marisco premium',
-            nl: 'Balcón de Europa · Premium visgerechten',
-            sv: 'Balcón de Europa · Premium fisk & skaldjur'
-          },
-          body: [
-            {
-              en: 'A more premium seafood pick with a prime location near Balcón de Europa. Great when you want a calmer sit-down meal with sea views.',
-              de: 'Ein etwas gehobeneres Seafood-Restaurant in bester Lage nahe dem Balcón de Europa. Wunderbar, wenn euch der Sinn nach einem ruhigeren Essen mit Meerblick steht.',
-              es: 'Una opción de marisco algo más exclusiva en una ubicación privilegiada cerca del Balcón de Europa. Genial cuando queréis una comida más tranquila con vistas al mar.',
-              nl: 'Een wat luxere keuze voor visgerechten op een toplocatie vlakbij het Balcón de Europa. Geweldig als jullie zin hebben in een rustiger diner met uitzicht op zee.',
-              sv: 'Ett lite lyxigare alternativ för fisk och skaldjur med ett utmärkt läge nära Balcón de Europa. Perfekt när ni vill ha en lugnare middag med havsutsikt.'
-            }
-          ]
-        }
+        guidePlaceItem('nerja.restaurants.el-pulguilla', 'fish'),
+        guidePlaceItem('nerja.restaurants.dolores-el-chispa', 'fish'),
+        guidePlaceItem('nerja.restaurants.la-puntilla', 'fish'),
+        guidePlaceItem('nerja.restaurants.puerta-del-mar', 'goblet')
       ]
     },
     {
@@ -2156,399 +1977,39 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
         }
       ],
       items: [
-        {
-          icon: 'dish',
-          recommendationId: 'nerja.restaurants.chiringuito-ayo',
-          title: { en: 'Chiringuito AYO', de: 'Chiringuito AYO', es: 'Chiringuito AYO', nl: 'Chiringuito AYO', sv: 'Chiringuito AYO' },
-          subtitle: {
-            en: 'Burriana · Paella classic',
-            de: 'Burriana · Paella-Klassiker',
-            es: 'Burriana · Clásico de paella',
-            nl: 'Burriana · Paella klassieker',
-            sv: 'Burriana · Paella-klassiker'
-          },
-          body: [
-            {
-              en: 'Iconic beach paella at lunchtime — rustic, fast, and a local institution. Best combined with Burriana Beach: swim first, lunch after. Open 09:00–19:00 with kitchen 12:00–18:00 (2026), so it is a lunch place, not a dinner option.',
-              de: 'Ikonische Strand-Paella zur Mittagszeit – rustikal, schnell und eine echte lokale Institution. Am besten in Kombination mit dem Burriana-Strand: erst schwimmen, dann essen. Geöffnet 09:00–19:00 Uhr, Küche 12:00–18:00 Uhr (Stand 2026), also ein Mittags-, kein Abendlokal.',
-              es: 'Un icono para comer paella en la playa a mediodía: rústico, rápido y toda una institución local. Lo mejor es combinarlo con la playa de Burriana: primero un baño, luego a comer. Abierto de 09:00 a 19:00 con cocina de 12:00 a 18:00 (2026), así que es un sitio para comer, no para cenar.',
-              nl: 'Iconische strandpaella tijdens de lunch — rustiek, snel en een echt lokaal instituut. Het beste te combineren met Burriana Beach: eerst zwemmen, daarna lunchen. Open 09:00–19:00, keuken 12:00–18:00 (2026), dus een lunchadres en geen dineroptie.',
-              sv: 'Ikonisk strandpaella till lunch – rustikt, snabbt och en riktig lokal institution. Kombineras bäst med Burriana-stranden: simma först, ät lunch sedan. Öppet 09:00–19:00 med kök 12:00–18:00 (2026), alltså ett lunchställe och inget middagsalternativ.'
-            }
-          ]
-        },
-        {
-          icon: 'dish',
-          recommendationId: 'nerja.restaurants.merendero-la-barca',
-          title: { en: 'Merendero La Barca', de: 'Merendero La Barca', es: 'Merendero La Barca', nl: 'Merendero La Barca', sv: 'Merendero La Barca' },
-          subtitle: {
-            en: 'Burriana · Rice dishes (lobster)',
-            de: 'Burriana · Reisgerichte (Hummer)',
-            es: 'Burriana · Arroces y bogavante',
-            nl: 'Burriana · Rijstgerechten (kreeft)',
-            sv: 'Burriana · Risrätter (hummer)'
-          },
-          body: [
-            {
-              en: 'Great for rice dishes beyond "classic paella" — especially lobster rice (arroz con bogavante). Strong option when you want a proper lunch on a beach day.',
-              de: 'Großartig für Reisgerichte abseits der "klassischen Paella" – besonders der Hummerreis (arroz con bogavante) ist ein Highlight. Eine starke Wahl, wenn ihr ein richtig gutes Mittagessen am Strand wollt.',
-              es: 'Genial para arroces más allá de la "paella clásica", especialmente el arroz con bogavante. Una opción muy fuerte cuando queréis un buen almuerzo en un día de playa.',
-              nl: 'Geweldig voor rijstgerechten buiten de "klassieke paella" om — vooral de rijst met kreeft (arroz con bogavante). Een sterke keuze als jullie goed willen lunchen tijdens een stranddag.',
-              sv: 'Fantastiskt för risrätter utöver den "klassiska paellan" – speciellt hummerris (arroz con bogavante). Ett starkt val när ni vill ha en riktigt bra lunch under en stranddag.'
-            }
-          ]
-        },
-        {
-          icon: 'dish',
-          recommendationId: 'nerja.restaurants.playa-sol-lounge',
-          title: { en: 'Playa & Sol Lounge', de: 'Playa & Sol Lounge', es: 'Playa & Sol Lounge', nl: 'Playa & Sol Lounge', sv: 'Playa & Sol Lounge' },
-          subtitle: {
-            en: 'Burriana · Modern rice & fideuá',
-            de: 'Burriana · Moderne Paella & Fideuá',
-            es: 'Burriana · Arroces modernos y fideuá',
-            nl: 'Burriana · Moderne paella & fideuá',
-            sv: 'Burriana · Modern paella & fideuá'
-          },
-          body: [
-            {
-              en: 'A more modern take on the Burriana strip — good value paella and great fideuá. Nice pick when you want something relaxed but a bit more "current".',
-              de: 'Eine etwas modernere Variante an der Burriana-Promenade – faire Preise für Paella und großartige Fideuá. Eine gute Wahl, wenn ihr es entspannt, aber etwas zeitgemäßer mögt.',
-              es: 'Un toque más moderno en el paseo de Burriana: paella a buen precio y una fideuá buenísima. Buena elección si buscáis algo relajado pero un poco más "actual".',
-              nl: 'Een wat modernere variant aan de Burriana-boulevard — paella voor een goede prijs en geweldige fideuá. Een fijne keuze als jullie iets relaxeds maar nét wat "hipper" willen.',
-              sv: 'Ett lite modernare alternativ längs Burriana-stråket – prisvärd paella och fantastisk fideuá. Ett bra val när ni vill ha något avslappnat men lite mer nutida.'
-            }
-          ]
-        },
-        {
-          icon: 'dish',
-          recommendationId: 'nerja.restaurants.la-torrecilla',
-          title: { en: 'La Torrecilla', de: 'La Torrecilla', es: 'La Torrecilla', nl: 'La Torrecilla', sv: 'La Torrecilla' },
-          subtitle: {
-            en: 'Torrecilla · Arroz negro / veggie options',
-            de: 'Torrecilla · Arroz negro & Veggie',
-            es: 'Torrecilla · Arroz negro y opciones vegetarianas',
-            nl: 'Torrecilla · Arroz negro & vega opties',
-            sv: 'Torrecilla · Arroz negro & veganska alternativ'
-          },
-          body: [
-            {
-              en: 'Great choice if you want rice dishes with variety — including arroz negro. Also a strong option when you need a vegetarian-friendly rice dish.',
-              de: 'Eine tolle Wahl, wenn ihr Vielfalt bei den Reisgerichten sucht – inklusive Arroz Negro (schwarzer Reis). Auch eine super Option, wenn ihr vegetarische Reisgerichte braucht.',
-              es: 'Una gran elección si queréis arroces con variedad, incluyendo el arroz negro. También es una opción muy buena si necesitáis un plato de arroz vegetariano.',
-              nl: 'Een geweldige keuze als jullie gevarieerde rijstgerechten zoeken — inclusief arroz negro (zwarte rijst). Ook een heel goede optie als jullie vegetarische rijstgerechten willen.',
-              sv: 'Ett utmärkt val om ni vill ha variation bland risrätterna – inklusive arroz negro (svart ris). Även ett riktigt bra alternativ om ni söker en vegetarisk risrätt.'
-            }
-          ]
-        }
+        guidePlaceItem('nerja.restaurants.chiringuito-ayo', 'dish'),
+        guidePlaceItem('nerja.restaurants.merendero-la-barca', 'dish'),
+        guidePlaceItem('nerja.restaurants.playa-sol-lounge', 'dish'),
+        guidePlaceItem('nerja.restaurants.la-torrecilla', 'dish')
       ]
     },
     {
       heading: { en: 'Beachfront', de: 'Direkt am Strand', es: 'Frente al mar', nl: 'Aan het strand', sv: 'Direkt på stranden' },
       items: [
-        {
-          icon: 'wave',
-          recommendationId: 'nerja.restaurants.burriana-beach-lunch-zone',
-          title: { en: 'Burriana Beach lunch zone', de: 'Burriana Beach (Lunch-Zone)', es: 'Zona de almuerzo en Playa de Burriana', nl: 'Burriana Beach lunchgebied', sv: 'Burriana Beach lunchområde' },
-          subtitle: {
-            en: 'Burriana · Easiest beach + food combo',
-            de: 'Burriana · Die einfachste Strand- & Food-Kombi',
-            es: 'Burriana · La combinación más fácil de playa y comida',
-            nl: 'Burriana · De makkelijkste strand + eten combi',
-            sv: 'Burriana · Den smidigaste strand- och matkombon'
-          },
-          body: [
-            {
-              en: 'Burriana is the easiest "full beach day + lunch" setup in Nerja. If you want a sure paella stop, AYO is the classic.',
-              de: 'Der Burriana-Strand ist das einfachste Setup für einen perfekten "Strandtag + Mittagessen" in Nerja. Wenn ihr unbedingt Paella wollt, ist AYO der absolute Klassiker.',
-              es: 'Burriana es la opción más sencilla para el plan "día entero de playa + almuerzo" en Nerja. Si queréis aseguraros una buena paella, AYO es el clásico.',
-              nl: 'Burriana is de makkelijkste plek in Nerja voor de ideale "volledige stranddag + lunch". Als jullie gegarandeerd paella willen eten, is AYO de klassieker.',
-              sv: 'Burriana är den absolut enklaste platsen i Nerja för en "hel stranddag + lunch". Om ni vill ha ett säkert kort för paella, är AYO den stora klassikern.'
-            }
-          ]
-        },
-        {
-          icon: 'wave',
-          recommendationId: 'nerja.restaurants.chiringuito-mauri',
-          title: { en: 'Chiringuito Mauri', de: 'Chiringuito Mauri', es: 'Chiringuito Mauri', nl: 'Chiringuito Mauri', sv: 'Chiringuito Mauri' },
-          subtitle: {
-            en: 'Espetos · Classic beach craft',
-            de: 'Espetos · Klassische Strandküche',
-            es: 'Espetos · Auténtica comida de playa',
-            nl: 'Espetos · Klassiek strandeten',
-            sv: 'Espetos · Klassisk strandmat'
-          },
-          body: [
-            {
-              en: 'A very strong pick for espetos (sardines on the fire) and classic beach food. Great when you want the "old-school coastal" experience.',
-              de: 'Eine erstklassige Wahl für Espetos (Sardinen am Spieß über dem Feuer) und klassisches Strandessen. Wunderbar, wenn ihr das echte "Old-School-Küsten-Gefühl" sucht.',
-              es: 'Una elección fantástica para comer espetos (sardinas asadas al fuego) y la clásica comida de chiringuito. Genial cuando buscáis la experiencia "costera de toda la vida".',
-              nl: 'Een absolute aanrader voor espetos (sardines op het vuur) en de klassieke strandkeuken. Geweldig als jullie die échte "old-school kustervaring" willen.',
-              sv: 'Ett riktigt bra val för espetos (sardiner grillade över öppen eld) och klassisk strandmat. Underbart när ni är ute efter den där genuina "old-school-kustkänslan".'
-            }
-          ]
-        },
-        {
-          icon: 'wave',
-          recommendationId: 'nerja.restaurants.la-gustosa-beach',
-          title: { en: 'La Gustosa Beach', de: 'La Gustosa Beach', es: 'La Gustosa Beach', nl: 'La Gustosa Beach', sv: 'La Gustosa Beach' },
-          subtitle: {
-            en: 'Beachfront · Views + casual food',
-            de: 'Direkt am Strand · Aussicht & casual',
-            es: 'Frente al mar · Vistas y comida informal',
-            nl: 'Aan het strand · Uitzicht & casual',
-            sv: 'Direkt på stranden · Utsikt & avslappnat'
-          },
-          body: [
-            {
-              en: 'Beachfront option with a great setting — good when you want easy food with a view. Nice for a relaxed afternoon that can roll into evening.',
-              de: 'Eine Strand-Location mit tollem Setting – super, wenn ihr unkompliziertes Essen mit Aussicht sucht. Schön für einen entspannten Nachmittag, der nahtlos in den Abend übergeht.',
-              es: 'Una opción a pie de playa en un entorno estupendo: perfecto para tomar algo sencillo con vistas. Ideal para una tarde relajada que se alarga hasta la noche.',
-              nl: 'Een optie direct aan het strand met een prachtige ligging — goed voor als jullie makkelijk willen eten met uitzicht. Lekker voor een ontspannen middag die zomaar overgaat in de avond.',
-              sv: 'Ett strandnära alternativ med en härlig inramning – bra när ni vill ha okomplicerad mat med utsikt. Trevligt för en avkopplande eftermiddag som lätt kan övergå i kväll.'
-            }
-          ]
-        },
-        {
-          icon: 'wave',
-          recommendationId: 'nerja.restaurants.rincon-del-sol',
-          title: { en: 'Rincón del Sol', de: 'Rincón del Sol', es: 'Rincón del Sol', nl: 'Rincón del Sol', sv: 'Rincón del Sol' },
-          subtitle: {
-            en: 'Burriana · Beach club vibe',
-            de: 'Burriana · Lounge-Atmosphäre',
-            es: 'Burriana · Ambiente de beach club',
-            nl: 'Burriana · Beachclub sfeer',
-            sv: 'Burriana · Beach club-känsla'
-          },
-          body: [
-            {
-              en: 'More "lounge / beach club" atmosphere — good for cocktails and a stylish sunset feel. Best when you want ambience as much as food.',
-              de: 'Eher ein "Lounge / Beach Club"-Ambiente – toll für Cocktails und eine stilvolle Stimmung zum Sonnenuntergang. Am besten, wenn euch die Atmosphäre genauso wichtig ist wie das Essen.',
-              es: 'Más ambiente de "lounge / beach club": estupendo para tomar unos cócteles y disfrutar del atardecer con estilo. Ideal cuando buscáis tanto un buen ambiente como buena comida.',
-              nl: 'Een wat meer "lounge / beachclub" sfeer — leuk voor cocktails en een stijlvol zonsondergang-gevoel. Het beste voor als de ambiance voor jullie net zo belangrijk is als het eten.',
-              sv: 'Mer av en "lounge / beach club"-atmosfär – bra för cocktails och en stilfull solnedgångskänsla. Bäst när ni vill ha lika mycket atmosfär som mat.'
-            }
-          ]
-        }
+        guidePlaceItem('nerja.restaurants.burriana-beach-lunch-zone', 'wave'),
+        guidePlaceItem('nerja.restaurants.chiringuito-mauri', 'wave'),
+        guidePlaceItem('nerja.restaurants.la-gustosa-beach', 'wave'),
+        guidePlaceItem('nerja.restaurants.rincon-del-sol', 'wave')
       ]
     },
     {
       heading: { en: 'Trendy & New', de: 'Modern & Angesagt', es: 'Moderno y de moda', nl: 'Hip & Nieuw', sv: 'Trendigt & Nytt' },
       items: [
-        {
-          icon: 'goblet',
-          recommendationId: 'nerja.restaurants.lamalaka',
-          title: { en: 'Lamalaka', de: 'Lamalaka', es: 'Lamalaka', nl: 'Lamalaka', sv: 'Lamalaka' },
-          subtitle: {
-            en: 'Playa Calahonda · New beach club',
-            de: 'Playa Calahonda · Neuer Beach Club',
-            es: 'Playa Calahonda · Nuevo beach club',
-            nl: 'Playa Calahonda · Nieuwe beachclub',
-            sv: 'Playa Calahonda · Ny beach club'
-          },
-          body: [
-            {
-              en: 'Big "new Nerja" concept: beach club, restaurant, and cocktails in a prime location. Go when you want a modern lifestyle vibe (especially around sunset).',
-              de: 'Ein echtes "New Nerja"-Konzept: Beach Club, Restaurant und Cocktails in bester Lage. Geht dorthin, wenn ihr Lust auf einen modernen Lifestyle-Vibe habt (besonders zum Sonnenuntergang).',
-              es: 'El gran concepto del "nuevo Nerja": beach club, restaurante y cócteles en una ubicación inmejorable. Id cuando os apetezca un ambiente moderno y con estilo (especialmente al atardecer).',
-              nl: 'Een groots "nieuw Nerja"-concept: beachclub, restaurant en cocktails op een toplocatie. Ga hierheen als jullie zin hebben in een moderne lifestyle-vibe (vooral rond zonsondergang).',
-              sv: 'Ett stort "nya Nerja"-koncept: beach club, restaurang och cocktails på ett förstklassigt läge. Gå hit när ni är ute efter en modern livsstilskänsla (särskilt runt solnedgången).'
-            }
-          ]
-        },
-        {
-          icon: 'moon',
-          recommendationId: 'nerja.restaurants.oculto',
-          title: { en: 'OCULTO', de: 'OCULTO', es: 'OCULTO', nl: 'OCULTO', sv: 'OCULTO' },
-          subtitle: {
-            en: 'Nerja · Dinner & cocktails',
-            de: 'Nerja · Dinner & Cocktails',
-            es: 'Nerja · Cena y cócteles',
-            nl: 'Nerja · Diner & cocktails',
-            sv: 'Nerja · Middag & cocktails'
-          },
-          body: [
-            {
-              en: 'Speakeasy-style "night restaurant" — modern, energetic, and very experience-driven. Booking ahead is important in peak season.',
-              de: 'Ein "Night Restaurant" im Speakeasy-Stil – modern, energiegeladen und ein echtes Erlebnis. In der Hochsaison ist es wichtig, im Voraus zu reservieren.',
-              es: 'Un "restaurante nocturno" de estilo speakeasy: moderno, con mucha energía y centrado en la experiencia. Es importante reservar con antelación en temporada alta.',
-              nl: 'Een "avondrestaurant" in speakeasy-stijl — modern, vol energie en echt gericht op de ervaring. Vooraf reserveren is belangrijk in het hoogseizoen.',
-              sv: 'En "kvällsrestaurang" i speakeasy-stil – modern, energisk och väldigt upplevelsedriven. Det är viktigt att boka i förväg under högsäsong.'
-            }
-          ]
-        },
-        {
-          icon: 'sparkle',
-          recommendationId: 'nerja.restaurants.botanic',
-          title: { en: 'Botanic', de: 'Botanic', es: 'Botanic', nl: 'Botanic', sv: 'Botanic' },
-          subtitle: {
-            en: 'Nerja · Modern menu & gin bar',
-            de: 'Nerja · Moderne Karte & Gin Bar',
-            es: 'Nerja · Menú moderno y bar de ginebras',
-            nl: 'Nerja · Modern menu & gin bar',
-            sv: 'Nerja · Modern meny & ginbar'
-          },
-          body: [
-            {
-              en: 'Stylish, contemporary and calm — strong if you care about plating, seasonal food, and gin. Great for a date night that\'s not too formal.',
-              de: 'Stilvoll, zeitgemäß und ruhig – eine sehr gute Wahl, wenn ihr Wert auf schön angerichtete, saisonale Speisen und guten Gin legt. Perfekt für eine Date Night, die nicht zu formell ist.',
-              es: 'Elegante, actual y tranquilo: una gran opción si valoráis una buena presentación, comida de temporada y la ginebra. Perfecto para una noche de cita, pero no demasiado formal.',
-              nl: 'Stijlvol, eigentijds en rustig — een sterke keuze als jullie houden van mooi opgemaakte borden, seizoensgebonden gerechten en gin. Ideaal voor een date night, maar niet te formeel.',
-              sv: 'Stilfullt, modernt och lugnt – ett starkt val om ni uppskattar vackra uppläggningar, säsongsbaserad mat och gin. Perfekt för en date night, men inte för formellt.'
-            }
-          ]
-        },
-        {
-          icon: 'heart',
-          recommendationId: 'nerja.restaurants.trattoria-italia',
-          title: { en: 'Trattoria Italia', de: 'Trattoria Italia', es: 'Trattoria Italia', nl: 'Trattoria Italia', sv: 'Trattoria Italia' },
-          subtitle: {
-            en: 'Nerja · Romantic courtyard',
-            de: 'Nerja · Romantischer Innenhof',
-            es: 'Nerja · Patio romántico',
-            nl: 'Nerja · Romantische binnenplaats',
-            sv: 'Nerja · Romantisk innergård'
-          },
-          body: [
-            {
-              en: 'A newer crowd favorite for a classic Italian dinner with a very nice ambience. Great when you want a break from tapas and seafood.',
-              de: 'Ein neuerer Publikumsliebling für ein klassisches italienisches Abendessen in sehr schönem Ambiente. Großartig, wenn ihr mal eine Pause von Tapas und Seafood braucht.',
-              es: 'Un nuevo favorito del público para una cena italiana clásica con un ambiente muy agradable. Genial cuando os apetece un descanso de las tapas y el marisco.',
-              nl: 'Een nieuwe publieksfavoriet voor een klassiek Italiaans diner in een hele fijne sfeer. Geweldig voor als jullie even pauze willen van de tapas en visgerechten.',
-              sv: 'En nyare publikfavorit för en klassisk italiensk middag med en väldigt trevlig atmosfär. Perfekt när ni vill ha en paus från tapas och fisk.'
-            }
-          ]
-        }
+        guidePlaceItem('nerja.restaurants.lamalaka', 'goblet'),
+        guidePlaceItem('nerja.restaurants.oculto', 'moon'),
+        guidePlaceItem('nerja.restaurants.botanic', 'sparkle'),
+        guidePlaceItem('nerja.restaurants.trattoria-italia', 'heart')
       ]
     },
     {
       heading: { en: 'Locals Preferred', de: 'Lokale Favoriten', es: 'Favoritos locales', nl: 'Lokale favorieten', sv: 'Lokala favoriter' },
       items: [
-        {
-          icon: 'music',
-          recommendationId: 'nerja.restaurants.bar-redondo',
-          title: { en: 'Bar Redondo', de: 'Bar Redondo', es: 'Bar Redondo', nl: 'Bar Redondo', sv: 'Bar Redondo' },
-          subtitle: {
-            en: 'Tapas · Lively night street',
-            de: 'Tapas · Lebhafte Abendstraße',
-            es: 'Tapas · Calle nocturna y animada',
-            nl: 'Tapas · Levendige avondstraat',
-            sv: 'Tapas · Livlig kvällsgata'
-          },
-          body: [
-            {
-              en: 'Tapas institution and a social hotspot — great for a fun, busy evening out. Go early for a calmer start; later it gets packed.',
-              de: 'Eine Tapas-Institution und ein geselliger Hotspot – super für einen lustigen, lebhaften Abend. Geht etwas früher hin für einen ruhigen Start; später wird es richtig voll.',
-              es: 'Toda una institución de tapas y un punto de encuentro social: ideal para una noche divertida y concurrida. Id temprano para empezar con más calma; luego se llena.',
-              nl: 'Een tapas-instituut en een sociale hotspot — perfect voor een gezellige, drukke avond uit. Ga vroeg voor een rustige start; later op de avond stroomt het vol.',
-              sv: 'En tapasinstitution och en social samlingspunkt – jättebra för en rolig och livlig utekväll. Gå dit tidigt för en lugnare start; senare blir det fullpackat.'
-            }
-          ]
-        },
-        {
-          icon: 'accommodation',
-          recommendationId: 'nerja.restaurants.el-refugio',
-          title: { en: 'El Refugio', de: 'El Refugio', es: 'El Refugio', nl: 'El Refugio', sv: 'El Refugio' },
-          subtitle: {
-            en: 'Cozy local spot · Rustic terrace',
-            de: 'Gemütlich & lokal · Rustikale Terrasse',
-            es: 'Lugar local acogedor · Terraza rústica',
-            nl: 'Knusse lokale plek · Rustiek terras',
-            sv: 'Mysigt lokalt ställe · Rustik terrass'
-          },
-          body: [
-            {
-              en: 'A cozy, rustic-feel place that\'s easy to love — great for classic tapas. Good choice when you want something simple and warm.',
-              de: 'Ein uriger, liebevoller Ort mit rustikalem Charme – toll für klassische Tapas. Eine gute Wahl, wenn ihr etwas Einfaches und Herzliches sucht.',
-              es: 'Un sitio acogedor y de aire rústico al que es fácil cogerle cariño: genial para unas tapas clásicas. Buena elección cuando os apetece algo sencillo y cálido.',
-              nl: 'Een gezellige, rustieke plek waar je makkelijk verliefd op wordt — geweldig voor klassieke tapas. Een goede keuze als jullie iets simpels en warms zoeken.',
-              sv: 'En inbjudande och rustik plats som är lätt att tycka om – fantastisk för klassiska tapas. Ett bra val när ni vill ha något enkelt och hjärtligt.'
-            }
-          ]
-        },
-        {
-          icon: 'heart',
-          recommendationId: 'nerja.restaurants.la-rienda',
-          title: { en: 'La Rienda', de: 'La Rienda', es: 'La Rienda', nl: 'La Rienda', sv: 'La Rienda' },
-          subtitle: {
-            en: 'Nerja · Relaxed tapas evening',
-            de: 'Nerja · Entspannter Tapas-Abend',
-            es: 'Nerja · Tarde de tapas relajada',
-            nl: 'Nerja · Ontspannen tapas-avond',
-            sv: 'Nerja · Avslappnad tapaskväll'
-          },
-          body: [
-            {
-              en: 'Easy, generous tapas with a calmer local crowd. Great for a relaxed "let\'s stay a bit longer" evening.',
-              de: 'Unkomplizierte, großzügige Tapas bei einem ruhigeren, lokalen Publikum. Wunderbar für einen entspannten "Lass uns noch ein bisschen bleiben"-Abend.',
-              es: 'Tapas sencillas y generosas con un público local más tranquilo. Ideal para una velada relajada del tipo "vamos a quedarnos un rato más".',
-              nl: 'Lekkere, royale tapas met een wat rustiger, lokaal publiek. Geweldig voor een relaxte "laten we nog even blijven"-avond.',
-              sv: 'Okomplicerade och generösa tapas bland en lugnare lokal publik. Perfekt för en avslappnad "vi stannar en stund till"-kväll.'
-            }
-          ]
-        },
-        {
-          icon: 'tumbler',
-          recommendationId: 'nerja.restaurants.dvinos',
-          title: { en: "D'Vinos", de: "D'Vinos", es: "D'Vinos", nl: "D'Vinos", sv: "D'Vinos" },
-          subtitle: {
-            en: 'Wine bar · Fun fusion tapas',
-            de: 'Weinbar · Spannende Fusion-Tapas',
-            es: 'Bar de vinos · Tapas fusión divertidas',
-            nl: 'Wijnbar · Verrassende fusion tapas',
-            sv: 'Vinbar · Spännande fusion-tapas'
-          },
-          body: [
-            {
-              en: 'A fun, modern tapas and wine option — great if you want something different. Good for a relaxed evening with sharing plates.',
-              de: 'Eine moderne Variante für Tapas & Wein – toll, wenn ihr Lust auf etwas anderes habt. Schön für einen entspannten Abend, bei dem man sich die Gerichte teilt.',
-              es: 'Una opción de tapas modernas y vino muy divertida: genial si queréis probar algo distinto. Ideal para una velada relajada compartiendo platos.',
-              nl: 'Een leuke, moderne tapas + wijn optie — perfect als jullie eens iets anders willen. Fijn voor een ontspannen avond met gerechtjes om te delen.',
-              sv: 'Ett trevligt och modernt tapas- och vinalternativ – toppen om ni är sugna på något annorlunda. Bra för en avslappnad kväll där man delar på rätterna.'
-            }
-          ]
-        },
-        {
-          icon: 'dish',
-          recommendationId: 'nerja.restaurants.esquina-paulina',
-          title: { en: 'Esquina Paulina', de: 'Esquina Paulina', es: 'Esquina Paulina', nl: 'Esquina Paulina', sv: 'Esquina Paulina' },
-          subtitle: {
-            en: 'Cheese plates · Easy drinks',
-            de: 'Käseplatten · Entspannte Drinks',
-            es: 'Tablas de queso · Bebidas tranquilas',
-            nl: 'Kaasplankjes · Ontspannen drankjes',
-            sv: 'Ostbrickor · Avslappnade drinkar'
-          },
-          body: [
-            {
-              en: 'Small, easygoing spot for cheese boards and a casual glass of wine. Nice for a light evening without a full sit-down meal.',
-              de: 'Ein kleiner, gemütlicher Ort für Käseplatten und ein lockeres Glas Wein. Schön für einen leichten Abend, wenn ihr kein großes Dinner braucht.',
-              es: 'Un rincón pequeño y desenfadado para tomar tablas de quesos y una copa de vino informal. Perfecto para una noche ligera sin necesidad de una comida pesada.',
-              nl: 'Een klein, laagdrempelig plekje voor kaasplankjes en een ongedwongen glas wijn. Leuk voor een lichte avond zonder een uitgebreid diner.',
-              sv: 'Ett litet, lättsamt ställe för ostbrickor och ett avslappnat glas vin. Trevligt för en lättare kväll utan en stor middag.'
-            }
-          ]
-        },
-        {
-          icon: 'location-pin',
-          recommendationId: 'nerja.restaurants.bar-turry',
-          title: { en: 'Bar Turry', de: 'Bar Turry', es: 'Bar Turry', nl: 'Bar Turry', sv: 'Bar Turry' },
-          subtitle: {
-            en: 'Nerja · Family-friendly & easy',
-            de: 'Nerja · Familienfreundlich & unkompliziert',
-            es: 'Nerja · Familiar y sencillo',
-            nl: 'Nerja · Gezinsvriendelijk & makkelijk',
-            sv: 'Nerja · Familjevänligt & enkelt'
-          },
-          body: [
-            {
-              en: 'Reliable local favorite slightly outside the tourist core. Try the famous pollo al curry.',
-              de: 'Ein verlässlicher lokaler Favorit etwas abseits des touristischen Zentrums. Probiert unbedingt das berühmte Pollo al Curry.',
-              es: 'Un favorito local de confianza ligeramente alejado del centro más turístico. Probad su famoso pollo al curry.',
-              nl: 'Een betrouwbare lokale favoriet, net buiten het drukke toeristische centrum. Probeer zeker de beroemde pollo al curry.',
-              sv: 'En pålitlig lokal favorit strax utanför den mest turistiga stadskärnan. Prova den berömda pollo al curry (kycklingcurry).'
-            }
-          ]
-        }
+        guidePlaceItem('nerja.restaurants.bar-redondo', 'music'),
+        guidePlaceItem('nerja.restaurants.el-refugio', 'accommodation'),
+        guidePlaceItem('nerja.restaurants.la-rienda', 'heart'),
+        guidePlaceItem('nerja.restaurants.dvinos', 'tumbler'),
+        guidePlaceItem('nerja.restaurants.esquina-paulina', 'dish'),
+        guidePlaceItem('nerja.restaurants.bar-turry', 'location-pin')
       ]
     },
     {
@@ -2560,111 +2021,11 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
         sv: 'Speciella tillfällen & fine dining'
       },
       items: [
-        {
-          icon: 'star',
-          recommendationId: 'nerja.restaurants.oliva',
-          title: { en: 'Oliva', de: 'Oliva', es: 'Oliva', nl: 'Oliva', sv: 'Oliva' },
-          subtitle: {
-            en: 'Plaza de España · Tasting menu',
-            de: 'Plaza de España · Menü-Degustation',
-            es: 'Plaza de España · Menú degustación',
-            nl: 'Plaza de España · Proeverijmenu',
-            sv: 'Plaza de España · Avsmakningsmeny'
-          },
-          body: [
-            {
-              en: 'Top fine-dining pick in Nerja — ideal for a calm, high-quality dinner. Great if you enjoy tasting menus and seasonal cooking. Terrace facing the square; dinner orders daily 19:00–22:00 (as published in 2026, weather-dependent).',
-              de: 'Unsere erste Wahl für Fine Dining in Nerja – ideal für ein ruhiges, sehr hochwertiges Abendessen. Großartig, wenn ihr Degustationsmenüs und saisonale Küche schätzt. Terrasse zum Platz; Abendessen täglich 19:00–22:00 Uhr (Stand 2026, wetterabhängig).',
-              es: 'La mejor opción de alta cocina en Nerja: ideal para una cena tranquila y de alta calidad. Genial si disfrutáis de los menús degustación y la cocina de temporada. Terraza hacia la plaza; cenas a diario de 19:00 a 22:00 (según lo publicado en 2026, según el tiempo).',
-              nl: 'Onze beste fine dining keuze in Nerja — ideaal voor een rustig diner van hoge kwaliteit. Geweldig als jullie houden van proeverijmenu\'s en seizoensgebonden koken. Terras aan het plein; diner dagelijks 19:00–22:00 (zoals gepubliceerd in 2026, weersafhankelijk).',
-              sv: 'Förstahandsvalet för fine dining i Nerja – perfekt för en lugn och högklassig middag. Fantastiskt om ni uppskattar avsmakningsmenyer och säsongsanpassad matlagning. Terrass mot torget; middag dagligen 19:00–22:00 (enligt 2026 års uppgift, väderberoende).'
-            }
-          ]
-        },
-        {
-          icon: 'heart',
-          recommendationId: 'nerja.restaurants.restaurant-34',
-          title: { en: 'Restaurant 34', de: 'Restaurant 34', es: 'Restaurant 34', nl: 'Restaurant 34', sv: 'Restaurant 34' },
-          subtitle: {
-            en: 'Hotel Carabeo · Romantic setting',
-            de: 'Hotel Carabeo · Romantisches Ambiente',
-            es: 'Hotel Carabeo · Entorno romántico',
-            nl: 'Hotel Carabeo · Romantische setting',
-            sv: 'Hotel Carabeo · Romantisk miljö'
-          },
-          body: [
-            {
-              en: 'A strong "celebration / romantic evening" pick with a refined feel. Reserve in summer — and ask for a calmer table if you prefer it quiet. In Hotel Carabeo: inside, by the pool or on the summer terrace above the sea; dinner 19:00–22:30, closed Mondays (as published in 2026).',
-              de: 'Eine wunderbare Wahl für einen feierlichen oder romantischen Abend mit einer sehr gepflegten Atmosphäre. Reserviert im Sommer unbedingt – und bittet um einen ruhigeren Tisch, falls ihr das bevorzugt. Im Hotel Carabeo: drinnen, am Pool oder auf der Sommerterrasse über dem Meer; Abendessen 19:00–22:30 Uhr, montags geschlossen (Stand 2026).',
-              es: 'Una gran elección para celebraciones o veladas románticas con un toque muy refinado. Reservad en verano, y pedid una mesa tranquila si preferís menos ruido. En el Hotel Carabeo: dentro, junto a la piscina o en la terraza de verano sobre el mar; cenas de 19:00 a 22:30, lunes cerrado (según lo publicado en 2026).',
-              nl: 'Een uitstekende keuze voor een viering of romantische avond met een verfijnde sfeer. Reserveren in de zomer is een must — en vraag om een rustiger tafeltje als jullie dat prettig vinden. In Hotel Carabeo: binnen, bij het zwembad of op het zomerterras boven zee; diner 19:00–22:30, maandag gesloten (zoals gepubliceerd in 2026).',
-              sv: 'Ett starkt val för en firande eller romantisk kväll med en sofistikerad känsla. Boka bord under sommaren – och be om ett lugnare bord om ni föredrar tystnad. I Hotel Carabeo: inomhus, vid poolen eller på sommarterrassen ovanför havet; middag 19:00–22:30, stängt måndagar (enligt 2026 års uppgift).'
-            }
-          ]
-        },
-        {
-          icon: 'sparkle',
-          recommendationId: 'nerja.restaurants.sollun',
-          title: { en: 'Sollun', de: 'Sollun', es: 'Sollun', nl: 'Sollun', sv: 'Sollun' },
-          subtitle: {
-            en: 'Modern Andalusian · Tasting menus',
-            de: 'Moderne andalusische Küche · Degustationsmenüs',
-            es: 'Andaluz moderno · Menús degustación',
-            nl: 'Modern Andalusisch · Proeverijmenu\'s',
-            sv: 'Modern andalusisk · Avsmakningsmenyer'
-          },
-          body: [
-            {
-              en: 'Excellent modern Andalusian cooking in a warm, unpretentious setting. Great when you want a "serious meal" that still feels relaxed. Cocina de autor by Juan Quintanilla.',
-              de: 'Hervorragende moderne andalusische Küche in einem warmen, unprätentiösen Ambiente. Toll, wenn ihr richtig gut essen gehen wollt, aber dennoch eine entspannte Atmosphäre schätzt. Autorenküche von Juan Quintanilla.',
-              es: 'Excelente cocina andaluza moderna en un entorno cálido y sin pretensiones. Genial cuando queréis "comer de verdad" pero en un ambiente relajado. Cocina de autor de Juan Quintanilla.',
-              nl: 'Uitstekende moderne Andalusische keuken in een warme, pretentieloze setting. Geweldig voor als jullie echt goed willen eten, maar het wel ontspannen mag blijven. Cocina de autor van Juan Quintanilla.',
-              sv: 'Utmärkt modern andalusisk matlagning i en varm, opretentiös miljö. Ett bra val när ni vill ha en riktigt bra måltid som ändå känns avslappnad. Cocina de autor av Juan Quintanilla.'
-            }
-          ]
-        },
-        {
-          icon: 'goblet',
-          recommendationId: 'nerja.restaurants.patanegra-57',
-          title: { en: 'Patanegra 57', de: 'Patanegra 57', es: 'Patanegra 57', nl: 'Patanegra 57', sv: 'Patanegra 57' },
-          subtitle: {
-            en: 'Elegant setting · Mediterranean with flair',
-            de: 'Elegantes Ambiente · Mediterran mit Flair',
-            es: 'Entorno elegante · Mediterráneo con estilo',
-            nl: 'Elegante setting · Mediterraan met flair',
-            sv: 'Elegant miljö · Medelhavsmat med finess'
-          },
-          body: [
-            {
-              en: 'High-end option with a beautiful atmosphere — great for a special night. Strong if you care about quality ingredients and a curated wine list.',
-              de: 'Eine gehobene Option mit wunderschöner Atmosphäre – perfekt für einen besonderen Abend. Sehr empfehlenswert, wenn ihr Wert auf erstklassige Zutaten und eine kuratierte Weinkarte legt.',
-              es: 'Opción de alta gama con una atmósfera preciosa: ideal para una noche especial. Muy recomendable si valoráis los ingredientes de calidad y una selecta carta de vinos.',
-              nl: 'Een luxe optie met een prachtige sfeer — ideaal voor een speciale avond. Een aanrader als jullie houden van kwaliteitsingrediënten en een met zorg samengestelde wijnkaart.',
-              sv: 'Ett exklusivt alternativ med en vacker atmosfär – perfekt för en speciell kväll. Ett starkt val om ni bryr er om kvalitetsråvaror och en noggrant utvald vinlista.'
-            }
-          ]
-        },
-        {
-          icon: 'dish',
-          recommendationId: 'nerja.restaurants.la-bottega',
-          title: { en: 'La Bottega', de: 'La Bottega', es: 'La Bottega', nl: 'La Bottega', sv: 'La Bottega' },
-          subtitle: {
-            en: 'Nerja · Easy, reliable',
-            de: 'Nerja · Unkompliziert & verlässlich',
-            es: 'Nerja · Sencillo y fiable',
-            nl: 'Nerja · Makkelijk & betrouwbaar',
-            sv: 'Nerja · Enkelt & pålitligt'
-          },
-          body: [
-            {
-              en: 'A comfortable, dependable choice when you want a smooth evening without overthinking it. Earlier is calmer; later feels more lively — choose based on your mood.',
-              de: 'Eine gemütliche, sichere Wahl, wenn ihr einen entspannten Abend wollt, ohne lange nachdenken zu müssen. Früher am Abend ist es ruhiger, später wird es lebhafter – entscheidet einfach nach eurer Stimmung.',
-              es: 'Una opción cómoda y segura cuando buscáis una velada agradable sin darle muchas vueltas. Más temprano es más tranquilo; más tarde se vuelve más animado: elegid según lo que os apetezca.',
-              nl: 'Een comfortabele, veilige keuze voor een zorgeloze avond zonder te veel nadenken. Vroeg is het rustiger; later op de avond is het levendiger — kies gewoon waar jullie zin in hebben.',
-              sv: 'Ett bekvämt och säkert val när ni vill ha en smidig kväll utan att tänka för mycket. Tidigare på kvällen är det lugnare; senare blir det mer livligt – välj efter humör.'
-            }
-          ]
-        }
+        guidePlaceItem('nerja.restaurants.oliva', 'star'),
+        guidePlaceItem('nerja.restaurants.restaurant-34', 'heart'),
+        guidePlaceItem('nerja.restaurants.sollun', 'sparkle'),
+        guidePlaceItem('nerja.restaurants.patanegra-57', 'goblet'),
+        guidePlaceItem('nerja.restaurants.la-bottega', 'dish')
       ]
     }
   ]

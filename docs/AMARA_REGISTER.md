@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.72.0
+version: 1.73.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-06T11:00:00+02:00
+last_modified: 2026-09-06T13:00:00+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -217,6 +217,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-09-06T13:00:00+02:00 | Place copy layer, restaurants reference case | Added the place-copy layer that DR-GUEST-006 requires: `src/lib/placeCopy.ts` (types), `src/content/places/<destination>-<topic>.ts` (one entry per record id with the `public` and `guide` projections side by side) and `src/lib/placeProjection.ts` (`publicRestaurantCard`, `guidePlaceItem`). The public Frigiliana and Nerja restaurant pages and the two guide restaurant pages now build their cards from the same 33 entries; the public content holds record ids per section instead of inline cards; nine records received their websites from the public link map and Mo Gastrotapas exists as a public-only record. Five shared Nerja restaurants received a reservation line or a plan B from the guide's own selection so that every shared place adds something the public page does not have. The contract test `placeCopy.test.ts` enforces scope rules, both projections for shared places, a guide-only field for every shared place and non-identical copy. Register 1.73.0. | DR-GUEST-006, DR-EXPERIENCE-007, DR-EXPERIENCE-008 | local |
 | 2026-09-06T11:00:00+02:00 | Public versus Guest Guide boundary | Recorded the operator's three-layer decision as DR-GUEST-006, retired the public "AMARA insider tip" label ("Gut zu wissen" / "Vor dem Besuch"), added the record-driven `GuestGuideBridge` transition block to the six Frigiliana Experience pages (restaurants, beaches, hiking, day trips, wellness, festivals) and reconciled the record scopes of those topics with the public pages (32 restaurant records, 23 guide-only). Register 1.72.0. | DR-GUEST-006, DR-GUEST-005, DR-GUEST-001, DR-EXPERIENCE-001, DR-EXPERIENCE-008 | local |
 | 2026-09-06T09:00:00+02:00 | Guest Guide providers from the operator | The operator supplied Google listings for Jet Ski Tours Nerja and El Burro Blanco Flamenco Bar; both are records with `basis: operator-review` and replace the "write to us" notes of DR-GUEST-005. The Harley card was removed on the operator's instruction. The four Tarifa kite spots that coincide with beaches reference the beach records. Register 1.71.0. | DR-EXPERIENCE-008, DR-EXPERIENCE-004, DR-GUEST-005 | local |
 | 2026-09-05T23:30:00+02:00 | Recommendation records for all Guest Guide pages | Completed the record migration: 127 further carry-over records (184 in total) for the Tarifa pages first and then Frigiliana and Nerja sightseeing, day trips, wellness, adventure, nightlife and essentials. Cards that list several places carry `recommendationIds` and render a place list with map link, address and call/WhatsApp/website actions; the copy no longer links a place itself. Tarifa venue cards take the record id instead of a link. Only festivals, the kitesurf spots without links, the Tarifa nightlife atmosphere card and generic pharmacy or bus timetable links remain without records. Knowledge README 1.6.1, Register 1.70.0. | DR-EXPERIENCE-008, DR-GUEST-005 | local |

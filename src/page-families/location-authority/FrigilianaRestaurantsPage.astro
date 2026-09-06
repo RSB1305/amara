@@ -16,6 +16,7 @@ import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
 import RestaurantSectionList from './RestaurantSectionList.astro';
+import { publicRestaurantCard } from '../../lib/placeProjection';
 
 interface Props {
   lang?: string;
@@ -46,6 +47,11 @@ const footerHighlights: LabeledLink[] = [
     label: copy.footerHighlights.hiking
   }
 ];
+
+const restaurantSections = copy.restaurantSections.map((section) => ({
+  ...section,
+  restaurants: section.restaurantIds.map((id) => publicRestaurantCard(id, currentLang))
+}));
 
 const combineItems = copy.combine.items.map((item) => ({
   ...item,
@@ -97,7 +103,7 @@ const combineItems = copy.combine.items.map((item) => ({
       />
 
       <RestaurantSectionList
-        sections={copy.restaurantSections}
+        sections={restaurantSections}
         labels={copy.cardLabels}
       />
 

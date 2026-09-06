@@ -1,35 +1,11 @@
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
-type RestaurantKey =
-  | 'theGarden'
-  | 'gloriaBendita'
-  | 'laTaperia'
-  | 'restaurant34'
-  | 'oliva'
-  | 'moGastrotapas'
-  | 'laPuntilla'
-  | 'elPulguilla'
-  | 'ayo'
-  | 'elAcebuchal';
-
-interface RestaurantCopy {
-  title: string;
-  bestFor: string;
-  description: string;
-  tip: string;
-  goodToKnow: string;
-}
-
-export interface FrigilianaRestaurantCard extends RestaurantCopy {
-  mapHref: string;
-  websiteHref: string;
-}
-
 export interface FrigilianaRestaurantSection {
   id: 'frigiliana' | 'special-nerja' | 'tapas-seafood' | 'acebuchal';
   title: string;
   intro: string;
-  restaurants: FrigilianaRestaurantCard[];
+  /** Recommendation record ids; the cards are built from the place copy (DR-GUEST-006). */
+  restaurantIds: readonly string[];
 }
 
 export interface FrigilianaRestaurantsPageCopy {
@@ -96,70 +72,6 @@ export interface FrigilianaRestaurantsPageCopy {
     lead: string;
     nextCta: string;
   };
-}
-
-const restaurantLinks: Record<
-  RestaurantKey,
-  { mapHref: string; websiteHref: string }
-> = {
-  theGarden: {
-    mapHref:
-      'https://www.google.com/maps/search/?api=1&query=The+Garden+Restaurant+Frigiliana',
-    websiteHref: 'https://thegardenfrigiliana.com/inicio/'
-  },
-  gloriaBendita: {
-    mapHref:
-      'https://www.google.com/maps/search/?api=1&query=Gloria+Bendita+Frigiliana',
-    websiteHref: 'https://frigiliana.es/places/gloria-bendita/'
-  },
-  laTaperia: {
-    mapHref:
-      'https://www.google.com/maps/search/?api=1&query=La+Taperia+Frigiliana',
-    websiteHref: 'https://www.lataperiafrigiliana.com/indexesp.html'
-  },
-  restaurant34: {
-    mapHref:
-      'https://www.google.com/maps/search/?api=1&query=Restaurant+34+Nerja',
-    websiteHref:
-      'https://hotelcarabeo.com/boutique_hotels_esp/boutique_hotels_nerja_restaurant34_esp.asp'
-  },
-  oliva: {
-    mapHref:
-      'https://www.google.com/maps/search/?api=1&query=Restaurante+Oliva+Nerja',
-    websiteHref: 'https://www.restauranteoliva.com/english.html'
-  },
-  moGastrotapas: {
-    mapHref:
-      'https://www.google.com/maps/search/?api=1&query=Mo+Gastrotapas+Nerja',
-    websiteHref: 'https://mogastrotapas.eatbu.com/?lang=es'
-  },
-  laPuntilla: {
-    mapHref:
-      'https://www.google.com/maps/search/?api=1&query=La+Puntilla+Nerja',
-    websiteHref: 'https://www.lapuntillanerja.es/'
-  },
-  elPulguilla: {
-    mapHref:
-      'https://www.google.com/maps/search/?api=1&query=El+Pulguilla+Nerja',
-    websiteHref: 'https://www.elpulguilla.com/'
-  },
-  ayo: {
-    mapHref:
-      'https://www.google.com/maps/search/?api=1&query=Chiringuito+AYO+Nerja',
-    websiteHref: 'https://chiringuitoayonerja.es/es/'
-  },
-  elAcebuchal: {
-    mapHref:
-      'https://www.google.com/maps/search/?api=1&query=Bar+El+Acebuchal+Frigiliana',
-    websiteHref: 'https://www.elacebuchal.com/'
-  }
-};
-
-function restaurant(
-  key: RestaurantKey,
-  copy: RestaurantCopy
-): FrigilianaRestaurantCard {
-  return { ...copy, ...restaurantLinks[key] };
 }
 
 export const frigilianaRestaurantsSeo: AmaraAuthoringSeo = {
@@ -288,132 +200,28 @@ export const frigilianaRestaurantsContent: Record<
         title: 'Frigiliana evenings — choose by village setting',
         intro:
           'These three addresses occupy different village settings and restaurant formats: Barribarto with a terrace, Plaza de las Tres Culturas and Avenida Carlos Cano.',
-        restaurants: [
-          restaurant('theGarden', {
-            title: 'The Garden Restaurant',
-            bestFor: 'A terrace dinner in Barribarto',
-            description:
-              'The Garden sits on Calle del Santo Cristo in Barribarto, with a terrace and cooking shaped by Mediterranean and international influences.',
-            tip:
-              'If you would like to sit outside, ask for a terrace table when you book and let the restaurant confirm current availability.',
-            goodToKnow:
-              'Terrace tables differ in position. If evening light or a particular outlook matters to you, mention it when reserving.'
-          }),
-          restaurant('gloriaBendita', {
-            title: 'Gloria Bendita',
-            bestFor: 'A lively first evening and easy village access',
-            description:
-              'On Plaza de las Tres Culturas, Gloria Bendita serves contemporary Mediterranean cooking with international influences in an animated central setting.',
-            tip:
-              'Choose an outside table when you want to watch the plaza come alive. It is an easy first-night option without climbing deep into Barribarto.',
-            goodToKnow:
-              'Expect a social, busy room rather than a secluded table. Check current opening days before making it the fixed plan for your arrival evening.'
-          }),
-          restaurant('laTaperia', {
-            title: 'La Tapería',
-            bestFor: 'An intimate table and plates to share',
-            description:
-              'A small Frigiliana restaurant whose tapas draw on Mediterranean, international and Arabic flavours rather than a single rigid style.',
-            tip:
-              'Share several smaller plates and leave room to follow the kitchen’s suggestions for the evening. That suits the scale of the room better than rushing one course.',
-            goodToKnow:
-              'This is a small dining room. Reserve rather than relying on a walk-in table, especially at weekends and in high season.'
-          })
-        ]
+        restaurantIds: ['frigiliana.restaurants.el-jardin', 'frigiliana.restaurants.gloria-bendita', 'frigiliana.restaurants.la-taperia']
       },
       {
         id: 'special-nerja',
         title: 'Special nights in Nerja',
         intro:
           'For a more polished dinner, Nerja adds sea views, contemporary cooking and the chance to make the meal the main event.',
-        restaurants: [
-          restaurant('restaurant34', {
-            title: 'Restaurant 34',
-            bestFor: 'Sea views and an elegant date night',
-            description:
-              'Restaurant 34 at Hotel Carabeo uses local produce and offers several dining spaces, including a summer terrace facing the Mediterranean.',
-            tip:
-              'Ask specifically which terrace or sea-view tables are available, then confirm the current booking conditions before choosing the table.',
-            goodToKnow:
-              'Ask about the conditions and any supplement for a front-row sea-view table when reserving; the restaurant will give you the current details.'
-          }),
-          restaurant('oliva', {
-            title: 'Restaurante Oliva',
-            bestFor: 'A celebration or an unhurried modern dinner',
-            description:
-              'Close to Plaza de España, Oliva serves contemporary Mediterranean cuisine and has been included in the Michelin Guide since 2016.',
-            tip:
-              'Treat Oliva as the evening rather than a stop between plans: reserve, allow time for several courses and ask about the terrace if that matters to you.',
-            goodToKnow:
-              'This is one of the more polished choices in the guide. Check the current menu and kitchen days directly before committing to a special date.'
-          }),
-          restaurant('moGastrotapas', {
-            title: 'Mo Gastrotapas',
-            bestFor: 'Creative sharing plates and wine',
-            description:
-              'A modern gastro-tapas restaurant away from the busiest old-town strip, with imaginative plates and a more relaxed contemporary feel.',
-            tip:
-              'Order several dishes for the table and ask the team to balance richer plates with fresher ones. Sharing is the best way to understand the kitchen.',
-            goodToKnow:
-              'Opening days can vary, so check directly and reserve. It is better approached as a planned dinner than an improvised late walk-in.'
-          })
-        ]
+        restaurantIds: ['nerja.restaurants.restaurant-34', 'nerja.restaurants.oliva', 'nerja.restaurants.mo-gastrotapas']
       },
       {
         id: 'tapas-seafood',
         title: 'Tapas, fish & the lively side of Nerja',
         intro:
           'These are not hushed dining rooms. Come for fresh fish, quick service, conversation and full tables.',
-        restaurants: [
-          restaurant('laPuntilla', {
-            title: 'La Puntilla',
-            bestFor: 'Fresh fish and a fast, local lunch',
-            description:
-              'La Puntilla is a long-standing seafood address known for fish brought in daily, tapas and fast-moving service.',
-            tip:
-              'Go for lunch and ask what fish is best that day instead of deciding everything in advance. The daily choice is more useful than chasing one famous dish.',
-            goodToKnow:
-              'Expect conversation, movement and a busy room. It is a local-style seafood meal, not a quiet romantic lunch.'
-          }),
-          restaurant('elPulguilla', {
-            title: 'El Pulguilla',
-            bestFor: 'Central tapas, fried fish and people-watching',
-            description:
-              'A few streets from the Balcón de Europa, El Pulguilla is one of Nerja’s classic stops for seafood, fried fish, tapas and larger portions.',
-            tip:
-              'At the bar it is tapas; at a table or on the terrace it is a full meal. Two very different evenings at the same address.',
-            goodToKnow:
-              'It can be crowded and loud at peak times. Arrive early or accept the bustle as part of the experience.'
-          }),
-          restaurant('ayo', {
-            title: 'Chiringuito AYO',
-            bestFor: 'A daytime beach lunch at Burriana',
-            description:
-              'AYO is at Paseo Burriana 15, directly on Playa Burriana, and publishes daytime service. It belongs to a beach-and-lunch plan rather than an evening dinner plan.',
-            tip:
-              'Burriana is the serviced town beach rather than a quiet cove. AYO sits directly on it, and its opening and kitchen hours change with the season.',
-            goodToKnow:
-              'Opening and menu details can change. Treat the venue as a current option, not a guaranteed part of the beach day.'
-          })
-        ]
+        restaurantIds: ['nerja.restaurants.la-puntilla', 'nerja.restaurants.el-pulguilla', 'nerja.restaurants.chiringuito-ayo']
       },
       {
         id: 'acebuchal',
         title: 'El Acebuchal — lunch as a destination',
         intro:
           'The lost village sits beyond Frigiliana in the natural park. The journey, the landscape and the meal belong together.',
-        restaurants: [
-          restaurant('elAcebuchal', {
-            title: 'Restaurante El Acebuchal',
-            bestFor: 'A countryside outing and rustic Andalusian cooking',
-            description:
-              'In the restored hamlet of El Acebuchal, the restaurant centres on traditional meats, homemade bread and desserts in a setting far removed from the coast.',
-            tip:
-              'Make it the reward after a walk or a slow drive into the hills. Allow time for the route and for lunch rather than trying to fit it between coastal plans.',
-            goodToKnow:
-              'Access is rural and opening arrangements matter. Check the route, current hours and reservation options directly before setting out.'
-          })
-        ]
+        restaurantIds: ['frigiliana.restaurants.el-acebuchal']
       }
     ],
     planning: {
@@ -546,132 +354,28 @@ export const frigilianaRestaurantsContent: Record<
         title: 'Abende in Frigiliana — nach Ortslage wählen',
         intro:
           'Diese drei Adressen stehen für unterschiedliche Ortslagen und Restaurantformate: Barribarto mit Terrasse, Plaza de las Tres Culturas und Avenida Carlos Cano.',
-        restaurants: [
-          restaurant('theGarden', {
-            title: 'The Garden Restaurant',
-            bestFor: 'Ein Terrassenessen im Barribarto',
-            description:
-              'The Garden liegt an der Calle del Santo Cristo im Barribarto und verbindet eine Terrasse mit mediterran und international geprägter Küche.',
-            tip:
-              'Wenn ihr draußen sitzen möchtet, fragt bei der Reservierung nach einem Terrassentisch und lasst euch die aktuelle Verfügbarkeit bestätigen.',
-            goodToKnow:
-              'Die Terrassentische unterscheiden sich in ihrer Lage. Wenn euch Abendlicht oder eine bestimmte Aussicht wichtig sind, sprecht das bei der Reservierung direkt an.',
-          }),
-          restaurant('gloriaBendita', {
-            title: 'Gloria Bendita',
-            bestFor: 'Einen lebhaften ersten Abend mit kurzem Weg',
-            description:
-              'An der Plaza de las Tres Culturas serviert Gloria Bendita moderne mediterrane Küche mit internationalen Einflüssen in zentraler, lebendiger Lage.',
-            tip:
-              'Ein Außentisch lohnt sich, wenn ihr das Treiben auf dem Platz mögt. Für den Ankunftsabend ist das unkompliziert, ohne tief ins steile Barribarto zu laufen.',
-            goodToKnow:
-              'Die Stimmung ist gesellig, nicht abgeschieden. Prüft die aktuellen Öffnungstage, bevor ihr den Ankunftsabend fest darauf ausrichtet.'
-          }),
-          restaurant('laTaperia', {
-            title: 'La Tapería',
-            bestFor: 'Einen kleinen Tisch und Gerichte zum Teilen',
-            description:
-              'Ein kleines Restaurant, dessen Tapas mediterrane, internationale und arabische Aromen verbinden, ohne sich auf eine starre Küchenrichtung festzulegen.',
-            tip:
-              'Teilt mehrere kleine Gerichte und lasst Raum für die Empfehlungen der Küche. Das passt besser zu diesem intimen Ort als ein schnelles Einzelgericht.',
-            goodToKnow:
-              'Der Gastraum ist klein. Besonders am Wochenende und in der Hochsaison besser reservieren, statt auf einen freien Tisch zu hoffen.'
-          })
-        ]
+        restaurantIds: ['frigiliana.restaurants.el-jardin', 'frigiliana.restaurants.gloria-bendita', 'frigiliana.restaurants.la-taperia']
       },
       {
         id: 'special-nerja',
         title: 'Besondere Abende in Nerja',
         intro:
           'Für ein feineres Dinner bietet Nerja Meerblick, moderne Küche und Restaurants, bei denen das Essen selbst zum Abendprogramm wird.',
-        restaurants: [
-          restaurant('restaurant34', {
-            title: 'Restaurant 34',
-            bestFor: 'Meerblick und ein elegantes Date',
-            description:
-              'Das Restaurant 34 im Hotel Carabeo arbeitet mit regionalen Produkten und hat mehrere Bereiche, darunter eine sommerliche Terrasse zum Mittelmeer.',
-            tip:
-              'Fragt konkret, welche Terrassen- oder Meerblicktische verfügbar sind, und bestätigt vor der Auswahl die aktuell geltenden Reservierungsbedingungen.',
-            goodToKnow:
-              'Fragt bei der Reservierung nach den Bedingungen und einem möglichen Aufpreis für einen Tisch in der ersten Meerblickreihe; das Restaurant nennt euch die aktuellen Details.'
-          }),
-          restaurant('oliva', {
-            title: 'Restaurante Oliva',
-            bestFor: 'Einen Anlass oder ein entspanntes modernes Dinner',
-            description:
-              'Nahe der Plaza de España serviert Oliva zeitgemäße mediterrane Küche und wird seit 2016 im Guide Michelin geführt.',
-            tip:
-              'Plant Oliva als eigentlichen Abend: reserviert, lasst Zeit für mehrere Gänge und fragt bei Interesse nach der Terrasse.',
-            goodToKnow:
-              'Oliva gehört zu den eleganteren Empfehlungen. Für einen besonderen Termin Speisekarte und Küchenzeiten noch einmal direkt prüfen.'
-          }),
-          restaurant('moGastrotapas', {
-            title: 'Mo Gastrotapas',
-            bestFor: 'Kreative Teller zum Teilen und Wein',
-            description:
-              'Ein modernes Gastro-Tapas-Restaurant abseits des belebtesten Altstadtstreifens, mit ideenreichen Gerichten und entspannter, zeitgemäßer Atmosphäre.',
-            tip:
-              'Bestellt mehrere Teller für den Tisch und bittet das Team um eine gute Mischung aus kräftigen und frischen Gerichten. So erschließt sich die Küche am besten.',
-            goodToKnow:
-              'Die Öffnungstage können wechseln. Direkt prüfen und reservieren – diese Adresse funktioniert besser als geplantes Dinner denn als später spontaner Versuch.'
-          })
-        ]
+        restaurantIds: ['nerja.restaurants.restaurant-34', 'nerja.restaurants.oliva', 'nerja.restaurants.mo-gastrotapas']
       },
       {
         id: 'tapas-seafood',
         title: 'Tapas, Fisch & Nerjas lebendige Seite',
         intro:
           'Das sind keine stillen Speisesäle. Hier geht es um frischen Fisch, lokalen Rhythmus und Mahlzeiten, bei denen die Atmosphäre genauso zählt wie die Präsentation.',
-        restaurants: [
-          restaurant('laPuntilla', {
-            title: 'La Puntilla',
-            bestFor: 'Frischen Fisch und einen schnellen lokalen Lunch',
-            description:
-              'La Puntilla ist eine alteingesessene Fischadresse, bekannt für täglich frische Ware, Tapas und einen zügigen, energiegeladenen Service.',
-            tip:
-              'Geht mittags und fragt, welcher Fisch an diesem Tag besonders gut ist. Das ist hilfreicher, als euch vorher auf ein berühmtes Gericht festzulegen.',
-            goodToKnow:
-              'Rechnet mit Gesprächen, Bewegung und einem vollen Raum. Das ist ein lokales Fischessen, kein ruhiges romantisches Mittagessen.'
-          }),
-          restaurant('elPulguilla', {
-            title: 'El Pulguilla',
-            bestFor: 'Zentrale Tapas, frittierten Fisch und Menschenbeobachten',
-            description:
-              'Nur wenige Gassen vom Balcón de Europa entfernt ist El Pulguilla ein Nerja-Klassiker für Meeresfrüchte, frittierten Fisch, Tapas und größere Portionen.',
-            tip:
-              'An der Bar gibt es Tapas, am Tisch oder auf der Terrasse ein vollständiges Essen. Zwei sehr unterschiedliche Abende an derselben Adresse.',
-            goodToKnow:
-              'Zu Stoßzeiten wird es voll und laut. Früh kommen oder die lebhafte Stimmung bewusst als Teil des Erlebnisses annehmen.'
-          }),
-          restaurant('ayo', {
-            title: 'Chiringuito AYO',
-            bestFor: 'Ein Mittagessen am Burriana-Strand',
-            description:
-              'AYO liegt am Paseo Burriana 15 direkt an der Playa Burriana und veröffentlicht einen Tagesbetrieb. Der Ort gehört damit zu einem Strand-und-Mittagessen-Plan, nicht zu einem Abendessen.',
-            tip:
-              'Burriana ist der bewirtschaftete Stadtstrand, keine stille Bucht. AYO liegt direkt darauf; Öffnung und Küchenzeiten wechseln mit der Saison.',
-            goodToKnow:
-              'Öffnung und Angebot können sich ändern. Behandelt AYO als aktuelle Option, nicht als garantierten Bestandteil des Strandtags.'
-          })
-        ]
+        restaurantIds: ['nerja.restaurants.la-puntilla', 'nerja.restaurants.el-pulguilla', 'nerja.restaurants.chiringuito-ayo']
       },
       {
         id: 'acebuchal',
         title: 'El Acebuchal — das Mittagessen als Ziel',
         intro:
           'Das „verlorene Dorf“ liegt hinter Frigiliana im Naturpark. Anfahrt, Landschaft und Essen gehören hier zusammen.',
-        restaurants: [
-          restaurant('elAcebuchal', {
-            title: 'Restaurante El Acebuchal',
-            bestFor: 'Einen Ausflug aufs Land und rustikale andalusische Küche',
-            description:
-              'Im restaurierten Weiler El Acebuchal stehen traditionelle Fleischgerichte, hausgemachtes Brot und Desserts im Mittelpunkt – weit weg vom Küstentrubel.',
-            tip:
-              'Macht das Essen zum Abschluss einer Wanderung oder einer ruhigen Fahrt in die Berge. Plant Zeit für den Weg und den Lunch ein, statt ihn zwischen Küstenpläne zu quetschen.',
-            goodToKnow:
-              'Die Anfahrt ist ländlich, aktuelle Öffnung entscheidend. Prüft Route, Zeiten und Reservierung direkt, bevor ihr aufbrecht.'
-          })
-        ]
+        restaurantIds: ['frigiliana.restaurants.el-acebuchal']
       }
     ],
     planning: {
@@ -804,132 +508,28 @@ export const frigilianaRestaurantsContent: Record<
         title: 'Noches en Frigiliana — elegid según la zona del pueblo',
         intro:
           'Estas tres direcciones representan zonas y formatos distintos: Barribarto con terraza, Plaza de las Tres Culturas y Avenida Carlos Cano.',
-        restaurants: [
-          restaurant('theGarden', {
-            title: 'The Garden Restaurant',
-            bestFor: 'Una cena en terraza en Barribarto',
-            description:
-              'The Garden está en la calle del Santo Cristo, en Barribarto, y combina una terraza con una cocina de influencias mediterráneas e internacionales.',
-            tip:
-              'Si queréis sentaros fuera, pedid una mesa en la terraza al reservar y dejad que el restaurante os confirme la disponibilidad actual.',
-            goodToKnow:
-              'Las mesas de la terraza ocupan posiciones distintas. Si os importa la luz del atardecer o una vista concreta, comentadlo al reservar.',
-          }),
-          restaurant('gloriaBendita', {
-            title: 'Gloria Bendita',
-            bestFor: 'Una primera noche animada y de fácil acceso',
-            description:
-              'En la plaza de las Tres Culturas, Gloria Bendita propone cocina mediterránea contemporánea con influencias internacionales en un entorno céntrico y vivo.',
-            tip:
-              'Busca mesa fuera si te gusta ver cómo se anima la plaza. Es una opción sencilla para la primera noche sin subir hasta lo alto del Barribarto.',
-            goodToKnow:
-              'El ambiente es social, no íntimo. Comprueba los días de apertura antes de convertirlo en el plan fijo para la noche de llegada.'
-          }),
-          restaurant('laTaperia', {
-            title: 'La Tapería',
-            bestFor: 'Una mesa íntima y platos para compartir',
-            description:
-              'Un restaurante pequeño cuyas tapas mezclan sabores mediterráneos, internacionales y árabes sin encerrarse en una sola etiqueta.',
-            tip:
-              'Comparte varios platos y déjate aconsejar por la cocina sobre lo mejor de esa noche. Encaja mejor con el tamaño del local que pedir deprisa un único plato.',
-            goodToKnow:
-              'El comedor es reducido. Los fines de semana y en temporada alta, reserva en lugar de confiar en encontrar mesa al pasar.'
-          })
-        ]
+        restaurantIds: ['frigiliana.restaurants.el-jardin', 'frigiliana.restaurants.gloria-bendita', 'frigiliana.restaurants.la-taperia']
       },
       {
         id: 'special-nerja',
         title: 'Cenas especiales en Nerja',
         intro:
           'Para una velada más cuidada, Nerja suma vistas al mar, cocina contemporánea y restaurantes en los que la cena es el plan principal.',
-        restaurants: [
-          restaurant('restaurant34', {
-            title: 'Restaurant 34',
-            bestFor: 'Vistas al mar y una cita elegante',
-            description:
-              'Restaurant 34, en Hotel Carabeo, trabaja con producto local y ofrece varios espacios, entre ellos una terraza de verano frente al Mediterráneo.',
-            tip:
-              'Preguntad qué mesas de terraza o con vistas están disponibles y confirmad las condiciones actuales antes de elegir una ubicación concreta.',
-            goodToKnow:
-              'Al reservar, preguntad por las condiciones y cualquier suplemento para una mesa en primera línea con vistas al mar; el restaurante os dará los detalles actuales.'
-          }),
-          restaurant('oliva', {
-            title: 'Restaurante Oliva',
-            bestFor: 'Una celebración o una cena moderna sin prisas',
-            description:
-              'Cerca de la plaza de España, Oliva ofrece cocina mediterránea contemporánea y figura en la Guía Michelin desde 2016.',
-            tip:
-              'Haz de Oliva el plan de la noche: reserva, deja tiempo para varios platos y pregunta por la terraza si es importante para ti.',
-            goodToKnow:
-              'Es una de las opciones más refinadas de la guía. Para una fecha señalada, confirma directamente la carta y los días de cocina.'
-          }),
-          restaurant('moGastrotapas', {
-            title: 'Mo Gastrotapas',
-            bestFor: 'Platos creativos para compartir y vino',
-            description:
-              'Un gastrobar moderno fuera del tramo más concurrido del casco antiguo, con platos imaginativos y un ambiente contemporáneo relajado.',
-            tip:
-              'Pide varios platos para la mesa y deja que el equipo combine propuestas intensas con otras más frescas. Compartiendo se entiende mejor su cocina.',
-            goodToKnow:
-              'Los días de apertura pueden variar. Comprueba y reserva: funciona mejor como cena pensada que como intento improvisado a última hora.'
-          })
-        ]
+        restaurantIds: ['nerja.restaurants.restaurant-34', 'nerja.restaurants.oliva', 'nerja.restaurants.mo-gastrotapas']
       },
       {
         id: 'tapas-seafood',
         title: 'Tapas, pescado y el lado más vivo de Nerja',
         intro:
           'No son comedores silenciosos. Ven por el pescado fresco, el ritmo local y una comida en la que el ambiente importa tanto como la presentación.',
-        restaurants: [
-          restaurant('laPuntilla', {
-            title: 'La Puntilla',
-            bestFor: 'Pescado fresco y un almuerzo local con ritmo',
-            description:
-              'La Puntilla es una casa de pescado con larga trayectoria, conocida por el género diario, las tapas y un servicio rápido y enérgico.',
-            tip:
-              'Ve a mediodía y pregunta qué pescado está mejor ese día en lugar de decidirlo todo de antemano. La recomendación diaria vale más que perseguir un plato famoso.',
-            goodToKnow:
-              'Habrá conversación, movimiento y un comedor lleno. Es una comida marinera al estilo local, no un almuerzo romántico y silencioso.'
-          }),
-          restaurant('elPulguilla', {
-            title: 'El Pulguilla',
-            bestFor: 'Tapas céntricas, fritura y observar el ambiente',
-            description:
-              'A pocas calles del Balcón de Europa, El Pulguilla es un clásico de Nerja para marisco, pescado frito, tapas y raciones.',
-            tip:
-              'En la barra hay tapeo; en mesa o terraza, una comida completa. Dos noches muy distintas en la misma dirección.',
-            goodToKnow:
-              'En hora punta puede estar lleno y ser ruidoso. Llega pronto o acepta ese bullicio como parte de la experiencia.'
-          }),
-          restaurant('ayo', {
-            title: 'Chiringuito AYO',
-            bestFor: 'Un almuerzo de playa en Burriana',
-            description:
-              'AYO está en Paseo Burriana 15, directamente en Playa Burriana, y publica servicio diurno. Forma parte de un plan de playa y almuerzo, no de una cena.',
-            tip:
-              'Burriana es la playa urbana con servicios, no una cala tranquila. AYO está justo en ella, y su apertura y su cocina cambian con la temporada.',
-            goodToKnow:
-              'La apertura y la oferta pueden cambiar. Tratad AYO como una opción actual, no como una parte garantizada del día de playa.'
-          })
-        ]
+        restaurantIds: ['nerja.restaurants.la-puntilla', 'nerja.restaurants.el-pulguilla', 'nerja.restaurants.chiringuito-ayo']
       },
       {
         id: 'acebuchal',
         title: 'El Acebuchal — el almuerzo como destino',
         intro:
           'La aldea perdida se encuentra más allá de Frigiliana, dentro del parque natural. El trayecto, el paisaje y la comida forman un único plan.',
-        restaurants: [
-          restaurant('elAcebuchal', {
-            title: 'Restaurante El Acebuchal',
-            bestFor: 'Una excursión rural y cocina andaluza rústica',
-            description:
-              'En la aldea restaurada de El Acebuchal, el restaurante se centra en carnes tradicionales, pan casero y postres, lejos del ritmo de la costa.',
-            tip:
-              'Conviértelo en la recompensa después de una ruta o de un paseo lento en coche por la sierra. Reserva tiempo para llegar y comer sin encajarlo entre planes costeros.',
-            goodToKnow:
-              'El acceso es rural y la apertura importa. Comprueba directamente la ruta, los horarios actuales y la posibilidad de reservar antes de salir.'
-          })
-        ]
+        restaurantIds: ['frigiliana.restaurants.el-acebuchal']
       }
     ],
     planning: {
@@ -1062,132 +662,28 @@ export const frigilianaRestaurantsContent: Record<
         title: 'Avonden in Frigiliana — kies op ligging in het dorp',
         intro:
           'Deze drie adressen vertegenwoordigen verschillende dorpslocaties en restaurantvormen: Barribarto met terras, Plaza de las Tres Culturas en Avenida Carlos Cano.',
-        restaurants: [
-          restaurant('theGarden', {
-            title: 'The Garden Restaurant',
-            bestFor: 'Een terrasdiner in Barribarto',
-            description:
-              'The Garden ligt aan Calle del Santo Cristo in Barribarto en combineert een terras met een mediterraan-internationale keuken.',
-            tip:
-              'Willen jullie buiten zitten, vraag dan bij de reservering om een terrastafel en laat het restaurant de actuele beschikbaarheid bevestigen.',
-            goodToKnow:
-              'De terrastafels liggen op verschillende plekken. Is avondlicht of een bepaald uitzicht belangrijk voor jullie, vermeld dat dan bij de reservering.',
-          }),
-          restaurant('gloriaBendita', {
-            title: 'Gloria Bendita',
-            bestFor: 'Een levendige eerste avond met gemakkelijke toegang',
-            description:
-              'Aan Plaza de las Tres Culturas serveert Gloria Bendita eigentijdse mediterrane gerechten met internationale invloeden in een centrale, levendige omgeving.',
-            tip:
-              'Kies buiten als je het plein tot leven wilt zien komen. Het is een makkelijke optie voor de eerste avond, zonder hoog Barribarto in te lopen.',
-            goodToKnow:
-              'De sfeer is sociaal, niet afgezonderd. Controleer de actuele openingsdagen voordat je je aankomstavond hier volledig omheen plant.'
-          }),
-          restaurant('laTaperia', {
-            title: 'La Tapería',
-            bestFor: 'Een intieme tafel en gerechten om te delen',
-            description:
-              'Een klein restaurant waar mediterrane, internationale en Arabische smaken samenkomen in tapas die zich niet in één vaste keuken laten vangen.',
-            tip:
-              'Deel verschillende kleine gerechten en volg voor een deel de suggesties van de keuken. Dat past beter bij deze intieme plek dan snel één hoofdgerecht eten.',
-            goodToKnow:
-              'De eetzaal is klein. Reserveer in het weekend en het hoogseizoen liever dan te rekenen op een vrije tafel.'
-          })
-        ]
+        restaurantIds: ['frigiliana.restaurants.el-jardin', 'frigiliana.restaurants.gloria-bendita', 'frigiliana.restaurants.la-taperia']
       },
       {
         id: 'special-nerja',
         title: 'Bijzondere avonden in Nerja',
         intro:
           'Voor een verfijnder diner biedt Nerja zeezicht, eigentijdse keukens en restaurants waar de maaltijd het hoofdprogramma van de avond is.',
-        restaurants: [
-          restaurant('restaurant34', {
-            title: 'Restaurant 34',
-            bestFor: 'Zeezicht en een elegante date night',
-            description:
-              'Restaurant 34 in Hotel Carabeo werkt met lokale producten en heeft verschillende eetruimtes, waaronder een zomerterras aan de Middellandse Zee.',
-            tip:
-              'Vraag specifiek welke terras- of zeezichttafels beschikbaar zijn en bevestig de actuele reserveringsvoorwaarden voordat jullie een plek kiezen.',
-            goodToKnow:
-              'Vraag bij de reservering naar de voorwaarden en een mogelijke toeslag voor een tafel op de eerste rij met zeezicht; het restaurant geeft jullie de actuele details.'
-          }),
-          restaurant('oliva', {
-            title: 'Restaurante Oliva',
-            bestFor: 'Een viering of een modern diner zonder haast',
-            description:
-              'Vlak bij Plaza de España serveert Oliva eigentijdse mediterrane gerechten en staat het restaurant sinds 2016 in de Michelin Gids.',
-            tip:
-              'Zie Oliva als de avond zelf: reserveer, neem tijd voor meerdere gangen en vraag naar het terras als dat voor jou belangrijk is.',
-            goodToKnow:
-              'Dit is een van de meer verfijnde keuzes in de gids. Controleer voor een bijzondere datum rechtstreeks het huidige menu en de keukendagen.'
-          }),
-          restaurant('moGastrotapas', {
-            title: 'Mo Gastrotapas',
-            bestFor: 'Creatieve deelgerechten en wijn',
-            description:
-              'Een moderne gastro-tapaszaak buiten het drukste deel van de oude stad, met fantasierijke gerechten en een ontspannen eigentijdse sfeer.',
-            tip:
-              'Bestel verschillende gerechten voor de tafel en laat het team rijkere en frissere smaken combineren. Door te delen leer je de keuken het best kennen.',
-            goodToKnow:
-              'Openingsdagen kunnen wisselen. Controleer en reserveer; dit werkt beter als gepland diner dan als late spontane poging.'
-          })
-        ]
+        restaurantIds: ['nerja.restaurants.restaurant-34', 'nerja.restaurants.oliva', 'nerja.restaurants.mo-gastrotapas']
       },
       {
         id: 'tapas-seafood',
         title: 'Tapas, vis & de levendige kant van Nerja',
         intro:
           'Dit zijn geen fluisterstille restaurants. Kom voor verse vis, lokaal ritme en een maaltijd waarbij de sfeer net zo belangrijk is als de presentatie.',
-        restaurants: [
-          restaurant('laPuntilla', {
-            title: 'La Puntilla',
-            bestFor: 'Verse vis en een vlotte lokale lunch',
-            description:
-              'La Puntilla is een gevestigde viszaak, bekend om dagelijks verse aanvoer, tapas en een energiek servicetempo.',
-            tip:
-              'Ga lunchen en vraag welke vis die dag op zijn best is, in plaats van alles vooraf te bepalen. Het dagadvies is nuttiger dan één beroemd gerecht najagen.',
-            goodToKnow:
-              'Verwacht gesprekken, beweging en een volle ruimte. Dit is een lokale vismaaltijd, geen stille romantische lunch.'
-          }),
-          restaurant('elPulguilla', {
-            title: 'El Pulguilla',
-            bestFor: 'Centrale tapas, gefrituurde vis en mensen kijken',
-            description:
-              'Een paar straten van Balcón de Europa is El Pulguilla een klassieker in Nerja voor zeevruchten, gefrituurde vis, tapas en grotere porties.',
-            tip:
-              'Aan de bar is het tapas, aan tafel of op het terras een volledige maaltijd. Twee heel verschillende avonden op hetzelfde adres.',
-            goodToKnow:
-              'Op piekmomenten kan het druk en luid zijn. Kom vroeg of omarm de levendigheid als onderdeel van de ervaring.'
-          }),
-          restaurant('ayo', {
-            title: 'Chiringuito AYO',
-            bestFor: 'Een lunch aan het Burriana-strand',
-            description:
-              'AYO ligt aan Paseo Burriana 15, direct aan Playa Burriana, en publiceert dagservice. Het hoort bij een strand-en-lunchplan, niet bij een avonddiner.',
-            tip:
-              'Burriana is het stadsstrand met voorzieningen, geen stille baai. AYO ligt er direct aan; opening en keukentijden wisselen met het seizoen.',
-            goodToKnow:
-              'Opening en aanbod kunnen veranderen. Zie AYO als een actuele optie, niet als een gegarandeerd onderdeel van de stranddag.'
-          })
-        ]
+        restaurantIds: ['nerja.restaurants.la-puntilla', 'nerja.restaurants.el-pulguilla', 'nerja.restaurants.chiringuito-ayo']
       },
       {
         id: 'acebuchal',
         title: 'El Acebuchal — lunch als bestemming',
         intro:
           'Het verloren dorp ligt voorbij Frigiliana in het natuurpark. De rit, het landschap en de maaltijd vormen samen het plan.',
-        restaurants: [
-          restaurant('elAcebuchal', {
-            title: 'Restaurante El Acebuchal',
-            bestFor: 'Een uitstap naar het platteland en rustieke Andalusische gerechten',
-            description:
-              'In het herstelde gehucht El Acebuchal draait het restaurant om traditioneel vlees, huisgemaakt brood en desserts, ver van de drukke kust.',
-            tip:
-              'Maak de lunch de beloning na een wandeling of rustige rit door de heuvels. Geef de route en de maaltijd tijd in plaats van ze tussen kustplannen te persen.',
-            goodToKnow:
-              'De toegang is landelijk en de opening is belangrijk. Controleer route, actuele tijden en reserveringsmogelijkheden rechtstreeks voordat je vertrekt.'
-          })
-        ]
+        restaurantIds: ['frigiliana.restaurants.el-acebuchal']
       }
     ],
     planning: {
@@ -1320,132 +816,28 @@ export const frigilianaRestaurantsContent: Record<
         title: 'Kvällar i Frigiliana — välj efter läget i byn',
         intro:
           'De tre adresserna representerar olika lägen och restaurangformat: Barribarto med terrass, Plaza de las Tres Culturas och Avenida Carlos Cano.',
-        restaurants: [
-          restaurant('theGarden', {
-            title: 'The Garden Restaurant',
-            bestFor: 'En terrassmiddag i Barribarto',
-            description:
-              'The Garden ligger på Calle del Santo Cristo i Barribarto och kombinerar en terrass med ett medelhavsinspirerat och internationellt kök.',
-            tip:
-              'Om ni vill sitta ute, be om ett terrassbord när ni bokar och låt restaurangen bekräfta aktuell tillgänglighet.',
-            goodToKnow:
-              'Terrassborden ligger på olika platser. Om kvällsljus eller en särskild utsikt är viktig för er, nämn det vid bokningen.',
-          }),
-          restaurant('gloriaBendita', {
-            title: 'Gloria Bendita',
-            bestFor: 'En livlig första kväll med enkel tillgång',
-            description:
-              'Vid Plaza de las Tres Culturas serverar Gloria Bendita modern medelhavsmat med internationella influenser i ett centralt och livligt läge.',
-            tip:
-              'Välj ett utebord om du vill se torget vakna till liv. Det är ett enkelt val första kvällen utan att gå långt upp i Barribarto.',
-            goodToKnow:
-              'Stämningen är social snarare än avskild. Kontrollera aktuella öppningsdagar innan du bygger hela ankomstkvällen kring restaurangen.'
-          }),
-          restaurant('laTaperia', {
-            title: 'La Tapería',
-            bestFor: 'Ett intimt bord och rätter att dela',
-            description:
-              'En liten restaurang där tapas hämtar smaker från Medelhavet, internationell matlagning och det arabiska köket utan att låsas vid en enda stil.',
-            tip:
-              'Dela flera mindre rätter och låt kökets rekommendationer styra en del av beställningen. Det passar den intima lokalen bättre än en snabb huvudrätt.',
-            goodToKnow:
-              'Matsalen är liten. Boka hellre än att hoppas på ett ledigt bord, särskilt under helger och högsäsong.'
-          })
-        ]
+        restaurantIds: ['frigiliana.restaurants.el-jardin', 'frigiliana.restaurants.gloria-bendita', 'frigiliana.restaurants.la-taperia']
       },
       {
         id: 'special-nerja',
         title: 'Speciella kvällar i Nerja',
         intro:
           'För en mer elegant middag erbjuder Nerja havsutsikt, modern matlagning och restauranger där måltiden får vara kvällens huvudnummer.',
-        restaurants: [
-          restaurant('restaurant34', {
-            title: 'Restaurant 34',
-            bestFor: 'Havsutsikt och en elegant dejtkväll',
-            description:
-              'Restaurant 34 på Hotel Carabeo arbetar med lokala råvaror och har flera matsalar, däribland en sommarterrass mot Medelhavet.',
-            tip:
-              'Fråga specifikt vilka terrass- eller havsutsiktsbord som finns och bekräfta de aktuella bokningsvillkoren innan ni väljer plats.',
-            goodToKnow:
-              'Fråga vid bokningen om villkoren och eventuellt tillägg för ett bord på första raden med havsutsikt; restaurangen ger er de aktuella detaljerna.'
-          }),
-          restaurant('oliva', {
-            title: 'Restaurante Oliva',
-            bestFor: 'Ett firande eller en modern middag utan brådska',
-            description:
-              'Nära Plaza de España serverar Oliva modern medelhavsmat och restaurangen har funnits med i Michelinguiden sedan 2016.',
-            tip:
-              'Låt Oliva vara kvällens plan: boka, ge flera rätter gott om tid och fråga om terrassen om den är viktig för dig.',
-            goodToKnow:
-              'Det här är ett av guidens mer eleganta val. Kontrollera aktuell meny och köksdagar direkt inför ett särskilt datum.'
-          }),
-          restaurant('moGastrotapas', {
-            title: 'Mo Gastrotapas',
-            bestFor: 'Kreativa smårätter att dela och vin',
-            description:
-              'En modern gastro-tapasrestaurang utanför den mest intensiva delen av gamla stan, med fantasifulla rätter och avslappnad samtida känsla.',
-            tip:
-              'Beställ flera rätter till bordet och låt teamet balansera fylligare smaker med fräschare. Genom att dela får ni bäst bild av köket.',
-            goodToKnow:
-              'Öppningsdagarna kan variera. Kontrollera och boka; restaurangen passar bättre för en planerad middag än ett sent spontant försök.'
-          })
-        ]
+        restaurantIds: ['nerja.restaurants.restaurant-34', 'nerja.restaurants.oliva', 'nerja.restaurants.mo-gastrotapas']
       },
       {
         id: 'tapas-seafood',
         title: 'Tapas, fisk & Nerjas livliga sida',
         intro:
           'Det här är inga tysta matsalar. Kom för färsk fisk, lokal rytm och en måltid där stämningen betyder lika mycket som presentationen.',
-        restaurants: [
-          restaurant('laPuntilla', {
-            title: 'La Puntilla',
-            bestFor: 'Färsk fisk och en snabb lokal lunch',
-            description:
-              'La Puntilla är en väletablerad fiskrestaurang, känd för dagens färska fångst, tapas och ett energiskt serveringstempo.',
-            tip:
-              'Gå dit till lunch och fråga vilken fisk som är bäst just den dagen i stället för att bestämma allt i förväg. Dagens råd är mer värt än en enda berömd rätt.',
-            goodToKnow:
-              'Räkna med samtal, rörelse och en full lokal. Det är en lokal fiskmåltid, inte en stillsam romantisk lunch.'
-          }),
-          restaurant('elPulguilla', {
-            title: 'El Pulguilla',
-            bestFor: 'Centrala tapas, friterad fisk och folkliv',
-            description:
-              'Några gränder från Balcón de Europa är El Pulguilla en klassiker i Nerja för skaldjur, friterad fisk, tapas och större portioner.',
-            tip:
-              'Vid baren är det tapas, vid ett bord eller på terrassen en hel måltid. Två mycket olika kvällar på samma adress.',
-            goodToKnow:
-              'Det kan vara trångt och högljutt vid rusningstid. Kom tidigt eller se sorlet som en del av upplevelsen.'
-          }),
-          restaurant('ayo', {
-            title: 'Chiringuito AYO',
-            bestFor: 'En strandlunch vid Burriana',
-            description:
-              'AYO ligger på Paseo Burriana 15, direkt vid Playa Burriana, och publicerar dagservering. Restaurangen hör till en strand-och-lunchplan, inte till en kvällsmiddag.',
-            tip:
-              'Burriana är den servicerade stadsstranden, inte en tyst vik. AYO ligger direkt på den, och öppettider och kök växlar med säsongen.',
-            goodToKnow:
-              'Öppettider och utbud kan ändras. Se AYO som ett aktuellt alternativ, inte som en garanterad del av stranddagen.'
-          })
-        ]
+        restaurantIds: ['nerja.restaurants.la-puntilla', 'nerja.restaurants.el-pulguilla', 'nerja.restaurants.chiringuito-ayo']
       },
       {
         id: 'acebuchal',
         title: 'El Acebuchal — lunch som utflyktsmål',
         intro:
           'Den förlorade byn ligger bortom Frigiliana i naturparken. Vägen, landskapet och måltiden hör ihop.',
-        restaurants: [
-          restaurant('elAcebuchal', {
-            title: 'Restaurante El Acebuchal',
-            bestFor: 'En utflykt på landet och rustik andalusisk mat',
-            description:
-              'I den återuppbyggda byn El Acebuchal står traditionella kötträtter, hembakat bröd och desserter i centrum, långt från kustens tempo.',
-            tip:
-              'Gör lunchen till belöningen efter en vandring eller långsam bilfärd i bergen. Ge resan och måltiden tid i stället för att klämma in dem mellan kustplaner.',
-            goodToKnow:
-              'Vägen är lantlig och aktuella öppettider viktiga. Kontrollera rutt, tider och bokningsmöjlighet direkt innan avfärd.'
-          })
-        ]
+        restaurantIds: ['frigiliana.restaurants.el-acebuchal']
       }
     ],
     planning: {

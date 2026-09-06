@@ -2,6 +2,7 @@ import type { AmaraLanguage } from '../types/seo';
 import { frigilianaBeachesContent } from './frigilianaBeachesContent';
 import { frigilianaDayTripsContent } from './frigilianaDayTripsContent';
 import { frigilianaRestaurantsContent } from './frigilianaRestaurantsContent';
+import { publicRestaurantCard } from '../lib/placeProjection';
 
 /**
  * Read-only projections of facts that are genuinely shared across destination
@@ -24,9 +25,12 @@ export function getNerjaDiningGuideFacts(lang: AmaraLanguage) {
 
   return {
     cardLabels: copy.cardLabels,
-    sections: copy.restaurantSections.filter(
-      (section) => section.id === 'special-nerja' || section.id === 'tapas-seafood'
-    ),
+    sections: copy.restaurantSections
+      .filter((section) => section.id === 'special-nerja' || section.id === 'tapas-seafood')
+      .map((section) => ({
+        ...section,
+        restaurants: section.restaurantIds.map((id) => publicRestaurantCard(id, lang))
+      })),
     planning: {
       ...copy.planning,
       items: copy.planning.items.filter((_, index) => index !== 2)
