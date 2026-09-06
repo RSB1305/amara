@@ -4309,6 +4309,7 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
       items: [
         {
           icon: "location-pin",
+          recommendationId: 'tarifa.beaches.playa-los-lances',
           title: tarifaText(
             "Los Lances Sur",
             "Los Lances Sur",
@@ -4356,6 +4357,7 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
         },
         {
           icon: "wave",
+          recommendationId: 'tarifa.beaches.playa-los-lances',
           title: tarifaText(
             "Los Lances Norte",
             "Los Lances Norte",
@@ -4403,6 +4405,7 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
         },
         {
           icon: "star",
+          recommendationId: 'tarifa.beaches.playa-de-valdevaqueros',
           title: tarifaText(
             "Playa de Valdevaqueros",
             "Playa de Valdevaqueros",
@@ -4450,6 +4453,7 @@ const tarifaFamilySurfKitesurfing: GuestGuideEntry = {
         },
         {
           icon: "heart",
+          recommendationId: 'tarifa.beaches.playa-punta-paloma',
           title: tarifaText(
             "Punta Paloma",
             "Punta Paloma",

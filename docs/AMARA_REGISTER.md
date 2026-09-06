@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.70.0
+version: 1.71.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-05T23:30:00+02:00
+last_modified: 2026-09-06T09:00:00+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -216,6 +216,7 @@ Routine new evidence/ideas may be captured here or in the relevant working evide
 
 | Timestamp | Scope | Version/change | Decision refs | Commit |
 |---|---|---|---|---|
+| 2026-09-06T09:00:00+02:00 | Guest Guide providers from the operator | The operator supplied Google listings for Jet Ski Tours Nerja and El Burro Blanco Flamenco Bar; both are records with `basis: operator-review` and replace the "write to us" notes of DR-GUEST-005. The Harley card was removed on the operator's instruction. The four Tarifa kite spots that coincide with beaches reference the beach records. Register 1.71.0. | DR-EXPERIENCE-008, DR-EXPERIENCE-004, DR-GUEST-005 | local |
 | 2026-09-05T23:30:00+02:00 | Recommendation records for all Guest Guide pages | Completed the record migration: 127 further carry-over records (184 in total) for the Tarifa pages first and then Frigiliana and Nerja sightseeing, day trips, wellness, adventure, nightlife and essentials. Cards that list several places carry `recommendationIds` and render a place list with map link, address and call/WhatsApp/website actions; the copy no longer links a place itself. Tarifa venue cards take the record id instead of a link. Only festivals, the kitesurf spots without links, the Tarifa nightlife atmosphere card and generic pharmacy or bus timetable links remain without records. Knowledge README 1.6.1, Register 1.70.0. | DR-EXPERIENCE-008, DR-GUEST-005 | local |
 | 2026-09-05T22:00:00+02:00 | Recommendation records in knowledge/ | Implemented the recommendation record workstream announced in Feature Contract 11 §20: schema types, 57 carry-over records for Frigiliana and Nerja restaurants, breakfast, beaches and hikes, `recommendationId` on the Guest Guide cards with a record-driven map pin, fact strip and actions, a contract test, and the knowledge README. Knowledge README 1.6.0, Feature Contract 11 1.2.0, Register 1.69.0. | DR-EXPERIENCE-008, DR-EXPERIENCE-003–007, DR-GUEST-005, DR-EVIDENCE-001 | local |
 | 2026-09-05T20:30:00+02:00 | Guest Guide honest promise, Nerja recommendations, fact projection | After guest feedback that the guide "just points to Google", removed every instruction to search Google Maps or Komoot (kayak providers named and linked, jet ski, Harley and flamenco as "write to us" notes, official Turismo de Frigiliana route pages), replaced the generic cocktail search with the first-party Cochran's Terrace note, turned nine Tarifa venue lists into 30 single cards (`tarifaVenueCards`), removed the "coming soon" flamenco placeholder (route and five redirects now land on the recommendations page), added `nerja-guest-recommendations` so AMARA Playa opens Nerja first, rewrote the hub subtitle, recommendation intros and landing copy to the honest promise, and projected dated knowledge facts into existing cards (Maro and Cantarriján summer access, Calahonda stairs, official hike profiles, published restaurant hours, Frigiliana car-park tariff, shop addresses). Guest Utility 2.12.0, Register 1.68.0. | DR-GUEST-005, DR-GUEST-003, DR-GUEST-002, DR-EXPERIENCE-004, DR-EVIDENCE-001 | local |

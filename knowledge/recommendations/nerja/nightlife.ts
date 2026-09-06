@@ -36,5 +36,20 @@ export const nerjaNightlifeRecommendations = defineKnowledgeRecommendations([
     reviewAfter: '2027-03-05',
     volatility: 'medium',
     claimBoundary: 'Carried over from the published guide on 2026-09-05; identity and link only, no operating details are verified.'
+  },
+  {
+    id: 'nerja.nightlife.el-burro-blanco',
+    destination: 'nerja',
+    topic: 'nightlife',
+    place: { name: 'El Burro Blanco Flamenco Bar', kind: 'venue', address: 'Calle de la Gloria 3, 29780 Nerja', mapsUrl: 'https://www.google.com/maps/search/?api=1&query=El+Burro+Blanco+Flamenco+Bar+Nerja', phone: '+34615153961', website: 'https://flamencoennerja.com' },
+    summary: 'Flamenco bar and theatre in the old town with live shows of about 75 minutes and tickets from around 25 € on the listed booking platforms; the operator named it from its Google listing (4.6 from 381 reviews on 2026-09-06).',
+    provenance: 'researched',
+    status: 'APPROVED',
+    scope: 'amara-experience',
+    basis: 'operator-review',
+    checkedAt: '2026-09-06',
+    reviewAfter: '2027-03-06',
+    volatility: 'high',
+    claimBoundary: 'Show dates, duration and prices come from the booking options on the Google listing and change; check the current programme before recommending a date.'
   }
 ]);

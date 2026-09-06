@@ -105,5 +105,21 @@ export const nerjaAdventureRecommendations = defineKnowledgeRecommendations([
     reviewAfter: '2027-03-05',
     volatility: 'medium',
     claimBoundary: 'Carried over from the published guide on 2026-09-05; identity and link only, no operating details are verified.'
+  },
+  {
+    id: 'nerja.adventure.jet-ski-tours-nerja',
+    destination: 'nerja',
+    topic: 'adventure',
+    place: { name: 'Jet Ski Tours Nerja', kind: 'provider', address: 'Calle Antonio Ferrandis Chanquete 25, esc. B, 29780 Nerja', mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Jet+Ski+Tours+Nerja' },
+    summary: 'Guided jet ski tours along the Nerja coast; the operator named this provider from its Google listing (boat rental category, 4.3 from 17 reviews on 2026-09-06).',
+    provenance: 'researched',
+    status: 'APPROVED',
+    scope: 'amara-experience',
+    basis: 'operator-review',
+    checkedAt: '2026-09-06',
+    reviewAfter: '2027-03-06',
+    volatility: 'medium',
+    claimBoundary: 'Identity, address and map link come from the Google listing the operator supplied; opening times, prices and availability need a live check.',
+    notes: 'The listing showed opening from 10:00 on the day it was checked.'
   }
 ]);

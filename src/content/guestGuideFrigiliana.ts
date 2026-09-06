@@ -3714,11 +3714,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
     sv: 'Frigiliana Gästguide — Äventyr i Nerja | AMARA'
   },
   seoDescription: {
-    en: 'Practical adventure overview near Nerja — kayaking, canyoning, climbing, off-road and Harley tours with quick planning tips.',
-    de: 'Praktische Abenteuer-Übersicht rund um Nerja — Kajak, Canyoning, Klettern, Offroad und Harley-Touren mit kurzen Tipps.',
-    es: 'Resumen práctico de aventura cerca de Nerja: kayak, barranquismo, escalada, todoterreno y rutas en Harley con consejos rápidos.',
-    nl: 'Praktisch avontuuroverzicht bij Nerja — kajakken, canyoning, klimmen, offroad en Harley-tours met snelle planningstips.',
-    sv: 'Praktisk äventyrsöversikt nära Nerja — kajak, canyoning, klättring, off-road och Harley-turer med snabba planeringstips.'
+    en: 'Practical adventure overview near Nerja — kayaking, canyoning, climbing and off-road with quick planning tips.',
+    de: 'Praktische Abenteuer-Übersicht rund um Nerja — Kajak, Canyoning, Klettern und Offroad mit kurzen Tipps.',
+    es: 'Resumen práctico de aventura cerca de Nerja: kayak, barranquismo, escalada y todoterreno con consejos rápidos.',
+    nl: 'Praktisch avontuuroverzicht bij Nerja — kajakken, canyoning, klimmen en offroad met snelle planningstips.',
+    sv: 'Praktisk äventyrsöversikt nära Nerja — kajak, canyoning, klättring och off-road med snabba planeringstips.'
   },
   kicker: {
     en: 'AMARA LOCAL GUIDE',
@@ -3729,11 +3729,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
   },
   title: { en: 'Adventure in Nerja', de: 'Abenteuer in Nerja', es: 'Aventura en Nerja', nl: 'Avontuur in Nerja', sv: 'Äventyr i Nerja' },
   intro: {
-    en: 'Beyond beaches and village walks, Nerja offers some of the most beautiful coastal and mountain experiences in the region. The unique topographical convergence of the Mediterranean coastline and the rugged Sierra mountains creates an extraordinary terrain for outdoor sports. Whether you prefer quiet exploration by kayak, high-speed views by jet ski, or scenic mountain roads on a Harley, all options are easily accessible within 10–20 minutes from Frigiliana. Good to know: the high summer is perfect for water-based activities, while the months from October to May offer optimal conditions for physically demanding terrestrial adventures like climbing and biking.',
-    de: 'Jenseits von Stränden und gemütlichen Dorfspaziergängen bietet Nerja einige der schönsten Küsten- und Bergerlebnisse der gesamten Region. Das einzigartige topografische Zusammentreffen der Mittelmeerküste und der schroffen Sierra-Berge schafft ein außergewöhnliches Terrain für Outdoor-Sportarten. Ganz gleich, ob ihr lieber in Ruhe mit dem Kajak auf Erkundungstour geht, schnelle Action auf dem Jetski sucht oder die malerischen Bergstraßen auf einer Harley genießen wollt – alle Optionen sind von Frigiliana aus in 10–20 Minuten bequem erreichbar. Gut zu wissen: Der Hochsommer ist perfekt für Wasseraktivitäten, während die Monate von Oktober bis Mai optimale Bedingungen für körperlich anspruchsvollere Abenteuer an Land wie Klettern und Mountainbiken bieten.',
-    es: 'Más allá de las playas y los paseos por el pueblo, Nerja ofrece algunas de las experiencias costeras y de montaña más hermosas de la región. La singular convergencia topográfica de la costa mediterránea y las escarpadas montañas de la Sierra crea un terreno extraordinario para los deportes al aire libre. Tanto si preferís una exploración tranquila en kayak, vistas a toda velocidad en moto de agua o rutas panorámicas por la montaña en Harley, todas las opciones están fácilmente accesibles a unos 10-20 minutos de Frigiliana. Conviene saber: el pleno verano es perfecto para actividades acuáticas, mientras que los meses de octubre a mayo ofrecen condiciones óptimas para aventuras terrestres más exigentes físicamente, como la escalada y el ciclismo.',
-    nl: 'Naast stranden en dorpswandelingen biedt Nerja een paar van de mooiste kust- en bergervaringen in de wijde omtrek. De unieke topografische samenkomst van de Middellandse Zeekust en het ruige Sierra-gebergte creëert een buitengewoon terrein voor buitensporten. Of jullie nu de voorkeur geven aan een rustige ontdekkingstocht per kajak, razendsnelle actie op een jetski of schilderachtige bergwegen op een Harley — alle opties zijn makkelijk bereikbaar op slechts 10-20 minuten van Frigiliana. Goed om te weten: de hoogzomer is perfect voor wateractiviteiten, terwijl de maanden van oktober tot mei optimale omstandigheden bieden voor fysiek veeleisendere avonturen op het land, zoals klimmen en mountainbiken.',
-    sv: 'Utöver stränder och bypromenader erbjuder Nerja några av de vackraste kust- och bergsupplevelserna i regionen. Den unika topografiska mötesplatsen mellan Medelhavskusten och de karga Sierra-bergen skapar en extraordinär terräng för utomhussporter. Oavsett om ni föredrar en lugn upptäcktsfärd i kajak, fartfylld spänning på en vattenskoter eller vackra bergsvägar på en Harley, så ligger alla alternativ lättillgängligt inom 10–20 minuter från Frigiliana. Bra att veta: högsommaren är perfekt för vattenaktiviteter, medan månaderna från oktober till maj erbjuder optimala förhållanden för mer fysiskt krävande äventyr på land som klättring och cykling.'
+    en: 'Beyond beaches and village walks, Nerja offers some of the most beautiful coastal and mountain experiences in the region. The unique topographical convergence of the Mediterranean coastline and the rugged Sierra mountains creates an extraordinary terrain for outdoor sports. Whether you prefer quiet exploration by kayak or high-speed views by jet ski, all options are easily accessible within 10–20 minutes from Frigiliana. Good to know: the high summer is perfect for water-based activities, while the months from October to May offer optimal conditions for physically demanding terrestrial adventures like climbing and biking.',
+    de: 'Jenseits von Stränden und gemütlichen Dorfspaziergängen bietet Nerja einige der schönsten Küsten- und Bergerlebnisse der gesamten Region. Das einzigartige topografische Zusammentreffen der Mittelmeerküste und der schroffen Sierra-Berge schafft ein außergewöhnliches Terrain für Outdoor-Sportarten. Ganz gleich, ob ihr lieber in Ruhe mit dem Kajak auf Erkundungstour geht oder schnelle Action auf dem Jetski sucht – alle Optionen sind von Frigiliana aus in 10–20 Minuten bequem erreichbar. Gut zu wissen: Der Hochsommer ist perfekt für Wasseraktivitäten, während die Monate von Oktober bis Mai optimale Bedingungen für körperlich anspruchsvollere Abenteuer an Land wie Klettern und Mountainbiken bieten.',
+    es: 'Más allá de las playas y los paseos por el pueblo, Nerja ofrece algunas de las experiencias costeras y de montaña más hermosas de la región. La singular convergencia topográfica de la costa mediterránea y las escarpadas montañas de la Sierra crea un terreno extraordinario para los deportes al aire libre. Tanto si preferís una exploración tranquila en kayak como vistas a toda velocidad en moto de agua, todas las opciones están fácilmente accesibles a unos 10-20 minutos de Frigiliana. Conviene saber: el pleno verano es perfecto para actividades acuáticas, mientras que los meses de octubre a mayo ofrecen condiciones óptimas para aventuras terrestres más exigentes físicamente, como la escalada y el ciclismo.',
+    nl: 'Naast stranden en dorpswandelingen biedt Nerja een paar van de mooiste kust- en bergervaringen in de wijde omtrek. De unieke topografische samenkomst van de Middellandse Zeekust en het ruige Sierra-gebergte creëert een buitengewoon terrein voor buitensporten. Of jullie nu de voorkeur geven aan een rustige ontdekkingstocht per kajak of razendsnelle actie op een jetski — alle opties zijn makkelijk bereikbaar op slechts 10-20 minuten van Frigiliana. Goed om te weten: de hoogzomer is perfect voor wateractiviteiten, terwijl de maanden van oktober tot mei optimale omstandigheden bieden voor fysiek veeleisendere avonturen op het land, zoals klimmen en mountainbiken.',
+    sv: 'Utöver stränder och bypromenader erbjuder Nerja några av de vackraste kust- och bergsupplevelserna i regionen. Den unika topografiska mötesplatsen mellan Medelhavskusten och de karga Sierra-bergen skapar en extraordinär terräng för utomhussporter. Oavsett om ni föredrar en lugn upptäcktsfärd i kajak eller fartfylld spänning på en vattenskoter, så ligger alla alternativ lättillgängligt inom 10–20 minuter från Frigiliana. Bra att veta: högsommaren är perfekt för vattenaktiviteter, medan månaderna från oktober till maj erbjuder optimala förhållanden för mer fysiskt krävande äventyr på land som klättring och cykling.'
   },
   categories: [
     {
@@ -3747,7 +3747,7 @@ const nerjaGuestAdventure: GuestGuideEntry = {
       items: [
         {
           icon: 'wave',
-          recommendationIds: ['nerja.adventure.educare-aventura', 'nerja.adventure.local-experiences'],
+          recommendationIds: ['nerja.adventure.educare-aventura', 'nerja.adventure.local-experiences', 'nerja.adventure.jet-ski-tours-nerja'],
           title: { en: 'Water Sports — Kayak & Jet Ski', de: 'Wassersport — Kajak & Jetski', es: 'Deportes acuáticos — Kayak y motos de agua', nl: 'Watersport — Kajak & Jetski', sv: 'Vattensport — Kajak & Vattenskoter' },
           body: [
             {
@@ -3800,11 +3800,11 @@ const nerjaGuestAdventure: GuestGuideEntry = {
               sv: '<ul><li><strong>Typiska alternativ:</strong> 30 eller 60 minuter</li><li><strong>Upp till 2 personer per vattenskoter</strong></li><li><strong>Villkor:</strong> turerna beror på havets tillstånd och vädret</li></ul>'
             },
             {
-              en: 'Which operator currently runs tours and has free slots changes with the season. Send us a short message and we will tell you who to call.',
-              de: 'Welcher Anbieter gerade Touren fährt und freie Plätze hat, wechselt mit der Saison. Schreibt uns kurz, wir sagen euch, wen ihr anrufen könnt.',
-              es: 'El operador que hace salidas y tiene plazas libres cambia con la temporada. Escribidnos un mensaje corto y os decimos a quién llamar.',
-              nl: 'Welke aanbieder op dit moment tours vaart en plek heeft, wisselt per seizoen. Stuur ons een kort bericht, dan zeggen we wie jullie kunnen bellen.',
-              sv: 'Vilken arrangör som kör turer just nu och har lediga platser skiftar med säsongen. Skicka oss ett kort meddelande så säger vi vem ni kan ringa.'
+              en: 'The guided tours are run by Jet Ski Tours Nerja; opening times and free slots change with the season, so book ahead.',
+              de: 'Die geführten Touren fährt Jet Ski Tours Nerja; Öffnungszeiten und freie Plätze wechseln mit der Saison, bucht also vorher.',
+              es: 'Las salidas guiadas las organiza Jet Ski Tours Nerja; horarios y plazas cambian con la temporada, así que reservad antes.',
+              nl: 'De begeleide tours worden gevaren door Jet Ski Tours Nerja; openingstijden en vrije plekken wisselen per seizoen, boek dus vooraf.',
+              sv: 'De guidade turerna körs av Jet Ski Tours Nerja; öppettider och lediga platser skiftar med säsongen, så boka i förväg.'
             },
             {
               en: '<em>Practical advice:</em> Bring swimwear, sunscreen, water, and ideally a waterproof phone case. Morning tours often have calmer sea conditions.',
@@ -3968,40 +3968,6 @@ const nerjaGuestAdventure: GuestGuideEntry = {
             }
           ]
         },
-        {
-          icon: 'car',
-          title: { en: 'Harley Tours — Coast & Mountains', de: 'Harley-Touren — Küste & Berge', es: 'Rutas en Harley — Costa y Montañas', nl: 'Harley Tours — Kust & Bergen', sv: 'Harley-turer — Kust & Berg' },
-          body: [
-            {
-              en: 'For a completely different perspective, guided Harley-Davidson tours combine Mediterranean coastal roads with scenic mountain routes behind Nerja. Depending on the selected duration, routes can include Maro, Torrox, Almuñécar and white villages such as Frigiliana or Cómpeta.',
-              de: 'Für eine völlig neue Perspektive verbinden geführte Harley-Davidson-Touren die Küstenstraßen des Mittelmeers mit den malerischen Bergstraßen im Hinterland von Nerja. Je nach gewählter Dauer können die Routen über Maro, Torrox, Almuñécar und weiße Dörfer wie Frigiliana oder Cómpeta führen.',
-              es: 'Para una perspectiva completamente diferente, las rutas guiadas en Harley-Davidson combinan las carreteras costeras del Mediterráneo con los pintorescos caminos de montaña detrás de Nerja. Dependiendo de la duración, las rutas pueden incluir Maro, Torrox, Almuñécar y pueblos blancos como Frigiliana o Cómpeta.',
-              nl: 'Voor een compleet ander perspectief combineren begeleide Harley-Davidson tours de mediterrane kustwegen met schilderachtige bergwegen achter Nerja. Afhankelijk van de gekozen duur kunnen de routes langs Maro, Torrox, Almuñécar en witte dorpjes zoals Frigiliana of Cómpeta gaan.',
-              sv: 'För ett helt annorlunda perspektiv kombinerar guidade Harley-Davidson-turer kustvägarna vid Medelhavet med natursköna bergsvägar bakom Nerja. Beroende på vilken tidslängd ni väljer kan rutterna inkludera Maro, Torrox, Almuñécar och vita byar som Frigiliana eller Cómpeta.'
-            },
-            {
-              en: '<ul><li><strong>Duration:</strong> from short 1-hour rides to half-day tours</li><li><strong>Scenery:</strong> sea views, mountain roads and traditional villages</li><li><strong>Good to know:</strong> some operators speak German</li></ul>',
-              de: '<ul><li><strong>Dauer:</strong> von kurzen 1-stündigen Fahrten bis hin zu Halbtagestouren</li><li><strong>Landschaft:</strong> Meerblick, kurvige Bergstraßen und traditionelle Dörfer</li><li><strong>Gut zu wissen:</strong> Einige Anbieter sprechen Deutsch</li></ul>',
-              es: '<ul><li><strong>Duración:</strong> desde paseos cortos de 1 hora hasta rutas de medio día</li><li><strong>Paisaje:</strong> vistas al mar, carreteras de montaña y pueblos tradicionales</li><li><strong>Conviene saber:</strong> algunos operadores hablan alemán</li></ul>',
-              nl: '<ul><li><strong>Duur:</strong> van korte ritten van 1 uur tot tochten van een halve dag</li><li><strong>Landschap:</strong> zeezicht, bergwegen en traditionele dorpen</li><li><strong>Goed om te weten:</strong> sommige gidsen spreken Duits</li></ul>',
-              sv: '<ul><li><strong>Varaktighet:</strong> från korta turer på 1 timme till halvdagsutflykter</li><li><strong>Miljö:</strong> havsutsikt, bergsvägar och traditionella byar</li><li><strong>Bra att veta:</strong> vissa operatörer pratar tyska</li></ul>'
-            },
-            {
-              en: 'We will gladly tell you which operator currently offers tours and in which language. Just send us a short message.',
-              de: 'Welcher Anbieter gerade Touren anbietet und in welcher Sprache, sagen wir euch gern. Schreibt uns einfach kurz.',
-              es: 'Os decimos con gusto qué operador ofrece rutas ahora mismo y en qué idioma. Escribidnos un mensaje corto.',
-              nl: 'We vertellen jullie graag welke aanbieder op dit moment tours aanbiedt en in welke taal. Stuur ons gewoon een kort bericht.',
-              sv: 'Vi berättar gärna vilken arrangör som erbjuder turer just nu och på vilket språk. Skicka oss bara ett kort meddelande.'
-            },
-            {
-              en: 'These tours are especially enjoyable outside the hottest summer hours and during spring or autumn.',
-              de: 'Diese Touren sind besonders außerhalb der heißesten Sommerstunden und natürlich im Frühling oder Herbst ein großer Genuss.',
-              es: 'Estas excursiones se disfrutan especialmente fuera de las horas de más calor en verano y durante la primavera o el otoño.',
-              nl: 'Deze tochten zijn vooral heerlijk buiten de heetste zomeruren om, en in het voor- en najaar.',
-              sv: 'Dessa turer är särskilt njutbara utanför de allra varmaste timmarna på sommaren, samt under vår och höst.'
-            }
-          ]
-        }
       ]
     }
   ]
@@ -4332,6 +4298,7 @@ const nerjaGuestNightlife: GuestGuideEntry = {
         },
         {
           "icon": "dance",
+          recommendationId: 'nerja.nightlife.el-burro-blanco',
           "title": {
             "en": "Flamenco & Cultural Evenings",
             "de": "Flamenco & kulturelle Abende",
@@ -4355,11 +4322,11 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "sv": "<ul><li><strong>Bäst för:</strong> par, kulturintresserade, en annorlunda kväll</li> <li><strong>Känsla:</strong> intim, lokal, stämningsfull</li></ul>"
             },
             {
-              "en": "Flamenco evenings in Nerja are not a fixed weekly programme. Tell us which evening you have in mind and we will let you know what is on that week.",
-              "de": "Flamenco-Abende gibt es in Nerja nicht nach festem Wochenplan. Sagt uns, welcher Abend euch vorschwebt, und wir sagen euch, was in dieser Woche läuft.",
-              "es": "En Nerja las noches de flamenco no siguen un programa semanal fijo. Decidnos qué noche tenéis en mente y os contamos qué hay esa semana.",
-              "nl": "Flamenco-avonden in Nerja volgen geen vast weekprogramma. Laat ons weten welke avond jullie in gedachten hebben, dan vertellen we wat er die week is.",
-              "sv": "Flamencokvällar i Nerja följer inget fast veckoprogram. Säg vilken kväll ni tänker er så berättar vi vad som händer den veckan."
+              "en": "Our address for it: El Burro Blanco, a flamenco bar in the old town on Calle de la Gloria. The shows last about 75 minutes, tickets start at around 25 € and sell online or at the door; check the dates for your week.",
+              "de": "Unsere Adresse dafür: El Burro Blanco, eine Flamenco-Bar in der Altstadt an der Calle de la Gloria. Die Shows dauern rund 75 Minuten, Tickets gibt es ab rund 25 € online oder an der Tür; prüft die Termine für eure Woche.",
+              "es": "Nuestra dirección para eso: El Burro Blanco, un bar de flamenco en el casco antiguo, en la calle de la Gloria. Los espectáculos duran unos 75 minutos, las entradas cuestan desde unos 25 € y se compran online o en la puerta; consultad las fechas de vuestra semana.",
+              "nl": "Ons adres daarvoor: El Burro Blanco, een flamencobar in de oude stad aan de Calle de la Gloria. De shows duren ongeveer 75 minuten, tickets zijn er vanaf circa 25 € online of aan de deur; check de data voor jullie week.",
+              "sv": "Vår adress för det: El Burro Blanco, en flamencobar i gamla stan på Calle de la Gloria. Föreställningarna varar cirka 75 minuter, biljetter från cirka 25 € online eller i dörren; kolla datumen för er vecka."
             }
           ]
         },
