@@ -5,6 +5,7 @@ import Navigation from '../../components/Navigation.astro';
 import AmaraMetaChip from '../../components/chips/AmaraMetaChip.astro';
 import AmaraStatusBadge from '../../components/chips/AmaraStatusBadge.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   frigilianaFestivalsContent,
@@ -237,6 +238,12 @@ const combineItems = copy.combine.items.map((item) => ({
         intro={copy.combine.intro}
         items={combineItems}
         surface="tint"
+      />
+
+      <GuestGuideBridge
+        lang={currentLang}
+        destination="frigiliana"
+        guideSlugs={['frigiliana-guest-festivals']}
       />
 
       <GuideClosingSection

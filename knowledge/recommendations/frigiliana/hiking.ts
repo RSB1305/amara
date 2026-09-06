@@ -98,7 +98,7 @@ export const frigilianaHikingRecommendations = defineKnowledgeRecommendations([
     operating: { note: '13 km, about 4 h 20 min; starts Plaza del Ingenio and returns the same way', observedAt: '2026-08-28' },
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'split',
+    scope: 'amara-experience',
     basis: 'published-guide-carryover',
     factIds: [
       'frigiliana.hiking.acebuchal.official-route-profile'

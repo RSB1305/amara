@@ -68,7 +68,7 @@ export const frigilianaRestaurantRecommendations = defineKnowledgeRecommendation
     access: [{ from: 'casa-amara', distanceMetres: 7000 }],
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'amara-experience',
+    scope: 'split',
     basis: 'published-guide-carryover',
     checkedAt: '2026-09-05',
     reviewAfter: '2027-03-05',

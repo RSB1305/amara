@@ -3,6 +3,7 @@ import LocationExperienceHero from '../../components/location/LocationExperience
 import PhotoBrief from './PhotoBrief.astro';
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   frigilianaRestaurantsContent,
@@ -111,6 +112,12 @@ const combineItems = copy.combine.items.map((item) => ({
         title={copy.combine.title}
         intro={copy.combine.intro}
         items={combineItems}
+      />
+
+      <GuestGuideBridge
+        lang={currentLang}
+        destination="frigiliana"
+        guideSlugs={['frigiliana-guest-restaurants', 'nerja-guest-restaurants']}
       />
 
       <GuideClosingSection

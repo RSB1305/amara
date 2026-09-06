@@ -225,8 +225,8 @@ export const frigilianaRestaurantsContent: Record<
   en: {
     cardLabels: {
       bestFor: 'Best for',
-      tip: 'AMARA insider tip',
-      goodToKnow: 'Good to know',
+      tip: 'Good to know',
+      goodToKnow: 'Before you go',
       map: 'Open in Google Maps',
       website: 'Official information'
     },
@@ -483,8 +483,8 @@ export const frigilianaRestaurantsContent: Record<
   de: {
     cardLabels: {
       bestFor: 'Ideal für',
-      tip: 'AMARA Insider-Tipp',
-      goodToKnow: 'Gut zu wissen',
+      tip: 'Gut zu wissen',
+      goodToKnow: 'Vor dem Besuch',
       map: 'In Google Maps öffnen',
       website: 'Offizielle Informationen'
     },
@@ -741,8 +741,8 @@ export const frigilianaRestaurantsContent: Record<
   es: {
     cardLabels: {
       bestFor: 'Ideal para',
-      tip: 'Consejo AMARA',
-      goodToKnow: 'Conviene saber',
+      tip: 'Conviene saber',
+      goodToKnow: 'Antes de ir',
       map: 'Abrir en Google Maps',
       website: 'Información oficial'
     },
@@ -999,8 +999,8 @@ export const frigilianaRestaurantsContent: Record<
   nl: {
     cardLabels: {
       bestFor: 'Ideaal voor',
-      tip: 'AMARA-insidertip',
-      goodToKnow: 'Goed om te weten',
+      tip: 'Goed om te weten',
+      goodToKnow: 'Voor jullie gaan',
       map: 'Openen in Google Maps',
       website: 'Officiële informatie'
     },
@@ -1257,8 +1257,8 @@ export const frigilianaRestaurantsContent: Record<
   sv: {
     cardLabels: {
       bestFor: 'Passar bäst för',
-      tip: 'AMARA:s insidertips',
-      goodToKnow: 'Bra att veta',
+      tip: 'Bra att veta',
+      goodToKnow: 'Innan ni går',
       map: 'Öppna i Google Maps',
       website: 'Officiell information'
     },

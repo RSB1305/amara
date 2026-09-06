@@ -42,7 +42,7 @@ export const nerjaRestaurantRecommendations = defineKnowledgeRecommendations([
     summary: 'Reliable choice for seafood and tapas — great value and a proper Andalusian rhythm. Try gambas al pil-pil and mixed fried fish.',
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'amara-experience',
+    scope: 'split',
     basis: 'published-guide-carryover',
     checkedAt: '2026-09-05',
     reviewAfter: '2027-03-05',

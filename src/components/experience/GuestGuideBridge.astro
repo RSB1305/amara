@@ -1,0 +1,44 @@
+---
+import { buildGuestGuideBridgeCopy } from '../../lib/guestGuideBridge';
+import { staySearchHref, type StaySearchDestination } from '../../lib/staySearchHref';
+import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
+import { guestGuideLandingHref } from '../../../guest-experience/guide-routes.mjs';
+import type { AmaraLanguage } from '../../types/seo';
+
+/**
+ * The one public-to-guest transition block of a public Experience or Location
+ * page (Content Playbook §20, DR-GUEST-005). It sits after the useful public
+ * core and says, from the records, what booked guests receive for this topic.
+ * The CTA is the approved availability path with the destination preselected;
+ * the secondary link opens the indexable Guest Guide landing page, never a
+ * private guide route.
+ */
+interface Props {
+  lang: AmaraLanguage;
+  destination: StaySearchDestination;
+  /** Guest Guide entry slugs whose records describe this topic. */
+  guideSlugs: readonly string[];
+}
+
+const { lang, destination, guideSlugs } = Astro.props;
+const copy = buildGuestGuideBridgeCopy(destination, guideSlugs, lang);
+const availabilityHref = staySearchHref(lang, destination);
+const landingHref = guestGuideLandingHref(lang);
+---
+
+<section class="bg-surface-container-low px-6 py-20 md:px-12 md:py-28" data-am-guest-guide-bridge>
+  <div class="mx-auto max-w-screen-2xl bg-surface p-8 md:p-14 lg:p-16">
+    <p class="text-primary am-text-label am-text-label--wide">{copy.eyebrow}</p>
+    <h2 class="am-text-title mt-6 max-w-3xl text-balance text-on-surface">{copy.title}</h2>
+    <p class="am-text-body mt-6 max-w-xl leading-relaxed text-on-surface-variant">{copy.lead}</p>
+    {copy.lines.length > 0 && (
+      <ul class="am-text-body mt-6 max-w-xl list-disc space-y-2 pl-5 leading-relaxed text-on-surface">
+        {copy.lines.map((line) => <li>{line}</li>)}
+      </ul>
+    )}
+    <div class="mt-10 flex flex-wrap gap-4">
+      <a href={availabilityHref} class="am-btn am-btn--primary">{experienceStayBridge.availabilityLabel[lang]}</a>
+      <a href={landingHref} class="am-btn am-btn--secondary">{copy.landingLabel}</a>
+    </div>
+  </div>
+</section>

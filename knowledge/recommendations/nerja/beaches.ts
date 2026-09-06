@@ -32,7 +32,7 @@ export const nerjaBeachRecommendations = defineKnowledgeRecommendations([
     access: [{ from: 'casa-amara', driveMinutes: 20 }],
     provenance: 'researched',
     status: 'APPROVED',
-    scope: 'amara-experience',
+    scope: 'split',
     basis: 'published-guide-carryover',
     checkedAt: '2026-09-05',
     reviewAfter: '2027-03-05',
