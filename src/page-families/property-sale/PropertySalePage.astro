@@ -61,7 +61,7 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
           >
             {page.hero.title}
           </h1>
-          <p class="am-text-title text-on-surface mt-6 max-w-4xl text-balance">
+          <p class="am-text-subtitle text-on-surface-variant mt-6 max-w-3xl text-balance">
             {page.hero.lead}
           </p>
           <div class="mt-8 max-w-3xl border-l border-primary/40 pl-5">
@@ -174,6 +174,102 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
       </AmaraSection>
 
       <AmaraSection
+        labelledby="property-sale-restoration-title"
+        dataComponent="property-sale-restoration"
+      >
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-start">
+          <figure class="am-mobile-full-bleed aspect-[16/10] overflow-hidden bg-surface-container-low">
+            <AmaraImage
+              src={propertySaleImages.restoration}
+              alt={page.restoration.imageAlt}
+              profile="gallery"
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) calc(100vw - 3rem), 56vw"
+              class="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+          <div>
+            <p class="text-on-surface-variant am-text-label">
+              {page.restoration.kicker}
+            </p>
+            <h2 id="property-sale-restoration-title" class="am-text-title text-on-surface mt-4">
+              {page.restoration.title}
+            </h2>
+            <div class="grid gap-5 mt-6">
+              {
+                page.restoration.paragraphs.map((paragraph) => (
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">
+                    <InlineEmphasis text={paragraph} />
+                  </p>
+                ))
+              }
+            </div>
+            <dl class="grid gap-4 mt-8">
+              {
+                page.restoration.points.map((point) => (
+                  <div class="grid gap-2 border-t border-border-subtle pt-4 sm:grid-cols-[10rem_minmax(0,1fr)]">
+                    <dt class="text-on-surface-variant am-text-label">
+                      {point.title}
+                    </dt>
+                    <dd class="am-text-body text-on-surface">
+                      <InlineEmphasis text={point.copy} />
+                    </dd>
+                  </div>
+                ))
+              }
+            </dl>
+          </div>
+        </div>
+      </AmaraSection>
+
+      <AmaraSection
+        labelledby="property-sale-amenities-title"
+        dataComponent="property-sale-amenities"
+      >
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-start">
+          <div>
+            <p class="text-on-surface-variant am-text-label">
+              {page.amenities.kicker}
+            </p>
+            <h2 id="property-sale-amenities-title" class="am-text-title text-on-surface mt-4">
+              {page.amenities.title}
+            </h2>
+            <p class="am-text-body text-on-surface-variant mt-5 max-w-2xl leading-relaxed">
+              <InlineEmphasis text={page.amenities.intro} />
+            </p>
+            <div class="grid gap-x-8 gap-y-8 mt-10 sm:grid-cols-2">
+              {
+                page.amenities.groups.map((group) => (
+                  <div class="border-t border-border-subtle pt-4">
+                    <p class="text-on-surface-variant am-text-label">
+                      {group.title}
+                    </p>
+                    <ul class="grid gap-2 mt-3">
+                      {group.items.map((item) => (
+                        <li class="am-text-body text-on-surface">{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          <figure class="am-mobile-full-bleed aspect-[4/5] overflow-hidden bg-surface-container-low">
+            <AmaraImage
+              src={propertySaleImages.amenities}
+              alt={page.amenities.imageAlt}
+              profile="gallery"
+              sizes="(max-width: 639px) 100vw, (max-width: 1023px) calc(100vw - 3rem), 44vw"
+              class="h-full w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </div>
+      </AmaraSection>
+
+      <AmaraSection
         labelledby="property-sale-units-title"
         dataComponent="property-sale-units"
       >
@@ -235,6 +331,52 @@ const enquiryHref = resolveOptionalLink('property_sale_enquiry', currentLang, {
         <p class="am-text-body text-on-surface-variant mt-10 max-w-5xl border-l border-primary/40 pl-5 leading-relaxed">
           <InlineEmphasis text={page.useCases.requirements} />
         </p>
+      </AmaraSection>
+
+      <AmaraSection
+        labelledby="property-sale-operation-title"
+        dataComponent="property-sale-operation"
+      >
+        <div class="grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
+          <div>
+            <p class="text-on-surface-variant am-text-label">
+              {page.operation.kicker}
+            </p>
+            <h2 id="property-sale-operation-title" class="am-text-title text-on-surface mt-4">
+              {page.operation.title}
+            </h2>
+            <div class="grid gap-5 mt-6 max-w-2xl">
+              {
+                page.operation.paragraphs.map((paragraph) => (
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">
+                    <InlineEmphasis text={paragraph} />
+                  </p>
+                ))
+              }
+            </div>
+          </div>
+
+          <div>
+            <h3 class="am-text-subtitle text-on-surface">
+              {page.operation.handoverTitle}
+            </h3>
+            <p class="am-text-body text-on-surface-variant mt-4 leading-relaxed">
+              <InlineEmphasis text={page.operation.handoverIntro} />
+            </p>
+            <ul class="grid gap-x-8 gap-y-3 mt-5 sm:grid-cols-2">
+              {
+                page.operation.handoverItems.map((item) => (
+                  <li class="am-text-body text-on-surface border-t border-border-subtle pt-3">
+                    {item}
+                  </li>
+                ))
+              }
+            </ul>
+            <p class="am-text-body text-on-surface-variant mt-8 border-l border-primary/40 pl-5 leading-relaxed">
+              <InlineEmphasis text={page.operation.handoverNotice} />
+            </p>
+          </div>
+        </div>
       </AmaraSection>
 
       <AmaraSection
