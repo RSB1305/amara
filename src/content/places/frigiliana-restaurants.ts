@@ -56,7 +56,31 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
           nl: "Het klassieke diner met uitzicht bovenaan het dorp — ideaal voor een relaxte en romantische avond. Probeer iets eerder te komen voor zonsondergang en vraag om een tafeltje aan de rand voor het beste zicht. Terras en internationaal-mediterrane keuken.",
           sv: "Den klassiska middagen med utsikt högst upp i byn – perfekt när ni vill ha en avkopplande och romantisk kväll. Om ni kan, kom lite tidigare lagom till solnedgången och be om ett bord vid räcket. Terrass och internationellt medelhavskök."
         }
-      ]
+      ],
+      reservationLine: {
+        en: "Do book, and ask for a table on the big terrace.",
+        de: "Reserviert auf jeden Fall und bittet um einen Tisch auf der großen Terrasse.",
+        es: "Reservad sin falta y pedid mesa en la gran terraza.",
+        nl: "Reserveer zeker en vraag om een tafel op het grote terras.",
+        sv: "Boka absolut, och be om ett bord på den stora terrassen."
+      },
+      onTheDay: {
+        en: "Reachable on foot, a little way uphill; the big terrace looks out over the countryside.",
+        de: "Zu Fuß erreichbar, ein Stück den Berg hinauf; oben wartet die große Terrasse mit Blick ins Grüne.",
+        es: "Se llega a pie, un poco cuesta arriba; la gran terraza da al campo.",
+        nl: "Te voet bereikbaar, een stukje bergop; het grote terras kijkt uit over de natuur.",
+        sv: "Nås till fots, en bit uppför; den stora terrassen har utsikt över naturen."
+      },
+      hostNote: {
+        text: {
+          en: "Our favourite restaurant in Frigiliana: whenever we are in the village, we eat here. The chef is also called Robert and is a friend of ours.",
+          de: "Unser Lieblingsrestaurant in Frigiliana: Wenn wir im Dorf sind, essen wir hier auf jeden Fall. Der Küchenchef heißt ebenfalls Robert und ist ein Freund von uns.",
+          es: "Nuestro restaurante favorito de Frigiliana: siempre que estamos en el pueblo, cenamos aquí. El chef también se llama Robert y es amigo nuestro.",
+          nl: "Ons favoriete restaurant in Frigiliana: als we in het dorp zijn, eten we hier zeker. De chef heet ook Robert en is een vriend van ons.",
+          sv: "Vår favoritrestaurang i Frigiliana: när vi är i byn äter vi alltid här. Kocken heter också Robert och är en vän till oss."
+        },
+        date: '2026-09-06'
+      }
     }
   },
   'frigiliana.restaurants.gloria-bendita': {
@@ -114,7 +138,31 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
           nl: "Lekkere, moderne gerechten en een wat meer levendige sfeer — perfect als jullie op zoek zijn naar wat gezelligheid in plaats van een muisstille avond. Werkt heel goed om een paar gerechtjes te delen en een drankje te doen voordat jullie 's avonds door het dorp wandelen. Wisselende mediterrane kaart met fusion-invloeden.",
           sv: "Spännande, moderna rätter och en lite livligare atmosfär – perfekt om ni är ute efter en social snarare än en stillsam kväll. Ett utmärkt ställe för att dela på några rätter och ta en drink innan ni promenerar genom byn på kvällen. Växlande medelhavsmeny med fusioninslag."
         }
-      ]
+      ],
+      reservationLine: {
+        en: "A reservation is not strictly necessary here.",
+        de: "Eine Reservierung ist hier nicht unbedingt nötig.",
+        es: "Aquí no hace falta reservar necesariamente.",
+        nl: "Reserveren is hier niet per se nodig.",
+        sv: "Bordsbokning är inte nödvändig här."
+      },
+      onTheDay: {
+        en: "Reachable from the house without any steps.",
+        de: "Vom Haus aus ohne Stufen zu erreichen.",
+        es: "Se llega desde la casa sin escalones.",
+        nl: "Vanaf het huis zonder trappen te bereiken.",
+        sv: "Nås från huset utan trappsteg."
+      },
+      hostNote: {
+        text: {
+          en: "For us, one of the best restaurants in the village for sheer quality.",
+          de: "Für uns qualitativ eines der besten Restaurants im Dorf.",
+          es: "Para nosotros, uno de los mejores restaurantes del pueblo en calidad.",
+          nl: "Voor ons qua kwaliteit een van de beste restaurants van het dorp.",
+          sv: "För oss en av byns allra bästa restauranger sett till kvaliteten."
+        },
+        date: '2026-09-06'
+      }
     }
   },
   'frigiliana.restaurants.la-taperia': {
@@ -172,7 +220,14 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
           nl: "Een rustige, kleine plek die aanvoelt als een echte lokale vondst — een fijne optie als jullie op zoek zijn naar iets simpels en authentieks. Op ongeveer 2 minuten lopen van AMARA. Sluit om 20:00 uur (keuken tot 19:30). Reserveren kan via WhatsApp: +34 711 027 581.",
           sv: "Ett litet och rofyllt ställe som känns som ett genuint lokalt fynd – ett jättebra val när ni vill ha något enkelt och autentiskt. Ligger cirka 2 minuter från AMARA. Stänger kl. 20:00 (köket är öppet till 19:30). Bordsreservation via WhatsApp: +34 711 027 581."
         }
-      ]
+      ],
+      onTheDay: {
+        en: "Tucked into a small lane, with lanterns in the evening, very cosy and romantic.",
+        de: "Versteckt in einer kleinen Gasse, abends mit Lampions, sehr gemütlich und romantisch.",
+        es: "Escondido en una callejuela, con farolillos por la noche, muy acogedor y romántico.",
+        nl: "Verscholen in een klein steegje, 's avonds met lampionnen, heel gezellig en romantisch.",
+        sv: "Undangömd i en liten gränd, med lyktor på kvällen, mycket mysig och romantisk."
+      }
     }
   },
   'frigiliana.restaurants.el-acebuchal': {
@@ -230,7 +285,31 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
           nl: "Een onvergetelijke lunch diep in de heuvels — alleen al de locatie is een hele ervaring. Echt een aanrader voor een dagtripje. Neem contant geld mee en vertrouw niet op mobiel bereik; de avontuurlijke weg en de afgelegen ligging maken het juist zo bijzonder.",
           sv: "En minnesvärd lunch djupt inne i bergen – här är omgivningen själva upplevelsen. Ett fantastiskt utflyktsmål över dagen. Ta med kontanter och räkna inte med mobiltäckning; vägen dit och den avskilda känslan är en del av charmen."
         }
-      ]
+      ],
+      reservationLine: {
+        en: "Book ahead and ask for the current opening hours while you are at it.",
+        de: "Vorher reservieren und dabei gleich die aktuellen Öffnungszeiten erfragen.",
+        es: "Reservad antes y preguntad de paso los horarios actuales.",
+        nl: "Reserveer vooraf en vraag meteen naar de actuele openingstijden.",
+        sv: "Boka i förväg och fråga samtidigt om aktuella öppettider."
+      },
+      onTheDay: {
+        en: "Only reachable by car.",
+        de: "Nur mit dem Auto zu erreichen.",
+        es: "Solo se llega en coche.",
+        nl: "Alleen met de auto bereikbaar.",
+        sv: "Nås bara med bil."
+      },
+      hostNote: {
+        text: {
+          en: "A well-kept secret like El Tangay: few tourists find their way here.",
+          de: "Ein Geheimtipp wie El Tangay: Hierher verirren sich nur wenige Touristen.",
+          es: "Un secreto como El Tangay: pocos turistas llegan hasta aquí.",
+          nl: "Een geheimtip zoals El Tangay: hier komen maar weinig toeristen.",
+          sv: "Ett smultronställe som El Tangay: få turister hittar hit."
+        },
+        date: '2026-09-06'
+      }
     }
   },
   'frigiliana.restaurants.el-tangay': {
@@ -250,7 +329,24 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
           nl: "Een heerlijk relaxte en authentieke plek — hier draait het minder om het uitzicht en meer om de sfeer en het echte dorpsleven. Ideaal voor een ontspannen diner tussen de locals.",
           sv: "Ett väldigt avslappnat och genuint ställe – här handlar det mindre om utsikten och mer om atmosfären och det riktiga bylivet. Perfekt för en okomplicerad middag bland byborna."
         }
-      ]
+      ],
+      onTheDay: {
+        en: "In the newer part of Frigiliana, where many locals live. Walkable, but allow for a short walk.",
+        de: "Im neuen Teil von Frigiliana, wo viele Einheimische wohnen. Zu Fuß erreichbar, aber rechnet mit einem kleinen Spaziergang.",
+        es: "En la parte nueva de Frigiliana, donde viven muchos vecinos. Se llega a pie, pero contad con un pequeño paseo.",
+        nl: "In het nieuwe deel van Frigiliana, waar veel inwoners wonen. Te voet bereikbaar, maar reken op een klein wandelingetje.",
+        sv: "I den nyare delen av Frigiliana, där många bybor bor. Nås till fots, men räkna med en liten promenad."
+      },
+      hostNote: {
+        text: {
+          en: "If you want to eat like the locals, and with them: this is the place.",
+          de: "Wenn ihr essen wollt wie die Einheimischen, und mit ihnen: hierher.",
+          es: "Si queréis comer como los vecinos, y con ellos: aquí.",
+          nl: "Als je wilt eten zoals de dorpsbewoners, en met hen: hier.",
+          sv: "Om ni vill äta som byborna, och med dem: hit."
+        },
+        date: '2026-09-06'
+      }
     }
   }
 });
