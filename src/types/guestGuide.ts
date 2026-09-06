@@ -19,6 +19,7 @@ export type GuestGuideIconName =
   | 'ventilate'
   | 'departure'
   | 'late-checkout'
+  | 'luggage'
   | 'store'
   | 'cart'
   | 'bread'
