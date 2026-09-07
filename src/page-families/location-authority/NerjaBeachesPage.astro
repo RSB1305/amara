@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import BeachesCoastGraphic, { type BeachesCoastGraphicData } from '../../components/location/BeachesCoastGraphic.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
@@ -35,6 +36,60 @@ const footerHighlights: LabeledLink[] = [
   { token: 'nerja_balcon_de_europa', label: copy.related.items[1].title }
 ];
 
+const beachesGraphicByLang: Record<AmaraLanguage, BeachesCoastGraphicData> = {
+  en: {
+    place: 'nerja', eyebrow: 'Beaches & coves', destination: 'Nerja',
+    region: 'Costa del Sol · Axarquía', baseLabel: 'NERJA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Coast map with six beaches along the Nerja shoreline',
+    context: [
+      { label: 'Beaches', value: 'Six along the coast' },
+      { label: 'Character', value: 'Quiet · Nature · Town' },
+      { label: 'Coves', value: 'East towards Maro' }
+    ]
+  },
+  de: {
+    place: 'nerja', eyebrow: 'Strände & Buchten', destination: 'Nerja',
+    region: 'Costa del Sol · Axarquía', baseLabel: 'NERJA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Küstenkarte mit sechs Stränden entlang der Küste von Nerja',
+    context: [
+      { label: 'Strände', value: 'Sechs an der Küste' },
+      { label: 'Charakter', value: 'Ruhig · Natur · Stadt' },
+      { label: 'Buchten', value: 'Östlich Richtung Maro' }
+    ]
+  },
+  es: {
+    place: 'nerja', eyebrow: 'Playas y calas', destination: 'Nerja',
+    region: 'Costa del Sol · Axarquía', baseLabel: 'NERJA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Mapa de la costa con seis playas a lo largo del litoral de Nerja',
+    context: [
+      { label: 'Playas', value: 'Seis en la costa' },
+      { label: 'Carácter', value: 'Tranquila · Naturaleza · Ciudad' },
+      { label: 'Calas', value: 'Al este hacia Maro' }
+    ]
+  },
+  nl: {
+    place: 'nerja', eyebrow: 'Stranden & baaien', destination: 'Nerja',
+    region: 'Costa del Sol · Axarquía', baseLabel: 'NERJA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Kustkaart met zes stranden langs de kust van Nerja',
+    context: [
+      { label: 'Stranden', value: 'Zes langs de kust' },
+      { label: 'Karakter', value: 'Rustig · Natuur · Stad' },
+      { label: 'Baaien', value: 'Oostwaarts richting Maro' }
+    ]
+  },
+  sv: {
+    place: 'nerja', eyebrow: 'Stränder & vikar', destination: 'Nerja',
+    region: 'Costa del Sol · Axarquía', baseLabel: 'NERJA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Kustkarta med sex stränder längs Nerjas kust',
+    context: [
+      { label: 'Stränder', value: 'Sex längs kusten' },
+      { label: 'Karaktär', value: 'Lugnt · Natur · Stad' },
+      { label: 'Vikar', value: 'Österut mot Maro' }
+    ]
+  }
+};
+const beachesGraphicData = beachesGraphicByLang[currentLang];
+
 ---
 
 <LocationAuthorityLayout seo={nerjaBeachesSeo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="experience-nerja-beaches">
@@ -49,7 +104,9 @@ const footerHighlights: LabeledLink[] = [
       eyebrow={copy.hero.kicker}
       title={copy.hero.title}
       paragraphs={copy.hero.paragraphs}
-    />
+    >
+      <BeachesCoastGraphic slot="visual" data={beachesGraphicData} />
+    </LocationExperienceHero>
 
     <AuthorityFeatureSection
       id="coast"
