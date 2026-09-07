@@ -9,7 +9,6 @@ import GuestGuideLanguageSwitcher from '../../components/guest-guide/GuestGuideL
 import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
 import { guideHref } from '../../lib/guestGuideHref';
 import { buildRecommendationPlaces, buildRecommendationView } from '../../lib/guestGuideRecommendations';
-import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import type { GuestGuideDetailEntry } from '../../types/guestGuide';
 
@@ -61,13 +60,6 @@ const seo: AmaraAuthoringSeo = {
       <span class="am-kicker">{entry.kicker[lang]}</span>
       <h1 class="am-hero-title">{entry.title[lang]}</h1>
       {entry.intro && <p>{entry.intro[lang]}</p>}
-      {entry.authorityLink && (
-        <p class="am-muted">
-          <a class="am-link" href={buildOwnedLocalizedPath(entry.authorityLink.targetRoute, lang)}>
-            {entry.authorityLink.label[lang]}
-          </a>
-        </p>
-      )}
     </section>
 
     {entry.categories.map((category) => (
