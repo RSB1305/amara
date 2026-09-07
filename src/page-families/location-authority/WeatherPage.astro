@@ -94,7 +94,6 @@ const liveForecast = content.forecast.live
     climateSource={{ label: content.sources.links[0].label, href: climateDataSourceUrls[destination] }}
     forecastHref={weatherForecastUrls[destination]}
     liveForecast={liveForecast}
-    resolveHref={requiredLink}
     primaryHref={requiredLink(pageConfig.primaryToken)}
     secondaryHref={requiredLink(pageConfig.secondaryToken)}
   />
