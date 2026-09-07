@@ -16,10 +16,10 @@ import AmaraSection from '../../components/layout/AmaraSection.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import GuestGuidePhone from '../../components/experience/GuestGuidePhone.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import villageImage from '../../assets/images/content/amara-frigiliana-pueblo/frigiliana-old-town-steps.jpeg';
 import coastImage from '../../assets/images/content/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg';
-import eveningImage from '../../assets/images/content/hero-frigiliana.jpg';
 import { amaraExperienceSeo, getAmaraExperienceContent } from '../../content/amaraExperienceContent';
 import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
@@ -77,37 +77,8 @@ const benefitIcons = {
           note={copy.hostNote}
         />
 
-        <div slot="visual" class="am-experience-hero__media">
-          <div class="am-experience-hero__primary overflow-hidden bg-surface-container-low">
-            <AmaraImage
-              src={villageImage}
-              alt={copy.imageAlts.village}
-              profile="hero"
-              width={1200}
-              widths={[480, 720, 960, 1200]}
-              sizes="(max-width: 1023px) calc(100vw - 3rem), 52vw"
-              class="h-full w-full object-cover"
-              loading="eager"
-              fetchpriority="high"
-              preferAvif
-            />
-          </div>
-          <div class="am-experience-hero__secondary overflow-hidden border-[6px] border-surface-white bg-surface-container-low shadow-lg sm:border-8">
-            <AmaraImage
-              src={eveningImage}
-              alt={copy.imageAlts.evening}
-              profile="card"
-              width={900}
-              widths={[320, 480, 720, 900]}
-              sizes="(max-width: 639px) 48vw, (max-width: 1023px) 42vw, 24vw"
-              class="h-full w-full object-cover"
-              loading="eager"
-            />
-          </div>
-          <div class="am-experience-hero__mark" aria-hidden="true">
-            <span class="am-text-label">AMARA</span>
-            <span class="am-text-caption">EXPERIENCE</span>
-          </div>
+        <div slot="visual" class="flex justify-center py-4 lg:justify-end lg:py-8">
+          <GuestGuidePhone lang={currentLang} destination="frigiliana" />
         </div>
       </LocationGuideHero>
     </div>
@@ -242,42 +213,6 @@ const benefitIcons = {
     margin-inline: calc(var(--spacing-page-gutter) * -1);
   }
 
-  .am-experience-hero__media {
-    position: relative;
-    min-block-size: 32rem;
-    padding-inline-start: clamp(0rem, 6vw, 5rem);
-    padding-block-end: clamp(3rem, 7vw, 6rem);
-  }
-
-  .am-experience-hero__primary {
-    block-size: 34rem;
-  }
-
-  .am-experience-hero__secondary {
-    position: absolute;
-    inset-inline-start: 0;
-    inset-block-end: 0;
-    inline-size: min(58%, 22rem);
-    block-size: 14rem;
-  }
-
-  .am-experience-hero__mark {
-    position: absolute;
-    inset-inline-end: -0.75rem;
-    inset-block-end: 1.25rem;
-    display: grid;
-    inline-size: 7.5rem;
-    block-size: 7.5rem;
-    place-content: center;
-    gap: 0.15rem;
-    border: 1px solid color-mix(in srgb, var(--color-primary) 34%, transparent);
-    border-radius: var(--radius-pill);
-    background: color-mix(in srgb, var(--color-surface-white) 94%, transparent);
-    color: var(--color-primary);
-    text-align: center;
-    backdrop-filter: blur(0.5rem);
-  }
-
   .am-experience-benefit {
     transition: border-color 180ms ease, transform 180ms ease;
   }
@@ -285,29 +220,6 @@ const benefitIcons = {
   .am-experience-benefit:hover {
     border-color: var(--color-primary);
     transform: translateY(-0.25rem);
-  }
-
-  @media (max-width: 47.999rem) {
-    .am-experience-hero__media {
-      min-block-size: 28rem;
-      margin-inline: calc(var(--spacing-page-gutter) * -0.4);
-      padding-inline-start: 2.25rem;
-      padding-block-end: 4rem;
-    }
-
-    .am-experience-hero__primary {
-      block-size: 28rem;
-    }
-
-    .am-experience-hero__secondary {
-      inline-size: 55%;
-      block-size: 10.5rem;
-    }
-
-    .am-experience-hero__mark {
-      inline-size: 6.25rem;
-      block-size: 6.25rem;
-    }
   }
 
   @media (prefers-reduced-motion: reduce) {
