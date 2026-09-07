@@ -108,11 +108,12 @@ const footerHighlights: LabeledLink[] = [
     presentation="guide"
     closingRole="next-action"
     closingActionMode="restrained"
-    guideVisual={{
-      eyebrow: content.facts[0].label,
-      mark: pageConfig.label,
-      note: content.facts[0].value
+    guideSummary={{
+      eyebrow: content.summary.eyebrow,
+      body: content.summary.body,
+      items: content.facts
     }}
+    showGuideStandfirst={true}
   >
     <DailyLifeGuideSections sections={content.sections} />
 
