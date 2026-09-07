@@ -16,6 +16,7 @@ import { experienceStayBridge } from '../../content/experienceStayBridgeContent'
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { requireRouteImage } from '../../lib/images/routeImages';
@@ -286,6 +287,8 @@ const footerHighlights: LabeledLink[] = [
     <FaqAccordion layout="single" faqTitle={t(ui.faqTitle)} items={faqItems} anchorFaqId="faq" data-am-topic="faq" />
 
     <EditorialSources eyebrow={t(ui.sourcesEyebrow)} title={t(ui.sourcesTitle)} updated={t(content.hero.updated)} text={t(ui.sourcesText)} items={sourceItems} data-am-topic="sources" />
+
+    <GuestGuideBridge lang={currentLang} destination="tarifa" guideSlugs={['tarifa-guest-kitesurfing']} />
 
     <AuthorityStayBridge
       eyebrow={experienceStayBridge.eyebrow[currentLang]}

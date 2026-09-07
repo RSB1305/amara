@@ -2,6 +2,7 @@
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import { getNerjaCoastGuideFacts } from '../../content/sharedExperienceFacts';
@@ -87,6 +88,8 @@ const footerHighlights: LabeledLink[] = [
       resolveHref={requiredLink}
       surface="tint"
     />
+
+    <GuestGuideBridge lang={currentLang} destination="nerja" guideSlugs={['nerja-guest-beaches']} />
 
     <AuthorityStayBridge
       eyebrow={experienceStayBridge.eyebrow[currentLang]}

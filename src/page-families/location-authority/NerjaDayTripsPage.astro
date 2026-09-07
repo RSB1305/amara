@@ -2,6 +2,7 @@
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
@@ -88,6 +89,8 @@ const footerHighlights: LabeledLink[] = [
       items={copy.related.items}
       resolveHref={requiredLink}
     />
+
+    <GuestGuideBridge lang={currentLang} destination="nerja" guideSlugs={['nerja-guest-adventure']} />
 
     <AuthorityStayBridge
       eyebrow={experienceStayBridge.eyebrow[currentLang]}

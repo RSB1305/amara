@@ -20,6 +20,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import { routeHero } from '../../lib/images/routeImages';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 
 interface Props {
   lang?: string;
@@ -290,6 +291,12 @@ const visualAlts = {
         items={combineItems}
         surface="surface"
         columns={3}
+      />
+
+      <GuestGuideBridge
+        lang={currentLang}
+        destination="frigiliana"
+        guideSlugs={['frigiliana-guest-sightseeing']}
       />
 
       <section class="am-section bg-surface-container-low">

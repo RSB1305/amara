@@ -14,6 +14,7 @@ import { experienceStayBridge } from '../../content/experienceStayBridgeContent'
 import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 
 interface Props {
   lang?: string;
@@ -127,6 +128,8 @@ const footerHighlights: LabeledLink[] = [
       columns="md:grid-cols-3"
       resolveHref={requiredLink}
     />
+
+    <GuestGuideBridge lang={currentLang} destination="nerja" guideSlugs={['nerja-guest-recommendations']} />
   </AuthorityArticle>
 </LocationAuthorityLayout>
 

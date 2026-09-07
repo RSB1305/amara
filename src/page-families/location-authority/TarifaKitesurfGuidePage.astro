@@ -12,6 +12,7 @@ import {
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
@@ -194,6 +195,8 @@ const localizedSections = content.sections.map((section) => ({
         </div>
       </div>
     </section>
+
+    <GuestGuideBridge lang={currentLang} destination="tarifa" guideSlugs={['tarifa-guest-kitesurfing']} />
 
     <AuthorityStayBridge
       eyebrow={t(content.closing.eyebrow)}

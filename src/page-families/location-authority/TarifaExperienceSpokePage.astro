@@ -11,6 +11,7 @@ import {
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
@@ -28,6 +29,14 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const t = (value: LocalizedExperienceText) => value[currentLang];
 
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa experience');
+const spokeGuideSlugs: Partial<Record<TarifaExperienceSpokeId, string>> = {
+  'food-evening-life': 'tarifa-guest-food-drink',
+  'nature-wildlife': 'tarifa-guest-activities',
+  'old-town-history': 'tarifa-guest-sightseeing',
+  'bolonia-baelo-claudia': 'tarifa-guest-sightseeing',
+  yoga: 'tarifa-guest-activities'
+};
+const guideSlug = spokeGuideSlugs[spoke] ?? 'tarifa-guest-local-guide';
 
 const aboutHref = requiredLink('about');
 const propertyHref = requiredLink('tarifa');
@@ -166,6 +175,8 @@ const localizedSections = content.sections.map((section) => ({
         </div>
       </div>
     </section>
+
+    <GuestGuideBridge lang={currentLang} destination="tarifa" guideSlugs={[guideSlug]} />
 
     <AuthorityStayBridge
       eyebrow={t(content.closing.eyebrow)}

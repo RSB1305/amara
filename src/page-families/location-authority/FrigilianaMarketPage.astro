@@ -18,6 +18,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import { routeHero } from '../../lib/images/routeImages';
 import GuideClosingSection from './GuideClosingSection.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 
 interface Props {
   lang?: string;
@@ -300,6 +301,12 @@ const ingenioImage = {
           </div>
         </div>
       </section>
+
+      <GuestGuideBridge
+        lang={currentLang}
+        destination="frigiliana"
+        guideSlugs={['frigiliana-guest-essentials']}
+      />
 
       <GuideClosingSection
         title={t(copy.closing.title)}
