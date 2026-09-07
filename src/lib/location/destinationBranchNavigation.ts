@@ -6,30 +6,25 @@ export type DestinationId = 'frigiliana' | 'nerja' | 'tarifa';
 
 const labels: Record<
   AmaraLanguage,
-  { location: string; experience: string; switcher: string }
+  { experience: string; switcher: string }
 > = {
   en: {
-    location: 'Location',
     experience: 'Experiences',
     switcher: 'Switch between location and experiences'
   },
   de: {
-    location: 'Ort',
     experience: 'Erlebnisse',
     switcher: 'Zwischen Ort und Erlebnissen wechseln'
   },
   es: {
-    location: 'Destino',
     experience: 'Experiencias',
     switcher: 'Cambiar entre destino y experiencias'
   },
   nl: {
-    location: 'Locatie',
     experience: 'Ervaringen',
     switcher: 'Wisselen tussen locatie en ervaringen'
   },
   sv: {
-    location: 'Plats',
     experience: 'Upplevelser',
     switcher: 'Växla mellan plats och upplevelser'
   }
@@ -62,37 +57,43 @@ const destinationNames: Record<DestinationId, string> = {
 const branchIntroCopy: Record<
   AmaraLanguage,
   {
-    locationDescription: (destination: string) => string;
+    locationTitle: string;
+    locationDescription: string;
     experienceTitle: (destination: string) => string;
     experienceDescription: (destination: string) => string;
   }
 > = {
   en: {
-    locationDescription: (destination) => `What you should know about staying in ${destination}.`,
+    locationTitle: 'Overview',
+    locationDescription: 'What you should know for your stay.',
     experienceTitle: (destination) => `${destination} & surroundings`,
     experienceDescription: (destination) =>
       `What you can experience in ${destination} and the surrounding region.`
   },
   de: {
-    locationDescription: (destination) => `Was ihr über einen Aufenthalt in ${destination} wissen solltet.`,
+    locationTitle: 'Überblick',
+    locationDescription: 'Was ihr für euren Aufenthalt wissen solltet.',
     experienceTitle: (destination) => `${destination} & Region`,
     experienceDescription: (destination) =>
       `Was ihr in ${destination} und der Region erleben könnt.`
   },
   es: {
-    locationDescription: (destination) => `Lo que debéis saber sobre alojaros en ${destination}.`,
+    locationTitle: 'Visión general',
+    locationDescription: 'Lo que debéis saber para vuestra estancia.',
     experienceTitle: (destination) => `${destination} y la región`,
     experienceDescription: (destination) =>
       `Lo que podéis vivir en ${destination} y sus alrededores.`
   },
   nl: {
-    locationDescription: (destination) => `Wat jullie moeten weten over een verblijf in ${destination}.`,
+    locationTitle: 'Overzicht',
+    locationDescription: 'Wat jullie voor jullie verblijf moeten weten.',
     experienceTitle: (destination) => `${destination} & omgeving`,
     experienceDescription: (destination) =>
       `Wat jullie in ${destination} en de omgeving kunnen beleven.`
   },
   sv: {
-    locationDescription: (destination) => `Det ni behöver veta om att bo i ${destination}.`,
+    locationTitle: 'Översikt',
+    locationDescription: 'Det ni behöver veta inför er vistelse.',
     experienceTitle: (destination) => `${destination} med omnejd`,
     experienceDescription: (destination) =>
       `Det ni kan uppleva i ${destination} med omnejd.`
@@ -140,11 +141,16 @@ export function getDestinationBranchNavigation(
   return {
     ariaLabel: copy.switcher,
     items: [
+      // The trigger carries the town name itself (Tarifa, Nerja, Frigiliana)
+      // instead of a category word: it says what the panel holds, and on stay
+      // pages "Ort" read like the apartment's own location. The open panel
+      // therefore must not repeat the name; its title is the link to the town
+      // overview page, and the description no longer names the town either.
       {
         id: 'location' as const,
-        label: copy.location,
-        title: destinationName,
-        description: intro.locationDescription(destinationName),
+        label: destinationName,
+        title: intro.locationTitle,
+        description: intro.locationDescription,
         href: resolveLink(destinationTokens.location, lang)
       },
       {
