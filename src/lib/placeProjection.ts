@@ -203,13 +203,13 @@ export function guidePlaceItem(id: string, icon: GuestGuideIconName): GuestGuide
   if (copy.guide.onTheDay) body.push(withLabel(ON_THE_DAY_LABEL, copy.guide.onTheDay));
   if (copy.guide.planB) body.push(withLabel(PLAN_B_LABEL, copy.guide.planB));
   if (copy.guide.hostNote) {
-    const { text, date } = copy.guide.hostNote;
+    const { text } = copy.guide.hostNote;
     body.push({
-      en: `<em>${text.en}</em> (${date})`,
-      de: `<em>${text.de}</em> (${date})`,
-      es: `<em>${text.es}</em> (${date})`,
-      nl: `<em>${text.nl}</em> (${date})`,
-      sv: `<em>${text.sv}</em> (${date})`
+      en: `<em>${text.en}</em>`,
+      de: `<em>${text.de}</em>`,
+      es: `<em>${text.es}</em>`,
+      nl: `<em>${text.nl}</em>`,
+      sv: `<em>${text.sv}</em>`
     });
   }
   return {

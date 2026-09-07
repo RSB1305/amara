@@ -290,11 +290,11 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
   'frigiliana.restaurants.stablo': {
     guide: {
       subtitle: {
-        en: "Frigiliana · right next door · by the church",
-        de: "Frigiliana · direkt nebenan · an der Kirche",
-        es: "Frigiliana · justo al lado · junto a la iglesia",
-        nl: "Frigiliana · direct naast de deur · bij de kerk",
-        sv: "Frigiliana · alldeles intill · vid kyrkan"
+        en: "Frigiliana · by the church · approx. 10 m",
+        de: "Frigiliana · an der Kirche · ca. 10 m",
+        es: "Frigiliana · junto a la iglesia · aprox. 10 m",
+        nl: "Frigiliana · bij de kerk · ca. 10 m",
+        sv: "Frigiliana · vid kyrkan · ca 10 m"
       },
       why: [
         {

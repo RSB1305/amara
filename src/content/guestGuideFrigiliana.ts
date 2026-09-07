@@ -1741,29 +1741,41 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
     nl: 'Hier zijn onze makkelijkste en meest betrouwbare aanraders in Frigiliana — van relaxte diners op het terras tot een schilderachtige lunch in de bergen.',
     sv: 'Här är våra mest pålitliga och okomplicerade val i Frigiliana – från avslappnade middagar på terrassen till en lunch med vacker utsikt uppe i bergen.'
   },
-  authorityLink: {
-    targetRoute: 'frigiliana.experience.restaurants',
-    label: {
-      en: 'Looking for a deeper overview? Read the full dining guide →',
-      de: 'Sucht ihr nach einer ausführlicheren Übersicht? Lest unseren kompletten Restaurant-Guide →',
-      es: '¿Buscáis información más detallada? Lee la guía completa de restaurantes →',
-      nl: 'Op zoek naar een uitgebreider overzicht? Lees de volledige restaurantgids →',
-      sv: 'Letar ni efter en mer detaljerad översikt? Läs hela restaurangguiden →'
-    }
-  },
   categories: [
     {
       heading: {
-        en: 'Frigiliana',
-        de: 'Frigiliana',
-        es: 'Frigiliana',
-        nl: 'Frigiliana',
-        sv: 'Frigiliana'
+        en: 'Robert’s favourite',
+        de: 'Roberts Favorit',
+        es: 'El favorito de Robert',
+        nl: 'Roberts favoriet',
+        sv: 'Roberts favorit'
+      },
+      items: [
+        guidePlaceItem('frigiliana.restaurants.el-jardin', 'star')
+      ]
+    },
+    {
+      heading: {
+        en: 'In the village',
+        de: 'Im Dorf',
+        es: 'En el pueblo',
+        nl: 'In het dorp',
+        sv: 'I byn'
       },
       items: [
         guidePlaceItem('frigiliana.restaurants.stablo', 'dish'),
-        guidePlaceItem('frigiliana.restaurants.el-jardin', 'location-pin'),
-        guidePlaceItem('frigiliana.restaurants.gloria-bendita', 'goblet'),
+        guidePlaceItem('frigiliana.restaurants.gloria-bendita', 'goblet')
+      ]
+    },
+    {
+      heading: {
+        en: 'Insider tips',
+        de: 'Insidertipps',
+        es: 'Secretos locales',
+        nl: 'Insidertips',
+        sv: 'Insidertips'
+      },
+      items: [
         guidePlaceItem('frigiliana.restaurants.el-acebuchal', 'location-pin'),
         guidePlaceItem('frigiliana.restaurants.el-tangay', 'location-pin')
       ]
