@@ -589,7 +589,7 @@ test('the destination arrival pages use their declared module order', async ({ p
   }
 });
 
-test('section separators stay inset while display boxes keep clean edges', async ({ page }) => {
+test('section separators stay inset', async ({ page }) => {
   await openPage(page, resolveLink('amara_experience', SWEEP_LANGUAGE));
   const separator = await page.$eval(
     '[data-am-component="amara-experience-promises"]',
@@ -613,15 +613,6 @@ test('section separators stay inset while display boxes keep clean edges', async
   expect(separator.leftInset).toBeGreaterThan(0);
   expect(separator.rightInset).toBeGreaterThan(0);
   expect(Math.abs(separator.leftInset - separator.rightInset)).toBeLessThan(1);
-
-  const romanceClose = page.locator('[data-am-component="amara-experience-booking-cta"]');
-  await expect(romanceClose).toHaveCSS('border-top-width', '0px');
-  await expect(romanceClose).toHaveCSS('border-bottom-width', '0px');
-  const closeRules = await romanceClose.evaluate((node) => ({
-    before: getComputedStyle(node, '::before').content,
-    after: getComputedStyle(node, '::after').content
-  }));
-  expect(closeRules).toEqual({ before: 'none', after: 'none' });
 });
 
 test('the Frigiliana hero uses an editorial quote and personal host signature', async ({ page }) => {

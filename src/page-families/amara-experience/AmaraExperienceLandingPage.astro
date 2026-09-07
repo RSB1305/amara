@@ -13,7 +13,6 @@ import {
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import AmaraSection from '../../components/layout/AmaraSection.astro';
-import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
 import GuestGuidePhone from '../../components/experience/GuestGuidePhone.astro';
@@ -192,18 +191,6 @@ const benefitIcons = {
         </div>
       </div>
     </AmaraSection>
-
-    <EditorialClosingCta
-      title={copy.closingTitle}
-      lead={copy.closingLead}
-      links={[{ token: 'book', label: copy.availabilityLabel, style: 'primary' }]}
-      lang={currentLang}
-      spacing="page"
-      dataComponent="amara-experience-booking-cta"
-      role="conversion"
-      family="experience"
-      tone="romance"
-    />
   </AmaraPageShell>
 </BaseLayout>
 
