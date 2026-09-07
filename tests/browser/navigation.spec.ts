@@ -376,8 +376,12 @@ test('the destination branch disclosures stay distinct from the global menu', as
 
   await locationDisclosure.locator('summary').click();
   await expect(locationDisclosure).toHaveAttribute('open', '');
-  await experienceDisclosure.locator('summary').click();
+  // On mobile the open panel is a fixed overlay that deliberately covers the
+  // other trigger, so switching branches means closing the current disclosure
+  // before opening the next one — not tapping a trigger hidden behind the panel.
+  await locationDisclosure.locator('summary').click();
   await expect(locationDisclosure).not.toHaveAttribute('open', '');
+  await experienceDisclosure.locator('summary').click();
   await expect(experienceDisclosure).toHaveAttribute('open', '');
   await expect(experienceDisclosure.locator('[data-am-context-panel-title]')).toHaveText(
     'Frigiliana & Region'
