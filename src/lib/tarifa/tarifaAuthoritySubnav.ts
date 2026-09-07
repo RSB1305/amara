@@ -137,7 +137,6 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
 
 const topicLinks: LocationTopicLinks = {
   'arrival-mobility': 'getting_to_tarifa',
-  'geography-orientation': 'tarifa_geography',
   'where-to-stay': 'tarifa_where_to_stay',
   'weather-seasons': 'tarifa_weather',
   'winter-stays': 'tarifa_winter_stays',

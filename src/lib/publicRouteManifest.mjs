@@ -67,13 +67,6 @@ const parkingSegments = {
   nl: 'parkeren',
   sv: 'parkering'
 };
-const geographySegments = {
-  es: 'geografia',
-  en: 'geography',
-  de: 'geografie',
-  nl: 'geografie',
-  sv: 'geografi'
-};
 const whereToStaySegments = {
   es: 'donde-alojarse',
   en: 'where-to-stay',
@@ -408,7 +401,6 @@ const definitions = [
     }
   },
   { key: 'frigiliana.parking', legacySlug: 'frigiliana-parking', family: 'parking', parent: 'frigiliana', props: { destination: 'frigiliana' }, segment: parkingSegments },
-  { key: 'frigiliana.geography', legacySlug: 'frigiliana-geography', family: 'geography', parent: 'frigiliana', props: { destination: 'frigiliana' }, segment: geographySegments },
   { key: 'frigiliana.where-to-stay', legacySlug: 'frigiliana-where-to-stay', family: 'frigiliana-where-to-stay', parent: 'frigiliana', segment: whereToStaySegments },
   { key: 'frigiliana.weather', legacySlug: 'frigiliana-weather', family: 'weather', parent: 'frigiliana', props: { destination: 'frigiliana' }, segment: weatherSegments },
   { key: 'frigiliana.winter', legacySlug: 'frigiliana-winter-stays', family: 'winter-stays', parent: 'frigiliana', props: { destination: 'frigiliana' }, segment: winterSegments },
@@ -511,7 +503,6 @@ const definitions = [
     }
   },
   { key: 'nerja.parking', legacySlug: 'nerja-parking', family: 'parking', parent: 'nerja', props: { destination: 'nerja' }, segment: parkingSegments },
-  { key: 'nerja.geography', legacySlug: 'nerja-geography', family: 'geography', parent: 'nerja', props: { destination: 'nerja' }, segment: geographySegments },
   { key: 'nerja.where-to-stay', legacySlug: 'nerja-where-to-stay', family: 'nerja-where-to-stay', parent: 'nerja', segment: whereToStaySegments },
   { key: 'nerja.weather', legacySlug: 'nerja-weather', family: 'weather', parent: 'nerja', props: { destination: 'nerja' }, segment: weatherSegments },
   { key: 'nerja.winter', legacySlug: 'nerja-winter-stays', family: 'winter-stays', parent: 'nerja', props: { destination: 'nerja' }, segment: winterSegments },
@@ -581,7 +572,6 @@ const definitions = [
     }
   },
   { key: 'tarifa.parking', legacySlug: 'tarifa-parking', family: 'parking', parent: 'tarifa', props: { destination: 'tarifa' }, segment: parkingSegments },
-  { key: 'tarifa.geography', legacySlug: 'tarifa-geography', family: 'geography', parent: 'tarifa', props: { destination: 'tarifa' }, segment: geographySegments },
   { key: 'tarifa.where-to-stay', legacySlug: 'tarifa-where-to-stay', family: 'tarifa-where-to-stay', parent: 'tarifa', segment: whereToStaySegments },
   { key: 'tarifa.weather', legacySlug: 'tarifa-weather', family: 'weather', parent: 'tarifa', props: { destination: 'tarifa' }, segment: weatherSegments },
   { key: 'tarifa.winter', legacySlug: 'tarifa-winter-stays', family: 'winter-stays', parent: 'tarifa', props: { destination: 'tarifa' }, segment: winterSegments },

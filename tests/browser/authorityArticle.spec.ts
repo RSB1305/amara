@@ -8,10 +8,8 @@ import { frigilianaParkingGuideContent } from '../../src/content/frigilianaParki
 import { nerjaBalconContent } from '../../src/content/nerjaBalconContent';
 import { nerjaCavesContent } from '../../src/content/nerjaCavesContent';
 import { nerjaDailyLifeContent } from '../../src/content/nerjaDailyLifeContent';
-import { nerjaGeographyContent } from '../../src/content/nerjaGeographyContent';
 import { nerjaParkingContent } from '../../src/content/nerjaParkingContent';
 import { tarifaDailyLifeContent } from '../../src/content/tarifaDailyLifeContent';
-import { tarifaGeographyContent } from '../../src/content/tarifaGeographyContent';
 import { tarifaParkingContent } from '../../src/content/tarifaParkingContent';
 import { tarifaWinterStaysContent } from '../../src/content/tarifaWinterStaysContent';
 import { experienceStayBridge } from '../../src/content/experienceStayBridgeContent';
@@ -256,23 +254,6 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     ]
   },
   {
-    routeToken: 'nerja_geography',
-    pageId: 'nerja-geography',
-    content: (lang) => resolveLocale(nerjaGeographyContent, lang),
-    heroMark: null,
-    relatedColumns: 'md:grid-cols-2',
-    blockBeforeSections: 'orientation:nerja',
-    blockAfterSections: null,
-    arrivalModules: null,
-    interleaved: [],
-    sectionMarkerAttribute: null,
-    groupSupportingSections: true,
-    closingCtas: [
-      { token: 'playa', labelKey: 'propertyLabel', className: RESTRAINED_PRIMARY_CLASS },
-      { token: 'location_nerja', labelKey: 'locationLabel', className: RESTRAINED_SECONDARY_CLASS }
-    ]
-  },
-  {
     routeToken: 'tarifa_daily_life',
     pageId: 'tarifa-daily-life',
     content: (lang) => tarifaDailyLifeContent[lang],
@@ -286,23 +267,6 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     closingCtas: [
       { token: 'book', labelKey: 'availabilityLabel', className: RESTRAINED_PRIMARY_CLASS },
       { token: 'location_tarifa', labelKey: 'locationLabel', className: RESTRAINED_SECONDARY_CLASS }
-    ]
-  },
-  {
-    routeToken: 'tarifa_geography',
-    pageId: 'tarifa-geography',
-    content: (lang) => resolveLocale(tarifaGeographyContent, lang),
-    heroMark: null,
-    relatedColumns: 'md:grid-cols-2',
-    blockBeforeSections: 'orientation:tarifa',
-    blockAfterSections: null,
-    arrivalModules: null,
-    interleaved: [],
-    sectionMarkerAttribute: null,
-    groupSupportingSections: true,
-    closingCtas: [
-      { token: 'location_tarifa', labelKey: 'locationLabel', className: RESTRAINED_PRIMARY_CLASS },
-      { token: 'tarifa_experience_hub', labelKey: 'experienceLabel', className: RESTRAINED_SECONDARY_CLASS }
     ]
   },
   {
@@ -667,32 +631,3 @@ test('nerja-caves places the personal visit block before the related links', asy
   await expect(page.locator('#our-visit img')).toHaveCount(1);
 });
 
-test('the geography pages place the orientation block before the text sections', async ({
-  page
-}) => {
-  for (const [pageId, destination] of [
-    ['nerja-geography', 'nerja'],
-    ['tarifa-geography', 'tarifa']
-  ]) {
-    const entry = authorityPage(pageId);
-    const locale = entry.content(SWEEP_LANGUAGE) as OrientedLocale;
-    await openPage(page, resolveLink(entry.routeToken, SWEEP_LANGUAGE));
-
-    const blocks = await articleBlocks(page, pageId);
-    const orientationIndex = blocks.findIndex(
-      (block) => block.kind === `orientation:${destination}`
-    );
-    const firstSectionIndex = blocks.findIndex(
-      (block) => block.kind === `section:${locale.sections[0].id}`
-    );
-
-    expect(orientationIndex, pageId).toBeGreaterThan(-1);
-    expect(orientationIndex, pageId).toBeLessThan(firstSectionIndex);
-
-    const orientation = page.locator(`[data-am-orientation="${destination}"]`);
-    await expect(orientation.locator('[data-am-orientation-point]')).toHaveCount(
-      locale.orientation.items.length
-    );
-    await expect(orientation.locator('h2')).toHaveAttribute('id', `${destination}-orientation-title`);
-  }
-});

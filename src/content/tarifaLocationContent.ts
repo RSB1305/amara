@@ -2,7 +2,6 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
 
 export type TarifaLocationHubLinkToken =
   | 'getting_to_tarifa'
-  | 'tarifa_geography'
   | 'tarifa_where_to_stay'
   | 'tarifa_weather'
   | 'tarifa_experience_hub'
@@ -145,7 +144,7 @@ export const tarifaLocationContent: {
           { label: 'Town edge', value: 'La Marina lies west/north-west of the centre' },
           { label: 'Further west', value: 'Valdevaqueros, Punta Paloma and Bolonia need a separate journey' }
         ],
-        link: { label: 'Geography & orientation in detail', token: 'tarifa_geography' }
+        link: { label: 'Geography & orientation in detail', token: 'tarifa_where_to_stay' }
       },
       arrival: {
         eyebrow: 'Arrival & car',
@@ -264,7 +263,7 @@ export const tarifaLocationContent: {
           { label: 'Ortsrand', value: 'La Marina liegt westlich bis nordwestlich des Zentrums' },
           { label: 'Weiter westlich', value: 'Valdevaqueros, Punta Paloma und Bolonia brauchen einen eigenen Weg' }
         ],
-        link: { label: 'Geografie & Orientierung im Detail', token: 'tarifa_geography' }
+        link: { label: 'Geografie & Orientierung im Detail', token: 'tarifa_where_to_stay' }
       },
       arrival: {
         eyebrow: 'Anreise & Auto',
@@ -383,7 +382,7 @@ export const tarifaLocationContent: {
           { label: 'Borde urbano', value: 'La Marina queda al oeste o noroeste del centro' },
           { label: 'Más al oeste', value: 'Valdevaqueros, Punta Paloma y Bolonia requieren otro trayecto' }
         ],
-        link: { label: 'Geografía y orientación en detalle', token: 'tarifa_geography' }
+        link: { label: 'Geografía y orientación en detalle', token: 'tarifa_where_to_stay' }
       },
       arrival: {
         eyebrow: 'Llegada y coche',
@@ -502,7 +501,7 @@ export const tarifaLocationContent: {
           { label: 'Stadsrand', value: 'La Marina ligt westelijk tot noordwestelijk van het centrum' },
           { label: 'Verder westelijk', value: 'Valdevaqueros, Punta Paloma en Bolonia vragen om een aparte tocht' }
         ],
-        link: { label: 'Geografie & oriëntatie in detail', token: 'tarifa_geography' }
+        link: { label: 'Geografie & oriëntatie in detail', token: 'tarifa_where_to_stay' }
       },
       arrival: {
         eyebrow: 'Aankomst & auto',
@@ -621,7 +620,7 @@ export const tarifaLocationContent: {
           { label: 'Stadskant', value: 'La Marina ligger väster till nordväst om centrum' },
           { label: 'Längre västerut', value: 'Valdevaqueros, Punta Paloma och Bolonia kräver en separat färd' }
         ],
-        link: { label: 'Geografi & orientering i detalj', token: 'tarifa_geography' }
+        link: { label: 'Geografi & orientering i detalj', token: 'tarifa_where_to_stay' }
       },
       arrival: {
         eyebrow: 'Ankomst & bil',

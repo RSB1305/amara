@@ -446,9 +446,9 @@ const factorIcons: Record<WeatherDestination, LocationGuideIconName[]> = {
 };
 
 const relatedTokens: Record<WeatherDestination, LinkToken[]> = {
-  frigiliana: ['frigiliana_geography', 'frigiliana_winter_stays'],
-  nerja: ['nerja_geography', 'nerja_winter_stays'],
-  tarifa: ['tarifa_geography', 'tarifa_winter_stays']
+  frigiliana: ['frigiliana_stairs', 'frigiliana_winter_stays'],
+  nerja: ['nerja_where_to_stay', 'nerja_winter_stays'],
+  tarifa: ['tarifa_where_to_stay', 'tarifa_winter_stays']
 };
 
 const destinationLiveForecast: Record<AmaraLanguage, WeatherAuthorityContent['forecast']> = {

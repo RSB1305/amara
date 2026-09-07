@@ -8,7 +8,6 @@ export const LOCATION_GUIDE_CLUSTER_IDS = [
 ] as const;
 
 export const LOCATION_GUIDE_TOPIC_IDS = [
-  'geography-orientation',
   'where-to-stay',
   'weather-seasons',
   'winter-stays',
@@ -27,7 +26,6 @@ export type LocationGuideClusterLabels = Record<LocationGuideClusterId, string>;
 const labels: Record<AmaraLanguage, LocationGuideTopicLabels> = {
   en: {
     'arrival-mobility': 'Arrival & Mobility',
-    'geography-orientation': 'Geography & Orientation',
     'parking-accessibility': 'Parking & Accessibility',
     'shopping-markets': 'Supermarkets & Shopping',
     'health-emergency': 'Health & Emergency',
@@ -37,7 +35,6 @@ const labels: Record<AmaraLanguage, LocationGuideTopicLabels> = {
   },
   de: {
     'arrival-mobility': 'Anreise & Mobilität',
-    'geography-orientation': 'Geografie & Orientierung',
     'parking-accessibility': 'Parken & Erreichbarkeit',
     'shopping-markets': 'Supermärkte & Einkaufen',
     'health-emergency': 'Gesundheit & Notfälle',
@@ -47,7 +44,6 @@ const labels: Record<AmaraLanguage, LocationGuideTopicLabels> = {
   },
   es: {
     'arrival-mobility': 'Llegada y movilidad',
-    'geography-orientation': 'Geografía y orientación',
     'parking-accessibility': 'Aparcamiento y acceso',
     'shopping-markets': 'Supermercados y compras',
     'health-emergency': 'Salud y emergencia',
@@ -57,7 +53,6 @@ const labels: Record<AmaraLanguage, LocationGuideTopicLabels> = {
   },
   nl: {
     'arrival-mobility': 'Aankomst & mobiliteit',
-    'geography-orientation': 'Geografie & oriëntatie',
     'parking-accessibility': 'Parkeren & toegankelijkheid',
     'shopping-markets': 'Supermarkten & boodschappen',
     'health-emergency': 'Gezondheid & noodgevallen',
@@ -67,7 +62,6 @@ const labels: Record<AmaraLanguage, LocationGuideTopicLabels> = {
   },
   sv: {
     'arrival-mobility': 'Ankomst & mobilitet',
-    'geography-orientation': 'Geografi & orientering',
     'parking-accessibility': 'Parkering & tillgänglighet',
     'shopping-markets': 'Matbutiker & inköp',
     'health-emergency': 'Hälsa & nödsituation',
@@ -114,7 +108,7 @@ export const LOCATION_GUIDE_CLUSTER_TOPICS: Record<
   LocationGuideClusterId,
   readonly LocationGuideTopicId[]
 > = {
-  'orientation-areas': ['geography-orientation', 'where-to-stay'],
+  'orientation-areas': ['where-to-stay'],
   'climate-seasons': ['weather-seasons', 'winter-stays'],
   'arrival-parking': ['arrival-mobility', 'parking-accessibility'],
   'daily-life-essentials': ['shopping-markets', 'health-emergency']

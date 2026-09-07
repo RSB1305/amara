@@ -282,13 +282,6 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Aankomst & mobiliteit',
     sv: 'Ankomst & mobilitet'
   },
-  'tarifa.geography': {
-    en: 'Geography & Orientation',
-    de: 'Geografie & Orientierung',
-    es: 'Geografía y orientación',
-    nl: 'Geografie & oriëntatie',
-    sv: 'Geografi & orientering'
-  },
   'tarifa.where-to-stay': {
     en: 'Where to stay',
     de: 'Wo übernachten',
@@ -442,13 +435,6 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     es: 'Salud y emergencia',
     nl: 'Gezondheid & noodgevallen',
     sv: 'Hälsa & nödsituation'
-  },
-  'frigiliana.geography': {
-    en: 'Geography & Orientation',
-    de: 'Geografie & Orientierung',
-    es: 'Geografía y orientación',
-    nl: 'Geografie & oriëntatie',
-    sv: 'Geografi & orientering'
   },
   'frigiliana.or-nerja': {
     en: 'Frigiliana & Nerja',
