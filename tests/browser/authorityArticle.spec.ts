@@ -488,8 +488,11 @@ for (const entry of AUTHORITY_PAGES) {
         await expect(sectionRoot).toHaveCount(1);
         await expect(sectionRoot.locator('h2')).toHaveText(section.title);
         const usesContextColumns = section.localContext && section.amaraContext;
+        // Three eyebrows (section, local, amara) sit above the intro/local/amara
+        // paragraphs. The guest-guide note is no longer rendered inline — it moved
+        // to the Gästeguide bridge — so it no longer adds a paragraph here.
         const expectedParagraphCount = usesContextColumns
-          ? section.paragraphs.length + 3 + (section.guestGuideNote ? 1 : 0)
+          ? section.paragraphs.length + 3
           : section.paragraphs.length + 1;
         await expect(sectionRoot.locator('p')).toHaveCount(expectedParagraphCount);
       }
