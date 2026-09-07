@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import LocationGuideEvidence from '../../components/location/LocationGuideEvidence.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
@@ -75,7 +76,16 @@ const combineItems = copy.combine.items.map((item) => ({
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
         paragraphs={copy.hero.paragraphs}
-      />
+      >
+        {copy.hero.summary && (
+          <LocationGuideEvidence
+            slot="visual"
+            eyebrow={copy.hero.summary.eyebrow}
+            summary={copy.hero.summary.body}
+            items={copy.hero.summary.items}
+          />
+        )}
+      </LocationExperienceHero>
 
       <AuthorityFeatureSection
         id="overview"

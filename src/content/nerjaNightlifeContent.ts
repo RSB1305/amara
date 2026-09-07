@@ -23,6 +23,12 @@ export interface NerjaNightlifePageCopy {
     title: string;
     paragraphs: string[];
     imageAlt: string;
+    /** Dark hero-tile summary: a short takeaway plus a mini table of contents. */
+    summary?: {
+      eyebrow: string;
+      body: string;
+      items: Array<{ id: string; label: string; value: string }>;
+    };
   };
   sectionNav: {
     overview: string;
@@ -215,7 +221,18 @@ export const nerjaNightlifeContent: Record<
         'If you are staying in Frigiliana, arrange the journey back before the evening. Do not rely on walking between the towns or finding a taxi at the last minute.'
       ],
       imageAlt:
-        'Calm AMARA Playa interior as a base for evenings in coastal Nerja'
+        'Calm AMARA Playa interior as a base for evenings in coastal Nerja',
+      summary: {
+        eyebrow: 'On this page',
+        body:
+          'An honest evening guide to Nerja: the three going-out zones, what each is best for and how lively it gets. Not a party capital — but easy to plan.',
+        items: [
+          { id: 'late-night', label: 'Late night', value: 'The liveliest zone' },
+          { id: 'view', label: 'With a view', value: 'Balcón and sea-view bars' },
+          { id: 'water', label: 'By the water', value: 'The coastal zone' },
+          { id: 'reviewed', label: 'Reviewed', value: 'July 2026' }
+        ]
+      }
     },
     sectionNav: {
       overview: 'Quick answer',
@@ -526,7 +543,18 @@ export const nerjaNightlifeContent: Record<
         'Wenn ihr in Frigiliana wohnt, organisiert die Rückfahrt vor dem Abend. Der Weg zwischen den Orten ist kein Nachtspaziergang, und ein kurzfristig verfügbares Taxi ist nicht garantiert.'
       ],
       imageAlt:
-        'Ruhiges Interieur von AMARA Playa als Ausgangspunkt für Abende in Nerja'
+        'Ruhiges Interieur von AMARA Playa als Ausgangspunkt für Abende in Nerja',
+      summary: {
+        eyebrow: 'Auf dieser Seite',
+        body:
+          'Ein ehrlicher Abend-Guide für Nerja: die drei Ausgeh-Viertel, wofür jedes taugt und wie lebhaft es zugeht. Keine Party-Hochburg — dafür planbar.',
+        items: [
+          { id: 'late-night', label: 'Späte Nacht', value: 'Das lebhafteste Viertel' },
+          { id: 'view', label: 'Mit Aussicht', value: 'Balcón & Meerblick-Bars' },
+          { id: 'water', label: 'Am Wasser', value: 'Die Zone am Strand' },
+          { id: 'reviewed', label: 'Stand', value: 'Juli 2026' }
+        ]
+      }
     },
     sectionNav: {
       overview: 'Kurzantwort',
@@ -837,7 +865,18 @@ export const nerjaNightlifeContent: Record<
         'Si os alojáis en Frigiliana, organizad la vuelta antes de salir. El trayecto entre ambos pueblos no es un paseo nocturno y no conviene depender de encontrar taxi a última hora.'
       ],
       imageAlt:
-        'Interior tranquilo de AMARA Playa como base para salir por Nerja'
+        'Interior tranquilo de AMARA Playa como base para salir por Nerja',
+      summary: {
+        eyebrow: 'En esta página',
+        body:
+          'Una guía nocturna honesta de Nerja: las tres zonas de salida, para qué sirve cada una y cuánto ambiente tienen. No es una capital de la fiesta, pero es fácil de planificar.',
+        items: [
+          { id: 'late-night', label: 'Noche', value: 'La zona con más ambiente' },
+          { id: 'view', label: 'Con vistas', value: 'Balcón y bares con mar' },
+          { id: 'water', label: 'Junto al mar', value: 'La zona costera' },
+          { id: 'reviewed', label: 'Revisado', value: 'Julio 2026' }
+        ]
+      }
     },
     sectionNav: {
       overview: 'Respuesta rápida',
@@ -1148,7 +1187,18 @@ export const nerjaNightlifeContent: Record<
         'Verblijven jullie in Frigiliana, regel dan de terugreis voordat jullie uitgaan. Tussen beide plaatsen lopen is ’s nachts niet praktisch en een taxi op het laatste moment is niet gegarandeerd.'
       ],
       imageAlt:
-        'Rustig interieur van AMARA Playa als uitvalsbasis voor avonden in Nerja'
+        'Rustig interieur van AMARA Playa als uitvalsbasis voor avonden in Nerja',
+      summary: {
+        eyebrow: 'Op deze pagina',
+        body:
+          'Een eerlijke avondgids voor Nerja: de drie uitgaanszones, waar elk goed voor is en hoe levendig het wordt. Geen partystad, maar wel makkelijk te plannen.',
+        items: [
+          { id: 'late-night', label: 'Laat op de avond', value: 'De levendigste zone' },
+          { id: 'view', label: 'Met uitzicht', value: 'Balcón en bars met zeezicht' },
+          { id: 'water', label: 'Aan het water', value: 'De kustzone' },
+          { id: 'reviewed', label: 'Bijgewerkt', value: 'Juli 2026' }
+        ]
+      }
     },
     sectionNav: {
       overview: 'Kort antwoord',
@@ -1459,7 +1509,18 @@ export const nerjaNightlifeContent: Record<
         'Om ni bor i Frigiliana ordnar ni resan tillbaka innan ni går ut. Vägen mellan orterna är ingen nattpromenad och taxi i sista minuten är inte garanterad.'
       ],
       imageAlt:
-        'Lugn interiör på AMARA Playa som bas för kvällar i Nerja'
+        'Lugn interiör på AMARA Playa som bas för kvällar i Nerja',
+      summary: {
+        eyebrow: 'På den här sidan',
+        body:
+          'En ärlig kvällsguide till Nerja: de tre utegångszonerna, vad var och en passar för och hur livligt det blir. Ingen partymetropol — men lätt att planera.',
+        items: [
+          { id: 'late-night', label: 'Sen kväll', value: 'Den livligaste zonen' },
+          { id: 'view', label: 'Med utsikt', value: 'Balcón och barer med havsutsikt' },
+          { id: 'water', label: 'Vid vattnet', value: 'Kustzonen' },
+          { id: 'reviewed', label: 'Uppdaterad', value: 'Juli 2026' }
+        ]
+      }
     },
     sectionNav: {
       overview: 'Kort svar',

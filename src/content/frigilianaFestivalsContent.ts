@@ -50,8 +50,15 @@ export interface FrigilianaFestivalsPageCopy {
   hero: {
     kicker: string;
     title: string;
+    subtitle: string;
     paragraphs: string[];
     imageAlt: string;
+    /** Dark hero-tile summary: a short takeaway plus a mini table of contents. */
+    summary?: {
+      eyebrow: string;
+      body: string;
+      items: Array<{ id: string; label: string; value: string }>;
+    };
   };
   sectionNav: {
     choose: string;
@@ -186,14 +193,26 @@ export const frigilianaFestivalsContent: Record<
     },
     hero: {
       kicker: 'Festivals & local traditions',
-      title: 'Festivals in Frigiliana & Nerja — a year shaped by tradition',
+      title: 'Festivals in Frigiliana & Nerja',
+      subtitle: 'A year shaped by tradition',
       paragraphs: [
         'The Axarquía changes rhythm throughout the year: quiet village streets fill with processions, pilgrims cross Nerja in decorated carts, and summer nights move to the beach or Frigiliana’s historic quarter.',
         'This guide is designed to help you choose a travel period and understand the atmosphere before you go. It combines recurring traditions with a small number of dates officially confirmed for 2026.',
         'Exact routes, times and programmes can change, even when a celebration has a traditional feast day. Treat the calendar as a planning map and check the linked official information shortly before your visit.'
       ],
       imageAlt:
-        'Whitewashed Frigiliana above the hills and Mediterranean coast'
+        'Whitewashed Frigiliana above the hills and Mediterranean coast',
+      summary: {
+        eyebrow: 'On this page',
+        body:
+          'The festival year in Frigiliana and Nerja at a glance — from village traditions and processions to summer nights and the big festival weekends. Planned by season, not a full checklist.',
+        items: [
+          { id: 'traditions', label: 'Traditions', value: 'Village customs year-round' },
+          { id: 'processions', label: 'Processions', value: 'Holy Week and pilgrimages' },
+          { id: 'summer', label: 'Summer nights', value: 'Music and late evenings' },
+          { id: 'weekends', label: 'Festival weekends', value: 'The big dates' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Choose the mood',
@@ -546,15 +565,26 @@ export const frigilianaFestivalsContent: Record<
     },
     hero: {
       kicker: 'Feste & gelebte Traditionen',
-      title:
-        'Feste in Frigiliana & Nerja — ein Jahr im Rhythmus der Tradition',
+      title: 'Feste in Frigiliana & Nerja',
+      subtitle: 'Ein Jahr im Rhythmus der Tradition',
       paragraphs: [
         'Im Laufe des Jahres verändert die Axarquía immer wieder ihren Rhythmus: Ruhige Dorfgassen füllen sich mit Prozessionen, geschmückte Wagen ziehen durch Nerja und in den Sommernächten verlagert sich das Leben an den Strand oder in Frigilianas Altstadt.',
         'Dieser Guide hilft euch dabei, eine passende Reisezeit zu wählen und die Stimmung vorab einzuschätzen. Er verbindet wiederkehrende Traditionen mit einigen wenigen Terminen, die für 2026 bereits offiziell bestätigt sind.',
         'Genaue Routen, Uhrzeiten und Programme können sich auch bei Festen mit traditionellem Feiertag ändern. Nutzt den Kalender als Planungshilfe und prüft kurz vor eurem Besuch noch einmal die verlinkten offiziellen Informationen.'
       ],
       imageAlt:
-        'Das weiße Dorf Frigiliana oberhalb der Hügel und der Mittelmeerküste'
+        'Das weiße Dorf Frigiliana oberhalb der Hügel und der Mittelmeerküste',
+      summary: {
+        eyebrow: 'Auf dieser Seite',
+        body:
+          'Das Festjahr in Frigiliana und Nerja im Überblick — von Dorftraditionen und Prozessionen bis zu Sommernächten und den großen Festivalwochenenden. Nach Reisezeit geplant, keine Vollständigkeit.',
+        items: [
+          { id: 'traditions', label: 'Traditionen', value: 'Dorfbräuche das ganze Jahr' },
+          { id: 'processions', label: 'Prozessionen', value: 'Semana Santa & Wallfahrten' },
+          { id: 'summer', label: 'Sommernächte', value: 'Musik und lange Abende' },
+          { id: 'weekends', label: 'Festivalwochenenden', value: 'Die großen Termine' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Die passende Stimmung',
@@ -908,15 +938,26 @@ export const frigilianaFestivalsContent: Record<
     },
     hero: {
       kicker: 'Fiestas y tradiciones vivas',
-      title:
-        'Fiestas en Frigiliana y Nerja — un año marcado por la tradición',
+      title: 'Fiestas en Frigiliana y Nerja',
+      subtitle: 'Un año marcado por la tradición',
       paragraphs: [
         'La Axarquía cambia de ritmo a lo largo del año: las calles tranquilas se llenan de procesiones, las carretas engalanadas cruzan Nerja y las noches de verano se trasladan a la playa o al casco histórico de Frigiliana.',
         'Esta guía os ayudará a elegir época de viaje y a entender el ambiente antes de salir. Reúne tradiciones recurrentes con un pequeño número de fechas ya confirmadas oficialmente para 2026.',
         'Los recorridos, horarios y programas pueden cambiar incluso cuando la fiesta está ligada a un día tradicional. Usad el calendario como mapa de planificación y consultad la información oficial enlazada poco antes de vuestra visita.'
       ],
       imageAlt:
-        'El pueblo blanco de Frigiliana sobre las colinas y la costa mediterránea'
+        'El pueblo blanco de Frigiliana sobre las colinas y la costa mediterránea',
+      summary: {
+        eyebrow: 'En esta página',
+        body:
+          'El año de fiestas en Frigiliana y Nerja de un vistazo: desde tradiciones de pueblo y procesiones hasta noches de verano y los grandes fines de semana de festival. Planificado por temporada.',
+        items: [
+          { id: 'traditions', label: 'Tradiciones', value: 'Costumbres del pueblo todo el año' },
+          { id: 'processions', label: 'Procesiones', value: 'Semana Santa y romerías' },
+          { id: 'summer', label: 'Noches de verano', value: 'Música y veladas' },
+          { id: 'weekends', label: 'Fines de festival', value: 'Las grandes fechas' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Elegid el ambiente',
@@ -1270,15 +1311,26 @@ export const frigilianaFestivalsContent: Record<
     },
     hero: {
       kicker: 'Feesten & levende tradities',
-      title:
-        'Feesten in Frigiliana & Nerja — een jaar in het ritme van traditie',
+      title: 'Feesten in Frigiliana & Nerja',
+      subtitle: 'Een jaar in het ritme van traditie',
       paragraphs: [
         'De Axarquía verandert het hele jaar door van ritme: rustige dorpsstraten vullen zich met processies, versierde wagens trekken door Nerja en zomeravonden verplaatsen zich naar het strand of de oude wijk van Frigiliana.',
         'Deze gids helpt jullie een reisperiode te kiezen en vooraf te begrijpen wat jullie kunnen verwachten. Terugkerende tradities worden gecombineerd met een klein aantal data dat voor 2026 officieel is bevestigd.',
         'Exacte routes, tijden en programma’s kunnen veranderen, ook als een feest aan een traditionele datum is verbonden. Gebruik de kalender als planningsoverzicht en controleer de gelinkte officiële informatie kort voor jullie bezoek.'
       ],
       imageAlt:
-        'Het witte dorp Frigiliana boven de heuvels en de Middellandse Zeekust'
+        'Het witte dorp Frigiliana boven de heuvels en de Middellandse Zeekust',
+      summary: {
+        eyebrow: 'Op deze pagina',
+        body:
+          'Het feestjaar in Frigiliana en Nerja in één oogopslag — van dorpstradities en processies tot zomeravonden en de grote festivalweekends. Gepland per seizoen, geen volledige lijst.',
+        items: [
+          { id: 'traditions', label: 'Tradities', value: 'Dorpsgebruiken het hele jaar' },
+          { id: 'processions', label: 'Processies', value: 'Semana Santa en bedevaarten' },
+          { id: 'summer', label: 'Zomeravonden', value: 'Muziek en lange avonden' },
+          { id: 'weekends', label: 'Festivalweekends', value: 'De grote data' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Kies de sfeer',
@@ -1632,15 +1684,26 @@ export const frigilianaFestivalsContent: Record<
     },
     hero: {
       kicker: 'Festivaler & levande traditioner',
-      title:
-        'Festivaler i Frigiliana & Nerja — ett år präglat av tradition',
+      title: 'Festivaler i Frigiliana & Nerja',
+      subtitle: 'Ett år präglat av tradition',
       paragraphs: [
         'Axarquía byter rytm under året: lugna bygator fylls av processioner, dekorerade vagnar rör sig genom Nerja och sommarkvällarna flyttar till stranden eller Frigilianas historiska kvarter.',
         'Den här guiden hjälper er att välja restid och förstå stämningen i förväg. Den kombinerar återkommande traditioner med ett mindre antal datum som redan har bekräftats officiellt för 2026.',
         'Exakta rutter, tider och program kan ändras även när en högtid har ett traditionellt datum. Använd kalendern som planeringskarta och kontrollera den länkade officiella informationen strax före ert besök.'
       ],
       imageAlt:
-        'Den vitkalkade byn Frigiliana ovanför kullarna och Medelhavskusten'
+        'Den vitkalkade byn Frigiliana ovanför kullarna och Medelhavskusten',
+      summary: {
+        eyebrow: 'På den här sidan',
+        body:
+          'Feståret i Frigiliana och Nerja i överblick — från bytraditioner och processioner till sommarkvällar och de stora festivalhelgerna. Planerat efter säsong, ingen fullständig lista.',
+        items: [
+          { id: 'traditions', label: 'Traditioner', value: 'Byseder året runt' },
+          { id: 'processions', label: 'Processioner', value: 'Påskveckan och vallfärder' },
+          { id: 'summer', label: 'Sommarkvällar', value: 'Musik och sena kvällar' },
+          { id: 'weekends', label: 'Festivalhelger', value: 'De stora datumen' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Välj stämning',

@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import BeachesCoastGraphic, { type BeachesCoastGraphicData } from '../../components/location/BeachesCoastGraphic.astro';
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
@@ -57,6 +58,60 @@ const baseDecisionHref = resolveOptionalLink(
   { suppressMissing: true }
 );
 
+const beachesGraphicByLang: Record<AmaraLanguage, BeachesCoastGraphicData> = {
+  en: {
+    place: 'frigiliana', eyebrow: 'Beaches & coast', destination: 'Frigiliana & Nerja',
+    region: 'Costa del Sol · Axarquía', baseLabel: 'FRIGILIANA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Coast map with six beaches between Frigiliana and Nerja',
+    context: [
+      { label: 'Beaches', value: 'Six along the coast' },
+      { label: 'Character', value: 'Quiet · Nature · Town' },
+      { label: 'From Frigiliana', value: 'A short drive down' }
+    ]
+  },
+  de: {
+    place: 'frigiliana', eyebrow: 'Strände & Küste', destination: 'Frigiliana & Nerja',
+    region: 'Costa del Sol · Axarquía', baseLabel: 'FRIGILIANA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Küstenkarte mit sechs Stränden zwischen Frigiliana und Nerja',
+    context: [
+      { label: 'Strände', value: 'Sechs an der Küste' },
+      { label: 'Charakter', value: 'Ruhig · Natur · Stadt' },
+      { label: 'Von Frigiliana', value: 'Kurze Fahrt hinunter' }
+    ]
+  },
+  es: {
+    place: 'frigiliana', eyebrow: 'Playas y costa', destination: 'Frigiliana & Nerja',
+    region: 'Costa del Sol · Axarquía', baseLabel: 'FRIGILIANA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Mapa de la costa con seis playas entre Frigiliana y Nerja',
+    context: [
+      { label: 'Playas', value: 'Seis en la costa' },
+      { label: 'Carácter', value: 'Tranquila · Naturaleza · Ciudad' },
+      { label: 'Desde Frigiliana', value: 'Un corto trayecto' }
+    ]
+  },
+  nl: {
+    place: 'frigiliana', eyebrow: 'Stranden & kust', destination: 'Frigiliana & Nerja',
+    region: 'Costa del Sol · Axarquía', baseLabel: 'FRIGILIANA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Kustkaart met zes stranden tussen Frigiliana en Nerja',
+    context: [
+      { label: 'Stranden', value: 'Zes langs de kust' },
+      { label: 'Karakter', value: 'Rustig · Natuur · Stad' },
+      { label: 'Vanuit Frigiliana', value: 'Kort naar beneden' }
+    ]
+  },
+  sv: {
+    place: 'frigiliana', eyebrow: 'Stränder & kust', destination: 'Frigiliana & Nerja',
+    region: 'Costa del Sol · Axarquía', baseLabel: 'FRIGILIANA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Kustkarta med sex stränder mellan Frigiliana och Nerja',
+    context: [
+      { label: 'Stränder', value: 'Sex längs kusten' },
+      { label: 'Karaktär', value: 'Lugnt · Natur · Stad' },
+      { label: 'Från Frigiliana', value: 'En kort tur ner' }
+    ]
+  }
+};
+const beachesGraphicData = beachesGraphicByLang[currentLang];
+
 ---
 
 <LocationAuthorityLayout
@@ -81,8 +136,11 @@ const baseDecisionHref = resolveOptionalLink(
         topic="beaches"
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
+        subtitle={copy.hero.subtitle}
         paragraphs={copy.hero.paragraphs}
-      />
+      >
+        <BeachesCoastGraphic slot="visual" data={beachesGraphicData} />
+      </LocationExperienceHero>
 
       <AuthorityFeatureSection
         id="coast"

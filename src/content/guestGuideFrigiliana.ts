@@ -3,7 +3,7 @@ import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHre
 import { guidePlaceItem } from '../lib/placeProjection';
 import { routeImageAltText, routeImageFigure, routeImageFigures, routeImageSrc } from '../lib/images/routeImages';
 
-const FRIGILIANA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
+const FRIGILIANA_SUPPORT_WHATSAPP = 'https://wa.me/34604440964';
 const NEED_HELP: LocalizedText = {
   en: 'Need Help?',
   de: 'Braucht ihr Hilfe?',
@@ -732,7 +732,7 @@ const frigilianaFarahHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-frigiliana-farah',
   entityKey: 'amara-farah',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
@@ -818,7 +818,7 @@ const frigilianaFarahAccommodation: GuestGuideEntry = {
   slug: 'guesthome-frigiliana-farah',
   entityKey: 'amara-farah',
   backSlug: 'guestwelcome-frigiliana-farah',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your Accommodation Farah | AMARA',
@@ -939,7 +939,7 @@ const frigilianaEssentials: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-essentials',
   backSlug: 'guestwelcome-frigiliana-farah',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Essentials | AMARA',
@@ -1441,7 +1441,7 @@ const nerjaGuestBreakfast: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-breakfast',
   backSlug: 'nerja-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Nerja Guest Guide — Breakfast | AMARA',
@@ -1644,7 +1644,7 @@ const frigilianaGuestBeaches: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-beaches',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Beaches | AMARA',
@@ -1710,7 +1710,7 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-restaurants',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Food | AMARA',
@@ -1787,7 +1787,7 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-restaurants',
   backSlug: 'nerja-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Our Restaurant Recommendations in Nerja | AMARA Guest Guide',
@@ -1898,7 +1898,7 @@ const frigilianaGuestHiking: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-hiking',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Hiking | AMARA',
@@ -1965,7 +1965,7 @@ const frigilianaGuestDayTrips: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-day-trips',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Day Trips | AMARA',
@@ -2029,7 +2029,7 @@ const frigilianaGuestFestivals: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-festivals',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Festivals & Events | AMARA',
@@ -2317,7 +2317,7 @@ const frigilianaGuestWellness: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-wellness',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana & Nerja Guest Guide — Wellness | AMARA',
@@ -2406,7 +2406,7 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-sightseeing',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Sightseeing | AMARA',
@@ -2599,7 +2599,7 @@ const nerjaGuestAdventure: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-adventure',
   backSlug: 'nerja-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Adventure in Nerja | AMARA',
@@ -2872,7 +2872,7 @@ const frigilianaGuestBreakfast: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-breakfast',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Breakfast | AMARA',
@@ -3028,7 +3028,7 @@ const nerjaGuestNightlife: GuestGuideEntry = {
   "type": "detail",
   "slug": "nerja-guest-nightlife",
   "backSlug": "nerja-guest-recommendations",
-  "supportHref": FRIGILIANA_SUPPORT_EMAIL,
+  "supportHref": FRIGILIANA_SUPPORT_WHATSAPP,
   "supportLabel": NEED_HELP,
   "seoTitle": {
     "en": "Nightlife in Nerja | AMARA",
@@ -3121,14 +3121,7 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "nl": "Het best voor een ontspannen avond aan zee, vooral in de zomer. Goed voor diner aan het strand, warme lucht en een zachter ritme.",
               "sv": "Bäst för en avslappnad kväll vid stranden, särskilt på sommaren. Bra för middag vid havet, varm kvällsluft och ett lugnare tempo."
             },
-            {
-              "en": "<ul><li><strong>Best for couples:</strong> Balcón / Old Town</li> <li><strong>Best for late drinks:</strong> Tutti Frutti</li> <li><strong>Best for summer beach mood:</strong> Burriana</li></ul>",
-              "de": "<ul><li><strong>Am besten für Paare:</strong> Balcón / Altstadt</li> <li><strong>Am besten für späte Drinks:</strong> Tutti Frutti</li> <li><strong>Am besten für Sommer-Strandstimmung:</strong> Burriana</li></ul>",
-              "es": "<ul><li><strong>Lo mejor para parejas:</strong> Balcón / casco antiguo</li> <li><strong>Lo mejor para copas tarde:</strong> Tutti Frutti</li> <li><strong>Lo mejor para ambiente veraniego de playa:</strong> Burriana</li></ul>",
-              "nl": "<ul><li><strong>Het best voor stellen:</strong> Balcón / oude stad</li> <li><strong>Het best voor late drankjes:</strong> Tutti Frutti</li> <li><strong>Het best voor zomerse beach-sfeer:</strong> Burriana</li></ul>",
-              "sv": "<ul><li><strong>Bäst för par:</strong> Balcón / gamla stan</li> <li><strong>Bäst för sena drinkar:</strong> Tutti Frutti</li> <li><strong>Bäst för somrig strandkänsla:</strong> Burriana</li></ul>"
-            }
-          ]
+            ]
         },
         {
           "icon": "goblet",
@@ -3148,19 +3141,13 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "nl": "Voor een mooie vroege avond blijven jullie het best rond de Balcón de Europa en de omliggende straatjes van de oude stad. Dit is de beste keuze voor zeezicht, een verfijndere sfeer en een rustigere avond.",
               "sv": "För en vacker tidig kväll är det bäst att hålla sig runt Balcón de Europa och de närliggande gatorna i gamla stan. Det är det bästa valet för havsutsikt, en mer elegant känsla och en lugnare kväll."
             },
+            
             {
-              "en": "<ul><li><strong>Best for:</strong> couples, calm groups, date night</li> <li><strong>Best time:</strong> sunset to after dinner</li> <li><strong>Style:</strong> scenic, elegant, walkable</li></ul>",
-              "de": "<ul><li><strong>Am besten für:</strong> Paare, ruhige Gruppen, Date Night</li> <li><strong>Beste Zeit:</strong> Sonnenuntergang bis nach dem Essen</li> <li><strong>Stil:</strong> schön, elegant, gut zu Fuß</li></ul>",
-              "es": "<ul><li><strong>Ideal para:</strong> parejas, grupos tranquilos, cita</li> <li><strong>Mejor momento:</strong> atardecer y después de cenar</li> <li><strong>Estilo:</strong> bonito, elegante, fácil de recorrer a pie</li></ul>",
-              "nl": "<ul><li><strong>Het best voor:</strong> stellen, rustige groepen, date night</li> <li><strong>Beste tijd:</strong> zonsondergang tot na het diner</li> <li><strong>Stijl:</strong> sfeervol, elegant, goed te voet</li></ul>",
-              "sv": "<ul><li><strong>Bäst för:</strong> par, lugna grupper, date night</li> <li><strong>Bästa tid:</strong> solnedgång till efter middagen</li> <li><strong>Stil:</strong> vackert, elegant, promenadvänligt</li></ul>"
-            },
-            {
-              "en": "Our own tested version: in summer 2025 we left the car at AMARA Playa in Nerja, walked into the centre and watched the sunset from Cochran’s Terrace over a Cuba Libre and a Mai Tai. The walk is roughly 450 metres. Check that the terrace is open before you set off.",
-              "de": "Unsere selbst erprobte Variante: Im Sommer 2025 ließen wir das Auto bei AMARA Playa in Nerja stehen, liefen ins Zentrum und sahen bei Cochran’s Terrace mit Cuba Libre und Mai Tai den Sonnenuntergang. Der Weg sind ungefähr 450 Meter. Prüft vor dem Aufbruch, ob die Terrasse geöffnet ist.",
-              "es": "Nuestra versión probada: en verano de 2025 dejamos el coche en AMARA Playa, en Nerja, caminamos al centro y vimos la puesta de sol desde Cochran’s Terrace con un Cuba Libre y un Mai Tai. El paseo son unos 450 metros. Comprobad antes de salir que la terraza esté abierta.",
-              "nl": "Onze zelf beproefde versie: in de zomer van 2025 lieten we de auto bij AMARA Playa in Nerja staan, liepen naar het centrum en zagen vanaf Cochran’s Terrace de zon ondergaan met een Cuba Libre en een Mai Tai. De wandeling is ongeveer 450 meter. Controleer vóór vertrek of het terras open is.",
-              "sv": "Vår egen prövade version: sommaren 2025 lämnade vi bilen vid AMARA Playa i Nerja, promenerade in till centrum och såg solnedgången från Cochran’s Terrace med en Cuba Libre och en Mai Tai. Promenaden är ungefär 450 meter. Kontrollera före avfärd att terrassen är öppen."
+              "en": "Our own favourite: we leave the car at AMARA Playa, walk into the centre and watch the sunset from Cochran’s Terrace over a Cuba Libre and a Mai Tai — a short, easy stroll. Do check the terrace is open before you head out.",
+              "de": "Unser eigener Favorit: Wir lassen das Auto bei AMARA Playa stehen, laufen ins Zentrum und sehen bei Cochran’s Terrace mit einem Cuba Libre und einem Mai Tai den Sonnenuntergang — ein kurzer, entspannter Spaziergang. Schaut vorher kurz, ob die Terrasse geöffnet ist.",
+              "es": "Nuestro favorito: dejamos el coche en AMARA Playa, caminamos al centro y vemos la puesta de sol desde Cochran’s Terrace con un Cuba Libre y un Mai Tai — un paseo corto y tranquilo. Comprobad antes de salir que la terraza esté abierta.",
+              "nl": "Onze eigen favoriet: we laten de auto bij AMARA Playa staan, lopen naar het centrum en zien vanaf Cochran’s Terrace de zon ondergaan met een Cuba Libre en een Mai Tai — een korte, ontspannen wandeling. Check voor vertrek even of het terras open is.",
+              "sv": "Vår egen favorit: vi lämnar bilen vid AMARA Playa, promenerar in till centrum och ser solnedgången från Cochran’s Terrace med en Cuba Libre och en Mai Tai — en kort, avslappnad promenad. Kolla att terrassen är öppen innan ni går."
             }
           ]
         },
@@ -3182,13 +3169,7 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "nl": "Als jullie een latere, luidruchtigere en socialere avond willen, ga dan na het diner naar Plaza Tutti Frutti. Dit is de makkelijkste zone voor bar-hopping en de duidelijkste nightlife-zone van Nerja.",
               "sv": "Om ni vill ha en senare, livligare och mer social kväll ska ni gå till Plaza Tutti Frutti efter middagen. Det här är det enklaste området för bar-hopping och den tydligaste nattlivszonen i Nerja."
             },
-            {
-              "en": "<ul><li><strong>Best for:</strong> groups, later starts, casual fun</li> <li><strong>Best time:</strong> after dinner, especially later in summer</li> <li><strong>Atmosphere:</strong> younger, busier, more energetic</li></ul>",
-              "de": "<ul><li><strong>Am besten für:</strong> Gruppen, spätere Starts, lockeren Spaß</li> <li><strong>Beste Zeit:</strong> nach dem Essen, im Sommer besonders später</li> <li><strong>Atmosphäre:</strong> jünger, voller, energiegeladener</li></ul>",
-              "es": "<ul><li><strong>Ideal para:</strong> grupos, empezar más tarde, plan informal</li> <li><strong>Mejor momento:</strong> después de cenar, en verano incluso más tarde</li> <li><strong>Ambiente:</strong> más joven, más lleno, más enérgico</li></ul>",
-              "nl": "<ul><li><strong>Het best voor:</strong> groepen, later beginnen, informele fun</li> <li><strong>Beste tijd:</strong> na het diner, vooral later in de zomer</li> <li><strong>Sfeer:</strong> jonger, drukker, energieker</li></ul>",
-              "sv": "<ul><li><strong>Bäst för:</strong> grupper, sena starter, avslappnat nöje</li> <li><strong>Bästa tid:</strong> efter middagen, särskilt senare på sommaren</li> <li><strong>Atmosfär:</strong> yngre, livligare, mer energi</li></ul>"
-            },
+            
           ]
         },
         {
@@ -3209,13 +3190,7 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "nl": "Als jullie iets Andalusischer en minder bar-gericht willen, zoek dan naar een flamenco-avond in Nerja. Dit is een van de mooiste alternatieven voor een standaard avondje drinken en voelt vaak memorabeler aan.",
               "sv": "Om ni vill ha något mer andalusiskt och mindre fokuserat på barer, leta efter en flamencokväll i Nerja. Det är ett av de finaste alternativen till en vanlig drinkkväll och känns ofta mer minnesvärt."
             },
-            {
-              "en": "<ul><li><strong>Best for:</strong> couples, culture lovers, a different kind of evening</li> <li><strong>Mood:</strong> intimate, local, atmospheric</li></ul>",
-              "de": "<ul><li><strong>Am besten für:</strong> Paare, Kulturinteressierte, einen anderen Abend</li> <li><strong>Stimmung:</strong> intim, lokal, atmosphärisch</li></ul>",
-              "es": "<ul><li><strong>Ideal para:</strong> parejas, amantes de la cultura, una noche distinta</li> <li><strong>Ambiente:</strong> íntimo, local, con mucha atmósfera</li></ul>",
-              "nl": "<ul><li><strong>Het best voor:</strong> stellen, cultuurliefhebbers, een andere avond</li> <li><strong>Sfeer:</strong> intiem, lokaal, sfeervol</li></ul>",
-              "sv": "<ul><li><strong>Bäst för:</strong> par, kulturintresserade, en annorlunda kväll</li> <li><strong>Känsla:</strong> intim, lokal, stämningsfull</li></ul>"
-            },
+            
             {
               "en": "Our address for it: El Burro Blanco, a flamenco bar in the old town on Calle de la Gloria. The shows last about 75 minutes, tickets start at around 25 € and sell online or at the door; check the dates for your week.",
               "de": "Unsere Adresse dafür: El Burro Blanco, eine Flamenco-Bar in der Altstadt an der Calle de la Gloria. Die Shows dauern rund 75 Minuten, Tickets gibt es ab rund 25 € online oder an der Tür; prüft die Termine für eure Woche.",
@@ -3242,14 +3217,7 @@ const nerjaGuestNightlife: GuestGuideEntry = {
               "nl": "De zomer is het makkelijkste seizoen voor nightlife in Nerja. Alles voelt later, voller en vanzelfsprekender levendig aan. In de winter is het stadje nog steeds prettig, maar wordt het avondleven selectiever en rustiger.",
               "sv": "Sommaren är den enklaste säsongen för nattliv i Nerja. Allt känns senare, livligare och mer naturligt fullt av liv. På vintern är staden fortfarande trevlig, men nattlivet blir mer selektivt och lugnare."
             },
-            {
-              "en": "<ul><li><strong>Summer:</strong> better for Burriana and later drinks</li> <li><strong>Winter:</strong> better to focus on the old town and a smaller number of good places</li> <li><strong>Simple strategy:</strong> start with sunset drinks, then decide if you want more energy afterwards</li></ul>",
-              "de": "<ul><li><strong>Sommer:</strong> besser für Burriana und spätere Drinks</li> <li><strong>Winter:</strong> besser auf die Altstadt und einige wenige gute Orte konzentrieren</li> <li><strong>Einfache Strategie:</strong> mit Sunset-Drinks starten und dann spontan entscheiden, ob ihr später noch mehr wollt</li></ul>",
-              "es": "<ul><li><strong>Verano:</strong> mejor para Burriana y copas más tarde</li> <li><strong>Invierno:</strong> mejor centrarse en el casco antiguo y en un número más pequeño de buenos sitios</li> <li><strong>Estrategia simple:</strong> empezar con copas al atardecer y luego decidir si queréis más ambiente</li></ul>",
-              "nl": "<ul><li><strong>Zomer:</strong> beter voor Burriana en latere drankjes</li> <li><strong>Winter:</strong> beter focussen op de oude stad en een kleiner aantal goede plekken</li> <li><strong>Eenvoudige strategie:</strong> begin met sunset-drankjes en beslis daarna of jullie meer energie willen</li></ul>",
-              "sv": "<ul><li><strong>Sommar:</strong> bättre för Burriana och senare drinkar</li> <li><strong>Vinter:</strong> bättre att fokusera på gamla stan och ett mindre antal riktigt bra ställen</li> <li><strong>Enkel strategi:</strong> börja med drinkar i solnedgången och bestäm sedan om ni vill ha mer liv senare</li></ul>"
-            }
-          ]
+            ]
         }
       ]
     }
@@ -3276,7 +3244,7 @@ const frigilianaRecommendations: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-recommendations',
   backSlug: 'guestwelcome-frigiliana-farah',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'AMARA Experience | AMARA Guest Guide',
@@ -3542,7 +3510,7 @@ const nerjaRecommendations: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-recommendations',
   backSlug: 'guestwelcome-nerja-playa',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {"en":"AMARA Experience | AMARA Guest Guide","de":"AMARA Experience | AMARA Gästeguide","es":"AMARA Experience | Guía para huéspedes de AMARA","nl":"AMARA Experience | AMARA Gastengids","sv":"AMARA Experience | AMARA Gästguide"},
   seoDescription: {"en":"Our selection for Nerja, Frigiliana and nearby: breakfast, restaurants, beaches, evenings, hikes and day trips, with what you need to know on the spot.","de":"Unsere Auswahl für Nerja, Frigiliana und Umgebung: Frühstück, Restaurants, Strände, Abende, Wanderungen und Ausflüge, mit dem, was ihr vor Ort wissen müsst.","es":"Nuestra selección para Nerja, Frigiliana y alrededores: desayunos, restaurantes, playas, noches, rutas y excursiones, con lo que necesitáis saber sobre el terreno.","nl":"Onze selectie voor Nerja, Frigiliana en omgeving: ontbijt, restaurants, stranden, avonden, wandelingen en dagtrips, met wat jullie ter plekke moeten weten.","sv":"Vårt urval för Nerja, Frigiliana och närområdet: frukost, restauranger, stränder, kvällar, vandringar och utflykter, med det ni behöver veta på plats."},
@@ -3601,7 +3569,7 @@ const frigilianaLounisHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-frigiliana-lounis',
   entityKey: 'amara-lounis',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
@@ -3689,7 +3657,7 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
   slug: 'guesthome-frigiliana-lounis',
   entityKey: 'amara-lounis',
   backSlug: 'guestwelcome-frigiliana-lounis',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your Apartment Lounis | AMARA',
@@ -3802,7 +3770,7 @@ const frigilianaZaidHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-frigiliana-zaid',
   entityKey: 'amara-zaid',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
@@ -3890,7 +3858,7 @@ const frigilianaZaidAccommodation: GuestGuideEntry = {
   slug: 'guesthome-frigiliana-zaid',
   entityKey: 'amara-zaid',
   backSlug: 'guestwelcome-frigiliana-zaid',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your Apartment Zaid | AMARA',
@@ -3997,7 +3965,7 @@ const frigilianaMahaHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-frigiliana-maha',
   entityKey: 'amara-maha',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
@@ -4085,7 +4053,7 @@ const frigilianaMahaAccommodation: GuestGuideEntry = {
   slug: 'guesthome-frigiliana-maha',
   entityKey: 'amara-maha',
   backSlug: 'guestwelcome-frigiliana-maha',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your Apartment Maha | AMARA',
@@ -4192,7 +4160,7 @@ const nerjaPlayaHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-nerja-playa',
   entityKey: 'amara-playa',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your AMARA stay in Nerja | AMARA Guest Guide',
@@ -4280,7 +4248,7 @@ const nerjaPlayaAccommodation: GuestGuideEntry = {
   slug: 'guesthome-nerja-playa',
   entityKey: 'amara-playa',
   backSlug: 'guestwelcome-nerja-playa',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your Accommodation AMARA Playa | AMARA',
@@ -4649,7 +4617,7 @@ const nerjaEssentials: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-essentials',
   backSlug: 'guestwelcome-nerja-playa',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Nerja Essentials | AMARA',

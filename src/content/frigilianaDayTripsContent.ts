@@ -10,6 +10,7 @@ export interface FrigilianaDayTripsPageCopy {
   hero: {
     kicker: string;
     title: string;
+    subtitle: string;
     paragraphs: string[];
     imageAlt: string;
     availabilityCta: string;
@@ -123,8 +124,8 @@ export const frigilianaDayTripsContent: Record<
     },
     hero: {
       kicker: 'Andalusia guide',
-      title:
-        'Day trips from Frigiliana: culture, history and scenic drives',
+      title: 'Day trips from Frigiliana',
+      subtitle: 'Culture, history and scenic drives',
       paragraphs: [
         'Staying in Frigiliana gives you a rare advantage: you sleep in calm hill air, yet some of Andalusia’s most memorable places are within reach for a day.',
         'Frigiliana remains your base; the day trip is the accent. Pick one main highlight, add a relaxed meal and perhaps one extra stop, then return for a quiet village evening instead of turning the day into a checklist.'
@@ -235,8 +236,8 @@ export const frigilianaDayTripsContent: Record<
     },
     hero: {
       kicker: 'Andalusien-Guide',
-      title:
-        'Tagesausflüge ab Frigiliana: Kultur, Geschichte und Panoramastraßen',
+      title: 'Tagesausflüge ab Frigiliana',
+      subtitle: 'Kultur, Geschichte und Panoramastraßen',
       paragraphs: [
         'Ein Aufenthalt in Frigiliana bietet einen seltenen Vorteil: Ihr schlaft in der ruhigen Luft der Hügel und erreicht dennoch einige der eindrucksvollsten Orte Andalusiens innerhalb eines Tages.',
         'Frigiliana bleibt eure Basis; der Ausflug setzt den Akzent. Wählt ein großes Highlight, ergänzt ein entspanntes Essen und vielleicht einen weiteren Stopp und kehrt anschließend zu einem ruhigen Abend im Dorf zurück, statt den Tag in eine Checkliste zu verwandeln.'
@@ -347,8 +348,8 @@ export const frigilianaDayTripsContent: Record<
     },
     hero: {
       kicker: 'Guía de Andalucía',
-      title:
-        'Excursiones desde Frigiliana: cultura, historia y rutas panorámicas',
+      title: 'Excursiones desde Frigiliana',
+      subtitle: 'Cultura, historia y rutas panorámicas',
       paragraphs: [
         'Alojarse en Frigiliana ofrece una ventaja poco habitual: dormís en la tranquilidad de las colinas y, aun así, podéis llegar en el día a algunos de los lugares más memorables de Andalucía.',
         'Frigiliana sigue siendo vuestra base; la excursión pone el acento. Elegid un gran atractivo, añadid una comida sin prisas y quizá una parada más, y regresad para disfrutar de una noche tranquila en el pueblo en lugar de convertir el día en una lista de obligaciones.'
@@ -459,8 +460,8 @@ export const frigilianaDayTripsContent: Record<
     },
     hero: {
       kicker: 'Andalusië-gids',
-      title:
-        'Dagtochten vanuit Frigiliana: cultuur, geschiedenis en mooie autoroutes',
+      title: 'Dagtochten vanuit Frigiliana',
+      subtitle: 'Cultuur, geschiedenis en mooie autoroutes',
       paragraphs: [
         'Een verblijf in Frigiliana heeft een bijzonder voordeel: jullie slapen in de rustige heuvels, terwijl enkele van de meest indrukwekkende plekken van Andalusië binnen één dag bereikbaar zijn.',
         'Frigiliana blijft jullie uitvalsbasis; de dagtocht legt het accent. Kies één hoofdattractie, voeg een ontspannen maaltijd en eventueel één extra stop toe en keer terug voor een rustige dorpsavond, in plaats van van de dag een checklist te maken.'
@@ -571,8 +572,8 @@ export const frigilianaDayTripsContent: Record<
     },
     hero: {
       kicker: 'Andalusienguide',
-      title:
-        'Dagsutflykter från Frigiliana: kultur, historia och vackra bilvägar',
+      title: 'Dagsutflykter från Frigiliana',
+      subtitle: 'Kultur, historia och vackra bilvägar',
       paragraphs: [
         'En vistelse i Frigiliana har en ovanlig fördel: ni sover i kullarnas lugna luft men kan ändå nå några av Andalusiens mest minnesvärda platser över dagen.',
         'Frigiliana förblir er bas; utflykten sätter accenten. Välj en huvudupplevelse, lägg till en lugn måltid och möjligen ett extra stopp och återvänd sedan till en stillsam kväll i byn i stället för att göra dagen till en checklista.'

@@ -129,9 +129,14 @@
 
   .am-text-display {
     font-family: var(--font-headline);
-    font-size: clamp(3.5rem, 10vw, 7.5rem);
+    /* Tamed from clamp(3.5rem, 10vw, 7.5rem): the old 56px mobile floor and 10vw
+     * slope let a long German H1 wrap to four or five lines and swallow the top of
+     * the phone screen. This scale matches the calmer display the property-sale,
+     * document and Tarifa surfaces had each already dialled in by hand; a touch
+     * more line-height keeps the now-smaller multi-line H1 legible. */
+    font-size: clamp(2.75rem, 6vw, 5rem);
     font-weight: 300;
-    line-height: 1.02;
+    line-height: 1.05;
     letter-spacing: -0.025em;
   }
 

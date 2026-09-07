@@ -57,6 +57,8 @@ interface ExperienceHubPageCopy {
   hero: {
     kicker: string;
     title: string;
+    /** Second heading below the H1: the evocative line, one step smaller (DR-DESIGN). */
+    subtitle?: string;
     paragraphs: string[];
     exploreCta: string;
   };
@@ -360,7 +362,8 @@ export const experienceHubContent: Record<
     },
     hero: {
       kicker: 'Your days in Frigiliana',
-      title: 'Morning in the village, later the hills or the sea.',
+      title: 'Experiences in Frigiliana',
+      subtitle: 'Morning in the village, later the hills or the sea.',
       paragraphs: [
         'At Casa AMARA, the day begins in the middle of Frigiliana. Pick up bread, wander through the old lanes, walk into the hills or head down to Nerja for the beach. In the evening, you can eat in the village and simply walk home. There is no programme to complete — every day can be different.'
       ],
@@ -526,7 +529,8 @@ export const experienceHubContent: Record<
     },
     hero: {
       kicker: 'Eure Tage in Frigiliana',
-      title: 'Morgens durchs Dorf, später in die Berge oder ans Meer.',
+      title: 'Erlebnisse in Frigiliana',
+      subtitle: 'Morgens durchs Dorf, später in die Berge oder ans Meer.',
       paragraphs: [
         'Bei Casa AMARA beginnt der Tag mitten in Frigiliana. Ihr holt morgens Brot, lauft durch die alten Gassen, startet in die Berge oder fahrt für einen Strandtag hinunter nach Nerja. Abends könnt ihr im Dorf essen gehen und danach einfach nach Hause laufen. Es gibt kein Programm, das ihr abhaken müsst – macht das, was an diesem Tag zu euch passt.'
       ],
@@ -691,7 +695,8 @@ export const experienceHubContent: Record<
     },
     hero: {
       kicker: 'Vuestros días en Frigiliana',
-      title: 'Por la mañana el pueblo; después, la montaña o el mar.',
+      title: 'Experiencias en Frigiliana',
+      subtitle: 'Por la mañana el pueblo; después, la montaña o el mar.',
       paragraphs: [
         'En Casa AMARA el día empieza en pleno Frigiliana. Podéis comprar pan, pasear por las calles antiguas, salir a la montaña o bajar a Nerja para pasar el día en la playa. Por la noche cenáis en el pueblo y volvéis a casa andando. No hay ningún programa que completar: cada día puede ser distinto.'
       ],
@@ -856,7 +861,8 @@ export const experienceHubContent: Record<
     },
     hero: {
       kicker: 'Jullie dagen in Frigiliana',
-      title: 'In de ochtend het dorp, daarna de bergen of de zee.',
+      title: 'Ervaringen in Frigiliana',
+      subtitle: 'In de ochtend het dorp, daarna de bergen of de zee.',
       paragraphs: [
         'Bij Casa AMARA begint de dag midden in Frigiliana. Haal brood, wandel door de oude straatjes, trek de heuvels in of ga naar Nerja voor een stranddag. ’s Avonds eten jullie in het dorp en lopen daarna gewoon naar huis. Er is geen programma om af te werken: elke dag mag anders zijn.'
       ],
@@ -1021,7 +1027,8 @@ export const experienceHubContent: Record<
     },
     hero: {
       kicker: 'Era dagar i Frigiliana',
-      title: 'Byn på morgonen, sedan bergen eller havet.',
+      title: 'Upplevelser i Frigiliana',
+      subtitle: 'Byn på morgonen, sedan bergen eller havet.',
       paragraphs: [
         'På Casa AMARA börjar dagen mitt i Frigiliana. Hämta bröd, promenera genom de gamla gränderna, ge er ut i bergen eller åk till Nerja för en stranddag. På kvällen äter ni i byn och går sedan bara hem. Det finns inget program att hinna med – varje dag får se olika ut.'
       ],

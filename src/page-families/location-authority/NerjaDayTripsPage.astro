@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import DayTripRadiusGraphic, { type DayTripRadiusGraphicData } from '../../components/location/DayTripRadiusGraphic.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
@@ -50,6 +51,60 @@ const footerHighlights: LabeledLink[] = [
   { token: 'nerja_beaches_authority', label: copy.related.items[0].title },
   { token: 'nerja_food_authority', label: copy.related.items[1].title }
 ];
+
+const dayTripGraphicByLang: Record<AmaraLanguage, DayTripRadiusGraphicData> = {
+  en: {
+    place: 'nerja', eyebrow: 'Day trips', destination: 'Nerja',
+    region: 'Andalusia', baseLabel: 'NERJA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Map of four Andalusian day trips from Nerja with drive times',
+    context: [
+      { label: 'Destinations', value: 'Four day trips' },
+      { label: 'Drive time', value: '50 min – 2 h' },
+      { label: 'Our advice', value: 'One per day' }
+    ]
+  },
+  de: {
+    place: 'nerja', eyebrow: 'Tagesausflüge', destination: 'Nerja',
+    region: 'Andalusien', baseLabel: 'NERJA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Karte mit vier andalusischen Tagesausflügen ab Nerja samt Fahrzeiten',
+    context: [
+      { label: 'Ziele', value: 'Vier Tagesausflüge' },
+      { label: 'Fahrzeit', value: '50 Min. – 2 Std.' },
+      { label: 'Empfehlung', value: 'Eins pro Tag' }
+    ]
+  },
+  es: {
+    place: 'nerja', eyebrow: 'Excursiones', destination: 'Nerja',
+    region: 'Andalucía', baseLabel: 'NERJA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Mapa de cuatro excursiones andaluzas desde Nerja con tiempos de coche',
+    context: [
+      { label: 'Destinos', value: 'Cuatro excursiones' },
+      { label: 'Trayecto', value: '50 min – 2 h' },
+      { label: 'Consejo', value: 'Uno por día' }
+    ]
+  },
+  nl: {
+    place: 'nerja', eyebrow: 'Dagtochten', destination: 'Nerja',
+    region: 'Andalusië', baseLabel: 'NERJA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Kaart met vier Andalusische dagtochten vanuit Nerja met rijtijden',
+    context: [
+      { label: 'Bestemmingen', value: 'Vier dagtochten' },
+      { label: 'Rijtijd', value: '50 min – 2 u' },
+      { label: 'Ons advies', value: 'Eén per dag' }
+    ]
+  },
+  sv: {
+    place: 'nerja', eyebrow: 'Dagsutflykter', destination: 'Nerja',
+    region: 'Andalusien', baseLabel: 'NERJA', seaLabel: 'MEDITERRÁNEO',
+    ariaLabel: 'Karta med fyra andalusiska dagsutflykter från Nerja med restider',
+    context: [
+      { label: 'Mål', value: 'Fyra dagsutflykter' },
+      { label: 'Restid', value: '50 min – 2 h' },
+      { label: 'Vårt råd', value: 'En per dag' }
+    ]
+  }
+};
+const dayTripGraphicData = dayTripGraphicByLang[currentLang];
 ---
 
 <LocationAuthorityLayout seo={nerjaDayTripsSeo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="experience-nerja-day-trips">
@@ -63,8 +118,11 @@ const footerHighlights: LabeledLink[] = [
       topic="day-trips"
       eyebrow={copy.hero.kicker}
       title={copy.hero.title}
+      subtitle={copy.hero.subtitle}
       paragraphs={copy.hero.paragraphs}
-    />
+    >
+      <DayTripRadiusGraphic slot="visual" data={dayTripGraphicData} />
+    </LocationExperienceHero>
 
     <AuthorityFeatureSection
       id="overview"

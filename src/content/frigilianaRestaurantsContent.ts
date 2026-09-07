@@ -25,8 +25,16 @@ export interface FrigilianaRestaurantsPageCopy {
   hero: {
     kicker: string;
     title: string;
+    /** Second heading below the H1: the keyword tail, one step smaller (DR-DESIGN). */
+    subtitle: string;
     paragraphs: string[];
     imageAlt: string;
+    /** Dark hero-tile summary: a short takeaway plus a mini table of contents. */
+    summary: {
+      eyebrow: string;
+      body: string;
+      items: Array<{ id: string; label: string; value: string }>;
+    };
   };
   sectionNav: {
     choose: string;
@@ -150,14 +158,26 @@ export const frigilianaRestaurantsContent: Record<
     },
     hero: {
       kicker: 'Local dining guide',
-      title: 'Restaurants in Frigiliana & Nerja — choose by place and occasion',
+      title: 'Restaurants in Frigiliana & Nerja',
+      subtitle: 'Choose by place and occasion',
       paragraphs: [
         'Dinner here can mean a terrace above Frigiliana, creative plates in Nerja or fresh fish in a busy local bar. Those are different evenings, with different travel and booking needs.',
         'This is not a ranking or a directory. It is a concise editorial selection for guests, with the trade-offs that matter before you reserve.',
         'Opening days and menus change with the season. Use the guide to choose, then confirm the latest details directly with the restaurant.'
       ],
       imageAlt:
-        'Whitewashed Frigiliana above the hills and Mediterranean coast'
+        'Whitewashed Frigiliana above the hills and Mediterranean coast',
+      summary: {
+        eyebrow: 'On this page',
+        body:
+          'A curated pick of restaurants in Frigiliana and Nerja — sorted by place and occasion, not a ranking. Choose here, then confirm opening days with the restaurant.',
+        items: [
+          { id: 'frigiliana', label: 'Frigiliana', value: 'Village evenings you can walk home from' },
+          { id: 'nerja', label: 'Nerja', value: 'Special menus, tapas and fresh fish' },
+          { id: 'acebuchal', label: 'El Acebuchal', value: 'Lunch as a small outing' },
+          { id: 'reviewed', label: 'Reviewed', value: 'July 2026' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Choose by location and meal',
@@ -304,14 +324,26 @@ export const frigilianaRestaurantsContent: Record<
     },
     hero: {
       kicker: 'Restaurant-Guide aus der Region',
-      title: 'Restaurants in Frigiliana & Nerja — nach Lage und Anlass wählen',
+      title: 'Restaurants in Frigiliana & Nerja',
+      subtitle: 'Nach Lage und Anlass wählen',
       paragraphs: [
         'Ein besonderer Abend kann hier vieles sein: ein Tisch über den Dächern Frigilianas, kreative Küche in Nerja oder fangfrischer Fisch in einer lebhaften Bar. Das sind ganz unterschiedliche Erlebnisse – entscheidend ist, wonach euch gerade ist.',
         'Diese Seite ist weder Rangliste noch vollständiges Verzeichnis. Sie versammelt eine überschaubare redaktionelle Auswahl für Gäste, einschließlich der Details, die vor der Reservierung wirklich zählen.',
         'Ruhetage und Speisekarten ändern sich je nach Saison. Nutzt den Guide für die Auswahl und bestätigt die aktuellen Angaben anschließend direkt beim Restaurant.'
       ],
       imageAlt:
-        'Das weiße Dorf Frigiliana über den Hügeln und der Mittelmeerküste'
+        'Das weiße Dorf Frigiliana über den Hügeln und der Mittelmeerküste',
+      summary: {
+        eyebrow: 'Auf dieser Seite',
+        body:
+          'Eine kuratierte Auswahl an Restaurants in Frigiliana und Nerja — nach Ort und Anlass sortiert, keine Rangliste. Hier vorwählen, Öffnungszeiten dann direkt beim Lokal bestätigen.',
+        items: [
+          { id: 'frigiliana', label: 'Frigiliana', value: 'Abende im Dorf, zu Fuß nach Hause' },
+          { id: 'nerja', label: 'Nerja', value: 'Besondere Menüs, Tapas und frischer Fisch' },
+          { id: 'acebuchal', label: 'El Acebuchal', value: 'Mittagessen als kleiner Ausflug' },
+          { id: 'reviewed', label: 'Stand', value: 'Juli 2026' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Nach Stimmung wählen',
@@ -458,14 +490,26 @@ export const frigilianaRestaurantsContent: Record<
     },
     hero: {
       kicker: 'Guía gastronómica local',
-      title: 'Restaurantes en Frigiliana y Nerja — elegid por zona y ocasión',
+      title: 'Restaurantes en Frigiliana y Nerja',
+      subtitle: 'Elegid por zona y ocasión',
       paragraphs: [
         'Una cena memorable puede ser una mesa sobre los tejados de Frigiliana, platos creativos en Nerja o pescado fresco al ritmo de un bar local lleno de vida. Son planes distintos, y la elección depende del ambiente que apetezca.',
         'Esto no es un ranking ni un directorio. Es una selección editorial breve para huéspedes, con los matices que de verdad conviene conocer antes de reservar.',
         'Los días de apertura y las cartas cambian con la temporada. Usa la guía para elegir y confirma después la información más reciente directamente con el restaurante.'
       ],
       imageAlt:
-        'El pueblo blanco de Frigiliana sobre las colinas y la costa mediterránea'
+        'El pueblo blanco de Frigiliana sobre las colinas y la costa mediterránea',
+      summary: {
+        eyebrow: 'En esta página',
+        body:
+          'Una selección de restaurantes en Frigiliana y Nerja, ordenada por lugar y ocasión, no un ranking. Elegid aquí y confirmad los horarios directamente con el restaurante.',
+        items: [
+          { id: 'frigiliana', label: 'Frigiliana', value: 'Cenas en el pueblo, volvéis andando' },
+          { id: 'nerja', label: 'Nerja', value: 'Menús especiales, tapas y pescado fresco' },
+          { id: 'acebuchal', label: 'El Acebuchal', value: 'Comer como pequeña excursión' },
+          { id: 'reviewed', label: 'Revisado', value: 'Julio 2026' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Elegir según el plan',
@@ -612,14 +656,26 @@ export const frigilianaRestaurantsContent: Record<
     },
     hero: {
       kicker: 'Lokale restaurantgids',
-      title: 'Restaurants in Frigiliana & Nerja — kies op locatie en gelegenheid',
+      title: 'Restaurants in Frigiliana & Nerja',
+      subtitle: 'Kies op locatie en gelegenheid',
       paragraphs: [
         'Een bijzondere avond kan hier een terras boven Frigiliana zijn, creatieve gerechten in Nerja of verse vis in het tempo van een levendige lokale bar. Dat zijn verschillende ervaringen; de juiste keuze hangt af van je stemming.',
         'Dit is geen ranglijst en ook geen compleet overzicht. Het is een compacte redactionele selectie voor gasten, inclusief de afwegingen die ertoe doen voordat je reserveert.',
         'Openingsdagen en menu’s veranderen per seizoen. Gebruik de gids om te kiezen en controleer de meest recente informatie daarna rechtstreeks bij het restaurant.'
       ],
       imageAlt:
-        'Het witte dorp Frigiliana boven de heuvels en de Middellandse Zeekust'
+        'Het witte dorp Frigiliana boven de heuvels en de Middellandse Zeekust',
+      summary: {
+        eyebrow: 'Op deze pagina',
+        body:
+          'Een samengestelde keuze aan restaurants in Frigiliana en Nerja — op plek en gelegenheid, geen ranglijst. Kies hier voor en bevestig openingstijden rechtstreeks bij het restaurant.',
+        items: [
+          { id: 'frigiliana', label: 'Frigiliana', value: 'Avonden in het dorp, lopend naar huis' },
+          { id: 'nerja', label: 'Nerja', value: 'Speciale menu’s, tapas en verse vis' },
+          { id: 'acebuchal', label: 'El Acebuchal', value: 'Lunch als klein uitstapje' },
+          { id: 'reviewed', label: 'Bijgewerkt', value: 'Juli 2026' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Kies op sfeer',
@@ -766,14 +822,26 @@ export const frigilianaRestaurantsContent: Record<
     },
     hero: {
       kicker: 'Lokal restaurangguide',
-      title: 'Restauranger i Frigiliana & Nerja — välj efter plats och tillfälle',
+      title: 'Restauranger i Frigiliana & Nerja',
+      subtitle: 'Välj efter plats och tillfälle',
       paragraphs: [
         'En minnesvärd middag kan vara en terrass ovanför Frigiliana, kreativa rätter i Nerja eller färsk fisk i tempot på en livlig lokal bar. Det är olika kvällar, och rätt val beror på vilket humör du är på.',
         'Det här är varken en rankning eller en fullständig katalog. Det är ett kort redaktionellt urval för gäster, tillsammans med de avvägningar som är viktiga före bokningen.',
         'Öppningsdagar och menyer ändras med säsongen. Använd guiden för att välja och bekräfta sedan aktuell information direkt med restaurangen.'
       ],
       imageAlt:
-        'Den vita byn Frigiliana ovanför kullarna och Medelhavskusten'
+        'Den vita byn Frigiliana ovanför kullarna och Medelhavskusten',
+      summary: {
+        eyebrow: 'På den här sidan',
+        body:
+          'Ett kuraterat urval restauranger i Frigiliana och Nerja — ordnat efter plats och tillfälle, ingen rangordning. Välj här och bekräfta öppettider direkt med restaurangen.',
+        items: [
+          { id: 'frigiliana', label: 'Frigiliana', value: 'Kvällar i byn, gå hem till fots' },
+          { id: 'nerja', label: 'Nerja', value: 'Särskilda menyer, tapas och färsk fisk' },
+          { id: 'acebuchal', label: 'El Acebuchal', value: 'Lunch som en liten utflykt' },
+          { id: 'reviewed', label: 'Uppdaterad', value: 'Juli 2026' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Välj efter känsla',

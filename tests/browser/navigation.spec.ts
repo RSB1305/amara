@@ -326,7 +326,7 @@ test('the destination disclosures use one responsive DOM tree', async ({ page })
   await expect(root).toHaveCount(1);
   await expect(root).toBeVisible();
   await expect(disclosures).toHaveCount(2);
-  await expect(root.locator('[data-am-context-sibling]')).toHaveCount(17);
+  await expect(root.locator('[data-am-context-sibling]')).toHaveCount(15);
 
   await locationDisclosure.locator('summary').click();
   await expect(locationDisclosure).toHaveAttribute('open', '');
@@ -337,7 +337,7 @@ test('the destination disclosures use one responsive DOM tree', async ({ page })
     'Was ihr für euren Aufenthalt wissen solltet.'
   );
   await expect(panel.locator('section')).toHaveCount(4);
-  await expect(panel.locator('[data-am-context-sibling]')).toHaveCount(8);
+  await expect(panel.locator('[data-am-context-sibling]')).toHaveCount(7);
   expect(
     await groupGrid.evaluate(
       (element) => getComputedStyle(element).gridTemplateColumns.split(' ').length
@@ -376,8 +376,12 @@ test('the destination branch disclosures stay distinct from the global menu', as
 
   await locationDisclosure.locator('summary').click();
   await expect(locationDisclosure).toHaveAttribute('open', '');
-  await experienceDisclosure.locator('summary').click();
+  // On mobile the open panel is a fixed overlay that deliberately covers the
+  // other trigger, so switching branches means closing the current disclosure
+  // before opening the next one — not tapping a trigger hidden behind the panel.
+  await locationDisclosure.locator('summary').click();
   await expect(locationDisclosure).not.toHaveAttribute('open', '');
+  await experienceDisclosure.locator('summary').click();
   await expect(experienceDisclosure).toHaveAttribute('open', '');
   await expect(experienceDisclosure.locator('[data-am-context-panel-title]')).toHaveText(
     'Frigiliana & Region'
@@ -419,7 +423,7 @@ test('the contextual scroll contract covers location and experience hubs and spo
 
   const representativeRoutes = [
     '/de/frigiliana',
-    '/de/frigiliana/geografie',
+    '/de/frigiliana/wetter',
     '/de/frigiliana/erlebnisse',
     '/de/frigiliana/erlebnisse/straende',
     '/de/nerja/erlebnisse/hoehlen',
@@ -531,12 +535,12 @@ test('the desktop destination disclosures remain available without JavaScript', 
     await locationDisclosure.locator('summary').click();
     await expect(locationDisclosure).toHaveAttribute('open', '');
     await expect(locationDisclosure.locator('section')).toHaveCount(4);
-    await expect(locationDisclosure.locator('[data-am-context-sibling]')).toHaveCount(8);
+    await expect(locationDisclosure.locator('[data-am-context-sibling]')).toHaveCount(7);
 
     await experienceDisclosure.locator('summary').click();
     await expect(experienceDisclosure).toHaveAttribute('open', '');
     await expect(experienceDisclosure.locator('section')).toHaveCount(4);
-    await expect(experienceDisclosure.locator('[data-am-context-sibling]')).toHaveCount(9);
+    await expect(experienceDisclosure.locator('[data-am-context-sibling]')).toHaveCount(8);
   } finally {
     await context.close();
   }

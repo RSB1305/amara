@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import LocationGuideEvidence from '../../components/location/LocationGuideEvidence.astro';
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
@@ -85,6 +86,7 @@ const combineItems = copy.combine.items.map((item) => ({
         topic="restaurants"
         eyebrow={copy.hero.kicker}
         title={copy.hero.title}
+        subtitle={copy.hero.subtitle}
         paragraphs={copy.hero.paragraphs}
         byline={frigilianaRestaurantsSeo.article ? {
           lang: currentLang,
@@ -93,7 +95,14 @@ const combineItems = copy.combine.items.map((item) => ({
           updated: copy.overview.reviewed,
           note: copy.planning.note
         } : undefined}
-      />
+      >
+        <LocationGuideEvidence
+          slot="visual"
+          eyebrow={copy.hero.summary.eyebrow}
+          summary={copy.hero.summary.body}
+          items={copy.hero.summary.items}
+        />
+      </LocationExperienceHero>
 
       <AuthorityFeatureSection
         id="choose"

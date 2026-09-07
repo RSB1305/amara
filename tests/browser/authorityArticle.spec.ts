@@ -106,6 +106,8 @@ interface AuthorityPage {
   sectionMarkerAttribute: string | null;
   /** Whether the supporting chapters render inside one shared card grid. */
   groupSupportingSections?: boolean;
+  /** Where the Gästeguide bridge renders relative to the related links, or absent. */
+  hasGuideBridge?: 'before-related' | 'after-related';
   closingCtas: [ClosingCta, ClosingCta];
 }
 
@@ -200,6 +202,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'nerja_balcon_de_europa',
     pageId: 'nerja-balcon-de-europa',
+    hasGuideBridge: 'after-related',
     content: (lang) => resolveLocale(nerjaBalconContent, lang),
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
@@ -220,6 +223,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'nerja_caves',
     pageId: 'nerja-caves',
+    hasGuideBridge: 'after-related',
     content: (lang) => resolveLocale(nerjaCavesContent, lang),
     heroMark: null,
     relatedColumns: 'md:grid-cols-3',
@@ -240,6 +244,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'nerja_daily_life',
     pageId: 'nerja-daily-life',
+    hasGuideBridge: 'before-related',
     content: (lang) => nerjaDailyLifeContent[lang],
     heroMark: () => 'Nerja',
     relatedColumns: 'md:grid-cols-3',
@@ -256,6 +261,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
   {
     routeToken: 'tarifa_daily_life',
     pageId: 'tarifa-daily-life',
+    hasGuideBridge: 'before-related',
     content: (lang) => tarifaDailyLifeContent[lang],
     heroMark: () => 'Tarifa',
     relatedColumns: 'md:grid-cols-3',
@@ -343,6 +349,7 @@ const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> 
       if (node.tagName === 'HEADER') return { kind: 'header', marker: null };
       if (orientation) return { kind: `orientation:${orientation}`, marker: null };
       if (arrivalModule) return { kind: `arrival:${arrivalModule}`, marker: null };
+      if (node.hasAttribute('data-am-guest-guide-bridge')) return { kind: 'guide-bridge', marker: null };
       if (node.hasAttribute('data-am-climate-table')) return { kind: 'climate-table', marker: null };
       const groupedSectionIds = Array.from(
         node.querySelectorAll<HTMLElement>('[data-am-authority-layout="card"][id]')
@@ -411,8 +418,16 @@ function expectedBlocks(entry: AuthorityPage, locale: AuthorityArticleLocale): B
     blocks.push({ kind: entry.blockAfterSections, marker: null });
   }
 
+  if (entry.hasGuideBridge === 'before-related') {
+    blocks.push({ kind: 'guide-bridge', marker: null });
+  }
+
   if (entry.relatedColumns) {
     blocks.push({ kind: 'related', marker: null });
+  }
+
+  if (entry.hasGuideBridge === 'after-related') {
+    blocks.push({ kind: 'guide-bridge', marker: null });
   }
 
   blocks.push({ kind: 'sources', marker: null }, { kind: 'closing', marker: null });
@@ -473,8 +488,11 @@ for (const entry of AUTHORITY_PAGES) {
         await expect(sectionRoot).toHaveCount(1);
         await expect(sectionRoot.locator('h2')).toHaveText(section.title);
         const usesContextColumns = section.localContext && section.amaraContext;
+        // Three eyebrows (section, local, amara) sit above the intro/local/amara
+        // paragraphs. The guest-guide note is no longer rendered inline — it moved
+        // to the Gästeguide bridge — so it no longer adds a paragraph here.
         const expectedParagraphCount = usesContextColumns
-          ? section.paragraphs.length + 3 + (section.guestGuideNote ? 1 : 0)
+          ? section.paragraphs.length + 3
           : section.paragraphs.length + 1;
         await expect(sectionRoot.locator('p')).toHaveCount(expectedParagraphCount);
       }
