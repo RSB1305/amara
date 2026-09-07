@@ -56,7 +56,7 @@ export interface FrigilianaFestivalsPageCopy {
     summary?: {
       eyebrow: string;
       body: string;
-      items: Array<{ label: string; value: string }>;
+      items: Array<{ id: string; label: string; value: string }>;
     };
   };
   sectionNav: {
@@ -205,10 +205,10 @@ export const frigilianaFestivalsContent: Record<
         body:
           'The festival year in Frigiliana and Nerja at a glance — from village traditions and processions to summer nights and the big festival weekends. Planned by season, not a full checklist.',
         items: [
-          { label: 'Traditions', value: 'Village customs year-round' },
-          { label: 'Processions', value: 'Holy Week and pilgrimages' },
-          { label: 'Summer nights', value: 'Music and late evenings' },
-          { label: 'Festival weekends', value: 'The big dates' }
+          { id: 'traditions', label: 'Traditions', value: 'Village customs year-round' },
+          { id: 'processions', label: 'Processions', value: 'Holy Week and pilgrimages' },
+          { id: 'summer', label: 'Summer nights', value: 'Music and late evenings' },
+          { id: 'weekends', label: 'Festival weekends', value: 'The big dates' }
         ]
       }
     },
@@ -577,10 +577,10 @@ export const frigilianaFestivalsContent: Record<
         body:
           'Das Festjahr in Frigiliana und Nerja im Überblick — von Dorftraditionen und Prozessionen bis zu Sommernächten und den großen Festivalwochenenden. Nach Reisezeit geplant, keine Vollständigkeit.',
         items: [
-          { label: 'Traditionen', value: 'Dorfbräuche das ganze Jahr' },
-          { label: 'Prozessionen', value: 'Semana Santa & Wallfahrten' },
-          { label: 'Sommernächte', value: 'Musik und lange Abende' },
-          { label: 'Festivalwochenenden', value: 'Die großen Termine' }
+          { id: 'traditions', label: 'Traditionen', value: 'Dorfbräuche das ganze Jahr' },
+          { id: 'processions', label: 'Prozessionen', value: 'Semana Santa & Wallfahrten' },
+          { id: 'summer', label: 'Sommernächte', value: 'Musik und lange Abende' },
+          { id: 'weekends', label: 'Festivalwochenenden', value: 'Die großen Termine' }
         ]
       }
     },
@@ -950,10 +950,10 @@ export const frigilianaFestivalsContent: Record<
         body:
           'El año de fiestas en Frigiliana y Nerja de un vistazo: desde tradiciones de pueblo y procesiones hasta noches de verano y los grandes fines de semana de festival. Planificado por temporada.',
         items: [
-          { label: 'Tradiciones', value: 'Costumbres del pueblo todo el año' },
-          { label: 'Procesiones', value: 'Semana Santa y romerías' },
-          { label: 'Noches de verano', value: 'Música y veladas' },
-          { label: 'Fines de festival', value: 'Las grandes fechas' }
+          { id: 'traditions', label: 'Tradiciones', value: 'Costumbres del pueblo todo el año' },
+          { id: 'processions', label: 'Procesiones', value: 'Semana Santa y romerías' },
+          { id: 'summer', label: 'Noches de verano', value: 'Música y veladas' },
+          { id: 'weekends', label: 'Fines de festival', value: 'Las grandes fechas' }
         ]
       }
     },
@@ -1323,10 +1323,10 @@ export const frigilianaFestivalsContent: Record<
         body:
           'Het feestjaar in Frigiliana en Nerja in één oogopslag — van dorpstradities en processies tot zomeravonden en de grote festivalweekends. Gepland per seizoen, geen volledige lijst.',
         items: [
-          { label: 'Tradities', value: 'Dorpsgebruiken het hele jaar' },
-          { label: 'Processies', value: 'Semana Santa en bedevaarten' },
-          { label: 'Zomeravonden', value: 'Muziek en lange avonden' },
-          { label: 'Festivalweekends', value: 'De grote data' }
+          { id: 'traditions', label: 'Tradities', value: 'Dorpsgebruiken het hele jaar' },
+          { id: 'processions', label: 'Processies', value: 'Semana Santa en bedevaarten' },
+          { id: 'summer', label: 'Zomeravonden', value: 'Muziek en lange avonden' },
+          { id: 'weekends', label: 'Festivalweekends', value: 'De grote data' }
         ]
       }
     },
@@ -1696,10 +1696,10 @@ export const frigilianaFestivalsContent: Record<
         body:
           'Feståret i Frigiliana och Nerja i överblick — från bytraditioner och processioner till sommarkvällar och de stora festivalhelgerna. Planerat efter säsong, ingen fullständig lista.',
         items: [
-          { label: 'Traditioner', value: 'Byseder året runt' },
-          { label: 'Processioner', value: 'Påskveckan och vallfärder' },
-          { label: 'Sommarkvällar', value: 'Musik och sena kvällar' },
-          { label: 'Festivalhelger', value: 'De stora datumen' }
+          { id: 'traditions', label: 'Traditioner', value: 'Byseder året runt' },
+          { id: 'processions', label: 'Processioner', value: 'Påskveckan och vallfärder' },
+          { id: 'summer', label: 'Sommarkvällar', value: 'Musik och sena kvällar' },
+          { id: 'weekends', label: 'Festivalhelger', value: 'De stora datumen' }
         ]
       }
     },

@@ -31,7 +31,7 @@ export interface FrigilianaRestaurantsPageCopy {
     summary: {
       eyebrow: string;
       body: string;
-      items: Array<{ label: string; value: string }>;
+      items: Array<{ id: string; label: string; value: string }>;
     };
   };
   sectionNav: {
@@ -169,10 +169,10 @@ export const frigilianaRestaurantsContent: Record<
         body:
           'A curated pick of restaurants in Frigiliana and Nerja — sorted by place and occasion, not a ranking. Choose here, then confirm opening days with the restaurant.',
         items: [
-          { label: 'Frigiliana', value: 'Village evenings you can walk home from' },
-          { label: 'Nerja', value: 'Special menus, tapas and fresh fish' },
-          { label: 'El Acebuchal', value: 'Lunch as a small outing' },
-          { label: 'Reviewed', value: 'July 2026' }
+          { id: 'frigiliana', label: 'Frigiliana', value: 'Village evenings you can walk home from' },
+          { id: 'nerja', label: 'Nerja', value: 'Special menus, tapas and fresh fish' },
+          { id: 'acebuchal', label: 'El Acebuchal', value: 'Lunch as a small outing' },
+          { id: 'reviewed', label: 'Reviewed', value: 'July 2026' }
         ]
       }
     },
@@ -334,10 +334,10 @@ export const frigilianaRestaurantsContent: Record<
         body:
           'Eine kuratierte Auswahl an Restaurants in Frigiliana und Nerja — nach Ort und Anlass sortiert, keine Rangliste. Hier vorwählen, Öffnungszeiten dann direkt beim Lokal bestätigen.',
         items: [
-          { label: 'Frigiliana', value: 'Abende im Dorf, zu Fuß nach Hause' },
-          { label: 'Nerja', value: 'Besondere Menüs, Tapas und frischer Fisch' },
-          { label: 'El Acebuchal', value: 'Mittagessen als kleiner Ausflug' },
-          { label: 'Stand', value: 'Juli 2026' }
+          { id: 'frigiliana', label: 'Frigiliana', value: 'Abende im Dorf, zu Fuß nach Hause' },
+          { id: 'nerja', label: 'Nerja', value: 'Besondere Menüs, Tapas und frischer Fisch' },
+          { id: 'acebuchal', label: 'El Acebuchal', value: 'Mittagessen als kleiner Ausflug' },
+          { id: 'reviewed', label: 'Stand', value: 'Juli 2026' }
         ]
       }
     },
@@ -499,10 +499,10 @@ export const frigilianaRestaurantsContent: Record<
         body:
           'Una selección de restaurantes en Frigiliana y Nerja, ordenada por lugar y ocasión, no un ranking. Elegid aquí y confirmad los horarios directamente con el restaurante.',
         items: [
-          { label: 'Frigiliana', value: 'Cenas en el pueblo, volvéis andando' },
-          { label: 'Nerja', value: 'Menús especiales, tapas y pescado fresco' },
-          { label: 'El Acebuchal', value: 'Comer como pequeña excursión' },
-          { label: 'Revisado', value: 'Julio 2026' }
+          { id: 'frigiliana', label: 'Frigiliana', value: 'Cenas en el pueblo, volvéis andando' },
+          { id: 'nerja', label: 'Nerja', value: 'Menús especiales, tapas y pescado fresco' },
+          { id: 'acebuchal', label: 'El Acebuchal', value: 'Comer como pequeña excursión' },
+          { id: 'reviewed', label: 'Revisado', value: 'Julio 2026' }
         ]
       }
     },
@@ -664,10 +664,10 @@ export const frigilianaRestaurantsContent: Record<
         body:
           'Een samengestelde keuze aan restaurants in Frigiliana en Nerja — op plek en gelegenheid, geen ranglijst. Kies hier voor en bevestig openingstijden rechtstreeks bij het restaurant.',
         items: [
-          { label: 'Frigiliana', value: 'Avonden in het dorp, lopend naar huis' },
-          { label: 'Nerja', value: 'Speciale menu’s, tapas en verse vis' },
-          { label: 'El Acebuchal', value: 'Lunch als klein uitstapje' },
-          { label: 'Bijgewerkt', value: 'Juli 2026' }
+          { id: 'frigiliana', label: 'Frigiliana', value: 'Avonden in het dorp, lopend naar huis' },
+          { id: 'nerja', label: 'Nerja', value: 'Speciale menu’s, tapas en verse vis' },
+          { id: 'acebuchal', label: 'El Acebuchal', value: 'Lunch als klein uitstapje' },
+          { id: 'reviewed', label: 'Bijgewerkt', value: 'Juli 2026' }
         ]
       }
     },
@@ -829,10 +829,10 @@ export const frigilianaRestaurantsContent: Record<
         body:
           'Ett kuraterat urval restauranger i Frigiliana och Nerja — ordnat efter plats och tillfälle, ingen rangordning. Välj här och bekräfta öppettider direkt med restaurangen.',
         items: [
-          { label: 'Frigiliana', value: 'Kvällar i byn, gå hem till fots' },
-          { label: 'Nerja', value: 'Särskilda menyer, tapas och färsk fisk' },
-          { label: 'El Acebuchal', value: 'Lunch som en liten utflykt' },
-          { label: 'Uppdaterad', value: 'Juli 2026' }
+          { id: 'frigiliana', label: 'Frigiliana', value: 'Kvällar i byn, gå hem till fots' },
+          { id: 'nerja', label: 'Nerja', value: 'Särskilda menyer, tapas och färsk fisk' },
+          { id: 'acebuchal', label: 'El Acebuchal', value: 'Lunch som en liten utflykt' },
+          { id: 'reviewed', label: 'Uppdaterad', value: 'Juli 2026' }
         ]
       }
     },

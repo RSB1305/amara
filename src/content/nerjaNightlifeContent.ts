@@ -27,7 +27,7 @@ export interface NerjaNightlifePageCopy {
     summary?: {
       eyebrow: string;
       body: string;
-      items: Array<{ label: string; value: string }>;
+      items: Array<{ id: string; label: string; value: string }>;
     };
   };
   sectionNav: {
@@ -227,10 +227,10 @@ export const nerjaNightlifeContent: Record<
         body:
           'An honest evening guide to Nerja: the three going-out zones, what each is best for and how lively it gets. Not a party capital — but easy to plan.',
         items: [
-          { label: 'Late night', value: 'The liveliest zone' },
-          { label: 'With a view', value: 'Balcón and sea-view bars' },
-          { label: 'By the water', value: 'The coastal zone' },
-          { label: 'Reviewed', value: 'July 2026' }
+          { id: 'late-night', label: 'Late night', value: 'The liveliest zone' },
+          { id: 'view', label: 'With a view', value: 'Balcón and sea-view bars' },
+          { id: 'water', label: 'By the water', value: 'The coastal zone' },
+          { id: 'reviewed', label: 'Reviewed', value: 'July 2026' }
         ]
       }
     },
@@ -549,10 +549,10 @@ export const nerjaNightlifeContent: Record<
         body:
           'Ein ehrlicher Abend-Guide für Nerja: die drei Ausgeh-Viertel, wofür jedes taugt und wie lebhaft es zugeht. Keine Party-Hochburg — dafür planbar.',
         items: [
-          { label: 'Späte Nacht', value: 'Das lebhafteste Viertel' },
-          { label: 'Mit Aussicht', value: 'Balcón & Meerblick-Bars' },
-          { label: 'Am Wasser', value: 'Die Zone am Strand' },
-          { label: 'Stand', value: 'Juli 2026' }
+          { id: 'late-night', label: 'Späte Nacht', value: 'Das lebhafteste Viertel' },
+          { id: 'view', label: 'Mit Aussicht', value: 'Balcón & Meerblick-Bars' },
+          { id: 'water', label: 'Am Wasser', value: 'Die Zone am Strand' },
+          { id: 'reviewed', label: 'Stand', value: 'Juli 2026' }
         ]
       }
     },
@@ -871,10 +871,10 @@ export const nerjaNightlifeContent: Record<
         body:
           'Una guía nocturna honesta de Nerja: las tres zonas de salida, para qué sirve cada una y cuánto ambiente tienen. No es una capital de la fiesta, pero es fácil de planificar.',
         items: [
-          { label: 'Noche', value: 'La zona con más ambiente' },
-          { label: 'Con vistas', value: 'Balcón y bares con mar' },
-          { label: 'Junto al mar', value: 'La zona costera' },
-          { label: 'Revisado', value: 'Julio 2026' }
+          { id: 'late-night', label: 'Noche', value: 'La zona con más ambiente' },
+          { id: 'view', label: 'Con vistas', value: 'Balcón y bares con mar' },
+          { id: 'water', label: 'Junto al mar', value: 'La zona costera' },
+          { id: 'reviewed', label: 'Revisado', value: 'Julio 2026' }
         ]
       }
     },
@@ -1193,10 +1193,10 @@ export const nerjaNightlifeContent: Record<
         body:
           'Een eerlijke avondgids voor Nerja: de drie uitgaanszones, waar elk goed voor is en hoe levendig het wordt. Geen partystad, maar wel makkelijk te plannen.',
         items: [
-          { label: 'Laat op de avond', value: 'De levendigste zone' },
-          { label: 'Met uitzicht', value: 'Balcón en bars met zeezicht' },
-          { label: 'Aan het water', value: 'De kustzone' },
-          { label: 'Bijgewerkt', value: 'Juli 2026' }
+          { id: 'late-night', label: 'Laat op de avond', value: 'De levendigste zone' },
+          { id: 'view', label: 'Met uitzicht', value: 'Balcón en bars met zeezicht' },
+          { id: 'water', label: 'Aan het water', value: 'De kustzone' },
+          { id: 'reviewed', label: 'Bijgewerkt', value: 'Juli 2026' }
         ]
       }
     },
@@ -1515,10 +1515,10 @@ export const nerjaNightlifeContent: Record<
         body:
           'En ärlig kvällsguide till Nerja: de tre utegångszonerna, vad var och en passar för och hur livligt det blir. Ingen partymetropol — men lätt att planera.',
         items: [
-          { label: 'Sen kväll', value: 'Den livligaste zonen' },
-          { label: 'Med utsikt', value: 'Balcón och barer med havsutsikt' },
-          { label: 'Vid vattnet', value: 'Kustzonen' },
-          { label: 'Uppdaterad', value: 'Juli 2026' }
+          { id: 'late-night', label: 'Sen kväll', value: 'Den livligaste zonen' },
+          { id: 'view', label: 'Med utsikt', value: 'Balcón och barer med havsutsikt' },
+          { id: 'water', label: 'Vid vattnet', value: 'Kustzonen' },
+          { id: 'reviewed', label: 'Uppdaterad', value: 'Juli 2026' }
         ]
       }
     },
