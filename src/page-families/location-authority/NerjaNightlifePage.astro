@@ -2,6 +2,7 @@
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -308,6 +309,8 @@ const combineItems = copy.combine.items.map((item) => ({
         items={combineItems}
         surface="tint"
       />
+
+      <GuestGuideBridge lang={currentLang} destination="nerja" guideSlugs={['nerja-guest-recommendations']} />
 
       <AuthorityStayBridge
           eyebrow={experienceStayBridge.eyebrow[currentLang]}
