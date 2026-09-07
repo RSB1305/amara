@@ -592,6 +592,49 @@ const sharedAmaraLateCheckoutSeasonalItem: GuestGuideAccordionItem = {
   ]
 };
 
+// Shared across all five Frigiliana + Nerja stays: what to do with the luggage when a late
+// check-out is not possible — our own first-hand routine of leaving the bags at the airport.
+const sharedAmaraLuggageAtAirportItem: GuestGuideAccordionItem = {
+  icon: 'luggage',
+  title: {
+    en: 'Storing Luggage at the Airport',
+    de: 'Gepäck abstellen am Flughafen',
+    es: 'Guardar el equipaje en el aeropuerto',
+    nl: 'Bagage opbergen op de luchthaven',
+    sv: 'Förvara bagaget på flygplatsen'
+  },
+  body: [
+    {
+      en: 'If a late check-out is not possible and there is still time between check-out and your flight, the question often comes up: where to leave the luggage? Here is our personal recommendation, one we have done ourselves.',
+      de: 'Wenn ein Late Check-out einmal nicht möglich ist und zwischen Abreise und Flug noch Zeit bleibt, stellt sich oft die Frage: wohin mit dem Gepäck? Hier unsere persönliche Empfehlung, die wir selbst so gemacht haben.',
+      es: 'Si un late check-out no es posible y aún queda tiempo entre la salida y vuestro vuelo, suele surgir la pregunta: ¿dónde dejar el equipaje? Esta es nuestra recomendación personal, una que nosotros mismos hemos hecho.',
+      nl: 'Als een late check-out niet mogelijk is en er nog tijd is tussen het uitchecken en jullie vlucht, komt vaak de vraag op: waar laat je de bagage? Dit is onze persoonlijke aanbeveling, een die we zelf hebben gedaan.',
+      sv: 'Om en sen utcheckning inte är möjlig och det ändå finns tid mellan utcheckningen och ert flyg dyker ofta frågan upp: var lämnar man bagaget? Här är vår personliga rekommendation, en som vi själva har gjort.'
+    },
+    {
+      en: 'Drive to Málaga airport and leave your bags at the <strong>LockMate</strong> left-luggage service there (you will find the location and current opening hours <a class="am-link" href="https://share.google/ivyDvj424B1tr9XiY" target="_blank" rel="noopener">here on the map</a>).',
+      de: 'Fahrt nach Málaga zum Flughafen und gebt eure Koffer dort bei der Gepäckaufbewahrung <strong>LockMate</strong> ab (Standort und aktuelle Öffnungszeiten findet ihr <a class="am-link" href="https://share.google/ivyDvj424B1tr9XiY" target="_blank" rel="noopener">hier auf der Karte</a>).',
+      es: 'Id a Málaga, al aeropuerto, y dejad las maletas en la consigna <strong>LockMate</strong> que hay allí (encontraréis la ubicación y los horarios actuales <a class="am-link" href="https://share.google/ivyDvj424B1tr9XiY" target="_blank" rel="noopener">aquí en el mapa</a>).',
+      nl: 'Rijd naar de luchthaven van Málaga en geef jullie koffers af bij de bagageopslag <strong>LockMate</strong> daar (locatie en actuele openingstijden vinden jullie <a class="am-link" href="https://share.google/ivyDvj424B1tr9XiY" target="_blank" rel="noopener">hier op de kaart</a>).',
+      sv: 'Åk till Málaga flygplats och lämna väskorna hos bagageförvaringen <strong>LockMate</strong> där (plats och aktuella öppettider hittar ni <a class="am-link" href="https://share.google/ivyDvj424B1tr9XiY" target="_blank" rel="noopener">här på kartan</a>).'
+    },
+    {
+      en: 'From the airport, the Cercanías train takes you into the middle of Málaga in just a few minutes. We explored the old town from there and picked the bags back up in the early evening.',
+      de: 'Vom Flughafen seid ihr mit dem Cercanías-Zug in wenigen Minuten mitten in Málaga. Wir haben von dort die Altstadt erkundet und am frühen Abend die Koffer wieder abgeholt.',
+      es: 'Desde el aeropuerto, el tren de Cercanías os deja en pleno centro de Málaga en pocos minutos. Nosotros exploramos el casco antiguo desde allí y recogimos las maletas a primera hora de la tarde.',
+      nl: 'Vanaf de luchthaven ben je met de Cercanías-trein in enkele minuten midden in Málaga. Wij hebben van daaruit de oude stad verkend en de koffers in de vroege avond weer opgehaald.',
+      sv: 'Från flygplatsen tar Cercanías-tåget er in till mitten av Málaga på bara några minuter. Vi utforskade gamla stan därifrån och hämtade väskorna igen tidigt på kvällen.'
+    },
+    {
+      en: 'In our experience, LockMate is open until around 8:00 PM — but please check the current hours via the link before you go to collect your bags.',
+      de: 'Nach unserer Erfahrung hat LockMate bis etwa 20:00 Uhr geöffnet – prüft die aktuellen Zeiten aber bitte vorab über den Link, bevor ihr die Koffer holt.',
+      es: 'Según nuestra experiencia, LockMate abre hasta las 20:00 aproximadamente, pero comprobad los horarios actuales a través del enlace antes de ir a recoger las maletas.',
+      nl: 'Naar onze ervaring is LockMate tot ongeveer 20:00 uur open — maar controleer de actuele openingstijden via de link voordat jullie de koffers ophalen.',
+      sv: 'Enligt vår erfarenhet har LockMate öppet till omkring 20:00 — men kontrollera gärna de aktuella tiderna via länken innan ni hämtar väskorna.'
+    }
+  ]
+};
+
 // Shared across Zaid and Maha (identical starter supplies, no dishwasher tablets); Lounis's list differs.
 const sharedAmaraStarterSuppliesItem: GuestGuideAccordionItem = {
   icon: 'cart',
@@ -866,7 +909,8 @@ const frigilianaFarahAccommodation: GuestGuideEntry = {
               sv: 'Att stanna till <strong>18:00</strong> kan vara möjligt för <strong>55 EUR</strong>. Eftersom detta innebär att vi håller lägenheten otillgänglig för en eventuell ny ankomst måste sen utcheckning avtalas och bekräftas med oss i förväg — skicka gärna ett meddelande så tidigt som möjligt om ni vill begära det.'
             }
           ]
-        }
+        },
+        sharedAmaraLuggageAtAirportItem
       ]
     }
   ]
@@ -3737,7 +3781,7 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
     },
     {
       heading: { en: 'Check-out', de: 'Check-out', es: 'Check-out', nl: 'Check-out', sv: 'Check-out' },
-      items: [sharedAmaraDepartureInfoItem, sharedAmaraLateCheckoutSeasonalItem]
+      items: [sharedAmaraDepartureInfoItem, sharedAmaraLateCheckoutSeasonalItem, sharedAmaraLuggageAtAirportItem]
     }
   ]
 };
@@ -3932,7 +3976,7 @@ const frigilianaZaidAccommodation: GuestGuideEntry = {
     },
     {
       heading: { en: 'Check-out', de: 'Check-out', es: 'Check-out', nl: 'Check-out', sv: 'Check-out' },
-      items: [sharedAmaraDepartureInfoItem, sharedAmaraLateCheckoutSeasonalItem]
+      items: [sharedAmaraDepartureInfoItem, sharedAmaraLateCheckoutSeasonalItem, sharedAmaraLuggageAtAirportItem]
     }
   ]
 };
@@ -4127,7 +4171,7 @@ const frigilianaMahaAccommodation: GuestGuideEntry = {
     },
     {
       heading: { en: 'Check-out', de: 'Check-out', es: 'Check-out', nl: 'Check-out', sv: 'Check-out' },
-      items: [sharedAmaraDepartureInfoItem, sharedAmaraLateCheckoutSeasonalItem]
+      items: [sharedAmaraDepartureInfoItem, sharedAmaraLateCheckoutSeasonalItem, sharedAmaraLuggageAtAirportItem]
     }
   ]
 };
@@ -4582,7 +4626,8 @@ const nerjaPlayaAccommodation: GuestGuideEntry = {
               sv: 'Om ni vill använda lägenheten fram till <strong>18:00</strong> kan detta vara möjligt för <strong>€65</strong> från oktober till april och <strong>€90</strong> från maj till september. Eftersom detta innebär att vi håller lägenheten otillgänglig för en eventuell ny ankomst måste sen utcheckning avtalas och bekräftas med oss i förväg — skicka gärna ett meddelande så tidigt som möjligt om ni vill begära det.'
             }
           ]
-        }
+        },
+        sharedAmaraLuggageAtAirportItem
       ]
     }
   ]
