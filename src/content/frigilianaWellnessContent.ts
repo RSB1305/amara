@@ -15,6 +15,7 @@ export interface FrigilianaWellnessPageCopy {
   hero: {
     kicker: string;
     title: string;
+    subtitle: string;
     paragraphs: string[];
   };
   sectionNav: {
@@ -148,7 +149,8 @@ export const frigilianaWellnessContent: Record<
     },
     hero: {
       kicker: 'Massage & spa treatments near Frigiliana',
-      title: 'Wellness & spa experiences in Frigiliana',
+      title: 'Wellness & spa in Frigiliana',
+      subtitle: 'Two calm options near Frigiliana',
       paragraphs: [
         'If you want to set aside a few hours for a treatment, there are two quite different options near Frigiliana.',
         'Frigiliana Wellness comes to your villa or apartment and offers a broader spa and beauty menu. Lidia receives guests for Californian massage at her countryside location near Frigiliana. Both are independent providers, and you book with them directly.'
@@ -294,7 +296,8 @@ export const frigilianaWellnessContent: Record<
     },
     hero: {
       kicker: 'Massage & Spa-Anwendungen bei Frigiliana',
-      title: 'Wellness- und Spa-Erlebnisse in Frigiliana',
+      title: 'Wellness & Spa in Frigiliana',
+      subtitle: 'Zwei ruhige Möglichkeiten bei Frigiliana',
       paragraphs: [
         'Wenn ihr ein paar Stunden für eine Anwendung reservieren möchtet, gibt es bei Frigiliana zwei recht unterschiedliche Möglichkeiten.',
         'Frigiliana Wellness kommt in eure Villa oder euer Apartment und bietet ein breiteres Spa- und Beauty-Angebot. Lidia empfängt Gäste zur kalifornischen Massage an ihrem Ort auf dem Land bei Frigiliana. Beide arbeiten unabhängig; ihr bucht direkt bei ihnen.'
@@ -440,7 +443,8 @@ export const frigilianaWellnessContent: Record<
     },
     hero: {
       kicker: 'Masajes y tratamientos de spa cerca de Frigiliana',
-      title: 'Experiencias de bienestar y spa en Frigiliana',
+      title: 'Bienestar y spa en Frigiliana',
+      subtitle: 'Dos opciones tranquilas cerca de Frigiliana',
       paragraphs: [
         'Si queréis reservar unas horas para un tratamiento, hay dos opciones bastante distintas cerca de Frigiliana.',
         'Frigiliana Wellness se desplaza hasta vuestra villa o apartamento y ofrece una carta más amplia de spa y belleza. Lidia recibe para masaje californiano en su espacio rural cerca de Frigiliana. Ambos son proveedores independientes y se reserva directamente con ellos.'
@@ -586,7 +590,8 @@ export const frigilianaWellnessContent: Record<
     },
     hero: {
       kicker: 'Vertragen · Opladen · Loslaten',
-      title: 'Wellness- en spa-ervaringen in Frigiliana',
+      title: 'Wellness & spa in Frigiliana',
+      subtitle: 'Twee rustige mogelijkheden bij Frigiliana',
       paragraphs: [
         'Als jullie een paar uur voor een behandeling willen reserveren, zijn er twee heel verschillende opties bij Frigiliana.',
         'Frigiliana Wellness komt naar jullie villa of appartement en biedt een breder spa- en beautymenu. Lidia ontvangt gasten voor Californische massage op haar landelijke locatie bij Frigiliana. Beide aanbieders zijn onafhankelijk; jullie boeken rechtstreeks bij hen.'
@@ -732,7 +737,8 @@ export const frigilianaWellnessContent: Record<
     },
     hero: {
       kicker: 'Massage & spabehandlingar nära Frigiliana',
-      title: 'Wellness- och spaupplevelser i Frigiliana',
+      title: 'Wellness & spa i Frigiliana',
+      subtitle: 'Två lugna alternativ nära Frigiliana',
       paragraphs: [
         'Om ni vill avsätta några timmar för en behandling finns det två ganska olika alternativ nära Frigiliana.',
         'Frigiliana Wellness kommer till er villa eller lägenhet och erbjuder en bredare meny av spa- och skönhetsbehandlingar. Lidia tar emot för kalifornisk massage på sin plats på landsbygden nära Frigiliana. Båda är oberoende aktörer och ni bokar direkt med dem.'

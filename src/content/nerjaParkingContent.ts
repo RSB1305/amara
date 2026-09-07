@@ -21,7 +21,7 @@ const navLabel = l('Parking & Accessibility', 'Parken & Erreichbarkeit', 'Aparca
 
 const hero = {
   eyebrow: l('Parking & access · Nerja', 'Parken & Erreichbarkeit · Nerja', 'Aparcamiento y acceso · Nerja', 'Parkeren & toegankelijkheid · Nerja', 'Parkering & tillgänglighet · Nerja'),
-  title: l('There is no one best car park in Nerja', 'In Nerja gibt es nicht den einen besten Parkplatz', 'En Nerja no hay un único aparcamiento mejor', 'In Nerja is er niet één beste parkeerplek', 'Det finns ingen enda bästa parkering i Nerja'),
+  title: l('Parking in Nerja', 'Parken in Nerja', 'Aparcar en Nerja', 'Parkeren in Nerja', 'Parkering i Nerja'),
   standfirst: l(
     'It depends on where you are going. Balcón de Europa and Parque Verano Azul serve the centre; Burriana has its own parking on the eastern side of town and is not a substitute for the centre. Verano Azul was freshly marked out in February 2026. AMARA Playa has no private space, so plan for legal street parking near Torrecilla — and treat unloading and parking as two separate steps. We cannot reserve a space anywhere in Nerja, and we would rather say so than let you arrive expecting one.',
     'Es kommt darauf an, wohin ihr wollt. Balcón de Europa und Parque Verano Azul bedienen das Zentrum; Burriana hat östlich seinen eigenen Parkbereich und ersetzt das Zentrum nicht. Verano Azul wurde im Februar 2026 neu markiert. AMARA Playa hat keinen privaten Stellplatz — plant also mit legalem Straßenparken nahe Torrecilla und behandelt Ausladen und Parken als zwei getrennte Schritte. Reservieren können wir in Nerja nirgends etwas, und das sagen wir lieber, als euch mit falscher Erwartung ankommen zu lassen.',

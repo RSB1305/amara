@@ -671,7 +671,7 @@ const nerjaLocationPeopleFirstCopy = {
   en: {
     hero: {
       eyebrow: 'Nerja at a glance',
-      title: 'Nerja as a place to stay: beaches, old town and distinct areas',
+      title: 'Nerja as a place to stay',
       subtitle: 'A compact coastal town whose slopes and neighbourhoods still change the stay',
       standfirst: 'Nerja works well as a holiday base when you want beaches, an old town, restaurants and everyday services close enough for many days on foot. The exact area still matters: Torrecilla and the centre support a compact routine, Burriana has its own beach focus, and upper Nerja brings more slopes into every journey. It suits couples who want the sea and town life together; it is less natural for a stay built around rural seclusion or effortless parking at the door.',
       note: 'Our honest guide to Nerja as a holiday base, written from local guest and host experience.',
@@ -717,7 +717,7 @@ const nerjaLocationPeopleFirstCopy = {
   de: {
     hero: {
       eyebrow: 'Nerja im Überblick',
-      title: 'Nerja als Aufenthaltsort: Strände, Altstadt und unterschiedliche Lagen',
+      title: 'Nerja als Aufenthaltsort',
       subtitle: 'Ein kompakter Küstenort, in dem Steigungen und Wohnlage den Aufenthalt prägen',
       standfirst: 'Nerja funktioniert gut als Urlaubsbasis, wenn ihr Strände, Altstadt, Restaurants und Versorgung an vielen Tagen zu Fuß verbinden möchtet. Die genaue Lage bleibt wichtig: Torrecilla und Zentrum ermöglichen einen kompakten Alltag, Burriana bildet einen eigenen Strandmittelpunkt, und im oberen Nerja gehören mehr Steigungen zu den täglichen Wegen. Der Ort passt zu Paaren, die Meer und Stadtleben nah beieinander suchen; für ländliche Abgeschiedenheit oder bequemes Parken direkt vor der Tür ist er weniger selbstverständlich.',
       note: 'Unser ehrlicher Gastgeberblick auf Nerja als Urlaubsbasis.',
@@ -763,7 +763,7 @@ const nerjaLocationPeopleFirstCopy = {
   es: {
     hero: {
       eyebrow: 'Nerja de un vistazo',
-      title: 'Nerja como lugar de estancia: playas, casco antiguo y zonas distintas',
+      title: 'Nerja como lugar de estancia',
       subtitle: 'Un pueblo costero compacto donde las cuestas y la zona cambian la estancia',
       standfirst: 'Nerja funciona bien como base de vacaciones cuando queréis combinar playas, casco antiguo, restaurantes y servicios cotidianos a pie durante muchos días. La zona concreta sigue importando: Torrecilla y el centro facilitan una rutina compacta, Burriana tiene su propio núcleo de playa y la parte alta incorpora más cuestas a cada recorrido. Encaja con parejas que buscan mar y vida urbana juntos; resulta menos natural para quien prioriza aislamiento rural o aparcar sin esfuerzo delante de la puerta.',
       note: 'Nuestra mirada sincera de anfitriones a Nerja como base de vacaciones.',
@@ -809,7 +809,7 @@ const nerjaLocationPeopleFirstCopy = {
   nl: {
     hero: {
       eyebrow: 'Nerja in het kort',
-      title: 'Nerja als verblijfplaats: stranden, oude stad en verschillende buurten',
+      title: 'Nerja als verblijfplaats',
       subtitle: 'Een compacte kustplaats waar hellingen en buurt het verblijf veranderen',
       standfirst: 'Nerja werkt goed als vakantiebasis wanneer jullie stranden, oude stad, restaurants en dagelijkse voorzieningen vaak te voet willen combineren. De precieze buurt blijft belangrijk: Torrecilla en het centrum ondersteunen een compact dagritme, Burriana heeft een eigen strandkern en hoger in Nerja worden hellingen deel van meer routes. De plaats past bij stellen die zee en stadsleven dichtbij willen; voor landelijke afzondering of moeiteloos parkeren voor de deur is Nerja minder vanzelfsprekend.',
       note: 'Onze eerlijke blik als hosts op Nerja als vakantiebasis.',
@@ -855,7 +855,7 @@ const nerjaLocationPeopleFirstCopy = {
   sv: {
     hero: {
       eyebrow: 'Nerja i korthet',
-      title: 'Nerja som bas: stränder, gamla stan och områden med olika rytm',
+      title: 'Nerja som bas',
       subtitle: 'En kompakt kuststad där backar och område ändå förändrar vistelsen',
       standfirst: 'Nerja fungerar bra som semesterbas när ni vill förena stränder, gamla stan, restauranger och vardagsservice till fots under många dagar. Det exakta området spelar fortfarande roll: Torrecilla och centrum ger en kompakt vardag, Burriana har ett eget strandcentrum och högre upp blir backar en större del av varje väg. Orten passar par som vill ha hav och stadsliv nära varandra; den är mindre självklar för lantlig avskildhet eller enkel parkering precis utanför dörren.',
       note: 'Vår ärliga värdblick på Nerja som semesterbas.',
