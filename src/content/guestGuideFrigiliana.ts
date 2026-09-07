@@ -3,7 +3,7 @@ import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHre
 import { guidePlaceItem } from '../lib/placeProjection';
 import { routeImageAltText, routeImageFigure, routeImageFigures, routeImageSrc } from '../lib/images/routeImages';
 
-const FRIGILIANA_SUPPORT_EMAIL = 'mailto:hola@amara-lodging.es';
+const FRIGILIANA_SUPPORT_WHATSAPP = 'https://wa.me/34604440964';
 const NEED_HELP: LocalizedText = {
   en: 'Need Help?',
   de: 'Braucht ihr Hilfe?',
@@ -732,7 +732,7 @@ const frigilianaFarahHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-frigiliana-farah',
   entityKey: 'amara-farah',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
@@ -818,7 +818,7 @@ const frigilianaFarahAccommodation: GuestGuideEntry = {
   slug: 'guesthome-frigiliana-farah',
   entityKey: 'amara-farah',
   backSlug: 'guestwelcome-frigiliana-farah',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your Accommodation Farah | AMARA',
@@ -939,7 +939,7 @@ const frigilianaEssentials: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-essentials',
   backSlug: 'guestwelcome-frigiliana-farah',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Essentials | AMARA',
@@ -1441,7 +1441,7 @@ const nerjaGuestBreakfast: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-breakfast',
   backSlug: 'nerja-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Nerja Guest Guide — Breakfast | AMARA',
@@ -1644,7 +1644,7 @@ const frigilianaGuestBeaches: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-beaches',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Beaches | AMARA',
@@ -1710,7 +1710,7 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-restaurants',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Food | AMARA',
@@ -1787,7 +1787,7 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-restaurants',
   backSlug: 'nerja-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Our Restaurant Recommendations in Nerja | AMARA Guest Guide',
@@ -1898,7 +1898,7 @@ const frigilianaGuestHiking: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-hiking',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Hiking | AMARA',
@@ -1965,7 +1965,7 @@ const frigilianaGuestDayTrips: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-day-trips',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Day Trips | AMARA',
@@ -2029,7 +2029,7 @@ const frigilianaGuestFestivals: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-festivals',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Festivals & Events | AMARA',
@@ -2317,7 +2317,7 @@ const frigilianaGuestWellness: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-wellness',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana & Nerja Guest Guide — Wellness | AMARA',
@@ -2406,7 +2406,7 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-sightseeing',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Sightseeing | AMARA',
@@ -2599,7 +2599,7 @@ const nerjaGuestAdventure: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-adventure',
   backSlug: 'nerja-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Adventure in Nerja | AMARA',
@@ -2872,7 +2872,7 @@ const frigilianaGuestBreakfast: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-breakfast',
   backSlug: 'frigiliana-guest-recommendations',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Frigiliana Guest Guide — Breakfast | AMARA',
@@ -3028,7 +3028,7 @@ const nerjaGuestNightlife: GuestGuideEntry = {
   "type": "detail",
   "slug": "nerja-guest-nightlife",
   "backSlug": "nerja-guest-recommendations",
-  "supportHref": FRIGILIANA_SUPPORT_EMAIL,
+  "supportHref": FRIGILIANA_SUPPORT_WHATSAPP,
   "supportLabel": NEED_HELP,
   "seoTitle": {
     "en": "Nightlife in Nerja | AMARA",
@@ -3244,7 +3244,7 @@ const frigilianaRecommendations: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-recommendations',
   backSlug: 'guestwelcome-frigiliana-farah',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'AMARA Experience | AMARA Guest Guide',
@@ -3510,7 +3510,7 @@ const nerjaRecommendations: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-recommendations',
   backSlug: 'guestwelcome-nerja-playa',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {"en":"AMARA Experience | AMARA Guest Guide","de":"AMARA Experience | AMARA Gästeguide","es":"AMARA Experience | Guía para huéspedes de AMARA","nl":"AMARA Experience | AMARA Gastengids","sv":"AMARA Experience | AMARA Gästguide"},
   seoDescription: {"en":"Our selection for Nerja, Frigiliana and nearby: breakfast, restaurants, beaches, evenings, hikes and day trips, with what you need to know on the spot.","de":"Unsere Auswahl für Nerja, Frigiliana und Umgebung: Frühstück, Restaurants, Strände, Abende, Wanderungen und Ausflüge, mit dem, was ihr vor Ort wissen müsst.","es":"Nuestra selección para Nerja, Frigiliana y alrededores: desayunos, restaurantes, playas, noches, rutas y excursiones, con lo que necesitáis saber sobre el terreno.","nl":"Onze selectie voor Nerja, Frigiliana en omgeving: ontbijt, restaurants, stranden, avonden, wandelingen en dagtrips, met wat jullie ter plekke moeten weten.","sv":"Vårt urval för Nerja, Frigiliana och närområdet: frukost, restauranger, stränder, kvällar, vandringar och utflykter, med det ni behöver veta på plats."},
@@ -3569,7 +3569,7 @@ const frigilianaLounisHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-frigiliana-lounis',
   entityKey: 'amara-lounis',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
@@ -3657,7 +3657,7 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
   slug: 'guesthome-frigiliana-lounis',
   entityKey: 'amara-lounis',
   backSlug: 'guestwelcome-frigiliana-lounis',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your Apartment Lounis | AMARA',
@@ -3770,7 +3770,7 @@ const frigilianaZaidHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-frigiliana-zaid',
   entityKey: 'amara-zaid',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
@@ -3858,7 +3858,7 @@ const frigilianaZaidAccommodation: GuestGuideEntry = {
   slug: 'guesthome-frigiliana-zaid',
   entityKey: 'amara-zaid',
   backSlug: 'guestwelcome-frigiliana-zaid',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your Apartment Zaid | AMARA',
@@ -3965,7 +3965,7 @@ const frigilianaMahaHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-frigiliana-maha',
   entityKey: 'amara-maha',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your AMARA stay in Frigiliana | AMARA Guest Guide',
@@ -4053,7 +4053,7 @@ const frigilianaMahaAccommodation: GuestGuideEntry = {
   slug: 'guesthome-frigiliana-maha',
   entityKey: 'amara-maha',
   backSlug: 'guestwelcome-frigiliana-maha',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your Apartment Maha | AMARA',
@@ -4160,7 +4160,7 @@ const nerjaPlayaHub: GuestGuideEntry = {
   type: 'hub',
   slug: 'guestwelcome-nerja-playa',
   entityKey: 'amara-playa',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your AMARA stay in Nerja | AMARA Guest Guide',
@@ -4248,7 +4248,7 @@ const nerjaPlayaAccommodation: GuestGuideEntry = {
   slug: 'guesthome-nerja-playa',
   entityKey: 'amara-playa',
   backSlug: 'guestwelcome-nerja-playa',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Your Accommodation AMARA Playa | AMARA',
@@ -4617,7 +4617,7 @@ const nerjaEssentials: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-essentials',
   backSlug: 'guestwelcome-nerja-playa',
-  supportHref: FRIGILIANA_SUPPORT_EMAIL,
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
     en: 'Nerja Essentials | AMARA',
