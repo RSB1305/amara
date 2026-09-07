@@ -1,5 +1,6 @@
 ---
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import LocationGuideEvidence from '../../components/location/LocationGuideEvidence.astro';
 import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
@@ -55,7 +56,16 @@ const footerHighlights: LabeledLink[] = [
         updated: updated[currentLang],
         note: shared.planning.note
       } : undefined}
-    />
+    >
+      {copy.hero.summary && (
+        <LocationGuideEvidence
+          slot="visual"
+          eyebrow={copy.hero.summary.eyebrow}
+          summary={copy.hero.summary.body}
+          items={copy.hero.summary.items}
+        />
+      )}
+    </LocationExperienceHero>
 
     <AuthorityFeatureSection
       id="choose"

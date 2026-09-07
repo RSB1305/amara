@@ -52,6 +52,12 @@ export interface FrigilianaFestivalsPageCopy {
     title: string;
     paragraphs: string[];
     imageAlt: string;
+    /** Dark hero-tile summary: a short takeaway plus a mini table of contents. */
+    summary?: {
+      eyebrow: string;
+      body: string;
+      items: Array<{ label: string; value: string }>;
+    };
   };
   sectionNav: {
     choose: string;
@@ -193,7 +199,18 @@ export const frigilianaFestivalsContent: Record<
         'Exact routes, times and programmes can change, even when a celebration has a traditional feast day. Treat the calendar as a planning map and check the linked official information shortly before your visit.'
       ],
       imageAlt:
-        'Whitewashed Frigiliana above the hills and Mediterranean coast'
+        'Whitewashed Frigiliana above the hills and Mediterranean coast',
+      summary: {
+        eyebrow: 'On this page',
+        body:
+          'The festival year in Frigiliana and Nerja at a glance — from village traditions and processions to summer nights and the big festival weekends. Planned by season, not a full checklist.',
+        items: [
+          { label: 'Traditions', value: 'Village customs year-round' },
+          { label: 'Processions', value: 'Holy Week and pilgrimages' },
+          { label: 'Summer nights', value: 'Music and late evenings' },
+          { label: 'Festival weekends', value: 'The big dates' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Choose the mood',
@@ -554,7 +571,18 @@ export const frigilianaFestivalsContent: Record<
         'Genaue Routen, Uhrzeiten und Programme können sich auch bei Festen mit traditionellem Feiertag ändern. Nutzt den Kalender als Planungshilfe und prüft kurz vor eurem Besuch noch einmal die verlinkten offiziellen Informationen.'
       ],
       imageAlt:
-        'Das weiße Dorf Frigiliana oberhalb der Hügel und der Mittelmeerküste'
+        'Das weiße Dorf Frigiliana oberhalb der Hügel und der Mittelmeerküste',
+      summary: {
+        eyebrow: 'Auf dieser Seite',
+        body:
+          'Das Festjahr in Frigiliana und Nerja im Überblick — von Dorftraditionen und Prozessionen bis zu Sommernächten und den großen Festivalwochenenden. Nach Reisezeit geplant, keine Vollständigkeit.',
+        items: [
+          { label: 'Traditionen', value: 'Dorfbräuche das ganze Jahr' },
+          { label: 'Prozessionen', value: 'Semana Santa & Wallfahrten' },
+          { label: 'Sommernächte', value: 'Musik und lange Abende' },
+          { label: 'Festivalwochenenden', value: 'Die großen Termine' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Die passende Stimmung',
@@ -916,7 +944,18 @@ export const frigilianaFestivalsContent: Record<
         'Los recorridos, horarios y programas pueden cambiar incluso cuando la fiesta está ligada a un día tradicional. Usad el calendario como mapa de planificación y consultad la información oficial enlazada poco antes de vuestra visita.'
       ],
       imageAlt:
-        'El pueblo blanco de Frigiliana sobre las colinas y la costa mediterránea'
+        'El pueblo blanco de Frigiliana sobre las colinas y la costa mediterránea',
+      summary: {
+        eyebrow: 'En esta página',
+        body:
+          'El año de fiestas en Frigiliana y Nerja de un vistazo: desde tradiciones de pueblo y procesiones hasta noches de verano y los grandes fines de semana de festival. Planificado por temporada.',
+        items: [
+          { label: 'Tradiciones', value: 'Costumbres del pueblo todo el año' },
+          { label: 'Procesiones', value: 'Semana Santa y romerías' },
+          { label: 'Noches de verano', value: 'Música y veladas' },
+          { label: 'Fines de festival', value: 'Las grandes fechas' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Elegid el ambiente',
@@ -1278,7 +1317,18 @@ export const frigilianaFestivalsContent: Record<
         'Exacte routes, tijden en programma’s kunnen veranderen, ook als een feest aan een traditionele datum is verbonden. Gebruik de kalender als planningsoverzicht en controleer de gelinkte officiële informatie kort voor jullie bezoek.'
       ],
       imageAlt:
-        'Het witte dorp Frigiliana boven de heuvels en de Middellandse Zeekust'
+        'Het witte dorp Frigiliana boven de heuvels en de Middellandse Zeekust',
+      summary: {
+        eyebrow: 'Op deze pagina',
+        body:
+          'Het feestjaar in Frigiliana en Nerja in één oogopslag — van dorpstradities en processies tot zomeravonden en de grote festivalweekends. Gepland per seizoen, geen volledige lijst.',
+        items: [
+          { label: 'Tradities', value: 'Dorpsgebruiken het hele jaar' },
+          { label: 'Processies', value: 'Semana Santa en bedevaarten' },
+          { label: 'Zomeravonden', value: 'Muziek en lange avonden' },
+          { label: 'Festivalweekends', value: 'De grote data' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Kies de sfeer',
@@ -1640,7 +1690,18 @@ export const frigilianaFestivalsContent: Record<
         'Exakta rutter, tider och program kan ändras även när en högtid har ett traditionellt datum. Använd kalendern som planeringskarta och kontrollera den länkade officiella informationen strax före ert besök.'
       ],
       imageAlt:
-        'Den vitkalkade byn Frigiliana ovanför kullarna och Medelhavskusten'
+        'Den vitkalkade byn Frigiliana ovanför kullarna och Medelhavskusten',
+      summary: {
+        eyebrow: 'På den här sidan',
+        body:
+          'Feståret i Frigiliana och Nerja i överblick — från bytraditioner och processioner till sommarkvällar och de stora festivalhelgerna. Planerat efter säsong, ingen fullständig lista.',
+        items: [
+          { label: 'Traditioner', value: 'Byseder året runt' },
+          { label: 'Processioner', value: 'Påskveckan och vallfärder' },
+          { label: 'Sommarkvällar', value: 'Musik och sena kvällar' },
+          { label: 'Festivalhelger', value: 'De stora datumen' }
+        ]
+      }
     },
     sectionNav: {
       choose: 'Välj stämning',

@@ -88,7 +88,23 @@ export const frigilianaHikingContent = {
       'Casas blancas de Frigiliana bajo la sierra Almijara',
       'Witte huizen van Frigiliana onder de rotsachtige Sierra Almijara',
       'Frigilianas vita hus nedanför den klippiga Sierra Almijara'
-    )
+    ),
+    summary: {
+      eyebrow: text('On this page', 'Auf dieser Seite', 'En esta página', 'Op deze pagina', 'På den här sidan'),
+      body: text(
+        'Four hikes from Frigiliana, honestly compared — a panoramic loop, a gorge route, a full summit and a GR stage. We help you choose; the official information and Komoot give the real track.',
+        'Vier Wanderungen ab Frigiliana, ehrlich verglichen — ein Panoramarundweg, eine Schluchtroute, ein voller Gipfel und eine GR-Etappe. Wir helfen bei der Auswahl; Start und Track liefern offizielle Angaben und Komoot.',
+        'Cuatro rutas desde Frigiliana, comparadas con honestidad: un circuito panorámico, una ruta de garganta, una cumbre completa y una etapa del GR. Os ayudamos a elegir; la salida y el track están en la información oficial y Komoot.',
+        'Vier wandelingen vanuit Frigiliana, eerlijk vergeleken — een panoramaronde, een kloofroute, een volledige top en een GR-etappe. Wij helpen kiezen; de echte route staat in de officiële informatie en Komoot.',
+        'Fyra vandringar från Frigiliana, ärligt jämförda — en panoramaslinga, en ravinrutt, en hel topp och en GR-etapp. Vi hjälper er välja; start och spår finns i den officiella informationen och Komoot.'
+      ),
+      items: [
+        { label: text('Cruz de Pinto', 'Cruz de Pinto', 'Cruz de Pinto', 'Cruz de Pinto', 'Cruz de Pinto'), value: text('Panoramic loop', 'Panoramarundweg', 'Circuito panorámico', 'Panoramaronde', 'Panoramaslinga') },
+        { label: text('Río Higuerón', 'Río Higuerón', 'Río Higuerón', 'Río Higuerón', 'Río Higuerón'), value: text('Gorge and cahorros', 'Schlucht & Cahorros', 'Garganta y cahorros', 'Kloof en cahorros', 'Ravin och cahorros') },
+        { label: text('El Fuerte', 'El Fuerte', 'El Fuerte', 'El Fuerte', 'El Fuerte'), value: text('The full summit', 'Der volle Gipfel', 'La cumbre completa', 'De volledige top', 'Hela toppen') },
+        { label: text('GR 249 · Stage 6', 'GR 249 · Etappe 6', 'GR 249 · Etapa 6', 'GR 249 · Etappe 6', 'GR 249 · Etapp 6'), value: text('Stage to Cómpeta', 'nach Cómpeta', 'hasta Cómpeta', 'naar Cómpeta', 'till Cómpeta') }
+      ]
+    }
   },
   routeSections: [
     {
