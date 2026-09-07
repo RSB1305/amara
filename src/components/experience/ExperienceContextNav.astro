@@ -24,7 +24,7 @@ import type { AmaraLanguage } from '../../types/seo';
 
 type ClusterLabelKey = 'cluster1' | 'cluster2' | 'cluster3' | 'cluster4' | 'cluster5';
 type NerjaExperienceId = NerjaExperienceThemeId;
-type FrigilianaAdditionalExperienceId = 'oldTown' | 'dosTumbas';
+type FrigilianaAdditionalExperienceId = 'oldTown';
 type TarifaExperienceId =
   | 'food-evening-life'
   | 'nature-wildlife'
@@ -235,13 +235,6 @@ const frigilianaDestinationLabels: Record<
     es: 'Historia y arquitectura',
     nl: 'Geschiedenis & architectuur',
     sv: 'Historia & arkitektur'
-  },
-  dosTumbas: {
-    en: 'Netflix filming locations',
-    de: 'Netflix-Drehorte',
-    es: 'Localizaciones Netflix',
-    nl: 'Netflix-locaties',
-    sv: 'Netflix-platser'
   }
 };
 
@@ -271,11 +264,6 @@ const frigilianaSiblingLinks: ContextNavigationItem[] = [
       id: 'oldTown' as const,
       token: 'frigiliana_old_town',
       labels: frigilianaDestinationLabels.oldTown
-    },
-    {
-      id: 'dosTumbas' as const,
-      token: 'frigiliana_netflix_dos_tumbas',
-      labels: frigilianaDestinationLabels.dosTumbas
     }
   ].map(({ id, token, labels: extraLabels }) => {
     const href = resolveOptionalLink(token as LinkToken, lang, { suppressMissing: true });
@@ -359,7 +347,7 @@ const frigilianaGroups: ContextNavigationGroup[] = selectNavigationGroups(frigil
   {
     id: 'frigiliana-culture',
     label: 'cluster3',
-    itemIds: ['oldTown', 'festivals', 'dosTumbas']
+    itemIds: ['oldTown', 'festivals']
   },
   {
     id: 'frigiliana-rest',

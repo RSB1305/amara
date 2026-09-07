@@ -16,6 +16,7 @@ import type { AmaraLanguage } from '../../types/seo';
 import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
 import DailyLifeGuideSections from './DailyLifeGuideSections.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import { getLocationGuideTopicLabels } from '../../lib/location/locationGuideTopics';
 
 interface Props {
@@ -36,10 +37,11 @@ const config: Record<DailyLifeDestination, {
   locationToken: LinkToken;
   arrivalToken: LinkToken;
   parkingToken: LinkToken;
+  guideSlugs: readonly string[];
 }> = {
-  frigiliana: { label: 'Frigiliana', shoppingToken: 'frigiliana_daily_life', healthToken: 'frigiliana_health_emergency', locationToken: 'location_frigiliana', arrivalToken: 'getting_to_frigiliana', parkingToken: 'frigiliana_parking' },
-  nerja: { label: 'Nerja', shoppingToken: 'nerja_daily_life', healthToken: 'nerja_health_emergency', locationToken: 'location_nerja', arrivalToken: 'getting_to_nerja', parkingToken: 'nerja_parking' },
-  tarifa: { label: 'Tarifa', shoppingToken: 'tarifa_daily_life', healthToken: 'tarifa_health_emergency', locationToken: 'location_tarifa', arrivalToken: 'getting_to_tarifa', parkingToken: 'tarifa_parking' }
+  frigiliana: { label: 'Frigiliana', shoppingToken: 'frigiliana_daily_life', healthToken: 'frigiliana_health_emergency', locationToken: 'location_frigiliana', arrivalToken: 'getting_to_frigiliana', parkingToken: 'frigiliana_parking', guideSlugs: ['frigiliana-guest-essentials'] },
+  nerja: { label: 'Nerja', shoppingToken: 'nerja_daily_life', healthToken: 'nerja_health_emergency', locationToken: 'location_nerja', arrivalToken: 'getting_to_nerja', parkingToken: 'nerja_parking', guideSlugs: ['nerja-guest-essentials'] },
+  tarifa: { label: 'Tarifa', shoppingToken: 'tarifa_daily_life', healthToken: 'tarifa_health_emergency', locationToken: 'location_tarifa', arrivalToken: 'getting_to_tarifa', parkingToken: 'tarifa_parking', guideSlugs: ['tarifa-guest-local-essentials'] }
 };
 
 const pageConfig = config[destination];
@@ -113,6 +115,12 @@ const footerHighlights: LabeledLink[] = [
     }}
   >
     <DailyLifeGuideSections sections={content.sections} />
+
+    <GuestGuideBridge
+      lang={currentLang}
+      destination={destination}
+      guideSlugs={pageConfig.guideSlugs}
+    />
 
     {content.related && (
       <AuthorityRelatedLinks

@@ -457,13 +457,6 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Frigiliana en Nerja',
     sv: 'Frigiliana och Nerja'
   },
-  'frigiliana.experience.dos-tumbas': {
-    en: 'Netflix Locations',
-    de: 'Netflix-Drehorte',
-    es: 'Localizaciones Netflix',
-    nl: 'Netflix-locaties',
-    sv: 'Netflix-platser'
-  },
   'frigiliana.experience.old-town': {
     en: 'Old Town & History',
     de: 'Altstadt & Geschichte',

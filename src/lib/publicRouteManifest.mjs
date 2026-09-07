@@ -480,7 +480,6 @@ const definitions = [
     segment: { es: 'bienestar', en: 'wellness', de: 'wellness', nl: 'wellness', sv: 'wellness' }
   },
   { key: 'frigiliana.experience.old-town', legacySlug: 'frigiliana-old-town', family: 'frigiliana-old-town', parent: 'frigiliana.experience', segment: oldTownSegments },
-  { key: 'frigiliana.experience.dos-tumbas', legacySlug: 'frigiliana-netflix-dos-tumbas', family: 'frigiliana-dos-tumbas', parent: 'frigiliana.experience', segment: shared('dos-tumbas') },
   {
     key: 'frigiliana.experience.weddings',
     legacySlug: 'frigiliana-weddings',

@@ -68,7 +68,6 @@ export const linkRegistry = {
        EXPLORE
     ========================================================= */
     frigiliana_experience_hub: buildOwnedLinks('frigiliana.experience'),
-    frigiliana_netflix_dos_tumbas: buildOwnedLinks('frigiliana.experience.dos-tumbas'),
     frigiliana_old_town: buildOwnedLinks('frigiliana.experience.old-town'),
 
     /* =========================================================
