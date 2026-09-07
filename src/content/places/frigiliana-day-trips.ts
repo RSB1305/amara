@@ -120,19 +120,50 @@ export const frigilianaDayTripPlaceCopy = definePlaceCopy({
       },
       why: [
         {
-          en: "The most flexible cultural day trip: walkable streets, museums, great food, and a modern port atmosphere.",
-          de: "Der flexibelste kulturelle Tagesausflug: gut begehbare Gassen, Museen, großartiges Essen und eine moderne Hafenatmosphäre.",
-          es: "La excursión cultural más flexible: calles perfectas para pasear, museos, comida estupenda y un ambiente portuario muy moderno.",
-          nl: "De meest flexibele culturele dagtrip: wandelvriendelijke straatjes, musea, geweldig eten en een moderne havensfeer.",
-          sv: "Den mest flexibla kulturella dagsutflykten: promenadvänliga gator, museer, fantastisk mat och en modern hamnatmosfär."
+          en: "Málaga is our easy city day: the centre is flat, car-free and entirely walkable, with museums, good food and the modern port on top. It's at its best when you settle on one or two things and let the rest unfold — the city rewards wandering more than ticking off a list.",
+          de: "Málaga ist unser unkomplizierter Stadttag: Das Zentrum ist flach, autofrei und komplett zu Fuß machbar, dazu Museen, gutes Essen und der moderne Hafen. Am schönsten wird es, wenn ihr euch auf ein, zwei Dinge festlegt und den Rest treiben lasst — die Stadt belohnt Bummeln mehr als Abhaken.",
+          es: "Málaga es nuestro día de ciudad sin complicaciones: el centro es llano, peatonal y se recorre entero a pie, y encima hay museos, buena comida y el puerto moderno. Lo mejor es elegir una o dos cosas y dejar que el resto surja: la ciudad premia más el paseo que la lista de tareas.",
+          nl: "Málaga is onze ongecompliceerde stadsdag: het centrum is vlak, autovrij en volledig te voet te doen, met daarbovenop musea, goed eten en de moderne haven. Het mooist is het als jullie je op één of twee dingen richten en de rest laten gebeuren — de stad beloont slenteren meer dan afvinken.",
+          sv: "Málaga är vår okomplicerade stadsdag: centrum är platt, bilfritt och helt promenadvänligt, med museer, god mat och den moderna hamnen ovanpå. Det blir som bäst när ni bestämmer er för en eller två saker och låter resten ske — staden belönar strövande mer än att pricka av en lista."
+        },
+        {
+          en: "Two small tricks make the day easier. You don't have to climb up to the Alcazaba in the heat: behind the town hall, on Calle Guillén Sotelo, a free public lift takes you to the top, and from there you stroll back down through the fortress to the Roman theatre. And the cathedral — locals fondly call it “La Manquita”, the one-armed lady, because one tower was never finished — can be climbed onto the roof: a good two hundred steps, rewarded with a sweep over the whole city to the sea, loveliest in the late-afternoon light.",
+          de: "Zwei kleine Kniffe machen den Tag leichter. Zur Alcazaba müsst ihr nicht in der Hitze hochsteigen: Hinter dem Rathaus, an der Calle Guillén Sotelo, fährt ein kostenloser Aufzug nach oben, von dort lauft ihr gemütlich durch die Festung wieder hinab zum römischen Theater. Und die Kathedrale — die Malagueños nennen sie liebevoll „La Manquita“, die Einarmige, weil ein Turm nie fertig wurde — lässt sich aufs Dach besteigen: gut zweihundert Stufen, dafür ein Rundblick über die ganze Stadt bis ans Meer, am schönsten im späten Nachmittagslicht.",
+          es: "Dos pequeños trucos facilitan el día. No hace falta subir a la Alcazaba con calor: detrás del Ayuntamiento, en la calle Guillén Sotelo, hay un ascensor público gratuito que sube arriba, y desde allí bajáis tranquilamente por la fortaleza hasta el teatro romano. Y a la catedral — los malagueños la llaman con cariño «La Manquita» porque una torre quedó sin terminar — se puede subir a la cubierta: unos doscientos escalones a cambio de una vista de toda la ciudad hasta el mar, más bonita aún con la luz de la tarde.",
+          nl: "Twee kleine trucjes maken de dag makkelijker. Naar de Alcazaba hoef je niet in de hitte omhoog te klimmen: achter het stadhuis, aan de Calle Guillén Sotelo, brengt een gratis openbare lift jullie naar boven, en vandaar wandel je rustig door het fort weer omlaag naar het Romeinse theater. En de kathedraal — de Malagueños noemen haar liefkozend “La Manquita”, de eenarmige, omdat één toren nooit is afgemaakt — kun je tot op het dak beklimmen: ruim tweehonderd treden, met als beloning een blik over de hele stad tot aan zee, het mooist in het late middaglicht.",
+          sv: "Två små knep gör dagen lättare. Ni behöver inte gå upp till Alcazaba i värmen: bakom rådhuset, på Calle Guillén Sotelo, tar en gratis allmän hiss er upp, och därifrån strövar ni lugnt ner genom fästningen till den romerska teatern. Och katedralen — lokalborna kallar den kärleksfullt ”La Manquita”, den enarmade, eftersom ett torn aldrig blev färdigt — går att bestiga ända upp på taket: dryga tvåhundra trappsteg, belönade med en vy över hela staden ut mot havet, som vackrast i det sena eftermiddagsljuset."
+        },
+        {
+          en: "When it comes to eating, it pays to skip the tourist strip. In the morning a “pitufo”, a small filled roll, with a proper Málaga coffee; at lunch tapas in an old bar like Cortijo de Pepe on Plaza de la Merced. If you like it characterful, have a glass of sweet wine poured straight from the barrel at Antigua Casa de Guardia — they chalk your tab onto the counter. And for real street life, wander through the Lagunillas quarter with its street art: this is the city with no backdrop.",
+          de: "Beim Essen lohnt es sich, die Touristenmeile links liegen zu lassen. Morgens ein „Pitufo“, ein kleines belegtes Brötchen, mit einem richtigen Málaga-Kaffee; mittags Tapas in einer alten Bar wie dem Cortijo de Pepe an der Plaza de la Merced. Wer es urig mag, trinkt in der Antigua Casa de Guardia einen süßen Wein direkt vom Fass — die Rechnung wird mit Kreide auf den Tresen geschrieben. Und für echtes Straßenleben schlendert ihr durchs Viertel Lagunillas mit seiner Street-Art: das ist die Stadt ohne Kulisse.",
+          es: "Para comer, merece la pena dejar de lado la zona más turística. Por la mañana un «pitufo», un bollito relleno, con un buen café malagueño; al mediodía, tapas en un bar de siempre como el Cortijo de Pepe, en la plaza de la Merced. Si os va lo castizo, tomad un vino dulce servido directamente del tonel en la Antigua Casa de Guardia: la cuenta la apuntan con tiza en la barra. Y para ver la vida de calle de verdad, pasead por el barrio de Lagunillas y su arte urbano: es la ciudad sin decorado.",
+          nl: "Voor het eten loont het de moeite de toeristische straat links te laten liggen. 's Ochtends een “pitufo”, een klein belegd broodje, met een echte Málaga-koffie; 's middags tapas in een oude bar zoals Cortijo de Pepe aan de Plaza de la Merced. Houd je van rauw en echt, drink dan bij Antigua Casa de Guardia een zoete wijn recht uit het vat — de rekening schrijven ze met krijt op de toog. En voor echt straatleven slenter je door de wijk Lagunillas met zijn street art: dat is de stad zonder decor.",
+          sv: "När det gäller mat lönar det sig att strunta i turiststråket. På morgonen en ”pitufo”, en liten fylld frukostbulle, med ett riktigt Málaga-kaffe; till lunch tapas i en gammal bar som Cortijo de Pepe vid Plaza de la Merced. Gillar ni det genuina dricker ni ett sött vin direkt från fatet på Antigua Casa de Guardia — notan skrivs med krita på disken. Och för riktigt gatuliv strövar ni genom kvarteret Lagunillas med dess gatukonst: det är staden utan kuliss."
         }
       ],
+      reservationLine: {
+        en: "Book a time slot in advance for the Picasso Museum and the cathedral rooftop; early in the day and midweek are quietest.",
+        de: "Für das Picasso-Museum und das Kathedralendach vorab ein Zeitfenster buchen; früh am Tag und unter der Woche ist es am ruhigsten.",
+        es: "Reservad con antelación una franja horaria para el Museo Picasso y la cubierta de la catedral; a primera hora y entre semana hay más tranquilidad.",
+        nl: "Reserveer vooraf een tijdslot voor het Picasso-museum en het kathedraaldak; vroeg op de dag en doordeweeks is het het rustigst.",
+        sv: "Boka en tid i förväg för Picassomuseet och katedralens tak; tidigt på dagen och mitt i veckan är det lugnast."
+      },
       onTheDay: {
-        en: "Park at <em>Muelle Uno</em> and walk into the center along the promenade.",
-        de: "Parkt am <em>Muelle Uno</em> und spaziert gemütlich an der Promenade entlang ins Zentrum.",
-        es: "Aparcad en el <em>Muelle Uno</em> y caminad hacia el centro por el paseo marítimo.",
-        nl: "Parkeer bij <em>Muelle Uno</em> en wandel langs de boulevard zo het centrum in.",
-        sv: "Parkera vid <em>Muelle Uno</em> och promenera in till centrum längs hamnpromenaden."
+        en: "Park at <em>Muelle Uno</em> by the port and walk into the centre from there; do your walking in the morning and late afternoon and leave the hot midday hours for a long lunch.",
+        de: "Parkt am <em>Muelle Uno</em> am Hafen und lauft von dort ins Zentrum; legt die Wege auf den Vormittag und späten Nachmittag, die heiße Mittagszeit gehört einem langen Mittagessen.",
+        es: "Aparcad en el <em>Muelle Uno</em>, junto al puerto, y caminad al centro desde allí; dejad los paseos para la mañana y el final de la tarde, y las horas de calor para una comida larga.",
+        nl: "Parkeer bij <em>Muelle Uno</em> aan de haven en loop van daar het centrum in; wandel in de ochtend en late namiddag en houd de hete middaguren voor een lange lunch.",
+        sv: "Parkera vid <em>Muelle Uno</em> vid hamnen och promenera in till centrum därifrån; lägg promenaderna på förmiddag och sen eftermiddag och spara de heta timmarna mitt på dagen till en lång lunch."
+      },
+      hostNote: {
+        text: {
+          en: "Our favourite way to end the day: take the bus over to Pedregalejo and eat an espeto on the beach — sardines on a skewer, grilled over olive wood in an old fishing boat. With your fingers, no cutlery needed.",
+          de: "Unser liebster Abschluss: mit dem Bus hinüber nach Pedregalejo und dort am Strand einen Espeto essen — Sardinen am Stock, über Olivenholz in einem alten Fischerboot gegrillt. Mit den Fingern, ganz ohne Besteck.",
+          es: "Nuestro cierre favorito: coger el autobús hasta Pedregalejo y comer un espeto en la playa — sardinas en una caña, asadas sobre leña de olivo en una vieja barca de pesca. Con los dedos, sin cubiertos.",
+          nl: "Onze favoriete afsluiter: met de bus naar Pedregalejo en daar op het strand een espeto eten — sardines aan een stok, boven olijfhout geroosterd in een oude vissersboot. Met je vingers, zonder bestek.",
+          sv: "Vårt favoritsätt att avsluta dagen: ta bussen bort till Pedregalejo och ät en espeto på stranden — sardiner på ett spett, grillade över olivträ i en gammal fiskebåt. Med fingrarna, helt utan bestick."
+        },
+        date: "2026-09-07"
       }
     }
   },

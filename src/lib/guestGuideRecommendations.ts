@@ -54,14 +54,6 @@ const LABELS: Record<AmaraLanguage, Labels> = {
   sv: { address: 'Adress', call: 'Ring', whatsapp: 'WhatsApp', website: 'Webbplats', route: 'Officiell led', reserve: 'Boka', distance: 'Avstånd', checked: 'Kontrollerad', walk: 'till fots', drive: 'med bil', from: STAYS }
 };
 
-const LOCALES: Record<AmaraLanguage, string> = { en: 'en-GB', de: 'de-DE', es: 'es-ES', nl: 'nl-NL', sv: 'sv-SE' };
-
-function formatDate(iso: string, lang: AmaraLanguage): string {
-  const date = new Date(`${iso}T12:00:00Z`);
-  if (Number.isNaN(date.getTime())) return iso;
-  return new Intl.DateTimeFormat(LOCALES[lang], { day: '2-digit', month: '2-digit', year: 'numeric', timeZone: 'UTC' }).format(date);
-}
-
 function formatDistance(metres: number, lang: AmaraLanguage): string {
   if (metres >= 1000) {
     const km = (metres / 1000).toFixed(1).replace(/\.0$/, '');
@@ -121,8 +113,6 @@ export function buildRecommendationView(id: string, lang: AmaraLanguage): GuestG
     if (!parts.length) continue;
     rows.push({ label: t.distance, value: `${parts.join(' · ')} · ${t.from[access.from]}` });
   }
-
-  rows.push({ label: t.checked, value: formatDate(record.checkedAt, lang) });
 
   if (place.phone) actions.push({ label: t.call, href: `tel:${place.phone}`, variant: 'secondary' });
   if (place.whatsapp) actions.push({ label: t.whatsapp, href: `https://wa.me/${place.whatsapp.replace(/[^0-9]/g, '')}`, variant: 'secondary' });
