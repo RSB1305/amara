@@ -1967,7 +1967,7 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
         TARIFA_EXPERIENCE_KITESURF_LINK,
         {
           kind: 'link',
-          icon: 'goblet',
+          icon: 'cutlery',
           targetSlug: 'tarifa-guest-food-drink',
           title: tarifaText(
             'Food & Drinks',
@@ -1991,7 +1991,7 @@ const tarifaFamilySurfLocalGuide: GuestGuideEntry = {
         },
         {
           kind: 'link',
-          icon: 'hiking',
+          icon: 'compass',
           targetSlug: 'tarifa-guest-activities',
           title: tarifaText(
             'Activities',
@@ -2679,7 +2679,7 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           }),
         },
         {
-          icon: 'pool',
+          icon: 'wave',
           recommendationId: 'tarifa.beaches.playa-chica',
           title: tarifaText(
             'Playa Chica',
@@ -2759,7 +2759,7 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           }),
         },
         {
-          icon: 'location-pin',
+          icon: 'wave',
           recommendationId: 'tarifa.beaches.playa-punta-paloma',
           title: tarifaText(
             'Playa Punta Paloma',
@@ -2799,7 +2799,7 @@ const tarifaFamilySurfBeaches: GuestGuideEntry = {
           }),
         },
         {
-          icon: 'star',
+          icon: 'wave',
           recommendationId: 'tarifa.beaches.playa-de-bolonia',
           title: tarifaText(
             'Playa de Bolonia',
