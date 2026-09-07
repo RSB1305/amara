@@ -41,13 +41,13 @@ const personal = isCaves ? resolveLocale(nerjaCavesContent, currentLang).persona
 const footerHighlights: LabeledLink[] = isCaves
   ? [
       { token: 'nerja_caves', label: content.navLabel },
-      { token: 'nerja_geography', label: content.related.links[0].label },
+      { token: 'nerja_where_to_stay', label: content.related.links[0].label },
       { token: 'nerja_weather', label: content.related.links[1].label }
     ]
   : [
       { token: 'nerja_balcon_de_europa', label: content.navLabel },
       { token: 'nerja_nightlife_authority', label: content.related.links[0].label },
-      { token: 'nerja_geography', label: content.related.links[1].label }
+      { token: 'nerja_where_to_stay', label: content.related.links[1].label }
     ];
 ---
 

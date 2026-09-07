@@ -40,7 +40,6 @@ const optionalLink = (token: LinkToken) =>
 
 const aboutHref = optionalLink('about');
 const romanticHideawaysHref = optionalLink('romantic_hideaways');
-const geographyHref = optionalLink('frigiliana_geography');
 const oldTownHref = optionalLink('frigiliana_old_town');
 const stairsHref = optionalLink('frigiliana_stairs');
 const dailyLifeHref = optionalLink('frigiliana_daily_life');
@@ -339,9 +338,6 @@ const casaFacts = [
               ))}
             </div>
             <div class="mt-9 flex flex-wrap gap-x-8 gap-y-4">
-              {geographyHref && (
-                <a href={geographyHref} class="am-cta-link">{c.orientation.geographyLabel}</a>
-              )}
               {gettingThereHref && (
                 <a href={gettingThereHref} class="am-cta-link">{c.orientation.arrivalLabel}</a>
               )}

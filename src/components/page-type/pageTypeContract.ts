@@ -116,7 +116,6 @@ export const AMARA_PAGE_FAMILY_PROFILES = {
   'nerja-where-to-stay': { type: 'authority', tier: 'approved' },
   'location-parking': { type: 'authority', tier: 'approved' },
   'location-weather': { type: 'authority', tier: 'approved' },
-  'location-geography': { type: 'authority', tier: 'approved' },
   'location-daily-life': { type: 'authority', tier: 'approved' },
   instagram: { type: 'explore', tier: 'approved' },
   'stay-search-results': { type: 'conversion', tier: 'approved', conversionOwnership: 'family-owned' },

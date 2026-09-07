@@ -63,7 +63,6 @@ const months = locationClimateProfiles[destination].map((month, index) => ({
 const footerHighlights: LabeledLink[] | undefined = destination === 'tarifa'
   ? [
       { token: 'tarifa_weather', label: content.navLabel },
-      { token: 'tarifa_geography', label: content.related.links[0].label },
       { token: 'tarifa_where_to_stay', label: content.related.links[1].label }
     ]
   : undefined;

@@ -15,7 +15,6 @@ export type FrigilianaAuthoritySubnavId =
   | 'stay'
   | 'comparison'
   | 'arrival'
-  | 'geography'
   | 'dailyLife'
   | 'health'
   | 'parking'
@@ -64,13 +63,6 @@ const currentPageLabels: Record<
     es: 'Llegada y movilidad',
     nl: 'Aankomst & mobiliteit',
     sv: 'Ankomst & mobilitet'
-  },
-  geography: {
-    en: 'Geography & Orientation',
-    de: 'Geografie & Orientierung',
-    es: 'Geografía y orientación',
-    nl: 'Geografie & oriëntatie',
-    sv: 'Geografi & orientering'
   },
   dailyLife: {
     en: 'Supermarkets & Shopping',
@@ -206,7 +198,6 @@ const navigationCopy: Record<AmaraLanguage, FrigilianaNavigationCopy> = {
  */
 const topicLinks: LocationTopicLinks = {
   'arrival-mobility': 'getting_to_frigiliana',
-  'geography-orientation': 'frigiliana_geography',
   'where-to-stay': 'frigiliana_stairs',
   'weather-seasons': 'weather_frigiliana',
   'winter-stays': 'frigiliana_winter_stays',
@@ -221,14 +212,13 @@ export function getFrigilianaAuthorityActiveTopic(
   const topicByPage: Partial<Record<FrigilianaAuthoritySubnavId, FrigilianaAuthorityTopicId>> = {
     intro: undefined,
     arrival: 'arrival-mobility',
-    geography: 'geography-orientation',
     dailyLife: 'shopping-markets',
     health: 'health-emergency',
     parking: 'parking-accessibility',
     stay: 'where-to-stay',
     weather: 'weather-seasons',
     winter: 'winter-stays',
-    oldTown: 'geography-orientation',
+    oldTown: 'where-to-stay',
     faq: undefined,
     comparison: 'where-to-stay'
   };

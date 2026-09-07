@@ -206,7 +206,7 @@ export const nerjaCavesContent = {
     title: l("Around the caves", "Rund um die Höhlen", "Alrededor de la cueva", "Rond de grotten", "Runt grottorna"),
     links: [
       {
-        token: "nerja_geography" as LinkToken,
+        token: "nerja_where_to_stay" as LinkToken,
         label: l("Geography & orientation", "Geografie & Orientierung", "Geografía y orientación", "Geografie & oriëntatie", "Geografi & orientering"),
         text: l("Maro, the cliffs and how the eastern side of the municipality fits together.", "Maro, die Steilküste und wie die Ostseite der Gemeinde zusammenhängt.", "Maro, los acantilados y cómo encaja el lado oriental del municipio.", "Maro, de kliffen en hoe de oostkant van de gemeente in elkaar zit.", "Maro, klipporna och hur kommunens östra sida hänger ihop.")
       },

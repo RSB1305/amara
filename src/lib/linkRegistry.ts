@@ -75,7 +75,6 @@ export const linkRegistry = {
     ========================================================= */
     locations_hub: { en: '/en/locations', de: '/de/locations', es: '/locations', nl: '/nl/locations', sv: '/sv/locations' },
     location_frigiliana: buildOwnedLinks('frigiliana'),
-    frigiliana_geography: buildOwnedLinks('frigiliana.geography'),
     frigiliana_daily_life: buildOwnedLinks('frigiliana.supermarkets'),
     frigiliana_health_emergency: buildOwnedLinks('frigiliana.health'),
     location_nerja: buildOwnedLinks('nerja'),
@@ -84,7 +83,6 @@ export const linkRegistry = {
     nerja_daytrips_authority: buildOwnedLinks('nerja.experience.day-trips'),
     nerja_food_authority: buildOwnedLinks('nerja.experience.food'),
     getting_to_nerja: buildOwnedLinks('nerja.arrival'),
-    nerja_geography: buildOwnedLinks('nerja.geography'),
     nerja_caves: buildOwnedLinks('nerja.experience.caves'),
     nerja_verano_azul: buildOwnedLinks('nerja.experience.verano-azul'),
     nerja_balcon_de_europa: buildOwnedLinks('nerja.experience.balcon-de-europa'),
@@ -101,7 +99,6 @@ export const linkRegistry = {
        TARIFA — AUTHORITY (PUBLIC)
     ========================================================= */
     getting_to_tarifa: buildOwnedLinks('tarifa.arrival'),
-    tarifa_geography: buildOwnedLinks('tarifa.geography'),
     tarifa_where_to_stay: buildOwnedLinks('tarifa.where-to-stay'),
     tarifa_weather: buildOwnedLinks('tarifa.weather'),
     tarifa_daily_life: buildOwnedLinks('tarifa.supermarkets'),

@@ -192,7 +192,7 @@ export const nerjaBalconContent = {
         text: l("Which quarter suits which kind of evening, once you leave the terrace.", "Welches Viertel zu welchem Abend passt, wenn ihr die Terrasse verlasst.", "Qué zona encaja con qué tipo de noche cuando dejáis el mirador.", "Welke buurt bij welke avond past zodra jullie het terras verlaten.", "Vilken stadsdel som passar vilken sorts kväll när ni lämnar terrassen.")
       },
       {
-        token: "nerja_geography" as LinkToken,
+        token: "nerja_where_to_stay" as LinkToken,
         label: l("Location & orientation", "Lage & Orientierung", "Situación y orientación", "Ligging & oriëntatie", "Läge och orientering"),
         text: l("Why the beaches lie below the town rather than in front of it.", "Warum die Strände unter dem Ort liegen und nicht vor ihm.", "Por qué las playas quedan debajo del pueblo y no delante de él.", "Waarom de stranden ónder het dorp liggen en niet ervoor.", "Varför stränderna ligger under orten och inte framför den.")
       }

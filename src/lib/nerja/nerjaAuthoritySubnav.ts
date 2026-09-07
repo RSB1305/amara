@@ -15,7 +15,6 @@ export type NerjaAuthoritySubnavGroup = AuthoritySubnavGroup;
 /** Nerja publishes the shared eight-topic Location model. */
 const topicLinks: LocationTopicLinks = {
   'arrival-mobility': 'getting_to_nerja',
-  'geography-orientation': 'nerja_geography',
   'where-to-stay': 'nerja_where_to_stay',
   'weather-seasons': 'nerja_weather',
   'winter-stays': 'nerja_winter_stays',

@@ -259,7 +259,7 @@ export const nerjaWinterStaysContent = {
         text: l("Old Town, Torrecilla, Carabeo, Burriana or the hills — what each is like to live in.", "Altstadt, Torrecilla, Carabeo, Burriana oder die Hanglagen — wie es sich dort jeweils wohnt.", "Casco antiguo, Torrecilla, Carabeo, Burriana o las colinas: cómo se vive en cada zona.", "Oude centrum, Torrecilla, Carabeo, Burriana of de heuvels — hoe het is om er te wonen.", "Gamla stan, Torrecilla, Carabeo, Burriana eller höjderna — hur det är att bo i varje del.")
       },
       {
-        token: "nerja_geography" as LinkToken,
+        token: "nerja_where_to_stay" as LinkToken,
         label: l("Geography & Orientation", "Geografie & Orientierung", "Geografía y orientación", "Geografie & oriëntatie", "Geografi & orientering"),
         text: l("How the town sits between the Sierra and the sea.", "Wie die Stadt zwischen Sierra und Meer liegt.", "Cómo se sitúa el pueblo entre la sierra y el mar.", "Hoe de stad tussen de sierra en de zee ligt.", "Hur staden ligger mellan sierran och havet.")
       },
