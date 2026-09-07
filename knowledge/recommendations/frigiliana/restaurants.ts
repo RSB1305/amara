@@ -49,7 +49,7 @@ export const frigilianaRestaurantRecommendations = defineKnowledgeRecommendation
     operating: { note: 'Closes at 20:00 with hot kitchen until 19:30; reservation by WhatsApp (host note in the published guide, undated)', observedAt: '2026-09-05' },
     provenance: 'mixed',
     status: 'APPROVED',
-    scope: 'split',
+    scope: 'public',
     basis: 'published-guide-carryover',
     factIds: [
       'frigiliana.restaurants.la-taperia.position-and-cuisine'
@@ -90,5 +90,21 @@ export const frigilianaRestaurantRecommendations = defineKnowledgeRecommendation
     reviewAfter: '2027-03-05',
     volatility: 'medium',
     claimBoundary: 'Carried over from the published guide on 2026-09-05; identity and map link only, no operating details are verified.'
+  },
+  {
+    id: 'frigiliana.restaurants.stablo',
+    destination: 'frigiliana',
+    topic: 'restaurants',
+    place: { name: 'Stablo', kind: 'restaurant', address: 'Callejón de la Iglesia 7, 29788 Frigiliana', mapsUrl: 'https://maps.app.goo.gl/B28baaxkEbojVk8e6' },
+    summary: 'Right next to Casa AMARA by the church; added by the operator on 2026-09-06 as a first-hand Guest Guide recommendation.',
+    access: [{ from: 'casa-amara', note: 'directly next door, by the church' }],
+    provenance: 'amara-first-hand',
+    status: 'APPROVED',
+    scope: 'amara-experience',
+    basis: 'operator-review',
+    checkedAt: '2026-09-06',
+    reviewAfter: '2027-03-06',
+    volatility: 'medium',
+    claimBoundary: 'Operator statement of 2026-09-06: location next to AMARA by the church, address and map link; no hours, menu or price claims.'
   }
 ]);
