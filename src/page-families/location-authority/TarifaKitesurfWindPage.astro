@@ -13,6 +13,7 @@ import { tarifaKitesurfWindContent, tarifaKitesurfWindSeo } from '../../content/
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import { resolveLocale } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import LocationModule from './LocationModule.astro';
@@ -319,6 +320,8 @@ const footerHighlights: LabeledLink[] = [
         </div>
       </div>
     </LocationModule>
+
+    <GuestGuideBridge lang={currentLang} destination="tarifa" guideSlugs={['tarifa-guest-kitesurfing']} />
 
     <LocationModule id="tarifa-basecamp" labelledby="tarifa-basecamp-title" spacing="closing" data-am-topic="basecamp">
       <div class="mx-auto max-w-4xl text-center">

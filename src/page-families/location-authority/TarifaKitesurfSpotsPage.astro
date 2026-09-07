@@ -11,6 +11,7 @@ import { vacationRentalEntitiesByKey } from '../../content/vacationRentalEntitie
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import { resolveLocale } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import { requireRouteImage, routeImage } from '../../lib/images/routeImages';
@@ -208,6 +209,8 @@ const spotNumber = (index: number) => String(index + 1).padStart(2, '0');
         </div>
       </div>
     </LocationModule>
+
+    <GuestGuideBridge lang={currentLang} destination="tarifa" guideSlugs={['tarifa-guest-kitesurfing']} />
 
     <LocationModule id="amara-family-surf" labelledby="stay-title" surface="tint" spacing="closing" data-am-topic="basecamp">
       <div class="mx-auto max-w-4xl text-center">

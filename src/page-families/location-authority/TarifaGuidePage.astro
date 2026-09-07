@@ -16,6 +16,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import type { AmaraLanguage } from '../../types/seo';
 import { requireRouteImage } from '../../lib/images/routeImages';
 
@@ -33,6 +34,7 @@ const stayHref = requiredLink('tarifa');
 const bookHref = requiredLink('book');
 const aboutHref = requiredLink('about');
 const topicContent = content.id === 'overview' ? undefined : content;
+const guideSlug = content.id === 'beaches' ? 'tarifa-guest-beaches' : 'tarifa-guest-local-guide';
 const relatedGuides = topicContent?.related.map((id) => tarifaGuideContent[id]) ?? [];
 const kitePartnership = topicContent?.partnership;
 const kiteEnquiryHref = kitePartnership
@@ -638,6 +640,8 @@ const footerHighlights: LabeledLink[] = [
         </div>
       </div>
     </section>
+
+    <GuestGuideBridge lang={currentLang} destination="tarifa" guideSlugs={[guideSlug]} />
 
     <AuthorityStayBridge
       eyebrow={t(ui.stayEyebrow)}
