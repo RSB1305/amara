@@ -5,7 +5,7 @@ export const frigilianaDayTripsKnowledge = defineKnowledgePageManifest({
   destination: 'frigiliana',
   topic: 'day-trips',
   createdAt: '2026-09-07T12:00:00+02:00',
-  updatedAt: '2026-09-07T12:00:00+02:00',
+  updatedAt: '2026-09-07T15:30:00+02:00',
   status: 'needs-review',
   driveFolder: {
     id: '1_9M2pfD1_NfeeqMs5V97RhquQCLZD7fh',
@@ -29,21 +29,24 @@ export const frigilianaDayTripsKnowledge = defineKnowledgePageManifest({
       purpose: 'Frame Granada and the Alhambra as a full-day classic with an honest ticket reality and a plan B.',
       factIds: [],
       status: 'baseline-unmapped',
-      notes: 'Rests on general orientation and the volatile Alhambra ticketing reality; no dedicated research run yet.',
+      notes:
+        'Guide card enriched from independent web research (Nasrid Palaces timed-entry reality, the free-tapa tradition around Calle Navas and the Albaicín, Mirador de San Nicolás). Advisory host register — no first-hand AMARA claims. Not a Drive research run and not yet normalized into facts.',
     },
     {
       authoringArea: 'caminito-del-rey',
       purpose: 'Set expectations for a booked, linear walkway experience with a shuttle return.',
       factIds: [],
       status: 'baseline-unmapped',
-      notes: 'Rests on general orientation and official booking constraints; no dedicated research run yet.',
+      notes:
+        'Guide card enriched from independent web research (one-way Ardales→El Chorro route, shuttle between the ends, half-day timing, helmet provided, minimum age eight with ID check, no changes/refunds). Advisory host register — no first-hand AMARA claims. Not a Drive research run and not yet normalized into facts.',
     },
     {
       authoringArea: 'ronda',
       purpose: 'Position Ronda as a longer scenic drive where the journey is part of the day.',
       factIds: [],
       status: 'baseline-unmapped',
-      notes: 'Rests on general orientation; no dedicated research run yet.',
+      notes:
+        'Guide card enriched from independent web research (Puente Nuevo over El Tajo, the descent into the gorge for the classic upward view, the compact old town with the Plaza de Toros and Alameda del Tajo, Ronda wine country). Advisory host register — no first-hand AMARA claims. Not a Drive research run and not yet normalized into facts.',
     },
   ],
 });

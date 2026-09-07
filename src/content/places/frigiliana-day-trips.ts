@@ -286,26 +286,47 @@ export const frigilianaDayTripPlaceCopy = definePlaceCopy({
       },
       why: [
         {
-          en: "Moorish architecture, tea houses, the Albaicín, and the Alhambra with Sierra Nevada behind it — a true classic.",
-          de: "Maurische Architektur, traditionelle Teehäuser, das Albaicín-Viertel und die Alhambra mit der Sierra Nevada im Hintergrund – ein echter Klassiker.",
-          es: "Arquitectura morisca, teterías, el Albaicín y la Alhambra con Sierra Nevada de fondo: un verdadero clásico.",
-          nl: "Moorse architectuur, theehuisjes, de wijk Albaicín en het Alhambra met de Sierra Nevada op de achtergrond — een absolute klassieker.",
-          sv: "Morisk arkitektur, tehus, stadsdelen Albaicín och Alhambra med Sierra Nevada i bakgrunden – en sann klassiker."
+          en: "Moorish architecture, tea houses, the Albaicín quarter and the Alhambra with the Sierra Nevada behind it — a true Andalusian classic that deserves a whole day.",
+          de: "Maurische Architektur, traditionelle Teehäuser, das Albaicín-Viertel und die Alhambra mit der Sierra Nevada im Hintergrund — ein echter andalusischer Klassiker, der einen ganzen Tag verdient.",
+          es: "Arquitectura morisca, teterías, el barrio del Albaicín y la Alhambra con Sierra Nevada al fondo: un auténtico clásico andaluz que merece un día entero.",
+          nl: "Moorse architectuur, theehuizen, de wijk Albaicín en het Alhambra met de Sierra Nevada erachter — een echte Andalusische klassieker die een hele dag verdient.",
+          sv: "Morisk arkitektur, tehus, stadsdelen Albaicín och Alhambra med Sierra Nevada bakom — en riktig andalusisk klassiker som förtjänar en hel dag."
+        },
+        {
+          en: "The heart of it, the Nasrid Palaces, has a fixed time window printed on your ticket — and it's a good half-hour walk from the entrance to the palaces across the large complex. Leave plenty of buffer and arrive early, or the slot lapses. Give the Generalife gardens and the Alcazaba fortress time too; the Alhambra isn't a quick stop, it's half the day.",
+          de: "Das Herzstück, die Nasridenpaläste, hat ein festes Zeitfenster auf dem Ticket — und vom Eingang bis zu den Palästen lauft ihr gut eine halbe Stunde durch die weitläufige Anlage. Plant genug Puffer ein und kommt eher zu früh, sonst verfällt der Slot. Nehmt euch auch für die Generalife-Gärten und die Festung Alcazaba Zeit; die Alhambra ist kein schneller Halt, sondern der halbe Tag.",
+          es: "El corazón, los Palacios Nazaríes, tiene una franja horaria fija impresa en la entrada, y desde el acceso hasta los palacios hay una buena media hora a pie por todo el recinto. Dejad margen de sobra y llegad con antelación, o la hora se pierde. Dedicad tiempo también a los jardines del Generalife y a la Alcazaba; la Alhambra no es una parada rápida, es medio día.",
+          nl: "Het hart ervan, de Nasridische paleizen, heeft een vast tijdslot op je ticket — en het is een goede half uur lopen van de ingang naar de paleizen door het uitgestrekte complex. Houd ruim marge en kom vroeg, anders vervalt het slot. Neem ook de tijd voor de Generalife-tuinen en het Alcazaba-fort; het Alhambra is geen korte stop, het is een halve dag.",
+          sv: "Hjärtat i det hela, Nasridpalatsen, har en fast tidslucka tryckt på biljetten — och det är en dryg halvtimmes promenad från entrén till palatsen genom det vidsträckta området. Lämna gott om marginal och kom tidigt, annars förfaller tiden. Ge även Generalifes trädgårdar och fästningen Alcazaba tid; Alhambra är inget snabbt stopp, det är en halv dag."
+        },
+        {
+          en: "Granada has a habit you rarely find elsewhere: with almost every drink comes a free tapa — around Calle Navas and in the Albaicín bars you can practically drink your way to dinner. Afterwards, wind up through the narrow Albaicín lanes to the Mirador de San Nicolás, where the Alhambra sits against the Sierra Nevada: early in the day the view is almost yours, at sunset you share it with half of Granada.",
+          de: "Granada hat eine Eigenheit, die man sonst kaum noch findet: Zu fast jedem Getränk kommt eine kostenlose Tapa — rund um die Calle Navas und in den Bars des Albaicín trinkt man sich so nebenbei ein Abendessen zusammen. Danach durch die engen Gassen des Albaicín hinauf zum Mirador de San Nicolás, wo die Alhambra vor der Sierra Nevada liegt: früh am Tag gehört euch der Blick fast allein, zum Sonnenuntergang teilt ihr ihn mit halb Granada.",
+          es: "Granada tiene una costumbre que ya casi no se ve en otros sitios: con casi cada bebida llega una tapa gratis — por la calle Navas y en los bares del Albaicín se cena casi sin darse cuenta. Después, subid por las callejuelas del Albaicín hasta el Mirador de San Nicolás, con la Alhambra recortada sobre Sierra Nevada: a primera hora la vista es casi vuestra, al atardecer la compartís con media Granada.",
+          nl: "Granada heeft een gewoonte die je elders nauwelijks nog vindt: bij bijna elk drankje krijg je een gratis tapa — rond de Calle Navas en in de bars van het Albaicín drink je zowat je avondeten bij elkaar. Klim daarna door de smalle straatjes van het Albaicín omhoog naar de Mirador de San Nicolás, waar het Alhambra tegen de Sierra Nevada ligt: vroeg op de dag heb je het uitzicht bijna voor jezelf, bij zonsondergang deel je het met half Granada.",
+          sv: "Granada har en vana man knappt hittar någon annanstans: till nästan varje dryck följer en gratis tapa — kring Calle Navas och i barerna i Albaicín dricker man sig nästan fram till middag. Vandra sedan upp genom Albaicíns smala gränder till Mirador de San Nicolás, där Alhambra ligger mot Sierra Nevada: tidigt på dagen har ni utsikten nästan för er själva, vid solnedgången delar ni den med halva Granada."
         }
       ],
       reservationLine: {
-        en: "Alhambra tickets can sell out far ahead, so book as soon as you have dates.",
-        de: "Die Eintrittskarten für die Alhambra sind oft lange im Voraus ausverkauft – bucht sie, sobald eure Reisedaten feststehen.",
-        es: "Las entradas de la Alhambra pueden agotarse con mucha antelación; reservadlas en cuanto tengáis fechas.",
-        nl: "Kaartjes voor het Alhambra zijn vaak ver van tevoren uitverkocht — boek zodra jullie reisdata vaststaan.",
-        sv: "Biljetterna till Alhambra säljer ofta slut långt i förväg – boka så snart ni vet era datum."
+        en: "Alhambra tickets often sell out weeks to months ahead — book through the official channel as soon as your dates are set, and mind the timed slot for the Nasrid Palaces.",
+        de: "Die Alhambra-Tickets sind oft Wochen bis Monate im Voraus ausverkauft — bucht über den offiziellen Kanal, sobald eure Reisedaten feststehen, und achtet auf das Zeitfenster für die Nasridenpaläste.",
+        es: "Las entradas de la Alhambra suelen agotarse con semanas o meses de antelación — reservad por el canal oficial en cuanto tengáis las fechas y fijaos en la franja horaria de los Palacios Nazaríes.",
+        nl: "Kaartjes voor het Alhambra zijn vaak weken tot maanden van tevoren uitverkocht — boek via het officiële kanaal zodra jullie data vaststaan en let op het tijdslot voor de Nasridische paleizen.",
+        sv: "Biljetterna till Alhambra tar ofta slut veckor till månader i förväg — boka via den officiella kanalen så snart datumen är satta och håll koll på tidsluckan för Nasridpalatsen."
+      },
+      onTheDay: {
+        en: "Leave the car in a central car park; the Alhambra hill and the Albaicín don't sit side by side, so build the day around your palace time slot and let the rest be unhurried.",
+        de: "Stellt das Auto in einem zentralen Parkhaus ab; der Alhambra-Hügel und das Albaicín liegen nicht nebeneinander, also baut den Tag um euer Palast-Zeitfenster herum und lasst den Rest gemächlich.",
+        es: "Dejad el coche en un aparcamiento céntrico; la colina de la Alhambra y el Albaicín no están uno al lado del otro, así que organizad el día en torno a vuestra franja de los palacios y dejad lo demás con calma.",
+        nl: "Zet de auto in een centrale parkeergarage; de Alhambra-heuvel en het Albaicín liggen niet naast elkaar, dus bouw de dag op rond jullie paleistijdslot en laat de rest ontspannen.",
+        sv: "Ställ bilen i ett centralt parkeringshus; Alhambrakullen och Albaicín ligger inte bredvid varandra, så bygg dagen kring er palatstid och låt resten vara lugn."
       },
       planB: {
-        en: "If tickets are gone, go anyway for the Albaicín and <em>Mirador de San Nicolás</em>.",
-        de: "Falls es keine Tickets mehr gibt, fahrt trotzdem hin und genießt das Albaicín und den <em>Mirador de San Nicolás</em>.",
-        es: "Si ya no quedan, id de todos modos a disfrutar del Albaicín y el <em>Mirador de San Nicolás</em>.",
-        nl: "Zijn er geen tickets meer? Ga dan alsnog voor het Albaicín en het <em>Mirador de San Nicolás</em>.",
-        sv: "Om biljetterna är slut, åk ändå för att uppleva Albaicín och <em>Mirador de San Nicolás</em>."
+        en: "If the Nasrid Palaces are sold out, the day is still worth it: the gardens, the Albaicín and the <em>Mirador de San Nicolás</em> carry it on their own.",
+        de: "Sind die Nasridenpaläste ausgebucht, lohnt sich der Tag trotzdem: die Gärten, das Albaicín und der <em>Mirador de San Nicolás</em> tragen ihn allein.",
+        es: "Si los Palacios Nazaríes están agotados, el día merece la pena igual: los jardines, el Albaicín y el <em>Mirador de San Nicolás</em> lo sostienen por sí solos.",
+        nl: "Zijn de Nasridische paleizen uitverkocht, dan is de dag het nog steeds waard: de tuinen, het Albaicín en de <em>Mirador de San Nicolás</em> dragen hem op zichzelf.",
+        sv: "Om Nasridpalatsen är slutsålda är dagen ändå värd det: trädgårdarna, Albaicín och <em>Mirador de San Nicolás</em> bär den på egen hand."
       }
     }
   },
@@ -421,26 +442,40 @@ export const frigilianaDayTripPlaceCopy = definePlaceCopy({
       },
       why: [
         {
-          en: "A dramatic walkway attached to the gorge walls — one of the most unique \"big view\" experiences in the region.",
-          de: "Ein spektakulärer Steg, der direkt an den Felswänden der Schlucht befestigt ist – eines der beeindruckendsten Naturerlebnisse der Region.",
-          es: "Una pasarela espectacular colgada de las paredes del desfiladero: una de las experiencias con mejores vistas de toda la región.",
-          nl: "Een spectaculair wandelpad dat vastzit aan de wanden van de kloof — een van de meest unieke natuurervaringen in de regio.",
-          sv: "En dramatisk gångbro fäst vid ravinens väggar – en av de mest unika naturupplevelserna i regionen."
+          en: "A dramatic walkway fixed straight to the walls of the Gaitanes gorge — at times dizzyingly high above the river. One of the most striking “big view” experiences in the region.",
+          de: "Ein spektakulärer Steg, direkt an den Felswänden der Gaitanes-Schlucht befestigt — teils schwindelerregend hoch über dem Fluss. Eines der eindrucksvollsten „großen“ Naturerlebnisse der Region.",
+          es: "Una pasarela espectacular sujeta directamente a las paredes del Desfiladero de los Gaitanes — a ratos a una altura de vértigo sobre el río. Una de las experiencias con mejores vistas de toda la región.",
+          nl: "Een spectaculair looppad, recht tegen de wanden van de Gaitanes-kloof bevestigd — soms duizelingwekkend hoog boven de rivier. Een van de meest indrukwekkende natuurervaringen met groots uitzicht in de regio.",
+          sv: "En dramatisk gångbro fäst rakt i väggarna på Gaitanesravinen — stundtals svindlande högt över floden. En av de mest slående naturupplevelserna med storslagen utsikt i regionen."
+        },
+        {
+          en: "Good to know: it's a one-way route, from the northern entrance near Ardales to the exit at El Chorro. You don't come out where you started — a shuttle bus links the two ends, so plan it in. Allow half a day including the access paths; a helmet is handed to you on site.",
+          de: "Gut zu wissen: Es ist ein Streckenweg in nur eine Richtung, vom nördlichen Eingang bei Ardales bis zum Ausgang in El Chorro. Ihr kommt nicht dort heraus, wo ihr gestartet seid — ein Shuttlebus verbindet die beiden Enden, plant ihn fest ein. Rechnet mit einem halben Tag samt der Zugangswege; einen Helm bekommt ihr vor Ort.",
+          es: "Conviene saberlo: es una ruta de sentido único, desde el acceso norte, cerca de Ardales, hasta la salida en El Chorro. No salís por donde entrasteis — un autobús lanzadera une los dos extremos, contadlo desde el principio. Calculad medio día con los caminos de acceso; el casco os lo dan allí.",
+          nl: "Goed om te weten: het is een eenrichtingsroute, van de noordelijke ingang bij Ardales naar de uitgang bij El Chorro. Je komt er niet uit waar je begon — een shuttlebus verbindt de twee uiteinden, reken die er vast bij. Houd rekening met een halve dag inclusief de aanlooppaden; een helm krijg je ter plekke.",
+          sv: "Bra att veta: det är en enkelriktad led, från den norra entrén nära Ardales till utgången i El Chorro. Ni kommer inte ut där ni startade — en skyttelbuss binder ihop de två ändarna, räkna in den. Räkna med en halvdag inklusive anslutningsvägarna; en hjälm får ni på plats."
+        },
+        {
+          en: "Not for a real fear of heights, and children under eight aren't allowed (ID is checked). Sturdy closed shoes, water and sun protection belong in your day; large backpacks are better left in the car.",
+          de: "Nichts für ausgeprägte Höhenangst, und Kinder unter acht Jahren dürfen nicht mit (der Ausweis wird kontrolliert). Feste, geschlossene Schuhe, Wasser und Sonnenschutz gehören dazu; große Rucksäcke bleiben besser im Auto.",
+          es: "No es para quien tenga vértigo de verdad, y los menores de ocho años no pueden entrar (se comprueba el DNI). Calzado cerrado y firme, agua y protección solar son imprescindibles; las mochilas grandes mejor dejarlas en el coche.",
+          nl: "Niets voor echte hoogtevrees, en kinderen onder de acht mogen niet mee (het ID wordt gecontroleerd). Stevige dichte schoenen, water en zonbescherming horen erbij; grote rugzakken laat je beter in de auto.",
+          sv: "Inget för verklig höjdrädsla, och barn under åtta år får inte följa med (legitimation kontrolleras). Rejäla, slutna skor, vatten och solskydd hör till; stora ryggsäckar lämnar ni hellre i bilen."
         }
       ],
       reservationLine: {
-        en: "Book in advance (weeks ahead in peak season).",
-        de: "Unbedingt im Voraus buchen (in der Hochsaison teils Wochen vorher).",
-        es: "Reservad con antelación (incluso semanas antes en temporada alta).",
-        nl: "Boek vooraf (in het hoogseizoen vaak weken van tevoren).",
-        sv: "Boka i förväg (ibland veckor i förväg under högsäsong)."
+        en: "Book in advance through the official website (often weeks ahead in peak season); changes and refunds aren't possible. Bring your ID and the card you paid with.",
+        de: "Vorab über die offizielle Website buchen (in der Hochsaison oft Wochen im Voraus); Umbuchung und Erstattung sind nicht möglich. Bringt Ausweis und die Karte mit, mit der ihr bezahlt habt.",
+        es: "Reservad con antelación en la web oficial (a menudo con semanas en temporada alta); no se admiten cambios ni devoluciones. Llevad el DNI y la tarjeta con la que pagasteis.",
+        nl: "Boek vooraf via de officiële website (in het hoogseizoen vaak weken van tevoren); wijzigen en terugbetalen kan niet. Neem je ID en de kaart mee waarmee je betaald hebt.",
+        sv: "Boka i förväg via den officiella webbplatsen (ofta veckor i förväg under högsäsong); ändringar och återbetalning är inte möjliga. Ta med legitimation och kortet ni betalade med."
       },
       onTheDay: {
-        en: "It's a linear walk with a shuttle back, not ideal if you have a strong fear of heights.",
-        de: "Es ist keine Rundtour, sondern ein Streckenweg mit einem Shuttlebus zurück, nicht ideal bei starker Höhenangst.",
-        es: "Es una ruta lineal con un autobús lanzadera para volver, no es ideal si tenéis mucho miedo a las alturas.",
-        nl: "Het is een route van A naar B, waarna jullie met een shuttlebus teruggaan, niet ideaal bij erge hoogtevrees.",
-        sv: "Det är en linjär vandring med en buss tillbaka, inte optimalt vid stark höjdrädsla."
+        en: "Arrive early for check-in at the northern entrance; from there it runs one way through the gorge, and the shuttle brings you back to your starting point at the end.",
+        de: "Kommt früh zum Check-in am nördlichen Eingang; von dort geht es in eine Richtung durch die Schlucht, und der Shuttle bringt euch am Ende zurück zum Startpunkt.",
+        es: "Llegad temprano al control en el acceso norte; desde allí se avanza en un solo sentido por el desfiladero, y la lanzadera os devuelve al punto de partida al final.",
+        nl: "Kom vroeg voor de check-in bij de noordelijke ingang; van daar loopt het in één richting door de kloof, en de shuttle brengt je aan het eind terug naar je startpunt.",
+        sv: "Kom tidigt till incheckningen vid den norra entrén; därifrån går det åt ett håll genom ravinen, och skytteln tar er tillbaka till startpunkten på slutet."
       }
     }
   },
@@ -556,19 +591,33 @@ export const frigilianaDayTripPlaceCopy = definePlaceCopy({
       },
       why: [
         {
-          en: "Defined by the Puente Nuevo over the gorge — cinematic, historic, and intensely scenic. The drive is part of the reward.",
-          de: "Bekannt für die atemberaubende Brücke Puente Nuevo über der Schlucht – filmreif, historisch und unheimlich malerisch. Die Fahrt dorthin ist bereits Teil des Erlebnisses.",
-          es: "Conocida por el Puente Nuevo sobre el Tajo: de película, histórica e intensamente pintoresca. El viaje en coche ya es parte de la experiencia.",
-          nl: "Beroemd om de Puente Nuevo brug over de kloof — filmisch, historisch en waanzinnig mooi. De rit ernaartoe is al onderdeel van de ervaring.",
-          sv: "Känd för bron Puente Nuevo över ravinen – filmatisk, historisk och otroligt vacker. Bilturen dit är en del av upplevelsen i sig."
+          en: "Defined by the Puente Nuevo spanning the deep Tajo gorge — cinematic, historic and intensely scenic. The drive through the mountains to get there is already part of the experience.",
+          de: "Geprägt vom Puente Nuevo, der die tiefe Tajo-Schlucht überspannt — filmreif, historisch und unheimlich malerisch. Schon die Fahrt durch die Berge dorthin ist Teil des Erlebnisses.",
+          es: "Marcada por el Puente Nuevo sobre el profundo Tajo — de película, histórica e intensamente pintoresca. Ya el viaje por la montaña para llegar forma parte de la experiencia.",
+          nl: "Bepaald door de Puente Nuevo over de diepe Tajo-kloof — filmisch, historisch en waanzinnig schilderachtig. De rit door de bergen ernaartoe is al onderdeel van de ervaring.",
+          sv: "Präglad av Puente Nuevo över den djupa Tajo-ravinen — filmisk, historisk och otroligt naturskön. Redan bilturen genom bergen dit är en del av upplevelsen."
+        },
+        {
+          en: "The finest view isn't from the top of the bridge but from below: a path leads down from the old town into the gorge to the viewpoints where the Puente Nuevo shows its full height — the picture you carry of Ronda. If you like, take the short (paid) path right down to the foot of the bridge.",
+          de: "Den schönsten Blick habt ihr nicht oben von der Brücke, sondern von unten: Ein Weg führt von der Altstadt in die Schlucht hinab zu den Aussichtspunkten, von denen sich der Puente Nuevo in ganzer Höhe zeigt — das Bild, das man von Ronda im Kopf hat. Wer mag, nimmt den kurzen (kostenpflichtigen) Pfad bis zum Fuß der Brücke.",
+          es: "La mejor vista no está arriba, en el puente, sino abajo: un sendero baja desde el casco antiguo al desfiladero, hasta los miradores donde el Puente Nuevo se muestra en toda su altura — la imagen que uno guarda de Ronda. Si os apetece, tomad el corto sendero (de pago) hasta el pie del puente.",
+          nl: "Het mooiste uitzicht heb je niet boven op de brug, maar van onderen: een pad leidt vanuit de oude stad de kloof in naar de uitkijkpunten waar de Puente Nuevo zich in volle hoogte toont — het beeld dat je van Ronda onthoudt. Wil je, neem dan het korte (betaalde) pad tot aan de voet van de brug.",
+          sv: "Den finaste vyn är inte uppifrån bron utan nedifrån: en stig leder ner från gamla stan i ravinen till utsiktsplatserna där Puente Nuevo visar sig i hela sin höjd — bilden man bär med sig av Ronda. Om ni vill, ta den korta (avgiftsbelagda) stigen ända ner till brofästet."
+        },
+        {
+          en: "Up top everything is on foot: the Plaza de Toros, one of Spain's oldest bullrings, the Alameda del Tajo gardens with views over the edge, old churches and lanes. Ronda is wine country too — a quiet lunch with a local wine fits the rhythm of this day.",
+          de: "Oben ist alles fußläufig: die Plaza de Toros, eine der ältesten Stierkampfarenen Spaniens, die Gärten der Alameda del Tajo mit Blick über die Kante, alte Kirchen und Gassen. Ronda ist außerdem Weinland — ein ruhiges Mittagessen mit einem Wein aus der Gegend passt zum Rhythmus dieses Tages.",
+          es: "Arriba todo se hace a pie: la Plaza de Toros, una de las más antiguas de España, los jardines de la Alameda del Tajo asomados al borde, iglesias y callejuelas antiguas. Ronda es además tierra de vino — una comida tranquila con un vino de la zona encaja en el ritmo de este día.",
+          nl: "Boven gaat alles te voet: de Plaza de Toros, een van de oudste arena's van Spanje, de tuinen van de Alameda del Tajo met uitzicht over de rand, oude kerken en straatjes. Ronda is ook wijnland — een rustige lunch met een lokale wijn past bij het ritme van deze dag.",
+          sv: "Uppe går allt till fots: Plaza de Toros, en av Spaniens äldsta tjurfäktningsarenor, trädgårdarna Alameda del Tajo med utsikt över kanten, gamla kyrkor och gränder. Ronda är dessutom vinland — en lugn lunch med ett lokalt vin passar dagens rytm."
         }
       ],
       onTheDay: {
-        en: "Leave by 09:00, enjoy a relaxed lunch, then return before late evening.",
-        de: "Fahrt gegen 09:00 Uhr los, genießt ein entspanntes Mittagessen und kommt vor dem späten Abend zurück.",
-        es: "Salid sobre las 09:00, disfrutad de un almuerzo tranquilo y volved antes de que caiga la noche.",
-        nl: "Vertrek rond 09:00 uur, geniet van een ontspannen lunch en kom voor de late avond weer terug.",
-        sv: "Åk vid 09:00, njut av en avkopplande lunch och kom tillbaka före sen kväll."
+        en: "Set off early, park at the edge of the old town and go on foot; leave time for the walk down into the gorge and a relaxed lunch, and head back before late evening.",
+        de: "Fahrt früh los, parkt am Rand der Altstadt und geht zu Fuß; lasst Zeit für den Abstieg in die Schlucht und ein entspanntes Mittagessen und macht euch vor dem späten Abend auf den Rückweg.",
+        es: "Salid temprano, aparcad al borde del casco antiguo y seguid a pie; dejad tiempo para bajar al desfiladero y para una comida tranquila, y emprended la vuelta antes de que caiga la noche.",
+        nl: "Vertrek vroeg, parkeer aan de rand van de oude stad en ga te voet verder; neem tijd voor de afdaling de kloof in en een ontspannen lunch, en ga terug voor de late avond.",
+        sv: "Åk tidigt, parkera i utkanten av gamla stan och fortsätt till fots; lämna tid för nedstigningen i ravinen och en lugn lunch, och bege er tillbaka före sen kväll."
       }
     }
   }
