@@ -1696,11 +1696,11 @@ const frigilianaGuestBeaches: GuestGuideEntry = {
       },
       items: [
         guidePlaceItem('nerja.beaches.burriana-beach', 'wave'),
-        guidePlaceItem('nerja.beaches.carabeillo', 'landmark'),
-        guidePlaceItem('nerja.beaches.calahonda', 'arrow'),
-        guidePlaceItem('nerja.beaches.el-playazo', 'location-pin'),
-        guidePlaceItem('nerja.beaches.maro-beach', 'star'),
-        guidePlaceItem('nerja.beaches.cantarrijan', 'flag')
+        guidePlaceItem('nerja.beaches.carabeillo', 'wave'),
+        guidePlaceItem('nerja.beaches.calahonda', 'wave'),
+        guidePlaceItem('nerja.beaches.el-playazo', 'wave'),
+        guidePlaceItem('nerja.beaches.maro-beach', 'wave'),
+        guidePlaceItem('nerja.beaches.cantarrijan', 'wave')
       ]
     }
   ]
@@ -1741,29 +1741,41 @@ const frigilianaGuestRestaurants: GuestGuideEntry = {
     nl: 'Hier zijn onze makkelijkste en meest betrouwbare aanraders in Frigiliana — van relaxte diners op het terras tot een schilderachtige lunch in de bergen.',
     sv: 'Här är våra mest pålitliga och okomplicerade val i Frigiliana – från avslappnade middagar på terrassen till en lunch med vacker utsikt uppe i bergen.'
   },
-  authorityLink: {
-    targetRoute: 'frigiliana.experience.restaurants',
-    label: {
-      en: 'Looking for a deeper overview? Read the full dining guide →',
-      de: 'Sucht ihr nach einer ausführlicheren Übersicht? Lest unseren kompletten Restaurant-Guide →',
-      es: '¿Buscáis información más detallada? Lee la guía completa de restaurantes →',
-      nl: 'Op zoek naar een uitgebreider overzicht? Lees de volledige restaurantgids →',
-      sv: 'Letar ni efter en mer detaljerad översikt? Läs hela restaurangguiden →'
-    }
-  },
   categories: [
     {
       heading: {
-        en: 'Frigiliana',
-        de: 'Frigiliana',
-        es: 'Frigiliana',
-        nl: 'Frigiliana',
-        sv: 'Frigiliana'
+        en: 'Robert’s favourite',
+        de: 'Roberts Favorit',
+        es: 'El favorito de Robert',
+        nl: 'Roberts favoriet',
+        sv: 'Roberts favorit'
+      },
+      items: [
+        guidePlaceItem('frigiliana.restaurants.el-jardin', 'star')
+      ]
+    },
+    {
+      heading: {
+        en: 'In the village',
+        de: 'Im Dorf',
+        es: 'En el pueblo',
+        nl: 'In het dorp',
+        sv: 'I byn'
       },
       items: [
         guidePlaceItem('frigiliana.restaurants.stablo', 'dish'),
-        guidePlaceItem('frigiliana.restaurants.el-jardin', 'location-pin'),
-        guidePlaceItem('frigiliana.restaurants.gloria-bendita', 'goblet'),
+        guidePlaceItem('frigiliana.restaurants.gloria-bendita', 'goblet')
+      ]
+    },
+    {
+      heading: {
+        en: 'Insider tips',
+        de: 'Insidertipps',
+        es: 'Secretos locales',
+        nl: 'Insidertips',
+        sv: 'Insidertips'
+      },
+      items: [
         guidePlaceItem('frigiliana.restaurants.el-acebuchal', 'location-pin'),
         guidePlaceItem('frigiliana.restaurants.el-tangay', 'location-pin')
       ]
@@ -1855,8 +1867,8 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
     {
       heading: { en: 'Locals Preferred', de: 'Lokale Favoriten', es: 'Favoritos locales', nl: 'Lokale favorieten', sv: 'Lokala favoriter' },
       items: [
-        guidePlaceItem('nerja.restaurants.bar-redondo', 'music'),
-        guidePlaceItem('nerja.restaurants.el-refugio', 'accommodation'),
+        guidePlaceItem('nerja.restaurants.bar-redondo', 'tumbler'),
+        guidePlaceItem('nerja.restaurants.el-refugio', 'dish'),
         guidePlaceItem('nerja.restaurants.la-rienda', 'heart'),
         guidePlaceItem('nerja.restaurants.dvinos', 'tumbler'),
         guidePlaceItem('nerja.restaurants.esquina-paulina', 'dish'),
@@ -1872,7 +1884,7 @@ const nerjaGuestRestaurants: GuestGuideEntry = {
         sv: 'Speciella tillfällen & fine dining'
       },
       items: [
-        guidePlaceItem('nerja.restaurants.oliva', 'star'),
+        guidePlaceItem('nerja.restaurants.oliva', 'goblet'),
         guidePlaceItem('nerja.restaurants.restaurant-34', 'heart'),
         guidePlaceItem('nerja.restaurants.sollun', 'sparkle'),
         guidePlaceItem('nerja.restaurants.patanegra-57', 'goblet'),
@@ -1938,12 +1950,12 @@ const frigilianaGuestHiking: GuestGuideEntry = {
       },
       items: [
         guidePlaceItem('frigiliana.hiking.cruz-de-pinto', 'hiking'),
-        guidePlaceItem('frigiliana.hiking.el-fuerte', 'location-pin'),
+        guidePlaceItem('frigiliana.hiking.el-fuerte', 'hiking'),
         guidePlaceItem('frigiliana.hiking.lizar-acequia-trail', 'compass'),
-        guidePlaceItem('frigiliana.hiking.historic-quarter-loop', 'landmark'),
+        guidePlaceItem('frigiliana.hiking.historic-quarter-loop', 'compass'),
         guidePlaceItem('frigiliana.hiking.rio-higueron', 'wave'),
-        guidePlaceItem('nerja.hiking.rio-chillar', 'star'),
-        guidePlaceItem('frigiliana.hiking.el-acebuchal', 'flag')
+        guidePlaceItem('nerja.hiking.rio-chillar', 'wave'),
+        guidePlaceItem('frigiliana.hiking.el-acebuchal', 'hiking')
       ]
     }
   ]
@@ -2004,10 +2016,10 @@ const frigilianaGuestDayTrips: GuestGuideEntry = {
         sv: 'Resmål för dagsutflykter'
       },
       items: [
-        guidePlaceItem('frigiliana.day-trips.malaga-city', 'route'),
-        guidePlaceItem('frigiliana.day-trips.granada-alhambra', 'star'),
+        guidePlaceItem('frigiliana.day-trips.malaga-city', 'compass'),
+        guidePlaceItem('frigiliana.day-trips.granada-alhambra', 'compass'),
         guidePlaceItem('frigiliana.day-trips.caminito-del-rey', 'compass'),
-        guidePlaceItem('frigiliana.day-trips.ronda', 'location-pin')
+        guidePlaceItem('frigiliana.day-trips.ronda', 'compass')
       ]
     }
   ]
@@ -2350,8 +2362,8 @@ const frigilianaGuestWellness: GuestGuideEntry = {
     {
       heading: { en: 'Frigiliana', de: 'Frigiliana', es: 'Frigiliana', nl: 'Frigiliana', sv: 'Frigiliana' },
       items: [
-        guidePlaceItem('frigiliana.wellness.frigiliana-wellness', 'accommodation'),
-        guidePlaceItem('frigiliana.wellness.lidia-california-massage', 'moon')
+        guidePlaceItem('frigiliana.wellness.frigiliana-wellness', 'heart'),
+        guidePlaceItem('frigiliana.wellness.lidia-california-massage', 'heart')
       ]
     },
     {
@@ -3355,13 +3367,13 @@ const frigilianaRecommendations: GuestGuideEntry = {
       items: [
         {
           kind: 'link',
-          icon: 'goblet',
+          icon: 'cutlery',
           targetSlug: 'frigiliana-guest-restaurants',
           title: { en: 'Restaurants in Frigiliana', de: 'Restaurants in Frigiliana', es: 'Restaurantes en Frigiliana', nl: 'Restaurants in Frigiliana', sv: 'Restauranger i Frigiliana' }
         },
         {
           kind: 'link',
-          icon: 'fish',
+          icon: 'cutlery',
           targetSlug: 'nerja-guest-restaurants',
           title: { en: 'Restaurants in Nerja', de: 'Restaurants in Nerja', es: 'Restaurantes en Nerja', nl: 'Restaurants in Nerja', sv: 'Restauranger i Nerja' }
         }
@@ -3400,11 +3412,11 @@ const frigilianaRecommendations: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'Our accommodation does not have a private or communal pool. During the summer season, Frigiliana usually operates a public municipal outdoor pool in the village. Opening times, admission fees and seasonal dates may change, so please check the latest information before visiting.',
-              de: 'Unsere Unterkunft verfügt über keinen privaten oder gemeinschaftlichen Pool. Während der Sommersaison betreibt die Gemeinde Frigiliana in der Regel ein öffentliches Freibad im Ort. Öffnungszeiten, Eintrittspreise und Saisonzeiten können sich ändern. Bitte prüft daher vor eurem Besuch die aktuellen Informationen.',
-              es: 'Nuestro alojamiento no dispone de piscina privada ni comunitaria. Durante la temporada de verano, el Ayuntamiento de Frigiliana suele abrir una piscina municipal al aire libre en el pueblo. Los horarios, precios de entrada y fechas de apertura pueden cambiar, por lo que os recomendamos consultar la información actual antes de ir.',
-              nl: 'Onze accommodatie heeft geen privé- of gemeenschappelijk zwembad. Tijdens het zomerseizoen is er in Frigiliana doorgaans een openbaar gemeentelijk buitenzwembad. Openingstijden, toegangsprijzen en seizoensdata kunnen wijzigen. Controleer daarom voor vertrek de actuele informatie.',
-              sv: 'Vårt boende har ingen privat eller gemensam pool. Under sommarsäsongen finns det vanligtvis en offentlig kommunal utomhuspool i Frigiliana. Öppettider, entréavgifter och säsongsdatum kan ändras, så kontrollera aktuell information före besöket.'
+              en: 'In summer, the town of Frigiliana runs a public open-air pool right in the village — an easy, refreshing way to cool off on hot days, walkable within the village and lovely for a relaxed afternoon with the family. Opening times and admission follow the season, so just message us and we will let you know what is open during your stay.',
+              de: 'Im Sommer betreibt die Gemeinde Frigiliana ein öffentliches Freibad mitten im Ort – eine unkomplizierte, erfrischende Abkühlung an heißen Tagen, zu Fuß erreichbar und ideal für einen entspannten Nachmittag mit der Familie. Öffnungszeiten und Eintritt richten sich nach der Saison – schreibt uns einfach kurz, dann sagen wir euch, was während eures Aufenthalts geöffnet ist.',
+              es: 'En verano, el Ayuntamiento de Frigiliana abre una piscina pública al aire libre en el propio pueblo: una manera sencilla y refrescante de daros un chapuzón en los días de calor, accesible a pie y perfecta para una tarde relajada en familia. Los horarios y las entradas dependen de la temporada; escribidnos y os decimos qué está abierto durante vuestra estancia.',
+              nl: 'In de zomer heeft Frigiliana een openbaar buitenzwembad midden in het dorp — een makkelijke, verfrissende manier om af te koelen op warme dagen, te voet bereikbaar en heerlijk voor een ontspannen middag met het gezin. Openingstijden en toegang hangen af van het seizoen; stuur ons even een bericht, dan laten we weten wat er tijdens jullie verblijf open is.',
+              sv: 'På sommaren driver Frigiliana kommun en offentlig utomhuspool mitt i byn — ett enkelt och svalkande sätt att kyla av sig varma dagar, inom gångavstånd i byn och perfekt för en avslappnad eftermiddag med familjen. Öppettider och entré följer säsongen – skriv en rad till oss så berättar vi vad som är öppet under er vistelse.'
             }
           ],
           actions: [
@@ -3433,7 +3445,7 @@ const frigilianaRecommendations: GuestGuideEntry = {
       items: [
         {
           kind: 'link',
-          icon: 'landmark',
+          icon: 'compass',
           targetSlug: 'frigiliana-guest-sightseeing',
           title: { en: 'Sightseeing', de: 'Sightseeing', es: 'Turismo', nl: 'Bezienswaardigheden', sv: 'Sevärdheter' }
         },
@@ -3488,7 +3500,7 @@ const frigilianaRecommendations: GuestGuideEntry = {
         },
         {
           kind: 'link',
-          icon: 'route',
+          icon: 'car',
           targetSlug: 'frigiliana-guest-day-trips',
           title: { en: 'Day Trips', de: 'Tagesausflüge', es: 'Excursiones', nl: 'Dagtripjes', sv: 'Dagsutflykter' }
         },
@@ -3500,7 +3512,7 @@ const frigilianaRecommendations: GuestGuideEntry = {
         },
         {
           kind: 'link',
-          icon: 'music',
+          icon: 'moon',
           targetSlug: 'nerja-guest-nightlife',
           title: { en: 'Nightlife in Nerja', de: 'Nachtleben in Nerja', es: 'Vida nocturna en Nerja', nl: 'Nachtleven in Nerja', sv: 'Nattliv i Nerja' }
         },
@@ -3517,7 +3529,7 @@ const frigilianaRecommendations: GuestGuideEntry = {
       items: [
         {
           kind: 'link',
-          icon: 'star',
+          icon: 'sparkle',
           targetSlug: 'nerja-guest-adventure',
           title: { en: 'Adventure in Nerja', de: 'Abenteuer in Nerja', es: 'Aventura en Nerja', nl: 'Avontuur in Nerja', sv: 'Äventyr i Nerja' }
         }
@@ -3555,8 +3567,8 @@ const nerjaRecommendations: GuestGuideEntry = {
       heading: {"en":"Dining","de":"Essen & Trinken","es":"Dónde comer","nl":"Eten & Drinken","sv":"Mat & Dryck"},
       intro: [{"en":"A helpful local note: many restaurants open at lunchtime, then pause in the late afternoon for siesta. Most places usually reopen for dinner from around 7:30–8:00 pm.","de":"Ein hilfreicher lokaler Hinweis: Viele Restaurants öffnen mittags, machen am späten Nachmittag eine Pause bzw. Siesta und öffnen abends meist erst wieder ab etwa 19:30–20:00 Uhr.","es":"Una nota local útil: muchos restaurantes abren al mediodía, cierran por la tarde para la siesta y normalmente vuelven a abrir para la cena a partir de las 19:30–20:00 h.","nl":"Een handige lokale tip: veel restaurants zijn rond lunchtijd open, sluiten later in de middag voor een siësta en gaan voor het diner meestal pas weer open vanaf ongeveer 19:30–20:00 uur.","sv":"Ett bra lokalt tips: många restauranger öppnar vid lunchtid, stänger senare på eftermiddagen för siesta och öppnar oftast igen för middag från cirka 19.30–20.00."}],
       items: [
-        {"kind":"link","icon":"fish","targetSlug":"nerja-guest-restaurants","title":{"en":"Restaurants in Nerja","de":"Restaurants in Nerja","es":"Restaurantes en Nerja","nl":"Restaurants in Nerja","sv":"Restauranger i Nerja"}},
-        {"kind":"link","icon":"goblet","targetSlug":"frigiliana-guest-restaurants","title":{"en":"Restaurants in Frigiliana","de":"Restaurants in Frigiliana","es":"Restaurantes en Frigiliana","nl":"Restaurants in Frigiliana","sv":"Restauranger i Frigiliana"}}
+        {"kind":"link","icon":"cutlery","targetSlug":"nerja-guest-restaurants","title":{"en":"Restaurants in Nerja","de":"Restaurants in Nerja","es":"Restaurantes en Nerja","nl":"Restaurants in Nerja","sv":"Restauranger i Nerja"}},
+        {"kind":"link","icon":"cutlery","targetSlug":"frigiliana-guest-restaurants","title":{"en":"Restaurants in Frigiliana","de":"Restaurants in Frigiliana","es":"Restaurantes en Frigiliana","nl":"Restaurants in Frigiliana","sv":"Restauranger i Frigiliana"}}
       ]
     },
     {
@@ -3569,9 +3581,9 @@ const nerjaRecommendations: GuestGuideEntry = {
     {
       heading: {"en":"Discover","de":"Entdecken","es":"Descubrir","nl":"Ontdekken","sv":"Upptäck"},
       items: [
-        {"kind":"link","icon":"music","targetSlug":"nerja-guest-nightlife","title":{"en":"Nightlife in Nerja","de":"Nachtleben in Nerja","es":"Vida nocturna en Nerja","nl":"Nachtleven in Nerja","sv":"Nattliv i Nerja"}},
-        {"kind":"link","icon":"landmark","targetSlug":"frigiliana-guest-sightseeing","title":{"en":"Sightseeing","de":"Sightseeing","es":"Turismo","nl":"Bezienswaardigheden","sv":"Sevärdheter"}},
-        {"kind":"link","icon":"route","targetSlug":"frigiliana-guest-day-trips","title":{"en":"Day Trips","de":"Tagesausflüge","es":"Excursiones","nl":"Dagtripjes","sv":"Dagsutflykter"}},
+        {"kind":"link","icon":"moon","targetSlug":"nerja-guest-nightlife","title":{"en":"Nightlife in Nerja","de":"Nachtleben in Nerja","es":"Vida nocturna en Nerja","nl":"Nachtleven in Nerja","sv":"Nattliv i Nerja"}},
+        {"kind":"link","icon":"compass","targetSlug":"frigiliana-guest-sightseeing","title":{"en":"Sightseeing","de":"Sightseeing","es":"Turismo","nl":"Bezienswaardigheden","sv":"Sevärdheter"}},
+        {"kind":"link","icon":"car","targetSlug":"frigiliana-guest-day-trips","title":{"en":"Day Trips","de":"Tagesausflüge","es":"Excursiones","nl":"Dagtripjes","sv":"Dagsutflykter"}},
         {"kind":"link","icon":"flag","targetSlug":"frigiliana-guest-festivals","title":{"en":"Festivals","de":"Feste & Events","es":"Fiestas locales","nl":"Festivals","sv":"Festivaler"}},
         {"kind":"link","icon":"heart","targetSlug":"frigiliana-guest-wellness","title":{"en":"Wellness","de":"Wellness","es":"Bienestar","nl":"Wellness","sv":"Wellness"}}
       ]
@@ -3579,7 +3591,7 @@ const nerjaRecommendations: GuestGuideEntry = {
     {
       heading: {"en":"Adventure","de":"Abenteuer","es":"Aventura","nl":"Avontuur","sv":"Äventyr"},
       items: [
-        {"kind":"link","icon":"star","targetSlug":"nerja-guest-adventure","title":{"en":"Adventure in Nerja","de":"Abenteuer in Nerja","es":"Aventura en Nerja","nl":"Avontuur in Nerja","sv":"Äventyr i Nerja"}}
+        {"kind":"link","icon":"sparkle","targetSlug":"nerja-guest-adventure","title":{"en":"Adventure in Nerja","de":"Abenteuer in Nerja","es":"Aventura en Nerja","nl":"Avontuur in Nerja","sv":"Äventyr i Nerja"}}
       ]
     }
   ]

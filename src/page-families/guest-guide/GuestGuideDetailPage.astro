@@ -8,9 +8,7 @@ import GuestGuideWeatherWidget from '../../components/guest-guide/GuestGuideWeat
 import GuestGuideLanguageSwitcher from '../../components/guest-guide/GuestGuideLanguageSwitcher.astro';
 import SmartBackButton from '../../components/navigation/SmartBackButton.astro';
 import { guideHref } from '../../lib/guestGuideHref';
-import { GUIDE_ONLY_LABEL, guidePageAddressLine, isGuideOnly, orderCategoryItems } from '../../lib/guestGuideExclusive';
 import { buildRecommendationPlaces, buildRecommendationView } from '../../lib/guestGuideRecommendations';
-import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import type { GuestGuideDetailEntry } from '../../types/guestGuide';
 
@@ -20,7 +18,6 @@ interface Props {
 }
 
 const { entry, lang } = Astro.props;
-const addressLine = guidePageAddressLine(entry, lang);
 
 const loadingLabel: Record<AmaraLanguage, string> = {
   en: 'Loading live conditions…',
@@ -63,14 +60,6 @@ const seo: AmaraAuthoringSeo = {
       <span class="am-kicker">{entry.kicker[lang]}</span>
       <h1 class="am-hero-title">{entry.title[lang]}</h1>
       {entry.intro && <p>{entry.intro[lang]}</p>}
-      {addressLine && <p class="am-muted">{addressLine}</p>}
-      {entry.authorityLink && (
-        <p class="am-muted">
-          <a class="am-link" href={buildOwnedLocalizedPath(entry.authorityLink.targetRoute, lang)}>
-            {entry.authorityLink.label[lang]}
-          </a>
-        </p>
-      )}
     </section>
 
     {entry.categories.map((category) => (
@@ -82,7 +71,7 @@ const seo: AmaraAuthoringSeo = {
           </div>
         )}
         <section>
-          {orderCategoryItems(category.items).map((item) => {
+          {category.items.map((item) => {
             if (item.kind === 'link') {
               return (
                 <GuestGuideMenuItem
@@ -124,7 +113,6 @@ const seo: AmaraAuthoringSeo = {
                 icon={item.icon}
                 title={item.title[lang]}
                 subtitle={item.subtitle?.[lang]}
-                exclusiveLabel={isGuideOnly(item.recommendationId) ? GUIDE_ONLY_LABEL[lang] : undefined}
                 body={item.body.map((paragraph) => paragraph[lang])}
                 mapsUrl={recommendation?.mapsUrl}
                 facts={recommendation?.rows}
