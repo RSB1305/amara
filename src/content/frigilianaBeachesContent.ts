@@ -24,6 +24,7 @@ export interface FrigilianaBeachesPageCopy {
   hero: {
     kicker: string;
     title: string;
+    subtitle: string;
     paragraphs: string[];
     imageAlt: string;
   };
@@ -165,7 +166,8 @@ export const frigilianaBeachesContent: Record<
     },
     hero: {
       kicker: 'Coastal guide',
-      title: 'Beaches near Frigiliana & Nerja — compare access and sea conditions',
+      title: 'Beaches near Frigiliana & Nerja',
+      subtitle: 'Compare access and sea conditions',
       paragraphs: [
         'From Frigiliana, every beach involves a drive down to the coast. From Nerja, the town beaches are close at hand and the Maro coves are a short trip east.',
         'Access, parking, shade, facilities and exposure to the sea differ sharply between the six beaches below. Check current conditions before leaving, especially for the natural coves.',
@@ -357,7 +359,8 @@ export const frigilianaBeachesContent: Record<
     },
     hero: {
       kicker: 'Küsten-Guide',
-      title: 'Strände bei Frigiliana & Nerja — Zugang und Bedingungen vergleichen',
+      title: 'Strände bei Frigiliana & Nerja',
+      subtitle: 'Zugang und Bedingungen vergleichen',
       paragraphs: [
         'Von Frigiliana fahrt ihr für jeden Strand hinunter an die Küste. In Nerja liegen die Stadtstrände nahe; zu den Buchten bei Maro geht es ein Stück weiter nach Osten.',
         'Zugang, Parken, Schatten, Infrastruktur und Seegang unterscheiden sich bei den sechs Stränden deutlich. Prüft vor der Abfahrt die aktuellen Bedingungen, besonders bei den Naturbuchten.',
@@ -549,7 +552,8 @@ export const frigilianaBeachesContent: Record<
     },
     hero: {
       kicker: 'Guía de costa',
-      title: 'Playas cerca de Frigiliana y Nerja — comparar acceso y estado del mar',
+      title: 'Playas cerca de Frigiliana y Nerja',
+      subtitle: 'Comparar acceso y estado del mar',
       paragraphs: [
         'Desde Frigiliana hay que bajar en coche para ir a cualquier playa. En Nerja, las playas urbanas quedan cerca y las calas de Maro están a un corto trayecto hacia el este.',
         'El acceso, el aparcamiento, la sombra, los servicios y la exposición al mar cambian mucho entre estas seis playas. Comprobad las condiciones antes de salir, sobre todo para las calas naturales.',
@@ -741,7 +745,8 @@ export const frigilianaBeachesContent: Record<
     },
     hero: {
       kicker: 'Kustgids',
-      title: 'Stranden bij Frigiliana & Nerja — vergelijk bereikbaarheid en zeecondities',
+      title: 'Stranden bij Frigiliana & Nerja',
+      subtitle: 'Vergelijk bereikbaarheid en zeecondities',
       paragraphs: [
         'Vanuit Frigiliana rijden jullie voor elk strand naar beneden, naar de kust. In Nerja liggen de stadsstranden dichtbij; de baaien bij Maro liggen een korte rit naar het oosten.',
         'Bereikbaarheid, parkeren, schaduw, voorzieningen en blootstelling aan zee verschillen sterk tussen deze zes stranden. Controleer vóór vertrek de actuele omstandigheden, vooral bij de natuurbaaien.',
@@ -933,7 +938,8 @@ export const frigilianaBeachesContent: Record<
     },
     hero: {
       kicker: 'Kustguide',
-      title: 'Stränder nära Frigiliana & Nerja — jämför tillgång och havsförhållanden',
+      title: 'Stränder nära Frigiliana & Nerja',
+      subtitle: 'Jämför tillgång och havsförhållanden',
       paragraphs: [
         'Från Frigiliana behöver ni köra ner till kusten för alla stränder. I Nerja ligger stadsstränderna nära; vikarna vid Maro ligger en kort bit österut.',
         'Tillgång, parkering, skugga, service och exponering mot havet skiljer sig tydligt mellan de sex stränderna. Kontrollera aktuella förhållanden före avfärd, särskilt vid naturvikarna.',

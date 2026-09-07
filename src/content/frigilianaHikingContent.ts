@@ -54,11 +54,18 @@ export const frigilianaHikingContent = {
   hero: {
     kicker: text('Four routes, chosen with care', 'Vier sorgfältig ausgewählte Routen', 'Cuatro rutas elegidas con criterio', 'Vier zorgvuldig gekozen routes', 'Fyra noggrant valda turer'),
     title: text(
-      'Hiking around Frigiliana: four routes worth planning',
-      'Wandern rund um Frigiliana: vier Routen, die sich lohnen',
-      'Senderismo en Frigiliana: cuatro rutas que merece la pena planear',
-      'Wandelen rond Frigiliana: vier routes om goed te plannen',
-      'Vandring runt Frigiliana: fyra turer att planera'
+      'Hiking around Frigiliana',
+      'Wandern rund um Frigiliana',
+      'Senderismo en Frigiliana',
+      'Wandelen rond Frigiliana',
+      'Vandring runt Frigiliana'
+    ),
+    subtitle: text(
+      'Four routes worth planning',
+      'Vier Routen, die sich lohnen',
+      'Cuatro rutas que merece la pena planear',
+      'Vier routes om goed te plannen',
+      'Fyra turer att planera'
     ),
     paragraphs: textList(
       [
