@@ -105,7 +105,6 @@ export const AMARA_PAGE_FAMILY_PROFILES = {
   'experience-nerja-day-trips': { type: 'explore', tier: 'approved' },
   'experience-frigiliana-festivals': { type: 'explore', tier: 'approved' },
   'experience-frigiliana-day-trips': { type: 'explore', tier: 'approved' },
-  'experience-frigiliana-dos-tumbas': { type: 'explore', tier: 'approved' },
   'trust-content': { type: 'trust', tier: 'reference' },
   'amara-experience-landing': { type: 'trust', tier: 'approved' },
   'guest-reviews': { type: 'trust', tier: 'approved' },

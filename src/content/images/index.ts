@@ -1,7 +1,6 @@
 import type { RouteImageSet } from '../../lib/images/routeImageContract';
 import { frigilianaExperienceBeachesImages } from './frigiliana-experience-beaches';
 import { frigilianaExperienceDayTripsImages } from './frigiliana-experience-day-trips';
-import { frigilianaExperienceDosTumbasImages } from './frigiliana-experience-dos-tumbas';
 import { frigilianaExperienceFestivalsImages } from './frigiliana-experience-festivals';
 import { frigilianaExperienceHikingImages } from './frigiliana-experience-hiking';
 import { frigilianaExperienceMarketImages } from './frigiliana-experience-market';
@@ -55,7 +54,6 @@ import { tarifaImages } from './tarifa';
 const sets: readonly RouteImageSet[] = [
   frigilianaExperienceBeachesImages,
   frigilianaExperienceDayTripsImages,
-  frigilianaExperienceDosTumbasImages,
   frigilianaExperienceFestivalsImages,
   frigilianaExperienceHikingImages,
   frigilianaExperienceMarketImages,

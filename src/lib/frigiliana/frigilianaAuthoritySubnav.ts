@@ -21,7 +21,6 @@ export type FrigilianaAuthoritySubnavId =
   | 'parking'
   | 'weather'
   | 'winter'
-  | 'dosTumbas'
   | 'oldTown'
   | 'faq';
 
@@ -107,13 +106,6 @@ const currentPageLabels: Record<
     es: 'Estancias de invierno',
     nl: 'Winterverblijven',
     sv: 'Vintervistelser'
-  },
-  dosTumbas: {
-    en: 'Netflix Locations',
-    de: 'Netflix-Drehorte',
-    es: 'Localizaciones Netflix',
-    nl: 'Netflix-locaties',
-    sv: 'Netflix-platser'
   },
   oldTown: {
     en: 'History & Architecture',
@@ -238,8 +230,7 @@ export function getFrigilianaAuthorityActiveTopic(
     winter: 'winter-stays',
     oldTown: 'geography-orientation',
     faq: undefined,
-    comparison: 'where-to-stay',
-    dosTumbas: undefined
+    comparison: 'where-to-stay'
   };
 
   return topicByPage[id];

@@ -92,8 +92,7 @@ const FRIGILIANA_EXPERIENCE_DETAIL_SLUGS = new Set([
 
 const FRIGILIANA_EXPERIENCE_NAVIGATION_SLUGS = new Set([
   ...FRIGILIANA_EXPERIENCE_DETAIL_SLUGS,
-  'frigiliana.experience.old-town',
-  'frigiliana.experience.dos-tumbas'
+  'frigiliana.experience.old-town'
 ]);
 
 const NERJA_EXPERIENCE_DETAIL_SLUGS = new Set([
