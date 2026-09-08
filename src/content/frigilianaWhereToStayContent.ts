@@ -1,81 +1,16 @@
-import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
+import type { WhereToStayCopy } from './whereToStayCopy';
 
 /**
- * Where-to-stay body copy for Frigiliana (Type A redesign, approved 2026-09-08;
- * rendered with LocationTopicHero + AmaraKeyFigures + LocationModule + am-text-*
- * roles, never bespoke CSS). Emphasis is written as **double asterisks** for
- * InlineEmphasis. Unit lists carry stable `id`s so the locale-parity contract
- * checks identity across the five languages. The booking CTA comes from the
- * shared trustLabels.book, not from here.
+ * Where-to-stay body copy for Frigiliana (Type A redesign, approved 2026-09-08).
+ * Rendered by the shared WhereToStayBody.astro (LocationTopicHero + orientation
+ * map + LocationModule + am-text-* roles, never bespoke CSS). Frigiliana's
+ * decision `factor` is height/steps on the slope. Emphasis is **double
+ * asterisks** for InlineEmphasis. Unit lists carry stable `id`s so the
+ * locale-parity contract checks identity across the five languages. The booking
+ * CTA comes from the shared trustLabels.book, not from here.
  */
-interface StatItem {
-  id: string;
-  k: string;
-  l: string;
-}
-interface GlanceItem {
-  id: string;
-  title: string;
-  blurb: string;
-}
-interface Quarter {
-  id: string;
-  name: string;
-  note: string;
-}
-interface ZoneItem {
-  id: string;
-  sub: string;
-  h3: string;
-  desc: string;
-  quarters?: Quarter[];
-  idealFor: string;
-  honest: string;
-}
-interface WhoItem {
-  id: string;
-  title: string;
-  text: string;
-}
-
-export interface FrigilianaWhereToStayCopy {
-  hero: {
-    eyebrow: string;
-    title: string;
-    lede: string;
-    body: string;
-    traits: string[];
-    stats: StatItem[];
-  };
-  heroCtaZones: string;
-  glanceTitle: string;
-  glanceIntro: string;
-  glance: GlanceItem[];
-  stepsEyebrow: string;
-  steps: { title: string; intro: string; copy: string; note: string; day: string[] };
-  zonesEyebrow: string;
-  zonesTitle: string;
-  zonesIntro: string;
-  zones: ZoneItem[];
-  labelIdealFor: string;
-  labelHonest: string;
-  whoTitle: string;
-  whoIntro: string;
-  who: WhoItem[];
-  pointer: { text: string; linkLabel: string; linkToken: LinkToken };
-  verdict: {
-    eyebrow: string;
-    title: string;
-    caption: string;
-    mapNote: string;
-    lead: string;
-    facts: string[];
-    honest: string;
-  };
-}
-
-const de: FrigilianaWhereToStayCopy = {
+const de: WhereToStayCopy = {
   hero: {
     eyebrow: 'Wo übernachten · Frigiliana',
     title: 'Wo in Frigiliana übernachten',
@@ -96,8 +31,8 @@ const de: FrigilianaWhereToStayCopy = {
     { id: 'neu', title: 'Der neue Teil', blurb: 'Flacher, einfacheres Parken — ohne das historische Flair' },
     { id: 'campo', title: 'El Campo', blurb: 'Raum, Ruhe, Panorama — Auto meist praktisch oder nötig' }
   ],
-  stepsEyebrow: 'Frigilianas Wahrzeichen',
-  steps: {
+  factorEyebrow: 'Frigilianas Wahrzeichen',
+  factor: {
     title: 'Alles eine Frage der Höhe',
     intro: 'Frigilianas eigentliches Wahrzeichen sind nicht die Blumen an den Wänden, sondern die Stufen. Der Ort zieht sich steil den Hang hinauf — und ihr lauft ihn nicht einmal, sondern den ganzen Tag.',
     copy: 'Zwei Adressen, kaum hundert Meter auseinander, können dreißig Höhenmeter und mehrere Treppen trennen. Auf der Karte ist alles nah — in den Beinen nicht. Deshalb entscheidet in Frigiliana nicht die Entfernung, sondern die **Höhe** über euren Alltag.',
@@ -163,7 +98,7 @@ const de: FrigilianaWhereToStayCopy = {
   }
 };
 
-const en: FrigilianaWhereToStayCopy = {
+const en: WhereToStayCopy = {
   hero: {
     eyebrow: 'Where to stay · Frigiliana',
     title: 'Where to stay in Frigiliana',
@@ -184,8 +119,8 @@ const en: FrigilianaWhereToStayCopy = {
     { id: 'neu', title: 'The newer part', blurb: 'Flatter, easier parking — without the historic character' },
     { id: 'campo', title: 'El Campo', blurb: 'Space, quiet, panorama — a car usually handy or needed' }
   ],
-  stepsEyebrow: 'Frigiliana’s real landmark',
-  steps: {
+  factorEyebrow: 'Frigiliana’s real landmark',
+  factor: {
     title: 'It all comes down to height',
     intro: 'Frigiliana’s real landmark isn’t the flowers on the walls but the steps. The village climbs steeply up the slope — and you don’t walk it once, but all day.',
     copy: 'Two addresses barely a hundred metres apart can be separated by thirty vertical metres and several flights of steps. On the map everything is close — in your legs it isn’t. That’s why in Frigiliana it isn’t distance but **height** that decides your day.',
@@ -251,7 +186,7 @@ const en: FrigilianaWhereToStayCopy = {
   }
 };
 
-const es: FrigilianaWhereToStayCopy = {
+const es: WhereToStayCopy = {
   hero: {
     eyebrow: 'Dónde alojarse · Frigiliana',
     title: 'Dónde alojarse en Frigiliana',
@@ -272,8 +207,8 @@ const es: FrigilianaWhereToStayCopy = {
     { id: 'neu', title: 'La zona nueva', blurb: 'Más llano, mejor aparcamiento — sin el aire histórico' },
     { id: 'campo', title: 'El Campo', blurb: 'Espacio, calma, panorama — coche casi siempre útil o necesario' }
   ],
-  stepsEyebrow: 'El verdadero emblema de Frigiliana',
-  steps: {
+  factorEyebrow: 'El verdadero emblema de Frigiliana',
+  factor: {
     title: 'Todo es cuestión de altura',
     intro: 'El verdadero emblema de Frigiliana no son las flores en las paredes, sino las escaleras. El pueblo sube empinado por la ladera — y no lo recorréis una vez, sino todo el día.',
     copy: 'Dos direcciones a apenas cien metros pueden estar separadas por treinta metros de desnivel y varios tramos de escaleras. En el mapa todo está cerca — en las piernas no. Por eso en Frigiliana no decide la distancia, sino la **altura**, vuestro día.',
@@ -339,7 +274,7 @@ const es: FrigilianaWhereToStayCopy = {
   }
 };
 
-const nl: FrigilianaWhereToStayCopy = {
+const nl: WhereToStayCopy = {
   hero: {
     eyebrow: 'Waar overnachten · Frigiliana',
     title: 'Waar overnachten in Frigiliana',
@@ -360,8 +295,8 @@ const nl: FrigilianaWhereToStayCopy = {
     { id: 'neu', title: 'Het nieuwere deel', blurb: 'Vlakker, makkelijker parkeren — zonder de historische sfeer' },
     { id: 'campo', title: 'El Campo', blurb: 'Ruimte, rust, panorama — auto meestal handig of nodig' }
   ],
-  stepsEyebrow: 'Frigiliana’s echte kenmerk',
-  steps: {
+  factorEyebrow: 'Frigiliana’s echte kenmerk',
+  factor: {
     title: 'Alles draait om de hoogte',
     intro: 'Frigiliana’s echte kenmerk zijn niet de bloemen aan de muren, maar de treden. Het dorp klimt steil tegen de helling op — en je loopt het niet één keer, maar de hele dag.',
     copy: 'Twee adressen op amper honderd meter kunnen dertig hoogtemeters en meerdere trappen uit elkaar liggen. Op de kaart is alles dichtbij — in je benen niet. Daarom bepaalt in Frigiliana niet de afstand, maar de **hoogte** je dag.',
@@ -427,7 +362,7 @@ const nl: FrigilianaWhereToStayCopy = {
   }
 };
 
-const sv: FrigilianaWhereToStayCopy = {
+const sv: WhereToStayCopy = {
   hero: {
     eyebrow: 'Var man bor · Frigiliana',
     title: 'Var man bor i Frigiliana',
@@ -448,8 +383,8 @@ const sv: FrigilianaWhereToStayCopy = {
     { id: 'neu', title: 'Den nyare delen', blurb: 'Flackare, enklare parkering — utan den historiska stämningen' },
     { id: 'campo', title: 'El Campo', blurb: 'Rymd, lugn, panorama — bil oftast praktisk eller nödvändig' }
   ],
-  stepsEyebrow: 'Frigilianas verkliga signum',
-  steps: {
+  factorEyebrow: 'Frigilianas verkliga signum',
+  factor: {
     title: 'Allt handlar om höjden',
     intro: 'Frigilianas verkliga signum är inte blommorna på väggarna utan trapporna. Byn klättrar brant uppför sluttningen — och ni går den inte en gång, utan hela dagen.',
     copy: 'Två adresser knappt hundra meter isär kan skiljas av trettio höjdmeter och flera trappor. På kartan är allt nära — i benen inte. Därför avgör inte avståndet i Frigiliana, utan **höjden**, er dag.',
@@ -515,7 +450,7 @@ const sv: FrigilianaWhereToStayCopy = {
   }
 };
 
-export const frigilianaWhereToStayContent: Record<AmaraLanguage, FrigilianaWhereToStayCopy> = {
+export const frigilianaWhereToStayContent: Record<AmaraLanguage, WhereToStayCopy> = {
   de,
   en,
   es,
