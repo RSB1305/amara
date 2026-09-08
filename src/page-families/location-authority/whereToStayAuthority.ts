@@ -111,4 +111,18 @@ export interface WhereToStayAuthorityContent {
     };
     action?: WhereToStayAction;
   };
+  /**
+   * The top-of-funnel conclusion: after the neutral area analysis, name why the
+   * AMARA micro-location wins its lane and lead to booking. `honestLine` keeps
+   * it credible by naming the priorities for which another zone is the better
+   * choice — a verdict that can go against itself is the one readers trust.
+   */
+  verdict?: {
+    eyebrow: string;
+    title: string;
+    paragraphs: string[];
+    honestLine?: string;
+    primary: WhereToStayAction;
+    secondary?: WhereToStayAction;
+  };
 }

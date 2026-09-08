@@ -1,17 +1,20 @@
 ---
 import Navigation from '../../components/Navigation.astro';
-import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
-import WhereToStayOrientationGraphic from '../../components/location/WhereToStayOrientationGraphic.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
-import { tarifaStayTypeCopy, tarifaWhereToStayContent } from '../../content/tarifaWhereToStayContent';
+import WhereToStayBody from './WhereToStayBody.astro';
+import { tarifaWhereToStayContent } from '../../content/tarifaWhereToStayContent';
+import { tarifaWhereToStayBody } from '../../content/tarifaWhereToStayBodyContent';
+import { trustLabels } from '../../content/trustLabels';
 import { whereToStayOrientationGraphicContent } from '../../content/whereToStayOrientationGraphicContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import {
+  createRequiredLinkResolver,
+  resolveOptionalLink,
+  type LabeledLink,
+  type LinkToken
+} from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import WhereToStayAuthorityBody from './WhereToStayAuthorityBody.astro';
-import { requireRouteImage } from '../../lib/images/routeImages';
-import type { WhereToStayAuthorityContent } from './whereToStayAuthority';
 
 interface Props {
   lang?: string;
@@ -19,13 +22,17 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const stayImage = requireRouteImage('tarifa.where-to-stay', 'stay', currentLang);
 const orientationGraphic = whereToStayOrientationGraphicContent.tarifa[currentLang];
-const content = tarifaWhereToStayContent.location[currentLang];
+const content = tarifaWhereToStayBody[currentLang];
+
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa where to stay');
-const aboutHref = requiredLink('about');
-const stayHref = requiredLink('tarifa');
+const optionalLink = (token: LinkToken) => resolveOptionalLink(token, currentLang, { suppressMissing: true });
+const bookBase = optionalLink('book');
+const bookHref = bookBase ? `${bookBase}?destination=tarifa` : '#';
+const bookLabel = trustLabels.book[currentLang];
+const pointerHref = optionalLink(content.pointer.linkToken) ?? '#';
 const locationHref = requiredLink('location_tarifa');
+
 const breadcrumbLabels: Record<AmaraLanguage, string> = {
   en: 'Where to stay',
   de: 'Wo übernachten',
@@ -33,196 +40,21 @@ const breadcrumbLabels: Record<AmaraLanguage, string> = {
   nl: 'Waar overnachten',
   sv: 'Var ska man bo'
 };
-const ui: Record<
-  AmaraLanguage,
-  {
-    editorialNote: string;
-    howEyebrow: string;
-    howTitle: string;
-    comparisonEyebrow: string;
-    comparisonTitle: string;
-    settingsEyebrow: string;
-    contextTitle: string;
-    dimensionsEyebrow: string;
-    dimensionsTitle: string;
-    fitEyebrow: string;
-    continueEyebrow: string;
-    continueTitle: string;
-    backToLocation: string;
-    beaches: string;
-    wind: string;
-  }
-> = {
-  en: {
-    editorialNote: 'An independent AMARA guide for planning your stay — not a live conditions service.',
-    howEyebrow: 'Start with your stay',
-    howTitle: 'Begin with the days you want in Tarifa',
-    comparisonEyebrow: 'At a glance',
-    comparisonTitle: 'The trade-offs before the detail',
-    settingsEyebrow: 'Four accommodation settings',
-    contextTitle: 'The westbound coast is context, not a fifth town neighbourhood',
-    dimensionsEyebrow: 'Across every area',
-    dimensionsTitle: 'Car use, wind and everyday life still shape the choice',
-    fitEyebrow: 'For different kinds of stay',
-    continueEyebrow: 'More Tarifa guides',
-    continueTitle: 'Beaches, wind and the Tarifa overview',
-    backToLocation: 'Tarifa overview',
-    beaches: 'Explore Tarifa beaches',
-    wind: 'Explore wind & kitesurfing'
-  },
-  de: {
-    editorialNote: 'Ein unabhängiger AMARA-Guide zur Reiseplanung – kein Live-Dienst für aktuelle Bedingungen.',
-    howEyebrow: 'Euer Aufenthalt',
-    howTitle: 'Beginnt mit den Tagen, die ihr in Tarifa verbringen möchtet',
-    comparisonEyebrow: 'Auf einen Blick',
-    comparisonTitle: 'Die Abwägungen vor dem Detail',
-    settingsEyebrow: 'Vier Wohnlagen',
-    contextTitle: 'Die Westküste ist Kontext – kein fünftes Stadtviertel',
-    dimensionsEyebrow: 'In jeder Lage',
-    dimensionsTitle: 'Auto, Wind und Alltag prägen die Entscheidung weiterhin',
-    fitEyebrow: 'Für unterschiedliche Aufenthalte',
-    continueEyebrow: 'Mehr zu Tarifa',
-    continueTitle: 'Strände, Wind und der Tarifa-Überblick',
-    backToLocation: 'Tarifa im Überblick',
-    beaches: 'Tarifas Strände entdecken',
-    wind: 'Wind & Kitesurfen in Tarifa'
-  },
-  es: {
-    editorialNote: 'Una guía independiente de AMARA para planificar la estancia; no es un servicio de condiciones en directo.',
-    howEyebrow: 'Vuestra estancia',
-    howTitle: 'Empieza por los días que queréis pasar en Tarifa',
-    comparisonEyebrow: 'De un vistazo',
-    comparisonTitle: 'Las contrapartidas antes del detalle',
-    settingsEyebrow: 'Cuatro entornos de alojamiento',
-    contextTitle: 'La costa occidental es contexto, no un quinto barrio urbano',
-    dimensionsEyebrow: 'En cualquier zona',
-    dimensionsTitle: 'El coche, el viento y la vida diaria siguen definiendo la elección',
-    fitEyebrow: 'Para distintos tipos de estancia',
-    continueEyebrow: 'Más sobre Tarifa',
-    continueTitle: 'Playas, viento y la guía general de Tarifa',
-    backToLocation: 'Tarifa de un vistazo',
-    beaches: 'Explorar las playas de Tarifa',
-    wind: 'Viento y kitesurf en Tarifa'
-  },
-  nl: {
-    editorialNote: 'Een onafhankelijke AMARA-gids voor jullie reisplanning — geen live informatiedienst.',
-    howEyebrow: 'Jullie verblijf',
-    howTitle: 'Begin bij de dagen die jullie in Tarifa willen doorbrengen',
-    comparisonEyebrow: 'In één oogopslag',
-    comparisonTitle: 'De afwegingen vóór de details',
-    settingsEyebrow: 'Vier verblijfssettings',
-    contextTitle: 'De westkust is context, geen vijfde stadswijk',
-    dimensionsEyebrow: 'In elk gebied',
-    dimensionsTitle: 'Auto, wind en dagelijks leven blijven de keuze bepalen',
-    fitEyebrow: 'Voor verschillende soorten verblijf',
-    continueEyebrow: 'Meer over Tarifa',
-    continueTitle: 'Stranden, wind en het Tarifa-overzicht',
-    backToLocation: 'Tarifa in het kort',
-    beaches: 'Ontdek de stranden van Tarifa',
-    wind: 'Lees over wind & kitesurfen'
-  },
-  sv: {
-    editorialNote: 'En oberoende AMARA-guide för reseplanering – inte en tjänst för liveförhållanden.',
-    howEyebrow: 'Er vistelse',
-    howTitle: 'Börja med dagarna ni vill tillbringa i Tarifa',
-    comparisonEyebrow: 'I korthet',
-    comparisonTitle: 'Avvägningarna före detaljerna',
-    settingsEyebrow: 'Fyra boendemiljöer',
-    contextTitle: 'Västkusten är ett sammanhang, inte en femte stadsdel',
-    dimensionsEyebrow: 'I varje område',
-    dimensionsTitle: 'Bil, vind och vardag fortsätter att forma valet',
-    fitEyebrow: 'För olika slags vistelser',
-    continueEyebrow: 'Mer om Tarifa',
-    continueTitle: 'Stränder, vind och översikten över Tarifa',
-    backToLocation: 'Tarifa i korthet',
-    beaches: 'Upptäck Tarifas stränder',
-    wind: 'Vind & kitesurfing i Tarifa'
-  }
+
+const ui: Record<AmaraLanguage, { continueEyebrow: string; continueTitle: string; backToLocation: string; beaches: string; wind: string }> = {
+  en: { continueEyebrow: 'More Tarifa guides', continueTitle: 'Beaches, wind and the Tarifa overview', backToLocation: 'Tarifa overview', beaches: 'Explore Tarifa beaches', wind: 'Explore wind & kitesurfing' },
+  de: { continueEyebrow: 'Mehr zu Tarifa', continueTitle: 'Strände, Wind und der Tarifa-Überblick', backToLocation: 'Tarifa im Überblick', beaches: 'Tarifas Strände entdecken', wind: 'Wind & Kitesurfen in Tarifa' },
+  es: { continueEyebrow: 'Más sobre Tarifa', continueTitle: 'Playas, viento y la guía general de Tarifa', backToLocation: 'Tarifa de un vistazo', beaches: 'Explorar las playas de Tarifa', wind: 'Viento y kitesurf en Tarifa' },
+  nl: { continueEyebrow: 'Meer over Tarifa', continueTitle: 'Stranden, wind en het Tarifa-overzicht', backToLocation: 'Tarifa in het kort', beaches: 'Ontdek de stranden van Tarifa', wind: 'Lees over wind & kitesurfen' },
+  sv: { continueEyebrow: 'Mer om Tarifa', continueTitle: 'Stränder, vind och översikten över Tarifa', backToLocation: 'Tarifa i korthet', beaches: 'Upptäck Tarifas stränder', wind: 'Vind & kitesurfing i Tarifa' }
 };
 const copy = ui[currentLang];
+
 const footerHighlights: LabeledLink[] = [
   { token: 'location_tarifa', label: 'Tarifa' },
   { token: 'tarifa_where_to_stay', label: breadcrumbLabels[currentLang] },
   { token: 'tarifa_beaches_authority', label: copy.beaches }
 ];
-
-const moduleLabels = {
-  en: { fit: 'Best fit', daily: 'Everyday life', tradeoff: 'Keep in mind', amara: 'AMARA in Tarifa' },
-  de: { fit: 'Passt gut für', daily: 'Im Alltag', tradeoff: 'Bedenkt dabei', amara: 'AMARA in Tarifa' },
-  es: { fit: 'Encaja con', daily: 'En el día a día', tradeoff: 'Tened en cuenta', amara: 'AMARA en Tarifa' },
-  nl: { fit: 'Past bij', daily: 'In het dagelijks ritme', tradeoff: 'Houd rekening met', amara: 'AMARA in Tarifa' },
-  sv: { fit: 'Passar för', daily: 'I vardagen', tradeoff: 'Tänk på', amara: 'AMARA i Tarifa' }
-}[currentLang];
-
-const stayContent: WhereToStayAuthorityContent = {
-  decision: {
-    eyebrow: copy.howEyebrow,
-    title: copy.howTitle,
-    intro: [],
-    points: []
-  },
-  stayType: {
-    id: 'stay-type',
-    eyebrow: tarifaStayTypeCopy.eyebrow[currentLang],
-    title: tarifaStayTypeCopy.title[currentLang],
-    intro: tarifaStayTypeCopy.intro.map((paragraph) => paragraph[currentLang]),
-    labels: {
-      attribute: tarifaStayTypeCopy.labels.attribute[currentLang],
-      ours: tarifaStayTypeCopy.labels.ours[currentLang],
-      hotelWins: tarifaStayTypeCopy.labels.hotelWins[currentLang]
-    },
-    items: tarifaStayTypeCopy.items.map((row) => ({
-      id: row.id,
-      attribute: row.attribute[currentLang],
-      ours: row.ours[currentLang],
-      hotelWins: row.hotelWins[currentLang]
-    }))
-  },
-  areas: {
-    id: 'where-to-stay-areas',
-    eyebrow: copy.settingsEyebrow,
-    title: content.microLocations.title,
-    intro: content.microLocations.clarification,
-    labels: { fit: moduleLabels.fit, daily: moduleLabels.daily, tradeoff: moduleLabels.tradeoff },
-    items: content.microLocations.items.map((area, index) => ({
-      number: String(index + 1).padStart(2, '0'),
-      title: area.title,
-      paragraphs: index === 1
-        ? area.paragraphs.slice(1)
-        : area.paragraphs.length > 2
-          ? [area.paragraphs[0], area.paragraphs.at(-1)!]
-          : area.paragraphs,
-      fit: area.fit
-    }))
-  },
-  tradeoffs: {
-    eyebrow: copy.comparisonEyebrow,
-    title: copy.comparisonTitle,
-    intro: [content.tradeoffs.intro, ...(content.tradeoffs.closing ?? [])].filter(Boolean).join(' '),
-    items: content.tradeoffs.items.map((item) => ({ paragraphs: [item] }))
-  },
-  mobility: {
-    id: 'car-wind-everyday-life',
-    eyebrow: copy.dimensionsEyebrow,
-    title: copy.dimensionsTitle,
-    intro: [],
-    items: []
-  },
-  fit: {
-    eyebrow: copy.fitEyebrow,
-    title: content.stayFits.title,
-    intro: [],
-    items: []
-  },
-  amara: {
-    eyebrow: moduleLabels.amara,
-    title: content.amara.title,
-    paragraphs: [content.amara.paragraphs[0], content.amara.paragraphs.at(-1)!],
-    facts: content.amara.facts,
-    image: { src: stayImage.src, alt: stayImage.alt },
-    action: { href: stayHref, label: content.closing.secondary.label }
-  }
-};
 ---
 
 <LocationAuthorityLayout
@@ -247,30 +79,20 @@ const stayContent: WhereToStayAuthorityContent = {
     />
   </Navigation>
 
-  <article
-    class="bg-surface"
+  <div
     data-am-page="tarifa-where-to-stay"
     data-am-family="location"
     data-am-role="spoke"
     data-am-topic="where-to-stay"
+    data-am-presentation="guide"
   >
-    <LocationTopicHero
-      eyebrow={content.hero.eyebrow}
-      title={content.hero.title}
-      paragraphs={content.hero.lead}
-      topic="where-to-stay"
-      byline={tarifaWhereToStayContent.seo.article ? {
-        lang: currentLang,
-        authorName: tarifaWhereToStayContent.seo.article.authorName,
-        authorHref: aboutHref,
-        updated: content.hero.updated,
-        note: copy.editorialNote
-      } : undefined}
-    >
-      <WhereToStayOrientationGraphic slot="visual" data={orientationGraphic} />
-    </LocationTopicHero>
-
-    <WhereToStayAuthorityBody content={stayContent} />
+    <WhereToStayBody
+      content={content}
+      orientationGraphic={orientationGraphic}
+      bookHref={bookHref}
+      bookLabel={bookLabel}
+      pointerHref={pointerHref}
+    />
 
     <section class="bg-surface px-6 py-24 md:px-12 md:py-32">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
@@ -285,5 +107,5 @@ const stayContent: WhereToStayAuthorityContent = {
         </div>
       </div>
     </section>
-  </article>
+  </div>
 </LocationAuthorityLayout>

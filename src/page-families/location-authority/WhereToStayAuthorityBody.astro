@@ -277,3 +277,32 @@ const { content } = Astro.props;
     </div>
   </div>
 </LocationModule>
+
+{content.verdict && (
+<LocationModule surface="tint" data-am-stay-module="verdict">
+  <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+    <div class="lg:col-span-5">
+      <p class="am-text-eyebrow text-primary">{content.verdict.eyebrow}</p>
+      <h2 class="am-text-title mt-5 max-w-xl text-balance italic text-on-surface">{content.verdict.title}</h2>
+    </div>
+    <div class="lg:col-span-7">
+      <div class="space-y-5">
+        {content.verdict.paragraphs.map((paragraph) => (
+          <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+        ))}
+      </div>
+      {content.verdict.honestLine && (
+        <p class="am-text-body mt-6 border-l-2 border-primary/40 pl-5 italic leading-relaxed text-on-surface-variant/80">
+          <InlineEmphasis text={content.verdict.honestLine} />
+        </p>
+      )}
+      <div class="mt-9 flex flex-wrap items-center gap-x-7 gap-y-3">
+        <a href={content.verdict.primary.href} class="am-btn am-btn--primary">{content.verdict.primary.label}</a>
+        {content.verdict.secondary && (
+          <a href={content.verdict.secondary.href} class="am-cta-link">{content.verdict.secondary.label}</a>
+        )}
+      </div>
+    </div>
+  </div>
+</LocationModule>
+)}

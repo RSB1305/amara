@@ -4,19 +4,18 @@ import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialGuideLinkSection from '../../components/editorial/EditorialGuideLinkSection.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
-import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
-import WhereToStayOrientationGraphic from '../../components/location/WhereToStayOrientationGraphic.astro';
+import WhereToStayBody from './WhereToStayBody.astro';
+import { trustLabels } from '../../content/trustLabels';
 import {
   frigilianaStreetsStairsCopy,
   frigilianaStreetsStairsSeo
 } from '../../content/frigilianaStreetsStairsContent';
 import { whereToStayOrientationGraphicContent } from '../../content/whereToStayOrientationGraphicContent';
+import { frigilianaWhereToStayContent } from '../../content/frigilianaWhereToStayContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import WhereToStayAuthorityBody from './WhereToStayAuthorityBody.astro';
-import type { WhereToStayAuthorityContent } from './whereToStayAuthority';
 
 interface Props {
   lang?: string;
@@ -27,136 +26,36 @@ type LocalizedRow = { readonly [K in AmaraLanguage]: string };
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaStreetsStairsCopy;
+const c = frigilianaWhereToStayContent[currentLang];
 const orientationGraphic = whereToStayOrientationGraphicContent.frigiliana[currentLang];
 
 function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
 }
 
-const factors = copy.factors.items.map((item) => ({
-  label: t(item.label),
-  value: t(item.value),
-  note: t(item.note)
-}));
-
-const locationModels = copy.models.items.map((item) => ({
-  number: item.number,
-  title: t(item.title),
-  summary: t(item.summary),
-  fit: t(item.fit),
-  daily: t(item.daily),
-  tradeoff: t(item.tradeoff)
-}));
-
-const dailyRouteSteps = copy.dailyRoute.steps.map((step) => ({
-  number: step.number,
-  label: t(step.label)
-}));
-
-const crossCheckItems = copy.crossChecks.items.map((item) => ({
-  title: t(item.title),
-  text: t(item.text)
-}));
-
 const selfCheckSteps = copy.selfCheck.steps.map((step) => ({
   num: step.num,
   headline: t(step.title),
   text: t(step.text)
 }));
-
 const faqItems = copy.selfCheck.faq.map((item) => ({
   question: t(item.question),
   answer: t(item.answer)
 }));
-
 const relatedLinks = copy.related.links.flatMap((link) => {
-  const href = resolveOptionalLink(link.token, currentLang, {
-    suppressMissing: true
-  });
-
-  return href
-    ? [{
-        href,
-        label: t(link.label),
-        text: t(link.text)
-      }]
-    : [];
+  const href = resolveOptionalLink(link.token, currentLang, { suppressMissing: true });
+  return href ? [{ href, label: t(link.label), text: t(link.text) }] : [];
 });
-
 const footerHighlights: LabeledLink[] = [
-  {
-    token: 'location_frigiliana',
-    label: t(copy.nav.links[0].label)
-  },
-  {
-    token: 'frigiliana_parking',
-    label: t(copy.nav.links[2].label)
-  },
-  {
-    token: 'getting_to_frigiliana',
-    label: t(copy.related.links[2].label)
-  }
+  { token: 'location_frigiliana', label: t(copy.nav.links[0].label) },
+  { token: 'frigiliana_parking', label: t(copy.nav.links[2].label) },
+  { token: 'getting_to_frigiliana', label: t(copy.related.links[2].label) }
 ];
 
-const proofImage = {
-  src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
-  width: 2000,
-  height: 1333
-};
-
-const stayContent: WhereToStayAuthorityContent = {
-  decision: {
-    eyebrow: t(copy.principle.eyebrow),
-    title: t(copy.principle.title),
-    intro: [t(copy.principle.body)],
-    points: factors.map((factor) => ({ label: factor.label, title: factor.value, text: factor.note }))
-  },
-  areas: {
-    id: 'location-models',
-    eyebrow: t(copy.models.eyebrow),
-    title: t(copy.models.title),
-    intro: t(copy.models.intro),
-    labels: {
-      fit: t(copy.models.labels.fit),
-      daily: t(copy.models.labels.daily),
-      tradeoff: t(copy.models.labels.tradeoff)
-    },
-    items: locationModels.map((model) => ({
-      number: model.number,
-      title: model.title,
-      paragraphs: [model.summary],
-      fit: model.fit,
-      daily: model.daily,
-      tradeoff: model.tradeoff
-    }))
-  },
-  tradeoffs: {
-    eyebrow: t(copy.crossChecks.eyebrow),
-    title: t(copy.crossChecks.title),
-    intro: t(copy.crossChecks.intro),
-    items: crossCheckItems.map((item) => ({ title: item.title, paragraphs: [item.text] }))
-  },
-  mobility: {
-    id: 'daily-route',
-    eyebrow: t(copy.dailyRoute.eyebrow),
-    title: t(copy.dailyRoute.title),
-    intro: [t(copy.dailyRoute.intro)],
-    items: dailyRouteSteps.map((step) => ({ number: step.number, title: step.label })),
-    conclusion: t(copy.dailyRoute.conclusion)
-  },
-  fit: {
-    eyebrow: '',
-    title: '',
-    intro: [],
-    items: []
-  },
-  amara: {
-    eyebrow: t(copy.proof.eyebrow),
-    title: t(copy.proof.title),
-    paragraphs: copy.proof.paragraphs.map(t),
-    image: { src: proofImage.src, alt: t(copy.proof.imageAlt) }
-  }
-};
+const bookBase = resolveOptionalLink('book', currentLang, { suppressMissing: true });
+const bookHref = bookBase ? `${bookBase}?destination=frigiliana` : '#';
+const pointerHref = resolveOptionalLink(c.pointer.linkToken, currentLang, { suppressMissing: true }) ?? '#';
+const bookLabel = trustLabels.book[currentLang];
 ---
 
 <LocationAuthorityLayout
@@ -175,56 +74,45 @@ const stayContent: WhereToStayAuthorityContent = {
     <LocationContextNav slot="context-navigation" activeId="stay" lang={currentLang} />
   </Navigation>
 
-  <div data-am-page="frigiliana-where-to-stay" data-am-family="location" data-am-role="spoke" data-am-topic="where-to-stay" data-am-presentation="guide">
-    <div class="w-full">
-      <LocationTopicHero
-        topic="where-to-stay"
-        eyebrow={t(copy.hero.eyebrow)}
-        title={t(copy.hero.title)}
-        paragraphs={[t(copy.hero.lead), t(copy.hero.body)]}
-        actions={[
-          { href: '#location-models', label: t(copy.hero.primaryCta), style: 'primary' },
-          { href: '#daily-route', label: t(copy.hero.secondaryCta), style: 'secondary' }
+  <div
+    data-am-page="frigiliana-where-to-stay"
+    data-am-family="location"
+    data-am-role="spoke"
+    data-am-topic="where-to-stay"
+    data-am-presentation="guide"
+  >
+    <WhereToStayBody
+      content={c}
+      orientationGraphic={orientationGraphic}
+      bookHref={bookHref}
+      bookLabel={bookLabel}
+      pointerHref={pointerHref}
+    />
+
+    <FaqAccordion
+      arrivalTitle={t(copy.selfCheck.title)}
+      steps={selfCheckSteps}
+      faqTitle={t(copy.selfCheck.faqTitle)}
+      items={faqItems}
+    />
+
+    <EditorialGuideLinkSection
+      eyebrow={t(copy.related.eyebrow)}
+      title={t(copy.related.title)}
+      intro={t(copy.related.intro)}
+      links={relatedLinks}
+    />
+
+    <section class="max-w-screen-2xl mx-auto px-6 md:px-12 pt-8">
+      <EditorialClosingCta
+        title={t(copy.closing.title)}
+        lead={t(copy.closing.lead)}
+        lang={currentLang}
+        links={[
+          { token: 'location_frigiliana', label: t(copy.closing.hubCta), style: 'primary' },
+          { token: 'romantic_hideaways', label: t(copy.closing.staysCta), style: 'secondary' }
         ]}
-      >
-        <WhereToStayOrientationGraphic slot="visual" data={orientationGraphic} />
-      </LocationTopicHero>
-
-      <WhereToStayAuthorityBody content={stayContent} />
-
-      <FaqAccordion
-        arrivalTitle={t(copy.selfCheck.title)}
-        steps={selfCheckSteps}
-        faqTitle={t(copy.selfCheck.faqTitle)}
-        items={faqItems}
       />
-
-      <EditorialGuideLinkSection
-        eyebrow={t(copy.related.eyebrow)}
-        title={t(copy.related.title)}
-        intro={t(copy.related.intro)}
-        links={relatedLinks}
-      />
-
-      <section class="max-w-screen-2xl mx-auto px-6 md:px-12 pt-8">
-        <EditorialClosingCta
-          title={t(copy.closing.title)}
-          lead={t(copy.closing.lead)}
-          lang={currentLang}
-          links={[
-            {
-              token: 'location_frigiliana',
-              label: t(copy.closing.hubCta),
-              style: 'primary'
-            },
-            {
-              token: 'romantic_hideaways',
-              label: t(copy.closing.staysCta),
-              style: 'secondary'
-            }
-          ]}
-        />
-      </section>
-    </div>
+    </section>
   </div>
 </LocationAuthorityLayout>
