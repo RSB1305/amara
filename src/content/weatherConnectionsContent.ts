@@ -1,5 +1,6 @@
 import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
+import type { LocationGuideIconName } from '../components/location/locationGuideIconContract';
 
 export type WeatherConnectionDestination = 'frigiliana' | 'nerja' | 'tarifa';
 
@@ -15,6 +16,7 @@ interface WeatherConnection {
   id: string;
   /** Markets that show this connection. Every other locale renders nothing. */
   languages: AmaraLanguage[];
+  icon: LocationGuideIconName;
   eyebrow: Partial<Record<AmaraLanguage, string>>;
   title: Partial<Record<AmaraLanguage, string>>;
   body: Partial<Record<AmaraLanguage, string>>;
@@ -29,6 +31,7 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
       // Spanish readers already live the siesta; the other markets are the ones
       // caught out by shops closing at midday.
       languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'opening-hours',
       eyebrow: {
         de: 'Hitze & Alltag',
         en: 'Heat & everyday life',
@@ -60,6 +63,7 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
       // Hiking interest is a German-market thing here; other markets don't come
       // to Frigiliana to walk the sierra.
       languages: ['de'],
+      icon: 'walkable',
       eyebrow: { de: 'Hitze & Wandern' },
       title: { de: 'Wann ihr im Sommer wandern solltet' },
       body: {

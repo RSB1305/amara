@@ -12,6 +12,7 @@ import type { LocationClimateMonth } from '../../content/locationClimateData';
 import type { WeatherAuthorityContent } from './weatherAuthority';
 import { getPageEndAttributes } from '../../components/page-end/pageEndContract';
 import type { AmaraLanguage } from '../../types/seo';
+import type { LocationGuideIconName } from '../../components/location/locationGuideIconContract';
 
 interface Props {
   pageId: string;
@@ -32,11 +33,11 @@ interface Props {
     eyebrow: string;
     title: string;
     intro: string;
-    summer: { label: string; body: string };
-    winter: { label: string; body: string };
+    summer: { label: string; body: string; icon: LocationGuideIconName };
+    winter: { label: string; body: string; icon: LocationGuideIconName };
     links: Array<{ label: string; href: string }>;
   };
-  connections?: Array<{ eyebrow: string; title: string; body: string; linkLabel: string; linkHref: string }>;
+  connections?: Array<{ icon: LocationGuideIconName; eyebrow: string; title: string; body: string; linkLabel: string; linkHref: string }>;
   climateSource: { label: string; href: string };
   forecastHref: string;
   liveForecast?: {

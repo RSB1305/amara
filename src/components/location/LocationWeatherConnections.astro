@@ -4,8 +4,10 @@
 // this component only lays out whatever it is handed, and renders nothing when
 // the list is empty.
 import InlineEmphasis from '../text/InlineEmphasis.astro';
+import LocationGuideIcon, { type LocationGuideIconName } from './LocationGuideIcon.astro';
 
 interface ConnectionItem {
+  icon: LocationGuideIconName;
   eyebrow: string;
   title: string;
   body: string;
@@ -27,7 +29,11 @@ const { items } = Astro.props;
     >
       {items.map((item) => (
         <article class="flex flex-col border-t-2 border-primary/70 pt-6">
-          <p class="am-text-caption am-text-caption--upper am-text-caption--wide text-primary">{item.eyebrow}</p>
+          <div class="flex items-center gap-3 text-primary">
+            <LocationGuideIcon name={item.icon} />
+            <div class="h-px w-8 bg-outline-variant/25"></div>
+          </div>
+          <p class="mt-4 am-text-caption am-text-caption--upper am-text-caption--wide text-primary">{item.eyebrow}</p>
           <h2 class="am-text-subtitle mt-4 text-balance text-on-surface">{item.title}</h2>
           <p class="am-text-body mt-4 max-w-2xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={item.body} /></p>
           <a href={item.linkHref} class="am-cta-link mt-6 self-start">{item.linkLabel}</a>

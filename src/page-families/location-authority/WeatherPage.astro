@@ -17,6 +17,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import type { LocationGuideIconName } from '../../components/location/locationGuideIconContract';
 import WeatherAuthorityBody from './WeatherAuthorityBody.astro';
 
 type Destination = 'frigiliana' | 'nerja' | 'tarifa';
@@ -90,19 +91,27 @@ const comparison = comparisonCopy && comparisonCity
     }
   : undefined;
 const microCopy = climateMicroclimateContent[destination]?.[currentLang];
+// The first panel's symbol differs by destination: heat where the summer story
+// is heat (Frigiliana/Nerja), the two opposing winds where it is wind (Tarifa).
+const microSeasonIcons: Record<Destination, { summer: LocationGuideIconName; winter: LocationGuideIconName }> = {
+  frigiliana: { summer: 'temperature', winter: 'evening' },
+  nerja: { summer: 'temperature', winter: 'evening' },
+  tarifa: { summer: 'comparison', winter: 'evening' }
+};
 const microclimate = microCopy
   ? {
       eyebrow: microCopy.eyebrow,
       title: microCopy.title,
       intro: microCopy.intro,
-      summer: microCopy.summer,
-      winter: microCopy.winter,
+      summer: { ...microCopy.summer, icon: microSeasonIcons[destination].summer },
+      winter: { ...microCopy.winter, icon: microSeasonIcons[destination].winter },
       links: microCopy.links.map((link) => ({ label: link.label, href: requiredLink(link.token) }))
     }
   : undefined;
 const connectionItems = (weatherConnections[destination] ?? [])
   .filter((item) => item.languages.includes(currentLang))
   .map((item) => ({
+    icon: item.icon,
     eyebrow: item.eyebrow[currentLang]!,
     title: item.title[currentLang]!,
     body: item.body[currentLang]!,

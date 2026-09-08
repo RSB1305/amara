@@ -4,10 +4,12 @@
 // lived experience, not a station measurement — the intro says so — because the
 // village-vs-coast contrast is not resolvable from the gridded climate data.
 import InlineEmphasis from '../text/InlineEmphasis.astro';
+import LocationGuideIcon, { type LocationGuideIconName } from './LocationGuideIcon.astro';
 
 interface Season {
   label: string;
   body: string;
+  icon: LocationGuideIconName;
 }
 
 interface Props {
@@ -33,7 +35,11 @@ const { eyebrow, title, intro, summer, winter, links } = Astro.props;
     <div class="mt-12 grid gap-x-16 gap-y-10 md:grid-cols-2">
       {[summer, winter].map((season) => (
         <div class="border-t border-outline-variant/25 pt-6">
-          <p class="am-text-caption am-text-caption--upper am-text-caption--wide text-primary">{season.label}</p>
+          <div class="flex items-center gap-3 text-primary">
+            <LocationGuideIcon name={season.icon} />
+            <div class="h-px w-8 bg-outline-variant/25"></div>
+          </div>
+          <p class="mt-4 am-text-caption am-text-caption--upper am-text-caption--wide text-primary">{season.label}</p>
           <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={season.body} /></p>
         </div>
       ))}
