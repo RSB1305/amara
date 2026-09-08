@@ -218,5 +218,97 @@ export const climateMicroclimateContent: Partial<
         { label: 'Vädret uppe i Frigiliana', token: 'weather_frigiliana' }
       ]
     }
+  },
+  tarifa: {
+    de: {
+      eyebrow: 'Der Wind entscheidet',
+      title: 'Zwei Winde, zwei Urlaube',
+      intro: 'In Tarifa fragt man nicht zuerst nach der Sonne, sondern nach dem Wind. An der Straße von Gibraltar treffen zwei aufeinander — und welcher weht, macht aus demselben Tag einen ganz anderen Urlaub. Das ist keine Wettervorhersage, sondern was wir hier erleben.',
+      summer: {
+        label: 'Levante oder Poniente',
+        body: 'Der **Levante** kommt heiß und brachial aus dem Osten: für Kitesurfer ein Fest, für alle anderen fliegt der Sand über den Strand. Der **Poniente** aus dem Westen ist milder und angenehmer. An vielen Tagen im Jahr weht es kräftig — dann ist die Frage nicht ob, sondern wo: je nach Richtung liegt die eine Bucht geschützt, während die offenen Strände tosen.'
+      },
+      winter: {
+        label: 'Im Winter',
+        body: 'Auch im Winter bleibt Tarifa mild — und windig: eines der wenigen Reviere, in denen sich das Kiten durch die ruhige Nebensaison zieht. Nach einem Tag im Wind wird es aber nur drinnen richtig warm, deshalb hat **jede AMARA-Wohnung eine Heizung**.'
+      },
+      links: [
+        { label: 'Wind & Kitesurfen in Tarifa', token: 'tarifa_wind_kitesurfing_authority' },
+        { label: 'Winter in Tarifa', token: 'tarifa_winter_stays' },
+        { label: 'Heizung & Ausstattung', token: 'amenities' }
+      ]
+    },
+    es: {
+      eyebrow: 'Manda el viento',
+      title: 'Dos vientos, dos vacaciones',
+      intro: 'En Tarifa no se pregunta primero por el sol, sino por el viento. En el Estrecho de Gibraltar se enfrentan dos, y cuál sople convierte el mismo día en unas vacaciones muy distintas. No es una previsión del tiempo, sino lo que vivimos aquí.',
+      summer: {
+        label: 'Levante o Poniente',
+        body: 'El **Levante** llega caliente y brusco desde el este: una fiesta para los kitesurfistas, pero para el resto la arena vuela por la playa. El **Poniente**, del oeste, es más suave y agradable. Muchos días del año sopla con fuerza — entonces la pregunta no es si, sino dónde: según la dirección, una cala queda resguardada mientras las playas abiertas rugen.'
+      },
+      winter: {
+        label: 'En invierno',
+        body: 'También en invierno Tarifa se mantiene suave — y con viento: es de los pocos sitios donde el kite se alarga en la tranquila temporada baja. Pero tras un día de viento, el calor solo llega dentro; por eso **cada apartamento de AMARA tiene calefacción**.'
+      },
+      links: [
+        { label: 'Viento y kitesurf en Tarifa', token: 'tarifa_wind_kitesurfing_authority' },
+        { label: 'Invierno en Tarifa', token: 'tarifa_winter_stays' },
+        { label: 'Calefacción y equipamiento', token: 'amenities' }
+      ]
+    },
+    en: {
+      eyebrow: 'The wind decides',
+      title: 'Two winds, two holidays',
+      intro: 'In Tarifa you don’t ask about the sun first, but about the wind. Two of them meet at the Strait of Gibraltar, and which one blows turns the same day into a very different holiday. This is not a forecast, but what we live here.',
+      summer: {
+        label: 'Levante or Poniente',
+        body: 'The **Levante** comes hot and fierce from the east: a party for kitesurfers, but for everyone else the sand flies across the beach. The **Poniente** from the west is milder and pleasant. On many days of the year it blows hard — then the question is not whether, but where: depending on the direction one cove sits sheltered while the open beaches roar.'
+      },
+      winter: {
+        label: 'In winter',
+        body: 'Tarifa stays mild in winter too — and windy: it is one of the few spots where kiting runs right through the quiet low season. But after a day in the wind, warmth only comes indoors, which is why **every AMARA apartment has heating**.'
+      },
+      links: [
+        { label: 'Wind & kitesurfing in Tarifa', token: 'tarifa_wind_kitesurfing_authority' },
+        { label: 'Winter in Tarifa', token: 'tarifa_winter_stays' },
+        { label: 'Heating & amenities', token: 'amenities' }
+      ]
+    },
+    nl: {
+      eyebrow: 'De wind beslist',
+      title: 'Twee winden, twee vakanties',
+      intro: 'In Tarifa vraag je niet eerst naar de zon, maar naar de wind. Bij de Straat van Gibraltar botsen er twee, en welke waait maakt van dezelfde dag een heel andere vakantie. Dit is geen weersverwachting, maar wat wij hier meemaken.',
+      summer: {
+        label: 'Levante of Poniente',
+        body: 'De **Levante** komt heet en fel uit het oosten: een feest voor kitesurfers, maar voor de rest vliegt het zand over het strand. De **Poniente** uit het westen is milder en aangenamer. Veel dagen van het jaar waait het stevig — dan is de vraag niet of, maar waar: afhankelijk van de richting ligt de ene baai luw terwijl de open stranden razen.'
+      },
+      winter: {
+        label: 'In de winter',
+        body: 'Ook in de winter blijft Tarifa zacht — en winderig: het is een van de weinige plekken waar het kiten doorloopt in het rustige laagseizoen. Maar na een dag in de wind wordt het alleen binnen echt warm, en daarom heeft **elk AMARA-appartement verwarming**.'
+      },
+      links: [
+        { label: 'Wind & kitesurfen in Tarifa', token: 'tarifa_wind_kitesurfing_authority' },
+        { label: 'Winter in Tarifa', token: 'tarifa_winter_stays' },
+        { label: 'Verwarming & voorzieningen', token: 'amenities' }
+      ]
+    },
+    sv: {
+      eyebrow: 'Vinden avgör',
+      title: 'Två vindar, två semestrar',
+      intro: 'I Tarifa frågar man inte först om solen, utan om vinden. Vid Gibraltarsundet möts två, och vilken som blåser gör samma dag till en helt annan semester. Det här är ingen väderprognos, utan vad vi lever med här.',
+      summer: {
+        label: 'Levante eller Poniente',
+        body: 'Den **Levante** kommer het och hård från öster: en fest för kitesurfare, men för alla andra flyger sanden över stranden. Den **Poniente** från väster är mildare och behagligare. Många dagar om året blåser det kraftigt — då är frågan inte om, utan var: beroende på riktning ligger en vik i lä medan de öppna stränderna dånar.'
+      },
+      winter: {
+        label: 'På vintern',
+        body: 'Även på vintern håller sig Tarifa milt — och blåsigt: det är en av få platser där kitingen fortsätter genom den lugna lågsäsongen. Men efter en dag i vinden blir det varmt bara inomhus, och därför har **varje AMARA-lägenhet värme**.'
+      },
+      links: [
+        { label: 'Vind & kitesurfing i Tarifa', token: 'tarifa_wind_kitesurfing_authority' },
+        { label: 'Vintern i Tarifa', token: 'tarifa_winter_stays' },
+        { label: 'Värme & utrustning', token: 'amenities' }
+      ]
+    }
   }
 };
