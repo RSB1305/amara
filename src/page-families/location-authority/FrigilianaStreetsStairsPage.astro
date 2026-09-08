@@ -13,7 +13,7 @@ import {
   frigilianaStreetsStairsSeo
 } from '../../content/frigilianaStreetsStairsContent';
 import { whereToStayOrientationGraphicContent } from '../../content/whereToStayOrientationGraphicContent';
-import { frigilianaWhereToStayDe } from '../../content/frigilianaWhereToStayContent';
+import { frigilianaWhereToStayContent } from '../../content/frigilianaWhereToStayContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -28,7 +28,7 @@ type LocalizedRow = { readonly [K in AmaraLanguage]: string };
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const copy = frigilianaStreetsStairsCopy;
-const c = frigilianaWhereToStayDe;
+const c = frigilianaWhereToStayContent[currentLang];
 const orientationGraphic = whereToStayOrientationGraphicContent.frigiliana[currentLang];
 
 function t(row: LocalizedRow): string {
@@ -91,7 +91,7 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
       subtitle={c.hero.lede}
       paragraphs={[c.hero.body]}
       actions={[
-        { href: '#zones', label: 'Die drei Teile ansehen', style: 'primary' },
+        { href: '#zones', label: c.heroCtaZones, style: 'primary' },
         { href: bookHref, label: c.verdict.primaryCta, style: 'secondary' }
       ]}
     >
@@ -105,9 +105,9 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
           <p class="am-text-body mt-6 max-w-2xl leading-relaxed text-on-surface-variant">{c.glanceIntro}</p>
         </div>
         <div class="mt-12 grid gap-8 md:grid-cols-3">
-          {c.glance.map((g) => (
-            <a href={g.href} class="group block border-t-2 border-primary/70 pt-6">
-              <span class="font-serif text-3xl italic leading-none text-primary/60">{g.idx}</span>
+          {c.glance.map((g, i) => (
+            <a href={`#${g.id}`} class="group block border-t-2 border-primary/70 pt-6">
+              <span class="font-serif text-3xl italic leading-none text-primary/60">{pad(i)}</span>
               <h3 class="am-text-subtitle mt-4 text-on-surface transition-colors group-hover:text-primary">{g.title}</h3>
               <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{g.blurb}</p>
             </a>
@@ -119,7 +119,7 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
     <LocationModule surface="tint" data-am-stay-module="steps">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
         <div class="lg:col-span-5">
-          <p class="am-text-eyebrow text-primary">Frigilianas Wahrzeichen</p>
+          <p class="am-text-eyebrow text-primary">{c.stepsEyebrow}</p>
           <h2 class="am-text-title mt-5 text-balance italic text-on-surface">{c.steps.title}</h2>
           <p class="am-text-body mt-6 max-w-xl leading-relaxed text-on-surface-variant">{c.steps.intro}</p>
         </div>
@@ -141,7 +141,7 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
     <LocationModule id="zones" class="scroll-mt-32" data-am-stay-module="zones">
       <div class="mx-auto max-w-screen-2xl">
         <div class="max-w-3xl">
-          <p class="am-text-eyebrow text-primary">Die Lagen</p>
+          <p class="am-text-eyebrow text-primary">{c.zonesEyebrow}</p>
           <h2 class="am-text-title mt-5 text-balance italic text-on-surface">{c.zonesTitle}</h2>
           <p class="am-text-body mt-6 max-w-2xl leading-relaxed text-on-surface-variant">{c.zonesIntro}</p>
         </div>
@@ -157,11 +157,11 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
                 <p class="am-text-body leading-relaxed text-on-surface-variant">{zone.desc}</p>
                 <div class="mt-7 grid gap-x-12 gap-y-6 border-t border-border-subtle pt-7 sm:grid-cols-2">
                   <div>
-                    <p class="am-text-label am-text-label--sm am-text-label--wide text-primary">Ideal für</p>
+                    <p class="am-text-label am-text-label--sm am-text-label--wide text-primary">{c.labelIdealFor}</p>
                     <p class="am-text-body mt-2 leading-relaxed text-on-surface">{zone.idealFor}</p>
                   </div>
                   <div>
-                    <p class="am-text-label am-text-label--sm am-text-label--wide text-primary">Ehrlich dazu</p>
+                    <p class="am-text-label am-text-label--sm am-text-label--wide text-primary">{c.labelHonest}</p>
                     <p class="am-text-body mt-2 leading-relaxed text-on-surface"><InlineEmphasis text={zone.honest} /></p>
                   </div>
                 </div>
@@ -201,7 +201,7 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
           <p class="am-text-eyebrow text-primary-fixed-dim">{c.verdict.eyebrow}</p>
           <h2 class="am-text-title mt-5 max-w-xl text-balance italic text-inverted-on-surface">{c.verdict.title}</h2>
           <p class="am-text-body mt-6 max-w-md leading-relaxed text-inverted-on-surface/70">
-            {c.verdict.caption} <span class="text-inverted-on-surface/50">(siehe Orientierungskarte oben)</span>
+            {c.verdict.caption} <span class="text-inverted-on-surface/50">{c.verdict.mapNote}</span>
           </p>
         </div>
         <div class="lg:col-span-7">
