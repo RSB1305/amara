@@ -2,11 +2,12 @@ import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
 
 /**
- * Where-to-stay body copy for Frigiliana (Type A redesign, mockup approved
- * 2026-09-08; rendered with LocationTopicHero + LocationModule + am-text-* roles,
- * never bespoke CSS). Emphasis is written as **double asterisks** for
+ * Where-to-stay body copy for Frigiliana (Type A redesign, approved 2026-09-08;
+ * rendered with LocationTopicHero + AmaraKeyFigures + LocationModule + am-text-*
+ * roles, never bespoke CSS). Emphasis is written as **double asterisks** for
  * InlineEmphasis. Unit lists carry stable `id`s so the locale-parity contract
- * checks identity across the five languages.
+ * checks identity across the five languages. The booking CTA comes from the
+ * shared trustLabels.book, not from here.
  */
 interface StatItem {
   id: string;
@@ -18,11 +19,17 @@ interface GlanceItem {
   title: string;
   blurb: string;
 }
+interface Quarter {
+  id: string;
+  name: string;
+  note: string;
+}
 interface ZoneItem {
   id: string;
   sub: string;
   h3: string;
   desc: string;
+  quarters?: Quarter[];
   idealFor: string;
   honest: string;
 }
@@ -65,7 +72,6 @@ export interface FrigilianaWhereToStayCopy {
     lead: string;
     facts: string[];
     honest: string;
-    primaryCta: string;
   };
 }
 
@@ -77,22 +83,22 @@ const de: FrigilianaWhereToStayCopy = {
     body: 'Maurisches Erbe im Barribarto, Panorama bis zum Mittelmeer, Kunsthandwerk in den Gassen, Ruhe abseits der Küstenhektik. Doch Frigiliana ist ein Hangdorf: Wo ihr wohnt, entscheidet euren Alltag — und vor allem, wie viele Stufen zwischen euch und dem Morgenkaffee liegen.',
     traits: ['**Pueblo blanco** · weißes Bergdorf', 'Maurisches Erbe', 'Panorama zum Meer', 'Kunsthandwerk', 'Felsige Wanderwege'],
     stats: [
-      { id: 'altitude', k: '~300 m', l: 'über dem Meer — Hangdorf, kein flacher Badeort' },
-      { id: 'coast', k: '6 km', l: 'Luftlinie zur Küste in Nerja — zwei Welten' },
+      { id: 'altitude', k: '300 m', l: 'über dem Meer — Hangdorf, kein flacher Badeort' },
+      { id: 'coast', k: '6 km', l: 'Luftlinie zur Küste in Nerja' },
       { id: 'parts', k: '3', l: 'Teile mit spürbar anderem Alltag' }
     ]
   },
   heroCtaZones: 'Die drei Teile ansehen',
-  glanceTitle: 'Kurz: die drei Teile von Frigiliana',
-  glanceIntro: 'Drei Teile, drei Aufenthalte. Worin sie sich unterscheiden, entscheidet vor allem die Höhe am Hang — deshalb direkt danach „Das Rauf und Runter“.',
+  glanceTitle: 'Welcher Teil passt zu euch?',
+  glanceIntro: 'Drei Teile, drei Aufenthalte. Worin sie sich unterscheiden, entscheidet vor allem die Höhe am Hang — deshalb direkt danach der Blick auf die Stufen.',
   glance: [
     { id: 'altstadt', title: 'Historische Altstadt', blurb: 'Charme, maurische Gassen — aber steil und viele Stufen' },
-    { id: 'neu', title: 'Der neue Ort', blurb: 'Flacher, einfacheres Parken — ohne das historische Flair' },
+    { id: 'neu', title: 'Der neue Teil', blurb: 'Flacher, einfacheres Parken — ohne das historische Flair' },
     { id: 'campo', title: 'El Campo', blurb: 'Raum, Ruhe, Panorama — Auto meist praktisch oder nötig' }
   ],
   stepsEyebrow: 'Frigilianas Wahrzeichen',
   steps: {
-    title: 'Das Rauf und Runter',
+    title: 'Alles eine Frage der Höhe',
     intro: 'Frigilianas eigentliches Wahrzeichen sind nicht die Blumen an den Wänden, sondern die Stufen. Der Ort zieht sich steil den Hang hinauf — und ihr lauft ihn nicht einmal, sondern den ganzen Tag.',
     copy: 'Zwei Adressen, kaum hundert Meter auseinander, können dreißig Höhenmeter und mehrere Treppen trennen. Auf der Karte ist alles nah — in den Beinen nicht. Deshalb entscheidet in Frigiliana nicht die Entfernung, sondern die **Höhe** über euren Alltag.',
     note: 'Ein normaler Tag heißt: hinauf, hinunter — und wieder hinauf.',
@@ -100,19 +106,23 @@ const de: FrigilianaWhereToStayCopy = {
   },
   zonesEyebrow: 'Die Lagen',
   zonesTitle: 'Die drei Teile von Frigiliana',
-  zonesIntro: 'Grob gibt es drei Welten: die historische Altstadt, den neueren Ort darunter und den Campo außerhalb. Jede löst das Rauf und Runter anders — und tauscht dafür etwas anderes ein.',
+  zonesIntro: 'Grob gibt es drei Welten: die historische Altstadt, den neueren Teil darunter und den Campo außerhalb. Jede löst das Rauf und Runter anders — und tauscht dafür etwas anderes ein.',
   zones: [
     {
       id: 'altstadt',
       sub: 'Die historische Altstadt',
       h3: 'Der Charme — und der Hang',
-      desc: 'Weiß getünchte Gassen, der maurische Grundriss des Barribarto, Cafés und Restaurants vor der Tür. Wunderschön — aber deutlich steiler als der neuere Ort: Schon innerhalb der Altstadt liegen zwischen den Adressen große Höhenunterschiede und viele Stufen.',
+      desc: 'Weiß getünchte Gassen, der maurische Grundriss, Cafés und Restaurants vor der Tür. Wunderschön — aber deutlich steiler als der neuere Teil, und schon innerhalb der Altstadt macht die Höhe den Unterschied. Sie teilt sich in zwei Viertel:',
+      quarters: [
+        { id: 'barribajo', name: 'Barribajo', note: 'Unten, entlang der Hauptachse (Calle Real / Chorruelo): flacher, besser erreichbar — hier liegt auch AMARA.' },
+        { id: 'barribarto', name: 'Barribarto', note: 'Höher und steiler: der malerische, verwinkelte maurische Kern — mit den meisten Stufen.' }
+      ],
       idealFor: 'Kulturreisende, Paare, Ästhetiker — Dorfleben und Atmosphäre direkt vor der Tür.',
       honest: 'Autofrei, Kopfsteinpflaster, Stufen. **Wo genau** ihr wohnt, macht hier den größten Unterschied.'
     },
     {
       id: 'neu',
-      sub: 'Der neuere Ort',
+      sub: 'Der neuere Teil',
       h3: 'Praktisch, flacher — ohne den alten Charme',
       desc: 'Unterhalb und südlich der Altstadt liegt der neuere Teil: breitere Straßen, einfachere Zufahrt und Parken, weniger Stufen. Bequem im Alltag — moderner und funktionaler geprägt.',
       idealFor: 'Wer Bequemlichkeit, Auto-Zufahrt und wenige Stufen über das Altstadt-Flair stellt.',
@@ -129,7 +139,7 @@ const de: FrigilianaWhereToStayCopy = {
   ],
   labelIdealFor: 'Ideal für',
   labelHonest: 'Ehrlich dazu',
-  whoTitle: 'Und für wen ist Frigiliana überhaupt?',
+  whoTitle: 'Für wen Frigiliana ideal ist',
   whoIntro: 'Frigiliana passt zu Gästen, die das ruhige, ursprüngliche Andalusien abseits der Küstenhektik suchen. Wer Strand und Trubel vor der Tür will, ist unten in Nerja oft besser aufgehoben.',
   who: [
     { id: 'quiet', title: 'Ruhesuchende', text: 'Stille Gassen, frühe Morgen, ein Ort, der abends zur Ruhe kommt statt laut zu werden.' },
@@ -147,10 +157,9 @@ const de: FrigilianaWhereToStayCopy = {
     title: 'Der Altstadt-Charme, ohne den ständigen Anstieg',
     caption: 'Die Altstadt steigt oberhalb der Hauptachse deutlich den Hang hinauf; AMARA liegt vergleichsweise tief an der Calle Chorruelo.',
     mapNote: '(siehe Orientierungskarte oben)',
-    lead: 'Die Altstadt steigt vom Hauptweg steil an — viele historische Adressen liegen deutlich höher am Hang. Unsere Lage an der **Calle Chorruelo** setzt direkt an der ebenen Hauptachse an — mit echter Altstadt vor der Haustür, aber ohne dass jeder Einkauf zur Bergetappe wird. Deshalb haben wir hier investiert und das Haus über zwei Jahre restauriert.',
+    lead: 'Die Altstadt steigt vom Hauptweg steil an — viele historische Adressen liegen deutlich höher am Hang, oben im Barribarto. Unsere Lage im Barribajo, an der **Calle Chorruelo**, setzt direkt an der ebenen Hauptachse an — mit echter Altstadt vor der Haustür, aber ohne dass jeder Einkauf zur Bergetappe wird. Deshalb haben wir hier investiert und das Haus über zwei Jahre restauriert.',
     facts: ['**Mit dem Auto erreichbar** innerhalb der geltenden Altstadt-Zufahrtsfenster', '**Farah** hat nur eine Eingangsstufe', '**Lounis & Zaid**: private Terrassen mit Blick übers Grün bis zum Meer'],
-    honest: 'Ehrlich bleibt: voll ebenerdig mit eigenem Parkplatz → der neue Ort. Echte Abgeschiedenheit → El Campo. Für Altstadt-Charme mit vergleichsweise wenig Höhenmetern ist unsere Lage besonders praktisch.',
-    primaryCta: 'Verfügbarkeit & Preise prüfen'
+    honest: 'Ehrlich bleibt: voll ebenerdig mit eigenem Parkplatz → der neue Teil. Echte Abgeschiedenheit → El Campo. Für Altstadt-Charme mit vergleichsweise wenig Höhenmetern ist unsere Lage besonders praktisch.'
   }
 };
 
@@ -162,22 +171,22 @@ const en: FrigilianaWhereToStayCopy = {
     body: 'Moorish heritage in Barribarto, panorama to the Mediterranean, craft workshops in the lanes, quiet away from the coastal bustle. But Frigiliana is a hillside village: where you stay shapes your day — and above all, how many steps lie between you and your morning coffee.',
     traits: ['**Pueblo blanco** · white hill village', 'Moorish heritage', 'Panorama to the sea', 'Craftwork', 'Rocky trails'],
     stats: [
-      { id: 'altitude', k: '~300 m', l: 'above the sea — a hill village, not a flat beach resort' },
-      { id: 'coast', k: '6 km', l: 'as the crow flies to the coast at Nerja — two worlds' },
+      { id: 'altitude', k: '300 m', l: 'above the sea — a hill village, not a flat beach resort' },
+      { id: 'coast', k: '6 km', l: 'as the crow flies to the coast at Nerja' },
       { id: 'parts', k: '3', l: 'parts with a noticeably different daily life' }
     ]
   },
   heroCtaZones: 'See the three parts',
-  glanceTitle: 'In brief: the three parts of Frigiliana',
-  glanceIntro: 'Three parts, three kinds of stay. What sets them apart is above all the height on the slope — which is why “The ups and downs” comes right after.',
+  glanceTitle: 'Which part suits you?',
+  glanceIntro: 'Three parts, three kinds of stay. What sets them apart is above all the height on the slope — which is why the steps come right after.',
   glance: [
     { id: 'altstadt', title: 'Historic old town', blurb: 'Charm, Moorish lanes — but steep and many steps' },
-    { id: 'neu', title: 'The newer town', blurb: 'Flatter, easier parking — without the historic character' },
+    { id: 'neu', title: 'The newer part', blurb: 'Flatter, easier parking — without the historic character' },
     { id: 'campo', title: 'El Campo', blurb: 'Space, quiet, panorama — a car usually handy or needed' }
   ],
   stepsEyebrow: 'Frigiliana’s real landmark',
   steps: {
-    title: 'The ups and downs',
+    title: 'It all comes down to height',
     intro: 'Frigiliana’s real landmark isn’t the flowers on the walls but the steps. The village climbs steeply up the slope — and you don’t walk it once, but all day.',
     copy: 'Two addresses barely a hundred metres apart can be separated by thirty vertical metres and several flights of steps. On the map everything is close — in your legs it isn’t. That’s why in Frigiliana it isn’t distance but **height** that decides your day.',
     note: 'A normal day means: up, down — and up again.',
@@ -185,19 +194,23 @@ const en: FrigilianaWhereToStayCopy = {
   },
   zonesEyebrow: 'The locations',
   zonesTitle: 'The three parts of Frigiliana',
-  zonesIntro: 'Broadly there are three worlds: the historic old town, the newer town below it, and the campo outside. Each solves the ups and downs differently — and trades something else for it.',
+  zonesIntro: 'Broadly there are three worlds: the historic old town, the newer part below it, and the campo outside. Each solves the ups and downs differently — and trades something else for it.',
   zones: [
     {
       id: 'altstadt',
       sub: 'The historic old town',
       h3: 'The charm — and the slope',
-      desc: 'Whitewashed lanes, the Moorish layout of Barribarto, cafés and restaurants at the door. Gorgeous — but distinctly steeper than the newer town: even within the old town there are big differences in height and many steps between addresses.',
+      desc: 'Whitewashed lanes, the Moorish layout, cafés and restaurants at the door. Gorgeous — but distinctly steeper than the newer part, and even within the old town the height makes the difference. It splits into two quarters:',
+      quarters: [
+        { id: 'barribajo', name: 'Barribajo', note: 'Lower, along the main axis (Calle Real / Chorruelo): flatter, easier to reach — where AMARA is, too.' },
+        { id: 'barribarto', name: 'Barribarto', note: 'Higher and steeper: the picturesque, winding Moorish core — with the most steps.' }
+      ],
       idealFor: 'Culture travellers, couples, aesthetes — village life and atmosphere right at the door.',
       honest: 'Car-free, cobbles, steps. **Where exactly** you stay makes the biggest difference here.'
     },
     {
       id: 'neu',
-      sub: 'The newer town',
+      sub: 'The newer part',
       h3: 'Practical, flatter — without the old charm',
       desc: 'Below and south of the old town lies the newer part: wider streets, easier access and parking, fewer steps. Comfortable day to day — more modern and functional in character.',
       idealFor: 'Those who value comfort, car access and few steps over old-town flair.',
@@ -214,7 +227,7 @@ const en: FrigilianaWhereToStayCopy = {
   ],
   labelIdealFor: 'Best for',
   labelHonest: 'Honestly',
-  whoTitle: 'And who is Frigiliana actually for?',
+  whoTitle: 'Who Frigiliana is ideal for',
   whoIntro: 'Frigiliana suits guests who want the quiet, unspoilt Andalusia away from the coastal bustle. Those who want beach and buzz at the door are often better off down in Nerja.',
   who: [
     { id: 'quiet', title: 'Quiet-seekers', text: 'Quiet lanes, early mornings, a place that settles down in the evening rather than getting loud.' },
@@ -232,10 +245,9 @@ const en: FrigilianaWhereToStayCopy = {
     title: 'The old-town charm, without the constant climb',
     caption: 'The old town climbs steeply above the main axis; AMARA sits comparatively low on Calle Chorruelo.',
     mapNote: '(see the orientation map above)',
-    lead: 'The old town climbs steeply from the main path — many historic addresses lie noticeably higher on the slope. Our position on **Calle Chorruelo** sits right on the level main axis — with real old town at the door, but without every shopping trip becoming a mountain stage. That is why we invested here and restored the house over two years.',
+    lead: 'The old town climbs steeply from the main path — many historic addresses lie noticeably higher on the slope, up in Barribarto. Our position in Barribajo, on **Calle Chorruelo**, sits right on the level main axis — with real old town at the door, but without every shopping trip becoming a mountain stage. That is why we invested here and restored the house over two years.',
     facts: ['**Reachable by car** within the current old-town access windows', '**Farah** has just one entrance step', '**Lounis & Zaid**: private terraces with views over the groves to the sea'],
-    honest: 'To stay honest: fully step-free with your own parking → the newer town. Real seclusion → El Campo. For old-town charm with comparatively few vertical metres, our position is particularly practical.',
-    primaryCta: 'Check availability & prices'
+    honest: 'To stay honest: fully step-free with your own parking → the newer part. Real seclusion → El Campo. For old-town charm with comparatively few vertical metres, our position is particularly practical.'
   }
 };
 
@@ -247,14 +259,14 @@ const es: FrigilianaWhereToStayCopy = {
     body: 'Herencia morisca en el Barribarto, panorama hasta el Mediterráneo, artesanía en las calles, calma lejos del bullicio de la costa. Pero Frigiliana es un pueblo en cuesta: dónde os alojáis marca vuestro día — y sobre todo, cuántos escalones hay entre vosotros y el café de la mañana.',
     traits: ['**Pueblo blanco** · pueblo blanco de montaña', 'Herencia morisca', 'Panorama al mar', 'Artesanía', 'Senderos rocosos'],
     stats: [
-      { id: 'altitude', k: '~300 m', l: 'sobre el mar — pueblo en cuesta, no un llano junto a la playa' },
-      { id: 'coast', k: '6 km', l: 'en línea recta hasta la costa en Nerja — dos mundos' },
+      { id: 'altitude', k: '300 m', l: 'sobre el mar — pueblo en cuesta, no un llano junto a la playa' },
+      { id: 'coast', k: '6 km', l: 'en línea recta hasta la costa en Nerja' },
       { id: 'parts', k: '3', l: 'partes con un día a día muy distinto' }
     ]
   },
   heroCtaZones: 'Ver las tres partes',
-  glanceTitle: 'En breve: las tres partes de Frigiliana',
-  glanceIntro: 'Tres partes, tres formas de alojarse. Lo que las diferencia es sobre todo la altura en la ladera — por eso viene justo después „El sube y baja“.',
+  glanceTitle: '¿Qué parte encaja con vosotros?',
+  glanceIntro: 'Tres partes, tres formas de alojarse. Lo que las diferencia es sobre todo la altura en la ladera — por eso viene justo después el tema de las escaleras.',
   glance: [
     { id: 'altstadt', title: 'Casco histórico', blurb: 'Encanto, calles moriscas — pero empinado y con escaleras' },
     { id: 'neu', title: 'La zona nueva', blurb: 'Más llano, mejor aparcamiento — sin el aire histórico' },
@@ -262,7 +274,7 @@ const es: FrigilianaWhereToStayCopy = {
   ],
   stepsEyebrow: 'El verdadero emblema de Frigiliana',
   steps: {
-    title: 'El sube y baja',
+    title: 'Todo es cuestión de altura',
     intro: 'El verdadero emblema de Frigiliana no son las flores en las paredes, sino las escaleras. El pueblo sube empinado por la ladera — y no lo recorréis una vez, sino todo el día.',
     copy: 'Dos direcciones a apenas cien metros pueden estar separadas por treinta metros de desnivel y varios tramos de escaleras. En el mapa todo está cerca — en las piernas no. Por eso en Frigiliana no decide la distancia, sino la **altura**, vuestro día.',
     note: 'Un día normal es: subir, bajar — y volver a subir.',
@@ -276,7 +288,11 @@ const es: FrigilianaWhereToStayCopy = {
       id: 'altstadt',
       sub: 'El casco histórico',
       h3: 'El encanto — y la cuesta',
-      desc: 'Calles encaladas, el trazado morisco del Barribarto, cafeterías y restaurantes en la puerta. Precioso — pero bastante más empinado que la zona nueva: ya dentro del casco hay grandes desniveles y muchas escaleras entre direcciones.',
+      desc: 'Calles encaladas, el trazado morisco, cafeterías y restaurantes en la puerta. Precioso — pero bastante más empinado que la zona nueva, y ya dentro del casco la altura marca la diferencia. Se divide en dos barrios:',
+      quarters: [
+        { id: 'barribajo', name: 'Barribajo', note: 'Abajo, junto al eje principal (calle Real / Chorruelo): más llano y accesible — aquí está también AMARA.' },
+        { id: 'barribarto', name: 'Barribarto', note: 'Más arriba y empinado: el pintoresco y laberíntico núcleo morisco — con más escaleras.' }
+      ],
       idealFor: 'Viajeros culturales, parejas, amantes del detalle — vida de pueblo y ambiente en la puerta.',
       honest: 'Sin coches, empedrado, escaleras. **Dónde exactamente** os alojáis marca aquí la mayor diferencia.'
     },
@@ -299,7 +315,7 @@ const es: FrigilianaWhereToStayCopy = {
   ],
   labelIdealFor: 'Ideal para',
   labelHonest: 'Con franqueza',
-  whoTitle: '¿Y para quién es Frigiliana en realidad?',
+  whoTitle: 'Para quién es ideal Frigiliana',
   whoIntro: 'Frigiliana encaja con quienes buscan la Andalucía tranquila y auténtica, lejos del bullicio costero. Quien quiere playa y ambiente en la puerta suele estar mejor abajo, en Nerja.',
   who: [
     { id: 'quiet', title: 'Quienes buscan calma', text: 'Calles tranquilas, mañanas temprano, un lugar que por la noche se calma en vez de animarse.' },
@@ -317,10 +333,9 @@ const es: FrigilianaWhereToStayCopy = {
     title: 'El encanto del casco, sin la subida constante',
     caption: 'El casco sube empinado por encima del eje principal; AMARA queda comparativamente bajo, en la calle Chorruelo.',
     mapNote: '(ver el mapa de orientación arriba)',
-    lead: 'El casco sube empinado desde el camino principal — muchas direcciones históricas quedan bastante más arriba en la ladera. Nuestra ubicación en la **calle Chorruelo** se asienta justo en el eje principal llano — con casco auténtico en la puerta, pero sin que cada compra sea una etapa de montaña. Por eso invertimos aquí y restauramos la casa durante dos años.',
+    lead: 'El casco sube empinado desde el camino principal — muchas direcciones históricas quedan bastante más arriba, en el Barribarto. Nuestra ubicación en el Barribajo, en la **calle Chorruelo**, se asienta justo en el eje principal llano — con casco auténtico en la puerta, pero sin que cada compra sea una etapa de montaña. Por eso invertimos aquí y restauramos la casa durante dos años.',
     facts: ['**Accesible en coche** dentro de las ventanas de acceso vigentes del casco', '**Farah** tiene un solo escalón de entrada', '**Lounis y Zaid**: terrazas privadas con vistas sobre el campo hasta el mar'],
-    honest: 'Para ser honestos: totalmente sin escalones y con aparcamiento propio → la zona nueva. Aislamiento real → El Campo. Para el encanto del casco con comparativamente pocos metros de desnivel, nuestra ubicación es especialmente práctica.',
-    primaryCta: 'Ver disponibilidad y precios'
+    honest: 'Para ser honestos: totalmente sin escalones y con aparcamiento propio → la zona nueva. Aislamiento real → El Campo. Para el encanto del casco con comparativamente pocos metros de desnivel, nuestra ubicación es especialmente práctica.'
   }
 };
 
@@ -332,14 +347,14 @@ const nl: FrigilianaWhereToStayCopy = {
     body: 'Moors erfgoed in Barribarto, panorama tot aan de Middellandse Zee, ambacht in de straatjes, rust weg van de kustdrukte. Maar Frigiliana is een heuveldorp: waar je verblijft bepaalt je dag — en vooral hoeveel treden er tussen jou en de ochtendkoffie liggen.',
     traits: ['**Pueblo blanco** · wit bergdorp', 'Moors erfgoed', 'Panorama op zee', 'Ambacht', 'Rotsachtige paden'],
     stats: [
-      { id: 'altitude', k: '~300 m', l: 'boven zee — heuveldorp, geen vlakke badplaats' },
-      { id: 'coast', k: '6 km', l: 'hemelsbreed naar de kust bij Nerja — twee werelden' },
+      { id: 'altitude', k: '300 m', l: 'boven zee — heuveldorp, geen vlakke badplaats' },
+      { id: 'coast', k: '6 km', l: 'hemelsbreed naar de kust bij Nerja' },
       { id: 'parts', k: '3', l: 'delen met een merkbaar ander dagritme' }
     ]
   },
   heroCtaZones: 'Bekijk de drie delen',
-  glanceTitle: 'Kort: de drie delen van Frigiliana',
-  glanceIntro: 'Drie delen, drie soorten verblijf. Wat ze onderscheidt is vooral de hoogte op de helling — daarom komt direct daarna „Het op en neer“.',
+  glanceTitle: 'Welk deel past bij jullie?',
+  glanceIntro: 'Drie delen, drie soorten verblijf. Wat ze onderscheidt is vooral de hoogte op de helling — daarom komen de treden er direct na.',
   glance: [
     { id: 'altstadt', title: 'Historische kern', blurb: 'Charme, Moorse straatjes — maar steil en veel treden' },
     { id: 'neu', title: 'Het nieuwere deel', blurb: 'Vlakker, makkelijker parkeren — zonder de historische sfeer' },
@@ -347,7 +362,7 @@ const nl: FrigilianaWhereToStayCopy = {
   ],
   stepsEyebrow: 'Frigiliana’s echte kenmerk',
   steps: {
-    title: 'Het op en neer',
+    title: 'Alles draait om de hoogte',
     intro: 'Frigiliana’s echte kenmerk zijn niet de bloemen aan de muren, maar de treden. Het dorp klimt steil tegen de helling op — en je loopt het niet één keer, maar de hele dag.',
     copy: 'Twee adressen op amper honderd meter kunnen dertig hoogtemeters en meerdere trappen uit elkaar liggen. Op de kaart is alles dichtbij — in je benen niet. Daarom bepaalt in Frigiliana niet de afstand, maar de **hoogte** je dag.',
     note: 'Een gewone dag is: omhoog, omlaag — en weer omhoog.',
@@ -361,7 +376,11 @@ const nl: FrigilianaWhereToStayCopy = {
       id: 'altstadt',
       sub: 'De historische kern',
       h3: 'De charme — en de helling',
-      desc: 'Witgekalkte straatjes, de Moorse plattegrond van Barribarto, cafés en restaurants voor de deur. Prachtig — maar duidelijk steiler dan het nieuwere deel: al binnen de oude kern zitten er grote hoogteverschillen en veel treden tussen adressen.',
+      desc: 'Witgekalkte straatjes, de Moorse plattegrond, cafés en restaurants voor de deur. Prachtig — maar duidelijk steiler dan het nieuwere deel, en al binnen de oude kern maakt de hoogte het verschil. Ze valt uiteen in twee wijken:',
+      quarters: [
+        { id: 'barribajo', name: 'Barribajo', note: 'Onderin, langs de hoofdas (Calle Real / Chorruelo): vlakker, beter bereikbaar — hier ligt ook AMARA.' },
+        { id: 'barribarto', name: 'Barribarto', note: 'Hoger en steiler: de pittoreske, kronkelige Moorse kern — met de meeste treden.' }
+      ],
       idealFor: 'Cultuurreizigers, stellen, liefhebbers van sfeer — dorpsleven en atmosfeer voor de deur.',
       honest: 'Autovrij, kasseien, treden. **Waar precies** je verblijft maakt hier het grootste verschil.'
     },
@@ -384,7 +403,7 @@ const nl: FrigilianaWhereToStayCopy = {
   ],
   labelIdealFor: 'Ideaal voor',
   labelHonest: 'Eerlijk gezegd',
-  whoTitle: 'En voor wie is Frigiliana eigenlijk?',
+  whoTitle: 'Voor wie Frigiliana ideaal is',
   whoIntro: 'Frigiliana past bij gasten die het rustige, ongerepte Andalusië willen, weg van de kustdrukte. Wie strand en reuring voor de deur wil, zit vaak beter beneden in Nerja.',
   who: [
     { id: 'quiet', title: 'Rustzoekers', text: 'Stille straatjes, vroege ochtenden, een plek die ’s avonds tot rust komt in plaats van luid te worden.' },
@@ -402,10 +421,9 @@ const nl: FrigilianaWhereToStayCopy = {
     title: 'De charme van de oude kern, zonder het constante klimmen',
     caption: 'De oude kern klimt steil boven de hoofdas uit; AMARA ligt vergelijkbaar laag aan Calle Chorruelo.',
     mapNote: '(zie de oriëntatiekaart hierboven)',
-    lead: 'De oude kern klimt steil vanaf het hoofdpad — veel historische adressen liggen merkbaar hoger op de helling. Onze ligging aan de **Calle Chorruelo** zit pal op de vlakke hoofdas — met echte oude kern voor de deur, maar zonder dat elke boodschap een bergetappe wordt. Daarom investeerden we hier en restaureerden we het huis in twee jaar.',
+    lead: 'De oude kern klimt steil vanaf het hoofdpad — veel historische adressen liggen merkbaar hoger, boven in Barribarto. Onze ligging in Barribajo, aan de **Calle Chorruelo**, zit pal op de vlakke hoofdas — met echte oude kern voor de deur, maar zonder dat elke boodschap een bergetappe wordt. Daarom investeerden we hier en restaureerden we het huis in twee jaar.',
     facts: ['**Met de auto bereikbaar** binnen de geldende toegangsvensters van de oude kern', '**Farah** heeft maar één opstap', '**Lounis & Zaid**: privéterrassen met uitzicht over het groen tot de zee'],
-    honest: 'Eerlijk blijft: volledig gelijkvloers met eigen parkeerplaats → het nieuwere deel. Echte afzondering → El Campo. Voor kernkarakter met vergelijkenderwijs weinig hoogtemeters is onze ligging bijzonder praktisch.',
-    primaryCta: 'Beschikbaarheid & prijzen bekijken'
+    honest: 'Eerlijk blijft: volledig gelijkvloers met eigen parkeerplaats → het nieuwere deel. Echte afzondering → El Campo. Voor kernkarakter met vergelijkenderwijs weinig hoogtemeters is onze ligging bijzonder praktisch.'
   }
 };
 
@@ -417,14 +435,14 @@ const sv: FrigilianaWhereToStayCopy = {
     body: 'Moriskt arv i Barribarto, panorama mot Medelhavet, hantverk i gränderna, lugn borta från kustens vimmel. Men Frigiliana är en by i sluttning: var ni bor formar er dag — och framför allt hur många trappsteg som ligger mellan er och morgonkaffet.',
     traits: ['**Pueblo blanco** · vit bergsby', 'Moriskt arv', 'Panorama mot havet', 'Hantverk', 'Steniga leder'],
     stats: [
-      { id: 'altitude', k: '~300 m', l: 'över havet — bergsby, ingen platt badort' },
-      { id: 'coast', k: '6 km', l: 'fågelvägen till kusten vid Nerja — två världar' },
+      { id: 'altitude', k: '300 m', l: 'över havet — bergsby, ingen platt badort' },
+      { id: 'coast', k: '6 km', l: 'fågelvägen till kusten vid Nerja' },
       { id: 'parts', k: '3', l: 'delar med märkbart olika vardag' }
     ]
   },
   heroCtaZones: 'Se de tre delarna',
-  glanceTitle: 'Kort: Frigilianas tre delar',
-  glanceIntro: 'Tre delar, tre sorters vistelse. Det som skiljer dem åt är framför allt höjden i sluttningen — därför kommer „Upp och ner“ direkt efter.',
+  glanceTitle: 'Vilken del passar er?',
+  glanceIntro: 'Tre delar, tre sorters vistelse. Det som skiljer dem åt är framför allt höjden i sluttningen — därför kommer trapporna direkt efter.',
   glance: [
     { id: 'altstadt', title: 'Historiska gamla stan', blurb: 'Charm, moriska gränder — men brant och många trappsteg' },
     { id: 'neu', title: 'Den nyare delen', blurb: 'Flackare, enklare parkering — utan den historiska stämningen' },
@@ -432,7 +450,7 @@ const sv: FrigilianaWhereToStayCopy = {
   ],
   stepsEyebrow: 'Frigilianas verkliga signum',
   steps: {
-    title: 'Upp och ner',
+    title: 'Allt handlar om höjden',
     intro: 'Frigilianas verkliga signum är inte blommorna på väggarna utan trapporna. Byn klättrar brant uppför sluttningen — och ni går den inte en gång, utan hela dagen.',
     copy: 'Två adresser knappt hundra meter isär kan skiljas av trettio höjdmeter och flera trappor. På kartan är allt nära — i benen inte. Därför avgör inte avståndet i Frigiliana, utan **höjden**, er dag.',
     note: 'En vanlig dag är: upp, ner — och upp igen.',
@@ -446,7 +464,11 @@ const sv: FrigilianaWhereToStayCopy = {
       id: 'altstadt',
       sub: 'Den historiska gamla stan',
       h3: 'Charmen — och sluttningen',
-      desc: 'Vitkalkade gränder, Barribartos moriska plan, kaféer och restauranger vid dörren. Vackert — men betydligt brantare än den nyare delen: redan inom gamla stan finns stora höjdskillnader och många trappsteg mellan adresser.',
+      desc: 'Vitkalkade gränder, den moriska planen, kaféer och restauranger vid dörren. Vackert — men betydligt brantare än den nyare delen, och redan inom gamla stan gör höjden skillnaden. Den delas i två kvarter:',
+      quarters: [
+        { id: 'barribajo', name: 'Barribajo', note: 'Nedtill, längs huvudaxeln (Calle Real / Chorruelo): flackare, lättare att nå — här ligger även AMARA.' },
+        { id: 'barribarto', name: 'Barribarto', note: 'Högre och brantare: den pittoreska, slingrande moriska kärnan — med flest trappsteg.' }
+      ],
       idealFor: 'Kulturresenärer, par, estetiker — byliv och atmosfär precis vid dörren.',
       honest: 'Bilfritt, kullersten, trappor. **Var exakt** ni bor gör här störst skillnad.'
     },
@@ -469,7 +491,7 @@ const sv: FrigilianaWhereToStayCopy = {
   ],
   labelIdealFor: 'Passar för',
   labelHonest: 'Ärligt',
-  whoTitle: 'Och vem passar Frigiliana egentligen för?',
+  whoTitle: 'Vem Frigiliana är perfekt för',
   whoIntro: 'Frigiliana passar gäster som vill ha det lugna, ursprungliga Andalusien borta från kustvimlet. Den som vill ha strand och liv vid dörren har ofta bättre av att bo nere i Nerja.',
   who: [
     { id: 'quiet', title: 'De som söker lugn', text: 'Tysta gränder, tidiga morgnar, en plats som lugnar ner sig på kvällen i stället för att bli högljudd.' },
@@ -487,10 +509,9 @@ const sv: FrigilianaWhereToStayCopy = {
     title: 'Gamla stans charm, utan den ständiga stigningen',
     caption: 'Gamla stan stiger brant ovanför huvudaxeln; AMARA ligger jämförelsevis lågt vid Calle Chorruelo.',
     mapNote: '(se orienteringskartan ovan)',
-    lead: 'Gamla stan stiger brant från huvudvägen — många historiska adresser ligger märkbart högre i sluttningen. Vårt läge vid **Calle Chorruelo** ligger precis på den plana huvudaxeln — med riktig gammal stad vid dörren, men utan att varje inköpsrunda blir en bergsetapp. Därför investerade vi här och restaurerade huset under två år.',
+    lead: 'Gamla stan stiger brant från huvudvägen — många historiska adresser ligger märkbart högre, uppe i Barribarto. Vårt läge i Barribajo, vid **Calle Chorruelo**, ligger precis på den plana huvudaxeln — med riktig gammal stad vid dörren, men utan att varje inköpsrunda blir en bergsetapp. Därför investerade vi här och restaurerade huset under två år.',
     facts: ['**Nåbart med bil** inom gamla stans gällande tillfartsfönster', '**Farah** har bara ett entrésteg', '**Lounis & Zaid**: privata terrasser med utsikt över grönskan mot havet'],
-    honest: 'Ärligt talat: helt trappfritt med egen parkering → den nyare delen. Verklig avskildhet → El Campo. För gammal-stans-charm med jämförelsevis få höjdmeter är vårt läge särskilt praktiskt.',
-    primaryCta: 'Se tillgänglighet & priser'
+    honest: 'Ärligt talat: helt trappfritt med egen parkering → den nyare delen. Verklig avskildhet → El Campo. För gammal-stans-charm med jämförelsevis få höjdmeter är vårt läge särskilt praktiskt.'
   }
 };
 

@@ -8,6 +8,8 @@ import LocationContextNav from '../../components/location/LocationContextNav.ast
 import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
 import WhereToStayOrientationGraphic from '../../components/location/WhereToStayOrientationGraphic.astro';
 import LocationModule from './LocationModule.astro';
+import AmaraKeyFigures from '../../components/content/AmaraKeyFigures.astro';
+import { trustLabels } from '../../content/trustLabels';
 import {
   frigilianaStreetsStairsCopy,
   frigilianaStreetsStairsSeo
@@ -57,6 +59,7 @@ const footerHighlights: LabeledLink[] = [
 const bookBase = resolveOptionalLink('book', currentLang, { suppressMissing: true });
 const bookHref = bookBase ? `${bookBase}?destination=frigiliana` : '#';
 const pointerHref = resolveOptionalLink(c.pointer.linkToken, currentLang, { suppressMissing: true }) ?? '#';
+const bookLabel = trustLabels.book[currentLang];
 
 const pad = (i: number) => String(i + 1).padStart(2, '0');
 ---
@@ -92,11 +95,17 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
       paragraphs={[c.hero.body]}
       actions={[
         { href: '#zones', label: c.heroCtaZones, style: 'primary' },
-        { href: bookHref, label: c.verdict.primaryCta, style: 'secondary' }
+        { href: bookHref, label: bookLabel, style: 'secondary' }
       ]}
     >
       <WhereToStayOrientationGraphic slot="visual" data={orientationGraphic} />
     </LocationTopicHero>
+
+    <LocationModule data-am-stay-module="figures">
+      <div class="mx-auto max-w-screen-2xl">
+        <AmaraKeyFigures figures={c.hero.stats.map((s) => ({ value: s.k, label: s.l }))} />
+      </div>
+    </LocationModule>
 
     <LocationModule data-am-stay-module="glance">
       <div class="mx-auto max-w-screen-2xl">
@@ -155,6 +164,16 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
               </div>
               <div class="lg:col-span-8">
                 <p class="am-text-body leading-relaxed text-on-surface-variant">{zone.desc}</p>
+                {zone.quarters && (
+                  <div class="mt-6 grid gap-6 sm:grid-cols-2">
+                    {zone.quarters.map((q) => (
+                      <div class="border-l-2 border-primary/50 pl-4">
+                        <p class="am-text-subtitle text-on-surface">{q.name}</p>
+                        <p class="am-text-body mt-1 leading-relaxed text-on-surface-variant">{q.note}</p>
+                      </div>
+                    ))}
+                  </div>
+                )}
                 <div class="mt-7 grid gap-x-12 gap-y-6 border-t border-border-subtle pt-7 sm:grid-cols-2">
                   <div>
                     <p class="am-text-label am-text-label--sm am-text-label--wide text-primary">{c.labelIdealFor}</p>
@@ -212,7 +231,7 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
             ))}
           </ul>
           <p class="am-text-subtitle mt-7 max-w-2xl border-l-2 border-primary-fixed-dim pl-5 text-balance italic text-inverted-on-surface/75">{c.verdict.honest}</p>
-          <a href={bookHref} class="am-btn am-btn--primary mt-9 inline-flex">{c.verdict.primaryCta}</a>
+          <a href={bookHref} class="am-btn am-btn--primary mt-9 inline-flex">{bookLabel}</a>
         </div>
       </div>
     </LocationModule>

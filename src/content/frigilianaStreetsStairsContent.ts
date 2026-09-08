@@ -956,11 +956,11 @@ export const frigilianaStreetsStairsCopy = {
       sv: 'Praktiska nästa steg'
     } satisfies LocalizedText,
     title: {
-      en: 'Continue planning the stay',
-      de: 'Den Aufenthalt weiter planen',
-      es: 'Seguid planificando la estancia',
-      nl: 'Plan het verblijf verder',
-      sv: 'Fortsätt planera vistelsen'
+      en: 'More about Frigiliana',
+      de: 'Mehr über Frigiliana',
+      es: 'Más sobre Frigiliana',
+      nl: 'Meer over Frigiliana',
+      sv: 'Mer om Frigiliana'
     } satisfies LocalizedText,
     intro: {
       en: 'Once the location type is clear, use the focused guides for parking, arrival and the wider destination decision.',
