@@ -54,6 +54,7 @@ export interface WeatherAuthorityContent {
     labels: {
       month: string;
       high: string;
+      max: string;
       low: string;
       rain: string;
       sunHours: string;

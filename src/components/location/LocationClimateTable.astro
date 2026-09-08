@@ -1,8 +1,12 @@
 ---
+import { formatDecimal } from '../../lib/formatNumber';
+import type { AmaraLanguage } from '../../types/seo';
+
 interface ClimateMonth {
   month: string;
   high: number;
   low: number;
+  record: number;
   rain: number;
   sunHours: number;
 }
@@ -13,6 +17,7 @@ interface SourceLink {
 }
 
 interface Props {
+  lang: AmaraLanguage;
   eyebrow: string;
   title: string;
   intro: string;
@@ -20,6 +25,7 @@ interface Props {
   labels: {
     month: string;
     high: string;
+    max: string;
     low: string;
     rain: string;
     sunHours: string;
@@ -29,25 +35,36 @@ interface Props {
     temperature: string;
     rainfall: string;
   };
+  /** Optional home-city average and record daily high per month, shown as a toggleable comparison. */
+  comparison?: { label: string; highs: number[]; records: number[]; toggleLabel: string };
   sourceTitle: string;
   sourceText: string;
   sources: SourceLink[];
 }
 
 const {
+  lang,
   eyebrow,
   title,
   intro,
   months,
   labels,
   chartLabels,
-  sourceTitle,
-  sourceText,
-  sources
+  comparison
 } = Astro.props;
 
 const maxRain = Math.max(...months.map((month) => month.rain));
 const displayTemperature = (value: number) => Math.round(value);
+
+const tempValues = [
+  ...months.map((month) => month.high),
+  ...months.map((month) => month.record),
+  ...(comparison?.highs ?? []),
+  ...(comparison?.records ?? [])
+];
+const tempMax = Math.max(...tempValues);
+const tempMin = Math.min(0, ...tempValues);
+const tempBar = (value: number) => `${Math.max(3, ((value - tempMin) / (tempMax - tempMin)) * 100)}%`;
 ---
 
 <section class="bg-surface-container-low" data-am-climate-table>
@@ -62,35 +79,57 @@ const displayTemperature = (value: number) => Math.round(value);
       </p>
     </header>
 
-    <div class="mt-14 overflow-x-auto pb-3">
-      <div class="min-w-[900px] border-y border-outline-variant/20" aria-hidden="true">
-        <div class="grid grid-cols-12">
-          {months.map((month) => (
-            <div class="border-r border-outline-variant/15 px-3 py-5 last:border-r-0">
-              <p class="text-muted am-text-label am-text-label--sm am-text-label--wide">
-                {month.month}
-              </p>
-              <p class="mt-4 am-text-subtitle leading-none text-on-surface">
-                {displayTemperature(month.high)}°
-              </p>
-              <p class="am-text-data-note mt-2 tabular-nums text-muted">
-                {displayTemperature(month.low)}°
-              </p>
-              <div class="mt-5 flex h-20 items-end border-b border-outline-variant/20">
-                <div
-                  class="w-full bg-primary/55"
-                  style={`height: ${Math.max(3, (month.rain / maxRain) * 100)}%`}
-                ></div>
+    <div class="mt-12" data-am-climate-chart data-compare="off">
+      <div class="flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 am-text-label am-text-label--sm text-muted">
+          <span class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-sm bg-primary"></span>{labels.high}</span>
+          <span class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-sm bg-primary/35"></span>{labels.max}</span>
+          {comparison && (
+            <span class="am-cc-city flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-sm bg-on-surface/35"></span>{comparison.label}</span>
+          )}
+          <span class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-sm bg-on-surface/20"></span>{chartLabels.rainfall}</span>
+        </div>
+        {comparison && (
+          <button
+            type="button"
+            data-am-compare-toggle
+            aria-pressed="false"
+            class="am-cc-toggle inline-flex items-center gap-2.5 rounded-full border border-outline-variant/40 px-4 py-2 am-text-label am-text-label--sm text-on-surface-variant transition-colors hover:border-primary"
+          >
+            <span class="am-cc-switch" aria-hidden="true"><span class="am-cc-knob"></span></span>
+            {comparison.toggleLabel}
+          </button>
+        )}
+      </div>
+
+      <div class="mt-8 overflow-x-auto pb-2">
+        <div class="grid min-w-[820px] grid-cols-12 gap-1" aria-hidden="true">
+          {months.map((month, index) => (
+            <div class="flex flex-col items-center px-1">
+              <div class="flex h-48 w-full items-end justify-center gap-1">
+                <div class="am-cc-bar bg-primary" style={`height: ${tempBar(month.high)}`}></div>
+                <div class="am-cc-bar bg-primary/35" style={`height: ${tempBar(month.record)}`}></div>
+                {comparison && (
+                  <>
+                    <div class="am-cc-bar am-cc-city am-cc-city-gap bg-on-surface/45" style={`height: ${tempBar(comparison.highs[index])}`}></div>
+                    <div class="am-cc-bar am-cc-city bg-on-surface/20" style={`height: ${tempBar(comparison.records[index])}`}></div>
+                  </>
+                )}
               </div>
-              <p class="am-text-data-note am-text-data-note--sm mt-2 tabular-nums text-muted">
-                {month.rain} mm
-              </p>
+              <p class="mt-3 tabular-nums am-text-subtitle leading-none text-on-surface">{displayTemperature(month.high)}°</p>
+              <p class="mt-1 tabular-nums am-text-data-note text-primary/75">{displayTemperature(month.record)}°</p>
+              {comparison && (
+                <p class="am-cc-city mt-1 tabular-nums am-text-data-note text-on-surface-variant">
+                  {displayTemperature(comparison.highs[index])}° · {displayTemperature(comparison.records[index])}°
+                </p>
+              )}
+              <div class="mt-4 flex h-6 w-full items-end justify-center border-t border-outline-variant/15 pt-2">
+                <div class="w-1.5 rounded-sm bg-on-surface/20" style={`height: ${Math.max(8, (month.rain / maxRain) * 100)}%`}></div>
+              </div>
+              <p class="mt-1 tabular-nums am-text-data-note am-text-data-note--sm text-muted">{month.rain} mm</p>
+              <p class="mt-2 text-muted am-text-label am-text-label--sm am-text-label--wide">{month.month}</p>
             </div>
           ))}
-        </div>
-        <div class="flex items-center gap-8 border-t border-outline-variant/15 px-3 py-3 am-text-label am-text-label--sm text-muted">
-          <span>{chartLabels.temperature}</span>
-          <span class="flex items-center gap-2"><span class="h-2 w-2 bg-primary/55"></span>{chartLabels.rainfall}</span>
         </div>
       </div>
     </div>
@@ -111,39 +150,29 @@ const displayTemperature = (value: number) => Math.round(value);
             <tr class="border-b border-outline-variant/25 text-muted am-text-label am-text-label--sm">
               <th scope="col" class="py-4 pr-5">{labels.month}</th>
               <th scope="col" class="px-5 py-4 text-right">{labels.high}</th>
+              <th scope="col" class="px-5 py-4 text-right">{labels.max}</th>
               <th scope="col" class="px-5 py-4 text-right">{labels.low}</th>
+              {comparison && <th scope="col" class="px-5 py-4 text-right text-primary">{comparison.label}</th>}
               <th scope="col" class="px-5 py-4 text-right">{labels.rain}</th>
               <th scope="col" class="py-4 pl-5 text-right">{labels.sunHours}</th>
             </tr>
           </thead>
           <tbody>
-            {months.map((month) => (
+            {months.map((month, index) => (
               <tr class="border-b border-outline-variant/15 am-text-body text-on-surface-variant">
                 <th scope="row" class="py-4 pr-5 font-normal text-on-surface">{month.month}</th>
                 <td class="px-5 py-4 text-right tabular-nums">{displayTemperature(month.high)} °C</td>
+                <td class="px-5 py-4 text-right tabular-nums">{displayTemperature(month.record)} °C</td>
                 <td class="px-5 py-4 text-right tabular-nums">{displayTemperature(month.low)} °C</td>
+                {comparison && <td class="px-5 py-4 text-right tabular-nums text-on-surface">{displayTemperature(comparison.highs[index])} °C</td>}
                 <td class="px-5 py-4 text-right tabular-nums">{month.rain} mm</td>
-                <td class="py-4 pl-5 text-right tabular-nums">{month.sunHours} h</td>
+                <td class="py-4 pl-5 text-right tabular-nums">{formatDecimal(month.sunHours, lang)} h</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     </details>
-
-    <footer class="mt-10 grid gap-4 border-l border-primary/35 pl-6 lg:grid-cols-[auto_1fr] lg:gap-8">
-      <p class="text-primary am-text-label am-text-label--sm am-text-label--wide">{sourceTitle}</p>
-      <div>
-        <p class="am-text-body max-w-4xl leading-relaxed text-on-surface-variant">{sourceText}</p>
-        <div class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
-          {sources.map((source) => (
-            <a class="am-text-caption text-on-surface underline decoration-primary/40 underline-offset-4 hover:decoration-primary" href={source.href} rel="noreferrer" target="_blank">
-              {source.label}
-            </a>
-          ))}
-        </div>
-      </div>
-    </footer>
   </div>
 </section>
 
@@ -151,4 +180,60 @@ const displayTemperature = (value: number) => Math.round(value);
   summary::-webkit-details-marker {
     display: none;
   }
+  .am-cc-bar {
+    width: 0.7rem;
+    border-radius: 2px 2px 0 0;
+  }
+  /* A small gap sets the home-city pair apart from this place's pair. */
+  [data-am-climate-chart][data-compare='on'] .am-cc-city-gap {
+    margin-left: 0.3rem;
+  }
+  /* The comparison city is opt-in: hidden until the switch turns it on. */
+  [data-am-climate-chart] .am-cc-city {
+    display: none;
+  }
+  [data-am-climate-chart][data-compare='on'] .am-cc-city {
+    display: block;
+  }
+  .am-cc-switch {
+    position: relative;
+    flex: none;
+    width: 34px;
+    height: 18px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-on-surface) 22%, transparent);
+    transition: background 0.18s ease;
+  }
+  .am-cc-knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-surface-white, #fff);
+    transition: transform 0.18s ease;
+  }
+  .am-cc-toggle[aria-pressed='true'] {
+    border-color: var(--color-primary);
+    color: var(--color-on-surface);
+  }
+  .am-cc-toggle[aria-pressed='true'] .am-cc-switch {
+    background: var(--color-primary);
+  }
+  .am-cc-toggle[aria-pressed='true'] .am-cc-knob {
+    transform: translateX(16px);
+  }
 </style>
+
+<script>
+  document.querySelectorAll('[data-am-compare-toggle]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const chart = button.closest('[data-am-climate-chart]');
+      if (!chart) return;
+      const on = chart.getAttribute('data-compare') !== 'on';
+      chart.setAttribute('data-compare', on ? 'on' : 'off');
+      button.setAttribute('aria-pressed', String(on));
+    });
+  });
+</script>
