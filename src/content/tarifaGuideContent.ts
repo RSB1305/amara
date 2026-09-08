@@ -900,25 +900,25 @@ const wind: TarifaGuideContent = {
   partnership: {
     eyebrow: l('AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club'),
     title: l(
-      'One message is enough, the other one knows',
-      'Eine Nachricht reicht, der andere weiß Bescheid',
-      'Con un mensaje basta; el otro ya lo sabe',
-      'Eén bericht is genoeg, de ander weet ervan',
-      'Ett meddelande räcker, den andre vet'
+      'Ten years of friendship, one shared place',
+      'Zehn Jahre Freundschaft, ein gemeinsamer Ort',
+      'Diez años de amistad, un lugar compartido',
+      'Tien jaar vriendschap, één gedeelde plek',
+      'Tio års vänskap, en gemensam plats'
     ),
     intro: l(
-      'Mark runs Tarifa Surf Club with Simone. **We have known each other for years and see each other almost every day**, which is why the practical things fit together: the gear is in the apartment, we cover the deposit for rental gear with the club, and if you write to Mark, you have reached us too. And the other way round.',
-      'Mark führt den Tarifa Surf Club mit Simone. **Wir kennen uns seit Jahren und sehen uns fast täglich**, deshalb passen die praktischen Dinge zusammen: Das Material liegt in der Wohnung, die Kaution fürs Leihmaterial übernehmen wir beim Club, und wer Mark schreibt, hat auch uns erreicht. Und umgekehrt.',
-      'Mark dirige Tarifa Surf Club con Simone. **Nos conocemos desde hace años y nos vemos casi a diario**, por eso lo práctico encaja: el material está en el apartamento, la fianza del material de alquiler la cubrimos nosotros con el club y, si escribís a Mark, también nos habéis llegado a nosotros. Y al revés.',
-      'Mark leidt Tarifa Surf Club samen met Simone. **We kennen elkaar al jaren en zien elkaar bijna dagelijks**, daarom passen de praktische dingen in elkaar: het materiaal ligt in het appartement, de borg voor huurmateriaal nemen wij bij de club voor onze rekening, en wie Mark schrijft, heeft ook ons bereikt. En andersom.',
-      'Mark driver Tarifa Surf Club tillsammans med Simone. **Vi har känt varandra i många år och ses nästan varje dag**, och därför passar det praktiska ihop: utrustningen ligger i lägenheten, depositionen för hyrutrustning står vi för hos klubben, och den som skriver till Mark har nått oss också. Och tvärtom.'
+      'Mark and I met ten years ago at one of Tarifa Surf Club’s kitecamps. **Our shared love of kitesurfing grew into a close friendship.** Today Mark runs the club with Simone, and in Tarifa we see and speak to each other almost every day. That is why the practical things fit together: gear can be waiting in the apartment, we cover the rental deposit with the club, and one message reaches both of us.',
+      'Mark und ich haben uns vor zehn Jahren in einem Kitecamp des Tarifa Surf Club kennengelernt. **Aus unserer gemeinsamen Liebe zum Kitesurfen ist eine enge Freundschaft gewachsen.** Heute führt Mark den Club mit Simone, und in Tarifa sehen und sprechen wir uns fast täglich. Deshalb passen auch die praktischen Dinge zusammen: Das Material kann in der Wohnung bereitliegen, die Kaution fürs Leihmaterial übernehmen wir beim Club, und eine Nachricht erreicht uns beide.',
+      'Mark y yo nos conocimos hace diez años en uno de los kitecamps de Tarifa Surf Club. **De nuestro amor compartido por el kitesurf nació una amistad muy estrecha.** Hoy Mark dirige el club con Simone y en Tarifa nos vemos y hablamos casi a diario. Por eso también encaja lo práctico: el material puede estar esperando en el apartamento, cubrimos la fianza del alquiler con el club y un solo mensaje nos llega a los dos.',
+      'Mark en ik leerden elkaar tien jaar geleden kennen tijdens een kitecamp van Tarifa Surf Club. **Uit onze gedeelde liefde voor kitesurfen groeide een hechte vriendschap.** Tegenwoordig leidt Mark de club samen met Simone en in Tarifa zien en spreken we elkaar bijna dagelijks. Daardoor klopt ook het praktische deel: het materiaal kan in het appartement klaarliggen, wij regelen de huurborg bij de club en één bericht bereikt ons allebei.',
+      'Mark och jag lärde känna varandra för tio år sedan på ett av Tarifa Surf Clubs kitecamp. **Vår gemensamma kärlek till kitesurfingen växte till en nära vänskap.** I dag driver Mark klubben tillsammans med Simone, och i Tarifa ses och hörs vi nästan varje dag. Därför fungerar också det praktiska: utrustningen kan ligga klar i lägenheten, vi ordnar hyrdepositionen med klubben och ett meddelande når oss båda.'
     ),
     personalNote: l(
-      'You can book each on its own or both together: the apartment with us, the kiting with the club. Either way, one message is enough.',
-      'Ihr könnt beides einzeln buchen oder zusammen: die Wohnung bei uns, das Kiten beim Club. So oder so reicht eine Nachricht.',
-      'Podéis reservar cada cosa por separado o las dos juntas: el apartamento con nosotros, el kite con el club. En cualquier caso, con un mensaje basta.',
-      'Jullie kunnen allebei apart boeken of samen: het appartement bij ons, het kiten bij de club. Hoe dan ook is één bericht genoeg.',
-      'Ni kan boka var sak för sig eller båda tillsammans: lägenheten hos oss, kitingen hos klubben. Hur som helst räcker ett meddelande.'
+      'The word club describes how it feels: Mark has created a place where you are welcomed immediately, meet like-minded people and quickly feel part of it. The many guests who return to the club and its camps show how strongly that sense of belonging lasts.',
+      'Das Wort Club beschreibt, wie es sich anfühlt: Mark hat einen Ort geschaffen, an dem ihr euch sofort willkommen fühlt, Gleichgesinnte trefft und schnell dazugehört. Wie lange dieses Zugehörigkeitsgefühl trägt, zeigen die vielen Stammgäste, die zum Club und in die Camps zurückkehren.',
+      'La palabra club describe lo que se siente: Mark ha creado un lugar donde os reciben desde el primer momento, conocéis a gente afín y enseguida os sentís parte del grupo. Los muchos huéspedes que vuelven al club y a sus camps demuestran cuánto perdura ese sentimiento de pertenencia.',
+      'Het woord club beschrijft precies hoe het voelt: Mark heeft een plek gecreëerd waar jullie je meteen welkom voelen, gelijkgestemden ontmoeten en er snel bij horen. De vele gasten die terugkeren naar de club en de camps laten zien hoe lang dat gevoel van verbondenheid blijft.',
+      'Ordet klubb beskriver precis hur det känns: Mark har skapat en plats där ni genast känner er välkomna, träffar likasinnade och snabbt blir en del av gemenskapen. De många gäster som återvänder till klubben och dess kitecamp visar hur stark den känslan av tillhörighet är.'
     ),
     servicesTitle: l(
       'The complete Tarifa Surf Club offer',

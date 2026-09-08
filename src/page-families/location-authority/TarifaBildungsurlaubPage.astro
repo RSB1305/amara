@@ -61,8 +61,6 @@ const ui = {
     nl: 'Deze pagina wordt nog geschreven. Wat al vaststaat: de erkende seminarweken worden georganiseerd door Work Surf Balance GmbH, vijf dagen per jaar, over AI en mentale gezondheid, en het kiten boek je bij Tarifa Surf Club. Tot de pagina klaar is, staat de korte versie op de kitecamp-pagina.',
     sv: 'Den här sidan skrivs just nu. Det som redan är klart: de erkända seminarieveckorna arrangeras av Work Surf Balance GmbH, fem dagar om året, om AI och mental hälsa, och kitingen bokas hos Tarifa Surf Club. Tills sidan är klar finns den korta versionen på kitecamp-sidan.'
   },
-  updated: { en: 'In preparation, September 2026', de: 'In Arbeit, September 2026', es: 'En preparación, septiembre de 2026', nl: 'In voorbereiding, september 2026', sv: 'Under arbete, september 2026' },
-  note: { en: 'Facts from Work Surf Balance and Tarifa Surf Club, checked 3 September 2026.', de: 'Fakten von Work Surf Balance und Tarifa Surf Club, geprüft am 3. September 2026.', es: 'Datos de Work Surf Balance y Tarifa Surf Club, comprobados el 3 de septiembre de 2026.', nl: 'Feiten van Work Surf Balance en Tarifa Surf Club, gecontroleerd op 3 september 2026.', sv: 'Fakta från Work Surf Balance och Tarifa Surf Club, kontrollerade 3 september 2026.' },
   campLink: { en: 'Educational leave on the kitecamp page', de: 'Bildungsurlaub auf der Kitecamp-Seite', es: 'Bildungsurlaub en la página del kitecamp', nl: 'Bildungsurlaub op de kitecamp-pagina', sv: 'Bildungsurlaub på kitecamp-sidan' },
   providerLink: { en: 'Work Surf Balance', de: 'Work Surf Balance', es: 'Work Surf Balance', nl: 'Work Surf Balance', sv: 'Work Surf Balance' },
   propertyLabel: { en: 'View AMARA Family & Surf', de: 'AMARA Family & Surf ansehen', es: 'Ver AMARA Family & Surf', nl: 'Bekijk AMARA Family & Surf', sv: 'Visa AMARA Family & Surf' }
@@ -103,8 +101,8 @@ const footerHighlights: LabeledLink[] = [
 ];
 
 const hero = isGerman
-  ? { eyebrow: de.hero.eyebrow, title: de.hero.title, subtitle: de.hero.subtitle, lead: de.hero.lead, updated: de.hero.updated, note: de.hero.note }
-  : { eyebrow: t(ui.eyebrow), title: t(ui.title), subtitle: t(ui.subtitle), lead: t(ui.lead), updated: t(ui.updated), note: t(ui.note) };
+  ? { eyebrow: de.hero.eyebrow, title: de.hero.title, subtitle: de.hero.subtitle, lead: de.hero.lead }
+  : { eyebrow: t(ui.eyebrow), title: t(ui.title), subtitle: t(ui.subtitle), lead: t(ui.lead) };
 
 const fieldClass = 'am-form-control am-text-form-value mt-2';
 const labelClass = 'block text-on-surface-variant am-text-label am-text-label--sm';
@@ -128,7 +126,7 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
       topic="educational-leave"
       visualBreakpoint="lg"
     >
-      <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={hero.updated} note={hero.note} />
+      <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} />
       <AmaraImage
         slot="visual"
         src={heroImage.src}
@@ -335,7 +333,7 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
           </div>
         </LocationModule>
 
-        <EditorialSources eyebrow={de.sources.eyebrow} title={de.sources.title} updated={de.hero.updated} text={de.sources.text} items={de.sources.items.map((item) => ({ label: item.label, href: item.href }))} data-am-topic="sources" />
+        <EditorialSources eyebrow={de.sources.eyebrow} title={de.sources.title} footerNote={de.sources.reviewed} items={de.sources.items.map((item) => ({ label: item.label, href: item.href }))} data-am-topic="sources" />
 
         <AuthorityStayBridge
           eyebrow={experienceStayBridge.eyebrow[currentLang]}

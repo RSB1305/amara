@@ -15,7 +15,7 @@ export interface GuestGuideBridgeCopy {
   eyebrow: string;
   title: string;
   lead: string;
-  /** Only lines the records can back; an empty list means the block shows the lead alone. */
+  /** Only benefits the records can back; an empty list means the block shows the lead alone. */
   lines: string[];
   landingLabel: string;
 }
@@ -49,21 +49,21 @@ export function buildGuestGuideBridgeCopy(
 ): GuestGuideBridgeCopy {
   const copy = guestGuideBridgeContent;
   const records = recordsForGuideEntries(guideSlugs);
-  const exclusive = records.filter((record) => record.scope === 'amara-experience').length;
-  const contacts = records.filter((record) => record.place.phone || record.place.whatsapp || record.place.reservationUrl).length;
+  const hasExclusive = records.some((record) => record.scope === 'amara-experience');
+  const hasContacts = records.some((record) => record.place.phone || record.place.whatsapp || record.place.reservationUrl);
   const access = records.some((record) => record.access?.some((entry) => entry.distanceMetres !== undefined || entry.walkMinutes !== undefined || entry.driveMinutes !== undefined));
   const planB = records.some((record) => record.planB);
-  const firstHand = records.filter((record) => record.provenance === 'amara-first-hand').length;
+  const hasFirstHand = records.some((record) => record.provenance === 'amara-first-hand');
 
   const lines: string[] = [];
   if (records.length > 0) {
-    const exclusiveText = exclusive > 0 ? fill(copy.lines.exclusive[lang], { x: exclusive }) : '';
-    lines.push(fill(copy.lines.places[lang], { n: records.length, x: exclusiveText }));
+    const exclusiveText = hasExclusive ? copy.lines.exclusive[lang] : '';
+    lines.push(fill(copy.lines.places[lang], { destination: DESTINATION_NAMES[destination], x: exclusiveText }));
   }
-  if (contacts > 0) lines.push(fill(copy.lines.contacts[lang], { c: contacts }));
+  if (hasContacts) lines.push(copy.lines.contacts[lang]);
   if (access) lines.push(copy.lines.access[lang]);
   if (planB) lines.push(copy.lines.planB[lang]);
-  if (firstHand > 0) lines.push(fill(copy.lines.firstHand[lang], { h: firstHand }));
+  if (hasFirstHand) lines.push(copy.lines.firstHand[lang]);
 
   return {
     eyebrow: copy.eyebrow[lang],
