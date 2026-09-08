@@ -24,7 +24,7 @@ const hero = {
   title: l('Parking in Nerja', 'Parken in Nerja', 'Aparcar en Nerja', 'Parkeren in Nerja', 'Parkering i Nerja'),
   standfirst: l(
     'It depends on where you are going. Balcón de Europa and Parque Verano Azul serve the centre; Burriana has its own parking on the eastern side of town and is not a substitute for the centre. Verano Azul was freshly marked out in February 2026. AMARA Playa has no private space, so plan for legal street parking near Torrecilla — and treat unloading and parking as two separate steps. We cannot reserve a space anywhere in Nerja, and we would rather say so than let you arrive expecting one.',
-    'Es kommt darauf an, wohin ihr wollt. Balcón de Europa und Parque Verano Azul bedienen das Zentrum; Burriana hat östlich seinen eigenen Parkbereich und ersetzt das Zentrum nicht. Verano Azul wurde im Februar 2026 neu markiert. AMARA Playa hat keinen privaten Stellplatz — plant also mit legalem Straßenparken nahe Torrecilla und behandelt Ausladen und Parken als zwei getrennte Schritte. Reservieren können wir in Nerja nirgends etwas, und das sagen wir lieber, als euch mit falscher Erwartung ankommen zu lassen.',
+    'Fürs Zentrum gibt es die Parkhäuser Balcón de Europa und Parque Verano Azul, für Burriana einen eigenen Bereich im Osten. AMARA Playa hat keinen eigenen Stellplatz: Ihr ladet vor der Tür aus und parkt danach in der Nähe von Torrecilla.',
     'Depende de adónde vayáis. Balcón de Europa y Parque Verano Azul sirven al centro; Burriana tiene su propio aparcamiento al este y no sustituye al centro. Verano Azul se remarcó en febrero de 2026. AMARA Playa no tiene plaza privada, así que contad con aparcar legalmente en la calle cerca de Torrecilla y tratad la descarga y el aparcamiento como dos pasos distintos. No podemos reservar plaza en ningún punto de Nerja, y preferimos decirlo a que lleguéis esperando una.',
     'Dat hangt af van waar jullie heen gaan. Balcón de Europa en Parque Verano Azul bedienen het centrum; Burriana heeft aan de oostkant zijn eigen parking en vervangt het centrum niet. Verano Azul werd in februari 2026 opnieuw uitgemarkeerd. AMARA Playa heeft geen eigen plek, dus reken op legaal straatparkeren bij Torrecilla en behandel uitladen en parkeren als twee losse stappen. We kunnen nergens in Nerja een plek reserveren, en dat zeggen we liever dan jullie met die verwachting te laten aankomen.',
     'Det beror på vart ni ska. Balcón de Europa och Parque Verano Azul betjänar centrum; Burriana har sin egen parkering på östra sidan och ersätter inte centrum. Verano Azul målades om i februari 2026. AMARA Playa har ingen egen plats, så räkna med laglig gatuparkering nära Torrecilla och behandla avlastning och parkering som två separata steg. Vi kan inte reservera en plats någonstans i Nerja, och det säger vi hellre än låter er komma med den förväntningen.'
@@ -43,25 +43,25 @@ const facts = [
   { label: l('For the centre', 'Fürs Zentrum', 'Para el centro', 'Voor het centrum', 'För centrum'), value: l('Balcón de Europa or Parque Verano Azul', 'Balcón de Europa oder Parque Verano Azul', 'Balcón de Europa o Parque Verano Azul', 'Balcón de Europa of Parque Verano Azul', 'Balcón de Europa eller Parque Verano Azul') },
   { label: l('For Burriana', 'Für Burriana', 'Para Burriana', 'Voor Burriana', 'För Burriana'), value: l('Its own area on the eastern side', 'Ein eigener Bereich im Osten', 'Su propia zona, al este', 'Een eigen gebied aan de oostkant', 'Ett eget område på östra sidan') },
   { label: l('At AMARA Playa', 'Bei AMARA Playa', 'En AMARA Playa', 'Bij AMARA Playa', 'Vid AMARA Playa'), value: l('Street parking, no private space', 'Straßenparken, kein privater Stellplatz', 'Aparcamiento en calle, sin plaza privada', 'Straatparkeren, geen eigen plek', 'Gatuparkering, ingen egen plats') },
-  { label: l('What we cannot do', 'Was wir nicht können', 'Lo que no podemos', 'Wat we niet kunnen', 'Vad vi inte kan'), value: l('Reserve or guarantee a space', 'Einen Platz reservieren oder garantieren', 'Reservar o garantizar una plaza', 'Een plek reserveren of garanderen', 'Reservera eller garantera en plats') }
+  { label: l('What we cannot do', 'Feste Plätze', 'Lo que no podemos', 'Wat we niet kunnen', 'Vad vi inte kan'), value: l('Reserve or guarantee a space', 'Gibt es in Nerja nicht; das Parkhaus ist nah', 'Reservar o garantizar una plaza', 'Een plek reserveren of garanderen', 'Reservera eller garantera en plats') }
 ] as const;
 
 const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title: Localized; paragraphs: Localized[] }> = [
   {
     id: 'parking-reality',
     eyebrow: l('By destination', 'Nach Ziel', 'Según destino', 'Per bestemming', 'Efter mål'),
-    title: l('Choose the part of town before you look for a space', 'Wählt den Ortsteil, bevor ihr einen Platz sucht', 'Elegid la zona antes de buscar plaza', 'Kies het stadsdeel voordat je een plek zoekt', 'Välj stadsdel innan ni letar plats'),
+    title: l('Choose the part of town before you look for a space', 'Erst das Ziel, dann der Platz', 'Elegid la zona antes de buscar plaza', 'Kies het stadsdeel voordat je een plek zoekt', 'Välj stadsdel innan ni letar plats'),
     paragraphs: [
       l(
         'For the old town, the Balcón and the shops, start with Balcón de Europa or Parque Verano Azul and compare them with legal street parking nearby. Burriana sits lower and to the east: it is right for a Burriana day, not a stand-in for the centre.',
-        'Für Altstadt, Balcón und Geschäfte beginnt ihr mit Balcón de Europa oder Parque Verano Azul und vergleicht mit legalem Straßenparken in der Nähe. Burriana liegt tiefer und östlich: richtig für einen Burriana-Tag, kein Ersatz fürs Zentrum.',
+        'Für Altstadt, Balcón und Geschäfte: Balcón de Europa oder Parque Verano Azul, dazu Straßenplätze in der Nähe. Burriana liegt tiefer und östlich: richtig für einen Burriana-Tag.',
         'Para el casco antiguo, el Balcón y las tiendas, empezad por Balcón de Europa o Parque Verano Azul y comparad con aparcamiento legal en la calle cerca. Burriana queda más abajo y al este: sirve para un día en Burriana, no como sustituto del centro.',
         'Voor de oude kern, het Balcón en de winkels begin je bij Balcón de Europa of Parque Verano Azul en vergelijk je met legaal straatparkeren in de buurt. Burriana ligt lager en oostelijker: goed voor een Burriana-dag, geen vervanging voor het centrum.',
         'För gamla stan, Balcón och butikerna börjar ni med Balcón de Europa eller Parque Verano Azul och jämför med laglig gatuparkering i närheten. Burriana ligger lägre och österut: rätt för en Burriana-dag, inte en ersättning för centrum.'
       ),
       l(
         'Pressure rises in high season and around events, and the Tuesday market affects the Almijara area. **Choose a legal spot before you reach the tightest streets and count the short walk as part of the plan** — it beats circling for the closest possible space.',
-        'In der Hochsaison und rund um Veranstaltungen wird es voller, und der Dienstagsmarkt wirkt sich auf den Bereich Almijara aus. **Sucht euch einen legalen Platz, bevor ihr in die engsten Straßen fahrt, und rechnet den kurzen Fußweg mit ein** — das schlägt jede Runde auf der Suche nach dem nächstgelegenen Platz.',
+        'In der Hochsaison und an Markttagen wird es voll; dienstags betrifft das den Bereich Almijara. **Ein sicherer Platz ein paar Straßen weiter schlägt jede Runde um den Block.**',
         'La presión sube en temporada alta y con eventos, y el mercadillo del martes afecta a la zona de Almijara. **Buscad un sitio legal antes de entrar en las calles más estrechas y contad el paseo corto como parte del plan**: es mejor que dar vueltas buscando la plaza más cercana.',
         'De druk stijgt in het hoogseizoen en rond evenementen, en de dinsdagmarkt raakt de Almijara-zone. **Kies een legale plek voordat je de smalste straten in rijdt en reken het korte loopje mee** — dat is beter dan rondjes rijden voor de dichtstbijzijnde plek.',
         'Trycket ökar i högsäsong och kring evenemang, och tisdagsmarknaden påverkar Almijara-området. **Välj en laglig plats innan ni når de trängsta gatorna och räkna in den korta promenaden** — det slår att cirkla efter närmaste möjliga plats.'
@@ -75,14 +75,14 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
     paragraphs: [
       l(
         'AMARA Playa has no private parking. Do not plan on leaving the car at the building or finding a space right on Calle Castilla Pérez the minute you pull up.',
-        'AMARA Playa hat keinen privaten Stellplatz. Plant nicht damit, das Auto am Haus abzustellen oder in der Calle Castilla Pérez sofort einen Platz zu finden.',
+        'AMARA Playa hat keinen eigenen Stellplatz; das Auto steht ein paar Straßen weiter.',
         'AMARA Playa no tiene aparcamiento privado. No contéis con dejar el coche en el edificio ni con encontrar plaza en la Calle Castilla Pérez nada más llegar.',
         'AMARA Playa heeft geen eigen parkeerplaats. Reken er niet op de auto bij het gebouw te laten of meteen een plek te vinden in de Calle Castilla Pérez.',
         'AMARA Playa har ingen egen parkering. Räkna inte med att lämna bilen vid huset eller hitta en plats på Calle Castilla Pérez direkt.'
       ),
       l(
         'If the signs allow a stop, use it only to drop the bags: one of you handles the luggage while the driver continues to a car park or a legal street space. **If stopping is not possible, a taxi for the last leg beats blocking the street.**',
-        'Wenn die Beschilderung einen Halt erlaubt, nutzt ihn nur zum Ausladen: Eine Person nimmt das Gepäck, während die andere zu einer Anlage oder einem legalen Straßenplatz weiterfährt. **Wenn Halten nicht geht, ist ein Taxi für die letzte Etappe besser, als die Straße zu blockieren.**',
+        'Vor der Tür ausladen, wenn der Verkehr es zulässt: Eine Person nimmt das Gepäck, die andere fährt zum Parkhaus. **Geht das Halten gerade nicht, bringt euch ein Taxi die letzten Meter.**',
         'Si las señales permiten parar, usadlo solo para dejar el equipaje: uno se ocupa de las maletas mientras el otro sigue hasta un aparcamiento o una plaza legal. **Si no se puede parar, un taxi para el último tramo es mejor que bloquear la calle.**',
         'Als de borden stoppen toestaan, gebruik dat alleen om de tassen af te zetten: een van jullie neemt de bagage terwijl de bestuurder doorrijdt naar een parking of legale plek. **Kan er niet gestopt worden, dan is een taxi voor het laatste stuk beter dan de straat blokkeren.**',
         'Om skyltarna tillåter stopp, använd det bara för att lämna av väskorna: en tar bagaget medan föraren kör vidare till en parkering eller laglig gatuplats. **Går det inte att stanna är en taxi för sista biten bättre än att blockera gatan.**'
@@ -92,18 +92,18 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
   {
     id: 'last-mile',
     eyebrow: l('The last stretch', 'Der letzte Weg', 'El último tramo', 'Het laatste stuk', 'Sista biten'),
-    title: l('A nearby street does not mean a step-free route', 'Eine nahe Straße bedeutet keine stufenfreie Route', 'Una calle cercana no significa ruta sin escalones', 'Een straat dichtbij betekent geen route zonder treden', 'En gata nära betyder inte en trappfri väg'),
+    title: l('A nearby street does not mean a step-free route', 'Zehn Stufen bis zum Aufzug', 'Una calle cercana no significa ruta sin escalones', 'Een straat dichtbij betekent geen route zonder treden', 'En gata nära betyder inte en trappfri väg'),
     paragraphs: [
       l(
         'There are steps on the way into AMARA Playa: five outside the building and five more inside, before the lift up to the fifth floor. Kerbs and gradients along the way count too.',
-        'Auf dem Weg in AMARA Playa liegen Stufen: fünf vor dem Gebäude und fünf weitere im Haus, bevor der Aufzug in den fünften Stock fährt. Bordsteine und Steigungen unterwegs zählen ebenfalls.',
+        'Auf dem Weg in AMARA Playa liegen zehn Stufen: fünf vor dem Gebäude, fünf im Haus, dann fährt der Aufzug in den fünften Stock.',
         'En el acceso a AMARA Playa hay escalones: cinco delante del edificio y otros cinco dentro, antes del ascensor al quinto piso. Los bordillos y las pendientes del camino también cuentan.',
         'Op de weg naar AMARA Playa liggen treden: vijf buiten het gebouw en nog vijf binnen, vóór de lift naar de vijfde verdieping. Stoepranden en hellingen onderweg tellen ook mee.',
         'På vägen in till AMARA Playa finns trappsteg: fem utanför huset och fem till inne, före hissen upp till femte våningen. Kantstenar och lutningar på vägen räknas också.'
       ),
       l(
         '**If walking, luggage or mobility matters for your decision, ask us before you book.** We would rather describe the route honestly than have you find out on arrival.',
-        '**Wenn Laufen, Gepäck oder Mobilität für eure Entscheidung zählen, fragt uns vor der Buchung.** Wir beschreiben euch den Weg lieber ehrlich, als dass ihr ihn bei der Ankunft entdeckt.',
+        '**Wenn Gepäck oder Mobilität eine Rolle spielen, fragt uns vor der Buchung.** Wir beschreiben euch den Weg mit jeder Stufe.',
         '**Si caminar, el equipaje o la movilidad influyen en vuestra decisión, preguntadnos antes de reservar.** Preferimos describiros el camino con franqueza a que lo descubráis al llegar.',
         '**Als lopen, bagage of mobiliteit meetelt in jullie beslissing, vraag het ons vóór het boeken.** We beschrijven de route liever eerlijk dan dat jullie het bij aankomst ontdekken.',
         '**Om gång, bagage eller rörlighet spelar roll för ert beslut, fråga oss innan ni bokar.** Vi beskriver hellre vägen ärligt än att ni upptäcker den vid ankomsten.'
@@ -124,7 +124,7 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
       ),
       l(
         '**Before you arrive you get the exact approach and the route to the apartment.** What that message will never contain is a promised parking space — nobody in Nerja can give you one.',
-        '**Vor der Anreise bekommt ihr die genaue Anfahrt und den Weg zur Wohnung.** Was darin nie stehen wird, ist ein zugesagter Stellplatz — den kann euch in Nerja niemand geben.',
+        '**Vor der Anreise bekommt ihr die genaue Anfahrt und den Weg zur Wohnung.** Einen reservierten Stellplatz gibt es in Nerja für niemanden; das Parkhaus ist zu Fuß nah.',
         '**Antes de llegar recibís la aproximación exacta y el recorrido hasta el apartamento.** Lo que ese mensaje nunca incluirá es una plaza prometida: nadie en Nerja puede dárosla.',
         '**Vóór aankomst krijgen jullie de precieze aanrijroute en de weg naar het appartement.** Wat er nooit in staat, is een toegezegde parkeerplek — die kan niemand in Nerja geven.',
         '**Före ankomst får ni den exakta infarten och vägen till lägenheten.** Vad det meddelandet aldrig innehåller är en utlovad parkeringsplats — den kan ingen i Nerja ge er.'
@@ -135,7 +135,7 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
 
 const related = [
   { token: 'getting_to_nerja' as const, label: l('Getting to Nerja', 'Anreise nach Nerja', 'Cómo llegar a Nerja', 'Naar Nerja reizen', 'Ta sig till Nerja'), text: l('Airports, the A-7 and the coach arrival.', 'Flughäfen, die A-7 und die Ankunft mit dem Fernbus.', 'Aeropuertos, la A-7 y la llegada en autobús.', 'Luchthavens, de A-7 en aankomst met de bus.', 'Flygplatser, A-7 och ankomst med buss.') },
-  { token: 'nerja_where_to_stay' as const, label: l('Where to Stay', 'Wo übernachten', 'Dónde alojarse', 'Waar overnachten', 'Var ska man bo'), text: l('The area decides the parking strategy, not the other way round.', 'Die Lage entscheidet über die Parkstrategie, nicht umgekehrt.', 'La zona decide la estrategia de aparcamiento, no al revés.', 'Het gebied bepaalt de parkeerstrategie, niet andersom.', 'Området avgör parkeringsstrategin, inte tvärtom.') },
+  { token: 'nerja_where_to_stay' as const, label: l('Where to Stay', 'Wo übernachten', 'Dónde alojarse', 'Waar overnachten', 'Var ska man bo'), text: l('The area decides the parking strategy, not the other way round.', 'Zentrum, Hang oder Burriana: was wo liegt.', 'La zona decide la estrategia de aparcamiento, no al revés.', 'Het gebied bepaalt de parkeerstrategie, niet andersom.', 'Området avgör parkeringsstrategin, inte tvärtom.') },
   { token: 'nerja_beaches_authority' as const, label: l('Beaches & Coast', 'Strände & Küste', 'Playas y costa', 'Stranden & kust', 'Stränder & kust'), text: l('Which beach is walkable and which one is a drive.', 'Welcher Strand zu Fuß geht und welcher eine Fahrt ist.', 'Qué playa se anda y a cuál se va en coche.', 'Welk strand loopbaar is en welk een ritje.', 'Vilken strand man går till och vilken man kör till.') }
 ];
 
@@ -151,7 +151,7 @@ const makeLocale = (lang: AmaraLanguage): ParkingGuideLocale => ({
   sections: sections.map((section) => ({ id: section.id, eyebrow: section.eyebrow[lang], title: section.title[lang], paragraphs: section.paragraphs.map((p) => p[lang]) })),
   related: {
     eyebrow: l('Keep reading', 'Weiterlesen', 'Seguir leyendo', 'Verder lezen', 'Läs vidare')[lang],
-    title: l('Getting here, and which area suits you', 'Die Anreise — und welche Lage zu euch passt', 'Cómo llegar y qué zona os encaja', 'De reis hierheen en welk gebied bij jullie past', 'Resan hit och vilket område som passar er')[lang],
+    title: l('Getting here, and which area suits you', 'Anreise und Lage', 'Cómo llegar y qué zona os encaja', 'De reis hierheen en welk gebied bij jullie past', 'Resan hit och vilket område som passar er')[lang],
     links: related.map((item) => ({ token: item.token, label: item.label[lang], text: item.text[lang] }))
   },
   sources: {

@@ -158,7 +158,7 @@ export const tarifaKitePartnerContent: TarifaKitePartnerContent = {
     title: l('Two partners, one message', 'Zwei Partner, eine Anfrage', 'Dos socios, una sola consulta', 'Twee partners, één aanvraag', 'Två partner, en förfrågan'),
     intro: l(
       'We are not one company, and we do not pretend to be. We are two partners who trust each other and who put the practical parts of your trip together.',
-      'Wir sind keine Firma, und wir tun auch nicht so. Wir sind zwei Partner, die einander vertrauen und die praktischen Teile eurer Reise zusammensetzen.',
+      'Wir sind zwei Partner, die einander vertrauen und die praktischen Teile eurer Reise zusammensetzen.',
       'No somos una sola empresa, ni lo aparentamos. Somos dos socios que confían el uno en el otro y que montan juntos la parte práctica de vuestro viaje.',
       'We zijn geen bedrijf, en we doen ook niet alsof. We zijn twee partners die elkaar vertrouwen en de praktische delen van jullie reis samen in elkaar zetten.',
       'Vi är inte ett företag, och vi låtsas inte vara det. Vi är två partner som litar på varandra och sätter ihop de praktiska delarna av er resa.'
@@ -252,7 +252,7 @@ export const tarifaKitePartnerContent: TarifaKitePartnerContent = {
       [
         'Von Mitte September bis Mitte Juni sind die Strände ruhiger, die Kitecamps laufen, und der Ort lebt sich leichter. Der Club schreibt von ganzjährig guten Wassersportbedingungen, und Sonne im Winter ist nicht ungewöhnlich.',
         'In der Nebensaison geht Robert von AMARA zu Fuß hinunter nach Los Lances und kitet dort. Im Hochsommer heißt der Tag meist: mit dem Auto aus dem Ort hinaus nach Valdevaqueros, wegen der Badezonen und der vielen Leute.',
-        'Das ist kein Versprechen über den Wind an einem bestimmten Tag. Es ist das ehrliche Bild davon, wie sich die beiden Hälften des Jahres anfühlen.'
+        'So fühlen sich die beiden Hälften des Jahres an; welcher Wind an eurem Tag weht, zeigt die Vorhersage.'
       ],
       [
         'De mediados de septiembre a mediados de junio las playas están más tranquilas, los kitecamps funcionan y el pueblo se vive con más calma. El club habla de buenas condiciones para los deportes acuáticos todo el año, y el sol en invierno no es raro.',

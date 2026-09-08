@@ -1217,7 +1217,7 @@ export const nerjaLocationCopy = {
         ),
         a: localized(
           'Many guests can walk the route, but the important part is the return. Heading back towards central Nerja involves a noticeable climb, so it is better to judge the route by the uphill walk you will repeat rather than by the distance on the map alone.',
-          'Viele Gäste können die Strecke gut zu Fuß gehen, doch entscheidend ist der Rückweg. Richtung Zentrum geht es spürbar bergauf. Bewertet die Lage deshalb nach diesem wiederkehrenden Anstieg und nicht nur nach der Entfernung auf der Karte.',
+          'Ja, viele gehen. Zurück ins Zentrum geht es spürbar bergauf; nach einem langen Strandtag ist ein Taxi eine gute Idee.',
           'Muchas personas pueden hacer el recorrido a pie, pero lo importante es la vuelta. El regreso hacia el centro de Nerja incluye una subida apreciable, así que conviene valorar el trayecto por ese tramo que repetiréis y no solo por la distancia del mapa.',
           'Veel gasten kunnen de route prima lopen, maar let vooral op de terugweg. Richting centraal Nerja gaat het merkbaar omhoog. Beoordeel de ligging daarom op die klim die jullie vaker maken, en niet alleen op de afstand op de kaart.',
           'Många gäster kan gå sträckan, men det är återvägen som är viktig. Tillbaka mot centrala Nerja väntar en tydlig uppförsbacke. Bedöm därför vägen utifrån den återkommande stigningen, inte bara avståndet på kartan.'

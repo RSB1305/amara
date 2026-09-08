@@ -601,7 +601,7 @@ export const experienceHubContent: Record<
         kicker: 'Ein Tag mit mehr Bewegung',
         title: 'Von den weißen Gassen hinaus in die Berge',
         text:
-          'Oberhalb der Altstadt beginnt direkt die Landschaft – mit kurzen Spaziergängen ebenso wie mit längeren Routen. Prüft vor dem Start Hitze, Wetter und den genauen Weg.',
+          'Oberhalb der Altstadt beginnt die Landschaft: kurze Spaziergänge und lange Routen, am schönsten früh am Morgen.',
         linkLabel: 'Zum Wanderguide',
         imageAlt: 'Frigilianas Altstadt mit Blick in die Berglandschaft'
       },

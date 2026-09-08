@@ -93,7 +93,7 @@ const de: WhereToStayCopy = {
     mapNote: '(siehe Orientierungskarte oben)',
     lead: 'In Tarifa muss man sich oft entscheiden: Strand *oder* Ort, Wind *oder* Ruhe. **AMARA liegt in La Marina** — dem Viertel zwischen der Altstadt und dem Strand. Von hier sind es wenige Minuten zu Fuß in die Gassen mit den Tapas-Bars und ebenso wenige zum Wasser. Und geschützter als draußen am offenen Los Lances.',
     facts: ['**La Marina** — zwischen Altstadt und Strand', '**Zu Fuß** in den Ort und ans Wasser', '**Geschützter** als der offene Kitestrand — ohne den Weg mit dem Auto'],
-    honest: 'Ehrlich bleibt: den echten Kite-Tag habt ihr draußen an Los Lances und Valdevaqueros; wer Weite und Blick über Nähe stellt, ist im Campo besser aufgehoben. Für Ort und Strand in einem ist La Marina der süße Punkt.'
+    honest: 'Ehrlich bleibt: den echten Kite-Tag habt ihr draußen an Los Lances und Valdevaqueros; wer Weite und Blick über Nähe stellt, ist im Campo besser aufgehoben. Für Ort und Strand in einem ist La Marina genau richtig.'
   }
 };
 

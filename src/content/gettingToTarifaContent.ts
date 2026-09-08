@@ -83,7 +83,7 @@ export const gettingToTarifaContent = {
     ),
     note: l(
       "Ferry operation, border arrangements and timetables change. Send us your arrival time and we will tell you what applies that day.",
-      "Fährbetrieb, Grenzregelungen und Fahrpläne ändern sich. Schickt uns eure Ankunftszeit, dann sagen wir euch, was an dem Tag gilt.",
+      "Schickt uns eure Ankunftszeit, dann sagen wir euch, was an dem Tag gilt.",
       "El ferry, los trámites fronterizos y los horarios cambian. Enviadnos vuestra hora de llegada y os diremos qué aplica ese día.",
       "Ferrydienst, grensregels en dienstregelingen veranderen. Stuur ons jullie aankomsttijd, dan zeggen we wat er die dag geldt.",
       "Färjetrafik, gränsregler och tidtabeller ändras. Skicka er ankomsttid, så säger vi vad som gäller den dagen."
@@ -112,7 +112,7 @@ export const gettingToTarifaContent = {
     {
       id: "airports",
       eyebrow: l("Airports", "Flughäfen", "Aeropuertos", "Luchthavens", "Flygplatser"),
-      title: l("Three that work, none that lands you at the door", "Drei, die funktionieren — keiner bringt euch bis zur Tür", "Tres que sirven, ninguno os deja en la puerta", "Drie die werken, geen die je bij de deur afzet", "Tre som fungerar, ingen som lämnar er vid dörren"),
+      title: l("Three that work, none that lands you at the door", "Drei Flughäfen, und dann noch ein Stück Straße", "Tres que sirven, ninguno os deja en la puerta", "Drie die werken, geen die je bij de deur afzet", "Tre som fungerar, ingen som lämnar er vid dörren"),
       paragraphs: [
         l(
           "Málaga usually has the widest choice of flights. Gibraltar is geographically closer but adds a land border and the documents that go with it. Jerez brings you in from the Cádiz side.",
@@ -130,7 +130,7 @@ export const gettingToTarifaContent = {
         ),
         l(
           "Compare a hire car or a booked transfer against the connections that actually run at your arrival time. A late landing narrows the options quickly.",
-          "Vergleicht Mietwagen oder gebuchten Transfer mit den Verbindungen, die zu eurer Ankunftszeit wirklich fahren. Eine späte Landung verengt die Möglichkeiten schnell.",
+          "Mit Mietwagen oder Transfer seid ihr vom Flughafen in eineinhalb bis zwei Stunden da; wer spät landet, nimmt den Transfer.",
           "Comparad el coche de alquiler o un traslado reservado con las conexiones que realmente circulan a vuestra hora de llegada. Un aterrizaje tardío reduce rápido las opciones.",
           "Vergelijk een huurauto of geboekte transfer met de verbindingen die op jullie aankomsttijd echt rijden. Een late landing beperkt de opties snel.",
           "Jämför hyrbil eller bokad transfer med de förbindelser som faktiskt går vid er ankomsttid. En sen landning smalnar av alternativen fort."
@@ -179,21 +179,21 @@ export const gettingToTarifaContent = {
       paragraphs: [
         l(
           "Tarifa is connected by long-distance coach to several cities, and the Campo de Gibraltar network runs the Algeciras–Tarifa link. Routes and departures are worth checking for your actual date.",
-          "Tarifa ist per Fernbus mit mehreren Städten verbunden, und im Netz des Campo de Gibraltar fährt die Verbindung Algeciras–Tarifa. Route und Abfahrt prüft ihr am besten für euer konkretes Datum.",
+          "Tarifa ist per Fernbus mit Sevilla, Cádiz, Málaga und Algeciras verbunden; die Zeiten für euren Tag stehen bei Comes unten.",
           "Tarifa está conectada por autobús de largo recorrido con varias ciudades, y la red del Campo de Gibraltar cubre el enlace Algeciras–Tarifa. Conviene comprobar rutas y salidas para vuestra fecha.",
           "Tarifa is per langeafstandsbus verbonden met meerdere steden, en het netwerk van Campo de Gibraltar rijdt de verbinding Algeciras–Tarifa. Routes en vertrektijden check je het best voor jullie datum.",
           "Tarifa har långfärdsbuss till flera städer, och Campo de Gibraltars nät kör sträckan Algeciras–Tarifa. Rutter och avgångar är värda att kolla för just ert datum."
         ),
         l(
           "From the stop there is still a local leg to Mar Adriático 29 in La Marina. The coach brings you to Tarifa, not to the apartment door.",
-          "Von der Haltestelle ist es noch eine lokale Etappe zur Mar Adriático 29 in La Marina. Der Bus bringt euch nach Tarifa, nicht bis vor die Wohnungstür.",
+          "Von der Haltestelle sind es noch ein paar Minuten bis zur Mar Adriático 29 in La Marina.",
           "Desde la parada queda un tramo local hasta Mar Adriático 29, en La Marina. El autobús os lleva a Tarifa, no a la puerta del apartamento.",
           "Vanaf de halte volgt nog een lokaal stuk naar Mar Adriático 29 in La Marina. De bus brengt jullie naar Tarifa, niet tot de voordeur.",
           "Från hållplatsen återstår en lokal sträcka till Mar Adriático 29 i La Marina. Bussen tar er till Tarifa, inte till lägenhetsdörren."
         ),
         l(
           "With children, sports gear or several suitcases, a local taxi is the calm answer. Ask us and we will tell you what that last leg looks like from the stop.",
-          "Mit Kindern, Sportausrüstung oder mehreren Koffern ist ein lokales Taxi die entspannte Lösung. Fragt uns, dann sagen wir euch, wie diese letzte Etappe ab der Haltestelle aussieht.",
+          "Mit Kindern, Boards oder mehreren Koffern ist das Taxi für dieses Stück die entspannte Lösung; zu Fuß geht es auch.",
           "Con niños, material deportivo o varias maletas, un taxi local es la respuesta tranquila. Preguntadnos y os contamos cómo es ese último tramo desde la parada.",
           "Met kinderen, sportuitrusting of meerdere koffers is een lokale taxi het rustige antwoord. Vraag het ons, dan vertellen we hoe dat laatste stuk vanaf de halte eruitziet.",
           "Med barn, sportutrustning eller flera resväskor är en lokal taxi det lugna svaret. Fråga oss, så berättar vi hur den sista biten från hållplatsen ser ut."
@@ -207,21 +207,21 @@ export const gettingToTarifaContent = {
       paragraphs: [
         l(
           "Tarifa's passenger port connects the town with Tanger Ville. Whether a crossing runs depends on weather and on the operators, so the current status matters more than a saved timetable.",
-          "Der Passagierhafen von Tarifa verbindet die Stadt mit Tanger Ville. Ob eine Überfahrt stattfindet, hängt von Wetter und Reedereien ab; der aktuelle Betriebsstatus zählt deshalb mehr als ein gespeicherter Fahrplan.",
+          "Der Passagierhafen von Tarifa verbindet die Stadt mit Tanger Ville; ob eine Überfahrt fährt, entscheiden Wetter und Reederei am Tag.",
           "El puerto de pasajeros de Tarifa conecta con Tánger Ville. Que salga o no una travesía depende del tiempo y de las navieras, así que el estado actual importa más que un horario guardado.",
           "De passagiershaven van Tarifa verbindt de stad met Tanger Ville. Of een overtocht doorgaat hangt af van het weer en de rederijen, dus de actuele status telt meer dan een opgeslagen dienstregeling.",
           "Tarifas passagerarhamn förbinder staden med Tanger Ville. Om en överfart går beror på vädret och rederierna, så aktuell status betyder mer än en sparad tidtabell."
         ),
         l(
           "After passport and baggage control there is still the local stretch through town. Do not schedule anything tight straight after the planned arrival time.",
-          "Nach Pass- und Gepäckkontrolle bleibt noch die lokale Etappe durch den Ort. Legt nichts Knappes direkt hinter die vorgesehene Ankunftszeit.",
+          "Nach Pass- und Gepäckkontrolle geht es durch den Ort nach La Marina; rechnet die Kontrolle in den Abend ein.",
           "Tras el control de pasaportes y equipaje queda el tramo local por el pueblo. No pongáis nada ajustado justo después de la hora prevista de llegada.",
           "Na paspoort- en bagagecontrole volgt nog het lokale stuk door de stad. Plan niets kraps direct na de geplande aankomsttijd.",
           "Efter pass- och bagagekontroll återstår den lokala sträckan genom orten. Lägg inget snävt direkt efter den planerade ankomsttiden."
         ),
         l(
           "We are in La Marina, not at the port. With luggage take a local taxi; ask us beforehand and we will describe the walk if you would rather do it on foot.",
-          "Wir liegen in La Marina, nicht am Hafen. Mit Gepäck nehmt ein lokales Taxi; fragt uns vorher, dann beschreiben wir euch den Fußweg, falls ihr lieber lauft.",
+          "Vom Hafen nach La Marina sind es ein paar Minuten mit dem Taxi oder ein Spaziergang mit leichtem Gepäck.",
           "Estamos en La Marina, no en el puerto. Con equipaje coged un taxi local; preguntadnos antes y os describimos el paseo si preferís ir andando.",
           "Wij zitten in La Marina, niet bij de haven. Neem met bagage een lokale taxi; vraag het ons vooraf, dan beschrijven we de looproute als jullie liever lopen.",
           "Vi ligger i La Marina, inte vid hamnen. Ta lokal taxi med bagage; fråga oss i förväg, så beskriver vi promenaden om ni hellre går."
@@ -249,7 +249,7 @@ export const gettingToTarifaContent = {
         ),
         l(
           "From La Marina you can drive west without crossing the old town first. Pick the beach before the transport, then check the access for that beach on that day.",
-          "Von La Marina fahrt ihr Richtung Westen, ohne zuerst durch die Altstadt zu müssen. Wählt den Strand vor dem Verkehrsmittel und prüft dann die Zufahrt für genau diesen Strand an diesem Tag.",
+          "Von La Marina fahrt ihr nach Westen, ohne durch die Altstadt zu müssen; welcher Strand heute passt, sagt der Wind.",
           "Desde La Marina podéis salir hacia el oeste sin cruzar antes el casco antiguo. Elegid la playa antes que el transporte y comprobad el acceso a esa playa ese día.",
           "Vanuit La Marina rijd je westwaarts zonder eerst de oude kern door te moeten. Kies eerst het strand en check dan de toegang tot dát strand op die dag.",
           "Från La Marina kör ni västerut utan att först passera gamla stan. Välj stranden före transporten och kolla sedan infarten till just den stranden den dagen."
@@ -277,7 +277,7 @@ export const gettingToTarifaContent = {
         ),
         l(
           "Tell us which beach you have in mind and we will look at the access with you. A seasonal beach bus timetable from last year is not something to plan around.",
-          "Sagt uns, welchen Strand ihr im Kopf habt, dann schauen wir uns die Zufahrt mit euch an. Ein Strandbus-Fahrplan vom Vorjahr ist keine Planungsgrundlage.",
+          "Sagt uns, welchen Strand ihr im Kopf habt, dann sagen wir euch, wie ihr hinkommt.",
           "Decidnos qué playa tenéis en mente y miramos el acceso con vosotros. Un horario de bus de playa del año pasado no sirve para planificar.",
           "Zeg ons welk strand jullie in gedachten hebben, dan kijken we samen naar de toegang. Een strandbusdienstregeling van vorig jaar is geen basis om op te plannen.",
           "Säg vilken strand ni tänker på, så tittar vi på infarten tillsammans med er. En strandbusstidtabell från förra året är inget att planera efter."
@@ -291,21 +291,21 @@ export const gettingToTarifaContent = {
       paragraphs: [
         l(
           "The reserved underground space solves your arrival and every evening after it. It does not solve parking at a beach, a restaurant or an event.",
-          "Der reservierte Tiefgaragenplatz löst eure Ankunft und jeden Abend danach. Er löst nicht das Parken am Strand, vor einem Restaurant oder bei einer Veranstaltung.",
+          "Der Tiefgaragenplatz löst eure Ankunft und jeden Abend danach. Am Strand, vor dem Restaurant und beim Fest parkt ihr wie alle anderen.",
           "La plaza reservada resuelve vuestra llegada y todas las tardes siguientes. No resuelve aparcar en una playa, un restaurante o un evento.",
           "De gereserveerde garageplaats lost jullie aankomst op en elke avond erna. Hij lost niet het parkeren bij een strand, restaurant of evenement op.",
           "Den reserverade garageplatsen löser er ankomst och varje kväll därefter. Den löser inte parkering vid en strand, en restaurang eller ett evenemang."
         ),
         l(
           "Parking pressure along the coast shifts with the season and the time of day, and July and August are the hardest months in our experience.",
-          "Der Parkdruck an der Küste verändert sich mit Saison und Tageszeit, und Juli und August sind nach unserer Erfahrung die schwierigsten Monate.",
+          "Im Juli und August wird es an der Küste eng; dann lohnt der frühe Morgen.",
           "La presión de aparcamiento en la costa cambia con la temporada y la hora, y julio y agosto son los meses más difíciles según nuestra experiencia.",
           "De parkeerdruk langs de kust verschuift met het seizoen en het tijdstip, en juli en augustus zijn in onze ervaring de lastigste maanden.",
           "Parkeringstrycket längs kusten skiftar med säsong och tid på dygnet, och juli och augusti är enligt vår erfarenhet de svåraste månaderna."
         ),
         l(
           "Leave the car in the garage for evenings in town and use it only when the destination is genuinely outside. That way not every short trip turns into a parking question.",
-          "Lasst das Auto für Abende im Ort in der Garage und nutzt es nur, wenn das Ziel wirklich außerhalb liegt. So wird nicht jeder kurze Weg zur Parkplatzfrage.",
+          "Für Abende im Ort bleibt das Auto in der Garage; ihr braucht es nur für die Strände weiter draußen.",
           "Dejad el coche en el garaje para las noches en el pueblo y usadlo solo cuando el destino esté realmente fuera. Así no todo trayecto corto se convierte en un problema de aparcamiento.",
           "Laat de auto in de garage voor avonden in de stad en gebruik hem alleen als de bestemming echt buiten ligt. Zo wordt niet elk kort ritje een parkeervraag.",
           "Låt bilen stå i garaget för kvällar i stan och använd den bara när målet verkligen ligger utanför. Då blir inte varje kort resa en parkeringsfråga."

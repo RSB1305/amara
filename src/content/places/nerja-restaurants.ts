@@ -27,7 +27,7 @@ export const nerjaRestaurantPlaceCopy = definePlaceCopy({
       },
       goodToKnow: {
         en: "Ask specifically which terrace or sea-view tables are available, then confirm the current booking conditions before choosing the table.",
-        de: "Fragt konkret, welche Terrassen- oder Meerblicktische verfügbar sind, und bestätigt vor der Auswahl die aktuell geltenden Reservierungsbedingungen.",
+        de: "Die Tische mit Meerblick sind wenige; wer einen will, sagt es bei der Reservierung dazu.",
         es: "Preguntad qué mesas de terraza o con vistas están disponibles y confirmad las condiciones actuales antes de elegir una ubicación concreta.",
         nl: "Vraag specifiek welke terras- of zeezichttafels beschikbaar zijn en bevestig de actuele reserveringsvoorwaarden voordat jullie een plek kiezen.",
         sv: "Fråga specifikt vilka terrass- eller havsutsiktsbord som finns och bekräfta de aktuella bokningsvillkoren innan ni väljer plats."

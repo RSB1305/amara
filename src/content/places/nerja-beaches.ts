@@ -187,7 +187,7 @@ export const nerjaBeachPlaceCopy = definePlaceCopy({
       },
       goodToKnow: {
         en: "Make time for lunch at a chiringuito rather than treating this as a quick stop. In summer, vehicle access may be regulated, so check the current arrangements before leaving.",
-        de: "Plant Zeit für ein Mittagessen im Chiringuito ein, statt nur kurz vorbeizuschauen. Im Sommer kann die Zufahrt geregelt sein; prüft deshalb vor der Abfahrt die aktuellen Hinweise.",
+        de: "Bleibt zum Mittagessen im Chiringuito. Im Sommer ist die Zufahrt geregelt; die Regelung steht unten verlinkt.",
         es: "Reservad tiempo para comer en un chiringuito en lugar de convertirla en una parada rápida. En verano puede regularse el acceso de vehículos; comprobad las condiciones antes de salir.",
         nl: "Maak tijd voor de lunch in plaats van hier alleen kort te stoppen. In de zomer kan autotoegang worden gereguleerd; controleer daarom voor vertrek de actuele regeling.",
         sv: "Avsätt tid för lunch på en chiringuito i stället för att bara göra ett kort stopp. Sommartid kan biltrafiken regleras, så kontrollera aktuell information innan ni åker."
@@ -289,7 +289,7 @@ export const nerjaBeachPlaceCopy = definePlaceCopy({
       },
       goodToKnow: {
         en: "AYO is at Paseo Burriana 15 and works as a daytime option beside the beach. Check current operation before building the day around it.",
-        de: "AYO liegt am Paseo Burriana 15 und ist eine Tagesoption direkt am Strand. Prüft den aktuellen Betrieb, bevor ihr den Tag darauf ausrichtet.",
+        de: "AYO liegt am Paseo Burriana 15: Paella aus der großen Pfanne, mittags direkt am Strand.",
         es: "AYO está en Paseo Burriana 15 y funciona como opción diurna junto a la playa. Comprobad la actividad actual antes de organizar el día en torno al local.",
         nl: "AYO ligt aan Paseo Burriana 15 en is een optie voor overdag direct aan het strand. Controleer de actuele werking voordat jullie de dag eromheen plannen.",
         sv: "AYO ligger på Paseo Burriana 15 och är ett alternativ dagtid direkt vid stranden. Kontrollera aktuell verksamhet innan ni planerar dagen kring restaurangen."

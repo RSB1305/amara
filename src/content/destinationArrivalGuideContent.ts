@@ -149,13 +149,13 @@ const nerjaArrivalUi = {
   },
   de: {
     heroTitle: 'Anreise nach Nerja und zu AMARA Playa',
-    heroText: 'Aena führt eine direkte Alsa-Busverbindung vom Flughafen Málaga nach Nerja — die einfachste Anreise, wenn ihr vor Ort zu Fuß unterwegs sein wollt. Sie endet am Busbahnhof, nicht an unserer Tür; mit Koffern nehmt ihr von dort ein Taxi. Ein Transfer oder Mietwagen bringt euch bis zur Adresse: Calle Castilla Pérez 60, rund 200 Meter vom Strand Torrecilla. Einen privaten Parkplatz gibt es nicht, ihr parkt also in einer öffentlichen Anlage oder legal an der Straße. Und etwas, das ihr vorher wissen solltet: Vor dem Aufzug liegen fünf Stufen vor dem Gebäude und fünf weitere im Haus.',
+    heroText: 'Vom Flughafen Málaga fährt ein Alsa-Bus direkt nach Nerja; er endet am Busbahnhof, von dort geht es mit dem Taxi oder zu Fuß weiter. Transfer und Mietwagen bringen euch bis zur Calle Castilla Pérez 60, rund 200 Meter vom Strand Torrecilla. Geparkt wird ein paar Straßen weiter, und vor dem Aufzug liegen zehn Stufen: fünf vor dem Haus, fünf drinnen.',
     optionsEyebrow: 'Ab Flughafen Málaga', optionsTitle: 'Der Bus fährt direkt, das Auto fährt weiter',
-    carEyebrow: 'Transfer oder Mietwagen', carTitle: 'Bis vor die Tür — und dann ein Stellplatz', carText: 'Mit Gepäck ist der Transfer am bequemsten. Ein Mietwagen lohnt sich für Maro, Frigiliana und die weitere Axarquía, braucht nach dem Ausladen aber einen legalen öffentlichen oder Straßenplatz. Für ein oder zwei Ausflugstage genügt oft ein Mietwagen auf Zeit. Ihr kommt mit einem Elektroauto? Plant das Laden im Voraus; die Karte zeigt die nächsten öffentlichen Ladepunkte.',
-    busEyebrow: 'Direkter Alsa-Bus', busTitle: 'Einfach, wenn ihr in Nerja bleibt', busText: 'Aena bestätigt die Direktverbindung zwischen dem Flughafen Málaga und Nerja. Sie endet am Busbahnhof, nicht in der Calle Castilla Pérez 60 — mit leichtem Gepäck lauft ihr, sonst nehmt ihr ein Taxi.',
-    parkingEyebrow: 'Anreise mit dem Auto', parkingTitle: 'AMARA Playa hat keinen privaten Parkplatz', parkingText: 'Fürs Zentrum sind Balcón de Europa und Parque Verano Azul die naheliegenden Anlagen, dazu legales Straßenparken in der Nähe. Reservieren lässt sich davon nichts. Wählt den Bereich, bevor ihr in die engsten Straßen fahrt; der Park-Guide erklärt, welcher wofür passt.',
-    finalEyebrow: 'Die letzten Minuten', finalTitle: 'Das Ziel ist Calle Castilla Pérez 60', finalSteps: ['Taxi und Transfer fahren die vollständige Adresse direkt an.', 'Vom Busbahnhof geht es mit dem Taxi weiter — oder zu Fuß, wenn das Gepäck es zulässt.', 'Mit dem Auto ladet ihr nur dort aus, wo die Schilder es erlauben, und stellt den Wagen danach legal ab.'],
-    closeEyebrow: 'Vor Ort', closeTitle: 'Im Zentrum braucht ihr an den meisten Tagen kein Auto', closeText: 'Torrecilla liegt rund 200 Meter entfernt, der Balcón de Europa etwa 500. Für Maro, Frigiliana oder die weitere Axarquía lohnt sich ein Auto — dafür reichen oft ein oder zwei Miettage.'
+    carEyebrow: 'Transfer oder Mietwagen', carTitle: 'Bis vor die Tür — und dann ein Stellplatz', carText: 'Mit Gepäck ist der Transfer am bequemsten. Ein Mietwagen lohnt sich für Maro, Frigiliana und die Axarquía; für ein oder zwei Ausflugstage reicht ein Mietwagen auf Zeit. Mit Elektroauto: Die Karte zeigt die nächsten Ladepunkte.',
+    busEyebrow: 'Direkter Alsa-Bus', busTitle: 'Einfach, wenn ihr in Nerja bleibt', busText: 'Der Direktbus vom Flughafen Málaga endet am Busbahnhof oben in Nerja; von dort eine Viertelstunde bergab zu Fuß oder fünf Minuten mit dem Taxi.',
+    parkingEyebrow: 'Anreise mit dem Auto', parkingTitle: 'Parken ein paar Straßen weiter', parkingText: 'Fürs Zentrum sind die Parkhäuser Balcón de Europa und Parque Verano Azul die nächsten, dazu Straßenplätze in der Nähe. Der Park-Guide zeigt, welcher Bereich wofür passt.',
+    finalEyebrow: 'Die letzten Minuten', finalTitle: 'Das Ziel ist Calle Castilla Pérez 60', finalSteps: ['Taxi und Transfer fahren die vollständige Adresse direkt an.', 'Vom Busbahnhof geht es mit dem Taxi weiter — oder zu Fuß, wenn das Gepäck es zulässt.', 'Mit dem Auto ladet ihr vor der Tür aus und parkt danach ein paar Straßen weiter.'],
+    closeEyebrow: 'Vor Ort', closeTitle: 'Im Zentrum bleibt das Auto stehen', closeText: 'Torrecilla liegt rund 200 Meter entfernt, der Balcón de Europa etwa 500. Für Maro, Frigiliana oder die weitere Axarquía lohnt sich ein Auto — dafür reichen oft ein oder zwei Miettage.'
   },
   es: {
     heroTitle: 'Cómo llegar a Nerja y a AMARA Playa',
@@ -272,7 +272,7 @@ const structureUi = {
   de: {
     routeTitle: 'Die Reise in drei Entscheidungen planen', faqTitle: 'Fragen vor der Abreise',
     airportQuestion: 'Welcher Flughafen oder Ausgangspunkt ist praktisch?', carQuestion: 'Braucht ihr während des Aufenthalts ein Auto?', finalLegQuestion: 'Wo endet der öffentliche Verkehr?',
-    finalMileEyebrow: 'Die letzte Etappe', finalMileTitle: 'Die Anreise bis zur Unterkunft zu Ende planen',
+    finalMileEyebrow: 'Die letzte Etappe', finalMileTitle: 'Die letzten Minuten bis zur Tür',
     relatedEyebrow: 'Weiter planen', relatedTitle: 'Anreise, Lage und Aufenthalt zusammen denken', relatedIntro: 'Die Anreise prägt die erste Stunde; die richtige Lage prägt jeden Tag danach.',
     locationText: 'Zur vollständigen Ortsübersicht zurückkehren.', areasText: 'Die Lagen vergleichen, die zum gewünschten Aufenthalt passen.'
   },
@@ -685,7 +685,7 @@ function tarifaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
     gateways: {
       eyebrow: ui[lang].gatewaysEyebrow,
       title: ui[lang].gatewaysTitle,
-      items: [sectionCard(airports, 'airport'), sectionCard(port, 'coast')]
+      items: [sectionCard(airports, 'airport'), { ...sectionCard(port, 'coast'), details: [port.paragraphs[1]] }]
     },
     options: {
       eyebrow: ui[lang].optionsEyebrow,
@@ -695,21 +695,7 @@ function tarifaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
         bestFor: ui[lang].bestFor,
         consideration: ui[lang].consideration
       },
-      items: [{ ...sectionCard(car, 'rental-car'), link: chargingMapLink('Tarifa', lang) }, sectionCard(bus, 'bus')]
-    },
-    journeySteps: {
-      title: structureUi[lang].routeTitle,
-      steps: [
-        { num: '01', headline: airports.title, text: airports.paragraphs[0] },
-        { num: '02', headline: ui[lang].optionsTitle, text: `${car.paragraphs[0]} ${bus.paragraphs[0]}` },
-        { num: '03', headline: structureUi[lang].finalMileTitle, text: bus.paragraphs[2] }
-      ],
-      faqTitle: structureUi[lang].faqTitle,
-      faq: [
-        { question: structureUi[lang].airportQuestion, answer: airports.paragraphs[0] },
-        { question: structureUi[lang].carQuestion, answer: withoutCar.paragraphs[0] },
-        { question: structureUi[lang].finalLegQuestion, answer: bus.paragraphs[1] }
-      ]
+      items: [{ ...sectionCard(car, 'rental-car'), details: [car.paragraphs[1], car.paragraphs[3]], link: chargingMapLink('Tarifa', lang) }, { ...sectionCard(bus, 'bus'), details: [] }]
     },
     mobility: {
       eyebrow: ui[lang].mobilityEyebrow,
@@ -720,8 +706,8 @@ function tarifaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
     finalMile: {
       eyebrow: structureUi[lang].finalMileEyebrow,
       title: structureUi[lang].finalMileTitle,
-      paragraphs: [bus.paragraphs[2]],
-      steps: [car.paragraphs[2], bus.paragraphs[1], port.paragraphs[1]],
+      paragraphs: [bus.paragraphs[1]],
+      steps: [car.paragraphs[2], bus.paragraphs[2], port.paragraphs[2]],
       stepIcons: ['rental-car', 'taxi', 'coast']
     },
     related: relatedGuides(

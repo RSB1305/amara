@@ -37,7 +37,7 @@ export const weddingAnniversaryContent = {
     title: l('A few special days for the two of you', 'Ein paar besondere Tage für euch zwei', 'Unos días especiales para vosotros dos', 'Een paar bijzondere dagen voor jullie samen', 'Några speciella dagar för er två'),
     lead: l(
       'Your wedding anniversary does not need a fixed celebration package. A good place and time together are enough.',
-      'Euer Hochzeitstag braucht kein festes Feierpaket. Ein guter Ort und gemeinsame Zeit reichen vollkommen.',
+      'Ein paar Tage nur für euch: eine Terrasse, ein gutes Abendessen, ein Ort, an dem ihr beide gern seid.',
       'Vuestro aniversario de boda no necesita un paquete de celebración. Basta con un buen lugar y tiempo juntos.',
       'Jullie huwelijksverjaardag heeft geen vast feestpakket nodig. Een fijne plek en tijd samen zijn genoeg.',
       'Er bröllopsdag behöver inget färdigt firandepaket. En bra plats och tid tillsammans räcker.'

@@ -345,7 +345,7 @@ export const frigilianaWeddingsContent: Record<
         }
       ],
       note:
-        'Eine Buchung des ganzen Hauses bedeutet vier eigenständige Unterkünfte im selben historischen Gebäude – keine gemeinsame Eventvilla. Casa AMARA ist zum Übernachten da; Feiern und Veranstaltungen gehören nicht zur normalen Nutzung der Unterkunft.',
+        'Eine Buchung des ganzen Hauses heißt: vier eigene Wohnungen im selben alten Gebäude für bis zu acht Gäste. Getraut und gefeiert wird in der Kirche und im Restaurant; im Haus wird geschlafen.',
       cta: 'Verfügbarkeit prüfen',
       apartmentsCta: 'AMARA-Unterkünfte vergleichen'
     },
@@ -395,14 +395,14 @@ export const frigilianaWeddingsContent: Record<
         {
           title: 'Gassen und Treppen einschätzen',
           text:
-            'Frigiliana liegt am Hang. Prüft Wege und Stufen frühzeitig, wenn ältere Angehörige, kleine Kinder oder festliche Schuhe Teil des Tages sind.',
+            'Frigiliana liegt am Hang. Für ältere Angehörige, kleine Kinder und festliche Schuhe lohnt ein Blick auf Wege und Stufen; wir beschreiben sie euch.',
           linkLabel: 'Gassen und Treppen in Frigiliana',
           linkToken: 'frigiliana_stairs'
         },
         {
           title: 'Wetter und Jahreszeit einplanen',
           text:
-            'Prüft typische Temperaturen, Regen und die Bedingungen am Abend, damit Kleidung, Fußwege und Transfers zu eurem Termin passen.',
+            'Im Sommer ist der Abend die schönste Zeit, im Winter die Mittagssonne; Kleidung und Wege richten sich danach.',
           linkLabel: 'Wetter in Frigiliana',
           linkToken: 'weather_frigiliana'
         }
@@ -432,7 +432,7 @@ export const frigilianaWeddingsContent: Record<
         {
           question: 'Ist Casa AMARA eine Hochzeits- oder Feierlocation?',
           answer:
-            'Nein. Casa AMARA ist eine Unterkunft nahe der Kirche San Antonio. Feiern und Veranstaltungen gehören nicht zur normalen Nutzung; Trauung und Hochzeitsfeier finden an anderen Orten statt.'
+            'Nein. Casa AMARA ist das Zuhause für die Nächte rund um die Hochzeit, fünfzehn Meter von der Kirche San Antonio; Trauung und Feier finden in Kirche und Restaurant statt.'
         },
         {
           question: 'Wie organisiert man eine kirchliche Hochzeit in Frigiliana?',

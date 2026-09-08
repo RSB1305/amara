@@ -286,29 +286,29 @@ export const frigilianaDayTripsContent: Record<
     },
     destinationIds: ['frigiliana.day-trips.malaga-city', 'frigiliana.day-trips.granada-alhambra', 'frigiliana.day-trips.caminito-del-rey', 'frigiliana.day-trips.ronda'],
     practical: {
-      title: 'Praktische Grundlagen',
+      title: 'Bevor ihr losfahrt',
       intro:
-        'Ein wenig Vorbereitung macht diese Tage deutlich ruhiger. Betrachtet Fahrzeiten als Richtwerte und prüft Tickets, Öffnungszeiten, Straßenbedingungen und öffentliche Verbindungen kurz vor eurem Termin erneut.',
+        'Alle vier Ziele sind Tagesausflüge mit dem Auto, eine bis gut zwei Stunden pro Strecke; Tickets für Alhambra und Caminito bucht ihr Wochen vorher.',
       items: [
         {
           title: 'Auto und öffentliche Verkehrsmittel',
           text:
-            'Für Granada, Ronda und den Caminito del Rey ist ein Auto sehr zu empfehlen. Málaga kann mit öffentlichen Verkehrsmitteln funktionieren; prüft aber aktuelle Verbindungen und die Rückfahrt, bevor ihr euch darauf verlasst.'
+            'Granada, Ronda und der Caminito del Rey gehen nur mit dem Auto entspannt. Nach Málaga fährt auch der Bus ab Nerja.'
         },
         {
           title: 'Sommerhitze',
           text:
-            'Im Landesinneren kann es im Sommer extrem heiß werden. Startet früh, nehmt Wasser mit und plant für die Mittagszeit Schatten und Pausen ein.'
+            'Im Landesinneren hat es im Sommer gegen vierzig Grad. Früh los, mittags Schatten, Wasser im Auto.'
         },
         {
           title: 'Sonntage und Öffnungszeiten',
           text:
-            'Sonntags unterscheiden sich die Öffnungszeiten je nach Museum, Geschäft und Restaurant. Prüft eure konkreten Ziele, statt von einem allgemeinen Rhythmus auszugehen.'
+            'Sonntags haben viele Museen kürzer geöffnet und viele Läden zu; die Alhambra hat jeden Tag auf.'
         },
         {
           title: 'Ruhige Rückkehr',
           text:
-            'Lasst Puffer für Verkehr, Parkplatzsuche und ein entspanntes Essen. Eine Rückkehr vor dem späten Abend bewahrt den Kontrast, der Frigiliana als Basis so angenehm macht.'
+            'Mit Puffer für Verkehr und ein spätes Mittagessen seid ihr vor Sonnenuntergang zurück: Terrasse, Dusche, Abend im Dorf.'
         }
       ]
     },
