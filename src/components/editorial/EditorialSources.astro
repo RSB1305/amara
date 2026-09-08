@@ -18,12 +18,14 @@ interface Props {
   updated?: string;
   /** One sentence on what the sources cover and what overrides them. */
   text?: string;
+  /** Optional quiet review note below the links. */
+  footerNote?: string;
   items: Array<{ label: string; href: string }>;
   id?: string;
   [attribute: `data-am-${string}`]: string | undefined;
 }
 
-const { eyebrow, title, updated, text, items, id = 'sources', ...sectionAttributes } = Astro.props;
+const { eyebrow, title, updated, text, footerNote, items, id = 'sources', ...sectionAttributes } = Astro.props;
 const titleId = `${id}-title`;
 ---
 
@@ -45,4 +47,5 @@ const titleId = `${id}-title`;
       </ul>
     </div>
   </div>
+  {footerNote && <p class="am-text-caption mx-auto mt-10 max-w-screen-2xl normal-case tracking-normal text-muted">{footerNote}</p>}
 </LocationModule>

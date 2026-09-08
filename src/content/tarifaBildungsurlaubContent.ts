@@ -5,7 +5,7 @@
  * four locales follow in the translation pass at the end and turn these
  * strings into `LocalizedText`. Every fact comes from worksurfbalance.com
  * (offer, seminar pages, recognition, team) and tarifasurfclub.com, checked
- * on 4 September 2026; prices and dates carry that date on the page.
+ * on 4 September 2026; the public page carries only the review month.
  */
 export interface BildungsurlaubCard {
   id: string;
@@ -32,9 +32,7 @@ export const tarifaBildungsurlaubDe = {
     title: 'Bildungsurlaub in Tarifa',
     subtitle: 'Fünf Seminartage am Meer, anerkannt in dreizehn Bundesländern, und in der freien Zeit der Wind.',
     lead:
-      'Fünf Tage Bildungsurlaub im Jahr stehen den meisten Angestellten in Deutschland zu, und in dreizehn Bundesländern dürft ihr sie in Tarifa nehmen. Work Surf Balance macht daraus eine Woche mit Seminar zu Künstlicher Intelligenz oder mentaler Gesundheit, der Tarifa Surf Club hängt das Kiten dran, und wohnen könnt ihr bei uns mit Blick auf Los Lances. **Der Arbeitgeber zahlt das Gehalt weiter, das Seminar zahlt ihr selbst**, und solange er nicht zugestimmt hat, entstehen keine Kosten.',
-    updated: 'Geprüft am 4. September 2026',
-    note: 'Seminare, Preise, Termine und Anerkennung nach Angaben von Work Surf Balance, das Kiten nach Angaben des Tarifa Surf Club. Gebucht wird dort, die Wohnung bei uns.'
+      'Fünf Tage Bildungsurlaub im Jahr stehen den meisten Angestellten in Deutschland zu, und in dreizehn Bundesländern dürft ihr sie in Tarifa nehmen. Work Surf Balance macht daraus eine Woche mit Seminar zu Künstlicher Intelligenz oder mentaler Gesundheit, der Tarifa Surf Club hängt das Kiten dran, und wohnen könnt ihr bei uns mit Blick auf Los Lances. **Der Arbeitgeber zahlt das Gehalt weiter, das Seminar zahlt ihr selbst**, und solange er nicht zugestimmt hat, entstehen keine Kosten.'
   },
   week: {
     eyebrow: 'Die Woche',
@@ -115,7 +113,7 @@ export const tarifaBildungsurlaubDe = {
   prices: {
     eyebrow: 'Preise und Termine',
     title: 'Ab 790 € fürs Seminar, mit Kiten und Bett ab 1.390 €',
-    intro: 'Drei Pakete, für alle vier Seminare gleich. Preise von Work Surf Balance, Stand 4. September 2026.',
+    intro: 'Drei Pakete für alle vier Seminare.',
     rows: [
       {
         id: 'seminar',
@@ -221,9 +219,9 @@ export const tarifaBildungsurlaubDe = {
     }
   },
   sources: {
-    eyebrow: 'Redaktionelle Transparenz',
-    title: 'Quellen dieser Seite',
-    text: 'Angebot, Preise, Termine, Anerkennung und Team nach Work Surf Balance, das Kiten nach dem Tarifa Surf Club; beide am 4. September 2026 abgerufen. Verbindlich ist, was die Anbieter bei der Buchung nennen.',
+    eyebrow: 'Direkt zu den Anbietern',
+    title: 'Weiterführende Links',
+    reviewed: 'Inhalt letztmalig geprüft: September 2026',
     items: [
       { id: 'wsb-angebot', label: 'Work Surf Balance: Seminare und Pakete', href: 'https://worksurfbalance.com/angebot' },
       { id: 'wsb-anerkennung', label: 'Work Surf Balance: Anerkennung je Bundesland', href: 'https://worksurfbalance.com/#anerkennung' },
