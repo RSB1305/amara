@@ -573,7 +573,7 @@ test('the destination arrival pages use their declared module order', async ({ p
     {
       routeToken: 'getting_to_frigiliana',
       pageId: 'getting-to-frigiliana',
-      modules: sharedModules
+      modules: ['gateways', 'options', 'journey-steps', 'mobility', 'parking']
     },
     {
       routeToken: 'getting_to_nerja',

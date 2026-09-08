@@ -265,11 +265,11 @@ export const frigilianaLocationCopy = {
     ]
   ),
   introPullLine: text(
-    'You wake up in the village and walk home after dinner.',
-    'Morgens seid ihr schon im Dorf, abends geht ihr nach dem Essen einfach nach Hause.',
-    'Por la mañana ya estáis en el pueblo y, después de cenar, volvéis a casa andando.',
-    'Jullie worden wakker in het dorp en lopen na het eten naar huis.',
-    'Ni vaknar i byn och promenerar hem efter middagen.'
+    'When the day-trippers leave, the village is yours.',
+    'Wenn die Tagesgäste gehen, gehört das Dorf euch.',
+    'Cuando se van los visitantes del día, el pueblo es vuestro.',
+    'Als de dagjesmensen weg zijn, is het dorp van jullie.',
+    'När dagsbesökarna åker hem är byn er.'
   ),
   orientation: {
     eyebrow: text('LOCATION', 'LAGE', 'UBICACIÓN', 'LIGGING', 'LÄGE'),
