@@ -639,6 +639,71 @@ export const frigilianaStreetsStairsCopy = {
       }
     ]
   },
+  audiences: {
+    eyebrow: {
+      en: 'Who fits where',
+      de: 'Für wen welche Lage',
+      es: 'Para quién cada zona',
+      nl: 'Voor wie welke ligging',
+      sv: 'Vem passar var'
+    } satisfies LocalizedText,
+    title: {
+      en: 'By travel style, not by district',
+      de: 'Nach Reisetyp statt nach Viertel',
+      es: 'Por tipo de viaje, no por barrio',
+      nl: 'Op reisstijl, niet op wijk',
+      sv: 'Efter resestil, inte stadsdel'
+    } satisfies LocalizedText,
+    intro: {
+      en: 'If you know your type but not the lanes, here are the locations seen from the traveller’s side.',
+      de: 'Wenn ihr euren Typ kennt, aber nicht die Gassen: hier die Lagen aus Sicht der Reisegruppe.',
+      es: 'Si conocéis vuestro tipo pero no las calles, aquí están las zonas vistas desde el viajero.',
+      nl: 'Als je je type kent maar de straatjes niet: hier de liggingen vanuit de reiziger bekeken.',
+      sv: 'Om ni känner er typ men inte gränderna: här är lägena sedda från resenärens håll.'
+    } satisfies LocalizedText,
+    items: [
+      {
+        title: { en: 'Couples & aesthetes', de: 'Paare & Ästhetiker', es: 'Parejas y amantes del detalle', nl: 'Stellen & liefhebbers van sfeer', sv: 'Par & estetiker' } satisfies LocalizedText,
+        paragraph: {
+          en: 'Historic backdrop, an elevated position and a private terrace looking over the groves to the sea — upper Barribarto and apartments like Lounis or Zaid, in exchange for a few more steps.',
+          de: 'Historische Kulisse, erhöhte Lage und eine private Terrasse über dem Grün bis zum Meer — das obere Barribarto und Apartments wie Lounis oder Zaid, im Tausch gegen ein paar Stufen mehr.',
+          es: 'Escenario histórico, posición elevada y una terraza privada sobre el campo hacia el mar: el Barribarto alto y apartamentos como Lounis o Zaid, a cambio de algunos escalones más.',
+          nl: 'Historisch decor, een hogere ligging en een privéterras over het groen tot de zee — het hogere Barribarto en appartementen als Lounis of Zaid, in ruil voor een paar treden meer.',
+          sv: 'Historisk kuliss, ett högt läge och en privat terrass över grönskan mot havet — övre Barribarto och lägenheter som Lounis eller Zaid, mot några trappsteg extra.'
+        } satisfies LocalizedText
+      },
+      {
+        title: { en: 'Quiet-seekers', de: 'Ruhesuchende', es: 'Quienes buscan calma', nl: 'Rustzoekers', sv: 'De som söker lugn' } satisfies LocalizedText,
+        paragraph: {
+          en: 'Space, silence and privacy over spontaneous walks into the village — the edges or the countryside, with the car a fixed part of the day.',
+          de: 'Raum, Stille und Rückzug vor spontanen Wegen ins Dorf — die Randlagen oder das Umland, mit dem Auto als festem Teil des Tages.',
+          es: 'Espacio, silencio y privacidad por encima de salir a pie al pueblo: los bordes o el campo, con el coche como parte fija del día.',
+          nl: 'Ruimte, stilte en privacy boven spontane wandelingen naar het dorp — de randen of het buitengebied, met de auto als vast onderdeel van de dag.',
+          sv: 'Utrymme, tystnad och avskildhet framför spontana promenader in i byn — utkanterna eller landsbygden, med bilen som en fast del av dagen.'
+        } satisfies LocalizedText
+      },
+      {
+        title: { en: 'Families & heavier luggage', de: 'Familien & mit Gepäck', es: 'Familias y equipaje', nl: 'Gezinnen & met bagage', sv: 'Familjer & tyngre bagage' } satisfies LocalizedText,
+        paragraph: {
+          en: 'Fewer repeated climbs and simpler access — the lower historic core or the modern south. With us, Farah is the compact, almost single-level choice.',
+          de: 'Weniger wiederholte Anstiege und einfacherer Zugang — der untere historische Kern oder der modernere Süden. Bei uns ist Farah die kompakte, fast ebenerdige Wahl.',
+          es: 'Menos subidas repetidas y un acceso más sencillo: el casco histórico bajo o la zona moderna al sur. Con nosotros, Farah es la opción compacta y casi sin desniveles.',
+          nl: 'Minder herhaald klimmen en eenvoudiger toegang — de lagere historische kern of het moderne zuiden. Bij ons is Farah de compacte, vrijwel gelijkvloerse keuze.',
+          sv: 'Färre återkommande stigningar och enklare tillgång — den nedre historiska kärnan eller den moderna södra delen. Hos oss är Farah det kompakta, nästan plana valet.'
+        } satisfies LocalizedText
+      },
+      {
+        title: { en: 'Village life at the door', de: 'Dorfleben vor der Tür', es: 'La vida del pueblo en la puerta', nl: 'Dorpsleven voor de deur', sv: 'Byliv utanför dörren' } satisfies LocalizedText,
+        paragraph: {
+          en: 'Cafés, restaurants and evening walks without the highest daily route — the lower historic core around Calle Real and Chorruelo, where our own house sits too.',
+          de: 'Cafés, Restaurants und Abendspaziergänge ohne den höchsten Tagesweg — der untere historische Kern rund um Calle Real und Chorruelo, wo auch unser Haus steht.',
+          es: 'Cafeterías, restaurantes y paseos nocturnos sin el recorrido diario más alto: el casco histórico bajo, en torno a la calle Real y Chorruelo, donde también está nuestra casa.',
+          nl: 'Cafés, restaurants en avondwandelingen zonder de hoogste dagelijkse route — de lagere historische kern rond Calle Real en Chorruelo, waar ook ons huis staat.',
+          sv: 'Kaféer, restauranger och kvällspromenader utan den högsta vardagsvägen — den nedre historiska kärnan kring Calle Real och Chorruelo, där även vårt hus ligger.'
+        } satisfies LocalizedText
+      }
+    ]
+  },
   proof: {
     eyebrow: {
       en: 'A street-level example',
@@ -668,6 +733,13 @@ export const frigilianaStreetsStairsCopy = {
         es: 'Desde la puerta compartida, el recorrido por la calle Chorruelo y la calle Real hacia cafeterías, restaurantes, bares y el centro no tiene más escalones. Esto describe el camino después de la puerta; no significa que la llegada o todos los alojamientos sean accesibles sin escalones.',
         nl: 'Vanaf de gezamenlijke voordeur loopt de route via Calle Chorruelo en Calle Real naar cafés, restaurants, bars en de dorpskern zonder verdere treden. Dat beschrijft de route na de deur; het betekent niet dat de aankomst of elk verblijf volledig trapvrij is.',
         sv: 'Från den gemensamma ytterdörren går vägen längs Calle Chorruelo och Calle Real mot kaféer, restauranger, barer och bykärnan utan fler trappsteg. Det beskriver vägen efter dörren, inte en helt trappfri ankomst eller alla boenden.'
+      } satisfies LocalizedText,
+      {
+        en: 'The historic core does not rule out openness: Lounis and Zaid have **private terraces above the mango and avocado groves, with the sea beyond** — breakfast in the shade, sun from midday. Farah deliberately trades the terrace for the simplest, almost single-level access.',
+        de: 'Der historische Kern schließt Weite nicht aus: Lounis und Zaid haben **private Terrassen über den Mango- und Avocadoplantagen, dahinter das Meer** — Frühstück im Schatten, Sonne ab Mittag. Farah verzichtet bewusst auf die Terrasse zugunsten des einfachsten, fast ebenerdigen Zugangs.',
+        es: 'El casco histórico no excluye la amplitud: Lounis y Zaid tienen **terrazas privadas sobre los campos de mango y aguacate, con el mar al fondo** — desayuno a la sombra, sol desde el mediodía. Farah renuncia a propósito a la terraza a favor del acceso más sencillo, casi sin desniveles.',
+        nl: 'De historische kern sluit weidsheid niet uit: Lounis en Zaid hebben **privéterrassen boven de mango- en avocadoplantages, met de zee daarachter** — ontbijt in de schaduw, zon vanaf het middaguur. Farah kiest bewust voor de eenvoudigste, vrijwel gelijkvloerse toegang in plaats van een terras.',
+        sv: 'Den historiska kärnan utesluter inte rymd: Lounis och Zaid har **privata terrasser ovanför mango- och avokadoodlingarna, med havet bortom** — frukost i skuggan, sol från middagstid. Farah väljer medvetet den enklaste, nästan plana tillgången i stället för terrass.'
       } satisfies LocalizedText
     ],
     imageAlt: {
@@ -676,6 +748,18 @@ export const frigilianaStreetsStairsCopy = {
       es: 'Casas blancas y calles históricas en la ladera de Frigiliana',
       nl: 'Witte huizen en historische straatjes tegen de heuvel van Frigiliana',
       sv: 'Vita hus och historiska gränder på Frigilianas sluttning'
+    } satisfies LocalizedText,
+    facts: [
+      { en: 'Lounis: 39 m² terrace, views over the groves to the sea', de: 'Lounis: 39 m² Terrasse, Blick übers Grün bis zum Meer', es: 'Lounis: terraza de 39 m², vistas sobre el campo hasta el mar', nl: 'Lounis: terras van 39 m², uitzicht over het groen tot de zee', sv: 'Lounis: 39 m² terrass, utsikt över grönskan mot havet' } satisfies LocalizedText,
+      { en: 'Zaid: 20 m² terrace towards the sea, six steps up', de: 'Zaid: 20 m² Terrasse Richtung Meer, sechs Stufen hinauf', es: 'Zaid: terraza de 20 m² hacia el mar, seis escalones', nl: 'Zaid: terras van 20 m² richting zee, zes treden omhoog', sv: 'Zaid: 20 m² terrass mot havet, sex trappsteg upp' } satisfies LocalizedText,
+      { en: 'Farah: compact, almost single-level, easiest access', de: 'Farah: kompakt, fast ebenerdig, einfachster Zugang', es: 'Farah: compacto, casi sin desniveles, el acceso más fácil', nl: 'Farah: compact, vrijwel gelijkvloers, eenvoudigste toegang', sv: 'Farah: kompakt, nästan plan, enklaste tillgången' } satisfies LocalizedText
+    ],
+    cta: {
+      en: 'View AMARA stays in Frigiliana',
+      de: 'AMARA-Unterkünfte in Frigiliana ansehen',
+      es: 'Ver alojamientos AMARA en Frigiliana',
+      nl: 'Bekijk AMARA-verblijven in Frigiliana',
+      sv: 'Se AMARA-boenden i Frigiliana'
     } satisfies LocalizedText
   },
   dailyRoute: {

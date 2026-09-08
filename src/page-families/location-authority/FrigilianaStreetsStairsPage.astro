@@ -104,7 +104,33 @@ const proofImage = {
   height: 1333
 };
 
+const stayTypeItems = copy.stayType.items.map((row) => ({
+  id: row.id,
+  attribute: t(row.attribute),
+  ours: t(row.ours),
+  hotelWins: t(row.hotelWins)
+}));
+
+const audienceItems = copy.audiences.items.map((item) => ({
+  title: t(item.title),
+  paragraphs: [t(item.paragraph)]
+}));
+
+const staysHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
+
 const stayContent: WhereToStayAuthorityContent = {
+  stayType: {
+    id: 'stay-type',
+    eyebrow: t(copy.stayType.eyebrow),
+    title: t(copy.stayType.title),
+    intro: copy.stayType.intro.map(t),
+    labels: {
+      attribute: t(copy.stayType.labels.attribute),
+      ours: t(copy.stayType.labels.ours),
+      hotelWins: t(copy.stayType.labels.hotelWins)
+    },
+    items: stayTypeItems
+  },
   decision: {
     eyebrow: t(copy.principle.eyebrow),
     title: t(copy.principle.title),
@@ -145,16 +171,18 @@ const stayContent: WhereToStayAuthorityContent = {
     conclusion: t(copy.dailyRoute.conclusion)
   },
   fit: {
-    eyebrow: '',
-    title: '',
-    intro: [],
-    items: []
+    eyebrow: t(copy.audiences.eyebrow),
+    title: t(copy.audiences.title),
+    intro: [t(copy.audiences.intro)],
+    items: audienceItems
   },
   amara: {
     eyebrow: t(copy.proof.eyebrow),
     title: t(copy.proof.title),
     paragraphs: copy.proof.paragraphs.map(t),
-    image: { src: proofImage.src, alt: t(copy.proof.imageAlt) }
+    facts: copy.proof.facts.map(t),
+    image: { src: proofImage.src, alt: t(copy.proof.imageAlt) },
+    action: staysHref ? { href: staysHref, label: t(copy.proof.cta) } : undefined
   }
 };
 ---
