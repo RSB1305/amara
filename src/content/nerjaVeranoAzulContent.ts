@@ -93,8 +93,8 @@ export const nerjaVeranoAzulContent = {
     eyebrow: l("Nerja · TV memory", "Nerja · TV-Erbe", "Nerja · Memoria audiovisual", "Nerja · TV-geheugen", "Nerja · TV-minne"),
     title: l("Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul"),
     standfirst: l("The TV series Verano Azul is where many families met Nerja for the first time. It is also where the town acquired a shared visual memory that still shapes how locals speak about certain streets, the Balcón and the old coast.", "Verano Azul war für viele Familien die erste Berührung mit Nerja. Die Serie hat eine gemeinsame Erinnerungskarte hinterlassen, die heute genauso in der Stadt wie im Urlaubswortschatz wirkt.", "Para muchas familias, Verano Azul fue la primera vez que oyó hablar de Nerja. La serie también dejó una memoria visual compartida que sigue presente en la vida cotidiana del municipio.", "Voor veel gezinnen was Verano Azul de eerste kennismaking met Nerja. De serie liet een gedeeld beeld achter dat nog in de lokale beleving meeloopt.", "För många hushåll var Verano Azul första gången de hörde talas om Nerja. Serien har lämnat en delad visuell minneskarta som fortfarande påverkar platsberättelsen."),
-    note: l("Editorial guide written from verified public sources and municipal information. It avoids fan speculation and travel booking details.", "Diese Übersicht basiert auf verifizierten öffentlichen Quellen. Spekulative Fan-Details und Buchungsinhalte sind bewusst ausgeklammert.", "La guía se basa en fuentes públicas verificables y evita la especulación de fandom y datos de alquileres o precios.", "Deze gids is gebaseerd op controleerbare publieke bronnen. Fan-schattingen en reserveringsdetails zijn bewust weggelaten.", "Guiden bygger på verifierade offentliga källor och exkluderar osäkra fanspecifikationer och bokningsdetaljer."),
-    updated: l("Edited in August 2026", "Überarbeitet im August 2026", "Revisada en agosto de 2026", "Bewerkt in augustus 2026", "Genomgången i augusti 2026")
+    note: l("Editorial guide written from verified public sources and municipal information. It avoids fan speculation and travel booking details.", "Drehorte, Statue und Park liegen im Zentrum von Nerja.", "La guía se basa en fuentes públicas verificables y evita la especulación de fandom y datos de alquileres o precios.", "Deze gids is gebaseerd op controleerbare publieke bronnen. Fan-schattingen en reserveringsdetails zijn bewust weggelaten.", "Guiden bygger på verifierade offentliga källor och exkluderar osäkra fanspecifikationer och bokningsdetaljer."),
+    updated: l("Edited in August 2026", "Stand August 2026", "Revisada en agosto de 2026", "Bewerkt in augustus 2026", "Genomgången i augusti 2026")
   },
   facts: [
     {
@@ -244,10 +244,10 @@ export const nerjaVeranoAzulContent = {
     ]
   },
   sources: {
-    eyebrow: l("Sources checked", "Genutzte Quellen", "Fuentes", "Bronnen", "Källor"),
-    title: l("Official material used in this guide", "Amtliche Quellenbasis", "Material oficial consultado", "Officiële bronnenbasis", "Officiella källor som användes"),
+    eyebrow: l("Sources checked", "Quellen", "Fuentes", "Bronnen", "Källor"),
+    title: l("Official material used in this guide", "Woher die Angaben kommen", "Material oficial consultado", "Officiële bronnenbasis", "Officiella källor som användes"),
     intro: l("Public announcements and municipal pages were used for production dates, shooting references and legacy claims. We keep direct interpretation points conservative where source detail is limited.", "RTVE-Material und kommunale Veröffentlichungen liefern die tragenden Fakten zu Produktion, Drehorten und Erinnerungsarbeit. Wo der Beleggrad geringer ist, bleibt die Aussage vorsichtig.", "La base de esta guía son recursos públicos de RTVE y del Ayuntamiento, con énfasis en datos verificables sobre rodaje, memoria local y continuidad de ruta.", "De basisinformatie komt uit RTVE-documentatie en gemeentelijke mededelingen, met nadruk op verifieerbare productiestaferelen en lokaal erfgoed.", "Materialet bygger på RTVE-publiceringar och kommunala kanaler med fokus på verifierbar produktion och kvarstående minnesarbete."),
-    checked: l("Sources reviewed in August 2026.", "Quellen geprüft im August 2026.", "Fuentes revisadas en agosto de 2026.", "Bronnen gecontroleerd in augustus 2026.", "Källor kontrollerade i augusti 2026."),
+    checked: l("Sources reviewed in August 2026.", "Stand August 2026", "Fuentes revisadas en agosto de 2026.", "Bronnen gecontroleerd in augustus 2026.", "Källor kontrollerade i augusti 2026."),
     links: [
       {
         label: l("RTVE · Verano Azul archive page", "RTVE · Verano Azul-Übersicht", "RTVE · Ficha de Verano Azul", "RTVE · Verano Azul dossier", "RTVE · Verano Azul-översikt"),

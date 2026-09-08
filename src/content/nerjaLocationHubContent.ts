@@ -218,7 +218,7 @@ export const nerjaLocationHubContent: {
         title: 'Urlaub in Nerja: Strände, Altstadt und ein Ort mit mehreren Mittelpunkten',
         standfirst: 'Herzlich willkommen in Nerja. Hier lässt sich vieles zu Fuß erledigen, trotzdem entstehen je nach Strand und Wohnlage ganz unterschiedliche Aufenthalte. Dieser Überblick hilft euch bei Anreise, Lagewahl und Mobilität – für mehr als nur einen Tagesausflug.',
         note: 'Ein Gastgeber-Guide für Übernachtungsgäste, mit AMARA Playa als praktischem Bezugspunkt.',
-        updated: 'Geprüft im August 2026'
+        updated: 'Stand August 2026'
       },
       discovery: {
         eyebrow: 'Den Aufenthalt planen',
@@ -720,8 +720,8 @@ const nerjaLocationPeopleFirstCopy = {
       title: 'Nerja als Aufenthaltsort',
       subtitle: 'Ein kompakter Küstenort, in dem Steigungen und Wohnlage den Aufenthalt prägen',
       standfirst: 'Nerja funktioniert gut als Urlaubsbasis, wenn ihr Strände, Altstadt, Restaurants und Versorgung an vielen Tagen zu Fuß verbinden möchtet. Die genaue Lage bleibt wichtig: Torrecilla und Zentrum ermöglichen einen kompakten Alltag, Burriana bildet einen eigenen Strandmittelpunkt, und im oberen Nerja gehören mehr Steigungen zu den täglichen Wegen. Der Ort passt zu Paaren, die Meer und Stadtleben nah beieinander suchen; für ländliche Abgeschiedenheit oder bequemes Parken direkt vor der Tür ist er weniger selbstverständlich.',
-      note: 'Unser ehrlicher Gastgeberblick auf Nerja als Urlaubsbasis.',
-      updated: 'Geprüft im August 2026'
+      note: '',
+      updated: 'Stand August 2026'
     },
     orientation: {
       eyebrow: 'So hängt Nerja zusammen',

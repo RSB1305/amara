@@ -239,10 +239,10 @@ export const frigilianaLocationCopy = {
     'Witte straatjes, lange avonden en de Middellandse Zee beneden',
     'Vita gränder, långa kvällar och Medelhavet nedanför'
   ),
-  heroUpdated: text('Reviewed August 2026', 'Geprüft im August 2026', 'Revisado en agosto de 2026', 'Gecontroleerd in augustus 2026', 'Granskad i augusti 2026'),
+  heroUpdated: text('Reviewed August 2026', 'Stand August 2026', 'Revisado en agosto de 2026', 'Gecontroleerd in augustus 2026', 'Granskad i augusti 2026'),
   heroNote: text(
     'Our honest view of the village where we live and host.',
-    'Unser ehrlicher Blick auf das Dorf, in dem wir selbst leben und Gastgeber sind.',
+    '',
     'Nuestra visión sincera del pueblo en el que vivimos y recibimos a nuestros huéspedes.',
     'Onze eerlijke kijk op het dorp waar we zelf wonen en gasten ontvangen.',
     'Vår ärliga bild av byn där vi själva bor och tar emot gäster.'

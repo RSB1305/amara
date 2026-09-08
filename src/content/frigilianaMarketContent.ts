@@ -522,28 +522,28 @@ export const frigilianaMarketCopy = {
   liveInfo: {
     eyebrow: l(
       'Check before travelling',
-      'Vor der Fahrt prüfen',
+      'Quellen',
       'Comprobad antes de viajar',
       'Controleer vóór vertrek',
       'Kontrollera före resan'
     ),
     title: l(
       'Use current local information',
-      'Aktuelle lokale Informationen nutzen',
+      'Woher die Angaben kommen',
       'Utilizad información local actual',
       'Gebruik actuele lokale informatie',
       'Använd aktuell lokal information'
     ),
     intro: l(
       'For holiday changes, special events, or access questions, use Frigiliana’s official tourism channels. The map is useful for orientation, but current signs and municipal notices take priority on the day.',
-      'Nutzt für Feiertagsänderungen, Sonderveranstaltungen oder Fragen zur Erreichbarkeit die offiziellen Tourismuskanäle Frigilianas. Der Ortsplan hilft bei der Orientierung; am Markttag haben aktuelle Schilder und kommunale Hinweise Vorrang.',
+      'Tourismusbüro und Ortsplan der Gemeinde Frigiliana.',
       'Para cambios por festivos, eventos especiales o dudas de acceso, consultad los canales oficiales de turismo de Frigiliana. El plano sirve para orientarse, pero ese día tienen prioridad las señales y los avisos municipales actuales.',
       'Gebruik voor wijzigingen rond feestdagen, bijzondere evenementen of bereikbaarheidsvragen de officiële toeristische kanalen van Frigiliana. De kaart helpt bij oriëntatie, maar actuele borden en gemeentelijke berichten hebben op de dag zelf voorrang.',
       'För ändringar vid helgdagar, särskilda evenemang eller tillgänglighetsfrågor bör ni använda Frigilianas officiella turistkanaler. Kartan hjälper med orientering, men aktuella skyltar och kommunala meddelanden gäller på dagen.'
     ),
     checked: l(
       'Editorial check · July 2026',
-      'Redaktionell geprüft · Juli 2026',
+      'Stand Juli 2026',
       'Revisión editorial · julio de 2026',
       'Redactioneel gecontroleerd · juli 2026',
       'Redaktionellt kontrollerad · juli 2026'

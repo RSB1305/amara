@@ -622,28 +622,28 @@ export const gettingToFrigilianaCopy = {
   sources: {
     eyebrow: {
       en: 'Check before departure',
-      de: 'Vor der Abreise prüfen',
+      de: 'Quellen',
       es: 'Comprobad antes de salir',
       nl: 'Controleer voor vertrek',
       sv: 'Kontrollera före avresa'
     } satisfies LocalizedText,
     title: {
       en: 'Official travel information',
-      de: 'Offizielle Reiseinformationen',
+      de: 'Fahrpläne und Verbindungen',
       es: 'Información oficial de viaje',
       nl: 'Officiële reisinformatie',
       sv: 'Officiell reseinformation'
     } satisfies LocalizedText,
     intro: {
       en: 'Transport schedules can change by date, season, Sunday, or public holiday. Use these sources shortly before travelling rather than relying on a saved timetable.',
-      de: 'Fahrpläne können sich je nach Datum, Saison, Sonntag oder Feiertag ändern. Prüft diese Quellen kurz vor der Reise, statt euch auf einen gespeicherten Fahrplan zu verlassen.',
+      de: 'Die Fahrpläne stehen bei Aena, ALSA und der Gemeinde Frigiliana.',
       es: 'Los horarios pueden cambiar según la fecha, la temporada, los domingos o los festivos. Consultad estas fuentes poco antes del viaje en lugar de confiar en un horario guardado.',
       nl: 'Dienstregelingen kunnen per datum, seizoen, zondag of feestdag wijzigen. Controleer deze bronnen kort voor vertrek in plaats van op een opgeslagen schema te vertrouwen.',
       sv: 'Tidtabeller kan ändras beroende på datum, säsong, söndag eller helgdag. Kontrollera dessa källor strax före resan i stället för att förlita er på en sparad tidtabell.'
     } satisfies LocalizedText,
     checked: {
       en: 'Information checked in July 2026.',
-      de: 'Informationen geprüft im Juli 2026.',
+      de: 'Stand Juli 2026',
       es: 'Información revisada en julio de 2026.',
       nl: 'Informatie gecontroleerd in juli 2026.',
       sv: 'Informationen kontrollerades i juli 2026.'

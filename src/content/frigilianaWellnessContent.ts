@@ -313,7 +313,7 @@ export const frigilianaWellnessContent: Record<
       title: 'Möchtet ihr bleiben oder hinausfahren?',
       intro:
         'Der wichtigste Unterschied ist praktisch: Frigiliana Wellness kommt in eure Unterkunft; für Lidia fahrt ihr zu ihrem Ort auf dem Land.',
-      reviewed: 'Redaktionell geprüft: Juli 2026',
+      reviewed: 'Stand Juli 2026',
       items: [
         {
           title: 'Wellness in der Unterkunft',

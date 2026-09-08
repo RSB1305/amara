@@ -516,7 +516,7 @@ export const frigilianaParkingCopy = {
     )
   },
   liveInfo: {
-    eyebrow: l('Live information', 'Aktuelle Informationen', 'Información actual', 'Actuele informatie', 'Aktuell information'),
+    eyebrow: l('Live information', 'Quellen', 'Información actual', 'Actuele informatie', 'Aktuell information'),
     title: l(
       'Use the map to orientate — and the signs to decide',
       'Nutzt die Karte zur Orientierung – und die Schilder zur Entscheidung',
@@ -533,7 +533,7 @@ export const frigilianaParkingCopy = {
     ),
     checked: l(
       'Editorial check · July 2026',
-      'Redaktionell geprüft · Juli 2026',
+      'Stand Juli 2026',
       'Revisión editorial · julio de 2026',
       'Redactioneel gecontroleerd · juli 2026',
       'Redaktionellt kontrollerad · juli 2026'

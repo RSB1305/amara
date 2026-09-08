@@ -30,7 +30,7 @@ export interface GuestGuidePreviewDestination {
 export const guestGuidePreviewContent = {
   logout: {
     en: 'Log out',
-    de: 'Abmelden',
+    de: 'Nur für Gäste',
     es: 'Salir',
     nl: 'Uitloggen',
     sv: 'Logga ut'

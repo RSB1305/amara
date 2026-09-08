@@ -260,7 +260,7 @@ export const frigilianaDayTripsContent: Record<
         'Die besten Tagesausflüge ab Frigiliana konzentrieren sich auf ein Hauptziel und lassen den Rest des Tages flexibel.',
       rule:
         'Ein Hauptziel pro Tag reicht. Wer gegen 09:00 Uhr losfährt, kommt abends in Ruhe ins Dorf zurück statt in Hektik.',
-      reviewed: 'Redaktionell geprüft: Juli 2026',
+      reviewed: 'Stand Juli 2026',
       items: [
         {
           title: 'Einfachster Kulturtag',

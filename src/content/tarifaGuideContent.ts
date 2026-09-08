@@ -194,7 +194,7 @@ const buildSeo = (
 
 const sharedEditorialNote = l(
   'An independent AMARA orientation guide for planning your stay — not a live conditions service.',
-  'Ein unabhängiger AMARA-Guide zur Reiseplanung – kein Live-Dienst für aktuelle Bedingungen.',
+  '',
   'Una guía independiente de AMARA para planificar la estancia; no es un servicio de condiciones en directo.',
   'Een onafhankelijke AMARA-gids voor jullie reisplanning — geen live informatiedienst.',
   'En oberoende AMARA-guide för reseplanering – inte en tjänst för liveförhållanden.'
@@ -202,7 +202,7 @@ const sharedEditorialNote = l(
 
 const sharedUpdated = l(
   'Reviewed August 2026',
-  'Geprüft im August 2026',
+  'Stand August 2026',
   'Revisado en agosto de 2026',
   'Gecontroleerd in augustus 2026',
   'Granskad i augusti 2026'
@@ -833,7 +833,7 @@ const windDescriptions = l(
 
 const windEditorialNote = l(
   'We live and kite here ourselves. Prices and dates carry their date; official rules and signage on the beach take priority.',
-  'Wir wohnen und kiten hier selbst. Preise und Daten mit Stand; amtliche Regeln und Beschilderung vor Ort gehen vor.',
+  'Wir wohnen und kiten hier selbst.',
   'Vivimos y navegamos aquí. Precios y fechas con su fecha de revisión; las normas oficiales y la señalización en la playa tienen prioridad.',
   'We wonen en kiten hier zelf. Prijzen en data met datum; officiële regels en borden op het strand gaan voor.',
   'Vi bor och kitar här själva. Priser och datum med datumstämpel; officiella regler och skyltning på stranden gäller först.'
@@ -841,7 +841,7 @@ const windEditorialNote = l(
 
 const windUpdated = l(
   'Reviewed September 2026',
-  'Geprüft im September 2026',
+  'Stand September 2026',
   'Revisado en septiembre de 2026',
   'Gecontroleerd in september 2026',
   'Granskad i september 2026'

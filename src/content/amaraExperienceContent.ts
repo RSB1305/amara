@@ -349,14 +349,14 @@ const content = {
   hostAuthorName: "Robert Sebastian Böhmer",
   hostUpdated: text(
     "Editorially reviewed in September 2026",
-    "Redaktionell geprüft im September 2026",
+    "Stand September 2026",
     "Revisado editorialmente en septiembre de 2026",
     "Redactioneel gecontroleerd in september 2026",
     "Redaktionellt granskat i september 2026",
   ),
   hostNote: text(
     "First-hand experience is identified as such; changing practical details are verified separately.",
-    "Eigene Erfahrung kennzeichnen wir als solche; veränderliche praktische Angaben prüfen wir separat.",
+    "",
     "Identificamos la experiencia propia como tal y comprobamos por separado los datos prácticos que pueden cambiar.",
     "Eigen ervaring benoemen we als zodanig; veranderlijke praktische informatie controleren we apart.",
     "Egna erfarenheter anges som sådana; praktiska uppgifter som kan ändras kontrolleras separat.",

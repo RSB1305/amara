@@ -502,28 +502,28 @@ export const frigilianaFaqCopy = {
   liveInfo: {
     eyebrow: l(
       'Live information',
-      'Aktuelle Informationen',
+      'Quellen',
       'Información actual',
       'Actuele informatie',
       'Aktuell information'
     ),
     title: l(
       'Confirm details at the source',
-      'Details direkt an der Quelle prüfen',
+      'Woher die Antworten kommen',
       'Confirmad los detalles en la fuente',
       'Controleer details bij de bron',
       'Bekräfta uppgifter vid källan'
     ),
     intro: l(
       'Schedules, opening hours, events, and route conditions change. These official sources are the right final check before you set out.',
-      'Fahrpläne, Öffnungszeiten, Veranstaltungen und Wegebedingungen ändern sich. Diese offiziellen Quellen sind die richtige letzte Prüfung vor dem Aufbruch.',
+      'Die amtlichen Seiten hinter den Antworten.',
       'Los horarios, aperturas, eventos y condiciones de las rutas cambian. Estas fuentes oficiales son la comprobación final adecuada antes de salir.',
       'Dienstregelingen, openingstijden, evenementen en routeomstandigheden veranderen. Deze officiële bronnen zijn de juiste laatste controle voor vertrek.',
       'Tidtabeller, öppettider, evenemang och ledförhållanden ändras. Dessa officiella källor är rätt sista kontroll före avfärd.'
     ),
     checked: l(
       'Source review: July 2026',
-      'Quellen geprüft: Juli 2026',
+      'Stand Juli 2026',
       'Fuentes revisadas: julio de 2026',
       'Bronnen gecontroleerd: juli 2026',
       'Källor granskade: juli 2026'

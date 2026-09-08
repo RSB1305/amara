@@ -31,12 +31,12 @@ const hero = {
   ),
   note: l(
     'On the day, the signs and displays at the car park always come first.',
-    'Vor Ort haben Schilder und Anzeigen an der Anlage immer Vorrang.',
+    'Vor der Tür ausladen, im Parkhaus parken, zu Fuß zurück.',
     'Sobre el terreno, las señales y los paneles del aparcamiento siempre mandan.',
     'Ter plaatse hebben de borden en displays bij de parking altijd voorrang.',
     'På plats gäller alltid skyltarna och displayerna vid parkeringen.'
   ),
-  updated: l('Last checked in August 2026', 'Zuletzt im August 2026 nachgesehen', 'Revisado por última vez en agosto de 2026', 'Voor het laatst nagekeken in augustus 2026', 'Senast kontrollerat i augusti 2026')
+  updated: l('Last checked in August 2026', 'Stand August 2026', 'Revisado por última vez en agosto de 2026', 'Voor het laatst nagekeken in augustus 2026', 'Senast kontrollerat i augusti 2026')
 };
 
 const facts = [
@@ -158,7 +158,7 @@ const makeLocale = (lang: AmaraLanguage): ParkingGuideLocale => ({
     eyebrow: l('Sources', 'Quellen', 'Fuentes', 'Bronnen', 'Källor')[lang],
     title: l('Where these details come from', 'Woher diese Angaben kommen', 'De dónde salen estos datos', 'Waar deze gegevens vandaan komen', 'Varifrån uppgifterna kommer')[lang],
     intro: l('The car-park facts come from the town hall. Everything about AMARA Playa and its steps comes from us.', 'Die Angaben zu den Parkanlagen stammen von der Stadtverwaltung. Alles zu AMARA Playa und seinen Stufen kommt von uns.', 'Los datos de los aparcamientos proceden del ayuntamiento. Todo lo relativo a AMARA Playa y sus escalones viene de nosotros.', 'De gegevens over de parkings komen van de gemeente. Alles over AMARA Playa en de treden komt van ons.', 'Uppgifterna om parkeringarna kommer från kommunen. Allt om AMARA Playa och dess trappsteg kommer från oss.')[lang],
-    checked: l('Last checked in August 2026', 'Zuletzt im August 2026 nachgesehen', 'Revisado por última vez en agosto de 2026', 'Voor het laatst nagekeken in augustus 2026', 'Senast kontrollerat i augusti 2026')[lang],
+    checked: l('Last checked in August 2026', 'Stand August 2026', 'Revisado por última vez en agosto de 2026', 'Voor het laatst nagekeken in augustus 2026', 'Senast kontrollerat i augusti 2026')[lang],
     links: sourceRows.map((row) => ({ label: row.label[lang], text: row.text[lang], href: row.href }))
   },
   closing: {

@@ -357,7 +357,7 @@ export const frigilianaRestaurantsContent: Record<
       title: 'Beginnt mit dem Abend, den ihr euch wünscht',
       intro:
         'Hilfreicher als eine Rangliste sind Atmosphäre, Entfernung und die Frage, wie besonders oder unkompliziert sich das Essen anfühlen soll.',
-      reviewed: 'Redaktionell geprüft: Juli 2026',
+      reviewed: 'Stand Juli 2026',
       items: [
         {
           title: 'In Frigiliana bleiben',
@@ -438,7 +438,7 @@ export const frigilianaRestaurantsContent: Record<
         }
       ],
       note:
-        'Wir wählen Restaurants unabhängig nach dem Erlebnis aus, das sie eurem Aufenthalt geben können. Aktuelle Karten, Preise, Öffnungstage und Reservierungen klärt ihr direkt mit dem Restaurant.'
+        ''
     },
     combine: {
       title: 'Den Tag auf das Essen zulaufen lassen',

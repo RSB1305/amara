@@ -570,7 +570,7 @@ export const nerjaNightlifeContent: Record<
       title: 'Ist Nerja für Nachtleben geeignet?',
       intro:
         'Ja, wenn ihr Abendessen, Terrassen, Cocktailbars und eine kompakte Zone für später im selben Ort möchtet. Wählt ein anderes Ziel, wenn große Clubs bis zum Sonnenaufgang der Hauptgrund der Reise sind.',
-      reviewed: 'Redaktionell geprüft: Juli 2026',
+      reviewed: 'Stand Juli 2026',
       items: [
         {
           title: 'Besonders passend für',

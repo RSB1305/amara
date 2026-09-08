@@ -103,16 +103,16 @@ const buildSeo = (
 });
 
 const shared = {
-  sourceEyebrow: l('Editorial transparency', 'Redaktionelle Transparenz', 'Transparencia editorial', 'Redactionele transparantie', 'Redaktionell transparens'),
-  sourceTitle: l('Official context for this guide', 'Offizielle Grundlagen für diesen Guide', 'Fuentes oficiales de esta guía', 'Officiële basis voor deze gids', 'Officiella källor för guiden'),
+  sourceEyebrow: l('Editorial transparency', 'Quellen', 'Transparencia editorial', 'Redactionele transparantie', 'Redaktionell transparens'),
+  sourceTitle: l('Official context for this guide', 'Woher die Angaben kommen', 'Fuentes oficiales de esta guía', 'Officiële basis voor deze gids', 'Officiella källor för guiden'),
   sourceIntro: l(
     'These sources support the stable destination context. Current access, conditions and local information always take priority.',
-    'Diese Quellen stützen den langfristig verlässlichen Ortskontext. Aktuelle Zugänge, Bedingungen und Hinweise vor Ort haben immer Vorrang.',
+    'Die amtlichen Seiten hinter diesem Text.',
     'Estas fuentes respaldan el contexto estable del destino. Los accesos, las condiciones y la información vigente sobre el terreno siempre tienen prioridad.',
     'Deze bronnen onderbouwen de vaste context van de bestemming. Actuele toegang, omstandigheden en informatie ter plaatse hebben altijd voorrang.',
     'Källorna stöder den långsiktiga platsinformationen. Aktuellt tillträde, dagens förhållanden och information på plats gäller alltid först.'
   ),
-  checked: l('Sources checked in August 2026', 'Quellen geprüft im August 2026', 'Fuentes consultadas en agosto de 2026', 'Bronnen gecontroleerd in augustus 2026', 'Källor kontrollerade i augusti 2026'),
+  checked: l('Sources checked in August 2026', 'Stand August 2026', 'Fuentes consultadas en agosto de 2026', 'Bronnen gecontroleerd in augustus 2026', 'Källor kontrollerade i augusti 2026'),
   relatedEyebrow: l('Keep exploring', 'Tarifa weiter entdecken', 'Seguir descubriendo', 'Verder ontdekken', 'Fortsätt upptäcka'),
   relatedTitle: l('Another side of the same stay', 'Eine weitere Seite desselben Aufenthalts', 'Otra cara de la misma estancia', 'Een andere kant van hetzelfde verblijf', 'En annan sida av samma vistelse'),
   closingEyebrow: l('Stay in Tarifa', 'In Tarifa bleiben', 'Alojarse en Tarifa', 'Verblijven in Tarifa', 'Bo i Tarifa'),
@@ -175,12 +175,12 @@ const food: TarifaExperienceSpokeContent = {
     ),
     note: l(
       'A host-written guide to the character of eating and evenings in Tarifa. Menus, provenance, opening and atmosphere vary by place, season and day.',
-      'Ein Host-Guide zum Charakter von Essen und Abenden in Tarifa. Karten, Herkunft, Öffnung und Stimmung unterscheiden sich je nach Ort, Saison und Tag.',
+      '',
       'Una guía del anfitrión sobre el carácter de la gastronomía y las noches de Tarifa. Cartas, procedencia, apertura y ambiente cambian según el local, la temporada y el día.',
       'Een gids van de host over eten en avonden in Tarifa. Menu, herkomst, opening en sfeer verschillen per zaak, seizoen en dag.',
       'En guide från värden om mat och kvällar i Tarifa. Menyer, ursprung, öppettider och stämning varierar mellan platser, säsonger och dagar.'
     ),
-    updated: l('Destination context checked in August 2026', 'Ortskontext geprüft im August 2026', 'Contexto del destino revisado en agosto de 2026', 'Bestemmingsinformatie gecontroleerd in augustus 2026', 'Platsinformationen kontrollerad i augusti 2026')
+    updated: l('Destination context checked in August 2026', 'Stand August 2026', 'Contexto del destino revisado en agosto de 2026', 'Bestemmingsinformatie gecontroleerd in augustus 2026', 'Platsinformationen kontrollerad i augusti 2026')
   },
   facts: [
     { label: l('Coastal identity', 'Küstenidentität', 'Identidad costera', 'Kustidentiteit', 'Kustidentitet'), value: l('Atlantic fish · seafood · atún rojo', 'Atlantikfisch · Meeresfrüchte · atún rojo', 'Pescado atlántico · marisco · atún rojo', 'Atlantische vis · zeevruchten · atún rojo', 'Atlantisk fisk · skaldjur · atún rojo') },
@@ -288,7 +288,7 @@ const food: TarifaExperienceSpokeContent = {
     }
   ],
   host: {
-    eyebrow: l('AMARA host perspective', 'AMARA Host-Perspektive', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
+    eyebrow: l('AMARA host perspective', 'Von La Marina aus', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
     title: l('Town evenings without planning the car', 'Altstadtabende ohne Autoplan', 'Noches en el centro sin organizar el coche', 'Avonden in de stad zonder de auto te plannen', 'Kvällar i stan utan bilplanering'),
     paragraphs: [
       l(
@@ -369,12 +369,12 @@ const nature: TarifaExperienceSpokeContent = {
     ),
     note: l(
       'A host-written introduction to nature experiences around Tarifa. Wildlife is never guaranteed; follow current park, access and operator guidance.',
-      'Eine Host-Einführung in Naturerlebnisse rund um Tarifa. Tierbeobachtungen sind nie garantiert; aktuelle Park-, Zugangs- und Anbieterhinweise gelten zuerst.',
+      '',
       'Una introducción del anfitrión a la naturaleza de Tarifa. Nunca se garantizan avistamientos; seguid la información vigente del parque, los accesos y los operadores.',
       'Een inleiding van de host tot natuur rond Tarifa. Dieren zien is nooit gegarandeerd; volg actuele informatie van park, toegang en aanbieders.',
       'En introduktion från värden till naturen runt Tarifa. Djur kan aldrig garanteras; följ aktuell information från parken, tillträden och arrangörer.'
     ),
-    updated: l('Official nature context checked in August 2026', 'Offizieller Naturkontext geprüft im August 2026', 'Contexto natural oficial revisado en agosto de 2026', 'Officiële natuurinformatie gecontroleerd in augustus 2026', 'Officiell naturinformation kontrollerad i augusti 2026')
+    updated: l('Official nature context checked in August 2026', 'Stand August 2026', 'Contexto natural oficial revisado en agosto de 2026', 'Officiële natuurinformatie gecontroleerd in augustus 2026', 'Officiell naturinformation kontrollerad i augusti 2026')
   },
   facts: [
     { label: l('Protected setting', 'Geschützter Raum', 'Entorno protegido', 'Beschermde omgeving', 'Skyddad miljö'), value: l('Parque Natural del Estrecho', 'Parque Natural del Estrecho', 'Parque Natural del Estrecho', 'Parque Natural del Estrecho', 'Parque Natural del Estrecho') },
@@ -468,7 +468,7 @@ const nature: TarifaExperienceSpokeContent = {
     }
   ],
   host: {
-    eyebrow: l('AMARA host perspective', 'AMARA Host-Perspektive', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
+    eyebrow: l('AMARA host perspective', 'Von La Marina aus', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
     title: l('Nature access from a town-based stay', 'Natur erreichen und trotzdem im Ort wohnen', 'Naturaleza desde una estancia urbana', 'Natuur vanuit een verblijf in de stad', 'Naturen från ett boende i stan'),
     paragraphs: [
       l(
@@ -550,12 +550,12 @@ const oldTown: TarifaExperienceSpokeContent = {
     ),
     note: l(
       'A host-written walk through stable historic context, not a monument inventory. Check current access information directly before planning an interior visit.',
-      'Ein Host-Rundgang durch verlässlichen historischen Kontext, keine Denkmalliste. Prüft aktuelle Zugänge direkt, bevor ihr einen Innenbesuch plant.',
+      '',
       'Un paseo del anfitrión por el contexto histórico estable, no un inventario monumental. Consultad el acceso vigente antes de planificar una visita interior.',
       'Een wandeling van de host door vaste historische context, geen monumentenlijst. Controleer actuele toegang voordat je een bezoek binnen plant.',
       'En värdskriven promenad genom stabil historisk bakgrund, inte en lista över monument. Kontrollera aktuellt tillträde innan ett besök inomhus planeras.'
     ),
-    updated: l('Historic context checked in August 2026', 'Historischer Kontext geprüft im August 2026', 'Contexto histórico revisado en agosto de 2026', 'Historische informatie gecontroleerd in augustus 2026', 'Historisk information kontrollerad i augusti 2026')
+    updated: l('Historic context checked in August 2026', 'Stand August 2026', 'Contexto histórico revisado en agosto de 2026', 'Historische informatie gecontroleerd in augustus 2026', 'Historisk information kontrollerad i augusti 2026')
   },
   facts: [
     { label: l('Historic entrance', 'Historischer Eingang', 'Entrada histórica', 'Historische toegang', 'Historisk ingång'), value: l('Puerta de Jerez', 'Puerta de Jerez', 'Puerta de Jerez', 'Puerta de Jerez', 'Puerta de Jerez') },
@@ -650,7 +650,7 @@ const oldTown: TarifaExperienceSpokeContent = {
     }
   ],
   host: {
-    eyebrow: l('AMARA host perspective', 'AMARA Host-Perspektive', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
+    eyebrow: l('AMARA host perspective', 'Von La Marina aus', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
     title: l('Close enough to return at a different hour', 'Nah genug, um zu einer anderen Stunde zurückzukehren', 'Lo bastante cerca para volver a otra hora', 'Dichtbij genoeg om op een ander moment terug te gaan', 'Nära nog för att återvända vid en annan tid'),
     paragraphs: [
       l(
@@ -732,12 +732,12 @@ const bolonia: TarifaExperienceSpokeContent = {
     ),
     note: l(
       'A host-written guide to combining landscape and archaeology. Check current access, protection signs and site information before departure.',
-      'Ein Host-Guide zur Verbindung von Landschaft und Archäologie. Prüft vor Abfahrt aktuelle Zugänge, Schutzschilder und Informationen der Anlage.',
+      '',
       'Una guía del anfitrión para combinar paisaje y arqueología. Consultad antes de salir los accesos, la señalización ambiental y la información vigente del conjunto.',
       'Een gids van de host om landschap en archeologie te combineren. Controleer vóór vertrek actuele toegang, beschermingsborden en informatie van de vindplaats.',
       'En guide från värden för att kombinera landskap och arkeologi. Kontrollera aktuellt tillträde, skyltning och information från området före avfärd.'
     ),
-    updated: l('Official site context checked in August 2026', 'Offizieller Ortskontext geprüft im August 2026', 'Contexto oficial revisado en agosto de 2026', 'Officiële plaatsinformatie gecontroleerd in augustus 2026', 'Officiell platsinformation kontrollerad i augusti 2026')
+    updated: l('Official site context checked in August 2026', 'Stand August 2026', 'Contexto oficial revisado en agosto de 2026', 'Officiële plaatsinformatie gecontroleerd in augustus 2026', 'Officiell platsinformation kontrollerad i augusti 2026')
   },
   facts: [
     { label: l('The combination', 'Die Kombination', 'La combinación', 'De combinatie', 'Kombinationen'), value: l('Beach · protected dune · Roman city', 'Strand · geschützte Düne · Römerstadt', 'Playa · duna protegida · ciudad romana', 'Strand · beschermd duin · Romeinse stad', 'Strand · skyddad dyn · romersk stad') },
@@ -854,7 +854,7 @@ const bolonia: TarifaExperienceSpokeContent = {
     }
   ],
   host: {
-    eyebrow: l('AMARA host perspective', 'AMARA Host-Perspektive', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
+    eyebrow: l('AMARA host perspective', 'Von La Marina aus', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
     title: l('A natural car day from La Marina', 'Ein natürlicher Autotag von La Marina', 'Un día de coche natural desde La Marina', 'Een logische autodag vanuit La Marina', 'En naturlig bildag från La Marina'),
     paragraphs: [
       l(
@@ -943,12 +943,12 @@ const yoga: TarifaExperienceSpokeContent = {
     ),
     note: l(
       'A host-written guide to the character of yoga in Tarifa. Schedules, prices, teachers and formats change by season and studio; confirm current details directly before you book.',
-      'Ein Host-Guide zum Charakter von Yoga in Tarifa. Stundenpläne, Preise, Lehrer und Formate wechseln je nach Saison und Studio; prüft aktuelle Details vor der Buchung direkt.',
+      '',
       'Una guía del anfitrión sobre el carácter del yoga en Tarifa. Horarios, precios, profesores y formatos cambian según la temporada y el estudio; confirmad los detalles vigentes antes de reservar.',
       'Een gids van de host over het karakter van yoga in Tarifa. Roosters, prijzen, docenten en vormen verschillen per seizoen en studio; controleer actuele details vóór het boeken.',
       'En guide från värden om yogans karaktär i Tarifa. Scheman, priser, lärare och former varierar mellan säsong och studio; bekräfta aktuella uppgifter direkt innan ni bokar.'
     ),
-    updated: l('Yoga scene checked in September 2026', 'Yoga-Szene geprüft im September 2026', 'Escena de yoga revisada en septiembre de 2026', 'Yogascene gecontroleerd in september 2026', 'Yogascenen kontrollerad i september 2026')
+    updated: l('Yoga scene checked in September 2026', 'Stand September 2026', 'Escena de yoga revisada en septiembre de 2026', 'Yogascene gecontroleerd in september 2026', 'Yogascenen kontrollerad i september 2026')
   },
   facts: [
     { label: l('The scene', 'Die Szene', 'La escena', 'De scene', 'Scenen'), value: l('Studios · beach yoga · family · retreats', 'Studios · Beach-Yoga · Familie · Retreats', 'Estudios · yoga en la playa · familia · retiros', 'Studio’s · strandyoga · familie · retreats', 'Studior · strandyoga · familj · retreat') },
@@ -1042,7 +1042,7 @@ const yoga: TarifaExperienceSpokeContent = {
     }
   ],
   host: {
-    eyebrow: l('AMARA host perspective', 'AMARA Host-Perspektive', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
+    eyebrow: l('AMARA host perspective', 'Von La Marina aus', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
     title: l('Yoga-ready before you unpack', 'Yoga-ready, bevor ihr auspackt', 'Listos para el yoga antes de deshacer las maletas', 'Yoga-klaar voordat je uitpakt', 'Yogaklara innan ni packar upp'),
     paragraphs: [
       l(
@@ -1074,7 +1074,7 @@ const yoga: TarifaExperienceSpokeContent = {
     eyebrow: shared.sourceEyebrow,
     title: shared.sourceTitle,
     intro: shared.sourceIntro,
-    checked: l('Sources checked in September 2026', 'Quellen geprüft im September 2026', 'Fuentes consultadas en septiembre de 2026', 'Bronnen gecontroleerd in september 2026', 'Källor kontrollerade i september 2026'),
+    checked: l('Sources checked in September 2026', 'Stand September 2026', 'Fuentes consultadas en septiembre de 2026', 'Bronnen gecontroleerd in september 2026', 'Källor kontrollerade i september 2026'),
     links: [
       { label: l('Tarifa Tourism · Official visitor guide', 'Tarifa Tourismus · Offizieller Besucherführer', 'Turismo de Tarifa · Guía turística oficial', 'Tarifa Toerisme · Officiële bezoekersgids', 'Tarifa Turism · Officiell besöksguide'), text: l('Local context for wellness and yoga addresses in Tarifa.', 'Ortskontext zu Wellness- und Yoga-Adressen in Tarifa.', 'Contexto local sobre direcciones de bienestar y yoga en Tarifa.', 'Plaatselijke context over wellness- en yogaadressen in Tarifa.', 'Lokal bakgrund om wellness- och yogaadresser i Tarifa.'), href: sourceHrefs.tarifaTourismGuide },
       { label: l('Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness'), text: l('Ocean and beach classes, aerial yoga and current booking details.', 'Ocean- und Beach-Kurse, Aerial-Yoga und aktuelle Buchungsdetails.', 'Clases junto al mar, yoga aéreo y detalles de reserva vigentes.', 'Lessen aan zee, aerial yoga en actuele boekingsinformatie.', 'Havs- och strandklasser, aerialyoga och aktuell bokningsinfo.'), href: sourceHrefs.mandalablue },

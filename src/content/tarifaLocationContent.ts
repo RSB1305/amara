@@ -239,8 +239,8 @@ export const tarifaLocationContent: {
         title: 'Tarifa, Europas südlichste Festlandstadt',
         subtitle: 'Atlantik im Westen, Meerenge im Osten, die Altstadt dazwischen. Und unser Apartment in La Marina.',
         standfirst: 'Tarifas Altstadt, Strandkante und neuere Viertel liegen so nah beieinander, dass viele Wege im Ort zu Fuß funktionieren; Valdevaqueros und Bolonia erfordern dagegen einen eigenen Weg nach Westen. In der Altstadt liegen historische Gassen und Restaurants um euch herum. La Marina befindet sich am neueren westlichen bis nordwestlichen Ortsrand nahe Los Lances. Dort liegt AMARA Family & Surf. Der Tiefgaragenplatz und der Supermarkt gegenüber gehören zur konkreten Unterkunft, nicht allgemein zu La Marina.',
-        note: 'Ein AMARA-Guide aus eigener Erfahrung – keine Live-Auskunft zu Wind und Wetter.',
-        updated: 'Geprüft im August 2026'
+        note: '',
+        updated: 'Stand August 2026'
       },
       keyFigures: {
         figures: [
