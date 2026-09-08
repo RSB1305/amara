@@ -155,9 +155,9 @@ export const nerjaNightlifeSeo: AmaraAuthoringSeo = {
   ogImage: routeOgImage('nerja.experience.nightlife'),
   languages: {
     en: {
-      title: 'Nightlife in Nerja: Areas, Bars & Evening Guide',
+      title: 'Nerja in the evening: Balcón, Tutti Frutti & Burriana',
       description:
-        'Plan an evening in Nerja: old-town terraces, Plaza Tutti Frutti bars, Burriana beach dinners, flamenco and seasonal opening patterns.',
+        'The evening in Nerja: sundowner at the Balcón, bars on Plaza Tutti Frutti, beach restaurants in Burriana, plus flamenco and cultural evenings.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -169,23 +169,23 @@ export const nerjaNightlifeSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     es: {
-      title: 'Vida nocturna en Nerja: zonas, bares y ambiente',
+      title: 'Nerja por la noche: Balcón, Tutti Frutti y Burriana',
       description:
-        'Planificad la noche en Nerja según la zona y el ambiente: terrazas del casco antiguo, Plaza Tutti Frutti, Burriana, flamenco y propuestas fáciles.',
+        'La noche en Nerja: atardecer con copa en el Balcón, bares en la Plaza Tutti Frutti, chiringuitos en Burriana, además de flamenco y noches de cultura.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Nachtleven in Nerja: buurten, bars & avondgids',
+      title: 'Nerja ’s avonds: Balcón, Tutti Frutti & Burriana',
       description:
-        'Plan het nachtleven in Nerja per buurt en sfeer: terrassen in de oude stad, Plaza Tutti Frutti, Burriana, flamenco en eenvoudige avondideeën.',
+        'De avond in Nerja: sundowner aan de Balcón, bars op Plaza Tutti Frutti, strandtenten in Burriana, plus flamenco en cultuuravonden.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Nattliv i Nerja: områden, barer & kvällsguide',
+      title: 'Nerja på kvällen: Balcón, Tutti Frutti & Burriana',
       description:
-        'Planera Nerjas nattliv efter område och känsla: terrasser i gamla stan, Plaza Tutti Frutti, Burriana, flamenco och enkla kvällsupplägg.',
+        'Kvällen i Nerja: sundowner vid Balcón, barer på Plaza Tutti Frutti, strandrestauranger i Burriana, plus flamenco och kulturkvällar.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -212,24 +212,24 @@ export const nerjaNightlifeContent: Record<
       apartments: 'AMARA Playa'
     },
     hero: {
-      kicker: 'Evening guide',
+      kicker: 'Nerja in the evening',
       title:
-        'Nightlife in Nerja — where to go after dark',
+        'Nerja after sunset',
       paragraphs: [
-        'Nerja is lively after dark, but it is not built around giant clubs or one all-night strip. Most evenings start with a sunset terrace, seafood or tapas; Plaza Tutti Frutti is the clearest option for later bars.',
-        'Choose the old town and Balcón de Europa for dinner, wine and sea views. Choose Burriana for a beach dinner and open-air drinks. For flamenco, music or theatre, check the current programme before making plans.',
-        'If you are staying in Frigiliana, arrange the journey back before the evening. Do not rely on walking between the towns or finding a taxi at the last minute.'
+        'The evening in Nerja begins on a terrace, with fish or tapas and the view from the Balcón over the sea. Later it wanders into the lanes, and whoever is not ready to go home ends up at Plaza Tutti Frutti, where the bars stand door to door.',
+        'Instead of big clubs, Nerja has three corners that each make their own evening: Balcón and old town for dinner and the sundowner, Plaza Tutti Frutti for the late hour, Burriana for evenings with your feet in the sand.',
+        'If you are staying with us in Frigiliana, best order the taxi for the way back before the evening; the way between the towns is a drive, not a walk.'
       ],
       imageAlt:
         'Calm AMARA Playa interior as a base for evenings in coastal Nerja',
       summary: {
         eyebrow: 'On this page',
         body:
-          'An honest evening guide to Nerja: the three going-out zones, what each is best for and how lively it gets. Not a party capital — but easy to plan.',
+          'Three corners for the evening, a sundowner we drink ourselves, and flamenco when the programme fits.',
         items: [
-          { id: 'late-night', label: 'Late night', value: 'The liveliest zone' },
-          { id: 'view', label: 'With a view', value: 'Balcón and sea-view bars' },
-          { id: 'water', label: 'By the water', value: 'The coastal zone' },
+          { id: 'late-night', label: 'Late hour', value: 'Plaza Tutti Frutti' },
+          { id: 'view', label: 'With a view', value: 'Balcón & old town' },
+          { id: 'water', label: 'By the water', value: 'Burriana' },
           { id: 'reviewed', label: 'Reviewed', value: 'July 2026' }
         ]
       }
@@ -248,7 +248,7 @@ export const nerjaNightlifeContent: Record<
       title: 'Is Nerja good for nightlife?',
       intro:
         'Yes, if you want dinner, terraces, cocktail bars and one compact late-night area within the same town. Choose another destination if large clubs until sunrise are the main reason for the trip.',
-      reviewed: 'Editorially reviewed: July 2026',
+      reviewed: 'As of July 2026',
       items: [
         {
           title: 'Best for',
@@ -273,39 +273,39 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     areas: {
-      title: 'The three main nightlife areas in Nerja',
+      title: 'Three corners, three evenings',
       intro:
-        'Most evenings centre on three areas. The old town is strongest around dinner and sunset, Plaza Tutti Frutti becomes livelier later, and Burriana keeps the evening beside the beach.',
+        'The old town for the start, Plaza Tutti Frutti for later, Burriana for summer. All on foot.',
       items: [
         {
-          title: '1. Plaza Tutti Frutti — the main bar-hopping area',
+          title: 'Plaza Tutti Frutti, the late hour',
           paragraphs: [
-            'Plaza Tutti Frutti is Nerja’s clearest nightlife hub. The value lies less in one venue than in the density: bars and later-night spots close together, people moving between them and a visible rise in energy as the evening progresses.',
-            'Choose this area when you want movement rather than stillness. It works best after dinner; early in the evening it can feel transitional, while later it becomes the town’s most obvious social nightlife zone.'
+            'A small square with bars door to door around it. Early in the evening it is still quiet here; later the square fills, the music gets louder, and you move from one bar to the next without leaving the street.',
+            'Come here when the evening should carry on after dinner.'
           ],
           bestFor:
-            'Bar-hopping, casual groups, later starts, younger energy and spontaneous nights.',
+            'Bar-hopping, groups, late starts.',
           mapHref: maps.tuttiFrutti
         },
         {
           title:
-            '2. Balcón de Europa & old town — our Cochran’s sundowner',
+            'Balcón and old town, our sundowner',
           paragraphs: [
-            'This is Nerja’s most attractive evening zone. The Balcón is the landmark, but the real strength lies in the surrounding old-town streets, terraces and side lanes, where sunset becomes drinks and drinks become dinner.',
-            'Our tested version is specific: in summer 2025 we left the car by AMARA Playa on Calle Castilla Pérez, walked into the centre and watched the sunset from Cochran’s Terrace over a Cuba Libre and a Mai Tai. We remember the walk as roughly 450 metres rather than a measured route. Check that the venue and terrace are operating before setting out.'
+            'The Balcón de Europa is the stage; the lanes behind it are the evening: terraces, wine bars, small restaurants where sunset turns into a drink and the drink into dinner.',
+            'Our sundowner: from AMARA Playa on foot into the centre, onto the terrace at Cochran’s, Cuba Libre and Mai Tai, the sun goes down, the sea turns dark. In summer 2025 that is how we did it, and we will do it again.'
           ],
           bestFor:
-            'Couples, date nights, sunset drinks, wine bars, terraces and calmer cocktails.',
+            'Couples, sunset, wine, terraces, quiet cocktails.',
           mapHref: maps.balcon
         },
         {
-          title: '3. Burriana — relaxed coastal evenings',
+          title: 'Burriana, evenings by the sea',
           paragraphs: [
-            'Burriana is not Nerja’s main late-night area. Come here for beach dinners and open-air drinks, especially in the warmer months.',
-            'In summer it works particularly well as an extended beach day: you do not reset into nightlife, but let the afternoon continue into dinner and one more drink.'
+            'The beach day flows into the evening: a table at the chiringuito, espetos from the fire, a drink while the sand cools.',
+            'In summer the beach restaurants stay open late; in winter Burriana in the evening belongs to the walkers.'
           ],
           bestFor:
-            'Summer evenings, beach restaurants, open-air drinks and couples.',
+            'Summer evenings, beach restaurants, quieter nights.',
           mapHref: maps.burriana
         }
       ]
@@ -365,25 +365,25 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     culture: {
-      title: 'Flamenco, live performance and Nerja’s local dimension',
+      title: 'Flamenco and cultural evenings',
       paragraphs: [
-        'Nerja is not only about bars. Flamenco, live performance and cultural programming can give the evening a recognizably Andalusian dimension that a purely beach-led resort rarely offers.',
-        'Nerja also schedules flamenco, music, dance and theatre. Programmes vary, so check current dates rather than assuming a regular weekly show.'
+        'Besides bars, Nerja also has stages. Flamenco happens in small venues and at the fiestas; the Centro Cultural Villa de Nerja shows music, dance and theatre.',
+        'Programmes change with the season; the current one is linked here.'
       ],
       items: [
         {
           title: 'Flamenco nights',
           text:
-            'Approach a flamenco evening as a cultural experience rather than guaranteed nightly entertainment. It suits couples and travelers who want the night to feel rooted in southern Spain.',
+            'Small tablaos, fiestas and summer evenings; the dates change.',
           href: maps.flamenco,
-          linkLabel: 'Search current flamenco options'
+          linkLabel: 'Search flamenco in Nerja'
         },
         {
-          title: 'Programmed cultural evenings',
+          title: 'Centro Cultural Villa de Nerja',
           text:
-            'The Centro Cultural Villa de Nerja schedules music, dance, theatre and seasonal performances, giving longer stays another evening format beyond dinner and drinks.',
+            'Music, dance, theatre and the seasonal programme at the town’s cultural centre.',
           href: nerjaCultureProgramme,
-          linkLabel: 'Check the official cultural programme'
+          linkLabel: 'To the programme'
         }
       ]
     },
@@ -514,13 +514,13 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     closing: {
-      title: 'Why nightlife in Nerja works so well',
+      title: 'And then home, on foot',
       lead:
         'Its strength is not competing with the coast’s biggest party destinations. It is offering several good versions of an evening in a compact setting: scenic, social, cultural, beach-led or late.',
       availabilityCta: 'Check availability',
       apartmentsCta: 'View AMARA Playa',
       stayReason:
-        'The evening around the Balcón runs late, and AMARA Playa sits about five hundred metres away on the fifth floor with its rooms set back from the street — close enough to walk home, far enough to sleep.'
+        'AMARA Playa is a few hundred metres from the Balcón, on the fifth floor, facing the back: close enough to walk home, quiet enough to sleep.'
     }
   },
   de: {
@@ -856,24 +856,24 @@ export const nerjaNightlifeContent: Record<
       apartments: 'AMARA Playa'
     },
     hero: {
-      kicker: 'Guía para salir',
+      kicker: 'Nerja por la noche',
       title:
-        'Vida nocturna en Nerja — dónde ir al caer la noche',
+        'Nerja después del atardecer',
       paragraphs: [
-        'Nerja está animada por la noche, pero no gira alrededor de discotecas enormes ni de una única calle de fiesta. Muchas noches empiezan con una terraza al atardecer, pescado o tapas; Plaza Tutti Frutti reúne la mayor concentración de bares para seguir después.',
-        'Elegid el casco antiguo y el Balcón de Europa para cenar, tomar vino y ver el mar. Elegid Burriana para cenar junto a la playa y tomar algo al aire libre. Para flamenco, música o teatro, consultad el programa actual antes de hacer planes.',
-        'Si os alojáis en Frigiliana, organizad la vuelta antes de salir. El trayecto entre ambos pueblos no es un paseo nocturno y no conviene depender de encontrar taxi a última hora.'
+        'La noche en Nerja empieza en una terraza, con pescado o tapas y la vista del Balcón sobre el mar. Luego se mueve a las callejuelas, y quien aún no quiere volver a casa acaba en la Plaza Tutti Frutti, donde los bares están puerta con puerta.',
+        'En lugar de grandes discotecas, Nerja tiene tres rincones que hacen cada uno su propia noche: el Balcón y el casco antiguo para cenar y ver el atardecer, la Plaza Tutti Frutti para las horas tardías, Burriana para noches con los pies en la arena.',
+        'Quien se aloja con nosotros en Frigiliana, mejor pide el taxi para la vuelta antes de la noche; el camino entre los dos pueblos es un trayecto en coche, no un paseo.'
       ],
       imageAlt:
         'Interior tranquilo de AMARA Playa como base para salir por Nerja',
       summary: {
         eyebrow: 'En esta página',
         body:
-          'Una guía nocturna honesta de Nerja: las tres zonas de salida, para qué sirve cada una y cuánto ambiente tienen. No es una capital de la fiesta, pero es fácil de planificar.',
+          'Tres rincones para la noche, un atardecer con copa que tomamos nosotros mismos, y flamenco cuando cuadra el programa.',
         items: [
-          { id: 'late-night', label: 'Noche', value: 'La zona con más ambiente' },
-          { id: 'view', label: 'Con vistas', value: 'Balcón y bares con mar' },
-          { id: 'water', label: 'Junto al mar', value: 'La zona costera' },
+          { id: 'late-night', label: 'Hora tardía', value: 'Plaza Tutti Frutti' },
+          { id: 'view', label: 'Con vistas', value: 'Balcón y casco antiguo' },
+          { id: 'water', label: 'Junto al mar', value: 'Burriana' },
           { id: 'reviewed', label: 'Revisado', value: 'Julio 2026' }
         ]
       }
@@ -892,7 +892,7 @@ export const nerjaNightlifeContent: Record<
       title: '¿Merece la pena salir de noche en Nerja?',
       intro:
         'Sí, si queréis cena, terrazas, coctelerías y una zona compacta para seguir hasta más tarde en la misma localidad. Elegid otro destino si el objetivo principal son grandes discotecas hasta el amanecer.',
-      reviewed: 'Revisión editorial: julio de 2026',
+      reviewed: 'Actualizado en julio de 2026',
       items: [
         {
           title: 'Ideal para',
@@ -917,39 +917,39 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     areas: {
-      title: 'Las tres zonas principales para salir por Nerja',
+      title: 'Tres rincones, tres noches',
       intro:
-        'La mayoría de las noches se concentran en tres áreas reconocibles. Este es el mapa práctico de la ciudad: cada zona responde a un ambiente distinto y la hora importa casi tanto como el lugar.',
+        'El casco antiguo para empezar, la Plaza Tutti Frutti para más tarde, Burriana para el verano. Todo a pie.',
       items: [
         {
-          title: '1. Plaza Tutti Frutti — la principal zona de bares',
+          title: 'Plaza Tutti Frutti, la hora tardía',
           paragraphs: [
-            'Plaza Tutti Frutti es el núcleo más claro de la noche nerjeña. Su valor no está tanto en un local concreto como en la concentración: bares y establecimientos que cierran más tarde muy próximos, gente que se mueve entre ellos y una energía que crece a medida que avanza la noche.',
-            'Elegid esta zona cuando buscáis movimiento y no calma. Funciona mejor después de cenar; demasiado pronto puede parecer una zona de paso, mientras que más tarde se convierte en el punto social nocturno más evidente de la ciudad.'
+            'Una plaza pequeña rodeada de bares puerta con puerta. A primera hora de la noche aún está tranquila; luego la plaza se llena, la música sube, y se pasa de un bar a otro sin salir de la calle.',
+            'Venid aquí cuando la noche deba continuar después de cenar.'
           ],
           bestFor:
-            'Ir de bar en bar, grupos informales, empezar tarde, ambiente joven y noches espontáneas.',
+            'Ir de bar en bar, grupos, empezar tarde.',
           mapHref: maps.tuttiFrutti
         },
         {
           title:
-            '2. Balcón de Europa y casco antiguo — nuestro atardecer en Cochran’s',
+            'Balcón y casco antiguo, nuestro atardecer',
           paragraphs: [
-            'Es la zona más bonita para empezar la noche. El Balcón es el símbolo, pero la verdadera fuerza está en las calles, terrazas y rincones del casco antiguo, donde el atardecer se convierte en copas y las copas en cena.',
-            'Nuestra versión está probada personalmente: en verano de 2025 dejamos el coche junto a AMARA Playa, en la calle Castilla Pérez, caminamos al centro y vimos la puesta de sol desde Cochran’s Terrace con un Cuba Libre y un Mai Tai. Recordamos unos 450 metros, no una ruta medida. Comprobad antes de salir que el local y la terraza estén abiertos.'
+            'El Balcón de Europa es el escenario, las callejuelas de detrás son la noche: terrazas, bares de vinos, pequeños restaurantes donde el atardecer se convierte en una copa y la copa en una cena.',
+            'Nuestro atardecer: desde AMARA Playa a pie hasta el centro, a la terraza de Cochran’s, cubalibre y mai tai, el sol se pone, el mar se oscurece. En el verano de 2025 lo hicimos así, y lo repetiremos.'
           ],
           bestFor:
-            'Parejas, citas, copas al atardecer, bares de vinos, terrazas y cócteles tranquilos.',
+            'Parejas, atardecer, vino, terrazas, cócteles tranquilos.',
           mapHref: maps.balcon
         },
         {
-          title: '3. Burriana — noches relajadas junto al mar',
+          title: 'Burriana, noches junto al mar',
           paragraphs: [
-            'Burriana no es la zona de ocio nocturno urbano más intensa de Nerja, pero sí una de las mejores cuando queréis que el mar siga formando parte de la noche. El ambiente gira en torno a cenas junto a la playa, copas al aire libre y un ritmo más suave.',
-            'En verano funciona especialmente bien como prolongación del día de playa: no cambiáis de registro para “salir”, sino que dejáis que la tarde continúe con cena y una copa más.'
+            'El día de playa se convierte en noche: una mesa en el chiringuito, espetos a la brasa, una copa mientras la arena se enfría.',
+            'En verano los chiringuitos abren hasta tarde; en invierno Burriana por la noche es de los paseantes.'
           ],
           bestFor:
-            'Noches de verano, locales de playa, planes tranquilos, parejas y ambiente junto al mar.',
+            'Noches de verano, chiringuitos, noches más tranquilas.',
           mapHref: maps.burriana
         }
       ]
@@ -1009,25 +1009,25 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     culture: {
-      title: 'Flamenco, actuaciones y la dimensión local de Nerja',
+      title: 'Flamenco y noches de cultura',
       paragraphs: [
-        'Nerja no son solo bares. El flamenco, las actuaciones en directo y la programación cultural pueden añadir una dimensión claramente andaluza que un destino puramente playero rara vez ofrece.',
-        'Por eso aquí “vida nocturna” significa más que bares y discotecas. La respuesta completa incluye terrazas, comida, ambiente de playa, lugares sociales y cultura. La programación cambia; comprobad las fechas actuales en lugar de dar por hecho un espectáculo semanal fijo.'
+        'Además de bares, Nerja también tiene escenarios. Hay flamenco en locales pequeños y en las fiestas; el Centro Cultural Villa de Nerja programa música, danza y teatro.',
+        'Los programas cambian con la temporada; el actual está enlazado aquí.'
       ],
       items: [
         {
           title: 'Noches de flamenco',
           text:
-            'Plantead el flamenco como una experiencia cultural y no como entretenimiento garantizado cada noche. Encaja con parejas y viajeros que quieren sentir el sur de España también al salir.',
+            'Tablaos pequeños, fiestas y noches de verano; las fechas cambian.',
           href: maps.flamenco,
-          linkLabel: 'Buscar opciones actuales de flamenco'
+          linkLabel: 'Buscar flamenco en Nerja'
         },
         {
-          title: 'Noches culturales programadas',
+          title: 'Centro Cultural Villa de Nerja',
           text:
-            'El Centro Cultural Villa de Nerja programa música, danza, teatro y espectáculos estacionales, otra forma de pasar la noche durante estancias más largas.',
+            'Música, danza, teatro y programa de temporada en el centro cultural de la ciudad.',
           href: nerjaCultureProgramme,
-          linkLabel: 'Consultar la programación cultural oficial'
+          linkLabel: 'Al programa'
         }
       ]
     },
@@ -1158,13 +1158,13 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     closing: {
-      title: 'Por qué funciona tan bien la noche en Nerja',
+      title: 'Y después a casa, a pie',
       lead:
         'Su fuerza no está en competir con los grandes destinos de fiesta de la costa, sino en ofrecer varias buenas versiones de una noche en un entorno compacto: con vistas, social, cultural, junto al mar o hasta tarde.',
       availabilityCta: 'Consultar disponibilidad',
       apartmentsCta: 'Ver AMARA Playa',
       stayReason:
-        'La noche alrededor del Balcón se alarga, y AMARA Playa está a unos quinientos metros, en la quinta planta y orientado hacia la parte trasera: lo bastante cerca para volver andando y lo bastante lejos para dormir.'
+        'AMARA Playa está a unos cientos de metros del Balcón, en un quinto, hacia la parte trasera: lo bastante cerca para volver a pie, lo bastante tranquilo para dormir.'
     }
   },
   nl: {
@@ -1178,24 +1178,24 @@ export const nerjaNightlifeContent: Record<
       apartments: 'AMARA Playa'
     },
     hero: {
-      kicker: 'Avondgids',
+      kicker: 'Nerja ’s avonds',
       title:
-        'Nachtleven in Nerja — waar gaan jullie ’s avonds heen?',
+        'Nerja na zonsondergang',
       paragraphs: [
-        'Nerja is ’s avonds levendig, maar draait niet om enorme clubs of één feeststrook. Veel avonden beginnen op een terras, met vis of tapas; rond Plaza Tutti Frutti zitten de meeste bars voor later.',
-        'Kies de oude kern en het Balcón de Europa voor diner, wijn en zeezicht. Kies Burriana voor eten aan het strand en drankjes in de open lucht. Controleer voor flamenco, muziek of theater vooraf het actuele programma.',
-        'Verblijven jullie in Frigiliana, regel dan de terugreis voordat jullie uitgaan. Tussen beide plaatsen lopen is ’s nachts niet praktisch en een taxi op het laatste moment is niet gegarandeerd.'
+        'De avond in Nerja begint op een terras, met vis of tapas en het uitzicht vanaf de Balcón over de zee. Later trekt hij de steegjes in, en wie nog niet naar huis wil, landt op Plaza Tutti Frutti, waar de bars deur aan deur staan.',
+        'In plaats van grote clubs heeft Nerja drie hoeken die elk hun eigen avond maken: Balcón en oude stad voor het eten en de sundowner, Plaza Tutti Frutti voor het late uur, Burriana voor avonden met de voeten in het zand.',
+        'Wie bij ons in Frigiliana woont, bestelt de taxi voor de terugweg het best vóór de avond; de weg tussen de plaatsen is een autorit, geen wandeling.'
       ],
       imageAlt:
         'Rustig interieur van AMARA Playa als uitvalsbasis voor avonden in Nerja',
       summary: {
         eyebrow: 'Op deze pagina',
         body:
-          'Een eerlijke avondgids voor Nerja: de drie uitgaanszones, waar elk goed voor is en hoe levendig het wordt. Geen partystad, maar wel makkelijk te plannen.',
+          'Drie hoeken voor de avond, een sundowner die we zelf drinken, en flamenco als het programma past.',
         items: [
-          { id: 'late-night', label: 'Laat op de avond', value: 'De levendigste zone' },
-          { id: 'view', label: 'Met uitzicht', value: 'Balcón en bars met zeezicht' },
-          { id: 'water', label: 'Aan het water', value: 'De kustzone' },
+          { id: 'late-night', label: 'Late uur', value: 'Plaza Tutti Frutti' },
+          { id: 'view', label: 'Met uitzicht', value: 'Balcón & oude stad' },
+          { id: 'water', label: 'Aan het water', value: 'Burriana' },
           { id: 'reviewed', label: 'Bijgewerkt', value: 'Juli 2026' }
         ]
       }
@@ -1214,7 +1214,7 @@ export const nerjaNightlifeContent: Record<
       title: 'Is Nerja goed voor nachtleven?',
       intro:
         'Ja, als jullie diner, terrassen, cocktailbars en één compacte zone voor later in dezelfde plaats willen. Kies een andere bestemming als grote clubs tot zonsopkomst het belangrijkste doel zijn.',
-      reviewed: 'Redactioneel gecontroleerd: juli 2026',
+      reviewed: 'Stand juli 2026',
       items: [
         {
           title: 'Geschikt voor',
@@ -1239,39 +1239,39 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     areas: {
-      title: 'De drie belangrijkste avondzones van Nerja',
+      title: 'Drie hoeken, drie avonden',
       intro:
-        'De meeste avonden vallen binnen drie herkenbare gebieden. Dit is de praktische kaart van de stad: elke zone heeft een andere sfeer en het tijdstip telt bijna even zwaar als de locatie.',
+        'De oude stad om te beginnen, Plaza Tutti Frutti voor later, Burriana voor de zomer. Alles te voet.',
       items: [
         {
-          title: '1. Plaza Tutti Frutti — de belangrijkste barzone',
+          title: 'Plaza Tutti Frutti, het late uur',
           paragraphs: [
-            'Plaza Tutti Frutti is het duidelijkste centrum van Nerja’s latere nachtleven. De waarde zit minder in één zaak dan in de dichtheid: bars en plekken voor later liggen bij elkaar, mensen bewegen ertussen en de energie neemt zichtbaar toe naarmate de avond vordert.',
-            'Kies dit gebied voor bars na het diner. Vroeg kan het nog rustig zijn; later wordt dit de duidelijkste uitgaanszone van de stad.'
+            'Een klein plein met bars deur aan deur eromheen. Vroeg op de avond is het hier nog rustig; later loopt het plein vol, wordt de muziek luider en ga je van de ene bar naar de volgende zonder de straat te verlaten.',
+            'Kom hierheen als de avond na het eten verder moet gaan.'
           ],
           bestFor:
-            'Langs bars gaan, informele groepen, later beginnen, jongere energie en spontane avonden.',
+            'Bar-hopping, groepen, late starts.',
           mapHref: maps.tuttiFrutti
         },
         {
           title:
-            '2. Balcón de Europa & oude stad — onze sundowner bij Cochran’s',
+            'Balcón en oude stad, onze sundowner',
           paragraphs: [
-            'Dit is Nerja’s mooiste avondzone. Het Balcón is het herkenningspunt, maar de echte kracht ligt in de omliggende straatjes, terrassen en zijlanen, waar de zonsondergang overgaat in drankjes en drankjes in diner.',
-            'Onze zelf beproefde versie is concreet: in de zomer van 2025 lieten we de auto bij AMARA Playa aan Calle Castilla Pérez staan, liepen naar het centrum en zagen vanaf Cochran’s Terrace de zon ondergaan met een Cuba Libre en een Mai Tai. We herinneren de afstand als ongeveer 450 meter; de route is niet exact gemeten. Controleer vóór vertrek of de zaak en het terras open zijn.'
+            'De Balcón de Europa is het podium, de steegjes erachter zijn de avond: terrassen, wijnbars, kleine restaurants waar de zonsondergang een drankje wordt en het drankje een diner.',
+            'Onze sundowner: vanaf AMARA Playa te voet naar het centrum, het terras van Cochran’s op, Cuba Libre en Mai Tai, de zon gaat onder, de zee wordt donker. In de zomer van 2025 deden we het zo, en we doen het weer.'
           ],
           bestFor:
-            'Stellen, dates, drankjes bij zonsondergang, wijnbars, terrassen en rustige cocktails.',
+            'Stellen, zonsondergang, wijn, terrassen, rustige cocktails.',
           mapHref: maps.balcon
         },
         {
-          title: '3. Burriana — ontspannen avonden aan zee',
+          title: 'Burriana, avonden aan zee',
           paragraphs: [
-            'Burriana is in klassieke stedelijke zin niet Nerja’s sterkste uitgaansgebied, maar wel een van de beste plekken wanneer de zee onderdeel van de nacht moet blijven. Verwacht diners aan het strand, drankjes buiten en een zachter tempo.',
-            'Vooral in de zomer kunnen jullie de stranddag hier laten doorlopen in diner en nog één drankje.'
+            'De stranddag loopt over in de avond: een tafel in de chiringuito, espetos van het vuur, een drankje terwijl het zand afkoelt.',
+            'In de zomer blijven de strandtenten lang open; in de winter is Burriana ’s avonds van de wandelaars.'
           ],
           bestFor:
-            'Zomeravonden, strandbars, rustigere nachten, stellen en sfeer aan zee.',
+            'Zomeravonden, strandtenten, rustigere nachten.',
           mapHref: maps.burriana
         }
       ]
@@ -1331,25 +1331,25 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     culture: {
-      title: 'Flamenco, liveoptredens en Nerja’s lokale karakter',
+      title: 'Flamenco en cultuuravonden',
       paragraphs: [
-        'Nerja bestaat ’s avonds niet alleen uit bars. Flamenco, liveoptredens en culturele programmering kunnen een herkenbaar Andalusische laag toevoegen die een pure strandbestemming zelden biedt.',
-        'Daarom betekent “nachtleven” hier meer dan bars en clubs. Het volledige beeld bestaat uit terrassen, eten, strandsfeer, sociale plekken en cultuur. Programma’s wisselen, dus controleer actuele data in plaats van uit te gaan van een vaste wekelijkse voorstelling.'
+        'Naast bars heeft Nerja ook podia. Flamenco is er in kleine zaaltjes en op de feesten; het Centro Cultural Villa de Nerja brengt muziek, dans en theater.',
+        'De programma’s wisselen met het seizoen; het actuele staat hier gelinkt.'
       ],
       items: [
         {
           title: 'Flamenco-avonden',
           text:
-            'Benader flamenco als culturele ervaring en niet als gegarandeerd dagelijks vermaak. Het past bij stellen en reizigers die willen dat de avond geworteld voelt in Zuid-Spanje.',
+            'Kleine tablaos, feesten en zomeravonden; de data wisselen.',
           href: maps.flamenco,
-          linkLabel: 'Zoek actuele flamenco-opties'
+          linkLabel: 'Flamenco in Nerja zoeken'
         },
         {
-          title: 'Geprogrammeerde cultuuravonden',
+          title: 'Centro Cultural Villa de Nerja',
           text:
-            'Het Centro Cultural Villa de Nerja programmeert muziek, dans, theater en seizoensvoorstellingen en geeft langere verblijven een extra avondvorm naast diner en drankjes.',
+            'Muziek, dans, theater en seizoensprogramma in het cultuurcentrum van de stad.',
           href: nerjaCultureProgramme,
-          linkLabel: 'Bekijk het officiële cultuurprogramma'
+          linkLabel: 'Naar het programma'
         }
       ]
     },
@@ -1480,13 +1480,13 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     closing: {
-      title: 'Waarom het nachtleven in Nerja zo goed werkt',
+      title: 'En dan naar huis, te voet',
       lead:
         'De kracht ligt niet in concurreren met de grootste feestbestemmingen aan de kust, maar in meerdere goede versies van een avond op korte afstand: mooi, sociaal, cultureel, aan zee of laat.',
       availabilityCta: 'Beschikbaarheid bekijken',
       apartmentsCta: 'Bekijk AMARA Playa',
       stayReason:
-        'De avond rond het Balcón loopt door, en AMARA Playa ligt op zo’n vijfhonderd meter op de vijfde verdieping, met de kamers aan de achterzijde — dichtbij genoeg om terug te lopen, ver genoeg om te slapen.'
+        'AMARA Playa ligt een paar honderd meter van de Balcón, op de vijfde verdieping, aan de achterkant: dichtbij genoeg om naar huis te lopen, rustig genoeg om te slapen.'
     }
   },
   sv: {
@@ -1500,24 +1500,24 @@ export const nerjaNightlifeContent: Record<
       apartments: 'AMARA Playa'
     },
     hero: {
-      kicker: 'Kvällsguide',
+      kicker: 'Nerja på kvällen',
       title:
-        'Nattliv i Nerja — vart går ni efter mörkrets inbrott?',
+        'Nerja efter solnedgången',
       paragraphs: [
-        'Nerja är livligt efter mörkrets inbrott men kretsar inte kring stora klubbar eller en enda festgata. Många kvällar börjar på en terrass, med fisk eller tapas; kring Plaza Tutti Frutti finns den största koncentrationen av barer för senare.',
-        'Välj gamla stan och Balcón de Europa för middag, vin och havsutsikt. Välj Burriana för middag vid stranden och drinkar utomhus. Kontrollera det aktuella programmet i förväg om ni vill se flamenco, musik eller teater.',
-        'Om ni bor i Frigiliana ordnar ni resan tillbaka innan ni går ut. Vägen mellan orterna är ingen nattpromenad och taxi i sista minuten är inte garanterad.'
+        'Kvällen i Nerja börjar på en terrass, med fisk eller tapas och utsikten från Balcón över havet. Senare vandrar den in i gränderna, och den som inte vill hem ännu hamnar på Plaza Tutti Frutti, där barerna står dörr mot dörr.',
+        'I stället för stora klubbar har Nerja tre hörn som var för sig gör sin egen kväll: Balcón och gamla stan för middag och sundowner, Plaza Tutti Frutti för den sena timmen, Burriana för kvällar med fötterna i sanden.',
+        'Bor ni hos oss i Frigiliana är det bäst att beställa taxin för hemvägen före kvällen; vägen mellan orterna är en bilfärd, inte en promenad.'
       ],
       imageAlt:
         'Lugn interiör på AMARA Playa som bas för kvällar i Nerja',
       summary: {
         eyebrow: 'På den här sidan',
         body:
-          'En ärlig kvällsguide till Nerja: de tre utegångszonerna, vad var och en passar för och hur livligt det blir. Ingen partymetropol — men lätt att planera.',
+          'Tre hörn för kvällen, en sundowner vi själva dricker, och flamenco när programmet passar.',
         items: [
-          { id: 'late-night', label: 'Sen kväll', value: 'Den livligaste zonen' },
-          { id: 'view', label: 'Med utsikt', value: 'Balcón och barer med havsutsikt' },
-          { id: 'water', label: 'Vid vattnet', value: 'Kustzonen' },
+          { id: 'late-night', label: 'Sen timme', value: 'Plaza Tutti Frutti' },
+          { id: 'view', label: 'Med utsikt', value: 'Balcón & gamla stan' },
+          { id: 'water', label: 'Vid vattnet', value: 'Burriana' },
           { id: 'reviewed', label: 'Uppdaterad', value: 'Juli 2026' }
         ]
       }
@@ -1536,7 +1536,7 @@ export const nerjaNightlifeContent: Record<
       title: 'Är Nerja bra för nattliv?',
       intro:
         'Ja, om ni vill ha middag, terrasser, cocktailbarer och ett kompakt område för senare på samma ort. Välj ett annat resmål om stora klubbar till gryningen är huvudsyftet med resan.',
-      reviewed: 'Redaktionellt granskat: juli 2026',
+      reviewed: 'Uppdaterad juli 2026',
       items: [
         {
           title: 'Passar bäst för',
@@ -1561,39 +1561,39 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     areas: {
-      title: 'Nerjas tre viktigaste kvällsområden',
+      title: 'Tre hörn, tre kvällar',
       intro:
-        'De flesta kvällar ryms inom tre tydliga områden. Det här är stadens praktiska karta: varje zon har sin egen känsla och tidpunkten betyder nästan lika mycket som platsen.',
+        'Gamla stan till att börja med, Plaza Tutti Frutti för senare, Burriana för sommaren. Allt till fots.',
       items: [
         {
-          title: '1. Plaza Tutti Frutti — det viktigaste barområdet',
+          title: 'Plaza Tutti Frutti, den sena timmen',
           paragraphs: [
-            'Plaza Tutti Frutti är Nerjas tydligaste centrum för det sena nattlivet. Värdet ligger mindre i ett enskilt ställe än i tätheten: barer och senare kvällsställen ligger nära varandra, människor rör sig mellan dem och energin ökar tydligt under kvällen.',
-            'Välj området när ni vill ha rörelse snarare än stillhet. Det fungerar bäst efter middagen; tidigt kan det kännas som en övergång, medan det senare blir stadens tydligaste sociala nattlivszon.'
+            'Ett litet torg med barer dörr mot dörr runtom. Tidigt på kvällen är det fortfarande stilla här; senare fylls torget, musiken blir högre, och man går från en bar till nästa utan att lämna gatan.',
+            'Kom hit när kvällen ska fortsätta efter maten.'
           ],
           bestFor:
-            'Barrundor, avslappnade grupper, sena starter, yngre energi och spontana kvällar.',
+            'Barrunda, grupper, sena starter.',
           mapHref: maps.tuttiFrutti
         },
         {
           title:
-            '2. Balcón de Europa & gamla stan — vår sundowner på Cochran’s',
+            'Balcón och gamla stan, vår sundowner',
           paragraphs: [
-            'Det här är Nerjas vackraste kvällsområde. Balcón är landmärket, men den verkliga styrkan ligger i gamla stans gator, terrasser och gränder där solnedgång blir drinkar och drinkar blir middag.',
-            'Vår egen prövade version är konkret: sommaren 2025 lämnade vi bilen vid AMARA Playa på Calle Castilla Pérez, promenerade in till centrum och såg solnedgången från Cochran’s Terrace med en Cuba Libre och en Mai Tai. Vi minns sträckan som ungefär 450 meter; den är inte exakt uppmätt. Kontrollera före avfärd att stället och terrassen är öppna.'
+            'Balcón de Europa är scenen, gränderna bakom är kvällen: terrasser, vinbarer, små restauranger där solnedgången blir en drink och drinken en middag.',
+            'Vår sundowner: från AMARA Playa till fots in till centrum, upp på Cochran’s terrass, Cuba Libre och Mai Tai, solen går ner, havet blir mörkt. Sommaren 2025 gjorde vi så, och vi gör det igen.'
           ],
           bestFor:
-            'Par, dejter, drinkar i solnedgången, vinbarer, terrasser och lugna cocktails.',
+            'Par, solnedgång, vin, terrasser, stilla cocktails.',
           mapHref: maps.balcon
         },
         {
-          title: '3. Burriana — avkopplade kvällar vid havet',
+          title: 'Burriana, kvällar vid havet',
           paragraphs: [
-            'Burriana är inte Nerjas starkaste nattlivsområde i klassisk urban mening, men en av de bästa platserna när havet ska förbli en del av kvällen. Räkna med strandmiddagar, drinkar utomhus och en mjukare rytm.',
-            'Särskilt på sommaren fungerar området som en förlängd stranddag: ni byter inte över till nattliv utan låter eftermiddagen fortsätta med middag och en drink till.'
+            'Stranddagen övergår i kväll: ett bord på chiringuiton, espetos från elden, en drink medan sanden svalnar.',
+            'På sommaren har strandrestaurangerna öppet länge; på vintern tillhör Burriana på kvällen promenerarna.'
           ],
           bestFor:
-            'Sommarkvällar, strandbarer, lugnare nätter, par och havsnära stämning.',
+            'Sommarkvällar, strandrestauranger, lugnare nätter.',
           mapHref: maps.burriana
         }
       ]
@@ -1653,25 +1653,25 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     culture: {
-      title: 'Flamenco, liveframträdanden och Nerjas lokala dimension',
+      title: 'Flamenco och kulturkvällar',
       paragraphs: [
-        'Nerja handlar inte bara om barer på kvällen. Flamenco, liveframträdanden och kulturprogram kan ge en tydligt andalusisk dimension som en renodlad stranddestination sällan erbjuder.',
-        'Därför betyder “nattliv” mer än barer och klubbar här. Helheten omfattar terrasser, mat, strandatmosfär, sociala platser och kultur. Programmen varierar, så kontrollera aktuella datum i stället för att förutsätta en fast veckoföreställning.'
+        'Förutom barer har Nerja också scener. Flamenco finns på små ställen och vid festerna; Centro Cultural Villa de Nerja visar musik, dans och teater.',
+        'Programmen växlar med säsongen; det aktuella finns länkat här.'
       ],
       items: [
         {
           title: 'Flamencokvällar',
           text:
-            'Se flamenco som en kulturupplevelse och inte som garanterad underhållning varje kväll. Det passar par och resenärer som vill att kvällen ska kännas förankrad i södra Spanien.',
+            'Små tablaos, fester och sommarkvällar; datumen växlar.',
           href: maps.flamenco,
-          linkLabel: 'Sök aktuella flamencoalternativ'
+          linkLabel: 'Sök flamenco i Nerja'
         },
         {
-          title: 'Programmerade kulturkvällar',
+          title: 'Centro Cultural Villa de Nerja',
           text:
-            'Centro Cultural Villa de Nerja erbjuder musik, dans, teater och säsongsföreställningar, vilket ger längre vistelser ett kvällsalternativ utöver middag och drinkar.',
+            'Musik, dans, teater och säsongsprogram på stadens kulturcentrum.',
           href: nerjaCultureProgramme,
-          linkLabel: 'Se det officiella kulturprogrammet'
+          linkLabel: 'Till programmet'
         }
       ]
     },
@@ -1802,13 +1802,13 @@ export const nerjaNightlifeContent: Record<
       ]
     },
     closing: {
-      title: 'Varför nattlivet i Nerja fungerar så bra',
+      title: 'Och sedan hem, till fots',
       lead:
         'Styrkan ligger inte i att konkurrera med kustens största partydestinationer, utan i flera bra versioner av en kväll på liten yta: vacker, social, kulturell, havsnära eller sen.',
       availabilityCta: 'Kontrollera tillgänglighet',
       apartmentsCta: 'Visa AMARA Playa',
       stayReason:
-        'Kvällen kring Balcón drar ut på tiden, och AMARA Playa ligger cirka femhundra meter bort på femte våningen med rummen mot husets baksida — nära nog för hemvägen, långt nog för att sova.'
+        'AMARA Playa ligger några hundra meter från Balcón, på femte våningen, mot baksidan: nära nog för att gå hem, tyst nog för att sova.'
     }
   }
 };
