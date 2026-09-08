@@ -108,6 +108,8 @@ interface AuthorityPage {
   groupSupportingSections?: boolean;
   /** Where the Gästeguide bridge renders relative to the related links, or absent. */
   hasGuideBridge?: 'before-related' | 'after-related';
+  /** Whether the winter-stays sun-hours chart renders after the sections, before related links. */
+  hasSunHoursChart?: boolean;
   closingCtas: [ClosingCta, ClosingCta];
 }
 
@@ -285,6 +287,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     blockAfterSections: null,
     arrivalModules: null,
     interleaved: [],
+    hasSunHoursChart: true,
     sectionMarkerAttribute: 'data-am-winter-stays-section',
     closingCtas: [
       { token: 'tarifa', labelKey: 'propertyLabel', className: DECISION_PRIMARY_CLASS },
@@ -351,6 +354,7 @@ const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> 
       if (arrivalModule) return { kind: `arrival:${arrivalModule}`, marker: null };
       if (node.hasAttribute('data-am-guest-guide-bridge')) return { kind: 'guide-bridge', marker: null };
       if (node.hasAttribute('data-am-climate-table')) return { kind: 'climate-table', marker: null };
+      if (node.hasAttribute('data-am-sun-hours')) return { kind: 'sun-hours', marker: null };
       const groupedSectionIds = Array.from(
         node.querySelectorAll<HTMLElement>('[data-am-authority-layout="card"][id]')
       ).map((section) => section.id);
@@ -416,6 +420,10 @@ function expectedBlocks(entry: AuthorityPage, locale: AuthorityArticleLocale): B
 
   if (entry.blockAfterSections) {
     blocks.push({ kind: entry.blockAfterSections, marker: null });
+  }
+
+  if (entry.hasSunHoursChart) {
+    blocks.push({ kind: 'sun-hours', marker: null });
   }
 
   if (entry.hasGuideBridge === 'before-related') {
