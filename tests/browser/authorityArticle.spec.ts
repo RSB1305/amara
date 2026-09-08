@@ -145,7 +145,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
     blockAfterSections: null,
-    arrivalModules: ['gateways', 'options', 'journey-steps', 'mobility', 'parking', 'final-mile'],
+    arrivalModules: ['gateways', 'options', 'mobility', 'parking', 'final-mile'],
     interleaved: [],
     sectionMarkerAttribute: null,
     closingCtas: [
@@ -568,7 +568,7 @@ for (const entry of AUTHORITY_PAGES) {
 }
 
 test('the destination arrival pages use their declared module order', async ({ page }) => {
-  const sharedModules = ['gateways', 'options', 'journey-steps', 'mobility', 'parking', 'final-mile'];
+  const sharedModules = ['gateways', 'options', 'mobility', 'parking', 'final-mile'];
   const pages: Array<{ routeToken: LinkToken; pageId: string; modules: string[] }> = [
     {
       routeToken: 'getting_to_frigiliana',
