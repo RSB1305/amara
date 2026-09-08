@@ -19,11 +19,11 @@ export const nerjaHikingPlaceCopy = definePlaceCopy({
           sv: "Den berömda \"flodvandringen\" – vacker, svalkande och mycket välbesökt under högsäsong."
         },
         {
-          en: "Go early (around 08:00) and prefer weekdays. Access to the river has been closed by the authorities for long stretches since summer 2025, and a procedure for controlled access is under way. Check the current status before you set off; we will gladly look it up for you.",
+          en: "Set off early, around eight, and preferably on a weekday. The river has been closed along long stretches since summer 2025 and controlled access is being worked on; we will tell you what currently applies.",
           de: "Früh los, gegen acht, und am besten unter der Woche. Der Fluss ist seit Sommer 2025 über lange Strecken gesperrt, ein kontrollierter Zugang ist in Arbeit; wir sagen euch, was gerade gilt.",
-          es: "Id temprano (sobre las 08:00) y preferiblemente entre semana. El acceso al río ha estado cerrado por las autoridades durante largos periodos desde el verano de 2025 y hay en marcha un procedimiento de acceso controlado. Consultad el estado actual antes de salir; lo comprobamos con gusto por vosotros.",
-          nl: "Ga vroeg op pad (rond 08:00 uur) en bij voorkeur op een doordeweekse dag. De toegang tot de rivier is sinds de zomer van 2025 lange tijd door de autoriteiten gesloten geweest en er loopt een procedure voor gecontroleerde toegang. Controleer de actuele status voor vertrek; we zoeken het graag voor jullie op.",
-          sv: "Gå tidigt (runt 08:00) och helst på vardagar. Tillträdet till floden har varit stängt av myndigheterna under långa perioder sedan sommaren 2025, och ett förfarande för kontrollerat tillträde pågår. Kontrollera aktuell status innan ni ger er av; vi kollar gärna åt er."
+          es: "Salid temprano, hacia las ocho, y mejor entre semana. El río está cerrado en largos tramos desde el verano de 2025 y se está preparando un acceso controlado; os decimos qué está en vigor ahora.",
+          nl: "Vroeg op pad, rond acht uur, en het liefst op een weekdag. De rivier is sinds de zomer van 2025 over lange stukken gesloten en er wordt aan gecontroleerde toegang gewerkt; wij vertellen jullie wat er nu geldt.",
+          sv: "Ge er iväg tidigt, runt åtta, och helst på en vardag. Floden är avspärrad på långa sträckor sedan sommaren 2025 och en kontrollerad tillgång är på gång; vi berättar vad som gäller just nu."
         }
       ]
     }

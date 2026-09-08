@@ -150,18 +150,18 @@ export const tarifaKitePartnerContent: TarifaKitePartnerContent = {
       'Tarifa heeft twee sterke partners die elkaar goed kennen: AMARA voor het verblijf, Tarifa Surf Club voor alles op het water. We delen deze pagina omdat we elkaar gasten sturen en omdat de vragen altijd dezelfde zijn. Waar leer ik het, wanneer is de beste tijd, wat kost het, waar slaap ik en hoe lees ik de wind. Hier vinden jullie de antwoorden voor beginners en voor wie al vaart — met het laagseizoen van half september tot half juni als onze eerlijke aanbeveling.',
       'Tarifa har två starka partner som känner varandra väl: AMARA för boendet, Tarifa Surf Club för allt på vattnet. Vi delar den här sidan eftersom vi skickar gäster till varandra och eftersom frågorna alltid är desamma. Var lär jag mig, när är bästa tiden, vad kostar det, var sover jag och hur läser jag vinden. Här finns svaren för nybörjare och för er som redan åker – med lågsäsongen från mitten av september till mitten av juni som vår ärliga rekommendation.'
     ),
-    updated: l('Checked September 2026', 'Stand September 2026', 'Revisado en septiembre de 2026', 'Gecontroleerd in september 2026', 'Kontrollerat i september 2026'),
-    note: l('Club facts and prices from tarifasurfclub.com, 3 September 2026. Teaching, conditions and water decisions stay with the school.', 'Preise des Tarifa Surf Club, Stand 3. September 2026.', 'Datos y precios del club de tarifasurfclub.com, 3 de septiembre de 2026. La enseñanza, las condiciones y las decisiones en el agua siguen siendo cosa de la escuela.', 'Clubfeiten en prijzen van tarifasurfclub.com, 3 september 2026. Les, omstandigheden en beslissingen op het water blijven bij de school.', 'Klubbfakta och priser från tarifasurfclub.com, 3 september 2026. Undervisning, förhållanden och beslut på vattnet ligger hos skolan.')
+    updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026'),
+    note: l('Tarifa Surf Club prices as of 3 September 2026.', 'Preise des Tarifa Surf Club, Stand 3. September 2026.', 'Precios del Tarifa Surf Club, actualizados el 3 de septiembre de 2026.', 'Prijzen van de Tarifa Surf Club, stand 3 september 2026.', 'Tarifa Surf Clubs priser per den 3 september 2026.')
   },
   partners: {
     eyebrow: l('Who does what', 'Wer was macht', 'Quién hace qué', 'Wie doet wat', 'Vem gör vad'),
     title: l('Two partners, one message', 'Zwei Partner, eine Anfrage', 'Dos socios, una sola consulta', 'Twee partners, één aanvraag', 'Två partner, en förfrågan'),
     intro: l(
-      'We are not one company, and we do not pretend to be. We are two partners who trust each other and who put the practical parts of your trip together.',
+      'We are two partners who trust each other and put the practical parts of your trip together.',
       'Wir sind zwei Partner, die einander vertrauen und die praktischen Teile eurer Reise zusammensetzen.',
-      'No somos una sola empresa, ni lo aparentamos. Somos dos socios que confían el uno en el otro y que montan juntos la parte práctica de vuestro viaje.',
-      'We zijn geen bedrijf, en we doen ook niet alsof. We zijn twee partners die elkaar vertrouwen en de praktische delen van jullie reis samen in elkaar zetten.',
-      'Vi är inte ett företag, och vi låtsas inte vara det. Vi är två partner som litar på varandra och sätter ihop de praktiska delarna av er resa.'
+      'Somos dos socios que confían el uno en el otro y que montan juntos la parte práctica de vuestro viaje.',
+      'We zijn twee partners die elkaar vertrouwen en de praktische kant van jullie reis samen in elkaar zetten.',
+      'Vi är två partner som litar på varandra och sätter ihop de praktiska delarna av er resa.'
     ),
     cards: [
       {
@@ -247,7 +247,7 @@ export const tarifaKitePartnerContent: TarifaKitePartnerContent = {
       [
         'From mid-September to mid-June the beaches are quieter, the kitecamps run and the town is easier to live in. The club writes of good water-sport conditions all year, and sun in winter is not unusual.',
         'In the low season Robert walks from AMARA straight down to Los Lances and kites there. In high summer the day usually means driving out of town to Valdevaqueros, because of the bathing zones and the crowds.',
-        'That is not a promise about the wind on any given day. It is the honest picture of how the two halves of the year feel.'
+        'That is how the two halves of the year feel; which wind blows on your day is shown by the forecast.'
       ],
       [
         'Von Mitte September bis Mitte Juni sind die Strände ruhiger, die Kitecamps laufen, und der Ort lebt sich leichter. Der Club schreibt von ganzjährig guten Wassersportbedingungen, und Sonne im Winter ist nicht ungewöhnlich.',
@@ -257,17 +257,17 @@ export const tarifaKitePartnerContent: TarifaKitePartnerContent = {
       [
         'De mediados de septiembre a mediados de junio las playas están más tranquilas, los kitecamps funcionan y el pueblo se vive con más calma. El club habla de buenas condiciones para los deportes acuáticos todo el año, y el sol en invierno no es raro.',
         'En temporada baja, Robert baja andando desde AMARA hasta Los Lances y navega allí. En pleno verano, el día suele significar salir del pueblo en coche hacia Valdevaqueros, por las zonas de baño y la cantidad de gente.',
-        'No es una promesa sobre el viento de un día concreto. Es la imagen sincera de cómo se sienten las dos mitades del año.'
+        'Así se sienten las dos mitades del año; qué viento sopla el día de vuestra sesión lo dice el pronóstico.'
       ],
       [
         'Van half september tot half juni zijn de stranden rustiger, draaien de kitecamps en leeft de stad makkelijker. De club schrijft over goede watersportomstandigheden het hele jaar, en zon in de winter is niet ongewoon.',
         'In het laagseizoen loopt Robert vanaf AMARA zo naar Los Lances en kitet daar. Hartje zomer betekent de dag meestal: met de auto de stad uit naar Valdevaqueros, vanwege de zwemzones en de drukte.',
-        'Dat is geen belofte over de wind op een bepaalde dag. Het is het eerlijke beeld van hoe de twee helften van het jaar voelen.'
+        'Zo voelen de twee helften van het jaar; welke wind er op jullie dag staat, laat de voorspelling zien.'
       ],
       [
         'Från mitten av september till mitten av juni är stränderna lugnare, kitecampen pågår och staden är lättare att leva i. Klubben skriver om bra vattensportförhållanden året runt, och sol på vintern är inte ovanligt.',
         'Under lågsäsongen går Robert från AMARA rakt ner till Los Lances och kitar där. Mitt i sommaren betyder dagen oftast: med bilen ut ur staden till Valdevaqueros, på grund av badzonerna och folkmängden.',
-        'Det är inget löfte om vinden en viss dag. Det är den ärliga bilden av hur årets två halvor känns.'
+        'Så känns årets två halvor; vilken vind som blåser just er dag visar prognosen.'
       ]
     ),
     facts: [

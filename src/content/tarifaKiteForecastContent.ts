@@ -103,8 +103,8 @@ export const tarifaKiteForecastContent: TarifaKiteForecastContent = {
       'Drie blokken, in vaste volgorde. Eerst het officiële woord van AEMET, de Spaanse weerdienst: zijn waarschuwingen en verwachting staan boven alles wat volgt. Dan de kitebriefing uit de AEMET-uurverwachting, met vaste regels voor jullie geduid. Tot slot de tabel van Windguru, om te vergelijken.',
       'Tre block, i fast ordning. Först det officiella ordet från AEMET, den spanska vädertjänsten: dess varningar och prognos står över allt som följer. Sedan kitebriefingen ur AEMET:s timprognos, tolkad åt er med fasta regler. Sist Windgurus egen tabell, för jämförelse.',
     ),
-    updated: l('Checked September 2026', 'Stand September 2026', 'Revisado en septiembre de 2026', 'Gecontroleerd in september 2026', 'Kontrollerat i september 2026'),
-    note: l('Official warnings, model values and a third-party table are kept visibly apart.', '', 'Avisos oficiales, valores de modelo y una tabla de terceros se mantienen visiblemente separados.', 'Officiële waarschuwingen, modelwaarden en een externe tabel blijven zichtbaar gescheiden.', 'Officiella varningar, modellvärden och en extern tabell hålls synligt åtskilda.')
+    updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026'),
+    note: l('', '', '', '', '')
   },
   windguruLive: {
     eyebrow: l('Comparison', 'Vergleich', 'Comparación', 'Vergelijking', 'Jämförelse'),

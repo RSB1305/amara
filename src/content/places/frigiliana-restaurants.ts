@@ -115,11 +115,11 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
         sv: "Välj ett utebord om du vill se torget vakna till liv. Det är ett enkelt val första kvällen utan att gå långt upp i Barribarto."
       },
       beforeYouGo: {
-        en: "Expect a social, busy room rather than a secluded table. Check current opening days before making it the fixed plan for your arrival evening.",
+        en: "Sociable rather than secluded; just right for your arrival evening.",
         de: "Gesellig statt abgeschieden; am Ankunftsabend genau richtig.",
-        es: "El ambiente es social, no íntimo. Comprueba los días de apertura antes de convertirlo en el plan fijo para la noche de llegada.",
-        nl: "De sfeer is sociaal, niet afgezonderd. Controleer de actuele openingsdagen voordat je je aankomstavond hier volledig omheen plant.",
-        sv: "Stämningen är social snarare än avskild. Kontrollera aktuella öppningsdagar innan du bygger hela ankomstkvällen kring restaurangen."
+        es: "Animado más que apartado; perfecto para la noche de llegada.",
+        nl: "Gezellig druk in plaats van afgezonderd; precies goed voor de aankomstavond.",
+        sv: "Sällskapligt snarare än avskilt; helt rätt för ankomstkvällen."
       }
     },
     guide: {
@@ -237,11 +237,11 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
         sv: "Gör lunchen till belöningen efter en vandring eller långsam bilfärd i bergen. Ge resan och måltiden tid i stället för att klämma in dem mellan kustplaner."
       },
       beforeYouGo: {
-        en: "Access is rural and opening arrangements matter. Check the route, current hours and reservation options directly before setting out.",
+        en: "The drive is on country roads into the campo; book, and the evening is yours.",
         de: "Die Anfahrt führt über Landstraßen ins Campo; reserviert, und der Abend gehört euch.",
-        es: "El acceso es rural y la apertura importa. Comprueba directamente la ruta, los horarios actuales y la posibilidad de reservar antes de salir.",
-        nl: "De toegang is landelijk en de opening is belangrijk. Controleer route, actuele tijden en reserveringsmogelijkheden rechtstreeks voordat je vertrekt.",
-        sv: "Vägen är lantlig och aktuella öppettider viktiga. Kontrollera rutt, tider och bokningsmöjlighet direkt innan avfärd."
+        es: "Se llega por carreteras comarcales hacia el campo; reservad, y la noche es vuestra.",
+        nl: "De rit gaat over landweggetjes de campo in; reserveer, en de avond is van jullie.",
+        sv: "Vägen dit går på landsvägar ut i campo; boka, så är kvällen er."
       }
     },
     guide: {

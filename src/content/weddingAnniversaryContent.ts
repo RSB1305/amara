@@ -36,11 +36,11 @@ export const weddingAnniversaryContent = {
     kicker: l('WEDDING ANNIVERSARY IN ANDALUSIA', 'HOCHZEITSTAG IN ANDALUSIEN', 'ANIVERSARIO DE BODA EN ANDALUCÍA', 'HUWELIJKSVERJAARDAG IN ANDALUSIË', 'BRÖLLOPSDAG I ANDALUSIEN'),
     title: l('A few special days for the two of you', 'Ein paar besondere Tage für euch zwei', 'Unos días especiales para vosotros dos', 'Een paar bijzondere dagen voor jullie samen', 'Några speciella dagar för er två'),
     lead: l(
-      'Your wedding anniversary does not need a fixed celebration package. A good place and time together are enough.',
+      'A few days just for you: a terrace, a good dinner, a place you both like being.',
       'Ein paar Tage nur für euch: eine Terrasse, ein gutes Abendessen, ein Ort, an dem ihr beide gern seid.',
-      'Vuestro aniversario de boda no necesita un paquete de celebración. Basta con un buen lugar y tiempo juntos.',
-      'Jullie huwelijksverjaardag heeft geen vast feestpakket nodig. Een fijne plek en tijd samen zijn genoeg.',
-      'Er bröllopsdag behöver inget färdigt firandepaket. En bra plats och tid tillsammans räcker.'
+      'Unos días solo para vosotros: una terraza, una buena cena, un lugar en el que os gusta estar a los dos.',
+      'Een paar dagen alleen voor jullie: een terras, een goed diner, een plek waar jullie allebei graag zijn.',
+      'Några dagar bara för er: en terrass, en god middag, en plats där ni båda gärna är.'
     ),
     paragraphs: lp(
       ['AMARA has six stays in Frigiliana, Nerja and Tarifa. Depending on the hideaway, you can have a generous bathroom, a double shower, a 180 or 200 centimetre-wide bed, a private terrace with a hammock, quiet or views towards the sea. No single stay has everything. A terrace in Frigiliana, the beach within easy walking distance in Nerja or more room with an Atlantic view in Tarifa can shape these days in very different ways. We look after every stay ourselves and will tell you honestly which one has the details that matter to you.'],

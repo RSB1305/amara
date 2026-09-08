@@ -170,11 +170,11 @@ export const globalNavLabels = {
     sv: 'Medelhavskust, stränder och Balcón de Europa.'
   },
   locationTarifaMeta: {
-    en: 'Atlantic wind, wide horizons and kitesurfing.',
+    en: 'Wind, wide beaches and Africa on the horizon.',
     de: 'Wind, weite Strände und Afrika am Horizont.',
-    es: 'Viento atlántico, horizontes abiertos y kitesurf.',
-    nl: 'Atlantische wind, weidse horizonten en kitesurfen.',
-    sv: 'Atlantvindar, vida horisonter och kitesurfing.'
+    es: 'Viento, playas anchas y África en el horizonte.',
+    nl: 'Wind, brede stranden en Afrika aan de horizon.',
+    sv: 'Vind, vida stränder och Afrika vid horisonten.'
   },
   allStays: trustLabels.romantic_hideaways,
   lastMinuteStays: {
@@ -185,25 +185,25 @@ export const globalNavLabels = {
     sv: 'Sista minuten'
   },
   currentOffers: {
-    en: 'Current offers',
+    en: 'Free at short notice',
     de: 'Kurzfristig frei',
-    es: 'Ofertas actuales',
-    nl: 'Actuele aanbiedingen',
-    sv: 'Aktuella erbjudanden'
+    es: 'Libre a corto plazo',
+    nl: 'Op korte termijn vrij',
+    sv: 'Ledigt med kort varsel'
   },
   currentOffersMeta: {
-    en: 'Current stays bookable during the next 21 days.',
+    en: 'What is still free in the next three weeks.',
     de: 'Was in den nächsten drei Wochen noch frei ist.',
-    es: 'Estancias disponibles durante los próximos 21 días.',
-    nl: 'Actueel boekbare verblijven voor de komende 21 dagen.',
-    sv: 'Boenden som kan bokas under de kommande 21 dagarna.'
+    es: 'Lo que aún queda libre en las próximas tres semanas.',
+    nl: 'Wat de komende drie weken nog vrij is.',
+    sv: 'Det som fortfarande är ledigt de närmaste tre veckorna.'
   },
   farahMeta: {
-    en: 'Self-contained boutique suite · 2 guests',
+    en: 'Compact suite · 2 guests',
     de: 'Kompakte Suite · 2 Gäste',
-    es: 'Suite boutique independiente · 2 huéspedes',
-    nl: 'Zelfstandige boutique-suite · 2 gasten',
-    sv: 'Självständig boutique-svit · 2 gäster'
+    es: 'Suite compacta · 2 huéspedes',
+    nl: 'Compacte suite · 2 gasten',
+    sv: 'Kompakt suite · 2 gäster'
   },
   lounisMeta: {
     en: 'Historic apartment · 2 guests',
@@ -234,11 +234,11 @@ export const globalNavLabels = {
     sv: 'Strandlägenhet · 2 gäster'
   },
   familySurfMeta: {
-    en: 'Holiday house · up to 4 guests',
+    en: 'Penthouse on the Atlantic · up to 4 guests',
     de: 'Penthouse am Atlantik · bis 4 Gäste',
-    es: 'Casa vacacional · hasta 4 huéspedes',
-    nl: 'Vakantiehuis · tot 4 gasten',
-    sv: 'Semesterhus · upp till 4 gäster'
+    es: 'Ático junto al Atlántico · hasta 4 huéspedes',
+    nl: 'Penthouse aan de Atlantische Oceaan · tot 4 gasten',
+    sv: 'Takvåning vid Atlanten · upp till 4 gäster'
   },
   aboutMeta: {
     en: 'What you can expect from us, and who is behind the six stays.',
@@ -248,11 +248,11 @@ export const globalNavLabels = {
     sv: 'Vad ni kan förvänta er av oss, och vilka som står bakom de sex boendena.'
   },
   reviewsMeta: {
-    en: 'Verified experiences from AMARA guests.',
+    en: 'What guests write after their stay.',
     de: 'Was Gäste nach ihrem Aufenthalt schreiben.',
-    es: 'Experiencias verificadas de huéspedes de AMARA.',
-    nl: 'Geverifieerde ervaringen van AMARA-gasten.',
-    sv: 'Verifierade upplevelser från AMARA-gäster.'
+    es: 'Lo que escriben los huéspedes después de su estancia.',
+    nl: 'Wat gasten na hun verblijf schrijven.',
+    sv: 'Vad gäster skriver efter sin vistelse.'
   },
   directBookingMeta: {
     en: 'Best rate, mid-stay cleaning and direct contact.',

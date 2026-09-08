@@ -75,11 +75,11 @@ export const nerjaWinterStaysContent = {
       "Om en detalj avgör för er, fråga oss innan ni bokar. Vi känner lägenheten."
     ),
     updated: l(
-      "Last checked in August 2026",
+      "As of August 2026",
       "Stand August 2026",
-      "Revisado por última vez en agosto de 2026",
-      "Voor het laatst nagekeken in augustus 2026",
-      "Senast kontrollerat i augusti 2026"
+      "Actualizado en agosto de 2026",
+      "Stand augustus 2026",
+      "Uppdaterad augusti 2026"
     ),
     mark: l("WINTER", "WINTER", "INVIERNO", "WINTER", "VINTER")
   },
@@ -280,7 +280,7 @@ export const nerjaWinterStaysContent = {
       "De openingstijden komen van de grot, het museum en de gemeente. Alles over AMARA Playa komt van ons.",
       "Öppettiderna kommer från grottan, museet och kommunen. Allt om AMARA Playa kommer från oss."
     ),
-    checked: l("Last checked in August 2026", "Stand August 2026", "Revisado por última vez en agosto de 2026", "Voor het laatst nagekeken in augustus 2026", "Senast kontrollerat i augusti 2026"),
+    checked: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026"),
     links: [
       {
         label: l("Cueva de Nerja · opening information", "Cueva de Nerja · Öffnungszeiten", "Cueva de Nerja · horarios", "Cueva de Nerja · openingstijden", "Cueva de Nerja · öppettider"),

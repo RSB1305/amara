@@ -29,11 +29,11 @@ export interface GuestGuidePreviewDestination {
 
 export const guestGuidePreviewContent = {
   logout: {
-    en: 'Log out',
+    en: 'Guests only',
     de: 'Nur für Gäste',
-    es: 'Salir',
-    nl: 'Uitloggen',
-    sv: 'Logga ut'
+    es: 'Solo para huéspedes',
+    nl: 'Alleen voor gasten',
+    sv: 'Endast för gäster'
   } satisfies LocalizedText,
   /** `{destination}` is filled with the destination name. */
   title: {

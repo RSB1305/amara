@@ -75,11 +75,11 @@ export const frigilianaDayTripPlaceCopy = definePlaceCopy({
         sv: "Planera dagen så här"
       },
       callout: {
-        en: "A central car park around the port and Muelle Uno is a practical starting point, but check current access and availability before you leave.",
+        en: "Park in the car park at the port by Muelle Uno; from there the old town is on foot.",
         de: "Parkt im Parkhaus am Hafen bei Muelle Uno; von dort ist die Altstadt zu Fuß.",
-        es: "Un aparcamiento céntrico en la zona del puerto y Muelle Uno es un buen punto de partida, aunque conviene comprobar el acceso y la disponibilidad antes de salir.",
-        nl: "Een centrale parkeergarage rond de haven en Muelle Uno is een praktisch vertrekpunt. Controleer wel de actuele toegang en beschikbaarheid voordat jullie vertrekken.",
-        sv: "Ett centralt parkeringsgarage vid hamnen och Muelle Uno är en praktisk utgångspunkt. Kontrollera aktuell åtkomst och tillgänglighet innan ni åker."
+        es: "Aparcad en el parking del puerto junto a Muelle Uno; desde ahí el centro histórico se hace a pie.",
+        nl: "Parkeer in de parkeergarage bij de haven aan Muelle Uno; van daar is de oude stad te voet.",
+        sv: "Parkera i parkeringshuset vid hamnen intill Muelle Uno; därifrån går ni till gamla stan."
       },
       details: {
         en: "Walk into the centre along the port and park, then choose one cultural anchor: the Museo Picasso Málaga or the Alcazaba both work well. Leave room for an unhurried lunch around Atarazanas Market rather than trying to cover every museum.",

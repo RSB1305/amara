@@ -169,7 +169,7 @@ export const tarifaExperienceContent = {
   dayChooser: {
     title: l("What works today", "Was heute gut passt", "Lo que apetece hoy", "Wat vandaag goed uitkomt", "Det som passar i dag"),
     intro: [
-      l("Wind and weather often decide whether the day belongs to the beach, the water or the Old Town. Check current conditions before watersports, boat trips and exposed walks.", "Wind und Wetter entscheiden, ob der Tag an den Strand, aufs Wasser oder in die Altstadt führt.", "El viento y el tiempo suelen decidir si el día acaba en la playa, en el agua o en el casco antiguo. Antes de practicar deportes acuáticos, salir en barco o caminar por zonas expuestas, comprobad las condiciones actuales.", "Wind en weer bepalen vaak of de dag naar het strand, het water of de oude stad leidt. Controleer de actuele omstandigheden vóór watersport, boottochten en open wandelroutes.", "Vind och väder avgör ofta om dagen blir på stranden, på vattnet eller i gamla stan. Kontrollera aktuella förhållanden före vattensport, båtturer och exponerade vandringar.")
+      l("Wind and weather decide whether the day leads to the beach, onto the water or into the old town.", "Wind und Wetter entscheiden, ob der Tag an den Strand, aufs Wasser oder in die Altstadt führt.", "El viento y el tiempo deciden si el día lleva a la playa, al agua o al casco antiguo.", "Wind en weer bepalen of de dag naar het strand, het water of de oude stad leidt.", "Vind och väder avgör om dagen leder till stranden, ut på vattnet eller in i gamla stan.")
     ],
     days: [
       {
@@ -224,11 +224,11 @@ export const tarifaExperienceContent = {
       id: "tangier",
       title: l("Tangier as an optional day across the Strait", "Tanger als möglicher Tag jenseits der Meerenge", "Tánger como posibilidad, no como obligación", "Tanger ligt dichtbij, maar hoeft niet centraal te staan", "Tanger är en möjlighet på andra sidan sundet"),
       paragraphs: ll(
-        ["A trip across the Strait to Tangier is one of Tarifa's most unusual possibilities.", "It can make a longer stay genuinely different, but it does not need to become the reason for visiting Tarifa. Ferry schedules, entry requirements and operating conditions can change, so current official information should always take precedence over any evergreen travel guide.", "Think of Tangier as an optional extra — particularly rewarding when you have enough time to enjoy Tarifa itself first."],
+        ["A trip across the Strait to Tangier is one of Tarifa's most unusual possibilities.", "A day in Tangier fits into a longer stay; ferry and entry are arranged through the ferry company.", "Think of Tangier as an optional extra — particularly rewarding when you have enough time to enjoy Tarifa itself first."],
         ["Von Tarifa aus ist auch Tanger erreichbar.", "Ein Tag in Tanger passt in einen längeren Aufenthalt; Fähre und Einreise regelt ihr über die Reederei."],
-        ["La cercanía de Marruecos añade una dimensión poco habitual a una estancia en Tarifa.", "Una excursión a Tánger puede tener mucho sentido si disponéis de varios días. Los horarios de ferry y los requisitos de entrada pueden cambiar, así que la planificación práctica debe hacerse siempre con fuentes oficiales actualizadas."],
-        ["Een dag naar Tanger kan een verblijf in Tarifa bijzonder maken.", "Zie het vooral als extra mogelijkheid wanneer jullie voldoende tijd hebben. Vaarschema's en toegangsvoorwaarden kunnen veranderen; controleer daarvoor altijd actuele officiële informatie."],
-        ["Närheten till Marocko gör Tarifa ovanligt.", "En dagstur till Tanger kan vara ett spännande tillägg till en längre vistelse, men Tarifa behöver inte byggas runt utflykten. Färjetider och inreseregler kan förändras och bör alltid kontrolleras mot aktuella officiella källor."]
+        ["La cercanía de Marruecos añade una dimensión poco habitual a una estancia en Tarifa.", "Un día en Tánger encaja en una estancia más larga; el ferry y la entrada se gestionan con la naviera."],
+        ["Een dag naar Tanger kan een verblijf in Tarifa bijzonder maken.", "Een dag Tanger past in een langer verblijf; veerboot en inreis regel je via de rederij."],
+        ["Närheten till Marocko gör Tarifa ovanligt.", "En dag i Tanger passar in i en längre vistelse; färja och inresa ordnar ni via rederiet."]
       )
     },
     {

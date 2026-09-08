@@ -81,11 +81,11 @@ export const frigilianaWinterStaysContent = {
       "Om en detalj avgör för er, fråga oss innan ni bokar. Vi känner varje boende."
     ),
     updated: l(
-      "Last checked in August 2026",
+      "As of August 2026",
       "Stand August 2026",
-      "Revisado por última vez en agosto de 2026",
-      "Voor het laatst nagekeken in augustus 2026",
-      "Senast kontrollerat i augusti 2026"
+      "Actualizado en agosto de 2026",
+      "Stand augustus 2026",
+      "Uppdaterad augusti 2026"
     ),
     mark: l("WINTER", "WINTER", "INVIERNO", "WINTER", "VINTER")
   },
@@ -298,7 +298,7 @@ export const frigilianaWinterStaysContent = {
       "Het terrein en de beschrijving van de El Fuerte-route komen van de officiële toeristische informatie van Frigiliana. Alles over onze vier appartementen komt van ons.",
       "Terrängen och beskrivningen av El Fuerte-rutten kommer från Frigilianas officiella turistinformation. Allt om våra fyra lägenheter kommer från oss."
     ),
-    checked: l("Last checked in August 2026", "Stand August 2026", "Revisado por última vez en agosto de 2026", "Voor het laatst nagekeken in augustus 2026", "Senast kontrollerat i augusti 2026"),
+    checked: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026"),
     links: [
       {
         label: l("Turismo de Frigiliana · the streets", "Turismo de Frigiliana · die Gassen", "Turismo de Frigiliana · las calles", "Turismo de Frigiliana · de straten", "Turismo de Frigiliana · gatorna"),

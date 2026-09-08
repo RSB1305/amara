@@ -73,11 +73,11 @@ export const tarifaWinterStaysContent = {
       "Lugnare veckor, vinden stannar"
     ),
     standfirst: l(
-      "In summer Tarifa is in constant motion; in winter we find it calmer and more familiar — that is our experience, not a promise. Because AMARA Family & Surf gives you 75 m² over two floors with a wood-burning fireplace, heating, a full kitchen and a washing machine, the quiet weeks suit longer stays well — including working, with the supermarket directly opposite and Los Lances beach about 500 metres away. The wind still sets the rhythm: Levante and Poniente shape the Strait, and which one blows is decided on the day, not by the season — which is why a second plan matters here more than elsewhere. A reserved space in the garage comes with the apartment. Off-season also means quieter rates; send us your dates and we will tell you what is running that week.",
+      "In summer Tarifa is in constant motion; in winter it becomes calmer and more familiar. AMARA Family & Surf has 75 m² over two floors, a wood-burning fireplace, heating, a kitchen and a washing machine; the quiet weeks suit longer stays, working included, with the supermarket opposite and Los Lances beach about 500 metres away. The wind still sets the rhythm: Levante or Poniente is decided on the day, which is why a second plan matters here more than elsewhere. A reserved space in the garage comes with the apartment, and the off-season has quieter rates; send us your dates and we will tell you what is running that week.",
       "Im Sommer ist Tarifa ständig in Bewegung; im Winter wird es ruhiger und vertrauter. AMARA Family & Surf hat 75 m² auf zwei Etagen, Holzkamin, Heizung, Küche und Waschmaschine; die ruhigen Wochen passen zu längeren Aufenthalten, auch zum Arbeiten, mit dem Supermarkt gegenüber und dem Strand Los Lances rund 500 Meter entfernt. Der Wind bleibt der Taktgeber: Levante oder Poniente entscheidet sich am Tag, deshalb lohnt hier ein zweiter Plan mehr als anderswo. Ein reservierter Tiefgaragenplatz gehört zur Wohnung, und die Nebensaison hat ruhigere Raten; schickt uns eure Reisedaten, dann sagen wir euch, was in der Woche läuft.",
-      "En verano Tarifa está en movimiento constante; en invierno la vivimos más tranquila y cercana, aunque esa es nuestra experiencia, no una promesa. Como AMARA Family & Surf os da 75 m² en dos plantas con chimenea de leña, calefacción, cocina completa y lavadora, las semanas tranquilas se prestan a estancias largas, también para trabajar, con el supermercado justo enfrente y la playa de Los Lances a unos 500 metros. El viento sigue marcando el ritmo: Levante y Poniente marcan el Estrecho, y cuál sopla se decide en el día, no en la estación, por eso aquí conviene un plan B más que en otros sitios. Con el apartamento va una plaza reservada de garaje. La temporada baja también significa tarifas más tranquilas; escribidnos vuestras fechas y os decimos qué está abierto esa semana.",
-      "In de zomer is Tarifa constant in beweging; in de winter ervaren wij het rustiger en vertrouwder — dat is onze ervaring, geen belofte. Omdat AMARA Family & Surf jullie 75 m² over twee verdiepingen biedt met houtkachel, verwarming, een volledige keuken en een wasmachine, lenen de rustige weken zich goed voor langere verblijven — ook om te werken, met de supermarkt recht tegenover en het strand Los Lances op ongeveer 500 meter. De wind blijft het ritme bepalen: Levante en Poniente bepalen de Straat, en welke waait wordt op de dag zelf beslist, niet door het seizoen — daarom loont een tweede plan hier meer dan elders. Bij het appartement hoort een gereserveerde garageplaats. Laagseizoen betekent ook rustigere tarieven; stuur ons jullie data, dan zeggen we wat er die week draait.",
-      "På sommaren är Tarifa i ständig rörelse; på vintern upplever vi det lugnare och mer välbekant — det är vår erfarenhet, inte ett löfte. Eftersom AMARA Family & Surf ger er 75 m² i två plan med braskamin, värme, fullt utrustat kök och tvättmaskin passar de lugna veckorna bra för längre vistelser — även för att arbeta, med mataffären mitt emot och stranden Los Lances cirka 500 meter bort. Vinden sätter fortfarande takten: Levante och Poniente präglar sundet, och vilken som blåser avgörs på dagen, inte av årstiden — därför lönar sig en andra plan här mer än på andra håll. En reserverad garageplats hör till lägenheten. Lågsäsong betyder också lugnare priser; skicka era datum, så berättar vi vad som är igång den veckan."
+      "En verano Tarifa está en movimiento constante; en invierno se vuelve más tranquila y cercana. AMARA Family & Surf tiene 75 m² en dos plantas, chimenea de leña, calefacción, cocina y lavadora; las semanas tranquilas se prestan a estancias largas, también para trabajar, con el supermercado enfrente y la playa de Los Lances a unos 500 metros. El viento sigue marcando el ritmo: levante o poniente se decide cada día, y por eso aquí un segundo plan vale más que en otros sitios. Una plaza reservada en el garaje va con el apartamento, y la temporada baja tiene tarifas más tranquilas; enviadnos vuestras fechas y os decimos qué hay esa semana.",
+      "In de zomer is Tarifa constant in beweging; in de winter wordt het rustiger en vertrouwder. AMARA Family & Surf heeft 75 m² over twee verdiepingen, een houtkachel, verwarming, een keuken en een wasmachine; de rustige weken passen bij langere verblijven, ook om te werken, met de supermarkt tegenover en het strand Los Lances op ongeveer 500 meter. De wind blijft het ritme bepalen: levante of poniente wordt per dag beslist, en daarom is een tweede plan hier meer waard dan elders. Een gereserveerde plek in de garage hoort bij het appartement, en het laagseizoen heeft rustigere tarieven; stuur ons jullie data en we vertellen wat er die week speelt.",
+      "På sommaren är Tarifa i ständig rörelse; på vintern blir det lugnare och mer förtroligt. AMARA Family & Surf har 75 m² på två plan, vedkamin, värme, kök och tvättmaskin; de lugna veckorna passar längre vistelser, även för att arbeta, med mataffären mittemot och stranden Los Lances cirka 500 meter bort. Vinden sätter fortfarande takten: levante eller poniente avgörs för dagen, och därför är en andra plan värd mer här än någon annanstans. En reserverad plats i garaget hör till lägenheten, och lågsäsongen har lugnare priser; skicka era datum så berättar vi vad som händer den veckan."
     ),
     note: l(
       "If one detail decides it for you, ask us before you book. We know the apartment.",
@@ -87,11 +87,11 @@ export const tarifaWinterStaysContent = {
       "Om en detalj avgör för er, fråga oss innan ni bokar. Vi känner lägenheten."
     ),
     updated: l(
-      "Last checked in August 2026",
+      "As of August 2026",
       "Stand August 2026",
-      "Revisado por última vez en agosto de 2026",
-      "Voor het laatst nagekeken in augustus 2026",
-      "Senast kontrollerat i augusti 2026"
+      "Actualizado en agosto de 2026",
+      "Stand augustus 2026",
+      "Uppdaterad augusti 2026"
     ),
     mark: l("WINTER", "WINTER", "INVIERNO", "WINTER", "VINTER")
   },
@@ -133,11 +133,11 @@ export const tarifaWinterStaysContent = {
           "Sommaren här är flyktig: man kommer för vinden och drar vidare. På vintern möter vi samma ansikten i mataffären och har mer plats i gamla stans gränder."
         ),
         l(
-          "**That is our experience, not a promise.** How much is open and how busy it feels changes from one week to the next, and we would rather say that than sell you a quiet town.",
+          "How much is open and how busy it feels changes from week to week; in January some restaurants take a break, and the beach and old town are yours.",
           "Wie viel offen hat und wie voll es sich anfühlt, wechselt von Woche zu Woche; im Januar haben manche Restaurants Pause, dafür gehören Strand und Altstadt euch.",
-          "**Esa es nuestra experiencia, no una promesa.** Cuánto está abierto y cuánta gente hay cambia de una semana a otra, y preferimos decirlo antes que venderos un pueblo silencioso.",
-          "**Dat is onze ervaring, geen belofte.** Hoeveel er open is en hoe druk het voelt, verschilt per week, en dat zeggen we liever dan jullie een stille stad te verkopen.",
-          "**Det är vår erfarenhet, inte ett löfte.** Hur mycket som har öppet och hur folktomt det känns skiftar från vecka till vecka, och det säger vi hellre än säljer er en tyst stad."
+          "Cuánto está abierto y cuánta gente hay cambia de una semana a otra; en enero algunos restaurantes cierran unos días, y la playa y el casco antiguo son vuestros.",
+          "Hoeveel er open is en hoe druk het voelt, wisselt per week; in januari houden sommige restaurants pauze, en dan zijn strand en oude stad van jullie.",
+          "Hur mycket som är öppet och hur fullt det känns växlar från vecka till vecka; i januari har en del restauranger paus, och stranden och gamla stan är era."
         )
       ]
     },
@@ -297,7 +297,7 @@ export const tarifaWinterStaysContent = {
       "De windnamen komen uit officiële informatie van de Junta en de wandelroutes van het toeristenbureau van Tarifa. Alles over AMARA Family & Surf komt van ons.",
       "Vindnamnen kommer från officiell information från Junta och vandringslederna från Tarifas turistbyrå. Allt om AMARA Family & Surf kommer från oss."
     ),
-    checked: l("Last checked in August 2026", "Stand August 2026", "Revisado por última vez en agosto de 2026", "Voor het laatst nagekeken in augustus 2026", "Senast kontrollerat i augusti 2026"),
+    checked: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026"),
     links: [
       {
         label: l("Junta de Andalucía · wind in the Strait", "Junta de Andalucía · Wind an der Meerenge", "Junta de Andalucía · el viento en el Estrecho", "Junta de Andalucía · wind in de Straat", "Junta de Andalucía · vinden i sundet"),
