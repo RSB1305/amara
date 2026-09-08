@@ -23,11 +23,11 @@ const hero = {
   eyebrow: l('Parking & access · Tarifa', 'Parken & Erreichbarkeit · Tarifa', 'Aparcamiento y acceso · Tarifa', 'Parkeren & toegankelijkheid · Tarifa', 'Parkering & tillgänglighet · Tarifa'),
   title: l('At AMARA, parking is already solved', 'Bei AMARA ist das Parken schon geklärt', 'En AMARA el aparcamiento ya está resuelto', 'Bij AMARA is parkeren al geregeld', 'Hos AMARA är parkeringen redan löst'),
   standfirst: l(
-    'A reserved underground space comes with AMARA Family & Surf, so you arrive, drive in and stop looking. That matters most in July and August, which in our experience are the hardest months for public parking in Tarifa — we would not call it impossible, but we plan every drive more carefully then. The garage settles the apartment, not the rest of the day: a beach further west and an evening in the old town are separate decisions, each with its own access. Tell us where you are heading and we will look at that specific spot with you.',
+    'AMARA Family & Surf comes with a reserved underground parking space: arrive, drive in, done. That counts most in July and August, when Tarifa is full. The garage solves the accommodation; for a beach further west or an evening in the old town, tell us the destination and we will tell you where to park.',
     'Zu AMARA Family & Surf gehört ein reservierter Tiefgaragenplatz: ankommen, hineinfahren, fertig. Das zählt vor allem im Juli und August, wenn Tarifa voll ist. Die Garage löst die Unterkunft; für einen Strand weiter westlich oder einen Abend in der Altstadt sagt ihr uns das Ziel, und wir sagen euch, wo ihr parkt.',
-    'AMARA Family & Surf incluye una plaza reservada en el garaje: llegáis, entráis y dejáis de buscar. Eso importa sobre todo en julio y agosto, que según nuestra experiencia son los meses más difíciles para aparcar en Tarifa; no lo llamaríamos imposible, pero entonces planificamos cada trayecto con más cuidado. El garaje resuelve el alojamiento, no todo el día: una playa más al oeste y una noche en el casco antiguo son decisiones aparte, con su propio acceso. Decidnos adónde vais y miramos ese punto concreto con vosotros.',
-    'Bij AMARA Family & Surf hoort een gereserveerde plek in de parkeergarage — jullie komen aan, rijden naar binnen en stoppen met zoeken. Dat telt vooral in juli en augustus, in onze ervaring de lastigste maanden voor openbaar parkeren in Tarifa; onmogelijk zouden we het niet noemen, maar we plannen dan elke rit zorgvuldiger. De garage lost het verblijf op, niet de hele dag: een strand verder westelijk en een avond in de oude stad zijn aparte beslissingen, elk met eigen toegang. Zeg ons waar jullie heen gaan, dan kijken we samen naar die specifieke plek.',
-    'Till AMARA Family & Surf hör en reserverad garageplats — ni kommer fram, kör in och slutar leta. Det betyder mest i juli och augusti, som enligt vår erfarenhet är de svåraste månaderna för allmän parkering i Tarifa; omöjligt skulle vi inte kalla det, men då planerar vi varje körning mer noggrant. Garaget löser boendet, inte hela dagen: en strand längre västerut och en kväll i gamla stan är egna beslut med egen infart. Säg vart ni ska, så tittar vi på just den platsen tillsammans med er.'
+    'AMARA Family & Surf incluye una plaza reservada en el garaje subterráneo: llegar, entrar, listo. Eso cuenta sobre todo en julio y agosto, cuando Tarifa está llena. El garaje resuelve el alojamiento; para una playa más al oeste o una noche en el casco antiguo, decidnos el destino y os decimos dónde aparcar.',
+    'Bij AMARA Family & Surf hoort een gereserveerde plek in de ondergrondse garage: aankomen, naar binnen rijden, klaar. Dat telt vooral in juli en augustus, als Tarifa vol is. De garage lost het verblijf op; voor een strand verder westelijk of een avond in de oude stad zeg je ons het doel, en wij zeggen waar je parkeert.',
+    'Till AMARA Family & Surf hör en reserverad plats i garaget under huset: kom fram, kör in, klart. Det räknas mest i juli och augusti, när Tarifa är fullt. Garaget löser boendet; för en strand längre västerut eller en kväll i gamla stan säger ni oss målet, och vi säger var ni parkerar.'
   ),
   note: l(
     'You get the exact garage entrance and access with your arrival information.',
@@ -36,14 +36,14 @@ const hero = {
     'De precieze garage-ingang en toegang krijgen jullie bij de aankomstinformatie.',
     'Den exakta garageinfarten och åtkomsten får ni med er ankomstinformation.'
   ),
-  updated: l('Last checked in August 2026', 'Stand August 2026', 'Revisado por última vez en agosto de 2026', 'Voor het laatst nagekeken in augustus 2026', 'Senast kontrollerat i augusti 2026')
+  updated: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')
 };
 
 const facts = [
   { label: l('At AMARA Family & Surf', 'Bei AMARA Family & Surf', 'En AMARA Family & Surf', 'Bij AMARA Family & Surf', 'Vid AMARA Family & Surf'), value: l('A reserved underground space is included', 'Ein reservierter Tiefgaragenplatz ist enthalten', 'Incluye plaza reservada en el garaje', 'Een gereserveerde garageplaats inbegrepen', 'En reserverad garageplats ingår') },
-  { label: l('Hardest months', 'Schwierigste Monate', 'Meses más difíciles', 'Lastigste maanden', 'Svåraste månaderna'), value: l('July and August, in our experience', 'Juli und August', 'Julio y agosto, según nuestra experiencia', 'Juli en augustus, in onze ervaring', 'Juli och augusti, enligt vår erfarenhet') },
+  { label: l('Hardest months', 'Schwierigste Monate', 'Meses más difíciles', 'Lastigste maanden', 'Svåraste månaderna'), value: l('July and August', 'Juli und August', 'Julio y agosto', 'Juli en augustus', 'Juli och augusti') },
   { label: l('For the town', 'Für die Stadt', 'Para el pueblo', 'Voor de stad', 'För staden'), value: l('Leave the car in the garage and walk', 'Auto in der Garage lassen und laufen', 'Dejad el coche en el garaje y andad', 'Laat de auto in de garage en loop', 'Lämna bilen i garaget och gå') },
-  { label: l('For a beach day', 'Für einen Strandtag', 'Para un día de playa', 'Voor een stranddag', 'För en stranddag'), value: l('Check the access for that beach first', 'Jeder Strand hat seine eigene Zufahrt', 'Comprobad primero el acceso a esa playa', 'Check eerst de toegang tot dát strand', 'Kolla först infarten till just den stranden') }
+  { label: l('For a beach day', 'Für einen Strandtag', 'Para un día de playa', 'Voor een stranddag', 'För en stranddag'), value: l('Every beach has its own access', 'Jeder Strand hat seine eigene Zufahrt', 'Cada playa tiene su propio acceso', 'Elk strand heeft zijn eigen toegang', 'Varje strand har sin egen infart') }
 ] as const;
 
 const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title: Localized; paragraphs: Localized[] }> = [
@@ -53,60 +53,60 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
     title: l('You drive in and you are done', 'Ihr fahrt hinein und seid fertig', 'Entráis y ya está', 'Jullie rijden naar binnen en klaar', 'Ni kör in och är klara'),
     paragraphs: [
       l(
-        'No circling with a full car, no watching the clock on a loading bay. The lift goes up to the apartment door and there are no steps outside.',
+        'From the car into the lift, from the lift to the apartment door, without a single step outside.',
         'Vom Auto in den Aufzug, vom Aufzug vor die Wohnungstür, ohne eine Stufe draußen.',
-        'Sin dar vueltas con el coche cargado ni mirar el reloj en una zona de carga. El ascensor sube hasta la puerta del apartamento y fuera no hay escalones.',
-        'Geen rondjes rijden met een volle auto, geen klok in de gaten houden bij een laad- en loszone. De lift gaat tot aan de voordeur en buiten zijn er geen treden.',
-        'Inget cirklande med full bil, ingen klockkoll i en lastzon. Hissen går ända fram till lägenhetsdörren och utomhus finns inga trappsteg.'
+        'Del coche al ascensor, del ascensor a la puerta del apartamento, sin un solo escalón fuera.',
+        'Van de auto in de lift, van de lift tot voor de deur van het appartement, zonder één trede buiten.',
+        'Från bilen in i hissen, från hissen fram till lägenhetsdörren, utan ett enda trappsteg utomhus.'
       ),
       l(
-        '**Inside the apartment, steps lead up to the bedrooms.** If that matters for your decision, ask us before you book and we will describe the whole route from the garage level to the door.',
+        '**Inside the apartment a staircase leads to the bedrooms.** If that matters to you, ask us before booking; we will describe the way from the garage to the door.',
         '**In der Wohnung führt eine Treppe zu den Schlafzimmern.** Wenn das für euch zählt, fragt uns vor der Buchung; wir beschreiben euch den Weg von der Garage bis zur Tür.',
-        '**Dentro del apartamento, unos escalones suben a los dormitorios.** Si eso influye en vuestra decisión, preguntadnos antes de reservar y os describimos todo el recorrido desde el garaje hasta la puerta.',
-        '**In het appartement leiden treden omhoog naar de slaapkamers.** Als dat meetelt in jullie beslissing, vraag het ons vóór het boeken; we beschrijven de hele route van het garageniveau tot de deur.',
-        '**Inne i lägenheten leder trappsteg upp till sovrummen.** Om det spelar roll för ert beslut, fråga oss innan ni bokar, så beskriver vi hela vägen från garageplanet till dörren.'
+        '**Dentro de la vivienda una escalera lleva a los dormitorios.** Si eso os importa, preguntadnos antes de reservar; os describimos el camino del garaje a la puerta.',
+        '**In de woning leidt een trap naar de slaapkamers.** Als dat voor jullie telt, vraag het ons vóór het boeken; we beschrijven de weg van de garage tot de deur.',
+        '**I lägenheten leder en trappa till sovrummen.** Om det räknas för er, fråga oss före bokningen; vi beskriver vägen från garaget till dörren.'
       )
     ]
   },
   {
     id: 'parking-reality',
     eyebrow: l('In town', 'In der Stadt', 'En el pueblo', 'In de stad', 'I staden'),
-    title: l('Town, old town, port and beaches are not interchangeable', 'Stadt, Hafen und Strände: drei verschiedene Parkfragen', 'Pueblo, casco antiguo, puerto y playas no son intercambiables', 'Stad, oude kern, haven en stranden zijn niet uitwisselbaar', 'Stad, gamla stan, hamn och stränder är inte utbytbara'),
+    title: l('Town, port and beaches: three different parking questions', 'Stadt, Hafen und Strände: drei verschiedene Parkfragen', 'Pueblo, puerto y playas: tres preguntas de aparcamiento distintas', 'Stad, haven en stranden: drie verschillende parkeervragen', 'Stan, hamnen och stränderna: tre olika parkeringsfrågor'),
     paragraphs: [
       l(
-        'A space that works for an evening in the old town says very little about a windy beach day further west. Each has its own approach, its own rules and its own season.',
+        'A space for an evening in the old town says little about a windy beach day further west. Each destination has its own access, its own rules, its own season.',
         'Ein Platz für den Abend in der Altstadt sagt wenig über einen windigen Strandtag weiter westlich. Jedes Ziel hat eigene Zufahrt, eigene Regeln, eigene Saison.',
-        'Una plaza que sirve para una noche en el casco antiguo dice poco sobre un día de playa con viento más al oeste. Cada sitio tiene su acceso, sus normas y su temporada.',
-        'Een plek die werkt voor een avond in de oude kern zegt weinig over een winderige stranddag verder westelijk. Elk heeft een eigen toegang, eigen regels en eigen seizoen.',
-        'En plats som fungerar för en kväll i gamla stan säger lite om en blåsig stranddag längre västerut. Var och en har egen infart, egna regler och egen säsong.'
+        'Una plaza para una noche en el casco antiguo dice poco sobre un día de playa con viento más al oeste. Cada destino tiene su acceso, sus normas, su temporada.',
+        'Een plek voor de avond in de oude stad zegt weinig over een winderige stranddag verder westelijk. Elk doel heeft zijn eigen toegang, eigen regels, eigen seizoen.',
+        'En plats för kvällen i gamla stan säger lite om en blåsig stranddag längre västerut. Varje mål har egen infart, egna regler, egen säsong.'
       ),
       l(
-        'That is why we never give one blanket parking answer for Tarifa. **Tell us the destination first, and we will look at the approach and the situation right there.**',
+        '**Tell us where you want to go, and we will tell you where to park.**',
         '**Sagt uns, wohin ihr wollt, dann sagen wir euch, wo ihr parkt.**',
-        'Por eso nunca damos una respuesta general sobre aparcar en Tarifa. **Decidnos primero el destino y miramos el acceso y la situación justo ahí.**',
-        'Daarom geven we voor Tarifa nooit één algemeen parkeerantwoord. **Noem eerst jullie bestemming, dan kijken we naar de toegang en de situatie precies daar.**',
-        'Därför ger vi aldrig ett generellt parkeringssvar för Tarifa. **Säg först vart ni ska, så tittar vi på infarten och läget just där.**'
+        '**Decidnos adónde queréis ir y os decimos dónde aparcar.**',
+        '**Zeg ons waar je heen wilt, dan zeggen we waar je parkeert.**',
+        '**Säg oss vart ni vill, så säger vi var ni parkerar.**'
       )
     ]
   },
   {
     id: 'seasonal-rules',
     eyebrow: l('High season', 'Hochsaison', 'Temporada alta', 'Hoogseizoen', 'Högsäsong'),
-    title: l('July and August need a different expectation', 'Juli und August', 'Julio y agosto piden otra expectativa', 'Juli en augustus vragen om een andere verwachting', 'Juli och augusti kräver en annan förväntan'),
+    title: l('July and August', 'Juli und August', 'Julio y agosto', 'Juli en augustus', 'Juli och augusti'),
     paragraphs: [
       l(
-        'We will say it plainly: those are the two months when public parking in Tarifa is hardest. We would not call it impossible, but we plan every drive more carefully then — and we appreciate the private garage a great deal.',
+        'In these two months public parking in Tarifa is hardest; we then plan every drive more carefully and appreciate our own garage a great deal.',
         'In diesen beiden Monaten ist öffentliches Parken in Tarifa am schwierigsten; wir planen dann jede Fahrt sorgfältiger und schätzen die eigene Garage sehr.',
-        'Lo decimos claro: son los dos meses en que aparcar en la vía pública en Tarifa es más difícil. No lo llamaríamos imposible, pero entonces planificamos cada trayecto con más cuidado y agradecemos mucho el garaje privado.',
-        'We zeggen het gewoon: dat zijn de twee maanden waarin openbaar parkeren in Tarifa het lastigst is. Onmogelijk zouden we het niet noemen, maar we plannen dan elke rit zorgvuldiger — en zijn erg blij met de eigen garage.',
-        'Vi säger det rakt ut: det är de två månader då allmän parkering i Tarifa är svårast. Omöjligt skulle vi inte kalla det, men då planerar vi varje körning mer noggrant — och uppskattar det privata garaget mycket.'
+        'En estos dos meses el aparcamiento público en Tarifa es lo más difícil; entonces planeamos cada trayecto con más cuidado y valoramos mucho el garaje propio.',
+        'In deze twee maanden is openbaar parkeren in Tarifa het moeilijkst; wij plannen dan elke rit zorgvuldiger en zijn erg blij met de eigen garage.',
+        'Under de här två månaderna är allmän parkering i Tarifa svårast; då planerar vi varje resa noggrannare och uppskattar det egna garaget mycket.'
       ),
       l(
-        'The municipal system has also been changing, including the machines and how you pay. **Read the sign where you actually park** — it is more reliable than any figure we could print here.',
+        'Machines and payment methods have changed; **the sign where you park is what applies.**',
         'Automaten und Bezahlart haben sich geändert; **das Schild dort, wo ihr parkt, gilt.**',
-        'El sistema municipal también ha ido cambiando, incluidos los parquímetros y la forma de pago. **Leed la señal donde realmente aparquéis**: es más fiable que cualquier cifra que pudiéramos poner aquí.',
-        'Ook het gemeentelijke systeem is veranderd, inclusief de automaten en de betaalwijze. **Lees het bord waar je daadwerkelijk parkeert** — dat is betrouwbaarder dan elk getal dat wij hier kunnen afdrukken.',
-        'Även det kommunala systemet har förändrats, bland annat automaterna och hur man betalar. **Läs skylten där ni faktiskt parkerar** — den är mer pålitlig än någon siffra vi kan trycka här.'
+        'Los parquímetros y la forma de pago han cambiado; **lo que rige es la señal del sitio donde aparcáis.**',
+        'Automaten en betaalwijze zijn veranderd; **het bord daar waar je parkeert, geldt.**',
+        'Automater och betalsätt har ändrats; **skylten där ni parkerar är det som gäller.**'
       )
     ]
   }
@@ -137,7 +137,7 @@ const makeLocale = (lang: AmaraLanguage): ParkingGuideLocale => ({
     eyebrow: l('Sources', 'Quellen', 'Fuentes', 'Bronnen', 'Källor')[lang],
     title: l('Where these details come from', 'Woher diese Angaben kommen', 'De dónde salen estos datos', 'Waar deze gegevens vandaan komen', 'Varifrån uppgifterna kommer')[lang],
     intro: l('The municipal parking and beach documents come from the town hall. The garage space and the July and August experience come from us.', 'Die kommunalen Park- und Stranddokumente stammen von der Stadtverwaltung. Der Garagenplatz und die Erfahrung mit Juli und August kommen von uns.', 'Los documentos municipales de aparcamiento y playas proceden del ayuntamiento. La plaza de garaje y la experiencia de julio y agosto vienen de nosotros.', 'De gemeentelijke parkeer- en stranddocumenten komen van de gemeente. De garageplaats en de ervaring met juli en augustus komen van ons.', 'De kommunala parkerings- och stranddokumenten kommer från kommunen. Garageplatsen och erfarenheten av juli och augusti kommer från oss.')[lang],
-    checked: l('Last checked in August 2026', 'Stand August 2026', 'Revisado por última vez en agosto de 2026', 'Voor het laatst nagekeken in augustus 2026', 'Senast kontrollerat i augusti 2026')[lang],
+    checked: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')[lang],
     links: sourceRows.map((row) => ({ label: row.label[lang], text: row.text[lang], href: row.href }))
   },
   closing: {
