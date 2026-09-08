@@ -31,6 +31,8 @@ export interface ArrivalGuideCard {
   timing?: string;
   bestFor?: string;
   consideration?: string;
+  /** Optional external action shown as a link under the card (e.g. a live charging-point map). */
+  link?: { href: string; label: string; external?: boolean };
 }
 
 export interface ArrivalGuideSection {
@@ -140,7 +142,7 @@ const nerjaArrivalUi = {
     heroTitle: 'Getting to Nerja and AMARA Playa',
     heroText: 'Aena lists a direct Alsa coach from Málaga Airport to Nerja — the simplest arrival if you plan to be on foot once you are here. It ends at the bus station, not at our door; with suitcases, take a taxi from there. A transfer or rental car brings you to the address itself: Calle Castilla Pérez 60, about 200 metres from Torrecilla beach. There is no private parking, so you park in a public facility or legally on the street. One more thing worth knowing in advance: before the lift there are five steps outside the building and five more inside.',
     optionsEyebrow: 'From Málaga Airport', optionsTitle: 'The coach goes direct, the car goes further',
-    carEyebrow: 'Transfer or rental car', carTitle: 'To the door — and then a parking space', carText: 'With luggage a transfer is the easiest. A rental car earns its place for Maro, Frigiliana and the wider Axarquía, but after unloading it needs a legal public or street space. For one or two day trips, a car hired for those days is often enough. Driving an electric car? Plan your charging ahead and check a maps app for the nearest public charging point on your route.',
+    carEyebrow: 'Transfer or rental car', carTitle: 'To the door — and then a parking space', carText: 'With luggage a transfer is the easiest. A rental car earns its place for Maro, Frigiliana and the wider Axarquía, but after unloading it needs a legal public or street space. For one or two day trips, a car hired for those days is often enough. Driving an electric car? Plan your charging ahead; the map shows the nearest public charging points.',
     busEyebrow: 'Direct Alsa coach', busTitle: 'Simple if you are staying in Nerja', busText: 'Aena confirms the direct connection between Málaga Airport and Nerja. It ends at the bus station, not at Calle Castilla Pérez 60 — walk it if the luggage is light, otherwise take a taxi.',
     parkingEyebrow: 'Arriving by car', parkingTitle: 'There is no private parking at AMARA Playa', parkingText: 'For the centre, Balcón de Europa and Parque Verano Azul are the obvious facilities, plus legal street parking nearby. None of it can be reserved. Choose the area before you drive into the tightest streets; the parking guide explains which one suits which destination.',
     finalEyebrow: 'The last few minutes', finalTitle: 'The destination is Calle Castilla Pérez 60', finalSteps: ['Taxis and transfers can drive to the full address directly.', 'From the bus station, continue by taxi — or on foot if the luggage allows it.', 'By car, unload only where the signs permit, then move the car to a legal space.'],
@@ -150,7 +152,7 @@ const nerjaArrivalUi = {
     heroTitle: 'Anreise nach Nerja und zu AMARA Playa',
     heroText: 'Aena führt eine direkte Alsa-Busverbindung vom Flughafen Málaga nach Nerja — die einfachste Anreise, wenn ihr vor Ort zu Fuß unterwegs sein wollt. Sie endet am Busbahnhof, nicht an unserer Tür; mit Koffern nehmt ihr von dort ein Taxi. Ein Transfer oder Mietwagen bringt euch bis zur Adresse: Calle Castilla Pérez 60, rund 200 Meter vom Strand Torrecilla. Einen privaten Parkplatz gibt es nicht, ihr parkt also in einer öffentlichen Anlage oder legal an der Straße. Und etwas, das ihr vorher wissen solltet: Vor dem Aufzug liegen fünf Stufen vor dem Gebäude und fünf weitere im Haus.',
     optionsEyebrow: 'Ab Flughafen Málaga', optionsTitle: 'Der Bus fährt direkt, das Auto fährt weiter',
-    carEyebrow: 'Transfer oder Mietwagen', carTitle: 'Bis vor die Tür — und dann ein Stellplatz', carText: 'Mit Gepäck ist der Transfer am bequemsten. Ein Mietwagen lohnt sich für Maro, Frigiliana und die weitere Axarquía, braucht nach dem Ausladen aber einen legalen öffentlichen oder Straßenplatz. Für ein oder zwei Ausflugstage genügt oft ein Mietwagen auf Zeit. Ihr kommt mit einem Elektroauto? Plant das Laden im Voraus und sucht die nächste öffentliche Ladestation auf eurer Route in einer Karten-App.',
+    carEyebrow: 'Transfer oder Mietwagen', carTitle: 'Bis vor die Tür — und dann ein Stellplatz', carText: 'Mit Gepäck ist der Transfer am bequemsten. Ein Mietwagen lohnt sich für Maro, Frigiliana und die weitere Axarquía, braucht nach dem Ausladen aber einen legalen öffentlichen oder Straßenplatz. Für ein oder zwei Ausflugstage genügt oft ein Mietwagen auf Zeit. Ihr kommt mit einem Elektroauto? Plant das Laden im Voraus; die Karte zeigt die nächsten öffentlichen Ladepunkte.',
     busEyebrow: 'Direkter Alsa-Bus', busTitle: 'Einfach, wenn ihr in Nerja bleibt', busText: 'Aena bestätigt die Direktverbindung zwischen dem Flughafen Málaga und Nerja. Sie endet am Busbahnhof, nicht in der Calle Castilla Pérez 60 — mit leichtem Gepäck lauft ihr, sonst nehmt ihr ein Taxi.',
     parkingEyebrow: 'Anreise mit dem Auto', parkingTitle: 'AMARA Playa hat keinen privaten Parkplatz', parkingText: 'Fürs Zentrum sind Balcón de Europa und Parque Verano Azul die naheliegenden Anlagen, dazu legales Straßenparken in der Nähe. Reservieren lässt sich davon nichts. Wählt den Bereich, bevor ihr in die engsten Straßen fahrt; der Park-Guide erklärt, welcher wofür passt.',
     finalEyebrow: 'Die letzten Minuten', finalTitle: 'Das Ziel ist Calle Castilla Pérez 60', finalSteps: ['Taxi und Transfer fahren die vollständige Adresse direkt an.', 'Vom Busbahnhof geht es mit dem Taxi weiter — oder zu Fuß, wenn das Gepäck es zulässt.', 'Mit dem Auto ladet ihr nur dort aus, wo die Schilder es erlauben, und stellt den Wagen danach legal ab.'],
@@ -160,7 +162,7 @@ const nerjaArrivalUi = {
     heroTitle: 'Cómo llegar a Nerja y a AMARA Playa',
     heroText: 'Aena indica un autobús directo de Alsa entre el aeropuerto de Málaga y Nerja: la llegada más sencilla si pensáis moveros a pie una vez aquí. Termina en la estación de autobuses, no en nuestra puerta; con maletas, coged un taxi desde allí. Un traslado o un coche de alquiler os deja en la dirección: Calle Castilla Pérez 60, a unos 200 metros de la playa de Torrecilla. No hay plaza privada, así que se aparca en un aparcamiento público o legalmente en la calle. Y algo que conviene saber antes: delante del ascensor hay cinco escalones fuera del edificio y otros cinco dentro.',
     optionsEyebrow: 'Desde el aeropuerto de Málaga', optionsTitle: 'El autobús va directo; el coche llega más lejos',
-    carEyebrow: 'Traslado o coche de alquiler', carTitle: 'Hasta la puerta y luego una plaza', carText: 'Con equipaje, el traslado es lo más cómodo. El coche de alquiler compensa para Maro, Frigiliana y el resto de la Axarquía, pero tras descargar necesita una plaza pública o legal en la calle. Para una o dos excursiones suele bastar alquilarlo solo esos días. ¿Llegáis en coche eléctrico? Planificad la carga con antelación y buscad el punto de recarga público más cercano de vuestra ruta en una app de mapas.',
+    carEyebrow: 'Traslado o coche de alquiler', carTitle: 'Hasta la puerta y luego una plaza', carText: 'Con equipaje, el traslado es lo más cómodo. El coche de alquiler compensa para Maro, Frigiliana y el resto de la Axarquía, pero tras descargar necesita una plaza pública o legal en la calle. Para una o dos excursiones suele bastar alquilarlo solo esos días. ¿Llegáis en coche eléctrico? Planificad la carga con antelación; el mapa muestra los puntos de recarga públicos más cercanos.',
     busEyebrow: 'Autobús directo de Alsa', busTitle: 'Sencillo si os quedáis en Nerja', busText: 'Aena confirma la conexión directa entre el aeropuerto de Málaga y Nerja. Termina en la estación de autobuses, no en la Calle Castilla Pérez 60: caminad si el equipaje es ligero y, si no, coged un taxi.',
     parkingEyebrow: 'Llegar en coche', parkingTitle: 'AMARA Playa no tiene aparcamiento privado', parkingText: 'Para el centro, Balcón de Europa y Parque Verano Azul son los aparcamientos evidentes, además de aparcar legalmente en la calle cerca. Nada de eso se reserva. Elegid la zona antes de entrar en las calles más estrechas; la guía de aparcamiento explica cuál sirve para cada destino.',
     finalEyebrow: 'Los últimos minutos', finalTitle: 'El destino es Calle Castilla Pérez 60', finalSteps: ['Taxis y traslados pueden ir directamente a la dirección completa.', 'Desde la estación de autobuses, seguid en taxi o a pie si el equipaje lo permite.', 'En coche, descargad solo donde lo permitan las señales y luego llevad el coche a una plaza legal.'],
@@ -170,7 +172,7 @@ const nerjaArrivalUi = {
     heroTitle: 'Naar Nerja en AMARA Playa',
     heroText: 'Aena vermeldt een directe Alsa-bus van Málaga Airport naar Nerja — de eenvoudigste aankomst als jullie hier vooral te voet willen zijn. Hij eindigt bij het busstation, niet bij onze deur; met koffers neem je daar een taxi. Een transfer of huurauto brengt jullie tot het adres zelf: Calle Castilla Pérez 60, ongeveer 200 meter van het Torrecilla-strand. Een eigen parkeerplaats is er niet, dus je parkeert in een openbare garage of legaal op straat. En nog iets om vooraf te weten: vóór de lift liggen vijf treden buiten het gebouw en nog vijf binnen.',
     optionsEyebrow: 'Vanaf Málaga Airport', optionsTitle: 'De bus rijdt direct, de auto rijdt verder',
-    carEyebrow: 'Transfer of huurauto', carTitle: 'Tot de deur — en dan een plek', carText: 'Met bagage is een transfer het makkelijkst. Een huurauto verdient zich terug voor Maro, Frigiliana en de bredere Axarquía, maar heeft na het uitladen een legale openbare of straatplek nodig. Voor één of twee uitstapjes volstaat vaak een auto voor alleen die dagen. Komen jullie met een elektrische auto? Plan het laden vooraf en zoek het dichtstbijzijnde openbare laadpunt op jullie route in een kaarten-app.',
+    carEyebrow: 'Transfer of huurauto', carTitle: 'Tot de deur — en dan een plek', carText: 'Met bagage is een transfer het makkelijkst. Een huurauto verdient zich terug voor Maro, Frigiliana en de bredere Axarquía, maar heeft na het uitladen een legale openbare of straatplek nodig. Voor één of twee uitstapjes volstaat vaak een auto voor alleen die dagen. Komen jullie met een elektrische auto? Plan het laden vooraf; de kaart toont de dichtstbijzijnde openbare laadpunten.',
     busEyebrow: 'Directe Alsa-bus', busTitle: 'Eenvoudig als jullie in Nerja blijven', busText: 'Aena bevestigt de directe verbinding tussen Málaga Airport en Nerja. Hij eindigt bij het busstation, niet aan de Calle Castilla Pérez 60 — loop het als de bagage licht is, neem anders een taxi.',
     parkingEyebrow: 'Aankomst met de auto', parkingTitle: 'AMARA Playa heeft geen eigen parkeerplaats', parkingText: 'Voor het centrum zijn Balcón de Europa en Parque Verano Azul de voor de hand liggende parkings, plus legaal straatparkeren in de buurt. Reserveren kan niet. Kies het gebied voordat je de smalste straten in rijdt; de parkeergids legt uit welke waarvoor past.',
     finalEyebrow: 'De laatste minuten', finalTitle: 'De bestemming is Calle Castilla Pérez 60', finalSteps: ['Taxi en transfer kunnen rechtstreeks naar het volledige adres rijden.', 'Vanaf het busstation ga je verder met de taxi — of te voet als de bagage het toelaat.', 'Met de auto laad je alleen uit waar de borden dat toestaan en zet je hem daarna op een legale plek.'],
@@ -180,7 +182,7 @@ const nerjaArrivalUi = {
     heroTitle: 'Resa till Nerja och AMARA Playa',
     heroText: 'Aena anger en direktbuss med Alsa från Málaga flygplats till Nerja — den enklaste ankomsten om ni tänker röra er till fots väl på plats. Den slutar vid busstationen, inte vid vår dörr; med resväskor tar ni taxi därifrån. En transfer eller hyrbil tar er ända till adressen: Calle Castilla Pérez 60, cirka 200 meter från Torrecillastranden. Det finns ingen egen parkering, så ni parkerar i ett allmänt garage eller lagligt på gatan. Och en sak värd att veta i förväg: före hissen finns fem trappsteg utanför huset och fem till inne i huset.',
     optionsEyebrow: 'Från Málaga flygplats', optionsTitle: 'Bussen går direkt, bilen går längre',
-    carEyebrow: 'Transfer eller hyrbil', carTitle: 'Ända fram till dörren — sedan en plats', carText: 'Med bagage är transfern enklast. En hyrbil är värd det för Maro, Frigiliana och övriga Axarquía, men behöver efter avlastning en laglig allmän plats eller gatuplats. För en eller två utflyktsdagar räcker det ofta att hyra bil just de dagarna. Kommer ni med elbil? Planera laddningen i förväg och sök närmaste offentliga laddstation längs er rutt i en kart-app.',
+    carEyebrow: 'Transfer eller hyrbil', carTitle: 'Ända fram till dörren — sedan en plats', carText: 'Med bagage är transfern enklast. En hyrbil är värd det för Maro, Frigiliana och övriga Axarquía, men behöver efter avlastning en laglig allmän plats eller gatuplats. För en eller två utflyktsdagar räcker det ofta att hyra bil just de dagarna. Kommer ni med elbil? Planera laddningen i förväg; kartan visar de närmaste offentliga laddstationerna.',
     busEyebrow: 'Direktbuss med Alsa', busTitle: 'Enkelt om ni stannar i Nerja', busText: 'Aena bekräftar direktförbindelsen mellan Málaga flygplats och Nerja. Den slutar vid busstationen, inte på Calle Castilla Pérez 60 — gå om bagaget är lätt, ta annars taxi.',
     parkingEyebrow: 'Ankomst med bil', parkingTitle: 'AMARA Playa har ingen egen parkering', parkingText: 'För centrum är Balcón de Europa och Parque Verano Azul de självklara anläggningarna, plus laglig gatuparkering i närheten. Inget av det går att boka. Välj område innan ni kör in på de trängsta gatorna; parkeringsguiden förklarar vilket som passar vilket mål.',
     finalEyebrow: 'De sista minuterna', finalTitle: 'Målet är Calle Castilla Pérez 60', finalSteps: ['Taxi och transfer kan köra direkt till den fullständiga adressen.', 'Från busstationen fortsätter ni med taxi — eller till fots om bagaget tillåter.', 'Med bil lastar ni av bara där skyltarna tillåter och ställer sedan bilen på en laglig plats.'],
@@ -458,6 +460,20 @@ function relatedGuides(
   };
 }
 
+/** Live public-charging-point map for guests arriving in an electric car. */
+const CHARGING_MAP_LABEL: Record<AmaraLanguage, string> = {
+  en: 'Charging stations nearby (map)',
+  de: 'Ladestationen in der Nähe (Karte)',
+  es: 'Puntos de recarga cerca (mapa)',
+  nl: 'Laadpunten in de buurt (kaart)',
+  sv: 'Laddstationer i närheten (karta)'
+};
+const chargingMapLink = (place: string, lang: AmaraLanguage) => ({
+  href: `https://www.google.com/maps/search/?api=1&query=EV+charging+station+${place}`,
+  label: CHARGING_MAP_LABEL[lang],
+  external: true
+});
+
 function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
   const copy = gettingToFrigilianaCopy;
   const localizedFacts = copy.facts.items.map((fact) => ({
@@ -526,7 +542,8 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
         icon: optionIcons[option.id],
         timing: text(option.timing, lang),
         bestFor: text(option.bestFor, lang),
-        consideration: text(option.consideration, lang)
+        consideration: text(option.consideration, lang),
+        link: option.id === 'car' ? chargingMapLink('Frigiliana', lang) : undefined
       }))
     },
     journeySteps: {
@@ -651,7 +668,7 @@ function nerjaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
         consideration: ui[lang].consideration
       },
       items: [
-        { id: 'by-car', eyebrow: display.carEyebrow as string, title: display.carTitle as string, summary: display.carText as string, details: [], icon: 'rental-car' },
+        { id: 'by-car', eyebrow: display.carEyebrow as string, title: display.carTitle as string, summary: display.carText as string, details: [], icon: 'rental-car', link: chargingMapLink('Nerja', lang) },
         { id: 'by-bus', eyebrow: display.busEyebrow as string, title: display.busTitle as string, summary: display.busText as string, details: [], icon: 'bus' }
       ]
     },
@@ -722,7 +739,7 @@ function tarifaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
         bestFor: ui[lang].bestFor,
         consideration: ui[lang].consideration
       },
-      items: [sectionCard(car, 'rental-car'), sectionCard(bus, 'bus')]
+      items: [{ ...sectionCard(car, 'rental-car'), link: chargingMapLink('Tarifa', lang) }, sectionCard(bus, 'bus')]
     },
     journeySteps: {
       title: structureUi[lang].routeTitle,

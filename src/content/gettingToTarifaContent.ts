@@ -164,11 +164,11 @@ export const gettingToTarifaContent = {
           "Den reserverade garageplatsen betyder att ni kör in och slutar leta — vilket betyder mest i juli och augusti. Den exakta garageinfarten får ni med er ankomstinformation."
         ),
         l(
-          "Driving an electric car? Plan your charging ahead and check a maps app for the nearest public charging point on your route into Tarifa.",
-          "Ihr kommt mit einem Elektroauto? Plant das Laden im Voraus und sucht die nächste öffentliche Ladestation auf eurer Route nach Tarifa in einer Karten-App.",
-          "¿Llegáis en coche eléctrico? Planificad la carga con antelación y buscad el punto de recarga público más cercano en vuestra ruta hacia Tarifa en una app de mapas.",
-          "Komen jullie met een elektrische auto? Plan het laden vooraf en zoek het dichtstbijzijnde openbare laadpunt op jullie route naar Tarifa in een kaarten-app.",
-          "Kommer ni med elbil? Planera laddningen i förväg och sök närmaste offentliga laddstation längs er rutt till Tarifa i en kart-app."
+          "Driving an electric car? Plan your charging ahead; the map shows the nearest public charging points around Tarifa.",
+          "Ihr kommt mit einem Elektroauto? Plant das Laden im Voraus; die Karte zeigt die nächsten öffentlichen Ladepunkte rund um Tarifa.",
+          "¿Llegáis en coche eléctrico? Planificad la carga con antelación; el mapa muestra los puntos de recarga públicos más cercanos alrededor de Tarifa.",
+          "Komen jullie met een elektrische auto? Plan het laden vooraf; de kaart toont de dichtstbijzijnde openbare laadpunten rond Tarifa.",
+          "Kommer ni med elbil? Planera laddningen i förväg; kartan visar de närmaste offentliga laddstationerna runt Tarifa."
         )
       ]
     },

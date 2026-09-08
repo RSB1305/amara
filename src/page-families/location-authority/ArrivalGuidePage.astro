@@ -280,6 +280,16 @@ const isAuthorityReference = destination === 'frigiliana';
                   )}
                 </dl>
               )}
+
+              {item.link && (
+                <a
+                  href={item.link.href}
+                  class="am-cta-link mt-6"
+                  {...(item.link.external ? { target: '_blank', rel: 'noopener' } : {})}
+                >
+                  {item.link.label}
+                </a>
+              )}
             </article>
           ))}
         </div>
