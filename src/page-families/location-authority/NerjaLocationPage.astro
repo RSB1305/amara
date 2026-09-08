@@ -8,7 +8,7 @@ import {
   nerjaLocationCopy,
   nerjaLocationSeo
 } from '../../content/nerjaLocationContent';
-import { nerjaWhereToStayDe } from '../../content/nerjaWhereToStayContent';
+import { nerjaWhereToStayContent } from '../../content/nerjaWhereToStayContent';
 import { trustLabels } from '../../content/trustLabels';
 import { whereToStayOrientationGraphicContent } from '../../content/whereToStayOrientationGraphicContent';
 import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
@@ -31,7 +31,7 @@ function t<T>(value: Readonly<Record<AmaraLanguage, T>>): T {
 }
 const optionalLink = (token: LinkToken) => resolveOptionalLink(token, currentLang, { suppressMissing: true });
 
-const content = nerjaWhereToStayDe;
+const content = nerjaWhereToStayContent[currentLang];
 const bookBase = optionalLink('book');
 const bookHref = bookBase ? `${bookBase}?destination=nerja` : '#';
 const bookLabel = trustLabels.book[currentLang];
