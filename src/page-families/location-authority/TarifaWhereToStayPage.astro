@@ -3,7 +3,7 @@ import Navigation from '../../components/Navigation.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import WhereToStayBody from './WhereToStayBody.astro';
 import { tarifaWhereToStayContent } from '../../content/tarifaWhereToStayContent';
-import { tarifaWhereToStayDe } from '../../content/tarifaWhereToStayBodyContent';
+import { tarifaWhereToStayBody } from '../../content/tarifaWhereToStayBodyContent';
 import { trustLabels } from '../../content/trustLabels';
 import { whereToStayOrientationGraphicContent } from '../../content/whereToStayOrientationGraphicContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -23,7 +23,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const orientationGraphic = whereToStayOrientationGraphicContent.tarifa[currentLang];
-const content = tarifaWhereToStayDe;
+const content = tarifaWhereToStayBody[currentLang];
 
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa where to stay');
 const optionalLink = (token: LinkToken) => resolveOptionalLink(token, currentLang, { suppressMissing: true });
