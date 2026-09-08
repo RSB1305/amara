@@ -31,20 +31,14 @@ const locationFeatures = [
   {
     id: 'coast',
     copy: content.coast,
-    paragraphs: content.coast.paragraphs.slice(0, 1),
+    paragraphs: content.coast.paragraphs.slice(0, 2),
     link: experienceLinks[0]
   },
   {
     id: 'daily-life',
     copy: content.dailyLife,
-    paragraphs: content.dailyLife.paragraphs.slice(0, 1),
+    paragraphs: content.dailyLife.paragraphs.slice(0, 2),
     link: content.dailyLife.link
-  },
-  {
-    id: 'seasons',
-    copy: content.seasons,
-    paragraphs: content.seasons.paragraphs.slice(0, 2),
-    link: content.seasons.link
   }
 ];
 const footerHighlights: LabeledLink[] = [
@@ -187,7 +181,7 @@ const footerHighlights: LabeledLink[] = [
       imageAlt={stayImage.alt}
       eyebrow={content.amara.eyebrow}
       title={content.amara.title}
-      paragraphs={[content.amara.paragraphs[1], content.amara.paragraphs[3]]}
+      paragraphs={content.amara.paragraphs.slice(0, 3)}
       facts={content.amara.facts}
       link={content.amara.link ? { href: stayHref, label: content.amara.link.label } : undefined}
     />

@@ -1,7 +1,5 @@
 ---
 import TrustPageLayout from '../../layouts/TrustPageLayout.astro';
-import EditorialDefinitionList from '../../components/editorial/EditorialDefinitionList.astro';
-import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import SustainabilityBand from '../../components/editorial/SustainabilityBand.astro';
 import EditorialHostProfile from '../../components/editorial/EditorialHostProfile.astro';
 import TrustFamilyClosing from '../../components/trust/TrustFamilyClosing.astro';
@@ -20,19 +18,6 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const page = getAboutUsPageData(currentLang);
 const content = page.content;
 const philosophyImage = await createAmaraImage(imgAmaraHearts, 'card', { quality: 75 });
-
-const principlesDefinitionItems = (content.principles.items ?? [])
-  .map((item) => ({
-    title: item.title[currentLang],
-    description: item.copy[currentLang]
-  }))
-  .filter((item) => item.title.trim() !== '' || item.description.trim() !== '');
-
-const qualityFeatureCards = content.quality.cards.map((card) => ({
-  title: card.title[currentLang],
-  ...(card.subline ? { subline: card.subline[currentLang] } : {}),
-  copy: card.copy[currentLang]
-}));
 
 const sustainabilityListColumns =
   content.sustainability.listColumns?.map((column) => ({
@@ -145,31 +130,6 @@ const heroCtaLinks = page.hero.ctaLinks
   </AmaraSection>
 
   <AmaraSection>
-      <div class="mx-auto max-w-[800px]">
-        <div class="mb-12 text-center md:mb-16">
-          <h2 class="am-text-title">{content.principles.title?.[currentLang]}</h2>
-          <p class="am-text-body italic text-muted">{content.principles.note?.[currentLang]}</p>
-        </div>
-        <EditorialDefinitionList items={principlesDefinitionItems} />
-      </div>
-  </AmaraSection>
-
-  <AmaraSection>
-        <h2 class="am-text-title mb-12 text-center md:mb-16">{content.quality.title?.[currentLang]}</h2>
-        <div class="mx-auto mb-12 max-w-[1200px] md:mb-16" data-am-about-quality-grid>
-          <EditorialFeatureGrid cards={qualityFeatureCards} titleRole="card" />
-        </div>
-        <p class="am-text-body text-center italic text-muted">{content.quality.note?.[currentLang]}</p>
-  </AmaraSection>
-
-      <SustainabilityBand
-        title={content.sustainability.title?.[currentLang] ?? ''}
-        subtitle={content.sustainability.subtitle?.[currentLang] ?? ''}
-        lead={content.sustainability.lead?.[currentLang] ?? ''}
-        listColumns={sustainabilityListColumns}
-      />
-
-  <AmaraSection>
       <EditorialHostProfile
         id="host"
         imageSrc="/images/robert-amara-host.jpg"
@@ -201,6 +161,13 @@ const heroCtaLinks = page.hero.ctaLinks
       </EditorialHostProfile>
   </AmaraSection>
 
+      <SustainabilityBand
+        title={content.sustainability.title?.[currentLang] ?? ''}
+        subtitle={content.sustainability.subtitle?.[currentLang] ?? ''}
+        lead={content.sustainability.lead?.[currentLang] ?? ''}
+        listColumns={sustainabilityListColumns}
+      />
+
       <TrustFamilyClosing
         family="trust-content"
         title={content.closingCta.title?.[currentLang] ?? ''}
@@ -211,10 +178,3 @@ const heroCtaLinks = page.hero.ctaLinks
         lang={currentLang}
       />
 </TrustPageLayout>
-
-<style is:global>
-  [data-am-about-quality-grid] .grid > div > div {
-    min-height: 5.5rem;
-  }
-
-</style>

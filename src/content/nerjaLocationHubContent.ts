@@ -65,8 +65,8 @@ const seo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     de: {
-      title: 'Nerja Lage-Guide: Ort, Strände & Aufenthalt | AMARA',
-      description: 'So hängen Altstadt, Strände und Wohnlagen in Nerja zusammen – mit praktischen Hinweisen zu Anreise, Fußwegen, Parken und Alltag bei Torrecilla.',
+      title: 'Nerja: Strand, Balcón und Tapas | AMARA',
+      description: 'Nerja am Mittelmeer: Buchten, der Balcón de Europa, Tapas bis spät und eine Stadt, die das ganze Jahr geöffnet hat. Unsere Wohnung liegt 200 Meter vom Strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -227,7 +227,7 @@ export const nerjaLocationHubContent: {
         items: [
           { number: '01', title: 'Nach Nerja kommen', text: 'Flughäfen, Busankunft und die letzte Etappe zur Calle Castilla Pérez 60.', label: 'Anreise & Mobilität', token: 'getting_to_nerja' },
           { number: '02', title: 'Den Ort einordnen', text: 'Meereskante, Altstadt, östliche Strände und die Hänge dahinter.', label: 'Geografie & Orientierung', token: 'nerja_where_to_stay' },
-          { number: '03', title: 'Die passende Lage wählen', text: 'Torrecilla, Altstadt, Burriana und die oberen Wohnlagen im Vergleich.', label: 'Wo übernachten / Lagen', token: 'nerja_where_to_stay' },
+          { number: '03', title: 'Die passende Lage wählen', text: 'Torrecilla, Altstadt, Burriana und die oberen Wohnlagen im Vergleich.', label: 'Wo übernachten', token: 'nerja_where_to_stay' },
           { number: '04', title: 'Wetter & Jahreszeiten', text: 'Wie Hitze, Regen und ruhigere Monate den Küstenurlaub verändern.', label: 'Wetter & Jahreszeiten', token: 'nerja_weather' },
           { number: '05', title: 'Alltag vor Ort', text: 'Einkaufen, Abendspaziergänge, Strandroutine und Wege im Ort.', label: 'Alltag & Services', token: 'nerja_daily_life' },
           { number: '06', title: 'Länger bleiben', text: 'Was wichtiger wird, wenn aus Urlaub mehrere Wochen werden.', label: 'Winteraufenthalte', token: 'nerja_weather' }
@@ -248,13 +248,13 @@ export const nerjaLocationHubContent: {
       },
       arrival: {
         eyebrow: 'Anreise & Mobilität',
-        title: 'Plant die Ankunft bis zur Adresse – und erst dann den Autobedarf',
+        title: 'Der Bus fährt direkt, das Auto bleibt dann stehen',
         paragraphs: [
-          'Málaga-Costa del Sol ist für Nerja der wichtigste Flughafen. Aena führt eine direkte Alsa-Verbindung zwischen Flughafen und Nerja auf; Granada ist eine Alternative, bei der normalerweise am Busbahnhof Granada umgestiegen wird.',
-          'Im Zentrum von Nerja funktionieren viele Strand-, Restaurant- und Einkaufstage gut zu Fuß. Ein Auto lohnt sich besonders, wenn Maro, Frigiliana, die weitere Axarquía oder regelmäßige Ausflüge fest zum Urlaub gehören.',
-          'AMARA Playa liegt in der Calle Castilla Pérez 60. Zur Wohnung gehört kein Stellplatz; wer mit dem Auto anreist, sollte deshalb mit öffentlichen Parkhäusern oder Straßenparkplätzen planen – nicht mit einem freien Platz vor der Tür.'
+          'Vom Flughafen Málaga fährt der ALSA-Bus ohne Umstieg nach Nerja, gut eine Stunde. Er endet am Busbahnhof; mit Koffern nehmt ihr von dort ein Taxi bis zur Calle Castilla Pérez 60.',
+          'Im Ort braucht ihr an den meisten Tagen kein Auto. Für Maro, Frigiliana und die Axarquía reichen ein oder zwei Miettage; geparkt wird im Parkhaus Balcón de Europa oder Verano Azul, ein eigener Platz gehört nicht zur Wohnung.',
+          'Die Adresse für Taxi und Navi: Calle Castilla Pérez 60.'
         ],
-        link: { label: 'Die komplette Anreise planen', token: 'getting_to_nerja' }
+        link: { label: 'Anreise nach Nerja', token: 'getting_to_nerja' }
       },
       areas: {
         eyebrow: 'Wo übernachten',
@@ -264,29 +264,29 @@ export const nerjaLocationHubContent: {
           'Für einen kurzen Aufenthalt ist deshalb oft nicht „Welche Lage ist die beste?“ die richtige Frage, sondern „Welche Wege möchtet ihr jeden Tag wiederholen?“'
         ],
         archetypes: [
-          { title: 'Torrecilla & Chaparril', consequence: 'Strand, Einkäufe und Altstadt lassen sich zu einer Fußroutine verbinden.' },
-          { title: 'Altstadt & Balcón', consequence: 'Atmosphäre und Restaurants zuerst; die Anfahrt braucht mehr Planung.' },
-          { title: 'Burriana & Parador-Seite', consequence: 'Eine ausgeprägte Strandlage, bei manchen Wegen in den Ort mit Steigungen.' },
-          { title: 'Oberes Nerja', consequence: 'Mehr Wohnruhe und Aussicht, dafür mehr Abhängigkeit von Steigungen oder Verkehrsmitteln.' }
+          { title: 'Torrecilla & Chaparril', consequence: 'Strand vor der Tür, Balcón in fünf Minuten, abends ruhig. Hier liegt AMARA Playa.' },
+          { title: 'Altstadt & Balcón', consequence: 'Mittendrin zwischen Restaurants und Bars, im Sommer bis spät lebhaft.' },
+          { title: 'Burriana', consequence: 'Der große Strand mit Chiringuitos und Paella; zurück ins Zentrum geht es bergauf.' },
+          { title: 'Oberes Nerja', consequence: 'Aussicht und Ruhe, für Strand und Abendessen fahrt ihr.' }
         ],
-        link: { label: 'Nerjas Lagen vergleichen', token: 'nerja_where_to_stay' }
+        link: { label: 'Nerjas Lagen im Detail', token: 'nerja_where_to_stay' }
       },
       coast: {
-        eyebrow: 'Strände & Wege',
-        title: 'Auch in einem Strandort bleibt die Küstenwahl wichtig',
+        eyebrow: 'Strände',
+        title: 'Calahonda vor zehn, Burriana für die Paella, Maro für klares Wasser',
         paragraphs: [
-          'Torrecilla, El Chucho, Calahonda, Carabeo und Burriana sind nicht austauschbar. Zugang, Ausstattung, Treppen und der Rückweg zur Unterkunft verändern den Strandtag.',
-          'Von AMARA Playa sind es ungefähr 200 Meter bis Torrecilla. Ein kurzer Sprung ins Meer oder ein zweiter Besuch am Abend bleibt dadurch unkompliziert; andere Strände werden zu bewussten Spaziergängen oder gelegentlichen Taxi- und Autofahrten.'
+          'Calahonda unter dem Balcón ist am schönsten vor zehn Uhr, wenn das Licht auf die weißen Häuser fällt. Burriana hat Platz, Liegen und das AYO für die Paella am Mittag. Für klares Wasser fahrt ihr nach Maro und Cantarriján, mit Schnorchel und Kajak.',
+          'Von AMARA Playa sind es 200 Meter nach Torrecilla. Ein zweites Bad nach dem Abendessen ist deshalb keine Frage der Planung.'
         ]
       },
       dailyLife: {
-        eyebrow: 'Alltag & Services',
-        title: 'Das kompakte Zentrum ist Nerjas praktischer Vorteil',
+        eyebrow: 'Essen und Alltag',
+        title: 'Fisch bei La Puntilla, Tapas am Balcón, Brot bei Good Stuff',
         paragraphs: [
-          'Nerjas Größe bringt eine breite Auswahl an Supermärkten, Bäckereien, Apotheken und praktischen Services. Im und rund um das Zentrum lassen sich viele normale Erledigungen ohne Auto verbinden; weiter oben verändert die konkrete Lage den Aufwand zu Fuß.',
-          'Bei AMARA Playa liegt der Vorteil in der Wiederholung: Torrecilla ist nah, der Balcón de Europa ungefähr 500 Meter entfernt, und das Zentrum bleibt Teil eines normalen Morgens oder Abends statt eines geplanten Ausflugs.'
+          'Mittags gegrillter Fisch bei La Puntilla oder Paella am Strand, abends Tapas in den Gassen um den Balcón, für einen besonderen Abend das Oliva oder das 34 mit Meerblick. Gegessen wird spät; im Ort öffnen die Küchen gegen sieben.',
+          'Der Carrefour Express liegt in unserer Straße, das Frühstück gibt es zwei Minuten weiter bei Good Stuff, die Apotheke ebenfalls in der Calle Castilla Pérez.'
         ],
-        link: { label: 'Alltag & Versorgung in Nerja', token: 'nerja_daily_life' }
+        link: { label: 'Supermärkte und Apotheke in Nerja', token: 'nerja_daily_life' }
       },
       seasons: {
         eyebrow: 'Wetter, Jahreszeiten & längere Aufenthalte',
@@ -303,16 +303,16 @@ export const nerjaLocationHubContent: {
         eyebrow: 'Eure Basis in Nerja',
         title: 'Vom Gast zum Gastgeber in Nerja',
         paragraphs: [
-          'Jahrelang waren wir selbst Urlaubsgäste in genau dieser Wohnung. Wir haben die Zeit hier so sehr genossen, dass wir keine Sekunde zögern mussten, als wir erfuhren, dass sie zum Verkauf steht.',
-          'In wenigen Worten: zentral, nach hinten ausgerichtet und ruhig, mit Meerblick. Die meisten Alltagswege in Nerja funktionieren von hier gut zu Fuß, sodass ihr im Ort nur selten ein Auto braucht.',
-          'Die Lage ist schwer zu schlagen: knapp 500 Meter zum Balcón de Europa und gerade einmal 200 Meter zum Strand Torrecilla. Wer ein paar hundert Meter weiter geht, erreicht abgelegene, ruhige kleine Buchten.',
-          'Auch das Gebäude gehört zur ehrlichen Planung: Die Wohnung liegt im fünften Stock mit Aufzug, davor gibt es außen fünf und innen weitere fünf Stufen. Ein privater Stellplatz ist nicht vorhanden.'
+          'Wir waren jahrelang selbst Gäste in dieser Wohnung, bevor wir sie gekauft haben. Der Weg zum Balcón war nie ein Programmpunkt, sondern eine Gewohnheit nach dem Essen.',
+          'Die Wohnung liegt im fünften Stock mit Aufzug, nach hinten raus und deshalb ruhig, mit Balkon und seitlichem Meerblick. Vor dem Aufzug sind es zehn Stufen, einen eigenen Parkplatz gibt es nicht; dafür bleibt das Auto tagsüber einfach stehen.',
+          'Im Sommer geht ihr vor dem Frühstück ins Meer und esst um neun. Im Winter gehört euch die Promenade, und an einem grauen Tag sind Höhle und Museum offen.',
+          'Adresse: Calle Castilla Pérez 60, Nerja.'
         ],
         facts: [
-          'Ungefähr 200 m bis zum Strand Torrecilla',
-          'Ungefähr 500 m bis zum Balcón de Europa',
-          'Privater Balkon, vollständige Küche und Waschmaschine',
-          'Klimaanlage und Heizung; kein privater Stellplatz'
+          '200 m zum Strand Torrecilla',
+          '500 m zum Balcón de Europa',
+          'Bett 200 × 200, Küche, Waschmaschine, Balkon',
+          'Fünfter Stock mit Aufzug, zehn Stufen davor'
         ],
         link: { label: 'AMARA Playa ansehen', token: 'playa' }
       },
@@ -716,47 +716,47 @@ const nerjaLocationPeopleFirstCopy = {
   },
   de: {
     hero: {
-      eyebrow: 'Nerja im Überblick',
-      title: 'Nerja als Aufenthaltsort',
-      subtitle: 'Ein kompakter Küstenort, in dem Steigungen und Wohnlage den Aufenthalt prägen',
-      standfirst: 'Nerja funktioniert gut als Urlaubsbasis, wenn ihr Strände, Altstadt, Restaurants und Versorgung an vielen Tagen zu Fuß verbinden möchtet. Die genaue Lage bleibt wichtig: Torrecilla und Zentrum ermöglichen einen kompakten Alltag, Burriana bildet einen eigenen Strandmittelpunkt, und im oberen Nerja gehören mehr Steigungen zu den täglichen Wegen. Der Ort passt zu Paaren, die Meer und Stadtleben nah beieinander suchen; für ländliche Abgeschiedenheit oder bequemes Parken direkt vor der Tür ist er weniger selbstverständlich.',
+      eyebrow: 'Nerja · Ort & Aufenthalt',
+      title: 'Nerja am Mittelmeer',
+      subtitle: 'Morgens ins Meer, abends Tapas, und das ganze Jahr eine Stadt, die geöffnet hat',
+      standfirst: 'Nerja ist eine Küstenstadt mit kleinen Buchten, einem breiten Strand im Osten und dem Balcón de Europa in der Mitte. Vom Flughafen Málaga fährt der Bus direkt hierher, im Ort geht fast alles zu Fuß. Unsere Wohnung liegt in Torrecilla: 200 Meter zum Strand, 500 zum Balcón, fünfter Stock mit Blick aufs Meer.',
       note: '',
       updated: 'Stand August 2026'
     },
     orientation: {
-      eyebrow: 'So hängt Nerja zusammen',
-      title: 'Das Meer ist nah – den Unterschied machen die Steigungen',
+      eyebrow: 'So liegt Nerja',
+      title: 'Der Balcón in der Mitte, die Strände links und rechts',
       paragraphs: [
-        'Altstadt und Balcón de Europa bilden Nerjas Zentrum. Direkt westlich davon liegen Torrecilla und Chaparril; Burriana hat östlich seinen eigenen Mittelpunkt am Strand.',
-        'Vom Meer steigt Nerja an. Ein kurzer Weg auf der Karte kann deshalb Treppen oder einen spürbaren Anstieg enthalten, besonders zwischen Burriana und Zentrum oder in den oberen Wohnlagen.'
+        'Am Balcón de Europa endet die Altstadt auf einem Felsen über dem Meer; darunter liegt die Bucht Calahonda. Nach Westen folgen Torrecilla, El Chucho und der lange Playazo, nach Osten Carabeo, Carabeíllo und Burriana mit den Chiringuitos.',
+        'Vom Meer steigt die Stadt an: In Torrecilla und im Zentrum ist alles eben, Richtung Burriana und in den oberen Vierteln geht es bergauf.'
       ]
     },
     areas: {
-      eyebrow: 'Vier praktische Lagen',
-      title: 'Was sich ändert, wenn ihr in einem anderen Teil Nerjas wohnt',
-      paragraphs: ['Die eine beste Lage gibt es nicht. Entscheidend ist, ob ihr Altstadt, einen bestimmten Strand, mehr Ruhe oder leichteres Parken direkt vor der Tür haben möchtet.']
+      eyebrow: 'Wo ihr wohnt',
+      title: 'Vier Ecken, vier Arten von Tag',
+      paragraphs: ['Nerja ist eben und kompakt, den Unterschied macht die Nähe: zum Strand, zu den Tapas, zur Ruhe.']
     },
     amara: {
-      eyebrow: 'AMARA Playa in dieser Lage',
-      title: 'Eine zentrale Küstenbasis – mit ehrlichen Grenzen bei Zugang und Parken'
+      eyebrow: 'Unsere Wohnung',
+      title: 'AMARA Playa: fünfter Stock, Meerblick, 200 Meter zum Strand'
     },
     seasons: {
-      eyebrow: 'Jahreszeiten & längere Aufenthalte',
-      title: 'Hitze, ruhigere Monate und normale Wochen verändern den Tagesrhythmus',
+      eyebrow: 'Jahreszeiten',
+      title: 'Sommer am Strand, Winter auf der Promenade',
       paragraphs: [
-        'An heißen Tagen werden frühe Wege, Schatten und eine flexible Strandwahl wichtiger. In ruhigeren oder nasseren Zeiten zählen auch Stunden in der Unterkunft und die Angebote, die eine normale Woche tragen.',
-        'Dauert der Aufenthalt mehrere Wochen, werden Einkäufe, Apotheken, wiederkehrende Wege, Kochen, Wäsche und die Balance zwischen autofreien Tagen und regionalen Ausflügen wichtiger als eine Sehenswürdigkeitenliste.'
+        'Im Sommer geht ihr vor dem Frühstück ins Meer und esst um neun.',
+        'Im Winter gehört euch die Promenade, und an einem grauen Tag sind Höhle und Museum offen.'
       ],
-      link: { label: 'Die saisonalen Bedingungen für eure Reisedaten prüfen', token: 'nerja_weather' }
+      link: { label: 'Wetter in Nerja', token: 'nerja_weather' }
     },
     experience: {
-      eyebrow: 'Tage, die zu Nerja gehören',
-      title: 'Lasst zuerst Küste und Altstadt den Tag bestimmen',
-      paragraphs: ['Nerja ist besonders stark, wenn Strand, die Gassen darüber und der Abend zu einem ruhigen Tag gehören. Wählt den konkreten Strand nach Zugang und Bedingungen, nehmt Balcón und Altstadt für einen zentralen Tag und gebt Maro, den Höhlen oder einem längeren Ausflug ins Landesinnere einen anderen Tag.'],
+      eyebrow: 'Eure Tage',
+      title: 'Morgens Strand, mittags Höhle, abends Balcón',
+      paragraphs: ['Ein Nerja-Tag braucht wenig Plan: vor dem Frühstück ins Meer, ein halber Tag in der Höhle von Nerja bei Maro, abends der Balcón, wenn die Tagesgäste weg sind und die Beleuchtung angeht. Frigiliana liegt zehn Minuten oberhalb, Granada und Málaga jeweils einen Tag entfernt.'],
       links: [
-        { label: 'Zugang, Treppen und Ausstattung vor der Strandwahl vergleichen', token: 'nerja_beaches_authority' },
-        { label: 'Von einem zentralen Bad durch Balcón und Altstadt weitergehen', token: 'nerja_balcon_de_europa' },
-        { label: 'Alle veröffentlichten Nerja-Erlebnisse ansehen', token: 'nerja_experience_hub' }
+        { label: 'Alle Strände in Nerja', token: 'nerja_beaches_authority' },
+        { label: 'Balcón de Europa', token: 'nerja_balcon_de_europa' },
+        { label: 'Alle Nerja-Erlebnisse', token: 'nerja_experience_hub' }
       ]
     }
   },

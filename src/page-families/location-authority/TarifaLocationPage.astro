@@ -16,7 +16,6 @@ import Navigation from '../../components/Navigation.astro';
 import LocationPanoramaHero from '../../components/location/LocationPanoramaHero.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import { tarifaLocationContent } from '../../content/tarifaLocationContent';
-import { tarifaGuideContent } from '../../content/tarifaGuideContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -35,10 +34,6 @@ const walkImage = requireRouteImage('tarifa', 'walk', currentLang);
 const castleImage = requireRouteImage('tarifa', 'castle', currentLang);
 const stayImage = requireRouteImage('tarifa', 'stay', currentLang);
 const content = tarifaLocationContent.locales[currentLang];
-// "Four kinds of trip, four priorities" lives in the Tarifa location authority copy
-// and already exists in all five locales; the hub surfaces it instead of retelling it.
-const overviewGuide = tarifaGuideContent.overview;
-const stayFits = overviewGuide.id === 'overview' ? overviewGuide.location[currentLang].stayFits : undefined;
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa location hub');
 const aboutHref = requiredLink('about');
 const stayHref = requiredLink('tarifa');
@@ -170,34 +165,6 @@ const byline = tarifaLocationContent.seo.article
       </div>
     </section>
 
-    <!-- Who Tarifa suits: couples, couples who kite, families, long stays. Photo brief: an old-town evening. -->
-    {stayFits && (
-    <section id="who-tarifa-suits" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="grid gap-10 lg:grid-cols-12 lg:items-start lg:gap-16">
-          <PhotoBrief class="am-bleed-start aspect-[4/5] lg:col-span-4 lg:sticky lg:top-32" {...requireRouteBrief('tarifa', 'evening')} />
-          <div class="lg:col-span-8">
-            <p class="am-text-eyebrow text-primary">{content.areas.eyebrow}</p>
-            <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{stayFits.title}</h2>
-            <div class="mt-10 grid gap-8 md:grid-cols-2 md:gap-x-12 md:gap-y-10">
-              {stayFits.items.map((item, index) => (
-                <div>
-                  <span class="am-text-label am-text-label--wide text-primary">{String(index + 1).padStart(2, '0')}</span>
-                  <h3 class="am-text-functional-heading mt-4 text-on-surface">{item.title}</h3>
-                  <div class="mt-3 space-y-3">
-                    {item.paragraphs.map((paragraph) => (
-                      <p class="text-on-surface-variant">{paragraph}</p>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    )}
-
     <!-- Wind and seasons: the one place the kite photograph belongs. -->
     <section id="weather-seasons" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
@@ -206,7 +173,7 @@ const byline = tarifaLocationContent.seo.article
             <p class="am-text-eyebrow text-primary">{content.weather.eyebrow}</p>
             <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.weather.title}</h2>
             <div class="mt-6 max-w-2xl space-y-5">
-              {[content.weather.paragraphs[0], content.weather.paragraphs[2]].filter(Boolean).map((paragraph) => (
+              {content.weather.paragraphs.slice(0, 2).map((paragraph) => (
                 <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
               ))}
             </div>
@@ -255,7 +222,7 @@ const byline = tarifaLocationContent.seo.article
             <p class="am-text-eyebrow text-primary">{content.amara.eyebrow}</p>
             <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.amara.title}</h2>
             <div class="mt-6 max-w-2xl space-y-5">
-              {[content.amara.paragraphs[0], content.amara.paragraphs.at(-1)!].map((paragraph) => (
+              {content.amara.paragraphs.map((paragraph) => (
                 <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
               ))}
             </div>
