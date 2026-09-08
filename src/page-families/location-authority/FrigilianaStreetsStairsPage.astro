@@ -8,7 +8,6 @@ import LocationContextNav from '../../components/location/LocationContextNav.ast
 import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
 import WhereToStayOrientationGraphic from '../../components/location/WhereToStayOrientationGraphic.astro';
 import LocationModule from './LocationModule.astro';
-import AmaraKeyFigures from '../../components/content/AmaraKeyFigures.astro';
 import { trustLabels } from '../../content/trustLabels';
 import {
   frigilianaStreetsStairsCopy,
@@ -102,8 +101,13 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
     </LocationTopicHero>
 
     <LocationModule data-am-stay-module="figures">
-      <div class="mx-auto max-w-screen-2xl">
-        <AmaraKeyFigures figures={c.hero.stats.map((s) => ({ value: s.k, label: s.l }))} />
+      <div class="mx-auto grid max-w-screen-2xl gap-x-10 gap-y-8 border-t border-border-subtle pt-10 sm:grid-cols-3">
+        {c.hero.stats.map((s) => (
+          <div>
+            <div class="am-text-title leading-none text-primary">{s.k}</div>
+            <p class="am-text-caption am-text-caption--upper am-text-caption--wide mt-3 max-w-[24ch] text-on-surface-variant">{s.l}</p>
+          </div>
+        ))}
       </div>
     </LocationModule>
 
@@ -231,7 +235,7 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
             ))}
           </ul>
           <p class="am-text-subtitle mt-7 max-w-2xl border-l-2 border-primary-fixed-dim pl-5 text-balance italic text-inverted-on-surface/75">{c.verdict.honest}</p>
-          <a href={bookHref} class="am-btn am-btn--primary mt-9 inline-flex">{bookLabel}</a>
+          <a href={bookHref} class="am-btn am-btn--primary am-btn--inverse mt-9 inline-flex">{bookLabel}</a>
         </div>
       </div>
     </LocationModule>
