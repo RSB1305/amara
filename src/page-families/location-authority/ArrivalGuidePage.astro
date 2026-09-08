@@ -275,13 +275,24 @@ const isAuthorityReference = destination === 'frigiliana';
                       </dt>
                       <dd class:list={['am-text-body mt-3 leading-relaxed text-on-surface-variant', isAuthorityReference && 'am-arrival-option-description']}>
                         <InlineEmphasis text={item.consideration} />
+                        {item.link && (
+                          <span class="mt-4 flex">
+                            <a
+                              href={item.link.href}
+                              class="am-cta-link"
+                              {...(item.link.external ? { target: '_blank', rel: 'noopener' } : {})}
+                            >
+                              {item.link.label}
+                            </a>
+                          </span>
+                        )}
                       </dd>
                     </div>
                   )}
                 </dl>
               )}
 
-              {item.link && (
+              {item.link && !item.consideration && (
                 <a
                   href={item.link.href}
                   class="am-cta-link mt-6"
