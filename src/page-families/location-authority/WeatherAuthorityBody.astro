@@ -3,6 +3,7 @@ import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationClimateTable from '../../components/location/LocationClimateTable.astro';
 import LocationClimateComparison from '../../components/location/LocationClimateComparison.astro';
 import LocationClimateMicroclimate from '../../components/location/LocationClimateMicroclimate.astro';
+import LocationWeatherConnections from '../../components/location/LocationWeatherConnections.astro';
 import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
 import AemetForecastPanel from '../../components/location/AemetForecastPanel.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
@@ -35,6 +36,7 @@ interface Props {
     winter: { label: string; body: string };
     links: Array<{ label: string; href: string }>;
   };
+  connections?: Array<{ eyebrow: string; title: string; body: string; linkLabel: string; linkHref: string }>;
   climateSource: { label: string; href: string };
   forecastHref: string;
   liveForecast?: {
@@ -53,6 +55,7 @@ const {
   months,
   comparison,
   microclimate,
+  connections,
   climateSource,
   forecastHref,
   liveForecast,
@@ -128,6 +131,12 @@ const {
         winter={microclimate.winter}
         links={microclimate.links}
       />
+    </div>
+  )}
+
+  {connections && (
+    <div data-am-weather-module="connections">
+      <LocationWeatherConnections items={connections} />
     </div>
   )}
 

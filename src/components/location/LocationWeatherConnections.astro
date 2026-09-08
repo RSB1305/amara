@@ -1,0 +1,38 @@
+---
+// Cross-topic hand-offs from the weather to the spokes it touches — siesta and
+// shop hours, summer hiking. Which items appear is decided per market upstream;
+// this component only lays out whatever it is handed, and renders nothing when
+// the list is empty.
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+
+interface ConnectionItem {
+  eyebrow: string;
+  title: string;
+  body: string;
+  linkLabel: string;
+  linkHref: string;
+}
+
+interface Props {
+  items: ConnectionItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="bg-surface" data-am-weather-connections>
+  <div class="mx-auto max-w-screen-2xl px-6 py-20 md:px-12 md:py-28">
+    <div
+      class:list={['grid gap-x-16 gap-y-12', items.length > 1 ? 'md:grid-cols-2' : 'md:grid-cols-1']}
+    >
+      {items.map((item) => (
+        <article class="flex flex-col border-t-2 border-primary/70 pt-6">
+          <p class="am-text-caption am-text-caption--upper am-text-caption--wide text-primary">{item.eyebrow}</p>
+          <h2 class="am-text-subtitle mt-4 text-balance text-on-surface">{item.title}</h2>
+          <p class="am-text-body mt-4 max-w-2xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={item.body} /></p>
+          <a href={item.linkHref} class="am-cta-link mt-6 self-start">{item.linkLabel}</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
