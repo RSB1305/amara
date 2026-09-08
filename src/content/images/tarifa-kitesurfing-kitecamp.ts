@@ -5,13 +5,13 @@ export const tarifaKitesurfingKitecampImages = defineRouteImages({
   images: [
     {
       role: 'hero',
-      src: '/images/tarifa/IMG_9169.jpg',
+      src: '/images/tarifa/tarifa-surf-club-team.webp',
       alt: {
-        en: "Two members of the Tarifa Surf Club by a palm on the beach promenade",
-        de: "Zwei vom Tarifa Surf Club an einer Palme auf der Strandpromenade",
-        es: "Dos del Tarifa Surf Club junto a una palmera en el paseo marítimo",
-        nl: "Twee van de Tarifa Surf Club bij een palm op de strandboulevard",
-        sv: "Två från Tarifa Surf Club vid en palm på strandpromenaden"
+        en: "Group photo of Tarifa Surf Club by the beach",
+        de: "Gruppenfoto des Tarifa Surf Clubs am Strand",
+        es: "Foto de grupo de Tarifa Surf Club junto a la playa",
+        nl: "Groepsfoto van Tarifa Surf Club bij het strand",
+        sv: "Gruppfoto av Tarifa Surf Club vid stranden"
       }
     },
     {

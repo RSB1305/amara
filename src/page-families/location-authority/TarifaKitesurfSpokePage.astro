@@ -79,7 +79,7 @@ const footerHighlights: LabeledLink[] = [
         width={1080}
         widths={[480, 640, 800, 1080]}
         sizes="(max-width: 1023px) 100vw, 36vw"
-        class="aspect-[3/4] w-full object-cover"
+        class:list={['w-full object-cover', spoke === 'kitecamp' ? 'aspect-[3/2]' : 'aspect-[3/4]']}
         loading="eager"
         decoding="async"
         fetchpriority="high"
