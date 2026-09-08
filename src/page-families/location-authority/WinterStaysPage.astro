@@ -22,6 +22,9 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import WinterStaysAuthorityArticle from './WinterStaysAuthorityArticle.astro';
+import { locationClimateProfiles, comparisonCityByLang, comparisonCitySunHours } from '../../content/locationClimateData';
+import { weatherMonthLabels } from '../../content/locationWeatherAuthorityContent';
+import { formatDecimal } from '../../lib/formatNumber';
 
 type Destination = 'frigiliana' | 'nerja' | 'tarifa';
 
@@ -90,6 +93,37 @@ const propertyHref =
 const footerHighlights: LabeledLink[] = content.related.links
   .slice(0, 3)
   .map(({ token, label }) => ({ token, label }));
+
+const sunHoursCopy: Record<AmaraLanguage, { eyebrow: string; title: string; intro: string; unitLabel: string }> = {
+  de: { eyebrow: 'Licht im Winter', title: 'Auch im Winter viel Sonne', intro: 'Sonnenstunden pro Tag im Jahresverlauf — die Wintermonate sind hervorgehoben.', unitLabel: 'Stunden pro Tag (Ø, 1999–2019)' },
+  en: { eyebrow: 'Winter light', title: 'Plenty of sun, even in winter', intro: 'Average hours of sunshine per day across the year — the winter months are highlighted.', unitLabel: 'Hours per day (avg, 1999–2019)' },
+  es: { eyebrow: 'Luz en invierno', title: 'Mucho sol, también en invierno', intro: 'Horas de sol al día a lo largo del año; los meses de invierno están resaltados.', unitLabel: 'Horas al día (media, 1999–2019)' },
+  nl: { eyebrow: 'Licht in de winter', title: 'Veel zon, ook in de winter', intro: 'Zonuren per dag door het jaar heen — de wintermaanden zijn uitgelicht.', unitLabel: 'Uren per dag (gem., 1999–2019)' },
+  sv: { eyebrow: 'Ljus på vintern', title: 'Mycket sol, även på vintern', intro: 'Soltimmar per dag under året — vintermånaderna är markerade.', unitLabel: 'Timmar per dag (snitt, 1999–2019)' }
+};
+const sunCompareNote: Record<AmaraLanguage, (city: string, place: string, cityHours: string) => string> = {
+  de: (city, place, cityHours) => `Im Dezember scheint die Sonne hier im Schnitt ${place} Stunden am Tag — in ${city} nur ${cityHours}.`,
+  en: (city, place, cityHours) => `In December the sun shines about ${place} hours a day here — in ${city} just ${cityHours}.`,
+  es: (city, place, cityHours) => `En diciembre el sol luce aquí unas ${place} horas al día; en ${city}, solo ${cityHours}.`,
+  nl: (city, place, cityHours) => `In december schijnt de zon hier gemiddeld ${place} uur per dag — in ${city} maar ${cityHours}.`,
+  sv: (city, place, cityHours) => `I december lyser solen här i snitt ${place} timmar om dagen — i ${city} bara ${cityHours}.`
+};
+const comparisonCity = comparisonCityByLang[currentLang];
+const decemberSun = locationClimateProfiles[destination][11].sunHours;
+const sunChart = {
+  ...sunHoursCopy[currentLang],
+  months: locationClimateProfiles[destination].map((month, index) => ({
+    month: weatherMonthLabels[currentLang][index],
+    sunHours: month.sunHours
+  })),
+  comparisonNote: comparisonCity
+    ? sunCompareNote[currentLang](
+        comparisonCity.name,
+        formatDecimal(decemberSun, currentLang),
+        formatDecimal(comparisonCitySunHours[comparisonCity.key][11], currentLang)
+      )
+    : undefined
+};
 ---
 
 <LocationAuthorityLayout
@@ -136,5 +170,6 @@ const footerHighlights: LabeledLink[] = content.related.links
     locationHref={requiredLink(pageConfig.locationToken)}
     propertyHref={propertyHref}
     resolveHref={requiredLink}
+    sunChart={sunChart}
   />
 </LocationAuthorityLayout>

@@ -9,7 +9,8 @@ import {
   weatherForecastUrls,
   weatherMonthLabels
 } from '../../content/locationWeatherAuthorityContent';
-import { climateDataSourceUrls, locationClimateProfiles } from '../../content/locationClimateData';
+import { climateDataSourceUrls, locationClimateProfiles, comparisonCityByLang, comparisonCityHighs, comparisonCityRecords } from '../../content/locationClimateData';
+import { climateComparisonContent } from '../../content/climateComparisonContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -60,6 +61,32 @@ const months = locationClimateProfiles[destination].map((month, index) => ({
   month: weatherMonthLabels[currentLang][index],
   ...month
 }));
+const comparisonCopy = climateComparisonContent[destination]?.[currentLang];
+const comparisonCity = comparisonCityByLang[currentLang];
+const comparison = comparisonCopy && comparisonCity
+  ? {
+      eyebrow: comparisonCopy.eyebrow,
+      title: comparisonCopy.title,
+      cityLabel: comparisonCity.name,
+      cityHighs: [...comparisonCityHighs[comparisonCity.key]],
+      cityRecords: [...comparisonCityRecords[comparisonCity.key]],
+      compareLabel: comparisonCopy.compareLabel,
+      summer: {
+        eyebrow: comparisonCopy.summer.eyebrow,
+        title: comparisonCopy.summer.title,
+        body: comparisonCopy.summer.body,
+        linkLabel: comparisonCopy.summer.linkLabel,
+        linkHref: requiredLink(comparisonCopy.summer.linkToken)
+      },
+      winter: {
+        eyebrow: comparisonCopy.winter.eyebrow,
+        title: comparisonCopy.winter.title,
+        body: comparisonCopy.winter.body,
+        linkLabel: comparisonCopy.winter.linkLabel,
+        linkHref: requiredLink(comparisonCopy.winter.linkToken)
+      }
+    }
+  : undefined;
 const footerHighlights: LabeledLink[] | undefined = destination === 'tarifa'
   ? [
       { token: 'tarifa_weather', label: content.navLabel },
@@ -89,8 +116,10 @@ const liveForecast = content.forecast.live
   </Navigation>
   <WeatherAuthorityBody
     pageId={`${destination}-weather`}
+    lang={currentLang}
     content={content}
     months={months}
+    comparison={comparison}
     climateSource={{ label: content.sources.links[0].label, href: climateDataSourceUrls[destination] }}
     forecastHref={weatherForecastUrls[destination]}
     liveForecast={liveForecast}

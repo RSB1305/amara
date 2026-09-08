@@ -6,6 +6,7 @@ import type { LocationGuideIconName } from '../../components/location/LocationGu
 import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
+import LocationSunHoursChart from '../../components/location/LocationSunHoursChart.astro';
 
 interface Props {
   pageId: string;
@@ -17,6 +18,14 @@ interface Props {
   propertyHref: string;
   resolveHref: RequiredLinkResolver;
   factIcons?: LocationGuideIconName[];
+  sunChart?: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    unitLabel: string;
+    months: Array<{ month: string; sunHours: number }>;
+    comparisonNote?: string;
+  };
 }
 
 const {
@@ -28,7 +37,8 @@ const {
   locationHref,
   propertyHref,
   resolveHref,
-  factIcons
+  factIcons,
+  sunChart
 } = Astro.props;
 ---
 
@@ -60,6 +70,8 @@ const {
       data-am-winter-stays-section={section.id}
     />
   ))}
+
+  {sunChart && <LocationSunHoursChart lang={lang} {...sunChart} />}
 
   <AuthorityRelatedLinks
     related={content.related}

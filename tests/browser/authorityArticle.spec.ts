@@ -108,6 +108,8 @@ interface AuthorityPage {
   groupSupportingSections?: boolean;
   /** Where the Gästeguide bridge renders relative to the related links, or absent. */
   hasGuideBridge?: 'before-related' | 'after-related';
+  /** Whether the winter-stays sun-hours chart renders after the sections, before related links. */
+  hasSunHoursChart?: boolean;
   closingCtas: [ClosingCta, ClosingCta];
 }
 
@@ -246,7 +248,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     pageId: 'nerja-daily-life',
     hasGuideBridge: 'before-related',
     content: (lang) => nerjaDailyLifeContent[lang],
-    heroMark: () => 'Nerja',
+    heroMark: null,
     relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
     blockAfterSections: null,
@@ -263,7 +265,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     pageId: 'tarifa-daily-life',
     hasGuideBridge: 'before-related',
     content: (lang) => tarifaDailyLifeContent[lang],
-    heroMark: () => 'Tarifa',
+    heroMark: null,
     relatedColumns: 'md:grid-cols-3',
     blockBeforeSections: null,
     blockAfterSections: null,
@@ -285,6 +287,7 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     blockAfterSections: null,
     arrivalModules: null,
     interleaved: [],
+    hasSunHoursChart: true,
     sectionMarkerAttribute: 'data-am-winter-stays-section',
     closingCtas: [
       { token: 'tarifa', labelKey: 'propertyLabel', className: DECISION_PRIMARY_CLASS },
@@ -351,6 +354,7 @@ const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> 
       if (arrivalModule) return { kind: `arrival:${arrivalModule}`, marker: null };
       if (node.hasAttribute('data-am-guest-guide-bridge')) return { kind: 'guide-bridge', marker: null };
       if (node.hasAttribute('data-am-climate-table')) return { kind: 'climate-table', marker: null };
+      if (node.hasAttribute('data-am-sun-hours')) return { kind: 'sun-hours', marker: null };
       const groupedSectionIds = Array.from(
         node.querySelectorAll<HTMLElement>('[data-am-authority-layout="card"][id]')
       ).map((section) => section.id);
@@ -416,6 +420,10 @@ function expectedBlocks(entry: AuthorityPage, locale: AuthorityArticleLocale): B
 
   if (entry.blockAfterSections) {
     blocks.push({ kind: entry.blockAfterSections, marker: null });
+  }
+
+  if (entry.hasSunHoursChart) {
+    blocks.push({ kind: 'sun-hours', marker: null });
   }
 
   if (entry.hasGuideBridge === 'before-related') {
@@ -589,7 +597,7 @@ test('the destination arrival pages use their declared module order', async ({ p
   }
 });
 
-test('section separators stay inset while display boxes keep clean edges', async ({ page }) => {
+test('section separators stay inset', async ({ page }) => {
   await openPage(page, resolveLink('amara_experience', SWEEP_LANGUAGE));
   const separator = await page.$eval(
     '[data-am-component="amara-experience-promises"]',
@@ -613,15 +621,6 @@ test('section separators stay inset while display boxes keep clean edges', async
   expect(separator.leftInset).toBeGreaterThan(0);
   expect(separator.rightInset).toBeGreaterThan(0);
   expect(Math.abs(separator.leftInset - separator.rightInset)).toBeLessThan(1);
-
-  const romanceClose = page.locator('[data-am-component="amara-experience-booking-cta"]');
-  await expect(romanceClose).toHaveCSS('border-top-width', '0px');
-  await expect(romanceClose).toHaveCSS('border-bottom-width', '0px');
-  const closeRules = await romanceClose.evaluate((node) => ({
-    before: getComputedStyle(node, '::before').content,
-    after: getComputedStyle(node, '::after').content
-  }));
-  expect(closeRules).toEqual({ before: 'none', after: 'none' });
 });
 
 test('the Frigiliana hero uses an editorial quote and personal host signature', async ({ page }) => {

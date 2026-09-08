@@ -1,9 +1,8 @@
 ---
-import AmaraImage from '../AmaraImage.astro';
+import GuestGuidePhone from './GuestGuidePhone.astro';
 import { buildGuestGuideBridgeCopy } from '../../lib/guestGuideBridge';
 import { staySearchHref, type StaySearchDestination } from '../../lib/staySearchHref';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
-import { guestGuidePreviewContent } from '../../content/guestGuidePreviewContent';
 import { guestGuideLandingHref } from '../../../guest-experience/guide-routes.mjs';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -31,12 +30,6 @@ const { lang, destination, guideSlugs } = Astro.props;
 const copy = buildGuestGuideBridgeCopy(destination, guideSlugs, lang);
 const availabilityHref = staySearchHref(lang, destination);
 const landingHref = guestGuideLandingHref(lang);
-
-const preview = guestGuidePreviewContent;
-const place = preview.destinations[destination];
-const fill = (template: string, value: string) => template.replace('{destination}', value);
-const previewTitle = fill(preview.title[lang], place.name);
-const previewSubtitle = fill(preview.subtitle[lang], place.name);
 ---
 
 <section class="bg-surface-container-low px-6 py-20 md:px-12 md:py-28" data-am-guest-guide-bridge>
@@ -57,165 +50,7 @@ const previewSubtitle = fill(preview.subtitle[lang], place.name);
         </div>
       </div>
 
-      <div class="am-ggp mx-auto w-full max-w-[300px] lg:mx-0" aria-hidden="true">
-        <div class="am-ggp__frame">
-          <div class="am-ggp__screen">
-            <span class="am-ggp__notch"></span>
-            <div class="am-ggp__top">
-              <span class="am-ggp__brand text-primary">AMARA</span>
-              <span class="am-ggp__logout">{preview.logout[lang]}</span>
-            </div>
-            <div class="am-ggp__hero">
-              <AmaraImage
-                src={place.cover}
-                alt={place.coverAlt[lang]}
-                profile="card"
-                width={480}
-                sizes="300px"
-                class="am-ggp__img"
-                loading="lazy"
-                decoding="async"
-                focalPoint={place.focalPoint}
-              />
-            </div>
-            <div class="am-ggp__body">
-              <p class="am-ggp__eyebrow text-primary">{`AMARA ${place.name}`}</p>
-              <h3 class="am-ggp__title text-on-surface">{previewTitle}</h3>
-              <p class="am-ggp__sub text-on-surface-variant">{previewSubtitle}</p>
-              {preview.cards.map((card) => (
-                <div class="am-ggp__card">
-                  <span class="am-ggp__icon" aria-hidden="true">{card.icon}</span>
-                  <span class="am-ggp__cardtext">
-                    <span class="am-ggp__cardtitle text-on-surface">{card.title[lang]}</span>
-                    <span class="am-ggp__cardmeta">{card.meta[lang]}</span>
-                  </span>
-                  <span class="am-ggp__chevron" aria-hidden="true">›</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      <GuestGuidePhone lang={lang} destination={destination} class="lg:mx-0" />
     </div>
   </div>
 </section>
-
-<style>
-  .am-ggp__frame {
-    background: #14110d;
-    border-radius: 46px;
-    padding: 12px;
-    box-shadow:
-      0 30px 60px -22px rgba(30, 24, 16, 0.38),
-      0 8px 20px -8px rgba(30, 24, 16, 0.24);
-  }
-  .am-ggp__screen {
-    position: relative;
-    background: #fff;
-    border-radius: 36px;
-    overflow: hidden;
-  }
-  .am-ggp__notch {
-    position: absolute;
-    top: 11px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 23px;
-    background: #14110d;
-    border-radius: 15px;
-    z-index: 3;
-  }
-  .am-ggp__top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 19px 12px;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-  .am-ggp__brand {
-    font-weight: 700;
-  }
-  .am-ggp__logout {
-    color: #8b8b8b;
-    border-bottom: 1px solid #cfcfcf;
-    padding-bottom: 1px;
-  }
-  .am-ggp__hero {
-    height: 160px;
-    background: #e2ddd4;
-    overflow: hidden;
-  }
-  /* AmaraImage renders its image element in its own component scope, so the
-     object-fit rule must be global to reach it. */
-  .am-ggp__hero :global(img) {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .am-ggp__body {
-    padding: 18px 19px 22px;
-  }
-  .am-ggp__eyebrow {
-    margin: 0 0 7px;
-    font-size: 9.5px;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-    font-weight: 600;
-  }
-  .am-ggp__title {
-    margin: 0 0 8px;
-    font-family: var(--am-font-serif, Georgia, serif);
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 1.12;
-  }
-  .am-ggp__sub {
-    margin: 0 0 16px;
-    font-size: 10.5px;
-    line-height: 1.45;
-  }
-  .am-ggp__card {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 11.5px 0;
-    border-top: 1px solid #eeeae2;
-  }
-  .am-ggp__icon {
-    flex: 0 0 auto;
-    width: 34px;
-    height: 34px;
-    border-radius: 50%;
-    background: #f2eee5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 15px;
-    color: #8a7038;
-  }
-  .am-ggp__cardtext {
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    min-width: 0;
-  }
-  .am-ggp__cardtitle {
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.2;
-  }
-  .am-ggp__cardmeta {
-    font-size: 9.5px;
-    color: #8f8f8f;
-    line-height: 1.2;
-  }
-  .am-ggp__chevron {
-    margin-left: auto;
-    color: #c9c1b4;
-    font-size: 15px;
-  }
-</style>
