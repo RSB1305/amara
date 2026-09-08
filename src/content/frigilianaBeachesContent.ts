@@ -116,7 +116,7 @@ export const frigilianaBeachesSeo: AmaraAuthoringSeo = {
     de: {
       title: 'Strände bei Frigiliana & Nerja: Küsten-Guide',
       description:
-        'Sechs Strände bei Frigiliana, Nerja und Maro im Vergleich – mit ehrlichen Tipps zu Atmosphäre, Bedingungen, Zugang, Parken und Tageszeit.',
+        'Sechs Strände bei Frigiliana, Nerja und Maro: Stadtstrand oder Kiesbucht, Chiringuito oder Stille, und unser Tipp zu jedem.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -360,47 +360,47 @@ export const frigilianaBeachesContent: Record<
     hero: {
       kicker: 'Küsten-Guide',
       title: 'Strände bei Frigiliana & Nerja',
-      subtitle: 'Zugang und Bedingungen vergleichen',
+      subtitle: 'Sechs Strände, ein Auto, viele Tage',
       paragraphs: [
         'Von Frigiliana fahrt ihr für jeden Strand hinunter an die Küste. In Nerja liegen die Stadtstrände nahe; zu den Buchten bei Maro geht es ein Stück weiter nach Osten.',
-        'Zugang, Parken, Schatten, Infrastruktur und Seegang unterscheiden sich bei den sechs Stränden deutlich. Prüft vor der Abfahrt die aktuellen Bedingungen, besonders bei den Naturbuchten.',
-        'Hier kommt unsere ehrliche Auswahl für Paare: sechs Strände, ihre jeweiligen Stärken und das, was ihr vor der Abfahrt wissen solltet.'
+        'Sechs Strände, die sich deutlich unterscheiden: Sand oder Kies, Chiringuito oder Stille, Parkplatz am Strand oder ein Pfad hinunter.',
+        'Unsere sechs für Paare, mit dem, was jeden ausmacht, und unserem Tipp dazu.'
       ],
       imageAlt:
         'Palmen und Mittelmeerküste nahe AMARA Playa in Nerja'
     },
     sectionNav: {
-      coast: 'Küste wählen',
+      coast: 'Die Küste',
       quiet: 'Ruhige Buchten',
       nature: 'Natur & Wasser',
       nerja: 'Nerja-Klassiker',
-      conditions: 'Bedingungen',
+      conditions: 'Wind & Zeit',
       practical: 'Gut zu wissen'
     },
     overview: {
       title: 'Stadtstrände in Nerja oder Naturbuchten bei Maro?',
       intro:
-        'Nerja und Maro liegen auf der Karte dicht beieinander und fühlen sich trotzdem selten gleich an. Entscheidend ist weniger eine Rangliste als die Frage, wann ihr fahrt, wie das Meer ist und wie viel Komfort ihr möchtet.',
+        'Nerja und Maro liegen zehn Minuten auseinander und fühlen sich an wie zwei Küsten: hier Promenade und Chiringuitos, dort Felsen, Kies und klares Wasser.',
       items: [
         {
           title: 'Nerja',
           text:
-            'Kompakte, markante Strände, die eng mit dem Stadtleben verbunden sind. Am schönsten sind sie früh, am späteren Nachmittag oder außerhalb der vollsten Sommerwochen.'
+            'Kompakte Stadtstrände mit Liegen, Duschen und Restaurants am Sand, am schönsten früh oder am späten Nachmittag.'
         },
         {
           title: 'Maro & der Naturpark',
           text:
-            'Eine offenere, geschützte Küste mit Felsen, Kiesbuchten und der Chance auf besonders klares Wasser. Gute Vorbereitung und ruhige See zahlen sich aus.'
+            'Kiesbuchten unter Klippen, Wasser klar genug zum Schnorcheln; dafür ein Pfad hinunter und wenig Schatten.'
         },
         {
-          title: 'Bedingungen auf dem Meer',
+          title: 'Der Wind macht das Meer',
           text:
-            'Sonne allein garantiert noch kein ruhiges Wasser. Wind und Luftbewegung verändern Sicht, Oberfläche und Badegefühl oft von einem Tag auf den nächsten.'
+            'Wind macht Welle, Windstille macht das Wasser glatt und klar. Ob Schnorcheln oder Kajak, zeigt der Morgen.'
         },
         {
-          title: 'Der ehrliche Kompromiss',
+          title: 'Komfort oder Stille',
           text:
-            'Infrastruktur bringt Bequemlichkeit und mehr Menschen. Natur verlangt etwas mehr Aufwand. Klares Wasser geht häufig mit weniger Service und schwierigerem Zugang einher.'
+            'Wo Liegen und Restaurants sind, sind Menschen. Wo das Wasser am klarsten ist, gibt es Kies und keinen Kiosk.'
         }
       ]
     },
@@ -409,65 +409,65 @@ export const frigilianaBeachesContent: Record<
         id: 'quiet',
         title: 'Ruhige Buchten & langsame Nachmittage',
         intro:
-          'Diese Strände wählen wir für eine Schwimmrunde, ein Picknick oder ein paar entspannte Stunden — nicht für den perfekt organisierten Ganztagesplatz.',
+          'Für eine Schwimmrunde, ein Picknick und ein paar langsame Stunden.',
         beachIds: ['nerja.beaches.carabeillo', 'nerja.beaches.el-playazo']
       },
       {
         id: 'nature',
         title: 'Natur, Schnorcheln & Kajaktage',
         intro:
-          'Östlich von Nerja ist die geschützte Küste von Maro–Cerro Gordo weniger erschlossen und stärker vom Meer abhängig. Hier geht es um Felsen, offenes Wasser und Landschaft — nicht um garantierte Bequemlichkeit.',
+          'Östlich von Nerja liegt die geschützte Küste von Maro–Cerro Gordo: Felsen, offenes Wasser, Landschaft. Hier entscheidet das Meer über den Tag.',
         beachIds: ['nerja.beaches.maro-beach', 'nerja.beaches.cantarrijan']
       },
       {
         id: 'nerja',
         title: 'Nerja-Klassiker & unkomplizierte Strandtage',
         intro:
-          'Diese Strände passen, wenn Ort, Infrastruktur und Meer in einen einfachen Tag gehören sollen. Sie sind weniger abgeschieden, lassen sich dafür bequem mit Mittagessen, Spaziergang oder Altstadt verbinden.',
+          'Für Tage, an denen Strand, Mittagessen und Altstadt zusammengehören.',
         beachIds: ['nerja.beaches.calahonda', 'nerja.beaches.burriana-beach']
       }
     ],
     conditions: {
-      title: 'Was einen Strandtag wirklich verändert',
+      title: 'Was den Strandtag macht',
       intro:
-        'Derselbe Strand kann sich an zwei aufeinanderfolgenden Tagen völlig anders anfühlen. Etwas Aufmerksamkeit für Zeitpunkt und Bedingungen hilft hier mehr als die Suche nach dem einen „besten Strand“.',
+        'Derselbe Strand ist an zwei Tagen zwei Strände. Uhrzeit und Wind entscheiden mehr als die Wahl der Bucht.',
       items: [
         {
           title: 'Der Zeitpunkt zählt',
           text:
-            'Kleine Buchten behalten ihren Charakter nur, solange noch Platz ist. In der Hochsaison sind früher Morgen und später Nachmittag meist ruhiger als die Mittagsstunden.'
+            'Kleine Buchten sind klein. Im Hochsommer gehören sie morgens und ab fünf euch, mittags allen.'
         },
         {
-          title: 'Ruhiges Wasser ist nicht garantiert',
+          title: 'Der Wind',
           text:
-            'Luftbewegung prägt das Meer oft stärker als die Temperatur. Auch ein sonniger Tag kann Wellen oder schlechtere Sicht bringen — entscheidet über Schnorcheln und Kajak deshalb erst vor Ort.'
+            'Ein sonniger Tag kann Welle haben. Schnorchel und Kajak nehmt ihr mit und entscheidet am Wasser.'
         },
         {
           title: 'Maros Wasserfälle sind saisonal',
           text:
-            'Die Wasserfälle an den Felsen entstehen vor allem nach längerem Regen, häufig im Frühjahr. Im trockenen Sommer erreicht vieles die Küste nicht; die Landschaft bleibt auch ohne Wasserfälle reizvoll.'
+            'Die Wasserfälle an den Felsen laufen nach Regen, meist im Frühjahr. Im trockenen Sommer bleibt die Landschaft, das Wasser kommt später wieder.'
         },
         {
-          title: 'Komfort und Natur überschneiden sich selten',
+          title: 'Liegen oder Kies',
           text:
-            'Einfacher Zugang und viel Service bedeuten meist mehr Menschen. Ruhigere Plätze mit klarerem Wasser bringen häufiger Kies, weniger Infrastruktur oder etwas mehr Planung mit sich.'
+            'Einfacher Zugang und Service bedeuten Menschen; die stillen Plätze mit klarem Wasser haben Kies und einen Pfad.'
         }
       ]
     },
     practical: {
       title: 'Praktisch für den Strandtag',
       intro:
-        'Ein wenig Vorbereitung reicht, damit der Tag entspannt bleibt — besonders rund um Maro und im Naturpark.',
+        'Für Maro und den Naturpark: Wasser, Schatten und Schuhe für den Pfad.',
       items: [
         {
           title: 'Parken',
           text:
-            'Bei Maro und den wilderen Buchten sind Plätze begrenzt. In der Hochsaison am besten vor 10 Uhr oder erst am späteren Nachmittag kommen und immer die örtliche Beschilderung beachten.'
+            'Bei Maro und den wilderen Buchten sind die Plätze knapp; im Hochsommer vor zehn oder ab dem späten Nachmittag kommen.'
         },
         {
           title: 'Ausrüstung',
           text:
-            'Für Maro und die ruhigeren Buchten eigene Schnorchelausrüstung mitbringen. Die größeren Stadtstrände sind einfacher, wenn ihr Verleih und weitere Angebote in der Nähe möchtet.'
+            'Für Maro und die ruhigeren Buchten die eigene Schnorchelausrüstung einpacken; an den Stadtstränden gibt es Verleih.'
         },
         {
           title: 'Essen',
@@ -477,7 +477,7 @@ export const frigilianaBeachesContent: Record<
       ],
       accessNote: {
         before:
-          'Im Sommer kann die Zufahrt nach Cantarriján geregelt sein. Prüft vor der Abfahrt die ',
+          'Im Sommer ist die Zufahrt nach Cantarriján geregelt; hier stehen die ',
         label: 'aktuellen Besucherhinweise der Junta de Andalucía',
         after: '.',
         href: cantarrijanAccessInfo
@@ -486,7 +486,7 @@ export const frigilianaBeachesContent: Record<
     combine: {
       title: 'So lässt sich der Tag verbinden',
       intro:
-        'Die Küste funktioniert besonders gut, wenn der Strand ein Teil des Tages ist und nicht das gesamte Programm.',
+        'Der Strand ist ein Teil des Tages; davor und danach gehört das Dorf dazu.',
       baseDecision: {
         before:
           'Frigiliana bleibt eine stimmige Basis, wenn der Strand ein Tagesausflug ist. Wenn ihr lieber spontan zu Fuß ans Meer gehen möchtet, ',
@@ -498,28 +498,28 @@ export const frigilianaBeachesContent: Record<
         {
           title: 'Vom Meer in die Berge',
           text:
-            'Verbindet ein frühes Bad mit einem Spaziergang oberhalb Frigilianas — oder hebt euch die längeren Routen in der Sierra Almijara für einen kühleren Tag auf.',
+            'Ein frühes Bad und danach ein Spaziergang oberhalb von Frigiliana; die langen Routen in der Sierra Almijara warten auf einen kühleren Tag.',
           linkToken: 'frigiliana_hiking_authority',
           linkLabel: 'Zum Wander-Guide'
         },
         {
-          title: 'Erst die Jahreszeit wählen, dann den Strandtag prüfen',
+          title: 'Jahreszeit und Wetter',
           text:
-            'Das Klimamuster hilft bei der Wahl der Reisedaten; über das Baden heute entscheidet es nicht. Prüft aktuelle Hitze, Wind und Meereszustand getrennt, bevor ihr einen Strand wählt, und nutzt den Wetter-Guide für Saisonkontext und AEMET-Vorhersage.',
+            'Das Klima sagt, wann ihr kommt; Wind und Meer sagen, ob heute Strandtag ist. Beides steht im Wetter-Guide mit der AEMET-Vorhersage.',
           linkToken: 'weather_frigiliana',
           linkLabel: 'Wetter und Jahreszeiten vergleichen'
         },
         {
           title: 'Burriana mit einem Tagesrestaurant verbinden',
           text:
-            'Burrianas Serviceprofil hält Strand und Mittagessen an einem Ort. AYO liegt direkt am Paseo Burriana und ist eine Option für den Tag; prüft die aktuelle Öffnung, bevor ihr den Strandtag darauf ausrichtet.',
+            'Am Burriana liegen Strand und Mittagessen nebeneinander: AYO am Paseo Burriana, Paella aus der großen Pfanne, seit Jahrzehnten.',
           linkToken: 'frigiliana_food_authority',
           linkLabel: 'Zum Restaurant-Guide'
         },
         {
           title: 'Aus einem Strandnachmittag im Zentrum einen Sundowner machen',
           text:
-            'Wenn euer Küstentag nahe Nerjas Altstadt endet, geht zu Fuß weiter zu Cochran’s Terrace, statt den Sonnenuntergang als neuen Ausflug zu planen. Wir haben ihn dort im Sommer 2025 selbst gesehen; prüft aktuelle Öffnung und Terrassenzugang, bevor ihr euch darauf verlasst.',
+            'Endet der Küstentag nahe der Altstadt, geht ihr zu Fuß weiter zur Cochran’s Terrace. Wir haben dort im Sommer 2025 den Sonnenuntergang gesehen, mit Cuba Libre und Mai Tai.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Zu unserem Nerja-Sundowner'
         },
@@ -535,7 +535,7 @@ export const frigilianaBeachesContent: Record<
     closing: {
       title: 'Der Strandweg, der zu eurem Tag passt',
       lead:
-        'Wenn ihr Strand und Zentrum an einem Tag verbinden möchtet, achten wir besonders auf den Rückweg, denn er prägt euren Rhythmus. Torrecilla lässt sich vergleichsweise leicht mit dem Zentrum verbinden, Carabeo bringt häufig Stufen mit sich, und von Burriana ist der Rückweg anspruchsvoller.',
+        'Torrecilla liegt eben am Zentrum, Carabeo hat Stufen, von Burriana geht es bergauf zurück. AMARA Playa steht 200 Meter von Torrecilla: Strand, Dusche, Abend in der Altstadt, alles zu Fuß.',
       nextCta: 'Wege zwischen Nerjas Stränden & Zentrum'
     }
   },

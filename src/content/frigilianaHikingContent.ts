@@ -73,8 +73,8 @@ export const frigilianaHikingContent = {
         'Casa AMARA is a convenient place to begin your day in the historic centre. It is not an official trailhead, and we do not add invented walking times, steps or elevation from the house to a route.'
       ],
       [
-        'Für einen Wandertag ab Frigiliana wählt ihr zwischen dem Panoramarundweg Cruz de Pinto, dem Río Higuerón mit seinen Cahorros, dem vollständigen Aufstieg auf den El Fuerte oder der GR-249-Etappe 6 bis Cómpeta. Das sind vier unterschiedliche Vorhaben, keine austauschbaren Tipps. AMARA hilft euch bei Auswahl und Tagesplanung; den tatsächlichen Start, den Track und die Navigation liefern die verlinkten offiziellen Angaben und Komoot. Der Río Chíllar ist hier keine Alternative: Der Zugang bleibt geschlossen, der Hinweis weiter unten dient nur der Information.',
-        'Casa AMARA ist ein praktischer Ausgangspunkt für euren Tag im historischen Zentrum. Sie ist kein offizieller Trailhead; wir erfinden deshalb keine Gehzeiten, Stufen oder Höhenmeter vom Haus bis zu einer Route.'
+        'Ein Wandertag ab Frigiliana: der Rundweg zur Cruz de Pinto mit Blick über Dorf und Meer, der Río Higuerón mit seinen Cahorros, der lange Aufstieg auf den El Fuerte oder die Etappe des GR 249 bis Cómpeta. Vier sehr verschiedene Tage; Start, Track und Navigation kommen vom offiziellen Wanderführer und von Komoot.',
+        'Casa AMARA steht mitten im Dorf; zu den Startpunkten geht ihr ein paar Minuten durch die Gassen oder fahrt ein Stück mit dem Auto.'
       ],
       [
         'Para una jornada de senderismo desde Frigiliana, elegid entre el circuito panorámico de la Cruz de Pinto, el río Higuerón y sus cahorros, la subida completa a El Fuerte o la etapa 6 del GR 249 hasta Cómpeta. Son cuatro planes distintos, no sugerencias intercambiables. AMARA os ayuda a escoger y a valorar el día; la salida real, el track y la navegación corresponden a la información oficial y a Komoot enlazados. El río Chíllar no es una alternativa: el acceso sigue cerrado y el aviso inferior es solo informativo.',
@@ -100,7 +100,7 @@ export const frigilianaHikingContent = {
       eyebrow: text('On this page', 'Auf dieser Seite', 'En esta página', 'Op deze pagina', 'På den här sidan'),
       body: text(
         'Four hikes from Frigiliana, honestly compared — a panoramic loop, a gorge route, a full summit and a GR stage. We help you choose; the official information and Komoot give the real track.',
-        'Vier Wanderungen ab Frigiliana, ehrlich verglichen — ein Panoramarundweg, eine Schluchtroute, ein voller Gipfel und eine GR-Etappe. Wir helfen bei der Auswahl; Start und Track liefern offizielle Angaben und Komoot.',
+        'Vier Wanderungen ab Frigiliana: Panoramarundweg, Schlucht, Gipfel und GR-Etappe, mit Start, Track und dem, was der Tag verlangt.',
         'Cuatro rutas desde Frigiliana, comparadas con honestidad: un circuito panorámico, una ruta de garganta, una cumbre completa y una etapa del GR. Os ayudamos a elegir; la salida y el track están en la información oficial y Komoot.',
         'Vier wandelingen vanuit Frigiliana, eerlijk vergeleken — een panoramaronde, een kloofroute, een volledige top en een GR-etappe. Wij helpen kiezen; de echte route staat in de officiële informatie en Komoot.',
         'Fyra vandringar från Frigiliana, ärligt jämförda — en panoramaslinga, en ravinrutt, en hel topp och en GR-etapp. Vi hjälper er välja; start och spår finns i den officiella informationen och Komoot.'
@@ -145,7 +145,7 @@ export const frigilianaHikingContent = {
     title: text('Río Chíllar is not a route recommendation', 'Der Río Chíllar ist keine Routenempfehlung', 'El río Chíllar no es una ruta recomendada', 'Río Chíllar is geen routeadvies', 'Río Chíllar är ingen rekommenderad rutt'),
     paragraphs: textList(
       ['Nerja Town Council states that access to Río Chíllar remains closed. Do not plan or attempt the recreational river route. This notice records the current restriction; it is not a route card and contains no workaround. Check the council notice for any later official change.'],
-      ['Der Gemeinderat von Nerja erklärt, dass der Zugang zum Río Chíllar weiterhin gesperrt ist. Plant oder versucht die Freizeitroute durch den Fluss nicht. Dieser Hinweis dokumentiert die aktuelle Einschränkung; er ist keine Routenkarte und enthält keine Umgehung. Prüft die Mitteilung der Gemeinde auf spätere offizielle Änderungen.'],
+      ['Der Río Chíllar bei Nerja ist laut Gemeinde weiterhin gesperrt; die Flusswanderung fällt deshalb aus.'],
       ['El Ayuntamiento de Nerja indica que el acceso al río Chíllar continúa cerrado. No planifiquéis ni intentéis la ruta recreativa por el río. Este aviso recoge la restricción vigente; no es una ficha de ruta ni ofrece alternativas para eludirla. Consultad el aviso municipal para cualquier cambio oficial posterior.'],
       ['De gemeente Nerja meldt dat de toegang tot Río Chíllar gesloten blijft. Plan of onderneem de recreatieve rivierroute niet. Deze melding legt de huidige beperking vast; het is geen routekaart en bevat geen omweg. Controleer het gemeentelijke bericht voor een latere officiële wijziging.'],
       ['Nerjas kommun uppger att tillträdet till Río Chíllar fortfarande är stängt. Planera eller försök inte den rekreativa flodrutten. Meddelandet återger den aktuella begränsningen; det är inget ruttkort och innehåller ingen omväg. Kontrollera kommunens besked för en senare officiell ändring.']

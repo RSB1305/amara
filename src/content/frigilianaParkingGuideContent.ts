@@ -25,7 +25,7 @@ const hero = {
   subtitle: l('Parking in Frigiliana for overnight guests, made easy', 'Einfach parken als Übernachtungsgäste', 'Aparcar fácilmente si os alojáis en Frigiliana', 'Eenvoudig parkeren als jullie in Frigiliana overnachten', 'Enkel parkering för er som övernattar i Frigiliana'),
   standfirst: l(
     'If you stay overnight in Frigiliana, parking is usually not a problem. Most pressure comes from day visitors, who arrive from late morning and leave during the afternoon. Your car is often already parked in the village, or you return after it gets quieter.',
-    'Wenn ihr in Frigiliana übernachtet, ist Parken normalerweise kein Problem. Der Andrang entsteht vor allem durch Tagesgäste, die am späten Vormittag kommen und am frühen Nachmittag wieder fahren. Euer Auto steht dann häufig schon im Dorf oder ihr kommt zurück, wenn es ruhiger wird.',
+    'Wenn ihr in Frigiliana übernachtet, ist Parken normalerweise kein Problem. Voll wird es durch Tagesgäste zwischen elf und fünf; dann steht euer Auto meist schon, oder ihr seid gerade am Strand.',
     'Si os alojáis en Frigiliana, aparcar normalmente no supone un problema. La mayor afluencia viene de los visitantes de día, que llegan a última hora de la mañana y se marchan a primera hora de la tarde. El coche suele estar ya aparcado en el pueblo o volvéis cuando hay menos gente.',
     'Als jullie in Frigiliana overnachten, is parkeren meestal geen probleem. De grootste drukte komt van dagbezoekers, die laat in de ochtend aankomen en vroeg in de middag weer vertrekken. De auto staat dan vaak al in het dorp of jullie komen terug wanneer het rustiger is.',
     'Om ni övernattar i Frigiliana är parkeringen oftast inget problem. Det största trycket kommer från dagsbesökare, som anländer sent på förmiddagen och lämnar tidigt på eftermiddagen. Bilen står då ofta redan parkerad i byn eller så kommer ni tillbaka när det har lugnat sig.'
@@ -33,7 +33,7 @@ const hero = {
   summaryEyebrow: l('In short', 'Kurz gesagt', 'En resumen', 'Kort gezegd', 'Kort sagt'),
   summary: l(
     'Parking in Frigiliana is usually straightforward for overnight guests. Pressure is concentrated in the daytime, when visitors arrive and leave again. What matters is your arrival time, a permitted space and the final walk uphill over cobbles or steps.',
-    'Parken in Frigiliana ist für Übernachtungsgäste meist unkompliziert. Der Andrang konzentriert sich auf die Tagesstunden, wenn Besucher kommen und wieder fahren. Entscheidend sind deshalb eure Ankunftszeit, ein erlaubter Stellplatz und der letzte Weg bergauf über Pflaster oder Stufen.',
+    'Kommt vor elf oder nach fünf, parkt unter der Plaza oder an der Avenida Carlos Cano und geht die letzten Meter zu Fuß. Das ist der ganze Trick.',
     'Aparcar en Frigiliana suele ser sencillo para quienes pasan la noche. La presión se concentra durante el día, cuando llegan y se marchan los visitantes. Lo importante es vuestra hora de llegada, una plaza permitida y el último tramo cuesta arriba por adoquines o escalones.',
     'Parkeren in Frigiliana is meestal eenvoudig voor overnachtende gasten. De drukte concentreert zich overdag, wanneer bezoekers aankomen en weer vertrekken. Belangrijk zijn daarom jullie aankomsttijd, een toegestane plek en het laatste stuk omhoog over kasseien of trappen.',
     'Parkering i Frigiliana är oftast enkel för övernattande gäster. Trycket är koncentrerat till dagtid, när besökarna kommer och åker igen. Det viktiga är därför er ankomsttid, en tillåten plats och den sista sträckan uppför över kullersten eller trappsteg.'
@@ -52,7 +52,7 @@ const facts = [
   { label: l('The village streets', 'Die Dorfstraßen', 'Las calles del pueblo', 'De dorpsstraten', 'Byns gator'), value: l('Usually closed from about 10–11 until around 17:00', 'Meist von etwa 10–11 bis gegen 17 Uhr gesperrt', 'Suelen cerrarse de 10–11 h a las 17 h', 'Meestal dicht van ongeveer 10–11 tot 17 uur', 'Oftast avstängda från cirka 10–11 till omkring 17') },
   { label: l('Where to leave it', 'Wo ihr es abstellt', 'Dónde dejarlo', 'Waar je hem laat', 'Var ni lämnar den'), value: l('Paid car park below Plaza de las Tres Culturas', 'Kostenpflichtiger Parkplatz unter der Plaza de las Tres Culturas', 'Aparcamiento de pago bajo la Plaza de las Tres Culturas', 'Betaalde parking onder de Plaza de las Tres Culturas', 'Avgiftsparkering under Plaza de las Tres Culturas') },
   { label: l('The last stretch', 'Der letzte Weg', 'El último tramo', 'Het laatste stuk', 'Sista biten'), value: l('Gradients, cobbles and steps', 'Steigung, Pflaster und Stufen', 'Cuestas, adoquines y escalones', 'Hellingen, kasseien en trappen', 'Backar, kullersten och trappsteg') },
-  { label: l('What we cannot do', 'Was wir nicht können', 'Lo que no podemos', 'Wat we niet kunnen', 'Vad vi inte kan'), value: l('Reserve or guarantee a space', 'Einen Platz reservieren oder garantieren', 'Reservar o garantizar una plaza', 'Een plek reserveren of garanderen', 'Reservera eller garantera en plats') }
+  { label: l('What we cannot do', 'Feste Plätze', 'Lo que no podemos', 'Wat we niet kunnen', 'Vad vi inte kan'), value: l('Reserve or guarantee a space', 'Gibt es im Dorf nicht; frei ist meist trotzdem', 'Reservar o garantizar una plaza', 'Een plek reserveren of garanderen', 'Reservera eller garantera en plats') }
 ] as const;
 
 const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title: Localized; paragraphs: Localized[] }> = [
@@ -63,14 +63,14 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
     paragraphs: [
       l(
         'Over the years we have watched a clear rhythm: many day visitors arrive late in the morning and leave in the early afternoon. Our own guests often do the opposite — they head for the beach around then and come back later.',
-        'Über die Jahre haben wir einen klaren Rhythmus beobachtet: Viele Tagesgäste kommen am späteren Vormittag und fahren am frühen Nachmittag wieder. Unsere eigenen Gäste machen oft das Gegenteil — sie fahren dann an den Strand und kommen später zurück.',
+        'Über die Jahre sehen wir denselben Rhythmus: Tagesgäste kommen am späten Vormittag und fahren am frühen Nachmittag. Unsere Gäste machen oft das Gegenteil: morgens an den Strand, zurück, wenn das Dorf wieder leer ist.',
         'Con los años hemos visto un ritmo claro: muchos visitantes de día llegan a media mañana y se van a primera hora de la tarde. Nuestros huéspedes suelen hacer lo contrario: se van entonces a la playa y vuelven más tarde.',
         'Door de jaren heen zien we een duidelijk ritme: veel dagbezoekers komen laat in de ochtend en vertrekken in de vroege middag. Onze eigen gasten doen vaak het omgekeerde — ze gaan dan naar het strand en komen later terug.',
         'Genom åren har vi sett en tydlig rytm: många dagsbesökare kommer sent på förmiddagen och åker i tidig eftermiddag. Våra egna gäster gör ofta tvärtom — de åker till stranden då och kommer tillbaka senare.'
       ),
       l(
         'These are not measured occupancy figures, just what we see year after year. **If you can choose your arrival time, before eleven or after five makes the last stretch noticeably easier.**',
-        'Das sind keine gemessenen Auslastungszahlen, sondern das, was wir Jahr für Jahr sehen. **Wenn ihr euch die Ankunftszeit aussuchen könnt, macht vor elf oder nach fünf den letzten Weg deutlich leichter.**',
+        '**Wenn ihr euch die Ankunftszeit aussuchen könnt: vor elf oder nach fünf.** Dann sind die Straßen offen und der letzte Weg kurz.',
         'No son datos medidos de ocupación, sino lo que vemos año tras año. **Si podéis elegir la hora de llegada, antes de las once o después de las cinco hace el último tramo mucho más fácil.**',
         'Dit zijn geen gemeten bezettingscijfers, maar wat we jaar in jaar uit zien. **Als jullie de aankomsttijd kunnen kiezen, maakt voor elf of na vijf het laatste stuk merkbaar makkelijker.**',
         'Det här är inga uppmätta beläggningssiffror, utan vad vi ser år efter år. **Om ni kan välja ankomsttid gör före elva eller efter fem sista biten märkbart lättare.**'
@@ -84,14 +84,14 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
     paragraphs: [
       l(
         'It is narrow enough that a scratch on a hire car is a real risk if you are not used to Spanish village streets, and sorting that out afterwards costs far more than the walk ever does.',
-        'Sie ist eng genug, dass eine Schramme am Mietwagen ein echtes Risiko ist, wenn ihr schmale spanische Dorfstraßen nicht gewohnt seid — und die Abwicklung danach kostet mehr als der Fußweg je könnte.',
+        'Sie ist eng genug, dass ein Kratzer am Mietwagen schnell passiert, und die Abwicklung danach kostet mehr Zeit als der Fußweg je könnte.',
         'Es lo bastante estrecha como para que un arañazo en el coche de alquiler sea un riesgo real si no estáis acostumbrados a las calles de pueblo españolas, y resolverlo después cuesta mucho más que el paseo.',
         'Hij is smal genoeg dat een kras op de huurauto een reëel risico is als je smalle Spaanse dorpsstraten niet gewend bent — en dat afhandelen kost daarna veel meer dan de wandeling ooit doet.',
         'Den är smal nog att en repa på hyrbilen är en verklig risk om ni inte är vana vid spanska byggator, och att reda ut det efteråt kostar långt mer än promenaden någonsin gör.'
       ),
       l(
         'Delivery vans for the restaurants and shops can block the lane completely, so even outside the closed hours you may not get through. **On foot you are usually faster, and always calmer.**',
-        'Lieferwagen für Restaurants und Geschäfte können die Gasse komplett blockieren; auch außerhalb der Sperrzeiten kommt ihr also nicht sicher durch. **Zu Fuß seid ihr meistens schneller und immer entspannter.**',
+        'Lieferwagen für Restaurants und Läden stehen oft mitten in der Gasse. **Zu Fuß seid ihr meistens schneller und immer entspannter.**',
         'Las furgonetas de reparto de restaurantes y tiendas pueden bloquear la calle por completo, así que ni siquiera fuera del horario de cierre está garantizado el paso. **A pie soléis ir más rápido y siempre más tranquilos.**',
         'Bestelbusjes voor restaurants en winkels kunnen de steeg volledig blokkeren, dus ook buiten de afsluittijden kom je er niet zeker door. **Te voet ben je meestal sneller en altijd rustiger.**',
         'Leveransbilar till restauranger och butiker kan blockera gränden helt, så inte ens utanför de avstängda timmarna är det säkert att ni kommer fram. **Till fots är ni oftast snabbare och alltid lugnare.**'
@@ -101,18 +101,18 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
   {
     id: 'last-mile',
     eyebrow: l('The walk', 'Der Weg', 'El tramo', 'De route', 'Vägen'),
-    title: l('Distance on a map says almost nothing here', 'Entfernung auf der Karte sagt hier fast nichts', 'La distancia en el mapa aquí dice muy poco', 'Afstand op de kaart zegt hier bijna niets', 'Avstånd på kartan säger nästan ingenting här'),
+    title: l('Distance on a map says almost nothing here', 'Die Karte zeigt Meter, das Dorf hat Stufen', 'La distancia en el mapa aquí dice muy poco', 'Afstand op de kaart zegt hier bijna niets', 'Avstånd på kartan säger nästan ingenting här'),
     paragraphs: [
       l(
         'The route from the car to a door can include gradients, cobbles and steps. A space close by on the map does not prove a step-free route, and a marked accessible bay does not describe what comes after it.',
-        'Der Weg vom Auto bis zur Tür kann Steigungen, Pflaster und Stufen enthalten. Ein Platz, der auf der Karte nah wirkt, beweist keine stufenfreie Route, und ein ausgewiesener Behindertenparkplatz beschreibt nicht, was danach kommt.',
+        'Der Weg vom Auto zur Tür hat Steigung, Pflaster und Stufen. Ein Platz, der auf der Karte nah wirkt, kann oben oder unten liegen.',
         'El recorrido del coche a la puerta puede incluir cuestas, adoquines y escalones. Una plaza cercana en el mapa no demuestra una ruta sin escalones, y una plaza reservada no describe lo que viene después.',
         'De route van de auto naar de deur kan hellingen, kasseien en trappen bevatten. Een plek die op de kaart dichtbij lijkt, bewijst geen route zonder treden, en een gehandicaptenplaats beschrijft niet wat erna komt.',
         'Vägen från bilen till dörren kan innehålla backar, kullersten och trappsteg. En plats som ser nära ut på kartan bevisar ingen trappfri väg, och en markerad handikapplats beskriver inte vad som kommer efter den.'
       ),
       l(
         '**If luggage or mobility matters for your decision, ask us before you book.** We will describe the actual route to your apartment — surfaces and step counts, not the word "accessible".',
-        '**Wenn Gepäck oder Mobilität für eure Entscheidung zählen, fragt uns vor der Buchung.** Wir beschreiben euch den tatsächlichen Weg zu eurer Wohnung: Untergrund und Stufenzahl statt des Wortes „barrierefrei“.',
+        '**Wenn Gepäck oder Mobilität eine Rolle spielen, fragt uns vor der Buchung.** Wir beschreiben euch den Weg zu eurer Wohnung mit Untergrund und Stufenzahl.',
         '**Si el equipaje o la movilidad influyen en vuestra decisión, preguntadnos antes de reservar.** Os describiremos el recorrido real hasta vuestro alojamiento: superficies y número de escalones, no la palabra "accesible".',
         '**Als bagage of mobiliteit meetelt in jullie beslissing, vraag het ons vóór het boeken.** We beschrijven de werkelijke route naar jullie appartement: ondergrond en aantal treden, niet het woord "toegankelijk".',
         '**Om bagage eller rörlighet spelar roll för ert beslut, fråga oss innan ni bokar.** Vi beskriver den faktiska vägen till er lägenhet: underlag och antal trappsteg, inte ordet "tillgänglig".'
@@ -126,14 +126,14 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
     paragraphs: [
       l(
         'There is usually space on Avenida Carlos Cano, and from there it is a short walk up to our shared front door. None of our four apartments has a private space, and we cannot hold one for you.',
-        'An der Avenida Carlos Cano ist meistens Platz, und von dort ist es ein kurzer Weg bergauf bis zu unserer gemeinsamen Haustür. Keine unserer vier Wohnungen hat einen privaten Stellplatz, und freihalten können wir keinen.',
+        'An der Avenida Carlos Cano ist meistens Platz, und von dort ist es ein kurzer Weg bergauf bis zu unserer gemeinsamen Haustür. Einen eigenen Stellplatz hat keine der vier Wohnungen.',
         'En la Avenida Carlos Cano suele haber sitio, y desde allí queda un tramo corto cuesta arriba hasta nuestra puerta común. Ninguno de nuestros cuatro alojamientos tiene plaza privada, y no podemos reservaros una.',
         'Aan de Avenida Carlos Cano is meestal plek, en vandaar is het een kort stuk omhoog naar onze gezamenlijke voordeur. Geen van onze vier appartementen heeft een eigen plek, en vrijhouden kunnen we er geen.',
         'På Avenida Carlos Cano finns oftast plats, och därifrån är det en kort bit uppför till vår gemensamma port. Ingen av våra fyra lägenheter har egen parkering, och vi kan inte hålla en plats åt er.'
       ),
       l(
         '**Before you arrive you get the exact route with a photo of the door.** Send us your arrival time and we will tell you whether the streets are likely to be open when you get here.',
-        '**Vor der Anreise bekommt ihr den genauen Weg mit einem Foto der Haustür.** Schickt uns eure Ankunftszeit, dann sagen wir euch, ob die Straßen zu dem Zeitpunkt voraussichtlich offen sind.',
+        '**Vor der Anreise bekommt ihr den genauen Weg mit einem Foto der Haustür.** Schickt uns eure Ankunftszeit, dann sagen wir euch, ob die Straßen dann offen sind.',
         '**Antes de llegar recibís el recorrido exacto con una foto de la puerta.** Enviadnos vuestra hora de llegada y os diremos si las calles estarán previsiblemente abiertas entonces.',
         '**Vóór aankomst krijgen jullie de exacte route met een foto van de voordeur.** Stuur ons jullie aankomsttijd, dan zeggen we of de straten dan waarschijnlijk open zijn.',
         '**Före ankomst får ni den exakta vägen med ett foto på porten.** Skicka er ankomsttid, så säger vi om gatorna troligen är öppna då.'
@@ -144,13 +144,13 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
 
 const related = [
   { token: 'getting_to_frigiliana' as const, label: l('Getting to Frigiliana', 'Anreise nach Frigiliana', 'Cómo llegar a Frigiliana', 'Naar Frigiliana reizen', 'Ta sig till Frigiliana'), text: l('Airport, roads and the drive up from the coast.', 'Flughafen, Straßen und die Fahrt von der Küste hinauf.', 'Aeropuerto, carreteras y la subida desde la costa.', 'Luchthaven, wegen en de rit vanaf de kust omhoog.', 'Flygplats, vägar och färden upp från kusten.') },
-  { token: 'frigiliana_stairs' as const, label: l('Where to stay in Frigiliana', 'Wo in Frigiliana übernachten?', 'Dónde alojarse en Frigiliana', 'Waar overnachten in Frigiliana?', 'Var ska man bo i Frigiliana?'), text: l('How the slopes and steps shape an ordinary day here.', 'Wie Steigungen und Stufen einen normalen Tag hier prägen.', 'Cómo las cuestas y los escalones marcan un día normal aquí.', 'Hoe hellingen en treden een gewone dag hier bepalen.', 'Hur backar och trappsteg präglar en vanlig dag här.') },
-  { token: 'nerja_vs_frigiliana' as const, label: l('Frigiliana or Nerja?', 'Frigiliana oder Nerja?', '¿Frigiliana o Nerja?', 'Frigiliana of Nerja?', 'Frigiliana eller Nerja?'), text: l('If the walk up is the sticking point, the coast is the other option.', 'Wenn der Weg hinauf der Knackpunkt ist, ist die Küste die Alternative.', 'Si la subida es el problema, la costa es la alternativa.', 'Als de klim het knelpunt is, is de kust het alternatief.', 'Om vägen uppför är knuten är kusten alternativet.') }
+  { token: 'frigiliana_stairs' as const, label: l('Where to stay in Frigiliana', 'Wo in Frigiliana übernachten?', 'Dónde alojarse en Frigiliana', 'Waar overnachten in Frigiliana?', 'Var ska man bo i Frigiliana?'), text: l('How the slopes and steps shape an ordinary day here.', 'Altstadt, neuer Ort oder Campo: was wo liegt.', 'Cómo las cuestas y los escalones marcan un día normal aquí.', 'Hoe hellingen en treden een gewone dag hier bepalen.', 'Hur backar och trappsteg präglar en vanlig dag här.') },
+  { token: 'nerja_vs_frigiliana' as const, label: l('Frigiliana or Nerja?', 'Frigiliana oder Nerja?', '¿Frigiliana o Nerja?', 'Frigiliana of Nerja?', 'Frigiliana eller Nerja?'), text: l('If the walk up is the sticking point, the coast is the other option.', 'Der Strandort mit flachen Wegen, eine Viertelstunde unterhalb.', 'Si la subida es el problema, la costa es la alternativa.', 'Als de klim het knelpunt is, is de kust het alternatief.', 'Om vägen uppför är knuten är kusten alternativet.') }
 ];
 
 const sourceRows = [
   { label: l('Turismo de Frigiliana · street map', 'Turismo de Frigiliana · Ortsplan', 'Turismo de Frigiliana · callejero', 'Turismo de Frigiliana · plattegrond', 'Turismo de Frigiliana · gatukarta'), text: l('The official layout of the village and its historic streets.', 'Der offizielle Ortsplan mit den historischen Gassen.', 'El plano oficial del pueblo y sus calles históricas.', 'De officiële plattegrond van het dorp en de historische straten.', 'Den officiella kartan över byn och dess historiska gator.'), href: 'https://www.turismofrigiliana.es/es/callejero.html' },
-  { label: l('Ayuntamiento de Frigiliana · old-town traffic rules', 'Ayuntamiento de Frigiliana · Verkehrsordnung Altstadt', 'Ayuntamiento de Frigiliana · ordenanza de tráfico', 'Ayuntamiento de Frigiliana · verkeersverordening', 'Ayuntamiento de Frigiliana · trafikförordning'), text: l('The 2011 ordinance — and the 2018 deliberation on repealing it, which is why we do not quote it as current.', 'Die Verkehrsordnung von 2011 — und die Beratung über ihre Aufhebung 2018, weshalb wir sie nicht als geltend zitieren.', 'La ordenanza de 2011 y la deliberación de 2018 sobre su derogación, por lo que no la citamos como vigente.', 'De verordening van 2011 en het beraad over intrekking in 2018, daarom citeren we die niet als geldend.', 'Förordningen från 2011 och överläggningen 2018 om att upphäva den, därför citerar vi den inte som gällande.'), href: 'https://frigiliana.es/memoria-de-derogacion-ordenanza-trafico-casco-antiguo/' }
+  { label: l('Ayuntamiento de Frigiliana · old-town traffic rules', 'Ayuntamiento de Frigiliana · Verkehrsordnung Altstadt', 'Ayuntamiento de Frigiliana · ordenanza de tráfico', 'Ayuntamiento de Frigiliana · verkeersverordening', 'Ayuntamiento de Frigiliana · trafikförordning'), text: l('The 2011 ordinance — and the 2018 deliberation on repealing it, which is why we do not quote it as current.', 'Die Verkehrsordnung von 2011 und die Beratung über ihre Aufhebung 2018.', 'La ordenanza de 2011 y la deliberación de 2018 sobre su derogación, por lo que no la citamos como vigente.', 'De verordening van 2011 en het beraad over intrekking in 2018, daarom citeren we die niet als geldend.', 'Förordningen från 2011 och överläggningen 2018 om att upphäva den, därför citerar vi den inte som gällande.'), href: 'https://frigiliana.es/memoria-de-derogacion-ordenanza-trafico-casco-antiguo/' }
 ];
 
 const makeLocale = (lang: AmaraLanguage): ParkingGuideLocale => ({
@@ -160,20 +160,20 @@ const makeLocale = (lang: AmaraLanguage): ParkingGuideLocale => ({
   sections: sections.map((section) => ({ id: section.id, eyebrow: section.eyebrow[lang], title: section.title[lang], paragraphs: section.paragraphs.map((p) => p[lang]) })),
   related: {
     eyebrow: l('Keep reading', 'Weiterlesen', 'Seguir leyendo', 'Verder lezen', 'Läs vidare')[lang],
-    title: l('Getting here, and what the walk is like', 'Die Anreise — und wie sich der Weg anfühlt', 'Cómo llegar y cómo es el camino', 'De reis hierheen en hoe de route aanvoelt', 'Resan hit och hur vägen känns')[lang],
+    title: l('Getting here, and what the walk is like', 'Anreise und Wege', 'Cómo llegar y cómo es el camino', 'De reis hierheen en hoe de route aanvoelt', 'Resan hit och hur vägen känns')[lang],
     links: related.map((item) => ({ token: item.token, label: item.label[lang], text: item.text[lang] }))
   },
   sources: {
     eyebrow: l('Sources', 'Quellen', 'Fuentes', 'Bronnen', 'Källor')[lang],
     title: l('Where these details come from', 'Woher diese Angaben kommen', 'De dónde salen estos datos', 'Waar deze gegevens vandaan komen', 'Varifrån uppgifterna kommer')[lang],
-    intro: l('The street layout and the traffic rules come from official village sources. The rhythm of arrivals and the advice to walk come from us.', 'Ortsplan und Verkehrsregeln stammen aus offiziellen Quellen des Dorfes. Der Rhythmus der Ankünfte und der Rat, zu Fuß zu gehen, kommen von uns.', 'El plano y las normas de tráfico proceden de fuentes oficiales del pueblo. El ritmo de las llegadas y el consejo de ir andando vienen de nosotros.', 'De plattegrond en verkeersregels komen uit officiële dorpsbronnen. Het ritme van de aankomsten en het advies om te lopen komen van ons.', 'Gatukartan och trafikreglerna kommer från byns officiella källor. Ankomsternas rytm och rådet att gå kommer från oss.')[lang],
+    intro: l('The street layout and the traffic rules come from official village sources. The rhythm of arrivals and the advice to walk come from us.', 'Ortsplan und Verkehrsregeln von der Gemeinde; der Rhythmus der Ankünfte und der Rat, zu Fuß zu gehen, von uns.', 'El plano y las normas de tráfico proceden de fuentes oficiales del pueblo. El ritmo de las llegadas y el consejo de ir andando vienen de nosotros.', 'De plattegrond en verkeersregels komen uit officiële dorpsbronnen. Het ritme van de aankomsten en het advies om te lopen komen van ons.', 'Gatukartan och trafikreglerna kommer från byns officiella källor. Ankomsternas rytm och rådet att gå kommer från oss.')[lang],
     checked: l('Last checked in August 2026', 'Stand August 2026', 'Revisado por última vez en agosto de 2026', 'Voor het laatst nagekeken in augustus 2026', 'Senast kontrollerat i augusti 2026')[lang],
     links: sourceRows.map((row) => ({ label: row.label[lang], text: row.text[lang], href: row.href }))
   },
   closing: {
     eyebrow: l('Parking at AMARA', 'Parken bei AMARA', 'Aparcar en AMARA', 'Parkeren bij AMARA', 'Parkering hos AMARA')[lang],
     title: l('Tell us when you arrive', 'Sagt uns, wann ihr ankommt', 'Contadnos cuándo llegáis', 'Vertel ons wanneer jullie aankomen', 'Berätta när ni kommer')[lang],
-    body: l('We will send you the route, the door photo and whether the streets are likely to be open at that hour.', 'Wir schicken euch den Weg, das Foto der Haustür und die Einschätzung, ob die Straßen zu der Zeit offen sind.', 'Os enviaremos el recorrido, la foto de la puerta y si las calles estarán abiertas a esa hora.', 'We sturen jullie de route, de foto van de voordeur en of de straten op dat uur open zijn.', 'Vi skickar vägen, fotot på porten och om gatorna troligen är öppna vid den tiden.')[lang],
+    body: l('We will send you the route, the door photo and whether the streets are likely to be open at that hour.', 'Wir schicken euch den Weg, das Foto der Haustür und sagen euch, ob die Straßen zu der Zeit offen sind.', 'Os enviaremos el recorrido, la foto de la puerta y si las calles estarán abiertas a esa hora.', 'We sturen jullie de route, de foto van de voordeur en of de straten op dat uur open zijn.', 'Vi skickar vägen, fotot på porten och om gatorna troligen är öppna vid den tiden.')[lang],
     locationLabel: l('Explore Frigiliana', 'Frigiliana entdecken', 'Descubrir Frigiliana', 'Ontdek Frigiliana', 'Upptäck Frigiliana')[lang],
     propertyLabel: l('View AMARA homes', 'AMARA-Häuser ansehen', 'Ver los alojamientos AMARA', 'Bekijk de AMARA-verblijven', 'Se AMARA-boendena')[lang]
   }

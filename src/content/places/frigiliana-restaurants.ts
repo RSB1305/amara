@@ -116,7 +116,7 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
       },
       beforeYouGo: {
         en: "Expect a social, busy room rather than a secluded table. Check current opening days before making it the fixed plan for your arrival evening.",
-        de: "Die Stimmung ist gesellig, nicht abgeschieden. Prüft die aktuellen Öffnungstage, bevor ihr den Ankunftsabend fest darauf ausrichtet.",
+        de: "Gesellig statt abgeschieden; am Ankunftsabend genau richtig.",
         es: "El ambiente es social, no íntimo. Comprueba los días de apertura antes de convertirlo en el plan fijo para la noche de llegada.",
         nl: "De sfeer is sociaal, niet afgezonderd. Controleer de actuele openingsdagen voordat je je aankomstavond hier volledig omheen plant.",
         sv: "Stämningen är social snarare än avskild. Kontrollera aktuella öppningsdagar innan du bygger hela ankomstkvällen kring restaurangen."
@@ -238,7 +238,7 @@ export const frigilianaRestaurantPlaceCopy = definePlaceCopy({
       },
       beforeYouGo: {
         en: "Access is rural and opening arrangements matter. Check the route, current hours and reservation options directly before setting out.",
-        de: "Die Anfahrt ist ländlich, aktuelle Öffnung entscheidend. Prüft Route, Zeiten und Reservierung direkt, bevor ihr aufbrecht.",
+        de: "Die Anfahrt führt über Landstraßen ins Campo; reserviert, und der Abend gehört euch.",
         es: "El acceso es rural y la apertura importa. Comprueba directamente la ruta, los horarios actuales y la posibilidad de reservar antes de salir.",
         nl: "De toegang is landelijk en de opening is belangrijk. Controleer route, actuele tijden en reserveringsmogelijkheden rechtstreeks voordat je vertrekt.",
         sv: "Vägen är lantlig och aktuella öppettider viktiga. Kontrollera rutt, tider och bokningsmöjlighet direkt innan avfärd."

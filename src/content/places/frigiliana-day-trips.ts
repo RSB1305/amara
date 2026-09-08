@@ -76,7 +76,7 @@ export const frigilianaDayTripPlaceCopy = definePlaceCopy({
       },
       callout: {
         en: "A central car park around the port and Muelle Uno is a practical starting point, but check current access and availability before you leave.",
-        de: "Ein zentrales Parkhaus im Bereich Hafen und Muelle Uno ist ein praktischer Ausgangspunkt. Prüft vor der Abfahrt jedoch die aktuelle Zufahrt und Verfügbarkeit.",
+        de: "Parkt im Parkhaus am Hafen bei Muelle Uno; von dort ist die Altstadt zu Fuß.",
         es: "Un aparcamiento céntrico en la zona del puerto y Muelle Uno es un buen punto de partida, aunque conviene comprobar el acceso y la disponibilidad antes de salir.",
         nl: "Een centrale parkeergarage rond de haven en Muelle Uno is een praktisch vertrekpunt. Controleer wel de actuele toegang en beschikbaarheid voordat jullie vertrekken.",
         sv: "Ett centralt parkeringsgarage vid hamnen och Muelle Uno är en praktisk utgångspunkt. Kontrollera aktuell åtkomst och tillgänglighet innan ni åker."

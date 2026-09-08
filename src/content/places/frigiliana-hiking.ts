@@ -144,7 +144,7 @@ export const frigilianaHikingPlaceCopy = definePlaceCopy({
       paragraphs: [
         {
           en: "The Higuerón is the local gorge choice, but a riverbed is not a fixed surface. Water, loose stone and passability change after weather. Check the forecast first, then use the linked route rather than following an improvised line. If conditions are doubtful, choose an open route instead.",
-          de: "Der Higuerón ist die ortsnahe Schluchtenroute, doch ein Flussbett ist kein gleichbleibender Weg. Wasser, loses Gestein und Passierbarkeit verändern sich mit dem Wetter. Prüft zuerst die Vorhersage und folgt dann dem verlinkten Track statt einer improvisierten Linie. Bei Zweifel wählt ihr eine offene Route.",
+          de: "Der Higuerón ist die Schluchtroute direkt vom Dorf: ein Flussbett mit Wasser, losem Gestein und Stellen, die nach Regen anders aussehen. Der verlinkte Track führt euch durch.",
           es: "El Higuerón es la opción local de garganta, pero un cauce no es una superficie fija. El agua, la piedra suelta y la posibilidad de paso cambian con el tiempo. Consultad primero la previsión y seguid después el track enlazado, no una línea improvisada. Si hay dudas, elegid una ruta abierta.",
           nl: "De Higuerón is de lokale kloofroute, maar een rivierbedding is geen vaste ondergrond. Water, losse stenen en begaanbaarheid veranderen met het weer. Bekijk eerst de verwachting en volg daarna de gelinkte route in plaats van zelf een lijn te improviseren. Kies bij twijfel een open route.",
           sv: "Higuerón är den lokala ravinturen, men en flodbädd är inget fast underlag. Vatten, lösa stenar och framkomlighet förändras med vädret. Kontrollera prognosen först och följ sedan den länkade rutten i stället för en improviserad linje. Välj en öppen rutt om ni är osäkra."
@@ -260,7 +260,7 @@ export const frigilianaHikingPlaceCopy = definePlaceCopy({
       paragraphs: [
         {
           en: "This is the complete summit route. The official description begins at Plaza del Ingenio and climbs through the old town before continuing onto exposed, rocky terrain. Use that description for the official start and route facts, and check weather before committing to the ascent.",
-          de: "Das ist die vollständige Gipfelroute. Die offizielle Beschreibung beginnt an der Plaza del Ingenio, führt durch die Altstadt und anschließend in offenes, felsiges Gelände. Nutzt sie für offiziellen Start und Routendaten und prüft das Wetter, bevor ihr euch für den Aufstieg entscheidet.",
+          de: "Die ganze Gipfelroute: Start an der Plaza del Ingenio, durch die Altstadt und hinaus ins offene, felsige Gelände. Ein Tag für klares Wetter und frühen Aufbruch.",
           es: "Esta es la ruta completa hasta la cumbre. La descripción oficial comienza en la plaza del Ingenio, atraviesa el casco histórico y continúa por terreno abierto y rocoso. Usadla para la salida y los datos oficiales y comprobad el tiempo antes de iniciar la subida.",
           nl: "Dit is de volledige route naar de top. De officiële beschrijving begint op Plaza del Ingenio, gaat door de oude kern en loopt daarna over open, rotsachtig terrein. Gebruik die voor de officiële start en routegegevens en controleer het weer voor de klim.",
           sv: "Det här är hela toppturen. Den officiella beskrivningen börjar på Plaza del Ingenio, går genom den gamla bykärnan och fortsätter över öppen, stenig terräng. Använd den för officiell start och ruttfakta och kontrollera vädret före stigningen."
