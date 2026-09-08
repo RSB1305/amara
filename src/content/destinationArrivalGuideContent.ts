@@ -590,18 +590,6 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
       details: [text(frigilianaParkingCopy.hero.body, lang)],
       icon: 'rental-car'
     },
-    finalMile: {
-      eyebrow: text(copy.reality.eyebrow, lang),
-      title: text(copy.reality.title, lang),
-      paragraphs: [text(copy.reality.body, lang), text(copy.reality.access, lang), text(copy.reality.climb, lang)],
-      image: {
-        src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/03-frigiliana-pueblo.jpg',
-        alt: text(copy.reality.imageAlt, lang)
-      },
-      links: [
-        { token: 'arrival_guide', label: text(copy.reality.bookedCta, lang) }
-      ]
-    },
     sources: {
       eyebrow: text(copy.sources.eyebrow, lang),
       title: text(copy.sources.title, lang),
