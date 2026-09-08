@@ -48,9 +48,9 @@ export const nerjaVeranoAzulSeo: AmaraAuthoringSeo = {
   ogImage: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
   languages: {
     en: {
-      title: 'Verano Azul in Nerja: Filming locations, the TV series phenomenon and its legacy',
+      title: 'Verano Azul in Nerja: filming locations and traces',
       description:
-        'The series that made Nerja a national landmark in Spain: shooting locations, how the production shaped local identity and what still remains visible in town today.',
+        'The series that made Nerja known across Spain: filming locations on the beach, the Chanquete statue, La Dorada in the park and the AR route.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -62,24 +62,24 @@ export const nerjaVeranoAzulSeo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     es: {
-      title: 'Verano Azul en Nerja: localizaciones, TV y huella actual',
+      title: 'Verano Azul en Nerja: localizaciones y huellas',
       description:
-        'La serie que convirtió a Nerja en referencia nacional: localizaciones, cómo marcó la identidad local y qué queda hoy de su legado.',
+        'La serie que dio a conocer Nerja en toda España: localizaciones en la playa, la estatua de Chanquete, La Dorada en el parque y la ruta de realidad aumentada.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Verano Azul in Nerja: opnames, TV-fenomeen en nalatenschap',
+      title: 'Verano Azul in Nerja: filmlocaties en sporen',
       description:
-        'De serie die Nerja in de hele Spaanse media zichtbaar maakte: opnamelocaties, hoe dat de plaats heeft vormgegeven en wat er nog zichtbaar is.',
+        'De serie die Nerja in heel Spanje bekend maakte: filmlocaties op het strand, het Chanquete-standbeeld, La Dorada in het park en de AR-route.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title:
-        'Verano Azul i Nerja: inspelning, TV-fenomen och arv',
+        'Verano Azul i Nerja: inspelningsplatser och spår',
       description:
-        'Serien som gjorde Nerja känt över hela Spanien: inspelningsplatser, hur den formade platsens identitet och vad som fortfarande går att upptäcka.',
+        'Serien som gjorde Nerja känt i hela Spanien: inspelningsplatser på stranden, Chanquete-statyn, La Dorada i parken och AR-rutten.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -90,190 +90,190 @@ export const nerjaVeranoAzulContent = {
   navLabel: l("Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul"),
   breadcrumbLabel: l("Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul"),
   hero: {
-    eyebrow: l("Nerja · TV memory", "Nerja · Serienkulisse", "Nerja · Memoria audiovisual", "Nerja · TV-geheugen", "Nerja · TV-minne"),
+    eyebrow: l("Nerja · TV backdrop", "Nerja · Serienkulisse", "Nerja · escenario de serie", "Nerja · seriedecor", "Nerja · seriekuliss"),
     title: l("Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul"),
-    standfirst: l("The TV series Verano Azul is where many families met Nerja for the first time. It is also where the town acquired a shared visual memory that still shapes how locals speak about certain streets, the Balcón and the old coast.", "Für ein ganzes Land war Nerja zuerst ein Fernsehbild: die Jugendlichen auf ihren Rädern, Chanquete und sein Boot La Dorada, der Strand von Burriana. Die Serie lief vor über vierzig Jahren; ihre Orte stehen noch.", "Para muchas familias, Verano Azul fue la primera vez que oyó hablar de Nerja. La serie también dejó una memoria visual compartida que sigue presente en la vida cotidiana del municipio.", "Voor veel gezinnen was Verano Azul de eerste kennismaking met Nerja. De serie liet een gedeeld beeld achter dat nog in de lokale beleving meeloopt.", "För många hushåll var Verano Azul första gången de hörde talas om Nerja. Serien har lämnat en delad visuell minneskarta som fortfarande påverkar platsberättelsen."),
-    note: l("Editorial guide written from verified public sources and municipal information. It avoids fan speculation and travel booking details.", "Drehorte, Statue und Park liegen im Zentrum von Nerja.", "La guía se basa en fuentes públicas verificables y evita la especulación de fandom y datos de alquileres o precios.", "Deze gids is gebaseerd op controleerbare publieke bronnen. Fan-schattingen en reserveringsdetails zijn bewust weggelaten.", "Guiden bygger på verifierade offentliga källor och exkluderar osäkra fanspecifikationer och bokningsdetaljer."),
-    updated: l("Edited in August 2026", "Stand August 2026", "Revisada en agosto de 2026", "Bewerkt in augustus 2026", "Genomgången i augusti 2026")
+    standfirst: l("For a whole country Nerja was first a television image: the teenagers on their bikes, Chanquete and his boat La Dorada, the beach at Burriana. The series aired more than forty years ago; its places still stand.", "Für ein ganzes Land war Nerja zuerst ein Fernsehbild: die Jugendlichen auf ihren Rädern, Chanquete und sein Boot La Dorada, der Strand von Burriana. Die Serie lief vor über vierzig Jahren; ihre Orte stehen noch.", "Para todo un país Nerja fue primero una imagen de televisión: los jóvenes en sus bicicletas, Chanquete y su barco La Dorada, la playa de Burriana. La serie se emitió hace más de cuarenta años; sus lugares siguen ahí.", "Voor een heel land was Nerja eerst een televisiebeeld: de jongeren op hun fietsen, Chanquete en zijn boot La Dorada, het strand van Burriana. De serie liep meer dan veertig jaar geleden; haar plekken staan er nog.", "För ett helt land var Nerja först en tv-bild: ungdomarna på sina cyklar, Chanquete och hans båt La Dorada, stranden i Burriana. Serien gick för över fyrtio år sedan; dess platser står kvar."),
+    note: l("Filming locations, statue and park are in the centre of Nerja.", "Drehorte, Statue und Park liegen im Zentrum von Nerja.", "Localizaciones, estatua y parque están en el centro de Nerja.", "Filmlocaties, standbeeld en park liggen in het centrum van Nerja.", "Inspelningsplatser, staty och park ligger i Nerjas centrum."),
+    updated: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026")
   },
   facts: [
     {
       label: l("TV format", "TV-Format", "Formato", "TV-opzet", "TV-format"),
-      value: l("19 episodes · TVE serial, three-season structure in production records", "19 Folgen, produziert von TVE", "19 capítulos · producción serial de TVE", "19 afleveringen · TVE-serie op basis van publieke bronnotities", "19 avsnitt · TVE-serie enligt publicerad produktionsstruktur")
+      value: l("19 episodes, produced by TVE", "19 Folgen, produziert von TVE", "19 capítulos, producidos por TVE", "19 afleveringen, geproduceerd door TVE", "19 avsnitt, producerade av TVE")
     },
     {
       label: l("Broadcast run", "Ausstrahlung", "Emisión", "Uitzending", "Sändning"),
       value: l("11 Oct 1981 – 14 Feb 1982", "11. Oktober 1981 – 14. Februar 1982", "11 octubre de 1981 – 14 febrero de 1982", "11 oktober 1981 – 14 februari 1982", "11 oktober 1981 – 14 februari 1982")
     },
     {
-      label: l("Audience reach", "Zuschauer", "Alcance", "Publiek", "Publikumsräckvidd"),
-      value: l("Later episodes reported over 9 million viewers", "Über 9 Millionen bei späteren Folgen", "Episodios posteriores con más de 9 millones de espectadores", "In latere afleveringen door bronnen genoemd meer dan 9 miljoen kijkers", "Senare avsnitt angavs ha över 9 miljoner tittare")
+      label: l("Viewers", "Zuschauer", "Espectadores", "Kijkers", "Tittare"),
+      value: l("Over 9 million for later episodes", "Über 9 Millionen bei späteren Folgen", "Más de 9 millones en los últimos capítulos", "Meer dan 9 miljoen bij latere afleveringen", "Över 9 miljoner för senare avsnitt")
     },
     {
       label: l("First day in Nerja", "Erster Drehtag", "Primer día de rodaje", "Eerste opnamedag", "Första inspelningsdag"),
       value: l("21 Aug 1979, Playa de Burriana", "21. August 1979, Playa de Burriana", "21 agosto de 1979, Playa de Burriana", "21 augustus 1979, Playa de Burriana", "21 augusti 1979, Playa de Burriana")
     },
     {
-      label: l("Local legacy", "Heute", "Huella local", "Lokaal erfgoed", "Lokal påverkan"),
-      value: l("Parque Verano Azul, La Dorada replica and an AR route launched in 2023", "Parque Verano Azul mit La Dorada, Chanquete-Statue, AR-Route seit 2023", "Parque Verano Azul, réplica de La Dorada y ruta de RA desde 2023", "Parque Verano Azul, La Dorada replica en AR-route sinds 2023", "Parque Verano Azul, La Dorada-replik och AR-rutt från 2023")
+      label: l("Today", "Heute", "Hoy", "Vandaag", "I dag"),
+      value: l("Parque Verano Azul with La Dorada, Chanquete statue, AR route since 2023", "Parque Verano Azul mit La Dorada, Chanquete-Statue, AR-Route seit 2023", "Parque Verano Azul con La Dorada, estatua de Chanquete, ruta de RA desde 2023", "Parque Verano Azul met La Dorada, Chanquete-standbeeld, AR-route sinds 2023", "Parque Verano Azul med La Dorada, Chanquete-statyn, AR-rutt sedan 2023")
     }
   ],
   trailer: {
     label: l("Official Verano Azul trailer", "Offizieller Verano Azul Trailer", "Tráiler oficial de Verano Azul", "Officiële Verano Azul trailer", "Officiell trailer"),
-    privacyNote: l("The trailer is hosted on YouTube. Loading it transmits your IP address to Google and may store data locally.", "Der Trailer liegt bei YouTube; beim Laden gehen Daten an Google.", "El tráiler está alojado en YouTube. Al cargarlo se transmite la IP a Google, que también puede guardar datos locales.", "De trailer staat op YouTube. Bij het laden gaat jullie IP naar Google, wat ook gegevens op het apparaat kan achterlaten.", "Trailern ligger hos YouTube. Vid laddning skickas IP-adressen till Google, som också kan lagra data lokalt."),
+    privacyNote: l("The trailer is hosted on YouTube; loading it sends data to Google.", "Der Trailer liegt bei YouTube; beim Laden gehen Daten an Google.", "El tráiler está en YouTube; al cargarlo se envían datos a Google.", "De trailer staat op YouTube; bij het laden gaan er gegevens naar Google.", "Trailern ligger på YouTube; när den laddas skickas data till Google."),
     loadAction: l("Load trailer", "Trailer laden", "Cargar tráiler", "Trailer laden", "Ladda trailern")
   },
   sections: [
     {
       id: "tv-phenomenon",
-      eyebrow: l("The TV phenomenon", "Die Serie", "El fenómeno televisivo", "Het TV-fenomeen", "TV-fenomenet"),
-      title: l("How this series became part of a whole generation’s memory", "Ein Sommer, den ganz Spanien gesehen hat", "Cómo se convirtió en memoria de varias generaciones", "Waarom de serie een deel van meerdere generaties geheugen is geworden", "Hur serien blev en del av flera generationers gemensamma minne"),
+      eyebrow: l("The series", "Die Serie", "La serie", "De serie", "Serien"),
+      title: l("A summer that all of Spain watched", "Ein Sommer, den ganz Spanien gesehen hat", "Un verano que vio toda España", "Een zomer die heel Spanje zag", "En sommar som hela Spanien såg"),
       paragraphs: [
-        l("Verano Azul is not remembered only for its story. Its broadcast impact is equally part of its legacy: 19 episodes, and a first phase that reached a broad Spanish audience when shown on TVE.", "Verano Azul erzählt von einer Gruppe Jugendlicher, die ihre Sommerferien in Nerja verbringen, vom alten Fischer Chanquete und der Malerin Julia. 19 Folgen, ausgestrahlt zwischen Oktober 1981 und Februar 1982.", "Verano Azul no se recuerda solo por su argumento: también dejó una huella masiva en la emisión pública y en la cultura compartida.", "Verano Azul is niet alleen bekend om het verhaal, maar ook door de reikwijdte van de uitzending.", "Verano Azul minns vi inte enbart för handlingen, utan också för den stora spridningen i tv-sammanhang."),
-        l("According to production and broadcast records, the original run is placed between 11 October 1981 and 14 February 1982, with later episodes repeatedly cited as drawing very high audience numbers.", "Die Serie wurde über Jahrzehnte wiederholt; Generationen kennen die Titelmelodie und die Fahrräder auf der Promenade. Wer in Spanien aufgewachsen ist, verbindet Nerja bis heute mit diesem Sommer.", "La documentación pública sitúa el primer bloque entre el 11 de octubre de 1981 y el 14 de febrero de 1982, y recoge una audiencia muy alta en capítulos posteriores.", "Publieke registraties noemen een uitzending tussen 11 oktober 1981 en 14 februari 1982 en een zeer hoge kijkdichtheid in latere afleveringen.", "Enligt tillgänglig officiell information sträckte sig första publicerade utsändning till perioden 11 oktober 1981 till 14 februari 1982, med mycket hög publik i senare avsnitt.")
+        l("Verano Azul tells of a group of teenagers spending their summer holidays in Nerja, of the old fisherman Chanquete and the painter Julia. 19 episodes, broadcast between October 1981 and February 1982.", "Verano Azul erzählt von einer Gruppe Jugendlicher, die ihre Sommerferien in Nerja verbringen, vom alten Fischer Chanquete und der Malerin Julia. 19 Folgen, ausgestrahlt zwischen Oktober 1981 und Februar 1982.", "Verano Azul cuenta la historia de un grupo de adolescentes que pasan sus vacaciones de verano en Nerja, del viejo pescador Chanquete y de la pintora Julia. 19 capítulos, emitidos entre octubre de 1981 y febrero de 1982.", "Verano Azul vertelt over een groep jongeren die hun zomervakantie in Nerja doorbrengen, over de oude visser Chanquete en de schilderes Julia. 19 afleveringen, uitgezonden tussen oktober 1981 en februari 1982.", "Verano Azul berättar om en grupp ungdomar som tillbringar sommarlovet i Nerja, om den gamle fiskaren Chanquete och målaren Julia. 19 avsnitt, sända mellan oktober 1981 och februari 1982."),
+        l("The series was repeated for decades; generations know the theme tune and the bicycles on the promenade. Anyone who grew up in Spain still connects Nerja with that summer.", "Die Serie wurde über Jahrzehnte wiederholt; Generationen kennen die Titelmelodie und die Fahrräder auf der Promenade. Wer in Spanien aufgewachsen ist, verbindet Nerja bis heute mit diesem Sommer.", "La serie se repuso durante décadas; generaciones conocen la melodía y las bicicletas por el paseo. Quien creció en España sigue asociando Nerja con aquel verano.", "De serie werd decennialang herhaald; generaties kennen de titelmelodie en de fietsen op de promenade. Wie in Spanje opgroeide, verbindt Nerja tot vandaag met die zomer.", "Serien repriserades i årtionden; generationer känner igen signaturmelodin och cyklarna på strandpromenaden. Den som växte upp i Spanien förknippar än i dag Nerja med den sommaren.")
       ]
     },
     {
       id: "why-nerja",
       eyebrow: l("Why Nerja", "Warum Nerja", "Por qué Nerja", "Waarom Nerja", "Varför Nerja"),
-      title: l("Why the town was selected after scouting on the Mediterranean coast", "Warum die Produktion hier drehte", "Por qué el equipo eligió la localidad tras el localizador costero", "Waarom de locatiekeuze bij de opnames uitviel", "Varför produktionen valde platsen efter kustrekognoscering"),
+      title: l("Why the production filmed here", "Warum die Produktion hier drehte", "Por qué la producción rodó aquí", "Waarom de productie hier filmde", "Varför produktionen filmade här"),
       paragraphs: [
-        l("The production’s early recce process in the Mediterranean landscape looked for places that offered varied light, sea access and lived-in streets within short travel reach.", "Das Team suchte einen Ort, an dem Strand, Altstadt und Straßen nah beieinanderliegen, so dass sich Szenen ohne lange Wege verbinden ließen.", "En los procesos de localización se buscó un entorno con vida urbana, luz costera y transiciones entre calle y mar.", "Tijdens scouting werd gezocht naar plekken met afwisseling van centrum, straten en open kust.", "I scouting fasen sökte teamet omväxlande miljöer: stadsliv, utsikt, kustljus och övergångar mellan nära och vida miljöer."),
-        l("Nerja worked because production could move between intimate urban scenes and open shoreline settings with practical continuity. That flexibility made the town suitable for a long-format serial model.", "Nerja bot genau das: Burriana, den Balcón und die Gassen dahinter, alles in Gehweite. Am 21. August 1979 fiel am Strand von Burriana die erste Klappe.", "Nerja permitió sostener ese doble registro de manera eficiente: escenas de pueblo y escenas de costa en continuidad narrativa.", "Nerja bood die combinatie op schaal, waardoor sequenties met dagelijks leven en kusten in één productieschema samengebracht konden worden.", "Nerja passade för att kombinera dessa delar i ett hållbart schema med korta logistiska avstånd.")
+        l("The team was looking for a place where beach, old town and streets lie close together, so that scenes could be linked without long journeys.", "Das Team suchte einen Ort, an dem Strand, Altstadt und Straßen nah beieinanderliegen, so dass sich Szenen ohne lange Wege verbinden ließen.", "El equipo buscaba un lugar donde playa, casco antiguo y calles estuvieran cerca, para poder enlazar escenas sin largos desplazamientos.", "Het team zocht een plek waar strand, oude stad en straten dicht bij elkaar liggen, zodat scènes zonder lange verplaatsingen te verbinden waren.", "Teamet sökte en plats där strand, gamla stan och gator ligger nära varandra, så att scener kunde knytas ihop utan långa förflyttningar."),
+        l("Nerja offered exactly that: Burriana, the Balcón and the lanes behind it, all within walking distance. On 21 August 1979 the first take was shot on Burriana beach.", "Nerja bot genau das: Burriana, den Balcón und die Gassen dahinter, alles in Gehweite. Am 21. August 1979 fiel am Strand von Burriana die erste Klappe.", "Nerja ofrecía justo eso: Burriana, el Balcón y las callejuelas de detrás, todo a distancia a pie. El 21 de agosto de 1979 se rodó la primera toma en la playa de Burriana.", "Nerja bood precies dat: Burriana, de Balcón en de steegjes erachter, alles op loopafstand. Op 21 augustus 1979 viel op het strand van Burriana de eerste klap.", "Nerja erbjöd precis det: Burriana, Balcón och gränderna bakom, allt inom gångavstånd. Den 21 augusti 1979 togs den första tagningen på stranden i Burriana.")
       ]
     },
     {
       id: "nerja-in-the-series",
-      eyebrow: l("Nerja as part of the series", "Die Drehorte", "Nerja en la serie", "Nerja in de serie", "Nerja i serien"),
-      title: l("Playa de Burriana, Balcón de Europa, Cala Chica and the urban streets", "Burriana, Balcón, Cala Chica und die Gassen", "Playa de Burriana, Balcón, Cala Chica y calles del centro", "Playa de Burriana, Balcón, Cala Chica en stadsstraten", "Playa de Burriana, Balcón, Cala Chica och stadens gator"),
+      eyebrow: l("The filming locations", "Die Drehorte", "Las localizaciones", "De filmlocaties", "Inspelningsplatserna"),
+      title: l("Burriana, Balcón, Cala Chica and the lanes", "Burriana, Balcón, Cala Chica und die Gassen", "Burriana, Balcón, Cala Chica y las callejuelas", "Burriana, Balcón, Cala Chica en de steegjes", "Burriana, Balcón, Cala Chica och gränderna"),
       paragraphs: [
-        l("Nerja’s map inside the series includes multiple anchors: Playa de Burriana, Balcón de Europa, Cala Chica and the Cueva de Nerja, plus residential and commercial streets in and around the centre.", "Der Strand von Burriana, der Balcón de Europa, die kleine Bucht Cala Chica, die Cueva de Nerja und die Straßen des Zentrums: Wer heute durch Nerja geht, geht durch die Serie.", "El mapa serial incluye puntos claramente reconocibles: Playa de Burriana, Balcón de Europa, Cala Chica y la Cueva de Nerja, además de tramos urbanos del centro.", "De seriebeelden bevatten herkenbare ankerpunten als Playa de Burriana, Balcón de Europa, Cala Chica, de Cueva de Nerja en centrumwijken.", "Kända platser i serien innefattar Playa de Burriana, Balcón de Europa, Cala Chica och Cueva de Nerja samt flera urbana stråk i centrum."),
-        l("The production also used the town’s transitions and road geography for movement and crowd continuity, not only its postcard scenes. This is one reason the series still feels geographically coherent despite the amount of screen time.", "Ein Teil der Szenen entstand weiter östlich bei Motril und Almuñécar; das Bild von Nerja aber ist das, das geblieben ist.", "La película aprovecha también los cambios de ritmo entre esos espacios, por eso el recorrido parece coherente y familiar pese a la distancia entre escenas.", "De opnames spelen met overgangen tussen die plekken, waardoor het beeld als één plekenset leesbaar blijft.", "Produktionen byggde på övergångar mellan dessa punkter, vilket gör att serien upplevs som ett sammanhängande geografiskt rum.")
+        l("Burriana beach, the Balcón de Europa, the small cove of Cala Chica, the Cueva de Nerja and the streets of the centre: whoever walks through Nerja today walks through the series.", "Der Strand von Burriana, der Balcón de Europa, die kleine Bucht Cala Chica, die Cueva de Nerja und die Straßen des Zentrums: Wer heute durch Nerja geht, geht durch die Serie.", "La playa de Burriana, el Balcón de Europa, la pequeña Cala Chica, la Cueva de Nerja y las calles del centro: quien pasea hoy por Nerja pasea por la serie.", "Het strand van Burriana, de Balcón de Europa, de kleine baai Cala Chica, de Cueva de Nerja en de straten van het centrum: wie vandaag door Nerja loopt, loopt door de serie.", "Stranden Burriana, Balcón de Europa, den lilla viken Cala Chica, Cueva de Nerja och centrums gator: den som går genom Nerja i dag går genom serien."),
+        l("Some scenes were shot further east near Motril and Almuñécar; but the image of Nerja is the one that stayed.", "Ein Teil der Szenen entstand weiter östlich bei Motril und Almuñécar; das Bild von Nerja aber ist das, das geblieben ist.", "Algunas escenas se rodaron más al este, cerca de Motril y Almuñécar; pero la imagen de Nerja es la que ha quedado.", "Een deel van de scènes ontstond verder oostelijk bij Motril en Almuñécar; maar het beeld van Nerja is het beeld dat bleef.", "En del scener spelades in längre österut vid Motril och Almuñécar; men bilden av Nerja är den som blev kvar.")
       ]
     },
     {
       id: "chanquete-la-dorada",
       eyebrow: l("Chanquete and La Dorada", "Chanquete und La Dorada", "Chanquete y La Dorada", "Chanquete en La Dorada", "Chanquete och La Dorada"),
-      title: l("How iconography was built and how the replica is presented today", "Der Fischer und sein Boot", "La iconicidad construida y la réplica contemporánea", "Hoe iconen zijn opgebouwd en hoe de replica nu staat", "Hur ikoniken skapades och hur repliken presenteras nu"),
+      title: l("The fisherman and his boat", "Der Fischer und sein Boot", "El pescador y su barco", "De visser en zijn boot", "Fiskaren och hans båt"),
       paragraphs: [
-        l("Chanquete became the emotional centre of the show’s character world and still appears in guides, anecdotes and conversations among visitors.", "Chanquete, der alte Fischer, der auf seinem an Land gezogenen Boot La Dorada wohnt, ist die Figur, an die sich alle erinnern. Seine Statue steht heute an der Playa Calahonda, gleich unter dem Balcón.", "Chanquete quedó como icono del universo de la serie y forma parte de cómo se habla hoy de la ruta.", "Chanquete is uitgegroeid tot het sterkste herkenningspunt in de verhalen rond de serie.", "Chanquete blev en symbol för serien och återkommer i lokala samtal om förankringen."),
-        l("La Dorada in Nerja was built as a purpose-made screen construction, not a historic surviving vessel location from the original shooting period. That distinction matters when you visit.", "La Dorada war eine Kulisse, für die Serie gebaut. Im Parque Verano Azul steht heute ein Nachbau des Boots, und davor stehen die Besucher für ihr Foto Schlange.", "La Dorada de Nerja fue un set funcional para la producción; su versión actual no es el barco original de rodaje conservado intacto.", "La Dorada in Nerja was destijds een functioneel opbouwset, niet het originele blijvend behouden vissersvaartuig.", "La Dorada i Nerja var ett planerat filmbygge för produktionen, inte en helt bevarad ursprungsbåt.")
+        l("Chanquete, the old fisherman who lives on his beached boat La Dorada, is the character everyone remembers. His statue stands today at Playa Calahonda, right below the Balcón.", "Chanquete, der alte Fischer, der auf seinem an Land gezogenen Boot La Dorada wohnt, ist die Figur, an die sich alle erinnern. Seine Statue steht heute an der Playa Calahonda, gleich unter dem Balcón.", "Chanquete, el viejo pescador que vive en su barco varado La Dorada, es el personaje que todos recuerdan. Su estatua está hoy en la playa de Calahonda, justo debajo del Balcón.", "Chanquete, de oude visser die op zijn aan land getrokken boot La Dorada woont, is de figuur die iedereen zich herinnert. Zijn standbeeld staat vandaag aan Playa Calahonda, vlak onder de Balcón.", "Chanquete, den gamle fiskaren som bor på sin uppdragna båt La Dorada, är figuren alla minns. Hans staty står i dag vid Playa Calahonda, alldeles under Balcón."),
+        l("La Dorada was a set, built for the series. In Parque Verano Azul there is a replica of the boat today, and visitors queue in front of it for their photo.", "La Dorada war eine Kulisse, für die Serie gebaut. Im Parque Verano Azul steht heute ein Nachbau des Boots, und davor stehen die Besucher für ihr Foto Schlange.", "La Dorada era un decorado, construido para la serie. En el Parque Verano Azul hay hoy una réplica del barco, y los visitantes hacen cola delante para su foto.", "La Dorada was een decor, gebouwd voor de serie. In het Parque Verano Azul staat vandaag een replica van de boot, en bezoekers staan ervoor in de rij voor hun foto.", "La Dorada var en kuliss, byggd för serien. I Parque Verano Azul står i dag en kopia av båten, och framför den köar besökarna för sitt foto.")
       ]
     },
     {
       id: "changed-nerja",
-      eyebrow: l("How Verano Azul changed Nerja", "Was blieb", "Cómo cambió Nerja Verano Azul", "Hoe Verano Azul Nerja veranderde", "Hur Verano Azul förändrade Nerja"),
-      title: l("Officially echoed claims: visibility, identity and national recognition", "Wie die Serie den Ort bekannt machte", "Lo que repite el municipio: visibilidad y reconocimiento", "Wat de gemeente consequent noemt: zichtbaarheid en identiteit", "Det officiella arvet: synlighet och identitet"),
+      eyebrow: l("What remained", "Was blieb", "Lo que quedó", "Wat bleef", "Vad som blev kvar"),
+      title: l("How the series made the town known", "Wie die Serie den Ort bekannt machte", "Cómo la serie dio a conocer el pueblo", "Hoe de serie de plaats bekend maakte", "Hur serien gjorde orten känd"),
       paragraphs: [
-        l("Municipal and local cultural pages repeatedly describe Verano Azul as a turning point for Nerja’s visibility far beyond Andalusia, with lasting effects on identity and local pride.", "Nach der Ausstrahlung kannte ganz Spanien Nerja, und viele kamen, um den Strand aus dem Fernsehen zu sehen. Die Stadt hat der Serie seither einen Park, eine Promenade und eine Straße gewidmet.", "Las fuentes municipales describen a Verano Azul como un referente de visibilidad nacional para Nerja y de identidad colectiva local.", "Lokale en gemeentelijke bronnen noemen Verano Azul als een blijvende reden dat Nerja nationaal sterker werd herkend.", "Kommunala och lokala källor beskriver serien som en faktor i Nerjas nationella synlighet och i lokal identitetsbildning.")
+        l("After the broadcast all of Spain knew Nerja, and many came to see the beach from the television. Since then the town has dedicated a park, a promenade and a street to the series.", "Nach der Ausstrahlung kannte ganz Spanien Nerja, und viele kamen, um den Strand aus dem Fernsehen zu sehen. Die Stadt hat der Serie seither einen Park, eine Promenade und eine Straße gewidmet.", "Tras la emisión toda España conocía Nerja, y muchos vinieron a ver la playa de la tele. Desde entonces la ciudad ha dedicado a la serie un parque, un paseo y una calle.", "Na de uitzending kende heel Spanje Nerja, en velen kwamen om het strand uit de televisie te zien. Sindsdien heeft de stad een park, een promenade en een straat aan de serie gewijd.", "Efter sändningen kände hela Spanien till Nerja, och många kom för att se stranden från tv. Sedan dess har staden tillägnat serien en park, en strandpromenad och en gata.")
       ]
     },
     {
       id: "verano-azul-today",
-      eyebrow: l("Verano Azul in Nerja today", "Heute", "Verano Azul en Nerja hoy", "Verano Azul vandaag", "Verano Azul i Nerja idag"),
-      title: l("From route and replica to everyday traces", "Ein Spaziergang durch die Serie", "Del pasado televisivo a la presencia diaria", "Van televisieregie tot tastbaar stadsdecor", "Från TV-minne till nuvarande platslager"),
+      eyebrow: l("Today", "Heute", "Hoy", "Vandaag", "I dag"),
+      title: l("A walk through the series", "Ein Spaziergang durch die Serie", "Un paseo por la serie", "Een wandeling door de serie", "En promenad genom serien"),
       paragraphs: [
-        l("Nerja today keeps Verano Azul visible through multiple nodes: Parque Verano Azul, the La Dorada reconstruction site, Antonio Mercero’s seafront avenue (officially named in tourism-facing materials), Calle Antonio Ferrandis, the Chanquete statue near Playa Calahonda and the Balcón de Europa.", "Im Parque Verano Azul steht La Dorada, an der Playa Calahonda die Chanquete-Statue, die Promenade heißt nach dem Regisseur Antonio Mercero, eine Straße nach Antonio Ferrandis, der Chanquete spielte. Alles liegt zwischen Balcón und Burriana, zu Fuß an einem Nachmittag.", "Hoy se activan hitos como el Parque Verano Azul, la réplica de La Dorada, el paseo Antonio Mercero, la Calle Antonio Ferrandis, la estatua de Chanquete en Playa Calahonda y el Balcón de Europa.", "Vandaag zijn er zichtbare knooppunten: Parque Verano Azul, La Dorada-replica, de Antonio Mercero-route, Calle Antonio Ferrandis, Chanquete-beeld bij Playa Calahonda en de Balcón de Europa.", "Idag är dessa punkter läsbara i offentlig miljö: Parque Verano Azul, La Dorada-repliken, Antonio Mercero-avenyn, Calle Antonio Ferrandis, Chanquete-statyn vid Playa Calahonda och Balcón de Europa."),
-        l("The municipal AR route launched in 2023 adds context points and is now one practical way to read how the series is embedded in the city narrative today.", "Seit 2023 gibt es dazu eine Route mit erweiterter Realität: App öffnen, Handy auf den Ort richten, und die Szene von damals legt sich über das Bild von heute.", "En 2023 se puso en marcha la ruta turística en RA para añadir contexto y recorrido a esa memoria.", "Sinds 2023 is er een gemeentelijke AR-route toegevoegd die extra context geeft bij de route.", "Sedan 2023 finns en officiell AR-rutt som lägger samman dessa punkter med ytterligare kontext.")
+        l("In Parque Verano Azul stands La Dorada, at Playa Calahonda the Chanquete statue, the promenade is named after the director Antonio Mercero, a street after Antonio Ferrandis, who played Chanquete. All of it lies between the Balcón and Burriana, on foot in an afternoon.", "Im Parque Verano Azul steht La Dorada, an der Playa Calahonda die Chanquete-Statue, die Promenade heißt nach dem Regisseur Antonio Mercero, eine Straße nach Antonio Ferrandis, der Chanquete spielte. Alles liegt zwischen Balcón und Burriana, zu Fuß an einem Nachmittag.", "En el Parque Verano Azul está La Dorada, en la playa de Calahonda la estatua de Chanquete, el paseo lleva el nombre del director Antonio Mercero, una calle el de Antonio Ferrandis, que interpretó a Chanquete. Todo queda entre el Balcón y Burriana, a pie en una tarde.", "In het Parque Verano Azul staat La Dorada, aan Playa Calahonda het Chanquete-standbeeld, de promenade heet naar regisseur Antonio Mercero, een straat naar Antonio Ferrandis, die Chanquete speelde. Alles ligt tussen Balcón en Burriana, te voet op een middag.", "I Parque Verano Azul står La Dorada, vid Playa Calahonda Chanquete-statyn, strandpromenaden heter efter regissören Antonio Mercero, en gata efter Antonio Ferrandis som spelade Chanquete. Allt ligger mellan Balcón och Burriana, till fots på en eftermiddag."),
+        l("Since 2023 there is also an augmented-reality route: open the app, point your phone at the place, and the scene from back then lays itself over the picture of today.", "Seit 2023 gibt es dazu eine Route mit erweiterter Realität: App öffnen, Handy auf den Ort richten, und die Szene von damals legt sich über das Bild von heute.", "Desde 2023 hay además una ruta de realidad aumentada: abrir la app, apuntar con el móvil al lugar, y la escena de entonces se superpone a la imagen de hoy.", "Sinds 2023 is er ook een route met augmented reality: app openen, telefoon op de plek richten, en de scène van toen legt zich over het beeld van nu.", "Sedan 2023 finns dessutom en rutt med förstärkt verklighet: öppna appen, rikta mobilen mot platsen, och scenen från förr lägger sig över dagens bild.")
       ]
     }
   ],
   itinerary: {
-    eyebrow: l("Following Verano Azul today", "Der Weg", "Verano Azul hoy", "Verano Azul vandaag volgen", "Följa Verano Azul i dag"),
-    title: l("A short guest-facing itinerary", "Vom Strand zum Balcón", "Una ruta breve para ir haciéndola real", "Een eenvoudige wandeling met logische volgorde", "En kort rundvandring för gäster"),
-    intro: l("If you want a practical walk that still follows the cultural map of the series, take this route by order and compare each setting with your local landmarks.", "Eine Reihenfolge, die zu Fuß Sinn ergibt.", "Para vivir una lectura de la serie sin confundir ficción y agenda, seguí este orden práctico.", "Wie de serie-route als gast wilt lezen, kan dit in deze volgorde doen: vanaf zee naar het centrum.", "Om du vill kombinera serieminnet med en tydlig platsupplevelse, följ den här ordningen."),
+    eyebrow: l("The route", "Der Weg", "El recorrido", "De route", "Vägen"),
+    title: l("From the beach to the Balcón", "Vom Strand zum Balcón", "De la playa al Balcón", "Van het strand naar de Balcón", "Från stranden till Balcón"),
+    intro: l("An order that makes sense on foot.", "Eine Reihenfolge, die zu Fuß Sinn ergibt.", "Un orden que tiene sentido a pie.", "Een volgorde die te voet logisch is.", "En ordning som är rimlig till fots."),
     links: [
       {
         token: "nerja_beaches_authority" as LinkToken,
-        label: l("Playa and coast", "Burriana", "Playa y costa", "Strand en kust", "Strand och kust"),
-        text: l("Start at the main coastal context before moving into interior spots.", "Hier begann der Dreh; heute Strandlokale und der lange Sandstrand.", "Empieza por la escala de costa para situar la luz y el acceso.", "Begin met het kustbeeld dat de serievisuele context vormt.", "Börja vid kusten för att anpassa ljus och rytm.")
+        label: l("Burriana", "Burriana", "Burriana", "Burriana", "Burriana"),
+        text: l("This is where filming began; today beach restaurants and the long sandy beach.", "Hier begann der Dreh; heute Strandlokale und der lange Sandstrand.", "Aquí empezó el rodaje; hoy chiringuitos y la larga playa de arena.", "Hier begon het filmen; vandaag strandtenten en het lange zandstrand.", "Här började inspelningen; i dag strandrestauranger och den långa sandstranden.")
       },
       {
         token: "nerja_balcon_de_europa" as LinkToken,
         label: l("Balcón de Europa", "Balcón de Europa", "Balcón de Europa", "Balcón de Europa", "Balcón de Europa"),
-        text: l("Use it as a skyline anchor and visual reference point.", "Die Chanquete-Statue steht direkt darunter an der Calahonda.", "Úsalo como ancla visual y de orientación.", "Gebruik het als visuele overgang en oriënteringspunt.", "Använd denna punkt som första visuella fixpunkt.")
+        text: l("The Chanquete statue stands right below at Calahonda.", "Die Chanquete-Statue steht direkt darunter an der Calahonda.", "La estatua de Chanquete está justo debajo, en Calahonda.", "Het Chanquete-standbeeld staat er direct onder aan Calahonda.", "Chanquete-statyn står alldeles nedanför vid Calahonda.")
       },
       {
         token: "nerja_caves" as LinkToken,
         label: l("Caves of Nerja", "Cueva de Nerja", "Cueva de Nerja", "Cueva de Nerja", "Cueva de Nerja"),
-        text: l("Cross from coast to inland landmarks and understand the wider location system.", "Die Höhle war Kulisse und ist einen eigenen Vormittag wert.", "Conecta hacia el eje interior de la zona más conocida por los huéspedes.", "Verbind vervolgens met een tweede cultureel anker in de stad.", "Gå vidare till ett annat av Nerjas bestående landmärke.")
+        text: l("The cave was a set and is worth a morning of its own.", "Die Höhle war Kulisse und ist einen eigenen Vormittag wert.", "La cueva fue escenario y merece una mañana propia.", "De grot was decor en is een eigen ochtend waard.", "Grottan var kuliss och är värd en egen förmiddag.")
       },
       {
         token: "nerja_experience_hub" as LinkToken,
-        label: l("All Nerja experiences", "Alle Erlebnisse in Nerja", "Todas las experiencias de Nerja", "Alle Nerja-ervaringen", "Alla Nerja-upplevelser"),
-        text: l("Return to the full experience hub for nearby recommendations.", "Strände, Höhle, Balcón und Abende.", "Vuelve al hub para planificar el resto de la estancia.", "Ga terug naar het hub-overzicht voor een complete dagindeling.", "Återgå till hubben för nästa steg i din plan.")
+        label: l("All experiences in Nerja", "Alle Erlebnisse in Nerja", "Todas las experiencias en Nerja", "Alle ervaringen in Nerja", "Alla upplevelser i Nerja"),
+        text: l("Beaches, cave, Balcón and evenings.", "Strände, Höhle, Balcón und Abende.", "Playas, cueva, Balcón y noches.", "Stranden, grot, Balcón en avonden.", "Stränder, grotta, Balcón och kvällar.")
       }
     ]
   },
   related: {
     eyebrow: l("Continue reading", "Weiterlesen", "Continuar leyendo", "Verder lezen", "Läs vidare"),
-    title: l("Nerja culture and places around Verano Azul", "Weiter in Nerja", "Más cultura y lugares de la ruta", "Meer culturele plekken rond Verano Azul", "Mer kring kultur och platser"),
+    title: l("On through Nerja", "Weiter in Nerja", "Seguir por Nerja", "Verder in Nerja", "Vidare i Nerja"),
     links: [
       {
         token: "nerja_beaches_authority" as LinkToken,
         label: l("Beaches in Nerja", "Strände in Nerja", "Playas de Nerja", "Stranden van Nerja", "Nerjas stränder"),
-        text: l("How the beaches support both daily life and the series memory landscape.", "Burriana, Calahonda und die kleinen Buchten.", "Cómo la costa influye en el tiempo y en el ritmo de la experiencia diaria.", "Hoe de kust in beeld en in de praktijk de dagstructuur bepaalt.", "Hur stranden formar både vardagsrytm och filmisk igenkänning.")
+        text: l("Burriana, Calahonda and the small coves.", "Burriana, Calahonda und die kleinen Buchten.", "Burriana, Calahonda y las calas pequeñas.", "Burriana, Calahonda en de kleine baaien.", "Burriana, Calahonda och de små vikarna.")
       },
       {
         token: "nerja_balcon_de_europa" as LinkToken,
         label: l("Balcón de Europa", "Balcón de Europa", "Balcón de Europa", "Balcón de Europa", "Balcón de Europa"),
-        text: l("How Nerja’s visual emblem became one of the route’s main viewpoints.", "Der Aussichtspunkt über dem Meer, mitten in der Stadt.", "El punto más fotogénico y de referencia visual de la ciudad.", "De visuele kern waar veel routekeuzes om draaien.", "Det visuella centrum där många av de ikoniska referenserna kliver fram.")
+        text: l("The viewpoint above the sea, in the middle of town.", "Der Aussichtspunkt über dem Meer, mitten in der Stadt.", "El mirador sobre el mar, en pleno centro.", "Het uitzichtpunt boven de zee, midden in de stad.", "Utsiktsplatsen över havet, mitt i stan.")
       },
       {
         token: "nerja_caves" as LinkToken,
-        label: l("Cave guide", "Cueva de Nerja", "Cueva de Nerja", "Grotengids", "Grotguiden"),
-        text: l("One of the long-running landmarks that still shapes how guests move through Nerja.", "Die Höhle mit den Tropfsteinen, ein paar Kilometer östlich vom Zentrum.", "Un referente duradero para recorrer el municipio con contexto histórico.", "Een vaste referentie in de bredere ruimtelijke beleving van de gemeente.", "Ett annat långvarigt orienteringsmärke för besökande i kommunen.")
+        label: l("Cueva de Nerja", "Cueva de Nerja", "Cueva de Nerja", "Cueva de Nerja", "Cueva de Nerja"),
+        text: l("The cave with the stalactites, a few kilometres east of the centre.", "Die Höhle mit den Tropfsteinen, ein paar Kilometer östlich vom Zentrum.", "La cueva de las estalactitas, a pocos kilómetros al este del centro.", "De grot met de druipstenen, een paar kilometer ten oosten van het centrum.", "Grottan med droppstenarna, några kilometer öster om centrum.")
       }
     ]
   },
   sources: {
-    eyebrow: l("Sources checked", "Quellen", "Fuentes", "Bronnen", "Källor"),
-    title: l("Official material used in this guide", "Woher die Angaben kommen", "Material oficial consultado", "Officiële bronnenbasis", "Officiella källor som användes"),
-    intro: l("Public announcements and municipal pages were used for production dates, shooting references and legacy claims. We keep direct interpretation points conservative where source detail is limited.", "Daten und Drehorte aus RTVE-Berichten und Mitteilungen der Stadt Nerja.", "La base de esta guía son recursos públicos de RTVE y del Ayuntamiento, con énfasis en datos verificables sobre rodaje, memoria local y continuidad de ruta.", "De basisinformatie komt uit RTVE-documentatie en gemeentelijke mededelingen, met nadruk op verifieerbare productiestaferelen en lokaal erfgoed.", "Materialet bygger på RTVE-publiceringar och kommunala kanaler med fokus på verifierbar produktion och kvarstående minnesarbete."),
-    checked: l("Sources reviewed in August 2026.", "Stand August 2026", "Fuentes revisadas en agosto de 2026.", "Bronnen gecontroleerd in augustus 2026.", "Källor kontrollerade i augusti 2026."),
+    eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
+    title: l("Where the details come from", "Woher die Angaben kommen", "De dónde salen los datos", "Waar de gegevens vandaan komen", "Varifrån uppgifterna kommer"),
+    intro: l("Dates and locations from RTVE reports and announcements by the town of Nerja.", "Daten und Drehorte aus RTVE-Berichten und Mitteilungen der Stadt Nerja.", "Fechas y localizaciones a partir de reportajes de RTVE y comunicados del Ayuntamiento de Nerja.", "Data en locaties uit RTVE-berichten en mededelingen van de stad Nerja.", "Datum och platser ur RTVE-rapporter och meddelanden från Nerjas kommun."),
+    checked: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026"),
     links: [
       {
         label: l("RTVE · Verano Azul archive page", "RTVE · Verano Azul-Übersicht", "RTVE · Ficha de Verano Azul", "RTVE · Verano Azul dossier", "RTVE · Verano Azul-översikt"),
-        text: l("Main RTVE reference entry with public coverage.", "Die Serie im RTVE-Archiv.", "Referencia pública de la serie.", "Publieke informatie over de serie.", "Offentlig serieöversikt med grundfakta."),
+        text: l("The series in the RTVE archive.", "Die Serie im RTVE-Archiv.", "La serie en el archivo de RTVE.", "De serie in het RTVE-archief.", "Serien i RTVE:s arkiv."),
         href: officialSources.rtveStory
       },
       {
         label: l("RTVE · How Verano Azul was filmed", "RTVE · Produktionshinweise", "RTVE · Cómo se rodó", "RTVE · Productieproces", "RTVE · Inspelningsupplägg"),
-        text: l("Production context and filming process notes.", "Wie gedreht wurde.", "Información de proceso de rodaje y contexto.", "Bron over het maakproces en de opnamen.", "Bakgrund till arbetsmetod och inspelning."),
+        text: l("How it was filmed.", "Wie gedreht wurde.", "Cómo se rodó.", "Hoe er gefilmd werd.", "Hur det filmades."),
         href: officialSources.rtveProduction
       },
       {
         label: l("Ayuntamiento de Nerja · Director profile", "Ayuntamiento · Mercero-Notiz", "Ayuntamiento de Nerja · Perfil", "Ayuntamiento de Nerja · Profiel", "Ayuntamiento de Nerja · Profil"),
-        text: l("Municipal remembrance around Antonio Mercero and local context.", "Zum Regisseur Antonio Mercero.", "Texto municipal de referencia histórica.", "Gemeentelijke bron rond auteur en context.", "Kommunal kontext kring berättelse och arv."),
+        text: l("On the director Antonio Mercero.", "Zum Regisseur Antonio Mercero.", "Sobre el director Antonio Mercero.", "Over regisseur Antonio Mercero.", "Om regissören Antonio Mercero."),
         href: officialSources.municipality.profile
       },
       {
         label: l("Ayuntamiento de Nerja · AR route launch", "Ayuntamiento · AR-Route", "Ayuntamiento de Nerja · Ruta de RA", "Ayuntamiento de Nerja · AR-route", "Ayuntamiento de Nerja · AR-rutt"),
-        text: l("Municipal context for the 2023 route and its purpose.", "Die AR-Route der Stadt.", "Publicación sobre la ruta turística con RA.", "Officiële informatie over de route met augmented reality.", "Information om kommunal AR-rutt och syfte."),
+        text: l("The town’s AR route.", "Die AR-Route der Stadt.", "La ruta de realidad aumentada del ayuntamiento.", "De AR-route van de stad.", "Stadens AR-rutt."),
         href: officialSources.municipality.route
       },
       {
         label: l("Ayuntamiento de Nerja · 40th anniversary", "Ayuntamiento · 40-Jahres-Gedenken", "Ayuntamiento de Nerja · 40 aniversario", "Ayuntamiento de Nerja · 40-jarig", "Ayuntamiento de Nerja · 40-årsjubileum"),
-        text: l("Municipal acknowledgement of the start of filming and memory milestones.", "40 Jahre Drehbeginn.", "Referencia local sobre inicio de rodaje.", "Gemeentelijke context rond het begin van de opnamen.", "Kommunal markering av inspelningsstartens milstolpe."),
+        text: l("40 years since filming began.", "40 Jahre Drehbeginn.", "40 años del inicio del rodaje.", "40 jaar sinds het begin van de opnames.", "40 år sedan inspelningen började."),
         href: officialSources.municipality.anniversary
       },
       {
-        label: l("Ayuntamiento de Nerja · La Dorada memorial context", "Ayuntamiento · Amphoren", "Ayuntamiento de Nerja · La Dorada", "Ayuntamiento de Nerja · La Dorada", "Ayuntamiento de Nerja · La Dorada"),
-        text: l("Municipal reference for the La Dorada replica and commemorative framing.", "Die Amphoren aus der Serie im Rathaus.", "Referencia municipal para el planteamiento de memoria.", "Gemeentelijke bron voor de hedendaagse herinneringsbenadering.", "Kommunal kontext för minnesramen kring La Dorada."),
+        label: l("Ayuntamiento · Amphorae", "Ayuntamiento · Amphoren", "Ayuntamiento · Ánforas", "Ayuntamiento · Amforen", "Ayuntamiento · Amforor"),
+        text: l("The amphorae from the series in the town hall.", "Die Amphoren aus der Serie im Rathaus.", "Las ánforas de la serie en el ayuntamiento.", "De amforen uit de serie in het stadhuis.", "Amfororna från serien i rådhuset."),
         href: officialSources.municipality.anforas
       }
     ]
   },
   closing: {
-    eyebrow: l("Where to go next", "Und danach", "Siguiente paso", "Vervolg", "Nästa kapitel"),
-    title: l("Verano Azul left a map. This guide helps you walk it with context.", "Der Sommer aus dem Fernsehen, vor der Haustür", "Verano Azul dejó un mapa de lugares; aquí lo pasamos a una caminata real.", "Verano Azul leeft vooral in de manier waarop de plek nog steeds gelezen wordt.", "Verano Azul lever kvar som ett landskapslager, inte bara som en nostalgisk referens."),
-    body: l("The show shaped Nerja’s memory as a filmed place. Start from the beach and work uphill into the old quarter to feel the continuity between screen and town.", "AMARA Playa liegt ein paar Hundert Meter vom Balcón, in Gehweite von Statue, Park und Strand. Den Spaziergang durch die Serie macht ihr von der Haustür aus.", "Tomad una ruta corta: costa primero, centro después, para que la película y la ciudad se lean como capas, no como anécdota.", "Begin aan de kust en loop dan naar het centrum: dan werk je van de televisievorm naar de stad in plaats van alleen plaatjes af te vinken.", "Börja vid stranden, gå in mot centrum och låt serien fungera som en tolkningsnyckel i stället för ett färdigt schema."),
+    eyebrow: l("And afterwards", "Und danach", "Y después", "En daarna", "Och sedan"),
+    title: l("The summer from the television, right outside the door", "Der Sommer aus dem Fernsehen, vor der Haustür", "El verano de la tele, a la puerta de casa", "De zomer uit de televisie, voor de deur", "Sommaren från tv:n, utanför dörren"),
+    body: l("AMARA Playa is a few hundred metres from the Balcón, within walking distance of statue, park and beach. You take the walk through the series from your own front door.", "AMARA Playa liegt ein paar Hundert Meter vom Balcón, in Gehweite von Statue, Park und Strand. Den Spaziergang durch die Serie macht ihr von der Haustür aus.", "AMARA Playa está a unos cientos de metros del Balcón, a distancia a pie de la estatua, el parque y la playa. El paseo por la serie lo hacéis desde la puerta de casa.", "AMARA Playa ligt een paar honderd meter van de Balcón, op loopafstand van standbeeld, park en strand. De wandeling door de serie maken jullie vanaf de voordeur.", "AMARA Playa ligger några hundra meter från Balcón, inom gångavstånd från staty, park och strand. Promenaden genom serien gör ni från er egen dörr."),
     propertyLabel: l("View AMARA Playa", "AMARA Playa ansehen", "Ver AMARA Playa", "Bekijk AMARA Playa", "Se AMARA Playa"),
     experienceLabel: l("Nerja experiences", "Nerja-Erlebnisse", "Experiencias en Nerja", "Ervaringen in Nerja", "Nerja-upplevelser")
   },
   footerHighlights: {
     experience: l("Nerja experiences", "Nerja-Erlebnisse", "Experiencias en Nerja", "Ervaringen in Nerja", "Nerja-upplevelser"),
     beaches: l("Nerja beaches", "Nerja Strände", "Playas de Nerja", "Nerja stranden", "Nerja stränder"),
-    balance: l("Cultural anchors", "Balcón de Europa", "Puntos de referencia", "Culturele ankers", "Kulturella punkter")
+    balance: l("Balcón de Europa", "Balcón de Europa", "Balcón de Europa", "Balcón de Europa", "Balcón de Europa")
   }
 };

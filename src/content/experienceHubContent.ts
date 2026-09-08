@@ -434,7 +434,7 @@ export const experienceHubContent: Record<
         kicker: 'A day with more movement',
         title: 'Walk from the white village into the hills',
         text:
-          'The landscape begins just above the old town, with short walks as well as longer routes. Check the heat, weather and exact track before leaving.',
+          'Above the old town the landscape begins: short walks and long routes, loveliest early in the morning.',
         linkLabel: 'Open the hiking guide',
         imageAlt:
           'Frigiliana street with a view towards the mountain landscape'
@@ -767,7 +767,7 @@ export const experienceHubContent: Record<
         kicker: 'Un día con más movimiento',
         title: 'Salir de las calles blancas hacia la montaña',
         text:
-          'El paisaje empieza justo por encima del casco antiguo, con paseos cortos y rutas más largas. Comprobad antes el calor, el tiempo y el recorrido exacto.',
+          'Por encima del casco antiguo empieza el paisaje: paseos cortos y rutas largas, lo mejor a primera hora de la mañana.',
         linkLabel: 'Ver la guía de senderismo',
         imageAlt: 'Frigiliana con las montañas al fondo'
       },
@@ -933,7 +933,7 @@ export const experienceHubContent: Record<
         kicker: 'Een dag met meer beweging',
         title: 'Loop vanuit de witte straatjes de heuvels in',
         text:
-          'Het landschap begint direct boven de oude kern, met korte wandelingen en langere routes. Controleer vooraf de hitte, het weer en het precieze traject.',
+          'Boven de oude kern begint het landschap: korte wandelingen en lange routes, het mooist vroeg in de ochtend.',
         linkLabel: 'Open de wandelgids',
         imageAlt: 'Frigiliana met uitzicht op het berglandschap'
       },
@@ -1099,7 +1099,7 @@ export const experienceHubContent: Record<
         kicker: 'En dag med mer rörelse',
         title: 'Gå från de vita gränderna ut i bergen',
         text:
-          'Landskapet börjar strax ovanför gamla byn, med både korta promenader och längre turer. Kontrollera värme, väder och den exakta rutten före start.',
+          'Ovanför gamla byn börjar landskapet: korta promenader och långa rutter, vackrast tidigt på morgonen.',
         linkLabel: 'Öppna vandringsguiden',
         imageAlt: 'Frigiliana med utsikt mot bergslandskapet'
       },

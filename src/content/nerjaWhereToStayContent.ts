@@ -180,7 +180,7 @@ const en: WhereToStayCopy = {
     mapNote: '(see the orientation map above)',
     lead: 'In Nerja you often have to choose: beach *or* centre, proximity *or* quiet. **AMARA Playa is in Torrecilla** — at the foot of the old town, with the city beach right at the door and only about five minutes on foot to the Balcón de Europa and the restaurants. And quieter than the old town itself.',
     facts: ['**Torrecilla city beach** right at the door', '**5 minutes** on foot to the Balcón de Europa and the tapas', '**Quieter** than the busy old town — without the drive'],
-    honest: 'To stay honest: your biggest, most relaxed beach day is at Burriana; those who value quiet and space over proximity are better off in the hills. For beach and centre in one, Torrecilla is the sweet spot.'
+    honest: 'To stay honest: your biggest, most relaxed beach day is at Burriana; those who value quiet and space over proximity are better off in the hills. For beach and centre in one, Torrecilla is just right.'
   }
 };
 
@@ -268,7 +268,7 @@ const es: WhereToStayCopy = {
     mapNote: '(ver el mapa de orientación arriba)',
     lead: 'En Nerja a menudo hay que elegir: playa *o* centro, cercanía *o* calma. **AMARA Playa está en Torrecilla** — al pie del casco, con la playa urbana en la puerta y a solo unos cinco minutos a pie del Balcón de Europa y los restaurantes. Y más tranquila que el propio casco.',
     facts: ['**Playa urbana de Torrecilla** en la puerta', '**5 minutos** a pie al Balcón de Europa y las tapas', '**Más tranquila** que el casco animado — sin el coche'],
-    honest: 'Para ser honestos: el día de playa más grande y relajado lo tenéis en Burriana; quien valora la calma y el espacio por encima de la cercanía está mejor en la ladera. Para playa y centro en uno, Torrecilla es el punto dulce.'
+    honest: 'Para ser honestos: el día de playa más grande y relajado lo tenéis en Burriana; quien valora la calma y el espacio por encima de la cercanía está mejor en la ladera. Para playa y centro en uno, Torrecilla es la opción justa.'
   }
 };
 
@@ -356,7 +356,7 @@ const nl: WhereToStayCopy = {
     mapNote: '(zie de oriëntatiekaart hierboven)',
     lead: 'In Nerja moet je vaak kiezen: strand *of* centrum, nabijheid *of* rust. **AMARA Playa ligt in Torrecilla** — aan de voet van de oude kern, met het stadsstrand pal voor de deur en maar zo’n vijf minuten lopen naar de Balcón de Europa en de restaurants. En rustiger dan de oude kern zelf.',
     facts: ['**Stadsstrand Torrecilla** pal voor de deur', '**5 minuten** lopen naar de Balcón de Europa en de tapas', '**Rustiger** dan de drukke oude kern — zonder de auto'],
-    honest: 'Eerlijk blijft: je grootste, meest relaxte stranddag heb je bij Burriana; wie rust en ruimte boven nabijheid stelt, zit beter op de heuvel. Voor strand en centrum in één is Torrecilla de zoete plek.'
+    honest: 'Eerlijk blijft: je grootste, meest relaxte stranddag heb je bij Burriana; wie rust en ruimte boven nabijheid stelt, zit beter op de heuvel. Voor strand en centrum in één is Torrecilla precies goed.'
   }
 };
 
@@ -444,7 +444,7 @@ const sv: WhereToStayCopy = {
     mapNote: '(se orienteringskartan ovan)',
     lead: 'I Nerja måste man ofta välja: strand *eller* centrum, närhet *eller* lugn. **AMARA Playa ligger i Torrecilla** — vid foten av gamla stan, med stadsstranden precis vid dörren och bara omkring fem minuters promenad till Balcón de Europa och restaurangerna. Och lugnare än gamla stan själv.',
     facts: ['**Stadsstranden Torrecilla** precis vid dörren', '**5 minuter** till fots till Balcón de Europa och tapasen', '**Lugnare** än den livliga gamla stan — utan bilfärd'],
-    honest: 'Ärligt talat: din största, mest avslappnade stranddag har du vid Burriana; den som värderar lugn och rymd framför närhet trivs bättre på höjden. För strand och centrum i ett är Torrecilla den söta punkten.'
+    honest: 'Ärligt talat: din största, mest avslappnade stranddag har du vid Burriana; den som värderar lugn och rymd framför närhet trivs bättre på höjden. För strand och centrum i ett är Torrecilla precis rätt.'
   }
 };
 

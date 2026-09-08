@@ -28,7 +28,7 @@ const hero = routeHero('nerja.experience.food', currentLang);
 const shared = getNerjaDiningGuideFacts(currentLang);
 const copy = nerjaFoodPageContent[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja food');
-const updated: Record<AmaraLanguage, string> = { en: 'Reviewed August 2026', de: 'Stand August 2026', es: 'Revisado en agosto de 2026', nl: 'Gecontroleerd in augustus 2026', sv: 'Granskad i augusti 2026' };
+const updated: Record<AmaraLanguage, string> = { en: 'As of August 2026', de: 'Stand August 2026', es: 'Actualizado en agosto de 2026', nl: 'Stand augustus 2026', sv: 'Uppdaterad augusti 2026' };
 const aboutHref = requiredLink('about');
 const footerHighlights: LabeledLink[] = [
   { token: 'nerja_food_authority', label: copy.navLabel },

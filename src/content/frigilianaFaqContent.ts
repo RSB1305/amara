@@ -84,32 +84,32 @@ export const frigilianaFaqCopy = {
   },
   hero: {
     eyebrow: l(
-      'Plan Frigiliana',
       'Frigiliana · FAQ',
-      'Planificar Frigiliana',
-      'Frigiliana plannen',
-      'Planera Frigiliana'
+      'Frigiliana · FAQ',
+      'Frigiliana · FAQ',
+      'Frigiliana · FAQ',
+      'Frigiliana · FAQ'
     ),
     title: l(
-      'Frigiliana: Practical Questions, Clear Answers',
+      'Frigiliana, briefly answered',
       'Frigiliana, kurz beantwortet',
-      'Frigiliana: preguntas prácticas, respuestas claras',
-      'Frigiliana: praktische vragen, heldere antwoorden',
-      'Frigiliana: praktiska frågor och tydliga svar'
+      'Frigiliana, en pocas palabras',
+      'Frigiliana, kort beantwoord',
+      'Frigiliana, kort besvarat'
     ),
     lead: l(
-      'A calm, decision-first guide to transport, parking, steep streets, daily life, weather, and the difference between visiting for a few hours and staying overnight.',
+      'How to get here, where the car goes, how steep the lanes are and what a Thursday in the village brings: the questions guests ask us most often before their trip.',
       'Wie ihr herkommt, wo das Auto steht, wie steil die Gassen sind und was ein Donnerstag im Dorf mit sich bringt: die Fragen, die uns Gäste vor der Reise am häufigsten stellen.',
-      'Una guía clara para decidir y organizar el transporte, el aparcamiento, las calles empinadas, el día a día, el tiempo y la diferencia entre una visita breve y una noche en el pueblo.',
-      'Een rustige gids die helpt beslissen over vervoer, parkeren, steile straten, het dagelijks leven, het weer en het verschil tussen een kort bezoek en een overnachting.',
-      'En lugn guide som hjälper er att fatta beslut om transport, parkering, branta gränder, vardagsliv, väder och skillnaden mellan ett kort besök och en övernattning.'
+      'Cómo llegar, dónde dejar el coche, lo empinadas que son las calles y qué trae un jueves en el pueblo: las preguntas que más nos hacen los huéspedes antes del viaje.',
+      'Hoe je hier komt, waar de auto staat, hoe steil de steegjes zijn en wat een donderdag in het dorp brengt: de vragen die gasten ons vóór de reis het vaakst stellen.',
+      'Hur ni kommer hit, var bilen står, hur branta gränderna är och vad en torsdag i byn för med sig: frågorna gäster oftast ställer oss före resan.'
     ),
     body: l(
-      'Use these answers for orientation, then confirm live timetables, opening hours, prices, and event details with the responsible local provider before making a special journey.',
+      'Whatever is missing here, we are happy to answer on WhatsApp.',
       'Was hier fehlt, beantworten wir gern per WhatsApp.',
-      'Utilizad estas respuestas para orientaros y confirmad los horarios, precios, aperturas y detalles de eventos con el proveedor local responsable antes de realizar un desplazamiento específico.',
-      'Gebruik deze antwoorden als oriëntatie en controleer actuele dienstregelingen, openingstijden, prijzen en evenementinformatie bij de verantwoordelijke lokale aanbieder voordat jullie speciaal op pad gaan.',
-      'Använd svaren som vägledning och kontrollera aktuella tidtabeller, öppettider, priser och evenemangsuppgifter hos ansvarig lokal aktör innan ni gör en särskild resa.'
+      'Lo que falte aquí lo respondemos con gusto por WhatsApp.',
+      'Wat hier ontbreekt, beantwoorden we graag via WhatsApp.',
+      'Det som saknas här svarar vi gärna på via WhatsApp.'
     ),
     primaryCta: l(
       'Open the questions',
@@ -119,64 +119,64 @@ export const frigilianaFaqCopy = {
       'Se frågorna'
     ),
     secondaryCta: l(
-      'Plan the journey',
+      'Getting here',
       'Zur Anreise',
-      'Planificar el viaje',
-      'Plan de reis',
-      'Planera resan'
+      'Cómo llegar',
+      'Naar de aankomst',
+      'Resan hit'
     ),
   },
   orientation: {
     title: l(
-      'Four things to understand first',
+      'Four things first',
       'Vier Dinge vorab',
-      'Cuatro cosas que conviene saber primero',
-      'Vier dingen om eerst te weten',
-      'Fyra saker att förstå först'
+      'Cuatro cosas de antemano',
+      'Vier dingen vooraf',
+      'Fyra saker först'
     ),
     items: [
       {
         label: l('Village shape', 'Dorfstruktur', 'Estructura', 'Dorpsstructuur', 'Bystruktur'),
         value: l('Lower & upper village', 'Unter- & Oberdorf', 'Zona baja y alta', 'Beneden- en bovendorp', 'Nedre och övre byn'),
         note: l(
-          'The historic upper quarter includes steep lanes and stairs.',
+          'The plaza below, the old lanes with their stairs above.',
           'Unten die Plaza, oben die alten Gassen mit ihren Treppen.',
-          'El casco histórico de la zona alta incluye cuestas y escaleras.',
-          'De historische bovenwijk heeft steile straten en trappen.',
-          'Den historiska övre delen har branta gränder och trappor.'
+          'Abajo la plaza, arriba las callejuelas antiguas con sus escaleras.',
+          'Beneden het plein, boven de oude steegjes met hun trappen.',
+          'Torget nedanför, de gamla gränderna med sina trappor ovanför.'
         )
       },
       {
         label: l('Coast connection', 'Verbindung zur Küste', 'Conexión con la costa', 'Verbinding met de kust', 'Förbindelse med kusten'),
         value: l('Via Nerja', 'Über Nerja', 'A través de Nerja', 'Via Nerja', 'Via Nerja'),
         note: l(
-          'Local buses and taxis connect the village with Nerja.',
+          'Bus and taxi to Nerja, a good quarter of an hour.',
           'Bus und Taxi nach Nerja, gut eine Viertelstunde.',
-          'Los autobuses locales y los taxis conectan el pueblo con Nerja.',
-          'Lokale bussen en taxi’s verbinden het dorp met Nerja.',
-          'Lokalbussar och taxi förbinder byn med Nerja.'
+          'Autobús y taxi a Nerja, un cuarto de hora largo.',
+          'Bus en taxi naar Nerja, ruim een kwartier.',
+          'Buss och taxi till Nerja, en dryg kvart.'
         )
       },
       {
         label: l('Without a car', 'Ohne Auto', 'Sin coche', 'Zonder auto', 'Utan bil'),
-        value: l('Possible with planning', 'Geht gut', 'Posible con planificación', 'Mogelijk met planning', 'Möjligt med planering'),
+        value: l('Works well', 'Geht gut', 'Sin problema', 'Gaat goed', 'Går bra'),
         note: l(
-          'Timetables matter more on Sundays, holidays, and in the evening.',
+          'On Sundays and in the evening the bus runs less often; then the taxi helps.',
           'Sonntags und abends fährt der Bus seltener; dann hilft das Taxi.',
-          'Los horarios importan especialmente los domingos, festivos y por la noche.',
-          'Dienstregelingen zijn vooral op zon- en feestdagen en ’s avonds belangrijk.',
-          'Tidtabeller är extra viktiga på söndagar, helgdagar och kvällar.'
+          'Los domingos y por la noche el autobús pasa menos; entonces el taxi ayuda.',
+          'Op zondag en ’s avonds rijdt de bus minder vaak; dan helpt de taxi.',
+          'På söndagar och kvällar går bussen mer sällan; då hjälper taxin.'
         )
       },
       {
-        label: l('Best approach', 'Tempo', 'Mejor enfoque', 'Beste aanpak', 'Bästa sättet'),
-        value: l('Leave time', 'Langsam', 'Ir sin prisas', 'Neem de tijd', 'Ta god tid'),
+        label: l('Pace', 'Tempo', 'Ritmo', 'Tempo', 'Tempo'),
+        value: l('Slow', 'Langsam', 'Despacio', 'Langzaam', 'Långsamt'),
         note: l(
-          'Parking, walking, and the terrain are easier without a tight schedule.',
+          'The village is built for slow days: park, walk up, arrive.',
           'Das Dorf ist für langsame Tage gebaut: parken, hochgehen, ankommen.',
-          'Aparcar, caminar y moverse por las cuestas resulta más fácil sin prisas.',
-          'Parkeren, lopen en het hoogteverschil zijn eenvoudiger zonder strakke planning.',
-          'Parkering, promenader och nivåskillnader blir enklare utan ett pressat schema.'
+          'El pueblo está hecho para días lentos: aparcar, subir, llegar.',
+          'Het dorp is gebouwd voor langzame dagen: parkeren, omhoog lopen, aankomen.',
+          'Byn är byggd för långsamma dagar: parkera, gå upp, komma fram.'
         )
       }
     ]
@@ -187,18 +187,18 @@ export const frigilianaFaqCopy = {
       number: '01',
       eyebrow: l('Getting there', 'Anreise', 'Cómo llegar', 'Bereikbaarheid', 'Resa hit'),
       title: l(
-        'Arrival, transport & parking',
+        'Arriving and parking',
         'Ankommen und parken',
-        'Llegada, transporte y aparcamiento',
-        'Aankomst, vervoer en parkeren',
-        'Ankomst, transport och parkering'
+        'Llegar y aparcar',
+        'Aankomen en parkeren',
+        'Komma fram och parkera'
       ),
       intro: l(
-        'The key decision is not simply car or no car. It is how much flexibility you want once you leave the village.',
+        'From Málaga airport it is a good hour. Whether you need a car depends on how often you want to leave the village.',
         'Vom Flughafen Málaga sind es gut eine Stunde. Ob ihr ein Auto braucht, hängt davon ab, wie oft ihr das Dorf verlassen wollt.',
-        'La decisión principal no es solo coche o no coche, sino cuánta flexibilidad queréis tener fuera del pueblo.',
-        'De belangrijkste keuze is niet alleen auto of geen auto, maar hoeveel vrijheid jullie buiten het dorp willen.',
-        'Den viktigaste frågan är inte bara bil eller ingen bil, utan hur flexibla ni vill vara utanför byn.'
+        'Desde el aeropuerto de Málaga es una hora larga. Si necesitáis coche depende de cuántas veces queráis salir del pueblo.',
+        'Vanaf de luchthaven van Málaga is het ruim een uur. Of jullie een auto nodig hebben, hangt ervan af hoe vaak jullie het dorp uit willen.',
+        'Från Málagas flygplats är det en dryg timme. Om ni behöver bil beror på hur ofta ni vill lämna byn.'
       ),
       items: [
         {
@@ -210,11 +210,11 @@ export const frigilianaFaqCopy = {
             'Hur tar jag mig från Málagas flygplats till Frigiliana?'
           ),
           a: l(
-            'By car, the usual route follows the A-7 east and then climbs inland from Nerja. By public transport, travel first towards Nerja and continue by local bus or taxi. Journey times depend on traffic and the connection, so check the live itinerary for your date.',
+            'By car along the A-7 east and from Nerja the few kilometres up into the village, a good hour in normal traffic. Without a car you take the bus to Nerja and continue from there by local bus or taxi.',
             'Mit dem Auto über die A-7 nach Osten und ab Nerja die paar Kilometer hinauf ins Dorf, bei normalem Verkehr gut eine Stunde. Ohne Auto fahrt ihr mit dem Bus nach Nerja und von dort mit dem Ortsbus oder Taxi weiter.',
-            'En coche, la ruta habitual sigue la A-7 hacia el este y sube desde Nerja hacia el interior. En transporte público, hay que viajar primero hacia Nerja y continuar en autobús local o taxi. El tiempo depende del tráfico y del enlace, así que comprobad el itinerario para vuestra fecha.',
-            'Met de auto loopt de gebruikelijke route oostwaarts over de A-7 en vanaf Nerja landinwaarts omhoog. Met het openbaar vervoer reizen jullie eerst richting Nerja en gaan jullie verder met de lokale bus of taxi. De reistijd hangt af van verkeer en aansluiting; controleer daarom de actuele route voor jullie datum.',
-            'Med bil går den vanliga vägen österut på A-7 och sedan upp från Nerja mot inlandet. Med kollektivtrafik reser ni först mot Nerja och fortsätter med lokalbuss eller taxi. Restiden beror på trafik och anslutning, så kontrollera den aktuella resan för ert datum.'
+            'En coche por la A-7 hacia el este y desde Nerja los pocos kilómetros de subida hasta el pueblo, una hora larga con tráfico normal. Sin coche vais en autobús a Nerja y desde allí seguís en el autobús local o en taxi.',
+            'Met de auto over de A-7 naar het oosten en vanaf Nerja de paar kilometer omhoog naar het dorp, ruim een uur bij normaal verkeer. Zonder auto neem je de bus naar Nerja en ga je van daar verder met de streekbus of de taxi.',
+            'Med bil längs A-7 österut och från Nerja de få kilometrarna upp till byn, en dryg timme vid normal trafik. Utan bil tar ni bussen till Nerja och fortsätter därifrån med lokalbuss eller taxi.'
           )
         },
         {
@@ -226,11 +226,11 @@ export const frigilianaFaqCopy = {
             'Kan jag besöka eller bo i Frigiliana utan bil?'
           ),
           a: l(
-            'Yes. The village itself is walkable if you are comfortable with slopes, and Nerja is connected by local bus and taxi. A car becomes more useful for flexible beach trips, rural walks, shopping outside the village, or late arrivals. Sunday and holiday services are more limited, so always check the current timetable.',
+            'Yes. In the village you are on foot; bus and taxi run to Nerja. A car is worth it for beach days, hikes further out and late arrivals.',
             'Ja. Im Dorf seid ihr zu Fuß unterwegs, nach Nerja fahren Bus und Taxi. Ein Auto lohnt sich für Strandtage, Wanderungen weiter draußen und späte Ankünfte.',
-            'Sí. El pueblo se recorre a pie si las cuestas no suponen un problema, y hay conexión con Nerja mediante autobús local y taxi. El coche resulta más útil para ir a la playa con flexibilidad, hacer rutas fuera del núcleo, realizar compras grandes o llegar tarde. Los domingos y festivos hay menos servicios, por lo que conviene consultar el horario vigente.',
-            'Ja. Het dorp is te voet te verkennen als hellingen geen probleem zijn, en Nerja is bereikbaar per lokale bus en taxi. Een auto is vooral handig voor flexibele strandritten, wandelingen buiten het dorp, grotere boodschappen of een late aankomst. Op zon- en feestdagen is de dienst beperkter; controleer daarom altijd de actuele dienstregeling.',
-            'Ja. Byn går att utforska till fots om ni klarar lutningar, och Nerja nås med lokalbuss och taxi. Bil är främst praktiskt för flexibla strandutflykter, vandringar utanför byn, större inköp eller sen ankomst. På söndagar och helgdagar är trafiken mer begränsad, så kontrollera alltid aktuell tidtabell.'
+            'Sí. En el pueblo vais a pie; a Nerja hay autobús y taxi. El coche merece la pena para días de playa, rutas más lejanas y llegadas tardías.',
+            'Ja. In het dorp ben je te voet; naar Nerja rijden bus en taxi. Een auto loont voor stranddagen, wandelingen verder weg en late aankomsten.',
+            'Ja. I byn går ni till fots; till Nerja går buss och taxi. En bil lönar sig för stranddagar, vandringar längre bort och sena ankomster.'
           )
         },
         {
@@ -242,27 +242,27 @@ export const frigilianaFaqCopy = {
             'Var parkerar jag enklast?'
           ),
           a: l(
-            'The municipal underground garage by Plaza de las Tres Culturas is the clearest starting point for many visitors. Other signed areas may be available, but access, availability, and prices can change. Avoid entering narrow old-town lanes without a specific permitted destination.',
+            'In the underground car park at Plaza de las Tres Culturas, down in the village. From there you walk up; no car fits into the lanes of the old town.',
             'In der Tiefgarage an der Plaza de las Tres Culturas, unten im Ort. Von dort geht ihr zu Fuß hinauf; in die Gassen der Altstadt passt kein Auto.',
-            'El aparcamiento público subterráneo de la Plaza de las Tres Culturas es el punto de partida más claro para muchos visitantes. Puede haber otras zonas señalizadas, pero el acceso, la disponibilidad y los precios pueden cambiar. No entréis en las calles estrechas del casco histórico sin un destino concreto y permitido.',
-            'De openbare parkeergarage bij Plaza de las Tres Culturas is voor veel bezoekers het duidelijkste vertrekpunt. Er kunnen andere aangegeven zones beschikbaar zijn, maar toegang, beschikbaarheid en tarieven kunnen veranderen. Rijd niet zonder een concrete toegestane bestemming de smalle oude straten in.',
-            'Det kommunala parkeringsgaraget vid Plaza de las Tres Culturas är den tydligaste utgångspunkten för många besökare. Andra skyltade ytor kan finnas, men tillgång, platser och priser kan ändras. Kör inte in i gamla stans smala gränder utan ett bestämt och tillåtet mål.'
+            'En el parking subterráneo de la Plaza de las Tres Culturas, en la parte baja del pueblo. Desde allí se sube a pie; en las callejuelas del casco antiguo no cabe un coche.',
+            'In de parkeergarage aan Plaza de las Tres Culturas, beneden in het dorp. Van daar loop je omhoog; in de steegjes van de oude kern past geen auto.',
+            'I parkeringshuset vid Plaza de las Tres Culturas, nere i byn. Därifrån går ni upp till fots; i gamla byns gränder får ingen bil plats.'
           )
         },
         {
           q: l(
-            'Can I rely on ride-hailing apps or fixed taxi prices?',
+            'Is there Uber or fixed taxi prices?',
             'Gibt es Uber oder feste Taxipreise?',
-            '¿Puedo confiar en las aplicaciones VTC o en precios fijos de taxi?',
-            'Kan ik vertrouwen op taxi-apps of vaste taxiprijzen?',
-            'Kan jag lita på beställningsappar eller fasta taxipriser?'
+            '¿Hay Uber o precios fijos de taxi?',
+            'Is er Uber of zijn er vaste taxiprijzen?',
+            'Finns det Uber eller fasta taxipriser?'
           ),
           a: l(
-            'Availability varies by time and location. Do not build a time-critical arrival around a single app or an old quoted fare. For an important transfer, confirm the pickup, price method, and contact details directly with a licensed local provider.',
+            'Ride-hailing apps barely work here. Taxis from Nerja and Frigiliana run on the meter; for the airport it is best to book a fixed-price transfer.',
             'Fahrdienst-Apps funktionieren hier kaum. Taxis fahren ab Nerja und Frigiliana nach Taxameter; für den Flughafen bucht ihr am besten einen Transfer zum Festpreis.',
-            'La disponibilidad varía según la hora y el lugar. No organicéis una llegada con poco margen basándoos en una sola aplicación o en una tarifa antigua. Para un traslado importante, confirmad la recogida, el cálculo del precio y el contacto directamente con un proveedor local autorizado.',
-            'De beschikbaarheid verschilt per tijdstip en locatie. Plan een tijdkritische aankomst niet rond één app of een oude prijsindicatie. Bevestig voor een belangrijke rit de ophaalplek, prijsberekening en contactgegevens rechtstreeks bij een erkende lokale aanbieder.',
-            'Tillgången varierar med tid och plats. Planera inte en tidskritisk ankomst utifrån en enda app eller en gammal prisuppgift. Bekräfta hämtning, prismodell och kontaktuppgifter direkt med en godkänd lokal aktör vid en viktig transfer.'
+            'Las apps de transporte apenas funcionan aquí. Los taxis desde Nerja y Frigiliana van con taxímetro; para el aeropuerto lo mejor es reservar un traslado a precio fijo.',
+            'Ride-hailing-apps werken hier nauwelijks. Taxi’s vanaf Nerja en Frigiliana rijden op de meter; voor de luchthaven boek je het best een transfer met vaste prijs.',
+            'Samåkningsappar fungerar knappt här. Taxi från Nerja och Frigiliana går på taxameter; till flygplatsen bokar ni helst en transfer med fast pris.'
           )
         }
       ]
@@ -270,20 +270,20 @@ export const frigilianaFaqCopy = {
     {
       id: 'village-stay',
       number: '02',
-      eyebrow: l('Choosing where to stay', 'Übernachten', 'Elegir dónde alojarse', 'Kies waar jullie verblijven', 'Välj var ni ska bo'),
+      eyebrow: l('Staying overnight', 'Übernachten', 'Alojarse', 'Overnachten', 'Övernatta'),
       title: l(
-        'Village layout & staying overnight',
+        'Living above or below',
         'Oben oder unten wohnen',
-        'Estructura del pueblo y alojamiento',
-        'Dorpsstructuur en overnachten',
-        'Bystruktur och övernattning'
+        'Vivir arriba o abajo',
+        'Boven of beneden wonen',
+        'Bo uppe eller nere'
       ),
       intro: l(
-        'Frigiliana is best explored on foot, but the exact street and elevation of your accommodation matter more here than in a flat coastal town.',
+        'Frigiliana clings to the hillside. Exactly where your accommodation lies decides stairs, view and quiet.',
         'Frigiliana hängt am Hang. Wo genau eure Unterkunft liegt, entscheidet über Treppen, Aussicht und Ruhe.',
-        'Frigiliana se disfruta caminando, pero la calle y la altura exactas del alojamiento importan más aquí que en una localidad costera llana.',
-        'Frigiliana is gemaakt om te voet te beleven, maar de exacte straat en hoogte van jullie verblijf tellen hier zwaarder dan in een vlakke kustplaats.',
-        'Frigiliana upplevs bäst till fots, men boendets exakta gata och höjdläge spelar större roll här än i en flack kustort.'
+        'Frigiliana cuelga de la ladera. Dónde esté exactamente vuestro alojamiento decide escaleras, vistas y tranquilidad.',
+        'Frigiliana hangt tegen de helling. Waar precies jullie accommodatie ligt, bepaalt trappen, uitzicht en rust.',
+        'Frigiliana hänger på sluttningen. Exakt var ert boende ligger avgör trappor, utsikt och lugn.'
       ),
       items: [
         {
@@ -295,11 +295,11 @@ export const frigilianaFaqCopy = {
             'Passar Frigiliana resenärer med begränsad rörlighet?'
           ),
           a: l(
-            'The lower village has the most manageable access, while much of the historic upper quarter includes steep, uneven lanes and stair-only passages. Check the exact route from parking or drop-off to your accommodation rather than relying on a general village description.',
+            'The lower village is level; the old town above it is stairs and narrow lanes. To Casa AMARA it is a few minutes on foot from the car park, with steps; if unsure, ask us for the exact route beforehand.',
             'Der untere Ort ist eben, die Altstadt darüber besteht aus Treppen und schmalen Gassen. Zu Casa AMARA sind es vom Parkhaus wenige Minuten zu Fuß, mit Stufen; wer unsicher ist, fragt uns vorher nach dem genauen Weg.',
-            'La zona baja ofrece el acceso más sencillo, mientras que buena parte del casco histórico alto tiene calles empinadas, pavimento irregular y tramos solo con escaleras. Comprobad el recorrido exacto desde el aparcamiento o punto de bajada hasta el alojamiento.',
-            'Het lagere dorp is het best toegankelijk, terwijl een groot deel van de historische bovenwijk steile, ongelijke straten en passages met alleen trappen heeft. Controleer de exacte route van parkeer- of uitstapplek naar jullie verblijf en vertrouw niet op een algemene dorpsbeschrijving.',
-            'Den nedre delen är enklast att nå, medan stora delar av den historiska övre byn har branta, ojämna gränder och passager med enbart trappor. Kontrollera den exakta vägen från parkering eller avlämning till boendet i stället för att lita på en allmän beskrivning.'
+            'La parte baja del pueblo es llana; el casco antiguo de arriba son escaleras y callejuelas estrechas. Hasta Casa AMARA son unos minutos a pie desde el parking, con escalones; si tenéis dudas, preguntadnos antes por el camino exacto.',
+            'Het lagere dorp is vlak, de oude kern erboven bestaat uit trappen en smalle steegjes. Naar Casa AMARA is het vanaf de parkeergarage een paar minuten lopen, met treden; wie twijfelt, vraagt ons vooraf naar de exacte route.',
+            'Nedre byn är plan, gamla byn ovanför består av trappor och smala gränder. Till Casa AMARA är det några minuter till fots från parkeringshuset, med trappsteg; är ni osäkra, fråga oss om den exakta vägen i förväg.'
           )
         },
         {
@@ -311,11 +311,11 @@ export const frigilianaFaqCopy = {
             'Är Frigiliana bäst som dagsutflykt eller med övernattning?'
           ),
           a: l(
-            'A day visit works well for the historic quarter, viewpoints, and a meal. Staying overnight gives you quieter early mornings and evenings and more time for the surrounding landscape. The better choice depends on whether the village is your destination or one stop in a wider coastal trip.',
+            'Day visitors arrive around eleven and leave before dinner. After that the lanes belong to those who sleep here: the evening on the terrace, the morning before the first buses.',
             'Tagesgäste kommen gegen elf und fahren vor dem Abendessen. Danach gehören die Gassen denen, die hier schlafen: der Abend auf der Terrasse, der Morgen vor den ersten Bussen.',
-            'Una visita de un día permite recorrer el casco histórico, disfrutar de los miradores y comer con calma. Alojarse ofrece mañanas y noches más tranquilas y más tiempo para el entorno. La mejor opción depende de si el pueblo es vuestro destino o una parada dentro de una ruta por la costa.',
-            'Een dagbezoek is geschikt voor de oude kern, uitzichtpunten en een maaltijd. Met een overnachting beleven jullie rustigere ochtenden en avonden en hebben jullie meer tijd voor de omgeving. De beste keuze hangt af van de vraag of het dorp jullie bestemming is of één halte tijdens een bredere kustreis.',
-            'Ett dagsbesök räcker för gamla stan, utsiktsplatser och en måltid. Med övernattning får ni lugnare morgnar och kvällar och mer tid för omgivningarna. Det bästa valet beror på om byn är själva resmålet eller ett stopp under en längre kustresa.'
+            'Los visitantes de día llegan hacia las once y se van antes de cenar. Después las callejuelas son de quienes duermen aquí: la noche en la terraza, la mañana antes de los primeros autobuses.',
+            'Dagjesmensen komen rond elf uur en vertrekken voor het diner. Daarna zijn de steegjes van wie hier slaapt: de avond op het terras, de ochtend voor de eerste bussen.',
+            'Dagsbesökarna kommer runt elva och åker före middagen. Sedan tillhör gränderna dem som sover här: kvällen på terrassen, morgonen före de första bussarna.'
           )
         },
         {
@@ -327,19 +327,19 @@ export const frigilianaFaqCopy = {
             'Frigiliana eller Nerja: var passar det bäst att bo?'
           ),
           a: l(
-            'Choose Frigiliana for historic lanes, hillside views and quieter evenings. Choose Nerja if daily beach access, flatter walking and a larger concentration of services matter more. The two places are close enough to combine, but daily life feels different.',
+            'Frigiliana for the lanes, the view and the still evenings. Nerja if you want the sea every day and need flat walks. A quarter of an hour lies between them, and we have houses in both places.',
             'Frigiliana für die Gassen, den Blick und die stillen Abende. Nerja, wenn ihr jeden Tag ans Meer wollt und flache Wege braucht. Zwischen beiden liegt eine Viertelstunde, und wir haben Häuser in beiden Orten.',
-            'Elegid Frigiliana por sus calles históricas, las vistas desde la ladera y las noches más tranquilas. Nerja conviene más si importan el acceso diario a la playa, los paseos llanos y una mayor concentración de servicios. Los dos lugares se combinan bien, pero el día a día es distinto.',
-            'Kies Frigiliana voor historische straatjes, uitzicht vanaf de helling en rustigere avonden. Nerja past beter als dagelijks strand, vlakker lopen en meer voorzieningen dichtbij belangrijker zijn. Beide plaatsen zijn goed te combineren, maar de dagelijkse praktijk verschilt.',
-            'Välj Frigiliana för historiska gränder, utsikt från sluttningen och lugnare kvällar. Nerja passar bättre om daglig närhet till stranden, flackare promenader och mer service i närheten väger tyngre. Platserna går bra att kombinera, men vardagen ser olika ut.'
+            'Frigiliana por las callejuelas, las vistas y las noches tranquilas. Nerja si queréis el mar cada día y necesitáis caminos llanos. Entre los dos hay un cuarto de hora, y tenemos casas en ambos.',
+            'Frigiliana voor de steegjes, het uitzicht en de stille avonden. Nerja als jullie elke dag naar zee willen en vlakke wegen nodig hebben. Er ligt een kwartier tussen, en we hebben huizen op beide plekken.',
+            'Frigiliana för gränderna, utsikten och de stilla kvällarna. Nerja om ni vill ha havet varje dag och behöver plana vägar. Det är en kvart emellan, och vi har hus på båda platserna.'
           ),
           linkToken: 'nerja_vs_frigiliana',
           linkLabel: l(
-            '',
+            'Frigiliana or Nerja compared',
             'Frigiliana oder Nerja im Vergleich',
-            '',
-            '',
-            ''
+            'Frigiliana o Nerja, comparados',
+            'Frigiliana of Nerja vergeleken',
+            'Frigiliana eller Nerja i jämförelse'
           )
         }
       ]
@@ -349,18 +349,18 @@ export const frigilianaFaqCopy = {
       number: '03',
       eyebrow: l('In the village', 'Im Dorf', 'En el pueblo', 'In het dorp', 'I byn'),
       title: l(
-        'Daily life, food & events',
+        'Everyday life in the village',
         'Der Alltag im Dorf',
-        'Vida diaria, gastronomía y eventos',
-        'Dagelijks leven, eten en evenementen',
-        'Vardagsliv, mat och evenemang'
+        'El día a día en el pueblo',
+        'Het dagelijks leven in het dorp',
+        'Vardagen i byn'
       ),
       intro: l(
-        'Opening hours and event arrangements are seasonal. Plan around the village as it is today, not around an old timetable or recommendation.',
+        'A village of around three thousand inhabitants, a weekly market and a festival for which the lanes turn colourful for four days at the end of August.',
         'Ein Dorf mit rund dreitausend Einwohnern, einem Wochenmarkt und einem Fest, für das die Gassen Ende August vier Tage lang bunt werden.',
-        'Los horarios y la organización de eventos cambian según la temporada. Planificad con la información actual, no con horarios o recomendaciones antiguas.',
-        'Openingstijden en evenementen veranderen per seizoen. Plan met de actuele situatie en niet op basis van een oud schema of advies.',
-        'Öppettider och evenemang varierar med säsongen. Planera utifrån dagens information, inte en gammal tidtabell eller rekommendation.'
+        'Un pueblo de unos tres mil habitantes, un mercado semanal y una fiesta para la que las callejuelas se llenan de color cuatro días a finales de agosto.',
+        'Een dorp van ongeveer drieduizend inwoners, een weekmarkt en een feest waarvoor de steegjes eind augustus vier dagen lang kleurrijk worden.',
+        'En by med omkring tretusen invånare, en veckomarknad och en fest då gränderna blir färgglada i fyra dagar i slutet av augusti.'
       ),
       items: [
         {
@@ -372,11 +372,11 @@ export const frigilianaFaqCopy = {
             'Är butiker och restauranger öppna på söndagar?'
           ),
           a: l(
-            'Some visitor-facing shops and restaurants open on Sundays, while supermarkets, pharmacies, and smaller businesses may use reduced or seasonal hours. Check the individual business on the day, especially outside the main season or on public holidays.',
+            'The restaurants and the shops on the main lane, yes. Supermarkets and the pharmacy have short opening hours on Sundays.',
             'Die Restaurants und die Läden an der Hauptgasse ja. Supermärkte und Apotheke haben sonntags kurze Öffnungszeiten.',
-            'Algunas tiendas orientadas a visitantes y restaurantes abren los domingos, mientras que supermercados, farmacias y pequeños comercios pueden tener horario reducido o estacional. Consultad cada establecimiento ese mismo día, sobre todo fuera de temporada alta o en festivos.',
-            'Sommige bezoekersgerichte winkels en restaurants zijn op zondag open, terwijl supermarkten, apotheken en kleinere zaken beperkte of seizoensgebonden tijden kunnen hanteren. Controleer de betreffende zaak op de dag zelf, vooral buiten het hoofdseizoen en op feestdagen.',
-            'Vissa besöksinriktade butiker och restauranger har öppet på söndagar, medan mataffärer, apotek och mindre verksamheter kan ha kortare eller säsongsstyrda tider. Kontrollera den enskilda verksamheten samma dag, särskilt utanför högsäsong och på helgdagar.'
+            'Los restaurantes y las tiendas de la calle principal, sí. Supermercados y farmacia tienen horario reducido los domingos.',
+            'De restaurants en de winkels in de hoofdstraat wel. Supermarkten en de apotheek hebben op zondag korte openingstijden.',
+            'Restaurangerna och butikerna på huvudgatan ja. Mataffärer och apotek har korta öppettider på söndagar.'
           )
         },
         {
@@ -388,11 +388,11 @@ export const frigilianaFaqCopy = {
             'När är veckomarknaden?'
           ),
           a: l(
-            'The regular market is normally held on Thursday mornings in the lower village around Plaza de las Tres Culturas. Holiday weeks and local events can affect the schedule or layout, so confirm current information before making a special trip.',
+            'Thursday morning, down at Plaza de las Tres Culturas. In holiday weeks the date can shift.',
             'Donnerstagvormittag, unten an der Plaza de las Tres Culturas. In Feiertagswochen kann der Termin wandern.',
-            'El mercado habitual suele celebrarse los jueves por la mañana en la zona baja, en torno a la Plaza de las Tres Culturas. Los festivos y eventos locales pueden afectar al horario o al montaje; confirmad la información antes de desplazaros expresamente.',
-            'De reguliere markt vindt normaal op donderdagochtend plaats in het lagere dorp rond Plaza de las Tres Culturas. Feestdagen en lokale evenementen kunnen tijd of indeling beïnvloeden; controleer de actuele informatie voordat jullie speciaal hiervoor reizen.',
-            'Den ordinarie marknaden hålls normalt på torsdagsförmiddagar i den nedre byn kring Plaza de las Tres Culturas. Helgdagar och lokala evenemang kan påverka tid eller upplägg, så bekräfta aktuell information före en särskild resa.'
+            'Los jueves por la mañana, abajo en la Plaza de las Tres Culturas. En semanas festivas la fecha puede moverse.',
+            'Donderdagochtend, beneden aan Plaza de las Tres Culturas. In feestweken kan de datum verschuiven.',
+            'Torsdag förmiddag, nere vid Plaza de las Tres Culturas. Under helgveckor kan datumet flytta sig.'
           )
         },
         {
@@ -404,11 +404,11 @@ export const frigilianaFaqCopy = {
             'Vilka lokala råvaror och rätter förknippas med Frigiliana?'
           ),
           a: l(
-            'Miel de caña, a dark sugar-cane syrup, is the best-known local product and is often served with fried aubergine. Traditional menus may also include migas or goat dishes. Recipes and availability vary by restaurant, so ask directly about ingredients and dietary needs.',
+            'Miel de caña, the dark sugar-cane syrup from the factory down in the village, over fried aubergine. Traditional menus also have migas and goat dishes.',
             'Miel de caña, der dunkle Zuckerrohrsirup aus der Fabrik unten im Ort, über frittierte Auberginen. Auf traditionellen Karten stehen dazu Migas und Ziegengerichte.',
-            'La miel de caña, un jarabe oscuro de caña de azúcar, es el producto local más conocido y suele acompañar a las berenjenas fritas. Las cartas tradicionales también pueden incluir migas o platos de chivo. Las recetas varían, así que consultad directamente los ingredientes y las necesidades alimentarias.',
-            'Miel de caña, een donkere suikerrietsiroop, is het bekendste lokale product en wordt vaak met gebakken aubergine geserveerd. Traditionele menu’s kunnen ook migas of geitengerechten bevatten. Recepten en beschikbaarheid verschillen per restaurant; vraag rechtstreeks naar ingrediënten en dieetwensen.',
-            'Miel de caña, en mörk sockerrörssirap, är den mest kända lokala produkten och serveras ofta till friterad aubergine. Traditionella menyer kan även innehålla migas eller geträtter. Recept och tillgång varierar, så fråga restaurangen direkt om ingredienser och kostbehov.'
+            'Miel de caña, el sirope oscuro de caña de azúcar de la fábrica de abajo del pueblo, sobre berenjenas fritas. En las cartas tradicionales hay además migas y platos de chivo.',
+            'Miel de caña, de donkere suikerrietsiroop uit de fabriek beneden in het dorp, over gefrituurde aubergine. Op traditionele kaarten staan daarnaast migas en geitengerechten.',
+            'Miel de caña, den mörka sockerrörssirapen från fabriken nere i byn, över friterad aubergine. På traditionella menyer finns dessutom migas och geträtter.'
           )
         },
         {
@@ -420,11 +420,11 @@ export const frigilianaFaqCopy = {
             'När hålls Festivalen för de tre kulturerna?'
           ),
           a: l(
-            'The festival is a major late-summer event, but dates and the programme are announced per edition. The 2026 edition is officially scheduled for 27–30 August. For another year, use the latest municipal announcement rather than carrying these dates forward.',
+            'End of August, four days long. In 2026 from 27 to 30 August: music in the lanes, stalls, the whole village on its feet.',
             'Ende August, vier Tage lang. 2026 vom 27. bis 30. August: Musik in den Gassen, Stände, das ganze Dorf auf den Beinen.',
-            'El festival es una de las grandes citas de finales de verano, pero las fechas y el programa se anuncian para cada edición. La edición de 2026 está prevista oficialmente del 27 al 30 de agosto. Para otros años, consultad el último anuncio municipal.',
-            'Het festival is een belangrijk evenement aan het einde van de zomer, maar data en programma worden per editie aangekondigd. Voor 2026 staat het officieel gepland van 27 tot en met 30 augustus. Raadpleeg voor andere jaren de nieuwste gemeentelijke aankondiging.',
-            'Festivalen är ett stort sensommarevenemang, men datum och program meddelas för varje upplaga. År 2026 är den officiellt planerad till 27–30 augusti. För andra år bör ni använda kommunens senaste besked.'
+            'A finales de agosto, cuatro días. En 2026 del 27 al 30 de agosto: música en las calles, puestos, todo el pueblo en la calle.',
+            'Eind augustus, vier dagen lang. In 2026 van 27 tot 30 augustus: muziek in de steegjes, kraampjes, het hele dorp op de been.',
+            'I slutet av augusti, fyra dagar. 2026 den 27 till 30 augusti: musik i gränderna, stånd, hela byn på fötter.'
           )
         }
       ]
@@ -434,18 +434,18 @@ export const frigilianaFaqCopy = {
       number: '04',
       eyebrow: l('Outside', 'Draußen', 'Al aire libre', 'Buiten', 'Utomhus'),
       title: l(
-        'Weather, walking & safety',
+        'Weather and trails',
         'Wetter und Wege',
-        'Tiempo, senderismo y seguridad',
-        'Weer, wandelen en veiligheid',
-        'Väder, vandring och säkerhet'
+        'Tiempo y caminos',
+        'Weer en wegen',
+        'Väder och vägar'
       ),
       intro: l(
-        'The village and surrounding hills are rewarding on foot, but heat, wind, loose ground, and elevation deserve practical preparation.',
+        'Behind the village begins the natural park of the Sierras de Tejeda, Almijara y Alhama. The trails start at the last row of houses.',
         'Hinter dem Dorf beginnt der Naturpark der Sierras de Tejeda, Almijara y Alhama. Die Wege fangen an der letzten Häuserreihe an.',
-        'El pueblo y las sierras cercanas se disfrutan a pie, pero el calor, el viento, el terreno suelto y el desnivel requieren preparación.',
-        'Het dorp en de omliggende heuvels zijn prachtig te voet, maar hitte, wind, losse ondergrond en hoogteverschil vragen voorbereiding.',
-        'Byn och bergen runt omkring är givande till fots, men värme, vind, löst underlag och höjdskillnader kräver förberedelser.'
+        'Detrás del pueblo empieza el parque natural de las Sierras de Tejeda, Almijara y Alhama. Los senderos arrancan en la última fila de casas.',
+        'Achter het dorp begint het natuurpark van de Sierras de Tejeda, Almijara y Alhama. De paden beginnen bij de laatste huizenrij.',
+        'Bakom byn börjar naturparken Sierras de Tejeda, Almijara y Alhama. Lederna börjar vid den sista husraden.'
       ),
       items: [
         {
@@ -457,11 +457,11 @@ export const frigilianaFaqCopy = {
             'Hur är vädret under året?'
           ),
           a: l(
-            'Summers are typically hot and dry, so early or late walks are more comfortable than the middle of the day. Winter days can be mild in the sun, while evenings and shaded interiors feel cooler. Spring and autumn are often well suited to walking, but current forecasts should guide each plan.',
+            'Summer is hot and dry; the village then lives early in the morning and after six. Winter is mild in the sun, cool in the shade of the lanes. Spring and autumn are hiking time.',
             'Der Sommer ist heiß und trocken; das Dorf lebt dann früh am Morgen und nach sechs. Der Winter ist mild in der Sonne, kühl im Schatten der Gassen. Frühling und Herbst sind die Wanderzeit.',
-            'Los veranos suelen ser calurosos y secos, por lo que caminar temprano o al final de la tarde resulta más agradable que al mediodía. Los días de invierno pueden ser suaves al sol, mientras que las noches y los interiores sombríos se sienten más frescos. Primavera y otoño suelen ser buenas épocas para caminar, siempre según la previsión actual.',
-            'De zomers zijn doorgaans heet en droog; wandelen in de vroege ochtend of late middag is aangenamer dan midden op de dag. Winterdagen kunnen in de zon zacht zijn, terwijl avonden en schaduwrijke interieurs koeler aanvoelen. Voor- en najaar zijn vaak geschikt om te wandelen, maar laat de actuele verwachting leidend zijn.',
-            'Somrarna är vanligtvis varma och torra, så tidiga eller sena promenader är behagligare än mitt på dagen. Vinterdagar kan vara milda i solen, medan kvällar och skuggiga inomhusmiljöer känns svalare. Vår och höst passar ofta bra för vandring, men den aktuella prognosen bör styra planen.'
+            'El verano es caluroso y seco; el pueblo vive entonces a primera hora y después de las seis. El invierno es suave al sol, fresco a la sombra de las callejuelas. Primavera y otoño son la época de senderismo.',
+            'De zomer is heet en droog; het dorp leeft dan vroeg in de ochtend en na zessen. De winter is mild in de zon, koel in de schaduw van de steegjes. Lente en herfst zijn wandeltijd.',
+            'Sommaren är het och torr; byn lever då tidigt på morgonen och efter sex. Vintern är mild i solen, sval i grändernas skugga. Vår och höst är vandringstid.'
           )
         },
         {
@@ -473,27 +473,27 @@ export const frigilianaFaqCopy = {
             'Vilka vandringar börjar nära byn?'
           ),
           a: l(
-            'Routes towards El Fuerte and the direction of El Acebuchal are among the best-known options. They are not extensions of an old-town stroll: distance, ascent, exposure, and route conditions require suitable footwear, water, weather checks, and a route matched to your experience.',
+            'The path up El Fuerte above the village and the trail to the rebuilt village of El Acebuchal are the best known. Both are mountain trails with elevation: sturdy shoes, water, an early start.',
             'Der Weg auf den El Fuerte über dem Dorf und der Pfad ins wieder aufgebaute Dorf El Acebuchal sind die bekanntesten. Beides sind Bergwege mit Höhenmetern: feste Schuhe, Wasser, früh los.',
-            'Las rutas hacia El Fuerte y en dirección a El Acebuchal son de las más conocidas. No son una prolongación de un paseo por el casco histórico: distancia, desnivel, exposición y estado del camino requieren calzado adecuado, agua, consulta del tiempo y una ruta acorde a vuestra experiencia.',
-            'Routes richting El Fuerte en El Acebuchal behoren tot de bekendste mogelijkheden. Het zijn geen verlengstukken van een wandeling door de oude kern: afstand, stijging, blootstelling en toestand van het pad vragen geschikt schoeisel, water, een weercheck en een route die past bij jullie ervaring.',
-            'Leder mot El Fuerte och i riktning mot El Acebuchal hör till de mest kända alternativen. De är inte en förlängning av en promenad i gamla stan: avstånd, stigning, utsatt terräng och ledens skick kräver lämpliga skor, vatten, väderkontroll och en rutt som passar er erfarenhet.'
+            'El camino a El Fuerte, sobre el pueblo, y el sendero al pueblo reconstruido de El Acebuchal son los más conocidos. Ambos son rutas de montaña con desnivel: calzado firme, agua, salir temprano.',
+            'De weg omhoog naar El Fuerte boven het dorp en het pad naar het herbouwde dorp El Acebuchal zijn de bekendste. Beide zijn bergpaden met hoogtemeters: stevige schoenen, water, vroeg weg.',
+            'Vägen upp till El Fuerte ovanför byn och stigen till den återuppbyggda byn El Acebuchal är de mest kända. Båda är bergsleder med höjdmeter: stadiga skor, vatten, tidig start.'
           )
         },
         {
           q: l(
-            'What should I keep in mind for a safe visit?',
+            'Is Frigiliana safe?',
             'Ist Frigiliana sicher?',
-            '¿Qué conviene tener en cuenta para una visita segura?',
-            'Waar moet ik op letten voor een veilig bezoek?',
-            'Vad bör jag tänka på för ett säkert besök?'
+            '¿Es Frigiliana segura?',
+            'Is Frigiliana veilig?',
+            'Är Frigiliana säkert?'
           ),
           a: l(
-            'Use normal travel precautions, keep valuables secure, and pay particular attention to the physical setting: polished or uneven paving, stairs, summer heat, and mountain conditions. For hikes, tell someone your route and avoid starting without enough daylight, water, and an up-to-date forecast.',
+            'Yes, a village where the neighbours sit outside their doors in the evening. What needs attention are the slippery steps after rain and the midday sun.',
             'Ja, ein Dorf, in dem die Nachbarn abends vor der Tür sitzen. Aufmerksamkeit brauchen die glatten Stufen nach Regen und die Sonne am Mittag.',
-            'Aplicad las precauciones habituales de viaje, guardad bien los objetos de valor y prestad especial atención al entorno físico: pavimento pulido o irregular, escaleras, calor estival y condiciones de montaña. Para una ruta, comunicad el itinerario y no salgáis sin luz suficiente, agua y una previsión actualizada.',
-            'Neem de gebruikelijke reisvoorzorgen, houd waardevolle spullen veilig en let vooral op de fysieke omgeving: gladde of ongelijke bestrating, trappen, zomerhitte en omstandigheden in de bergen. Laat bij een wandeling jullie route weten en vertrek niet zonder voldoende daglicht, water en een actuele verwachting.',
-            'Följ vanliga försiktighetsåtgärder, förvara värdesaker säkert och var särskilt uppmärksam på den fysiska miljön: blank eller ojämn stenläggning, trappor, sommarvärme och bergsförhållanden. Berätta er rutt för någon inför en vandring och starta inte utan tillräckligt dagsljus, vatten och aktuell prognos.'
+            'Sí, un pueblo donde los vecinos se sientan a la puerta por la noche. Lo que pide atención son los escalones resbaladizos después de la lluvia y el sol del mediodía.',
+            'Ja, een dorp waar de buren ’s avonds voor hun deur zitten. Aandacht vragen de gladde treden na regen en de middagzon.',
+            'Ja, en by där grannarna sitter utanför sina dörrar på kvällen. Det som kräver uppmärksamhet är de hala trappstegen efter regn och middagssolen.'
           )
         }
       ]
@@ -501,32 +501,32 @@ export const frigilianaFaqCopy = {
   ],
   liveInfo: {
     eyebrow: l(
-      'Live information',
+      'Sources',
       'Quellen',
-      'Información actual',
-      'Actuele informatie',
-      'Aktuell information'
+      'Fuentes',
+      'Bronnen',
+      'Källor'
     ),
     title: l(
-      'Confirm details at the source',
+      'Where the answers come from',
       'Woher die Antworten kommen',
-      'Confirmad los detalles en la fuente',
-      'Controleer details bij de bron',
-      'Bekräfta uppgifter vid källan'
+      'De dónde salen las respuestas',
+      'Waar de antwoorden vandaan komen',
+      'Varifrån svaren kommer'
     ),
     intro: l(
-      'Schedules, opening hours, events, and route conditions change. These official sources are the right final check before you set out.',
+      'Timetables, festival dates and hiking trails at the source.',
       'Fahrpläne, Festivaltermin und Wanderwege im Original.',
-      'Los horarios, aperturas, eventos y condiciones de las rutas cambian. Estas fuentes oficiales son la comprobación final adecuada antes de salir.',
-      'Dienstregelingen, openingstijden, evenementen en routeomstandigheden veranderen. Deze officiële bronnen zijn de juiste laatste controle voor vertrek.',
-      'Tidtabeller, öppettider, evenemang och ledförhållanden ändras. Dessa officiella källor är rätt sista kontroll före avfärd.'
+      'Horarios, fechas del festival y senderos en la fuente original.',
+      'Dienstregelingen, festivaldata en wandelpaden bij de bron.',
+      'Tidtabeller, festivaldatum och vandringsleder i original.'
     ),
     checked: l(
-      'Source review: July 2026',
+      'As of July 2026',
       'Stand Juli 2026',
-      'Fuentes revisadas: julio de 2026',
-      'Bronnen gecontroleerd: juli 2026',
-      'Källor granskade: juli 2026'
+      'Actualizado en julio de 2026',
+      'Stand juli 2026',
+      'Uppdaterad juli 2026'
     ),
     links: [
       {
@@ -539,11 +539,11 @@ export const frigilianaFaqCopy = {
           'Officiell busstidtabell Nerja–Frigiliana'
         ),
         text: l(
-          'Check weekday, Sunday, holiday, and seasonal services.',
+          'Local bus Nerja–Frigiliana, all days.',
           'Ortsbus Nerja–Frigiliana, alle Tage.',
-          'Consultad los servicios laborables, dominicales, festivos y estacionales.',
-          'Controleer weekdagen, zondagen, feestdagen en seizoensdiensten.',
-          'Kontrollera vardags-, söndags-, helgdags- och säsongstrafik.'
+          'Autobús local Nerja–Frigiliana, todos los días.',
+          'Streekbus Nerja–Frigiliana, alle dagen.',
+          'Lokalbuss Nerja–Frigiliana, alla dagar.'
         )
       },
       {
@@ -556,11 +556,11 @@ export const frigilianaFaqCopy = {
           'Officiell turistinformation för Frigiliana'
         ),
         text: l(
-          'Use for current visitor information, maps, monuments, and local contacts.',
+          'Maps, opening hours, contacts.',
           'Karten, Öffnungszeiten, Kontakte.',
-          'Para información actual, mapas, monumentos y contactos locales.',
-          'Voor actuele bezoekersinformatie, kaarten, monumenten en lokale contacten.',
-          'För aktuell besöksinformation, kartor, sevärdheter och lokala kontakter.'
+          'Mapas, horarios, contactos.',
+          'Kaarten, openingstijden, contacten.',
+          'Kartor, öppettider, kontakter.'
         )
       },
       {
@@ -573,11 +573,11 @@ export const frigilianaFaqCopy = {
           'Officiellt festivalbesked 2026'
         ),
         text: l(
-          'Confirms the 27–30 August dates for the 2026 edition.',
+          'Dates and programme 2026.',
           'Termin und Programm 2026.',
-          'Confirma las fechas del 27 al 30 de agosto para la edición de 2026.',
-          'Bevestigt 27 tot en met 30 augustus voor de editie van 2026.',
-          'Bekräftar 27–30 augusti för 2026 års upplaga.'
+          'Fechas y programa 2026.',
+          'Datum en programma 2026.',
+          'Datum och program 2026.'
         )
       },
       {
@@ -590,11 +590,11 @@ export const frigilianaFaqCopy = {
           'Officiell vandringsguide för Frigiliana'
         ),
         text: l(
-          'Use as orientation and still check current weather and route conditions.',
+          'The trails around the village, with a map.',
           'Die Wege rund um das Dorf, mit Karte.',
-          'Utilizadla para orientaros y comprobad además el tiempo y el estado actual de las rutas.',
-          'Gebruik als oriëntatie en controleer daarnaast weer en actuele routecondities.',
-          'Använd som vägledning och kontrollera även väder och aktuellt ledskick.'
+          'Los senderos alrededor del pueblo, con mapa.',
+          'De paden rond het dorp, met kaart.',
+          'Lederna runt byn, med karta.'
         )
       }
     ]
@@ -630,18 +630,18 @@ export const frigilianaFaqCopy = {
   },
   closing: {
     title: l(
-      'Know the terrain. Keep the plan flexible.',
+      'The rest falls into place in the village.',
       'Der Rest ergibt sich im Dorf.',
-      'Conoced el terreno. Mantened un plan flexible.',
-      'Ken het terrein. Houd de planning flexibel.',
-      'Känn terrängen. Behåll en flexibel plan.'
+      'El resto surge en el pueblo.',
+      'De rest komt vanzelf in het dorp.',
+      'Resten ger sig i byn.'
     ),
     lead: l(
-      'Frigiliana is easier when you know the route, the final walk and the access conditions before you arrive.',
+      'Casa AMARA stands in the middle of the old town, with a terrace above the rooftops. We describe the way from the car park to the front door before you arrive.',
       'Casa AMARA steht mitten in der Altstadt, mit Terrasse über den Dächern. Den Weg vom Parkhaus zur Haustür beschreiben wir euch vor der Anreise.',
-      'Frigiliana resulta más sencilla cuando conocéis la ruta, el último tramo a pie y las condiciones de acceso antes de llegar.',
-      'Frigiliana is eenvoudiger wanneer jullie de route, het laatste loopstuk en de toegang vóór aankomst kennen.',
-      'Frigiliana är enklare när ni känner till resvägen, den sista promenaden och tillträdet före ankomst.'
+      'Casa AMARA está en pleno casco antiguo, con terraza sobre los tejados. Os describimos el camino del parking a la puerta antes de llegar.',
+      'Casa AMARA staat midden in de oude kern, met een terras boven de daken. De weg van de parkeergarage naar de voordeur beschrijven we jullie vóór de aankomst.',
+      'Casa AMARA står mitt i gamla byn, med terrass över taken. Vägen från parkeringshuset till ytterdörren beskriver vi för er före ankomsten.'
     ),
     guideCta: l(
       'Explore Frigiliana',
@@ -651,11 +651,11 @@ export const frigilianaFaqCopy = {
       'Upptäck Frigiliana'
     ),
     stayCta: l(
-      'View AMARA stays',
+      'View stays',
       'Unterkünfte ansehen',
-      'Ver alojamientos AMARA',
-      'Bekijk AMARA-verblijven',
-      'Se AMARA-boenden'
+      'Ver alojamientos',
+      'Accommodaties bekijken',
+      'Se boenden'
     )
   }
 } as const;

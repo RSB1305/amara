@@ -91,13 +91,13 @@ export const tarifaKitesurfBeginnerGuide: TarifaKitesurfGuideContent = {
       'Kitesurfing börjar med att kontrollera en vinddriven kite, inte med att stå på en bräda. Lär dig vinden, säkerhetssystemen och stegen i rätt ordning, så blir dina första lektioner på vattnet i Tarifa lugnare och säkrare.'
     ),
     note: l(
-      'Preparation and review for real lessons, not a substitute for professional instruction. Safety systems and procedures differ by bar and manufacturer; learn and practise them on your own equipment with a qualified instructor.',
+      'To read before your first lesson; the practice happens on the beach, with an instructor.',
       'Zum Lesen vor der ersten Stunde; geübt wird am Strand, mit Lehrer.',
-      'Preparación y repaso para clases reales, no un sustituto de la instrucción profesional. Los sistemas de seguridad y los procedimientos varían según la barra y el fabricante; apréndelos y practícalos con tu propio material y un instructor cualificado.',
-      'Voorbereiding en herhaling voor echte lessen, geen vervanging van professionele instructie. Veiligheidssystemen en procedures verschillen per bar en fabrikant; leer en oefen ze op je eigen materiaal met een gekwalificeerde instructeur.',
-      'Förberedelse och repetition för riktiga lektioner, inte en ersättning för professionell instruktion. Säkerhetssystem och rutiner skiljer sig mellan bar och tillverkare; lär och öva dem på din egen utrustning med en kvalificerad instruktör.'
+      'Para leer antes de la primera clase; la práctica es en la playa, con instructor.',
+      'Om te lezen vóór de eerste les; oefenen doe je op het strand, met een instructeur.',
+      'Att läsa före första lektionen; övningen sker på stranden, med instruktör.'
     ),
-    updated: l('Guide checked in September 2026', 'Stand September 2026', 'Guía revisada en septiembre de 2026', 'Gids gecontroleerd in september 2026', 'Guide kontrollerad i september 2026')
+    updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026')
   },
   facts: [
     { label: l('The order', 'Die Reihenfolge', 'El orden', 'De volgorde', 'Ordningen'), value: l('Kite control before the board', 'Kitekontrolle vor dem Board', 'Control de la cometa antes que la tabla', 'Kitecontrole vóór de board', 'Kitekontroll före brädan') },
@@ -191,7 +191,7 @@ export const tarifaKitesurfBeginnerGuide: TarifaKitesurfGuideContent = {
     }
   ],
   host: {
-    eyebrow: l('AMARA host perspective', 'Von La Marina aus', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
+    eyebrow: l('From La Marina', 'Von La Marina aus', 'Desde La Marina', 'Vanuit La Marina', 'Från La Marina'),
     title: l('A learning base, with the gear sorted', 'Eine Lernbasis, mit organisiertem Material', 'Una base para aprender, con el material resuelto', 'Een leerbasis, met het materiaal geregeld', 'En lärbas, med utrustningen ordnad'),
     paragraphs: [
       l(

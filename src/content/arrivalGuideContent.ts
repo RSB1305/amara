@@ -358,17 +358,17 @@ export const arrivalGuideUi = {
     sv: "Stäng kartan"
   },
   stepLabel: {
-    en: "Recommended arrival step by step",
+    en: "Step by step",
     de: "Schritt für Schritt",
-    es: "Llegada recomendada paso a paso",
-    nl: "Aanbevolen aankomst stap voor stap",
-    sv: "Rekommenderad ankomst steg för steg"
+    es: "Paso a paso",
+    nl: "Stap voor stap",
+    sv: "Steg för steg"
   },
   routeChoice: {
-    en: "Choose the route that fits you best",
+    en: "On foot or by taxi",
     de: "Zu Fuß oder mit dem Taxi",
-    es: "Elegid la ruta que mejor os encaje",
-    nl: "Kies de route die het beste past",
-    sv: "Välj den väg som passar er bäst"
+    es: "A pie o en taxi",
+    nl: "Te voet of met de taxi",
+    sv: "Till fots eller med taxi"
   }
 };

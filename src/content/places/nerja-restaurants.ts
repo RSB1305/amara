@@ -26,11 +26,11 @@ export const nerjaRestaurantPlaceCopy = definePlaceCopy({
         sv: "Restaurant 34 på Hotel Carabeo arbetar med lokala råvaror och har flera matsalar, däribland en sommarterrass mot Medelhavet."
       },
       goodToKnow: {
-        en: "Ask specifically which terrace or sea-view tables are available, then confirm the current booking conditions before choosing the table.",
+        en: "Sea-view tables are few; if you want one, say so when you book.",
         de: "Die Tische mit Meerblick sind wenige; wer einen will, sagt es bei der Reservierung dazu.",
-        es: "Preguntad qué mesas de terraza o con vistas están disponibles y confirmad las condiciones actuales antes de elegir una ubicación concreta.",
-        nl: "Vraag specifiek welke terras- of zeezichttafels beschikbaar zijn en bevestig de actuele reserveringsvoorwaarden voordat jullie een plek kiezen.",
-        sv: "Fråga specifikt vilka terrass- eller havsutsiktsbord som finns och bekräfta de aktuella bokningsvillkoren innan ni väljer plats."
+        es: "Las mesas con vistas al mar son pocas; si queréis una, decidlo al reservar.",
+        nl: "Tafels met zeezicht zijn er weinig; wie er een wil, zegt dat bij het reserveren.",
+        sv: "Borden med havsutsikt är få; vill ni ha ett, säg det när ni bokar."
       },
       beforeYouGo: {
         en: "Ask about the conditions and any supplement for a front-row sea-view table when reserving; the restaurant will give you the current details.",

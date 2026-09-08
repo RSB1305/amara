@@ -81,13 +81,13 @@ export const gettingToNerjaContent = {
       "Málaga är flygplatsen som gör det enkelt: Aena anger en direktbuss med Alsa mellan flygplatsen och Nerja. Med bil kommer ni på A-7 från Málaga eller Granada. Långfärdsbussar kommer fram vid Avenida de Pescia — det är i Nerja, men inte vid dörren; med bagage eller sen ankomst är en taxi sista biten värd det. Vår adress är Calle Castilla Pérez 60. Där finns ingen egen parkering, och väl på plats ligger Torrecillastranden cirka 200 meter bort och Balcón de Europa omkring 500, så det mesta fungerar till fots."
     ),
     note: l(
-      "Tickets, road conditions and street rules change. Send us your arrival time and we will tell you what applies that day.",
+      "Send us your arrival time and we will tell you what applies that day.",
       "Schickt uns eure Ankunftszeit, dann sagen wir euch, was an dem Tag gilt.",
-      "Los billetes, el estado de las carreteras y las normas cambian. Enviadnos vuestra hora de llegada y os diremos qué aplica ese día.",
-      "Tickets, wegsituatie en regels veranderen. Stuur ons jullie aankomsttijd, dan zeggen we wat er die dag geldt.",
-      "Biljetter, vägläge och regler ändras. Skicka er ankomsttid, så säger vi vad som gäller den dagen."
+      "Mandadnos vuestra hora de llegada y os decimos qué rige ese día.",
+      "Stuur ons je aankomsttijd, dan zeggen we wat er die dag geldt.",
+      "Skicka oss er ankomsttid, så säger vi vad som gäller den dagen."
     ),
-    updated: l("Last checked in August 2026", "Stand August 2026", "Revisado por última vez en agosto de 2026", "Voor het laatst nagekeken in augustus 2026", "Senast kontrollerat i augusti 2026")
+    updated: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026")
   },
   facts: [
     {
@@ -104,7 +104,7 @@ export const gettingToNerjaContent = {
     },
     {
       label: l("Parking at the apartment", "Parken an der Wohnung", "Aparcamiento", "Parkeren bij het appartement", "Parkering vid lägenheten"),
-      value: l("None — street parking only", "Straße oder Parkhaus", "Ninguno: solo en la calle", "Geen — alleen straatparkeren", "Ingen — bara gatuparkering")
+      value: l("Street or car park", "Straße oder Parkhaus", "Calle o parking", "Straat of parkeergarage", "Gata eller parkeringshus")
     }
   ],
   sections: [
@@ -114,25 +114,25 @@ export const gettingToNerjaContent = {
       title: l("Málaga is the simple one", "Málaga ist der einfache Weg", "Málaga es el sencillo", "Málaga is de eenvoudige", "Málaga är det enkla valet"),
       paragraphs: [
         l(
-          "Aena confirms a direct Alsa coach between Málaga Airport and Nerja. That single connection is what makes arriving without a car realistic.",
+          "From Málaga airport the Alsa bus runs direct to Nerja, several times a day. That makes arriving without a car possible.",
           "Vom Flughafen Málaga fährt der Alsa-Bus direkt nach Nerja, mehrmals am Tag. Damit geht die Anreise ohne Auto.",
-          "Aena confirma un autobús directo de Alsa entre el aeropuerto de Málaga y Nerja. Esa única conexión es lo que hace realista llegar sin coche.",
-          "Aena bevestigt een directe Alsa-bus tussen Málaga Airport en Nerja. Juist die ene verbinding maakt aankomen zonder auto realistisch.",
-          "Aena bekräftar en direktbuss med Alsa mellan Málaga flygplats och Nerja. Just den förbindelsen är det som gör det realistiskt att komma utan bil."
+          "Desde el aeropuerto de Málaga el autobús de Alsa va directo a Nerja, varias veces al día. Con eso la llegada sin coche funciona.",
+          "Vanaf de luchthaven Málaga rijdt de Alsa-bus rechtstreeks naar Nerja, meerdere keren per dag. Daarmee kan de aankomst zonder auto.",
+          "Från Málagas flygplats går Alsa-bussen direkt till Nerja, flera gånger om dagen. Därmed fungerar ankomsten utan bil."
         ),
         l(
-          "From Granada Airport there is an airport bus into Granada and its bus station, but the leg on to Nerja is a separate journey you have to plan yourself.",
+          "From Granada airport a bus runs to Granada bus station; from there the coach continues to Nerja.",
           "Vom Flughafen Granada fährt ein Bus zum Busbahnhof Granada; von dort geht es mit dem Fernbus weiter nach Nerja.",
-          "Desde el aeropuerto de Granada hay un autobús a Granada y su estación, pero el tramo hasta Nerja es un viaje aparte que hay que organizar.",
-          "Vanaf Granada Airport rijdt een bus naar Granada en het busstation, maar het traject naar Nerja is een aparte reis die je zelf moet plannen.",
-          "Från Granada flygplats går en flygbuss till Granada och busstationen, men sträckan vidare till Nerja är en egen resa ni får planera själva."
+          "Desde el aeropuerto de Granada hay un autobús a la estación de autobuses de Granada; desde allí se sigue en autobús de línea hasta Nerja.",
+          "Vanaf de luchthaven Granada rijdt een bus naar het busstation van Granada; van daar gaat het met de streekbus verder naar Nerja.",
+          "Från Granadas flygplats går en buss till Granadas busstation; därifrån går det vidare med fjärrbuss till Nerja."
         ),
         l(
-          "**A cheaper flight into Granada often costs the saving back on the onward leg.** Málaga plus the direct coach is usually the calmer arrival.",
+          "**A cheap flight to Granada often costs the saving back on the onward journey.** Málaga plus the direct bus is the more relaxed arrival.",
           "**Ein günstiger Flug nach Granada kostet auf der Weiterfahrt oft die Ersparnis wieder.** Málaga plus Direktbus ist die entspanntere Ankunft.",
-          "**Un vuelo más barato a Granada suele consumir el ahorro en el trayecto siguiente.** Málaga con el autobús directo suele ser la llegada más tranquila.",
-          "**Een goedkopere vlucht naar Granada kost de besparing vaak terug op het vervolgtraject.** Málaga plus de directe bus is meestal de rustigere aankomst.",
-          "**En billigare flygning till Granada äter ofta upp besparingen på nästa sträcka.** Málaga plus direktbussen är oftast den lugnare ankomsten."
+          "**Un vuelo barato a Granada suele costar el ahorro en el trayecto posterior.** Málaga más el autobús directo es la llegada más tranquila.",
+          "**Een goedkope vlucht naar Granada kost de besparing op de doorreis vaak weer.** Málaga plus de directe bus is de ontspannener aankomst.",
+          "**Ett billigt flyg till Granada kostar ofta tillbaka besparingen på vidareresan.** Málaga plus direktbussen är den lugnare ankomsten."
         )
       ]
     },
@@ -142,53 +142,53 @@ export const gettingToNerjaContent = {
       title: l("Down the A-7, then into a compact town", "Über die A-7 und dann in einen kompakten Ort", "Por la A-7 y luego a un pueblo compacto", "Via de A-7 en dan een compacte stad in", "Via A-7 och sedan in i en kompakt stad"),
       paragraphs: [
         l(
-          "From Málaga and from Granada you reach Nerja along the A-7 coastal corridor. The last kilometres of motorway are the easy part.",
+          "From Málaga as from Granada you reach Nerja on the A-7; the motorway is the easy part.",
           "Von Málaga wie von Granada kommt ihr über die A-7 nach Nerja; die Autobahn ist der einfache Teil.",
-          "Desde Málaga y desde Granada se llega a Nerja por el corredor costero de la A-7. Los últimos kilómetros de autovía son la parte fácil.",
-          "Vanuit Málaga en vanuit Granada bereik je Nerja via de kustcorridor A-7. De laatste snelwegkilometers zijn het makkelijke deel.",
-          "Från både Málaga och Granada når ni Nerja via kustkorridoren A-7. De sista motorvägskilometrarna är den lätta biten."
+          "Tanto desde Málaga como desde Granada llegáis a Nerja por la A-7; la autovía es la parte fácil.",
+          "Vanuit Málaga én vanuit Granada kom je via de A-7 naar Nerja; de snelweg is het makkelijke deel.",
+          "Från Málaga liksom från Granada kommer ni via A-7 till Nerja; motorvägen är den enkla delen."
         ),
         l(
-          "Then it gets compact: pedestrian streets, one-way sections and seasonal traffic matter more than the motorway did. Navigate to Calle Castilla Pérez 60 and unload only where the signs allow it.",
+          "Then it gets tight: pedestrian zones, one-way streets and traffic in summer. Calle Castilla Pérez 60 belongs in the sat-nav; you unload at the door, parking is a few streets on.",
           "Danach wird es eng: Fußgängerzonen, Einbahnstraßen und im Sommer Verkehr. Ins Navi gehört Calle Castilla Pérez 60; vor der Tür ladet ihr aus, geparkt wird ein paar Straßen weiter.",
-          "Después se vuelve compacto: calles peatonales, tramos de sentido único y tráfico estacional pesan más que la autovía. Navegad a la Calle Castilla Pérez 60 y descargad solo donde lo permitan las señales.",
-          "Daarna wordt het compact: voetgangersstraten, eenrichtingsdelen en seizoensverkeer tellen zwaarder dan de snelweg. Navigeer naar Calle Castilla Pérez 60 en laad alleen uit waar de borden dat toestaan.",
-          "Sedan blir det kompakt: gågator, enkelriktade sträckor och säsongstrafik betyder mer än motorvägen gjorde. Navigera till Calle Castilla Pérez 60 och lasta av bara där skyltarna tillåter det."
+          "Después se estrecha: zonas peatonales, calles de sentido único y tráfico en verano. En el navegador va calle Castilla Pérez 60; descargáis en la puerta y se aparca unas calles más allá.",
+          "Daarna wordt het nauw: voetgangerszones, eenrichtingsstraten en in de zomer verkeer. In de navigatie hoort Calle Castilla Pérez 60; voor de deur laad je uit, geparkeerd wordt een paar straten verder.",
+          "Sedan blir det trångt: gågator, enkelriktade gator och trafik på sommaren. I GPS:en ska Calle Castilla Pérez 60 in; vid dörren lastar ni av, parkeringen ligger några gator bort."
         ),
         l(
-          "**Do not plan your first evening around finding a space at the door.** There is none, and the parking guide explains which area to aim for instead.",
+          "**A space right outside the door is a matter of luck in Nerja;** the parking guide shows where to go instead.",
           "**Ein Platz direkt vor der Tür ist in Nerja Glückssache;** der Park-Guide zeigt, wo ihr stattdessen hinfahrt.",
-          "**No planifiquéis la primera tarde contando con una plaza en la puerta.** No la hay; la guía de aparcamiento explica a qué zona dirigirse.",
-          "**Plan jullie eerste avond niet rond een plek voor de deur.** Die is er niet; de parkeergids legt uit welk gebied je in plaats daarvan aanhoudt.",
-          "**Planera inte första kvällen kring en plats vid dörren.** Den finns inte; parkeringsguiden förklarar vilket område ni ska sikta på i stället."
+          "**Una plaza justo delante de la puerta es cuestión de suerte en Nerja;** la guía de parking dice adónde ir en su lugar.",
+          "**Een plek direct voor de deur is in Nerja een kwestie van geluk;** de parkeergids laat zien waar je in plaats daarvan heen rijdt.",
+          "**En plats direkt utanför dörren är en lyckträff i Nerja;** parkeringsguiden visar vart ni kör i stället."
         )
       ]
     },
     {
       id: "by-bus",
       eyebrow: l("By coach", "Mit dem Fernbus", "En autobús", "Met de bus", "Med buss"),
-      title: l("The coach brings you to Nerja, not to the door", "Der Bus hält oben an der Avenida de Pescia", "El autobús os deja en Nerja, no en la puerta", "De bus brengt jullie naar Nerja, niet tot de deur", "Bussen tar er till Nerja, inte till dörren"),
+      title: l("The bus stops up at Avenida de Pescia", "Der Bus hält oben an der Avenida de Pescia", "El autobús para arriba, en la avenida de Pescia", "De bus stopt boven aan de Avenida de Pescia", "Bussen stannar uppe vid Avenida de Pescia"),
       paragraphs: [
         l(
-          "Long-distance coaches arrive around Avenida de Pescia. Lines, stops and frequencies change, so the current Alsa planner is more reliable than any timetable we could copy here.",
+          "Coaches arrive at Avenida de Pescia; the current times are in the Alsa journey planner.",
           "Fernbusse kommen an der Avenida de Pescia an; die aktuellen Zeiten stehen im Alsa-Reiseplaner.",
-          "Los autobuses de largo recorrido llegan a la zona de la Avenida de Pescia. Líneas, paradas y frecuencias cambian, así que el planificador actual de Alsa es más fiable que cualquier horario que copiemos aquí.",
-          "Langeafstandsbussen komen aan rond de Avenida de Pescia. Lijnen, haltes en frequenties veranderen, dus de actuele Alsa-planner is betrouwbaarder dan elke dienstregeling die wij hier zouden overnemen.",
-          "Långfärdsbussar kommer fram vid Avenida de Pescia. Linjer, hållplatser och turtäthet ändras, så Alsas aktuella reseplanerare är mer pålitlig än någon tidtabell vi kan kopiera hit."
+          "Los autobuses de línea llegan a la avenida de Pescia; los horarios actuales están en el planificador de Alsa.",
+          "Streekbussen komen aan op de Avenida de Pescia; de actuele tijden staan in de Alsa-reisplanner.",
+          "Fjärrbussarna kommer till Avenida de Pescia; aktuella tider finns i Alsas reseplanerare."
         ),
         l(
-          "From there it is still a local leg to Calle Castilla Pérez 60. Central Nerja is walkable, but not every route is flat and not every hour is convenient.",
+          "From there it is about a kilometre downhill to Calle Castilla Pérez 60, a quarter of an hour on foot.",
           "Von dort sind es rund ein Kilometer bergab zur Calle Castilla Pérez 60, zu Fuß eine Viertelstunde.",
-          "Desde allí queda un tramo local hasta la Calle Castilla Pérez 60. El centro de Nerja se anda bien, pero no todo el recorrido es llano ni toda hora es cómoda.",
-          "Vanaf daar volgt nog een lokaal stuk naar Calle Castilla Pérez 60. Het centrum van Nerja is goed loopbaar, maar niet elke route is vlak en niet elk uur handig.",
-          "Därifrån återstår en lokal sträcka till Calle Castilla Pérez 60. Centrala Nerja går bra att gå i, men alla vägar är inte plana och alla timmar är inte bekväma."
+          "Desde allí hay alrededor de un kilómetro cuesta abajo hasta la calle Castilla Pérez 60, un cuarto de hora a pie.",
+          "Van daar is het ongeveer een kilometer bergaf naar Calle Castilla Pérez 60, een kwartier te voet.",
+          "Därifrån är det ungefär en kilometer nedför till Calle Castilla Pérez 60, en kvart till fots."
         ),
         l(
-          "**With suitcases, a late arrival or limited mobility, take a taxi for that last stretch.** It is a short ride and it starts the holiday better than dragging bags.",
+          "**With suitcases, late in the evening or if stairs are hard: taxi.** The ride takes five minutes, and the holiday begins without hauling luggage.",
           "**Mit Koffern, spät am Abend oder wenn Treppen schwerfallen: Taxi.** Die Fahrt dauert fünf Minuten, und der Urlaub beginnt ohne Gepäckschleppen.",
-          "**Con maletas, llegada tardía o movilidad reducida, coged un taxi para ese último tramo.** Es un trayecto corto y empieza mejor las vacaciones que arrastrar bultos.",
-          "**Met koffers, een late aankomst of beperkte mobiliteit: neem voor dat laatste stuk een taxi.** Het is een korte rit en de vakantie begint zo beter dan met slepen.",
-          "**Med resväskor, sen ankomst eller nedsatt rörlighet: ta taxi den sista biten.** Det är en kort resa och semestern börjar bättre än med bagagesläp."
+          "**Con maletas, tarde por la noche o si las escaleras cuestan: taxi.** El trayecto dura cinco minutos, y las vacaciones empiezan sin arrastrar equipaje.",
+          "**Met koffers, laat op de avond of als trappen zwaar vallen: taxi.** De rit duurt vijf minuten, en de vakantie begint zonder bagage slepen.",
+          "**Med resväskor, sent på kvällen eller om trappor är svåra: taxi.** Resan tar fem minuter, och semestern börjar utan att släpa bagage."
         )
       ]
     },
@@ -205,11 +205,11 @@ export const gettingToNerjaContent = {
           "Torrecilla ligger cirka 200 meter bort och Balcón de Europa omkring 500. Gamla stan, butiker, restauranger och flera stränder blir en kompakt vardag till fots."
         ),
         l(
-          "Without a car the ordinary day gets simpler: no space to hunt for, no moving the car before dinner, nothing between you and a quick swim.",
+          "Without a car the day gets simpler: no moving the car before dinner, nothing between you and a quick swim.",
           "Ohne Auto wird der Tag einfacher: kein Umparken vor dem Abendessen, nichts zwischen euch und einem schnellen Bad.",
-          "Sin coche el día normal se simplifica: sin buscar plaza, sin mover el vehículo para cenar, sin nada entre vosotros y un baño rápido.",
-          "Zonder auto wordt de gewone dag eenvoudiger: geen plek zoeken, niet verzetten voor het eten, niets tussen jullie en een snelle duik.",
-          "Utan bil blir den vanliga dagen enklare: inget platsletande, ingen flytt före middagen, inget mellan er och ett snabbt dopp."
+          "Sin coche el día es más sencillo: nada de cambiar el coche de sitio antes de cenar, nada entre vosotros y un baño rápido.",
+          "Zonder auto wordt de dag eenvoudiger: geen auto verplaatsen voor het avondeten, niets tussen jullie en een snelle duik.",
+          "Utan bil blir dagen enklare: ingen omparkering före middagen, ingenting mellan er och ett snabbt dopp."
         ),
         l(
           "**A car earns its place for Maro, Frigiliana or the wider Axarquía.** One or two rental days can cover those and leave the rest of the week car-free.",
@@ -225,13 +225,13 @@ export const gettingToNerjaContent = {
     eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
     title: l("Where these details come from", "Woher diese Angaben kommen", "De dónde salen estos datos", "Waar deze gegevens vandaan komen", "Varifrån uppgifterna kommer"),
     intro: l(
-      "The connections come from the airport and coach operators — go there for live times and tickets. The distances from our door come from us.",
+      "Connections from the airport and the bus operator; the distances from our front door from us.",
       "Verbindungen von Flughafen und Busbetreiber; die Entfernungen ab unserer Haustür von uns.",
-      "Las conexiones proceden del aeropuerto y del operador de autobuses: acudid allí para horarios y billetes. Las distancias desde nuestra puerta vienen de nosotros.",
-      "De verbindingen komen van de luchthaven en de busmaatschappij — daar vind je actuele tijden en tickets. De afstanden vanaf onze deur komen van ons.",
-      "Förbindelserna kommer från flygplatsen och bussbolaget — dit går ni för aktuella tider och biljetter. Avstånden från vår dörr kommer från oss."
+      "Conexiones del aeropuerto y de la empresa de autobuses; las distancias desde nuestra puerta, de nosotros.",
+      "Verbindingen van luchthaven en busmaatschappij; de afstanden vanaf onze voordeur van ons.",
+      "Förbindelser från flygplatsen och bussbolaget; avstånden från vår dörr från oss."
     ),
-    checked: l("Last checked in August 2026", "Stand August 2026", "Revisado por última vez en agosto de 2026", "Voor het laatst nagekeken in augustus 2026", "Senast kontrollerat i augusti 2026"),
+    checked: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026"),
     links: [
       {
         label: l("Aena · buses at Málaga Airport", "Aena · Busse am Flughafen Málaga", "Aena · autobuses en el aeropuerto de Málaga", "Aena · bussen op Málaga Airport", "Aena · bussar vid Málaga flygplats"),
@@ -259,11 +259,11 @@ export const gettingToNerjaContent = {
     eyebrow: l("Before you travel", "Vor der Reise", "Antes de viajar", "Vóór de reis", "Före resan"),
     title: l("Send us your arrival time", "Schickt uns eure Ankunftszeit", "Enviadnos vuestra hora de llegada", "Stuur ons jullie aankomsttijd", "Skicka er ankomsttid"),
     body: l(
-      "We will send back the approach, the route to the door and what the parking situation looks like that week.",
+      "We will send you the approach, the way to the door and tell you what the parking situation looks like in your week.",
       "Wir schicken euch die Anfahrt, den Weg zur Tür und sagen euch, wie die Parksituation in eurer Woche aussieht.",
-      "Os devolveremos la aproximación, el recorrido hasta la puerta y cómo está el aparcamiento esa semana.",
-      "Wij sturen de aanrijroute terug, de weg naar de deur en hoe het die week met parkeren staat.",
-      "Vi skickar tillbaka infarten, vägen till dörren och hur parkeringsläget ser ut den veckan."
+      "Os mandamos el acceso, el camino hasta la puerta y os decimos cómo está el aparcamiento en vuestra semana.",
+      "We sturen je de route, de weg naar de deur en zeggen hoe de parkeersituatie er in jouw week uitziet.",
+      "Vi skickar er vägen hit, vägen till dörren och säger hur parkeringsläget ser ut under er vecka."
     ),
     locationLabel: l("Back to the Nerja guide", "Zurück zum Nerja-Guide", "Volver a la guía de Nerja", "Terug naar de Nerja-gids", "Tillbaka till Nerja-guiden"),
     areasLabel: l("Compare where to stay", "Wohnlagen vergleichen", "Comparar dónde alojarse", "Vergelijk waar je verblijft", "Jämför var man bor")

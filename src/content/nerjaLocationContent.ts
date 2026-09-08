@@ -1216,11 +1216,11 @@ export const nerjaLocationCopy = {
           'Är det enkelt att gå till Burriana från centrum?'
         ),
         a: localized(
-          'Many guests can walk the route, but the important part is the return. Heading back towards central Nerja involves a noticeable climb, so it is better to judge the route by the uphill walk you will repeat rather than by the distance on the map alone.',
+          'Yes, many people walk it. Back towards the centre it climbs noticeably; after a long beach day a taxi is a good idea.',
           'Ja, viele gehen. Zurück ins Zentrum geht es spürbar bergauf; nach einem langen Strandtag ist ein Taxi eine gute Idee.',
-          'Muchas personas pueden hacer el recorrido a pie, pero lo importante es la vuelta. El regreso hacia el centro de Nerja incluye una subida apreciable, así que conviene valorar el trayecto por ese tramo que repetiréis y no solo por la distancia del mapa.',
-          'Veel gasten kunnen de route prima lopen, maar let vooral op de terugweg. Richting centraal Nerja gaat het merkbaar omhoog. Beoordeel de ligging daarom op die klim die jullie vaker maken, en niet alleen op de afstand op de kaart.',
-          'Många gäster kan gå sträckan, men det är återvägen som är viktig. Tillbaka mot centrala Nerja väntar en tydlig uppförsbacke. Bedöm därför vägen utifrån den återkommande stigningen, inte bara avståndet på kartan.'
+          'Sí, mucha gente va andando. La vuelta al centro sube bastante; después de un día largo de playa, un taxi es buena idea.',
+          'Ja, veel mensen lopen het. Terug naar het centrum gaat het merkbaar omhoog; na een lange stranddag is een taxi een goed idee.',
+          'Ja, många går. Tillbaka mot centrum är det en tydlig stigning; efter en lång stranddag är taxi en bra idé.'
         )
       },
       {

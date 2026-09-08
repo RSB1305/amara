@@ -148,7 +148,7 @@ export const frigilianaDayTripsContent: Record<
         'The best day trips from Frigiliana focus on one main destination and leave the rest of the day flexible.',
       rule:
         'One highlight per day is enough. Leaving around 09:00 is what makes the return to the village calm rather than rushed.',
-      reviewed: 'Editorially reviewed: July 2026',
+      reviewed: 'As of July 2026',
       items: [
         {
           title: 'Easiest cultural day',
@@ -174,29 +174,29 @@ export const frigilianaDayTripsContent: Record<
     },
     destinationIds: ['frigiliana.day-trips.malaga-city', 'frigiliana.day-trips.granada-alhambra', 'frigiliana.day-trips.caminito-del-rey', 'frigiliana.day-trips.ronda'],
     practical: {
-      title: 'Practical essentials',
+      title: 'Before you set off',
       intro:
-        'A small amount of preparation makes these days much calmer. Treat driving times as estimates and recheck tickets, opening hours, road conditions and public transport close to your date.',
+        'All four destinations are day trips by car, one to a good two hours each way; tickets for the Alhambra and the Caminito you book weeks ahead.',
       items: [
         {
           title: 'Car and public transport',
           text:
-            'A car is strongly recommended for Granada, Ronda and Caminito del Rey. Málaga may be possible by public transport, but check current connections and the return schedule before relying on it.'
+            'Granada, Ronda and the Caminito del Rey are only relaxed by car. To Málaga the bus from Nerja also runs.'
         },
         {
           title: 'Summer heat',
           text:
-            'Inland destinations can become extremely hot in summer. Start early, carry water and build shade and rest into the middle of the day.'
+            'Inland it is close to forty degrees in summer. Set off early, shade at midday, water in the car.'
         },
         {
           title: 'Sundays and opening hours',
           text:
-            'Sunday opening varies by museum, shop and restaurant. Check the exact places you want to visit instead of assuming a general schedule.'
+            'On Sundays many museums have shorter hours and many shops are closed; the Alhambra is open every day.'
         },
         {
           title: 'A calm return',
           text:
-            'Leave margin for traffic, parking and an unhurried meal. Returning before late evening preserves the contrast that makes Frigiliana such a rewarding base.'
+            'With a margin for traffic and a late lunch you are back before sunset: terrace, shower, evening in the village.'
         }
       ]
     },
@@ -372,7 +372,7 @@ export const frigilianaDayTripsContent: Record<
         'Las mejores excursiones desde Frigiliana no consisten en acumular monumentos. Funcionan cuando os centráis en un destino principal y dejáis flexible el resto de la jornada.',
       rule:
         'Un atractivo principal por día basta. Salir hacia las 09:00 es lo que hace que el regreso al pueblo sea tranquilo y no apresurado.',
-      reviewed: 'Revisión editorial: julio de 2026',
+      reviewed: 'Actualizado en julio de 2026',
       items: [
         {
           title: 'El día cultural más fácil',
@@ -398,29 +398,29 @@ export const frigilianaDayTripsContent: Record<
     },
     destinationIds: ['frigiliana.day-trips.malaga-city', 'frigiliana.day-trips.granada-alhambra', 'frigiliana.day-trips.caminito-del-rey', 'frigiliana.day-trips.ronda'],
     practical: {
-      title: 'Información práctica esencial',
+      title: 'Antes de salir',
       intro:
-        'Un poco de preparación hace que estas jornadas sean mucho más tranquilas. Considerad los tiempos de conducción como orientativos y volved a comprobar entradas, horarios, carreteras y transporte público cerca de vuestra fecha.',
+        'Los cuatro destinos son excursiones de un día en coche, de una a dos horas largas por trayecto; las entradas para la Alhambra y el Caminito se reservan con semanas de antelación.',
       items: [
         {
           title: 'Coche y transporte público',
           text:
-            'El coche es muy recomendable para Granada, Ronda y el Caminito del Rey. Málaga puede ser viable en transporte público, pero comprobad las conexiones actuales y el regreso antes de depender de ellas.'
+            'Granada, Ronda y el Caminito del Rey solo se hacen con calma en coche. A Málaga también va el autobús desde Nerja.'
         },
         {
           title: 'Calor en verano',
           text:
-            'Los destinos del interior pueden alcanzar temperaturas extremas en verano. Empezad temprano, llevad agua y reservad sombra y pausas para las horas centrales.'
+            'En el interior ronda los cuarenta grados en verano. Salir temprano, sombra a mediodía, agua en el coche.'
         },
         {
           title: 'Domingos y horarios',
           text:
-            'La apertura dominical cambia según el museo, la tienda o el restaurante. Comprobad los lugares concretos que queréis visitar en lugar de dar por hecho un horario general.'
+            'Los domingos muchos museos abren menos horas y muchas tiendas cierran; la Alhambra abre todos los días.'
         },
         {
           title: 'Regreso sin prisas',
           text:
-            'Dejad margen para el tráfico, el aparcamiento y una comida tranquila. Volver antes de que sea demasiado tarde conserva el contraste que convierte a Frigiliana en una base tan agradable.'
+            'Con margen para el tráfico y una comida tardía, estáis de vuelta antes del atardecer: terraza, ducha, noche en el pueblo.'
         }
       ]
     },
@@ -484,7 +484,7 @@ export const frigilianaDayTripsContent: Record<
         'De beste dagtochten vanuit Frigiliana draaien niet om zo veel mogelijk bezienswaardigheden. Ze werken wanneer de bestemming het tempo bepaalt en de rest van de dag flexibel blijft.',
       rule:
         'Eén hoofdactiviteit per dag is genoeg. Rond 09.00 uur vertrekken is wat de terugkeer naar het dorp rustig maakt in plaats van gehaast.',
-      reviewed: 'Redactioneel gecontroleerd: juli 2026',
+      reviewed: 'Stand juli 2026',
       items: [
         {
           title: 'Eenvoudigste cultuurdag',
@@ -510,29 +510,29 @@ export const frigilianaDayTripsContent: Record<
     },
     destinationIds: ['frigiliana.day-trips.malaga-city', 'frigiliana.day-trips.granada-alhambra', 'frigiliana.day-trips.caminito-del-rey', 'frigiliana.day-trips.ronda'],
     practical: {
-      title: 'Praktische basisinformatie',
+      title: 'Voordat jullie vertrekken',
       intro:
-        'Een beetje voorbereiding maakt deze dagen veel rustiger. Zie rijtijden als indicatie en controleer tickets, openingstijden, wegomstandigheden en openbaar vervoer opnieuw vlak voor jullie datum.',
+        'Alle vier de bestemmingen zijn dagtochten met de auto, een tot ruim twee uur per rit; tickets voor het Alhambra en de Caminito boek je weken vooraf.',
       items: [
         {
           title: 'Auto en openbaar vervoer',
           text:
-            'Een auto is sterk aan te raden voor Granada, Ronda en Caminito del Rey. Málaga kan met openbaar vervoer haalbaar zijn, maar controleer actuele verbindingen en de terugreis voordat jullie daarop rekenen.'
+            'Granada, Ronda en de Caminito del Rey gaan alleen ontspannen met de auto. Naar Málaga rijdt ook de bus vanaf Nerja.'
         },
         {
           title: 'Zomerhitte',
           text:
-            'Bestemmingen landinwaarts kunnen in de zomer extreem heet worden. Begin vroeg, neem water mee en plan schaduw en rust tijdens het heetste deel van de dag.'
+            'In het binnenland is het in de zomer tegen de veertig graden. Vroeg weg, ’s middags schaduw, water in de auto.'
         },
         {
           title: 'Zondagen en openingstijden',
           text:
-            'Opening op zondag verschilt per museum, winkel en restaurant. Controleer de concrete plekken die jullie willen bezoeken in plaats van uit te gaan van één algemeen schema.'
+            'Op zondag zijn veel musea korter open en veel winkels dicht; het Alhambra is elke dag open.'
         },
         {
           title: 'Rustige terugkeer',
           text:
-            'Houd marge voor verkeer, parkeren en een ontspannen maaltijd. Terugkeren vóór de late avond bewaart het contrast dat Frigiliana zo prettig maakt als uitvalsbasis.'
+            'Met marge voor verkeer en een late lunch zijn jullie voor zonsondergang terug: terras, douche, avond in het dorp.'
         }
       ]
     },
@@ -596,7 +596,7 @@ export const frigilianaDayTripsContent: Record<
         'De bästa dagsutflykterna från Frigiliana handlar inte om att samla sevärdheter. De fungerar när ni fokuserar på ett huvudmål och låter resten av dagen vara flexibel.',
       rule:
         'En huvudupplevelse per dag räcker. Att åka omkring 09.00 är det som gör återkomsten till byn lugn i stället för stressad.',
-      reviewed: 'Redaktionellt granskad: juli 2026',
+      reviewed: 'Uppdaterad juli 2026',
       items: [
         {
           title: 'Enklaste kulturdagen',
@@ -622,29 +622,29 @@ export const frigilianaDayTripsContent: Record<
     },
     destinationIds: ['frigiliana.day-trips.malaga-city', 'frigiliana.day-trips.granada-alhambra', 'frigiliana.day-trips.caminito-del-rey', 'frigiliana.day-trips.ronda'],
     practical: {
-      title: 'Praktiska grunder',
+      title: 'Innan ni åker',
       intro:
-        'Lite förberedelse gör dessa dagar betydligt lugnare. Se körtiderna som uppskattningar och kontrollera biljetter, öppettider, vägförhållanden och kollektivtrafik igen nära ert datum.',
+        'Alla fyra målen är dagsutflykter med bil, en till drygt två timmar per sträcka; biljetter till Alhambra och Caminito bokar ni veckor i förväg.',
       items: [
         {
           title: 'Bil och kollektivtrafik',
           text:
-            'Bil rekommenderas starkt för Granada, Ronda och Caminito del Rey. Málaga kan fungera med kollektivtrafik, men kontrollera aktuella anslutningar och hemresan innan ni förlitar er på den.'
+            'Granada, Ronda och Caminito del Rey blir avslappnade bara med bil. Till Málaga går även bussen från Nerja.'
         },
         {
           title: 'Sommarvärme',
           text:
-            'Resmål inåt landet kan bli extremt varma på sommaren. Börja tidigt, ta med vatten och planera skugga och pauser under dagens hetaste timmar.'
+            'Inåt landet är det uppemot fyrtio grader på sommaren. Iväg tidigt, skugga mitt på dagen, vatten i bilen.'
         },
         {
           title: 'Söndagar och öppettider',
           text:
-            'Söndagsöppet varierar mellan museer, butiker och restauranger. Kontrollera de konkreta platser ni vill besöka i stället för att anta ett gemensamt schema.'
+            'På söndagar har många museer kortare öppettider och många butiker är stängda; Alhambra har öppet varje dag.'
         },
         {
           title: 'Lugn återkomst',
           text:
-            'Lämna marginal för trafik, parkering och en avspänd måltid. En återkomst före sen kväll bevarar kontrasten som gör Frigiliana till en så givande bas.'
+            'Med marginal för trafik och en sen lunch är ni tillbaka före solnedgången: terrass, dusch, kväll i byn.'
         }
       ]
     },

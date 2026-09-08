@@ -27,7 +27,7 @@ export const frigilianaMarketSeo: AmaraAuthoringSeo = {
     en: {
       title: 'Frigiliana Market: Day, Time & What to Expect',
       description:
-        'Plan a visit to Frigiliana’s Thursday market with practical guidance on typical hours, location, stalls, parking, and the old-town walk.',
+        'Thursday morning is market day in Frigiliana: hours, Plaza de las Tres Culturas, what the stalls sell, where to park and how the morning continues.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -41,21 +41,21 @@ export const frigilianaMarketSeo: AmaraAuthoringSeo = {
     es: {
       title: 'Mercado de Frigiliana: día, horario y consejos',
       description:
-        'Planificad vuestra visita al mercado de los jueves de Frigiliana: horario habitual, ubicación, puestos, aparcamiento y paseo por el casco antiguo.',
+        'El jueves por la mañana hay mercado en Frigiliana: horario, Plaza de las Tres Culturas, qué venden los puestos, dónde aparcar y cómo sigue la mañana.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Markt van Frigiliana: dag, tijd en tips',
       description:
-        'Plan jullie bezoek aan de donderdagmarkt van Frigiliana met informatie over gebruikelijke tijden, locatie, aanbod, parkeren en de oude kern.',
+        'Donderdagochtend is het markt in Frigiliana: tijden, Plaza de las Tres Culturas, wat de kramen verkopen, waar je parkeert en hoe de ochtend verdergaat.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Marknaden i Frigiliana: dag, tid och tips',
       description:
-        'Planera ett besök på Frigilianas torsdagsmarknad med praktisk information om vanlig tid, plats, utbud, parkering och gamla stan.',
+        'Torsdag förmiddag är det marknad i Frigiliana: tider, Plaza de las Tres Culturas, vad stånden säljer, var ni parkerar och hur förmiddagen fortsätter.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -89,70 +89,70 @@ export const frigilianaMarketCopy = {
       'Torsdag förmiddag · Frigiliana'
     ),
     title: l(
-      'The Frigiliana Market',
+      'Thursday is market day',
       'Donnerstag ist Markt',
-      'El mercado de Frigiliana',
-      'De markt van Frigiliana',
-      'Marknaden i Frigiliana'
+      'El jueves es día de mercado',
+      'Donderdag is het markt',
+      'Torsdag är marknadsdag'
     ),
     lead: l(
-      'Frigiliana’s weekly market brings food, clothing, household goods, and visitor finds together in the lower village. It is compact enough to combine with breakfast, a walk through the historic quarter, and an unhurried lunch.',
+      'Every Thursday morning the stalls stand down at Plaza de las Tres Culturas: fruit and vegetables, olives and cheese, clothes, shoes, household bits, a few stalls for visitors. Then a coffee, then up into the lanes.',
       'Jeden Donnerstagvormittag stehen die Stände unten an der Plaza de las Tres Culturas: Obst und Gemüse, Oliven und Käse, Kleider, Schuhe, Haushaltskram, ein paar Stände für Besucher. Danach ein Kaffee, dann hinauf in die Gassen.',
-      'El mercado semanal de Frigiliana reúne alimentación, ropa, artículos cotidianos y compras para visitantes en la zona baja del pueblo. Se puede combinar fácilmente con un desayuno, un paseo por el casco histórico y un almuerzo sin prisas.',
-      'De wekelijkse markt van Frigiliana brengt eten, kleding, huishoudelijke artikelen en leuke vondsten voor bezoekers samen in het lagere dorp. De markt is goed te combineren met ontbijt, een wandeling door de oude kern en een ontspannen lunch.',
-      'Frigilianas veckomarknad samlar mat, kläder, vardagsvaror och fynd för besökare i den nedre delen av byn. Den går lätt att kombinera med frukost, en promenad i gamla stan och en lugn lunch.'
+      'Cada jueves por la mañana los puestos se montan abajo, en la Plaza de las Tres Culturas: fruta y verdura, aceitunas y queso, ropa, zapatos, cosas de casa, algunos puestos para visitantes. Después un café, y luego arriba por las callejuelas.',
+      'Elke donderdagochtend staan de kramen beneden op Plaza de las Tres Culturas: groente en fruit, olijven en kaas, kleding, schoenen, huishoudspullen, een paar kramen voor bezoekers. Daarna een koffie, dan omhoog de steegjes in.',
+      'Varje torsdag förmiddag står stånden nere vid Plaza de las Tres Culturas: frukt och grönsaker, oliver och ost, kläder, skor, hushållsprylar, några stånd för besökare. Sedan en kaffe, sedan upp i gränderna.'
     ),
     body: l(
-      'The regular market is normally held on Thursday mornings around Plaza de las Tres Culturas. Times, stall numbers, and arrangements can change on holidays or event dates, so treat the details below as planning guidance and check current local information before a special journey.',
+      'From about eight to two. In holiday weeks the date can shift.',
       'Von etwa acht bis zwei. In Feiertagswochen kann der Termin wandern.',
-      'El mercado habitual suele celebrarse los jueves por la mañana en torno a la Plaza de las Tres Culturas. El horario, el número de puestos y la organización pueden cambiar en festivos o durante eventos. Utilizad estos datos para planificar y comprobad la información local actual antes de desplazaros expresamente.',
-      'De reguliere markt vindt normaal gesproken op donderdagochtend rond Plaza de las Tres Culturas plaats. Tijden, aantal kramen en indeling kunnen wijzigen op feestdagen of tijdens evenementen. Gebruik onderstaande informatie daarom als planning en controleer de actuele lokale situatie vóór een speciale reis.',
-      'Den ordinarie marknaden hålls normalt på torsdagsförmiddagar kring Plaza de las Tres Culturas. Tider, antal stånd och upplägg kan ändras vid helgdagar eller evenemang. Använd därför informationen som planeringshjälp och kontrollera aktuella lokala uppgifter före en särskild resa.'
+      'De unas ocho a dos. En semanas festivas la fecha puede moverse.',
+      'Van ongeveer acht tot twee. In feestweken kan de datum verschuiven.',
+      'Från ungefär åtta till två. Under helgveckor kan datumet flytta sig.'
     ),
     primaryCta: l(
-      'See the market facts',
+      'What there is',
       'Was es gibt',
-      'Ver datos del mercado',
-      'Bekijk de marktinformatie',
-      'Se marknadsfakta'
+      'Lo que hay',
+      'Wat er is',
+      'Vad som finns'
     ),
     secondaryCta: l(
-      'Plan parking',
+      'Where you park',
       'Wo ihr parkt',
-      'Planificar aparcamiento',
-      'Plan parkeren',
-      'Planera parkering'
+      'Dónde aparcar',
+      'Waar je parkeert',
+      'Var ni parkerar'
     ),
   },
   facts: {
     title: l(
-      'The essentials at a glance',
+      'At a glance',
       'Auf einen Blick',
-      'Lo esencial de un vistazo',
-      'De belangrijkste informatie',
-      'Det viktigaste i korthet'
+      'De un vistazo',
+      'In het kort',
+      'I korthet'
     ),
     items: [
       {
         label: l('Regular day', 'Regulärer Tag', 'Día habitual', 'Vaste dag', 'Ordinarie dag'),
         value: l('Thursday', 'Donnerstag', 'Jueves', 'Donderdag', 'Torsdag'),
         note: l(
-          'Holiday and event weeks can lead to changes.',
+          'Every week, all year round.',
           'Jede Woche, das ganze Jahr.',
-          'Los festivos y las semanas con eventos pueden traer cambios.',
-          'Feestdagen en evenementen kunnen wijzigingen veroorzaken.',
-          'Helgdagar och evenemangsveckor kan innebära ändringar.'
+          'Cada semana, todo el año.',
+          'Elke week, het hele jaar.',
+          'Varje vecka, året runt.'
         )
       },
       {
         label: l('Typical time', 'Typische Uhrzeit', 'Horario habitual', 'Gebruikelijke tijd', 'Vanlig tid'),
         value: l('08:00–14:00', '08:00–14:00 Uhr', '08:00–14:00', '08:00–14:00', '08:00–14:00'),
         note: l(
-          'Arrive during the morning and confirm the current schedule locally.',
+          'Loveliest between ten and twelve.',
           'Am schönsten zwischen zehn und zwölf.',
-          'Id por la mañana y confirmad el horario actual a nivel local.',
-          'Ga in de ochtend en controleer het actuele tijdschema lokaal.',
-          'Kom under förmiddagen och bekräfta aktuell tid lokalt.'
+          'Lo mejor entre las diez y las doce.',
+          'Het mooist tussen tien en twaalf.',
+          'Vackrast mellan tio och tolv.'
         )
       },
       {
@@ -165,22 +165,22 @@ export const frigilianaMarketCopy = {
           'Plaza de las Tres Culturas'
         ),
         note: l(
-          'In the lower village, before the steepest historic lanes.',
+          'Down in the village, next to the underground car park.',
           'Unten im Ort, neben der Tiefgarage.',
-          'En la zona baja, antes de las calles más empinadas del casco histórico.',
-          'In het lagere dorp, vóór de steilste straten van de oude kern.',
-          'I den nedre byn, före de brantaste gränderna i gamla stan.'
+          'En la parte baja del pueblo, junto al parking subterráneo.',
+          'Beneden in het dorp, naast de parkeergarage.',
+          'Nere i byn, intill parkeringshuset.'
         )
       },
       {
         label: l('Format', 'Format', 'Formato', 'Opzet', 'Format'),
         value: l('Compact & varied', 'Kompakt & gemischt', 'Compacto y variado', 'Compact & gevarieerd', 'Kompakt & varierat'),
         note: l(
-          'The mix and number of stalls vary from one market day to another.',
+          'A village market: walked in half an hour, enjoyed in two.',
           'Ein Dorfmarkt: in einer halben Stunde abgelaufen, in zwei Stunden genossen.',
-          'La mezcla y el número de puestos varían de un jueves a otro.',
-          'Het aanbod en aantal kramen verschillen per marktdag.',
-          'Utbud och antal stånd varierar mellan olika marknadsdagar.'
+          'Un mercado de pueblo: se recorre en media hora, se disfruta en dos.',
+          'Een dorpsmarkt: in een halfuur afgelopen, in twee uur genoten.',
+          'En bymarknad: avklarad på en halvtimme, avnjuten på två.'
         )
       }
     ]
@@ -194,21 +194,21 @@ export const frigilianaMarketCopy = {
       'Vad ni kan förvänta er'
     ),
     title: l(
-      'A working weekly market, not a curated craft fair',
+      'A village market as it should be',
       'Ein Dorfmarkt, wie er sein soll',
-      'Un mercadillo semanal, no una feria artesanal seleccionada',
-      'Een gewone weekmarkt, geen samengestelde ambachtsbeurs',
-      'En vanlig veckomarknad, inte en utvald hantverksmässa'
+      'Un mercado de pueblo como debe ser',
+      'Een dorpsmarkt zoals het hoort',
+      'En bymarknad som den ska vara'
     ),
     intro: l(
-      'The attraction is the mixture. Some stalls serve everyday village needs, while others appeal more directly to visitors. Product origins and makers differ, so ask when local production matters to you.',
+      'Some of the stalls are there for the people of the village, some for the guests. The mix is what makes it.',
       'Ein Teil der Stände ist für die Leute aus dem Dorf da, ein Teil für die Gäste. Die Mischung macht ihn aus.',
-      'El interés está en la mezcla. Algunos puestos cubren necesidades cotidianas del pueblo y otros se orientan más al visitante. El origen y los productores varían; preguntad si para vosotros es importante que algo sea local.',
-      'De charme zit in de mix. Sommige kramen voorzien in dagelijkse behoeften van het dorp, andere richten zich meer op bezoekers. Herkomst en makers verschillen, dus vraag ernaar als lokale productie voor jullie belangrijk is.',
-      'Det intressanta är blandningen. Vissa stånd fyller byns vardagsbehov medan andra riktar sig mer till besökare. Ursprung och tillverkare varierar, så fråga om lokal produktion är viktig för er.'
+      'Una parte de los puestos es para la gente del pueblo, otra para los visitantes. La mezcla es lo que lo define.',
+      'Een deel van de kramen is er voor de mensen uit het dorp, een deel voor de gasten. De mix maakt het.',
+      'En del av stånden finns för byborna, en del för gästerna. Blandningen är det som gör den.'
     ),
     labels: {
-      expect: l('You may find', 'Was es gibt', 'Podéis encontrar', 'Wat jullie kunnen vinden', 'Ni kan hitta'),
+      expect: l('What there is', 'Was es gibt', 'Lo que hay', 'Wat er is', 'Vad som finns'),
       remember: l('Keep in mind', 'Gut zu wissen', 'Tened en cuenta', 'Houd rekening met', 'Tänk på')
     },
     items: [
@@ -222,25 +222,25 @@ export const frigilianaMarketCopy = {
           'Mat & färska råvaror'
         ),
         summary: l(
-          'Fruit, vegetables, olives, cheese, herbs, preserves, and other foods may form part of the weekly mix.',
+          'Seasonal fruit and vegetables, olives, cheese, herbs, preserves.',
           'Obst und Gemüse der Saison, Oliven, Käse, Kräuter, Eingemachtes.',
-          'Fruta, verdura, aceitunas, queso, hierbas, conservas y otros alimentos pueden formar parte de la oferta semanal.',
-          'Fruit, groenten, olijven, kaas, kruiden, conserven en andere voedingsmiddelen kunnen deel uitmaken van het wekelijkse aanbod.',
-          'Frukt, grönsaker, oliver, ost, örter, konserver och andra livsmedel kan ingå i veckans utbud.'
+          'Fruta y verdura de temporada, aceitunas, queso, hierbas, conservas.',
+          'Seizoensgroente en -fruit, olijven, kaas, kruiden, ingemaakt.',
+          'Säsongens frukt och grönsaker, oliver, ost, örter, inläggningar.'
         ),
         expect: l(
-          'Seasonal variation and a changing selection between sellers.',
+          'Tomatoes and peaches in summer, oranges and avocados from the area in winter.',
           'Im Sommer Tomaten und Pfirsiche, im Winter Orangen und Avocados aus der Gegend.',
-          'Variación estacional y una selección que cambia según los vendedores.',
-          'Seizoensverschillen en een wisselend aanbod per verkoper.',
-          'Säsongsvariation och ett utbud som skiftar mellan säljarna.'
+          'Tomates y melocotones en verano, naranjas y aguacates de la zona en invierno.',
+          'Tomaten en perziken in de zomer, sinaasappels en avocado’s uit de streek in de winter.',
+          'Tomater och persikor på sommaren, apelsiner och avokado från trakten på vintern.'
         ),
         remember: l(
-          'Do not assume every product is grown or made in Frigiliana; ask the seller about its origin.',
+          'If you want to know where something comes from, ask at the stall; the traders like to tell.',
           'Wer wissen will, woher etwas kommt, fragt am Stand; die Händler erzählen gern.',
-          'No deis por hecho que todo se cultiva o elabora en Frigiliana; preguntad al vendedor por el origen.',
-          'Ga er niet van uit dat ieder product in Frigiliana is geteeld of gemaakt; vraag de verkoper naar de herkomst.',
-          'Utgå inte från att varje produkt odlats eller tillverkats i Frigiliana; fråga säljaren om ursprunget.'
+          'Si queréis saber de dónde viene algo, preguntad en el puesto; a los vendedores les gusta contarlo.',
+          'Wie wil weten waar iets vandaan komt, vraagt het bij de kraam; de handelaren vertellen het graag.',
+          'Vill ni veta varifrån något kommer, fråga vid ståndet; handlarna berättar gärna.'
         )
       },
       {
@@ -253,25 +253,25 @@ export const frigilianaMarketCopy = {
           'Kläder & vardagsvaror'
         ),
         summary: l(
-          'Clothing, footwear, textiles, accessories, and household items are a normal part of the market.',
+          'Clothes, shoes, tablecloths, bags, kitchen things.',
           'Kleider, Schuhe, Tischdecken, Taschen, Küchenzeug.',
-          'La ropa, el calzado, los textiles, los accesorios y los artículos domésticos forman parte habitual del mercado.',
-          'Kleding, schoenen, textiel, accessoires en huishoudelijke artikelen zijn een normaal onderdeel van de markt.',
-          'Kläder, skor, textilier, accessoarer och hushållsvaror är en vanlig del av marknaden.'
+          'Ropa, zapatos, manteles, bolsos, cosas de cocina.',
+          'Kleding, schoenen, tafelkleden, tassen, keukenspullen.',
+          'Kläder, skor, dukar, väskor, köksprylar.'
         ),
         expect: l(
-          'Practical products alongside more visitor-oriented stalls.',
+          'The stalls where the neighbours shop.',
           'Die Stände, an denen die Nachbarinnen einkaufen.',
-          'Productos prácticos junto a puestos más orientados al visitante.',
-          'Praktische producten naast kramen die meer op bezoekers zijn gericht.',
-          'Praktiska varor bredvid stånd som riktar sig mer till besökare.'
+          'Los puestos donde compran las vecinas.',
+          'De kramen waar de buurvrouwen inkopen doen.',
+          'Stånden där grannarna handlar.'
         ),
         remember: l(
-          'This everyday layer is part of what makes it a local weekly market.',
+          'This is where the market is most village.',
           'Hier ist der Markt am meisten Dorf.',
-          'Esta vertiente cotidiana es parte de lo que lo convierte en un mercadillo local.',
-          'Juist dit dagelijkse karakter maakt het tot een lokale weekmarkt.',
-          'Den vardagliga delen är en del av det som gör det till en lokal veckomarknad.'
+          'Aquí el mercado es más pueblo que nunca.',
+          'Hier is de markt het meest dorp.',
+          'Här är marknaden som mest by.'
         )
       },
       {
@@ -284,104 +284,104 @@ export const frigilianaMarketCopy = {
           'Presenter & regionala produkter'
         ),
         summary: l(
-          'Depending on the day, you may see ceramics, leather goods, jewellery, decorative pieces, or packaged foods.',
+          'Ceramics, leather, jewellery, decor, packaged treats to take home.',
           'Keramik, Leder, Schmuck, Deko, verpackte Leckereien zum Mitnehmen.',
-          'Según el día, podéis encontrar cerámica, artículos de cuero, bisutería, decoración o alimentos envasados.',
-          'Afhankelijk van de dag kunnen jullie keramiek, lederwaren, sieraden, decoratie of verpakte voedingsmiddelen vinden.',
-          'Beroende på dagen kan ni hitta keramik, lädervaror, smycken, dekoration eller förpackade livsmedel.'
+          'Cerámica, cuero, bisutería, decoración, delicias envasadas para llevar.',
+          'Keramiek, leer, sieraden, decoratie, verpakte lekkernijen om mee te nemen.',
+          'Keramik, läder, smycken, inredning, förpackade godsaker att ta med.'
         ),
         expect: l(
-          'A mixture of handmade, commercially produced, local, and non-local goods.',
+          'From handmade to wholesale, everything is there.',
           'Von Handarbeit bis Großhandel alles dabei.',
-          'Una mezcla de productos artesanales, comerciales, locales y de otros lugares.',
-          'Een mix van handgemaakte, commerciële, lokale en niet-lokale goederen.',
-          'En blandning av handgjorda, kommersiella, lokala och icke-lokala varor.'
+          'De lo artesanal a lo de mayorista, hay de todo.',
+          'Van handwerk tot groothandel, alles is er.',
+          'Från handgjort till grossist, allt finns.'
         ),
         remember: l(
-          'For a specifically handmade piece, ask who made it and where.',
+          'You recognise the handmade pieces by talking to the person who made them.',
           'Handgemachtes erkennt ihr am Gespräch mit dem, der es gemacht hat.',
-          'Si buscáis una pieza artesanal, preguntad quién la hizo y dónde.',
-          'Zoeken jullie specifiek handwerk, vraag dan wie het heeft gemaakt en waar.',
-          'Om ni söker något särskilt handgjort, fråga vem som gjort det och var.'
+          'Lo hecho a mano se reconoce hablando con quien lo hizo.',
+          'Handgemaakt herken je aan het gesprek met wie het gemaakt heeft.',
+          'Det handgjorda känner ni igen på samtalet med den som gjort det.'
         )
       }
     ]
   },
   morning: {
     title: l(
-      'A simple Thursday-morning plan',
+      'How our Thursday goes',
       'So läuft unser Donnerstag',
-      'Un plan sencillo para el jueves por la mañana',
-      'Een eenvoudig plan voor donderdagochtend',
-      'En enkel plan för torsdagsförmiddagen'
+      'Así es nuestro jueves',
+      'Zo verloopt onze donderdag',
+      'Så går vår torsdag'
     ),
     steps: [
       {
         num: '01',
         title: l(
-          'Confirm the market',
+          'Breakfast early',
           'Früh frühstücken',
-          'Confirmad el mercado',
-          'Bevestig de markt',
-          'Bekräfta marknaden'
+          'Desayunar temprano',
+          'Vroeg ontbijten',
+          'Frukost tidigt'
         ),
         text: l(
-          'If the market is the main reason for your trip, check current local information, especially around holidays and large events.',
+          'On the terrace or in a bar on the plaza, before it gets busy.',
           'Auf der Terrasse oder in einer Bar an der Plaza, bevor es voll wird.',
-          'Si el mercado es el motivo principal de vuestra visita, comprobad la información local actual, sobre todo en festivos y durante grandes eventos.',
-          'Is de markt de belangrijkste reden voor jullie bezoek, controleer dan actuele lokale informatie, vooral rond feestdagen en grote evenementen.',
-          'Om marknaden är huvudskälet till resan, kontrollera aktuella lokala uppgifter, särskilt kring helgdagar och större evenemang.'
+          'En la terraza o en un bar de la plaza, antes de que se llene.',
+          'Op het terras of in een bar aan het plein, voor het vol wordt.',
+          'På terrassen eller i en bar vid torget, innan det blir fullt.'
         )
       },
       {
         num: '02',
         title: l(
-          'Arrive in the morning',
+          'To the market around ten',
           'Gegen zehn zum Markt',
-          'Llegad por la mañana',
-          'Kom in de ochtend',
-          'Kom på förmiddagen'
+          'Al mercado hacia las diez',
+          'Rond tien uur naar de markt',
+          'Till marknaden runt tio'
         ),
         text: l(
-          'Allow time for parking and do not schedule a tightly timed reservation immediately after arrival.',
+          'From Casa AMARA it is a few minutes downhill. If you come by car, park in the underground car park right next to it.',
           'Von Casa AMARA sind es ein paar Minuten bergab. Wer mit dem Auto kommt, parkt in der Tiefgarage direkt daneben.',
-          'Dejad tiempo para aparcar y no programéis una reserva con horario ajustado justo después de llegar.',
-          'Houd tijd vrij voor parkeren en plan niet direct na aankomst een reservering met een strak tijdstip.',
-          'Lägg in tid för parkering och boka inget med snäv starttid direkt efter ankomsten.'
+          'Desde Casa AMARA son unos minutos cuesta abajo. Quien viene en coche aparca en el parking subterráneo de al lado.',
+          'Vanaf Casa AMARA is het een paar minuten naar beneden. Wie met de auto komt, parkeert in de parkeergarage er direct naast.',
+          'Från Casa AMARA är det några minuter nedför. Kommer ni med bil parkerar ni i parkeringshuset alldeles intill.'
         )
       },
       {
         num: '03',
         title: l(
-          'Browse without a checklist',
+          'Browse without a list',
           'Ohne Liste stöbern',
-          'Recorredlo sin lista cerrada',
-          'Kijk rond zonder vaste lijst',
-          'Strosa utan fast lista'
+          'Curiosear sin lista',
+          'Zonder lijstje rondkijken',
+          'Strosa utan lista'
         ),
         text: l(
-          'The selection changes. Let the day’s stalls determine what is worth a closer look.',
+          'Taste the olives, cheese for the evening, a dress that would never fit at home and is just right here.',
           'Oliven probieren, Käse für den Abend, ein Kleid, das zu Hause nie passen würde und hier genau richtig ist.',
-          'La oferta cambia. Dejad que los puestos de ese día os indiquen qué merece una mirada más detenida.',
-          'Het aanbod verandert. Laat de kramen van die dag bepalen wat een nadere blik waard is.',
-          'Utbudet skiftar. Låt dagens stånd avgöra vad som är värt att titta närmare på.'
+          'Probar aceitunas, queso para la noche, un vestido que en casa nunca pegaría y aquí queda perfecto.',
+          'Olijven proeven, kaas voor de avond, een jurk die thuis nooit zou passen en hier precies goed is.',
+          'Smaka oliver, ost till kvällen, en klänning som aldrig skulle passa hemma och som är helt rätt här.'
         )
       },
       {
         num: '04',
         title: l(
-          'Continue into the village',
+          'Up into the lanes',
           'Hinauf in die Gassen',
-          'Seguid hacia el pueblo',
-          'Loop verder het dorp in',
-          'Fortsätt in i byn'
+          'Arriba por las callejuelas',
+          'Omhoog de steegjes in',
+          'Upp i gränderna'
         ),
         text: l(
-          'From the plaza, continue through the historic quarter and leave enough time for coffee or lunch.',
+          'With your shopping through the old town and onto a terrace for lunch.',
           'Mit dem Einkauf durch die Altstadt und zum Mittagessen auf eine Terrasse.',
-          'Desde la plaza, continuad por el casco histórico y dejad tiempo suficiente para un café o almorzar.',
-          'Loop vanaf het plein verder door de oude kern en houd voldoende tijd over voor koffie of lunch.',
-          'Fortsätt från torget genom gamla stan och lämna gott om tid för kaffe eller lunch.'
+          'Con la compra por el casco antiguo y a una terraza a comer.',
+          'Met de boodschappen door de oude kern en naar een terras voor de lunch.',
+          'Med inköpen genom gamla byn och till en terrass för lunch.'
         )
       }
     ],
@@ -402,11 +402,11 @@ export const frigilianaMarketCopy = {
           'Hålls marknaden varje torsdag?'
         ),
         answer: l(
-          'Thursday morning is the regular schedule, but holidays, weather, municipal arrangements, and major events can cause changes. Check locally if your visit depends on it.',
+          'Yes, all year. If a public holiday falls on a Thursday, it may be cancelled or moved.',
           'Ja, das ganze Jahr. Fällt ein Feiertag auf den Donnerstag, kann er ausfallen oder verschoben werden.',
-          'El jueves por la mañana es el horario habitual, pero los festivos, el tiempo, las decisiones municipales y los grandes eventos pueden provocar cambios. Comprobadlo localmente si vuestra visita depende de ello.',
-          'Donderdagochtend is het gebruikelijke moment, maar feestdagen, weer, gemeentelijke regelingen en grote evenementen kunnen wijzigingen veroorzaken. Controleer dit lokaal als jullie bezoek ervan afhangt.',
-          'Torsdag förmiddag är den ordinarie tiden, men helgdagar, väder, kommunala beslut och större evenemang kan innebära ändringar. Kontrollera lokalt om besöket beror på marknaden.'
+          'Sí, todo el año. Si un festivo cae en jueves, puede cancelarse o moverse.',
+          'Ja, het hele jaar. Valt een feestdag op donderdag, dan kan hij uitvallen of verschuiven.',
+          'Ja, året runt. Infaller en helgdag på en torsdag kan den utgå eller flyttas.'
         )
       },
       {
@@ -418,11 +418,11 @@ export const frigilianaMarketCopy = {
           'Kan jag betala med kort?'
         ),
         answer: l(
-          'Payment options differ by seller. Carry some small-denomination cash and ask before buying rather than assuming card payment is available.',
+          'At some stalls. A few notes in your pocket make it easier.',
           'An manchen Ständen. Ein paar Scheine in der Tasche machen es einfacher.',
-          'Las formas de pago dependen de cada vendedor. Llevad algo de efectivo en billetes pequeños y preguntad antes de comprar en lugar de dar por hecho que aceptan tarjeta.',
-          'Betaalmogelijkheden verschillen per verkoper. Neem wat contant geld in kleine bedragen mee en vraag vóór aankoop of kaartbetaling mogelijk is.',
-          'Betalsätt varierar mellan säljarna. Ta med lite kontanter i mindre valörer och fråga före köpet i stället för att utgå från kortbetalning.'
+          'En algunos puestos. Unos billetes en el bolsillo lo hacen más fácil.',
+          'Bij sommige kramen. Een paar briefjes op zak maken het makkelijker.',
+          'Vid vissa stånd. Några sedlar i fickan gör det enklare.'
         )
       },
       {
@@ -434,11 +434,11 @@ export const frigilianaMarketCopy = {
           'Finns det också en söndagsmarknad?'
         ),
         answer: l(
-          'Do not confuse the regular Thursday market with artisan, cultural, or seasonal markets that may be announced for particular Sundays or event dates. Those separate events do not follow the same dependable weekly schedule.',
+          'Not a regular one. Craft and festival markets happen on a few weekends a year; the town hall announces them, and we tell you if one falls in your week.',
           'Keinen regelmäßigen. Kunsthandwerks- und Festmärkte gibt es an einzelnen Wochenenden im Jahr; die Gemeinde kündigt sie an, und wir sagen es euch, wenn einer in eure Woche fällt.',
-          'No confundáis el mercado habitual de los jueves con mercados artesanales, culturales o estacionales que pueden anunciarse para domingos concretos o fechas de eventos. Esas actividades no siguen el mismo calendario semanal.',
-          'Verwar de vaste donderdagmarkt niet met ambachts-, cultuur- of seizoensmarkten die op bepaalde zondagen of evenementendata kunnen worden aangekondigd. Die afzonderlijke evenementen volgen niet hetzelfde vaste weekschema.',
-          'Blanda inte ihop den ordinarie torsdagsmarknaden med hantverks-, kultur- eller säsongsmarknader som kan annonseras för vissa söndagar eller evenemangsdatum. De följer inte samma fasta veckoschema.'
+          'No regular. Hay mercados de artesanía y de fiestas algunos fines de semana al año; el ayuntamiento los anuncia, y os avisamos si uno cae en vuestra semana.',
+          'Geen regelmatige. Ambachts- en feestmarkten zijn er op een paar weekenden per jaar; de gemeente kondigt ze aan, en wij vertellen het als er een in jullie week valt.',
+          'Ingen regelbunden. Hantverks- och festmarknader hålls några helger om året; kommunen annonserar dem, och vi säger till om en infaller under er vecka.'
         )
       },
       {
@@ -450,11 +450,11 @@ export const frigilianaMarketCopy = {
           'Är marknaden tillgänglig?'
         ),
         answer: l(
-          'The plaza is in the lower village and easier to reach than many old-town lanes, but crowding, stall layout, kerbs, and the route from parking can still matter. The historic walk afterwards includes slopes, uneven surfaces, and steps.',
+          'The plaza is down below and level. It gets crowded between the stalls, and the way up into the old town has steps.',
           'Die Plaza liegt unten und ist eben. Zwischen den Ständen wird es voll, und der Weg hinauf in die Altstadt hat Stufen.',
-          'La plaza está en la zona baja y es más fácil de alcanzar que muchas calles del casco histórico, pero la afluencia, la disposición de los puestos, los bordillos y el recorrido desde el aparcamiento pueden influir. El paseo posterior incluye cuestas, suelo irregular y escalones.',
-          'Het plein ligt in het lagere dorp en is eenvoudiger bereikbaar dan veel straatjes in de oude kern. Drukte, kraamindeling, stoepranden en de route vanaf de parkeerplek kunnen toch belangrijk zijn. De wandeling daarna bevat hellingen, ongelijke ondergrond en trappen.',
-          'Torget ligger i den nedre byn och är lättare att nå än många gränder i gamla stan. Trängsel, ståndens placering, trottoarkanter och vägen från parkeringen kan ändå spela roll. Promenaden därefter innehåller lutningar, ojämnt underlag och trappor.'
+          'La plaza está abajo y es llana. Entre los puestos se llena de gente, y el camino hacia el casco antiguo tiene escalones.',
+          'Het plein ligt beneden en is vlak. Tussen de kramen wordt het vol, en de weg omhoog naar de oude kern heeft treden.',
+          'Torget ligger nere och är plant. Mellan stånden blir det fullt, och vägen upp till gamla byn har trappsteg.'
         )
       }
     ]
@@ -468,25 +468,25 @@ export const frigilianaMarketCopy = {
       'En produkt från Frigiliana'
     ),
     title: l(
-      'Miel de caña belongs to the village story',
+      'Miel de caña, the village’s syrup',
       'Miel de caña, der Sirup des Dorfes',
-      'La miel de caña forma parte de la historia del pueblo',
-      'Miel de caña hoort bij het verhaal van het dorp',
-      'Miel de caña hör till byns historia'
+      'Miel de caña, el sirope del pueblo',
+      'Miel de caña, de siroop van het dorp',
+      'Miel de caña, byns sirap'
     ),
     body: l(
-      'El Ingenio houses the Nuestra Señora del Carmen factory, where miel de caña is still made today — a concentrated cane syrup with a long local production tradition. Its historic machinery and continuing production make miel de caña part of Frigiliana’s living identity. The building is a working production site, so do not assume public access; special openings may be announced separately.',
+      'At the entrance to the village stands El Ingenio, the Nuestra Señora del Carmen factory. Miel de caña is still cooked there today, a dark sugar-cane syrup from a tradition that goes back centuries here. You eat it in the village over fried aubergine and find it in jars at the market and in the shops. The factory itself is working and is not normally open to visitors.',
       'Unten am Ortseingang steht El Ingenio, die Fabrik Nuestra Señora del Carmen. Dort wird bis heute Miel de caña gekocht, ein dunkler Zuckerrohrsirup aus einer Tradition, die hier Jahrhunderte zurückreicht. Ihr esst ihn im Dorf über frittierten Auberginen und findet ihn am Markt und in den Läden im Glas. Die Fabrik selbst arbeitet und ist normalerweise nicht zu besichtigen.',
-      'El Ingenio alberga la fábrica Nuestra Señora del Carmen, donde se sigue elaborando miel de caña: un jarabe concentrado de caña de azúcar con una larga tradición productiva local. Su maquinaria histórica y la producción actual convierten la miel de caña en parte viva de la identidad local. El edificio es un espacio de producción; no deis por hecho que se puede visitar, aunque pueden anunciarse aperturas especiales.',
-      'El Ingenio huisvest de fabriek Nuestra Señora del Carmen, waar tot op vandaag miel de caña wordt gemaakt — een geconcentreerde rietsuikersiroop met een lange lokale productietraditie. Historische machines en huidige productie maken miel de caña tot een levend onderdeel van de dorpsidentiteit. Het gebouw is een productielocatie; ga daarom niet uit van reguliere toegang. Bijzondere openstellingen kunnen apart worden aangekondigd.',
-      'El Ingenio rymmer fabriken Nuestra Señora del Carmen, där miel de caña fortfarande tillverkas – en koncentrerad sockerrörssirap med lång lokal produktionstradition. Historiska maskiner och pågående produktion gör miel de caña till en levande del av byns identitet. Byggnaden är en produktionsplats, så utgå inte från allmän tillgång; särskilda öppningar kan meddelas separat.'
+      'A la entrada del pueblo está El Ingenio, la fábrica Nuestra Señora del Carmen. Allí se sigue cociendo la miel de caña, un sirope oscuro de caña de azúcar de una tradición que aquí se remonta siglos. La comeréis en el pueblo sobre berenjenas fritas y la encontraréis en tarros en el mercado y en las tiendas. La fábrica está en funcionamiento y normalmente no se visita.',
+      'Beneden bij de ingang van het dorp staat El Ingenio, de fabriek Nuestra Señora del Carmen. Daar wordt tot op vandaag miel de caña gekookt, een donkere suikerrietsiroop uit een traditie die hier eeuwen teruggaat. Je eet hem in het dorp over gefrituurde aubergine en vindt hem in potjes op de markt en in de winkels. De fabriek zelf werkt en is normaal niet te bezoeken.',
+      'Nere vid byns infart står El Ingenio, fabriken Nuestra Señora del Carmen. Där kokas än i dag miel de caña, en mörk sockerrörssirap ur en tradition som går århundraden tillbaka här. Ni äter den i byn över friterad aubergine och hittar den på burk på marknaden och i butikerna. Fabriken själv är i drift och kan normalt inte besökas.'
     ),
     cta: l(
-      'Read the official monument information',
+      'More about El Ingenio',
       'Mehr zum El Ingenio',
-      'Consultar información oficial del monumento',
-      'Lees de officiële informatie',
-      'Läs den officiella informationen'
+      'Más sobre El Ingenio',
+      'Meer over El Ingenio',
+      'Mer om El Ingenio'
     ),
     imageAlt: l(
       'Historic brick arch and whitewashed houses in Frigiliana',
@@ -498,55 +498,55 @@ export const frigilianaMarketCopy = {
   },
   marketTypes: {
     eyebrow: l(
-      'Avoid the mix-up',
+      'Also',
       'Außerdem',
-      'No los confundáis',
-      'Haal ze niet door elkaar',
-      'Blanda inte ihop dem'
+      'Además',
+      'Verder',
+      'Dessutom'
     ),
     title: l(
-      'One weekly market, other occasional events',
+      'Other markets during the year',
       'Andere Märkte im Jahr',
-      'Un mercado semanal y otros eventos puntuales',
-      'Eén weekmarkt en andere losse evenementen',
-      'En veckomarknad och andra enstaka evenemang'
+      'Otros mercados durante el año',
+      'Andere markten in het jaar',
+      'Andra marknader under året'
     ),
     body: l(
-      'The Thursday market is the regular reference point. Artisan markets, festival markets, and special food or cultural events are different formats with their own dates, locations, and opening hours. Never use an old event announcement as proof that a separate market still runs today.',
+      'Besides Thursday there are occasional craft and festival markets, for example around the Festival of the Three Cultures at the end of August. They have their own dates and places; the town hall announces them.',
       'Neben dem Donnerstag gibt es einzelne Kunsthandwerks- und Festmärkte, etwa zum Festival der drei Kulturen Ende August. Sie haben eigene Termine und Orte; die Gemeinde kündigt sie an.',
-      'El mercado de los jueves es la referencia habitual. Los mercados artesanales, los de festivales y los eventos gastronómicos o culturales son formatos distintos, con fechas, lugares y horarios propios. Un anuncio antiguo no demuestra que un mercado separado siga celebrándose actualmente.',
-      'De donderdagmarkt is het vaste uitgangspunt. Ambachtsmarkten, festivalmarkten en bijzondere culinaire of culturele evenementen zijn andere formats met eigen data, locaties en openingstijden. Een oude aankondiging bewijst niet dat een afzonderlijke markt vandaag nog bestaat.',
-      'Torsdagsmarknaden är den ordinarie utgångspunkten. Hantverksmarknader, festivalmarknader och särskilda mat- eller kulturevenemang är andra format med egna datum, platser och öppettider. En gammal evenemangsannons bevisar inte att en separat marknad fortfarande hålls idag.'
+      'Además del jueves hay mercados de artesanía y de fiestas puntuales, por ejemplo con el Festival de las Tres Culturas a finales de agosto. Tienen sus propias fechas y lugares; el ayuntamiento los anuncia.',
+      'Naast de donderdag zijn er losse ambachts- en feestmarkten, bijvoorbeeld rond het Festival van de Drie Culturen eind augustus. Ze hebben eigen data en plekken; de gemeente kondigt ze aan.',
+      'Utöver torsdagen finns enstaka hantverks- och festmarknader, till exempel kring De tre kulturernas festival i slutet av augusti. De har egna datum och platser; kommunen annonserar dem.'
     )
   },
   liveInfo: {
     eyebrow: l(
-      'Check before travelling',
+      'Sources',
       'Quellen',
-      'Comprobad antes de viajar',
-      'Controleer vóór vertrek',
-      'Kontrollera före resan'
+      'Fuentes',
+      'Bronnen',
+      'Källor'
     ),
     title: l(
-      'Use current local information',
+      'Where the details come from',
       'Woher die Angaben kommen',
-      'Utilizad información local actual',
-      'Gebruik actuele lokale informatie',
-      'Använd aktuell lokal information'
+      'De dónde salen los datos',
+      'Waar de gegevens vandaan komen',
+      'Varifrån uppgifterna kommer'
     ),
     intro: l(
-      'For holiday changes, special events, or access questions, use Frigiliana’s official tourism channels. The map is useful for orientation, but current signs and municipal notices take priority on the day.',
+      'Tourist office and town map of the municipality of Frigiliana.',
       'Tourismusbüro und Ortsplan der Gemeinde Frigiliana.',
-      'Para cambios por festivos, eventos especiales o dudas de acceso, consultad los canales oficiales de turismo de Frigiliana. El plano sirve para orientarse, pero ese día tienen prioridad las señales y los avisos municipales actuales.',
-      'Gebruik voor wijzigingen rond feestdagen, bijzondere evenementen of bereikbaarheidsvragen de officiële toeristische kanalen van Frigiliana. De kaart helpt bij oriëntatie, maar actuele borden en gemeentelijke berichten hebben op de dag zelf voorrang.',
-      'För ändringar vid helgdagar, särskilda evenemang eller tillgänglighetsfrågor bör ni använda Frigilianas officiella turistkanaler. Kartan hjälper med orientering, men aktuella skyltar och kommunala meddelanden gäller på dagen.'
+      'Oficina de turismo y plano del municipio de Frigiliana.',
+      'Toeristenbureau en plattegrond van de gemeente Frigiliana.',
+      'Turistbyrå och karta från Frigilianas kommun.'
     ),
     checked: l(
-      'Editorial check · July 2026',
+      'As of July 2026',
       'Stand Juli 2026',
-      'Revisión editorial · julio de 2026',
-      'Redactioneel gecontroleerd · juli 2026',
-      'Redaktionellt kontrollerad · juli 2026'
+      'Actualizado en julio de 2026',
+      'Stand juli 2026',
+      'Uppdaterad juli 2026'
     ),
     links: [
       {
@@ -559,11 +559,11 @@ export const frigilianaMarketCopy = {
           'Frigilianas officiella turistbyrå'
         ),
         text: l(
-          'Current destination information and contact details.',
+          'Opening hours and dates.',
           'Öffnungszeiten und Termine.',
-          'Información actual del destino y datos de contacto.',
-          'Actuele bestemmingsinformatie en contactgegevens.',
-          'Aktuell destinationsinformation och kontaktuppgifter.'
+          'Horarios y fechas.',
+          'Openingstijden en data.',
+          'Öppettider och datum.'
         )
       },
       {
@@ -576,22 +576,22 @@ export const frigilianaMarketCopy = {
           'Officiell gatukarta'
         ),
         text: l(
-          'Orientate between the lower village and historic quarter.',
+          'Plaza, car park and lanes on one map.',
           'Plaza, Parkhaus und Gassen auf einer Karte.',
-          'Orientación entre la zona baja y el casco histórico.',
-          'Oriëntatie tussen het lagere dorp en de oude kern.',
-          'Orientering mellan den nedre byn och gamla stan.'
+          'Plaza, parking y callejuelas en un mapa.',
+          'Plein, parkeergarage en steegjes op één kaart.',
+          'Torg, parkeringshus och gränder på en karta.'
         )
       }
     ]
   },
   related: {
     title: l(
-      'Plan the rest of the visit',
+      'On through the village',
       'Weiter im Dorf',
-      'Planificad el resto de la visita',
-      'Plan de rest van het bezoek',
-      'Planera resten av besöket'
+      'Seguir por el pueblo',
+      'Verder in het dorp',
+      'Vidare i byn'
     ),
     links: [
       {
@@ -645,11 +645,11 @@ export const frigilianaMarketCopy = {
       'För resten av er vistelse'
     ),
     lead: l(
-      'We enjoy Thursday market as a morning in the village. For the other days, we bring together the grocery shops and small everyday essentials we rely on around Frigiliana.',
+      'Thursday is our market day. On the other days we shop in the small stores in the village; which ones, you find here.',
       'Der Donnerstag ist unser Markttag. An den anderen Tagen kaufen wir in den kleinen Läden im Dorf ein; welche das sind, steht hier.',
-      'Para nosotros, el mercado de los jueves forma parte de una bonita mañana en el pueblo. Para los demás días, reunimos las tiendas de alimentación y los pequeños comercios que utilizamos en Frigiliana.',
-      'De donderdagmarkt hoort voor ons bij een fijne ochtend in het dorp. Voor de andere dagen laten we jullie de supermarkten en kleine winkels zien waar wij rond Frigiliana op vertrouwen.',
-      'För oss hör torsdagsmarknaden till en fin förmiddag i byn. För de andra dagarna visar vi er de mataffärer och små butiker som vi själva använder runt Frigiliana.'
+      'El jueves es nuestro día de mercado. Los demás días compramos en las tiendas pequeñas del pueblo; cuáles son, lo tenéis aquí.',
+      'Donderdag is onze marktdag. Op de andere dagen doen we boodschappen in de kleine winkels in het dorp; welke dat zijn, staat hier.',
+      'Torsdag är vår marknadsdag. De andra dagarna handlar vi i de små butikerna i byn; vilka de är står här.'
     ),
     nextCta: l(
       'Groceries & shops in Frigiliana',

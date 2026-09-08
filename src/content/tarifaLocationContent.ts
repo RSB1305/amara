@@ -74,8 +74,8 @@ const seo: AmaraAuthoringSeo = {
   },
   languages: {
     en: {
-      title: 'Staying in Tarifa: Balcony over the Atlantic | AMARA',
-      description: 'Where you stay in Tarifa shapes daily movement: the Old Town, La Marina, Los Lances and the western beaches each change walking, parking and car use.',
+      title: 'Tarifa: wind, Atlantic and old town | AMARA',
+      description: 'Tarifa between the Atlantic and the Strait: Levante and Poniente, Los Lances in front of the terrace, tapas in the old town. Our apartment in La Marina, five minutes to the beach.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -86,20 +86,20 @@ const seo: AmaraAuthoringSeo = {
       canonical: 'auto'
     },
     es: {
-      title: 'Alojarse en Tarifa: balcón al Atlántico | AMARA',
-      description: 'Dónde os alojáis en Tarifa marca los trayectos diarios: casco antiguo, La Marina, Los Lances y las playas del oeste cambian los paseos, el aparcamiento y el uso del coche.',
+      title: 'Tarifa: viento, Atlántico y casco antiguo | AMARA',
+      description: 'Tarifa entre el Atlántico y el Estrecho: levante y poniente, Los Lances delante de la terraza, tapas en el casco antiguo. Nuestro apartamento en La Marina, a cinco minutos de la playa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Overnachten in Tarifa: balkon aan de oceaan | AMARA',
-      description: 'Waar jullie in Tarifa verblijven bepaalt de dagelijkse routes: oude stad, La Marina, Los Lances en de westelijke stranden vragen elk om andere keuzes rond lopen, parkeren en de auto.',
+      title: 'Tarifa: wind, Atlantische Oceaan en oude stad | AMARA',
+      description: 'Tarifa tussen Atlantische Oceaan en Straat: Levante en Poniente, Los Lances voor het terras, tapas in de oude stad. Ons appartement in La Marina, vijf minuten van het strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Bo i Tarifa: balkong mot Atlanten | AMARA',
-      description: 'Var ni bor i Tarifa präglar vardagens förflyttningar: gamla stan, La Marina, Los Lances och stränderna i väster påverkar promenader, parkering och bilanvändning.',
+      title: 'Tarifa: vind, Atlanten och gamla stan | AMARA',
+      description: 'Tarifa mellan Atlanten och sundet: Levante och Poniente, Los Lances framför terrassen, tapas i gamla stan. Vår lägenhet i La Marina, fem minuter till stranden.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -116,12 +116,12 @@ export const tarifaLocationContent: {
   locales: {
     en: {
       hero: {
-        eyebrow: 'Tarifa · Location & stay',
-        title: 'Tarifa, Europe’s southernmost mainland city',
-        subtitle: 'Atlantic to the west, the Strait to the east, the Old Town in between. And our apartment in La Marina.',
-        standfirst: 'Tarifa’s Old Town, beach edge and newer neighbourhoods are close enough that much of the town works on foot, while Valdevaqueros and Bolonia require a separate journey west. The Old Town puts historic streets and restaurants around you; La Marina places you on the newer west/north-west edge near Los Lances. AMARA Family & Surf is in La Marina. Its underground space and the supermarket opposite are property facts, not promises about the whole area.',
-        note: 'An AMARA guide written from experience – not a live service for wind and weather.',
-        updated: 'Reviewed August 2026'
+        eyebrow: 'Tarifa · Costa de la Luz',
+        title: 'Tarifa, between two seas',
+        subtitle: 'Atlantic to the west, the Strait to the east, the old town in between. And our apartment looking out over Los Lances.',
+        standfirst: 'Tarifa is small enough that you reach everything on foot, and lively enough that nobody has to go to bed early. The Levante from the east and the Poniente off the Atlantic shape the day more than the season does. We live in La Marina: five minutes to Los Lances beach, ten to fifteen into the old town, the balcony facing west, where the sun drops into the sea in the evening.',
+        note: '',
+        updated: 'As of August 2026'
       },
       keyFigures: {
         figures: [
@@ -130,97 +130,97 @@ export const tarifaLocationContent: {
           { value: '14.4 km', label: 'Europe – Africa at the narrowest point' },
           { value: '226 ha', label: 'Playa de los Lances protected area' }
         ],
-        note: 'Coastline lengths from the municipal emergency plan, distance from MITECO. The distance applies to the Strait, not to the town or the apartment, and promises no view of Africa.'
+        note: 'Coastline lengths of the municipality and the distance across the Strait, from the municipality and MITECO.'
       },
       geography: {
         eyebrow: 'Where you are',
-        title: 'Between the Atlantic and the Strait',
+        title: 'Two seas, a causeway between them',
         paragraphs: [
-          'At the causeway to Isla de Tarifa, Playa Chica lies on the Strait side while the long Los Lances–Valdevaqueros coast extends west along the Atlantic.',
-          'The town itself is compact. Old Town, newer quarter and beach edge sit close enough for many everyday journeys on foot. The western beaches and Bolonia lie outside that town pattern and require a separate journey.'
+          'At the causeway to the Isla de Tarifa the Mediterranean and the Atlantic meet. To the right lies the small Playa Chica on the Mediterranean side; to the left Los Lances begins and runs west for kilometres to Valdevaqueros.',
+          'The town itself is compact: old town behind the walls, La Marina on the western edge, between them Calle Batalla del Salado with the first bars. To Valdevaqueros and Bolonia you drive ten minutes along the N-340.'
         ],
         markers: [
-          { label: 'Two coasts', value: 'Playa Chica east; Los Lances extends west' },
-          { label: 'Town edge', value: 'La Marina lies west/north-west of the centre' },
-          { label: 'Further west', value: 'Valdevaqueros, Punta Paloma and Bolonia need a separate journey' }
+          { label: 'Two coasts', value: 'Playa Chica on the Mediterranean, Los Lances on the Atlantic' },
+          { label: 'La Marina', value: 'The western edge of town, between old town and beach' },
+          { label: 'Further west', value: 'Valdevaqueros, Punta Paloma and Bolonia, by car' }
         ],
-        link: { label: 'Geography & orientation in detail', token: 'tarifa_where_to_stay' }
+        link: { label: 'Tarifa’s areas in detail', token: 'tarifa_where_to_stay' }
       },
       arrival: {
-        eyebrow: 'Arrival & car',
-        title: 'You can walk around town; a car helps for the western beaches',
+        eyebrow: 'Arriving',
+        title: 'Along the N-340, and then straight into the garage',
         paragraphs: [
-          'Tarifa is reached by road from the region’s airports and rail hubs, as well as by current bus and ferry connections. Timetables and practical routes change, so the arrival guide carries that planning job.',
-          'Many journeys within town work on foot. Vehicle access and visitor-parking arrangements can change, however, so current signs and rules matter. The underground space recorded for AMARA Family & Surf belongs to that accommodation only.',
-          'A car becomes more useful for the western beaches and Bolonia. Access, parking and watersport zones vary by destination and conditions; do not rely on an informal lift or one stored rule for the whole coast.'
+          'From Málaga along the N-340, by coach to Calle Batalla del Salado, by ferry from Tangier into the port.',
+          'From Málaga it is 150 kilometres, a good hour and a half along the western Costa del Sol and through Algeciras. The coach stops at Calle Batalla del Salado, the ferry from Tangier in the port.',
+          'The apartment comes with an underground parking space: drive in, stop looking. In town you walk; you need the car for the western beaches and Bolonia.'
         ],
-        link: { label: 'Plan your journey to Tarifa', token: 'getting_to_tarifa' }
+        link: { label: 'Getting to Tarifa', token: 'getting_to_tarifa' }
       },
       areas: {
-        eyebrow: 'Where to stay',
-        title: 'Old Town or La Marina – and what that means every day',
+        eyebrow: 'Where you stay',
+        title: 'Old town or La Marina',
         paragraphs: [
-          'If you really want to stay in the Old Town, stay in the Old Town. That is not a half measure – it is a decision with daily consequences.',
-          'In the Old Town, historic streets begin at the door and luggage may cross cobbled lanes. Current vehicle access and parking depend on the applicable rules, so an exact arrival route must be checked for the accommodation you choose.',
+          'If you want to step out of the front door straight into the lanes in the evening, stay in the old town. If you want to see in the morning whether there is wind on Los Lances, and still walk into town in the evening, you stay with us in La Marina.',
+          'Los Lances and the Campo are worlds of their own: on the beach the wind as the programme, in the Campo quiet, space and the car for every journey.',
           'La Marina sits on the newer west/north-west town edge near Los Lances. AMARA Family & Surf has its own underground space and a supermarket opposite; those are property facts, not general La Marina characteristics. The Old Town remains a separate walk rather than the immediate doorstep.'
         ],
         archetypes: [
-          { title: 'Old Town', consequence: 'Historic streets at the door; vehicle access and parking require a current check for the exact stay.' },
-          { title: 'La Marina', consequence: 'Newer west/north-west town edge near Los Lances; garage and opposite supermarket apply only to AMARA.' },
-          { title: 'Los Lances corridor', consequence: 'A long Atlantic beach and protected landscape, not one uniform neighbourhood; check the exact accommodation setting.' },
-          { title: 'Countryside & hills', consequence: 'Distances and access vary by address, so the exact property determines how much of daily life depends on a car.' }
+          { title: 'Old Town', consequence: 'Lanes, tapas and the Castillo outside the door; tight and little parking.' },
+          { title: 'La Marina', consequence: 'Between old town and beach, five minutes to Los Lances. This is where AMARA Family & Surf is.' },
+          { title: 'Los Lances', consequence: 'The long Atlantic beach, where the wind is the programme.' },
+          { title: 'Campo & hills', consequence: 'Fincas with views over the Strait, everything by car.' }
         ],
         link: { label: 'Compare Tarifa’s areas in depth', token: 'tarifa_where_to_stay' }
       },
       weather: {
         eyebrow: 'Wind & seasons',
-        title: 'Current conditions decide which beach fits today',
+        title: 'In Tarifa you do not ask about the sun, but about the wind',
         paragraphs: [
-          'Wind is part of Tarifa’s identity, but a beach-day decision also depends on the current marine forecast, flags, seasonal zoning and the activity you have in mind.',
-          'Northern Los Lances and Valdevaqueros are established watersport areas, but no beach is universally suitable from the words Levante or Poniente alone. Check live conditions and follow local safety or instructor guidance.',
+          'The Levante comes from the east, warm and strong, and sets the sand moving on Los Lances; then Playa Chica on the Mediterranean side is the beach for swimming. The Poniente comes off the Atlantic, steadier, and brings the waves: the wind we go out on the water in ourselves.',
+          'In summer the wind keeps the heat in check; the records barely exceed 37 degrees. In winter it stays mild, around 14 to 15 degrees, and windy enough for kiting.',
           'At accommodation level, orientation and building context affect exposure. We do not promise shelter for La Marina or AMARA Family & Surf without site-specific evidence for the actual conditions.'
         ],
-        link: { label: 'Explore Tarifa weather & seasons', token: 'tarifa_weather' }
+        link: { label: 'Weather in Tarifa', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Daily life',
         title: 'What repeats after three days',
         paragraphs: [
-          'AMARA Family & Surf has a supermarket directly opposite; that is a property-specific convenience, not a general La Marina feature. Shop operation and Sunday or seasonal hours need a current check.',
-          'Restaurants and bars cluster in the Old Town and along Calle Batalla del Salado, both walkable from La Marina. Which addresses are actually worth it is in the Experience guide.'
+          'Mercadona opposite, bread at Pastelito or Bernal, the pharmacy in the same street.',
+          'In the evening Calle Batalla del Salado and the lanes of the old town, both on foot from La Marina.'
         ]
       },
       winter: {
         eyebrow: 'From September',
-        title: 'From September Tarifa becomes a different place',
+        title: 'From September Tarifa belongs again to the people who live here',
         paragraphs: [
-          'From our experience, parking pressure is especially high in July and August, although that is a seasonal observation rather than a promise that spaces are impossible to find. AMARA currently records an underground space for this accommodation; confirm access and dimensions for your booking.',
-          'From September it gets quieter. You feel the calm, you start talking to locals, you get to know people. For us this is the loveliest time here.',
-          'For longer stays, heating, dryness and a place to work matter alongside beach access. Check those features for the individual accommodation rather than inferring them from Old Town or La Marina.'
+          'In July and August the town is full and parking is a chore; we then drive to Valdevaqueros to kite and into the garage to park.',
+          'From September it gets quiet. You meet the same faces in the supermarket, get talking with locals, and the club runs its kite camps. For us this is the loveliest time here.',
+          'For longer stays the apartment has a fireplace, heating, kitchen and washing machine, and the supermarket is opposite.'
         ]
       },
       amara: {
         eyebrow: 'Our apartment',
-        title: 'Why we host our guests in La Marina',
+        title: 'Why we live in La Marina',
         paragraphs: [
-          'The balcony faces west over the Atlantic. That orientation belongs to this apartment; it does not establish a general La Marina view or a promise that the African coast will be visible.',
-          'The bedroom sits above it, with the same view. You wake up with the sea. What guests say most often on arrival: that the apartment is even more beautiful than in the photos.',
-          'Our connection to Tarifa is personal: Robert lived here for months at a time, kitesurfing and building friendships. When this apartment came up for sale, we bought it and modernised it. Because of the evenings. And because it simply works day to day.',
+          'The balcony faces west over the Atlantic; in the evening the sun goes down into the sea there. Above it is the bedroom with the same view: you wake up with the sea, and when there is wind, you see it in the kites over Los Lances.',
+          'Robert has lived here for months at a time, again and again, to kitesurf and to be with friends. When the apartment came up for sale, we bought it and modernised it. Because of the evenings, and because it simply works day to day: 75 square metres on two floors, two bedrooms, two bathrooms, underground garage for car and boards, the supermarket opposite.',
+          'The pool belongs to the complex and is open in summer. If you want the Castillo outside the door, you are better off in the old town; if you want to see the beach, with us.',
           'One thing worth saying plainly: if you want historic Tarifa right outside your door, the Old Town will suit you better than we do. The pool belongs to the complex rather than the apartment and operates seasonally; check the current opening period before booking.'
         ],
         facts: [
-          '75 m² over two levels – bedroom with sea view',
-          'Large west-facing balcony over the Atlantic',
-          'Private underground parking space for this accommodation',
-          'Supermarket directly opposite this accommodation',
-          'Old Town is a separate walk, not the immediate doorstep'
+          '75 m² on two levels, bedroom with sea view',
+          'West-facing balcony over the Atlantic',
+          'Underground parking space for car and boards',
+          'Supermarket opposite, Los Lances five minutes on foot',
+          'Old town ten to fifteen minutes on foot'
         ],
         link: { label: 'View AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {
         eyebrow: 'Your days here',
-        title: 'What would you like to do in Tarifa?',
-        paragraphs: ['Use our experience guide to choose between beaches, wind and watersports, food, nature, the Old Town and a full day in Bolonia.'],
+        title: 'Beach, wind, old town and a day in Bolonia',
+        paragraphs: ['Açaí bowl at SURLA or Powerhouse in the morning, wind at midday, tapas in the lanes in the evening, and at the bar next to you might sit a kitesurfing world champion. Bolonia with the Roman town of Baelo Claudia fills a whole day; in migration season the birds cross the Strait.'],
         links: [
           { label: 'Things to do in Tarifa', token: 'tarifa_experience_hub' },
           { label: 'Explore Tarifa beaches', token: 'tarifa_beaches_authority' },
@@ -351,12 +351,12 @@ export const tarifaLocationContent: {
     },
     es: {
       hero: {
-        eyebrow: 'Tarifa · Ubicación y estancia',
-        title: 'Tarifa, la ciudad continental más meridional de Europa',
-        subtitle: 'Atlántico al oeste, Estrecho al este y el casco antiguo en medio. Y nuestro apartamento en La Marina.',
-        standfirst: 'El casco antiguo, el borde de playa y los barrios más nuevos de Tarifa están lo bastante próximos para resolver muchos trayectos a pie; Valdevaqueros y Bolonia requieren, en cambio, un desplazamiento propio hacia el oeste. En el casco antiguo tendréis calles históricas y restaurantes alrededor. La Marina queda en el borde oeste o noroeste de la localidad, cerca de Los Lances. Allí se encuentra AMARA Family & Surf. Su plaza subterránea y el supermercado de enfrente son características del alojamiento, no promesas sobre toda La Marina.',
-        note: 'Una guía de AMARA escrita desde la experiencia; no es un servicio de condiciones en directo.',
-        updated: 'Revisado en agosto de 2026'
+        eyebrow: 'Tarifa · Costa de la Luz',
+        title: 'Tarifa, entre dos mares',
+        subtitle: 'Atlántico al oeste, Estrecho al este, el casco antiguo en medio. Y nuestro apartamento con vistas a Los Lances.',
+        standfirst: 'Tarifa es lo bastante pequeña para llegar a todo a pie, y lo bastante viva para que nadie tenga que irse pronto a la cama. El levante del este y el poniente del Atlántico marcan el día más que la estación. Nosotros estamos en La Marina: cinco minutos a la playa de Los Lances, diez o quince al casco antiguo, el balcón hacia el oeste, donde por la tarde el sol cae al mar.',
+        note: '',
+        updated: 'Actualizado en agosto de 2026'
       },
       keyFigures: {
         figures: [
@@ -365,97 +365,97 @@ export const tarifaLocationContent: {
           { value: '14,4 km', label: 'Europa – África en el punto más estrecho' },
           { value: '226 ha', label: 'Paraje protegido Playa de los Lances' }
         ],
-        note: 'Longitudes de costa según el plan municipal de emergencias; distancia según MITECO. La distancia se refiere al Estrecho, no al pueblo ni al apartamento, y no garantiza ver África.'
+        note: 'Longitudes de costa del municipio y distancia a través del Estrecho, según el ayuntamiento y el MITECO.'
       },
       geography: {
         eyebrow: 'Dónde estáis',
-        title: 'Entre el Atlántico y el Estrecho',
+        title: 'Dos mares, un dique en medio',
         paragraphs: [
-          'En el espigón de acceso a la Isla de Tarifa, Playa Chica queda del lado del Estrecho, mientras la larga costa de Los Lances a Valdevaqueros se extiende hacia el oeste por el Atlántico.',
-          'La localidad es compacta. Casco antiguo, parte nueva y borde de playa quedan cerca para muchos trayectos cotidianos a pie. Las playas del oeste y Bolonia están fuera de ese tejido urbano y requieren un desplazamiento propio.'
+          'En el dique de la Isla de Tarifa se encuentran el Mediterráneo y el Atlántico. A la derecha queda la pequeña Playa Chica, del lado mediterráneo; a la izquierda empieza Los Lances y se extiende kilómetros hacia el oeste hasta Valdevaqueros.',
+          'El pueblo es compacto: casco antiguo tras las murallas, La Marina en el borde oeste, en medio la calle Batalla del Salado con los primeros bares. A Valdevaqueros y Bolonia vais diez minutos por la N-340.'
         ],
         markers: [
-          { label: 'Dos costas', value: 'Playa Chica al este; Los Lances se extiende hacia el oeste' },
-          { label: 'Borde urbano', value: 'La Marina queda al oeste o noroeste del centro' },
-          { label: 'Más al oeste', value: 'Valdevaqueros, Punta Paloma y Bolonia requieren otro trayecto' }
+          { label: 'Dos costas', value: 'Playa Chica en el Mediterráneo, Los Lances en el Atlántico' },
+          { label: 'La Marina', value: 'El borde oeste del pueblo, entre el casco antiguo y la playa' },
+          { label: 'Más al oeste', value: 'Valdevaqueros, Punta Paloma y Bolonia, en coche' }
         ],
-        link: { label: 'Geografía y orientación en detalle', token: 'tarifa_where_to_stay' }
+        link: { label: 'Las zonas de Tarifa en detalle', token: 'tarifa_where_to_stay' }
       },
       arrival: {
-        eyebrow: 'Llegada y coche',
-        title: 'En el pueblo podéis moveros a pie; para las playas del oeste conviene el coche',
+        eyebrow: 'Llegar',
+        title: 'Por la N-340, y luego directo al garaje',
         paragraphs: [
-          'A Tarifa se llega por carretera desde los aeropuertos y estaciones de la región, además de mediante las conexiones actuales de autobús y ferry. Los horarios y las rutas prácticas cambian, por lo que la planificación concreta corresponde a la guía de llegada.',
-          'Muchos trayectos dentro de la localidad funcionan a pie. Sin embargo, el acceso de vehículos y el aparcamiento para visitantes pueden cambiar; importan las señales y normas vigentes. La plaza subterránea documentada para AMARA Family & Surf pertenece únicamente a ese alojamiento.',
-          'El coche resulta más útil para las playas del oeste y Bolonia. Acceso, aparcamiento y zonas de deportes acuáticos varían según el destino y las condiciones; no dependáis de un traslado informal ni de una sola regla fija para toda la costa.'
+          'Desde Málaga por la N-340, en autobús hasta la calle Batalla del Salado, en ferry desde Tánger al puerto.',
+          'Desde Málaga son 150 kilómetros, una hora y media larga por la Costa del Sol occidental y a través de Algeciras. El autobús para en la calle Batalla del Salado, el ferry de Tánger en el puerto.',
+          'El apartamento incluye plaza en el garaje subterráneo: entrar y dejar de buscar. En el pueblo vais a pie; el coche lo necesitáis para las playas del oeste y Bolonia.'
         ],
-        link: { label: 'Planificar la llegada a Tarifa', token: 'getting_to_tarifa' }
+        link: { label: 'Cómo llegar a Tarifa', token: 'getting_to_tarifa' }
       },
       areas: {
-        eyebrow: 'Dónde alojarse',
-        title: 'Casco antiguo o La Marina: qué significa cada día',
+        eyebrow: 'Dónde os alojáis',
+        title: 'Casco antiguo o La Marina',
         paragraphs: [
-          'Quien quiera alojarse sí o sí en el casco antiguo, que se aloje en el casco antiguo. No es una solución a medias: es una decisión con consecuencias diarias.',
-          'En el casco antiguo, las calles históricas empiezan en la puerta y el equipaje puede pasar sobre adoquines. El acceso de vehículos y el aparcamiento dependen de las normas vigentes, así que conviene comprobar la llegada exacta del alojamiento elegido.',
+          'Si por la noche queréis salir de casa directamente a las callejuelas, alojaos en el casco antiguo. Si por la mañana queréis ver si hay viento en Los Lances, y por la noche ir igualmente a pie al pueblo, os alojáis con nosotros en La Marina.',
+          'Los Lances y el campo son mundos propios: en la playa el viento como programa, en el campo tranquilidad, amplitud y el coche para cada trayecto.',
           'La Marina queda en el borde urbano más nuevo, al oeste o noroeste, cerca de Los Lances. AMARA Family & Surf tiene plaza subterránea propia y un supermercado enfrente. Son características de ese alojamiento, no de toda La Marina. El casco antiguo sigue siendo un paseo separado y no queda justo a la puerta.'
         ],
         archetypes: [
-          { title: 'Casco Antiguo', consequence: 'Calles históricas en la puerta; acceso y aparcamiento deben comprobarse para el alojamiento concreto.' },
-          { title: 'La Marina', consequence: 'Borde urbano más nuevo al oeste o noroeste, cerca de Los Lances; garaje y supermercado enfrente corresponden solo a AMARA.' },
-          { title: 'Corredor de Los Lances', consequence: 'Una larga playa atlántica y un paisaje protegido, no un barrio uniforme; importa la ubicación exacta del alojamiento.' },
-          { title: 'Campo y colinas', consequence: 'Las distancias y el acceso cambian según la dirección; la propiedad concreta determina cuánto depende el día a día del coche.' }
+          { title: 'Casco Antiguo', consequence: 'Callejuelas, tapas y el castillo en la puerta; estrecho y poco aparcamiento.' },
+          { title: 'La Marina', consequence: 'Entre casco antiguo y playa, a cinco minutos de Los Lances. Aquí está AMARA Family & Surf.' },
+          { title: 'Los Lances', consequence: 'La larga playa atlántica, donde el viento es el programa.' },
+          { title: 'Campo y colinas', consequence: 'Fincas con vistas al Estrecho, todo en coche.' }
         ],
         link: { label: 'Comparar en detalle las zonas de Tarifa', token: 'tarifa_where_to_stay' }
       },
       weather: {
         eyebrow: 'Viento y estaciones',
-        title: 'Las condiciones actuales deciden qué playa encaja hoy',
+        title: 'En Tarifa no se pregunta por el sol, sino por el viento',
         paragraphs: [
-          'El viento forma parte de la identidad de Tarifa, pero la elección de playa también depende de la previsión marítima actual, las banderas, la zonificación estacional y la actividad prevista.',
-          'El norte de Los Lances y Valdevaqueros son zonas consolidadas para deportes acuáticos, pero levante o poniente por sí solos no hacen que una playa sea adecuada para todo el mundo. Consultad las condiciones actuales y seguid las indicaciones locales de seguridad o de vuestro instructor.',
+          'El levante viene del este, cálido y fuerte, y pone en movimiento la arena de Los Lances; entonces la Playa Chica, del lado mediterráneo, es la playa para bañarse. El poniente viene del Atlántico, más regular, y trae la ola: el viento con el que salimos al agua nosotros mismos.',
+          'En verano el viento mantiene a raya el calor; los récords apenas pasan de 37 grados. En invierno sigue templado, entre 14 y 15 grados, y con viento suficiente para el kite.',
           'En un alojamiento, la orientación y el edificio cambian la exposición. Sin pruebas específicas del lugar y de las condiciones, no prometemos resguardo ni para La Marina ni para AMARA Family & Surf.'
         ],
-        link: { label: 'Tiempo y estaciones en Tarifa', token: 'tarifa_weather' }
+        link: { label: 'El tiempo en Tarifa', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Vida diaria',
         title: 'Lo que se repite a partir del tercer día',
         paragraphs: [
-          'AMARA Family & Surf tiene un supermercado justo enfrente. Es una comodidad propia del alojamiento, no una característica general de La Marina. El funcionamiento y los horarios dominicales o de temporada deben comprobarse en el momento.',
-          'Los restaurantes y bares se concentran en el casco antiguo y en la Calle Batalla del Salado, ambos accesibles a pie desde La Marina. Qué direcciones merecen realmente la pena está en la guía de experiencias.'
+          'Mercadona enfrente, pan en Pastelito o Bernal, la farmacia en la misma calle.',
+          'Por la noche la calle Batalla del Salado y las callejuelas del casco antiguo, ambas a pie desde La Marina.'
         ]
       },
       winter: {
         eyebrow: 'A partir de septiembre',
-        title: 'A partir de septiembre Tarifa es otro lugar',
+        title: 'A partir de septiembre Tarifa vuelve a ser de la gente que vive aquí',
         paragraphs: [
-          'Según nuestra experiencia, la presión de aparcamiento es especialmente alta en julio y agosto. Es una observación estacional, no una prueba de que aparcar sea imposible. AMARA registra una plaza subterránea para este alojamiento; confirmad acceso y dimensiones para vuestra reserva.',
-          'A partir de septiembre llega la calma. Se nota la tranquilidad, se habla con la gente del pueblo, se hacen conocidos. Para nosotros es la época más bonita de aquí.',
-          'En estancias largas importan, además de la playa, la calefacción, la ausencia de humedad y un lugar para trabajar. Comprobadlo en cada alojamiento en lugar de deducirlo del casco antiguo o de La Marina.'
+          'En julio y agosto el pueblo está lleno y aparcar es un fastidio; entonces vamos a Valdevaqueros a hacer kite y al garaje a aparcar.',
+          'A partir de septiembre llega la calma. Se ven las mismas caras en el supermercado, se habla con la gente de aquí, y el club hace sus kitecamps. Para nosotros es la época más bonita.',
+          'Para estancias largas el apartamento tiene chimenea, calefacción, cocina y lavadora, y el supermercado está enfrente.'
         ]
       },
       amara: {
         eyebrow: 'Nuestro apartamento',
-        title: 'Por qué alojamos a nuestros huéspedes en La Marina',
+        title: 'Por qué vivimos en La Marina',
         paragraphs: [
-          'El balcón mira al oeste sobre el Atlántico. Esa orientación pertenece a este apartamento; no demuestra una vista general desde La Marina ni garantiza que la costa africana sea visible.',
-          'Encima está el dormitorio, con la misma vista. Os despertáis con el mar. Lo que más dicen los huéspedes al llegar: que el apartamento es aún más bonito que en las fotos.',
-          'Nuestra relación con Tarifa es personal: Robert vivió aquí temporadas de varios meses, entre kitesurf y amigos. Cuando este apartamento salió a la venta, lo compramos y lo reformamos. Por las tardes. Y porque en el día a día simplemente funciona.',
+          'El balcón mira al oeste, sobre el Atlántico; por la tarde el sol se pone allí en el mar. Encima está el dormitorio con la misma vista: os despertáis con el mar, y cuando hay viento lo veis en las cometas sobre Los Lances.',
+          'Robert ha vivido aquí una y otra vez durante meses, para hacer kitesurf y con amigos. Cuando el apartamento salió a la venta, lo compramos y lo modernizamos. Por las tardes, y porque en el día a día simplemente funciona: 75 metros cuadrados en dos plantas, dos dormitorios, dos baños, garaje para el coche y las tablas, el supermercado enfrente.',
+          'La piscina es de la urbanización y abre en verano. Quien quiera el castillo en la puerta, mejor en el casco antiguo; quien quiera ver la playa, con nosotros.',
           'Lo decimos con claridad: si queréis la Tarifa histórica justo en la puerta, el casco antiguo os encajará mejor que nosotros. La piscina pertenece a la comunidad, no al apartamento, y funciona por temporada; comprobad el periodo actual antes de reservar.'
         ],
         facts: [
-          '75 m² en dos niveles: dormitorio con vistas al mar',
-          'Balcón amplio orientado al oeste sobre el Atlántico',
-          'Plaza privada en garaje subterráneo para este alojamiento',
-          'Supermercado justo enfrente de este alojamiento',
-          'El casco antiguo requiere otro paseo y no queda a la puerta'
+          '75 m² en dos niveles, dormitorio con vistas al mar',
+          'Balcón al oeste sobre el Atlántico',
+          'Plaza de garaje para coche y tablas',
+          'Supermercado enfrente, Los Lances a cinco minutos a pie',
+          'Casco antiguo a diez o quince minutos a pie'
         ],
         link: { label: 'Ver AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {
         eyebrow: 'Vuestros días aquí',
-        title: '¿Qué os apetece hacer en Tarifa?',
-        paragraphs: ['En la guía de experiencias podéis elegir entre playa, viento y deportes acuáticos, gastronomía, naturaleza, casco antiguo y un día completo en Bolonia.'],
+        title: 'Playa, viento, casco antiguo y un día en Bolonia',
+        paragraphs: ['Por la mañana un açaí bowl en SURLA o Powerhouse, a mediodía viento, por la noche tapas en las callejuelas, y en la barra de al lado quizá se sienta un campeón del mundo de kitesurf. Bolonia con la ciudad romana de Baelo Claudia llena un día entero; en época de paso, las aves cruzan el Estrecho.'],
         links: [
           { label: 'Qué hacer en Tarifa', token: 'tarifa_experience_hub' },
           { label: 'Explorar las playas de Tarifa', token: 'tarifa_beaches_authority' },
@@ -470,12 +470,12 @@ export const tarifaLocationContent: {
     },
     nl: {
       hero: {
-        eyebrow: 'Tarifa · Ligging & verblijf',
-        title: 'Tarifa, de zuidelijkste stad van het Europese vasteland',
-        subtitle: 'De Atlantische Oceaan in het westen, de Straat in het oosten, de oude stad ertussen. En ons appartement in La Marina.',
-        standfirst: 'De oude stad, de strandrand en de nieuwere wijken van Tarifa liggen dicht genoeg bij elkaar om veel routes te voet af te leggen; Valdevaqueros en Bolonia vragen om een aparte tocht naar het westen. In de oude stad liggen historische straten en restaurants om jullie heen. La Marina ligt aan de nieuwere westelijke tot noordwestelijke stadsrand bij Los Lances. Daar ligt AMARA Family & Surf. De ondergrondse parkeerplaats en supermarkt aan de overkant horen bij deze accommodatie en zijn geen belofte voor heel La Marina.',
-        note: 'Een AMARA-gids uit eigen ervaring — geen live informatiedienst voor wind en weer.',
-        updated: 'Gecontroleerd in augustus 2026'
+        eyebrow: 'Tarifa · Costa de la Luz',
+        title: 'Tarifa, tussen twee zeeën',
+        subtitle: 'Atlantische Oceaan in het westen, Straat in het oosten, de oude stad ertussen. En ons appartement met uitzicht op Los Lances.',
+        standfirst: 'Tarifa is klein genoeg om alles te voet te bereiken, en levendig genoeg dat niemand vroeg naar bed hoeft. De Levante uit het oosten en de Poniente vanaf de Atlantische Oceaan bepalen de dag meer dan het seizoen. Wij wonen in La Marina: vijf minuten naar het strand van Los Lances, tien tot vijftien naar de oude stad, het balkon op het westen, waar ’s avonds de zon in zee valt.',
+        note: '',
+        updated: 'Stand augustus 2026'
       },
       keyFigures: {
         figures: [
@@ -484,97 +484,97 @@ export const tarifaLocationContent: {
           { value: '14,4 km', label: 'Europa – Afrika op het smalste punt' },
           { value: '226 ha', label: 'Beschermd natuurgebied Playa de los Lances' }
         ],
-        note: 'Kustlengtes volgens het gemeentelijke rampenplan, afstand volgens MITECO. De afstand geldt voor de Straat, niet voor het dorp of het appartement, en belooft geen zicht op Afrika.'
+        note: 'Kustlengtes van de gemeente en de afstand over de Straat, volgens gemeente en MITECO.'
       },
       geography: {
         eyebrow: 'Waar jullie zijn',
-        title: 'Tussen de Atlantische Oceaan en de Straat',
+        title: 'Twee zeeën, een dam ertussen',
         paragraphs: [
-          'Bij de dam naar Isla de Tarifa ligt Playa Chica aan de zijde van de Straat, terwijl de lange kust van Los Lances tot Valdevaqueros zich westwaarts langs de Atlantische Oceaan uitstrekt.',
-          'De plaats zelf is compact. Oude stad, nieuwer deel en strandrand liggen voor veel dagelijkse routes dicht genoeg bij elkaar. De westelijke stranden en Bolonia liggen buiten dit stadsweefsel en vragen om een aparte tocht.'
+          'Bij de dam naar de Isla de Tarifa komen Middellandse Zee en Atlantische Oceaan samen. Rechts ervan ligt de kleine Playa Chica aan de Middellandse Zee-kant, links begint Los Lances en trekt zich kilometers naar het westen tot Valdevaqueros.',
+          'De plaats zelf is compact: oude stad achter de muren, La Marina aan de westrand, ertussen de Calle Batalla del Salado met de eerste bars. Naar Valdevaqueros en Bolonia rijd je tien minuten over de N-340.'
         ],
         markers: [
-          { label: 'Twee kusten', value: 'Playa Chica oostelijk; Los Lances strekt zich westwaarts uit' },
-          { label: 'Stadsrand', value: 'La Marina ligt westelijk tot noordwestelijk van het centrum' },
-          { label: 'Verder westelijk', value: 'Valdevaqueros, Punta Paloma en Bolonia vragen om een aparte tocht' }
+          { label: 'Twee kusten', value: 'Playa Chica aan de Middellandse Zee, Los Lances aan de Atlantische Oceaan' },
+          { label: 'La Marina', value: 'De westelijke rand van de plaats, tussen oude stad en strand' },
+          { label: 'Verder westelijk', value: 'Valdevaqueros, Punta Paloma en Bolonia, met de auto' }
         ],
-        link: { label: 'Geografie & oriëntatie in detail', token: 'tarifa_where_to_stay' }
+        link: { label: 'De ligging van Tarifa in detail', token: 'tarifa_where_to_stay' }
       },
       arrival: {
-        eyebrow: 'Aankomst & auto',
-        title: 'In de stad kan veel te voet; voor de westelijke stranden is een auto handig',
+        eyebrow: 'Aankomen',
+        title: 'Over de N-340, en dan direct de garage in',
         paragraphs: [
-          'Tarifa is over de weg bereikbaar vanaf de luchthavens en treinstations in de regio, naast de actuele bus- en veerverbindingen. Dienstregelingen en praktische routes veranderen; de aankomstgids behandelt daarom de concrete planning.',
-          'Veel routes binnen de plaats werken te voet. Toegang voor voertuigen en bezoekersparkeren kunnen echter veranderen, dus actuele borden en regels zijn bepalend. De voor AMARA Family & Surf vastgelegde ondergrondse parkeerplaats hoort alleen bij deze accommodatie.',
-          'Voor de westelijke stranden en Bolonia wordt een auto nuttiger. Toegang, parkeren en watersportzones verschillen per bestemming en omstandigheden; vertrouw niet op een informele lift of één vaste regel voor de hele kust.'
+          'Vanuit Málaga over de N-340, met de streekbus tot de Calle Batalla del Salado, met de veerboot uit Tanger de haven in.',
+          'Vanuit Málaga is het 150 kilometer, ruim anderhalf uur over de westelijke Costa del Sol en door Algeciras. De streekbus stopt aan de Calle Batalla del Salado, de veerboot uit Tanger in de haven.',
+          'Bij het appartement hoort een plek in de ondergrondse garage: naar binnen rijden, klaar met zoeken. In de plaats loop je, de auto heb je nodig voor de westelijke stranden en Bolonia.'
         ],
-        link: { label: 'De reis naar Tarifa plannen', token: 'getting_to_tarifa' }
+        link: { label: 'Aankomst in Tarifa', token: 'getting_to_tarifa' }
       },
       areas: {
-        eyebrow: 'Waar overnachten',
-        title: 'Oude stad of La Marina – en wat dat elke dag betekent',
+        eyebrow: 'Waar jullie wonen',
+        title: 'Oude stad of La Marina',
         paragraphs: [
-          'Wie per se in de oude stad wil verblijven, moet in de oude stad verblijven. Dat is geen halve keuze — dat is een besluit met dagelijkse gevolgen.',
-          'In de oude stad beginnen de historische straten voor de deur en kan bagage over kasseien gaan. Toegang voor voertuigen en parkeren hangen af van de geldende regels; controleer daarom de precieze aankomst bij de gekozen accommodatie.',
+          'Wil je ’s avonds vanuit de voordeur direct de steegjes in, dan woon je in de oude stad. Wil je ’s ochtends zien of er wind staat op Los Lances, en ’s avonds toch te voet de stad in, dan woon je bij ons in La Marina.',
+          'Los Lances en het Campo zijn eigen werelden: op het strand de wind als programma, in het Campo rust, ruimte en de auto voor elke weg.',
           'La Marina ligt aan de nieuwere westelijke tot noordwestelijke stadsrand bij Los Lances. AMARA Family & Surf heeft een eigen ondergrondse parkeerplaats en een supermarkt aan de overkant. Dat zijn eigenschappen van deze accommodatie, niet van heel La Marina. De oude stad blijft een aparte wandeling en ligt niet direct voor de deur.'
         ],
         archetypes: [
-          { title: 'Oude stad', consequence: 'Historische straten voor de deur; controleer toegang en parkeren voor de precieze accommodatie.' },
-          { title: 'La Marina', consequence: 'Nieuwere westelijke tot noordwestelijke stadsrand bij Los Lances; garage en supermarkt aan de overkant gelden alleen voor AMARA.' },
-          { title: 'Los-Lances-corridor', consequence: 'Een lang Atlantisch strand en beschermd landschap, geen uniforme wijk; de exacte ligging van de accommodatie is bepalend.' },
-          { title: 'Buitengebied & heuvels', consequence: 'Afstanden en toegang verschillen per adres; de precieze accommodatie bepaalt hoeveel van het dagelijks leven van een auto afhangt.' }
+          { title: 'Oude stad', consequence: 'Steegjes, tapas en het Castillo voor de deur; nauw en weinig parkeerruimte.' },
+          { title: 'La Marina', consequence: 'Tussen oude stad en strand, vijf minuten naar Los Lances. Hier ligt AMARA Family & Surf.' },
+          { title: 'Los Lances', consequence: 'Het lange Atlantische strand, waar de wind het programma is.' },
+          { title: 'Campo & heuvels', consequence: 'Finca’s met uitzicht over de Straat, alles met de auto.' }
         ],
         link: { label: 'Vergelijk de gebieden van Tarifa uitgebreid', token: 'tarifa_where_to_stay' }
       },
       weather: {
         eyebrow: 'Wind & seizoenen',
-        title: 'De actuele omstandigheden bepalen welk strand vandaag past',
+        title: 'In Tarifa vraag je niet naar de zon, maar naar de wind',
         paragraphs: [
-          'Wind hoort bij de identiteit van Tarifa, maar de keuze voor een strand hangt ook af van de actuele zeevoorspelling, vlaggen, seizoenszones en de activiteit die jullie willen doen.',
-          'Het noorden van Los Lances en Valdevaqueros zijn gevestigde watersportgebieden, maar levante of poniente alleen maakt geen enkel strand voor iedereen geschikt. Controleer de actuele omstandigheden en volg lokale veiligheids- of instructeursadviezen.',
+          'De Levante komt uit het oosten, warm en krachtig, en zet op Los Lances het zand in beweging; dan is Playa Chica aan de Middellandse Zee-kant het strand om te zwemmen. De Poniente komt van de Atlantische Oceaan, gelijkmatiger, en brengt de golf: de wind waarmee we zelf het water opgaan.',
+          'In de zomer houdt de wind de hitte in de hand, de records liggen nauwelijks boven 37 graden. In de winter blijft het mild, rond 14 tot 15 graden, en winderig genoeg om te kiten.',
           'Bij een accommodatie beïnvloeden oriëntatie en gebouwcontext de blootstelling aan wind. Zonder plaatsgebonden bewijs voor de werkelijke omstandigheden beloven we geen beschutting voor La Marina of AMARA Family & Surf.'
         ],
-        link: { label: 'Bekijk weer & seizoenen in Tarifa', token: 'tarifa_weather' }
+        link: { label: 'Weer in Tarifa', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Dagelijks leven',
         title: 'Wat zich na drie dagen herhaalt',
         paragraphs: [
-          'AMARA Family & Surf heeft een supermarkt direct aan de overkant. Dat is een voordeel van deze accommodatie en geen algemeen kenmerk van La Marina. Controleer de actuele opening en zondag- of seizoenstijden.',
-          'Restaurants en bars concentreren zich in de oude stad en langs de Calle Batalla del Salado, allebei te voet bereikbaar vanuit La Marina. Welke adressen echt de moeite waard zijn, staat in de ervaringsgids.'
+          'Mercadona aan de overkant, brood bij Pastelito of Bernal, de apotheek in dezelfde straat.',
+          '’s Avonds de Calle Batalla del Salado en de steegjes van de oude stad, beide te voet vanuit La Marina.'
         ]
       },
       winter: {
         eyebrow: 'Vanaf september',
-        title: 'Vanaf september is Tarifa een andere plek',
+        title: 'Vanaf september is Tarifa weer van de mensen die hier wonen',
         paragraphs: [
-          'Naar onze ervaring is de parkeerdruk in juli en augustus bijzonder hoog. Dat is een seizoenswaarneming en geen bewijs dat parkeren onmogelijk is. Voor AMARA staat een ondergrondse parkeerplaats geregistreerd; bevestig toegang en afmetingen voor jullie boeking.',
-          'Vanaf september wordt het rustiger. Jullie merken de rust, raken aan de praat met mensen uit het dorp en leren hier mensen kennen. Voor ons is dat de mooiste tijd van het jaar.',
-          'Bij een langer verblijf tellen naast het strand ook verwarming, droogte en een werkplek. Controleer die kenmerken per accommodatie in plaats van ze uit de oude stad of La Marina af te leiden.'
+          'In juli en augustus is de plaats vol en parkeren een gedoe; wij rijden dan naar Valdevaqueros om te kiten en de garage in om te parkeren.',
+          'Vanaf september wordt het rustig. Je ziet dezelfde gezichten in de supermarkt, raakt aan de praat met locals, en de club draait zijn kitecamps. Voor ons is dat de mooiste tijd hier.',
+          'Voor langere verblijven heeft het appartement een open haard, verwarming, keuken en wasmachine, en de supermarkt ligt aan de overkant.'
         ]
       },
       amara: {
         eyebrow: 'Ons appartement',
-        title: 'Waarom wij onze gasten in La Marina ontvangen',
+        title: 'Waarom wij in La Marina wonen',
         paragraphs: [
-          'Het balkon ligt op het westen boven de Atlantische Oceaan. Die oriëntatie hoort bij dit appartement; ze bewijst geen algemeen uitzicht vanuit La Marina en garandeert niet dat de Afrikaanse kust zichtbaar is.',
-          'Daarboven ligt de slaapkamer, met hetzelfde uitzicht. Jullie worden wakker met de zee. Wat gasten bij aankomst het vaakst zeggen: dat het appartement in het echt nog mooier is dan op de foto\'s.',
-          'Onze band met Tarifa is persoonlijk: Robert woonde hier telkens enkele maanden, om te kitesurfen en tijd met vrienden door te brengen. Toen dit appartement te koop stond, hebben we het gekocht en gemoderniseerd. Vanwege de avonden. En omdat het in het dagelijks leven gewoon werkt.',
+          'Het balkon kijkt naar het westen over de Atlantische Oceaan, ’s avonds gaat daar de zon in zee. Daarboven ligt de slaapkamer met hetzelfde uitzicht: je wordt wakker met de zee, en als er wind staat, zie je het aan de kites boven Los Lances.',
+          'Robert heeft hier steeds weer maandenlang gewoond, om te kitesurfen en met vrienden. Toen het appartement te koop kwam, hebben we het gekocht en gemoderniseerd. Vanwege de avonden, en omdat het in het dagelijks leven gewoon werkt: 75 vierkante meter op twee verdiepingen, twee slaapkamers, twee badkamers, ondergrondse garage voor auto en boards, de supermarkt aan de overkant.',
+          'Het zwembad hoort bij het complex en is in de zomer open. Wie het Castillo voor de deur wil, woont beter in de oude stad; wie het strand wil zien, bij ons.',
           'Eén ding zeggen we open: willen jullie het historische Tarifa direct voor de deur, dan past de oude stad beter bij jullie dan wij. Het zwembad hoort bij het complex, niet bij het appartement, en is seizoensgebonden; controleer de actuele openingsperiode voor het boeken.'
         ],
         facts: [
-          '75 m² op twee niveaus – slaapkamer met zeezicht',
-          'Groot westbalkon boven de Atlantische Oceaan',
-          'Privéparkeerplaats in de ondergrondse garage voor deze accommodatie',
-          'Supermarkt direct tegenover deze accommodatie',
-          'De oude stad is een aparte wandeling en ligt niet direct voor de deur'
+          '75 m² op twee niveaus, slaapkamer met zeezicht',
+          'Westbalkon boven de Atlantische Oceaan',
+          'Ondergrondse parkeerplaats voor auto en boards',
+          'Supermarkt aan de overkant, Los Lances vijf minuten te voet',
+          'Oude stad tien tot vijftien minuten te voet'
         ],
         link: { label: 'Bekijk AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {
         eyebrow: 'Jullie dagen hier',
-        title: 'Wat willen jullie doen in Tarifa?',
-        paragraphs: ['Kies in de ervaringsgids tussen strand, wind en watersport, eten, natuur, de oude stad en een hele dag in Bolonia.'],
+        title: 'Strand, wind, oude stad en een dag in Bolonia',
+        paragraphs: ['’s Ochtends een açaí bowl bij SURLA of Powerhouse, ’s middags wind, ’s avonds tapas in de steegjes, en aan de bar naast je zit misschien een wereldkampioen kitesurfen. Bolonia met de Romeinse stad Baelo Claudia vult een hele dag; in de trektijd trekken de vogels over de Straat.'],
         links: [
           { label: 'Wat te doen in Tarifa', token: 'tarifa_experience_hub' },
           { label: 'Ontdek de stranden van Tarifa', token: 'tarifa_beaches_authority' },
@@ -589,12 +589,12 @@ export const tarifaLocationContent: {
     },
     sv: {
       hero: {
-        eyebrow: 'Tarifa · Läge & vistelse',
-        title: 'Tarifa, Europas sydligaste fastlandsstad',
-        subtitle: 'Atlanten i väster, sundet i öster och gamla stan däremellan. Och vår lägenhet i La Marina.',
-        standfirst: 'Tarifas gamla stad, strandkant och nyare kvarter ligger så nära varandra att många sträckor fungerar till fots; Valdevaqueros och Bolonia kräver däremot en separat färd västerut. I gamla stan har ni historiska gränder och restauranger omkring er. La Marina ligger i stadens nyare västra till nordvästra kant nära Los Lances. Där ligger AMARA Family & Surf. Garageplatsen och mataffären mittemot hör till just boendet och är inga löften om hela La Marina.',
-        note: 'En AMARA-guide ur egen erfarenhet – inte en tjänst för aktuella vind- och väderförhållanden.',
-        updated: 'Granskad i augusti 2026'
+        eyebrow: 'Tarifa · Costa de la Luz',
+        title: 'Tarifa, mellan två hav',
+        subtitle: 'Atlanten i väster, sundet i öster, gamla stan emellan. Och vår lägenhet med utsikt över Los Lances.',
+        standfirst: 'Tarifa är litet nog för att ni ska nå allt till fots, och livligt nog för att ingen ska behöva gå i säng tidigt. Levante från öster och Poniente från Atlanten styr dagen mer än årstiden. Vi bor i La Marina: fem minuter till stranden Los Lances, tio till femton in till gamla stan, balkongen mot väster, där solen går ner i havet på kvällen.',
+        note: '',
+        updated: 'Uppdaterad augusti 2026'
       },
       keyFigures: {
         figures: [
@@ -603,97 +603,97 @@ export const tarifaLocationContent: {
           { value: '14,4 km', label: 'Europa – Afrika på det smalaste stället' },
           { value: '226 ha', label: 'Naturskyddsområdet Playa de los Lances' }
         ],
-        note: 'Kustlängder enligt kommunens beredskapsplan, avstånd enligt MITECO. Avståndet gäller sundet, inte staden eller lägenheten, och utlovar ingen utsikt mot Afrika.'
+        note: 'Kommunens kustlängder och avståndet över sundet, enligt kommunen och MITECO.'
       },
       geography: {
         eyebrow: 'Var ni är',
-        title: 'Mellan Atlanten och sundet',
+        title: 'Två hav, en vägbank emellan',
         paragraphs: [
-          'Vid vägbanken till Isla de Tarifa ligger Playa Chica på sundets sida, medan den långa kusten från Los Lances till Valdevaqueros sträcker sig västerut längs Atlanten.',
-          'Staden är kompakt. Gamla stan, den nyare delen och strandkanten ligger nära nog för många vardagssträckor till fots. Stränderna i väster och Bolonia ligger utanför detta stadsmönster och kräver en separat färd.'
+          'Vid vägbanken till Isla de Tarifa möts Medelhavet och Atlanten. Till höger ligger den lilla Playa Chica på Medelhavssidan, till vänster börjar Los Lances och sträcker sig kilometervis västerut till Valdevaqueros.',
+          'Orten själv är kompakt: gamla stan bakom murarna, La Marina i västra kanten, emellan Calle Batalla del Salado med de första barerna. Till Valdevaqueros och Bolonia kör ni tio minuter på N-340.'
         ],
         markers: [
-          { label: 'Två kuster', value: 'Playa Chica i öster; Los Lances sträcker sig västerut' },
-          { label: 'Stadskant', value: 'La Marina ligger väster till nordväst om centrum' },
-          { label: 'Längre västerut', value: 'Valdevaqueros, Punta Paloma och Bolonia kräver en separat färd' }
+          { label: 'Två kuster', value: 'Playa Chica vid Medelhavet, Los Lances vid Atlanten' },
+          { label: 'La Marina', value: 'Ortens västra kant, mellan gamla stan och stranden' },
+          { label: 'Längre västerut', value: 'Valdevaqueros, Punta Paloma och Bolonia, med bil' }
         ],
-        link: { label: 'Geografi & orientering i detalj', token: 'tarifa_where_to_stay' }
+        link: { label: 'Tarifas lägen i detalj', token: 'tarifa_where_to_stay' }
       },
       arrival: {
-        eyebrow: 'Ankomst & bil',
-        title: 'I staden går det mesta till fots; till stränderna i väster är bilen praktisk',
+        eyebrow: 'Att komma fram',
+        title: 'Via N-340, och sedan direkt in i garaget',
         paragraphs: [
-          'Tarifa nås på väg från regionens flygplatser och järnvägsstationer samt med aktuella buss- och färjeförbindelser. Tidtabeller och praktiska rutter förändras, så ankomstguiden tar hand om den konkreta planeringen.',
-          'Många sträckor i staden fungerar till fots. Fordonstillträde och besöksparkering kan däremot förändras, så aktuella skyltar och regler gäller. Den garageplats som dokumenterats för AMARA Family & Surf hör bara till det boendet.',
-          'Bilen blir mer användbar för stränderna i väster och Bolonia. Tillträde, parkering och vattensportzoner varierar med plats och förhållanden; lita inte på informell skjuts eller en enda fast regel för hela kusten.'
+          'Från Málaga via N-340, med fjärrbuss till Calle Batalla del Salado, med färja från Tanger in i hamnen.',
+          'Från Málaga är det 150 kilometer, en dryg och en halv timme längs västra Costa del Sol och genom Algeciras. Fjärrbussen stannar vid Calle Batalla del Salado, färjan från Tanger i hamnen.',
+          'Till lägenheten hör en plats i garaget under huset: kör in, sluta leta. I stan går ni till fots, bilen behöver ni för de västliga stränderna och Bolonia.'
         ],
-        link: { label: 'Planera resan till Tarifa', token: 'getting_to_tarifa' }
+        link: { label: 'Resan till Tarifa', token: 'getting_to_tarifa' }
       },
       areas: {
-        eyebrow: 'Var ska man bo',
-        title: 'Gamla stan eller La Marina – och vad det betyder varje dag',
+        eyebrow: 'Var ni bor',
+        title: 'Gamla stan eller La Marina',
         paragraphs: [
-          'Den som absolut vill bo i gamla stan ska bo i gamla stan. Det är ingen halvmesyr – det är ett beslut med konsekvenser varje dag.',
-          'I gamla stan börjar de historiska gränderna utanför dörren och bagage kan behöva dras över kullersten. Fordonstillträde och parkering beror på aktuella regler; kontrollera därför den exakta ankomsten till boendet ni väljer.',
+          'Vill ni på kvällen gå från dörren rakt in i gränderna, bo i gamla stan. Vill ni på morgonen se om det blåser på Los Lances, och ändå gå in till stan till fots på kvällen, bor ni hos oss i La Marina.',
+          'Los Lances och Campo är egna världar: på stranden vinden som program, på Campo lugn, vidd och bilen för varje resa.',
           'La Marina ligger i stadens nyare västra till nordvästra kant nära Los Lances. AMARA Family & Surf har en egen garageplats och en mataffär mittemot. Det är egenskaper hos just boendet, inte hos hela La Marina. Gamla stan är fortfarande en separat promenad och ligger inte direkt utanför dörren.'
         ],
         archetypes: [
-          { title: 'Gamla stan', consequence: 'Historiska gränder utanför dörren; kontrollera tillträde och parkering för det exakta boendet.' },
-          { title: 'La Marina', consequence: 'Nyare västra till nordvästra stadskant nära Los Lances; garage och mataffär mittemot gäller bara AMARA.' },
-          { title: 'Los Lances-korridoren', consequence: 'En lång Atlantstrand och skyddad natur, inte ett enhetligt område; boendets exakta läge är avgörande.' },
-          { title: 'Landsbygd & kullar', consequence: 'Avstånd och tillträde varierar med adressen; det exakta boendet avgör hur mycket vardagen beror på bil.' }
+          { title: 'Gamla stan', consequence: 'Gränder, tapas och Castillo utanför dörren; trångt och lite parkering.' },
+          { title: 'La Marina', consequence: 'Mellan gamla stan och stranden, fem minuter till Los Lances. Här ligger AMARA Family & Surf.' },
+          { title: 'Los Lances', consequence: 'Den långa Atlantstranden, där vinden är programmet.' },
+          { title: 'Campo & kullar', consequence: 'Fincor med utsikt över sundet, allt med bil.' }
         ],
         link: { label: 'Jämför Tarifas områden på djupet', token: 'tarifa_where_to_stay' }
       },
       weather: {
         eyebrow: 'Vind & årstider',
-        title: 'Dagens förhållanden avgör vilken strand som passar',
+        title: 'I Tarifa frågar man inte efter solen utan efter vinden',
         paragraphs: [
-          'Vinden hör till Tarifas identitet, men valet av strand beror också på aktuell havsprognos, flaggor, säsongszoner och vilken aktivitet ni planerar.',
-          'Norra Los Lances och Valdevaqueros är etablerade områden för vattensport, men levante eller poniente i sig gör ingen strand lämplig för alla. Kontrollera aktuella förhållanden och följ lokala säkerhets- eller instruktörsråd.',
+          'Levante kommer från öster, varm och kraftig, och sätter sanden i rörelse på Los Lances; då är Playa Chica på Medelhavssidan stranden att bada på. Poniente kommer från Atlanten, jämnare, och tar med sig vågen: vinden vi själva går ut på vattnet i.',
+          'På sommaren håller vinden hettan i schack, rekorden ligger knappt över 37 grader. På vintern förblir det milt, kring 14 till 15 grader, och blåsigt nog för kitesurfing.',
           'För ett boende påverkar riktning och byggnad hur utsatt det är. Utan platsspecifika belägg för de aktuella förhållandena lovar vi inte vindskydd för vare sig La Marina eller AMARA Family & Surf.'
         ],
-        link: { label: 'Väder & årstider i Tarifa', token: 'tarifa_weather' }
+        link: { label: 'Vädret i Tarifa', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Vardagsliv',
         title: 'Det som upprepas efter tre dagar',
         paragraphs: [
-          'AMARA Family & Surf har en mataffär direkt mittemot. Det är en bekvämlighet för just boendet och inte en allmän egenskap hos La Marina. Kontrollera aktuella öppettider samt söndags- och säsongsöppet.',
-          'Restauranger och barer samlas i Gamla stan och längs Calle Batalla del Salado, båda på gångavstånd från La Marina. Vilka adresser som verkligen är värda ett besök står i upplevelseguiden.'
+          'Mercadona mittemot, bröd på Pastelito eller Bernal, apoteket på samma gata.',
+          'På kvällen Calle Batalla del Salado och gränderna i gamla stan, båda till fots från La Marina.'
         ]
       },
       winter: {
         eyebrow: 'Från september',
-        title: 'Från september är Tarifa en annan plats',
+        title: 'Från september tillhör Tarifa åter dem som bor här',
         paragraphs: [
-          'Enligt vår erfarenhet är parkeringstrycket särskilt högt i juli och augusti. Det är en säsongsobservation, inte ett bevis för att parkering är omöjlig. För AMARA finns en garageplats registrerad; bekräfta tillträde och mått för er bokning.',
-          'Från september blir det lugnare. Man känner lugnet, man kommer i samtal med de som bor här, man lär känna folk. För oss är det den finaste tiden här.',
-          'Vid längre vistelser spelar uppvärmning, torrhet och arbetsplats roll vid sidan av stranden. Kontrollera detta för varje boende i stället för att dra slutsatser från gamla stan eller La Marina.'
+          'I juli och augusti är orten full och parkeringen ett släp; då kör vi till Valdevaqueros för att kita och in i garaget för att parkera.',
+          'Från september blir det stilla. Man möter samma ansikten i mataffären, kommer i samspråk med lokalbefolkningen, och klubben kör sina kitecamps. För oss är det den vackraste tiden här.',
+          'För längre vistelser har lägenheten öppen spis, värme, kök och tvättmaskin, och mataffären ligger mittemot.'
         ]
       },
       amara: {
         eyebrow: 'Vår lägenhet',
-        title: 'Varför vi tar emot våra gäster i La Marina',
+        title: 'Varför vi bor i La Marina',
         paragraphs: [
-          'Balkongen vetter västerut över Atlanten. Den riktningen hör till just lägenheten; den bevisar inte en allmän utsikt från La Marina och garanterar inte att Afrikas kust syns.',
-          'Ovanför ligger sovrummet, med samma utsikt. Ni vaknar med havet. Det gästerna oftast säger vid ankomsten: att lägenheten är ännu vackrare i verkligheten än på bilderna.',
-          'Vår relation till Tarifa är personlig: Robert bodde här några månader i taget, för kitesurfingen och vännerna. När den här lägenheten kom ut till försäljning köpte vi den och renoverade. På grund av kvällarna. Och för att den helt enkelt fungerar i vardagen.',
+          'Balkongen vetter mot väster över Atlanten, på kvällen går solen ner i havet där. Ovanför ligger sovrummet med samma utsikt: ni vaknar med havet, och när det blåser ser ni det på kitarna över Los Lances.',
+          'Robert har gång på gång bott här i månader, för att kitesurfa och med vänner. När lägenheten kom ut till försäljning köpte vi den och moderniserade den. För kvällarnas skull, och för att den helt enkelt fungerar i vardagen: 75 kvadratmeter på två plan, två sovrum, två badrum, garage för bil och brädor, mataffären mittemot.',
+          'Poolen tillhör anläggningen och är öppen på sommaren. Den som vill ha Castillo utanför dörren bor bättre i gamla stan; den som vill se stranden, hos oss.',
           'En sak säger vi rakt ut: vill ni ha det historiska Tarifa direkt utanför dörren passar gamla stan er bättre än vi gör. Poolen tillhör anläggningen, inte lägenheten, och drivs säsongsvis; kontrollera den aktuella öppningsperioden före bokning.'
         ],
         facts: [
-          '75 m² på två plan – sovrum med havsutsikt',
-          'Stor västbalkong över Atlanten',
-          'Privat plats i underjordiskt garage för detta boende',
-          'Mataffär direkt mittemot detta boende',
-          'Gamla stan är en separat promenad och ligger inte utanför dörren'
+          '75 m² på två plan, sovrum med havsutsikt',
+          'Västbalkong över Atlanten',
+          'Garageplats för bil och brädor',
+          'Mataffär mittemot, Los Lances fem minuter till fots',
+          'Gamla stan tio till femton minuter till fots'
         ],
         link: { label: 'Visa AMARA Family & Surf', token: 'tarifa' }
       },
       experience: {
         eyebrow: 'Era dagar här',
-        title: 'Vad vill ni göra i Tarifa?',
-        paragraphs: ['I upplevelseguiden väljer ni mellan strand, vind och vattensport, mat, natur, gamla stan och en heldag i Bolonia.'],
+        title: 'Strand, vind, gamla stan och en dag i Bolonia',
+        paragraphs: ['På morgonen açaí bowl på SURLA eller Powerhouse, mitt på dagen vind, på kvällen tapas i gränderna, och vid baren bredvid er sitter kanske en världsmästare i kitesurfing. Bolonia med den romerska staden Baelo Claudia fyller en hel dag; under flyttningstiden drar fåglarna över sundet.'],
         links: [
           { label: 'Att göra i Tarifa', token: 'tarifa_experience_hub' },
           { label: 'Upptäck Tarifas stränder', token: 'tarifa_beaches_authority' },

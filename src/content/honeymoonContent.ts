@@ -37,11 +37,11 @@ export const honeymoonContent = {
     kicker: l('HONEYMOON IN ANDALUSIA', 'FLITTERWOCHEN IN ANDALUSIEN', 'LUNA DE MIEL EN ANDALUCÍA', 'HUWELIJKSREIS IN ANDALUSIË', 'SMEKMÅNAD I ANDALUSIEN'),
     title: l('A hideaway for the two of you', 'Ein Hideaway für euch zwei', 'Un refugio para vosotros dos', 'Een hideaway voor jullie samen', 'Ett hideaway för er två'),
     lead: l(
-      'You do not need a romance package for your honeymoon. You need a place where you both enjoy spending time.',
+      'A house for the two of you, a terrace with a hammock, a bed you stay in late. The rest is Andalusia.',
       'Ein Haus für euch zwei, eine Terrasse mit Hängematte, ein Bett, in dem man lang liegen bleibt. Der Rest ist Andalusien.',
-      'Para vuestra luna de miel no necesitáis un paquete romántico. Necesitáis un lugar donde os apetezca pasar tiempo juntos.',
-      'Voor jullie huwelijksreis hebben jullie geen romantiekpakket nodig. Wel een plek waar jullie graag samen zijn.',
-      'På smekmånaden behöver ni inget romantikpaket. Ni behöver en plats där ni båda trivs tillsammans.'
+      'Una casa para vosotros dos, una terraza con hamaca, una cama en la que quedarse hasta tarde. El resto es Andalucía.',
+      'Een huis voor jullie twee, een terras met hangmat, een bed waarin je lang blijft liggen. De rest is Andalusië.',
+      'Ett hus för er två, en terrass med hängmatta, en säng man ligger kvar länge i. Resten är Andalusien.'
     ),
     paragraphs: lp(
       ['AMARA has six stays in Frigiliana, Nerja and Tarifa. Depending on the hideaway, you can have a generous bathroom, a double shower, a 180 or 200 centimetre-wide bed, a private terrace with a hammock, quiet or views towards the sea. No single stay has everything. Frigiliana brings the old town and terraces, Nerja the beach within easy walking distance, and Tarifa more room with an Atlantic view. We look after all six stays ourselves and will tell you honestly which one has the details that matter to you.'],
@@ -53,7 +53,7 @@ export const honeymoonContent = {
     cta: l('See which stay fits', 'Schaut, welche Unterkunft passt', 'Ver qué alojamiento encaja', 'Bekijk welk verblijf past', 'Se vilket boende som passar'),
   },
   choice: {
-    title: l('Romance you can actually use', 'Was ihr jeden Tag spürt', 'Romanticismo que de verdad se disfruta', 'Romantiek waar jullie echt iets aan hebben', 'Romantik ni faktiskt har glädje av'),
+    title: l('What you feel every day', 'Was ihr jeden Tag spürt', 'Lo que notáis cada día', 'Wat jullie elke dag merken', 'Det ni känner varje dag'),
     paragraphs: lp(
       ['For us, romance is not rose petals on the bed. It is a slow morning on your own terrace, a shower with room for two, a comfortable large bed and a view that makes you stay outside a little longer.', 'Every feature belongs to a specific stay. That is why we name the hideaway instead of making one promise for the whole collection.'],
       ['Für uns sind Rosenblätter auf dem Bett nicht das Entscheidende. Romantisch ist ein langsamer Morgen auf der eigenen Terrasse, eine Dusche mit Platz für zwei, ein bequemes großes Bett und ein Ausblick, bei dem ihr noch ein bisschen länger draußen bleibt.', 'Jedes Merkmal gehört zu einer bestimmten Unterkunft. Deshalb nennen wir das Hideaway beim Namen, statt ein Versprechen für die ganze Kollektion zu machen.'],
@@ -64,7 +64,7 @@ export const honeymoonContent = {
   },
   stayOptions: {
     title: l('Three very different ways to stay', 'Drei ganz unterschiedliche Arten zu wohnen', 'Tres formas muy distintas de alojaros', 'Drie heel verschillende manieren om te verblijven', 'Tre helt olika sätt att bo'),
-    intro: l('The details you notice every day matter more than the longest list of amenities.', 'Die Details, die zählen: Terrasse, Dusche, Bett, Blick.', 'Importan más los detalles que notaréis cada día que la lista de equipamiento más larga.', 'De details die jullie elke dag merken zijn belangrijker dan de langste voorzieningenlijst.', 'Detaljerna ni märker varje dag betyder mer än den längsta listan med utrustning.'),
+    intro: l('The details that count: terrace, shower, bed, view.', 'Die Details, die zählen: Terrasse, Dusche, Bett, Blick.', 'Los detalles que cuentan: terraza, ducha, cama, vistas.', 'De details die tellen: terras, douche, bed, uitzicht.', 'Detaljerna som räknas: terrass, dusch, säng, utsikt.'),
     items: [
       {
         id: 'frigiliana',
@@ -91,7 +91,7 @@ export const honeymoonContent = {
         linkToken: 'tarifa' as HoneymoonStayLinkToken
       }
     ],
-    note: l('The features above belong to the named stays. Please check the individual stay page before booking.', 'Jede Unterkunftsseite zeigt Fotos und Grundriss dazu.', 'Los detalles indicados pertenecen a los alojamientos mencionados. Consultad la página de cada estancia antes de reservar.', 'De genoemde kenmerken horen bij de betreffende verblijven. Bekijk vóór het boeken de afzonderlijke verblijfspagina.', 'Detaljerna ovan hör till de boenden som nämns. Kontrollera den enskilda boendesidan innan ni bokar.'),
+    note: l('Each stay page shows photos and the floor plan.', 'Jede Unterkunftsseite zeigt Fotos und Grundriss dazu.', 'Cada página de alojamiento muestra fotos y plano.', 'Elke accommodatiepagina toont foto’s en de plattegrond.', 'Varje boendesida visar foton och planritning.'),
     collectionCta: l('Compare all Romantic Hideaways', 'Alle Romantic Hideaways vergleichen', 'Comparar todos los Romantic Hideaways', 'Vergelijk alle Romantic Hideaways', 'Jämför alla Romantic Hideaways')
   },
   closing: {

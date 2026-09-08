@@ -143,11 +143,11 @@ export const frigilianaHikingPlaceCopy = definePlaceCopy({
       },
       paragraphs: [
         {
-          en: "The Higuerón is the local gorge choice, but a riverbed is not a fixed surface. Water, loose stone and passability change after weather. Check the forecast first, then use the linked route rather than following an improvised line. If conditions are doubtful, choose an open route instead.",
+          en: "The Higuerón is the gorge route straight from the village: a riverbed with water, loose stone and stretches that look different after rain. The linked track takes you through.",
           de: "Der Higuerón ist die Schluchtroute direkt vom Dorf: ein Flussbett mit Wasser, losem Gestein und Stellen, die nach Regen anders aussehen. Der verlinkte Track führt euch durch.",
-          es: "El Higuerón es la opción local de garganta, pero un cauce no es una superficie fija. El agua, la piedra suelta y la posibilidad de paso cambian con el tiempo. Consultad primero la previsión y seguid después el track enlazado, no una línea improvisada. Si hay dudas, elegid una ruta abierta.",
-          nl: "De Higuerón is de lokale kloofroute, maar een rivierbedding is geen vaste ondergrond. Water, losse stenen en begaanbaarheid veranderen met het weer. Bekijk eerst de verwachting en volg daarna de gelinkte route in plaats van zelf een lijn te improviseren. Kies bij twijfel een open route.",
-          sv: "Higuerón är den lokala ravinturen, men en flodbädd är inget fast underlag. Vatten, lösa stenar och framkomlighet förändras med vädret. Kontrollera prognosen först och följ sedan den länkade rutten i stället för en improviserad linje. Välj en öppen rutt om ni är osäkra."
+          es: "El Higuerón es la ruta de garganta que sale directamente del pueblo: un cauce con agua, piedra suelta y tramos que cambian después de la lluvia. El track enlazado os guía.",
+          nl: "De Higuerón is de kloofroute rechtstreeks vanuit het dorp: een rivierbedding met water, los gesteente en stukken die er na regen anders uitzien. De gelinkte track leidt jullie erdoor.",
+          sv: "Higuerón är ravinrutten direkt från byn: en flodbädd med vatten, lös sten och sträckor som ser annorlunda ut efter regn. Det länkade spåret leder er igenom."
         }
       ],
       sourceLinks: [
@@ -259,11 +259,11 @@ export const frigilianaHikingPlaceCopy = definePlaceCopy({
       },
       paragraphs: [
         {
-          en: "This is the complete summit route. The official description begins at Plaza del Ingenio and climbs through the old town before continuing onto exposed, rocky terrain. Use that description for the official start and route facts, and check weather before committing to the ascent.",
+          en: "The full summit route: start at Plaza del Ingenio, through the old town and out into open, rocky terrain. A day for clear weather and an early start.",
           de: "Die ganze Gipfelroute: Start an der Plaza del Ingenio, durch die Altstadt und hinaus ins offene, felsige Gelände. Ein Tag für klares Wetter und frühen Aufbruch.",
-          es: "Esta es la ruta completa hasta la cumbre. La descripción oficial comienza en la plaza del Ingenio, atraviesa el casco histórico y continúa por terreno abierto y rocoso. Usadla para la salida y los datos oficiales y comprobad el tiempo antes de iniciar la subida.",
-          nl: "Dit is de volledige route naar de top. De officiële beschrijving begint op Plaza del Ingenio, gaat door de oude kern en loopt daarna over open, rotsachtig terrein. Gebruik die voor de officiële start en routegegevens en controleer het weer voor de klim.",
-          sv: "Det här är hela toppturen. Den officiella beskrivningen börjar på Plaza del Ingenio, går genom den gamla bykärnan och fortsätter över öppen, stenig terräng. Använd den för officiell start och ruttfakta och kontrollera vädret före stigningen."
+          es: "La ruta completa a la cumbre: salida en la Plaza del Ingenio, por el casco antiguo y hacia terreno abierto y rocoso. Un día para tiempo despejado y salida temprana.",
+          nl: "De volledige toproute: start op Plaza del Ingenio, door de oude kern en verder het open, rotsige terrein in. Een dag voor helder weer en een vroeg vertrek.",
+          sv: "Hela topprutten: start vid Plaza del Ingenio, genom gamla byn och ut i öppen, stenig terräng. En dag för klart väder och tidig start."
         }
       ],
       sourceLinks: [

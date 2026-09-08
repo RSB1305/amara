@@ -186,11 +186,11 @@ export const nerjaBeachPlaceCopy = definePlaceCopy({
         sv: "Mitt i naturområdet kombinerar Cantarriján vild omgivning med en avslappnad atmosfär där badkläder är valfria och strandrestauranger serverar färsk fisk."
       },
       goodToKnow: {
-        en: "Make time for lunch at a chiringuito rather than treating this as a quick stop. In summer, vehicle access may be regulated, so check the current arrangements before leaving.",
+        en: "Stay for lunch at the chiringuito. In summer, access is regulated; the rules are linked below.",
         de: "Bleibt zum Mittagessen im Chiringuito. Im Sommer ist die Zufahrt geregelt; die Regelung steht unten verlinkt.",
-        es: "Reservad tiempo para comer en un chiringuito en lugar de convertirla en una parada rápida. En verano puede regularse el acceso de vehículos; comprobad las condiciones antes de salir.",
-        nl: "Maak tijd voor de lunch in plaats van hier alleen kort te stoppen. In de zomer kan autotoegang worden gereguleerd; controleer daarom voor vertrek de actuele regeling.",
-        sv: "Avsätt tid för lunch på en chiringuito i stället för att bara göra ett kort stopp. Sommartid kan biltrafiken regleras, så kontrollera aktuell information innan ni åker."
+        es: "Quedaos a comer en el chiringuito. En verano el acceso está regulado; la normativa está enlazada abajo.",
+        nl: "Blijf voor de lunch in de chiringuito. In de zomer is de toegang geregeld; de regeling staat onderaan gelinkt.",
+        sv: "Stanna på lunch i chiringuiton. På sommaren är tillfarten reglerad; reglerna finns länkade nedan."
       }
     },
     guide: {
@@ -288,11 +288,11 @@ export const nerjaBeachPlaceCopy = definePlaceCopy({
         sv: "Den officiella besöksinformationen beskriver Burriana som en bred stadsstrand med strandpromenad, buss- och parkeringsmöjligheter samt angiven strand- och restaurangservice."
       },
       goodToKnow: {
-        en: "AYO is at Paseo Burriana 15 and works as a daytime option beside the beach. Check current operation before building the day around it.",
+        en: "AYO is at Paseo Burriana 15: paella from the big pan, at midday right on the beach.",
         de: "AYO liegt am Paseo Burriana 15: Paella aus der großen Pfanne, mittags direkt am Strand.",
-        es: "AYO está en Paseo Burriana 15 y funciona como opción diurna junto a la playa. Comprobad la actividad actual antes de organizar el día en torno al local.",
-        nl: "AYO ligt aan Paseo Burriana 15 en is een optie voor overdag direct aan het strand. Controleer de actuele werking voordat jullie de dag eromheen plannen.",
-        sv: "AYO ligger på Paseo Burriana 15 och är ett alternativ dagtid direkt vid stranden. Kontrollera aktuell verksamhet innan ni planerar dagen kring restaurangen."
+        es: "AYO está en el Paseo Burriana 15: paella de la paellera grande, a mediodía en la misma playa.",
+        nl: "AYO ligt aan Paseo Burriana 15: paella uit de grote pan, ’s middags direct op het strand.",
+        sv: "AYO ligger på Paseo Burriana 15: paella från den stora pannan, mitt på dagen direkt på stranden."
       }
     },
     guide: {
