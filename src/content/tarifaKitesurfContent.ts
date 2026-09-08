@@ -245,9 +245,9 @@ const camp: TarifaKitesurfSpokeContent = {
   ),
   navLabel: l('Kitecamp & stay', 'Kitecamp & Unterkunft', 'Kitecamp y alojamiento', 'Kitecamp & verblijf', 'Kitecamp & boende'),
   hero: {
-    eyebrow: l('Kitecamp in Tarifa', 'Kitecamp in Tarifa', 'Kitecamp en Tarifa', 'Kitecamp in Tarifa', 'Kitecamp i Tarifa'),
-    title: l('Kitecamp in the low season', 'Kitecamp in der Nebensaison', 'Kitecamp en temporada baja', 'Kitecamp in het laagseizoen', 'Kitecamp i lågsäsong'),
-    subtitle: l('From 15 September to 15 June: course, bed, gear and rescue in one package', 'Vom 15. September bis 15. Juni: Kurs, Bett, Material und Rescue in einem Paket', 'Del 15 de septiembre al 15 de junio: curso, cama, material y rescate en un solo paquete', 'Van 15 september tot 15 juni: les, bed, materiaal en rescue in één pakket', 'Från 15 september till 15 juni: kurs, säng, utrustning och räddning i ett paket'),
+    eyebrow: l('Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club'),
+    title: l('Kitecamp in Tarifa', 'Kitecamp in Tarifa', 'Kitecamp en Tarifa', 'Kitecamp in Tarifa', 'Kitecamp i Tarifa'),
+    subtitle: l("Tarifa's largest German-speaking kitecamp. Kiting, sundowners and friendships.", 'Das größte deutschsprachige Kitecamp in Tarifa. Kiten, Sundowner und Freundschaften.', 'El mayor kitecamp de habla alemana en Tarifa. Kitesurf, atardeceres y amistades.', 'Het grootste Duitstalige kitecamp in Tarifa. Kiten, sundowners en vriendschappen.', 'Tarifas största tyskspråkiga kitecamp. Kitesurfing, sundowners och vänskap.'),
     lead: l(
       'The kitecamps of Tarifa Surf Club run exactly in the months we like best: from mid-September to mid-June, when the beaches are quieter and the town is easier to live in. A camp is a week with six nights in the club’s accommodation, course days or Help 2 Kite, all the gear, and the rescue boat on offshore days. Arrival dates are flexible. If you would rather sleep at AMARA, you book the course days separately and we sort the rest with the club.',
       'Die Kitecamps des Tarifa Surf Club laufen genau in den Monaten, die wir am liebsten mögen: von Mitte September bis Mitte Juni, wenn die Strände ruhiger sind und der Ort sich leichter lebt. Ein Camp ist eine Woche mit sechs Nächten in der Unterkunft des Clubs, Kurstagen oder Help 2 Kite, dem kompletten Material und dem Rescue-Boot an Tagen mit ablandigem Wind. Die Anreise ist flexibel. Wer lieber bei AMARA schläft, bucht die Kurstage einzeln, und wir regeln den Rest mit dem Club.',
