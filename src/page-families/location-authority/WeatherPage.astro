@@ -11,6 +11,7 @@ import {
 } from '../../content/locationWeatherAuthorityContent';
 import { climateDataSourceUrls, locationClimateProfiles, comparisonCityByLang, comparisonCityHighs, comparisonCityRecords } from '../../content/locationClimateData';
 import { climateComparisonContent } from '../../content/climateComparisonContent';
+import { climateMicroclimateContent } from '../../content/climateMicroclimateContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
@@ -87,6 +88,17 @@ const comparison = comparisonCopy && comparisonCity
       }
     }
   : undefined;
+const microCopy = climateMicroclimateContent[destination]?.[currentLang];
+const microclimate = microCopy
+  ? {
+      eyebrow: microCopy.eyebrow,
+      title: microCopy.title,
+      intro: microCopy.intro,
+      summer: microCopy.summer,
+      winter: microCopy.winter,
+      links: microCopy.links.map((link) => ({ label: link.label, href: requiredLink(link.token) }))
+    }
+  : undefined;
 const footerHighlights: LabeledLink[] | undefined = destination === 'tarifa'
   ? [
       { token: 'tarifa_weather', label: content.navLabel },
@@ -120,6 +132,7 @@ const liveForecast = content.forecast.live
     content={content}
     months={months}
     comparison={comparison}
+    microclimate={microclimate}
     climateSource={{ label: content.sources.links[0].label, href: climateDataSourceUrls[destination] }}
     forecastHref={weatherForecastUrls[destination]}
     liveForecast={liveForecast}

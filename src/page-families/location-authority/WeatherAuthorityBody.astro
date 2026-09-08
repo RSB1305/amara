@@ -2,6 +2,7 @@
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import LocationClimateTable from '../../components/location/LocationClimateTable.astro';
 import LocationClimateComparison from '../../components/location/LocationClimateComparison.astro';
+import LocationClimateMicroclimate from '../../components/location/LocationClimateMicroclimate.astro';
 import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
 import AemetForecastPanel from '../../components/location/AemetForecastPanel.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
@@ -26,6 +27,14 @@ interface Props {
     summer: { eyebrow: string; title: string; body: string; linkLabel: string; linkHref: string };
     winter: { eyebrow: string; title: string; body: string; linkLabel: string; linkHref: string };
   };
+  microclimate?: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    summer: { label: string; body: string };
+    winter: { label: string; body: string };
+    links: Array<{ label: string; href: string }>;
+  };
   climateSource: { label: string; href: string };
   forecastHref: string;
   liveForecast?: {
@@ -43,6 +52,7 @@ const {
   content,
   months,
   comparison,
+  microclimate,
   climateSource,
   forecastHref,
   liveForecast,
@@ -104,6 +114,19 @@ const {
         title={comparison.title}
         summer={comparison.summer}
         winter={comparison.winter}
+      />
+    </div>
+  )}
+
+  {microclimate && (
+    <div data-am-weather-module="microclimate">
+      <LocationClimateMicroclimate
+        eyebrow={microclimate.eyebrow}
+        title={microclimate.title}
+        intro={microclimate.intro}
+        summer={microclimate.summer}
+        winter={microclimate.winter}
+        links={microclimate.links}
       />
     </div>
   )}
