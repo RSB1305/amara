@@ -1,22 +1,20 @@
 ---
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import Navigation from '../../components/Navigation.astro';
-import LocationTopicHero from '../../components/location/LocationTopicHero.astro';
-import WhereToStayOrientationGraphic from '../../components/location/WhereToStayOrientationGraphic.astro';
-import PhotoShow from '../../components/PhotoShow.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import WhereToStayBody from './WhereToStayBody.astro';
 import {
   nerjaLocationCopy,
   nerjaLocationSeo
 } from '../../content/nerjaLocationContent';
+import { nerjaWhereToStayDe } from '../../content/nerjaWhereToStayContent';
+import { trustLabels } from '../../content/trustLabels';
 import { whereToStayOrientationGraphicContent } from '../../content/whereToStayOrientationGraphicContent';
 import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { getLocationGuideTopicLabels } from '../../lib/location/locationGuideTopics';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import WhereToStayAuthorityBody from './WhereToStayAuthorityBody.astro';
-import type { WhereToStayAuthorityContent } from './whereToStayAuthority';
 
 interface Props {
   lang?: string;
@@ -31,205 +29,30 @@ const copy = nerjaLocationCopy;
 function t<T>(value: Readonly<Record<AmaraLanguage, T>>): T {
   return value[currentLang];
 }
-const optionalLink = (token: LinkToken) =>
-  resolveOptionalLink(token, currentLang, { suppressMissing: true });
+const optionalLink = (token: LinkToken) => resolveOptionalLink(token, currentLang, { suppressMissing: true });
 
-const playaHref = optionalLink('playa') ?? '#amara-playa';
-const comparisonHref = optionalLink('nerja_vs_frigiliana') ?? '#nerja-frigiliana';
-const beachesHref = optionalLink('frigiliana_beaches_authority');
+const content = nerjaWhereToStayDe;
+const bookBase = optionalLink('book');
+const bookHref = bookBase ? `${bookBase}?destination=nerja` : '#';
+const bookLabel = trustLabels.book[currentLang];
+const pointerHref = optionalLink(content.pointer.linkToken) ?? '#';
 
-const c = {
-  nav: {
-    brand: t(copy.nav.brand)
-  },
-  hero: {
-    eyebrow: t(copy.hero.eyebrow),
-    h1: t(copy.hero.h1),
-    body: t(copy.hero.body).split('\n\n'),
-    ctaMain: t(copy.hero.ctaMain),
-    ctaAlt: t(copy.hero.ctaAlt),
-    imageAlt: t(copy.hero.imageAlt)
-  },
-  essence: {
-    eyebrow: t(copy.essence.eyebrow),
-    title: t(copy.essence.title),
-    intro: t(copy.essence.intro),
-    items: copy.essence.items.map((item) => ({
-      kicker: t(item.kicker),
-      headline: t(item.headline),
-      text: t(item.text),
-      imageSrc: 'imageSrc' in item ? item.imageSrc : undefined,
-      imageAlt: 'imageSrc' in item ? t(copy.hero.imageAlt) : undefined
-    }))
-  },
-  areas: {
-    eyebrow: t(copy.areas.eyebrow),
-    title: t(copy.areas.title),
-    intro: t(copy.areas.intro),
-    goodForLabel: t(copy.areas.goodForLabel),
-    items: copy.areas.items[currentLang]
-  },
-  beaches: {
-    eyebrow: t(copy.beaches.eyebrow),
-    title: t(copy.beaches.title),
-    intro: t(copy.beaches.intro),
-    items: copy.beaches.items.map((item) => ({
-      title: t(item.title),
-      paragraphs: t(item.paragraphs)
-    })),
-    cta: t(copy.beaches.cta)
-  },
-  practical: {
-    eyebrow: t(copy.practical.eyebrow),
-    title: t(copy.practical.title),
-    intro: t(copy.practical.intro),
-    cards: copy.practical.cards.map((card) => ({
-      title: t(card.title),
-      paragraphs: t(card.paragraphs)
-    }))
-  },
-  comparison: {
-    eyebrow: t(copy.comparison.eyebrow),
-    title: t(copy.comparison.title),
-    intro: t(copy.comparison.intro).split('\n\n'),
-    prompt: t(copy.comparison.prompt),
-    profiles: copy.comparison.profiles.map((profile) => ({
-      title: t(profile.title),
-      text: t(profile.text)
-    })),
-    outro: t(copy.comparison.outro),
-    bridge: t(copy.comparison.bridge),
-    cta: t(copy.comparison.cta)
-  },
-  gallery: {
-    eyebrow: t(copy.gallery.eyebrow),
-    title: t(copy.gallery.title),
-    images: copy.gallery.items.map((image) => ({
-      src: image.src,
-      alt: t(image.alt),
-      caption: t(image.caption)
-    }))
-  },
-  playa: {
-    eyebrow: t(copy.playa.eyebrow),
-    title: t(copy.playa.title),
-    paragraphs: t(copy.playa.paragraphs),
-    cta: t(copy.playa.cta)
-  },
-  faq: {
-    decisionTitle: t(copy.faq.decisionTitle),
-    steps: copy.faq.steps.map((step) => ({
-      num: step.num,
-      headline: t(step.h),
-      text: t(step.t)
-    })),
-    faqTitle: t(copy.faq.faqTitle),
-    items: copy.faq.items.map((item) => ({
-      question: t(item.q),
-      answer: t(item.a)
-    }))
-  }
-};
-
-const areaLabels = {
-  en: { daily: 'Everyday life', tradeoff: 'Keep in mind' },
-  de: { daily: 'Im Alltag', tradeoff: 'Bedenkt dabei' },
-  es: { daily: 'En el día a día', tradeoff: 'Tened en cuenta' },
-  nl: { daily: 'In het dagelijks ritme', tradeoff: 'Houd rekening met' },
-  sv: { daily: 'I vardagen', tradeoff: 'Tänk på' }
-}[currentLang];
-
-const stayContent: WhereToStayAuthorityContent = {
-  decision: {
-    eyebrow: c.essence.eyebrow,
-    title: c.essence.title,
-    intro: [c.essence.intro],
-    points: c.essence.items.map((item) => ({ label: item.kicker, title: item.headline, text: item.text }))
-  },
-  stayType: {
-    id: 'stay-type',
-    eyebrow: t(copy.stayType.eyebrow),
-    title: t(copy.stayType.title),
-    intro: copy.stayType.intro.map((paragraph) => t(paragraph)),
-    labels: {
-      attribute: t(copy.stayType.labels.attribute),
-      ours: t(copy.stayType.labels.ours),
-      hotelWins: t(copy.stayType.labels.hotelWins)
-    },
-    items: copy.stayType.items.map((row) => ({
-      id: row.id,
-      attribute: t(row.attribute),
-      ours: t(row.ours),
-      hotelWins: t(row.hotelWins)
-    }))
-  },
-  areas: {
-    id: 'where-to-stay-in-nerja',
-    eyebrow: c.areas.eyebrow,
-    title: c.areas.title,
-    intro: c.areas.intro,
-    labels: { fit: c.areas.goodForLabel, daily: areaLabels.daily, tradeoff: areaLabels.tradeoff },
-    items: c.areas.items.map((item) => ({
-      number: item.kicker,
-      title: item.title,
-      paragraphs: item.paragraphs,
-      fit: item.goodFor
-    }))
-  },
-  tradeoffs: {
-    eyebrow: c.beaches.eyebrow,
-    title: c.beaches.title,
-    intro: c.beaches.intro,
-    items: c.beaches.items.map((item) => ({ title: item.title, paragraphs: item.paragraphs })),
-    action: beachesHref ? { href: beachesHref, label: c.beaches.cta } : undefined
-  },
-  mobility: {
-    id: 'practical-nerja',
-    eyebrow: c.practical.eyebrow,
-    title: c.practical.title,
-    intro: [c.practical.intro],
-    items: c.practical.cards.map((card) => ({ title: card.title, paragraphs: card.paragraphs }))
-  },
-  fit: {
-    eyebrow: c.comparison.eyebrow,
-    title: c.comparison.title,
-    intro: [...c.comparison.intro, c.comparison.prompt, c.comparison.outro],
-    items: c.comparison.profiles.map((profile) => ({ title: profile.title, paragraphs: [profile.text] })),
-    action: { href: comparisonHref, label: c.comparison.cta }
-  },
-  amara: {
-    eyebrow: c.playa.eyebrow,
-    title: c.playa.title,
-    paragraphs: c.playa.paragraphs,
-    image: { src: c.gallery.images[0].src, alt: c.gallery.images[0].alt },
-    action: { href: playaHref, label: c.playa.cta }
-  }
+const faq = {
+  decisionTitle: t(copy.faq.decisionTitle),
+  steps: copy.faq.steps.map((step) => ({ num: step.num, headline: t(step.h), text: t(step.t) })),
+  faqTitle: t(copy.faq.faqTitle),
+  items: copy.faq.items.map((item) => ({ question: t(item.q), answer: t(item.a) }))
 };
 
 const footerHighlights: LabeledLink[] = [
-  {
-    token: 'playa',
-    label: 'AMARA Playa'
-  },
+  { token: 'playa', label: 'AMARA Playa' },
   {
     token: 'location_frigiliana',
-    label: {
-      en: 'Frigiliana guide',
-      de: 'Frigiliana-Guide',
-      es: 'Guía de Frigiliana',
-      nl: 'Frigiliana-gids',
-      sv: 'Frigiliana-guide'
-    }[currentLang]
+    label: { en: 'Frigiliana guide', de: 'Frigiliana-Guide', es: 'Guía de Frigiliana', nl: 'Frigiliana-gids', sv: 'Frigiliana-guide' }[currentLang]
   },
   {
     token: 'romantic_hideaways',
-    label: {
-      en: 'All stays',
-      de: 'Alle Unterkünfte',
-      es: 'Todos los alojamientos',
-      nl: 'Alle verblijven',
-      sv: 'Alla boenden'
-    }[currentLang]
+    label: { en: 'All stays', de: 'Alle Unterkünfte', es: 'Todos los alojamientos', nl: 'Alle verblijven', sv: 'Alla boenden' }[currentLang]
   }
 ];
 ---
@@ -244,63 +67,33 @@ const footerHighlights: LabeledLink[] = [
     <NerjaContextNav slot="context-navigation" activeId="where-to-stay" childLabel={whereToStayLabel} lang={currentLang} />
   </Navigation>
 
-  <div data-am-page="nerja-where-to-stay" data-am-family="location" data-am-role="spoke" data-am-topic="where-to-stay">
-    <div class="w-full">
-      <div id="intro">
-        <LocationTopicHero
-          eyebrow={c.hero.eyebrow}
-          title={c.hero.h1}
-          paragraphs={c.hero.body}
-          actions={[
-            { href: '#where-to-stay-in-nerja', label: c.hero.ctaMain, style: 'primary' },
-            { href: '#nerja-frigiliana', label: c.hero.ctaAlt, style: 'secondary' }
-          ]}
-          topic="where-to-stay"
-        >
-          <WhereToStayOrientationGraphic slot="visual" data={orientationGraphic} />
-        </LocationTopicHero>
-      </div>
+  <div data-am-page="nerja-where-to-stay" data-am-family="location" data-am-role="spoke" data-am-topic="where-to-stay" data-am-presentation="guide">
+    <WhereToStayBody
+      content={content}
+      orientationGraphic={orientationGraphic}
+      bookHref={bookHref}
+      bookLabel={bookLabel}
+      pointerHref={pointerHref}
+    />
 
-      <WhereToStayAuthorityBody content={stayContent} />
-
-      <PhotoShow eyebrow={c.gallery.eyebrow} title={c.gallery.title} images={c.gallery.images} />
-
-      <section class="am-section am-section--tint w-full max-w-none mx-0 border-t-0 px-0 py-0">
-        <FaqAccordion
-          arrivalTitle={c.faq.decisionTitle}
-          steps={c.faq.steps}
-          faqTitle={c.faq.faqTitle}
-          items={c.faq.items}
-          anchorArrivalId="nerja-base-check"
-          anchorFaqId="faq"
-          pageEndFamily="location"
-        />
-      </section>
-    </div>
+    <section class="am-section am-section--tint w-full max-w-none mx-0 border-t-0 px-0 py-0">
+      <FaqAccordion
+        arrivalTitle={faq.decisionTitle}
+        steps={faq.steps}
+        faqTitle={faq.faqTitle}
+        items={faq.items}
+        anchorArrivalId="nerja-base-check"
+        anchorFaqId="faq"
+        pageEndFamily="location"
+      />
+    </section>
   </div>
 </LocationAuthorityLayout>
 
 <style>
-  /**
-   * Band tone corrections for shared components rendered inside this page's
-   * section shells. The nested components carry their own Tailwind background
-   * utilities; these rules let the surrounding band tone win. Astro's scoped
-   * page styles are unlayered and therefore already outrank Tailwind's
-   * `utilities` layer — no `!important` is required.
-   */
-  .am-section--plain > :global(section),
   .am-section--tint > :global(section) {
     background-color: transparent;
   }
-
-  .am-section--plain :global(amara-photoshow) {
-    background-color: var(--color-surface);
-  }
-
-  .am-section--plain :global(amara-photoshow .bg-surface-container) {
-    background-color: var(--color-surface-container-low);
-  }
-
   .am-section--tint :global(.bg-surface-container) {
     background-color: var(--color-surface);
   }
