@@ -117,6 +117,8 @@ const audienceItems = copy.audiences.items.map((item) => ({
 }));
 
 const staysHref = resolveOptionalLink('romantic_hideaways', currentLang, { suppressMissing: true });
+const bookBaseHref = resolveOptionalLink('book', currentLang, { suppressMissing: true });
+const bookHref = bookBaseHref ? `${bookBaseHref}?destination=frigiliana` : undefined;
 
 const stayContent: WhereToStayAuthorityContent = {
   stayType: {
@@ -183,7 +185,16 @@ const stayContent: WhereToStayAuthorityContent = {
     facts: copy.proof.facts.map(t),
     image: { src: proofImage.src, alt: t(copy.proof.imageAlt) },
     action: staysHref ? { href: staysHref, label: t(copy.proof.cta) } : undefined
-  }
+  },
+  verdict: bookHref
+    ? {
+        eyebrow: t(copy.verdict.eyebrow),
+        title: t(copy.verdict.title),
+        paragraphs: copy.verdict.paragraphs.map(t),
+        honestLine: t(copy.verdict.honestLine),
+        primary: { href: bookHref, label: t(copy.verdict.primaryCta) }
+      }
+    : undefined
 };
 ---
 

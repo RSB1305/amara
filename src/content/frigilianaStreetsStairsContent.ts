@@ -1027,6 +1027,52 @@ export const frigilianaStreetsStairsCopy = {
       }
     ]
   },
+  verdict: {
+    eyebrow: {
+      en: 'Why we chose this spot',
+      de: 'Darum sind wir hier',
+      es: 'Por qué elegimos esta ubicación',
+      nl: 'Waarom wij hier zitten',
+      sv: 'Därför valde vi det här läget'
+    } satisfies LocalizedText,
+    title: {
+      en: 'The old-town charm, without the constant climb',
+      de: 'Der Kern-Charme, ohne den ständigen Anstieg',
+      es: 'El encanto del casco, sin la subida constante',
+      nl: 'De charme van de oude kern, zonder het constante klimmen',
+      sv: 'Gamla stans charm, utan den ständiga stigningen'
+    } satisfies LocalizedText,
+    paragraphs: [
+      {
+        en: 'In the stepped historic core, almost every address means repeated climbs. Our position on Calle Chorruelo is the rare exception: **reachable by car within the old-town access windows**, Farah with **just one entrance step**, terraces with **views over the groves to the sea** (Lounis, Zaid) — and quiet only minutes from the lanes. That combination barely exists here.',
+        de: 'Im gestuften historischen Kern bedeutet fast jede Adresse wiederholte Anstiege. Unsere Lage an der Calle Chorruelo ist die seltene Ausnahme: **innerhalb der Altstadt-Zufahrtsfenster mit dem Auto erreichbar**, Farah mit **nur einer Eingangsstufe**, Terrassen mit **Blick übers Grün bis zum Meer** (Lounis, Zaid) — und Ruhe wenige Minuten von den Gassen. Genau diese Kombination gibt es hier fast nirgends.',
+        es: 'En el casco histórico en cuesta, casi cada dirección implica subir una y otra vez. Nuestra ubicación en la calle Chorruelo es la rara excepción: **accesible en coche dentro de las ventanas del casco antiguo**, Farah con **un solo escalón de entrada**, terrazas con **vistas sobre el campo hasta el mar** (Lounis, Zaid) — y calma a pocos minutos de las callejuelas. Esa combinación casi no existe aquí.',
+        nl: 'In de gestapelde historische kern betekent bijna elk adres herhaald klimmen. Onze ligging aan Calle Chorruelo is de zeldzame uitzondering: **met de auto bereikbaar binnen de toegangsvensters van de oude kern**, Farah met **maar één opstap**, terrassen met **uitzicht over het groen tot de zee** (Lounis, Zaid) — en rust op enkele minuten van de straatjes. Die combinatie bestaat hier nauwelijks.',
+        sv: 'I den trappade historiska kärnan innebär nästan varje adress upprepade stigningar. Vårt läge på Calle Chorruelo är det sällsynta undantaget: **nåbart med bil inom gamla stans tillfartsfönster**, Farah med **bara ett entrésteg**, terrasser med **utsikt över grönskan mot havet** (Lounis, Zaid) — och lugn bara minuter från gränderna. Den kombinationen finns knappt här.'
+      } satisfies LocalizedText,
+      {
+        en: 'That is exactly why we invested in this address and restored it over two years. If the historic core draws you but the daily climb puts you off, this is the location that joins the two.',
+        de: 'Genau deshalb haben wir in diese Adresse investiert und sie über zwei Jahre restauriert. Wenn euch der historische Kern reizt, ihr aber den täglichen Anstieg scheut, ist das die Lage, die beides verbindet.',
+        es: 'Por eso invertimos en esta dirección y la restauramos durante dos años. Si os atrae el casco histórico pero os frena la subida diaria, esta es la ubicación que une ambas cosas.',
+        nl: 'Precies daarom investeerden we in dit adres en restaureerden het in twee jaar. Als de historische kern je trekt maar het dagelijkse klimmen je afschrikt, is dit de ligging die beide verenigt.',
+        sv: 'Just därför investerade vi i den här adressen och restaurerade den under två år. Om den historiska kärnan lockar men den dagliga stigningen avskräcker, är det här läget som förenar båda.'
+      } satisfies LocalizedText
+    ],
+    honestLine: {
+      en: 'To stay honest: if you want fully step-free with your own parking at the door, the modern south is more practical; for real seclusion, the countryside. For old-town charm with the fewest compromises, we are the choice.',
+      de: 'Ehrlich bleibt: Wollt ihr voll ebenerdig mit eigenem Parkplatz vor der Tür, ist der modernere Süden praktischer; sucht ihr echte Abgeschiedenheit, das Umland. Für Kern-Charme mit den wenigsten Kompromissen sind wir die Wahl.',
+      es: 'Para ser honestos: si queréis algo totalmente sin escalones y con aparcamiento propio en la puerta, la zona moderna al sur es más práctica; para verdadero aislamiento, el campo. Para el encanto del casco con los menores compromisos, la opción somos nosotros.',
+      nl: 'Eerlijk blijft: wil je volledig gelijkvloers met eigen parkeerplaats voor de deur, dan is het moderne zuiden praktischer; voor echte afzondering het buitengebied. Voor kern-charme met de minste compromissen zijn wij de keuze.',
+      sv: 'Ärligt talat: vill ni ha helt trappfritt med egen parkering vid dörren är den moderna södra delen praktiskare; för verklig avskildhet, landsbygden. För gammal-stans-charm med minst kompromisser är vi valet.'
+    } satisfies LocalizedText,
+    primaryCta: {
+      en: 'Check availability & book',
+      de: 'Verfügbarkeit prüfen & buchen',
+      es: 'Ver disponibilidad y reservar',
+      nl: 'Beschikbaarheid checken & boeken',
+      sv: 'Se tillgänglighet & boka'
+    } satisfies LocalizedText
+  },
   closing: {
     title: {
       en: 'Choose the rhythm that feels like your holiday.',
