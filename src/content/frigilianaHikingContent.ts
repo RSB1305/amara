@@ -99,11 +99,11 @@ export const frigilianaHikingContent = {
     summary: {
       eyebrow: text('On this page', 'Auf dieser Seite', 'En esta página', 'Op deze pagina', 'På den här sidan'),
       body: text(
-        'Four hikes from Frigiliana, honestly compared — a panoramic loop, a gorge route, a full summit and a GR stage. We help you choose; the official information and Komoot give the real track.',
+        'Four hikes from Frigiliana: panoramic loop, gorge, summit and GR stage, with start, track and what the day asks of you.',
         'Vier Wanderungen ab Frigiliana: Panoramarundweg, Schlucht, Gipfel und GR-Etappe, mit Start, Track und dem, was der Tag verlangt.',
-        'Cuatro rutas desde Frigiliana, comparadas con honestidad: un circuito panorámico, una ruta de garganta, una cumbre completa y una etapa del GR. Os ayudamos a elegir; la salida y el track están en la información oficial y Komoot.',
-        'Vier wandelingen vanuit Frigiliana, eerlijk vergeleken — een panoramaronde, een kloofroute, een volledige top en een GR-etappe. Wij helpen kiezen; de echte route staat in de officiële informatie en Komoot.',
-        'Fyra vandringar från Frigiliana, ärligt jämförda — en panoramaslinga, en ravinrutt, en hel topp och en GR-etapp. Vi hjälper er välja; start och spår finns i den officiella informationen och Komoot.'
+        'Cuatro rutas desde Frigiliana: circuito panorámico, garganta, cumbre y etapa del GR, con salida, track y lo que exige el día.',
+        'Vier wandelingen vanuit Frigiliana: panoramaronde, kloof, top en GR-etappe, met start, track en wat de dag vraagt.',
+        'Fyra vandringar från Frigiliana: panoramaslinga, ravin, topp och GR-etapp, med start, spår och vad dagen kräver.'
       ),
       items: [
         { label: text('Cruz de Pinto', 'Cruz de Pinto', 'Cruz de Pinto', 'Cruz de Pinto', 'Cruz de Pinto'), value: text('Panoramic loop', 'Panoramarundweg', 'Circuito panorámico', 'Panoramaronde', 'Panoramaslinga') },
@@ -150,7 +150,7 @@ export const frigilianaHikingContent = {
       ['De gemeente Nerja meldt dat de toegang tot Río Chíllar gesloten blijft. Plan of onderneem de recreatieve rivierroute niet. Deze melding legt de huidige beperking vast; het is geen routekaart en bevat geen omweg. Controleer het gemeentelijke bericht voor een latere officiële wijziging.'],
       ['Nerjas kommun uppger att tillträdet till Río Chíllar fortfarande är stängt. Planera eller försök inte den rekreativa flodrutten. Meddelandet återger den aktuella begränsningen; det är inget ruttkort och innehåller ingen omväg. Kontrollera kommunens besked för en senare officiell ändring.']
     ),
-    checked: text('Official notice checked 27 August 2026', 'Stand 27. August 2026', 'Aviso oficial comprobado el 27 de agosto de 2026', 'Officieel bericht gecontroleerd op 27 augustus 2026', 'Officiellt besked kontrollerat 27 augusti 2026'),
+    checked: text('As of 27 August 2026', 'Stand 27. August 2026', 'Actualizado el 27 de agosto de 2026', 'Stand 27 augustus 2026', 'Uppdaterad 27 augusti 2026'),
     linkLabel: text('Read the Nerja Town Council notice', 'Mitteilung der Gemeinde Nerja lesen', 'Leer el aviso del Ayuntamiento de Nerja', 'Lees het bericht van de gemeente Nerja', 'Läs Nerja kommuns meddelande'),
     href: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/'
   },

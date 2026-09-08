@@ -99,7 +99,7 @@ export const frigilianaRestaurantsSeo: AmaraAuthoringSeo = {
     en: {
       title: 'Restaurants in Frigiliana & Nerja',
       description:
-        'Compare ten restaurants in Frigiliana and Nerja for village terraces, special dinners, tapas, seafood and a destination lunch.',
+        'Ten restaurants in Frigiliana and Nerja where we eat ourselves: terraces above the village, tapas in Nerja, fish on the beach.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -113,21 +113,21 @@ export const frigilianaRestaurantsSeo: AmaraAuthoringSeo = {
     es: {
       title: 'Restaurantes en Frigiliana y Nerja',
       description:
-        'Diez restaurantes de Frigiliana y Nerja elegidos según el momento, con consejos sinceros sobre terrazas, cenas especiales, tapas, pescado y excursiones.',
+        'Diez restaurantes en Frigiliana y Nerja en los que comemos nosotros: terrazas sobre el pueblo, tapas en Nerja, pescado en la playa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Restauranttips voor Frigiliana & Nerja',
       description:
-        'Tien restaurants in Frigiliana en Nerja, gekozen per sfeer, met eerlijke AMARA-tips voor terrassen, bijzondere diners, tapas, vis en een lunchuitstap.',
+        'Tien restaurants in Frigiliana en Nerja waar we zelf eten: terrassen boven het dorp, tapas in Nerja, vis op het strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Restauranger i Frigiliana & Nerja',
       description:
-        'Tio restauranger i Frigiliana och Nerja, valda efter tillfälle, med ärliga AMARA-tips om terrasser, speciella middagar, tapas, fisk och utflyktslunch.',
+        'Tio restauranger i Frigiliana och Nerja där vi själva äter: terrasser över byn, tapas i Nerja, fisk på stranden.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -157,20 +157,20 @@ export const frigilianaRestaurantsContent: Record<
       hiking: 'Hiking & nature'
     },
     hero: {
-      kicker: 'Local dining guide',
+      kicker: 'Where we eat out',
       title: 'Restaurants in Frigiliana & Nerja',
-      subtitle: 'Choose by place and occasion',
+      subtitle: 'For the evening in the village and the day by the sea',
       paragraphs: [
         'Dinner here can mean a terrace above Frigiliana, creative plates in Nerja or fresh fish in a busy local bar. Those are different evenings, with different travel and booking needs.',
-        'This is not a ranking or a directory. It is a concise editorial selection for guests, with the trade-offs that matter before you reserve.',
-        'Opening days and menus change with the season. Use the guide to choose, then confirm the latest details directly with the restaurant.'
+        'Ten addresses in Frigiliana and Nerja that we like ourselves, with what counts before you reserve: terrace, location, size of the room.',
+        'Booking is worth it almost everywhere at the weekend.'
       ],
       imageAlt:
         'Whitewashed Frigiliana above the hills and Mediterranean coast',
       summary: {
         eyebrow: 'On this page',
         body:
-          'A curated pick of restaurants in Frigiliana and Nerja — sorted by place and occasion, not a ranking. Choose here, then confirm opening days with the restaurant.',
+          'Ten restaurants in Frigiliana and Nerja, sorted by place and occasion.',
         items: [
           { id: 'frigiliana', label: 'Frigiliana', value: 'Village evenings you can walk home from' },
           { id: 'nerja', label: 'Nerja', value: 'Special menus, tapas and fresh fish' },
@@ -190,8 +190,8 @@ export const frigilianaRestaurantsContent: Record<
     overview: {
       title: 'Start with the evening you want',
       intro:
-        'Distance, noise level, booking requirements and the kind of meal you want are more useful than a ranking.',
-      reviewed: 'Editorially reviewed: July 2026',
+        'For the evening what counts is how it should feel: loud or quiet, short or long, in the village or by the sea.',
+      reviewed: 'As of July 2026',
       items: [
         {
           title: 'Stay in Frigiliana',
@@ -256,9 +256,9 @@ export const frigilianaRestaurantsContent: Record<
             'Book terraces and special-occasion restaurants ahead. For casual tapas, flexibility and an earlier arrival are often more useful than a formal reservation.'
         },
         {
-          title: 'Check the same week',
+          title: 'Closing days',
           text:
-            'Check opening days, winter breaks and current menus directly with the restaurant during the week of your visit.'
+            'Closing days and winter breaks change; a call in the afternoon settles the evening.'
         },
         {
           title: 'Decide who is driving',
@@ -272,7 +272,7 @@ export const frigilianaRestaurantsContent: Record<
         }
       ],
       note:
-        'We choose restaurants independently for the experience they can add to your stay. For current menus, prices, opening days and reservations, contact the restaurant directly.'
+        ''
     },
     combine: {
       title: 'Build the day around the meal',
@@ -282,7 +282,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Burriana and lunch as one beach day',
           text:
-            'If you want a beach day with restaurants and services close by, AYO sits directly on Burriana beach for lunch. Use our beach guide for access and choosing the stretch of coast that suits your day, and check AYO’s current opening before you go.',
+            'For a beach day with a restaurant on the sand: AYO at Burriana, paella from the big pan, for decades.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'See the beach guide'
         },
@@ -296,7 +296,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'After dinner in central Nerja: a sunset drink',
           text:
-            'After dinner near the Balcón or old town, we like to continue to Cochran’s Terrace for a sunset drink. In summer 2025, we watched the sun go down there over a Cuba Libre and a Mai Tai. Check the current opening before you go.',
+            'After dinner at the Balcón or in the old town we like to walk on to Cochran’s Terrace. In summer 2025 we watched the sun go down there over a Cuba Libre and a Mai Tai.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'See our Nerja evening'
         }
@@ -305,8 +305,8 @@ export const frigilianaRestaurantsContent: Record<
     closing: {
       title: 'When dinner falls on a festival evening',
       lead:
-        'If your reservation coincides with a procession or larger celebration, busy streets and changed access can shape the best dinner time and your walk home. We check the current programme and confirmed date before choosing the table.',
-      nextCta: 'Check festival dates & programmes'
+        'If your evening falls on a procession or a festival, the lanes are full and the access routes different. We tell you when to set off.',
+      nextCta: 'To the festivals'
     }
   },
   de: {
@@ -489,20 +489,20 @@ export const frigilianaRestaurantsContent: Record<
       hiking: 'Senderismo y naturaleza'
     },
     hero: {
-      kicker: 'Guía gastronómica local',
+      kicker: 'Donde salimos a comer',
       title: 'Restaurantes en Frigiliana y Nerja',
-      subtitle: 'Elegid por zona y ocasión',
+      subtitle: 'Para la noche en el pueblo y el día junto al mar',
       paragraphs: [
         'Una cena memorable puede ser una mesa sobre los tejados de Frigiliana, platos creativos en Nerja o pescado fresco al ritmo de un bar local lleno de vida. Son planes distintos, y la elección depende del ambiente que apetezca.',
-        'Esto no es un ranking ni un directorio. Es una selección editorial breve para huéspedes, con los matices que de verdad conviene conocer antes de reservar.',
-        'Los días de apertura y las cartas cambian con la temporada. Usa la guía para elegir y confirma después la información más reciente directamente con el restaurante.'
+        'Diez direcciones en Frigiliana y Nerja que nos gustan a nosotros, con lo que cuenta antes de reservar: terraza, ubicación, tamaño del local.',
+        'Reservar merece la pena casi en todas partes el fin de semana.'
       ],
       imageAlt:
         'El pueblo blanco de Frigiliana sobre las colinas y la costa mediterránea',
       summary: {
         eyebrow: 'En esta página',
         body:
-          'Una selección de restaurantes en Frigiliana y Nerja, ordenada por lugar y ocasión, no un ranking. Elegid aquí y confirmad los horarios directamente con el restaurante.',
+          'Diez restaurantes en Frigiliana y Nerja, ordenados por lugar y ocasión.',
         items: [
           { id: 'frigiliana', label: 'Frigiliana', value: 'Cenas en el pueblo, volvéis andando' },
           { id: 'nerja', label: 'Nerja', value: 'Menús especiales, tapas y pescado fresco' },
@@ -522,8 +522,8 @@ export const frigilianaRestaurantsContent: Record<
     overview: {
       title: 'Empieza por la velada que te apetece',
       intro:
-        'Más útil que decidir cuál es “el mejor” es pensar en el ambiente, la distancia y el grado de formalidad que buscas.',
-      reviewed: 'Revisión editorial: julio de 2026',
+        'Para la noche lo que cuenta es cómo queréis que sea: ruidosa o tranquila, corta o larga, en el pueblo o junto al mar.',
+      reviewed: 'Actualizado en julio de 2026',
       items: [
         {
           title: 'Quedarse en Frigiliana',
@@ -588,9 +588,9 @@ export const frigilianaRestaurantsContent: Record<
             'Reserva con tiempo las terrazas y las cenas especiales. Para tapas informales suelen servir más la flexibilidad y llegar pronto que una reserva formal.'
         },
         {
-          title: 'Comprobad esa misma semana',
+          title: 'Días de cierre',
           text:
-            'Comprobad directamente con el restaurante los días de descanso, cierres de invierno y la carta actual durante la semana de vuestra visita.'
+            'Los días de cierre y las pausas de invierno cambian; una llamada por la tarde resuelve la noche.'
         },
         {
           title: 'Decidid quién conduce',
@@ -604,7 +604,7 @@ export const frigilianaRestaurantsContent: Record<
         }
       ],
       note:
-        'Elegimos los restaurantes de forma independiente por la experiencia que pueden aportar a vuestra estancia. Para cartas, precios, días de apertura y reservas actuales, contactad directamente con el restaurante.'
+        ''
     },
     combine: {
       title: 'Haz que el día conduzca hacia la mesa',
@@ -614,7 +614,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Burriana y almuerzo como un solo día de playa',
           text:
-            'Si queréis un día de playa con restaurantes y servicios cerca, AYO está directamente en la playa de Burriana para el almuerzo. Usad nuestra guía de playas para el acceso y la elección del tramo de costa, y comprobad antes la apertura actual de AYO.',
+            'Para un día de playa con restaurante en la arena: AYO en Burriana, paella de la paellera grande, desde hace décadas.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Ver la guía de playas'
         },
@@ -628,7 +628,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Después de cenar en el centro: una copa al atardecer',
           text:
-            'Después de cenar cerca del Balcón o del casco antiguo, nos gusta continuar la noche con una copa al atardecer en Cochran’s Terrace. En verano de 2025 vimos allí ponerse el sol con un Cuba Libre y un Mai Tai. Comprobad el horario actual antes de ir.',
+            'Después de cenar en el Balcón o en el casco antiguo nos gusta seguir hasta Cochran’s Terrace. En el verano de 2025 vimos allí ponerse el sol con un cubalibre y un mai tai.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Ver nuestra noche en Nerja'
         }
@@ -637,8 +637,8 @@ export const frigilianaRestaurantsContent: Record<
     closing: {
       title: 'Cuando vuestra cena coincide con una fiesta',
       lead:
-        'Si vuestra reserva coincide con una procesión o una gran celebración, las calles concurridas y los cambios de acceso marcan la mejor hora para cenar y el regreso. Comprobamos el programa actual y la fecha confirmada antes de elegir la mesa.',
-      nextCta: 'Consultar fechas y programas'
+        'Si vuestra noche coincide con una procesión o una fiesta, las calles están llenas y los accesos cambian. Os decimos cuándo salir.',
+      nextCta: 'A las fiestas'
     }
   },
   nl: {
@@ -655,20 +655,20 @@ export const frigilianaRestaurantsContent: Record<
       hiking: 'Wandelen & natuur'
     },
     hero: {
-      kicker: 'Lokale restaurantgids',
+      kicker: 'Waar wij uit eten gaan',
       title: 'Restaurants in Frigiliana & Nerja',
-      subtitle: 'Kies op locatie en gelegenheid',
+      subtitle: 'Voor de avond in het dorp en de dag aan zee',
       paragraphs: [
         'Een bijzondere avond kan hier een terras boven Frigiliana zijn, creatieve gerechten in Nerja of verse vis in het tempo van een levendige lokale bar. Dat zijn verschillende ervaringen; de juiste keuze hangt af van je stemming.',
-        'Dit is geen ranglijst en ook geen compleet overzicht. Het is een compacte redactionele selectie voor gasten, inclusief de afwegingen die ertoe doen voordat je reserveert.',
-        'Openingsdagen en menu’s veranderen per seizoen. Gebruik de gids om te kiezen en controleer de meest recente informatie daarna rechtstreeks bij het restaurant.'
+        'Tien adressen in Frigiliana en Nerja die we zelf goed vinden, met wat telt vóór het reserveren: terras, ligging, grootte van de ruimte.',
+        'Reserveren loont in het weekend bijna overal.'
       ],
       imageAlt:
         'Het witte dorp Frigiliana boven de heuvels en de Middellandse Zeekust',
       summary: {
         eyebrow: 'Op deze pagina',
         body:
-          'Een samengestelde keuze aan restaurants in Frigiliana en Nerja — op plek en gelegenheid, geen ranglijst. Kies hier voor en bevestig openingstijden rechtstreeks bij het restaurant.',
+          'Tien restaurants in Frigiliana en Nerja, gesorteerd op plek en gelegenheid.',
         items: [
           { id: 'frigiliana', label: 'Frigiliana', value: 'Avonden in het dorp, lopend naar huis' },
           { id: 'nerja', label: 'Nerja', value: 'Speciale menu’s, tapas en verse vis' },
@@ -688,8 +688,8 @@ export const frigilianaRestaurantsContent: Record<
     overview: {
       title: 'Begin bij de avond waar je zin in hebt',
       intro:
-        'Nuttiger dan zoeken naar “de beste” zijn de sfeer, de afstand en hoe informeel of bijzonder de maaltijd moet voelen.',
-      reviewed: 'Redactioneel gecontroleerd: juli 2026',
+        'Voor de avond telt hoe hij moet voelen: luid of stil, kort of lang, in het dorp of aan zee.',
+      reviewed: 'Stand juli 2026',
       items: [
         {
           title: 'Blijf in Frigiliana',
@@ -754,9 +754,9 @@ export const frigilianaRestaurantsContent: Record<
             'Boek terrassen en restaurants voor bijzondere gelegenheden vooraf. Bij informele tapas zijn flexibiliteit en vroeg aankomen vaak nuttiger dan een formele reservering.'
         },
         {
-          title: 'Controleer in dezelfde week',
+          title: 'Sluitingsdagen',
           text:
-            'Controleer rustdagen, wintersluitingen en het actuele menu in de week van jullie bezoek rechtstreeks bij het restaurant.'
+            'Sluitingsdagen en winterpauzes wisselen; een telefoontje in de middag regelt de avond.'
         },
         {
           title: 'Bepaal vooraf wie rijdt',
@@ -770,7 +770,7 @@ export const frigilianaRestaurantsContent: Record<
         }
       ],
       note:
-        'Wij kiezen restaurants onafhankelijk op basis van wat ze aan jullie verblijf kunnen toevoegen. Voor actuele menu’s, prijzen, openingsdagen en reserveringen nemen jullie rechtstreeks contact op met het restaurant.'
+        ''
     },
     combine: {
       title: 'Laat de dag naar de maaltijd toe werken',
@@ -780,7 +780,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Burriana en lunch als één stranddag',
           text:
-            'Willen jullie een stranddag met restaurants en voorzieningen dichtbij, dan ligt AYO direct aan het strand van Burriana voor de lunch. Gebruik onze strandgids voor toegang en strandkeuze en controleer vooraf de actuele opening van AYO.',
+            'Voor een stranddag met restaurant op het zand: AYO aan Burriana, paella uit de grote pan, al decennia.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Bekijk de strandgids'
         },
@@ -794,7 +794,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Na een diner in het centrum: een drankje bij zonsondergang',
           text:
-            'Na een diner bij het Balcón of in de oude stad gaan we graag door naar Cochran’s Terrace voor een drankje bij zonsondergang. In de zomer van 2025 zagen we daar de zon ondergaan met een Cuba Libre en een Mai Tai. Controleer vooraf de actuele openingstijden.',
+            'Na een diner aan de Balcón of in de oude stad lopen we graag door naar Cochran’s Terrace. In de zomer van 2025 zagen we daar de zon ondergaan met een Cuba Libre en een Mai Tai.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Bekijk onze avond in Nerja'
         }
@@ -803,8 +803,8 @@ export const frigilianaRestaurantsContent: Record<
     closing: {
       title: 'Wanneer jullie diner op een feestavond valt',
       lead:
-        'Valt jullie reservering samen met een processie of groot feest, dan bepalen drukke straten en gewijzigde toegang de beste tijd om te eten en jullie terugweg. We controleren het actuele programma en de bevestigde datum voordat we de tafel kiezen.',
-      nextCta: 'Bekijk feestdata & programma’s'
+        'Valt jullie avond op een processie of een feest, dan zijn de steegjes vol en de toegangswegen anders. We zeggen jullie wanneer je moet vertrekken.',
+      nextCta: 'Naar de feesten'
     }
   },
   sv: {
@@ -821,20 +821,20 @@ export const frigilianaRestaurantsContent: Record<
       hiking: 'Vandring & natur'
     },
     hero: {
-      kicker: 'Lokal restaurangguide',
+      kicker: 'Där vi äter ute',
       title: 'Restauranger i Frigiliana & Nerja',
-      subtitle: 'Välj efter plats och tillfälle',
+      subtitle: 'För kvällen i byn och dagen vid havet',
       paragraphs: [
         'En minnesvärd middag kan vara en terrass ovanför Frigiliana, kreativa rätter i Nerja eller färsk fisk i tempot på en livlig lokal bar. Det är olika kvällar, och rätt val beror på vilket humör du är på.',
-        'Det här är varken en rankning eller en fullständig katalog. Det är ett kort redaktionellt urval för gäster, tillsammans med de avvägningar som är viktiga före bokningen.',
-        'Öppningsdagar och menyer ändras med säsongen. Använd guiden för att välja och bekräfta sedan aktuell information direkt med restaurangen.'
+        'Tio adresser i Frigiliana och Nerja som vi själva gillar, med det som räknas innan ni bokar: terrass, läge, lokalens storlek.',
+        'Att boka lönar sig nästan överallt på helgen.'
       ],
       imageAlt:
         'Den vita byn Frigiliana ovanför kullarna och Medelhavskusten',
       summary: {
         eyebrow: 'På den här sidan',
         body:
-          'Ett kuraterat urval restauranger i Frigiliana och Nerja — ordnat efter plats och tillfälle, ingen rangordning. Välj här och bekräfta öppettider direkt med restaurangen.',
+          'Tio restauranger i Frigiliana och Nerja, sorterade efter plats och tillfälle.',
         items: [
           { id: 'frigiliana', label: 'Frigiliana', value: 'Kvällar i byn, gå hem till fots' },
           { id: 'nerja', label: 'Nerja', value: 'Särskilda menyer, tapas och färsk fisk' },
@@ -854,8 +854,8 @@ export const frigilianaRestaurantsContent: Record<
     overview: {
       title: 'Börja med kvällen du längtar efter',
       intro:
-        'Det är mer användbart att tänka på stämning, avstånd och hur avslappnad eller speciell måltiden ska kännas än att leta efter ”den bästa”.',
-      reviewed: 'Redaktionellt granskad: juli 2026',
+        'För kvällen räknas hur den ska kännas: högljudd eller stilla, kort eller lång, i byn eller vid havet.',
+      reviewed: 'Uppdaterad juli 2026',
       items: [
         {
           title: 'Stanna i Frigiliana',
@@ -920,9 +920,9 @@ export const frigilianaRestaurantsContent: Record<
             'Boka terrasser och restauranger för speciella tillfällen i förväg. För enkel tapas är flexibilitet och tidig ankomst ofta mer värdefullt än en formell bokning.'
         },
         {
-          title: 'Kontrollera samma vecka',
+          title: 'Stängningsdagar',
           text:
-            'Kontrollera vilodagar, vinterstängningar och aktuell meny direkt med restaurangen under veckan för ert besök.'
+            'Stängningsdagar och vinterpauser växlar; ett samtal på eftermiddagen ordnar kvällen.'
         },
         {
           title: 'Bestäm vem som kör',
@@ -936,7 +936,7 @@ export const frigilianaRestaurantsContent: Record<
         }
       ],
       note:
-        'Vi väljer restauranger oberoende utifrån vad de kan tillföra er vistelse. För aktuella menyer, priser, öppningsdagar och bokningar kontaktar ni restaurangen direkt.'
+        ''
     },
     combine: {
       title: 'Låt dagen leda fram till måltiden',
@@ -946,7 +946,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Burriana och lunch som en stranddag',
           text:
-            'Om ni vill ha en stranddag med restauranger och service nära till hands ligger AYO direkt på Burrianastranden för lunch. Använd vår strandguide för tillträde och strandval och kontrollera AYOs aktuella öppettider i förväg.',
+            'För en stranddag med restaurang på sanden: AYO vid Burriana, paella från den stora pannan, sedan årtionden.',
           linkToken: 'frigiliana_beaches_authority',
           linkLabel: 'Se strandguiden'
         },
@@ -960,7 +960,7 @@ export const frigilianaRestaurantsContent: Record<
         {
           title: 'Efter middag i centrum: en drink i solnedgången',
           text:
-            'Efter en middag nära Balcón eller gamla stan fortsätter vi gärna till Cochran’s Terrace för en drink i solnedgången. Sommaren 2025 såg vi solen gå ner där med en Cuba Libre och en Mai Tai. Kontrollera de aktuella öppettiderna före ert besök.',
+            'Efter en middag vid Balcón eller i gamla stan går vi gärna vidare till Cochran’s Terrace. Sommaren 2025 såg vi solen gå ner där över en Cuba Libre och en Mai Tai.',
           linkToken: 'nerja_nightlife_authority',
           linkLabel: 'Se vår kväll i Nerja'
         }
@@ -969,8 +969,8 @@ export const frigilianaRestaurantsContent: Record<
     closing: {
       title: 'När middagen sammanfaller med ett firande',
       lead:
-        'Om er bokning sammanfaller med en procession eller ett större firande påverkar folktäta gränder och ändrad framkomlighet både middagstiden och vägen hem. Vi kontrollerar det aktuella programmet och det bekräftade datumet innan vi väljer bord.',
-      nextCta: 'Kontrollera datum & program'
+        'Infaller er kväll på en procession eller en fest är gränderna fulla och tillfarterna annorlunda. Vi säger när ni bör gå.',
+      nextCta: 'Till festerna'
     }
   }
 };

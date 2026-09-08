@@ -180,7 +180,7 @@ export const frigilianaWeddingsContent: Record<
         }
       ],
       note:
-        'A whole-house booking means four independent accommodations in the same historic building, not one shared event villa. Casa AMARA is for overnight stays; parties and events are not part of the normal accommodation use.',
+        'Booking the whole house means: four independent apartments in the same old building for up to eight guests. The wedding and the celebration happen in the church and the restaurant; in the house you sleep.',
       cta: 'Check availability',
       apartmentsCta: 'Compare the AMARA stays'
     },
@@ -230,14 +230,14 @@ export const frigilianaWeddingsContent: Record<
         {
           title: 'Understand streets and stairs',
           text:
-            'Frigiliana is a hillside village. Check routes and steps when elderly relatives, small children or formal shoes are part of the day.',
+            'Frigiliana is on a hillside. For elderly relatives, small children and festive shoes a look at the routes and steps is worthwhile; we describe them for you.',
           linkLabel: 'Village streets and stairs',
           linkToken: 'frigiliana_stairs'
         },
         {
           title: 'Plan for the weather and season',
           text:
-            'Check typical temperatures, rain and evening conditions so clothing, walking times and transfers suit your date.',
+            'In summer the evening is the loveliest time, in winter the midday sun; clothing and routes follow from that.',
           linkLabel: 'Weather in Frigiliana',
           linkToken: 'weather_frigiliana'
         }
@@ -267,7 +267,7 @@ export const frigilianaWeddingsContent: Record<
         {
           question: 'Is Casa AMARA a wedding or reception venue?',
           answer:
-            'No. Casa AMARA is accommodation near San Antonio church. Parties and events are not included in normal accommodation use; the ceremony and reception take place elsewhere.'
+            'No. Casa AMARA is the home for the nights around the wedding, fifteen metres from the church of San Antonio; the ceremony and celebration take place in the church and the restaurant.'
         },
         {
           question: 'How do we arrange a church wedding in Frigiliana?',
@@ -510,7 +510,7 @@ export const frigilianaWeddingsContent: Record<
         }
       ],
       note:
-        'Reservar toda la casa significa disponer de cuatro alojamientos independientes en el mismo edificio histórico, no de una villa común para eventos. Casa AMARA es para pernoctar; las fiestas y los eventos no forman parte del uso habitual del alojamiento.',
+        'Reservar la casa entera significa: cuatro apartamentos independientes en el mismo edificio antiguo para hasta ocho huéspedes. La boda y la celebración son en la iglesia y el restaurante; en la casa se dorme.',
       cta: 'Consultar disponibilidad',
       apartmentsCta: 'Comparar alojamientos AMARA'
     },
@@ -560,14 +560,14 @@ export const frigilianaWeddingsContent: Record<
         {
           title: 'Conocer las calles y escaleras',
           text:
-            'Frigiliana está en una ladera. Revisad rutas y peldaños si participan familiares mayores, niños pequeños o zapatos de vestir.',
+            'Frigiliana está en una ladera. Para familiares mayores, niños pequeños y zapatos de fiesta conviene mirar los caminos y escalones; os los describimos.',
           linkLabel: 'Calles y escaleras de Frigiliana',
           linkToken: 'frigiliana_stairs'
         },
         {
           title: 'Tener en cuenta el tiempo y la estación',
           text:
-            'Consultad las temperaturas habituales, la lluvia y las condiciones al anochecer para adaptar la ropa, los trayectos a pie y los traslados a la fecha elegida.',
+            'En verano la mejor hora es la tarde-noche, en invierno el sol del mediodía; la ropa y los caminos se adaptan a ello.',
           linkLabel: 'Tiempo y clima en Frigiliana',
           linkToken: 'weather_frigiliana'
         }
@@ -597,7 +597,7 @@ export const frigilianaWeddingsContent: Record<
         {
           question: '¿Casa AMARA es un lugar para bodas o celebraciones?',
           answer:
-            'No. Casa AMARA es un alojamiento cerca de la iglesia de San Antonio. Las fiestas y eventos no forman parte del uso normal; la ceremonia y la celebración se realizan en otros lugares.'
+            'No. Casa AMARA es el hogar para las noches en torno a la boda, a quince metros de la iglesia de San Antonio; la ceremonia y la celebración son en la iglesia y el restaurante.'
         },
         {
           question: '¿Cómo se organiza una boda religiosa en Frigiliana?',
@@ -675,7 +675,7 @@ export const frigilianaWeddingsContent: Record<
         }
       ],
       note:
-        'Het hele huis boeken betekent vier zelfstandige accommodaties in hetzelfde historische gebouw, niet één gedeelde evenementen-villa. Casa AMARA is bedoeld om te overnachten; feesten en evenementen horen niet bij het normale gebruik.',
+        'Het hele huis boeken betekent: vier eigen appartementen in hetzelfde oude gebouw voor maximaal acht gasten. Getrouwd en gevierd wordt in de kerk en het restaurant; in het huis wordt geslapen.',
       cta: 'Bekijk beschikbaarheid',
       apartmentsCta: 'Vergelijk de AMARA-verblijven'
     },
@@ -725,14 +725,14 @@ export const frigilianaWeddingsContent: Record<
         {
           title: 'Straatjes en trappen begrijpen',
           text:
-            'Frigiliana ligt tegen een helling. Controleer routes en treden wanneer oudere familieleden, kleine kinderen of nette schoenen deel van de dag zijn.',
+            'Frigiliana ligt op een helling. Voor oudere familieleden, kleine kinderen en feestelijke schoenen is een blik op de wegen en treden de moeite; we beschrijven ze voor jullie.',
           linkLabel: 'Straatjes en trappen in Frigiliana',
           linkToken: 'frigiliana_stairs'
         },
         {
           title: 'Houd rekening met weer en seizoen',
           text:
-            'Bekijk gebruikelijke temperaturen, regen en avondomstandigheden, zodat kleding, looproutes en transfers bij jullie datum passen.',
+            'In de zomer is de avond het mooiste moment, in de winter de middagzon; kleding en routes richten zich daarnaar.',
           linkLabel: 'Weer in Frigiliana',
           linkToken: 'weather_frigiliana'
         }
@@ -762,7 +762,7 @@ export const frigilianaWeddingsContent: Record<
         {
           question: 'Is Casa AMARA een trouw- of feestlocatie?',
           answer:
-            'Nee. Casa AMARA is accommodatie bij de San Antonio-kerk. Feesten en evenementen horen niet bij het normale gebruik; de ceremonie en receptie vinden elders plaats.'
+            'Nee. Casa AMARA is het thuis voor de nachten rond de bruiloft, vijftien meter van de kerk San Antonio; ceremonie en feest vinden plaats in de kerk en het restaurant.'
         },
         {
           question: 'Hoe regel je een kerkelijk huwelijk in Frigiliana?',
@@ -840,7 +840,7 @@ export const frigilianaWeddingsContent: Record<
         }
       ],
       note:
-        'Att boka hela huset betyder fyra fristående boenden i samma historiska byggnad, inte en gemensam evenemangsvilla. Casa AMARA är till för övernattning; fester och evenemang ingår inte i normal användning.',
+        'Att boka hela huset betyder: fyra egna lägenheter i samma gamla byggnad för upp till åtta gäster. Vigseln och festen sker i kyrkan och på restaurangen; i huset sover man.',
       cta: 'Se tillgänglighet',
       apartmentsCta: 'Jämför AMARA-boendena'
     },
@@ -890,14 +890,14 @@ export const frigilianaWeddingsContent: Record<
         {
           title: 'Förstå gränder och trappor',
           text:
-            'Frigiliana ligger på en sluttning. Kontrollera vägar och trappsteg när äldre släktingar, små barn eller fina skor är en del av dagen.',
+            'Frigiliana ligger på en sluttning. För äldre släktingar, små barn och festskor lönar sig en titt på vägar och trappsteg; vi beskriver dem för er.',
           linkLabel: 'Gränder och trappor i Frigiliana',
           linkToken: 'frigiliana_stairs'
         },
         {
           title: 'Planera efter väder och årstid',
           text:
-            'Kontrollera normala temperaturer, regn och kvällsförhållanden så att kläder, promenader och transfer passar ert datum.',
+            'På sommaren är kvällen den vackraste tiden, på vintern middagssolen; kläder och vägar rättar sig efter det.',
           linkLabel: 'Vädret i Frigiliana',
           linkToken: 'weather_frigiliana'
         }
@@ -927,7 +927,7 @@ export const frigilianaWeddingsContent: Record<
         {
           question: 'Är Casa AMARA en plats för bröllop eller fest?',
           answer:
-            'Nej. Casa AMARA är boende nära San Antonio-kyrkan. Fester och evenemang ingår inte i normal användning; vigsel och mottagning sker på andra platser.'
+            'Nej. Casa AMARA är hemmet för nätterna kring bröllopet, femton meter från kyrkan San Antonio; vigsel och fest sker i kyrkan och på restaurangen.'
         },
         {
           question: 'Hur ordnar man en kyrklig vigsel i Frigiliana?',

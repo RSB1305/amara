@@ -134,7 +134,7 @@ export const frigilianaFestivalsSeo: AmaraAuthoringSeo = {
     en: {
       title: 'Festivals in Frigiliana & Nerja',
       description:
-        'Plan festivals in Frigiliana and Nerja with a seasonal calendar, confirmed 2026 dates and honest advice on crowds, parking and programmes.',
+        'Festivals in Frigiliana and Nerja: the calendar through the year, the 2026 dates and what happens in the village on those days.',
       robots: 'index, follow',
       canonical: 'auto'
     },
@@ -148,21 +148,21 @@ export const frigilianaFestivalsSeo: AmaraAuthoringSeo = {
     es: {
       title: 'Fiestas en Frigiliana y Nerja',
       description:
-        'Planificad las fiestas de Frigiliana y Nerja con calendario estacional, fechas confirmadas de 2026 y consejos sobre aforo, acceso y programas.',
+        'Fiestas en Frigiliana y Nerja: el calendario a lo largo del año, las fechas de 2026 y qué pasa en el pueblo esos días.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Feesten in Frigiliana & Nerja',
       description:
-        'Plan feesten in Frigiliana en Nerja met een seizoenskalender, bevestigde data voor 2026 en eerlijk advies over drukte, parkeren en programma’s.',
+        'Feesten in Frigiliana en Nerja: de kalender door het jaar, de data van 2026 en wat er op die dagen in het dorp gebeurt.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Festivaler i Frigiliana & Nerja',
       description:
-        'Planera festivaler i Frigiliana och Nerja med säsongskalender, bekräftade datum för 2026 och råd om trängsel, parkering och program.',
+        'Fester i Frigiliana och Nerja: kalendern genom året, datumen för 2026 och vad som händer i byn de dagarna.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -182,9 +182,9 @@ export const frigilianaFestivalsContent: Record<
     cardLabels: {
       timing: 'When',
       place: 'Where',
-      dateStatus: 'Date status',
+      dateStatus: 'Status',
       officialInformation: 'Official information',
-      amaraNote: 'AMARA planning note'
+      amaraNote: 'Our tip'
     },
     footerHighlights: {
       festivals: 'Festivals & traditions',
@@ -197,8 +197,8 @@ export const frigilianaFestivalsContent: Record<
       subtitle: 'A year shaped by tradition',
       paragraphs: [
         'The Axarquía changes rhythm throughout the year: quiet village streets fill with processions, pilgrims cross Nerja in decorated carts, and summer nights move to the beach or Frigiliana’s historic quarter.',
-        'This guide is designed to help you choose a travel period and understand the atmosphere before you go. It combines recurring traditions with a small number of dates officially confirmed for 2026.',
-        'Exact routes, times and programmes can change, even when a celebration has a traditional feast day. Treat the calendar as a planning map and check the linked official information shortly before your visit.'
+        'A calendar through the year: what is celebrated when, how it feels and when the trip may be planned around it.',
+        'Times and programmes are published by the councils shortly before the festival; the links are below.'
       ],
       imageAlt:
         'Whitewashed Frigiliana above the hills and Mediterranean coast',
@@ -224,7 +224,7 @@ export const frigilianaFestivalsContent: Record<
       title: 'Start with the kind of day you want',
       intro:
         'A village saint’s day, a solemn procession and a major summer festival are very different evenings. Some dates are fixed years ahead, others are confirmed only weeks before — which is why the status matters as much as the month.',
-      reviewed: 'Editorially reviewed: July 2026',
+      reviewed: 'As of July 2026',
       items: [
         {
           title: 'Village traditions',
@@ -251,7 +251,7 @@ export const frigilianaFestivalsContent: Record<
     calendar: {
       title: 'The festival year at a glance',
       intro:
-        'Traditional feast days are useful anchors, but the public programme around them is not automatically fixed. “Confirmed for 2026” refers only to information already published by the relevant council.',
+        'The feast days are fixed; the programme around them is new every year. “Confirmed for 2026” means: the council has published the date.',
       seasons: [
         {
           id: 'january',
@@ -280,7 +280,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'San Antón',
               timing: 'Around 16–17 January',
               place: 'Maro',
-              dateStatus: 'Traditional dates; programme varies',
+              dateStatus: 'Every year around these days',
               summary:
                 'Maro’s celebration combines devotion to San Antón with street life and popular traditions. Nerja sets the programme fresh each year — tell us your dates and we will look it up.',
               officialHref: officialLinks.nerjaCouncil
@@ -330,7 +330,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Cruces de Mayo',
               timing: 'Around 3 May',
               place: 'Frigiliana',
-              dateStatus: 'Traditional period; programme varies',
+              dateStatus: 'Every year around this time',
               summary:
                 'Flower-covered crosses appear around the village, accompanied by food, music and neighbourhood hospitality. The tradition was revived in 1981 after a long interruption, and neighbours still prepare arropía, a sweet made with miel de caña, to go with it. Locations and activities vary.',
               officialHref: officialLinks.frigilianaTraditions
@@ -348,7 +348,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Feria de San Antonio',
               timing: 'Around 13 June',
               place: 'Frigiliana',
-              dateStatus: 'Traditional period; programme varies',
+              dateStatus: 'Every year around this time',
               summary:
                 'Frigiliana’s main fair, moved here from January in 1967 and tied to the village’s other patron, San Antonio de Padua. It brings a romería, concerts, attractions and community events over several days. The exact schedule and traffic arrangements change annually.',
               officialHref: officialLinks.frigilianaTraditions
@@ -374,7 +374,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Virgen del Carmen',
               timing: 'Around 16 July',
               place: 'Nerja',
-              dateStatus: 'Traditional date; programme varies',
+              dateStatus: 'Every year around this day',
               summary:
                 'The patron saint of seafarers is honoured with a maritime procession and celebrations by the coast. Viewing areas become busy well before the procession.'
             },
@@ -384,7 +384,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Nerja Cave area',
               dateStatus: 'Programme and tickets vary',
               summary:
-                'Concerts and cultural performances are scheduled separately each season. Check the official programme, venue and ticket conditions before booking.',
+                'Concerts and the cultural programme are planned anew each season; venue and tickets are in the official programme.',
               officialHref: officialLinks.cuevaDeNerja
             },
             {
@@ -419,7 +419,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Maro',
               dateStatus: 'Date and programme vary',
               summary:
-                'Maro’s local fair combines concerts, attractions and community traditions. Check the year’s exact dates with Nerja council.',
+                'Maro’s fair: concerts, rides and a village celebrating together. The dates are announced by Nerja council each year.',
               officialHref: officialLinks.nerjaCouncil
             },
             {
@@ -456,7 +456,7 @@ export const frigilianaFestivalsContent: Record<
           description:
             'Frigiliana’s largest cultural weekend brings together music, a craft market of around 150 stalls, street performances and a tapas route through the old town. It is a modern cultural festival, created by the municipality in 2006, rather than an old village tradition — and the village feels completely different from an ordinary summer evening.',
           planningNote:
-            'Arrive well before the evening peak, wear shoes suited to steep cobbled streets and do not count on parking close to the historic centre. Confirm individual concerts and programme times when the full schedule is released.',
+            'Come early, wear shoes for steep cobbled lanes and park down on the edge of the village; up top there is no space on these evenings.',
           officialHref: officialLinks.threeCultures2026
         },
         {
@@ -927,9 +927,9 @@ export const frigilianaFestivalsContent: Record<
     cardLabels: {
       timing: 'Cuándo',
       place: 'Dónde',
-      dateStatus: 'Estado de la fecha',
+      dateStatus: 'Estado',
       officialInformation: 'Información oficial',
-      amaraNote: 'Consejo AMARA para organizaros'
+      amaraNote: 'Nuestro consejo'
     },
     footerHighlights: {
       festivals: 'Fiestas y tradiciones',
@@ -942,8 +942,8 @@ export const frigilianaFestivalsContent: Record<
       subtitle: 'Un año marcado por la tradición',
       paragraphs: [
         'La Axarquía cambia de ritmo a lo largo del año: las calles tranquilas se llenan de procesiones, las carretas engalanadas cruzan Nerja y las noches de verano se trasladan a la playa o al casco histórico de Frigiliana.',
-        'Esta guía os ayudará a elegir época de viaje y a entender el ambiente antes de salir. Reúne tradiciones recurrentes con un pequeño número de fechas ya confirmadas oficialmente para 2026.',
-        'Los recorridos, horarios y programas pueden cambiar incluso cuando la fiesta está ligada a un día tradicional. Usad el calendario como mapa de planificación y consultad la información oficial enlazada poco antes de vuestra visita.'
+        'Un calendario a lo largo del año: qué se celebra cuándo, cómo se siente y cuándo el viaje puede girar en torno a ello.',
+        'Los horarios y programas los publican los ayuntamientos poco antes de la fiesta; los enlaces están abajo.'
       ],
       imageAlt:
         'El pueblo blanco de Frigiliana sobre las colinas y la costa mediterránea',
@@ -969,7 +969,7 @@ export const frigilianaFestivalsContent: Record<
       title: 'Empezad por el tipo de día que queréis vivir',
       intro:
         'Una fiesta patronal de pueblo, una procesión solemne y un gran festival de verano son noches muy distintas. Algunas fechas se fijan años antes y otras se confirman semanas antes: por eso el estado importa tanto como el mes.',
-      reviewed: 'Revisión editorial: julio de 2026',
+      reviewed: 'Actualizado en julio de 2026',
       items: [
         {
           title: 'Tradiciones de pueblo',
@@ -996,7 +996,7 @@ export const frigilianaFestivalsContent: Record<
     calendar: {
       title: 'El año festivo de un vistazo',
       intro:
-        'Los días tradicionales sirven como referencia, pero el programa público que los acompaña no es necesariamente fijo. “Confirmada para 2026” se refiere solo a información ya publicada por el ayuntamiento correspondiente.',
+        'Las fechas festivas están fijadas; el programa se renueva cada año. «Confirmado para 2026» significa: el ayuntamiento ha publicado la fecha.',
       seasons: [
         {
           id: 'january',
@@ -1025,7 +1025,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'San Antón',
               timing: 'En torno al 16–17 de enero',
               place: 'Maro',
-              dateStatus: 'Días tradicionales; programa variable',
+              dateStatus: 'Cada año por estas fechas',
               summary:
                 'La fiesta de Maro une la devoción a San Antón con el ambiente en la calle y las tradiciones populares. Nerja fija el programa cada año: decidnos vuestras fechas y lo consultamos.',
               officialHref: officialLinks.nerjaCouncil
@@ -1075,7 +1075,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Cruces de Mayo',
               timing: 'Alrededor del 3 de mayo',
               place: 'Frigiliana',
-              dateStatus: 'Periodo tradicional; programa variable',
+              dateStatus: 'Cada año por esta época',
               summary:
                 'Por el pueblo aparecen cruces cubiertas de flores, acompañadas de comida, música y hospitalidad vecinal. La tradición se recuperó en 1981 tras una larga interrupción, y los vecinos siguen preparando arropía, un dulce elaborado con miel de caña. Los puntos y las actividades varían.',
               officialHref: officialLinks.frigilianaTraditions
@@ -1093,7 +1093,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Feria de San Antonio',
               timing: 'Alrededor del 13 de junio',
               place: 'Frigiliana',
-              dateStatus: 'Periodo tradicional; programa variable',
+              dateStatus: 'Cada año por esta época',
               summary:
                 'La feria principal del pueblo, trasladada aquí desde enero en 1967 y vinculada al otro patrón, San Antonio de Padua. Reúne durante varios días romería, conciertos, atracciones y actividades vecinales. El horario y la regulación del tráfico cambian cada año.',
               officialHref: officialLinks.frigilianaTraditions
@@ -1120,7 +1120,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Virgen del Carmen',
               timing: 'Alrededor del 16 de julio',
               place: 'Nerja',
-              dateStatus: 'Fecha tradicional; programa variable',
+              dateStatus: 'Cada año por este día',
               summary:
                 'La patrona de los marineros se honra con una procesión marítima y celebraciones junto a la costa. Las zonas con buena visibilidad se llenan mucho antes de la salida.'
             },
@@ -1130,7 +1130,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Entorno de la Cueva de Nerja',
               dateStatus: 'El programa y las entradas varían',
               summary:
-                'Los conciertos y espectáculos culturales se programan por separado cada temporada. Antes de reservar, comprobad el programa, el recinto y las condiciones de las entradas.',
+                'Los conciertos y el programa cultural se planifican de nuevo cada temporada; lugar y entradas están en el programa oficial.',
               officialHref: officialLinks.cuevaDeNerja
             },
             {
@@ -1165,7 +1165,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Maro',
               dateStatus: 'La fecha y el programa varían',
               summary:
-                'La feria local de Maro combina conciertos, atracciones y tradiciones vecinales. Consultad las fechas exactas de cada año con el Ayuntamiento de Nerja.',
+                'La feria de Maro: conciertos, atracciones y un pueblo que celebra unido. Las fechas las anuncia cada año el Ayuntamiento de Nerja.',
               officialHref: officialLinks.nerjaCouncil
             },
             {
@@ -1202,7 +1202,7 @@ export const frigilianaFestivalsContent: Record<
           description:
             'El gran fin de semana cultural de Frigiliana reúne música, un mercado artesanal de unos 150 puestos, espectáculos callejeros y una ruta de la tapa por el casco antiguo. Es un festival cultural moderno, creado por el ayuntamiento en 2006, y no una tradición antigua del pueblo: durante esos días Frigiliana se siente completamente distinta a una noche normal de verano.',
           planningNote:
-            'Llegad bastante antes del momento de mayor afluencia, llevad calzado apropiado para las calles empedradas y empinadas y no contéis con aparcar cerca del casco histórico. Comprobad los conciertos y horarios cuando se publique el programa completo.',
+            'Venid temprano, llevad calzado para callejuelas empinadas y empedradas y aparcad abajo, en el borde del pueblo; arriba no hay sitio esas noches.',
           officialHref: officialLinks.threeCultures2026
         },
         {
@@ -1300,9 +1300,9 @@ export const frigilianaFestivalsContent: Record<
     cardLabels: {
       timing: 'Wanneer',
       place: 'Waar',
-      dateStatus: 'Status van de datum',
+      dateStatus: 'Stand',
       officialInformation: 'Officiële informatie',
-      amaraNote: 'AMARA-planningstip'
+      amaraNote: 'Onze tip'
     },
     footerHighlights: {
       festivals: 'Feesten & tradities',
@@ -1315,8 +1315,8 @@ export const frigilianaFestivalsContent: Record<
       subtitle: 'Een jaar in het ritme van traditie',
       paragraphs: [
         'De Axarquía verandert het hele jaar door van ritme: rustige dorpsstraten vullen zich met processies, versierde wagens trekken door Nerja en zomeravonden verplaatsen zich naar het strand of de oude wijk van Frigiliana.',
-        'Deze gids helpt jullie een reisperiode te kiezen en vooraf te begrijpen wat jullie kunnen verwachten. Terugkerende tradities worden gecombineerd met een klein aantal data dat voor 2026 officieel is bevestigd.',
-        'Exacte routes, tijden en programma’s kunnen veranderen, ook als een feest aan een traditionele datum is verbonden. Gebruik de kalender als planningsoverzicht en controleer de gelinkte officiële informatie kort voor jullie bezoek.'
+        'Een kalender door het jaar: wat wanneer gevierd wordt, hoe het voelt en wanneer de reis zich ernaar mag richten.',
+        'Tijden en programma’s publiceren de gemeenten kort voor het feest; de links staan onderaan.'
       ],
       imageAlt:
         'Het witte dorp Frigiliana boven de heuvels en de Middellandse Zeekust',
@@ -1342,7 +1342,7 @@ export const frigilianaFestivalsContent: Record<
       title: 'Begin met het soort dag dat jullie willen beleven',
       intro:
         'Een dorpsfeest rond een heilige, een plechtige processie en een groot zomerfestival zijn totaal verschillende avonden. Sommige data liggen jaren vast, andere pas weken van tevoren — daarom telt de status net zo zwaar als de maand.',
-      reviewed: 'Redactioneel gecontroleerd: juli 2026',
+      reviewed: 'Stand juli 2026',
       items: [
         {
           title: 'Dorpstradities',
@@ -1369,7 +1369,7 @@ export const frigilianaFestivalsContent: Record<
     calendar: {
       title: 'Het feestjaar in één oogopslag',
       intro:
-        'Traditionele feestdagen zijn nuttige ankerpunten, maar het publieke programma eromheen ligt niet automatisch vast. “Bevestigd voor 2026” verwijst alleen naar informatie die al door de betrokken gemeente is gepubliceerd.',
+        'De feestdagen staan vast, het programma erbij komt elk jaar nieuw. „Bevestigd voor 2026” betekent: de gemeente heeft de datum gepubliceerd.',
       seasons: [
         {
           id: 'january',
@@ -1398,7 +1398,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'San Antón',
               timing: 'Rond 16–17 januari',
               place: 'Maro',
-              dateStatus: 'Traditionele dagen; programma wisselt',
+              dateStatus: 'Elk jaar rond deze dagen',
               summary:
                 'Maro’s viering verbindt de verering van San Antón met straatleven en volkstradities. De gemeente Nerja stelt het programma elk jaar opnieuw vast — geef ons jullie data, dan zoeken we het op.',
               officialHref: officialLinks.nerjaCouncil
@@ -1448,7 +1448,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Cruces de Mayo',
               timing: 'Rond 3 mei',
               place: 'Frigiliana',
-              dateStatus: 'Traditionele periode; programma wisselt',
+              dateStatus: 'Elk jaar rond deze tijd',
               summary:
                 'Door het dorp verschijnen met bloemen bedekte kruisen, begeleid door eten, muziek en gastvrijheid van de buurten. De traditie werd in 1981 na een lange onderbreking nieuw leven ingeblazen, en de buurten maken er nog steeds arropía bij, een zoete lekkernij van miel de caña. Locaties en activiteiten variëren.',
               officialHref: officialLinks.frigilianaTraditions
@@ -1466,7 +1466,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Feria de San Antonio',
               timing: 'Rond 13 juni',
               place: 'Frigiliana',
-              dateStatus: 'Traditionele periode; programma wisselt',
+              dateStatus: 'Elk jaar rond deze tijd',
               summary:
                 'De belangrijkste feria van het dorp, in 1967 vanuit januari hierheen verplaatst en verbonden met de andere patroonheilige, San Antonio de Padua. Meerdere dagen lang zijn er een romería, concerten, attracties en activiteiten voor de gemeenschap. Programma en verkeersmaatregelen veranderen jaarlijks.',
               officialHref: officialLinks.frigilianaTraditions
@@ -1493,7 +1493,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Virgen del Carmen',
               timing: 'Rond 16 juli',
               place: 'Nerja',
-              dateStatus: 'Traditionele datum; programma wisselt',
+              dateStatus: 'Elk jaar rond deze dag',
               summary:
                 'De beschermheilige van zeelieden wordt geëerd met een processie op zee en vieringen aan de kust. Plekken met goed zicht worden ruim voor het vertrek druk.'
             },
@@ -1503,7 +1503,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Omgeving van de Grot van Nerja',
               dateStatus: 'Programma en tickets wisselen',
               summary:
-                'Concerten en culturele voorstellingen worden elk seizoen apart gepland. Controleer vóór het boeken het officiële programma, de locatie en de ticketvoorwaarden.',
+                'Concerten en cultuurprogramma worden elk seizoen opnieuw gepland; locatie en tickets staan in het officiële programma.',
               officialHref: officialLinks.cuevaDeNerja
             },
             {
@@ -1538,7 +1538,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Maro',
               dateStatus: 'Datum en programma wisselen',
               summary:
-                'Maro’s lokale feria combineert concerten, attracties en gemeenschapstradities. Controleer de precieze data van dit jaar bij de gemeente Nerja.',
+                'De feria van Maro: concerten, kermisattracties en een dorp dat samen feest. De dagen maakt de gemeente Nerja elk jaar bekend.',
               officialHref: officialLinks.nerjaCouncil
             },
             {
@@ -1575,7 +1575,7 @@ export const frigilianaFestivalsContent: Record<
           description:
             'Frigiliana’s grootste culturele weekend combineert muziek, een ambachtsmarkt met zo’n 150 kramen, straatvoorstellingen en een tapasroute door de oude wijk. Het is een modern cultureel festival dat de gemeente in 2006 in het leven riep en geen oude dorpstraditie — het dorp voelt dan volledig anders dan op een gewone zomeravond.',
           planningNote:
-            'Kom ruim vóór de avondpiek, draag schoenen voor steile geplaveide straten en reken niet op parkeren vlak bij het centrum. Controleer afzonderlijke concerten en tijden zodra het volledige programma verschijnt.',
+            'Kom vroeg, draag schoenen voor steile kinderkopjes en parkeer beneden aan de rand van het dorp; boven is er op deze avonden geen plek.',
           officialHref: officialLinks.threeCultures2026
         },
         {
@@ -1673,9 +1673,9 @@ export const frigilianaFestivalsContent: Record<
     cardLabels: {
       timing: 'När',
       place: 'Var',
-      dateStatus: 'Datumstatus',
+      dateStatus: 'Status',
       officialInformation: 'Officiell information',
-      amaraNote: 'AMARA:s planeringstips'
+      amaraNote: 'Vårt tips'
     },
     footerHighlights: {
       festivals: 'Festivaler & traditioner',
@@ -1688,8 +1688,8 @@ export const frigilianaFestivalsContent: Record<
       subtitle: 'Ett år präglat av tradition',
       paragraphs: [
         'Axarquía byter rytm under året: lugna bygator fylls av processioner, dekorerade vagnar rör sig genom Nerja och sommarkvällarna flyttar till stranden eller Frigilianas historiska kvarter.',
-        'Den här guiden hjälper er att välja restid och förstå stämningen i förväg. Den kombinerar återkommande traditioner med ett mindre antal datum som redan har bekräftats officiellt för 2026.',
-        'Exakta rutter, tider och program kan ändras även när en högtid har ett traditionellt datum. Använd kalendern som planeringskarta och kontrollera den länkade officiella informationen strax före ert besök.'
+        'En kalender genom året: vad som firas när, hur det känns och när resan får rätta sig efter det.',
+        'Tider och program publicerar kommunerna kort före festen; länkarna finns nedan.'
       ],
       imageAlt:
         'Den vitkalkade byn Frigiliana ovanför kullarna och Medelhavskusten',
@@ -1715,7 +1715,7 @@ export const frigilianaFestivalsContent: Record<
       title: 'Börja med vilken sorts dag ni vill uppleva',
       intro:
         'En helgondag i byn, en högtidlig procession och en stor sommarfestival är helt olika kvällar. Vissa datum ligger fast år i förväg, andra bekräftas först några veckor innan — därför betyder statusen lika mycket som månaden.',
-      reviewed: 'Redaktionellt granskat: juli 2026',
+      reviewed: 'Uppdaterad juli 2026',
       items: [
         {
           title: 'Bytraditioner',
@@ -1742,7 +1742,7 @@ export const frigilianaFestivalsContent: Record<
     calendar: {
       title: 'Festivalåret i korthet',
       intro:
-        'Traditionella högtidsdagar är bra hållpunkter, men det offentliga programmet runt dem är inte automatiskt fast. ”Bekräftat för 2026” avser endast information som redan har publicerats av berörd kommun.',
+        'Helgdagarna är fasta, programmet kring dem kommer nytt varje år. ”Bekräftat för 2026” betyder: kommunen har publicerat datumet.',
       seasons: [
         {
           id: 'january',
@@ -1771,7 +1771,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'San Antón',
               timing: 'Omkring 16–17 januari',
               place: 'Maro',
-              dateStatus: 'Traditionella dagar; varierande program',
+              dateStatus: 'Varje år kring dessa dagar',
               summary:
                 'Maros firande förenar vördnaden för San Antón med folkliv och lokala traditioner. Nerja kommun fastställer programmet varje år — säg era datum, så kollar vi upp det.',
               officialHref: officialLinks.nerjaCouncil
@@ -1821,7 +1821,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Cruces de Mayo',
               timing: 'Omkring 3 maj',
               place: 'Frigiliana',
-              dateStatus: 'Traditionell period; varierande program',
+              dateStatus: 'Varje år vid den här tiden',
               summary:
                 'Blomsterklädda kors syns runt om i byn, tillsammans med mat, musik och gästfrihet från kvarteren. Traditionen återupptogs 1981 efter ett långt uppehåll, och kvarteren gör fortfarande arropía till den – en sötsak kokt på miel de caña. Platser och aktiviteter varierar.',
               officialHref: officialLinks.frigilianaTraditions
@@ -1839,7 +1839,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Feria de San Antonio',
               timing: 'Omkring 13 juni',
               place: 'Frigiliana',
-              dateStatus: 'Traditionell period; varierande program',
+              dateStatus: 'Varje år vid den här tiden',
               summary:
                 'Byns huvudferia, flyttad hit från januari 1967 och knuten till det andra skyddshelgonet, San Antonio de Padua. Under flera dagar bjuder den på romería, konserter, attraktioner och aktiviteter för byn. Program och trafiklösningar ändras varje år.',
               officialHref: officialLinks.frigilianaTraditions
@@ -1866,7 +1866,7 @@ export const frigilianaFestivalsContent: Record<
               name: 'Virgen del Carmen',
               timing: 'Omkring 16 juli',
               place: 'Nerja',
-              dateStatus: 'Traditionellt datum; varierande program',
+              dateStatus: 'Varje år kring den här dagen',
               summary:
                 'Sjöfararnas skyddshelgon hedras med en procession till havs och firande vid kusten. Platser med bra utsikt blir fulla långt före starten.'
             },
@@ -1876,7 +1876,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Området vid Nerjagrottan',
               dateStatus: 'Program och biljetter varierar',
               summary:
-                'Konserter och kulturföreställningar planeras separat varje säsong. Kontrollera officiellt program, spelplats och biljettvillkor före bokning.',
+                'Konserter och kulturprogram planeras nytt varje säsong; plats och biljetter finns i det officiella programmet.',
               officialHref: officialLinks.cuevaDeNerja
             },
             {
@@ -1911,7 +1911,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Maro',
               dateStatus: 'Datum och program varierar',
               summary:
-                'Maros lokala feria förenar konserter, attraktioner och bytraditioner. Kontrollera årets exakta datum hos Nerja kommun.',
+                'Maros feria: konserter, karuseller och en by som firar tillsammans. Dagarna meddelas av Nerjas kommun varje år.',
               officialHref: officialLinks.nerjaCouncil
             },
             {
@@ -1948,7 +1948,7 @@ export const frigilianaFestivalsContent: Record<
           description:
             'Frigilianas största kulturhelg förenar musik, en hantverksmarknad med omkring 150 stånd, gatuföreställningar och en tapasrunda genom den gamla bydelen. Det är en modern kulturfestival som kommunen startade 2006, inte en gammal bytradition — och byn känns helt annorlunda än under en vanlig sommarkväll.',
           planningNote:
-            'Kom i god tid före kvällens mest intensiva timmar, använd skor för branta kullerstensgator och räkna inte med parkering nära centrum. Kontrollera enskilda konserter och tider när hela programmet släpps.',
+            'Kom tidigt, ha skor för branta kullerstensgränder och parkera nere i byns utkant; uppe finns ingen plats de här kvällarna.',
           officialHref: officialLinks.threeCultures2026
         },
         {
