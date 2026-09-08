@@ -133,7 +133,8 @@ const c = {
     breadcrumbTitle: 'breadcrumbTitle' in copy.header
       ? copy.header.breadcrumbTitle[currentLang]
       : copy.header.title[currentLang],
-    subtitle: copy.header.subtitle[currentLang]
+    subtitle: copy.header.subtitle[currentLang],
+    intro: 'intro' in copy.header ? copy.header.intro[currentLang] : undefined
   },
   journeyIntro: {
     title: copy.content.journeyIntro.title[currentLang],
@@ -193,12 +194,17 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
           <p class="text-on-surface-variant am-text-label">
             {c.header.eyebrow}
           </p>
-          <h1 class="am-text-display mt-5 max-w-4xl text-balance text-on-surface">
+          <h1 class="am-text-display mt-5 max-w-3xl text-balance text-on-surface">
             {c.header.title}
           </h1>
-          <p class="am-text-title mt-5 max-w-4xl text-balance text-on-surface">
+          <p class="am-text-subtitle mt-5 max-w-2xl text-balance text-on-surface">
             <InlineEmphasis text={c.header.subtitle} />
           </p>
+          {c.header.intro && (
+            <p class="am-text-body mt-5 max-w-2xl leading-relaxed text-on-surface-variant">
+              <InlineEmphasis text={c.header.intro} />
+            </p>
+          )}
         </div>
 
         <figure class="am-mobile-full-bleed mt-8 aspect-[16/9] max-h-[720px] overflow-hidden bg-surface-container-low md:mt-10">

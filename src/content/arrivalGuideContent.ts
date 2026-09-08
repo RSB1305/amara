@@ -30,14 +30,21 @@ export const arrivalGuideCopy = {
       nl: 'Aankomst in Frigiliana · Casa AMARA',
       sv: 'Ankomst i Frigiliana · Casa AMARA'
     },
-    title: { en: "How to find Casa AMARA in Frigiliana", de: "So findet ihr Casa AMARA in Frigiliana", es: "Cómo llegar a Casa AMARA en Frigiliana", nl: "Zo vinden jullie Casa AMARA in Frigiliana", sv: "Så hittar ni till Casa AMARA i Frigiliana" },
+    title: { en: "How to find Casa AMARA", de: "So findet ihr Casa AMARA", es: "Cómo llegar a Casa AMARA", nl: "Zo vinden jullie Casa AMARA", sv: "Så hittar ni Casa AMARA" },
     breadcrumbTitle: { en: "Arrival", de: "Ankunft", es: "Llegada", nl: "Aankomst", sv: "Ankomst" },
     subtitle: {
-      en: "Your destination is **Calle Chorruelo 5**. The easiest approach is via Avenida Carlos Cano 42, followed by a short five-minute walk.",
-      de: "Euer Ziel ist die **Calle Chorruelo 5**. Am einfachsten kommt ihr über die Avenida Carlos Cano 42 und einen kurzen Fußweg von ungefähr fünf Minuten zu uns.",
-      es: "Vuestro destino es **calle Chorruelo 5**. La forma más sencilla de llegar es por Avenida Carlos Cano 42 y un corto paseo de unos cinco minutos.",
-      nl: "Jullie bestemming is **Calle Chorruelo 5**. De eenvoudigste aankomst gaat via Avenida Carlos Cano 42 en een korte wandeling van ongeveer vijf minuten.",
-      sv: "Ert mål är **Calle Chorruelo 5**. Enklast kommer ni via Avenida Carlos Cano 42 och en kort promenad på ungefär fem minuter."
+      en: "From the village centre, our door is just a few minutes away on foot.",
+      de: "Vom Ortskern sind es nur wenige Minuten zu Fuß bis an unsere Tür.",
+      es: "Desde el centro del pueblo, nuestra puerta está a solo unos minutos a pie.",
+      nl: "Vanaf het dorpscentrum is onze deur maar een paar minuten lopen.",
+      sv: "Från byns centrum är vår dörr bara några minuter till fots."
+    },
+    intro: {
+      en: "Your destination is **Calle Chorruelo 5**. The easiest way is via Avenida Carlos Cano 42; from there it is a short five-minute walk to us.",
+      de: "Euer Ziel ist die **Calle Chorruelo 5**. Am einfachsten kommt ihr über die Avenida Carlos Cano 42; von dort sind es nur etwa fünf Minuten zu Fuß zu uns.",
+      es: "Vuestro destino es la **calle Chorruelo 5**. Lo más sencillo es llegar por Avenida Carlos Cano 42; desde allí, apenas cinco minutos a pie hasta nosotros.",
+      nl: "Jullie bestemming is **Calle Chorruelo 5**. Het eenvoudigst gaat het via Avenida Carlos Cano 42; vanaf daar is het maar zo'n vijf minuten lopen naar ons.",
+      sv: "Ert mål är **Calle Chorruelo 5**. Enklast kommer ni via Avenida Carlos Cano 42; därifrån är det bara ungefär fem minuters promenad till oss."
     },
     backLinkWord: {
       en: 'Back',
@@ -81,11 +88,11 @@ export const arrivalGuideCopy = {
     parking: {
       title: { en: "Your destination in historic Frigiliana", de: "Euer Ziel in Frigilianas historischem Zentrum", es: "Vuestro destino en la Frigiliana histórica", nl: "Jullie bestemming in historisch Frigiliana", sv: "Ert mål i historiska Frigiliana" },
       text: {
-        en: "Casa AMARA is at Calle Chorruelo 5, opposite San Antonio church in Frigiliana's largely traffic-calmed historic centre. Although you stay right inside the old village, the house sits comparatively low on the hillside and is easy to reach. At Avenida Carlos Cano 42 there are usually enough available parking spaces. From there it is around 150 metres, or about five minutes on foot, to our shared front door: uphill over Frigiliana's cobbles, with roughly 30 metres of ascent and around 30 steps. The short walk is easy to manage with normal hand luggage.",
-        de: "Casa AMARA liegt in der Calle Chorruelo 5, gegenüber der Kirche San Antonio und mitten im überwiegend verkehrsberuhigten historischen Zentrum. Obwohl ihr direkt im alten Dorf wohnt, befindet sich das Haus vergleichsweise weit unten am Hang und ist einfach zu erreichen. An der Avenida Carlos Cano 42 findet ihr in der Regel ausreichend freie Parkplätze. Von dort sind es rund 150 Meter beziehungsweise ungefähr fünf Minuten zu Fuß bis zu unserer gemeinsamen Haustür: bergauf über Frigilianas typisches Kopfsteinpflaster, etwa 30 Höhenmeter und rund 30 Stufen. Mit normalem Handgepäck ist der kurze Weg gut machbar.",
-        es: "Casa AMARA está en la calle Chorruelo 5, frente a la iglesia de San Antonio y en pleno centro histórico, una zona con tráfico mayoritariamente calmado. Aunque os alojáis dentro del pueblo antiguo, la casa queda en una parte comparativamente baja de la ladera y es fácil llegar. En Avenida Carlos Cano 42 suele haber suficientes plazas de aparcamiento disponibles. Desde allí hay unos 150 metros, o alrededor de cinco minutos a pie, hasta nuestra puerta común: cuesta arriba por el empedrado típico de Frigiliana, con unos 30 metros de desnivel y alrededor de 30 escalones. Con equipaje de mano normal, el corto camino se hace bien.",
-        nl: "Casa AMARA ligt aan Calle Chorruelo 5, tegenover de San Antonio-kerk en midden in het grotendeels autoluwe historische centrum. Hoewel jullie in het oude dorp verblijven, ligt het huis relatief laag op de helling en is het eenvoudig te bereiken. Bij Avenida Carlos Cano 42 zijn doorgaans voldoende vrije parkeerplaatsen. Vanaf daar is het ongeveer 150 meter, of circa vijf minuten lopen, naar onze gezamenlijke voordeur: bergop over de typische kasseien van Frigiliana, met ongeveer 30 meter hoogteverschil en zo'n 30 treden. Met normale handbagage is de korte wandeling goed te doen.",
-        sv: "Casa AMARA ligger på Calle Chorruelo 5, mitt emot San Antonio-kyrkan och mitt i den till största delen trafiklugna historiska stadskärnan. Trots att ni bor inne i den gamla byn ligger huset jämförelsevis långt ner på sluttningen och är enkelt att nå. Vid Avenida Carlos Cano 42 finns det vanligtvis gott om lediga parkeringsplatser. Därifrån är det omkring 150 meter, eller ungefär fem minuters promenad, till vår gemensamma ytterdörr: uppför över Frigilianas typiska kullersten, med cirka 30 meters stigning och omkring 30 trappsteg. Med vanligt handbagage är den korta vägen lätt att gå."
+        en: "Casa AMARA is at Calle Chorruelo 5, opposite San Antonio church — right in the quiet, historic heart of Frigiliana. So you stay inside the old village, and our house is still easy to reach: it sits comparatively low on the hillside. At Avenida Carlos Cano 42 you will almost always find a parking space. From there it is a short five-minute walk to our shared front door — a gentle climb over the village cobbles with a few steps along the way. With normal hand luggage it is an easy, relaxed stroll.",
+        de: "Casa AMARA liegt in der Calle Chorruelo 5, gegenüber der Kirche San Antonio – mitten im ruhigen, historischen Frigiliana. Ihr wohnt also direkt im alten Dorf, und trotzdem ist unser Haus leicht zu erreichen: Es liegt vergleichsweise weit unten am Hang. An der Avenida Carlos Cano 42 findet ihr fast immer einen Parkplatz. Von dort ist es ein kurzer Fußweg von etwa fünf Minuten bis zu unserer gemeinsamen Haustür – ein sanfter Anstieg über das typische Kopfsteinpflaster mit ein paar Stufen. Mit normalem Handgepäck geht das ganz entspannt.",
+        es: "Casa AMARA está en la calle Chorruelo 5, frente a la iglesia de San Antonio, en pleno centro histórico y tranquilo de Frigiliana. Os alojáis dentro del pueblo antiguo y, aun así, llegar es fácil: la casa queda en una parte comparativamente baja de la ladera. En Avenida Carlos Cano 42 casi siempre encontraréis aparcamiento. Desde allí es un corto paseo de unos cinco minutos hasta nuestra puerta común: una subida suave por el empedrado del pueblo con algunos escalones. Con equipaje de mano normal se hace de forma tranquila y sencilla.",
+        nl: "Casa AMARA ligt aan Calle Chorruelo 5, tegenover de San Antonio-kerk, midden in het rustige, historische hart van Frigiliana. Jullie verblijven dus in het oude dorp en toch is ons huis eenvoudig te bereiken: het ligt relatief laag op de helling. Bij Avenida Carlos Cano 42 vinden jullie bijna altijd een parkeerplaats. Vanaf daar is het een korte wandeling van ongeveer vijf minuten naar onze gezamenlijke voordeur — een zachte klim over de kasseien van het dorp met een paar treden onderweg. Met normale handbagage is het een ontspannen, makkelijke wandeling.",
+        sv: "Casa AMARA ligger på Calle Chorruelo 5, mitt emot San Antonio-kyrkan – mitt i det lugna, historiska Frigiliana. Ni bor alltså inne i den gamla byn, och ändå är vårt hus lätt att nå: det ligger jämförelsevis långt ner på sluttningen. Vid Avenida Carlos Cano 42 hittar ni nästan alltid en parkeringsplats. Därifrån är det en kort promenad på ungefär fem minuter till vår gemensamma ytterdörr – en mjuk stigning över byns kullersten med några trappsteg på vägen. Med vanligt handbagage är det en avslappnad och enkel promenad."
       }
     },
     walkingAccess: {
