@@ -11,10 +11,13 @@ import {
 } from '../../content/locationWeatherAuthorityContent';
 import { climateDataSourceUrls, locationClimateProfiles, comparisonCityByLang, comparisonCityHighs, comparisonCityRecords } from '../../content/locationClimateData';
 import { climateComparisonContent } from '../../content/climateComparisonContent';
+import { climateMicroclimateContent } from '../../content/climateMicroclimateContent';
+import { weatherConnections } from '../../content/weatherConnectionsContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
+import type { LocationGuideIconName } from '../../components/location/locationGuideIconContract';
 import WeatherAuthorityBody from './WeatherAuthorityBody.astro';
 
 type Destination = 'frigiliana' | 'nerja' | 'tarifa';
@@ -87,6 +90,35 @@ const comparison = comparisonCopy && comparisonCity
       }
     }
   : undefined;
+const microCopy = climateMicroclimateContent[destination]?.[currentLang];
+// The first panel's symbol differs by destination: heat where the summer story
+// is heat (Frigiliana/Nerja), the two opposing winds where it is wind (Tarifa).
+const microSeasonIcons: Record<Destination, { summer: LocationGuideIconName; winter: LocationGuideIconName }> = {
+  frigiliana: { summer: 'temperature', winter: 'evening' },
+  nerja: { summer: 'temperature', winter: 'evening' },
+  tarifa: { summer: 'comparison', winter: 'evening' }
+};
+const microclimate = microCopy
+  ? {
+      eyebrow: microCopy.eyebrow,
+      title: microCopy.title,
+      intro: microCopy.intro,
+      summer: { ...microCopy.summer, icon: microSeasonIcons[destination].summer },
+      winter: { ...microCopy.winter, icon: microSeasonIcons[destination].winter },
+      links: microCopy.links.map((link) => ({ label: link.label, href: requiredLink(link.token) }))
+    }
+  : undefined;
+const connectionItems = (weatherConnections[destination] ?? [])
+  .filter((item) => item.languages.includes(currentLang))
+  .map((item) => ({
+    icon: item.icon,
+    eyebrow: item.eyebrow[currentLang]!,
+    title: item.title[currentLang]!,
+    body: item.body[currentLang]!,
+    linkLabel: item.linkLabel[currentLang]!,
+    linkHref: requiredLink(item.linkToken)
+  }));
+const connections = connectionItems.length > 0 ? connectionItems : undefined;
 const footerHighlights: LabeledLink[] | undefined = destination === 'tarifa'
   ? [
       { token: 'tarifa_weather', label: content.navLabel },
@@ -120,6 +152,8 @@ const liveForecast = content.forecast.live
     content={content}
     months={months}
     comparison={comparison}
+    microclimate={microclimate}
+    connections={connections}
     climateSource={{ label: content.sources.links[0].label, href: climateDataSourceUrls[destination] }}
     forecastHref={weatherForecastUrls[destination]}
     liveForecast={liveForecast}
