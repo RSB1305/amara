@@ -5,18 +5,15 @@ import Navigation from '../../components/Navigation.astro';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
-import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   nerjaNightlifeContent,
   nerjaNightlifeSeo
 } from '../../content/nerjaNightlifeContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { createRequiredLinkResolver, resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
-import GuideLinkCardSection from './GuideLinkCardSection.astro';
 import { routeHero } from '../../lib/images/routeImages';
 
 interface Props {
@@ -43,13 +40,6 @@ const footerHighlights: LabeledLink[] = [
     label: copy.footerHighlights.apartments
   }
 ];
-
-const combineItems = copy.combine.items.map((item) => ({
-  ...item,
-  href: resolveOptionalLink(item.linkToken, currentLang, {
-    suppressMissing: true
-  })
-}));
 
 ---
 
@@ -86,15 +76,6 @@ const combineItems = copy.combine.items.map((item) => ({
           />
         )}
       </LocationExperienceHero>
-
-      <AuthorityFeatureSection
-        id="overview"
-        title={copy.overview.title}
-        intro={copy.overview.intro}
-        items={copy.overview.items}
-        eyebrow={copy.overview.kicker}
-        reviewed={copy.overview.reviewed}
-      />
 
       <section
         id="areas"
@@ -157,43 +138,6 @@ const combineItems = copy.combine.items.map((item) => ({
       </section>
 
       <section
-        id="styles"
-        class="am-section am-section--tint"
-      >
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.areaComparison.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.areaComparison.intro}
-          </p>
-        </div>
-
-        <EditorialFeatureGrid
-          cards={copy.areaComparison.items.map((item) => ({
-            title: item.title,
-            copy: item.text
-          }))}
-        />
-
-        <div class="max-w-3xl mt-24 mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.eveningStyles.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.eveningStyles.intro}
-          </p>
-        </div>
-
-        <EditorialFeatureGrid
-          cards={copy.eveningStyles.items.map((item) => ({
-            title: item.title,
-            copy: item.text
-          }))}
-        />
-      </section>
-
-      <section
         id="culture"
         class="am-section am-section--plain"
       >
@@ -238,87 +182,6 @@ const combineItems = copy.combine.items.map((item) => ({
           }
         </div>
       </section>
-
-      <AuthorityFeatureSection
-        id="seasons"
-        title={copy.seasonality.title}
-        intro={copy.seasonality.intro}
-        items={copy.seasonality.items}
-        footerCallout={{ text: copy.seasonality.note, surface: 'lowest' }}
-      />
-
-      <AuthorityFeatureSection
-        title={copy.travelerFit.title}
-        intro={copy.travelerFit.intro}
-        items={copy.travelerFit.items}
-        surface="plain"
-      />
-
-      <section
-        id="planning"
-        class="am-section am-section--tint"
-      >
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {copy.plans.title}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {copy.plans.intro}
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-14">
-          {
-            copy.plans.items.map((item) => (
-              <article class="border-t border-outline-variant/25 pt-8">
-                <h3 class="am-text-subtitle text-on-surface mb-5">
-                  {item.title}
-                </h3>
-                <p class="am-text-body text-on-surface-variant leading-relaxed">
-                  {item.text}
-                </p>
-              </article>
-            ))
-          }
-        </div>
-
-        <p class="mt-12 border-l border-primary/20 bg-surface-container-lowest px-4 py-3 am-text-body leading-relaxed text-on-surface-variant max-w-3xl">
-          {copy.plans.transportNote}
-        </p>
-      </section>
-
-      <section
-        id="faq"
-        class="am-section am-section--plain"
-      >
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight">
-            {copy.faq.title}
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-14">
-          {
-            copy.faq.items.map((item) => (
-              <article class="border-t border-outline-variant/25 pt-8">
-                <h3 class="am-text-subtitle text-on-surface mb-5">
-                  {item.question}
-                </h3>
-                <p class="am-text-body text-on-surface-variant leading-relaxed">
-                  {item.answer}
-                </p>
-              </article>
-            ))
-          }
-        </div>
-      </section>
-
-      <GuideLinkCardSection
-        title={copy.combine.title}
-        intro={copy.combine.intro}
-        items={combineItems}
-        surface="tint"
-      />
 
       <GuestGuideBridge lang={currentLang} destination="nerja" guideSlugs={['nerja-guest-recommendations']} />
 

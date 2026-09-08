@@ -171,7 +171,7 @@ export const globalNavLabels = {
   },
   locationTarifaMeta: {
     en: 'Atlantic wind, wide horizons and kitesurfing.',
-    de: 'Atlantik-Hotspot für Wind, Weite und Kitesurfen.',
+    de: 'Wind, weite Strände und Afrika am Horizont.',
     es: 'Viento atlántico, horizontes abiertos y kitesurf.',
     nl: 'Atlantische wind, weidse horizonten en kitesurfen.',
     sv: 'Atlantvindar, vida horisonter och kitesurfing.'
@@ -186,21 +186,21 @@ export const globalNavLabels = {
   },
   currentOffers: {
     en: 'Current offers',
-    de: 'Aktuelle Angebote',
+    de: 'Kurzfristig frei',
     es: 'Ofertas actuales',
     nl: 'Actuele aanbiedingen',
     sv: 'Aktuella erbjudanden'
   },
   currentOffersMeta: {
     en: 'Current stays bookable during the next 21 days.',
-    de: 'Aktuell buchbare Aufenthalte der nächsten 21 Tage.',
+    de: 'Was in den nächsten drei Wochen noch frei ist.',
     es: 'Estancias disponibles durante los próximos 21 días.',
     nl: 'Actueel boekbare verblijven voor de komende 21 dagen.',
     sv: 'Boenden som kan bokas under de kommande 21 dagarna.'
   },
   farahMeta: {
     en: 'Self-contained boutique suite · 2 guests',
-    de: 'Abgeschlossene Boutique-Suite · 2 Gäste',
+    de: 'Kompakte Suite · 2 Gäste',
     es: 'Suite boutique independiente · 2 huéspedes',
     nl: 'Zelfstandige boutique-suite · 2 gasten',
     sv: 'Självständig boutique-svit · 2 gäster'
@@ -235,7 +235,7 @@ export const globalNavLabels = {
   },
   familySurfMeta: {
     en: 'Holiday house · up to 4 guests',
-    de: 'Ferienhaus · bis 4 Gäste',
+    de: 'Penthouse am Atlantik · bis 4 Gäste',
     es: 'Casa vacacional · hasta 4 huéspedes',
     nl: 'Vakantiehuis · tot 4 gasten',
     sv: 'Semesterhus · upp till 4 gäster'
@@ -249,7 +249,7 @@ export const globalNavLabels = {
   },
   reviewsMeta: {
     en: 'Verified experiences from AMARA guests.',
-    de: 'Verifizierte Erfahrungen von AMARA-Gästen.',
+    de: 'Was Gäste nach ihrem Aufenthalt schreiben.',
     es: 'Experiencias verificadas de huéspedes de AMARA.',
     nl: 'Geverifieerde ervaringen van AMARA-gasten.',
     sv: 'Verifierade upplevelser från AMARA-gäster.'

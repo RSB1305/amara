@@ -145,14 +145,14 @@ export const frigilianaParkingCopy = {
     ),
     lead: l(
       'Frigiliana has parking, but its historic hillside centre was not designed for door-to-door car access. A calm arrival starts by separating the place where you leave the car from the place where you stay.',
-      'In Frigiliana gibt es Parkmöglichkeiten, doch die historische Altstadt am Hang ist nicht für eine Anfahrt bis vor jede Haustür gebaut. Eine entspannte Ankunft beginnt damit, Parkplatz und Unterkunft getrennt zu planen.',
+      'Frigiliana hängt am Hang, und in die Gassen der Altstadt passt kein Auto. Das Auto bleibt unten im Ort, die letzten Meter geht ihr zu Fuß.',
       'Frigiliana dispone de aparcamiento, pero su casco histórico en ladera no está pensado para llegar en coche hasta cada puerta. Una llegada tranquila empieza por planificar por separado dónde dejar el coche y dónde está el alojamiento.',
       'Frigiliana heeft parkeermogelijkheden, maar de historische kern tegen de heuvel is niet ontworpen voor toegang met de auto tot aan iedere voordeur. Een ontspannen aankomst begint door parkeerplek en verblijf apart te plannen.',
       'Det finns parkering i Frigiliana, men den historiska bykärnan på sluttningen är inte byggd för biltrafik ända fram till varje dörr. En lugn ankomst börjar med att planera parkering och boende som två olika platser.'
     ),
     body: l(
       'Expect to use signed public or permitted street parking around the lower or outer village, then complete the final section on foot. On arrival, current road signs always take priority over old screenshots or saved instructions.',
-      'Rechnet damit, einen ausgeschilderten öffentlichen Parkplatz oder einen erlaubten Stellplatz im unteren beziehungsweise äußeren Ortsbereich zu nutzen und den letzten Abschnitt zu Fuß zurückzulegen. Vor Ort gilt immer die aktuelle Beschilderung – nicht ein alter Screenshot oder eine gespeicherte Wegbeschreibung.',
+      'Der einfachste Platz ist die Tiefgarage an der Plaza de las Tres Culturas; dazu kommen ausgeschilderte Plätze am Ortsrand. Von dort führen Treppen und Gassen hinauf ins Dorf.',
       'Contad con utilizar un aparcamiento público señalizado o una plaza permitida en la zona baja o exterior del pueblo y completar el último tramo a pie. Al llegar, la señalización actual siempre tiene prioridad sobre capturas o indicaciones antiguas.',
       'Houd rekening met een aangegeven openbare parking of toegestane plek in het lagere of buitenste deel van het dorp en leg het laatste stuk te voet af. Actuele verkeersborden gaan bij aankomst altijd vóór oude screenshots of opgeslagen aanwijzingen.',
       'Räkna med skyltad allmän parkering eller tillåten gatuparkering i den nedre eller yttre delen av byn och gå den sista sträckan. Aktuell skyltning på plats gäller alltid före gamla skärmbilder eller sparade anvisningar.'
@@ -516,7 +516,7 @@ export const frigilianaParkingCopy = {
     )
   },
   liveInfo: {
-    eyebrow: l('Live information', 'Aktuelle Informationen', 'Información actual', 'Actuele informatie', 'Aktuell information'),
+    eyebrow: l('Live information', 'Quellen', 'Información actual', 'Actuele informatie', 'Aktuell information'),
     title: l(
       'Use the map to orientate — and the signs to decide',
       'Nutzt die Karte zur Orientierung – und die Schilder zur Entscheidung',
@@ -533,7 +533,7 @@ export const frigilianaParkingCopy = {
     ),
     checked: l(
       'Editorial check · July 2026',
-      'Redaktionell geprüft · Juli 2026',
+      'Stand Juli 2026',
       'Revisión editorial · julio de 2026',
       'Redactioneel gecontroleerd · juli 2026',
       'Redaktionellt kontrollerad · juli 2026'

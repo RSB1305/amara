@@ -171,21 +171,21 @@ export const aboutUsContent: AboutUsContent = {
     subtitle: { en: 'Special places for shared time as a couple.', de: 'Besondere Orte für gemeinsame Zeit zu zweit.', es: 'Lugares especiales para compartir tiempo en pareja.', nl: 'Bijzondere plekken voor waardevolle tijd samen.', sv: 'Särskilda platser för gemensam tid som par.' },
     titleHtml: {
       en: 'AMARA — Romantic Hideaways.',
-      de: 'AMARA — Romantic Hideaways.',
+      de: 'AMARA, Romantic Hideaways',
       es: 'AMARA — Romantic Hideaways.',
       nl: 'AMARA — Romantic Hideaways.',
       sv: 'AMARA — Romantic Hideaways.'
     },
     lead: {
       en: 'AMARA brings together six individual stays in Frigiliana, Nerja and Tarifa for couples who want to spend meaningful time together.',
-      de: 'AMARA verbindet sechs individuelle Unterkünfte in Frigiliana, Nerja und Tarifa für Paare, die bewusst gemeinsame Zeit verbringen möchten.',
+      de: 'Sechs Wohnungen in Frigiliana, Nerja und Tarifa, für zwei gemacht und von uns selbst betreut.',
       es: 'AMARA reúne seis alojamientos singulares en Frigiliana, Nerja y Tarifa para parejas que quieren disfrutar conscientemente de su tiempo juntas.',
       nl: 'AMARA brengt zes bijzondere verblijven in Frigiliana, Nerja en Tarifa samen voor stellen die bewust tijd met elkaar willen doorbrengen.',
       sv: 'AMARA samlar sex personliga boenden i Frigiliana, Nerja och Tarifa för par som medvetet vill tillbringa tid tillsammans.'
     },
     supportText: {
       en: 'Each place is different. What connects them is a shared standard: honest descriptions, thoughtful preparation and clear responsibility.',
-      de: 'Jeder Ort ist anders. Was sie verbindet, ist ein gemeinsamer Standard: ehrliche Beschreibungen, sorgfältige Vorbereitung und klare Verantwortung.',
+      de: 'Wir wählen Orte, an denen wir selbst gern Zeit verbringen, und richten sie so ein, wie wir selbst wohnen würden. Der Rest steht hier.',
       es: 'Cada lugar es diferente. Los une un mismo estándar: descripciones honestas, una preparación cuidada y responsabilidades claras.',
       nl: 'Elke plek is anders. Wat ze verbindt, is één gedeelde standaard: eerlijke beschrijvingen, zorgvuldige voorbereiding en duidelijke verantwoordelijkheid.',
       sv: 'Varje plats är annorlunda. Det som förenar dem är en gemensam standard: ärliga beskrivningar, omsorgsfulla förberedelser och tydligt ansvar.'
@@ -212,7 +212,7 @@ export const aboutUsContent: AboutUsContent = {
     },
     lead: {
       en: 'Everything at AMARA starts with one question:',
-      de: 'Bei AMARA beginnt alles mit einer einfachen Frage:',
+      de: 'Ein guter Aufenthalt läuft nebenbei.',
       es: 'En AMARA todo empieza con una pregunta sencilla:',
       nl: 'Bij AMARA begint alles met één eenvoudige vraag:',
       sv: 'På AMARA börjar allt med en enkel fråga:'
@@ -220,28 +220,28 @@ export const aboutUsContent: AboutUsContent = {
     paragraphs: [
       {
         en: 'What makes a stay genuinely better for the guest?',
-        de: 'Was macht einen Aufenthalt für Gäste wirklich besser?',
+        de: 'Die Dusche ist heiß, das WLAN schnell, das Bett breit, und was ihr sucht, liegt da, wo ihr es vermutet. Was uns interessiert, sind die Dinge, die nach den Fotos zählen: wie gut ihr schlaft, ob die Terrasse morgens Schatten hat und ob ihr den Weg zur Bäckerei ohne uns findet.',
         es: '¿Qué hace que una estancia sea realmente mejor para quien la vive?',
         nl: 'Wat maakt een verblijf écht beter voor de gast?',
         sv: 'Vad gör en vistelse genuint bättre för gästen?'
       },
       {
         en: 'We believe good hospitality should give you something increasingly valuable: time and peace of mind.',
-        de: 'Wir glauben, dass gute Gastfreundschaft vor allem zwei Dinge schenken sollte: Zeit und das gute Gefühl, dass alles stimmt.',
+        de: 'Sauber, immer. Stufen, Zugang und alles, was fehlt, stehen in der Beschreibung, bevor ihr bucht. Antworten kommen meist innerhalb einer Stunde, von Robert selbst.',
         es: 'Creemos que la buena hospitalidad debería regalar algo cada vez más valioso: tiempo y tranquilidad.',
         nl: 'Wij geloven dat goede gastvrijheid vooral twee dingen moet geven: tijd en het geruststellende gevoel dat alles klopt.',
         sv: 'Vi tror att bra värdskap framför allt ska ge något som blir allt mer värdefullt: tid och sinnesro.'
       },
       {
         en: 'A stay should remove friction rather than create it. Things should work. Information should be clear. The space should feel comfortable, calm and thoughtfully prepared — without demanding attention for itself.',
-        de: 'Ein Aufenthalt sollte euch nicht beschäftigen. Dinge sollen funktionieren, Informationen klar sein und die Unterkunft sich ruhig, komfortabel und selbstverständlich anfühlen – ohne ständig Aufmerksamkeit einzufordern.',
+        de: '',
         es: 'Una estancia no debería dar trabajo. Las cosas deben funcionar, la información debe ser clara y el alojamiento sentirse cómodo, sereno y bien preparado, sin reclamar atención constantemente.',
         nl: 'Een verblijf zou geen extra werk moeten opleveren. Dingen moeten gewoon werken, informatie moet duidelijk zijn en de ruimte moet comfortabel, rustig en goed voorbereid aanvoelen, zonder voortdurend om aandacht te vragen.',
         sv: 'En vistelse ska inte skapa mer att tänka på. Saker ska fungera, information ska vara tydlig och boendet ska kännas bekvämt, lugnt och väl förberett utan att hela tiden kräva uppmärksamhet.'
       },
       {
         en: 'That belief shapes the way we choose, prepare and continually improve every AMARA stay. We focus on the things that still matter after the photographs have done their job: how well you sleep, how naturally the space works, whether the details make sense and whether you can simply arrive and begin enjoying your time.',
-        de: 'Dieser Gedanke prägt, wie wir unsere Unterkünfte auswählen, vorbereiten und weiterentwickeln. Uns interessieren besonders die Dinge, die noch wichtig sind, wenn die Fotos längst ihren Zweck erfüllt haben: wie gut ihr schlaft, wie selbstverständlich sich die Räume nutzen lassen, ob Details wirklich sinnvoll sind und ob ihr einfach ankommen und eure Zeit genießen könnt.',
+        de: '',
         es: 'Esa idea guía cómo elegimos, preparamos y mejoramos cada alojamiento AMARA. Nos importan especialmente las cosas que siguen contando cuando las fotos ya han cumplido su función: cómo dormís, lo fácil que resulta vivir el espacio, si los detalles tienen sentido y si podéis simplemente llegar y empezar a disfrutar de vuestro tiempo.',
         nl: 'Die gedachte bepaalt hoe we elk AMARA-verblijf kiezen, voorbereiden en verder verbeteren. We letten vooral op wat nog telt wanneer de foto’s hun werk al hebben gedaan: hoe goed jullie slapen, hoe vanzelfsprekend de ruimte werkt, of details echt iets toevoegen en of jullie gewoon kunnen aankomen en van jullie tijd kunnen genieten.',
         sv: 'Den tanken styr hur vi väljer, förbereder och utvecklar varje AMARA-boende. Vi fokuserar särskilt på det som fortfarande spelar roll när bilderna redan har gjort sitt jobb: hur bra ni sover, hur naturligt rummen fungerar, om detaljerna faktiskt hjälper och om ni helt enkelt kan komma fram och börja njuta av er tid.'
@@ -427,7 +427,7 @@ export const aboutUsContent: AboutUsContent = {
     ]
   },
   host: {
-    title: { en: 'The people who take responsibility', de: 'Die Menschen, die Verantwortung übernehmen', es: 'Las personas que asumen la responsabilidad', nl: 'De mensen die verantwoordelijkheid nemen', sv: 'Människorna som tar ansvar' },
+    title: { en: 'The people who take responsibility', de: 'Wer hinter AMARA steht', es: 'Las personas que asumen la responsabilidad', nl: 'De mensen die verantwoordelijkheid nemen', sv: 'Människorna som tar ansvar' },
     role: { en: 'Robert Sebastian Böhmer — Host at AMARA', de: 'Robert Sebastian Böhmer — Gastgeber bei AMARA', es: 'Robert Sebastian Böhmer — Anfitrión de AMARA', nl: 'Robert Sebastian Böhmer — Host bij AMARA', sv: 'Robert Sebastian Böhmer — Värd på AMARA' },
     imageAlt: { en: 'Robert, host at AMARA', de: 'Robert, Gastgeber bei AMARA', es: 'Robert, anfitrión de AMARA', nl: 'Robert, host bij AMARA', sv: 'Robert, värd på AMARA' },
     contactLabel: { en: 'Contact Robert directly', de: 'Robert direkt erreichen', es: 'Contactar directamente con Robert', nl: 'Robert rechtstreeks bereiken', sv: 'Kontakta Robert direkt' },
@@ -492,7 +492,7 @@ export const aboutUsContent: AboutUsContent = {
     subtitle: { en: 'Sustainable by choice.', de: 'Nachhaltig aus Überzeugung.', es: 'Sostenible por convicción.', nl: 'Duurzaam uit overtuiging.', sv: 'Hållbart av övertygelse.' },
     lead: {
       en: 'Where practical, we use renewable energy, efficient equipment and measures that reduce water use and waste, without asking guests to give up comfort.',
-      de: 'Wo es sinnvoll möglich ist, setzen wir auf erneuerbare Energie, effiziente Ausstattung sowie Maßnahmen, die Wasserverbrauch und Abfall reduzieren – ohne dass ihr dafür auf Komfort verzichten müsst.',
+      de: 'Was wir dafür tun, steht unten. Ihr merkt es höchstens an der Kaffeemaschine.',
       es: 'Siempre que resulta práctico, utilizamos energía renovable, equipos eficientes y medidas que reducen el consumo de agua y los residuos, sin pediros que renunciéis al confort.',
       nl: 'Waar het praktisch uitvoerbaar is, kiezen we voor hernieuwbare energie, efficiënte apparatuur en maatregelen die waterverbruik en afval beperken, zonder dat jullie comfort hoeven in te leveren.',
       sv: 'Där det fungerar i praktiken använder vi förnybar energi, effektiv utrustning och lösningar som minskar vattenförbrukning och avfall, utan att ni behöver ge avkall på komforten.'
@@ -519,25 +519,25 @@ export const aboutUsContent: AboutUsContent = {
     ]
   },
   closingCta: {
-    title: { en: 'For guests who value the things that cannot be staged', de: 'Für Gäste, denen die Dinge wichtig sind, die man nicht inszenieren kann', es: 'Para quienes valoran lo que no siempre se ve en las fotos', nl: 'Voor gasten die waarde hechten aan wat je niet in scène kunt zetten', sv: 'För gäster som värdesätter det som inte går att iscensätta' },
+    title: { en: 'For guests who value the things that cannot be staged', de: 'Für zwei gemacht', es: 'Para quienes valoran lo que no siempre se ve en las fotos', nl: 'Voor gasten die waarde hechten aan wat je niet in scène kunt zetten', sv: 'För gäster som värdesätter det som inte går att iscensätta' },
     paragraphs: [
       {
         en: 'AMARA is for people who appreciate **calm, reliability, thoughtful spaces and honest communication**.',
-        de: 'AMARA ist für Menschen, die **Ruhe, Verlässlichkeit, durchdachte Räume und ehrliche Kommunikation** schätzen.',
+        de: 'AMARA ist für zwei gemacht: Flitterwochen, ein Hochzeitstag, ein paar freie Tage.',
         es: 'AMARA es para personas que valoran **la calma, la fiabilidad, los espacios bien pensados y una comunicación honesta**.',
         nl: 'AMARA is er voor mensen die **rust, betrouwbaarheid, doordachte ruimtes en eerlijke communicatie** waarderen.',
         sv: 'AMARA är för människor som uppskattar **lugn, pålitlighet, genomtänkta miljöer och ärlig kommunikation**.'
       },
       {
         en: '**We are not the right choice for everyone, and that is intentional:** our places are not made for party stays, and they are designed around couples rather than larger families. The exception is Tarifa, which also works for two adults with small children.',
-        de: '**Wir sind bewusst nicht für jeden die richtige Wahl:** Für Partyaufenthalte sind unsere Unterkünfte nicht gemacht, und sie sind auf Paare zugeschnitten, nicht auf größere Familien. Die Ausnahme ist Tarifa, das auch für zwei Erwachsene mit kleinen Kindern funktioniert.',
+        de: 'Die Ausnahme ist Tarifa, wo auch zwei Erwachsene mit kleinen Kindern Platz haben.',
         es: '**No somos la opción adecuada para todo el mundo, y es algo intencionado:** nuestros alojamientos no están pensados para estancias de fiesta y están diseñados para parejas, no para familias grandes. La excepción es Tarifa, que también funciona para dos adultos con niños pequeños.',
         nl: '**We zijn bewust niet voor iedereen de juiste keuze:** onze verblijven zijn niet gemaakt voor feestvakanties en zijn afgestemd op stellen, niet op grotere gezinnen. De uitzondering is Tarifa, dat ook werkt voor twee volwassenen met jonge kinderen.',
         sv: '**Vi är medvetet inte rätt val för alla:** våra boenden är inte gjorda för festvistelser och är utformade för par snarare än för större familjer. Undantaget är Tarifa, som också fungerar för två vuxna med små barn.'
       },
       {
         en: 'But if you value places that have been considered carefully, prepared properly and looked after by people who take personal responsibility for them, **you will probably feel at home here**.',
-        de: 'Aber wenn ihr Wert auf Unterkünfte legt, die sorgfältig geplant, gewissenhaft vorbereitet und von Menschen betreut werden, die persönlich Verantwortung übernehmen, **werdet ihr euch bei AMARA wahrscheinlich sehr wohlfühlen**.',
+        de: 'Wenn ihr Wert legt auf ein Bett, in dem ihr gut schlaft, eine Terrasse, auf der ihr länger sitzt als geplant, und jemanden, der antwortet, wenn ihr fragt, seid ihr hier richtig.',
         es: 'Pero si apreciáis alojamientos cuidados, bien preparados y atendidos por personas que asumen personalmente la responsabilidad, **probablemente os sentiréis muy a gusto con AMARA**.',
         nl: 'Maar als jullie waarde hechten aan plekken die zorgvuldig zijn ingericht, goed worden voorbereid en worden verzorgd door mensen die persoonlijk verantwoordelijkheid nemen, **zullen jullie je bij AMARA waarschijnlijk snel thuis voelen**.',
         sv: 'Men om ni uppskattar boenden som är noggrant genomtänkta, väl förberedda och omhändertagna av människor som tar personligt ansvar, **kommer ni sannolikt att känna er hemma hos AMARA**.'
@@ -545,7 +545,7 @@ export const aboutUsContent: AboutUsContent = {
     ],
     note: {
       en: 'A good stay does not need to demand attention. It should simply give you the freedom to enjoy your time.',
-      de: 'Ein guter Aufenthalt muss nicht ständig Aufmerksamkeit verlangen. Er sollte euch vor allem die Freiheit geben, eure Zeit zu genießen.',
+      de: 'Bis bald in Andalusien.',
       es: 'Una buena estancia no necesita reclamar atención constantemente. Debería daros, sobre todo, la libertad de disfrutar de vuestro tiempo.',
       nl: 'Een goed verblijf hoeft niet voortdurend aandacht te vragen. Het moet jullie vooral de vrijheid geven om van jullie tijd te genieten.',
       sv: 'En bra vistelse behöver inte hela tiden kräva uppmärksamhet. Den ska framför allt ge er friheten att njuta av er tid.'

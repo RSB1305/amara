@@ -12,7 +12,6 @@ import {
   frigilianaPreFooterCopy,
   getFrigilianaPreFooterDescription
 } from './frigilianaPreFooterContent';
-import { frigilianaDailyLifeContent } from './frigilianaDailyLifeContent';
 import { frigilianaParkingCopy } from './frigilianaParkingContent';
 import { gettingToNerjaContent, gettingToNerjaSeo } from './gettingToNerjaContent';
 import { gettingToTarifaContent, gettingToTarifaSeo } from './gettingToTarifaContent';
@@ -210,16 +209,16 @@ const ui = {
   },
   de: {
     factsTitle: 'Die Anreise auf einen Blick',
-    gatewaysEyebrow: 'Beim Ausgangspunkt beginnen',
+    gatewaysEyebrow: 'Der Ausgangspunkt',
     gatewaysTitle: 'Wo die Reise beginnt',
-    optionsEyebrow: 'Die Weiterreise wählen',
-    optionsTitle: 'Die praktischen Anreisemöglichkeiten vergleichen',
+    optionsEyebrow: 'Weiter zum Ziel',
+    optionsTitle: 'Drei Wege ans Ziel',
     mobilityEyebrow: 'Nach der Ankunft',
-    mobilityTitle: 'Wie die Mobilität während des Aufenthalts funktioniert',
-    journey: 'Fahrt',
-    bestFor: 'Geeignet für',
-    consideration: 'Zu beachten',
-    nextStep: 'Weiter planen'
+    mobilityTitle: 'Unterwegs vor Ort',
+    journey: 'Dauer',
+    bestFor: 'Passt für',
+    consideration: 'Dazu gehört',
+    nextStep: 'Weiter'
   },
   es: {
     factsTitle: 'El viaje de un vistazo',
@@ -371,7 +370,7 @@ function arrivalHeroVisual(
       ...shared,
       destination: 'Frigiliana',
       region: labels.frigilianaRegion,
-      primaryAirport: { code: 'AGP', name: 'Málaga', distance: '≈ 66 km', time: '≈ 50 min' },
+      primaryAirport: { code: 'AGP', name: 'Málaga', distance: '≈ 66 km', time: '≈ 55 min' },
       routeLabels: {
         carRental: labels.carRental,
         bus: labels.bus,
@@ -481,15 +480,6 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
     value: text(fact.value, lang),
     description: text(fact.note, lang)
   }));
-  const dailyLife = frigilianaDailyLifeContent[lang];
-  const dailyMobility = {
-    id: 'daily-life-without-a-car',
-    eyebrow: dailyLife.sections[0].eyebrow,
-    title: dailyLife.sections[0].title,
-    paragraphs: [dailyLife.mobilitySummary]
-  };
-  const localConnection = copy.publicTransport.steps[2];
-  const flexibleCar = copy.options.items[0];
   const optionIcons = {
     car: 'rental-car',
     transfer: 'private-transfer',
@@ -511,18 +501,6 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
     factsTitle: text(copy.facts.title, lang),
     facts: localizedFacts,
     factIcons: ['airport', 'journey-time', 'bus'],
-    gateways: {
-      eyebrow: ui[lang].gatewaysEyebrow,
-      title: ui[lang].gatewaysTitle,
-      items: [{
-        id: 'malaga-airport',
-        eyebrow: localizedFacts[0].label,
-        title: localizedFacts[0].value,
-        summary: localizedFacts[0].description,
-        details: localizedFacts.slice(1).map((fact) => `${fact.label}: ${fact.value}. ${fact.description}`),
-        icon: 'airport'
-      }]
-    },
     options: {
       eyebrow: text(copy.options.eyebrow, lang),
       title: text(copy.options.title, lang),
@@ -559,27 +537,17 @@ function frigilianaGuide(lang: AmaraLanguage): ArrivalGuidePageContent {
         answer: text(item.answer, lang)
       }))
     },
-    mobility: {
-      eyebrow: ui[lang].mobilityEyebrow,
-      title: ui[lang].mobilityTitle,
-      items: [
-        sectionCard(dailyMobility, 'walkable'),
-        {
-          id: 'nerja-connection',
-          eyebrow: text(copy.publicTransport.title, lang),
-          title: text(localConnection.title, lang),
-          summary: text(localConnection.text, lang),
-          details: [],
-          icon: 'bus'
-        },
-        {
-          id: 'regional-flexibility',
-          eyebrow: text(flexibleCar.kicker, lang),
-          title: text(flexibleCar.title, lang),
-          summary: text(flexibleCar.bestFor, lang),
-          details: [text(flexibleCar.consideration, lang)],
-          icon: 'rental-car'
-        }
+    finalMile: {
+      eyebrow: text(copy.reality.eyebrow, lang),
+      title: text(copy.reality.title, lang),
+      paragraphs: [
+        text(copy.reality.body, lang),
+        text(copy.reality.access, lang),
+        text(copy.reality.climb, lang)
+      ],
+      links: [
+        { token: 'arrival_guide', label: text(copy.reality.bookedCta, lang) },
+        { token: 'frigiliana_parking', label: text(copy.reality.parkingCta, lang) }
       ]
     },
     parking: {

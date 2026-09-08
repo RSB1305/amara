@@ -554,9 +554,9 @@ export const frigilianaFestivalsContent: Record<
     cardLabels: {
       timing: 'Wann',
       place: 'Wo',
-      dateStatus: 'Terminstatus',
+      dateStatus: 'Stand',
       officialInformation: 'Offizielle Informationen',
-      amaraNote: 'AMARA Planungshinweis'
+      amaraNote: 'Unser Tipp'
     },
     footerHighlights: {
       festivals: 'Feste & Traditionen',
@@ -596,7 +596,7 @@ export const frigilianaFestivalsContent: Record<
       title: 'Beginnt mit dem Tag, den ihr erleben möchtet',
       intro:
         'Ein Heiligenfest im Dorf, eine feierliche Prozession und ein großes Sommerfestival sind völlig verschiedene Abende. Manche Termine stehen Jahre im Voraus fest, andere erst wenige Wochen vorher — deshalb zählt der Status so viel wie der Monat.',
-      reviewed: 'Redaktionell geprüft: Juli 2026',
+      reviewed: 'Stand Juli 2026',
       items: [
         {
           title: 'Dorftraditionen',

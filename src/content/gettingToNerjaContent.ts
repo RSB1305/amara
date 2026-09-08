@@ -87,7 +87,7 @@ export const gettingToNerjaContent = {
       "Tickets, wegsituatie en regels veranderen. Stuur ons jullie aankomsttijd, dan zeggen we wat er die dag geldt.",
       "Biljetter, vägläge och regler ändras. Skicka er ankomsttid, så säger vi vad som gäller den dagen."
     ),
-    updated: l("Last checked in August 2026", "Zuletzt im August 2026 nachgesehen", "Revisado por última vez en agosto de 2026", "Voor het laatst nagekeken in augustus 2026", "Senast kontrollerat i augusti 2026")
+    updated: l("Last checked in August 2026", "Stand August 2026", "Revisado por última vez en agosto de 2026", "Voor het laatst nagekeken in augustus 2026", "Senast kontrollerat i augusti 2026")
   },
   facts: [
     {
@@ -231,7 +231,7 @@ export const gettingToNerjaContent = {
       "De verbindingen komen van de luchthaven en de busmaatschappij — daar vind je actuele tijden en tickets. De afstanden vanaf onze deur komen van ons.",
       "Förbindelserna kommer från flygplatsen och bussbolaget — dit går ni för aktuella tider och biljetter. Avstånden från vår dörr kommer från oss."
     ),
-    checked: l("Last checked in August 2026", "Zuletzt im August 2026 nachgesehen", "Revisado por última vez en agosto de 2026", "Voor het laatst nagekeken in augustus 2026", "Senast kontrollerat i augusti 2026"),
+    checked: l("Last checked in August 2026", "Stand August 2026", "Revisado por última vez en agosto de 2026", "Voor het laatst nagekeken in augustus 2026", "Senast kontrollerat i augusti 2026"),
     links: [
       {
         label: l("Aena · buses at Málaga Airport", "Aena · Busse am Flughafen Málaga", "Aena · autobuses en el aeropuerto de Málaga", "Aena · bussen op Málaga Airport", "Aena · bussar vid Málaga flygplats"),

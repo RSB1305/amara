@@ -13,14 +13,14 @@ export const frigilianaWellnessPlaceCopy = definePlaceCopy({
       },
       title: {
         en: "Mobile spa & pamper days",
-        de: "Mobiler Spa- und Verwöhntag",
+        de: "Spa-Nachmittag bei euch im Haus",
         es: "Spa a domicilio y días de mimos",
         nl: "Mobiele spa & verwenmomenten",
         sv: "Mobil spa- och avkopplingsdag"
       },
       summary: {
         en: "A mobile service for spa and beauty treatments at your villa or apartment. It is the simpler option if you do not want to travel for the appointment.",
-        de: "Ein mobiler Service für Spa- und Beauty-Anwendungen in eurer Villa oder eurem Apartment. Die einfachere Wahl, wenn ihr für den Termin nicht fahren möchtet.",
+        de: "Massagen und Beauty-Anwendungen bei euch in Villa oder Apartment, für eine Person oder mehrere.",
         es: "Una experiencia de spa clásica y relajada, centrada en la comodidad, la belleza y la facilidad. Resulta especialmente práctica si queréis que el bienestar venga a vosotros sin reorganizar el resto del día.",
         nl: "Een mobiele service voor spa- en beautybehandelingen in jullie villa of appartement. De eenvoudigste optie als jullie niet voor de afspraak willen reizen.",
         sv: "En avslappnad, klassisk spaupplevelse med fokus på komfort, skönhet och enkelhet. Särskilt praktiskt när ni vill att wellness ska komma till er utan att resten av dagen behöver planeras om."
@@ -34,33 +34,33 @@ export const frigilianaWellnessPlaceCopy = definePlaceCopy({
             sv: "De kommer till er"
           }, text: {
             en: "Treatments can take place at your villa or apartment; confirm that your exact address is covered when booking.",
-            de: "Die Anwendungen können in eurer Villa oder eurem Apartment stattfinden. Bestätigt bei der Buchung, dass eure genaue Adresse abgedeckt ist.",
+            de: "Die Liege steht in eurem Wohnzimmer oder auf der Terrasse; beim Buchen nennt ihr einfach die Adresse.",
             es: "Los tratamientos pueden realizarse en vuestra villa o apartamento, con privacidad y sin trayectos adicionales.",
             nl: "De behandelingen kunnen in jullie villa of appartement plaatsvinden. Bevestig bij het boeken dat jullie exacte adres wordt bediend.",
             sv: "Behandlingarna kan göras i er villa eller lägenhet – privat, bekvämt och utan extra resa."
           } },
         { title: {
             en: "Spa & beauty focus",
-            de: "Spa- und Beauty-Fokus",
+            de: "Mehr als Massage",
             es: "Belleza y cuidado personal",
             nl: "Verwen- en beautyfocus",
             sv: "Fokus på avkoppling och skönhet"
           }, text: {
             en: "The menu extends beyond massage, which is useful if several people want different treatments.",
-            de: "Das Angebot geht über Massagen hinaus – praktisch, wenn mehrere Personen unterschiedliche Anwendungen möchten.",
+            de: "Wer zu zweit Verschiedenes möchte, bekommt es am selben Nachmittag.",
             es: "El ambiente es familiar y sencillo, perfecto para un día de spa relajado o compartido.",
             nl: "De sfeer is vertrouwd en ongecompliceerd en past goed bij een ontspannen of gezellige spadag.",
             sv: "Känslan är välbekant och okomplicerad och passar en avslappnad eller social spadag."
           } },
         { title: {
             en: "A broad treatment menu",
-            de: "Breites Behandlungsangebot",
+            de: "Zum Kombinieren",
             es: "Una oferta amplia",
             nl: "Ruime behandelingskeuze",
             sv: "Brett behandlingsutbud"
           }, text: {
             en: "A useful choice when you want options beyond massage and would like to combine several treatments.",
-            de: "Eine gute Wahl, wenn ihr mehr als eine Massage sucht oder mehrere Anwendungen kombinieren möchtet.",
+            de: "Mehrere Anwendungen lassen sich hintereinander buchen.",
             es: "Una opción útil si buscáis algo más que un masaje o queréis combinar varios tratamientos.",
             nl: "Een handige keuze wanneer jullie meer zoeken dan alleen massage of meerdere behandelingen willen combineren.",
             sv: "Ett bra val när ni söker mer än massage eller vill kombinera flera behandlingar."
@@ -68,7 +68,7 @@ export const frigilianaWellnessPlaceCopy = definePlaceCopy({
       ],
       bestFor: {
         en: "Guests who want mobile treatments, a broader menu or appointments for more than one person.",
-        de: "Gäste, die mobile Anwendungen, eine breitere Auswahl oder Termine für mehrere Personen möchten.",
+        de: "Nachmittage im Haus, Paare, mehr als eine Massage.",
         es: "Un cómodo “spa en casa”, flexible y con un punto social.",
         nl: "Een comfortabele “spa aan huis”-dag met een flexibel en gezellig karakter.",
         sv: "En bekväm “spa hemma”-dag med flexibel och social känsla."
@@ -119,7 +119,7 @@ export const frigilianaWellnessPlaceCopy = definePlaceCopy({
       },
       summary: {
         en: "A personal Californian massage session at Lidia’s countryside location near Frigiliana. You travel to her rather than receiving the treatment at your accommodation.",
-        de: "Eine persönliche kalifornische Massage an Lidias Ort auf dem Land bei Frigiliana. Ihr fahrt zu ihr; die Anwendung findet nicht in eurer Unterkunft statt.",
+        de: "Eine kalifornische Massage bei Lidia auf dem Land bei Frigiliana. Ihr fahrt zu ihr hinaus.",
         es: "Una sesión personal de masaje californiano en el espacio rural de Lidia cerca de Frigiliana. Os desplazáis hasta allí; el tratamiento no se realiza en vuestro alojamiento.",
         nl: "Een persoonlijke Californische massagesessie op Lidia’s landelijke locatie bij Frigiliana. Jullie reizen naar haar toe; de behandeling vindt niet in jullie verblijf plaats.",
         sv: "En personlig kalifornisk massagesession på Lidias plats på landsbygden nära Frigiliana. Ni åker till henne; behandlingen sker inte i ert boende."
@@ -127,39 +127,39 @@ export const frigilianaWellnessPlaceCopy = definePlaceCopy({
       highlights: [
         { title: {
             en: "A countryside setting",
-            de: "Ruhige Lage auf dem Land",
+            de: "Im Campo",
             es: "Un entorno rural",
             nl: "Landelijke omgeving",
             sv: "Lantlig miljö"
           }, text: {
             en: "You travel to her location near Frigiliana, creating a clear change of scene for the appointment.",
-            de: "Ihr fahrt zu ihrem Ort nahe Frigiliana. Lasst euch Treffpunkt und Anfahrt vorab bestätigen.",
+            de: "Mit dem Auto aus dem Dorf hinaus; die Anfahrt schickt sie euch.",
             es: "Os desplazáis hasta su espacio cerca de Frigiliana, creando una verdadera separación con el resto de la jornada.",
             nl: "Jullie reizen naar haar locatie bij Frigiliana. Bevestig het ontmoetingspunt en de route vooraf.",
             sv: "Ni åker till hennes plats nära Frigiliana och skapar på så sätt ett tydligt avbrott från resten av dagen."
           } },
         { title: {
             en: "Californian massage focus",
-            de: "Fokus auf kalifornische Massage",
+            de: "Eine Technik",
             es: "Masaje californiano",
             nl: "Californische massage",
             sv: "Fokus på kalifornisk massage"
           }, text: {
             en: "The session centres on the long, flowing movements associated with Californian massage.",
-            de: "Im Mittelpunkt stehen die langen, fließenden Bewegungen der kalifornischen Massage.",
+            de: "Lange, fließende Bewegungen über den ganzen Körper, langsam und ohne Eile.",
             es: "La sesión se centra en los movimientos largos y fluidos propios del masaje californiano.",
             nl: "De sessie draait om de lange, vloeiende bewegingen van Californische massage.",
             sv: "Sessionen fokuserar på de långa, flödande rörelser som hör till kalifornisk massage."
           } },
         { title: {
             en: "Quiet one-to-one setting",
-            de: "Ruhige Einzelbetreuung",
+            de: "Nur ihr",
             es: "Entorno tranquilo y personal",
             nl: "Rustige één-op-éénsetting",
             sv: "Lugn personlig miljö"
           }, text: {
             en: "This option is centred on one personal massage session in a quiet countryside setting.",
-            de: "Diese Variante konzentriert sich auf eine persönliche Massage in ruhiger Umgebung auf dem Land.",
+            de: "Lidia arbeitet allein und nimmt sich für jede Massage die Zeit.",
             es: "La experiencia es tranquila, personal y deliberadamente pausada.",
             nl: "De ervaring is stil, persoonlijk en bewust zonder haast.",
             sv: "Upplevelsen är stillsam, personlig och medvetet utan brådska."
@@ -167,7 +167,7 @@ export const frigilianaWellnessPlaceCopy = definePlaceCopy({
       ],
       bestFor: {
         en: "Guests who specifically want Californian massage and do not mind travelling to the appointment.",
-        de: "Gäste, die gezielt eine kalifornische Massage möchten und für den Termin gern hinausfahren.",
+        de: "Eine einzelne, tiefe Massage und die Fahrt hinaus als Teil davon.",
         es: "Quienes buscan específicamente masaje californiano y no tienen inconveniente en desplazarse hasta la cita.",
         nl: "Gasten die specifiek Californische massage willen en graag naar de afspraak reizen.",
         sv: "Gäster som specifikt vill ha kalifornisk massage och gärna reser till besöket."

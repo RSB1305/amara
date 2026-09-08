@@ -92,12 +92,12 @@ export const tarifaKitesurfBeginnerGuide: TarifaKitesurfGuideContent = {
     ),
     note: l(
       'Preparation and review for real lessons, not a substitute for professional instruction. Safety systems and procedures differ by bar and manufacturer; learn and practise them on your own equipment with a qualified instructor.',
-      'Vorbereitung und Nachbereitung für echte Stunden, kein Ersatz für professionellen Unterricht. Safety-Systeme und Abläufe unterscheiden sich je nach Bar und Hersteller; lernt und übt sie an eurem eigenen Material mit einer qualifizierten Lehrkraft.',
+      'Zum Lesen vor der ersten Stunde; geübt wird am Strand, mit Lehrer.',
       'Preparación y repaso para clases reales, no un sustituto de la instrucción profesional. Los sistemas de seguridad y los procedimientos varían según la barra y el fabricante; apréndelos y practícalos con tu propio material y un instructor cualificado.',
       'Voorbereiding en herhaling voor echte lessen, geen vervanging van professionele instructie. Veiligheidssystemen en procedures verschillen per bar en fabrikant; leer en oefen ze op je eigen materiaal met een gekwalificeerde instructeur.',
       'Förberedelse och repetition för riktiga lektioner, inte en ersättning för professionell instruktion. Säkerhetssystem och rutiner skiljer sig mellan bar och tillverkare; lär och öva dem på din egen utrustning med en kvalificerad instruktör.'
     ),
-    updated: l('Guide checked in September 2026', 'Guide geprüft im September 2026', 'Guía revisada en septiembre de 2026', 'Gids gecontroleerd in september 2026', 'Guide kontrollerad i september 2026')
+    updated: l('Guide checked in September 2026', 'Stand September 2026', 'Guía revisada en septiembre de 2026', 'Gids gecontroleerd in september 2026', 'Guide kontrollerad i september 2026')
   },
   facts: [
     { label: l('The order', 'Die Reihenfolge', 'El orden', 'De volgorde', 'Ordningen'), value: l('Kite control before the board', 'Kitekontrolle vor dem Board', 'Control de la cometa antes que la tabla', 'Kitecontrole vóór de board', 'Kitekontroll före brädan') },
@@ -191,7 +191,7 @@ export const tarifaKitesurfBeginnerGuide: TarifaKitesurfGuideContent = {
     }
   ],
   host: {
-    eyebrow: l('AMARA host perspective', 'AMARA Host-Perspektive', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
+    eyebrow: l('AMARA host perspective', 'Von La Marina aus', 'Perspectiva del anfitrión de AMARA', 'Perspectief van de AMARA-host', 'AMARA-värdens perspektiv'),
     title: l('A learning base, with the gear sorted', 'Eine Lernbasis, mit organisiertem Material', 'Una base para aprender, con el material resuelto', 'Een leerbasis, met het materiaal geregeld', 'En lärbas, med utrustningen ordnad'),
     paragraphs: [
       l(
