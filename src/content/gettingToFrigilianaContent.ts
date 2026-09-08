@@ -327,11 +327,11 @@ export const gettingToFrigilianaCopy = {
           sv: 'Gäster som planerar **stränder, dagsutflykter eller flera stopp** under vistelsen.'
         },
         consideration: {
-          en: '**Parking and the final walk matter** in Frigiliana; old-town access is not door to door.',
-          de: '**Parkplatz und letzter Fußweg sind wichtig**; die Altstadt ist nicht überall direkt anfahrbar.',
-          es: 'En Frigiliana importan **el aparcamiento y el último tramo a pie**; no todo el casco antiguo permite llegar hasta la puerta.',
-          nl: '**Parkeren en het laatste stuk lopen zijn belangrijk**; in de oude kern rijden jullie niet overal tot aan de deur.',
-          sv: '**Parkering och sista sträckan till fots är viktiga**; i gamla stan går det inte alltid att köra ända fram.'
+          en: '**Parking and the final walk matter** in Frigiliana; old-town access is not door to door. Driving an electric car? Plan your charging ahead and check a maps app for the nearest public charging point on your route.',
+          de: '**Parkplatz und letzter Fußweg sind wichtig**; die Altstadt ist nicht überall direkt anfahrbar. Ihr kommt mit einem Elektroauto? Plant das Laden im Voraus und sucht die nächste öffentliche Ladestation auf eurer Route in einer Karten-App.',
+          es: 'En Frigiliana importan **el aparcamiento y el último tramo a pie**; no todo el casco antiguo permite llegar hasta la puerta. ¿Llegáis en coche eléctrico? Planificad la carga con antelación y buscad el punto de recarga público más cercano de vuestra ruta en una app de mapas.',
+          nl: '**Parkeren en het laatste stuk lopen zijn belangrijk**; in de oude kern rijden jullie niet overal tot aan de deur. Komen jullie met een elektrische auto? Plan het laden vooraf en zoek het dichtstbijzijnde openbare laadpunt op jullie route in een kaarten-app.',
+          sv: '**Parkering och sista sträckan till fots är viktiga**; i gamla stan går det inte alltid att köra ända fram. Kommer ni med elbil? Planera laddningen i förväg och sök närmaste offentliga laddstation längs er rutt i en kart-app.'
         }
       },
       {

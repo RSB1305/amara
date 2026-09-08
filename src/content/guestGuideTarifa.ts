@@ -1765,23 +1765,28 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
           body: tarifaParagraphs({
             en: [
               `Tarifa itself has limited rental options, so for a wider choice it is often easiest to look in <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Algeciras+Spain" target="_blank" rel="noopener">Algeciras</a>, around 20 km away.`,
-              `If you are planning to rent a car in high season, booking ahead is usually a good idea.`
+              `If you are planning to rent a car in high season, booking ahead is usually a good idea.`,
+              `If your car is electric, plan charging ahead. The nearest public charging points around Tarifa are shown on the live map: <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=EV+charging+station+Tarifa" target="_blank" rel="noopener">charging stations near Tarifa</a>.`
             ],
             de: [
               `In Tarifa selbst ist die Auswahl an Mietwagen begrenzt. Für ein breiteres Angebot ist es oft am einfachsten, im etwa 20 km entfernten <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Algeciras+Spain" target="_blank" rel="noopener">Algeciras</a> zu suchen.`,
-              `Wenn ihr plant, in der Hochsaison ein Auto zu mieten, ist es meist eine gute Idee, im Voraus zu buchen.`
+              `Wenn ihr plant, in der Hochsaison ein Auto zu mieten, ist es meist eine gute Idee, im Voraus zu buchen.`,
+              `Wenn euer Auto elektrisch ist, plant das Laden im Voraus. Die nächsten öffentlichen Ladepunkte rund um Tarifa zeigt die Live-Karte: <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=EV+charging+station+Tarifa" target="_blank" rel="noopener">Ladestationen bei Tarifa</a>.`
             ],
             es: [
               `En Tarifa hay pocas opciones de alquiler, por lo que para una mayor variedad suele ser más fácil buscar en <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Algeciras+Spain" target="_blank" rel="noopener">Algeciras</a>, a unos 20 km.`,
-              `Si planeáis alquilar un coche en temporada alta, suele ser buena idea reservar con antelación.`
+              `Si planeáis alquilar un coche en temporada alta, suele ser buena idea reservar con antelación.`,
+              `Si vuestro coche es eléctrico, planificad la carga con antelación. Los puntos de recarga públicos más cercanos alrededor de Tarifa aparecen en el mapa en vivo: <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=EV+charging+station+Tarifa" target="_blank" rel="noopener">puntos de recarga cerca de Tarifa</a>.`
             ],
             nl: [
               `Tarifa zelf heeft beperkte huuropties, dus voor meer keuze is het vaak makkelijker om te zoeken in <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Algeciras+Spain" target="_blank" rel="noopener">Algeciras</a>, zo’n 20 km verderop.`,
-              `Als jullie van plan zijn een auto te huren in het hoogseizoen, is vooraf boeken meestal een goed idee.`
+              `Als jullie van plan zijn een auto te huren in het hoogseizoen, is vooraf boeken meestal een goed idee.`,
+              `Als jullie auto elektrisch is, plan het laden vooraf. De dichtstbijzijnde openbare laadpunten rond Tarifa staan op de live kaart: <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=EV+charging+station+Tarifa" target="_blank" rel="noopener">laadpunten bij Tarifa</a>.`
             ],
             sv: [
               `Tarifa i sig har begränsade uthyrningsmöjligheter, så för ett större utbud är det oftast enklast att titta i <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Algeciras+Spain" target="_blank" rel="noopener">Algeciras</a>, cirka 20 km bort.`,
-              `Om ni planerar att hyra en bil under högsäsong är det oftast bra att boka i förväg.`
+              `Om ni planerar att hyra en bil under högsäsong är det oftast bra att boka i förväg.`,
+              `Om er bil är elektrisk, planera laddningen i förväg. De närmaste offentliga laddstationerna runt Tarifa visas på livekartan: <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=EV+charging+station+Tarifa" target="_blank" rel="noopener">laddstationer nära Tarifa</a>.`
             ]
           })
         }
