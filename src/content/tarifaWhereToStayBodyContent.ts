@@ -181,7 +181,7 @@ const en: WhereToStayCopy = {
     mapNote: '(see the orientation map above)',
     lead: 'In Tarifa you often have to choose: beach *or* town, wind *or* quiet. **AMARA is in La Marina** — the quarter between the old town and the beach. From here it’s a few minutes on foot into the lanes with the tapas bars, and just as few to the water. And more sheltered than out on the open Los Lances.',
     facts: ['**La Marina** — between the old town and the beach', '**On foot** into town and to the water', '**More sheltered** than the open kite beach — without the drive'],
-    honest: 'To stay honest: your real kite day is out at Los Lances and Valdevaqueros; those who value space and a view over proximity are better off in the campo. For town and beach in one, La Marina is the sweet spot.'
+    honest: 'To stay honest: your real kite day is out at Los Lances and Valdevaqueros; those who value space and a view over proximity are better off in the campo. For town and beach in one, La Marina is just right.'
   }
 };
 
@@ -269,7 +269,7 @@ const es: WhereToStayCopy = {
     mapNote: '(ver el mapa de orientación arriba)',
     lead: 'En Tarifa a menudo hay que elegir: playa *o* pueblo, viento *o* calma. **AMARA está en La Marina** — el barrio entre el casco y la playa. Desde aquí son unos minutos a pie hasta las callejuelas con los bares de tapas, y otros tantos hasta el agua. Y más resguardada que en la playa abierta de Los Lances.',
     facts: ['**La Marina** — entre el casco y la playa', '**A pie** al pueblo y al agua', '**Más resguardada** que la playa de kite abierta — sin el coche'],
-    honest: 'Para ser honestos: el verdadero día de kite lo tenéis fuera, en Los Lances y Valdevaqueros; quien valora la amplitud y las vistas por encima de la cercanía está mejor en el campo. Para pueblo y playa en uno, La Marina es el punto dulce.'
+    honest: 'Para ser honestos: el verdadero día de kite lo tenéis fuera, en Los Lances y Valdevaqueros; quien valora la amplitud y las vistas por encima de la cercanía está mejor en el campo. Para pueblo y playa en uno, La Marina es la opción justa.'
   }
 };
 
@@ -357,7 +357,7 @@ const nl: WhereToStayCopy = {
     mapNote: '(zie de oriëntatiekaart hierboven)',
     lead: 'In Tarifa moet je vaak kiezen: strand *of* dorp, wind *of* rust. **AMARA ligt in La Marina** — de wijk tussen de oude stad en het strand. Van hier is het een paar minuten lopen naar de straatjes met de tapasbars, en net zo weinig naar het water. En beschutter dan buiten op het open Los Lances.',
     facts: ['**La Marina** — tussen de oude stad en het strand', '**Te voet** het dorp in en naar het water', '**Beschutter** dan het open kitestrand — zonder de auto'],
-    honest: 'Eerlijk blijft: je echte kitedag heb je buiten bij Los Lances en Valdevaqueros; wie ruimte en uitzicht boven nabijheid stelt, zit beter in de campo. Voor dorp en strand in één is La Marina de zoete plek.'
+    honest: 'Eerlijk blijft: je echte kitedag heb je buiten bij Los Lances en Valdevaqueros; wie ruimte en uitzicht boven nabijheid stelt, zit beter in de campo. Voor dorp en strand in één is La Marina precies goed.'
   }
 };
 
@@ -445,7 +445,7 @@ const sv: WhereToStayCopy = {
     mapNote: '(se orienteringskartan ovan)',
     lead: 'I Tarifa måste man ofta välja: strand *eller* ort, vind *eller* lugn. **AMARA ligger i La Marina** — kvarteret mellan gamla stan och stranden. Härifrån är det några minuters promenad in i gränderna med tapasbarerna, och lika kort till vattnet. Och mer i lä än ute på öppna Los Lances.',
     facts: ['**La Marina** — mellan gamla stan och stranden', '**Till fots** in till orten och till vattnet', '**Mer i lä** än den öppna kitestranden — utan bilfärd'],
-    honest: 'Ärligt talat: din riktiga kitedag har du ute vid Los Lances och Valdevaqueros; den som värderar rymd och utsikt framför närhet trivs bättre på landsbygden. För ort och strand i ett är La Marina den söta punkten.'
+    honest: 'Ärligt talat: din riktiga kitedag har du ute vid Los Lances och Valdevaqueros; den som värderar rymd och utsikt framför närhet trivs bättre på landsbygden. För ort och strand i ett är La Marina precis rätt.'
   }
 };
 
