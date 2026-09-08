@@ -856,44 +856,44 @@ export const frigilianaStreetsStairsCopy = {
   },
   selfCheck: {
     title: {
-      en: 'Check the exact location before booking',
+      en: 'What we tell you before you book',
       de: 'Was wir euch vor der Buchung sagen',
-      es: 'Comprobad la ubicación exacta antes de reservar',
-      nl: 'Controleer de precieze ligging vóór het boeken',
-      sv: 'Kontrollera det exakta läget före bokning'
+      es: 'Lo que os contamos antes de reservar',
+      nl: 'Wat we jullie vóór de boeking vertellen',
+      sv: 'Vad vi berättar innan ni bokar'
     } satisfies LocalizedText,
     steps: [
       {
         num: '01',
-        title: { en: 'Trace the full route', de: 'Der ganze Weg', es: 'Revisad el recorrido completo', nl: 'Bekijk de volledige route', sv: 'Kontrollera hela vägen' } satisfies LocalizedText,
+        title: { en: 'The whole way', de: 'Der ganze Weg', es: 'El camino completo', nl: 'De hele weg', sv: 'Hela vägen' } satisfies LocalizedText,
         text: {
-          en: 'Follow the route from the nearest realistic vehicle point to the actual entrance, not just to the street name.',
+          en: 'From the car park to the front door, with surface, gradient and number of steps.',
           de: 'Vom Parkhaus bis zur Haustür, mit Untergrund, Steigung und Stufenzahl.',
-          es: 'Seguid el recorrido desde el punto realista más cercano para el vehículo hasta la entrada, no solo hasta el nombre de la calle.',
-          nl: 'Volg de route vanaf het dichtstbijzijnde realistische voertuigpunt tot aan de echte ingang, niet alleen tot de straatnaam.',
-          sv: 'Följ vägen från närmaste realistiska fordonsplats till den faktiska entrén, inte bara till gatunamnet.'
+          es: 'Del parking a la puerta, con tipo de suelo, pendiente y número de escalones.',
+          nl: 'Van de parkeergarage tot de voordeur, met ondergrond, helling en aantal treden.',
+          sv: 'Från parkeringshuset till ytterdörren, med underlag, lutning och antal trappsteg.'
         } satisfies LocalizedText
       },
       {
         num: '02',
-        title: { en: 'Test an ordinary day', de: 'Ein normaler Tag', es: 'Probad un día normal', nl: 'Test een gewone dag', sv: 'Testa en vanlig dag' } satisfies LocalizedText,
+        title: { en: 'An ordinary day', de: 'Ein normaler Tag', es: 'Un día normal', nl: 'Een gewone dag', sv: 'En vanlig dag' } satisfies LocalizedText,
         text: {
-          en: 'Include every likely return, luggage or shopping, and whether children or a car change the route.',
+          en: 'Fetching bread, the beach bag, shopping: how often you walk it and how it feels.',
           de: 'Brot holen, Strandtasche, Einkauf: wie oft ihr den Weg geht und wie er sich anfühlt.',
-          es: 'Incluid todos los regresos probables, el equipaje o la compra y si los niños o el coche cambian el recorrido.',
-          nl: 'Neem alle waarschijnlijke terugwegen, bagage of boodschappen mee, en of kinderen of een auto de route veranderen.',
-          sv: 'Räkna in alla troliga hemvägar, bagage eller inköp och om barn eller bil förändrar rutten.'
+          es: 'Ir a por el pan, la bolsa de playa, la compra: cuántas veces haréis el camino y cómo se siente.',
+          nl: 'Brood halen, de strandtas, boodschappen: hoe vaak je de weg loopt en hoe hij voelt.',
+          sv: 'Hämta bröd, strandväskan, inköp: hur ofta ni går vägen och hur den känns.'
         } satisfies LocalizedText
       },
       {
         num: '03',
-        title: { en: 'Ask for precise access details', de: 'Die Haustür', es: 'Pedid detalles precisos del acceso', nl: 'Vraag om precieze toegangsinformatie', sv: 'Be om exakta tillträdesuppgifter' } satisfies LocalizedText,
+        title: { en: 'The front door', de: 'Die Haustür', es: 'La puerta', nl: 'De voordeur', sv: 'Ytterdörren' } satisfies LocalizedText,
         text: {
-          en: 'If steps, balance or repeated climbs matter, ask about gradient, surface, handrails and the final doorway.',
+          en: 'One step at the shared front door of Casa AMARA; Farah on the level, Lounis, Zaid and Maha up stairs.',
           de: 'Eine Stufe an der gemeinsamen Haustür von Casa AMARA; Farah ebenerdig, Lounis, Zaid und Maha über Treppen.',
-          es: 'Si importan los escalones, el equilibrio o las subidas repetidas, preguntad por la pendiente, el suelo, los pasamanos y la entrada.',
-          nl: 'Als trappen, balans of herhaald klimmen tellen, vraag dan naar helling, ondergrond, leuningen en de uiteindelijke ingang.',
-          sv: 'Om trappor, balans eller återkommande stigningar spelar roll, fråga om lutning, underlag, ledstänger och den sista entrén.'
+          es: 'Un escalón en la puerta común de Casa AMARA; Farah a nivel, Lounis, Zaid y Maha por escaleras.',
+          nl: 'Eén trede bij de gezamenlijke voordeur van Casa AMARA; Farah gelijkvloers, Lounis, Zaid en Maha via trappen.',
+          sv: 'Ett trappsteg vid Casa AMARAs gemensamma ytterdörr; Farah i ett plan, Lounis, Zaid och Maha via trappor.'
         } satisfies LocalizedText
       }
     ],
@@ -928,11 +928,11 @@ export const frigilianaStreetsStairsCopy = {
       {
         question: { en: 'Which part is easiest for repeated walking?', de: 'Welche Lage ist für häufige Wege am praktischsten?', es: '¿Qué zona resulta más práctica para caminar varias veces al día?', nl: 'Welk deel is het praktischst voor herhaalde wandelingen?', sv: 'Vilken del är mest praktisk för flera promenader om dagen?' } satisfies LocalizedText,
         answer: {
-          en: 'That cannot be judged reliably from an area name alone; the exact doorway and repeated route matter. Casa AMARA is on Calle Chorruelo, the continuation of Calle Real, so the concrete route can be assessed instead of inferred from the label “old town”.',
+          en: 'Casa AMARA is on Calle Chorruelo, the continuation of Calle Real. We describe the way from the car park to the front door metre by metre, with cobbles, gradient and steps.',
           de: 'Casa AMARA liegt an der Calle Chorruelo, der Fortsetzung der Calle Real. Den Weg vom Parkhaus bis zur Haustür beschreiben wir euch Meter für Meter, mit Pflaster, Steigung und Stufen.',
-          es: 'No puede deducirse de forma fiable solo por el nombre de una zona; importan la puerta exacta y el recorrido repetido. Casa AMARA está en la calle Chorruelo, continuación de la calle Real, de modo que puede valorarse la ruta concreta en vez de inferirla por la etiqueta “casco antiguo”.',
-          nl: 'Dat is niet betrouwbaar af te leiden uit alleen een wijknaam; de precieze voordeur en terugkerende route zijn bepalend. Casa AMARA ligt aan Calle Chorruelo, het vervolg van Calle Real, zodat de concrete route kan worden beoordeeld in plaats van afgeleid uit het label “oude centrum”.',
-          sv: 'Det går inte att bedöma tillförlitligt enbart utifrån ett områdesnamn; den exakta ytterdörren och den återkommande vägen är avgörande. Casa AMARA ligger på Calle Chorruelo, fortsättningen av Calle Real, så den konkreta vägen kan bedömas i stället för att antas utifrån beteckningen “gamla stan”.'
+          es: 'Casa AMARA está en la calle Chorruelo, la continuación de la calle Real. Os describimos el camino del parking a la puerta metro a metro, con empedrado, pendiente y escalones.',
+          nl: 'Casa AMARA ligt aan Calle Chorruelo, het vervolg van Calle Real. We beschrijven de weg van de parkeergarage tot de voordeur meter voor meter, met kinderkopjes, helling en treden.',
+          sv: 'Casa AMARA ligger på Calle Chorruelo, fortsättningen av Calle Real. Vi beskriver vägen från parkeringshuset till ytterdörren meter för meter, med kullersten, lutning och trappsteg.'
         } satisfies LocalizedText
       },
       {

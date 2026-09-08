@@ -144,18 +144,18 @@ export const frigilianaParkingCopy = {
       'Parkering i Frigiliana'
     ),
     lead: l(
-      'Frigiliana has parking, but its historic hillside centre was not designed for door-to-door car access. A calm arrival starts by separating the place where you leave the car from the place where you stay.',
+      'Frigiliana clings to the hillside, and no car fits into the lanes of the old town. The car stays down in the village; you walk the last metres.',
       'Frigiliana hängt am Hang, und in die Gassen der Altstadt passt kein Auto. Das Auto bleibt unten im Ort, die letzten Meter geht ihr zu Fuß.',
-      'Frigiliana dispone de aparcamiento, pero su casco histórico en ladera no está pensado para llegar en coche hasta cada puerta. Una llegada tranquila empieza por planificar por separado dónde dejar el coche y dónde está el alojamiento.',
-      'Frigiliana heeft parkeermogelijkheden, maar de historische kern tegen de heuvel is niet ontworpen voor toegang met de auto tot aan iedere voordeur. Een ontspannen aankomst begint door parkeerplek en verblijf apart te plannen.',
-      'Det finns parkering i Frigiliana, men den historiska bykärnan på sluttningen är inte byggd för biltrafik ända fram till varje dörr. En lugn ankomst börjar med att planera parkering och boende som två olika platser.'
+      'Frigiliana cuelga de la ladera, y en las callejuelas del casco antiguo no cabe un coche. El coche se queda en la parte baja del pueblo; los últimos metros se hacen a pie.',
+      'Frigiliana hangt tegen de helling, en in de steegjes van de oude kern past geen auto. De auto blijft beneden in het dorp; de laatste meters loop je.',
+      'Frigiliana hänger på sluttningen, och i gamla byns gränder får ingen bil plats. Bilen står kvar nere i byn; de sista metrarna går ni.'
     ),
     body: l(
-      'Expect to use signed public or permitted street parking around the lower or outer village, then complete the final section on foot. On arrival, current road signs always take priority over old screenshots or saved instructions.',
+      'The easiest spot is the underground car park at Plaza de las Tres Culturas; there are also signed spaces on the edge of the village. From there, stairs and lanes lead up into the village.',
       'Der einfachste Platz ist die Tiefgarage an der Plaza de las Tres Culturas; dazu kommen ausgeschilderte Plätze am Ortsrand. Von dort führen Treppen und Gassen hinauf ins Dorf.',
-      'Contad con utilizar un aparcamiento público señalizado o una plaza permitida en la zona baja o exterior del pueblo y completar el último tramo a pie. Al llegar, la señalización actual siempre tiene prioridad sobre capturas o indicaciones antiguas.',
-      'Houd rekening met een aangegeven openbare parking of toegestane plek in het lagere of buitenste deel van het dorp en leg het laatste stuk te voet af. Actuele verkeersborden gaan bij aankomst altijd vóór oude screenshots of opgeslagen aanwijzingen.',
-      'Räkna med skyltad allmän parkering eller tillåten gatuparkering i den nedre eller yttre delen av byn och gå den sista sträckan. Aktuell skyltning på plats gäller alltid före gamla skärmbilder eller sparade anvisningar.'
+      'El sitio más fácil es el parking subterráneo de la Plaza de las Tres Culturas; además hay plazas señalizadas en el borde del pueblo. Desde allí, escaleras y callejuelas suben al pueblo.',
+      'De makkelijkste plek is de parkeergarage aan Plaza de las Tres Culturas; daarnaast zijn er aangegeven plekken aan de rand van het dorp. Van daar leiden trappen en steegjes omhoog het dorp in.',
+      'Enklaste platsen är parkeringshuset vid Plaza de las Tres Culturas; dessutom finns skyltade platser i byns utkant. Därifrån leder trappor och gränder upp i byn.'
     ),
     primaryCta: l(
       'Compare parking options',
@@ -516,7 +516,7 @@ export const frigilianaParkingCopy = {
     )
   },
   liveInfo: {
-    eyebrow: l('Live information', 'Quellen', 'Información actual', 'Actuele informatie', 'Aktuell information'),
+    eyebrow: l('Sources', 'Quellen', 'Fuentes', 'Bronnen', 'Källor'),
     title: l(
       'Use the map to orientate — and the signs to decide',
       'Nutzt die Karte zur Orientierung – und die Schilder zur Entscheidung',
@@ -532,11 +532,11 @@ export const frigilianaParkingCopy = {
       'Den officiella gatukartan hjälper er att förstå den gamla och nya bydelen. En aktuell kartsökning kan visa närliggande parkering, men varken kartan eller sökningen ersätter begränsningar och villkor på plats.'
     ),
     checked: l(
-      'Editorial check · July 2026',
+      'As of July 2026',
       'Stand Juli 2026',
-      'Revisión editorial · julio de 2026',
-      'Redactioneel gecontroleerd · juli 2026',
-      'Redaktionellt kontrollerad · juli 2026'
+      'Actualizado en julio de 2026',
+      'Stand juli 2026',
+      'Uppdaterad juli 2026'
     ),
     links: [
       {
