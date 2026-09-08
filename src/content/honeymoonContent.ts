@@ -38,7 +38,7 @@ export const honeymoonContent = {
     title: l('A hideaway for the two of you', 'Ein Hideaway für euch zwei', 'Un refugio para vosotros dos', 'Een hideaway voor jullie samen', 'Ett hideaway för er två'),
     lead: l(
       'You do not need a romance package for your honeymoon. You need a place where you both enjoy spending time.',
-      'Für eure Flitterwochen braucht ihr kein Romantikpaket. Ihr braucht einen Ort, an dem ihr beide gern Zeit verbringt.',
+      'Ein Haus für euch zwei, eine Terrasse mit Hängematte, ein Bett, in dem man lang liegen bleibt. Der Rest ist Andalusien.',
       'Para vuestra luna de miel no necesitáis un paquete romántico. Necesitáis un lugar donde os apetezca pasar tiempo juntos.',
       'Voor jullie huwelijksreis hebben jullie geen romantiekpakket nodig. Wel een plek waar jullie graag samen zijn.',
       'På smekmånaden behöver ni inget romantikpaket. Ni behöver en plats där ni båda trivs tillsammans.'
@@ -53,7 +53,7 @@ export const honeymoonContent = {
     cta: l('See which stay fits', 'Schaut, welche Unterkunft passt', 'Ver qué alojamiento encaja', 'Bekijk welk verblijf past', 'Se vilket boende som passar'),
   },
   choice: {
-    title: l('Romance you can actually use', 'Romantik, die ihr wirklich nutzt', 'Romanticismo que de verdad se disfruta', 'Romantiek waar jullie echt iets aan hebben', 'Romantik ni faktiskt har glädje av'),
+    title: l('Romance you can actually use', 'Was ihr jeden Tag spürt', 'Romanticismo que de verdad se disfruta', 'Romantiek waar jullie echt iets aan hebben', 'Romantik ni faktiskt har glädje av'),
     paragraphs: lp(
       ['For us, romance is not rose petals on the bed. It is a slow morning on your own terrace, a shower with room for two, a comfortable large bed and a view that makes you stay outside a little longer.', 'Every feature belongs to a specific stay. That is why we name the hideaway instead of making one promise for the whole collection.'],
       ['Für uns sind Rosenblätter auf dem Bett nicht das Entscheidende. Romantisch ist ein langsamer Morgen auf der eigenen Terrasse, eine Dusche mit Platz für zwei, ein bequemes großes Bett und ein Ausblick, bei dem ihr noch ein bisschen länger draußen bleibt.', 'Jedes Merkmal gehört zu einer bestimmten Unterkunft. Deshalb nennen wir das Hideaway beim Namen, statt ein Versprechen für die ganze Kollektion zu machen.'],
@@ -64,7 +64,7 @@ export const honeymoonContent = {
   },
   stayOptions: {
     title: l('Three very different ways to stay', 'Drei ganz unterschiedliche Arten zu wohnen', 'Tres formas muy distintas de alojaros', 'Drie heel verschillende manieren om te verblijven', 'Tre helt olika sätt att bo'),
-    intro: l('The details you notice every day matter more than the longest list of amenities.', 'Wichtiger als die längste Ausstattungsliste sind die Details, die ihr jeden Tag spürt.', 'Importan más los detalles que notaréis cada día que la lista de equipamiento más larga.', 'De details die jullie elke dag merken zijn belangrijker dan de langste voorzieningenlijst.', 'Detaljerna ni märker varje dag betyder mer än den längsta listan med utrustning.'),
+    intro: l('The details you notice every day matter more than the longest list of amenities.', 'Die Details, die zählen: Terrasse, Dusche, Bett, Blick.', 'Importan más los detalles que notaréis cada día que la lista de equipamiento más larga.', 'De details die jullie elke dag merken zijn belangrijker dan de langste voorzieningenlijst.', 'Detaljerna ni märker varje dag betyder mer än den längsta listan med utrustning.'),
     items: [
       {
         id: 'frigiliana',
@@ -91,7 +91,7 @@ export const honeymoonContent = {
         linkToken: 'tarifa' as HoneymoonStayLinkToken
       }
     ],
-    note: l('The features above belong to the named stays. Please check the individual stay page before booking.', 'Die genannten Merkmale gehören zu den jeweiligen Unterkünften. Prüft vor der Buchung bitte die einzelne Unterkunftsseite.', 'Los detalles indicados pertenecen a los alojamientos mencionados. Consultad la página de cada estancia antes de reservar.', 'De genoemde kenmerken horen bij de betreffende verblijven. Bekijk vóór het boeken de afzonderlijke verblijfspagina.', 'Detaljerna ovan hör till de boenden som nämns. Kontrollera den enskilda boendesidan innan ni bokar.'),
+    note: l('The features above belong to the named stays. Please check the individual stay page before booking.', 'Jede Unterkunftsseite zeigt Fotos und Grundriss dazu.', 'Los detalles indicados pertenecen a los alojamientos mencionados. Consultad la página de cada estancia antes de reservar.', 'De genoemde kenmerken horen bij de betreffende verblijven. Bekijk vóór het boeken de afzonderlijke verblijfspagina.', 'Detaljerna ovan hör till de boenden som nämns. Kontrollera den enskilda boendesidan innan ni bokar.'),
     collectionCta: l('Compare all Romantic Hideaways', 'Alle Romantic Hideaways vergleichen', 'Comparar todos los Romantic Hideaways', 'Vergelijk alle Romantic Hideaways', 'Jämför alla Romantic Hideaways')
   },
   closing: {
