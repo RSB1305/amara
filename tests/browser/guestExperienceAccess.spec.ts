@@ -95,7 +95,7 @@ test('the guest access page stays focused on booking verification', async ({ pag
   await expect(page).toHaveURL(/\/en\/guest-guide\/access$/);
   await expect(page.locator('.am-experience-app__intro strong')).toHaveCount(0);
   await expect(page.locator('main')).toContainText(
-    'Access information about your accommodation, local essentials and our personal recommendations for a special stay with AMARA.'
+    'Everything about your stay, the essentials on site and our recommendations for Frigiliana, Nerja or Tarifa.'
   );
   await expect(page.locator('.am-experience-app__intro p').nth(1)).toContainText(
     'Use your guide before and during your stay. Enter the first name on your reservation and your arrival date.'
