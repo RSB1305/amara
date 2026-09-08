@@ -65,7 +65,7 @@ test('the guest access page stays focused on booking verification', async ({ pag
   // Since DR-GUEST-004 the guide name is the heading itself; the intro carries no second label.
   await expect(page.locator('.am-experience-app__intro strong')).toHaveCount(0);
   await expect(page.locator('main')).toContainText(
-    'Findet Informationen zu eurer Unterkunft, Wichtiges vor Ort und unsere persönlichen Empfehlungen für eine besondere Zeit bei AMARA.'
+    'Alles zu eurer Unterkunft, das Wichtigste vor Ort und unsere Empfehlungen für Frigiliana, Nerja oder Tarifa.'
   );
   await expect(page.locator('.am-experience-app__intro p')).toHaveCount(2);
   await expect(page.locator('.am-experience-app__intro p').nth(1)).toContainText(
