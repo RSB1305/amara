@@ -403,11 +403,11 @@ const equipment: TarifaKitesurfSpokeContent = {
         price: l('60 €', '60 €', '60 €', '60 €', '60 €'),
         priceNote: l('per day · Days 1 to 3; 50 € from day 4', 'pro Tag · Tag 1 bis 3; ab Tag 4 50 €', 'al día · Días 1 a 3; 50 € desde el día 4', 'per dag · Dag 1 tot 3; vanaf dag 4 50 €', 'per dag · Dag 1 till 3; 50 € från dag 4'),
         includes: ll(
-          ['Airush, Blankforce, AK, Core and v-aerial', 'Rental alone does not include rescue'],
-          ['Airush, Blankforce, AK, Core und v-aerial', 'Der reine Verleih enthält keine Rescue'],
-          ['Airush, Blankforce, AK, Core y v-aerial', 'El alquiler solo no incluye rescate'],
-          ['Airush, Blankforce, AK, Core en v-aerial', 'Alleen huur omvat geen rescue'],
-          ['Airush, Blankforce, AK, Core och v-aerial', 'Enbart hyra inkluderar ingen räddning']
+          ['Airush, Blankforce, AK, Core and v-aerial', 'For rescue-boat support in offshore wind: Help to Kite'],
+          ['Airush, Blankforce, AK, Core und v-aerial', 'Für die Begleitung mit Rescue-Boot bei ablandigem Wind: Help to Kite'],
+          ['Airush, Blankforce, AK, Core y v-aerial', 'Para salir acompañados y contar con la lancha con viento de tierra: Help to Kite'],
+          ['Airush, Blankforce, AK, Core en v-aerial', 'Voor begeleiding en de rescueboot bij aflandige wind: Help to Kite'],
+          ['Airush, Blankforce, AK, Core och v-aerial', 'För sällskap och räddningsbåt i frånlandsvind: Help to Kite']
         )
       },
       {
@@ -460,38 +460,38 @@ const equipment: TarifaKitesurfSpokeContent = {
   sections: [
     {
       id: 'deposit-and-damage',
-      eyebrow: l('The small print', 'Das Kleingedruckte', 'La letra pequeña', 'De kleine lettertjes', 'Det finstilta'),
-      title: l('Deposit and damage, in plain words', 'Kaution und Schäden, in klaren Worten', 'Fianza y daños, en palabras claras', 'Borg en schade, in duidelijke woorden', 'Deposition och skador, i klartext'),
+      eyebrow: l('Good to know', 'Gut zu wissen', 'Conviene saberlo', 'Goed om te weten', 'Bra att veta'),
+      title: l('We take care of the deposit for you', 'Die Kaution übernehmen wir für euch', 'Nos ocupamos de la fianza por vosotros', 'Wij regelen de borg voor jullie', 'Vi ordnar depositionen åt er'),
       paragraphs: ll(
-        ['The club takes a deposit of 150 €. For AMARA guests, AMARA places that deposit with the club, so nothing changes hands on arrival.', 'Repairable damage is charged at a flat 80 € per damage; a total loss at the time value of the gear. These are the club’s terms, and they apply whether you sleep at AMARA or elsewhere.'],
-        ['Der Club nimmt eine Kaution von 150 €. Für AMARA-Gäste hinterlegt AMARA diese Kaution beim Club, sodass bei der Ankunft nichts den Besitzer wechselt.', 'Reparable Schäden berechnet der Club pauschal mit 80 € pro Schaden, einen Totalschaden zum Zeitwert des Materials. Das sind die Bedingungen des Clubs, und sie gelten, egal ob ihr bei AMARA schlaft oder anderswo.'],
-        ['El club pide una fianza de 150 €. Para huéspedes de AMARA, AMARA deposita esa fianza en el club, así que a la llegada no hay que entregar nada.', 'Los daños reparables el club los cobra a una tarifa fija de 80 € por daño; una pérdida total, al valor actual del material. Son las condiciones del club y se aplican tanto si dormís en AMARA como en otro sitio.'],
-        ['De club vraagt een borg van 150 €. Voor AMARA-gasten stelt AMARA die borg bij de club, zodat er bij aankomst niets van eigenaar wisselt.', 'Herstelbare schade rekent de club forfaitair met 80 € per schade, totaalverlies tegen de dagwaarde van het materiaal. Dat zijn de voorwaarden van de club, en ze gelden of jullie nu bij AMARA slapen of elders.'],
-        ['Klubben tar en deposition på 150 €. För AMARA-gäster lämnar AMARA den depositionen hos klubben, så inget byter ägare vid ankomst.', 'Reparerbara skador debiterar klubben med en schablon på 80 € per skada, totalskada till utrustningens dagsvärde. Det är klubbens villkor, och de gäller oavsett om ni sover hos AMARA eller någon annanstans.']
+        ['When you stay at AMARA, we place the €150 deposit directly with Tarifa Surf Club. Your holiday starts easily, and the gear is ready for you when you arrive.', 'If something does get damaged on the water, the club charges a flat €80 for a repairable damage. For a total loss, it uses the gear’s current value. These are Tarifa Surf Club’s standard rental terms.'],
+        ['Wenn ihr bei AMARA wohnt, hinterlegen wir die Kaution von 150 € direkt beim Tarifa Surf Club. So beginnt euer Urlaub ganz entspannt und ihr könnt das Material bei der Ankunft direkt übernehmen.', 'Falls beim Kiten doch einmal etwas kaputtgeht, berechnet der Club für einen reparablen Schaden pauschal 80 €. Bei einem Totalschaden gilt der Zeitwert des Materials. Diese Regelung gehört zu den normalen Leihbedingungen des Tarifa Surf Club.'],
+        ['Si os alojáis en AMARA, depositamos directamente en Tarifa Surf Club la fianza de 150 €. Así vuestras vacaciones empiezan con tranquilidad y el material está listo para recoger cuando lleguéis.', 'Si algo se daña en el agua, el club cobra una tarifa fija de 80 € por cada daño reparable. En caso de pérdida total, se aplica el valor actual del material. Estas son las condiciones habituales de alquiler de Tarifa Surf Club.'],
+        ['Verblijven jullie bij AMARA, dan regelen wij de borg van € 150 rechtstreeks met Tarifa Surf Club. Zo begint jullie vakantie ontspannen en kunnen jullie het materiaal bij aankomst meteen meenemen.', 'Gaat er tijdens het kiten toch iets kapot, dan rekent de club € 80 per herstelbare schade. Bij total loss geldt de dagwaarde van het materiaal. Dit zijn de gebruikelijke huurvoorwaarden van Tarifa Surf Club.'],
+        ['När ni bor hos AMARA ordnar vi depositionen på 150 € direkt med Tarifa Surf Club. Då får semestern en smidig start och utrustningen är redo när ni kommer.', 'Om något ändå går sönder på vattnet tar klubben 80 € per reparerbar skada. Vid totalskada gäller utrustningens dagsvärde. Det här är Tarifa Surf Clubs vanliga hyresvillkor.']
       )
     },
     {
       id: 'at-the-apartment',
-      eyebrow: l('On arrival', 'Bei Ankunft', 'A la llegada', 'Bij aankomst', 'Vid ankomst'),
-      title: l('The set is waiting at the apartment', 'Das Set liegt in der Wohnung bereit', 'El set os espera en el apartamento', 'De set ligt klaar in het appartement', 'Setet ligger redo i lägenheten'),
+      eyebrow: l('Arrive and settle in', 'Entspannt ankommen', 'Llegar y disfrutar', 'Rustig aankomen', 'Smidig ankomst'),
+      title: l('Your gear is ready when you arrive', 'Euer Material wartet schon auf euch', 'Vuestro material os espera al llegar', 'Jullie materiaal ligt klaar bij aankomst', 'Utrustningen väntar när ni kommer'),
       paragraphs: ll(
-        ['Tell us before you travel what you ride and what you want to rent. We pass it to the club, and the gear is at AMARA Family & Surf when you arrive. Changing a size later is a message to the club, not a trip.', 'Rental alone does not include rescue. If you want company and the boat on offshore days, rental plus Help to Kite is the format for that.'],
-        ['Sagt uns vor der Anreise, was ihr fahrt und was ihr leihen wollt. Wir geben es an den Club weiter, und das Material liegt bei der Ankunft in AMARA Family & Surf. Eine Größe später zu tauschen ist eine Nachricht an den Club, keine Fahrt.', 'Der reine Verleih enthält keine Rescue. Wer Gesellschaft und das Boot an ablandigen Tagen möchte, nimmt Verleih plus Help to Kite.'],
-        ['Decidnos antes del viaje qué navegáis y qué queréis alquilar. Se lo pasamos al club y el material está en AMARA Family & Surf a vuestra llegada. Cambiar una talla más tarde es un mensaje al club, no un desplazamiento.', 'El alquiler solo no incluye rescate. Si queréis compañía y la lancha los días de viento de tierra, el formato es alquiler más Help to Kite.'],
-        ['Vertel ons vóór de reis wat jullie varen en wat jullie willen huren. Wij geven het door aan de club, en het materiaal ligt bij aankomst in AMARA Family & Surf. Later een maat ruilen is een bericht aan de club, geen rit.', 'Alleen huur omvat geen rescue. Wie gezelschap en de boot op aflandige dagen wil, neemt huur plus Help to Kite.'],
-        ['Berätta före resan vad ni åker och vad ni vill hyra. Vi vidarebefordrar det till klubben, och utrustningen ligger i AMARA Family & Surf vid ankomst. Att byta storlek senare är ett meddelande till klubben, ingen resa.', 'Enbart hyra inkluderar ingen räddning. Den som vill ha sällskap och båten på dagar med frånlandsvind tar hyra plus Help to Kite.']
+        ['Tell us before your trip what you ride and what you would like to rent. We coordinate it with the club, so your set is waiting at AMARA Family & Surf when you arrive. If a size needs changing, a quick message to the club is enough.', 'On offshore-wind days, rental with Help to Kite gives you company on the water and support from the rescue boat. We are happy to arrange that with the club too.'],
+        ['Sagt uns vor der Reise kurz, welches Material ihr fahrt und was ihr leihen möchtet. Wir stimmen alles mit dem Club ab, damit euer Set bei eurer Ankunft in AMARA Family & Surf bereitliegt. Wenn eine Größe noch nicht passt, genügt eine Nachricht an den Club.', 'An Tagen mit ablandigem Wind seid ihr mit Verleih plus Help to Kite gemeinsam mit anderen auf dem Wasser und habt die Unterstützung des Rescue-Boots. Auch das stimmen wir gerne mit dem Club für euch ab.'],
+        ['Decidnos antes del viaje qué material usáis y qué os gustaría alquilar. Lo coordinamos con el club para que el set os espere en AMARA Family & Surf cuando lleguéis. Si hay que cambiar una talla, basta con un mensaje al club.', 'Los días de viento de tierra, el alquiler con Help to Kite os permite salir acompañados y contar con el apoyo de la lancha de rescate. También os ayudamos a coordinarlo con el club.'],
+        ['Vertel ons voor de reis kort met welk materiaal jullie varen en wat jullie willen huren. Wij stemmen alles af met de club, zodat jullie set bij aankomst in AMARA Family & Surf klaarligt. Past een maat nog niet, dan is een bericht aan de club genoeg.', 'Op dagen met aflandige wind gaan jullie met huur plus Help to Kite samen met anderen het water op en is de rescueboot erbij. Ook dat regelen we graag met de club.'],
+        ['Berätta före resan vilken utrustning ni åker med och vad ni vill hyra. Vi stämmer av allt med klubben så att setet väntar på AMARA Family & Surf när ni kommer. Om en storlek behöver bytas räcker ett snabbt meddelande till klubben.', 'På dagar med frånlandsvind ger hyra med Help to Kite er sällskap på vattnet och stöd från räddningsbåten. Vi hjälper gärna till att ordna det med klubben.']
       )
     },
     {
       id: 'test-and-buy',
-      eyebrow: l('Buying', 'Kaufen', 'Comprar', 'Kopen', 'Köpa'),
-      title: l('Test & Buy: the rental counts', 'Test & Buy: die Miete zählt', 'Test & Buy: el alquiler cuenta', 'Test & Buy: de huur telt mee', 'Test & Buy: hyran räknas'),
+      eyebrow: l('Try it on the water', 'Auf dem Wasser ausprobieren', 'Probar en el agua', 'Eerst het water op', 'Testa på vattnet'),
+      title: l('Ride first, decide afterwards', 'Erst fahren, dann entscheiden', 'Primero navegáis, después decidís', 'Eerst varen, daarna beslissen', 'Åk först, bestäm sedan'),
       paragraphs: ll(
-        ['The club is a partner of Airush and Core and also rents Blankforce, AK and v-aerial. If you buy gear you have rented, the rental fee is credited in full. There is a shop with a Blankforce Pro Center; ask the club what is in stock before you count on a specific model.'],
-        ['Der Club ist Partner von Airush und Core und verleiht außerdem Blankforce, AK und v-aerial. Kauft ihr Material, das ihr geliehen habt, wird die Leihgebühr voll angerechnet. Es gibt einen Shop mit Blankforce Pro Center; fragt beim Club nach dem Bestand, bevor ihr mit einem bestimmten Modell rechnet.'],
-        ['El club es socio de Airush y Core y alquila además Blankforce, AK y v-aerial. Si compráis material que habéis alquilado, el alquiler se descuenta íntegro. Hay una tienda con Blankforce Pro Center; preguntad al club por el stock antes de contar con un modelo concreto.'],
-        ['De club is partner van Airush en Core en verhuurt daarnaast Blankforce, AK en v-aerial. Koop je materiaal dat je hebt gehuurd, dan wordt de huur volledig verrekend. Er is een shop met Blankforce Pro Center; vraag de club naar de voorraad voordat je op een bepaald model rekent.'],
-        ['Klubben är partner till Airush och Core och hyr dessutom ut Blankforce, AK och v-aerial. Köper ni utrustning ni har hyrt räknas hyran av helt. Det finns en butik med Blankforce Pro Center; fråga klubben om lagret innan ni räknar med en viss modell.']
+        ['Thinking about a new kite or board? At Tarifa Surf Club you can rent and test gear from Airush, Core, Blankforce, AK and v-aerial. If you then buy the gear you tried, the full rental fee is deducted from the purchase price. The shop also includes a Blankforce Pro Center; ask the club about current stock if you have a particular model in mind.'],
+        ['Ihr möchtet einen neuen Kite oder ein Board erst auf dem Wasser erleben? Beim Tarifa Surf Club könnt ihr Material von Airush, Core, Blankforce, AK und v-aerial leihen und testen. Wenn ihr euer Testmaterial danach kauft, wird die Leihgebühr vollständig angerechnet. Im Shop findet ihr außerdem das Blankforce Pro Center; fragt den Club kurz nach dem aktuellen Bestand, wenn ihr ein bestimmtes Modell im Blick habt.'],
+        ['¿Queréis probar un kite o una tabla antes de decidir? En Tarifa Surf Club podéis alquilar y probar material de Airush, Core, Blankforce, AK y v-aerial. Si después compráis el material que habéis probado, se descuenta íntegramente el alquiler. La tienda también cuenta con un Blankforce Pro Center; preguntad al club por el stock actual si tenéis un modelo concreto en mente.'],
+        ['Willen jullie een nieuwe kite of een board eerst op het water ervaren? Bij Tarifa Surf Club kunnen jullie materiaal van Airush, Core, Blankforce, AK en v-aerial huren en testen. Kopen jullie daarna het geteste materiaal, dan wordt de volledige huurprijs verrekend. In de shop vinden jullie ook het Blankforce Pro Center; vraag de club even naar de actuele voorraad als jullie een bepaald model op het oog hebben.'],
+        ['Funderar ni på en ny kite eller bräda? Hos Tarifa Surf Club kan ni hyra och testa utrustning från Airush, Core, Blankforce, AK och v-aerial. Om ni sedan köper utrustningen ni har provat dras hela hyran av från köpesumman. I butiken finns också ett Blankforce Pro Center; fråga klubben om aktuellt lager om ni har en särskild modell i åtanke.']
       )
     }
   ],
