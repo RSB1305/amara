@@ -160,10 +160,17 @@ const footerHighlights: LabeledLink[] = [
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.windguru.intro}</p>
         </div>
 
-        <div class="mt-10">
-          <WindguruWidget lang={currentLang} loadingLabel={content.windguru.loading} noscriptLabel={content.windguru.noscript} />
-          <p class="am-text-caption mt-4 max-w-3xl normal-case tracking-normal text-muted">{content.windguru.lazyNote}</p>
-          <AmaraActionLink href={content.windguru.linkHref} variant="editorial" external class="mt-5 inline-flex">{content.windguru.linkLabel}</AmaraActionLink>
+        <div class="mt-10 space-y-8">
+          <figure class="m-0" data-am-windguru-model="gfs">
+            <figcaption class="am-text-label am-text-label--sm mb-3 text-primary">{content.windguru.gfsLabel}</figcaption>
+            <WindguruWidget lang={currentLang} model={3} rows="WINDSPD,GUST,SMER,TMP,RATING" reservedHeightClass="min-h-[16rem]" loadingLabel={content.windguru.loading} noscriptLabel={content.windguru.noscript} />
+          </figure>
+          <figure class="m-0" data-am-windguru-model="wrf3">
+            <figcaption class="am-text-label am-text-label--sm mb-3 text-primary">{content.windguru.wrfLabel}</figcaption>
+            <WindguruWidget lang={currentLang} model={37} loadingLabel={content.windguru.loading} noscriptLabel={content.windguru.noscript} />
+          </figure>
+          <p class="am-text-caption max-w-3xl normal-case tracking-normal text-muted">{content.windguru.lazyNote}</p>
+          <AmaraActionLink href={content.windguru.linkHref} variant="editorial" external class="inline-flex">{content.windguru.linkLabel}</AmaraActionLink>
         </div>
 
         <div class="mt-14">

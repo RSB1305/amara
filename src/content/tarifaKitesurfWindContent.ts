@@ -93,6 +93,8 @@ export interface TarifaKitesurfWindContent {
     lazyNote: LocalizedText;
     linkLabel: LocalizedText;
     linkHref: string;
+    gfsLabel: LocalizedText;
+    wrfLabel: LocalizedText;
     rowsTitle: LocalizedText;
     rows: Array<{ id: string; title: LocalizedText; text: LocalizedText }>;
     modelsTitle: LocalizedText;
@@ -257,13 +259,15 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
   windguru: {
     eyebrow: de1('Windguru für Anfänger'),
     title: de1('So liest du Windguru — die Tabelle, auf die hier morgens alle schauen'),
-    intro: de1('Als Anfänger schaust du zum ersten Mal auf Windguru und siehst eine Wand aus Zahlen, Farben und Pfeilen — und wirst erst mal nervös. Ging uns genauso. Deshalb gehen wir es hier in Ruhe durch, an echten Live-Daten: Die Tabelle oben ist WRF 3 km für Tarifa, live — genau das Modell, auf das die Locals hier morgens schauen. Was jede Zeile bedeutet, kommt jetzt Schritt für Schritt.'),
+    intro: de1('Als Anfänger schaust du zum ersten Mal auf Windguru und siehst eine Wand aus Zahlen, Farben und Pfeilen — und wirst erst mal nervös. Ging uns genauso. Deshalb gehen wir es hier in Ruhe durch, an echten Live-Daten. Wir zeigen dir zwei Modelle: oben GFS 13 km für den groben Trend der nächsten Tage, darunter WRF 3 km für den lokalen Tag — genau die zwei, mit denen die Locals hier arbeiten. Was jede Zeile bedeutet, kommt gleich Schritt für Schritt.'),
     loading: l('The Windguru table loads when it scrolls into view.', 'Die Windguru-Tabelle lädt, sobald sie ins Bild kommt.', 'La tabla de Windguru se carga cuando entra en pantalla.', 'De Windguru-tabel laadt zodra hij in beeld komt.', 'Windguru-tabellen laddas när den kommer in i bild.'),
     noscript: l('The Windguru table needs JavaScript. Open the Tarifa spot directly at Windguru instead.', 'Die Windguru-Tabelle braucht JavaScript. Öffnet stattdessen den Spot Tarifa direkt bei Windguru.', 'La tabla de Windguru necesita JavaScript. Abrid el spot de Tarifa directamente en Windguru.', 'De Windguru-tabel heeft JavaScript nodig. Open in plaats daarvan de spot Tarifa rechtstreeks bij Windguru.', 'Windguru-tabellen kräver JavaScript. Öppna i stället spoten Tarifa direkt hos Windguru.'),
     lazyNote: l('The table is loaded from windguru.cz only once you scroll to it. Availability, models and presentation are Windguru’s.', 'Die Tabelle wird erst von windguru.cz geladen, wenn ihr bis hierher scrollt. Verfügbarkeit, Modelle und Darstellung liegen bei Windguru.', 'La tabla solo se carga desde windguru.cz cuando llegáis hasta aquí. Disponibilidad, modelos y presentación son de Windguru.', 'De tabel wordt pas van windguru.cz geladen zodra jullie tot hier scrollen. Beschikbaarheid, modellen en weergave liggen bij Windguru.', 'Tabellen laddas från windguru.cz först när ni skrollar hit. Tillgänglighet, modeller och presentation ligger hos Windguru.'),
     linkLabel: l('Open Windguru: Tarifa', 'Windguru: Tarifa öffnen', 'Abrir Windguru: Tarifa', 'Open Windguru: Tarifa', 'Öppna Windguru: Tarifa'),
     linkHref: 'https://www.windguru.cz/976270',
-    rowsTitle: de1('Zeile für Zeile, was du oben in der Tabelle siehst'),
+    gfsLabel: de1('GFS 13 km — der grobe Trend für die nächsten Tage'),
+    wrfLabel: de1('WRF 3 km — der lokale Tag, hochaufgelöst'),
+    rowsTitle: de1('Zeile für Zeile, was die Tabellen zeigen'),
     rows: [
       {
         id: 'wind',

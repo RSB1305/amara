@@ -17,11 +17,23 @@ interface Props {
   lang: AmaraLanguage;
   spot?: number;
   model?: number;
+  /** Windguru row set (its `p=` parameter). Defaults to the full kiter set. */
+  rows?: string;
+  /** Reserved height so the lazily loaded table does not shift the layout in. */
+  reservedHeightClass?: string;
   loadingLabel: string;
   noscriptLabel: string;
 }
 
-const { lang, spot = 43, model = 37, loadingLabel, noscriptLabel } = Astro.props;
+const {
+  lang,
+  spot = 43,
+  model = 37,
+  rows = 'WINDSPD,GUST,SMER,HTSGW,PERPW,TMP,TCDC,APCP1s,RATING',
+  reservedHeightClass = 'min-h-[22rem]',
+  loadingLabel,
+  noscriptLabel
+} = Astro.props;
 
 // Windguru's interface languages; Swedish is not offered, so Swedish readers get English.
 const widgetLanguage: Record<AmaraLanguage, string> = { en: 'en', de: 'de', es: 'es', nl: 'nl', sv: 'en' };
@@ -41,14 +53,13 @@ const params = [
   'hrsm=2',
   'vt=forecasts',
   `lng=${widgetLanguage[lang]}`,
-  // The rows a kiter reads: wind, gusts, direction, wave height, wave period, temperature, cloud,
-  // rain, Windguru's rating. Wave rows appear only where the spot serves a wave model.
-  'p=WINDSPD,GUST,SMER,HTSGW,PERPW,TMP,TCDC,APCP1s,RATING'
+  // The rows to show (see the `rows` prop). Wave rows appear only where the spot serves a wave model.
+  `p=${rows}`
 ];
 const widgetSrc = `https://www.windguru.cz/js/widget.php?${params.join('&')}`;
 ---
 
-<div class="overflow-x-auto bg-surface-container-lowest px-2 py-2" data-am-windguru-widget data-widget-src={widgetSrc} data-widget-uid={uid} data-widget-fallback={noscriptLabel}>
+<div class:list={['overflow-x-auto bg-surface-container-lowest px-2 py-2', reservedHeightClass]} data-am-windguru-widget data-widget-src={widgetSrc} data-widget-uid={uid} data-widget-fallback={noscriptLabel}>
   <p class="am-text-caption px-2 py-4 normal-case tracking-normal text-muted" data-widget-loading>{loadingLabel}</p>
   <div id={uid}></div>
   <noscript>
