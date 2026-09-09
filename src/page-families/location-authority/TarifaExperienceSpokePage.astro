@@ -186,14 +186,18 @@ const localizedSections = content.sections.map((section) => ({
           <ul class="mt-10 max-w-2xl border-t border-border-subtle">
             {content.operators.items.map((op) => (
               <li class="border-b border-border-subtle py-5">
-                <a
-                  href={op.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="am-text-subtitle text-on-surface underline decoration-primary/50 underline-offset-4 transition-colors hover:text-primary"
-                >
-                  {op.name}<span aria-hidden="true" class="text-primary"> ↗</span>
-                </a>
+                {op.href ? (
+                  <a
+                    href={op.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="am-text-subtitle text-on-surface underline decoration-primary/50 underline-offset-4 transition-colors hover:text-primary"
+                  >
+                    {op.name}<span aria-hidden="true" class="text-primary"> ↗</span>
+                  </a>
+                ) : (
+                  <span class="am-text-subtitle text-on-surface">{op.name}</span>
+                )}
                 <span class="am-text-body mt-2 block leading-relaxed text-on-surface-variant">{t(op.note)}</span>
               </li>
             ))}

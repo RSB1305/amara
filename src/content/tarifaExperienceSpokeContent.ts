@@ -74,7 +74,7 @@ export interface TarifaExperienceSpokeContent {
     eyebrow: LocalizedExperienceText;
     title: LocalizedExperienceText;
     intro: LocalizedExperienceText;
-    items: Array<{ name: string; href: string; note: LocalizedExperienceText }>;
+    items: Array<{ name: string; href?: string; note: LocalizedExperienceText }>;
     guideNote: LocalizedExperienceText;
   };
   /** Optional topic screen for the Guest Guide phone (overrides the generic home menu). */
@@ -122,14 +122,14 @@ const buildSeo = (
 });
 
 const shared = {
-  sourceEyebrow: l('Sources', 'Quellen', 'Fuentes', 'Bronnen', 'Källor'),
-  sourceTitle: l('Where the details come from', 'Woher die Angaben kommen', 'De dónde salen los datos', 'Waar de gegevens vandaan komen', 'Varifrån uppgifterna kommer'),
+  sourceEyebrow: l('Explore further', 'Mehr erfahren', 'Explorar más', 'Meer ontdekken', 'Utforska mer'),
+  sourceTitle: l('Links to look into it yourself', 'Weiterführende Links', 'Enlaces para saber más', 'Links om zelf verder te kijken', 'Länkar för att läsa vidare'),
   sourceIntro: l(
-    'The official pages behind this text.',
-    'Die amtlichen Seiten hinter diesem Text.',
-    'Las páginas oficiales detrás de este texto.',
-    'De officiële pagina’s achter deze tekst.',
-    'De officiella sidorna bakom den här texten.'
+    'A few links, if you would like to look into it yourself.',
+    'Ein paar Links, falls ihr euch selbst weiter erkundigen möchtet.',
+    'Algunos enlaces, por si queréis informaros por vuestra cuenta.',
+    'Een paar links, als je zelf verder wilt kijken.',
+    'Några länkar, om ni vill läsa vidare på egen hand.'
   ),
   checked: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026'),
   relatedEyebrow: l('Keep exploring', 'Tarifa weiter entdecken', 'Seguir descubriendo', 'Verder ontdekken', 'Fortsätt upptäcka'),
@@ -682,11 +682,11 @@ const bolonia: TarifaExperienceSpokeContent = {
           'Från La Marina kör ni en knapp halvtimme västerut på N-340; avtaget till Bolonia är skyltat.'
         ),
         l(
-          'In summer the morning is worth it, before it gets crowded. The opening hours of the ruins are below under sources.',
-          'Im Sommer lohnt sich der Vormittag, bevor es voll wird. Die Öffnungszeiten der Ruinen stehen unten bei den Quellen.',
-          'En verano compensa ir por la mañana, antes de que se llene. Los horarios de las ruinas están abajo, en las fuentes.',
-          'In de zomer loont de ochtend, voordat het vol wordt. De openingstijden van de ruïnes staan onderaan bij de bronnen.',
-          'På sommaren lönar sig förmiddagen, innan det blir fullt. Ruinernas öppettider finns nedan under källor.'
+          'In summer the morning is worth it, before it gets crowded. The opening hours of the ruins change with the season — check them on the day.',
+          'Im Sommer lohnt sich der Vormittag, bevor es voll wird. Die Öffnungszeiten der Ruinen ändern sich je nach Saison — prüft sie am Tag selbst.',
+          'En verano compensa ir por la mañana, antes de que se llene. Los horarios de las ruinas cambian según la temporada: comprobadlos el mismo día.',
+          'In de zomer loont de ochtend, voordat het vol wordt. De openingstijden van de ruïnes verschillen per seizoen — controleer ze op de dag zelf.',
+          'På sommaren lönar sig förmiddagen, innan det blir fullt. Ruinernas öppettider varierar med säsongen — kontrollera dem samma dag.'
         )
       ]
     }
@@ -766,18 +766,18 @@ const yoga: TarifaExperienceSpokeContent = {
   hero: {
     eyebrow: l('Tarifa experience guide', 'Tarifa erleben', 'Experiencias en Tarifa', 'Tarifa beleven', 'Upplev Tarifa'),
     title: l(
-      'Yoga at the pace of the Atlantic',
-      'Yoga im Rhythmus des Atlantiks',
-      'Yoga al ritmo del Atlántico',
-      'Yoga op het ritme van de Atlantische Oceaan',
-      'Yoga i Atlantens takt'
+      'A lot of yoga for a small town',
+      'Viel Yoga für einen kleinen Ort',
+      'Mucho yoga para un pueblo pequeño',
+      'Veel yoga voor een klein dorp',
+      'Mycket yoga för en liten stad'
     ),
     standfirst: l(
-      'For its size, Tarifa carries an unusually broad yoga scene: town studios, classes by the sea, family and aerial formats and multi-day retreats. From Family & Surf in La Marina you begin inside a small wellness cluster on Calle Mar Adriático, with yoga mats already in the apartment for your own morning flow.',
-      'Für seine Größe hat Tarifa eine ungewöhnlich breite Yoga-Szene: Studios im Ort, Kurse am Meer, Familien- und Aerial-Formate und mehrtägige Retreats. Von Family & Surf in La Marina startet ihr mitten in einem kleinen Wellness-Cluster an der Calle Mar Adriático, mit Yogamatten, die schon in der Unterkunft liegen.',
-      'Para su tamaño, Tarifa reúne una escena de yoga sorprendentemente amplia: estudios en el pueblo, clases junto al mar, formatos familiares y aéreos y retiros de varios días. Desde Family & Surf, en La Marina, empezáis dentro de un pequeño núcleo de bienestar en la calle Mar Adriático, con esterillas ya en el apartamento para vuestra práctica de la mañana.',
-      'Voor haar formaat heeft Tarifa een opvallend brede yogascene: studio’s in het dorp, lessen aan zee, familie- en aerial-vormen en meerdaagse retreats. Vanaf Family & Surf in La Marina begin je midden in een klein wellnesscluster aan de Calle Mar Adriático, met yogamatten die al in het appartement liggen voor je eigen ochtendflow.',
-      'För sin storlek har Tarifa en ovanligt bred yogascen: studior i stan, klasser vid havet, familje- och aerialformer och flerdagarsretreat. Från Family & Surf i La Marina börjar ni mitt i ett litet wellnesskluster vid Calle Mar Adriático, med yogamattor som redan finns i lägenheten för er egen morgonflow.'
+      'Yoga is a big thing in Tarifa. For such a small town there are surprisingly many studios and teachers — classes in a studio, on the beach and by the sea, formats for families and children, aerial yoga and multi-day retreats. One of the spaces, Mama Tierra, is right on our own street, and there are yoga mats already in the apartment.',
+      'Yoga ist in Tarifa ein großes Thema. Für einen so kleinen Ort gibt es erstaunlich viele Studios und Lehrer — Stunden im Studio, am Strand und am Meer, Formate für Familien und Kinder, Aerial-Yoga und mehrtägige Retreats. Einer der Räume, Mama Tierra, liegt direkt in unserer Straße, und in der Wohnung liegen schon Yogamatten bereit.',
+      'El yoga es un gran tema en Tarifa. Para un pueblo tan pequeño hay sorprendentemente muchos estudios y profesores: clases en estudio, en la playa y junto al mar, formatos para familias y niños, yoga aéreo y retiros de varios días. Uno de los espacios, Mama Tierra, está en nuestra propia calle, y en el apartamento ya hay esterillas.',
+      'Yoga is groot in Tarifa. Voor zo’n klein dorp zijn er verrassend veel studio’s en docenten — lessen in een studio, op het strand en aan zee, vormen voor gezinnen en kinderen, aerial yoga en meerdaagse retreats. Een van de ruimtes, Mama Tierra, ligt in onze eigen straat, en in het appartement liggen al yogamatten.',
+      'Yoga är stort i Tarifa. För en så liten stad finns det förvånansvärt många studior och lärare — klasser i studio, på stranden och vid havet, former för familjer och barn, aerialyoga och flerdagarsretreat. En av platserna, Mama Tierra, ligger på vår egen gata, och i lägenheten finns redan yogamattor.'
     ),
     note: l(
       '',
@@ -807,11 +807,11 @@ const yoga: TarifaExperienceSpokeContent = {
           'Tarifa samlar flera slags yoga på en liten yta: studior i stan med veckoklasser, lärare som håller pass vid havet, familje-, barn- och aerialformer och flerdagarsretreat i omgivningarna. Bredden gör att ni kan hitta en enskild morgon eller en djupare vecka utan att lämna området.'
         ),
         l(
-          'Because so much of it is seasonal and personally run, the useful skill here is not memorising a timetable but knowing which format you want. We keep track of what is currently running and point you to the right teacher for a calm morning, a beach class or a family session.',
-          'Weil vieles saisonal und persönlich organisiert ist, geht es hier weniger darum, einen Stundenplan zu lernen, als zu wissen, welches Format ihr möchtet. Wir behalten im Blick, was gerade läuft, und verweisen euch an die passende Lehrkraft – für einen ruhigen Morgen, eine Strandstunde oder eine Familiensession.',
-          'Como buena parte es estacional y de gestión personal, aquí lo útil no es memorizar un horario, sino saber qué formato queréis. Nosotros seguimos lo que está activo y os orientamos hacia el profesor adecuado para una mañana tranquila, una clase en la playa o una sesión en familia.',
-          'Omdat veel seizoensgebonden en persoonlijk geregeld is, is de nuttige vaardigheid hier niet een rooster onthouden maar weten welke vorm je wilt. Wij houden bij wat er loopt en wijzen je naar de juiste docent voor een rustige ochtend, een strandles of een gezinssessie.',
-          'Eftersom mycket är säsongsbetonat och personligt drivet handlar det här inte om att lära sig ett schema, utan om att veta vilken form ni vill ha. Vi håller koll på vad som pågår och lotsar er till rätt lärare för en lugn morgon, en strandklass eller ett familjepass.'
+          'Most of it is small and personally run, so times change with the season and are often set at short notice on Instagram or WhatsApp. Write to the studio directly, or just ask us what is on that week — that is usually quicker than any timetable.',
+          'Das meiste ist klein und persönlich geführt, deshalb ändern sich die Zeiten mit der Saison und werden oft kurzfristig über Instagram oder WhatsApp bekannt gegeben. Schreibt am besten direkt an das Studio – oder fragt uns, was in eurer Woche läuft. Das geht meist schneller als jeder Stundenplan.',
+          'La mayoría son pequeños y de gestión personal, así que los horarios cambian con la temporada y a menudo se anuncian a última hora por Instagram o WhatsApp. Escribid directamente al estudio, o preguntadnos qué hay esa semana: suele ser más rápido que cualquier horario.',
+          'Het meeste is klein en persoonlijk gerund, dus tijden veranderen met het seizoen en worden vaak op het laatste moment via Instagram of WhatsApp bekendgemaakt. Schrijf de studio rechtstreeks, of vraag ons wat er die week is — dat gaat meestal sneller dan welk rooster dan ook.',
+          'Det mesta är litet och personligt drivet, så tiderna ändras med säsongen och meddelas ofta med kort varsel på Instagram eller WhatsApp. Skriv direkt till studion, eller fråga oss vad som är på gång den veckan — det går oftast snabbare än något schema.'
         )
       ]
     },
@@ -925,6 +925,37 @@ const yoga: TarifaExperienceSpokeContent = {
     body: l('With mats already in the apartment and a small wellness cluster in the same street, a morning practice costs nothing to begin. Family & Surf keeps town, beach and teachers within easy reach, and on request we help arrange a private session so the practice fits your stay rather than a fixed timetable.', 'Mit Matten, die schon in der Unterkunft liegen, und einem kleinen Wellness-Cluster in derselben Straße kostet ein Morgen-Flow keinen Aufwand zum Start. Family & Surf hält Ort, Strand und Lehrkräfte in leichter Reichweite, und auf Wunsch organisieren wir eine private Session, damit die Praxis zu eurem Aufenthalt passt statt zu einem festen Stundenplan.', 'Con esterillas ya en el apartamento y un pequeño núcleo de bienestar en la misma calle, empezar una práctica matinal no cuesta nada. Family & Surf mantiene cerca el pueblo, la playa y los profesores y, si lo deseáis, ayudamos a organizar una sesión privada para que la práctica se ajuste a vuestra estancia y no a un horario fijo.', 'Met matten die al in het appartement liggen en een klein wellnesscluster in dezelfde straat kost het beginnen van een ochtendpraktijk niets. Family & Surf houdt stad, strand en docenten binnen handbereik, en op verzoek helpen we een privésessie te regelen zodat de praktijk bij je verblijf past in plaats van bij een vast rooster.', 'Med mattor redan i lägenheten och ett litet wellnesskluster på samma gata kostar det inget att börja en morgonpraktik. Family & Surf håller stad, strand och lärare inom nära räckhåll, och på begäran hjälper vi till att ordna ett privat pass så att praktiken passar er vistelse i stället för ett fast schema.'),
     hubLabel: shared.hubLabel,
     propertyLabel: shared.propertyLabel
+  },
+  operators: {
+    eyebrow: l('Yoga in town', 'Yoga vor Ort', 'Yoga en el pueblo', 'Yoga in de buurt', 'Yoga i stan'),
+    title: l(
+      'A few studios and teachers',
+      'Ein paar Studios und Lehrer',
+      'Algunos estudios y profesores',
+      'Een paar studio’s en docenten',
+      'Några studior och lärare'
+    ),
+    intro: l(
+      'Yoga is a big thing in Tarifa — a lot of studios and teachers for a small town. A few to start with; times and prices you check directly with them.',
+      'Yoga ist in Tarifa ein großes Thema — für einen kleinen Ort viele Studios und Lehrer. Ein paar zum Anfangen; Zeiten und Preise erfragt ihr direkt bei ihnen.',
+      'El yoga es un gran tema en Tarifa: muchos estudios y profesores para un pueblo pequeño. Algunos para empezar; horarios y precios los consultáis directamente con ellos.',
+      'Yoga is groot in Tarifa — veel studio’s en docenten voor een klein dorp. Een paar om mee te beginnen; tijden en prijzen check je rechtstreeks bij hen.',
+      'Yoga är stort i Tarifa — många studior och lärare för en liten stad. Några att börja med; tider och priser kollar ni direkt hos dem.'
+    ),
+    items: [
+      { name: 'Mama Tierra', href: 'https://www.mamatierratarifa.com', note: l('On our own street, Calle Mar Adriático — a few steps from Family & Surf.', 'In unserer Straße, Calle Mar Adriático — wenige Schritte von Family & Surf.', 'En nuestra propia calle, Mar Adriático, a pocos pasos de Family & Surf.', 'In onze eigen straat, Calle Mar Adriático — een paar stappen van Family & Surf.', 'På vår egen gata, Calle Mar Adriático — några steg från Family & Surf.') },
+      { name: 'Mandalablue', href: 'https://www.mandalablueyoga.es', note: l('In town, with ocean and beach classes and aerial yoga.', 'Im Ort, mit Ocean- und Beach-Kursen und Aerial-Yoga.', 'En el pueblo, con clases junto al mar y yoga aéreo.', 'In het dorp, met zee- en strandlessen en aerial yoga.', 'I stan, med havs- och strandklasser och aerialyoga.') },
+      { name: 'Respira', href: 'https://www.respirayogatarifa.com', note: l('In town: regular classes plus children, pregnancy and aerial formats.', 'Im Ort: reguläre Kurse plus Kinder-, Schwangerschafts- und Aerial-Formate.', 'En el pueblo: clases habituales y formatos infantil, embarazo y aéreo.', 'In het dorp: reguliere lessen plus kinder-, zwangerschaps- en aerial-vormen.', 'I stan: vanliga klasser plus barn-, gravid- och aerialformer.') },
+      { name: 'OMAYA Yoga', note: l('La Vega, with daily drop-in classes.', 'La Vega, mit täglichen Drop-in-Kursen.', 'La Vega, con clases diarias sin reserva.', 'La Vega, met dagelijkse inlooplessen.', 'La Vega, med dagliga drop-in-klasser.') },
+      { name: 'Yoga-Sunshine (Mona Abter)', href: 'https://www.yoga-sunshine.com', note: l('Classes in and around Tarifa with teacher Mona Abter.', 'Angebote in und um Tarifa bei Lehrerin Mona Abter.', 'Clases en Tarifa y alrededores con la profesora Mona Abter.', 'Lessen in en rond Tarifa bij docente Mona Abter.', 'Klasser i och kring Tarifa med läraren Mona Abter.') }
+    ],
+    guideNote: l(
+      'If you are staying with us, the current contacts and what is running that week are in your Guest Guide — and the mats are already in the apartment.',
+      'Wer bei uns wohnt, findet die aktuellen Kontakte und was gerade läuft im Gästeguide — und die Matten liegen schon in der Wohnung.',
+      'Si os alojáis con nosotros, los contactos actuales y lo que hay esa semana están en la guía del huésped, y las esterillas ya están en el apartamento.',
+      'Wie bij ons verblijft, vindt de actuele contacten en wat er die week loopt in de gastengids — en de matten liggen al in het appartement.',
+      'Bor ni hos oss finns aktuella kontakter och vad som pågår den veckan i gästguiden — och mattorna finns redan i lägenheten.'
+    )
   }
 };
 
