@@ -8,9 +8,18 @@ interface Props {
   authorHref: string;
   updated?: string;
   note?: string;
+  /**
+   * Optional second author, shown next to the first as a modest co-author credit
+   * (e.g. a named partner who co-wrote the page). Role and portrait are passed
+   * resolved, since a co-author is not an AMARA host.
+   */
+  coAuthorName?: string;
+  coAuthorRole?: string;
+  coAuthorHref?: string;
+  coAuthorPortrait?: string;
 }
 
-const { lang, authorName, authorHref, updated, note } = Astro.props;
+const { lang, authorName, authorHref, updated, note, coAuthorName, coAuthorRole, coAuthorHref, coAuthorPortrait } = Astro.props;
 const bylineCopy = {
   en: { prefix: 'By', role: 'Host at AMARA' },
   de: { prefix: 'Von', role: 'Gastgeber bei AMARA' },
@@ -24,32 +33,60 @@ const portraitByAuthor = {
 const portraitSrc = portraitByAuthor[authorName as keyof typeof portraitByAuthor];
 const copy = bylineCopy[lang];
 const authorLabel = `${copy.prefix} ${authorName} · ${copy.role}`;
+const coAuthorLabel = coAuthorName ? `${authorName} · ${coAuthorName}${coAuthorRole ? ` · ${coAuthorRole}` : ''}` : undefined;
 ---
 
 <div class="mt-10 flex max-w-3xl flex-col gap-8 sm:flex-row sm:items-center sm:justify-between" data-am-component="editorial-byline">
-  <a class="group flex min-w-0 items-center gap-5 sm:basis-44 sm:shrink-0" href={authorHref} rel="author" aria-label={authorLabel}>
-    {portraitSrc && (
-      <span class="h-16 w-16 shrink-0 overflow-hidden rounded-full bg-surface-container-low ring-1 ring-outline-variant/35 ring-offset-4 ring-offset-surface">
-        <AmaraImage
-          src={portraitSrc}
-          alt=""
-          profile="card"
-          width={96}
-          widths={[64, 96]}
-          sizes="64px"
-          class="h-full w-full object-cover"
-          focalPoint="50% 32%"
-          loading="lazy"
-          decoding="async"
-        />
+  <div class="flex min-w-0 flex-wrap items-center gap-x-8 gap-y-5">
+    <a class="group flex min-w-0 items-center gap-5" href={authorHref} rel="author" aria-label={authorLabel}>
+      {portraitSrc && (
+        <span class="h-16 w-16 shrink-0 overflow-hidden rounded-full bg-surface-container-low ring-1 ring-outline-variant/35 ring-offset-4 ring-offset-surface">
+          <AmaraImage
+            src={portraitSrc}
+            alt=""
+            profile="card"
+            width={96}
+            widths={[64, 96]}
+            sizes="64px"
+            class="h-full w-full object-cover"
+            focalPoint="50% 32%"
+            loading="lazy"
+            decoding="async"
+          />
+        </span>
+      )}
+      <span class="min-w-0">
+        <span class="am-text-label am-text-label--sm block text-primary">{copy.prefix}</span>
+        <span class="am-text-body mt-1 block text-on-surface transition-colors group-hover:text-primary">{authorName}</span>
+        <span class="am-text-label am-text-label--sm mt-1 block text-muted">{copy.role}</span>
       </span>
+    </a>
+    {coAuthorName && (
+      <a class="group flex min-w-0 items-center gap-5" href={coAuthorHref ?? authorHref} rel="author" aria-label={coAuthorLabel}>
+        {coAuthorPortrait && (
+          <span class="h-16 w-16 shrink-0 overflow-hidden rounded-full bg-surface-container-low ring-1 ring-outline-variant/35 ring-offset-4 ring-offset-surface">
+            <AmaraImage
+              src={coAuthorPortrait}
+              alt=""
+              profile="card"
+              width={96}
+              widths={[64, 96]}
+              sizes="64px"
+              class="h-full w-full object-cover"
+              focalPoint="50% 25%"
+              loading="lazy"
+              decoding="async"
+            />
+          </span>
+        )}
+        <span class="min-w-0">
+          <span class="am-text-label am-text-label--sm block text-primary" aria-hidden="true">&amp;</span>
+          <span class="am-text-body mt-1 block text-on-surface transition-colors group-hover:text-primary">{coAuthorName}</span>
+          {coAuthorRole && <span class="am-text-label am-text-label--sm mt-1 block text-muted">{coAuthorRole}</span>}
+        </span>
+      </a>
     )}
-    <span class="min-w-0">
-      <span class="am-text-label am-text-label--sm block text-primary">{copy.prefix}</span>
-      <span class="am-text-body mt-1 block text-on-surface transition-colors group-hover:text-primary">{authorName}</span>
-      <span class="am-text-label am-text-label--sm mt-1 block text-muted">{copy.role}</span>
-    </span>
-  </a>
+  </div>
   {(updated || note) && (
     <div class="min-w-0 max-w-md">
       {updated && <p class="am-text-label am-text-label--sm text-primary" data-am-byline-updated>{updated}</p>}
