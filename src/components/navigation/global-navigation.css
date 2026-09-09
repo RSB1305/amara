@@ -633,6 +633,30 @@ html.am-nav-lock {
     display: none;
   }
 
+  /* Closed grouped context strip (destination disclosures): give the two
+     disclosure buttons their own full-width row under the breadcrumb so both
+     sit on one line instead of wrapping beside it — a flatter strip. */
+  [data-am-navigation]
+    .am-nav-mobile--contextual[data-am-contextual-closed]
+    [data-am-context-layout] {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0.125rem;
+  }
+
+  [data-am-navigation]
+    .am-nav-mobile--contextual[data-am-contextual-closed]
+    [data-am-context-toolbar] {
+    grid-column: 1;
+    grid-row: 2;
+    margin-left: 0;
+  }
+
+  [data-am-navigation]
+    .am-nav-mobile--contextual[data-am-contextual-closed]
+    [data-am-destination-context-disclosures] > div {
+    justify-content: flex-start;
+  }
+
   [data-am-navigation] .am-nav {
     grid-template-columns: minmax(0, 1fr) auto;
     column-gap: 1rem;
