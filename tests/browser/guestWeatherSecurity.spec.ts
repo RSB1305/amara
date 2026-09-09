@@ -23,7 +23,7 @@ test.afterAll(async () => {
 });
 
 test('Guest weather rejects a provider time field containing HTML', async ({ page }) => {
-  await page.route('https://api.open-meteo.com/**', async (route) => {
+  await page.route('**/api/weather/guide-forecast*', async (route) => {
     await route.fulfill({
       contentType: 'application/json',
       body: JSON.stringify({
