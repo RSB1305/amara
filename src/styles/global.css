@@ -129,12 +129,11 @@
 
   .am-text-display {
     font-family: var(--font-headline);
-    /* Tamed from clamp(3.5rem, 10vw, 7.5rem): the old 56px mobile floor and 10vw
-     * slope let a long German H1 wrap to four or five lines and swallow the top of
-     * the phone screen. This scale matches the calmer display the property-sale,
-     * document and Tarifa surfaces had each already dialled in by hand; a touch
-     * more line-height keeps the now-smaller multi-line H1 legible. */
-    font-size: clamp(2.75rem, 6vw, 5rem);
+    /* Tamed from clamp(3.5rem, 10vw, 7.5rem), then the mobile floor lowered again
+     * (2.75rem -> 2.25rem) so a long DE/ES H1 no longer eats the top of the phone
+     * screen; the 5rem desktop cap is unchanged, so only small viewports shrink.
+     * A touch more line-height keeps the smaller multi-line H1 legible. */
+    font-size: clamp(2.25rem, 6vw, 5rem);
     font-weight: 300;
     line-height: 1.05;
     letter-spacing: -0.025em;
@@ -150,6 +149,14 @@
     font-weight: 300;
     line-height: 1.08;
     letter-spacing: -0.02em;
+  }
+
+  /* Answer/utility-page H1 modifier: the shared title role serves both page H1s
+     and section headings, so this lowers only the mobile floor (2.5rem -> 2rem)
+     for the compact answer pages that use it as their H1, without shrinking
+     section titles elsewhere. Desktop cap unchanged. */
+  .am-text-title--answer {
+    font-size: clamp(2rem, 5vw, 4.25rem);
   }
 
   .am-text-subtitle {

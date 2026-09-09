@@ -114,18 +114,26 @@ const l = data.labels;
     {data.place === 'tarifa' && (
       <svg viewBox="0 0 560 430" class="block h-auto w-full" role="img" aria-hidden="true">
         <g class="contours">
-          <path d="M112 102 C211 72 326 82 510 48" />
-          <path d="M99 143 C214 108 343 121 530 84" />
-          <path d="M91 185 C224 147 367 162 544 122" />
+          <path d="M150 70 C260 50 380 58 500 38" />
+          <path d="M150 90 C260 70 380 78 500 58" />
+          <path d="M150 110 C260 90 380 98 500 78" />
         </g>
-        <path class="coast" d="M18 321 C118 285 205 293 286 273 C362 255 431 275 548 242" />
-        <path class="sea-fill" d="M18 321 C118 285 205 293 286 273 C362 255 431 275 548 242 L548 430 L18 430 Z" />
-        <text class="sea-label" x="331" y="380">{l.sea}</text>
-        <g class="district district--soft"><path d="M34 238 L180 207 L203 281 L62 311 Z" /><text x="77" y="255">{l.losLances}</text></g>
-        <g class="district district--amara"><path d="M199 191 L324 178 L340 262 L218 278 Z" /><text x="227" y="215">{l.laMarina}</text></g>
-        <g class="district"><path d="M341 165 L453 164 L479 240 L354 257 Z" /><text x="372" y="195">{l.oldTown}</text></g>
-        <g class="district district--upper"><path d="M276 72 L489 49 L518 130 L310 155 Z" /><text x="341" y="102">{l.campo}</text></g>
-        <g class="landmark landmark--amara" transform="translate(271 242)">
+
+        <g class="district district--upper"><path d="M214 92 L470 74 L486 150 L232 168 Z" /><text x="250" y="126">{l.hills}</text></g>
+        <g class="district district--soft"><path d="M28 150 L150 132 L166 236 L44 254 Z" /><text x="52" y="190">{l.outskirts}</text></g>
+        <g class="district"><path d="M226 192 L356 184 L368 246 L238 254 Z" /><text x="252" y="220">{l.centro}</text></g>
+        <g class="district"><path d="M362 180 L448 174 L460 242 L374 250 Z" /><text x="384" y="208">{l.casco}</text></g>
+
+        <path class="coast" d="M18 330 C120 306 230 314 330 298 C410 286 480 298 548 282" />
+        <path class="sea-fill" d="M18 330 C120 306 230 314 330 298 C410 286 480 298 548 282 L548 430 L18 430 Z" />
+        <text class="sea-label" x="300" y="398">{l.sea}</text>
+
+        <g class="district"><path d="M40 256 L438 244 L450 320 L58 332 Z" /><text x="82" y="284">{l.losLances}</text></g>
+        <g class="district district--amara"><path d="M196 250 L306 246 L314 308 L206 314 Z" /></g>
+        <text class="map-label" x="214" y="268">{l.laMarina}</text>
+        <path class="relationship" d="M256 284 L300 250" />
+
+        <g class="landmark landmark--amara" transform="translate(252 292)">
           <circle r="6" /><circle class="halo" r="14" /><text x="13" y="4">{l.amara}</text>
         </g>
       </svg>
