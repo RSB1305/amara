@@ -511,7 +511,9 @@ const equipment: TarifaKitesurfSpokeContent = {
 };
 
 const relatedMap: Record<TarifaKitesurfSpokeId, LinkToken[]> = {
-  'kite-school': ['tarifa_kitesurf_beginner_guide', 'tarifa_kite_equipment', 'tarifa_wind_kitesurfing_authority'],
+  // Beginner guide leads the list so it feeds the highlighted callout near the top
+  // of the school page; the spoke page renders the remaining three as "continue" cards.
+  'kite-school': ['tarifa_kitesurf_beginner_guide', 'tarifa_kitecamp', 'tarifa_kite_equipment', 'tarifa_wind_kitesurfing_authority'],
   kitecamp: ['tarifa_kite_school', 'tarifa_kite_equipment', 'tarifa_wind_kitesurfing_authority'],
   equipment: ['tarifa_kite_school', 'tarifa_kitecamp', 'tarifa_wind_kitesurfing_authority']
 };
