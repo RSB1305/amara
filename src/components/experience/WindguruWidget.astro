@@ -41,8 +41,9 @@ const params = [
   'hrsm=2',
   'vt=forecasts',
   `lng=${widgetLanguage[lang]}`,
-  // Only the rows a kiter reads: wind, gusts, direction, temperature, cloud, rain, Windguru's rating.
-  'p=WINDSPD,GUST,SMER,TMP,TCDC,APCP1s,RATING'
+  // The rows a kiter reads: wind, gusts, direction, wave height, wave period, temperature, cloud,
+  // rain, Windguru's rating. Wave rows appear only where the spot serves a wave model.
+  'p=WINDSPD,GUST,SMER,HTSGW,PERPW,TMP,TCDC,APCP1s,RATING'
 ];
 const widgetSrc = `https://www.windguru.cz/js/widget.php?${params.join('&')}`;
 ---

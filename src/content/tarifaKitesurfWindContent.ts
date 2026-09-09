@@ -5,6 +5,13 @@ import { routeOgImage } from '../lib/images/routeImages';
 
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
 const ll = (en: string[], de: string[], es: string[], nl: string[], sv: string[]): LocalizedTextList => ({ en, de, es, nl, sv });
+/**
+ * German-first placeholder: authored in German now, mirrored into every locale
+ * so the module type-checks and the German page is correct. Every `de1(` call
+ * marks a string the closing translation pass must still translate into EN, ES,
+ * NL and SV. Grep `de1(` to find them all.
+ */
+const de1 = (de: string): LocalizedText => ({ en: de, de, es: de, nl: de, sv: de });
 
 /** A quoted voice on the page: a named person speaking in the first person, never AMARA's own rule. */
 export interface TarifaKitesurfVoiceQuote {
@@ -70,36 +77,28 @@ export interface TarifaKitesurfWindContent {
     attribution: LocalizedText;
     aemetLabel: LocalizedText;
   };
+  /**
+   * The Windguru teaching block: the live WRF-3km widget, then a beginner
+   * walk-through of exactly the rows it shows, then the models explained with
+   * the reason the locals read WRF 3 km. German is authored first; the other
+   * four locales of the newly written strings (intro, rowsTitle, models*) are
+   * placeholders carrying the German text until the closing translation pass.
+   */
   windguru: {
     eyebrow: LocalizedText;
     title: LocalizedText;
     intro: LocalizedText;
-    sourceNote: LocalizedText;
-    linkLabel: LocalizedText;
-    linkHref: string;
-    example: {
-      title: LocalizedText;
-      note: LocalizedText;
-      hour: string;
-      hourLabel: LocalizedText;
-      moreTitle: LocalizedText;
-      columns: Array<{ id: string; value: LocalizedText }>;
-    };
-    terms: Array<{ id: string; title: LocalizedText; text: LocalizedText }>;
-    resolutionTitle: LocalizedText;
-    resolutionText: LocalizedText;
-    modelNote: LocalizedText;
-  };
-  windguruLive: {
-    eyebrow: LocalizedText;
-    title: LocalizedText;
-    intro: LocalizedText;
-    explainBefore: LocalizedText;
-    explainLabel: LocalizedText;
-    explainAfter: LocalizedText;
     loading: LocalizedText;
     noscript: LocalizedText;
     lazyNote: LocalizedText;
+    linkLabel: LocalizedText;
+    linkHref: string;
+    rowsTitle: LocalizedText;
+    rows: Array<{ id: string; title: LocalizedText; text: LocalizedText }>;
+    modelsTitle: LocalizedText;
+    modelsIntro: LocalizedText;
+    models: Array<{ id: string; name: string; text: LocalizedText }>;
+    modelsWhy: LocalizedText;
   };
   beaufort: {
     title: LocalizedText;
@@ -256,53 +255,35 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
     aemetLabel: l('Open official AEMET forecast and warnings', 'Warnungen bei AEMET', 'Abrir previsión y avisos oficiales de AEMET', 'Open de officiële AEMET-verwachting en waarschuwingen', 'Öppna AEMET:s officiella prognos och varningar')
   },
   windguru: {
-    eyebrow: l('The tool', 'Windguru', 'La herramienta', 'Het gereedschap', 'Verktyget'),
-    title: l('The table everyone looks at in the morning', 'Die Tabelle, auf die hier morgens alle schauen', 'La tabla que todos miran por la mañana', 'De tabel waar iedereen ’s ochtends naar kijkt', 'Tabellen alla tittar på om morgonen'),
-    intro: l('Windguru is the standard tool in Tarifa, and a good one. It shows several weather models side by side in a very dense table. That density is exactly what makes it hard to read at first. So we take the rows apart once.', 'Auch wir schauen morgens zuerst auf Windguru. Die Tabelle zeigt mehrere Wettermodelle untereinander, Stunde für Stunde, und beim ersten Mal sieht das aus wie ein Fahrplan in einer fremden Sprache. Deshalb nehmen wir eine Zeile einmal auseinander, Feld für Feld.', 'Windguru es la herramienta estándar en Tarifa, y es buena. Muestra varios modelos meteorológicos uno junto a otro en una tabla muy densa. Precisamente esa densidad la hace difícil de leer al principio. Por eso desmontamos las filas una a una.', 'Windguru is in Tarifa het standaardgereedschap, en een goed gereedschap. Het toont meerdere weermodellen naast elkaar in een heel dichte tabel. Juist die dichtheid maakt het in het begin lastig te lezen. Daarom halen we de rijen één keer uit elkaar.', 'Windguru är standardverktyget i Tarifa, och ett bra sådant. Det visar flera vädermodeller bredvid varandra i en mycket tät tabell. Just den tätheten gör den svårläst i början. Därför plockar vi isär raderna en gång.'),
-    sourceNote: l('The linked Tarifa view is external. Its availability, models and presentation are managed by Windguru.', 'Der Link führt zu Windguru; Modelle und Darstellung sind deren Sache.', 'La vista de Tarifa enlazada es externa. Windguru gestiona su disponibilidad, modelos y presentación.', 'De gekoppelde Tarifa-weergave is extern. Windguru beheert beschikbaarheid, modellen en presentatie.', 'Den länkade Tarifa-vyn är extern. Windguru hanterar tillgänglighet, modeller och presentation.'),
+    eyebrow: de1('Windguru für Anfänger'),
+    title: de1('So liest du Windguru — die Tabelle, auf die hier morgens alle schauen'),
+    intro: de1('Als Anfänger schaust du zum ersten Mal auf Windguru und siehst eine Wand aus Zahlen, Farben und Pfeilen — und wirst erst mal nervös. Ging uns genauso. Deshalb gehen wir es hier in Ruhe durch, an echten Live-Daten: Die Tabelle oben ist WRF 3 km für Tarifa, live — genau das Modell, auf das die Locals hier morgens schauen. Was jede Zeile bedeutet, kommt jetzt Schritt für Schritt.'),
+    loading: l('The Windguru table loads when it scrolls into view.', 'Die Windguru-Tabelle lädt, sobald sie ins Bild kommt.', 'La tabla de Windguru se carga cuando entra en pantalla.', 'De Windguru-tabel laadt zodra hij in beeld komt.', 'Windguru-tabellen laddas när den kommer in i bild.'),
+    noscript: l('The Windguru table needs JavaScript. Open the Tarifa spot directly at Windguru instead.', 'Die Windguru-Tabelle braucht JavaScript. Öffnet stattdessen den Spot Tarifa direkt bei Windguru.', 'La tabla de Windguru necesita JavaScript. Abrid el spot de Tarifa directamente en Windguru.', 'De Windguru-tabel heeft JavaScript nodig. Open in plaats daarvan de spot Tarifa rechtstreeks bij Windguru.', 'Windguru-tabellen kräver JavaScript. Öppna i stället spoten Tarifa direkt hos Windguru.'),
+    lazyNote: l('The table is loaded from windguru.cz only once you scroll to it. Availability, models and presentation are Windguru’s.', 'Die Tabelle wird erst von windguru.cz geladen, wenn ihr bis hierher scrollt. Verfügbarkeit, Modelle und Darstellung liegen bei Windguru.', 'La tabla solo se carga desde windguru.cz cuando llegáis hasta aquí. Disponibilidad, modelos y presentación son de Windguru.', 'De tabel wordt pas van windguru.cz geladen zodra jullie tot hier scrollen. Beschikbaarheid, modellen en weergave liggen bij Windguru.', 'Tabellen laddas från windguru.cz först när ni skrollar hit. Tillgänglighet, modeller och presentation ligger hos Windguru.'),
     linkLabel: l('Open Windguru: Tarifa', 'Windguru: Tarifa öffnen', 'Abrir Windguru: Tarifa', 'Open Windguru: Tarifa', 'Öppna Windguru: Tarifa'),
     linkHref: 'https://www.windguru.cz/976270',
-    example: {
-      title: l('The annotated example row', 'Eine Zeile, Feld für Feld', 'La fila de ejemplo, campo por campo', 'De voorbeeldrij, veld voor veld', 'Exempelraden, fält för fält'),
-      note: l('Example values for one model hour, chosen to explain the fields. Not a current forecast.', 'Beispielwerte zum Erklären, keine Vorhersage für heute.', 'Valores de ejemplo para una hora de modelo, elegidos para explicar los campos. No es una previsión actual.', 'Voorbeeldwaarden voor één modeluur, gekozen om de velden uit te leggen. Geen actuele verwachting.', 'Exempelvärden för en modelltimme, valda för att förklara fälten. Ingen aktuell prognos.'),
-      hour: '14h',
-      hourLabel: l('Hour', 'Uhrzeit', 'Hora', 'Uur', 'Klockslag'),
-      moreTitle: l('Rows you may also see', 'Drei Zeilen, die je nach Ansicht dazukommen', 'Filas que también podéis ver', 'Rijen die jullie ook kunnen zien', 'Rader ni också kan se'),
-      columns: [
-        { id: 'resolution', value: l('WRF 3 km', 'WRF 3 km', 'WRF 3 km', 'WRF 3 km', 'WRF 3 km') },
-        { id: 'wind', value: l('18 kn', '18 kn', '18 kn', '18 kn', '18 kn') },
-        { id: 'gusts', value: l('24 kn', '24 kn', '24 kn', '24 kn', '24 kn') },
-        { id: 'direction', value: l('W · 270°', 'W · 270°', 'O · 270°', 'W · 270°', 'V · 270°') },
-        { id: 'wave-height', value: l('1.2 m', '1,2 m', '1,2 m', '1,2 m', '1,2 m') },
-        { id: 'period', value: l('7 s', '7 s', '7 s', '7 s', '7 s') },
-        { id: 'clouds', value: l('10 · 20 · 30 %', '10 · 20 · 30 %', '10 · 20 · 30 %', '10 · 20 · 30 %', '10 · 20 · 30 %') }
-      ]
-    },
-    terms: [
-      {
-        id: 'resolution',
-        title: l('Model line and grid width', 'Modellzeile und Rasterweite', 'Línea de modelo y malla', 'Modelregel en rasterbreedte', 'Modellrad och rutnät'),
-        text: l('1 km, 3 km, 9 km or 13 km: the approximate grid width of the model. A smaller number means a finer grid. It does not mean “more accurate”.', '1, 3, 9 oder 13 km: so fein ist das Raster, mit dem das Modell rechnet. Feiner heißt detaillierter, am Strand aber nicht automatisch genauer.', '1 km, 3 km, 9 km o 13 km: la anchura aproximada de la malla del modelo. Un número menor significa una malla más fina. No significa «más preciso».', '1 km, 3 km, 9 km of 13 km: de globale rasterbreedte van het model. Een kleiner getal betekent een fijner raster. Het betekent niet “nauwkeuriger”.', '1 km, 3 km, 9 km eller 13 km: modellens ungefärliga rutnätsbredd. Ett mindre tal betyder ett finare rutnät. Det betyder inte ”mer träffsäkert”.')
-      },
+    rowsTitle: de1('Zeile für Zeile, was du oben in der Tabelle siehst'),
+    rows: [
       {
         id: 'wind',
-        title: l('Wind / mean wind', 'Wind / Mittelwind', 'Viento / viento medio', 'Wind / gemiddelde wind', 'Vind / medelvind'),
-        text: l('The base wind the model calculates for this hour. It is not the force you feel in the kite.', 'Der Grundwind, den das Modell für diese Stunde rechnet. Was ihr am Kite spürt, ist eine andere Zahl.', 'El viento base que el modelo calcula para esa hora. No es la fuerza que sentís en la cometa.', 'De basiswind die het model voor dit uur berekent. Dat is niet de kracht die jullie in de kite voelen.', 'Grundvinden som modellen beräknar för den här timmen. Det är inte kraften ni känner i kiten.')
+        title: l('Wind speed (knots)', 'Windstärke (Knoten)', 'Velocidad del viento (nudos)', 'Windsterkte (knopen)', 'Vindstyrka (knop)'),
+        text: l('The mean wind the model calculates for that hour, not the force you feel in the kite. The Beaufort table below turns the number into a picture of the sea.', 'Der Mittelwind, den das Modell für diese Stunde berechnet, nicht die Kraft, die ihr am Kite spürt. Die Beaufort-Tabelle unten macht aus der Zahl ein Bild vom Meer.', 'El viento medio que el modelo calcula para esa hora, no la fuerza que sentís en la cometa. La tabla Beaufort de abajo convierte la cifra en una imagen del mar.', 'De gemiddelde wind die het model voor dat uur berekent, niet de kracht die je in de kite voelt. De Beaufort-tabel hieronder maakt van het getal een beeld van de zee.', 'Medelvinden som modellen beräknar för den timmen, inte kraften ni känner i kiten. Beaufort-tabellen nedan gör siffran till en bild av havet.')
       },
       {
         id: 'gusts',
-        title: l('Gusts', 'Böen', 'Rachas', 'Vlagen', 'Byar'),
-        text: l('The calculated short peaks above the mean. A wide gap between the two values means the model expects a lot of variation.', 'Die Spitzen über dem Grundwind. Liegen beide weit auseinander, rechnet das Modell mit einem böigen Tag, und in Tarifa ist das oft die wichtigere Zahl.', 'Los picos breves calculados por encima de la media. Una gran diferencia entre ambos valores significa que el modelo prevé mucha variación.', 'De berekende korte pieken boven het gemiddelde. Een groot verschil tussen beide waarden betekent: het model rekent met veel schommeling.', 'De beräknade korta topparna över medelvinden. Ett stort avstånd mellan de två värdena betyder att modellen räknar med mycket variation.')
+        title: l('Gusts (knots)', 'Windböen (Knoten)', 'Rachas (nudos)', 'Windvlagen (knopen)', 'Vindbyar (knop)'),
+        text: l('Read the gap to the mean wind: in Tarifa it says more than the mean itself.', 'Lest den Abstand zum Mittelwind: In Tarifa sagt er mehr als der Mittelwert selbst.', 'Mirad la diferencia con el viento medio: en Tarifa dice más que la propia media.', 'Lees het verschil met de gemiddelde wind: in Tarifa zegt het meer dan het gemiddelde zelf.', 'Läs avståndet till medelvinden: i Tarifa säger det mer än medelvärdet självt.')
       },
       {
         id: 'direction',
         title: l('Wind direction', 'Windrichtung', 'Dirección del viento', 'Windrichting', 'Vindriktning'),
-        text: l('Wind is named after where it comes from — a north wind comes from the north. Direction alone says nothing yet about your beach.', 'Wind heißt nach der Richtung, aus der er kommt: W ist der Poniente vom Atlantik, E der Levante aus Osten. Was das an eurem Strand bedeutet, steht weiter unten.', 'El viento se nombra por el lugar de donde viene: el viento del norte viene del norte. La dirección por sí sola no dice nada todavía sobre vuestra playa.', 'Wind wordt genoemd naar waar hij vandaan komt — noordenwind komt uit het noorden. Uit de richting alleen volgt nog niets over jullie strand.', 'Vinden får sitt namn efter varifrån den kommer – nordanvind kommer från norr. Riktningen ensam säger ännu inget om er strand.')
+        text: l('The arrow points where the wind blows to: left means from the east, Levante; right means from the west, Poniente.', 'Der Pfeil zeigt, wohin der Wind weht: nach links heißt aus Osten, Levante; nach rechts heißt aus Westen, Poniente.', 'La flecha señala hacia dónde sopla el viento: a la izquierda viene del este, levante; a la derecha viene del oeste, poniente.', 'De pijl wijst waarheen de wind waait: naar links betekent uit het oosten, levante; naar rechts uit het westen, poniente.', 'Pilen visar vart vinden blåser: åt vänster betyder från öst, levante; åt höger från väst, poniente.')
       },
       {
         id: 'wave-height',
         title: l('Wave height', 'Wellenhöhe', 'Altura de ola', 'Golfhoogte', 'Våghöjd'),
-        text: l('The significant wave value of the wave model. It says nothing about a single wave or the shorebreak.', 'Die Höhe, mit der das Wellenmodell rechnet, als Mittel der höheren Wellen. Die eine große Welle am Ufer steht nicht drin.', 'El valor de ola significativa del modelo de oleaje. No dice nada sobre una ola concreta ni sobre la rompiente en la orilla.', 'De significante golfwaarde van het golfmodel. Zegt niets over één golf of de shorebreak.', 'Vågmodellens signifikanta vågvärde. Säger inget om en enskild våg eller strandbrytningen.')
+        text: l('The significant wave value of the wave model. It says nothing about a single wave or the shorebreak. This row appears only when Windguru serves a wave model for the spot.', 'Die Höhe, mit der das Wellenmodell rechnet, als Mittel der höheren Wellen. Die eine große Welle am Ufer steht nicht drin. Diese Zeile erscheint nur, wenn Windguru für den Spot ein Wellenmodell liefert.', 'El valor de ola significativa del modelo de oleaje. No dice nada sobre una ola concreta ni sobre la rompiente en la orilla. Esta fila solo aparece cuando Windguru ofrece un modelo de oleaje para el spot.', 'De significante golfwaarde van het golfmodel. Zegt niets over één golf of de shorebreak. Deze rij verschijnt alleen als Windguru voor de spot een golfmodel levert.', 'Vågmodellens signifikanta vågvärde. Säger inget om en enskild våg eller strandbrytningen. Den här raden visas bara när Windguru har en vågmodell för spoten.')
       },
       {
         id: 'period',
@@ -310,46 +291,35 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
         text: l('The time in seconds between the modelled waves. It has nothing to do with height.', 'Der Abstand zwischen zwei Wellen in Sekunden. Sagt etwas über den Rhythmus des Wassers, nichts über die Höhe.', 'El tiempo en segundos entre las olas modelizadas. No tiene nada que ver con la altura.', 'De tijd in seconden tussen de gemodelleerde golven. Heeft niets met de hoogte te maken.', 'Tiden i sekunder mellan de modellerade vågorna. Har inget med höjden att göra.')
       },
       {
-        id: 'clouds',
-        title: l('Cloud layers', 'Wolkenschichten', 'Capas de nubes', 'Wolkenlagen', 'Molnlager'),
-        text: l('Low, mid and high — shown separately. Few clouds are no proof of thermal wind.', 'Niedrig, mittel, hoch, jede Schicht einzeln. Ein blauer Himmel verspricht in Tarifa keine Thermik, dazu unten mehr.', 'Bajas, medias y altas, indicadas por separado. Pocas nubes no demuestran que haya térmica.', 'Laag, midden, hoog — apart weergegeven. Weinig bewolking is geen bewijs voor thermiek.', 'Låga, mellan och höga – redovisade var för sig. Lite moln är inget bevis för termik.')
+        id: 'temperature',
+        title: l('Temperature (°C)', 'Temperatur (°C)', 'Temperatura (°C)', 'Temperatuur (°C)', 'Temperatur (°C)'),
+        text: l('Air temperature. Together with the wind it decides how thick a wetsuit you want; the water stays cooler than the air for most of the year.', 'Lufttemperatur. Zusammen mit dem Wind entscheidet sie, wie dick der Neo sein soll; das Wasser bleibt den größten Teil des Jahres kühler als die Luft.', 'Temperatura del aire. Junto con el viento decide el grosor del neopreno; el agua está más fría que el aire la mayor parte del año.', 'Luchttemperatuur. Samen met de wind bepaalt ze hoe dik het wetsuit moet zijn; het water blijft het grootste deel van het jaar koeler dan de lucht.', 'Lufttemperatur. Tillsammans med vinden avgör den hur tjock våtdräkt ni vill ha; vattnet är svalare än luften större delen av året.')
       },
       {
-        id: 'peak-period',
-        title: l('Peak period', 'Peak-Periode', 'Periodo de pico', 'Piekperiode', 'Toppperiod'),
-        text: l('The period of the most energetic part of the spectrum, a calculated value from the model.', 'Die Periode des Anteils mit der meisten Energie, ein Rechenwert aus dem Modell.', 'El periodo de la parte con más energía, un valor calculado por el modelo.', 'De periode van het deel met de meeste energie, een rekenwaarde uit het model.', 'Perioden för den mest energirika delen, ett beräknat värde från modellen.')
+        id: 'cloud',
+        title: l('Cloud cover (%)', 'Bewölkung (%)', 'Nubosidad (%)', 'Bewolking (%)', 'Molnighet (%)'),
+        text: l('Weather context for the day. Little cloud is no proof of thermal wind. On windguru.cz the same row is split into high, mid and low layers.', 'Wetterkontext für den Tag. Wenig Wolken sind kein Beleg für Thermik. Auf windguru.cz ist dieselbe Zeile in hohe, mittlere und niedrige Schichten aufgeteilt.', 'Contexto meteorológico del día. Pocas nubes no demuestran que haya térmica. En windguru.cz la misma fila se divide en capas alta, media y baja.', 'Weercontext voor de dag. Weinig bewolking is geen bewijs voor thermiek. Op windguru.cz is dezelfde rij opgesplitst in hoge, midden- en lage lagen.', 'Väderkontext för dagen. Lite moln är inget bevis för termik. På windguru.cz är samma rad uppdelad i höga, mellan- och låga lager.')
       },
       {
-        id: 'wind-wave',
-        title: l('Wind wave', 'Windwelle', 'Ola de viento', 'Windgolf', 'Vindvåg'),
-        text: l('The sea state generated by local and regional wind. Only one part of the overall sea state.', 'Die Welle, die der Wind hier vor Ort gerade selbst macht. Nur ein Teil dessen, was am Strand ankommt.', 'El oleaje que genera el viento local y regional. Solo una parte del estado total del mar.', 'De zeegang die de lokale en regionale wind opwekt. Slechts een deel van de totale zeegang.', 'Sjögången som den lokala och regionala vinden skapar. Bara en del av den totala sjögången.')
+        id: 'rain',
+        title: l('Precipitation (mm/h)', 'Niederschlag (mm/h)', 'Precipitación (mm/h)', 'Neerslag (mm/h)', 'Nederbörd (mm/h)'),
+        text: l('Modelled rain per hour. A dash means none. Showers often come with sudden wind shifts, which is worth knowing when you plan a session.', 'Modellierter Regen pro Stunde. Ein Strich heißt keiner. Schauer bringen oft plötzliche Winddreher mit, und das ist gut zu wissen, wenn ihr eine Session plant.', 'Lluvia modelizada por hora. Un guion significa nada. Los chubascos suelen traer cambios bruscos de viento, algo que conviene saber al planear una sesión.', 'Gemodelleerde regen per uur. Een streepje betekent geen. Buien brengen vaak plotselinge winddraaiingen mee, goed om te weten als je een sessie plant.', 'Modellerat regn per timme. Ett streck betyder inget. Skurar för ofta med sig plötsliga vindvridningar, bra att veta när ni planerar ett pass.')
       },
       {
-        id: 'swell',
-        title: l('Swell', 'Swell', 'Mar de fondo', 'Swell', 'Swell'),
-        text: l('Wave energy that travels in from far away. It can run from a completely different direction than the wind wave at the same time.', 'Wellen von weit draußen, oft aus einer ganz anderen Richtung als die Windwelle. Treffen beide zusammen, wird das Wasser unruhig.', 'Energía de olas que llega desde muy lejos. Puede venir a la vez de una dirección totalmente distinta a la de la ola de viento.', 'Golfenergie die van ver komt. Kan tegelijk uit een heel andere richting lopen dan de windgolf.', 'Vågenergi som kommer långt bortifrån. Kan samtidigt löpa från en helt annan riktning än vindvågen.')
+        id: 'rating',
+        title: l('Windguru rating', 'Windguru-Wertung', 'Valoración de Windguru', 'Windguru-beoordeling', 'Windguru-betyg'),
+        text: l('The stars are Windguru’s own rating of the wind for its users, based on speed alone. They are not a safety judgement and know nothing about zones, gusts on the beach or your level. A friendly hint, no more.', 'Die Sternchen sind Windgurus eigene Bewertung des Winds für seine Nutzer, allein nach Stärke. Sie sind kein Sicherheitsurteil und wissen nichts über Zonen, Böen am Strand oder euer Niveau. Ein netter Hinweis, mehr nicht.', 'Las estrellas son la valoración propia de Windguru del viento para sus usuarios, solo por la fuerza. No son un juicio de seguridad y no saben nada de zonas, rachas en la playa ni de vuestro nivel. Una pista simpática, nada más.', 'De sterren zijn Windguru’s eigen beoordeling van de wind voor zijn gebruikers, alleen op basis van kracht. Ze zijn geen veiligheidsoordeel en weten niets van zones, vlagen op het strand of jullie niveau. Een vriendelijke hint, meer niet.', 'Stjärnorna är Windgurus eget betyg på vinden för sina användare, enbart efter styrka. De är inget säkerhetsomdöme och vet inget om zoner, byar på stranden eller er nivå. En vänlig hint, inget mer.')
       }
     ],
-    resolutionTitle: l('The point most people get wrong', '1 km ist feiner als 9 km, aber nicht genauer', 'El punto que casi todos entienden mal', 'Het punt dat de meesten verkeerd begrijpen', 'Punkten de flesta missförstår'),
-    resolutionText: l('For this region Windguru lists, among others, WRF 1 km for Tarifa, WRF 3 km Gibraltar, WRF 9 km Europe, IFS-HRES 9 km and GFS 13 km. The kilometre figure describes how finely a model resolves space — a finer grid can represent smaller structures such as the Strait at all. It does not follow that the forecast at your beach is more correct. Grid width is one property among several.', 'Windguru zeigt für Tarifa mehrere Modelle untereinander, zum Beispiel WRF mit 1, 3 und 9 km Raster, IFS-HRES mit 9 km und GFS mit 13 km. Die Kilometerzahl sagt, wie fein das Modell den Raum auflöst; ein feines Raster kann die Meerenge überhaupt erst abbilden. Ob die Vorhersage an eurem Strand stimmt, hängt aber an mehr als am Raster.', 'Para esta zona, Windguru muestra, entre otros, WRF 1 km para Tarifa, WRF 3 km Gibraltar, WRF 9 km Europe, IFS-HRES 9 km y GFS 13 km. La cifra en kilómetros describe con qué finura resuelve el espacio un modelo: una malla más fina puede representar estructuras más pequeñas, como el Estrecho. De ahí no se deduce que la previsión en vuestra playa sea más acertada. La anchura de malla es una propiedad entre varias.', 'Voor deze regio toont Windguru onder meer WRF 1 km voor Tarifa, WRF 3 km Gibraltar, WRF 9 km Europe, IFS-HRES 9 km en GFS 13 km. Het aantal kilometers beschrijft hoe fijn een model de ruimte oplost — een fijner raster kan kleinere structuren zoals de Straat überhaupt pas weergeven. Daaruit volgt niet dat de forecast op jullie strand juister is. Rasterbreedte is één eigenschap van meerdere.', 'För den här regionen visar Windguru bland annat WRF 1 km för Tarifa, WRF 3 km Gibraltar, WRF 9 km Europe, IFS-HRES 9 km och GFS 13 km. Kilometertalet beskriver hur fint en modell löser upp rummet – ett finare rutnät kan över huvud taget återge mindre strukturer som sundet. Av det följer inte att prognosen på er strand är mer korrekt. Rutnätsbredd är en egenskap bland flera.'),
-    modelNote: l('The more useful approach: read several models side by side. When two or three roughly agree on direction, strength and timing, the picture is consistent. When they diverge, you can see the uncertainty — and that is real information, not noise. The green stars are a friendly hint. They will not carry your board to the water.', 'Deshalb lesen wir mehrere Zeilen zusammen. Sagen zwei oder drei Modelle ungefähr dasselbe über Richtung, Stärke und Uhrzeit, ist das Bild stabil. Laufen sie auseinander, ist genau das die Information: Der Tag ist unsicher, und ihr schaut am Strand noch einmal hin. Die grünen Sternchen sind nett. Euer Board tragen sie nicht ins Wasser.', 'El enfoque más útil: leer varios modelos uno al lado del otro. Si dos o tres coinciden más o menos en dirección, intensidad y evolución, el cuadro es consistente. Si se separan, veis la incertidumbre, y eso es información real, no una molestia. Las estrellitas verdes son una pista simpática. Vuestra tabla no la llevan al agua.', 'De bruikbaardere aanpak: meerdere modellen naast elkaar lezen. Als twee of drie ongeveer overeenkomen in richting, kracht en verloop, is het beeld consistent. Als ze uiteenlopen, zien jullie de onzekerheid — en dat is echte informatie, geen storing. De groene sterretjes zijn een vriendelijke hint. Jullie board dragen ze niet het water in.', 'Det mer användbara sättet: läs flera modeller bredvid varandra. När två eller tre ungefär stämmer överens i riktning, styrka och tidsförlopp är bilden konsekvent. När de går isär ser ni osäkerheten – och det är riktig information, inte brus. De gröna stjärnorna är en vänlig hint. Er bräda bär de inte ner till vattnet.')
-  },
-  windguruLive: {
-    eyebrow: l('Comparison', 'Vergleich', 'Comparación', 'Vergelijking', 'Jämförelse'),
-    title: l('Windguru’s table for Tarifa', 'Die Windguru-Tabelle für Tarifa', 'La tabla de Windguru para Tarifa', 'De Windguru-tabel voor Tarifa', 'Windgurus tabell för Tarifa'),
-    intro: l(
-      'Windguru shows its own model rows for the Tarifa spot here. This is Windguru’s table, delivered by Windguru: its models, its presentation, its star rating. We use it to compare against the official values above.',
-      'Windguru zeigt hier seine eigenen Modellzeilen für den Spot Tarifa. Das ist Windgurus Tabelle, geliefert von Windguru: seine Modelle, seine Darstellung, seine Sternchen. Wir nutzen sie zum Vergleichen mit den amtlichen Werten oben.',
-      'Windguru muestra aquí sus propias filas de modelos para el spot de Tarifa. Es la tabla de Windguru, servida por Windguru: sus modelos, su presentación, sus estrellas. La usamos para comparar con los valores oficiales de arriba.',
-      'Windguru toont hier zijn eigen modelrijen voor de spot Tarifa. Dit is de tabel van Windguru, geleverd door Windguru: zijn modellen, zijn weergave, zijn sterren. We gebruiken hem om te vergelijken met de officiële waarden hierboven.',
-      'Windguru visar här sina egna modellrader för spoten Tarifa. Det är Windgurus tabell, levererad av Windguru: dess modeller, dess presentation, dess stjärnor. Vi använder den för att jämföra med de officiella värdena ovan.'
-    ),
-    explainBefore: l('How to read the rows — mean wind, gusts, direction, wave, period, grid width — we take apart', 'Wie ihr die Zeilen lest — Mittelwind, Böen, Richtung, Welle, Periode, Rasterweite — nehmen wir', 'Cómo se leen las filas (viento medio, rachas, dirección, ola, periodo, malla) lo desglosamos', 'Hoe je de rijen leest — gemiddelde wind, vlagen, richting, golf, periode, rasterbreedte — halen we', 'Hur ni läser raderna – medelvind, byar, riktning, våg, period, rutnätsbredd – plockar vi isär'),
-    explainLabel: l('field by field just below', 'gleich darunter Feld für Feld auseinander', 'campo por campo justo debajo', 'veld voor veld hier direct onder uit elkaar', 'fält för fält strax nedan'),
-    explainAfter: l('.', '.', '.', '.', '.'),
-    loading: l('The Windguru table loads when it scrolls into view.', 'Die Windguru-Tabelle lädt, sobald sie ins Bild kommt.', 'La tabla de Windguru se carga cuando entra en pantalla.', 'De Windguru-tabel laadt zodra hij in beeld komt.', 'Windguru-tabellen laddas när den kommer in i bild.'),
-    noscript: l('The Windguru table needs JavaScript. Open the Tarifa spot directly at Windguru instead.', 'Die Windguru-Tabelle braucht JavaScript. Öffnet stattdessen den Spot Tarifa direkt bei Windguru.', 'La tabla de Windguru necesita JavaScript. Abrid el spot de Tarifa directamente en Windguru.', 'De Windguru-tabel heeft JavaScript nodig. Open in plaats daarvan de spot Tarifa rechtstreeks bij Windguru.', 'Windguru-tabellen kräver JavaScript. Öppna i stället spoten Tarifa direkt hos Windguru.'),
-    lazyNote: l('The table is loaded from windguru.cz only once you scroll to it. Availability, models and presentation are Windguru’s.', 'Die Tabelle wird erst von windguru.cz geladen, wenn ihr bis hierher scrollt. Verfügbarkeit, Modelle und Darstellung liegen bei Windguru.', 'La tabla solo se carga desde windguru.cz cuando llegáis hasta aquí. Disponibilidad, modelos y presentación son de Windguru.', 'De tabel wordt pas van windguru.cz geladen zodra jullie tot hier scrollen. Beschikbaarheid, modellen en weergave liggen bij Windguru.', 'Tabellen laddas från windguru.cz först när ni skrollar hit. Tillgänglighet, modeller och presentation ligger hos Windguru.')
+    modelsTitle: de1('Die Modelle — und warum die Locals WRF 3 km nehmen'),
+    modelsIntro: de1('Windguru stapelt für Tarifa mehrere Wettermodelle untereinander. Beim ersten Mal ist genau das der Moment zum Aussteigen: Welches nehme ich denn jetzt? Kurz erklärt, von grob und langfristig bis fein und kurzfristig:'),
+    models: [
+      { id: 'gfs', name: 'GFS 13 km', text: de1('Ein globales Modell, es rechnet die ganze Welt — dafür grob, mit 13-km-Raster. Gut für den groben Trend über mehrere Tage, zu grob für euren Strand.') },
+      { id: 'ifs', name: 'IFS-HRES 9 km', text: de1('Das europäische Modell, etwas feiner mit 9 km. Solider Mittelbau, aber noch nicht auf die Meerenge zugeschnitten.') },
+      { id: 'wrf3', name: 'WRF 3 km', text: de1('Das lokale, hochaufgelöste Modell für die Straße von Gibraltar — 3-km-Raster, kurzfristig und nah an Tarifa. Das ist die Zeile, auf die die Locals morgens schauen, und die ihr oben live seht.') },
+      { id: 'wrf1', name: 'WRF 1 km', text: de1('Noch feiner, mit 1-km-Raster. Feiner heißt detaillierter — aber nicht automatisch genauer, dazu gleich mehr.') }
+    ],
+    modelsWhy: de1('Warum ausgerechnet WRF 3 km? Weil ein feines, lokales Raster die Straße von Gibraltar überhaupt erst abbilden kann — die groben globalen Modelle glätten genau die Effekte weg, die Tarifa ausmachen. Aber Vorsicht vor dem häufigsten Denkfehler: feiner ist nicht automatisch richtiger. Deshalb liest man nie nur eine Zeile. Sagen zwei, drei Modelle ungefähr dasselbe über Richtung, Stärke und Uhrzeit, ist der Tag stabil. Laufen sie auseinander, ist genau das die Information — der Tag ist unsicher, und man schaut am Strand noch einmal hin. Die grünen Sternchen sind nett. Dein Board tragen sie nicht ins Wasser.')
   },
   beaufort: {
     title: l('Putting the knots in proportion: the Beaufort scale', 'Die Knoten ins Verhältnis setzen: die Beaufort-Skala', 'Poner los nudos en proporción: la escala Beaufort', 'De knopen in verhouding: de Beaufort-schaal', 'Sätt knopen i proportion: Beaufort-skalan'),

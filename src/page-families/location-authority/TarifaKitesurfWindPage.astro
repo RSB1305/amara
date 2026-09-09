@@ -6,7 +6,6 @@ import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
 import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
-import WindguruExampleRow from '../../components/experience/WindguruExampleRow.astro';
 import WindguruWidget from '../../components/experience/WindguruWidget.astro';
 import AemetForecastPanel from '../../components/location/AemetForecastPanel.astro';
 import AemetWarningsPanel from '../../components/location/AemetWarningsPanel.astro';
@@ -153,25 +152,48 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </LocationModule>
 
-    <LocationModule id="windguru-live" labelledby="windguru-live-title" surface="tint" spacing="compact" data-am-topic="windguru-live">
+    <LocationModule id="windguru" labelledby="windguru-title" spacing="compact" data-am-topic="windguru">
       <div class="mx-auto max-w-screen-2xl">
-        <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
-          <div class="lg:col-span-5">
-            <p class="am-text-eyebrow text-primary">{content.windguruLive.eyebrow}</p>
-            <h2 id="windguru-live-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.windguruLive.title}</h2>
-          </div>
-          <div class="lg:col-span-7">
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.windguruLive.intro}</p>
-            <p class="am-text-body mt-5 max-w-3xl leading-relaxed text-on-surface-variant">
-              {content.windguruLive.explainBefore}{' '}
-              <a class="am-link" href="#windguru">{content.windguruLive.explainLabel}</a>{content.windguruLive.explainAfter}
-            </p>
-          </div>
+        <div class="max-w-3xl">
+          <p class="am-text-eyebrow text-primary">{content.windguru.eyebrow}</p>
+          <h2 id="windguru-title" class="am-text-title mt-5 text-balance text-on-surface">{content.windguru.title}</h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.windguru.intro}</p>
         </div>
+
         <div class="mt-10">
-          <WindguruWidget lang={currentLang} loadingLabel={content.windguruLive.loading} noscriptLabel={content.windguruLive.noscript} />
-          <p class="am-text-caption mt-4 max-w-3xl normal-case tracking-normal text-muted">{content.windguruLive.lazyNote}</p>
+          <WindguruWidget lang={currentLang} loadingLabel={content.windguru.loading} noscriptLabel={content.windguru.noscript} />
+          <p class="am-text-caption mt-4 max-w-3xl normal-case tracking-normal text-muted">{content.windguru.lazyNote}</p>
           <AmaraActionLink href={content.windguru.linkHref} variant="editorial" external class="mt-5 inline-flex">{content.windguru.linkLabel}</AmaraActionLink>
+        </div>
+
+        <div class="mt-14">
+          <h3 class="am-text-subtitle max-w-md text-balance text-on-surface">{content.windguru.rowsTitle}</h3>
+          <dl class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {content.windguru.rows.map((row) => (
+              <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-windguru-row={row.id}>
+                <dt class="am-text-label am-text-label--sm text-on-surface">{row.title}</dt>
+                <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{row.text}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+
+        <div class="mt-14 grid gap-8 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-5">
+            <h3 class="am-text-subtitle max-w-md text-balance text-on-surface">{content.windguru.modelsTitle}</h3>
+          </div>
+          <div class="space-y-6 lg:col-span-7">
+            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.windguru.modelsIntro}</p>
+            <dl class="space-y-4">
+              {content.windguru.models.map((model) => (
+                <div class="border-l-2 border-primary/35 pl-5" data-windguru-model={model.id}>
+                  <dt class="am-text-label text-on-surface">{model.name}</dt>
+                  <dd class="am-text-body mt-1 leading-relaxed text-on-surface-variant">{model.text}</dd>
+                </div>
+              ))}
+            </dl>
+            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{content.windguru.modelsWhy}</p>
+          </div>
         </div>
 
         <details class="group mt-12 border-t border-border-subtle pt-6 outline-none" data-am-beaufort>
@@ -208,44 +230,6 @@ const footerHighlights: LabeledLink[] = [
           </div>
           <p class="am-text-caption mt-4 max-w-3xl normal-case tracking-normal text-muted">{content.beaufort.note}</p>
         </details>
-      </div>
-    </LocationModule>
-
-    <LocationModule id="windguru" labelledby="windguru-title" spacing="compact" data-am-topic="windguru">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
-          <div class="lg:col-span-5">
-            <p class="am-text-eyebrow text-primary">{content.windguru.eyebrow}</p>
-            <h2 id="windguru-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.windguru.title}</h2>
-          </div>
-          <div class="lg:col-span-7">
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.windguru.intro}</p>
-            <p class="am-text-caption mt-5 max-w-3xl normal-case tracking-normal text-muted">{content.windguru.sourceNote}</p>
-            <AmaraActionLink href={content.windguru.linkHref} variant="editorial" external class="mt-5 inline-flex">{content.windguru.linkLabel}</AmaraActionLink>
-          </div>
-        </div>
-
-        <div class="mt-12 bg-surface-container-low px-5 py-8 md:px-8 md:py-10">
-          <WindguruExampleRow
-            title={content.windguru.example.title}
-            note={content.windguru.example.note}
-            hour={content.windguru.example.hour}
-            hourLabel={content.windguru.example.hourLabel}
-            columns={content.windguru.example.columns}
-            terms={content.windguru.terms}
-            moreTitle={content.windguru.example.moreTitle}
-          />
-        </div>
-
-        <div class="mt-14 grid gap-8 lg:grid-cols-12 lg:gap-20">
-          <div class="lg:col-span-5">
-            <h3 class="am-text-subtitle max-w-md text-balance text-on-surface">{content.windguru.resolutionTitle}</h3>
-          </div>
-          <div class="space-y-5 lg:col-span-7">
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.windguru.resolutionText}</p>
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{content.windguru.modelNote}</p>
-          </div>
-        </div>
       </div>
     </LocationModule>
 
