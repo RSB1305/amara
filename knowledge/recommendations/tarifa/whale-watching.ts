@@ -23,7 +23,7 @@ export const tarifaWhaleWatchingRecommendations = defineKnowledgeRecommendations
       'Research-foundation operator; the most transparently documented choice for German-speaking families. Large stable boats (VISION, SPIRIT) with toilet and a wheelchair space, German/English/Spanish briefings, life jackets for all incl. babies, free cancellation and a no-sighting repeat ticket. 2h standard and a July/August-only 3h orca search.',
     bestFor: ['families', 'German-speaking guests', 'reduced mobility (calm seas)', 'first-time whale watching'],
     access: [{ from: 'amara-family-surf', note: 'Harbour office inside Puerto de Tarifa; check in ~1h before, park outside the harbour.' }],
-    provenance: 'researched',
+    provenance: 'amara-first-hand',
     status: 'APPROVED',
     scope: 'public',
     basis: 'operator-review',
