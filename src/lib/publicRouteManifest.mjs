@@ -643,13 +643,6 @@ const definitions = [
     segment: { es: 'viento', en: 'wind', de: 'wind', nl: 'wind', sv: 'vind' }
   },
   {
-    key: 'tarifa.kitesurfing.forecast',
-    legacySlug: 'tarifa-kitesurf-forecast',
-    family: 'tarifa-kite-forecast',
-    parent: 'tarifa.kitesurfing',
-    segment: { es: 'prevision', en: 'forecast', de: 'vorhersage', nl: 'voorspelling', sv: 'prognos' }
-  },
-  {
     key: 'tarifa.kitesurfing.school',
     legacySlug: 'tarifa-kite-school',
     family: 'tarifa-kitesurf-spoke',
