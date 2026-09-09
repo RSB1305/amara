@@ -39,6 +39,11 @@ export interface WtsWho {
   title: string;
   text: string;
 }
+export interface WtsAccommodationType {
+  id: string;
+  name: string;
+  note: string;
+}
 
 export interface WhereToStayCopy {
   hero: {
@@ -53,6 +58,17 @@ export interface WhereToStayCopy {
   glanceTitle: string;
   glanceIntro: string;
   glance: WtsGlance[];
+  /**
+   * Optional accommodation-structure block (what kinds of places exist and
+   * roughly where/at what level). Rendered only where present; other locations
+   * omit it. Types carry stable `id`s for the locale-parity contract.
+   */
+  accommodation?: {
+    eyebrow: string;
+    title: string;
+    intro: string;
+    types: WtsAccommodationType[];
+  };
   factorEyebrow: string;
   factor: { title: string; intro: string; copy: string; note: string; day: string[] };
   zonesEyebrow: string;

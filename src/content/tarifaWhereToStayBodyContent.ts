@@ -13,62 +13,88 @@ const de: WhereToStayCopy = {
   hero: {
     eyebrow: 'Wo übernachten · Tarifa',
     title: 'Wo in Tarifa übernachten',
-    lede: 'Windiger Zipfel zwischen zwei Meeren — Altstadt hinter Mauern, weite Strände und das Kite-Revier vor der Tür.',
-    body: 'Wo Atlantik und Mittelmeer aufeinandertreffen: eine maurisch geprägte Altstadt hinter alten Mauern, der lange Strand von Los Lances und ganzjährig Wind. In Tarifa entscheidet nicht die Höhe wie in Frigiliana und nicht nur die Nähe wie in Nerja, sondern der Wind: Wie viel davon wollt ihr vor der Tür — und wollt ihr laufen oder fahren?',
-    traits: ['**Levante & Poniente**', 'Kite & Wind', 'Altstadt hinter Mauern', 'Zwei Meere', 'Ganzjährig'],
+    lede: 'Windiger Zipfel zwischen zwei Meeren — flaches Strandviertel am Wasser, Altstadt hinter Mauern und ansteigende Hänge mit Blick.',
+    body: 'Wo Atlantik und Mittelmeer aufeinandertreffen: eine maurisch geprägte Altstadt hinter alten Mauern, der kilometerlange Strand von Los Lances und ganzjährig Wind. Zwei Dinge entscheiden, wo ihr am besten wohnt — wie viel Wind ihr vor der Tür wollt und wie das Terrain ist: flacher, ebener Grund unten am Wasser oder ansteigende Hanglagen mit Blick über die Meerenge. Wir wohnen im flachen La Marina, direkt hinter dem Strand.',
+    traits: ['**Levante & Poniente**', 'Flach am Wasser', 'Altstadt hinter Mauern', 'Kite-Revier', 'Ganzjährig'],
     stats: [
       { id: 'winds', k: '2', l: 'prägende Winde: Levante von Ost, Poniente von West' },
       { id: 'beach', k: '10 km', l: 'offener Sandstrand nach Norden: Los Lances bis Valdevaqueros' },
-      { id: 'parts', k: '3', l: 'Lagen mit spürbar anderem Alltag' }
+      { id: 'parts', k: '5', l: 'Lagen mit spürbar anderem Alltag — von flach am Wasser bis Hang' }
     ]
   },
-  heroCtaZones: 'Die drei Teile ansehen',
+  heroCtaZones: 'Die fünf Lagen ansehen',
   glanceTitle: 'Welcher Teil passt zu euch?',
-  glanceIntro: 'Drei Lagen, drei Aufenthalte. Worin sie sich hier unterscheiden, entscheidet vor allem der Wind — und ob ihr zu Fuß oder mit dem Auto unterwegs seid.',
+  glanceIntro: 'Zwei Fragen entscheiden in Tarifa: wie viel Wind ihr vor der Tür wollt — und wie eben die Wege sein sollen. Danach sortieren sich die Lagen fast von selbst.',
   glance: [
-    { id: 'altstadt', title: 'Altstadt & La Marina', blurb: 'Gassen, Tapas, kurze Wege — geschützt vor dem Wind, im Sommer belebt' },
-    { id: 'strand', title: 'Los Lances & Strand', blurb: 'Kite, Wind, weite Fläche — offen und windig' },
-    { id: 'campo', title: 'Campo & Hanglagen', blurb: 'Ruhe, Weite, Blick — dafür Auto und teils voller Wind' }
+    { id: 'losLancesSur', title: 'Flach & direkt am Wasser', blurb: 'Los Lances Sur mit La Marina — ebene Straßen, Strand vor der Tür, entspanntes Parken' },
+    { id: 'centro', title: 'Mittendrin im Ort', blurb: 'Altstadt und Neustadt — kurze Wege, Supermärkte, Cafés; die Gassen eng und windgeschützt' },
+    { id: 'hanglagen', title: 'Höhe, Ruhe & Weite', blurb: 'Hanglagen und Umland — Blick über die Meerenge, dafür Steigung und Auto' }
   ],
+  accommodation: {
+    eyebrow: 'Was Tarifa an Betten hat',
+    title: 'Vom Surf-Hostel bis zur Finca',
+    intro: 'Tarifa ist kein Ort der großen Hotelburgen. Das Gros sind Ferienwohnungen und -häuser, dazu kleine, meist inhabergeführte Hotels im Ort, ein paar Hostels für die Surf-Szene und Fincas im Umland. Was es kostet, hängt vor allem an der Saison: im windstarken Hochsommer zieht es an, in der Nebensaison wird es spürbar günstiger.',
+    types: [
+      { id: 'apartments', name: 'Ferienwohnungen & -häuser', note: 'Das größte Angebot — von der einfachen Wohnung bis zum modernen Penthouse mit Pool. In La Marina und der Neustadt am dichtesten, ideal für Selbstversorger, Familien und alle mit Material.' },
+      { id: 'hotels', name: 'Kleine Hotels & Boutique', note: 'Überschaubar und oft inhabergeführt, viele in und um die Altstadt und an der Strandstraße. Mittleres bis gehobenes Niveau; große Ketten sucht man hier vergeblich.' },
+      { id: 'hostels', name: 'Hostels & Pensionen', note: 'Für die Surf- und Kite-Szene: einfache Betten, oft mit Gemeinschaftsküche und Platz fürs Board. Günstig, gesellig, meist zentral oder strandnah.' },
+      { id: 'fincas', name: 'Fincas & Landhäuser', note: 'Im Umland Richtung Naturpark: Ruhe, Weite und Blick — dafür braucht ihr das Auto für jeden Weg in den Ort oder an den Strand.' }
+    ]
+  },
   factorEyebrow: 'Worauf es in Tarifa ankommt',
   factor: {
-    title: 'Alles eine Frage des Windes',
-    intro: 'Tarifa liegt am südlichsten Zipfel des europäischen Festlands, dort wo Atlantik und Mittelmeer aufeinandertreffen — und gilt als einer der windigsten Orte Europas. Zwei Winde prägen den Alltag: der kräftige Levante von Osten und der mildere Poniente von Westen. Deshalb entscheidet hier nicht Höhe oder Nähe, sondern: Wie viel Wind wollt ihr vor der Tür?',
-    copy: 'Am offenen Strand ist der Wind das Programm — ideal zum Kiten, weniger zum ruhigen Sonnenbad. Hinter den Altstadtmauern ist es spürbar geschützter. Die beste Lage ist die, deren **Verhältnis zum Wind** zu eurem Urlaub passt — und ob ihr dafür lauft oder das Auto braucht.',
-    note: 'Ein Tag in Tarifa: morgens Strand, mittags im Ort, nachmittags aufs Wasser — und abends windgeschützt beim Essen?',
-    day: ['Morgens an den Strand von Los Lances', 'Mittags Tapas in der Altstadt', 'Nachmittags aufs Wasser bei Levante', 'Abends geschützt hinter den Mauern', 'Nachts — Windrauschen oder Ruhe?']
+    title: 'Wind und Wege — die zwei Fragen',
+    intro: 'Tarifa liegt am südlichsten Zipfel des Festlands, wo Atlantik und Mittelmeer aufeinandertreffen, und gilt als einer der windigsten Orte Europas. Zwei Winde prägen den Alltag: der kräftige Levante von Osten und der mildere Poniente von Westen. Die zweite Frage ist das Terrain — Ort und Strandviertel sind flach, landeinwärts steigen die Hänge merklich an.',
+    copy: 'Am offenen Strand ist der Wind das Programm — ideal zum Kiten, weniger zum ruhigen Sonnenbad. Hinter den Altstadtmauern ist es spürbar geschützter, dafür eng und mit Kopfsteinpflaster. Am ebensten wohnt ihr unten am Wasser, wo die Straßen breit und flach sind. Die beste Lage ist die, deren **Verhältnis zu Wind und Wegen** zu eurem Urlaub passt.',
+    note: 'Ein Tag in Tarifa: morgens über flache Wege an den Strand, mittags im Ort, nachmittags aufs Wasser — und abends windgeschützt beim Essen?',
+    day: ['Morgens über flache Wege an den Strand von Los Lances', 'Mittags Tapas in der Altstadt', 'Nachmittags aufs Wasser bei Levante', 'Abends geschützt hinter den Mauern', 'Nachts — Windrauschen oder Ruhe?']
   },
   zonesEyebrow: 'Die Lagen',
-  zonesTitle: 'Die drei Teile von Tarifa',
-  zonesIntro: 'Grob gibt es drei Welten: den geschützten Kern aus Altstadt und La Marina, die offene Strandzone um Los Lances und das ruhigere Campo mit seinen Hanglagen. Jede steht anders zum Wind — und tauscht dafür etwas anderes ein.',
+  zonesTitle: 'Tarifas fünf Lagen',
+  zonesIntro: 'Von der flachen Küste ins ansteigende Inland: fünf Lagen, die sich nicht nach Sehenswürdigkeiten unterscheiden, sondern nach Alltag — wie flach die Wege sind, wie nah Strand und Ort liegen und wie viel Auto ihr braucht.',
   zones: [
     {
-      id: 'altstadt',
-      sub: 'Altstadt & La Marina',
-      h3: 'Der geschützte Kern — Gassen, Tapas, kurze Wege',
-      desc: 'Der historische Ort hinter den alten Mauern und das angrenzende Hafenviertel — hier teilt sich der Kern in zwei:',
+      id: 'casco',
+      sub: 'Zone 1 · Casco Antiguo',
+      h3: 'Die historische Altstadt — flach, aber eng und gepflastert',
+      desc: 'Innerhalb der alten Stadtmauern: weiße, extrem enge und verwinkelte Gassen, historisch gezielt als Schutz vor Wind und Hitze gebaut. Das Terrain ist weitgehend flach, aber überall Kopfsteinpflaster. Praktisch eine Fußgängerzone — alles zu Fuß erreichbar, direkte Parkplätze an den Unterkünften gibt es nicht.',
+      idealFor: 'Wer mitten im Leben zwischen Tapas-Bars und Läden wohnen und den Wind aussperren will.',
+      honest: 'Koffer rollen über Kopfsteinpflaster vom Rand der Altstadt herein; für das tägliche Ein- und Ausladen von großem Kite-Material ist das mühsam, und Parken ist knapp.'
+    },
+    {
+      id: 'centro',
+      sub: 'Zone 2 · Centro & Neustadt',
+      h3: 'Das urbane Zentrum — flach und alltagspraktisch',
+      desc: 'Flaches Terrain rund um den historischen Kern, mit modernem Straßenraster und befestigten Bürgersteigen. Hier ist die Dichte an Supermärkten und Alltagsinfrastruktur am höchsten.',
+      idealFor: 'Familien und Selbstversorger, die zu Fuß einkaufen wollen und das Auto griffbereit an der Straße für Fahrten zu entfernteren Stränden brauchen.',
+      honest: 'Kein Postkarten-Kopfsteinpflaster und weniger Altstadt-Romantik — dafür leicht begehbar und praktisch.'
+    },
+    {
+      id: 'losLancesSur',
+      sub: 'Zone 3 · Los Lances Sur',
+      h3: 'Das direkte Strandviertel — eben, am Wasser, hier wohnen wir',
+      desc: 'Absolut flaches Küstengebiet auf Meereshöhe, direkt hinter dem südlichen Ende des kilometerlangen Sandstrandes. Breite, befestigte Straßen, keine Steigungen und — verglichen mit der Altstadt — eine sehr entspannte Parksituation. Hier liegt das Barrio La Marina.',
       quarters: [
-        { id: 'casco', name: 'Altstadt (Casco)', note: 'Maurisch geprägte Gassen hinter den Mauern: am geschütztesten vor dem Wind, viel Leben — dafür eng und wenig Parkraum.' },
-        { id: 'marina', name: 'La Marina', note: 'Das Viertel zwischen Altstadt und Strand: zu Fuß in den Ort und ans Wasser — hier liegt AMARA.' }
+        { id: 'marina', name: 'La Marina', note: 'Moderne, breite Straßen, Tiefgaragen und Aufzüge, Strand und Promenade vor der Tür. Über flache Wege in wenigen Minuten bei den Supermärkten und Cafés der Neustadt — hier wohnt AMARA.' }
       ],
-      idealFor: 'Wer Ort, Restaurants und Strand zu Fuß erreichen und dem Wind ausweichen können will.',
-      honest: 'Im Sommer und bei Fährbetrieb belebt, Parken ist knapp; der breite Kitestrand liegt ein Stück Richtung Norden.'
+      idealFor: 'Surfer und Familien mit Material und Strandgepäck, die zu Fuß ans Wasser und im Alltag das Auto stehen lassen wollen.',
+      honest: 'Offener und windiger als hinter den Mauern; wer absolute Ruhe abseits von allem sucht, ist im Umland richtiger.'
     },
     {
-      id: 'strand',
-      sub: 'Los Lances & die Strandzone',
-      h3: 'Wo der Wind das Programm ist',
-      desc: 'Der lange Sandstrand nördlich des Orts, bis Valdevaqueros: hier spielt sich das Kite- und Windleben ab, weite Fläche, Strandbars. Dafür ist es offen und windig — und je weiter draußen, desto mehr braucht ihr das Auto.',
-      idealFor: 'Kite- und Windsurfer und alle, die morgens direkt ans (windige) Wasser wollen.',
-      honest: 'Bei Levante wird es richtig windig; ruhiges Sonnenbaden ist hier die Ausnahme, und zum Ort fahrt oder lauft ihr ein Stück.'
+      id: 'hanglagen',
+      sub: 'Zone 4 · Hanglagen im Norden',
+      h3: 'Die höhergelegenen Viertel — Blick, aber Steigung',
+      desc: 'Landeinwärts, jenseits von Küstenstreifen und Altstadt, steigt das Terrain merklich an. Die Wohngebiete ziehen sich den Hang hinauf, teils über steile Cuestas — dafür spektakulärer Blick über die Straße von Gibraltar.',
+      idealFor: 'Wer den Ausblick und etwas Distanz zum Trubel sucht und mobil genug für die Steigung ist.',
+      honest: 'Der Rückweg vom Strand oder nach dem Abendessen ist zu Fuß anstrengend; für Kinderwagen oder eingeschränkte Mobilität sind diese Lagen weniger zu empfehlen.'
     },
     {
-      id: 'campo',
-      sub: 'Campo & Hanglagen',
-      h3: 'Ruhe, Raum — dafür das Auto',
-      desc: 'Das Umland und die Hügel Richtung N-340: Fincas, Weite, oft Blick über die Meerenge nach Afrika. Ruhiger und mehr Platz — aber Strand, Ort und Abendessen sind hier ein Weg mit dem Auto, und manche Kuppe steht selbst voll im Wind.',
-      idealFor: 'Wer Ruhe, Weite und Blick über die direkte Nähe zu Ort und Strand stellt.',
-      honest: 'Ohne Auto geht hier wenig; und windgeschützt ist längst nicht jede Lage im Campo.'
+      id: 'umland',
+      sub: 'Zone 5 · Außenbezirke & Küsten-Urbanisationen',
+      h3: 'Valdevaqueros, Punta Paloma, El Cuartón — Weite und Dünen',
+      desc: 'El Cuartón und La Peña liegen landeinwärts an den steileren Hängen der Naturparks; die Strandzonen Valdevaqueros und Punta Paloma im Westen prägen mächtige Sanddünen und ein weitläufiges, wenig bebautes Umfeld. Viel Ruhe abseits des Sommertrubels.',
+      idealFor: 'Wer Weite, Natur und Nähe zu den westlichen Kite-Spots über die kurzen Wege im Ort stellt.',
+      honest: 'Das direkte Angebot an Infrastruktur ist deutlich dünner — für Einkäufe oder den Weg ins Zentrum ist ein Mietwagen hier zwingend.'
     }
   ],
   labelIdealFor: 'Ideal für',
@@ -76,10 +102,10 @@ const de: WhereToStayCopy = {
   whoTitle: 'Für wen Tarifa ideal ist',
   whoIntro: 'Tarifa passt zu Gästen, die Wind, Wasser und eine lebendige Altstadt zwischen zwei Meeren suchen — mit dem Kite-Revier vor der Tür. Wer vor allem ruhiges Strandbaden ohne Wind möchte, ist an der geschützteren Küste um Nerja besser aufgehoben.',
   who: [
-    { id: 'families', title: 'Familien', text: 'Flacher, weiter Strand zum Toben, Wind zum Drachensteigen, dazu die Altstadt — Tarifa ist entspannt für Kinder.' },
+    { id: 'families', title: 'Familien', text: 'Flacher, weiter Strand zum Toben, ebene Wege am Wasser für Kinderwagen und Strandgepäck, dazu die Altstadt zum Bummeln — Tarifa ist entspannt für Kinder.' },
     { id: 'kite', title: 'Kite- & Windsurfer', text: 'Los Lances und Valdevaqueros vor der Tür, Levante und Poniente fast das ganze Jahr.' },
     { id: 'active', title: 'Aktive & Naturnahe', text: 'Wandern am Kap, Whale-Watching in der Meerenge, Ausflüge nach Bolonia — zwischen zwei Meeren.' },
-    { id: 'longstay', title: 'Ruhesuchende', text: 'Wer abschalten will, findet im Campo Weite und Ruhe — und im Ort trotzdem Alltag und Leben.' }
+    { id: 'longstay', title: 'Ruhesuchende', text: 'Wer abschalten will, findet im Umland Weite und Ruhe — und im Ort trotzdem Alltag und Leben.' }
   ],
   pointer: {
     text: '**Noch unsicher, wie viel Wind ihr wollt?** Der Wind ist Tarifas Programm — an manchen Tagen sanft, an anderen kräftig. Ein Blick auf Winde und Reviere hilft bei der Wahl.',
@@ -88,12 +114,12 @@ const de: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Darum sind wir hier',
-    title: 'Zwischen Mauern und Wasser — mittendrin, aber geschützt',
-    caption: 'La Marina liegt zwischen Altstadt und Strand: zu Fuß in den Ort, zu Fuß ans Wasser — und windgeschützter als der offene Strand.',
+    title: 'La Marina — flach am Wasser, mittendrin und doch bereit für die Spots',
+    caption: 'La Marina liegt in Los Lances Sur: ebener Grund direkt hinter dem Strand, fließender Übergang in die Neustadt.',
     mapNote: '(siehe Orientierungskarte oben)',
-    lead: 'In Tarifa muss man sich oft entscheiden: Strand *oder* Ort, Wind *oder* Ruhe. **AMARA liegt in La Marina** — dem Viertel zwischen der Altstadt und dem Strand. Von hier sind es wenige Minuten zu Fuß in die Gassen mit den Tapas-Bars und ebenso wenige zum Wasser. Und geschützter als draußen am offenen Los Lances.',
-    facts: ['**La Marina** — zwischen Altstadt und Strand', '**Zu Fuß** in den Ort und ans Wasser', '**Geschützter** als der offene Kitestrand — ohne den Weg mit dem Auto'],
-    honest: 'Ehrlich bleibt: den echten Kite-Tag habt ihr draußen an Los Lances und Valdevaqueros; wer Weite und Blick über Nähe stellt, ist im Campo besser aufgehoben. Für Ort und Strand in einem ist La Marina genau richtig.'
+    lead: 'In Tarifa muss man oft wählen: Strand *oder* Ort, Wind *oder* Ruhe, Blick *oder* kurze Wege. **AMARA liegt in La Marina** — dem flachen Strandviertel in Los Lances Sur. Breite, ebene Straßen, Tiefgarage und Aufzug, der Strand vor der Tür und über flache Wege in wenigen Minuten bei den Supermärkten und Cafés der Neustadt. Das Auto könnt ihr im Alltag stehen lassen — und habt es dennoch griffbereit, wenn ihr mit dem Material zu den Spots nach Valdevaqueros aufbrecht. Gerade außerhalb des Hochsommers spielt das seine Stärke aus: wenig Betrieb, kurze Wege, und Wind gibt es in Tarifa fast das ganze Jahr.',
+    facts: ['**Flach & eben** — breite Straßen, Tiefgarage, Aufzug, kein Kopfsteinpflaster', '**Strand vor der Tür** — zu Fuß ans Wasser, mit Board oder Kinderwagen', '**Neustadt in Minuten** — Supermärkte und Cafés über ebene Wege', '**Auto bereit** — im Alltag stehen lassen, für Valdevaqueros griffbereit'],
+    honest: 'Ehrlich bleibt: hinter den Altstadtmauern wohnt ihr windgeschützter, und den Blick über die Meerenge habt ihr oben an den Hanglagen. Für flache Wege, Strand und Ort in einem — gerade mit Material oder Kindern — ist La Marina genau richtig.'
   }
 };
 
@@ -101,62 +127,88 @@ const en: WhereToStayCopy = {
   hero: {
     eyebrow: 'Where to stay · Tarifa',
     title: 'Where to stay in Tarifa',
-    lede: 'A windy spit between two seas — a walled old town, wide beaches and the kite grounds at the door.',
-    body: 'Where the Atlantic and the Mediterranean meet: a Moorish-flavoured old town behind ancient walls, the long beach of Los Lances and wind all year round. In Tarifa it isn’t height that decides, as in Frigiliana, nor proximity alone, as in Nerja, but the wind: how much of it do you want at the door — and do you want to walk or drive?',
-    traits: ['**Levante & Poniente**', 'Kite & wind', 'Walled old town', 'Two seas', 'Year-round'],
+    lede: 'A windy spit between two seas — a flat beach quarter at the water, a walled old town and rising hills with a view.',
+    body: 'Where the Atlantic and the Mediterranean meet: a Moorish-flavoured old town behind ancient walls, the kilometre-long beach of Los Lances and wind all year round. Two things decide where you stay best — how much wind you want at the door, and the terrain: flat, even ground down by the water or rising hillsides with a view across the strait. We live in flat La Marina, right behind the beach.',
+    traits: ['**Levante & Poniente**', 'Flat by the water', 'Walled old town', 'Kite grounds', 'Year-round'],
     stats: [
       { id: 'winds', k: '2', l: 'defining winds: Levante from the east, Poniente from the west' },
       { id: 'beach', k: '10 km', l: 'open sand northward: Los Lances to Valdevaqueros' },
-      { id: 'parts', k: '3', l: 'parts with a noticeably different daily life' }
+      { id: 'parts', k: '5', l: 'areas with a noticeably different daily life — from flat by the water to hillside' }
     ]
   },
-  heroCtaZones: 'See the three parts',
+  heroCtaZones: 'See the five areas',
   glanceTitle: 'Which part suits you?',
-  glanceIntro: 'Three locations, three kinds of stay. What sets them apart here is above all the wind — and whether you get around on foot or by car.',
+  glanceIntro: 'Two questions decide in Tarifa: how much wind you want at the door — and how flat the walk should be. After that the areas sort themselves out.',
   glance: [
-    { id: 'altstadt', title: 'Old Town & La Marina', blurb: 'Lanes, tapas, short walks — sheltered from the wind, busy in summer' },
-    { id: 'strand', title: 'Los Lances & beach', blurb: 'Kite, wind, open space — exposed and windy' },
-    { id: 'campo', title: 'Campo & hills', blurb: 'Quiet, space, views — but a car, and some spots full in the wind' }
+    { id: 'losLancesSur', title: 'Flat & right by the water', blurb: 'Los Lances Sur with La Marina — level streets, beach at the door, easy parking' },
+    { id: 'centro', title: 'In the thick of town', blurb: 'Old town and new town — short walks, supermarkets, cafés; the lanes narrow and sheltered' },
+    { id: 'hanglagen', title: 'Height, quiet & space', blurb: 'Hillside districts and outskirts — a view across the strait, but a climb and a car' }
   ],
+  accommodation: {
+    eyebrow: 'What Tarifa has for beds',
+    title: 'From surf hostel to finca',
+    intro: 'Tarifa is no place of big hotel blocks. The bulk are holiday apartments and houses, plus small, mostly owner-run hotels in town, a few hostels for the surf crowd and fincas out in the countryside. What it costs comes down mostly to the season: it climbs in the windy high summer and drops noticeably off-season.',
+    types: [
+      { id: 'apartments', name: 'Holiday apartments & houses', note: 'The largest choice — from a simple flat to a modern penthouse with a pool. Densest in La Marina and the new town, ideal for self-caterers, families and anyone with kit.' },
+      { id: 'hotels', name: 'Small hotels & boutique', note: 'Modest in number and often owner-run, many in and around the old town and along the beach road. Mid to upper level; you won’t find the big chains here.' },
+      { id: 'hostels', name: 'Hostels & guesthouses', note: 'For the surf and kite crowd: simple beds, often with a shared kitchen and space for a board. Cheap, sociable, usually central or near the beach.' },
+      { id: 'fincas', name: 'Fincas & country houses', note: 'In the countryside towards the natural park: quiet, space and a view — but you need the car for every trip into town or to the beach.' }
+    ]
+  },
   factorEyebrow: 'What matters in Tarifa',
   factor: {
-    title: 'It all comes down to the wind',
-    intro: 'Tarifa sits at the southernmost tip of mainland Europe, where the Atlantic and the Mediterranean meet — and it counts as one of the windiest places in Europe. Two winds shape daily life: the strong Levante from the east and the gentler Poniente from the west. So here it isn’t height or proximity that decides, but: how much wind do you want at the door?',
-    copy: 'On the open beach the wind is the whole show — perfect for kiting, less so for quiet sunbathing. Behind the old-town walls it’s noticeably more sheltered. The best location is the one whose **relationship to the wind** suits your holiday — and whether you walk for it or need the car.',
-    note: 'A day in Tarifa: beach in the morning, the town at midday, on the water in the afternoon — and dinner out of the wind in the evening?',
-    day: ['Down to Los Lances beach in the morning', 'Tapas in the old town at midday', 'Onto the water in the Levante in the afternoon', 'Sheltered behind the walls in the evening', 'At night — wind in the ears or quiet?']
+    title: 'Wind and walks — the two questions',
+    intro: 'Tarifa sits at the southernmost tip of the mainland, where the Atlantic and the Mediterranean meet, and counts as one of the windiest places in Europe. Two winds shape the day: the strong Levante from the east and the gentler Poniente from the west. The second question is the terrain — the town and the beach quarter are flat, and inland the hills climb noticeably.',
+    copy: 'On the open beach the wind is the whole show — perfect for kiting, less so for quiet sunbathing. Behind the old-town walls it’s noticeably more sheltered, but narrow and cobbled. You stay on the most level ground down by the water, where the streets are wide and flat. The best area is the one whose **relationship to wind and walks** suits your holiday.',
+    note: 'A day in Tarifa: down to the beach on flat paths in the morning, the town at midday, on the water in the afternoon — and dinner out of the wind in the evening?',
+    day: ['Down to Los Lances beach on flat paths in the morning', 'Tapas in the old town at midday', 'Onto the water in the Levante in the afternoon', 'Sheltered behind the walls in the evening', 'At night — wind in the ears or quiet?']
   },
-  zonesEyebrow: 'The locations',
-  zonesTitle: 'The three parts of Tarifa',
-  zonesIntro: 'Broadly there are three worlds: the sheltered core of the old town and La Marina, the open beach zone around Los Lances, and the quieter campo with its hillsides. Each stands differently to the wind — and trades something else for it.',
+  zonesEyebrow: 'The areas',
+  zonesTitle: 'Tarifa’s five areas',
+  zonesIntro: 'From the flat coast to the rising inland: five areas that differ not by their sights but by daily life — how flat the walk is, how close the beach and the town are, and how much car you need.',
   zones: [
     {
-      id: 'altstadt',
-      sub: 'Old Town & La Marina',
-      h3: 'The sheltered core — lanes, tapas, short walks',
-      desc: 'The historic town behind the old walls and the harbour quarter next to it — here the core splits in two:',
+      id: 'casco',
+      sub: 'Zone 1 · Casco Antiguo',
+      h3: 'The historic old town — flat, but narrow and cobbled',
+      desc: 'Inside the old walls: white, very narrow and winding lanes, built on purpose as shelter from wind and heat. The ground is largely flat, but cobbled throughout. Effectively a pedestrian zone — everything on foot, and no parking right at the accommodations.',
+      idealFor: 'Those who want to live in the thick of it, among tapas bars and shops, and shut out the wind.',
+      honest: 'Suitcases roll in over cobbles from the edge of the old town; loading and unloading big kite kit daily is a chore, and parking is tight.'
+    },
+    {
+      id: 'centro',
+      sub: 'Zone 2 · Centre & new town',
+      h3: 'The urban centre — flat and practical for daily life',
+      desc: 'Flat ground around the historic core, with a modern street grid and paved pavements. This is where the density of supermarkets and everyday infrastructure is highest.',
+      idealFor: 'Families and self-caterers who want to shop on foot and keep the car handy on the street for trips to further beaches.',
+      honest: 'No picture-postcard cobbles and less old-town romance — but easy to walk and practical.'
+    },
+    {
+      id: 'losLancesSur',
+      sub: 'Zone 3 · Los Lances Sur',
+      h3: 'The beach quarter itself — flat, at the water, where we live',
+      desc: 'Completely flat coastal ground at sea level, right behind the southern end of the kilometre-long sandy beach. Wide, paved streets, no climbs and — compared with the old town — a very relaxed parking situation. This is where the Barrio La Marina lies.',
       quarters: [
-        { id: 'casco', name: 'Old Town (Casco)', note: 'Moorish-flavoured lanes behind the walls: the most sheltered from the wind, plenty of life — but narrow, with little parking.' },
-        { id: 'marina', name: 'La Marina', note: 'The quarter between the old town and the beach: on foot into town and to the water — where AMARA is.' }
+        { id: 'marina', name: 'La Marina', note: 'Modern, wide streets, underground garages and lifts, the beach and promenade at the door. On flat paths a few minutes to the supermarkets and cafés of the new town — this is where AMARA is.' }
       ],
-      idealFor: 'Those who want town, restaurants and beach on foot, and the option to duck out of the wind.',
-      honest: 'Busy in summer and with the ferry traffic, parking is tight; the wide kite beach is a way to the north.'
+      idealFor: 'Surfers and families with kit and beach gear who want to walk to the water and leave the car for the everyday.',
+      honest: 'More open and windier than behind the walls; if you want absolute quiet away from it all, the outskirts suit you better.'
     },
     {
-      id: 'strand',
-      sub: 'Los Lances & the beach zone',
-      h3: 'Where the wind is the whole show',
-      desc: 'The long sandy beach north of town, out to Valdevaqueros: this is where the kite and wind life happens, wide open space, beach bars. In return it’s exposed and windy — and the further out, the more you need the car.',
-      idealFor: 'Kite and windsurfers, and anyone who wants to be at the (windy) water first thing.',
-      honest: 'In the Levante it gets seriously windy; quiet sunbathing is the exception here, and it’s a drive or a walk into town.'
+      id: 'hanglagen',
+      sub: 'Zone 4 · Hillside districts to the north',
+      h3: 'The higher districts — a view, but a climb',
+      desc: 'Inland, beyond the coastal strip and the old town, the ground climbs noticeably. The residential areas run up the slope, partly over steep cuestas — in return, a spectacular view across the Strait of Gibraltar.',
+      idealFor: 'Those after the view and a little distance from the bustle, and mobile enough for the climb.',
+      honest: 'The way back from the beach or after dinner is tiring on foot; for a pushchair or limited mobility these areas are less advisable.'
     },
     {
-      id: 'campo',
-      sub: 'Campo & hills',
-      h3: 'Quiet, space — but the car',
-      desc: 'The countryside and the hills towards the N-340: fincas, open space, often a view across the strait to Africa. Quieter and more room — but the beach, the town and dinner are a drive from here, and some ridges stand full in the wind themselves.',
-      idealFor: 'Those who value quiet, space and a view over being right by town and beach.',
-      honest: 'Without a car there’s little going on here; and not every spot in the campo is out of the wind.'
+      id: 'umland',
+      sub: 'Zone 5 · Outskirts & coastal urbanisations',
+      h3: 'Valdevaqueros, Punta Paloma, El Cuartón — space and dunes',
+      desc: 'El Cuartón and La Peña sit inland on the steeper slopes of the natural parks; the beach zones of Valdevaqueros and Punta Paloma to the west are shaped by huge sand dunes and a wide, barely built-up setting. Plenty of quiet away from the summer bustle.',
+      idealFor: 'Those who put space, nature and closeness to the western kite spots above short walks in town.',
+      honest: 'The direct infrastructure is much thinner here — for shopping or the trip into the centre a rental car is essential.'
     }
   ],
   labelIdealFor: 'Best for',
@@ -164,10 +216,10 @@ const en: WhereToStayCopy = {
   whoTitle: 'Who Tarifa is ideal for',
   whoIntro: 'Tarifa suits guests who want wind, water and a lively old town between two seas — with the kite grounds at the door. Those who mainly want calm, wind-free beach days are better off on the more sheltered coast around Nerja.',
   who: [
-    { id: 'families', title: 'Families', text: 'A flat, wide beach to run around on, wind for flying kites, plus the old town — Tarifa is easy-going for kids.' },
+    { id: 'families', title: 'Families', text: 'A flat, wide beach to run around on, level paths by the water for pushchairs and beach gear, plus the old town to wander — Tarifa is easy-going for kids.' },
     { id: 'kite', title: 'Kite & windsurfers', text: 'Los Lances and Valdevaqueros at the door, Levante and Poniente almost all year.' },
     { id: 'active', title: 'Active & nature lovers', text: 'Walking on the cape, whale-watching in the strait, trips to Bolonia — between two seas.' },
-    { id: 'longstay', title: 'Peace-seekers', text: 'Those who want to switch off find space and quiet in the campo — and everyday life and buzz still in town.' }
+    { id: 'longstay', title: 'Peace-seekers', text: 'Those who want to switch off find space and quiet in the outskirts — and everyday life and buzz still in town.' }
   ],
   pointer: {
     text: '**Not sure how much wind you want?** The wind is Tarifa’s whole thing — gentle on some days, strong on others. A look at the winds and the spots helps you choose.',
@@ -176,12 +228,12 @@ const en: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Why we chose this spot',
-    title: 'Between the walls and the water — right in it, but sheltered',
-    caption: 'La Marina sits between the old town and the beach: on foot into town, on foot to the water — and more sheltered than the open beach.',
+    title: 'La Marina — flat by the water, right in it and yet ready for the spots',
+    caption: 'La Marina lies in Los Lances Sur: level ground right behind the beach, a fluid transition into the new town.',
     mapNote: '(see the orientation map above)',
-    lead: 'In Tarifa you often have to choose: beach *or* town, wind *or* quiet. **AMARA is in La Marina** — the quarter between the old town and the beach. From here it’s a few minutes on foot into the lanes with the tapas bars, and just as few to the water. And more sheltered than out on the open Los Lances.',
-    facts: ['**La Marina** — between the old town and the beach', '**On foot** into town and to the water', '**More sheltered** than the open kite beach — without the drive'],
-    honest: 'To stay honest: your real kite day is out at Los Lances and Valdevaqueros; those who value space and a view over proximity are better off in the campo. For town and beach in one, La Marina is just right.'
+    lead: 'In Tarifa you often have to choose: beach *or* town, wind *or* quiet, a view *or* short walks. **AMARA is in La Marina** — the flat beach quarter in Los Lances Sur. Wide, level streets, an underground garage and a lift, the beach at the door and, on flat paths, a few minutes to the supermarkets and cafés of the new town. You can leave the car for the everyday — and still have it ready when you set off with the kit to the spots at Valdevaqueros. Outside the high summer it really comes into its own: little traffic, short walks, and wind Tarifa has almost all year.',
+    facts: ['**Flat & level** — wide streets, underground garage, lift, no cobbles', '**Beach at the door** — on foot to the water, with a board or a pushchair', '**New town in minutes** — supermarkets and cafés on level paths', '**Car ready** — leave it for the everyday, ready for Valdevaqueros'],
+    honest: 'To stay honest: behind the old-town walls you live more sheltered from the wind, and the view across the strait is up on the hillsides. For flat walks, beach and town in one — especially with kit or kids — La Marina is just right.'
   }
 };
 
@@ -189,62 +241,88 @@ const es: WhereToStayCopy = {
   hero: {
     eyebrow: 'Dónde alojarse · Tarifa',
     title: 'Dónde alojarse en Tarifa',
-    lede: 'Un extremo ventoso entre dos mares — un casco antiguo amurallado, playas amplias y la zona de kite en la puerta.',
-    body: 'Donde el Atlántico y el Mediterráneo se encuentran: un casco antiguo de aire árabe tras murallas centenarias, la larga playa de Los Lances y viento todo el año. En Tarifa no decide la altura, como en Frigiliana, ni solo la cercanía, como en Nerja, sino el viento: ¿cuánto queréis tener en la puerta — y preferís andar o conducir?',
-    traits: ['**Levante y Poniente**', 'Kite y viento', 'Casco amurallado', 'Dos mares', 'Todo el año'],
+    lede: 'Un extremo ventoso entre dos mares — un llano barrio de playa junto al agua, un casco amurallado y laderas que ascienden con vistas.',
+    body: 'Donde el Atlántico y el Mediterráneo se encuentran: un casco antiguo de aire árabe tras murallas centenarias, la playa kilométrica de Los Lances y viento todo el año. Dos cosas deciden dónde os conviene alojaros — cuánto viento queréis en la puerta y cómo es el terreno: suelo llano y a ras del agua o laderas que suben con vistas al estrecho. Nosotros vivimos en el llano La Marina, justo detrás de la playa.',
+    traits: ['**Levante y Poniente**', 'Llano junto al agua', 'Casco amurallado', 'Zona de kite', 'Todo el año'],
     stats: [
       { id: 'winds', k: '2', l: 'vientos que marcan el día: Levante del este, Poniente del oeste' },
       { id: 'beach', k: '10 km', l: 'arena abierta hacia el norte: de Los Lances a Valdevaqueros' },
-      { id: 'parts', k: '3', l: 'partes con un día a día muy distinto' }
+      { id: 'parts', k: '5', l: 'zonas con un día a día muy distinto — de lo llano junto al agua a la ladera' }
     ]
   },
-  heroCtaZones: 'Ver las tres partes',
+  heroCtaZones: 'Ver las cinco zonas',
   glanceTitle: '¿Qué parte encaja con vosotros?',
-  glanceIntro: 'Tres zonas, tres formas de alojarse. Lo que las diferencia aquí es sobre todo el viento — y si os movéis a pie o en coche.',
+  glanceIntro: 'Dos preguntas deciden en Tarifa: cuánto viento queréis en la puerta — y cuán llano debe ser el paseo. Después las zonas se ordenan casi solas.',
   glance: [
-    { id: 'altstadt', title: 'Casco antiguo y La Marina', blurb: 'Callejuelas, tapas, todo cerca — al abrigo del viento, animado en verano' },
-    { id: 'strand', title: 'Los Lances y playa', blurb: 'Kite, viento, gran extensión — abierto y ventoso' },
-    { id: 'campo', title: 'Campo y laderas', blurb: 'Calma, amplitud, vistas — pero coche, y algún punto muy expuesto al viento' }
+    { id: 'losLancesSur', title: 'Llano y junto al agua', blurb: 'Los Lances Sur con La Marina — calles a nivel, playa en la puerta, aparcar sin agobios' },
+    { id: 'centro', title: 'En pleno pueblo', blurb: 'Casco antiguo y ciudad nueva — todo cerca, supermercados, cafeterías; las callejuelas estrechas y al abrigo' },
+    { id: 'hanglagen', title: 'Altura, calma y amplitud', blurb: 'Laderas y afueras — vistas al estrecho, pero cuesta y coche' }
   ],
+  accommodation: {
+    eyebrow: 'Qué ofrece Tarifa para dormir',
+    title: 'Del hostel surfero a la finca',
+    intro: 'Tarifa no es lugar de grandes moles hoteleras. El grueso son apartamentos y casas de vacaciones, además de hoteles pequeños, casi siempre de gestión familiar, en el pueblo, algunos hostels para el ambiente surfero y fincas en el campo. El precio depende sobre todo de la temporada: sube en el ventoso pleno verano y baja de forma notable en temporada baja.',
+    types: [
+      { id: 'apartments', name: 'Apartamentos y casas de vacaciones', note: 'La mayor oferta — desde el piso sencillo hasta el ático moderno con piscina. Más densa en La Marina y la ciudad nueva, ideal para quien cocina, familias y quien lleva material.' },
+      { id: 'hotels', name: 'Hoteles pequeños y boutique', note: 'Pocos y a menudo de gestión familiar, muchos en el casco antiguo y sus alrededores y en la calle de la playa. Nivel medio-alto; grandes cadenas aquí no hay.' },
+      { id: 'hostels', name: 'Hostels y pensiones', note: 'Para el ambiente del surf y el kite: camas sencillas, a menudo con cocina común y sitio para la tabla. Económicos, sociables, casi siempre céntricos o junto a la playa.' },
+      { id: 'fincas', name: 'Fincas y casas de campo', note: 'En el campo hacia el parque natural: calma, amplitud y vistas — pero necesitáis el coche para cada ida al pueblo o a la playa.' }
+    ]
+  },
   factorEyebrow: 'Lo que cuenta en Tarifa',
   factor: {
-    title: 'Todo es cuestión de viento',
-    intro: 'Tarifa se asienta en el extremo más al sur de la Europa continental, donde el Atlántico y el Mediterráneo se encuentran — y está considerada uno de los lugares más ventosos de Europa. Dos vientos marcan el día a día: el fuerte Levante del este y el más suave Poniente del oeste. Por eso aquí no decide la altura ni la cercanía, sino: ¿cuánto viento queréis en la puerta?',
-    copy: 'En la playa abierta el viento es el protagonista — ideal para el kite, menos para tomar el sol con calma. Tras las murallas del casco se está notablemente más resguardado. La mejor ubicación es aquella cuya **relación con el viento** encaja con vuestras vacaciones — y si para ello andáis o necesitáis el coche.',
-    note: 'Un día en Tarifa: playa por la mañana, el pueblo al mediodía, al agua por la tarde — ¿y a cenar al abrigo del viento por la noche?',
-    day: ['Por la mañana, a la playa de Los Lances', 'Al mediodía, tapas en el casco', 'Por la tarde, al agua con Levante', 'Por la noche, al abrigo de las murallas', 'De madrugada, ¿rumor del viento o calma?']
+    title: 'Viento y caminos — las dos preguntas',
+    intro: 'Tarifa se asienta en el extremo más al sur del continente, donde el Atlántico y el Mediterráneo se encuentran, y está considerada uno de los lugares más ventosos de Europa. Dos vientos marcan el día: el fuerte Levante del este y el más suave Poniente del oeste. La segunda pregunta es el terreno — el pueblo y el barrio de playa son llanos, y hacia el interior las laderas suben de forma notable.',
+    copy: 'En la playa abierta el viento es el protagonista — ideal para el kite, menos para tomar el sol con calma. Tras las murallas del casco se está bastante más resguardado, pero estrecho y con adoquines. Donde más llano se vive es abajo, junto al agua, con calles anchas y a nivel. La mejor zona es aquella cuya **relación con el viento y los caminos** encaja con vuestras vacaciones.',
+    note: 'Un día en Tarifa: por la mañana a la playa por caminos llanos, al mediodía el pueblo, por la tarde al agua — ¿y a cenar al abrigo del viento por la noche?',
+    day: ['Por la mañana a la playa de Los Lances por caminos llanos', 'Al mediodía, tapas en el casco', 'Por la tarde, al agua con Levante', 'Por la noche, al abrigo de las murallas', 'De madrugada, ¿rumor del viento o calma?']
   },
   zonesEyebrow: 'Las zonas',
-  zonesTitle: 'Las tres partes de Tarifa',
-  zonesIntro: 'A grandes rasgos hay tres mundos: el núcleo resguardado del casco y La Marina, la zona abierta de playa en torno a Los Lances y el campo más tranquilo con sus laderas. Cada uno se planta de otra forma ante el viento — y a cambio cede algo distinto.',
+  zonesTitle: 'Las cinco zonas de Tarifa',
+  zonesIntro: 'De la costa llana al interior que asciende: cinco zonas que no se distinguen por sus atractivos, sino por el día a día — cuán llano es el paseo, cuán cerca quedan la playa y el pueblo y cuánto coche necesitáis.',
   zones: [
     {
-      id: 'altstadt',
-      sub: 'Casco antiguo y La Marina',
-      h3: 'El núcleo resguardado — callejuelas, tapas, todo cerca',
-      desc: 'El casco histórico tras las viejas murallas y el barrio portuario contiguo — aquí el núcleo se divide en dos:',
+      id: 'casco',
+      sub: 'Zona 1 · Casco antiguo',
+      h3: 'El casco histórico — llano, pero estrecho y adoquinado',
+      desc: 'Dentro de las viejas murallas: callejuelas blancas, muy estrechas y sinuosas, trazadas a propósito como refugio del viento y el calor. El terreno es en su mayoría llano, pero de adoquín por todas partes. En la práctica, una zona peatonal — todo a pie y sin aparcamiento junto a los alojamientos.',
+      idealFor: 'Quien quiere vivir en plena vida, entre bares de tapas y tiendas, y dejar el viento fuera.',
+      honest: 'Las maletas ruedan sobre adoquines desde el borde del casco; cargar y descargar a diario el material de kite es incómodo, y aparcar es difícil.'
+    },
+    {
+      id: 'centro',
+      sub: 'Zona 2 · Centro y ciudad nueva',
+      h3: 'El centro urbano — llano y práctico para el día a día',
+      desc: 'Terreno llano en torno al núcleo histórico, con trazado moderno y aceras pavimentadas. Aquí es donde más densidad hay de supermercados e infraestructura cotidiana.',
+      idealFor: 'Familias y quienes cocinan, que quieren comprar a pie y tener el coche a mano en la calle para ir a playas más lejanas.',
+      honest: 'Sin adoquines de postal y con menos encanto de casco antiguo — pero fácil de caminar y práctico.'
+    },
+    {
+      id: 'losLancesSur',
+      sub: 'Zona 3 · Los Lances Sur',
+      h3: 'El propio barrio de playa — llano, junto al agua, donde vivimos',
+      desc: 'Terreno costero completamente llano a nivel del mar, justo detrás del extremo sur de la playa kilométrica. Calles anchas y pavimentadas, sin cuestas y — comparado con el casco — una situación de aparcamiento muy relajada. Aquí se encuentra el Barrio La Marina.',
       quarters: [
-        { id: 'casco', name: 'Casco antiguo', note: 'Callejuelas de aire árabe tras las murallas: lo más resguardado del viento, mucha vida — pero estrecho y con poco aparcamiento.' },
-        { id: 'marina', name: 'La Marina', note: 'El barrio entre el casco y la playa: a pie al pueblo y al agua — aquí está AMARA.' }
+        { id: 'marina', name: 'La Marina', note: 'Calles modernas y anchas, garajes subterráneos y ascensores, la playa y el paseo en la puerta. Por caminos llanos, a pocos minutos de los supermercados y cafeterías de la ciudad nueva — aquí vive AMARA.' }
       ],
-      idealFor: 'Quienes quieren pueblo, restaurantes y playa a pie, y poder resguardarse del viento.',
-      honest: 'Concurrido en verano y con el tráfico del ferry, aparcar es difícil; la ancha playa de kite queda un trecho al norte.'
+      idealFor: 'Surfistas y familias con material y bártulos de playa que quieren ir al agua a pie y dejar el coche para el día a día.',
+      honest: 'Más abierto y ventoso que tras las murallas; quien busca calma absoluta lejos de todo está mejor en las afueras.'
     },
     {
-      id: 'strand',
-      sub: 'Los Lances y la zona de playa',
-      h3: 'Donde el viento es el protagonista',
-      desc: 'La larga playa de arena al norte del pueblo, hasta Valdevaqueros: aquí transcurre la vida del kite y el viento, gran extensión, chiringuitos. A cambio es abierto y ventoso — y cuanto más lejos, más necesitáis el coche.',
-      idealFor: 'Kitesurfistas y windsurfistas, y quienes quieren estar en el agua (ventosa) a primera hora.',
-      honest: 'Con Levante se pone muy ventoso; tomar el sol con calma es la excepción, y al pueblo se va en coche o dando un paseo.'
+      id: 'hanglagen',
+      sub: 'Zona 4 · Laderas al norte',
+      h3: 'Los barrios altos — vistas, pero cuesta',
+      desc: 'Hacia el interior, más allá de la franja costera y el casco, el terreno sube de forma notable. Las zonas residenciales trepan por la ladera, en parte por cuestas empinadas — a cambio, vistas espectaculares del estrecho de Gibraltar.',
+      idealFor: 'Quien busca las vistas y algo de distancia del bullicio, y tiene movilidad para la cuesta.',
+      honest: 'La vuelta de la playa o tras la cena se hace pesada a pie; para carritos o movilidad reducida estas zonas son menos recomendables.'
     },
     {
-      id: 'campo',
-      sub: 'Campo y laderas',
-      h3: 'Calma, espacio — pero el coche',
-      desc: 'El campo y las colinas hacia la N-340: fincas, amplitud, a menudo vistas del estrecho hacia África. Más tranquilo y con más espacio — pero la playa, el pueblo y la cena quedan en coche, y algún alto está de lleno en el viento.',
-      idealFor: 'Quienes valoran la calma, la amplitud y las vistas por encima de estar junto al pueblo y la playa.',
-      honest: 'Sin coche aquí se hace poco; y no toda ubicación del campo está resguardada del viento.'
+      id: 'umland',
+      sub: 'Zona 5 · Afueras y urbanizaciones de costa',
+      h3: 'Valdevaqueros, Punta Paloma, El Cuartón — amplitud y dunas',
+      desc: 'El Cuartón y La Peña quedan tierra adentro en las laderas más empinadas de los parques naturales; las zonas de playa de Valdevaqueros y Punta Paloma al oeste las marcan enormes dunas de arena y un entorno amplio y apenas urbanizado. Mucha calma lejos del bullicio veraniego.',
+      idealFor: 'Quien pone la amplitud, la naturaleza y la cercanía a los spots de kite del oeste por encima de tenerlo todo cerca en el pueblo.',
+      honest: 'La infraestructura directa aquí es bastante más escasa — para la compra o ir al centro, el coche de alquiler es imprescindible.'
     }
   ],
   labelIdealFor: 'Ideal para',
@@ -252,10 +330,10 @@ const es: WhereToStayCopy = {
   whoTitle: 'Para quién es ideal Tarifa',
   whoIntro: 'Tarifa encaja con quienes quieren viento, agua y un casco animado entre dos mares — con la zona de kite en la puerta. Quien busca sobre todo playa tranquila sin viento está mejor en la costa más resguardada de Nerja.',
   who: [
-    { id: 'families', title: 'Familias', text: 'Playa llana y amplia para corretear, viento para volar cometas, y además el casco antiguo — Tarifa es cómoda para los niños.' },
+    { id: 'families', title: 'Familias', text: 'Playa llana y amplia para corretear, caminos a nivel junto al agua para carritos y bártulos de playa, y además el casco para pasear — Tarifa es cómoda para los niños.' },
     { id: 'kite', title: 'Kite y windsurfistas', text: 'Los Lances y Valdevaqueros en la puerta, Levante y Poniente casi todo el año.' },
     { id: 'active', title: 'Activos y amantes de la naturaleza', text: 'Senderismo en el cabo, avistamiento de cetáceos en el estrecho, excursiones a Bolonia — entre dos mares.' },
-    { id: 'longstay', title: 'Quienes buscan calma', text: 'Quien quiere desconectar encuentra amplitud y calma en el campo — y en el pueblo, aun así, vida diaria y ambiente.' }
+    { id: 'longstay', title: 'Quienes buscan calma', text: 'Quien quiere desconectar encuentra amplitud y calma en las afueras — y en el pueblo, aun así, vida diaria y ambiente.' }
   ],
   pointer: {
     text: '**¿Aún no sabéis cuánto viento queréis?** El viento es la seña de Tarifa — suave unos días, fuerte otros. Un vistazo a los vientos y las zonas ayuda a decidir.',
@@ -264,12 +342,12 @@ const es: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Por qué elegimos esta ubicación',
-    title: 'Entre las murallas y el agua — en el centro, pero al abrigo',
-    caption: 'La Marina está entre el casco y la playa: a pie al pueblo, a pie al agua — y más resguardada que la playa abierta.',
+    title: 'La Marina — llana junto al agua, en el centro y lista para los spots',
+    caption: 'La Marina está en Los Lances Sur: terreno llano justo detrás de la playa, con paso fluido a la ciudad nueva.',
     mapNote: '(ver el mapa de orientación arriba)',
-    lead: 'En Tarifa a menudo hay que elegir: playa *o* pueblo, viento *o* calma. **AMARA está en La Marina** — el barrio entre el casco y la playa. Desde aquí son unos minutos a pie hasta las callejuelas con los bares de tapas, y otros tantos hasta el agua. Y más resguardada que en la playa abierta de Los Lances.',
-    facts: ['**La Marina** — entre el casco y la playa', '**A pie** al pueblo y al agua', '**Más resguardada** que la playa de kite abierta — sin el coche'],
-    honest: 'Para ser honestos: el verdadero día de kite lo tenéis fuera, en Los Lances y Valdevaqueros; quien valora la amplitud y las vistas por encima de la cercanía está mejor en el campo. Para pueblo y playa en uno, La Marina es la opción justa.'
+    lead: 'En Tarifa a menudo hay que elegir: playa *o* pueblo, viento *o* calma, vistas *o* todo cerca. **AMARA está en La Marina** — el llano barrio de playa de Los Lances Sur. Calles anchas y a nivel, garaje subterráneo y ascensor, la playa en la puerta y, por caminos llanos, a pocos minutos de los supermercados y cafeterías de la ciudad nueva. El coche podéis dejarlo para el día a día — y tenerlo listo cuando salís con el material a los spots de Valdevaqueros. Fuera del pleno verano es cuando más luce: poco trajín, todo cerca, y viento en Tarifa hay casi todo el año.',
+    facts: ['**Llano y a nivel** — calles anchas, garaje, ascensor, sin adoquines', '**Playa en la puerta** — al agua a pie, con tabla o carrito', '**Ciudad nueva en minutos** — supermercados y cafeterías por caminos llanos', '**Coche listo** — dejarlo para el día a día, a punto para Valdevaqueros'],
+    honest: 'Para ser honestos: tras las murallas se vive más al abrigo del viento, y las vistas del estrecho están arriba, en las laderas. Para caminos llanos, playa y pueblo en uno — sobre todo con material o niños — La Marina es justo lo que buscáis.'
   }
 };
 
@@ -277,62 +355,88 @@ const nl: WhereToStayCopy = {
   hero: {
     eyebrow: 'Waar overnachten · Tarifa',
     title: 'Waar overnachten in Tarifa',
-    lede: 'Een winderige landtong tussen twee zeeën — een ommuurde oude stad, weidse stranden en het kitegebied voor de deur.',
-    body: 'Waar de Atlantische Oceaan en de Middellandse Zee elkaar raken: een Moors gekleurde oude stad achter eeuwenoude muren, het lange strand van Los Lances en wind het hele jaar. In Tarifa beslist niet de hoogte zoals in Frigiliana, en niet alleen de nabijheid zoals in Nerja, maar de wind: hoeveel ervan wil je voor de deur — en wil je lopen of rijden?',
-    traits: ['**Levante & Poniente**', 'Kite & wind', 'Ommuurde oude stad', 'Twee zeeën', 'Het hele jaar'],
+    lede: 'Een winderige landtong tussen twee zeeën — een vlakke strandwijk aan het water, een ommuurde oude stad en oplopende hellingen met uitzicht.',
+    body: 'Waar de Atlantische Oceaan en de Middellandse Zee elkaar raken: een Moors gekleurde oude stad achter eeuwenoude muren, het kilometerslange strand van Los Lances en wind het hele jaar. Twee dingen bepalen waar je het beste zit — hoeveel wind je voor de deur wilt en hoe het terrein is: vlakke, egale grond beneden aan het water of oplopende hellingen met zicht over de zeestraat. Wij wonen in het vlakke La Marina, vlak achter het strand.',
+    traits: ['**Levante & Poniente**', 'Vlak aan het water', 'Ommuurde oude stad', 'Kitegebied', 'Het hele jaar'],
     stats: [
       { id: 'winds', k: '2', l: 'bepalende winden: Levante uit het oosten, Poniente uit het westen' },
       { id: 'beach', k: '10 km', l: 'open zand naar het noorden: Los Lances tot Valdevaqueros' },
-      { id: 'parts', k: '3', l: 'delen met een merkbaar ander dagritme' }
+      { id: 'parts', k: '5', l: 'gebieden met een merkbaar ander dagritme — van vlak aan het water tot helling' }
     ]
   },
-  heroCtaZones: 'Bekijk de drie delen',
+  heroCtaZones: 'Bekijk de vijf gebieden',
   glanceTitle: 'Welk deel past bij jullie?',
-  glanceIntro: 'Drie liggingen, drie soorten verblijf. Wat ze hier onderscheidt is vooral de wind — en of je te voet of met de auto gaat.',
+  glanceIntro: 'Twee vragen beslissen in Tarifa: hoeveel wind je voor de deur wilt — en hoe vlak de looproute moet zijn. Daarna sorteren de gebieden zich bijna vanzelf.',
   glance: [
-    { id: 'altstadt', title: 'Oude stad & La Marina', blurb: 'Straatjes, tapas, korte loopjes — beschut tegen de wind, druk in de zomer' },
-    { id: 'strand', title: 'Los Lances & strand', blurb: 'Kite, wind, weidse vlakte — open en winderig' },
-    { id: 'campo', title: 'Campo & heuvels', blurb: 'Rust, ruimte, uitzicht — maar auto, en sommige plekken vol in de wind' }
+    { id: 'losLancesSur', title: 'Vlak & direct aan het water', blurb: 'Los Lances Sur met La Marina — vlakke straten, strand voor de deur, ontspannen parkeren' },
+    { id: 'centro', title: 'Middenin het dorp', blurb: 'Oude stad en nieuwe stad — korte loopjes, supermarkten, cafés; de straatjes smal en beschut' },
+    { id: 'hanglagen', title: 'Hoogte, rust & ruimte', blurb: 'Hellingwijken en buitengebied — zicht over de zeestraat, maar klim en auto' }
   ],
+  accommodation: {
+    eyebrow: 'Wat Tarifa aan bedden heeft',
+    title: 'Van surfhostel tot finca',
+    intro: 'Tarifa is geen plek van grote hotelblokken. Het gros zijn vakantieappartementen en -huizen, plus kleine, meestal familiehotels in het dorp, een paar hostels voor de surfscene en fincas in het buitengebied. Wat het kost hangt vooral van het seizoen af: het loopt op in de winderige hoogzomer en zakt merkbaar in het laagseizoen.',
+    types: [
+      { id: 'apartments', name: 'Vakantieappartementen & -huizen', note: 'Het grootste aanbod — van het eenvoudige appartement tot het moderne penthouse met zwembad. Het dichtst in La Marina en de nieuwe stad, ideaal voor zelfverzorgers, gezinnen en iedereen met materiaal.' },
+      { id: 'hotels', name: 'Kleine hotels & boutique', note: 'Beperkt in aantal en vaak familiebeheer, veel in en om de oude stad en aan de strandweg. Midden- tot hoger niveau; grote ketens vind je hier niet.' },
+      { id: 'hostels', name: 'Hostels & pensions', note: 'Voor de surf- en kitescene: eenvoudige bedden, vaak met gedeelde keuken en plek voor je board. Goedkoop, gezellig, meestal centraal of vlak bij het strand.' },
+      { id: 'fincas', name: 'Fincas & landhuizen', note: 'In het buitengebied richting natuurpark: rust, ruimte en uitzicht — maar je hebt de auto nodig voor elke rit naar het dorp of het strand.' }
+    ]
+  },
   factorEyebrow: 'Waar het in Tarifa om gaat',
   factor: {
-    title: 'Alles draait om de wind',
-    intro: 'Tarifa ligt op de zuidelijkste punt van het Europese vasteland, waar de Atlantische Oceaan en de Middellandse Zee elkaar raken — en geldt als een van de winderigste plekken van Europa. Twee winden bepalen het dagelijks leven: de krachtige Levante uit het oosten en de mildere Poniente uit het westen. Daarom beslist hier niet de hoogte of de nabijheid, maar: hoeveel wind wil je voor de deur?',
-    copy: 'Op het open strand is de wind het hele programma — ideaal om te kiten, minder om rustig te zonnen. Achter de stadsmuren is het merkbaar beschutter. De beste ligging is die waarvan de **verhouding tot de wind** bij jullie vakantie past — en of je ervoor loopt of de auto nodig hebt.',
-    note: 'Een dag in Tarifa: ’s ochtends strand, rond het middaguur in het dorp, in de namiddag het water op — en ’s avonds uit de wind dineren?',
-    day: ['’s Ochtends naar het strand van Los Lances', 'Rond het middaguur tapas in de oude stad', 'In de namiddag het water op bij Levante', '’s Avonds beschut achter de muren', '’s Nachts — windgeruis of rust?']
+    title: 'Wind en wegen — de twee vragen',
+    intro: 'Tarifa ligt op de zuidelijkste punt van het vasteland, waar de Atlantische Oceaan en de Middellandse Zee elkaar raken, en geldt als een van de winderigste plekken van Europa. Twee winden bepalen de dag: de krachtige Levante uit het oosten en de mildere Poniente uit het westen. De tweede vraag is het terrein — het dorp en de strandwijk zijn vlak, en landinwaarts lopen de hellingen merkbaar op.',
+    copy: 'Op het open strand is de wind het hele programma — ideaal om te kiten, minder om rustig te zonnen. Achter de stadsmuren is het merkbaar beschutter, maar smal en met kasseien. Het vlakst woon je beneden aan het water, waar de straten breed en vlak zijn. Het beste gebied is dat waarvan de **verhouding tot wind en wegen** bij jullie vakantie past.',
+    note: 'Een dag in Tarifa: ’s ochtends over vlakke wegen naar het strand, rond het middaguur het dorp, in de namiddag het water op — en ’s avonds uit de wind dineren?',
+    day: ['’s Ochtends over vlakke wegen naar het strand van Los Lances', 'Rond het middaguur tapas in de oude stad', 'In de namiddag het water op bij Levante', '’s Avonds beschut achter de muren', '’s Nachts — windgeruis of rust?']
   },
-  zonesEyebrow: 'De liggingen',
-  zonesTitle: 'De drie delen van Tarifa',
-  zonesIntro: 'Grofweg zijn er drie werelden: de beschutte kern van de oude stad en La Marina, de open strandzone rond Los Lances en het rustigere campo met zijn hellingen. Elk staat anders tegenover de wind — en levert daar iets anders voor in.',
+  zonesEyebrow: 'De gebieden',
+  zonesTitle: 'Tarifa’s vijf gebieden',
+  zonesIntro: 'Van de vlakke kust naar het oplopende binnenland: vijf gebieden die niet verschillen in bezienswaardigheden, maar in dagelijks leven — hoe vlak de looproute is, hoe dichtbij strand en dorp liggen en hoeveel auto je nodig hebt.',
   zones: [
     {
-      id: 'altstadt',
-      sub: 'Oude stad & La Marina',
-      h3: 'De beschutte kern — straatjes, tapas, korte loopjes',
-      desc: 'De historische stad achter de oude muren en de aangrenzende havenwijk — hier splitst de kern zich in tweeën:',
+      id: 'casco',
+      sub: 'Zone 1 · Casco Antiguo',
+      h3: 'De historische oude stad — vlak, maar smal en kasseien',
+      desc: 'Binnen de oude muren: witte, heel smalle en kronkelige straatjes, bewust gebouwd als beschutting tegen wind en hitte. Het terrein is grotendeels vlak, maar overal kasseien. In de praktijk een voetgangerszone — alles te voet, en geen parkeerplaats direct bij de accommodaties.',
+      idealFor: 'Wie middenin het leven wil wonen, tussen tapasbars en winkels, en de wind buiten wil sluiten.',
+      honest: 'Koffers rollen over kasseien vanaf de rand van de oude stad; dagelijks groot kitemateriaal in- en uitladen is een gedoe, en parkeren is krap.'
+    },
+    {
+      id: 'centro',
+      sub: 'Zone 2 · Centrum & nieuwe stad',
+      h3: 'Het stadscentrum — vlak en praktisch voor elke dag',
+      desc: 'Vlak terrein rond de historische kern, met een modern stratenpatroon en verharde trottoirs. Hier is de dichtheid aan supermarkten en dagelijkse voorzieningen het hoogst.',
+      idealFor: 'Gezinnen en zelfverzorgers die te voet willen boodschappen doen en de auto bij de hand houden aan de straat voor ritten naar verder gelegen stranden.',
+      honest: 'Geen kasseien als op een ansichtkaart en minder oude-stadsromantiek — maar goed beloopbaar en praktisch.'
+    },
+    {
+      id: 'losLancesSur',
+      sub: 'Zone 3 · Los Lances Sur',
+      h3: 'De strandwijk zelf — vlak, aan het water, waar wij wonen',
+      desc: 'Volledig vlak kustgebied op zeeniveau, vlak achter het zuidelijke uiteinde van het kilometerslange zandstrand. Brede, verharde straten, geen klimmen en — vergeleken met de oude stad — een heel ontspannen parkeersituatie. Hier ligt het Barrio La Marina.',
       quarters: [
-        { id: 'casco', name: 'Oude stad (Casco)', note: 'Moors gekleurde straatjes achter de muren: het meest beschut tegen de wind, veel leven — maar smal en weinig parkeerruimte.' },
-        { id: 'marina', name: 'La Marina', note: 'De wijk tussen de oude stad en het strand: te voet het dorp in en naar het water — hier ligt AMARA.' }
+        { id: 'marina', name: 'La Marina', note: 'Moderne, brede straten, ondergrondse garages en liften, het strand en de boulevard voor de deur. Over vlakke wegen in een paar minuten bij de supermarkten en cafés van de nieuwe stad — hier woont AMARA.' }
       ],
-      idealFor: 'Wie dorp, restaurants en strand te voet wil bereiken en de wind kan ontwijken.',
-      honest: 'Druk in de zomer en met het veerverkeer, parkeren is krap; het brede kitestrand ligt een stuk naar het noorden.'
+      idealFor: 'Surfers en gezinnen met materiaal en strandspullen die te voet naar het water willen en de auto voor het dagelijkse laten staan.',
+      honest: 'Opener en winderiger dan achter de muren; wie absolute rust weg van alles zoekt, zit beter in het buitengebied.'
     },
     {
-      id: 'strand',
-      sub: 'Los Lances & de strandzone',
-      h3: 'Waar de wind het programma is',
-      desc: 'Het lange zandstrand ten noorden van het dorp, tot Valdevaqueros: hier speelt het kite- en windleven zich af, weidse vlakte, strandtenten. Daar staat tegenover dat het open en winderig is — en hoe verder weg, hoe meer je de auto nodig hebt.',
-      idealFor: 'Kite- en windsurfers, en iedereen die ’s ochtends meteen aan het (winderige) water wil.',
-      honest: 'Bij Levante wordt het echt winderig; rustig zonnen is hier de uitzondering, en naar het dorp is het rijden of een stuk lopen.'
+      id: 'hanglagen',
+      sub: 'Zone 4 · Hellingwijken in het noorden',
+      h3: 'De hoger gelegen wijken — uitzicht, maar klim',
+      desc: 'Landinwaarts, voorbij de kuststrook en de oude stad, loopt het terrein merkbaar op. De woonwijken klimmen tegen de helling op, deels over steile cuestas — in ruil daarvoor een spectaculair zicht over de Straat van Gibraltar.',
+      idealFor: 'Wie het uitzicht en wat afstand tot de drukte zoekt en fit genoeg is voor de klim.',
+      honest: 'De terugweg van het strand of na het diner is te voet vermoeiend; voor een kinderwagen of beperkte mobiliteit zijn deze wijken minder aan te raden.'
     },
     {
-      id: 'campo',
-      sub: 'Campo & heuvels',
-      h3: 'Rust, ruimte — maar de auto',
-      desc: 'Het buitengebied en de heuvels richting de N-340: fincas, ruimte, vaak zicht over de zeestraat naar Afrika. Rustiger en meer plek — maar strand, dorp en diner zijn van hieruit met de auto, en sommige heuveltoppen staan zelf vol in de wind.',
-      idealFor: 'Wie rust, ruimte en uitzicht boven de directe nabijheid van dorp en strand stelt.',
-      honest: 'Zonder auto lukt hier weinig; en lang niet elke plek in de campo ligt uit de wind.'
+      id: 'umland',
+      sub: 'Zone 5 · Buitenwijken & kusturbanisaties',
+      h3: 'Valdevaqueros, Punta Paloma, El Cuartón — ruimte en duinen',
+      desc: 'El Cuartón en La Peña liggen landinwaarts op de steilere hellingen van de natuurparken; de strandzones Valdevaqueros en Punta Paloma in het westen worden getekend door machtige zandduinen en een weidse, nauwelijks bebouwde omgeving. Veel rust weg van de zomerdrukte.',
+      idealFor: 'Wie ruimte, natuur en nabijheid tot de westelijke kitespots boven korte loopjes in het dorp stelt.',
+      honest: 'De directe voorzieningen zijn hier flink dunner — voor boodschappen of de rit naar het centrum is een huurauto onmisbaar.'
     }
   ],
   labelIdealFor: 'Ideaal voor',
@@ -340,10 +444,10 @@ const nl: WhereToStayCopy = {
   whoTitle: 'Voor wie Tarifa ideaal is',
   whoIntro: 'Tarifa past bij gasten die wind, water en een levendige oude stad tussen twee zeeën willen — met het kitegebied voor de deur. Wie vooral rustige stranddagen zonder wind zoekt, zit beter aan de beschuttere kust rond Nerja.',
   who: [
-    { id: 'families', title: 'Gezinnen', text: 'Een vlak, weids strand om op te ravotten, wind om vliegers op te laten, plus de oude stad — Tarifa is ontspannen voor kinderen.' },
+    { id: 'families', title: 'Gezinnen', text: 'Een vlak, weids strand om op te ravotten, vlakke wegen aan het water voor kinderwagens en strandspullen, plus de oude stad om te slenteren — Tarifa is ontspannen voor kinderen.' },
     { id: 'kite', title: 'Kite- & windsurfers', text: 'Los Lances en Valdevaqueros voor de deur, Levante en Poniente bijna het hele jaar.' },
     { id: 'active', title: 'Actievelingen & natuurliefhebbers', text: 'Wandelen op de kaap, walvissen spotten in de zeestraat, uitstapjes naar Bolonia — tussen twee zeeën.' },
-    { id: 'longstay', title: 'Rustzoekers', text: 'Wie wil ontschakelen vindt in de campo ruimte en rust — en in het dorp toch dagelijks leven en drukte.' }
+    { id: 'longstay', title: 'Rustzoekers', text: 'Wie wil ontschakelen vindt in het buitengebied ruimte en rust — en in het dorp toch dagelijks leven en drukte.' }
   ],
   pointer: {
     text: '**Nog niet zeker hoeveel wind je wilt?** De wind is hét kenmerk van Tarifa — de ene dag zacht, de andere krachtig. Een blik op de winden en de spots helpt bij de keuze.',
@@ -352,12 +456,12 @@ const nl: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Waarom wij hier zitten',
-    title: 'Tussen de muren en het water — middenin, maar beschut',
-    caption: 'La Marina ligt tussen de oude stad en het strand: te voet het dorp in, te voet naar het water — en beschutter dan het open strand.',
+    title: 'La Marina — vlak aan het water, middenin en toch klaar voor de spots',
+    caption: 'La Marina ligt in Los Lances Sur: vlakke grond vlak achter het strand, met een vloeiende overgang naar de nieuwe stad.',
     mapNote: '(zie de oriëntatiekaart hierboven)',
-    lead: 'In Tarifa moet je vaak kiezen: strand *of* dorp, wind *of* rust. **AMARA ligt in La Marina** — de wijk tussen de oude stad en het strand. Van hier is het een paar minuten lopen naar de straatjes met de tapasbars, en net zo weinig naar het water. En beschutter dan buiten op het open Los Lances.',
-    facts: ['**La Marina** — tussen de oude stad en het strand', '**Te voet** het dorp in en naar het water', '**Beschutter** dan het open kitestrand — zonder de auto'],
-    honest: 'Eerlijk blijft: je echte kitedag heb je buiten bij Los Lances en Valdevaqueros; wie ruimte en uitzicht boven nabijheid stelt, zit beter in de campo. Voor dorp en strand in één is La Marina precies goed.'
+    lead: 'In Tarifa moet je vaak kiezen: strand *of* dorp, wind *of* rust, uitzicht *of* korte loopjes. **AMARA ligt in La Marina** — de vlakke strandwijk in Los Lances Sur. Brede, vlakke straten, een ondergrondse garage en een lift, het strand voor de deur en, over vlakke wegen, een paar minuten naar de supermarkten en cafés van de nieuwe stad. De auto kun je voor het dagelijkse laten staan — en toch bij de hand hebben als je met het materiaal naar de spots bij Valdevaqueros vertrekt. Juist buiten de hoogzomer komt dat tot zijn recht: weinig drukte, korte loopjes, en wind heeft Tarifa bijna het hele jaar.',
+    facts: ['**Vlak & egaal** — brede straten, ondergrondse garage, lift, geen kasseien', '**Strand voor de deur** — te voet naar het water, met board of kinderwagen', '**Nieuwe stad in minuten** — supermarkten en cafés over vlakke wegen', '**Auto klaar** — voor het dagelijkse laten staan, klaar voor Valdevaqueros'],
+    honest: 'Eerlijk blijft: achter de stadsmuren woon je beschutter tegen de wind, en het zicht over de zeestraat heb je boven in de hellingwijken. Voor vlakke wegen, strand en dorp in één — zeker met materiaal of kinderen — is La Marina precies goed.'
   }
 };
 
@@ -365,62 +469,88 @@ const sv: WhereToStayCopy = {
   hero: {
     eyebrow: 'Var man bor · Tarifa',
     title: 'Var man bor i Tarifa',
-    lede: 'En blåsig udde mellan två hav — en muromgärdad gamla stan, vidsträckta stränder och kitereviret vid dörren.',
-    body: 'Där Atlanten och Medelhavet möts: en morisk gamla stan bakom uråldriga murar, den långa stranden Los Lances och vind året runt. I Tarifa avgör inte höjden som i Frigiliana, och inte bara närheten som i Nerja, utan vinden: hur mycket av den vill ni ha vid dörren — och vill ni gå eller köra?',
-    traits: ['**Levante & Poniente**', 'Kite & vind', 'Muromgärdad gamla stan', 'Två hav', 'Året runt'],
+    lede: 'En blåsig udde mellan två hav — en flack strandstadsdel vid vattnet, en muromgärdad gamla stan och stigande sluttningar med utsikt.',
+    body: 'Där Atlanten och Medelhavet möts: en morisk gamla stan bakom uråldriga murar, den kilometerlånga stranden Los Lances och vind året runt. Två saker avgör var ni bor bäst — hur mycket vind ni vill ha vid dörren och hur terrängen är: flack, jämn mark nere vid vattnet eller stigande sluttningar med utsikt över sundet. Vi bor i flacka La Marina, precis bakom stranden.',
+    traits: ['**Levante & Poniente**', 'Flackt vid vattnet', 'Muromgärdad gamla stan', 'Kiterevir', 'Året runt'],
     stats: [
       { id: 'winds', k: '2', l: 'präglande vindar: Levante från öst, Poniente från väst' },
       { id: 'beach', k: '10 km', l: 'öppen sand norrut: Los Lances till Valdevaqueros' },
-      { id: 'parts', k: '3', l: 'delar med märkbart olika vardag' }
+      { id: 'parts', k: '5', l: 'lägen med märkbart olika vardag — från flackt vid vattnet till sluttning' }
     ]
   },
-  heroCtaZones: 'Se de tre delarna',
+  heroCtaZones: 'Se de fem lägena',
   glanceTitle: 'Vilken del passar er?',
-  glanceIntro: 'Tre lägen, tre sorters vistelse. Det som skiljer dem åt här är framför allt vinden — och om ni tar er fram till fots eller med bil.',
+  glanceIntro: 'Två frågor avgör i Tarifa: hur mycket vind ni vill ha vid dörren — och hur flack promenaden ska vara. Sedan sorterar sig lägena nästan av sig själva.',
   glance: [
-    { id: 'altstadt', title: 'Gamla stan & La Marina', blurb: 'Gränder, tapas, korta avstånd — i lä för vinden, livligt på sommaren' },
-    { id: 'strand', title: 'Los Lances & strand', blurb: 'Kite, vind, vidsträckt yta — öppet och blåsigt' },
-    { id: 'campo', title: 'Landsbygd & höjder', blurb: 'Lugn, rymd, utsikt — men bil, och vissa punkter fullt i vinden' }
+    { id: 'losLancesSur', title: 'Flackt & direkt vid vattnet', blurb: 'Los Lances Sur med La Marina — jämna gator, strand vid dörren, avslappnad parkering' },
+    { id: 'centro', title: 'Mitt i orten', blurb: 'Gamla stan och nya staden — korta avstånd, mataffärer, kaféer; gränderna trånga och i lä' },
+    { id: 'hanglagen', title: 'Höjd, lugn & rymd', blurb: 'Sluttningskvarter och omland — utsikt över sundet, men backe och bil' }
   ],
+  accommodation: {
+    eyebrow: 'Vad Tarifa har av sängar',
+    title: 'Från surfhostel till finca',
+    intro: 'Tarifa är ingen plats för stora hotellblock. Merparten är semesterlägenheter och -hus, plus små, oftast familjedrivna hotell i orten, några hostel för surfarlivet och fincas på landsbygden. Vad det kostar beror mest på säsongen: det stiger under den blåsiga högsommaren och sjunker märkbart under lågsäsong.',
+    types: [
+      { id: 'apartments', name: 'Semesterlägenheter & -hus', note: 'Det största utbudet — från den enkla lägenheten till den moderna takvåningen med pool. Tätast i La Marina och nya staden, perfekt för självhushåll, familjer och alla med utrustning.' },
+      { id: 'hotels', name: 'Små hotell & boutique', note: 'Få till antalet och ofta familjedrivna, många i och kring gamla stan och längs strandgatan. Mellan- till högre nivå; de stora kedjorna finns inte här.' },
+      { id: 'hostels', name: 'Hostel & pensionat', note: 'För surf- och kitelivet: enkla sängar, ofta med gemensamt kök och plats för brädan. Billigt, sällskapligt, oftast centralt eller nära stranden.' },
+      { id: 'fincas', name: 'Fincas & lanthus', note: 'På landsbygden mot naturparken: lugn, rymd och utsikt — men ni behöver bilen för varje resa in till orten eller till stranden.' }
+    ]
+  },
   factorEyebrow: 'Vad som räknas i Tarifa',
   factor: {
-    title: 'Allt handlar om vinden',
-    intro: 'Tarifa ligger på det europeiska fastlandets sydligaste spets, där Atlanten och Medelhavet möts — och räknas som en av Europas blåsigaste platser. Två vindar präglar vardagen: den kraftiga Levante från öst och den mildare Poniente från väst. Därför avgör inte höjden eller närheten här, utan: hur mycket vind vill ni ha vid dörren?',
-    copy: 'På den öppna stranden är vinden hela poängen — perfekt för kite, mindre för lugnt solbad. Bakom gamla stans murar är det märkbart mer skyddat. Det bästa läget är det vars **förhållande till vinden** passar er semester — och om ni går dit eller behöver bilen.',
-    note: 'En dag i Tarifa: strand på morgonen, orten vid lunch, ut på vattnet på eftermiddagen — och middag i lä på kvällen?',
-    day: ['På morgonen ner till Los Lances strand', 'Vid lunch tapas i gamla stan', 'På eftermiddagen ut på vattnet i Levante', 'På kvällen i lä bakom murarna', 'På natten — vindbrus eller lugn?']
+    title: 'Vind och vägar — de två frågorna',
+    intro: 'Tarifa ligger på fastlandets sydligaste spets, där Atlanten och Medelhavet möts, och räknas som en av Europas blåsigaste platser. Två vindar präglar dagen: den kraftiga Levante från öst och den mildare Poniente från väst. Den andra frågan är terrängen — orten och strandstadsdelen är flacka, och inåt land stiger sluttningarna märkbart.',
+    copy: 'På den öppna stranden är vinden hela poängen — perfekt för kite, mindre för lugnt solbad. Bakom gamla stans murar är det märkbart mer i lä, men trångt och med kullersten. Flackast bor ni nere vid vattnet, där gatorna är breda och jämna. Det bästa läget är det vars **förhållande till vind och vägar** passar er semester.',
+    note: 'En dag i Tarifa: på morgonen till stranden på flacka vägar, vid lunch orten, på eftermiddagen ut på vattnet — och middag i lä på kvällen?',
+    day: ['På morgonen till Los Lances strand på flacka vägar', 'Vid lunch tapas i gamla stan', 'På eftermiddagen ut på vattnet i Levante', 'På kvällen i lä bakom murarna', 'På natten — vindbrus eller lugn?']
   },
   zonesEyebrow: 'Lägena',
-  zonesTitle: 'Tarifas tre delar',
-  zonesIntro: 'Grovt sett finns tre världar: den skyddade kärnan av gamla stan och La Marina, den öppna strandzonen kring Los Lances och den lugnare landsbygden med sina sluttningar. Var och en står olika mot vinden — och byter något annat mot det.',
+  zonesTitle: 'Tarifas fem lägen',
+  zonesIntro: 'Från den flacka kusten till det stigande inlandet: fem lägen som inte skiljer sig åt genom sevärdheter utan genom vardagen — hur flack promenaden är, hur nära strand och ort ligger och hur mycket bil ni behöver.',
   zones: [
     {
-      id: 'altstadt',
-      sub: 'Gamla stan & La Marina',
-      h3: 'Den skyddade kärnan — gränder, tapas, korta avstånd',
-      desc: 'Den historiska orten bakom de gamla murarna och det angränsande hamnkvarteret — här delar sig kärnan i två:',
+      id: 'casco',
+      sub: 'Zon 1 · Casco Antiguo',
+      h3: 'Den historiska gamla stan — flack, men trång och kullerstensbelagd',
+      desc: 'Innanför de gamla murarna: vita, mycket trånga och slingrande gränder, medvetet byggda som skydd mot vind och hetta. Marken är till största delen flack, men kullersten överallt. I praktiken en gågata — allt till fots, och ingen parkering direkt vid boendena.',
+      idealFor: 'Den som vill bo mitt i livet, bland tapasbarer och butiker, och stänga ute vinden.',
+      honest: 'Resväskorna rullas över kullersten från gamla stans kant; att dagligen lasta i och ur stor kiteutrustning är besvärligt, och parkering är knapp.'
+    },
+    {
+      id: 'centro',
+      sub: 'Zon 2 · Centrum & nya staden',
+      h3: 'Det urbana centrumet — flackt och praktiskt för vardagen',
+      desc: 'Flack mark runt den historiska kärnan, med modernt gatunät och asfalterade trottoarer. Här är tätheten av mataffärer och vardagsservice som störst.',
+      idealFor: 'Familjer och självhushåll som vill handla till fots och ha bilen nära på gatan för resor till mer avlägsna stränder.',
+      honest: 'Ingen vykorts-kullersten och mindre gamla-stan-romantik — men lättgången och praktisk.'
+    },
+    {
+      id: 'losLancesSur',
+      sub: 'Zon 3 · Los Lances Sur',
+      h3: 'Själva strandstadsdelen — flack, vid vattnet, där vi bor',
+      desc: 'Helt flack kustmark i havsnivå, precis bakom den södra änden av den kilometerlånga sandstranden. Breda, asfalterade gator, inga backar och — jämfört med gamla stan — en mycket avslappnad parkeringssituation. Här ligger Barrio La Marina.',
       quarters: [
-        { id: 'casco', name: 'Gamla stan (Casco)', note: 'Moriska gränder bakom murarna: mest skyddat från vinden, mycket liv — men trångt och ont om parkering.' },
-        { id: 'marina', name: 'La Marina', note: 'Kvarteret mellan gamla stan och stranden: till fots in till orten och till vattnet — här ligger AMARA.' }
+        { id: 'marina', name: 'La Marina', note: 'Moderna, breda gator, garage under jord och hissar, stranden och strandpromenaden vid dörren. På flacka vägar några minuter till mataffärer och kaféer i nya staden — här bor AMARA.' }
       ],
-      idealFor: 'De som vill nå ort, restauranger och strand till fots och kunna komma undan vinden.',
-      honest: 'Livligt på sommaren och med färjetrafiken, parkering är knappt; den breda kitestranden ligger en bit norrut.'
+      idealFor: 'Surfare och familjer med utrustning och strandpackning som vill gå till vattnet och låta bilen stå i vardagen.',
+      honest: 'Öppnare och blåsigare än bakom murarna; den som vill ha absolut lugn långt från allt trivs bättre i utkanterna.'
     },
     {
-      id: 'strand',
-      sub: 'Los Lances & strandzonen',
-      h3: 'Där vinden är hela poängen',
-      desc: 'Den långa sandstranden norr om orten, bort mot Valdevaqueros: här utspelar sig kite- och vindlivet, vidsträckt yta, strandbarer. I gengäld är det öppet och blåsigt — och ju längre ut, desto mer behöver ni bilen.',
-      idealFor: 'Kite- och vindsurfare, och alla som vill vara vid det (blåsiga) vattnet på morgonen.',
-      honest: 'I Levante blir det rejält blåsigt; lugnt solbad är undantaget här, och in till orten kör eller går ni en bit.'
+      id: 'hanglagen',
+      sub: 'Zon 4 · Sluttningskvarter i norr',
+      h3: 'De högre kvarteren — utsikt, men backe',
+      desc: 'Inåt land, bortom kuststräckan och gamla stan, stiger marken märkbart. Bostadsområdena klättrar uppför sluttningen, delvis via branta cuestas — i gengäld en spektakulär utsikt över Gibraltarsundet.',
+      idealFor: 'Den som söker utsikten och lite avstånd från vimlet, och är rörlig nog för backen.',
+      honest: 'Vägen tillbaka från stranden eller efter middagen är tröttsam till fots; för barnvagn eller nedsatt rörlighet är dessa lägen mindre att rekommendera.'
     },
     {
-      id: 'campo',
-      sub: 'Landsbygd & höjder',
-      h3: 'Lugn, rymd — men bilen',
-      desc: 'Landsbygden och höjderna mot N-340: fincas, rymd, ofta utsikt över sundet mot Afrika. Lugnare och mer plats — men stranden, orten och middagen ligger en bilfärd bort, och vissa krön står själva fullt i vinden.',
-      idealFor: 'De som värderar lugn, rymd och utsikt framför att vara precis vid ort och strand.',
-      honest: 'Utan bil händer här inte mycket; och långt ifrån varje läge på landsbygden ligger i lä.'
+      id: 'umland',
+      sub: 'Zon 5 · Utkanter & kusturbanisationer',
+      h3: 'Valdevaqueros, Punta Paloma, El Cuartón — rymd och dyner',
+      desc: 'El Cuartón och La Peña ligger inåt land på naturparkernas brantare sluttningar; strandzonerna Valdevaqueros och Punta Paloma i väster präglas av mäktiga sanddyner och en vidsträckt, knappt bebyggd omgivning. Gott om lugn borta från sommarvimlet.',
+      idealFor: 'Den som sätter rymd, natur och närhet till de västra kitespotarna framför korta avstånd i orten.',
+      honest: 'Den direkta servicen är betydligt glesare här — för inköp eller resan in till centrum är en hyrbil ett måste.'
     }
   ],
   labelIdealFor: 'Passar för',
@@ -428,10 +558,10 @@ const sv: WhereToStayCopy = {
   whoTitle: 'Vem Tarifa är perfekt för',
   whoIntro: 'Tarifa passar gäster som vill ha vind, vatten och en livlig gamla stan mellan två hav — med kitereviret vid dörren. Den som främst vill ha lugna stranddagar utan vind trivs bättre på den mer skyddade kusten kring Nerja.',
   who: [
-    { id: 'families', title: 'Familjer', text: 'En platt, vidsträckt strand att springa på, vind för drakflygning, plus gamla stan — Tarifa är avslappnat för barn.' },
+    { id: 'families', title: 'Familjer', text: 'En platt, vidsträckt strand att springa på, jämna vägar vid vattnet för barnvagnar och strandpackning, plus gamla stan att strosa i — Tarifa är avslappnat för barn.' },
     { id: 'kite', title: 'Kite- & vindsurfare', text: 'Los Lances och Valdevaqueros vid dörren, Levante och Poniente nästan hela året.' },
     { id: 'active', title: 'Aktiva & naturnära', text: 'Vandring på udden, valskådning i sundet, utflykter till Bolonia — mellan två hav.' },
-    { id: 'longstay', title: 'Lugnsökare', text: 'Den som vill koppla av finner rymd och lugn på landsbygden — och ändå vardag och liv i orten.' }
+    { id: 'longstay', title: 'Lugnsökare', text: 'Den som vill koppla av finner rymd och lugn i utkanterna — och ändå vardag och liv i orten.' }
   ],
   pointer: {
     text: '**Osäkra på hur mycket vind ni vill ha?** Vinden är Tarifas signum — mild vissa dagar, kraftig andra. En titt på vindarna och reviren hjälper er att välja.',
@@ -440,12 +570,12 @@ const sv: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Därför valde vi det här läget',
-    title: 'Mellan murarna och vattnet — mitt i, men skyddat',
-    caption: 'La Marina ligger mellan gamla stan och stranden: till fots in till orten, till fots till vattnet — och mer i lä än den öppna stranden.',
+    title: 'La Marina — flackt vid vattnet, mitt i och ändå redo för spotarna',
+    caption: 'La Marina ligger i Los Lances Sur: jämn mark precis bakom stranden, med en flytande övergång till nya staden.',
     mapNote: '(se orienteringskartan ovan)',
-    lead: 'I Tarifa måste man ofta välja: strand *eller* ort, vind *eller* lugn. **AMARA ligger i La Marina** — kvarteret mellan gamla stan och stranden. Härifrån är det några minuters promenad in i gränderna med tapasbarerna, och lika kort till vattnet. Och mer i lä än ute på öppna Los Lances.',
-    facts: ['**La Marina** — mellan gamla stan och stranden', '**Till fots** in till orten och till vattnet', '**Mer i lä** än den öppna kitestranden — utan bilfärd'],
-    honest: 'Ärligt talat: din riktiga kitedag har du ute vid Los Lances och Valdevaqueros; den som värderar rymd och utsikt framför närhet trivs bättre på landsbygden. För ort och strand i ett är La Marina precis rätt.'
+    lead: 'I Tarifa måste man ofta välja: strand *eller* ort, vind *eller* lugn, utsikt *eller* korta avstånd. **AMARA ligger i La Marina** — den flacka strandstadsdelen i Los Lances Sur. Breda, jämna gator, garage under jord och hiss, stranden vid dörren och, på flacka vägar, några minuter till mataffärer och kaféer i nya staden. Bilen kan ni låta stå i vardagen — och ändå ha den redo när ni ger er av med utrustningen till spotarna vid Valdevaqueros. Just utanför högsommaren kommer det till sin rätt: lite folk, korta avstånd, och vind har Tarifa nästan hela året.',
+    facts: ['**Flackt & jämnt** — breda gator, garage under jord, hiss, ingen kullersten', '**Stranden vid dörren** — till fots till vattnet, med bräda eller barnvagn', '**Nya staden på minuter** — mataffärer och kaféer på jämna vägar', '**Bilen redo** — låt den stå i vardagen, redo för Valdevaqueros'],
+    honest: 'Ärligt talat: bakom gamla stans murar bor ni mer i lä, och utsikten över sundet har ni uppe i sluttningskvarteren. För flacka vägar, strand och ort i ett — särskilt med utrustning eller barn — är La Marina precis rätt.'
   }
 };
 

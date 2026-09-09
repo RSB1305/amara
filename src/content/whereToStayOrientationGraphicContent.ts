@@ -80,29 +80,29 @@ export const whereToStayOrientationGraphicContent: Record<
   },
   tarifa: {
     en: {
-      place: 'tarifa', eyebrow: 'Town & Atlantic edge', title: 'Tarifa areas', region: 'Coast → inland', note: sharedNote.en,
-      ariaLabel: 'Schematic orientation of Tarifa showing Los Lances, La Marina with AMARA, the Old Town and the countryside and hills inland.',
-      labels: { losLances: 'Los Lances', laMarina: 'La Marina', amara: 'AMARA · La Marina', oldTown: 'Old Town', campo: 'Countryside & hills', sea: 'Atlantic' }
+      place: 'tarifa', eyebrow: 'Areas & terrain', title: 'Tarifa areas', region: 'Coast → inland', note: sharedNote.en,
+      ariaLabel: 'Schematic orientation of Tarifa: the flat Los Lances Sur beach quarter with La Marina and AMARA behind the beach, the walled Old Town and the Centre next to it, the hillside districts rising to the north and the Valdevaqueros outskirts to the west.',
+      labels: { sea: 'Atlantic', losLances: 'Los Lances Sur', laMarina: 'La Marina', amara: 'AMARA · La Marina', casco: 'Old Town', centro: 'Centre & new town', hills: 'Hillside districts', outskirts: 'Valdevaqueros · outskirts' }
     },
     de: {
-      place: 'tarifa', eyebrow: 'Ort & Atlantikküste', title: 'Tarifas Lagen', region: 'Küste → Inland', note: sharedNote.de,
-      ariaLabel: 'Schematische Orientierung von Tarifa mit Los Lances, La Marina und AMARA, der Altstadt sowie Campo und Hanglagen im Inland.',
-      labels: { losLances: 'Los Lances', laMarina: 'La Marina', amara: 'AMARA · La Marina', oldTown: 'Altstadt', campo: 'Campo & Hanglagen', sea: 'Atlantik' }
+      place: 'tarifa', eyebrow: 'Lagen & Terrain', title: 'Tarifas Lagen', region: 'Küste → Inland', note: sharedNote.de,
+      ariaLabel: 'Schematische Orientierung von Tarifa: das flache Strandviertel Los Lances Sur mit La Marina und AMARA hinter dem Strand, die ummauerte Altstadt und die Neustadt daneben, die Hanglagen ansteigend nach Norden und die Außenbezirke Richtung Valdevaqueros im Westen.',
+      labels: { sea: 'Atlantik', losLances: 'Los Lances Sur', laMarina: 'La Marina', amara: 'AMARA · La Marina', casco: 'Altstadt', centro: 'Centro & Neustadt', hills: 'Hanglagen Nord', outskirts: 'Valdevaqueros · Umland' }
     },
     es: {
-      place: 'tarifa', eyebrow: 'Pueblo y costa atlántica', title: 'Las zonas de Tarifa', region: 'Costa → interior', note: sharedNote.es,
-      ariaLabel: 'Orientación esquemática de Tarifa con Los Lances, La Marina y AMARA, el casco antiguo y el campo y las colinas del interior.',
-      labels: { losLances: 'Los Lances', laMarina: 'La Marina', amara: 'AMARA · La Marina', oldTown: 'Casco antiguo', campo: 'Campo y colinas', sea: 'Atlántico' }
+      place: 'tarifa', eyebrow: 'Zonas y terreno', title: 'Las zonas de Tarifa', region: 'Costa → interior', note: sharedNote.es,
+      ariaLabel: 'Orientación esquemática de Tarifa: el llano barrio de playa Los Lances Sur con La Marina y AMARA tras la playa, el casco antiguo amurallado y el centro junto a él, las laderas ascendiendo al norte y las afueras hacia Valdevaqueros al oeste.',
+      labels: { sea: 'Atlántico', losLances: 'Los Lances Sur', laMarina: 'La Marina', amara: 'AMARA · La Marina', casco: 'Casco antiguo', centro: 'Centro y ciudad nueva', hills: 'Laderas norte', outskirts: 'Valdevaqueros · afueras' }
     },
     nl: {
-      place: 'tarifa', eyebrow: 'Plaats & Atlantische kust', title: 'De gebieden van Tarifa', region: 'Kust → binnenland', note: sharedNote.nl,
-      ariaLabel: 'Schematische oriëntatie van Tarifa met Los Lances, La Marina en AMARA, de oude stad en het campo en de heuvels landinwaarts.',
-      labels: { losLances: 'Los Lances', laMarina: 'La Marina', amara: 'AMARA · La Marina', oldTown: 'Oude stad', campo: 'Campo & heuvels', sea: 'Atlantische Oceaan' }
+      place: 'tarifa', eyebrow: 'Gebieden & terrein', title: 'De gebieden van Tarifa', region: 'Kust → binnenland', note: sharedNote.nl,
+      ariaLabel: 'Schematische oriëntatie van Tarifa: de vlakke strandwijk Los Lances Sur met La Marina en AMARA achter het strand, de ommuurde oude stad en de nieuwe stad ernaast, de hellingwijken oplopend naar het noorden en de buitenwijken richting Valdevaqueros in het westen.',
+      labels: { sea: 'Atlantische Oceaan', losLances: 'Los Lances Sur', laMarina: 'La Marina', amara: 'AMARA · La Marina', casco: 'Oude stad', centro: 'Centrum & nieuwe stad', hills: 'Hellingwijken noord', outskirts: 'Valdevaqueros · omgeving' }
     },
     sv: {
-      place: 'tarifa', eyebrow: 'Stad & Atlantkust', title: 'Tarifas lägen', region: 'Kust → inland', note: sharedNote.sv,
-      ariaLabel: 'Schematisk orientering av Tarifa med Los Lances, La Marina och AMARA, gamla stan samt landsbygden och höjderna inåt land.',
-      labels: { losLances: 'Los Lances', laMarina: 'La Marina', amara: 'AMARA · La Marina', oldTown: 'Gamla stan', campo: 'Landsbygd & höjder', sea: 'Atlanten' }
+      place: 'tarifa', eyebrow: 'Lägen & terräng', title: 'Tarifas lägen', region: 'Kust → inland', note: sharedNote.sv,
+      ariaLabel: 'Schematisk orientering av Tarifa: den flacka strandstadsdelen Los Lances Sur med La Marina och AMARA bakom stranden, den muromgärdade gamla stan och nya staden intill, sluttningskvarteren som stiger norrut och ytterområdena mot Valdevaqueros i väster.',
+      labels: { sea: 'Atlanten', losLances: 'Los Lances Sur', laMarina: 'La Marina', amara: 'AMARA · La Marina', casco: 'Gamla stan', centro: 'Centrum & nya staden', hills: 'Sluttningskvarter norr', outskirts: 'Valdevaqueros · utkanter' }
     }
   }
 };
