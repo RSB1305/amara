@@ -1,3 +1,18 @@
+import {
+  MAX_NIGHTS,
+  MAX_ADVANCE_DAYS,
+  isoDay,
+  dateFromIso,
+  addDays,
+  addMonths,
+  monthStart,
+  monthEnd,
+  monthKey,
+  nightsBetween,
+  validIsoDay,
+  mondayFirstWeekday
+} from './calendarDates';
+
 type FinderCopy = Record<string, string>;
 
 type SearchRateOption = {
@@ -16,34 +31,7 @@ type MonthCacheEntry = {
   state: 'loading' | 'ready' | 'error';
 };
 
-const DAY_MS = 86_400_000;
-const MAX_NIGHTS = 45;
-const MAX_ADVANCE_DAYS = 730;
 const desktopQuery = window.matchMedia('(min-width: 64rem)');
-
-const isoDay = (date: Date) => date.toISOString().slice(0, 10);
-const dateFromIso = (value: string) => new Date(value + 'T00:00:00.000Z');
-const addDays = (value: string, amount: number) => {
-  const date = dateFromIso(value);
-  date.setUTCDate(date.getUTCDate() + amount);
-  return isoDay(date);
-};
-const monthStart = (value: string | Date) => {
-  const date = typeof value === 'string' ? dateFromIso(value) : value;
-  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), 1));
-};
-const addMonths = (date: Date, amount: number) =>
-  new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + amount, 1));
-const monthEnd = (date: Date) =>
-  new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + 1, 0));
-const monthKey = (date: Date) => isoDay(date).slice(0, 7);
-const nightsBetween = (arrival: string, departure: string) =>
-  Math.round((Date.parse(departure + 'T00:00:00.000Z') - Date.parse(arrival + 'T00:00:00.000Z')) / DAY_MS);
-const validIsoDay = (value: string | null) => {
-  if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return '';
-  const date = dateFromIso(value);
-  return Number.isNaN(date.valueOf()) || isoDay(date) !== value ? '' : value;
-};
 
 function element<T extends Element>(root: ParentNode, selector: string) {
   return root.querySelector<T>(selector);
@@ -569,7 +557,7 @@ export function enhanceStaySearchFinders() {
       section.append(weekdays);
       const days = document.createElement('div');
       days.className = 'am-booking-calendar__days';
-      const firstWeekday = (date.getUTCDay() + 6) % 7;
+      const firstWeekday = mondayFirstWeekday(date);
       for (let index = 0; index < firstWeekday; index += 1) {
         const blank = document.createElement('span');
         blank.className = 'am-booking-calendar__blank';
@@ -821,7 +809,7 @@ export function enhanceStaySearchFinders() {
       const current = target.closest<HTMLButtonElement>('[data-am-booking-day]');
       if (!current) return;
       const currentDate = current.dataset.amBookingDay || '';
-      const weekday = (dateFromIso(currentDate).getUTCDay() + 6) % 7;
+      const weekday = mondayFirstWeekday(dateFromIso(currentDate));
       const offsets: Record<string, number> = {
         ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7, Home: -weekday, End: 6 - weekday
       };

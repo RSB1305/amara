@@ -1,5 +1,19 @@
 import { buildCheckoutHandoffUrl } from '../lib/directBooking';
 import type { AmaraLanguage } from '../types/seo';
+import {
+  MAX_NIGHTS,
+  MAX_ADVANCE_DAYS,
+  isoDay,
+  dateFromIso,
+  addDays,
+  addMonths,
+  monthStart,
+  monthEnd,
+  monthKey,
+  nightsBetween,
+  validIsoDay,
+  mondayFirstWeekday
+} from './calendarDates';
 
 type BookingCopy = Record<string, string>;
 
@@ -27,43 +41,7 @@ type StickyBookingState =
   | { state: 'idle' | 'loading' }
   | { state: 'available'; price: string; checkoutHref: string };
 
-const DAY_MS = 86_400_000;
-const MAX_NIGHTS = 45;
-const MAX_ADVANCE_DAYS = 730;
 const DESKTOP_MONTHS = '(min-width: 64rem)';
-
-const isoDay = (date: Date) => date.toISOString().slice(0, 10);
-const dateFromIso = (value: string) => new Date(value + 'T00:00:00.000Z');
-
-const addDays = (value: string, days: number) => {
-  const date = dateFromIso(value);
-  date.setUTCDate(date.getUTCDate() + days);
-  return isoDay(date);
-};
-
-const addMonths = (date: Date, months: number) =>
-  new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + months, 1));
-
-const monthStart = (value: Date | string) => {
-  const date = typeof value === 'string' ? dateFromIso(value) : value;
-  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), 1));
-};
-
-const monthEnd = (date: Date) =>
-  new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + 1, 0));
-
-const monthKey = (date: Date) => isoDay(date).slice(0, 7);
-const validIsoInput = (value: string | null) => {
-  if (!value || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return '';
-  const parsed = dateFromIso(value);
-  return Number.isNaN(parsed.valueOf()) || isoDay(parsed) !== value ? '' : value;
-};
-
-const nightsBetween = (arrival: string, departure: string) =>
-  Math.round(
-    (Date.parse(departure + 'T00:00:00.000Z') - Date.parse(arrival + 'T00:00:00.000Z')) /
-      DAY_MS
-  );
 
 const element = <T extends Element>(root: ParentNode, selector: string) =>
   root.querySelector<T>(selector);
@@ -186,8 +164,8 @@ export function enhanceStayBookingCalendars() {
     departureInput.max = latest;
 
     const initialParams = new URLSearchParams(window.location.search);
-    const initialArrival = validIsoInput(initialParams.get('arrival'));
-    const initialDeparture = validIsoInput(initialParams.get('departure'));
+    const initialArrival = validIsoDay(initialParams.get('arrival'));
+    const initialDeparture = validIsoDay(initialParams.get('departure'));
     const initialGuests = Number(initialParams.get('guests'));
     if (guestsInput.querySelector('option[value="' + initialGuests + '"]')) {
       guestsInput.value = String(initialGuests);
@@ -582,7 +560,7 @@ export function enhanceStayBookingCalendars() {
 
       const days = document.createElement('div');
       days.className = 'am-booking-calendar__days';
-      const leadingBlanks = (date.getUTCDay() + 6) % 7;
+      const leadingBlanks = mondayFirstWeekday(date);
       for (let index = 0; index < leadingBlanks; index += 1) {
         const blank = document.createElement('span');
         blank.className = 'am-booking-calendar__blank';
@@ -962,7 +940,7 @@ export function enhanceStayBookingCalendars() {
       const current = target.closest<HTMLButtonElement>('[data-am-booking-day]');
       if (!current) return;
       const currentDate = current.dataset.amBookingDay || '';
-      const weekday = (dateFromIso(currentDate).getUTCDay() + 6) % 7;
+      const weekday = mondayFirstWeekday(dateFromIso(currentDate));
       const offsets: Record<string, number> = {
         ArrowLeft: -1,
         ArrowRight: 1,
