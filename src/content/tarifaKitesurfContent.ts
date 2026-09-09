@@ -382,6 +382,12 @@ const camp: TarifaKitesurfSpokeContent = {
       linkLabel: l('Work Surf Balance: seminars and dates', 'Work Surf Balance: Seminare und Termine', 'Work Surf Balance: seminarios y fechas', 'Work Surf Balance: seminars en data', 'Work Surf Balance: seminarier och datum')
     }
   ],
+  quote: {
+    name: 'Robert',
+    role: common.robertRole,
+    portrait: 'robert',
+    text: l('The camp is more than a course and a bed. In the evening you sit on the beach with people who were strangers that morning — and many book the same week again the year after.', 'Das Camp ist mehr als Kurs und Bett. Abends sitzt ihr mit Leuten am Strand, die morgens noch Fremde waren — und viele buchen im Jahr darauf dieselbe Woche wieder.', 'El camp es más que un curso y una cama. Por la tarde estáis en la playa con gente que por la mañana era desconocida, y muchos vuelven a reservar la misma semana al año siguiente.', 'Het camp is meer dan een cursus en een bed. ’s Avonds zit je op het strand met mensen die ’s ochtends nog vreemden waren — en velen boeken het jaar daarop dezelfde week opnieuw.', 'Campet är mer än en kurs och en säng. På kvällen sitter ni på stranden med folk som var främlingar på morgonen — och många bokar samma vecka igen året därpå.')
+  },
   closing: {
     title: l('Plan your camp week', 'Eure Camp-Woche planen', 'Planificar vuestra semana de camp', 'Plan jullie campweek', 'Planera er campvecka'),
     text: l('Tell us your week, group size and level. We check the suitable camp and the accommodation planned for your group with the club, and you get one clear answer.', 'Nennt uns eure Woche, Gruppengröße und euer Level. Wir klären mit dem Club das passende Camp und die für eure Gruppe vorgesehene Unterkunft, und ihr bekommt eine klare Antwort.', 'Decidnos vuestra semana, el tamaño del grupo y vuestro nivel. Consultamos con el club el camp adecuado y el alojamiento previsto para vuestro grupo, y recibís una respuesta clara.', 'Vertel ons jullie week, groepsgrootte en niveau. Wij stemmen met de club het passende camp en de accommodatie voor jullie groep af, en jullie krijgen één helder antwoord.', 'Berätta vilken vecka, gruppstorlek och nivå ni har. Vi stämmer av rätt camp och boendet för er grupp med klubben, och ni får ett tydligt svar.'),
