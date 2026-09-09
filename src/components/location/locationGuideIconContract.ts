@@ -39,4 +39,6 @@ export type LocationGuideIconName =
   | 'castle'
   | 'dining'
   | 'wellness'
-  | 'family';
+  | 'family'
+  | 'excursion'
+  | 'film';
