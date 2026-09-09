@@ -3715,124 +3715,45 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
               'Sperm whales are more likely in spring and autumn; orcas appear in high summer, roughly July to August, and are never guaranteed. Operators quote sighting rates around 99%, but that means at least one species, not a promised one.',
               'Our own recommendation is firmm, the research foundation — we have made this trip ourselves and it was a wonderful morning, which is why we send our guests there, families with children in particular. That does not make the other operators worse; firmm is simply the one we know first-hand. Briefings in German, English and Spanish, large stable boats with a toilet and a wheelchair space, life jackets for everyone including babies, reduced fares for children, and a free repeat ticket if no cetacean is seen. Trips last about 2–3 hours from Tarifa harbour.',
               '<strong>firmm España</strong><br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org',
-              'Book with a spare morning and confirm on the day — strong wind can cancel several days in a row. Check the AEMET marine forecast for the Estrecho.'
+              'Book with a spare morning and confirm on the day — strong wind can cancel several days in a row. Check the AEMET marine forecast for the Estrecho.',
+              '<strong>Other operators from the harbour.</strong> If firmm is full or you would like a different kind of boat, four more sail from the harbour. The real choice is the boat: a large ship is stable, with a toilet and the best wheelchair access; a small RIB (about ten guests) is more intimate but takes the waves harder. Turmares (the widest fleet), Aventura Tarifa and TOP Tarifa (small RIBs, private charters too) and Marina Blue (a comfortable motor yacht).',
+              '<strong>Good to know.</strong> Seasickness is the most common issue — if you are prone to it, take a remedy in good time (crews may not hand out medication) and choose a larger boat and the calmest slot. Bring a warm windproof layer and secure, non-slip shoes even on a hot day. Mid-strait your phone may pick up a Moroccan network outside EU roaming, so switch mobile data off; drones are not allowed on board. Park outside the harbour and arrive about an hour before departure. Children and babies are welcome on the large boats, at reduced fares.'
             ],
             de: [
               'Die Straße von Gibraltar ist einer der besten Orte Europas, um Wale und Delfine in freier Wildbahn zu sehen. Grindwale und drei Delfinarten leben hier das ganze Jahr.',
               'Pottwale sind im Frühjahr und Herbst wahrscheinlicher; Orcas kommen im Hochsommer, etwa Juli bis August, und sind nie garantiert. Anbieter nennen Sichtungsquoten um 99 %, das meint aber mindestens eine Art, keine bestimmte.',
               'Unsere eigene Empfehlung ist firmm, die Forschungsstiftung — wir waren selbst mit ihnen draußen, es war ein wunderbarer Morgen, und deshalb schicken wir unsere Gäste dorthin, besonders Familien mit Kindern. Das heißt nicht, dass die anderen Anbieter schlechter sind; firmm ist einfach der, den wir aus eigener Erfahrung kennen. Einführung auf Deutsch, Englisch und Spanisch, große stabile Boote mit Toilette und Rollstuhlplatz, Rettungswesten für alle inklusive Babys, ermäßigte Preise für Kinder, und ein kostenloses Wiederholungsticket, falls kein Meeressäuger gesichtet wird. Die Fahrten dauern rund 2–3 Stunden ab dem Hafen Tarifa.',
               '<strong>firmm España</strong><br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org',
-              'Bucht mit einem freien Morgen und bestätigt am Tag selbst — starker Wind kann mehrere Tage hintereinander ausfallen. Prüft die AEMET-Seewettervorhersage für den Estrecho.'
+              'Bucht mit einem freien Morgen und bestätigt am Tag selbst — starker Wind kann mehrere Tage hintereinander ausfallen. Prüft die AEMET-Seewettervorhersage für den Estrecho.',
+              '<strong>Weitere Anbieter am Hafen.</strong> Falls firmm ausgebucht ist oder ihr eine andere Art Boot möchtet: Vier weitere fahren vom Hafen. Die eigentliche Wahl ist das Boot — ein großes Schiff ist stabil, mit Toilette und bestem Rollstuhlzugang; ein kleines RIB (etwa zehn Gäste) ist intimer, nimmt die Wellen aber härter. Turmares (größte Flotte), Aventura Tarifa und TOP Tarifa (kleine RIBs, auch private Charter) und Marina Blue (komfortable Motoryacht).',
+              '<strong>Gut zu wissen.</strong> Seekrankheit ist das häufigste Thema — wer anfällig ist, nimmt rechtzeitig ein Mittel (die Crew darf keine Medikamente ausgeben) und wählt ein größeres Boot und den ruhigsten Slot. Nehmt auch an heißen Tagen eine warme, winddichte Schicht und feste, rutschfeste Schuhe mit. Mitten in der Meerenge wählt das Handy vielleicht ein marokkanisches Netz außerhalb des EU-Roamings — mobile Daten aus; Drohnen sind an Bord nicht erlaubt. Parkt außerhalb des Hafens und seid etwa eine Stunde vor Abfahrt da. Kinder und Babys sind auf den großen Booten willkommen, zu ermäßigten Preisen.'
             ],
             es: [
               'El Estrecho de Gibraltar es uno de los mejores lugares de Europa para ver ballenas y delfines en libertad. Calderones y tres especies de delfín viven aquí todo el año.',
               'Los cachalotes son más probables en primavera y otoño; las orcas aparecen en pleno verano, de julio a agosto aproximadamente, y nunca están garantizadas. Los operadores anuncian tasas de avistamiento cercanas al 99 %, pero eso significa al menos una especie, no una concreta.',
               'Nuestra propia recomendación es firmm, la fundación de investigación: nosotros mismos hicimos esta salida y fue una mañana maravillosa, y por eso enviamos allí a nuestros huéspedes, sobre todo a las familias con niños. Eso no significa que los demás operadores sean peores; firmm es simplemente el que conocemos de primera mano. Charlas en alemán, inglés y español, barcos grandes y estables con aseo y plaza para silla de ruedas, chalecos para todos incluidos los bebés, tarifas reducidas para niños, y un billete de repetición gratuito si no se ve ningún cetáceo. Las salidas duran unas 2–3 horas desde el puerto de Tarifa.',
               '<strong>firmm España</strong><br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org',
-              'Reservad dejando una mañana libre y confirmad el mismo día: el viento fuerte puede anular varios días seguidos. Consultad la predicción marítima de AEMET para el Estrecho.'
+              'Reservad dejando una mañana libre y confirmad el mismo día: el viento fuerte puede anular varios días seguidos. Consultad la predicción marítima de AEMET para el Estrecho.',
+              '<strong>Otros operadores del puerto.</strong> Si firmm está completo o queréis otro tipo de barco, cuatro más salen del puerto. La verdadera elección es el barco: uno grande es estable, con aseo y el mejor acceso para sillas de ruedas; una lancha pequeña (unos diez pasajeros) es más íntima pero acusa más el oleaje. Turmares (mayor variedad), Aventura Tarifa y TOP Tarifa (lanchas pequeñas, también chárter privado) y Marina Blue (un yate a motor cómodo).',
+              '<strong>Conviene saber.</strong> El mareo es lo más habitual: si sois propensos, tomad un remedio con tiempo (la tripulación no puede daros medicación) y elegid un barco más grande y el horario más tranquilo. Llevad una capa cortavientos abrigada y calzado antideslizante aunque haga calor. En mitad del Estrecho el móvil puede coger una red marroquí fuera del roaming de la UE: apagad los datos; no se permiten drones a bordo. Aparcad fuera del puerto y llegad una hora antes. Los niños y bebés son bienvenidos en los barcos grandes, con tarifas reducidas.'
             ],
             nl: [
               'De Straat van Gibraltar is een van de beste plekken in Europa om walvissen en dolfijnen in het wild te zien. Grienden en drie soorten dolfijn leven hier het hele jaar.',
               'Potvissen zijn waarschijnlijker in het voorjaar en de herfst; orka’s verschijnen in de hoogzomer, ruwweg juli tot augustus, en zijn nooit gegarandeerd. Aanbieders noemen spotkansen rond 99%, maar dat betekent minstens één soort, geen bepaalde.',
               'Onze eigen aanbeveling is firmm, de onderzoeksstichting — we hebben deze tocht zelf gemaakt en het was een prachtige ochtend, en daarom sturen we onze gasten daarheen, vooral gezinnen met kinderen. Dat betekent niet dat de andere aanbieders slechter zijn; firmm is gewoon degene die we uit eigen ervaring kennen. Uitleg in het Duits, Engels en Spaans, grote stabiele boten met toilet en een rolstoelplek, reddingsvesten voor iedereen inclusief baby’s, gereduceerde tarieven voor kinderen, en een gratis herhalingsticket als er geen walvisachtige wordt gezien. Tochten duren ongeveer 2–3 uur vanuit de haven van Tarifa.',
               '<strong>firmm España</strong><br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org',
-              'Boek met een vrije ochtend en bevestig op de dag zelf — harde wind kan meerdere dagen achter elkaar schrappen. Bekijk de AEMET-zeeverwachting voor de Estrecho.'
+              'Boek met een vrije ochtend en bevestig op de dag zelf — harde wind kan meerdere dagen achter elkaar schrappen. Bekijk de AEMET-zeeverwachting voor de Estrecho.',
+              '<strong>Andere aanbieders in de haven.</strong> Als firmm vol is of je een ander soort boot wilt: vier andere vertrekken vanuit de haven. De echte keuze is de boot — een groot schip is stabiel, met toilet en de beste rolstoeltoegang; een kleine RIB (ongeveer tien gasten) is intiemer maar vangt de golven harder op. Turmares (grootste vloot), Aventura Tarifa en TOP Tarifa (kleine RIB’s, ook privécharters) en Marina Blue (een comfortabel motorjacht).',
+              '<strong>Handig om te weten.</strong> Zeeziekte is het meest voorkomend — ben je er gevoelig voor, neem op tijd een middel (de bemanning mag geen medicijnen uitdelen) en kies een grotere boot en het rustigste tijdslot. Neem ook op een warme dag een warme, winddichte laag en stevige, antislip schoenen mee. Midden in de Straat pakt je telefoon soms een Marokkaans netwerk buiten EU-roaming — zet mobiele data uit; drones zijn niet toegestaan. Parkeer buiten de haven en wees een uur voor vertrek aanwezig. Kinderen en baby’s zijn welkom op de grote boten, tegen gereduceerd tarief.'
             ],
             sv: [
               'Gibraltarsund är en av Europas bästa platser för att se valar och delfiner i det fria. Grindvalar och tre delfinarter lever här året runt.',
               'Kaskeloter är mer troliga på våren och hösten; späckhuggare dyker upp på högsommaren, ungefär juli till augusti, och är aldrig garanterade. Arrangörer anger observationsfrekvenser kring 99 %, men det betyder minst en art, inte en bestämd.',
               'Vår egen rekommendation är firmm, forskningsstiftelsen — vi har gjort turen själva och det var en underbar morgon, och därför skickar vi våra gäster dit, särskilt familjer med barn. Det betyder inte att de andra aktörerna är sämre; firmm är helt enkelt den vi känner av egen erfarenhet. Genomgång på tyska, engelska och spanska, stora stabila båtar med toalett och rullstolsplats, flytvästar för alla inklusive bebisar, reducerade priser för barn, och en gratis ombokningsbiljett om ingen val ses. Turerna tar cirka 2–3 timmar från Tarifas hamn.',
               '<strong>firmm España</strong><br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org',
-              'Boka med en ledig morgon och bekräfta samma dag — stark vind kan ställa in flera dagar i rad. Kolla AEMET:s sjöväderprognos för Estrecho.'
-            ]
-          })
-        },
-        {
-          icon: 'compass',
-          title: tarifaText(
-            'Other operators from the harbour',
-            'Weitere Anbieter am Hafen',
-            'Otros operadores del puerto',
-            'Andere aanbieders in de haven',
-            'Andra aktörer i hamnen'
-          ),
-          body: tarifaParagraphs({
-            en: [
-              'If firmm is full or you would like a different kind of boat, four more operators sail from Tarifa harbour. The real choice is the boat: a large ship is stable, has a toilet and the best wheelchair access; a small RIB (about ten guests) is more intimate but takes the waves harder.',
-              '<strong>Turmares</strong> — the widest fleet, from a large ship to a small hybrid boat. turmares.com',
-              '<strong>Aventura Tarifa</strong> — small group in a RIB, up to about ten guests. aventuratarifa.com',
-              '<strong>TOP Tarifa</strong> — Zodiac/RIB, private charters too. toptarifa.es',
-              '<strong>Marina Blue</strong> — a comfortable motor yacht, year-round. marinablue.es'
-            ],
-            de: [
-              'Falls firmm ausgebucht ist oder ihr eine andere Art Boot möchtet: Vier weitere Anbieter fahren vom Hafen Tarifa. Die eigentliche Wahl ist das Boot — ein großes Schiff ist stabil, hat eine Toilette und den besten Rollstuhlzugang; ein kleines RIB (etwa zehn Gäste) ist intimer, nimmt die Wellen aber härter.',
-              '<strong>Turmares</strong> — größte Flotte, vom großen Schiff bis zum kleinen Hybridboot. turmares.com',
-              '<strong>Aventura Tarifa</strong> — Kleingruppe im RIB, bis etwa zehn Gäste. aventuratarifa.com',
-              '<strong>TOP Tarifa</strong> — Zodiac/RIB, auch private Charter. toptarifa.es',
-              '<strong>Marina Blue</strong> — komfortable Motoryacht, ganzjährig. marinablue.es'
-            ],
-            es: [
-              'Si firmm está completo o queréis otro tipo de barco, cuatro operadores más salen del puerto de Tarifa. La verdadera elección es el barco: uno grande es estable, tiene aseo y el mejor acceso para sillas de ruedas; una lancha pequeña (unos diez pasajeros) es más íntima pero acusa más el oleaje.',
-              '<strong>Turmares</strong> — la mayor variedad de barcos, desde un gran buque hasta un pequeño híbrido. turmares.com',
-              '<strong>Aventura Tarifa</strong> — grupo reducido en lancha, hasta unos diez pasajeros. aventuratarifa.com',
-              '<strong>TOP Tarifa</strong> — zódiac/lancha, también chárter privado. toptarifa.es',
-              '<strong>Marina Blue</strong> — un yate a motor cómodo, todo el año. marinablue.es'
-            ],
-            nl: [
-              'Als firmm vol is of je een ander soort boot wilt: vier andere aanbieders vertrekken vanuit de haven van Tarifa. De echte keuze is de boot — een groot schip is stabiel, heeft een toilet en de beste rolstoeltoegang; een kleine RIB (ongeveer tien gasten) is intiemer maar vangt de golven harder op.',
-              '<strong>Turmares</strong> — de grootste vloot, van een groot schip tot een kleine hybride boot. turmares.com',
-              '<strong>Aventura Tarifa</strong> — kleine groep in een RIB, tot ongeveer tien gasten. aventuratarifa.com',
-              '<strong>TOP Tarifa</strong> — Zodiac/RIB, ook privécharters. toptarifa.es',
-              '<strong>Marina Blue</strong> — een comfortabel motorjacht, het hele jaar. marinablue.es'
-            ],
-            sv: [
-              'Om firmm är fullbokat eller ni vill ha en annan sorts båt: fyra aktörer till avgår från Tarifas hamn. Det verkliga valet är båten — ett stort fartyg är stabilt, har toalett och bäst rullstolstillgång; en liten RIB (ett tiotal gäster) är mer intim men tar vågorna hårdare.',
-              '<strong>Turmares</strong> — störst flotta, från stort fartyg till liten hybridbåt. turmares.com',
-              '<strong>Aventura Tarifa</strong> — liten grupp i RIB, upp till cirka tio gäster. aventuratarifa.com',
-              '<strong>TOP Tarifa</strong> — Zodiac/RIB, även privata charter. toptarifa.es',
-              '<strong>Marina Blue</strong> — en bekväm motoryacht, året runt. marinablue.es'
-            ]
-          })
-        },
-        {
-          icon: 'info',
-          title: tarifaText(
-            'Good to know before you sail',
-            'Vor der Ausfahrt gut zu wissen',
-            'Bueno saber antes de salir',
-            'Handig om te weten voordat je uitvaart',
-            'Bra att veta innan ni åker ut'
-          ),
-          body: tarifaParagraphs({
-            en: [
-              'Seasickness is the most common issue. If you are prone to it, take a remedy in good time before departure — crews are not allowed to hand out medication — and choose a larger boat and the calmest slot.',
-              'Even on a hot day, bring a warm windproof layer and secure, non-slip shoes (no flip-flops on board). Sunscreen, a hat with a strap and water too.',
-              'Out in the middle of the Strait your phone may pick up a Moroccan network outside EU roaming — switch mobile data off. Drones are not allowed on board.',
-              'Park outside the harbour and arrive about an hour before departure (firmm checks you in early). Children and even babies are welcome on the large boats, at reduced fares.'
-            ],
-            de: [
-              'Seekrankheit ist das häufigste Thema. Wer anfällig ist, nimmt rechtzeitig vor der Abfahrt ein Mittel — die Crew darf keine Medikamente ausgeben — und wählt ein größeres Boot und den ruhigsten Slot.',
-              'Auch an heißen Tagen gehören eine warme, winddichte Schicht und feste, rutschfeste Schuhe ins Gepäck (keine Flip-Flops an Bord). Dazu Sonnenschutz, ein Hut mit Band und Wasser.',
-              'Mitten in der Meerenge wählt euer Handy vielleicht ein marokkanisches Netz außerhalb des EU-Roamings — schaltet die mobilen Daten aus. Drohnen sind an Bord nicht erlaubt.',
-              'Parkt außerhalb des Hafens und seid etwa eine Stunde vor Abfahrt da (firmm checkt früh ein). Kinder und sogar Babys sind auf den großen Booten willkommen, zu ermäßigten Preisen.'
-            ],
-            es: [
-              'El mareo es lo más habitual. Si sois propensos, tomad un remedio con tiempo antes de salir —la tripulación no puede daros medicación— y elegid un barco más grande y el horario con el mar más tranquilo.',
-              'Aunque haga calor, llevad una capa cortavientos abrigada y calzado firme y antideslizante (nada de chanclas a bordo). También protección solar, gorra con cinta y agua.',
-              'En mitad del Estrecho el móvil puede conectarse a una red marroquí fuera del roaming de la UE: apagad los datos móviles. No se permiten drones a bordo.',
-              'Aparcad fuera del puerto y llegad una hora antes de la salida (firmm hace el registro con antelación). Los niños e incluso los bebés son bienvenidos en los barcos grandes, con tarifas reducidas.'
-            ],
-            nl: [
-              'Zeeziekte is het meest voorkomende probleem. Ben je er gevoelig voor, neem dan op tijd vóór vertrek een middel — de bemanning mag geen medicijnen uitdelen — en kies een grotere boot en het rustigste tijdslot.',
-              'Neem ook op een warme dag een warme, winddichte laag en stevige, antislip schoenen mee (geen slippers aan boord). Plus zonnebrand, een pet met koord en water.',
-              'Midden in de Straat kan je telefoon een Marokkaans netwerk pakken buiten EU-roaming — zet mobiele data uit. Drones zijn niet toegestaan aan boord.',
-              'Parkeer buiten de haven en wees ongeveer een uur voor vertrek aanwezig (firmm doet de check-in vroeg). Kinderen en zelfs baby’s zijn welkom op de grote boten, tegen gereduceerd tarief.'
-            ],
-            sv: [
-              'Sjösjuka är det vanligaste. Är ni känsliga, ta ett medel i god tid före avfärd — besättningen får inte dela ut mediciner — och välj en större båt och det lugnaste tidsläget.',
-              'Även en varm dag: ta med ett varmt, vindtätt lager och stadiga, halkfria skor (inga flip-flops ombord). Dessutom solskydd, en keps med band och vatten.',
-              'Mitt ute i sundet kan telefonen fånga ett marockanskt nät utanför EU-roaming — stäng av mobildata. Drönare är inte tillåtna ombord.',
-              'Parkera utanför hamnen och var på plats ungefär en timme före avgång (firmm checkar in tidigt). Barn och till och med bebisar är välkomna på de stora båtarna, till reducerat pris.'
+              'Boka med en ledig morgon och bekräfta samma dag — stark vind kan ställa in flera dagar i rad. Kolla AEMET:s sjöväderprognos för Estrecho.',
+              '<strong>Andra aktörer i hamnen.</strong> Om firmm är fullbokat eller ni vill ha en annan sorts båt: fyra till avgår från hamnen. Det verkliga valet är båten — ett stort fartyg är stabilt, med toalett och bäst rullstolstillgång; en liten RIB (ett tiotal gäster) är mer intim men tar vågorna hårdare. Turmares (störst flotta), Aventura Tarifa och TOP Tarifa (små RIB:ar, även privata charter) och Marina Blue (en bekväm motoryacht).',
+              '<strong>Bra att veta.</strong> Sjösjuka är vanligast — är ni känsliga, ta ett medel i god tid (besättningen får inte dela ut mediciner) och välj en större båt och det lugnaste tidsläget. Ta med ett varmt, vindtätt lager och halkfria skor även en varm dag. Mitt ute i sundet kan telefonen fånga ett marockanskt nät utanför EU-roaming — stäng av mobildata; drönare är inte tillåtna ombord. Parkera utanför hamnen och var på plats en timme före avgång. Barn och bebisar är välkomna på de stora båtarna, till reducerat pris.'
             ]
           })
         }
