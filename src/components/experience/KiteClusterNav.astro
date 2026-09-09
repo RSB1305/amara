@@ -15,16 +15,16 @@ import type { AmaraLanguage } from '../../types/seo';
  * weight, on the inverse surface the site already uses for dark bands. The
  * current page is left out rather than marked (operator decision of
  * 4 September 2026): the band shows only where you can still go. Wind and
- * forecast share one entry that leads to the wind page; the live-values page
- * stays reachable from there. Educational leave is a German concept and is
- * shown in German only. No caption: the breadcrumb above already names the
- * topic.
+ * forecast are one page — the wind page carries both the live values and the
+ * evergreen explanation, under the single "Wind & forecast" entry. Educational
+ * leave is a German concept and is shown in German only. No caption: the
+ * breadcrumb above already names the topic.
  *
  * The beginner guide sits inside the cluster but is not itself a nav
  * destination, so it passes `currentId="guide"`: no item matches, and the band
  * shows every cluster page.
  */
-export type KiteClusterPageId = 'hub' | 'spots' | 'wind' | 'forecast' | 'school' | 'camp' | 'education' | 'equipment' | 'partner' | 'guide';
+export type KiteClusterPageId = 'hub' | 'spots' | 'wind' | 'school' | 'camp' | 'education' | 'equipment' | 'partner' | 'guide';
 
 interface Props {
   lang: AmaraLanguage;

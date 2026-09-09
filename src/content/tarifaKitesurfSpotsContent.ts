@@ -42,6 +42,8 @@ interface SpotSection extends LocalizedTextSection {
   /** Recommendation record this spot section presents (DR-GUEST-006). */
   recordId?: string;
   observation?: LocalizedText;
+  /** An attributed quote from the partner (Mark), shown with his portrait. Approved wording only. */
+  partnerQuote?: { name: string; role: LocalizedText; text: LocalizedText };
   link?: { token: LinkToken; text: LocalizedText; label: LocalizedText };
 }
 
@@ -80,11 +82,22 @@ const sections: SpotSection[] = [
     recordId: 'tarifa.beaches.playa-de-valdevaqueros',
     title: l('Valdevaqueros: the bay option for Levante', 'Valdevaqueros: Die Levante-Option in der Bucht', 'Valdevaqueros: la opción de la bahía con levante', 'Valdevaqueros: de baai bij levante', 'Valdevaqueros: bukten vid levante'),
     paragraphs: {
-      en: ['In a Levante the bay of Valdevaqueros curves so that if you drift you have land in front of you again. Mark sends beginners exactly there on their first Levante: the wind is more onshore, and the big dune at your back makes a difference.', 'Punta Paloma at the northern end belongs to the same bay. Outside high summer Valdevaqueros is wide and easy to read; in July and August bathers, schools and kiters share the beach in zones.'],
-      de: ['Bei Levante krümmt sich die Bucht von Valdevaqueros so, dass ihr bei Abdrift wieder Land vor euch habt. Mark schickt Anfänger beim ersten Levante genau dorthin: Der Wind steht auflandiger, und die große Düne im Rücken macht einen Unterschied.', 'Punta Paloma am nördlichen Ende gehört zur selben Bucht. Außerhalb des Hochsommers ist Valdevaqueros weit und übersichtlich; im Juli und August teilen sich Badegäste, Schulen und Kiter den Strand in Zonen.'],
-      es: ['Con levante, la ensenada de Valdevaqueros se curva de modo que, si derivais, volvéis a tener tierra delante. Mark manda a los principiantes justo allí en su primer levante: el viento entra más hacia tierra, y la gran duna a la espalda marca la diferencia.', 'Punta Paloma, en el extremo norte, forma parte de la misma ensenada. Fuera del pleno verano Valdevaqueros es amplia y fácil de leer; en julio y agosto bañistas, escuelas y kiters se reparten la playa por zonas.'],
-      nl: ['Bij Levante kromt de baai van Valdevaqueros zich zo dat je bij afdrijven weer land voor je hebt. Mark stuurt beginners bij hun eerste Levante precies daarheen: de wind staat aanlandiger, en de grote duin in de rug maakt verschil.', 'Punta Paloma aan het noordelijke eind hoort bij dezelfde baai. Buiten de hoogzomer is Valdevaqueros wijd en overzichtelijk; in juli en augustus delen badgasten, scholen en kiters het strand in zones.'],
-      sv: ['Vid Levante kröker sig viken vid Valdevaqueros så att ni vid avdrift åter har land framför er. Mark skickar nybörjare exakt dit vid deras första Levante: vinden ligger mer pålands, och den stora dynen i ryggen gör skillnad.', 'Punta Paloma i norra änden hör till samma vik. Utanför högsommaren är Valdevaqueros vid och överskådlig; i juli och augusti delar badgäster, skolor och kitare stranden i zoner.']
+      en: ['In a Levante the bay of Valdevaqueros curves so that if you drift you have land in front of you again — which is why it is the calmer choice for a first Levante.', 'Punta Paloma at the northern end belongs to the same bay. Outside high summer Valdevaqueros is wide and easy to read; in July and August bathers, schools and kiters share the beach in zones.'],
+      de: ['Bei Levante krümmt sich die Bucht von Valdevaqueros so, dass ihr bei Abdrift wieder Land vor euch habt — deshalb ist sie für den ersten Levante die entspanntere Wahl.', 'Punta Paloma am nördlichen Ende gehört zur selben Bucht. Außerhalb des Hochsommers ist Valdevaqueros weit und übersichtlich; im Juli und August teilen sich Badegäste, Schulen und Kiter den Strand in Zonen.'],
+      es: ['Con levante, la ensenada de Valdevaqueros se curva de modo que, si derivais, volvéis a tener tierra delante, y por eso es la opción más tranquila para un primer levante.', 'Punta Paloma, en el extremo norte, forma parte de la misma ensenada. Fuera del pleno verano Valdevaqueros es amplia y fácil de leer; en julio y agosto bañistas, escuelas y kiters se reparten la playa por zonas.'],
+      nl: ['Bij Levante kromt de baai van Valdevaqueros zich zo dat je bij afdrijven weer land voor je hebt — daarom is het de rustigere keuze voor een eerste Levante.', 'Punta Paloma aan het noordelijke eind hoort bij dezelfde baai. Buiten de hoogzomer is Valdevaqueros wijd en overzichtelijk; in juli en augustus delen badgasten, scholen en kiters het strand in zones.'],
+      sv: ['Vid Levante kröker sig viken vid Valdevaqueros så att ni vid avdrift åter har land framför er — därför är den det lugnare valet för en första Levante.', 'Punta Paloma i norra änden hör till samma vik. Utanför högsommaren är Valdevaqueros vid och överskådlig; i juli och augusti delar badgäster, skolor och kitare stranden i zoner.']
+    },
+    partnerQuote: {
+      name: 'Mark',
+      role: l('Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club'),
+      text: l(
+        'For a first Levante I send people to Valdevaqueros. The wind sits a bit more onshore there, and the big dune at your back makes a difference.',
+        'Beim ersten Levante schicke ich die Leute nach Valdevaqueros. Der Wind steht dort etwas auflandiger, und die große Düne im Rücken macht einen Unterschied.',
+        'Con el primer levante mando a la gente a Valdevaqueros. Allí el viento entra algo más de mar, y la gran duna a la espalda marca la diferencia.',
+        'Bij de eerste levante stuur ik mensen naar Valdevaqueros. De wind staat daar iets aanlandiger, en de grote duin in de rug maakt verschil.',
+        'Vid första levanten skickar jag folk till Valdevaqueros. Vinden ligger lite mer pålands där, och den stora dynen i ryggen gör skillnad.'
+      )
     },
     observation: l('In July and August I personally avoid Valdevaqueros when I have a choice. Between bathers, schools, kiters and separate zones, I find it can become very crowded and hard to read. That is my own preference, rather than a rule for everyone who rides there.', 'Im Juli und August fahre ich persönlich nicht nach Valdevaqueros, wenn ich die Wahl habe. Mit Badegästen, Schulen, Kitern und getrennten Zonen kann es mir dort sehr voll und unübersichtlich werden. Das ist meine persönliche Vorliebe, keine Regel für alle, die dort fahren.', 'En julio y agosto, personalmente evito Valdevaqueros cuando puedo elegir. Entre bañistas, escuelas, kiters y zonas separadas, puede resultarme muy lleno y difícil de interpretar. Es mi preferencia, no una regla para quienes navegan allí.', 'In juli en augustus ga ik persoonlijk niet naar Valdevaqueros als ik kan kiezen. Door badgasten, scholen, kiters en gescheiden zones kan het er voor mij erg druk en onoverzichtelijk worden. Dat is mijn voorkeur, geen regel voor iedereen die er vaart.', 'I juli och augusti undviker jag personligen Valdevaqueros när jag kan välja. Med badgäster, skolor, kitare och separata zoner kan det bli mycket trångt och svåröverskådligt för mig. Det är min personliga preferens, ingen regel för alla som åker där.')
   },

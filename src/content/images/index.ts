@@ -41,7 +41,6 @@ import { tarifaExperienceImages } from './tarifa-experience';
 import { tarifaKitesurfingBeginnerGuideImages } from './tarifa-kitesurfing-beginner-guide';
 import { tarifaKitesurfingBildungsurlaubImages } from './tarifa-kitesurfing-bildungsurlaub';
 import { tarifaKitesurfingEquipmentImages } from './tarifa-kitesurfing-equipment';
-import { tarifaKitesurfingForecastImages } from './tarifa-kitesurfing-forecast';
 import { tarifaKitesurfingKitecampImages } from './tarifa-kitesurfing-kitecamp';
 import { tarifaKitesurfingSchoolImages } from './tarifa-kitesurfing-school';
 import { tarifaKitesurfingSpotsImages } from './tarifa-kitesurfing-spots';
@@ -94,7 +93,6 @@ const sets: readonly RouteImageSet[] = [
   tarifaKitesurfingBeginnerGuideImages,
   tarifaKitesurfingBildungsurlaubImages,
   tarifaKitesurfingEquipmentImages,
-  tarifaKitesurfingForecastImages,
   tarifaKitesurfingKitecampImages,
   tarifaKitesurfingSchoolImages,
   tarifaKitesurfingSpotsImages,

@@ -16,9 +16,11 @@ export type TarifaExperienceChildId =
   | 'kitesurf-spots'
   | 'food-evening-life'
   | 'nature-wildlife'
+  | 'whale-watching'
   | 'old-town-history'
   | 'bolonia-baelo-claudia'
-  | 'yoga';
+  | 'yoga'
+  | 'family';
 
 export type TarifaAuthorityChildId = LocationGuideTopicId | TarifaExperienceChildId;
 
@@ -70,7 +72,9 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'nature-wildlife': 'Nature & wildlife',
       'old-town-history': 'Old Town & history',
       'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
-      yoga: 'Yoga'
+      yoga: 'Yoga',
+      'whale-watching': 'Whale watching',
+      family: 'Family holidays'
     }
   },
   de: {
@@ -85,7 +89,9 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'nature-wildlife': 'Natur & Tierwelt',
       'old-town-history': 'Altstadt & Geschichte',
       'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
-      yoga: 'Yoga'
+      yoga: 'Yoga',
+      'whale-watching': 'Whale Watching',
+      family: 'Familienurlaub'
     }
   },
   es: {
@@ -100,7 +106,9 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'nature-wildlife': 'Naturaleza y fauna',
       'old-town-history': 'Casco antiguo e historia',
       'bolonia-baelo-claudia': 'Bolonia y Baelo Claudia',
-      yoga: 'Yoga'
+      yoga: 'Yoga',
+      'whale-watching': 'Avistamiento de cetáceos',
+      family: 'Vacaciones en familia'
     }
   },
   nl: {
@@ -115,7 +123,9 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'nature-wildlife': 'Natuur & dieren',
       'old-town-history': 'Oude stad & geschiedenis',
       'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
-      yoga: 'Yoga'
+      yoga: 'Yoga',
+      'whale-watching': 'Walvissen spotten',
+      family: 'Gezinsvakantie'
     }
   },
   sv: {
@@ -130,7 +140,9 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       'nature-wildlife': 'Natur & djurliv',
       'old-town-history': 'Gamla stan & historia',
       'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
-      yoga: 'Yoga'
+      yoga: 'Yoga',
+      'whale-watching': 'Valskådning',
+      family: 'Familjesemester'
     }
   }
 };
@@ -153,9 +165,11 @@ const experienceChildren: readonly (readonly [TarifaExperienceChildId, LinkToken
   ['kitesurf-spots', 'tarifa_kitesurf_spots'],
   ['food-evening-life', 'tarifa_food_evening_life'],
   ['nature-wildlife', 'tarifa_nature_wildlife'],
+  ['whale-watching', 'tarifa_whale_watching'],
   ['old-town-history', 'tarifa_old_town_history'],
   ['bolonia-baelo-claudia', 'tarifa_bolonia_baelo_claudia'],
-  ['yoga', 'tarifa_yoga']
+  ['yoga', 'tarifa_yoga'],
+  ['family', 'tarifa_family']
 ];
 
 export function getTarifaAuthoritySubnav(

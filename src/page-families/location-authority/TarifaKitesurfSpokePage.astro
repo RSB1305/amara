@@ -39,9 +39,16 @@ const ui = {
   note: { en: 'Tarifa Surf Club prices as of 3 September 2026.', de: 'Preise des Tarifa Surf Club, Stand 3. September 2026.', es: 'Precios del Tarifa Surf Club, actualizados el 3 de septiembre de 2026.', nl: 'Prijzen van de Tarifa Surf Club, stand 3 september 2026.', sv: 'Tarifa Surf Clubs priser per den 3 september 2026.' },
   relatedEyebrow: { en: 'The same kite stay', de: 'Derselbe Kite-Aufenthalt', es: 'La misma estancia de kite', nl: 'Hetzelfde kiteverblijf', sv: 'Samma kitevistelse' },
   relatedTitle: { en: 'Continue with the next practical detail', de: 'Weiter zum nächsten praktischen Detail', es: 'Seguid con el siguiente detalle práctico', nl: 'Ga verder met het volgende praktische detail', sv: 'Fortsätt med nästa praktiska del' },
-  includes: { en: 'Included', de: 'Inklusive', es: 'Incluido', nl: 'Inbegrepen', sv: 'Ingår' }
+  includes: { en: 'Included', de: 'Inklusive', es: 'Incluido', nl: 'Inbegrepen', sv: 'Ingår' },
+  beginnerEyebrow: { en: 'New to kiting?', de: 'Neu beim Kiten?', es: '¿Empiezas con el kite?', nl: 'Nieuw met kiten?', sv: 'Ny på kite?' },
+  beginnerButton: { en: 'Open the beginner guide', de: 'Zum Anfänger-Guide', es: 'Abrir la guía de iniciación', nl: 'Naar de beginnersgids', sv: 'Till nybörjarguiden' },
+  partnerVoiceTitle: { en: 'How Mark teaches', de: 'Wie Mark unterrichtet', es: 'Cómo enseña Mark', nl: 'Hoe Mark lesgeeft', sv: 'Så undervisar Mark' }
 } satisfies Record<string, LocalizedText>;
 const t = (value: LocalizedText) => value[currentLang];
+// The beginner guide leads the school page as a highlighted callout near the top,
+// so it is pulled out of the "continue" cards to avoid a duplicate link.
+const beginnerGuide = content.related.find((link) => link.token === 'tarifa_kitesurf_beginner_guide');
+const relatedCards = content.related.filter((link) => link.token !== 'tarifa_kitesurf_beginner_guide');
 const routeKey = ({ 'kite-school': 'tarifa.kitesurfing.school', kitecamp: 'tarifa.kitesurfing.kitecamp', equipment: 'tarifa.kitesurfing.equipment' } as const)[spoke];
 const heroPhoto = requireRouteImage(routeKey, 'hero', currentLang);
 const photo = requireRouteImage(routeKey, 'photo', currentLang);
@@ -98,6 +105,27 @@ const footerHighlights: LabeledLink[] = [
       </dl>
     </LocationModule>
 
+    {beginnerGuide && (
+      <LocationModule id="beginner-guide-cta" spacing="compact" data-am-topic="beginner-guide-cta">
+        <div class="mx-auto max-w-screen-2xl">
+          <a
+            href={requiredLink(beginnerGuide.token)}
+            class="group block border-l-4 border-primary bg-primary/10 px-6 py-7 transition-colors hover:bg-primary/15 md:px-10 md:py-8 lg:flex lg:items-center lg:justify-between lg:gap-10"
+          >
+            <div class="max-w-2xl">
+              <p class="am-text-eyebrow text-primary">{t(ui.beginnerEyebrow)}</p>
+              <h2 class="am-text-subtitle mt-3 text-on-surface transition-colors group-hover:text-primary">{beginnerGuide.label}</h2>
+              <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{beginnerGuide.text}</p>
+            </div>
+            <span class="am-btn am-btn--primary mt-6 justify-center lg:mt-0 lg:shrink-0">
+              {t(ui.beginnerButton)}
+              <span aria-hidden="true" class="ml-2 inline-flex transition-transform group-hover:translate-x-1">→</span>
+            </span>
+          </a>
+        </div>
+      </LocationModule>
+    )}
+
     <LocationModule id="offers" labelledby="offers-title" spacing="compact" data-am-topic="offers">
       <div class="mx-auto max-w-screen-2xl">
         <div class="max-w-3xl">
@@ -128,6 +156,27 @@ const footerHighlights: LabeledLink[] = [
         <AmaraActionLink href={content.offers.href} variant="editorial" external class="mt-5 inline-flex">{content.offers.linkLabel}</AmaraActionLink>
       </div>
     </LocationModule>
+
+    {content.partnerQuotes && content.partnerQuotes.length > 0 && (
+      <LocationModule id="from-mark" labelledby="from-mark-title" spacing="compact" data-am-topic="partner-voice">
+        <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
+          <figure class="m-0 lg:col-span-4" data-am-voice="mark">
+            <AmaraImage src={markImage.src} alt={markImage.alt} profile="card" width={900} widths={[320, 480, 600, 900]} sizes="(max-width: 1023px) calc(100vw - 3rem), 30vw" class="aspect-[3/4] w-full max-w-sm object-cover" />
+            <figcaption class="am-text-label am-text-label--sm mt-4 text-primary">{content.partnerQuotes[0].name} · {content.partnerQuotes[0].role}</figcaption>
+          </figure>
+          <div class="lg:col-span-8">
+            <h2 id="from-mark-title" class="am-text-title text-balance text-on-surface">{t(ui.partnerVoiceTitle)}</h2>
+            <div class="mt-8 space-y-8">
+              {content.partnerQuotes.map((quote) => (
+                <blockquote class="m-0" data-am-voice-quote={quote.id}>
+                  <p class="am-text-subtitle max-w-3xl leading-relaxed text-on-surface">{quote.text}</p>
+                </blockquote>
+              ))}
+            </div>
+          </div>
+        </div>
+      </LocationModule>
+    )}
 
     {content.sections.map((section, index) => (
       <LocationModule id={section.id} labelledby={`${section.id}-title`} surface={index % 2 === 0 ? 'tint' : 'white'} spacing="compact" data-am-topic="explanation">
@@ -173,7 +222,7 @@ const footerHighlights: LabeledLink[] = [
         <p class="am-text-eyebrow text-primary">{t(ui.relatedEyebrow)}</p>
         <h2 id="related-title" class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(ui.relatedTitle)}</h2>
         <div class="mt-10 grid gap-5 lg:grid-cols-3">
-          {content.related.map((link) => (
+          {relatedCards.map((link) => (
             <AmaraActionLink href={requiredLink(link.token)} variant="card" class="group bg-surface px-6 pb-8 pt-7 transition-colors hover:bg-surface-container-lowest">
               <h3 class="am-text-subtitle text-on-surface transition-colors group-hover:text-primary">{link.label}</h3>
               <span class="am-text-body mt-4 block leading-relaxed text-on-surface-variant">{link.text}</span>

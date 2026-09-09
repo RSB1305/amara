@@ -6,7 +6,7 @@ export type LocalizedExperienceText = Record<AmaraLanguage, string>;
 
 export type TarifaExperienceSpokeId = Extract<
   TarifaAuthorityChildId,
-  'food-evening-life' | 'nature-wildlife' | 'old-town-history' | 'bolonia-baelo-claudia' | 'yoga'
+  'food-evening-life' | 'nature-wildlife' | 'old-town-history' | 'bolonia-baelo-claudia' | 'yoga' | 'whale-watching' | 'family'
 >;
 
 export interface TarifaExperienceSpokeSection {
@@ -1090,6 +1090,379 @@ const yoga: TarifaExperienceSpokeContent = {
   }
 };
 
+const whaleWatching: TarifaExperienceSpokeContent = {
+  id: 'whale-watching',
+  token: 'tarifa_whale_watching',
+  seo: buildSeo(
+    '2026-09-09-tarifa-whale-watching-v1.0',
+    l(
+      'Whale watching in Tarifa: the Strait, its whales and how to go',
+      'Whale Watching in Tarifa: die Meerenge, ihre Wale und wie ihr rausfahrt',
+      'Avistamiento de cetáceos en Tarifa: el Estrecho, sus ballenas y cómo salir',
+      'Walvissen spotten in Tarifa: de Straat, haar walvissen en hoe je uitvaart',
+      'Valskådning i Tarifa: sundet, dess valar och hur ni åker ut'
+    ),
+    l(
+      'Fourteen kilometres where the Atlantic meets the Mediterranean, with resident pilot whales and dolphins and, in high summer, orcas. What you see, when to go and how to choose a boat — from our apartment ten minutes from the harbour.',
+      'Vierzehn Kilometer, auf denen Atlantik und Mittelmeer aufeinandertreffen, mit residenten Grindwalen und Delfinen und, im Hochsommer, Orcas. Was ihr seht, wann ihr fahrt und wie ihr ein Boot wählt — von unserer Wohnung zehn Minuten zum Hafen.',
+      'Catorce kilómetros donde el Atlántico se junta con el Mediterráneo, con calderones y delfines residentes y, en pleno verano, orcas. Qué se ve, cuándo salir y cómo elegir barco, a diez minutos de nuestro apartamento al puerto.',
+      'Veertien kilometer waar de Atlantische Oceaan de Middellandse Zee ontmoet, met vaste grienden en dolfijnen en, in de hoogzomer, orka’s. Wat je ziet, wanneer je gaat en hoe je een boot kiest — tien minuten van ons appartement naar de haven.',
+      'Fjorton kilometer där Atlanten möter Medelhavet, med bofasta grindvalar och delfiner och, på högsommaren, späckhuggare. Vad ni ser, när ni åker och hur ni väljer båt — tio minuter från vår lägenhet till hamnen.'
+    )
+  ),
+  navLabel: l('Whale watching', 'Whale Watching', 'Avistamiento de cetáceos', 'Walvissen spotten', 'Valskådning'),
+  breadcrumbLabel: l('Whale watching', 'Whale Watching', 'Avistamiento de cetáceos', 'Walvissen spotten', 'Valskådning'),
+  hero: {
+    eyebrow: l('Tarifa experience guide', 'Tarifa erleben', 'Experiencias en Tarifa', 'Tarifa beleven', 'Upplev Tarifa'),
+    title: l(
+      'Whales beneath the Strait, ten minutes from our door',
+      'Wale unter der Meerenge, zehn Minuten von unserer Tür',
+      'Ballenas bajo el Estrecho, a diez minutos de nuestra puerta',
+      'Walvissen onder de Straat, tien minuten van onze deur',
+      'Valar under sundet, tio minuter från vår dörr'
+    ),
+    standfirst: l(
+      'Between Tarifa and Africa lie fourteen kilometres of water where the Atlantic meets the Mediterranean. Pilot whales and three kinds of dolphin live here all year; sperm whales pass in spring and autumn, orcas in high summer. The boats leave the harbour a short walk from our apartment — when the sea allows.',
+      'Zwischen Tarifa und Afrika liegen vierzehn Kilometer Wasser, auf denen der Atlantik ins Mittelmeer übergeht. Grindwale und drei Delfinarten leben hier das ganze Jahr; Pottwale ziehen im Frühjahr und Herbst durch, Orcas im Hochsommer. Die Boote fahren vom Hafen, wenige Minuten zu Fuß von unserer Wohnung — wenn die See es zulässt.',
+      'Entre Tarifa y África hay catorce kilómetros de agua donde el Atlántico se junta con el Mediterráneo. Calderones y tres especies de delfín viven aquí todo el año; los cachalotes pasan en primavera y otoño, las orcas en pleno verano. Los barcos salen del puerto, a pocos minutos a pie de nuestro apartamento, cuando el mar lo permite.',
+      'Tussen Tarifa en Afrika ligt veertien kilometer water waar de Atlantische Oceaan de Middellandse Zee ontmoet. Grienden en drie soorten dolfijn leven hier het hele jaar; potvissen trekken in het voorjaar en de herfst door, orka’s in de hoogzomer. De boten vertrekken vanuit de haven, een korte wandeling van ons appartement — als de zee het toelaat.',
+      'Mellan Tarifa och Afrika ligger fjorton kilometer vatten där Atlanten möter Medelhavet. Grindvalar och tre delfinarter lever här året runt; kaskeloter passerar på våren och hösten, späckhuggare på högsommaren. Båtarna går från hamnen, en kort promenad från vår lägenhet — när havet tillåter.'
+    ),
+    note: l(
+      'Trips depend on the sea, not the calendar — confirm on the morning you go.',
+      'Die Fahrten hängen von der See ab, nicht vom Kalender — bestätigt sie am Morgen der Ausfahrt.',
+      'Las salidas dependen del mar, no del calendario: confirmadlas la mañana de la excursión.',
+      'De tochten hangen af van de zee, niet van de kalender — bevestig ze op de ochtend zelf.',
+      'Turerna beror på havet, inte kalendern — bekräfta dem samma morgon.'
+    ),
+    updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026')
+  },
+  facts: [
+    { label: l('The residents', 'Die Standtiere', 'Los residentes', 'De vaste bewoners', 'De bofasta'), value: l('Pilot whales, bottlenose, common and striped dolphins', 'Grindwale, Große Tümmler, Gemeine und Streifendelfine', 'Calderones, delfines mulares, comunes y listados', 'Grienden, tuimelaars, gewone en gestreepte dolfijnen', 'Grindvalar, öresvin, vanliga och strimmiga delfiner') },
+    { label: l('When to go', 'Wann fahren', 'Cuándo salir', 'Wanneer gaan', 'När åka'), value: l('Spring to autumn for a first trip, July–August for orcas', 'Frühjahr bis Herbst für die erste Fahrt, Juli–August für Orcas', 'De primavera a otoño para una primera salida, julio–agosto para orcas', 'Voorjaar tot herfst voor een eerste tocht, juli–augustus voor orka’s', 'Vår till höst för en första tur, juli–augusti för späckhuggare') },
+    { label: l('From AMARA', 'Von AMARA', 'Desde AMARA', 'Vanaf AMARA', 'Från AMARA'), value: l('Harbour ten minutes on foot', 'Hafen zehn Minuten zu Fuß', 'Puerto a diez minutos a pie', 'Haven tien minuten te voet', 'Hamnen tio minuter till fots') }
+  ],
+  sections: [
+    {
+      id: 'why-the-strait',
+      eyebrow: l('01 · Why the Strait', '01 · Warum die Meerenge', '01 · Por qué el Estrecho', '01 · Waarom de Straat', '01 · Varför sundet'),
+      title: l('Two seas meet in fourteen kilometres', 'Zwei Meere treffen sich auf vierzehn Kilometern', 'Dos mares se juntan en catorce kilómetros', 'Twee zeeën ontmoeten elkaar in veertien kilometer', 'Två hav möts på fjorton kilometer'),
+      paragraphs: [
+        l(
+          'The Strait of Gibraltar is only about fourteen kilometres wide, with deep water, strong currents and a migration route between the Atlantic and the Mediterranean. That mix feeds a rich sea, which is why whales and dolphins are here rather than passing through by chance.',
+          'Die Straße von Gibraltar ist nur etwa vierzehn Kilometer breit, mit tiefem Wasser, starken Strömungen und einer Wanderroute zwischen Atlantik und Mittelmeer. Diese Mischung nährt ein reiches Meer, deshalb sind Wale und Delfine hier zu Hause und nicht bloß zufällig auf der Durchreise.',
+          'El Estrecho de Gibraltar mide solo unos catorce kilómetros, con aguas profundas, corrientes fuertes y una ruta migratoria entre el Atlántico y el Mediterráneo. Esa mezcla alimenta un mar rico, y por eso las ballenas y los delfines viven aquí y no solo pasan de largo.',
+          'De Straat van Gibraltar is maar zo’n veertien kilometer breed, met diep water, sterke stromingen en een trekroute tussen de Atlantische Oceaan en de Middellandse Zee. Die mix voedt een rijke zee, en daarom horen walvissen en dolfijnen hier thuis in plaats van er toevallig langs te trekken.',
+          'Gibraltarsund är bara omkring fjorton kilometer brett, med djupt vatten, starka strömmar och en vandringsled mellan Atlanten och Medelhavet. Den blandningen föder ett rikt hav, och därför hör valar och delfiner hemma här snarare än att bara passera förbi.'
+        ),
+        l(
+          'On the water you get two continents at once: Europe behind you, the Moroccan coast ahead, seabirds overhead and, on the horizon, the freighters that thread the Strait day and night.',
+          'Auf dem Wasser habt ihr zwei Kontinente auf einmal: Europa im Rücken, die marokkanische Küste voraus, Seevögel über euch und am Horizont die Frachter, die Tag und Nacht durch die Meerenge ziehen.',
+          'En el agua tenéis dos continentes a la vez: Europa a la espalda, la costa marroquí enfrente, aves marinas sobre vosotros y, en el horizonte, los cargueros que cruzan el Estrecho día y noche.',
+          'Op het water heb je twee continenten tegelijk: Europa achter je, de Marokkaanse kust vóór je, zeevogels boven je en aan de horizon de vrachtschepen die dag en nacht door de Straat varen.',
+          'På vattnet får ni två kontinenter samtidigt: Europa bakom er, den marockanska kusten framför, sjöfåglar ovanför och vid horisonten fraktfartygen som passerar sundet dag och natt.'
+        )
+      ]
+    },
+    {
+      id: 'what-you-see',
+      eyebrow: l('02 · What you see', '02 · Was ihr seht', '02 · Qué se ve', '02 · Wat je ziet', '02 · Vad ni ser'),
+      title: l('Reliable dolphins, seasonal whales, orcas in summer', 'Verlässliche Delfine, saisonale Wale, Orcas im Sommer', 'Delfines seguros, ballenas por temporada, orcas en verano', 'Betrouwbare dolfijnen, seizoensgebonden walvissen, orka’s in de zomer', 'Pålitliga delfiner, säsongsvalar, späckhuggare på sommaren'),
+      paragraphs: [
+        l(
+          'The dependable core is long-finned pilot whales and bottlenose, common and striped dolphins, present across the season. Sperm whales are more likely in spring and autumn; orcas appear in high summer, roughly early July to late August, when they follow the tuna. Fin whales pass through and are the least predictable.',
+          'Der verlässliche Kern sind Langflossen-Grindwale sowie Große Tümmler, Gemeine und Streifendelfine, über die ganze Saison. Pottwale sind im Frühjahr und Herbst wahrscheinlicher; Orcas kommen im Hochsommer, etwa Anfang Juli bis Ende August, wenn sie dem Thunfisch folgen. Finnwale ziehen durch und sind am wenigsten vorhersehbar.',
+          'El núcleo fiable son los calderones comunes y los delfines mulares, comunes y listados, presentes toda la temporada. Los cachalotes son más probables en primavera y otoño; las orcas aparecen en pleno verano, de principios de julio a finales de agosto aproximadamente, cuando siguen al atún. Los rorcuales pasan de largo y son los menos previsibles.',
+          'De betrouwbare kern zijn grienden en tuimelaars, gewone en gestreepte dolfijnen, het hele seizoen aanwezig. Potvissen zijn waarschijnlijker in het voorjaar en de herfst; orka’s verschijnen in de hoogzomer, ruwweg begin juli tot eind augustus, wanneer ze de tonijn volgen. Gewone vinvissen trekken door en zijn het minst voorspelbaar.',
+          'Den pålitliga kärnan är grindvalar samt öresvin, vanliga och strimmiga delfiner, närvarande hela säsongen. Kaskeloter är mer troliga på våren och hösten; späckhuggare dyker upp på högsommaren, ungefär tidig juli till sen augusti, när de följer tonfisken. Sillvalar passerar förbi och är minst förutsägbara.'
+        ),
+        l(
+          'The operators quote sighting rates around 99 per cent, but that means at least one kind of cetacean, not a promised species. A trip can be wonderful with pilot whales and three sorts of dolphin and still no orcas. We tell families that plainly, because it is the honest way to look forward to the day.',
+          'Die Anbieter nennen Sichtungsquoten um 99 Prozent, aber das meint mindestens eine Art, keine bestimmte. Eine Fahrt kann mit Grindwalen und drei Delfinarten großartig sein und trotzdem ohne Orcas bleiben. Das sagen wir Familien offen, weil man sich so ehrlich auf den Tag freut.',
+          'Los operadores anuncian tasas de avistamiento cercanas al 99 por ciento, pero eso significa al menos un cetáceo, no una especie garantizada. Una salida puede ser estupenda con calderones y tres tipos de delfín y aun así no traer orcas. Se lo decimos claramente a las familias, porque así se espera el día con honestidad.',
+          'De aanbieders noemen spotkansen rond 99 procent, maar dat betekent minstens één soort walvisachtige, geen beloofde soort. Een tocht kan geweldig zijn met grienden en drie soorten dolfijn en tóch zonder orka’s. Dat vertellen we gezinnen eerlijk, want zo kijk je oprecht uit naar de dag.',
+          'Operatörerna anger observationsfrekvenser kring 99 procent, men det betyder minst en valart, inte en utlovad art. En tur kan vara underbar med grindvalar och tre delfinsorter och ändå sakna späckhuggare. Det säger vi familjer rakt ut, för så ser man ärligt fram emot dagen.'
+        )
+      ]
+    },
+    {
+      id: 'how-to-go-out',
+      eyebrow: l('03 · How to go out', '03 · Wie ihr rausfahrt', '03 · Cómo salir', '03 · Hoe je uitvaart', '03 · Hur ni åker ut'),
+      title: l('The boat matters more than the operator', 'Das Boot zählt mehr als der Anbieter', 'El barco importa más que el operador', 'De boot telt meer dan de aanbieder', 'Båten spelar större roll än operatören'),
+      paragraphs: [
+        l(
+          'Five operators sail from the harbour, and the real choice is the kind of boat. A large ship gives you stability, a toilet and the best wheelchair access; a small rigid boat of about ten guests feels more intimate but takes the waves harder. For families and anyone prone to seasickness, the large boats are the calmer day.',
+          'Fünf Anbieter fahren vom Hafen, und die eigentliche Wahl ist die Bootsart. Ein großes Schiff bietet Stabilität, eine Toilette und den besten Rollstuhlzugang; ein kleines Festrumpfboot mit etwa zehn Gästen wirkt intimer, nimmt die Wellen aber härter. Für Familien und alle, die seekrank werden, sind die großen Boote der ruhigere Tag.',
+          'Cinco operadores salen del puerto, y la verdadera elección es el tipo de barco. Un barco grande da estabilidad, aseo y el mejor acceso para sillas de ruedas; una lancha rígida de unos diez pasajeros resulta más íntima pero encaja peor el oleaje. Para las familias y quien se marea, los barcos grandes son el día más tranquilo.',
+          'Vijf aanbieders varen vanuit de haven, en de echte keuze is het type boot. Een groot schip geeft stabiliteit, een toilet en de beste rolstoeltoegang; een kleine rib van zo’n tien gasten voelt intiemer maar vangt de golven harder op. Voor gezinnen en wie snel zeeziek wordt, zijn de grote boten de rustigere dag.',
+          'Fem operatörer avgår från hamnen, och det verkliga valet är typen av båt. Ett stort fartyg ger stabilitet, toalett och bäst rullstolstillgång; en liten ribbåt för ett tiotal gäster känns mer intim men tar vågorna hårdare. För familjer och alla som blir sjösjuka är de stora båtarna den lugnare dagen.'
+        ),
+        l(
+          'The one we point our guests to is firmm, a research foundation that briefs in German, English and Spanish, carries families and is clear about what it can and cannot promise. Prices change with the season, so we send you to their booking page rather than printing a figure that will be wrong by next year.',
+          'Wir schicken unsere Gäste zu firmm, einer Forschungsstiftung, die auf Deutsch, Englisch und Spanisch einführt, Familien mitnimmt und klar sagt, was sie versprechen kann und was nicht. Die Preise ändern sich mit der Saison, deshalb verweisen wir euch auf ihre Buchungsseite, statt eine Zahl zu drucken, die nächstes Jahr falsch ist.',
+          'A quien alojamos lo orientamos hacia firmm, una fundación de investigación que informa en alemán, inglés y español, lleva familias y es clara sobre lo que puede y no puede prometer. Los precios cambian con la temporada, así que os enviamos a su página de reservas en lugar de imprimir una cifra que el año que viene estará mal.',
+          'Wie bij ons verblijft, wijzen we naar firmm, een onderzoeksstichting die in het Duits, Engels en Spaans uitlegt, gezinnen meeneemt en duidelijk is over wat ze wel en niet kan beloven. Prijzen veranderen met het seizoen, dus sturen we je naar hun boekingspagina in plaats van een bedrag te drukken dat volgend jaar niet meer klopt.',
+          'Den vi vägleder våra gäster till är firmm, en forskningsstiftelse som informerar på tyska, engelska och spanska, tar med familjer och är tydlig med vad den kan och inte kan lova. Priserna ändras med säsongen, så vi hänvisar er till deras bokningssida i stället för att trycka en siffra som är fel nästa år.'
+        )
+      ]
+    },
+    {
+      id: 'watching-responsibly',
+      eyebrow: l('04 · Watching responsibly', '04 · Rücksichtsvoll beobachten', '04 · Observar con respeto', '04 · Verantwoord kijken', '04 · Skåda med hänsyn'),
+      title: l('Keep the day flexible, keep your distance', 'Haltet den Tag flexibel, haltet Abstand', 'Mantened el día flexible y la distancia', 'Houd de dag flexibel, houd afstand', 'Håll dagen flexibel, håll avstånd'),
+      paragraphs: [
+        l(
+          'The sea, not the clock, decides. Strong wind can cancel several days in a row, so leave a spare morning and never book a flight or long transfer straight after the trip. Check the marine forecast and confirm with the operator on the day; a two-day window is the surest way to actually get out.',
+          'Die See entscheidet, nicht die Uhr. Starker Wind kann mehrere Tage hintereinander ausfallen lassen, lasst also einen Morgen frei und legt nie einen Flug oder langen Transfer direkt nach die Fahrt. Prüft die Seewettervorhersage und bestätigt am Tag mit dem Anbieter; zwei Tage Spielraum sind der sicherste Weg, wirklich rauszukommen.',
+          'Decide el mar, no el reloj. El viento fuerte puede anular varios días seguidos, así que dejad una mañana libre y no reservéis nunca un vuelo o traslado largo justo después. Consultad la previsión marítima y confirmad con el operador el mismo día; una ventana de dos días es la forma más segura de salir de verdad.',
+          'De zee beslist, niet de klok. Harde wind kan meerdere dagen achter elkaar schrappen, dus houd een ochtend vrij en boek nooit een vlucht of lange transfer meteen erna. Check de zeeverwachting en bevestig op de dag zelf met de aanbieder; een venster van twee dagen is de zekerste manier om echt uit te varen.',
+          'Havet avgör, inte klockan. Stark vind kan ställa in flera dagar i rad, så håll en morgon ledig och boka aldrig ett flyg eller en lång transfer direkt efter. Kolla sjövädret och bekräfta med operatören samma dag; ett tvådagarsfönster är säkraste sättet att faktiskt komma ut.'
+        ),
+        l(
+          'Spanish law protects the animals with a 500-metre zone, a four-knot limit near them and no chasing, feeding or cutting between mother and calf. A good crew keeps that distance and breaks off if the animals show stress. That restraint is the sign of a serious operator, and it makes for a better sighting, not a worse one.',
+          'Das spanische Gesetz schützt die Tiere mit einer 500-Meter-Zone, höchstens vier Knoten in ihrer Nähe und einem Verbot, sie zu verfolgen, zu füttern oder zwischen Mutter und Kalb zu fahren. Eine gute Crew hält diesen Abstand und bricht ab, wenn die Tiere Stress zeigen. Diese Zurückhaltung kennzeichnet einen seriösen Anbieter — und macht die Sichtung besser, nicht schlechter.',
+          'La ley española protege a los animales con una zona de 500 metros, un máximo de cuatro nudos cerca de ellos y la prohibición de perseguir, alimentar o cruzar entre madre y cría. Una buena tripulación mantiene esa distancia y se retira si los animales muestran estrés. Esa contención distingue a un operador serio, y mejora el avistamiento, no lo empeora.',
+          'De Spaanse wet beschermt de dieren met een zone van 500 meter, maximaal vier knopen in hun buurt en een verbod op achtervolgen, voeren of tussen moeder en kalf varen. Een goede bemanning houdt die afstand en breekt af als de dieren stress tonen. Die terughoudendheid kenmerkt een serieuze aanbieder — en maakt de waarneming beter, niet slechter.',
+          'Spansk lag skyddar djuren med en 500-meterszon, högst fyra knop nära dem och förbud mot att jaga, mata eller köra mellan mor och kalv. En bra besättning håller det avståndet och avbryter om djuren visar stress. Den återhållsamheten utmärker en seriös operatör — och ger en bättre observation, inte sämre.'
+        )
+      ]
+    }
+  ],
+  host: {
+    eyebrow: l('From La Marina', 'Von La Marina aus', 'Desde La Marina', 'Vanuit La Marina', 'Från La Marina'),
+    title: l('Ten minutes to the harbour, the day kept open', 'Zehn Minuten zum Hafen, der Tag bleibt offen', 'A diez minutos del puerto, con el día abierto', 'Tien minuten naar de haven, de dag open gehouden', 'Tio minuter till hamnen, dagen hålls öppen'),
+    paragraphs: [
+      l(
+        'From Family & Surf it is about ten minutes on foot to the harbour, so a morning trip needs no car and no early drive. If the sea calls it off, town, Playa Chica and the old town are right there instead.',
+        'Von Family & Surf sind es rund zehn Minuten zu Fuß zum Hafen, eine Morgenfahrt braucht also kein Auto und keine frühe Fahrt. Fällt sie wegen der See aus, sind Stadt, Playa Chica und Altstadt gleich nebenan.',
+        'Desde Family & Surf hay unos diez minutos a pie hasta el puerto, así que una salida de mañana no necesita coche ni madrugón en carretera. Si el mar la cancela, el pueblo, Playa Chica y el casco antiguo están al lado.',
+        'Vanaf Family & Surf is het zo’n tien minuten lopen naar de haven, dus een ochtendtocht heeft geen auto en geen vroege rit nodig. Blaast de zee hem af, dan liggen stad, Playa Chica en de oude stad meteen om de hoek.',
+        'Från Family & Surf är det ungefär tio minuter till fots till hamnen, så en morgontur behöver varken bil eller tidig körning. Ställer havet in den finns stan, Playa Chica och gamla stan alldeles intill.'
+      ),
+      l(
+        'A tip we pass on: out in the middle your phone may pick up a Moroccan network, so switch mobile data off, and take a warm layer even on a hot day.',
+        'Ein Tipp, den wir weitergeben: In der Mitte wählt euer Handy vielleicht ein marokkanisches Netz, schaltet also die mobilen Daten aus, und nehmt auch an heißen Tagen eine warme Schicht mit.',
+        'Un consejo que damos: en mitad del Estrecho el móvil puede coger una red marroquí, así que apagad los datos, y llevad una capa de abrigo aunque haga calor.',
+        'Een tip die we meegeven: midden op zee pakt je telefoon misschien een Marokkaans netwerk, zet mobiele data dus uit, en neem ook op een hete dag een warme laag mee.',
+        'Ett tips vi ger vidare: mitt ute kan telefonen fånga ett marockanskt nät, så stäng av mobildata, och ta med ett varmt lager även en varm dag.'
+      )
+    ]
+  },
+  related: {
+    eyebrow: shared.relatedEyebrow,
+    title: shared.relatedTitle,
+    links: [
+      { token: 'tarifa_nature_wildlife', label: l('Nature & Wildlife', 'Natur & Tierwelt', 'Naturaleza y fauna', 'Natuur & dieren', 'Natur & djurliv'), text: l('Bird migration over the Strait and the natural park on land.', 'Vogelzug über der Meerenge und der Naturpark an Land.', 'El paso de aves sobre el Estrecho y el parque natural en tierra.', 'Vogeltrek over de Straat en het natuurpark op het land.', 'Fågelflytt över sundet och naturparken på land.') },
+      { token: 'tarifa_family', label: l('Family holidays', 'Familienurlaub', 'Vacaciones en familia', 'Gezinsvakantie', 'Familjesemester'), text: l('How a whale trip fits into a family week in Tarifa.', 'Wie eine Walfahrt in eine Familienwoche in Tarifa passt.', 'Cómo encaja una salida de ballenas en una semana en familia.', 'Hoe een walvistocht in een gezinsweek in Tarifa past.', 'Hur en valtur passar in i en familjevecka i Tarifa.') },
+      { token: 'tarifa_experience_hub', label: l('Tarifa Experiences', 'Tarifa-Erlebnisse', 'Experiencias en Tarifa', 'Ervaringen in Tarifa', 'Upplevelser i Tarifa'), text: l('Beach, wind, old town, nature, Bolonia, yoga.', 'Strand, Wind, Altstadt, Natur, Bolonia, Yoga.', 'Playa, viento, casco antiguo, naturaleza, Bolonia, yoga.', 'Strand, wind, oude stad, natuur, Bolonia, yoga.', 'Strand, vind, gamla stan, natur, Bolonia, yoga.') }
+    ]
+  },
+  sources: {
+    eyebrow: shared.sourceEyebrow,
+    title: shared.sourceTitle,
+    intro: shared.sourceIntro,
+    checked: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026'),
+    links: [
+      { label: l('firmm · Whale watching', 'firmm · Whale Watching', 'firmm · Avistamiento de cetáceos', 'firmm · Walvissen spotten', 'firmm · Valskådning'), text: l('Trips, boats, family pricing and the foundation’s conduct at sea.', 'Fahrten, Boote, Familienpreise und das Verhalten der Stiftung auf See.', 'Salidas, barcos, precios para familias y la conducta de la fundación en el mar.', 'Tochten, boten, gezinsprijzen en het gedrag van de stichting op zee.', 'Turer, båtar, familjepriser och stiftelsens uppträdande till sjöss.'), href: 'https://www.firmm.org/en/whale-watching' },
+      { label: l('Tarifa Tourism · Whale watching', 'Tarifa Tourismus · Whale Watching', 'Turismo de Tarifa · Avistamiento', 'Tarifa Toerisme · Walvissen', 'Tarifa Turism · Valskådning'), text: l('The official listing of the operators sailing from the harbour.', 'Das offizielle Verzeichnis der Anbieter, die vom Hafen fahren.', 'El listado oficial de los operadores que salen del puerto.', 'De officiële lijst van aanbieders die vanuit de haven varen.', 'Den officiella listan över operatörer som avgår från hamnen.'), href: 'https://turismodetarifa.com/en/what-to-do/whale-watching/' },
+      { label: l('AEMET · Strait marine forecast', 'AEMET · Seewetter Meerenge', 'AEMET · Predicción marítima del Estrecho', 'AEMET · Zeeverwachting Straat', 'AEMET · Sjöväder för sundet'), text: l('Wind and wave forecast for deciding whether a trip will sail.', 'Wind- und Wellenvorhersage, um zu entscheiden, ob eine Fahrt stattfindet.', 'Previsión de viento y oleaje para decidir si habrá salida.', 'Wind- en golfverwachting om te bepalen of een tocht doorgaat.', 'Vind- och vågprognos för att avgöra om en tur blir av.'), href: 'https://www.aemet.es/en/eltiempo/prediccion/maritima' }
+    ]
+  },
+  closing: {
+    eyebrow: shared.closingEyebrow,
+    title: l('A base ten minutes from the boats', 'Eine Unterkunft zehn Minuten von den Booten', 'Un alojamiento a diez minutos de los barcos', 'Een uitvalsbasis tien minuten van de boten', 'En bas tio minuter från båtarna'),
+    body: l('From Family & Surf the harbour is a short walk, so you can hold a morning open for the calmest sea and still fill the rest of the day close to home.', 'Von Family & Surf ist der Hafen ein kurzer Weg, ihr könnt also einen Morgen für die ruhigste See offen halten und den Rest des Tages trotzdem nah bei zu Hause verbringen.', 'Desde Family & Surf el puerto queda a un paseo, así que podéis reservar una mañana para el mar más tranquilo y llenar el resto del día cerca de casa.', 'Vanaf Family & Surf is de haven een korte wandeling, dus je kunt een ochtend openhouden voor de rustigste zee en de rest van de dag toch dicht bij huis vullen.', 'Från Family & Surf är hamnen en kort promenad, så ni kan hålla en morgon öppen för det lugnaste havet och ändå fylla resten av dagen nära hemmet.'),
+    hubLabel: shared.hubLabel,
+    propertyLabel: shared.propertyLabel
+  }
+};
+
+const family: TarifaExperienceSpokeContent = {
+  id: 'family',
+  token: 'tarifa_family',
+  seo: buildSeo(
+    '2026-09-09-tarifa-family-v1.0',
+    l(
+      'Family holidays in Tarifa: beaches, wildlife and easy days',
+      'Familienurlaub in Tarifa: Strände, Tierwelt und entspannte Tage',
+      'Vacaciones en familia en Tarifa: playas, fauna y días tranquilos',
+      'Gezinsvakantie in Tarifa: stranden, natuur en rustige dagen',
+      'Familjesemester i Tarifa: stränder, djurliv och lugna dagar'
+    ),
+    l(
+      'Tarifa gives families more than the wind it is famous for: a calm town beach, whales offshore, Roman Bolonia and nature parks, with one bigger outing. We host families here and plan the day around the wind.',
+      'Tarifa gibt Familien mehr als den Wind, für den es bekannt ist: einen ruhigen Stadtstrand, Wale vor der Küste, das römische Bolonia und Naturparks, dazu einen größeren Ausflug. Wir empfangen hier Familien und planen den Tag mit dem Wind.',
+      'Tarifa ofrece a las familias más que el viento por el que es famosa: una playa urbana tranquila, ballenas frente a la costa, la Bolonia romana y parques naturales, con una excursión mayor. Aquí alojamos a familias y planificamos el día con el viento.',
+      'Tarifa biedt gezinnen meer dan de wind waarom het bekendstaat: een rustig stadsstrand, walvissen voor de kust, het Romeinse Bolonia en natuurparken, met één grotere uitstap. Wij ontvangen hier gezinnen en plannen de dag met de wind.',
+      'Tarifa ger familjer mer än vinden det är känt för: en lugn stadsstrand, valar utanför kusten, det romerska Bolonia och naturparker, med en större utflykt. Vi tar emot familjer här och planerar dagen med vinden.'
+    )
+  ),
+  navLabel: l('Family holidays', 'Familienurlaub', 'Vacaciones en familia', 'Gezinsvakantie', 'Familjesemester'),
+  breadcrumbLabel: l('Family holidays', 'Familienurlaub', 'Vacaciones en familia', 'Gezinsvakantie', 'Familjesemester'),
+  hero: {
+    eyebrow: l('Tarifa experience guide', 'Tarifa erleben', 'Experiencias en Tarifa', 'Tarifa beleven', 'Upplev Tarifa'),
+    title: l(
+      'Tarifa with children, at your own pace',
+      'Tarifa mit Kindern, in eurem Tempo',
+      'Tarifa con niños, a vuestro ritmo',
+      'Tarifa met kinderen, in jullie tempo',
+      'Tarifa med barn, i er egen takt'
+    ),
+    standfirst: l(
+      'Tarifa is known for the wind, but for families it is above all beaches, wildlife and short days outdoors. A calm town beach for small children, whales and dolphins offshore, the Roman town of Baelo Claudia beside its dune, and nature parks a short drive away. We host families at Family & Surf and plan the day with the wind rather than against it.',
+      'Tarifa ist für den Wind bekannt, für Familien aber vor allem Strände, Tierwelt und kurze Tage draußen. Ein ruhiger Stadtstrand für kleine Kinder, Wale und Delfine vor der Küste, die Römerstadt Baelo Claudia neben ihrer Düne und Naturparks eine kurze Fahrt entfernt. Wir empfangen im Family & Surf Familien und planen den Tag mit dem Wind statt gegen ihn.',
+      'Tarifa es conocida por el viento, pero para las familias es sobre todo playas, fauna y días cortos al aire libre. Una playa urbana tranquila para los más pequeños, ballenas y delfines frente a la costa, la ciudad romana de Baelo Claudia junto a su duna y parques naturales a poca distancia en coche. En Family & Surf alojamos a familias y planificamos el día con el viento, no contra él.',
+      'Tarifa staat bekend om de wind, maar voor gezinnen is het vooral stranden, natuur en korte dagen buiten. Een rustig stadsstrand voor kleine kinderen, walvissen en dolfijnen voor de kust, de Romeinse stad Baelo Claudia naast haar duin en natuurparken op korte rijafstand. In Family & Surf ontvangen we gezinnen en plannen we de dag met de wind in plaats van ertegen.',
+      'Tarifa är känt för vinden, men för familjer är det framför allt stränder, djurliv och korta dagar utomhus. En lugn stadsstrand för små barn, valar och delfiner utanför kusten, den romerska staden Baelo Claudia intill sin dyn och naturparker en kort bilfärd bort. På Family & Surf tar vi emot familjer och planerar dagen med vinden i stället för mot den.'
+    ),
+    note: l(
+      'The wind can turn a beach day into a hill walk — we keep a plan B for every day.',
+      'Der Wind macht aus einem Strandtag schnell eine Wanderung — für jeden Tag halten wir einen Plan B bereit.',
+      'El viento puede convertir un día de playa en una caminata — guardamos un plan B para cada día.',
+      'De wind kan een stranddag in een heuvelwandeling veranderen — we houden voor elke dag een plan B achter de hand.',
+      'Vinden kan förvandla en stranddag till en kullvandring — vi håller en plan B för varje dag.'
+    ),
+    updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026')
+  },
+  facts: [
+    { label: l('With little ones', 'Mit den Kleinen', 'Con los más pequeños', 'Met de kleintjes', 'Med de små'), value: l('Playa Chica: calm water, showers, a play area', 'Playa Chica: ruhiges Wasser, Duschen, Spielbereich', 'Playa Chica: agua tranquila, duchas, zona de juegos', 'Playa Chica: rustig water, douches, speelplek', 'Playa Chica: lugnt vatten, duschar, lekplats') },
+    { label: l('On the water', 'Auf dem Wasser', 'En el agua', 'Op het water', 'På vattnet'), value: l('Whale watching, family-suitable from the harbour', 'Whale Watching, familientauglich ab Hafen', 'Avistamiento de cetáceos, apto para familias', 'Walvissen spotten, gezinsvriendelijk vanuit de haven', 'Valskådning, familjevänlig från hamnen') },
+    { label: l('One bigger day', 'Ein großer Tag', 'Un día grande', 'Eén grotere dag', 'En större dag'), value: l('Bolonia & Baelo Claudia: beach, dune and a Roman town', 'Bolonia & Baelo Claudia: Strand, Düne und Römerstadt', 'Bolonia y Baelo Claudia: playa, duna y ciudad romana', 'Bolonia & Baelo Claudia: strand, duin en Romeinse stad', 'Bolonia & Baelo Claudia: strand, dyn och romersk stad') }
+  ],
+  sections: [
+    {
+      id: 'relaxed-base',
+      eyebrow: l('01 · A relaxed base', '01 · Entspannte Basis', '01 · Una base tranquila', '01 · Een ontspannen basis', '01 · En avslappnad bas'),
+      title: l('More than the wind it is famous for', 'Mehr als der Wind, für den es bekannt ist', 'Más que el viento por el que es famosa', 'Meer dan de wind waarom het bekendstaat', 'Mer än vinden det är känt för'),
+      paragraphs: [
+        l(
+          'Tarifa’s name comes from kitesurfing, but a family week here runs on beaches, animals and easy time outdoors. The strength of the place is the mix: sand and swimming, whales and birds, a Roman town by the sea and hills to walk, all within a short drive.',
+          'Tarifas Name kommt vom Kitesurfen, doch eine Familienwoche hier lebt von Stränden, Tieren und ruhiger Zeit draußen. Die Stärke des Ortes ist die Mischung: Sand und Baden, Wale und Vögel, eine Römerstadt am Meer und Hügel zum Wandern, alles eine kurze Fahrt entfernt.',
+          'El nombre de Tarifa viene del kitesurf, pero una semana en familia aquí se sostiene en playas, animales y tiempo tranquilo al aire libre. La fuerza del lugar es la mezcla: arena y baño, ballenas y aves, una ciudad romana junto al mar y colinas para caminar, todo a poca distancia en coche.',
+          'De naam Tarifa komt van het kitesurfen, maar een gezinsweek hier draait op stranden, dieren en rustige tijd buiten. De kracht van de plek is de mix: zand en zwemmen, walvissen en vogels, een Romeinse stad aan zee en heuvels om te wandelen, alles op korte rijafstand.',
+          'Namnet Tarifa kommer från kitesurfing, men en familjevecka här bygger på stränder, djur och lugn tid utomhus. Platsens styrka är blandningen: sand och bad, valar och fåglar, en romersk stad vid havet och kullar att vandra, allt en kort bilfärd bort.'
+        ),
+        l(
+          'The one thing to plan around is the wind. It can turn a beach afternoon into a hill walk within hours, so we do not fix every day in advance; we keep whale trips and water days flexible and hold a calmer alternative in reserve. That way the wind shapes the holiday instead of spoiling it.',
+          'Womit ihr planen solltet, ist der Wind. Er macht aus einem Strandnachmittag binnen Stunden eine Wanderung, deshalb legen wir nicht jeden Tag vorab fest; wir halten Walfahrten und Wassertage flexibel und eine ruhigere Alternative in Reserve. So formt der Wind den Urlaub, statt ihn zu verderben.',
+          'Con lo que hay que contar es con el viento. Puede convertir una tarde de playa en una caminata en pocas horas, así que no fijamos cada día por adelantado; mantenemos flexibles las salidas de ballenas y los días de agua y guardamos una alternativa más tranquila. Así el viento da forma a las vacaciones en lugar de estropearlas.',
+          'Waar je rekening mee moet houden, is de wind. Hij kan een strandmiddag binnen enkele uren in een wandeling veranderen, dus leggen we niet elke dag vooraf vast; we houden walvistochten en waterdagen flexibel en een rustiger alternatief achter de hand. Zo vormt de wind de vakantie in plaats van hem te bederven.',
+          'Det man ska planera kring är vinden. Den kan förvandla en strandeftermiddag till en vandring på några timmar, så vi låser inte varje dag i förväg; vi håller valturer och vattendagar flexibla och har ett lugnare alternativ i reserv. Så formar vinden semestern i stället för att förstöra den.'
+        )
+      ]
+    },
+    {
+      id: 'beaches-for-every-age',
+      eyebrow: l('02 · Beaches', '02 · Strände', '02 · Playas', '02 · Stranden', '02 · Stränder'),
+      title: l('A calm beach and a big one', 'Ein ruhiger Strand und ein großer', 'Una playa tranquila y una grande', 'Een rustig strand en een groot', 'En lugn strand och en stor'),
+      paragraphs: [
+        l(
+          'Playa Chica, right in town, is the easiest beach with small children: comparatively calm water, showers and a play area, a few minutes on foot. On the days when the Atlantic beaches are too windy, this is where families move.',
+          'Playa Chica mitten in der Stadt ist der einfachste Strand mit kleinen Kindern: vergleichsweise ruhiges Wasser, Duschen und ein Spielbereich, wenige Minuten zu Fuß. An Tagen, an denen die Atlantikstrände zu windig sind, wechseln Familien hierher.',
+          'Playa Chica, en pleno pueblo, es la playa más fácil con niños pequeños: agua relativamente tranquila, duchas y una zona de juegos, a pocos minutos a pie. Los días en que las playas atlánticas soplan demasiado, aquí es donde se van las familias.',
+          'Playa Chica, midden in het dorp, is het makkelijkste strand met kleine kinderen: relatief rustig water, douches en een speelplek, een paar minuten lopen. Op de dagen dat de Atlantische stranden te winderig zijn, wijken gezinnen hierheen uit.',
+          'Playa Chica, mitt i stan, är den enklaste stranden med små barn: förhållandevis lugnt vatten, duschar och en lekplats, några minuters promenad. De dagar då atlantstränderna blåser för mycket är det hit familjer flyttar.'
+        ),
+        l(
+          'For a full beach day, the southern stretch of Los Lances is a wide family beach with walkways and places to eat. It is more exposed, so on a strong Levante it becomes a walk rather than a swim — which is exactly when Playa Chica or the hills are the better call.',
+          'Für einen ganzen Strandtag ist der südliche Abschnitt von Los Lances ein weiter Familienstrand mit Stegen und Lokalen. Er ist offener, bei kräftigem Levante wird daraus ein Spaziergang statt eines Bades — genau dann sind Playa Chica oder die Hügel die bessere Wahl.',
+          'Para un día entero de playa, el tramo sur de Los Lances es una amplia playa familiar con pasarelas y sitios para comer. Está más expuesto, así que con levante fuerte se convierte en un paseo más que en un baño, y es justo entonces cuando Playa Chica o las colinas son mejor opción.',
+          'Voor een hele stranddag is het zuidelijke stuk van Los Lances een breed gezinsstrand met vlonders en eetgelegenheden. Het is opener, dus bij een stevige Levante wordt het eerder een wandeling dan een duik — precies dan zijn Playa Chica of de heuvels de betere keuze.',
+          'För en hel strandag är den södra delen av Los Lances en bred familjestrand med spänger och ställen att äta. Den är mer utsatt, så vid stark Levante blir det en promenad snarare än ett bad — och då är Playa Chica eller kullarna det bättre valet.'
+        )
+      ]
+    },
+    {
+      id: 'wildlife-and-nature',
+      eyebrow: l('03 · Wildlife & nature', '03 · Tierwelt & Natur', '03 · Fauna y naturaleza', '03 · Natuur & dieren', '03 · Djurliv & natur'),
+      title: l('Whales offshore, birds overhead, Bolonia by the sea', 'Wale vor der Küste, Vögel darüber, Bolonia am Meer', 'Ballenas en el mar, aves en el cielo, Bolonia junto al mar', 'Walvissen voor de kust, vogels erboven, Bolonia aan zee', 'Valar utanför, fåglar ovanför, Bolonia vid havet'),
+      paragraphs: [
+        l(
+          'A whale-watching trip is one of the best things to do with children here, and it is genuinely family-suitable: the large boats take small children and even babies, with reduced fares. It is very weather-dependent, so we keep it flexible and route you to a trip that fits the day.',
+          'Eine Walbeobachtung gehört hier zu den schönsten Dingen mit Kindern und ist wirklich familientauglich: Die großen Boote nehmen kleine Kinder und sogar Babys mit, zu ermäßigten Preisen. Sie ist stark wetterabhängig, deshalb halten wir sie flexibel und vermitteln euch eine Fahrt, die zum Tag passt.',
+          'Una salida de avistamiento es de lo mejor que se puede hacer aquí con niños, y es de verdad apta para familias: los barcos grandes llevan a niños pequeños e incluso bebés, con tarifas reducidas. Depende mucho del tiempo, así que la mantenemos flexible y os orientamos hacia una salida que encaje en el día.',
+          'Een walvistocht is een van de leukste dingen om hier met kinderen te doen, en het is echt gezinsvriendelijk: de grote boten nemen kleine kinderen en zelfs baby’s mee, met korting. Het hangt sterk van het weer af, dus we houden het flexibel en wijzen je naar een tocht die bij de dag past.',
+          'En valskådningstur är en av de bästa sakerna att göra med barn här, och den är verkligen familjevänlig: de stora båtarna tar med små barn och till och med bebisar, till reducerat pris. Den är mycket väderberoende, så vi håller den flexibel och lotsar er till en tur som passar dagen.'
+        ),
+        l(
+          'On land the Parque Natural del Estrecho has short walks with views to Africa, and in migration season storks and raptors cross the Strait overhead. The best single outing is Bolonia: a beach and a huge dune next to the Roman town of Baelo Claudia, where children can walk straight from the sand into a two-thousand-year-old street.',
+          'An Land bietet der Parque Natural del Estrecho kurze Wege mit Blick nach Afrika, und zur Zugzeit ziehen Störche und Greifvögel über die Meerenge. Der schönste einzelne Ausflug ist Bolonia: ein Strand und eine riesige Düne neben der Römerstadt Baelo Claudia, wo Kinder vom Sand direkt in eine zweitausend Jahre alte Straße laufen.',
+          'En tierra, el Parque Natural del Estrecho tiene paseos cortos con vistas a África, y en época de paso cigüeñas y rapaces cruzan el Estrecho por encima. La mejor excursión es Bolonia: una playa y una enorme duna junto a la ciudad romana de Baelo Claudia, donde los niños pasan de la arena a una calle de hace dos mil años.',
+          'Op het land heeft het Parque Natural del Estrecho korte wandelingen met uitzicht op Afrika, en in de trektijd trekken ooievaars en roofvogels over de Straat. De mooiste losse uitstap is Bolonia: een strand en een enorm duin naast de Romeinse stad Baelo Claudia, waar kinderen zo van het zand een tweeduizend jaar oude straat in lopen.',
+          'På land har Parque Natural del Estrecho korta vandringar med utsikt mot Afrika, och under flyttningstiden drar storkar och rovfåglar över sundet. Den bästa enskilda utflykten är Bolonia: en strand och en väldig dyn intill den romerska staden Baelo Claudia, där barn går rakt från sanden in på en tvåtusen år gammal gata.'
+        )
+      ]
+    },
+    {
+      id: 'one-bigger-outing',
+      eyebrow: l('04 · One bigger outing', '04 · Ein größerer Ausflug', '04 · Una excursión mayor', '04 · Eén grotere uitstap', '04 · En större utflykt'),
+      title: l('Pick one big day, and ask us for the rest', 'Wählt einen großen Tag, den Rest fragt uns', 'Elegid un día grande, y el resto preguntádnoslo', 'Kies één grote dag, en vraag ons de rest', 'Välj en stor dag, och fråga oss om resten'),
+      paragraphs: [
+        l(
+          'For a week we would not try to tick everything off. One larger outing is plenty: an animal-rescue zoo about an hour inland for younger children, or the Rock of Gibraltar with its macaques for older ones. Both are full days, and Gibraltar’s cable car is closed for refurbishment until at least 2027, so the Rock is reached by shuttle for now.',
+          'Für eine Woche würden wir nicht alles abhaken wollen. Ein größerer Ausflug reicht: ein Tier-Rettungszoo etwa eine Stunde im Landesinneren für jüngere Kinder oder der Fels von Gibraltar mit seinen Makaken für ältere. Beides sind ganze Tage, und Gibraltars Seilbahn ist bis mindestens 2027 wegen Sanierung geschlossen, den Fels erreicht man vorerst per Shuttle.',
+          'Para una semana no intentaríamos verlo todo. Con una excursión mayor basta: un zoo de rescate de animales a una hora hacia el interior para los más pequeños, o el Peñón de Gibraltar con sus macacos para los mayores. Ambos son días enteros, y el teleférico de Gibraltar está cerrado por reforma hasta al menos 2027, así que al Peñón se sube en lanzadera por ahora.',
+          'Voor een week zouden we niet alles willen afvinken. Eén grotere uitstap is genoeg: een dierenopvangzoo op zo’n uur landinwaarts voor jongere kinderen, of de Rots van Gibraltar met haar makaken voor oudere. Beide zijn hele dagen, en Gibraltars kabelbaan is wegens renovatie dicht tot minstens 2027, dus de Rots bereik je voorlopig met een shuttle.',
+          'För en vecka skulle vi inte försöka pricka av allt. En större utflykt räcker: en djurräddningszoo ungefär en timme inåt landet för yngre barn, eller Gibraltarklippan med sina makaker för äldre. Båda är heldagar, och Gibraltars linbana är stängd för renovering till minst 2027, så klippan nås med skyttel tills vidare.'
+        ),
+        l(
+          'Older children can try a kite taster with a proper school from around age eight, a first riding lesson or a guided e-bike route — for those we point you to the right people rather than list names here, and we help you book. One tip that saves a wasted drive: the Bahía Park water park in Algeciras is closed until June 2027.',
+          'Ältere Kinder können ab etwa acht Jahren einen Kite-Schnupperkurs bei einer richtigen Schule machen, eine erste Reitstunde oder eine geführte E-Bike-Tour — dafür verweisen wir euch auf die richtigen Leute, statt hier Namen zu listen, und helfen beim Buchen. Ein Tipp, der eine unnötige Fahrt spart: Der Wasserpark Bahía Park in Algeciras ist bis Juni 2027 geschlossen.',
+          'Los niños mayores pueden probar el kitesurf con una escuela de verdad a partir de unos ocho años, una primera clase de equitación o una ruta guiada en bici eléctrica — para eso os remitimos a la gente adecuada en lugar de listar nombres aquí, y os ayudamos a reservar. Un consejo que ahorra un viaje en balde: el parque acuático Bahía Park de Algeciras está cerrado hasta junio de 2027.',
+          'Oudere kinderen kunnen vanaf een jaar of acht een kite-proefles bij een echte school proberen, een eerste rijles of een begeleide e-biketocht — daarvoor verwijzen we je naar de juiste mensen in plaats van hier namen te noemen, en helpen we met boeken. Eén tip die een nutteloze rit scheelt: het waterpark Bahía Park in Algeciras is tot juni 2027 gesloten.',
+          'Äldre barn kan prova på kitesurfing med en riktig skola från omkring åtta års ålder, en första ridlektion eller en guidad elcykeltur — för det hänvisar vi er till rätt personer i stället för att lista namn här, och hjälper till att boka. Ett tips som sparar en onödig körning: vattenparken Bahía Park i Algeciras är stängd till juni 2027.'
+        )
+      ]
+    }
+  ],
+  host: {
+    eyebrow: l('From La Marina', 'Von La Marina aus', 'Desde La Marina', 'Vanuit La Marina', 'Från La Marina'),
+    title: l('A family flat, the car only for the outings', 'Eine Familienwohnung, das Auto nur für die Ausflüge', 'Un piso familiar, el coche solo para las excursiones', 'Een gezinsappartement, de auto alleen voor de uitstapjes', 'En familjelägenhet, bilen bara för utflykterna'),
+    paragraphs: [
+      l(
+        'Family & Surf sits in La Marina with a supermarket opposite and the town, harbour and Playa Chica on foot, so most days need no car at all. Keep it in the garage for the beach, the boat trip and the old town, and take it out for Bolonia, the zoo or Gibraltar.',
+        'Family & Surf liegt in La Marina, der Supermarkt gegenüber, Stadt, Hafen und Playa Chica zu Fuß, die meisten Tage brauchen also gar kein Auto. Lasst es in der Garage für Strand, Bootsfahrt und Altstadt und holt es für Bolonia, den Zoo oder Gibraltar heraus.',
+        'Family & Surf está en La Marina, con un supermercado enfrente y el pueblo, el puerto y Playa Chica a pie, así que la mayoría de los días no hace falta coche. Dejadlo en el garaje para la playa, la salida en barco y el casco antiguo, y sacadlo para Bolonia, el zoo o Gibraltar.',
+        'Family & Surf ligt in La Marina met een supermarkt aan de overkant en de stad, haven en Playa Chica te voet, dus de meeste dagen heb je geen auto nodig. Laat hem in de garage voor het strand, de boottocht en de oude stad, en haal hem eruit voor Bolonia, de zoo of Gibraltar.',
+        'Family & Surf ligger i La Marina med en mataffär mittemot och stan, hamnen och Playa Chica till fots, så de flesta dagar behövs ingen bil alls. Låt den stå i garaget för stranden, båtturen och gamla stan, och ta ut den för Bolonia, zoot eller Gibraltar.'
+      ),
+      l(
+        'Whatever the children are into — a boat, a beach, a first kite lesson — just ask us. We live with the same wind, and we are glad to point you to the day that will actually work.',
+        'Worauf die Kinder auch Lust haben — ein Boot, ein Strand, eine erste Kitestunde — fragt uns einfach. Wir leben mit demselben Wind und zeigen euch gern den Tag, der wirklich funktioniert.',
+        'Sea lo que sea lo que les guste a los niños — un barco, una playa, una primera clase de kite — preguntadnos sin más. Vivimos con el mismo viento y os indicamos con gusto el día que de verdad va a salir bien.',
+        'Waar de kinderen ook van houden — een boot, een strand, een eerste kiteles — vraag het ons gerust. Wij leven met dezelfde wind en wijzen je graag de dag die echt gaat lukken.',
+        'Vad barnen än gillar — en båt, en strand, en första kitelektion — fråga oss bara. Vi lever med samma vind och visar er gärna den dag som faktiskt fungerar.'
+      )
+    ]
+  },
+  related: {
+    eyebrow: shared.relatedEyebrow,
+    title: shared.relatedTitle,
+    links: [
+      { token: 'tarifa_whale_watching', label: l('Whale watching', 'Whale Watching', 'Avistamiento de cetáceos', 'Walvissen spotten', 'Valskådning'), text: l('Family-suitable trips from the harbour, when the sea allows.', 'Familientaugliche Fahrten ab Hafen, wenn die See es zulässt.', 'Salidas aptas para familias desde el puerto, cuando el mar lo permite.', 'Gezinsvriendelijke tochten vanuit de haven, als de zee het toelaat.', 'Familjevänliga turer från hamnen, när havet tillåter.') },
+      { token: 'tarifa_beaches_authority', label: l('Beaches & Coast', 'Strände & Küste', 'Playas y costa', 'Stranden & kust', 'Stränder & kust'), text: l('Playa Chica for swimming, Los Lances for space.', 'Playa Chica zum Baden, Los Lances für Platz.', 'Playa Chica para bañarse, Los Lances para el espacio.', 'Playa Chica om te zwemmen, Los Lances voor de ruimte.', 'Playa Chica för bad, Los Lances för utrymme.') },
+      { token: 'tarifa_experience_hub', label: l('Tarifa Experiences', 'Tarifa-Erlebnisse', 'Experiencias en Tarifa', 'Ervaringen in Tarifa', 'Upplevelser i Tarifa'), text: l('Beach, wind, old town, nature, Bolonia, yoga.', 'Strand, Wind, Altstadt, Natur, Bolonia, Yoga.', 'Playa, viento, casco antiguo, naturaleza, Bolonia, yoga.', 'Strand, wind, oude stad, natuur, Bolonia, yoga.', 'Strand, vind, gamla stan, natur, Bolonia, yoga.') }
+    ]
+  },
+  sources: {
+    eyebrow: shared.sourceEyebrow,
+    title: shared.sourceTitle,
+    intro: shared.sourceIntro,
+    checked: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026'),
+    links: [
+      { label: l('Tarifa Tourism · Beaches', 'Tarifa Tourismus · Strände', 'Turismo de Tarifa · Playas', 'Tarifa Toerisme · Stranden', 'Tarifa Turism · Stränder'), text: l('Official context for Los Lances as a family beach and the natural park.', 'Ortskontext zu Los Lances als Familienstrand und zum Naturpark.', 'Contexto oficial sobre Los Lances como playa familiar y el parque natural.', 'Officiële context over Los Lances als gezinsstrand en het natuurpark.', 'Officiell bakgrund om Los Lances som familjestrand och naturparken.'), href: 'https://turismodetarifa.com/en/beaches/' },
+      { label: l('Spain.info · Playa Chica', 'Spain.info · Playa Chica', 'Spain.info · Playa Chica', 'Spain.info · Playa Chica', 'Spain.info · Playa Chica'), text: l('The calm central beach, its facilities and the children play area.', 'Der ruhige zentrale Strand, seine Ausstattung und der Kinderspielbereich.', 'La playa céntrica y tranquila, sus servicios y la zona infantil.', 'Het rustige centrale strand, de voorzieningen en de speelplek.', 'Den lugna centrala stranden, dess faciliteter och lekplatsen.'), href: 'https://www.spain.info/en/beach/playa-chica-tarifa/' }
+    ]
+  },
+  closing: {
+    eyebrow: shared.closingEyebrow,
+    title: l('A family base ten minutes from the old town', 'Eine Familienbasis zehn Minuten von der Altstadt', 'Una base familiar a diez minutos del casco antiguo', 'Een gezinsbasis tien minuten van de oude stad', 'En familjebas tio minuter från gamla stan'),
+    body: l('From Family & Surf the beach, the harbour and the old town are on foot, the supermarket is opposite, and the car waits in the garage for the bigger days out.', 'Von Family & Surf sind Strand, Hafen und Altstadt zu Fuß, der Supermarkt liegt gegenüber, und das Auto wartet in der Garage für die größeren Ausflüge.', 'Desde Family & Surf la playa, el puerto y el casco antiguo quedan a pie, el supermercado está enfrente y el coche espera en el garaje para los días de excursión.', 'Vanaf Family & Surf zijn het strand, de haven en de oude stad te voet, de supermarkt ligt aan de overkant en de auto wacht in de garage voor de grotere uitstapjes.', 'Från Family & Surf når man stranden, hamnen och gamla stan till fots, mataffären ligger mittemot och bilen väntar i garaget för de större utflykterna.'),
+    hubLabel: shared.hubLabel,
+    propertyLabel: shared.propertyLabel
+  }
+};
+
 export const tarifaExperienceSpokeContent: Record<
   TarifaExperienceSpokeId,
   TarifaExperienceSpokeContent
@@ -1098,5 +1471,7 @@ export const tarifaExperienceSpokeContent: Record<
   'nature-wildlife': nature,
   'old-town-history': oldTown,
   'bolonia-baelo-claudia': bolonia,
-  yoga
+  yoga,
+  'whale-watching': whaleWatching,
+  family
 };

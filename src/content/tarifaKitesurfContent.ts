@@ -56,6 +56,8 @@ export interface TarifaKitesurfSpokeContent {
   };
   sections: TarifaKitesurfSpokeSection[];
   quote?: { name: string; role: LocalizedText; text: LocalizedText; portrait: 'robert' | 'mark' };
+  /** Additional attributed quotes from the partner (Mark), shown with his portrait. Approved wording only. */
+  partnerQuotes?: Array<{ id: string; name: string; role: LocalizedText; text: LocalizedText }>;
   closing: {
     title: LocalizedText;
     text: LocalizedText;
@@ -223,8 +225,34 @@ const school: TarifaKitesurfSpokeContent = {
     name: 'Robert',
     role: common.robertRole,
     portrait: 'robert',
-    text: l('The course gets you onto the water. The club is where you meet people who stay, return and become friends.', 'Der Kurs bringt euch aufs Wasser. Im Club trefft ihr Menschen, die bleiben, wiederkommen und zu Freunden werden.', 'El curso os lleva al agua. En el club conocéis a personas que se quedan, vuelven y se convierten en amigos.', 'De les brengt jullie het water op. In de club ontmoeten jullie mensen die blijven, terugkomen en vrienden worden.', 'Kursen tar er ut på vattnet. I klubben möter ni människor som stannar, återvänder och blir vänner.')
+    text: l('I learned to kite here myself, with Mark and Simone — so I send you to them with a clear conscience. The course gets you onto the water; the club is where you meet the people who stay, return and become friends.', 'Ich hab hier selbst kiten gelernt, bei Mark und Simone — deshalb schicke ich euch mit gutem Gewissen zu ihnen. Der Kurs bringt euch aufs Wasser; im Club trefft ihr die Leute, die bleiben, wiederkommen und zu Freunden werden.', 'Yo aprendí a hacer kite aquí mismo, con Mark y Simone, así que os mando con ellos con total tranquilidad. El curso os lleva al agua; en el club conocéis a la gente que se queda, vuelve y se convierte en amiga.', 'Ik heb hier zelf leren kiten, bij Mark en Simone — daarom stuur ik jullie met een gerust hart naar hen. De les brengt jullie het water op; in de club ontmoeten jullie de mensen die blijven, terugkomen en vrienden worden.', 'Jag lärde mig kita här själv, hos Mark och Simone — därför skickar jag er till dem med gott samvete. Kursen tar er ut på vattnet; i klubben möter ni de människor som stannar, återvänder och blir vänner.')
   },
+  partnerQuotes: [
+    {
+      id: 'ratio',
+      name: 'Mark',
+      role: common.markRole,
+      text: l(
+        'Two students per instructor, no more — that is what we recommend, so I catch every mistake before it becomes a problem. And in offshore wind the boat is out.',
+        'Zwei Schüler pro Lehrer, mehr nicht, ist unsere Empfehlung — so sehe ich jeden Fehler, bevor er zum Problem wird. Und bei ablandigem Wind ist das Boot draußen.',
+        'Dos alumnos por instructor, no más: es lo que recomendamos, así veo cada error antes de que se convierta en un problema. Y con viento de tierra la lancha está fuera.',
+        'Twee leerlingen per instructeur, niet meer — dat is ons advies, zo zie ik elke fout voordat het een probleem wordt. En bij aflandige wind ligt de boot buiten.',
+        'Två elever per instruktör, inte fler — det är vår rekommendation, så ser jag varje misstag innan det blir ett problem. Och vid frånlandsvind är båten ute.'
+      )
+    },
+    {
+      id: 'radio',
+      name: 'Mark',
+      role: common.markRole,
+      text: l(
+        'While you ride you have a radio with you — so I give you the correction exactly when you need it, out on the water instead of afterwards on the beach. Many tell me that is what helped them most.',
+        'Beim Fahren habt ihr einen Funk dabei — so gebe ich euch die Korrektur genau dann, wenn ihr sie braucht, draußen auf dem Wasser statt hinterher am Strand. Viele sagen mir, das hat ihnen am meisten gebracht.',
+        'Mientras navegáis lleváis una radio: así os doy la corrección justo cuando la necesitáis, en el agua y no después en la playa. Muchos me dicen que es lo que más les ayudó.',
+        'Terwijl je vaart heb je een radio bij je — zo geef ik je de correctie precies wanneer je die nodig hebt, op het water in plaats van achteraf op het strand. Velen zeggen me dat dit hen het meest heeft geholpen.',
+        'När ni åker har ni en radio med er — så ger jag er korrigeringen precis när ni behöver den, ute på vattnet i stället för efteråt på stranden. Många säger att det är det som hjälpte dem mest.'
+      )
+    }
+  ],
   closing: {
     title: l('Match your lessons to your stay', 'Kurse und Aufenthalt zusammenbringen', 'Coordinar cursos y estancia', 'Stem lessen en verblijf op elkaar af', 'Samordna kurs och boende'),
     text: l('Send us your dates, number of guests and kite experience. We coordinate the next practical step with Tarifa Surf Club, or you write to the club directly.', 'Schickt uns Reisedaten, Personenzahl und Kite-Erfahrung. Wir koordinieren den nächsten praktischen Schritt mit dem Tarifa Surf Club, oder ihr schreibt dem Club direkt.', 'Enviadnos fechas, número de huéspedes y experiencia. Coordinamos el siguiente paso con Tarifa Surf Club, o escribís al club directamente.', 'Stuur ons reisdata, aantal gasten en kite-ervaring. Wij stemmen de volgende praktische stap af met Tarifa Surf Club, of jullie schrijven de club rechtstreeks.', 'Skicka oss resedatum, antal gäster och kiteerfarenhet. Vi samordnar nästa praktiska steg med Tarifa Surf Club, eller så skriver ni direkt till klubben.'),
@@ -354,6 +382,12 @@ const camp: TarifaKitesurfSpokeContent = {
       linkLabel: l('Work Surf Balance: seminars and dates', 'Work Surf Balance: Seminare und Termine', 'Work Surf Balance: seminarios y fechas', 'Work Surf Balance: seminars en data', 'Work Surf Balance: seminarier och datum')
     }
   ],
+  quote: {
+    name: 'Robert',
+    role: common.robertRole,
+    portrait: 'robert',
+    text: l('The camp is more than a course and a bed. In the evening you sit on the beach with people who were strangers that morning — and many book the same week again the year after.', 'Das Camp ist mehr als Kurs und Bett. Abends sitzt ihr mit Leuten am Strand, die morgens noch Fremde waren — und viele buchen im Jahr darauf dieselbe Woche wieder.', 'El camp es más que un curso y una cama. Por la tarde estáis en la playa con gente que por la mañana era desconocida, y muchos vuelven a reservar la misma semana al año siguiente.', 'Het camp is meer dan een cursus en een bed. ’s Avonds zit je op het strand met mensen die ’s ochtends nog vreemden waren — en velen boeken het jaar daarop dezelfde week opnieuw.', 'Campet är mer än en kurs och en säng. På kvällen sitter ni på stranden med folk som var främlingar på morgonen — och många bokar samma vecka igen året därpå.')
+  },
   closing: {
     title: l('Plan your camp week', 'Eure Camp-Woche planen', 'Planificar vuestra semana de camp', 'Plan jullie campweek', 'Planera er campvecka'),
     text: l('Tell us your week, group size and level. We check the suitable camp and the accommodation planned for your group with the club, and you get one clear answer.', 'Nennt uns eure Woche, Gruppengröße und euer Level. Wir klären mit dem Club das passende Camp und die für eure Gruppe vorgesehene Unterkunft, und ihr bekommt eine klare Antwort.', 'Decidnos vuestra semana, el tamaño del grupo y vuestro nivel. Consultamos con el club el camp adecuado y el alojamiento previsto para vuestro grupo, y recibís una respuesta clara.', 'Vertel ons jullie week, groepsgrootte en niveau. Wij stemmen met de club het passende camp en de accommodatie voor jullie groep af, en jullie krijgen één helder antwoord.', 'Berätta vilken vecka, gruppstorlek och nivå ni har. Vi stämmer av rätt camp och boendet för er grupp med klubben, och ni får ett tydligt svar.'),
@@ -511,7 +545,9 @@ const equipment: TarifaKitesurfSpokeContent = {
 };
 
 const relatedMap: Record<TarifaKitesurfSpokeId, LinkToken[]> = {
-  'kite-school': ['tarifa_kitesurf_beginner_guide', 'tarifa_kite_equipment', 'tarifa_wind_kitesurfing_authority'],
+  // Beginner guide leads the list so it feeds the highlighted callout near the top
+  // of the school page; the spoke page renders the remaining three as "continue" cards.
+  'kite-school': ['tarifa_kitesurf_beginner_guide', 'tarifa_kitecamp', 'tarifa_kite_equipment', 'tarifa_wind_kitesurfing_authority'],
   kitecamp: ['tarifa_kite_school', 'tarifa_kite_equipment', 'tarifa_wind_kitesurfing_authority'],
   equipment: ['tarifa_kite_school', 'tarifa_kitecamp', 'tarifa_wind_kitesurfing_authority']
 };

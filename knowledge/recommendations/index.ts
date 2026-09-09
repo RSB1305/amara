@@ -9,6 +9,8 @@ import { nerjaHikingRecommendations } from './nerja/hiking';
 import { tarifaFoodDrinkRecommendations } from './tarifa/food-drink';
 import { tarifaNightlifeRecommendations } from './tarifa/nightlife';
 import { tarifaActivitiesRecommendations } from './tarifa/activities';
+import { tarifaFamilyRecommendations } from './tarifa/family';
+import { tarifaWhaleWatchingRecommendations } from './tarifa/whale-watching';
 import { tarifaEssentialsRecommendations } from './tarifa/essentials';
 import { nerjaWellnessRecommendations } from './nerja/wellness';
 import { nerjaAdventureRecommendations } from './nerja/adventure';
@@ -36,6 +38,8 @@ export const allRecommendations: readonly KnowledgeRecommendation[] = [
   ...tarifaFoodDrinkRecommendations,
   ...tarifaNightlifeRecommendations,
   ...tarifaActivitiesRecommendations,
+  ...tarifaFamilyRecommendations,
+  ...tarifaWhaleWatchingRecommendations,
   ...tarifaEssentialsRecommendations,
   ...nerjaWellnessRecommendations,
   ...nerjaAdventureRecommendations,

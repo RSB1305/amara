@@ -49,7 +49,7 @@ export interface TarifaKitesurfGuideContent {
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedGuideText => ({ en, de, es, nl, sv });
 
 const seo: AmaraAuthoringSeo = {
-  version: '2026-09-04-tarifa-kitesurf-beginner-guide-v1.0',
+  version: '2026-09-09-tarifa-kitesurf-beginner-guide-v2.0',
   pageType: 'B',
   entityKey: 'amara-brand',
   article: {
@@ -77,25 +77,25 @@ export const tarifaKitesurfBeginnerGuide: TarifaKitesurfGuideContent = {
   hero: {
     eyebrow: l('Tarifa kitesurf guide', 'Tarifa Kitesurf-Guide', 'Guía de kitesurf en Tarifa', 'Tarifa kitesurfgids', 'Tarifa kitesurfguide'),
     title: l(
-      'Learn the wind before you learn the board',
-      'Lernt den Wind, bevor ihr das Board lernt',
-      'Aprende el viento antes que la tabla',
-      'Leer eerst de wind, dan de board',
-      'Lär dig vinden före brädan'
+      'The wind first, then the board',
+      'Der Wind zuerst, dann das Board',
+      'Primero el viento, luego la tabla',
+      'Eerst de wind, dan de board',
+      'Vinden först, sedan brädan'
     ),
     standfirst: l(
-      'Kitesurfing starts with controlling a wind-powered kite, not with standing on a board. Learn the wind, the safety systems and the steps in order, and your first lessons on the water in Tarifa become calmer and safer.',
-      'Kitesurfen beginnt damit, einen vom Wind angetriebenen Kite zu kontrollieren – nicht damit, auf einem Board zu stehen. Wer Wind, Safety-Systeme und die richtige Reihenfolge kennt, für den werden die ersten Stunden am Wasser in Tarifa ruhiger und sicherer.',
-      'El kitesurf empieza controlando una cometa impulsada por el viento, no de pie sobre una tabla. Entiende el viento, los sistemas de seguridad y el orden de los pasos, y tus primeras clases en el agua en Tarifa serán más tranquilas y seguras.',
-      'Kitesurfen begint met het beheersen van een door wind aangedreven kite, niet met staan op een board. Begrijp de wind, de veiligheidssystemen en de juiste volgorde, en je eerste lessen op het water in Tarifa worden rustiger en veiliger.',
-      'Kitesurfing börjar med att kontrollera en vinddriven kite, inte med att stå på en bräda. Lär dig vinden, säkerhetssystemen och stegen i rätt ordning, så blir dina första lektioner på vattnet i Tarifa lugnare och säkrare.'
+      'Honestly, kitesurfing does not start on the board, it starts with the wind — reading a kite and taming it. It sounds like theory at first, but it is exactly the part that gets you hooked later. We go through it with you calmly here, so your first hours on the water in Tarifa run more relaxed — and safer.',
+      'Ehrlich: Kitesurfen fängt nicht auf dem Board an, sondern beim Wind — einen Schirm lesen und bändigen. Klingt erst mal nach Theorie, ist aber genau der Teil, der später süchtig macht. Wir gehen ihn hier in Ruhe mit euch durch, damit eure ersten Stunden am Wasser in Tarifa entspannter laufen — und sicherer.',
+      'Con sinceridad: el kitesurf no empieza en la tabla, sino en el viento: leer una cometa y domarla. Al principio suena a teoría, pero es justo la parte que luego engancha. Aquí lo vemos contigo con calma, para que tus primeras horas en el agua en Tarifa vayan más relajadas — y más seguras.',
+      'Eerlijk: kitesurfen begint niet op de board, maar bij de wind — een kite lezen en temmen. Het klinkt eerst als theorie, maar het is juist het deel dat je later verslaafd maakt. We nemen het hier rustig met je door, zodat je eerste uren op het water in Tarifa ontspannener verlopen — en veiliger.',
+      'Ärligt talat: kitesurfing börjar inte på brädan, utan med vinden — att läsa en kite och tämja den. Det låter som teori i början, men det är just den del som gör dig fast sedan. Vi går igenom den lugnt med dig här, så att dina första timmar på vattnet i Tarifa blir mer avslappnade — och säkrare.'
     ),
     note: l(
-      'To read before your first lesson; the practice happens on the beach, with an instructor.',
-      'Zum Lesen vor der ersten Stunde; geübt wird am Strand, mit Lehrer.',
-      'Para leer antes de la primera clase; la práctica es en la playa, con instructor.',
-      'Om te lezen vóór de eerste les; oefenen doe je op het strand, met een instructeur.',
-      'Att läsa före första lektionen; övningen sker på stranden, med instruktör.'
+      'Meant to read before your first lesson — you go on the water with an instructor, not with this text.',
+      'Gedacht zum Lesen vor der ersten Stunde — aufs Wasser geht ihr dann mit einem Lehrer, nicht mit diesem Text.',
+      'Pensado para leer antes de tu primera clase: al agua vas con un instructor, no con este texto.',
+      'Bedoeld om te lezen vóór je eerste les — het water op ga je met een instructeur, niet met deze tekst.',
+      'Tänkt att läsa före din första lektion — ut på vattnet går du med en instruktör, inte med den här texten.'
     ),
     updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026')
   },
@@ -144,6 +144,13 @@ export const tarifaKitesurfBeginnerGuide: TarifaKitesurfGuideContent = {
           'Una idea frecuente de principiante es que una cometa más grande significa más potencia sin más. No es tan simple: la potencia depende de la fuerza del viento, la posición en la ventana, la velocidad de vuelo, el trim, la tabla, el peso del rider y el modelo. Por eso la talla de la cometa la decide tu instructor, nunca una copia de lo que lleva el de al lado.',
           'Een veelvoorkomend beginnersidee is dat een grotere kite gewoon meer kracht betekent. Zo simpel is het niet: kracht hangt af van windkracht, positie in het venster, vliegsnelheid, trim, board, rijdersgewicht en model. Daarom is de kitemaat een beslissing van je instructeur, nooit een kopie van wat de buurman vaart.',
           'En vanlig nybörjartanke är att en större kite helt enkelt betyder mer kraft. Så enkelt är det inte: kraften beror på vindstyrka, position i fönstret, flyghastighet, trim, bräda, åkarvikt och modell. Därför är kitestorleken ett beslut för din instruktör, aldrig en kopia av vad grannen kör.'
+        ),
+        l(
+          'And a small trick before you even look at an app: you can feel the wind direction yourself. Turn your face slowly until it pulls evenly on both ears — then you are facing straight into the wind. Often the air already tells you what is coming: when it is warm, it is usually Levante from the east; when it is fresh, Poniente off the Atlantic. No substitute for the forecast, but your first own feel for the wind.',
+          'Und ein kleiner Trick, bevor ihr überhaupt auf eine App schaut: Die Windrichtung spürt ihr selbst. Dreht das Gesicht langsam, bis es an beiden Ohren gleich zieht — dann steht ihr genau im Wind. Oft verrät schon die Luft, was kommt: Ist es warm, steht meist der Levante aus Osten; ist es frisch, der Poniente vom Atlantik. Kein Ersatz für den Forecast, aber euer erstes eigenes Windgefühl.',
+          'Y un pequeño truco antes incluso de mirar una app: la dirección del viento la notas tú mismo. Gira la cara despacio hasta que tire por igual en las dos orejas: entonces estás de cara al viento. A menudo el aire ya te dice lo que viene: si hace calor, suele ser levante del este; si está fresco, poniente del Atlántico. No sustituye al parte, pero es tu primer instinto para el viento.',
+          'En een kleine truc voordat je überhaupt naar een app kijkt: de windrichting voel je zelf. Draai je gezicht langzaam tot het aan beide oren even hard trekt — dan sta je recht in de wind. Vaak verraadt de lucht al wat er komt: is het warm, dan staat meestal levante uit het oosten; is het fris, dan poniente van de Atlantische Oceaan. Geen vervanging voor de forecast, maar je eerste eigen windgevoel.',
+          'Och ett litet knep innan du ens tittar på en app: vindriktningen känner du själv. Vrid ansiktet långsamt tills det drar lika mycket i båda öronen — då står du rakt mot vinden. Ofta avslöjar luften redan vad som är på väg: är det varmt är det oftast levante från öst; är det svalt, poniente från Atlanten. Ingen ersättning för prognosen, men din första egen känsla för vinden.'
         )
       ]
     },
@@ -232,7 +239,7 @@ export const tarifaKitesurfBeginnerGuide: TarifaKitesurfGuideContent = {
     links: [
       { token: 'tarifa_kitesurfing_hub', label: l('Kitesurfing in Tarifa', 'Kitesurfen in Tarifa', 'Kitesurf en Tarifa', 'Kitesurfen in Tarifa', 'Kitesurfing i Tarifa'), text: l('The overview: spots, wind, school, camp and gear in one place.', 'Der Überblick: Spots, Wind, Schule, Camp und Material an einem Ort.', 'La visión general: spots, viento, escuela, camp y material en un lugar.', 'Het overzicht: spots, wind, school, camp en materiaal op één plek.', 'Överblicken: spots, vind, skola, camp och utrustning på ett ställe.') },
       { token: 'tarifa_kitesurf_spots', label: l('The spots', 'Die Spots', 'Los spots', 'De spots', 'Spotsen'), text: l('Where Tarifa rides — from a flat learning lagoon to open swell.', 'Wo in Tarifa gefahren wird – vom flachen Lernrevier bis zur offenen Welle.', 'Dónde se navega en Tarifa: de la laguna llana al oleaje abierto.', 'Waar Tarifa vaart — van vlak leerwater tot open deining.', 'Var Tarifa åker — från platt lärvatten till öppen svall.') },
-      { token: 'tarifa_kitesurf_forecast', label: l('Wind forecast', 'Wind-Vorhersage', 'Previsión de viento', 'Windvoorspelling', 'Vindprognos'), text: l('The current read on wind and conditions before your kite day.', 'Der aktuelle Blick auf Wind und Bedingungen vor eurem Kitetag.', 'La lectura actual del viento y las condiciones antes de tu día de kite.', 'De actuele blik op wind en omstandigheden vóór je kitedag.', 'Den aktuella bilden av vind och förhållanden före din kitedag.') },
+      { token: 'tarifa_wind_kitesurfing_authority', label: l('Wind & forecast', 'Wind & Vorhersage', 'Viento y previsión', 'Wind & voorspelling', 'Vind & prognos'), text: l('The current read on wind and conditions before your kite day, and how to read the forecast yourself.', 'Der aktuelle Blick auf Wind und Bedingungen vor eurem Kitetag — und wie ihr die Vorhersage selbst lest.', 'La lectura actual del viento y las condiciones antes de tu día de kite, y cómo leer tú mismo la previsión.', 'De actuele blik op wind en omstandigheden vóór je kitedag, en hoe je de voorspelling zelf leest.', 'Den aktuella bilden av vind och förhållanden före din kitedag, och hur du själv läser prognosen.') },
       { token: 'tarifa_kitecamp', label: l('Kitecamp', 'Kitecamp', 'Kitecamp', 'Kitecamp', 'Kitecamp'), text: l('A full week of kite: course, stay, gear and rescue in one package.', 'Eine ganze Woche Kite: Kurs, Unterkunft, Material und Rescue im Paket.', 'Una semana entera de kite: curso, alojamiento, material y rescate en un paquete.', 'Een hele week kite: cursus, verblijf, materiaal en rescue in één pakket.', 'En hel vecka kite: kurs, boende, utrustning och räddning i ett paket.') }
     ]
   },

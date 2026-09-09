@@ -338,13 +338,6 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Wind, weer & veiligheid',
     sv: 'Vind, väder & säkerhet'
   },
-  'tarifa.kitesurfing.forecast': {
-    en: 'Today in Tarifa',
-    de: 'Heute in Tarifa',
-    es: 'Hoy en Tarifa',
-    nl: 'Vandaag in Tarifa',
-    sv: 'I dag i Tarifa'
-  },
   'tarifa.kitesurfing.surf-club': {
     en: 'AMARA × Tarifa Surf Club',
     de: 'AMARA × Tarifa Surf Club',

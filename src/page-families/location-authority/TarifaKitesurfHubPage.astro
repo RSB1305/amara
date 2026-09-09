@@ -32,12 +32,13 @@ import LocationModule from './LocationModule.astro';
  * separators come from the central inset owner and never from page-local
  * border classes.
  *
- * Reading order follows the hub draft of 4 September 2026: first the feeling
- * and the orientation (why Tarifa, a day here, learning, staying), then the two
- * people behind it, safety once at the end, and three onward cards. Headings
- * state the thing itself rather than announcing it. Its text base is the wind
- * topic of the Tarifa guide; one decision-relevant phrase per paragraph is
- * emphasised in the content with **double asterisks**.
+ * Reading order: first the feeling and the orientation (why Tarifa, a day here,
+ * learning, staying), safety once at the end, and three onward cards. Robert and
+ * Mark are credited together in the byline under the H1 rather than in a separate
+ * self-presentation section; the AMARA × Tarifa Surf Club story lives in full on
+ * the partner page. Headings state the thing itself rather than announcing it.
+ * Its text base is the wind topic of the Tarifa guide; one decision-relevant
+ * phrase per paragraph is emphasised in the content with **double asterisks**.
  */
 interface Props { lang?: string; }
 
@@ -46,15 +47,13 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const hero = requireRouteImage('tarifa.kitesurfing', 'hero', currentLang);
 const waveImage = requireRouteImage('tarifa.kitesurfing', 'wave', currentLang);
 const jumpImage = requireRouteImage('tarifa.kitesurfing', 'jump', currentLang);
-const partnershipImage = requireRouteImage('tarifa.kitesurfing', 'partnership', currentLang);
+const markPortrait = requireRouteImage('tarifa.kitesurfing.surf-club', 'mark', currentLang);
 const t = (value: LocalizedText) => value[currentLang];
 const content = tarifaGuideContent.wind as TarifaTopicGuideContent;
-const partnership = content.partnership!;
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf hub');
 const aboutHref = requiredLink('about');
 const propertyHref = requiredLink('tarifa');
 const partnerHref = requiredLink('amara_tarifa_surf_club');
-const contactHref = `https://wa.me/34604440964?text=${encodeURIComponent(t(partnership.contactMessage))}`;
 
 const ui = {
   hubLabel: { en: 'Kitesurfing in Tarifa', de: 'Kitesurfen in Tarifa', es: 'Kitesurf en Tarifa', nl: 'Kitesurfen in Tarifa', sv: 'Kitesurfing i Tarifa' },
@@ -125,7 +124,18 @@ const footerHighlights: LabeledLink[] = [
       role="hub"
       topic="kitesurfing"
     >
-      <EditorialByline slot="meta" lang={currentLang} authorName={content.seo.article!.authorName} authorHref={aboutHref} updated={t(content.hero.updated)} note={t(content.hero.editorialNote)} />
+      <EditorialByline
+        slot="meta"
+        lang={currentLang}
+        authorName={content.seo.article!.authorName}
+        authorHref={aboutHref}
+        coAuthorName="Mark Uellendahl"
+        coAuthorRole="Tarifa Surf Club"
+        coAuthorHref={partnerHref}
+        coAuthorPortrait={markPortrait.src}
+        updated={t(content.hero.updated)}
+        note={t(content.hero.editorialNote)}
+      />
     </LocationPanoramaHero>
 
     <LocationModule surface="tint" spacing="compact" data-am-topic="facts">
@@ -219,34 +229,6 @@ const footerHighlights: LabeledLink[] = [
         </LocationModule>
       );
     })}
-
-    <LocationModule id="partnership" labelledby="partnership-title" data-am-topic="partnership">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="grid items-center gap-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(360px,0.9fr)] lg:gap-20">
-          <div class="max-w-3xl">
-            <div class="flex items-center gap-5">
-              <AmaraImage src="/images/tarifa/tarifa-surf-club-logo.webp" alt="Tarifa Surf Club" profile="card" class="h-20 w-20 object-contain md:h-24 md:w-24" width={192} widths={[96, 192]} sizes="96px" />
-              <p class="text-primary am-text-label am-text-label--wide">{t(partnership.eyebrow)}</p>
-            </div>
-            <h2 id="partnership-title" class="am-text-title mt-8 max-w-3xl text-balance text-on-surface">{t(partnership.title)}</h2>
-            <p class="am-text-body mt-7 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={t(partnership.intro)} /></p>
-            <p class="am-text-body mt-6 max-w-3xl border-l border-primary/35 pl-5 leading-relaxed text-on-surface"><InlineEmphasis text={t(partnership.personalNote)} /></p>
-            <div class="mt-8 flex flex-wrap gap-x-8 gap-y-3">
-              <a href={partnerHref} class="am-cta-link">{t(ui.partnerPageLink)}</a>
-              <a href="https://tarifasurfclub.com/" target="_blank" rel="noopener noreferrer" class="am-cta-link">{t(partnership.partnerLabel)}</a>
-            </div>
-          </div>
-          <figure class="am-mobile-full-bleed bg-surface-container-high">
-            <AmaraImage src={partnershipImage.src} alt={partnershipImage.alt} profile="hero" class="aspect-[4/3] h-full w-full object-cover" widths={[480, 720, 960, 1200]} sizes="(max-width: 1023px) 100vw, 40vw" focalPoint={partnershipImage.focalPoint} />
-            <figcaption class="px-5 py-4 text-on-surface-variant am-text-label am-text-label--sm">{partnershipImage.caption}</figcaption>
-          </figure>
-        </div>
-        <div class="mt-12 flex flex-col gap-6 bg-surface-container-low p-7 md:flex-row md:items-center md:justify-between md:p-9">
-          <p class="am-text-body max-w-4xl leading-relaxed text-on-surface-variant">{t(partnership.contactText)}</p>
-          <a href={contactHref} target="_blank" rel="noopener noreferrer" class="am-btn am-btn--primary shrink-0 justify-center">{t(partnership.contactLabel)}</a>
-        </div>
-      </div>
-    </LocationModule>
 
     <LocationModule surface="inverse" spacing="compact" labelledby="safety-notice-title" data-am-topic="safety-notice">
       <div class="mx-auto grid max-w-screen-2xl gap-8 lg:grid-cols-[0.65fr_1.35fr] lg:gap-20">
