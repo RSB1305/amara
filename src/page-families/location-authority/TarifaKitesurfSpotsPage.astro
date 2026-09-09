@@ -37,6 +37,7 @@ const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf sp
 const aboutHref = requiredLink('about');
 const stay = vacationRentalEntitiesByKey['amara-family-surf'];
 const robertPortrait = '/images/robert-amara-host.jpg';
+const markPortrait = requireRouteImage('tarifa.kitesurfing.surf-club', 'mark', currentLang);
 
 const spotNumber = (index: number) => String(index + 1).padStart(2, '0');
 
@@ -147,6 +148,15 @@ const spotNumber = (index: number) => String(index + 1).padStart(2, '0');
             <div class="space-y-5">
               {section.paragraphs.map((paragraph) => <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{paragraph}</p>)}
             </div>
+            {section.partnerQuote && (
+              <figure class:list={['mt-8 flex items-start gap-5 px-6 py-6', index % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low']} data-am-voice="mark">
+                <AmaraImage src={markPortrait.src} alt={markPortrait.alt} profile="card" width={192} widths={[96, 144, 192]} sizes="4rem" class="h-16 w-16 shrink-0 rounded-full object-cover" focalPoint="50% 25%" />
+                <div class="min-w-0">
+                  <blockquote class="m-0"><p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{section.partnerQuote.text}</p></blockquote>
+                  <figcaption class="am-text-label am-text-label--sm mt-3 text-primary">— {section.partnerQuote.name} · {section.partnerQuote.role}</figcaption>
+                </div>
+              </figure>
+            )}
             {section.observation && (
               <figure class:list={['mt-8 flex items-start gap-5 px-6 py-6', index % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low']} data-am-voice="robert">
                 <AmaraImage src={robertPortrait} alt={content.ui.portraitAlt} profile="card" width={192} widths={[96, 144, 192]} sizes="4rem" class="h-16 w-16 shrink-0 rounded-full object-cover" focalPoint="50% 32%" />
