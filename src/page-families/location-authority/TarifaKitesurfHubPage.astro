@@ -50,8 +50,6 @@ const partnershipImage = requireRouteImage('tarifa.kitesurfing', 'partnership', 
 const markPortrait = requireRouteImage('tarifa.kitesurfing.surf-club', 'mark', currentLang);
 const robertPortrait = '/images/robert-amara-host.jpg';
 const t = (value: LocalizedText) => value[currentLang];
-/** German-first placeholder; grep `de1(` for strings the closing translation pass still owns. */
-const de1 = (de: string): LocalizedText => ({ en: de, de, es: de, nl: de, sv: de });
 const content = tarifaGuideContent.wind as TarifaTopicGuideContent;
 const partnership = content.partnership!;
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf hub');
@@ -90,18 +88,35 @@ const ui = {
   footerSpots: { en: 'Kitesurf spots', de: 'Kitesurf-Spots', es: 'Spots de kitesurf', nl: 'Kitesurfspots', sv: 'Kitesurfspots' }
 } satisfies Record<string, LocalizedText>;
 
-// The two people behind the cluster, up top as the trust anchor. German is authored
-// first; the bios (de1) still need EN/ES/NL/SV in the closing translation pass.
+// The two people behind the cluster, up top as the trust anchor.
 const founders = {
-  eyebrow: de1('Wer euch hier empfängt'),
-  title: de1('Mark und Robert — zwei, die hier zu Hause sind'),
-  intro: de1('Diese Seiten schreiben wir zu zweit: Mark vom Tarifa Surf Club und ich, Robert von AMARA. Zusammen sind wir eure Ansprechpartner in Tarifa für Unterkunft und Kitesurfen — und kümmern uns gern um den Rest, damit ihr euch ums Wasser kümmern könnt.'),
+  eyebrow: { en: 'Who welcomes you here', de: 'Wer euch hier empfängt', es: 'Quién os recibe aquí', nl: 'Wie jullie hier ontvangt', sv: 'Vilka som tar emot er här' } satisfies LocalizedText,
+  title: { en: 'Mark and Robert — two who are at home here', de: 'Mark und Robert — zwei, die hier zu Hause sind', es: 'Mark y Robert: dos que están en casa aquí', nl: 'Mark en Robert — twee die hier thuis zijn', sv: 'Mark och Robert — två som är hemma här' } satisfies LocalizedText,
+  intro: {
+    en: 'The two of us write these pages: Mark from Tarifa Surf Club and me, Robert from AMARA. Together we are your contacts in Tarifa for accommodation and kitesurfing — and we are happy to take care of the rest, so you can take care of the water.',
+    de: 'Diese Seiten schreiben wir zu zweit: Mark vom Tarifa Surf Club und ich, Robert von AMARA. Zusammen sind wir eure Ansprechpartner in Tarifa für Unterkunft und Kitesurfen — und kümmern uns gern um den Rest, damit ihr euch ums Wasser kümmern könnt.',
+    es: 'Estas páginas las escribimos los dos: Mark, del Tarifa Surf Club, y yo, Robert, de AMARA. Juntos somos vuestros contactos en Tarifa para el alojamiento y el kitesurf, y nos ocupamos encantados del resto para que vosotros os ocupéis del agua.',
+    nl: 'Deze pagina’s schrijven we met z’n tweeën: Mark van de Tarifa Surf Club en ik, Robert van AMARA. Samen zijn wij jullie aanspreekpunt in Tarifa voor verblijf en kitesurfen — en we regelen graag de rest, zodat jullie je met het water kunnen bezighouden.',
+    sv: 'De här sidorna skriver vi två tillsammans: Mark från Tarifa Surf Club och jag, Robert från AMARA. Tillsammans är vi era kontakter i Tarifa för boende och kitesurfing — och vi tar gärna hand om resten, så att ni kan ta hand om vattnet.'
+  } satisfies LocalizedText,
   robertName: 'Robert',
   robertRole: { en: 'Host at AMARA', de: 'Gastgeber bei AMARA', es: 'Anfitrión de AMARA', nl: 'Host bij AMARA', sv: 'Värd på AMARA' } satisfies LocalizedText,
-  robert: de1('Ich wohne hier mit Blick auf Los Lances, sehe morgens, wann der Wind kommt, und bin dann selbst draußen. Kiten gelernt habe ich beim Tarifa Surf Club — für mich beim Kiten die erste Adresse in Tarifa, und dafür lege ich die Hand ins Feuer.'),
+  robert: {
+    en: 'I live here with a view of Los Lances, see in the morning when the wind arrives, and then I am out on the water myself. I learned to kite with Tarifa Surf Club — for me the first address for kiting in Tarifa, and I will vouch for that.',
+    de: 'Ich wohne hier mit Blick auf Los Lances, sehe morgens, wann der Wind kommt, und bin dann selbst draußen. Kiten gelernt habe ich beim Tarifa Surf Club — für mich beim Kiten die erste Adresse in Tarifa, und dafür lege ich die Hand ins Feuer.',
+    es: 'Vivo aquí con vistas a Los Lances, por la mañana veo cuándo entra el viento y luego salgo yo mismo. Aprendí a hacer kite en el Tarifa Surf Club: para mí, la primera dirección para el kite en Tarifa, y por eso pongo la mano en el fuego.',
+    nl: 'Ik woon hier met uitzicht op Los Lances, zie ’s ochtends wanneer de wind komt en ga dan zelf het water op. Kiten heb ik geleerd bij de Tarifa Surf Club — voor mij hét adres om te kitesurfen in Tarifa, en daar sta ik voor in.',
+    sv: 'Jag bor här med utsikt över Los Lances, ser på morgonen när vinden kommer och är sedan ute på vattnet själv. Jag lärde mig kita hos Tarifa Surf Club — för mig den första adressen för kite i Tarifa, och det går jag i god för.'
+  } satisfies LocalizedText,
   markName: 'Mark',
   markRole: { en: 'Tarifa Surf Club', de: 'Tarifa Surf Club', es: 'Tarifa Surf Club', nl: 'Tarifa Surf Club', sv: 'Tarifa Surf Club' } satisfies LocalizedText,
-  mark: de1('Mark kommt seit über zwanzig Jahren nach Tarifa, hat den Tarifa Surf Club übernommen und zu dem gemacht, was er heute ist. Leidenschaftlicher Kitesurfer, Skater und Snowboarder — alles mit Brett, und immer auf dem Wasser. Ein Paradebeispiel für eine gesunde Work-Surf-Balance.')
+  mark: {
+    en: 'Mark has been coming to Tarifa for over twenty years, took over Tarifa Surf Club and made it what it is today. A passionate kitesurfer, skater and snowboarder — anything on a board, and always on the water. A prime example of a healthy work-surf balance.',
+    de: 'Mark kommt seit über zwanzig Jahren nach Tarifa, hat den Tarifa Surf Club übernommen und zu dem gemacht, was er heute ist. Leidenschaftlicher Kitesurfer, Skater und Snowboarder — alles mit Brett, und immer auf dem Wasser. Ein Paradebeispiel für eine gesunde Work-Surf-Balance.',
+    es: 'Mark lleva más de veinte años viniendo a Tarifa; asumió el Tarifa Surf Club y lo convirtió en lo que es hoy. Kitesurfista, skater y snowboarder apasionado: cualquier cosa con tabla, y siempre en el agua. Un ejemplo perfecto de un sano equilibrio entre trabajo y surf.',
+    nl: 'Mark komt al meer dan twintig jaar naar Tarifa, nam de Tarifa Surf Club over en maakte er wat het nu is. Een gepassioneerde kitesurfer, skater en snowboarder — alles met een plank, en altijd op het water. Een schoolvoorbeeld van een gezonde work-surf-balance.',
+    sv: 'Mark har kommit till Tarifa i över tjugo år, tog över Tarifa Surf Club och gjorde den till vad den är i dag. En passionerad kitesurfare, skejtare och snowboardåkare — allt med bräda, och alltid på vattnet. Ett praktexempel på en sund work-surf-balance.'
+  } satisfies LocalizedText
 };
 
 const cards = [
