@@ -151,6 +151,14 @@
     letter-spacing: -0.02em;
   }
 
+  /* Answer/utility-page H1 modifier: the shared title role serves both page H1s
+     and section headings, so this lowers only the mobile floor (2.5rem -> 2rem)
+     for the compact answer pages that use it as their H1, without shrinking
+     section titles elsewhere. Desktop cap unchanged. */
+  .am-text-title--answer {
+    font-size: clamp(2rem, 5vw, 4.25rem);
+  }
+
   .am-text-subtitle {
     font-family: var(--font-headline);
     font-size: clamp(1.5rem, 2.75vw, 2.75rem);
