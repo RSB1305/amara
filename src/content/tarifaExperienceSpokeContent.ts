@@ -65,6 +65,25 @@ export interface TarifaExperienceSpokeContent {
     hubLabel: LocalizedExperienceText;
     propertyLabel: LocalizedExperienceText;
   };
+  /**
+   * Optional quiet block of external providers for topics with many operators
+   * (e.g. whale watching). Links are followed editorial citations, opened in a
+   * new tab. `guideNote` is one understated sentence, not a sales pitch.
+   */
+  operators?: {
+    eyebrow: LocalizedExperienceText;
+    title: LocalizedExperienceText;
+    intro: LocalizedExperienceText;
+    items: Array<{ name: string; href: string; note: LocalizedExperienceText }>;
+    guideNote: LocalizedExperienceText;
+  };
+  /** Optional topic screen for the Guest Guide phone (overrides the generic home menu). */
+  guidePreview?: {
+    eyebrow?: LocalizedExperienceText;
+    title: LocalizedExperienceText;
+    subtitle: LocalizedExperienceText;
+    cards: Array<{ icon: string; title: LocalizedExperienceText; meta: LocalizedExperienceText }>;
+  };
 }
 
 const l = (
@@ -1093,6 +1112,52 @@ const whaleWatching: TarifaExperienceSpokeContent = {
     body: l('From Family & Surf the harbour is a short walk, so you can hold a morning open for the calmest sea and still fill the rest of the day close to home.', 'Von Family & Surf ist der Hafen ein kurzer Weg, ihr könnt also einen Morgen für die ruhigste See offen halten und den Rest des Tages trotzdem nah bei zu Hause verbringen.', 'Desde Family & Surf el puerto queda a un paseo, así que podéis reservar una mañana para el mar más tranquilo y llenar el resto del día cerca de casa.', 'Vanaf Family & Surf is de haven een korte wandeling, dus je kunt een ochtend openhouden voor de rustigste zee en de rest van de dag toch dicht bij huis vullen.', 'Från Family & Surf är hamnen en kort promenad, så ni kan hålla en morgon öppen för det lugnaste havet och ändå fylla resten av dagen nära hemmet.'),
     hubLabel: shared.hubLabel,
     propertyLabel: shared.propertyLabel
+  },
+  operators: {
+    eyebrow: l('The operators', 'Weiterführend', 'Los operadores', 'De aanbieders', 'Aktörerna'),
+    title: l(
+      'Operators sailing from Tarifa harbour',
+      'Anbieter ab dem Hafen Tarifa',
+      'Operadores que salen del puerto de Tarifa',
+      'Aanbieders vanuit de haven van Tarifa',
+      'Aktörer från Tarifas hamn'
+    ),
+    intro: l(
+      'Five operators sail from here. A first overview — check prices, times and booking directly with them.',
+      'Fünf Anbieter fahren von hier aus. Ein erster Überblick — Preise, Zeiten und Buchung findet ihr direkt bei ihnen.',
+      'Cinco operadores salen de aquí. Un primer resumen: consultad precios, horarios y reservas directamente con ellos.',
+      'Vijf aanbieders vertrekken hiervandaan. Een eerste overzicht — prijzen, tijden en boeking vind je rechtstreeks bij hen.',
+      'Fem aktörer avgår härifrån. En första överblick — pris, tider och bokning hittar ni direkt hos dem.'
+    ),
+    items: [
+      { name: 'firmm', href: 'https://www.firmm.org/en/whale-watching', note: l('Research foundation, briefings in German, large stable boats, family-suitable.', 'Forschungsstiftung, Einführung auf Deutsch, große stabile Boote, familientauglich.', 'Fundación de investigación, charlas en alemán, barcos grandes y estables, apta para familias.', 'Onderzoeksstichting, uitleg in het Duits, grote stabiele boten, gezinsvriendelijk.', 'Forskningsstiftelse, genomgång på tyska, stora stabila båtar, familjevänligt.') },
+      { name: 'Turmares', href: 'https://www.turmares.com/en/excursions/', note: l('The widest choice of boats, from a large ship to a small hybrid.', 'Größte Bootsauswahl, vom großen Schiff bis zum kleinen Hybridboot.', 'La mayor variedad de barcos, desde un gran buque hasta un pequeño híbrido.', 'De grootste keuze aan boten, van een groot schip tot een kleine hybride.', 'Störst utbud av båtar, från stort fartyg till liten hybrid.') },
+      { name: 'Aventura Tarifa', href: 'https://www.aventuratarifa.com', note: l('Small group in a RIB, up to about ten guests.', 'Kleingruppe im RIB, bis etwa zehn Gäste.', 'Grupo reducido en lancha, hasta unos diez pasajeros.', 'Kleine groep in een RIB, tot ongeveer tien gasten.', 'Liten grupp i RIB, upp till cirka tio gäster.') },
+      { name: 'TOP Tarifa', href: 'https://toptarifa.es', note: l('Zodiac/RIB, private charters too.', 'Zodiac/RIB, auch private Charter.', 'Zódiac/lancha, también chárter privado.', 'Zodiac/RIB, ook privécharters.', 'Zodiac/RIB, även privata charter.') },
+      { name: 'Marina Blue', href: 'https://marinablue.es', note: l('A motor yacht, comfortable, year-round.', 'Motoryacht, komfortabel, ganzjährig.', 'Un yate a motor, cómodo, todo el año.', 'Een motorjacht, comfortabel, het hele jaar.', 'En motoryacht, bekväm, året runt.') }
+    ],
+    guideNote: l(
+      'If you are staying with us, you will not have to piece this together yourself: our Guest Guide keeps whale watching ready — operators, times and what matters on the morning you sail.',
+      'Wer bei uns wohnt, muss das nicht selbst zusammentragen: In unserem Gästeguide liegt der Bereich Whale Watching fertig — Anbieter, Zeiten und was am Morgen der Ausfahrt zählt.',
+      'Si os alojáis con nosotros, no tendréis que reunir todo esto: en nuestra guía del huésped el avistamiento está listo — operadores, horarios y lo que importa la mañana de la salida.',
+      'Wie bij ons verblijft, hoeft dit niet zelf bij elkaar te zoeken: in onze gastengids ligt walvissen spotten klaar — aanbieders, tijden en wat telt op de ochtend van vertrek.',
+      'Bor ni hos oss behöver ni inte samla ihop det själva: i vår gästguide ligger valskådning klart — aktörer, tider och vad som gäller på morgonen ni åker ut.'
+    )
+  },
+  guidePreview: {
+    title: l('Whale watching in Tarifa', 'Whale Watching in Tarifa', 'Avistamiento de cetáceos en Tarifa', 'Walvissen spotten in Tarifa', 'Valskådning i Tarifa'),
+    subtitle: l(
+      'Everything ready before you sail — operators, seasons and the calm-sea call.',
+      'Alles bereit vor der Ausfahrt — Anbieter, Saison und die Wahl der ruhigen See.',
+      'Todo listo antes de salir: operadores, temporadas y elegir el mar en calma.',
+      'Alles klaar voor vertrek — aanbieders, seizoenen en de keuze voor kalme zee.',
+      'Allt klart före avfärd — aktörer, säsonger och valet av lugnt hav.'
+    ),
+    cards: [
+      { icon: '≋', title: l('Operators & boats', 'Anbieter & Boote', 'Operadores y barcos', 'Aanbieders & boten', 'Aktörer & båtar'), meta: l('Five operators · which boat suits you', 'Fünf Anbieter · welches Boot passt', 'Cinco operadores · qué barco elegir', 'Vijf aanbieders · welke boot past', 'Fem aktörer · vilken båt passar') },
+      { icon: '◷', title: l('Best months', 'Beste Monate', 'Mejores meses', 'Beste maanden', 'Bästa månaderna'), meta: l('Dolphins year-round · orcas Jul–Aug', 'Delfine ganzjährig · Orcas Jul–Aug', 'Delfines todo el año · orcas jul–ago', 'Dolfijnen het hele jaar · orka’s jul–aug', 'Delfiner året runt · späckhuggare jul–aug') },
+      { icon: '✦', title: l('On the morning', 'Am Ausfahrtsmorgen', 'La mañana de la salida', 'Op de ochtend', 'På morgonen'), meta: l('Sea check · seasickness · what to bring', 'See-Check · Seekrankheit · was mitnehmen', 'El mar · mareo · qué llevar', 'Zee-check · zeeziekte · wat meenemen', 'Havskoll · sjösjuka · vad ta med') }
+    ]
   }
 };
 
