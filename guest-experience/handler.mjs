@@ -1,5 +1,4 @@
 import { ExperienceAccessDenied, findUniqueEligibleBooking, validateAccessInput } from './bookings.mjs';
-import { consumeAccessAttempt } from './rate-limit.mjs';
 import { experienceGuideHubHref } from './guide-routes.mjs';
 import {
   ExperienceSessionError,
@@ -72,7 +71,6 @@ export async function handleExperienceSession(context) {
 
   try {
     const secret = getExperienceSecret(env);
-    if (!await consumeAccessAttempt(request, env)) return json(429, 'access_denied');
     const input = validateAccessInput(await readBoundedJson(request));
     const booking = await findUniqueEligibleBooking(env?.LODGIFY_API_KEY, input);
     const claims = createExperienceClaims(booking, input.lang);

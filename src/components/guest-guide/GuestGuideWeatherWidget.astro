@@ -1,6 +1,7 @@
 ---
-// Live forecast card (Open-Meteo, no API key) — client-fetched because the guest
-// guide is a static page and this needs to feel current when a guest opens it,
+// Live forecast card (Open-Meteo, no API key) — fetched client-side from the
+// same-origin /api/weather/guide-forecast proxy so it stays within the guide's
+// strict connect-src 'self' CSP, yet feels current when a guest opens the page,
 // unlike the marketing site's build-time-cached <amara-weather/> current-conditions card.
 import GuestGuideIcon from './GuestGuideIcon.astro';
 import type { AmaraLanguage } from '../../types/seo';
@@ -216,16 +217,9 @@ const translations = weatherTranslations[lang];
 
     (async function () {
       try {
-        const currentFields = showWind
-          ? 'temperature_2m,weather_code,uv_index,wind_speed_10m'
-          : 'temperature_2m,weather_code,uv_index';
-        const hourlyFields = showWind
-          ? 'temperature_2m,weather_code,wind_speed_10m'
-          : 'temperature_2m,weather_code';
-        const dailyFields = showWind
-          ? 'weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max'
-          : 'weather_code,temperature_2m_max,temperature_2m_min';
-        const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=${currentFields}&hourly=${hourlyFields}&daily=${dailyFields}&timezone=auto&forecast_days=5`;
+        // Same-origin proxy: the guide runs under a strict CSP (connect-src 'self'),
+        // so Open-Meteo is fetched server-side by /api/weather/guide-forecast.
+        const url = `/api/weather/guide-forecast?latitude=${encodeURIComponent(lat)}&longitude=${encodeURIComponent(lon)}`;
         const res = await fetch(url);
         if (!res.ok) return;
         const data = await res.json();

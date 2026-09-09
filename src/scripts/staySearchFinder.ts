@@ -707,6 +707,15 @@ export function enhanceStaySearchFinders() {
       arrivalTrigger.setAttribute('aria-expanded', String(trigger === arrivalTrigger));
       departureTrigger.setAttribute('aria-expanded', String(trigger === departureTrigger));
       await ensureVisibleMonths();
+      // Move focus into the calendar so arrow-key day navigation and Escape
+      // (both bound on the calendar element) work; closeCalendar() returns focus
+      // to the trigger. Fall back to the close button when no day is selectable
+      // (a fully-booked visible month or a load/error state) so focus still lands
+      // inside the calendar and Escape always closes it.
+      const initialDay =
+        monthsRoot.querySelector<HTMLButtonElement>('[data-am-booking-day][tabindex="0"]') ??
+        monthsRoot.querySelector<HTMLButtonElement>('[data-am-booking-day]:not(:disabled)');
+      (initialDay ?? close).focus();
     };
     const closeCalendar = (restoreFocus = true) => {
       calendar.hidden = true;
