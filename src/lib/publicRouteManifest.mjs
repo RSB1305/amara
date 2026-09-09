@@ -256,6 +256,9 @@ const definitions = [
     legacySlug: 'find-a-stay',
     family: 'stay-search',
     parent: 'stays',
+    // The availability + direct-booking results page is noindex, follow; keep it
+    // out of the sitemap so the two signals agree.
+    indexable: false,
     // The availability + direct-booking page: the slug carries both, not "search".
     segment: {
       es: 'disponibilidad-reserva',
@@ -313,9 +316,10 @@ const definitions = [
   },
   // Location collections inside the stays silo (Unterkünfte → Ort → Objekt).
   // The location segment is a shared place identity; the collection page lists
-  // the stays whose city matches. Nerja and Tarifa hold one stay each, so they
-  // stay in the tree for breadcrumbs and links but leave the sitemap until they
-  // carry a selection of their own.
+  // the stays whose city matches. Nerja and Tarifa hold one stay each today, but
+  // each collection is its own editorial page (hero, direct answer, handoff), so
+  // all three stay indexable and in the sitemap; the single stay keeps its own
+  // page as well.
   {
     key: 'stays.frigiliana',
     legacySlug: 'stays-frigiliana',
@@ -346,7 +350,6 @@ const definitions = [
     family: 'stays-in-location',
     parent: 'stays',
     props: { location: 'nerja' },
-    indexable: false,
     segment: shared('nerja')
   },
   {
@@ -362,7 +365,6 @@ const definitions = [
     family: 'stays-in-location',
     parent: 'stays',
     props: { location: 'tarifa' },
-    indexable: false,
     segment: shared('tarifa')
   },
   {

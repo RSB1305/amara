@@ -39,12 +39,14 @@ const optionalLink = (token: LinkToken) =>
   resolveOptionalLink(token, currentLang, { suppressMissing: true });
 
 const aboutHref = optionalLink('about');
-const romanticHideawaysHref = optionalLink('romantic_hideaways');
 const oldTownHref = optionalLink('frigiliana_old_town');
 const stairsHref = optionalLink('frigiliana_stairs');
 const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const gettingThereHref = buildOwnedLocalizedPath('frigiliana.arrival', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana.parking', currentLang);
+const faqHref = buildOwnedLocalizedPath('frigiliana.faq', currentLang);
+const propertyForSaleHref = buildOwnedLocalizedPath('frigiliana.property-for-sale', currentLang);
+const frigilianaStaysHref = buildOwnedLocalizedPath('stays.frigiliana', currentLang);
 
 const experienceTokenById = {
   'old-town': 'frigiliana_old_town',
@@ -75,7 +77,9 @@ const villageLinks = [
   { href: stairsHref, ...c.planning.stairs },
   { href: dailyLifeHref, ...c.planning.dailyLife },
   { href: gettingThereHref, ...c.planning.gettingThere },
-  { href: parkingHref, ...c.planning.parking }
+  { href: parkingHref, ...c.planning.parking },
+  { href: faqHref, ...c.planning.faq },
+  { href: propertyForSaleHref, ...c.planning.propertyForSale }
 ].filter((item): item is { href: string; label: string; text: string } => Boolean(item.href));
 
 const footerHighlights: LabeledLink[] = [
@@ -432,8 +436,8 @@ const casaFacts = [
           title={decisionStay.title}
           paragraphs={[...c.decision.paragraphs, ...decisionStay.paragraphs]}
           facts={casaFacts}
-          link={decisionStaysCta && romanticHideawaysHref
-            ? { href: romanticHideawaysHref, label: decisionStaysCta.label }
+          link={decisionStaysCta
+            ? { href: frigilianaStaysHref, label: decisionStaysCta.label }
             : undefined}
         />
       </div>
