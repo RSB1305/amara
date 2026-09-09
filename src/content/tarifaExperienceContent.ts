@@ -19,7 +19,7 @@ export type TarifaExperienceLinkToken =
   | 'tarifa_wind_kitesurfing_authority'
   | 'tarifa_kitesurfing_hub'
   | 'tarifa_food_evening_life'
-  | 'tarifa_nature_wildlife'
+  | 'tarifa_whale_watching'
   | 'tarifa_old_town_history'
   | 'tarifa_bolonia_baelo_claudia';
 
@@ -35,7 +35,7 @@ export type TarifaExperienceWorldId =
   | 'beaches-coast'
   | 'wind-watersports'
   | 'food-evening-life'
-  | 'nature-wildlife'
+  | 'whale-watching'
   | 'old-town-history'
   | 'bolonia-baelo-claudia';
 
@@ -153,8 +153,8 @@ export const tarifaExperienceContent = {
         label: l("Food & evening life", "Essen & Ausgehen", "Gastronomía y vida nocturna", "Eten & uitgaan", "Mat & kvällsliv")
       },
       {
-        id: "nature-wildlife",
-        label: l("Nature & wildlife", "Natur & Tierwelt", "Naturaleza y fauna", "Natuur & dieren", "Natur & djurliv")
+        id: "whale-watching",
+        label: l("Whale watching", "Whale Watching", "Avistamiento de cetáceos", "Walvissen spotten", "Valskådning")
       },
       {
         id: "old-town-history",
@@ -197,10 +197,10 @@ export const tarifaExperienceContent = {
         linkLabel: l("Food & evening life", "Essen & Ausgehen", "Comer y salir", "Eten & uitgaan", "Mat & kvällsliv")
       },
       {
-        title: l("Nature around the Strait", "Natur an der Meerenge", "Naturaleza en el Estrecho", "Natuur rond de Straat", "Natur vid sundet"),
-        text: l("Viewpoints looking across to Africa, the bird migration corridor, or a whale and dolphin trip — that one stays deliberately flexible.", "Aussichtspunkte mit Blick nach Afrika, der Zugvogelkorridor, oder eine Ausfahrt zu Walen und Delfinen – die bleibt bewusst flexibel.", "Miradores hacia África, el corredor migratorio de aves o una salida para ver ballenas y delfines: esa conviene dejarla flexible.", "Uitzichtpunten richting Afrika, de vogeltrekcorridor, of een tocht naar walvissen en dolfijnen — die houden we bewust flexibel.", "Välj en utsiktsplats, följ flyttfåglarnas stråk eller håll möjligheten till en val- och delfintur öppen."),
-        token: "tarifa_nature_wildlife" as LinkToken,
-        linkLabel: l("Nature & wildlife", "Natur & Tierwelt", "Naturaleza y fauna", "Natuur & dierenwereld", "Natur & djurliv")
+        title: l("Whales in the Strait", "Wale in der Meerenge", "Ballenas en el Estrecho", "Walvissen in de Straat", "Valar i sundet"),
+        text: l("A whale and dolphin trip from the harbour, kept deliberately flexible around the sea.", "Eine Ausfahrt zu Walen und Delfinen ab Hafen, bewusst flexibel um die See herum.", "Una salida para ver ballenas y delfines desde el puerto, flexible según el mar.", "Een tocht naar walvissen en dolfijnen vanuit de haven, bewust flexibel rond de zee.", "En val- och delfintur från hamnen, medvetet flexibel efter havet."),
+        token: "tarifa_whale_watching" as LinkToken,
+        linkLabel: l("Whale watching", "Whale Watching", "Avistamiento de cetáceos", "Walvissen spotten", "Valskådning")
       },
       {
         title: l("Bolonia and Baelo Claudia", "Bolonia und Baelo Claudia", "Bolonia y Baelo Claudia", "Bolonia en Baelo Claudia", "Bolonia och Baelo Claudia"),

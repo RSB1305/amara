@@ -366,12 +366,19 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Eten & uitgaan',
     sv: 'Mat & kvällsliv'
   },
-  'tarifa.experience.nature-wildlife': {
-    en: 'Nature & Wildlife',
-    de: 'Natur & Tierwelt',
-    es: 'Naturaleza y fauna',
-    nl: 'Natuur & dieren',
-    sv: 'Natur & djurliv'
+  'tarifa.experience.whale-watching': {
+    en: 'Whale watching',
+    de: 'Whale Watching',
+    es: 'Avistamiento de cetáceos',
+    nl: 'Walvissen spotten',
+    sv: 'Valskådning'
+  },
+  'tarifa.experience.family': {
+    en: 'Family holidays',
+    de: 'Familienurlaub',
+    es: 'Vacaciones en familia',
+    nl: 'Gezinsvakantie',
+    sv: 'Familjesemester'
   },
   'tarifa.experience.old-town-history': {
     en: 'Old Town & History',

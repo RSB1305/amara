@@ -30,11 +30,11 @@ const experienceClusterLabels: Record<DestinationId, Record<AmaraLanguage, strin
     sv: ['Hav & kust', 'Mat & kvällliv', 'Kultur & sevärdheter', 'Utflykter & omgivningar']
   },
   tarifa: {
-    en: ['Sea & Wind', 'Landscape & Heritage', 'Old Town & History', 'Food & Evenings', 'Wellness & Calm', 'With kids'],
-    de: ['Meer & Wind', 'Landschaft & Erbe', 'Altstadt & Geschichte', 'Genuss & Abende', 'Wellness & Ruhe', 'Mit Kindern'],
-    es: ['Mar & viento', 'Paisaje & patrimonio', 'Casco antiguo & historia', 'Gastronomía & ambiente nocturno', 'Bienestar y calma', 'En familia'],
-    nl: ['Zee & wind', 'Landschap & erfgoed', 'Oude stad & geschiedenis', 'Eten & avonden', 'Wellness & rust', 'Met kinderen'],
-    sv: ['Hav & vind', 'Landskap & kulturarv', 'Gamla stan & historia', 'Mat & kvällar', 'Wellness & lugn', 'Med barn']
+    en: ['Sea & Wind', 'Nature & Heritage', 'Old Town & History', 'Food & Evenings', 'Wellness & Calm', 'With kids'],
+    de: ['Meer & Wind', 'Natur & Erbe', 'Altstadt & Geschichte', 'Genuss & Abende', 'Wellness & Ruhe', 'Mit Kindern'],
+    es: ['Mar & viento', 'Naturaleza y patrimonio', 'Casco antiguo & historia', 'Gastronomía & ambiente nocturno', 'Bienestar y calma', 'En familia'],
+    nl: ['Zee & wind', 'Natuur & erfgoed', 'Oude stad & geschiedenis', 'Eten & avonden', 'Wellness & rust', 'Met kinderen'],
+    sv: ['Hav & vind', 'Natur & kulturarv', 'Gamla stan & historia', 'Mat & kvällar', 'Wellness & lugn', 'Med barn']
   }
 };
 
@@ -82,7 +82,7 @@ export function getDestinationExperienceGroups(destination: DestinationId, lang:
 
   const items = getTarifaAuthoritySubnav(lang).find((branch) => branch.id === 'experience')?.children ?? [];
   return groupItems(destination, lang, items, [
-    ['kitesurfing', 'beaches'], ['nature-wildlife', 'whale-watching', 'bolonia-baelo-claudia'], ['old-town-history'], ['food-evening-life'], ['yoga'], ['family']
+    ['kitesurfing', 'beaches'], ['whale-watching', 'bolonia-baelo-claudia'], ['old-town-history'], ['food-evening-life'], ['yoga'], ['family']
   ]);
 }
 

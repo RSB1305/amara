@@ -15,7 +15,6 @@ export type TarifaExperienceChildId =
   | 'wind'
   | 'kitesurf-spots'
   | 'food-evening-life'
-  | 'nature-wildlife'
   | 'whale-watching'
   | 'old-town-history'
   | 'bolonia-baelo-claudia'
@@ -28,7 +27,6 @@ export type TarifaAuthoritySubnavId =
   | TarifaGuideId
   | 'experience'
   | 'food-evening-life'
-  | 'nature-wildlife'
   | 'old-town-history'
   | 'bolonia-baelo-claudia';
 
@@ -69,7 +67,6 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       wind: 'Wind & watersports',
       'kitesurf-spots': 'Kitesurf spots',
       'food-evening-life': 'Food & evening life',
-      'nature-wildlife': 'Nature & wildlife',
       'old-town-history': 'Old Town & history',
       'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
       yoga: 'Yoga',
@@ -86,7 +83,6 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       wind: 'Wind & Wassersport',
       'kitesurf-spots': 'Kitesurf-Spots',
       'food-evening-life': 'Essen & Ausgehen',
-      'nature-wildlife': 'Natur & Tierwelt',
       'old-town-history': 'Altstadt & Geschichte',
       'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
       yoga: 'Yoga',
@@ -103,7 +99,6 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       wind: 'Viento y deportes acuáticos',
       'kitesurf-spots': 'Spots de kitesurf',
       'food-evening-life': 'Gastronomía y vida nocturna',
-      'nature-wildlife': 'Naturaleza y fauna',
       'old-town-history': 'Casco antiguo e historia',
       'bolonia-baelo-claudia': 'Bolonia y Baelo Claudia',
       yoga: 'Yoga',
@@ -120,7 +115,6 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       wind: 'Wind & watersport',
       'kitesurf-spots': 'Kitesurfspots',
       'food-evening-life': 'Eten & uitgaan',
-      'nature-wildlife': 'Natuur & dieren',
       'old-town-history': 'Oude stad & geschiedenis',
       'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
       yoga: 'Yoga',
@@ -137,7 +131,6 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
       wind: 'Vind & vattensport',
       'kitesurf-spots': 'Kitesurfspots',
       'food-evening-life': 'Mat & kvällsliv',
-      'nature-wildlife': 'Natur & djurliv',
       'old-town-history': 'Gamla stan & historia',
       'bolonia-baelo-claudia': 'Bolonia & Baelo Claudia',
       yoga: 'Yoga',
@@ -164,7 +157,6 @@ const experienceChildren: readonly (readonly [TarifaExperienceChildId, LinkToken
   ['wind', 'tarifa_wind_kitesurfing_authority'],
   ['kitesurf-spots', 'tarifa_kitesurf_spots'],
   ['food-evening-life', 'tarifa_food_evening_life'],
-  ['nature-wildlife', 'tarifa_nature_wildlife'],
   ['whale-watching', 'tarifa_whale_watching'],
   ['old-town-history', 'tarifa_old_town_history'],
   ['bolonia-baelo-claudia', 'tarifa_bolonia_baelo_claudia'],

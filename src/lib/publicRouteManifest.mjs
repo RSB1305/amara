@@ -594,14 +594,6 @@ const definitions = [
     }
   },
   {
-    key: 'tarifa.experience.nature-wildlife',
-    legacySlug: 'tarifa-nature-wildlife',
-    family: 'tarifa-experience-spoke',
-    parent: 'tarifa.experience',
-    props: { spoke: 'nature-wildlife' },
-    segment: { es: 'naturaleza', en: 'nature-and-wildlife', de: 'natur', nl: 'natuur', sv: 'natur' }
-  },
-  {
     key: 'tarifa.experience.old-town-history',
     legacySlug: 'tarifa-old-town-history',
     family: 'tarifa-experience-spoke',

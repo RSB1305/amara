@@ -6,7 +6,7 @@ export type LocalizedExperienceText = Record<AmaraLanguage, string>;
 
 export type TarifaExperienceSpokeId = Extract<
   TarifaAuthorityChildId,
-  'food-evening-life' | 'nature-wildlife' | 'old-town-history' | 'bolonia-baelo-claudia' | 'yoga' | 'whale-watching' | 'family'
+  'food-evening-life' | 'old-town-history' | 'bolonia-baelo-claudia' | 'yoga' | 'whale-watching' | 'family'
 >;
 
 export interface TarifaExperienceSpokeSection {
@@ -335,187 +335,6 @@ const food: TarifaExperienceSpokeContent = {
   }
 };
 
-const nature: TarifaExperienceSpokeContent = {
-  id: 'nature-wildlife',
-  token: 'tarifa_nature_wildlife',
-  seo: buildSeo(
-    '2026-08-13-tarifa-nature-wildlife-v1.0',
-    l(
-      'Nature in Tarifa: bird migration, whales and the Strait',
-      'Natur in Tarifa: Vogelzug, Wale und die Meerenge',
-      'Naturaleza en Tarifa: paso de aves, ballenas y el Estrecho',
-      'Natuur in Tarifa: vogeltrek, walvissen en de Straat',
-      'Natur i Tarifa: fågelflytt, valar och sundet'
-    ),
-    l(
-      'In migration season the birds cross the Strait, in the water whales and dolphins, on land the natural park from the beach to the hills. From our apartment by car to the west.',
-      'Zur Zugzeit ziehen die Vögel über die Meerenge, im Wasser Wale und Delfine, an Land der Naturpark vom Strand bis zu den Hügeln. Von unserer Wohnung mit dem Auto nach Westen.',
-      'En época de paso las aves cruzan el Estrecho, en el agua ballenas y delfines, en tierra el parque natural desde la playa hasta las colinas. Desde nuestro apartamento en coche hacia el oeste.',
-      'In de trektijd trekken de vogels over de Straat, in het water walvissen en dolfijnen, op het land het natuurpark van het strand tot de heuvels. Vanaf ons appartement met de auto naar het westen.',
-      'Under flyttningstiden drar fåglarna över sundet, i vattnet valar och delfiner, på land naturparken från stranden till kullarna. Från vår lägenhet med bil västerut.'
-    )
-  ),
-  navLabel: l('Nature & Wildlife', 'Natur & Tierwelt', 'Naturaleza y fauna', 'Natuur & dieren', 'Natur & djurliv'),
-  breadcrumbLabel: l('Nature & Wildlife', 'Natur & Tierwelt', 'Naturaleza y fauna', 'Natuur & dieren', 'Natur & djurliv'),
-  hero: {
-    eyebrow: l('Tarifa experience guide', 'Tarifa erleben', 'Experiencias en Tarifa', 'Tarifa beleven', 'Upplev Tarifa'),
-    title: l('Birds over the Strait, whales beneath', 'Vögel über der Meerenge, Wale darunter', 'Aves sobre el Estrecho, ballenas debajo', 'Vogels boven de Straat, walvissen eronder', 'Fåglar över sundet, valar under'),
-    standfirst: l(
-      'Between Tarifa and Africa lie 14 kilometres of water. Above it the birds cross in migration season, below it whales and dolphins, and all around the Parque Natural del Estrecho protects beaches, cliffs and hills. From our apartment you set off west; the car is in the garage.',
-      'Zwischen Tarifa und Afrika liegen 14 Kilometer Wasser. Darüber ziehen zur Zugzeit die Vögel, darunter Wale und Delfine, und drumherum schützt der Parque Natural del Estrecho Strände, Klippen und Hügel. Von unserer Wohnung fahrt ihr nach Westen los, das Auto steht in der Garage.',
-      'Entre Tarifa y África hay 14 kilómetros de agua. Por encima cruzan las aves en época de paso, por debajo ballenas y delfines, y alrededor el Parque Natural del Estrecho protege playas, acantilados y colinas. Desde nuestro apartamento salís hacia el oeste; el coche está en el garaje.',
-      'Tussen Tarifa en Afrika ligt 14 kilometer water. Daarboven trekken in de trektijd de vogels, daaronder walvissen en dolfijnen, en rondom beschermt het Parque Natural del Estrecho stranden, kliffen en heuvels. Vanaf ons appartement rijd je naar het westen; de auto staat in de garage.',
-      'Mellan Tarifa och Afrika ligger 14 kilometer vatten. Ovanför drar fåglarna under flyttningstiden, under valar och delfiner, och runtom skyddar Parque Natural del Estrecho stränder, klippor och kullar. Från vår lägenhet kör ni västerut; bilen står i garaget.'
-    ),
-    note: l(
-      '',
-      '',
-      '',
-      '',
-      ''
-    ),
-    updated: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')
-  },
-  facts: [
-    { label: l('Protected setting', 'Geschützter Raum', 'Entorno protegido', 'Beschermde omgeving', 'Skyddad miljö'), value: l('Parque Natural del Estrecho', 'Parque Natural del Estrecho', 'Parque Natural del Estrecho', 'Parque Natural del Estrecho', 'Parque Natural del Estrecho') },
-    { label: l('In migration season', 'Zur Zugzeit', 'En época de paso', 'In de trektijd', 'Under flyttningstiden'), value: l('Birds over the Strait, from Europe to Africa', 'Vögel über der Meerenge, von Europa nach Afrika', 'Aves sobre el Estrecho, de Europa a África', 'Vogels boven de Straat, van Europa naar Afrika', 'Fåglar över sundet, från Europa till Afrika') },
-    { label: l('On the water', 'Auf dem Wasser', 'En el agua', 'Op het water', 'På vattnet'), value: l('Whales and dolphins, when the sea allows', 'Wale und Delfine, wenn die See es zulässt', 'Ballenas y delfines, cuando el mar lo permite', 'Walvissen en dolfijnen, als de zee het toelaat', 'Valar och delfiner, när havet tillåter') }
-  ],
-  sections: [
-    {
-      id: 'strait-park',
-      eyebrow: l('01 · Strait landscape', '01 · Landschaft der Meerenge', '01 · Paisaje del Estrecho', '01 · Landschap van de Straat', '01 · Landskapet vid sundet'),
-      title: l('The natural park holds land and sea together', 'Der Naturpark verbindet Land und Meer', 'El parque natural une tierra y mar', 'Het natuurpark verbindt land en zee', 'Naturparken håller samman land och hav'),
-      paragraphs: [
-        l(
-          'The Parque Natural del Estrecho protects land and sea around Tarifa: the beaches, the cliffs, the hills behind them and the water between the continents.',
-          'Der Parque Natural del Estrecho schützt rund um Tarifa Land und Meer: die Strände, die Klippen, die Hügel dahinter und das Wasser zwischen den Kontinenten.',
-          'El Parque Natural del Estrecho protege tierra y mar alrededor de Tarifa: las playas, los acantilados, las colinas de detrás y el agua entre los continentes.',
-          'Het Parque Natural del Estrecho beschermt land en zee rond Tarifa: de stranden, de kliffen, de heuvels erachter en het water tussen de continenten.',
-          'Parque Natural del Estrecho skyddar land och hav runt Tarifa: stränderna, klipporna, kullarna bakom och vattnet mellan kontinenterna.'
-        ),
-        l(
-          'You do not have to go far for it: Los Lances is itself a nature reserve, and from the hills above town you see the Moroccan coast on a clear day.',
-          'Ihr müsst dafür nicht weit: Los Lances ist selbst Naturschutzgebiet, und von den Hügeln über der Stadt seht ihr bei klarer Sicht die marokkanische Küste.',
-          'No hace falta ir lejos: Los Lances es en sí espacio protegido, y desde las colinas sobre la ciudad se ve la costa marroquí en un día claro.',
-          'Je hoeft er niet ver voor: Los Lances is zelf natuurgebied, en vanaf de heuvels boven de stad zie je bij helder zicht de Marokkaanse kust.',
-          'Ni behöver inte långt för det: Los Lances är själv naturreservat, och från kullarna ovanför stan ser ni den marockanska kusten en klar dag.'
-        )
-      ]
-    },
-    {
-      id: 'walks-viewpoints',
-      eyebrow: l('02 · On land', '02 · An Land', '02 · En tierra', '02 · Op het land', '02 · På land'),
-      title: l('On foot over the hills', 'Zu Fuß über die Hügel', 'A pie por las colinas', 'Te voet over de heuvels', 'Till fots över kullarna'),
-      paragraphs: [
-        l(
-          'The paths in the hinterland lead over hills with views of both seas; the tourist office has mapped them, the link is below.',
-          'Die Wege im Hinterland führen über Hügel mit Blick auf beide Meere; das Tourismusbüro hat sie kartiert, der Link steht unten.',
-          'Los senderos del interior recorren colinas con vistas a los dos mares; la oficina de turismo los tiene cartografiados, el enlace está abajo.',
-          'De paden in het achterland lopen over heuvels met uitzicht op beide zeeën; het toeristenbureau heeft ze in kaart gebracht, de link staat onderaan.',
-          'Stigarna i inlandet går över kullar med utsikt över båda haven; turistbyrån har kartlagt dem, länken finns nedan.'
-        ),
-        l(
-          'In a Levante the hills are the better day than the beach: up there it blows just as hard, but the sand stays below.',
-          'Bei Levante sind die Hügel der bessere Tag als der Strand: Oben weht es genauso, aber der Sand bleibt unten.',
-          'Con levante, las colinas son mejor día que la playa: arriba sopla igual, pero la arena se queda abajo.',
-          'Bij Levante zijn de heuvels de betere dag dan het strand: boven waait het net zo hard, maar het zand blijft beneden.',
-          'Vid Levante är kullarna en bättre dag än stranden: uppe blåser det lika mycket, men sanden stannar nere.'
-        )
-      ]
-    },
-    {
-      id: 'bird-migration',
-      eyebrow: l('03 · Bird migration', '03 · Vogelzug', '03 · Migración de aves', '03 · Vogeltrek', '03 · Fågelflyttning'),
-      title: l('In migration season the birds cross the Strait', 'Zur Zugzeit ziehen die Vögel über die Meerenge', 'En época de paso las aves cruzan el Estrecho', 'In de trektijd trekken de vogels over de Straat', 'Under flyttningstiden drar fåglarna över sundet'),
-      paragraphs: [
-        l(
-          'The Strait is the shortest crossing between Europe and Africa, which is why the birds cross here: storks, raptors and flocks of smaller species, north in spring, south in autumn.',
-          'Die Meerenge ist die kürzeste Strecke zwischen Europa und Afrika, deshalb ziehen die Vögel hier hinüber: Störche, Greifvögel und Schwärme kleinerer Arten, im Frühjahr nach Norden, im Herbst nach Süden.',
-          'El Estrecho es el paso más corto entre Europa y África, por eso las aves cruzan aquí: cigüeñas, rapaces y bandadas de especies menores, hacia el norte en primavera, hacia el sur en otoño.',
-          'De Straat is de kortste oversteek tussen Europa en Afrika, daarom trekken de vogels hier over: ooievaars, roofvogels en zwermen kleinere soorten, in het voorjaar naar het noorden, in de herfst naar het zuiden.',
-          'Sundet är den kortaste vägen mellan Europa och Afrika, därför drar fåglarna över här: storkar, rovfåglar och flockar av mindre arter, norrut på våren, söderut på hösten.'
-        ),
-        l(
-          'Which ones you see, the day decides: wind and weather determine whether they fly. The viewpoints are on the N-340 towards Algeciras.',
-          'Welche ihr seht, entscheidet der Tag: Wind und Wetter bestimmen, ob sie fliegen. Die Aussichtspunkte liegen an der N-340 Richtung Algeciras.',
-          'Cuáles veis lo decide el día: viento y tiempo determinan si vuelan. Los miradores están en la N-340 hacia Algeciras.',
-          'Welke je ziet, bepaalt de dag: wind en weer beslissen of ze vliegen. De uitkijkpunten liggen aan de N-340 richting Algeciras.',
-          'Vilka ni ser avgör dagen: vind och väder bestämmer om de flyger. Utsiktsplatserna ligger vid N-340 mot Algeciras.'
-        )
-      ]
-    },
-    {
-      id: 'marine-wildlife',
-      eyebrow: l('04 · On the water', '04 · Auf dem Wasser', '04 · En el mar', '04 · Op het water', '04 · På vattnet'),
-      title: l('Whales and dolphins, when the sea allows', 'Wale und Delfine, wenn die See es zulässt', 'Ballenas y delfines, cuando el mar lo permite', 'Walvissen en dolfijnen, als de zee het toelaat', 'Valar och delfiner, när havet tillåter'),
-      paragraphs: [
-        l(
-          'Boats leave the port for the Strait, where dolphins and pilot whales are at home; with luck you see sperm whales or, in high summer, orcas.',
-          'Vom Hafen fahren Boote in die Meerenge, wo Delfine und Grindwale zu Hause sind; mit Glück seht ihr Pottwale oder, im Hochsommer, Orcas.',
-          'Del puerto salen barcos al Estrecho, donde viven delfines y calderones; con suerte veis cachalotes o, en pleno verano, orcas.',
-          'Vanuit de haven varen boten de Straat op, waar dolfijnen en grienden thuis zijn; met geluk zie je potvissen of, in de hoogzomer, orka’s.',
-          'Från hamnen går båtar ut i sundet, där delfiner och grindvalar hör hemma; med tur ser ni kaskeloter eller, på högsommaren, späckhuggare.'
-        ),
-        l(
-          'In strong wind the boats stay in port. Then Bolonia or the old town is the plan for the day.',
-          'Bei starkem Wind bleiben die Boote im Hafen. Dann sind Bolonia oder die Altstadt der Plan für den Tag.',
-          'Con viento fuerte los barcos se quedan en puerto. Entonces Bolonia o el casco antiguo son el plan del día.',
-          'Bij harde wind blijven de boten in de haven. Dan zijn Bolonia of de oude stad het plan voor de dag.',
-          'Vid stark vind stannar båtarna i hamnen. Då är Bolonia eller gamla stan planen för dagen.'
-        )
-      ]
-    }
-  ],
-  host: {
-    eyebrow: l('From La Marina', 'Von La Marina aus', 'Desde La Marina', 'Vanuit La Marina', 'Från La Marina'),
-    title: l('Off in the morning, on the terrace in the evening', 'Morgens los, abends auf der Terrasse', 'Por la mañana en marcha, por la tarde en la terraza', '’s Ochtends weg, ’s avonds op het terras', 'Iväg på morgonen, på terrassen på kvällen'),
-    paragraphs: [
-      l(
-        'From Family & Surf you set off west without having to pass through the old town; the car is in the underground garage.',
-        'Von Family & Surf fahrt ihr Richtung Westen los, ohne durch die Altstadt zu müssen; das Auto steht in der Tiefgarage.',
-        'Desde Family & Surf salís hacia el oeste sin tener que atravesar el casco antiguo; el coche está en el garaje subterráneo.',
-        'Vanaf Family & Surf rijd je naar het westen zonder door de oude stad te moeten; de auto staat in de ondergrondse garage.',
-        'Från Family & Surf kör ni västerut utan att behöva genom gamla stan; bilen står i garaget under huset.'
-      ),
-      l(
-        'And if the boats do not sail, the day is not lost: Los Lances is five minutes on foot, the terrace faces the sea.',
-        'Und wenn die Boote nicht fahren, ist der Tag nicht verloren: Los Lances liegt fünf Minuten zu Fuß, die Terrasse zeigt aufs Meer.',
-        'Y si los barcos no salen, el día no está perdido: Los Lances está a cinco minutos a pie, la terraza mira al mar.',
-        'En als de boten niet varen, is de dag niet verloren: Los Lances ligt vijf minuten te voet, het terras kijkt op zee.',
-        'Och om båtarna inte går är dagen inte förlorad: Los Lances ligger fem minuter till fots, terrassen vetter mot havet.'
-      )
-    ]
-  },
-  related: {
-    eyebrow: shared.relatedEyebrow,
-    title: shared.relatedTitle,
-    links: [
-      { token: 'tarifa_beaches_authority', label: l('Beaches & Coast', 'Strände & Küste', 'Playas y costa', 'Stranden & kust', 'Stränder & kust'), text: l('Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.') },
-      { token: 'tarifa_bolonia_baelo_claudia', label: l('Bolonia & Baelo Claudia', 'Bolonia & Baelo Claudia', 'Bolonia y Baelo Claudia', 'Bolonia & Baelo Claudia', 'Bolonia & Baelo Claudia'), text: l('Beach, dune and the Roman town of Baelo Claudia.', 'Strand, Düne und die Römerstadt Baelo Claudia.', 'Playa, duna y la ciudad romana de Baelo Claudia.', 'Strand, duin en de Romeinse stad Baelo Claudia.', 'Strand, dyn och den romerska staden Baelo Claudia.') },
-      { token: 'tarifa_experience_hub', label: l('Tarifa Experiences', 'Tarifa-Erlebnisse', 'Experiencias en Tarifa', 'Ervaringen in Tarifa', 'Upplevelser i Tarifa'), text: l('Beach, wind, old town, nature, Bolonia, yoga.', 'Strand, Wind, Altstadt, Natur, Bolonia, Yoga.', 'Playa, viento, casco antiguo, naturaleza, Bolonia, yoga.', 'Strand, wind, oude stad, natuur, Bolonia, yoga.', 'Strand, vind, gamla stan, natur, Bolonia, yoga.') }
-    ]
-  },
-  sources: {
-    eyebrow: shared.sourceEyebrow,
-    title: shared.sourceTitle,
-    intro: shared.sourceIntro,
-    checked: shared.checked,
-    links: [
-      { label: l('Junta de Andalucía · Parque Natural del Estrecho', 'Junta de Andalucía · Parque Natural del Estrecho', 'Junta de Andalucía · Parque Natural del Estrecho', 'Junta de Andalucía · Parque Natural del Estrecho', 'Junta de Andalucía · Parque Natural del Estrecho'), text: l('Official protected-area status and environmental context.', 'Offizieller Schutzstatus und Umweltkontext.', 'Figura de protección y contexto ambiental oficiales.', 'Officiële beschermingsstatus en natuurcontext.', 'Officiell skyddsstatus och naturbakgrund.'), href: sourceHrefs.naturalPark },
-      { label: l('Junta de Andalucía · Ecotourism resources', 'Junta de Andalucía · Naturtourismus', 'Junta de Andalucía · Recursos ecoturísticos', 'Junta de Andalucía · Ecotoerisme', 'Junta de Andalucía · Ekoturism'), text: l('Official context for bird observation and cetacean experiences in the park.', 'Offizieller Kontext zu Vogel- und Meerestierbeobachtung im Park.', 'Contexto oficial para la observación de aves y cetáceos en el parque.', 'Officiële context voor vogels en zeedieren in het park.', 'Officiell bakgrund om fågel- och valobservation i parken.'), href: sourceHrefs.naturalResources },
-      { label: l('Natura 2000 · Estrecho environmental values', 'Natura 2000 · Umweltwerte Estrecho', 'Natura 2000 · Valores ambientales del Estrecho', 'Natura 2000 · Natuurwaarden Estrecho', 'Natura 2000 · Naturvärden i Estrecho'), text: l('Protected habitats, bird status and the Europe–Africa setting.', 'Geschützte Lebensräume, Vogelstatus und die Lage zwischen Europa und Afrika.', 'Hábitats protegidos, figura para aves y situación entre Europa y África.', 'Beschermde leefgebieden, vogelstatus en ligging tussen Europa en Afrika.', 'Skyddade livsmiljöer, fågelstatus och läget mellan Europa och Afrika.'), href: sourceHrefs.naturalValues }
-    ]
-  },
-  closing: {
-    eyebrow: shared.closingEyebrow,
-    title: l('The wind decides, you have the choice', 'Der Wind entscheidet, ihr habt die Wahl', 'El viento decide, vosotros elegís', 'De wind beslist, jullie hebben de keuze', 'Vinden avgör, ni har valet'),
-    body: l('Boats or hills, beach or old town: from Family & Surf everything is close, the car is in the garage, and the terrace faces the Atlantic.', 'Boote oder Hügel, Strand oder Altstadt: Von Family & Surf ist alles nah, das Auto steht in der Garage, und die Terrasse zeigt auf den Atlantik.', 'Barcos o colinas, playa o casco antiguo: desde Family & Surf todo está cerca, el coche está en el garaje y la terraza mira al Atlántico.', 'Boten of heuvels, strand of oude stad: vanaf Family & Surf is alles dichtbij, de auto staat in de garage, en het terras kijkt op de Atlantische Oceaan.', 'Båtar eller kullar, strand eller gamla stan: från Family & Surf är allt nära, bilen står i garaget, och terrassen vetter mot Atlanten.'),
-    hubLabel: shared.hubLabel,
-    propertyLabel: shared.propertyLabel
-  }
-};
-
 const oldTown: TarifaExperienceSpokeContent = {
   id: 'old-town-history',
   token: 'tarifa_old_town_history',
@@ -674,7 +493,7 @@ const oldTown: TarifaExperienceSpokeContent = {
     title: shared.relatedTitle,
     links: [
       { token: 'tarifa_food_evening_life', label: l('Food & Evening Life', 'Essen & Ausgehen', 'Gastronomía y vida nocturna', 'Eten & uitgaan', 'Mat & kvällsliv'), text: l('Red tuna, Calle Batalla del Salado and the bars.', 'Roter Thunfisch, die Calle Batalla del Salado und die Bars.', 'Atún rojo, la calle Batalla del Salado y los bares.', 'Rode tonijn, de Calle Batalla del Salado en de bars.', 'Röd tonfisk, Calle Batalla del Salado och barerna.') },
-      { token: 'tarifa_nature_wildlife', label: l('Nature & Wildlife', 'Natur & Tierwelt', 'Naturaleza y fauna', 'Natuur & dieren', 'Natur & djurliv'), text: l('Bird migration, whales and the natural park.', 'Vogelzug, Wale und der Naturpark.', 'Paso de aves, ballenas y el parque natural.', 'Vogeltrek, walvissen en het natuurpark.', 'Fågelflytt, valar och naturparken.') },
+      { token: 'tarifa_whale_watching', label: l('Whale watching', 'Whale Watching', 'Avistamiento de cetáceos', 'Walvissen spotten', 'Valskådning'), text: l('Pilot whales and dolphins in the Strait, family-suitable from the harbour.', 'Grindwale und Delfine in der Meerenge, familientauglich ab Hafen.', 'Calderones y delfines en el Estrecho, aptos para familias desde el puerto.', 'Grienden en dolfijnen in de Straat, gezinsvriendelijk vanuit de haven.', 'Grindvalar och delfiner i sundet, familjevänligt från hamnen.') },
       { token: 'tarifa_experience_hub', label: l('Tarifa Experiences', 'Tarifa-Erlebnisse', 'Experiencias en Tarifa', 'Ervaringen in Tarifa', 'Upplevelser i Tarifa'), text: l('Beach, wind, old town, nature, Bolonia, yoga.', 'Strand, Wind, Altstadt, Natur, Bolonia, Yoga.', 'Playa, viento, casco antiguo, naturaleza, Bolonia, yoga.', 'Strand, wind, oude stad, natuur, Bolonia, yoga.', 'Strand, vind, gamla stan, natur, Bolonia, yoga.') }
     ]
   },
@@ -878,7 +697,7 @@ const bolonia: TarifaExperienceSpokeContent = {
     title: shared.relatedTitle,
     links: [
       { token: 'tarifa_beaches_authority', label: l('Beaches & Coast', 'Strände & Küste', 'Playas y costa', 'Stranden & kust', 'Stränder & kust'), text: l('Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.') },
-      { token: 'tarifa_nature_wildlife', label: l('Nature & Wildlife', 'Natur & Tierwelt', 'Naturaleza y fauna', 'Natuur & dieren', 'Natur & djurliv'), text: l('Bird migration, whales and the natural park.', 'Vogelzug, Wale und der Naturpark.', 'Paso de aves, ballenas y el parque natural.', 'Vogeltrek, walvissen en het natuurpark.', 'Fågelflytt, valar och naturparken.') },
+      { token: 'tarifa_whale_watching', label: l('Whale watching', 'Whale Watching', 'Avistamiento de cetáceos', 'Walvissen spotten', 'Valskådning'), text: l('Pilot whales and dolphins in the Strait, family-suitable from the harbour.', 'Grindwale und Delfine in der Meerenge, familientauglich ab Hafen.', 'Calderones y delfines en el Estrecho, aptos para familias desde el puerto.', 'Grienden en dolfijnen in de Straat, gezinsvriendelijk vanuit de haven.', 'Grindvalar och delfiner i sundet, familjevänligt från hamnen.') },
       { token: 'tarifa_experience_hub', label: l('Tarifa Experiences', 'Tarifa-Erlebnisse', 'Experiencias en Tarifa', 'Ervaringen in Tarifa', 'Upplevelser i Tarifa'), text: l('Beach, wind, old town, nature, Bolonia, yoga.', 'Strand, Wind, Altstadt, Natur, Bolonia, Yoga.', 'Playa, viento, casco antiguo, naturaleza, Bolonia, yoga.', 'Strand, wind, oude stad, natuur, Bolonia, yoga.', 'Strand, vind, gamla stan, natur, Bolonia, yoga.') }
     ]
   },
@@ -1252,7 +1071,7 @@ const whaleWatching: TarifaExperienceSpokeContent = {
     eyebrow: shared.relatedEyebrow,
     title: shared.relatedTitle,
     links: [
-      { token: 'tarifa_nature_wildlife', label: l('Nature & Wildlife', 'Natur & Tierwelt', 'Naturaleza y fauna', 'Natuur & dieren', 'Natur & djurliv'), text: l('Bird migration over the Strait and the natural park on land.', 'Vogelzug über der Meerenge und der Naturpark an Land.', 'El paso de aves sobre el Estrecho y el parque natural en tierra.', 'Vogeltrek over de Straat en het natuurpark op het land.', 'Fågelflytt över sundet och naturparken på land.') },
+      { token: 'tarifa_bolonia_baelo_claudia', label: l('Bolonia & Baelo Claudia', 'Bolonia & Baelo Claudia', 'Bolonia y Baelo Claudia', 'Bolonia & Baelo Claudia', 'Bolonia & Baelo Claudia'), text: l('A beach, a huge dune and a Roman town in one day out.', 'Strand, riesige Düne und eine Römerstadt an einem Ausflugstag.', 'Playa, una duna enorme y una ciudad romana en una excursión.', 'Een strand, een enorm duin en een Romeinse stad in één uitstap.', 'En strand, en väldig dyn och en romersk stad på en utflykt.') },
       { token: 'tarifa_family', label: l('Family holidays', 'Familienurlaub', 'Vacaciones en familia', 'Gezinsvakantie', 'Familjesemester'), text: l('How a whale trip fits into a family week in Tarifa.', 'Wie eine Walfahrt in eine Familienwoche in Tarifa passt.', 'Cómo encaja una salida de ballenas en una semana en familia.', 'Hoe een walvistocht in een gezinsweek in Tarifa past.', 'Hur en valtur passar in i en familjevecka i Tarifa.') },
       { token: 'tarifa_experience_hub', label: l('Tarifa Experiences', 'Tarifa-Erlebnisse', 'Experiencias en Tarifa', 'Ervaringen in Tarifa', 'Upplevelser i Tarifa'), text: l('Beach, wind, old town, nature, Bolonia, yoga.', 'Strand, Wind, Altstadt, Natur, Bolonia, Yoga.', 'Playa, viento, casco antiguo, naturaleza, Bolonia, yoga.', 'Strand, wind, oude stad, natuur, Bolonia, yoga.', 'Strand, vind, gamla stan, natur, Bolonia, yoga.') }
     ]
@@ -1468,7 +1287,6 @@ export const tarifaExperienceSpokeContent: Record<
   TarifaExperienceSpokeContent
 > = {
   'food-evening-life': food,
-  'nature-wildlife': nature,
   'old-town-history': oldTown,
   'bolonia-baelo-claudia': bolonia,
   yoga,
