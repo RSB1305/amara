@@ -47,9 +47,11 @@ export interface TarifaKitesurfGuideContent {
 }
 
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedGuideText => ({ en, de, es, nl, sv });
+/** German-first placeholder; grep `de1(` for strings the closing translation pass still owns. */
+const de1 = (de: string): LocalizedGuideText => ({ en: de, de, es: de, nl: de, sv: de });
 
 const seo: AmaraAuthoringSeo = {
-  version: '2026-09-04-tarifa-kitesurf-beginner-guide-v1.0',
+  version: '2026-09-09-tarifa-kitesurf-beginner-guide-v2.0',
   pageType: 'B',
   entityKey: 'amara-brand',
   article: {
@@ -78,21 +80,21 @@ export const tarifaKitesurfBeginnerGuide: TarifaKitesurfGuideContent = {
     eyebrow: l('Tarifa kitesurf guide', 'Tarifa Kitesurf-Guide', 'Guía de kitesurf en Tarifa', 'Tarifa kitesurfgids', 'Tarifa kitesurfguide'),
     title: l(
       'Learn the wind before you learn the board',
-      'Lernt den Wind, bevor ihr das Board lernt',
+      'Der Wind zuerst, dann das Board',
       'Aprende el viento antes que la tabla',
       'Leer eerst de wind, dan de board',
       'Lär dig vinden före brädan'
     ),
     standfirst: l(
       'Kitesurfing starts with controlling a wind-powered kite, not with standing on a board. Learn the wind, the safety systems and the steps in order, and your first lessons on the water in Tarifa become calmer and safer.',
-      'Kitesurfen beginnt damit, einen vom Wind angetriebenen Kite zu kontrollieren – nicht damit, auf einem Board zu stehen. Wer Wind, Safety-Systeme und die richtige Reihenfolge kennt, für den werden die ersten Stunden am Wasser in Tarifa ruhiger und sicherer.',
+      'Ehrlich: Kitesurfen fängt nicht auf dem Board an, sondern beim Wind — einen Schirm lesen und bändigen. Klingt erst mal nach Theorie, ist aber genau der Teil, der später süchtig macht. Wir gehen ihn hier in Ruhe mit euch durch, damit eure ersten Stunden am Wasser in Tarifa entspannter laufen — und sicherer.',
       'El kitesurf empieza controlando una cometa impulsada por el viento, no de pie sobre una tabla. Entiende el viento, los sistemas de seguridad y el orden de los pasos, y tus primeras clases en el agua en Tarifa serán más tranquilas y seguras.',
       'Kitesurfen begint met het beheersen van een door wind aangedreven kite, niet met staan op een board. Begrijp de wind, de veiligheidssystemen en de juiste volgorde, en je eerste lessen op het water in Tarifa worden rustiger en veiliger.',
       'Kitesurfing börjar med att kontrollera en vinddriven kite, inte med att stå på en bräda. Lär dig vinden, säkerhetssystemen och stegen i rätt ordning, så blir dina första lektioner på vattnet i Tarifa lugnare och säkrare.'
     ),
     note: l(
       'To read before your first lesson; the practice happens on the beach, with an instructor.',
-      'Zum Lesen vor der ersten Stunde; geübt wird am Strand, mit Lehrer.',
+      'Gedacht zum Lesen vor der ersten Stunde — aufs Wasser geht ihr dann mit einem Lehrer, nicht mit diesem Text.',
       'Para leer antes de la primera clase; la práctica es en la playa, con instructor.',
       'Om te lezen vóór de eerste les; oefenen doe je op het strand, met een instructeur.',
       'Att läsa före första lektionen; övningen sker på stranden, med instruktör.'
@@ -144,6 +146,9 @@ export const tarifaKitesurfBeginnerGuide: TarifaKitesurfGuideContent = {
           'Una idea frecuente de principiante es que una cometa más grande significa más potencia sin más. No es tan simple: la potencia depende de la fuerza del viento, la posición en la ventana, la velocidad de vuelo, el trim, la tabla, el peso del rider y el modelo. Por eso la talla de la cometa la decide tu instructor, nunca una copia de lo que lleva el de al lado.',
           'Een veelvoorkomend beginnersidee is dat een grotere kite gewoon meer kracht betekent. Zo simpel is het niet: kracht hangt af van windkracht, positie in het venster, vliegsnelheid, trim, board, rijdersgewicht en model. Daarom is de kitemaat een beslissing van je instructeur, nooit een kopie van wat de buurman vaart.',
           'En vanlig nybörjartanke är att en större kite helt enkelt betyder mer kraft. Så enkelt är det inte: kraften beror på vindstyrka, position i fönstret, flyghastighet, trim, bräda, åkarvikt och modell. Därför är kitestorleken ett beslut för din instruktör, aldrig en kopia av vad grannen kör.'
+        ),
+        de1(
+          'Und ein kleiner Trick, bevor ihr überhaupt auf eine App schaut: Die Windrichtung spürt ihr selbst. Dreht das Gesicht langsam, bis es an beiden Ohren gleich zieht — dann steht ihr genau im Wind. Oft verrät schon die Luft, was kommt: Ist es warm, steht meist der Levante aus Osten; ist es frisch, der Poniente vom Atlantik. Kein Ersatz für den Forecast, aber euer erstes eigenes Windgefühl.'
         )
       ]
     },
