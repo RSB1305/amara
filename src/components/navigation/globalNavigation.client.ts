@@ -197,8 +197,13 @@ function initGlobalNavigation(): void {
     setMobileBackgroundInert(open);
 
     if (open) {
-      const firstControl = mobileMenu.querySelector<HTMLElement>('summary, a');
-      if (firstControl) firstControl.focus();
+      // Move focus onto the panel itself, not the first summary. Focusing an
+      // interactive control makes iOS Safari paint a :focus-visible outline
+      // after a tap (a stray gold box around the first menu group, DESTINOS).
+      // A tabindex=-1 container gives keyboard users a start point without that
+      // outline; Tab still steps into the controls from here.
+      mobileMenu.tabIndex = -1;
+      mobileMenu.focus();
     }
   };
 
@@ -210,6 +215,18 @@ function initGlobalNavigation(): void {
     mobileMenu.addEventListener('click', (event) => {
       const target = event.target;
       if (target instanceof Element && target.closest('a')) setMenuOpen(false);
+    });
+
+    // iOS Safari keeps a :focus-visible outline on a <summary> after a touch
+    // toggle, showing a stray box around a menu group. Drop focus once the
+    // pointer interaction settles so no outline lingers. Keyboard activation
+    // (Enter/Space) fires no pointer events, so keyboard focus rings stay.
+    mobileMenu.addEventListener('pointerup', (event) => {
+      const summary =
+        event.target instanceof Element ? event.target.closest('summary') : null;
+      if (summary instanceof HTMLElement) {
+        requestAnimationFrame(() => summary.blur());
+      }
     });
   }
 
