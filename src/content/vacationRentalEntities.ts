@@ -150,7 +150,7 @@ export function formatVacationRentalPriceRange(
   if (currencyStyle === 'symbol') {
     return lang === 'en' || lang === 'nl'
       ? `€${minimum}–€${maximum}`
-      : `${minimum} € – ${maximum} €`;
+      : `${minimum} € – ${maximum} €`;
   }
 
   return lang === 'en'
