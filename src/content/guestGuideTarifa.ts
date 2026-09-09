@@ -2893,6 +2893,75 @@ const tarifaFamilySurfActivities: GuestGuideEntry = {
   ),
   categories: [
     {
+      heading: tarifaText('Yoga & wellness', 'Yoga & Wellness', 'Yoga y bienestar', 'Yoga & wellness', 'Yoga & wellness'),
+      items: [
+        {
+          icon: 'heart',
+          title: tarifaText('Yoga in Tarifa', 'Yoga in Tarifa', 'Yoga en Tarifa', 'Yoga in Tarifa', 'Yoga i Tarifa'),
+          subtitle: tarifaText(
+            'Studios, beach classes and teachers',
+            'Studios, Strandkurse und Lehrer',
+            'Estudios, clases en la playa y profesores',
+            'Studio’s, strandlessen en docenten',
+            'Studior, strandklasser och lärare'
+          ),
+          body: [
+            tarifaText(
+              'Yoga is big in Tarifa — a lot of studios and teachers for a small town, plus beach and ocean classes, family and aerial formats and retreats. Your apartment already has mats. A few we can point you to (confirm times and prices directly with them):',
+              'Yoga ist in Tarifa groß — für einen kleinen Ort viele Studios und Lehrer, dazu Strand- und Ocean-Kurse, Familien- und Aerial-Formate und Retreats. In eurer Wohnung liegen schon Matten. Ein paar, an die wir euch verweisen können (Zeiten und Preise bitte direkt bei ihnen bestätigen):',
+              'El yoga es grande en Tarifa: muchos estudios y profesores para un pueblo pequeño, además de clases junto al mar, formatos familiares y aéreos y retiros. Vuestro apartamento ya tiene esterillas. Algunos a los que os podemos orientar (confirmad horarios y precios directamente con ellos):',
+              'Yoga is groot in Tarifa — veel studio’s en docenten voor een klein dorp, plus strand- en zeelessen, familie- en aerial-vormen en retreats. In jullie appartement liggen al matten. Een paar waar we je naartoe kunnen wijzen (bevestig tijden en prijzen rechtstreeks bij hen):',
+              'Yoga är stort i Tarifa — många studior och lärare för en liten stad, plus strand- och havsklasser, familje- och aerialformer och retreat. I er lägenhet finns redan mattor. Några vi kan tipsa om (bekräfta tider och priser direkt hos dem):'
+            ),
+            tarifaBulletList([
+              tarifaText(
+                '<strong>Mama Tierra</strong> — Calle Mar Adriático 9, Local 8 · +34 606 565 405 · info@mamatierratarifa.com (on your own street)',
+                '<strong>Mama Tierra</strong> — Calle Mar Adriático 9, Local 8 · +34 606 565 405 · info@mamatierratarifa.com (in eurer Straße)',
+                '<strong>Mama Tierra</strong> — Calle Mar Adriático 9, Local 8 · +34 606 565 405 · info@mamatierratarifa.com (en vuestra propia calle)',
+                '<strong>Mama Tierra</strong> — Calle Mar Adriático 9, Local 8 · +34 606 565 405 · info@mamatierratarifa.com (in je eigen straat)',
+                '<strong>Mama Tierra</strong> — Calle Mar Adriático 9, Local 8 · +34 606 565 405 · info@mamatierratarifa.com (på er egen gata)'
+              ),
+              tarifaText(
+                '<strong>Mandalablue</strong> — +34 644 772 377 · mandalablueyoga@gmail.com (in town; ocean and beach classes, aerial)',
+                '<strong>Mandalablue</strong> — +34 644 772 377 · mandalablueyoga@gmail.com (im Ort; Ocean- und Beach-Kurse, Aerial)',
+                '<strong>Mandalablue</strong> — +34 644 772 377 · mandalablueyoga@gmail.com (en el pueblo; clases junto al mar, aéreo)',
+                '<strong>Mandalablue</strong> — +34 644 772 377 · mandalablueyoga@gmail.com (in het dorp; zee- en strandlessen, aerial)',
+                '<strong>Mandalablue</strong> — +34 644 772 377 · mandalablueyoga@gmail.com (i stan; havs- och strandklasser, aerial)'
+              ),
+              tarifaText(
+                '<strong>Respira</strong> (Asociación Holística) — +34 623 172 840 · info@respirayogatarifa.com (in town; children, pregnancy and aerial formats)',
+                '<strong>Respira</strong> (Asociación Holística) — +34 623 172 840 · info@respirayogatarifa.com (im Ort; Kinder-, Schwangerschafts- und Aerial-Formate)',
+                '<strong>Respira</strong> (Asociación Holística) — +34 623 172 840 · info@respirayogatarifa.com (en el pueblo; formatos infantil, embarazo y aéreo)',
+                '<strong>Respira</strong> (Asociación Holística) — +34 623 172 840 · info@respirayogatarifa.com (in het dorp; kinder-, zwangerschaps- en aerial-vormen)',
+                '<strong>Respira</strong> (Asociación Holística) — +34 623 172 840 · info@respirayogatarifa.com (i stan; barn-, gravid- och aerialformer)'
+              ),
+              tarifaText(
+                '<strong>OMAYA Yoga</strong> — +34 611 851 740 · omayayogacoach@gmail.com (La Vega; daily drop-in classes)',
+                '<strong>OMAYA Yoga</strong> — +34 611 851 740 · omayayogacoach@gmail.com (La Vega; tägliche Drop-in-Kurse)',
+                '<strong>OMAYA Yoga</strong> — +34 611 851 740 · omayayogacoach@gmail.com (La Vega; clases diarias sin reserva)',
+                '<strong>OMAYA Yoga</strong> — +34 611 851 740 · omayayogacoach@gmail.com (La Vega; dagelijkse inlooplessen)',
+                '<strong>OMAYA Yoga</strong> — +34 611 851 740 · omayayogacoach@gmail.com (La Vega; dagliga drop-in-klasser)'
+              ),
+              tarifaText(
+                '<strong>Yoga-Sunshine · Mona Abter</strong> — +34 646 867 376 · info@yoga-sunshine.com (in and around Tarifa)',
+                '<strong>Yoga-Sunshine · Mona Abter</strong> — +34 646 867 376 · info@yoga-sunshine.com (in und um Tarifa)',
+                '<strong>Yoga-Sunshine · Mona Abter</strong> — +34 646 867 376 · info@yoga-sunshine.com (en Tarifa y alrededores)',
+                '<strong>Yoga-Sunshine · Mona Abter</strong> — +34 646 867 376 · info@yoga-sunshine.com (in en rond Tarifa)',
+                '<strong>Yoga-Sunshine · Mona Abter</strong> — +34 646 867 376 · info@yoga-sunshine.com (i och kring Tarifa)'
+              )
+            ]),
+            tarifaText(
+              'Not sure which suits you? Ask us and we will point you to the right one, or help arrange a private session.',
+              'Unsicher, welches zu euch passt? Fragt uns — wir verweisen euch an das richtige oder helfen, eine private Session zu organisieren.',
+              '¿No sabéis cuál os encaja? Preguntadnos y os orientamos al adecuado, o ayudamos a organizar una sesión privada.',
+              'Niet zeker welke bij je past? Vraag het ons en we wijzen je de juiste, of helpen een privésessie te regelen.',
+              'Osäkra på vilken som passar er? Fråga oss så pekar vi ut rätt, eller hjälper till att ordna ett privat pass.'
+            )
+          ]
+        }
+      ]
+    },
+    {
       heading: tarifaText(
         'Ideas for no-wind days',
         'Ideen für windstille Tage',
