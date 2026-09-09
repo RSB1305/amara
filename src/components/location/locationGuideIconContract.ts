@@ -32,4 +32,11 @@ export type LocationGuideIconName =
   | 'rainfall'
   | 'sunshine'
   | 'coast'
-  | 'village';
+  | 'village'
+  | 'wind'
+  | 'boat'
+  | 'landmark'
+  | 'castle'
+  | 'dining'
+  | 'wellness'
+  | 'family';

@@ -5,12 +5,15 @@ import {
   CalendarDays,
   CarFront,
   CarTaxiFront,
+  Castle,
   Clock3,
   CloudRain,
   Croissant,
+  Flower2,
   Footprints,
   Handshake,
   House,
+  Landmark,
   Map,
   MapPin,
   Mountain,
@@ -18,13 +21,17 @@ import {
   PlaneLanding,
   Repeat2,
   Route,
+  Sailboat,
   ShoppingBasket,
   Store,
   Sun,
   Sunset,
   ThermometerSun,
   Trees,
-  WavesHorizontal
+  Users,
+  UtensilsCrossed,
+  WavesHorizontal,
+  Wind
 } from '@lucide/astro';
 
 import type { LocationGuideIconName } from './locationGuideIconContract';
@@ -69,7 +76,14 @@ const icons = {
   rainfall: CloudRain,
   sunshine: Sun,
   coast: WavesHorizontal,
-  village: House
+  village: House,
+  wind: Wind,
+  boat: Sailboat,
+  landmark: Landmark,
+  castle: Castle,
+  dining: UtensilsCrossed,
+  wellness: Flower2,
+  family: Users
 } satisfies Record<LocationGuideIconName, typeof BusFront>;
 
 const Icon = icons[name];

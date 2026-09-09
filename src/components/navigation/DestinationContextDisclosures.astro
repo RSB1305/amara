@@ -25,11 +25,35 @@ const locationIcons: Record<string, LocationGuideIconName> = {
   'arrival-mobility': 'airport', 'parking-accessibility': 'rental-car',
   'shopping-markets': 'supermarket', 'health-emergency': 'pharmacy'
 };
+// One meaningful icon per experience, so the mega-menu never repeats a glyph
+// within a destination. Keyed by the item id used across all destinations.
+const experienceIcons: Record<string, LocationGuideIconName> = {
+  // Sea & wind
+  kitesurfing: 'wind', wind: 'wind', 'kitesurf-spots': 'wind', beaches: 'coast',
+  // Nature & heritage
+  'whale-watching': 'boat', 'bolonia-baelo-claudia': 'landmark',
+  hiking: 'protected-landscape', caves: 'elevation',
+  // Old town, culture & landmarks
+  'old-town-history': 'castle', oldTown: 'castle', balcon: 'landmark', festivals: 'longer-stay',
+  // Food & evenings
+  'food-evening-life': 'dining', restaurants: 'dining', food: 'dining',
+  nightlife: 'evening', market: 'local-shops',
+  // Wellness & family
+  wellness: 'wellness', yoga: 'wellness', family: 'family'
+};
 const experienceIcon = (id: string): LocationGuideIconName => {
-  if (/beach|coast|wind|kitesurf/.test(id)) return 'coast';
-  if (/hik|nature|dayTrip/.test(id)) return 'protected-landscape';
-  if (/restaurant|food|market/.test(id)) return 'local-shops';
-  if (/wellness/.test(id)) return 'sunshine';
+  if (experienceIcons[id]) return experienceIcons[id];
+  if (/beach|coast/.test(id)) return 'coast';
+  if (/wind|kite/.test(id)) return 'wind';
+  if (/whale|boat/.test(id)) return 'boat';
+  if (/hik|nature|day.?trip/i.test(id)) return 'protected-landscape';
+  if (/restaurant|food|dining/.test(id)) return 'dining';
+  if (/market/.test(id)) return 'local-shops';
+  if (/night/.test(id)) return 'evening';
+  if (/wellness|yoga|spa/.test(id)) return 'wellness';
+  if (/family|kid|child/.test(id)) return 'family';
+  if (/old.?town|history|castle|fort/i.test(id)) return 'castle';
+  if (/landmark|monument|ruin|roman/i.test(id)) return 'landmark';
   return 'village-square';
 };
 const iconFor = (branchId: string, item: ContextNavigationItem) =>
