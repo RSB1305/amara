@@ -617,11 +617,11 @@ export const frigilianaOldTownCopy = {
   },
   sources: {
     title: l(
-      'How this page is sourced',
-      'Woher die Angaben stammen',
-      'De dónde salen estos datos',
-      'Waar deze pagina op steunt',
-      'Var uppgifterna kommer ifrån'
+      'Links to look into it yourself',
+      'Weiterführende Links',
+      'Enlaces para saber más',
+      'Links om zelf verder te kijken',
+      'Länkar för att läsa vidare'
     ),
     text: l(
       'Dates, building classifications and conservation conditions follow the Andalusian heritage decree for the Conjunto Histórico and published archive research; the 1569 sequence follows the contemporary chronicle rather than visitor summaries. As of August 2026.',

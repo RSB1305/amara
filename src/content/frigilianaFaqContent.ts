@@ -501,18 +501,18 @@ export const frigilianaFaqCopy = {
   ],
   liveInfo: {
     eyebrow: l(
-      'Sources',
-      'Quellen',
-      'Fuentes',
-      'Bronnen',
-      'Källor'
+      'Explore further',
+      'Mehr erfahren',
+      'Explorar más',
+      'Meer ontdekken',
+      'Utforska mer'
     ),
     title: l(
-      'Where the answers come from',
-      'Woher die Antworten kommen',
-      'De dónde salen las respuestas',
-      'Waar de antwoorden vandaan komen',
-      'Varifrån svaren kommer'
+      'Links to look into it yourself',
+      'Weiterführende Links',
+      'Enlaces para saber más',
+      'Links om zelf verder te kijken',
+      'Länkar för att läsa vidare'
     ),
     intro: l(
       'Timetables, festival dates and hiking trails at the source.',

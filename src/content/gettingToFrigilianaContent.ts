@@ -621,11 +621,11 @@ export const gettingToFrigilianaCopy = {
   },
   sources: {
     eyebrow: {
-      en: 'Sources',
-      de: 'Quellen',
-      es: 'Fuentes',
-      nl: 'Bronnen',
-      sv: 'Källor'
+      en: 'Explore further',
+      de: 'Mehr erfahren',
+      es: 'Explorar más',
+      nl: 'Meer ontdekken',
+      sv: 'Utforska mer'
     } satisfies LocalizedText,
     title: {
       en: 'Timetables and connections',

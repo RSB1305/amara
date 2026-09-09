@@ -223,8 +223,8 @@ export const nerjaCavesContent = {
     ]
   },
   sources: {
-    eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
-    title: l("Where the details come from", "Woher die Angaben kommen", "De dónde salen los datos", "Waar de gegevens vandaan komen", "Varifrån uppgifterna kommer"),
+    eyebrow: l("Explore further", "Mehr erfahren", "Explorar más", "Meer ontdekken", "Utforska mer"),
+    title: l("Links to look into it yourself", "Weiterführende Links", "Enlaces para saber más", "Links om zelf verder te kijken", "Länkar för att läsa vidare"),
     intro: l("Measurements and access come from the cave operator and public bodies, the dating history from the peer-reviewed literature.", "Maße und Zugänglichkeit stammen vom Höhlenbetreiber und von öffentlichen Stellen, die Datierungsgeschichte aus der begutachteten Fachliteratur.", "Medidas y accesos proceden del operador de la cueva y de organismos públicos; la historia de la datación, de la literatura científica revisada.", "Maten en toegankelijkheid komen van de grotexploitant en overheidsinstanties, de dateringsgeschiedenis uit de wetenschappelijke literatuur.", "Mått och tillgänglighet kommer från grottans operatör och offentliga organ, dateringshistoriken från den granskade facklitteraturen."),
     checked: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026"),
     links: [

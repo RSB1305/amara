@@ -134,7 +134,7 @@ const makeLocale = (lang: AmaraLanguage): ParkingGuideLocale => ({
     links: related.map((item) => ({ token: item.token, label: item.label[lang], text: item.text[lang] }))
   },
   sources: {
-    eyebrow: l('Sources', 'Quellen', 'Fuentes', 'Bronnen', 'Källor')[lang],
+    eyebrow: l('Explore further', 'Mehr erfahren', 'Explorar más', 'Meer ontdekken', 'Utforska mer')[lang],
     title: l('Where these details come from', 'Woher diese Angaben kommen', 'De dónde salen estos datos', 'Waar deze gegevens vandaan komen', 'Varifrån uppgifterna kommer')[lang],
     intro: l('The municipal parking and beach documents come from the town hall. The garage space and the July and August experience come from us.', 'Die kommunalen Park- und Stranddokumente stammen von der Stadtverwaltung. Der Garagenplatz und die Erfahrung mit Juli und August kommen von uns.', 'Los documentos municipales de aparcamiento y playas proceden del ayuntamiento. La plaza de garaje y la experiencia de julio y agosto vienen de nosotros.', 'De gemeentelijke parkeer- en stranddocumenten komen van de gemeente. De garageplaats en de ervaring met juli en augustus komen van ons.', 'De kommunala parkerings- och stranddokumenten kommer från kommunen. Garageplatsen och erfarenheten av juli och augusti kommer från oss.')[lang],
     checked: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')[lang],
