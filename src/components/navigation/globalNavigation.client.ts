@@ -221,9 +221,11 @@ function initGlobalNavigation(): void {
     // toggle, showing a stray box around a menu group. Drop focus once the
     // pointer interaction settles so no outline lingers. Keyboard activation
     // (Enter/Space) fires no pointer events, so keyboard focus rings stay.
+    // Scoped to the menu-group summaries only: the destination context
+    // disclosures keep their own focus (Escape returns focus to them).
     mobileMenu.addEventListener('pointerup', (event) => {
       const summary =
-        event.target instanceof Element ? event.target.closest('summary') : null;
+        event.target instanceof Element ? event.target.closest('.am-nav-mobile__summary') : null;
       if (summary instanceof HTMLElement) {
         requestAnimationFrame(() => summary.blur());
       }
