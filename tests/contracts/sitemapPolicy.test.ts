@@ -35,8 +35,12 @@ test('lists the public Guest Guide landing and follows the manifest sitemap flag
   expect(isSitemapPageAllowed(pageUrl(buildPublicRoutePath('amara-experience', 'de')))).toBe(true);
   expect(isSitemapPageAllowed(pageUrl(buildPublicRoutePath('stays.frigiliana', 'de')))).toBe(true);
   expect(isSitemapPageAllowed(pageUrl(buildPublicRoutePath('la-amara-playa', 'en')))).toBe(true);
+  // The single-stay location collections are indexable and listed too (findable);
+  // each is a distinct editorial page and the stay keeps its own page as well.
+  expect(isSitemapPageAllowed(pageUrl(buildPublicRoutePath('stays.nerja', 'de')))).toBe(true);
+  expect(isSitemapPageAllowed(pageUrl(buildPublicRoutePath('stays.tarifa', 'de')))).toBe(true);
 
-  const outOfSitemap = ['stays.nerja', 'stays.tarifa', 'frigiliana.directions', 'nerja.directions', 'tarifa.directions'];
+  const outOfSitemap = ['frigiliana.directions', 'nerja.directions', 'tarifa.directions'];
 
   for (const key of outOfSitemap) {
     for (const lang of LANGUAGES) {
