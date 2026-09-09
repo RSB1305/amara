@@ -116,7 +116,6 @@ export const linkRegistry = {
     tarifa_kitesurf_beginner_guide: buildOwnedLinks('tarifa.kitesurfing.beginner-guide'),
     tarifa_beaches_authority: buildOwnedLinks('tarifa.experience.beaches'),
     tarifa_food_evening_life: buildOwnedLinks('tarifa.experience.food-evening-life'),
-    tarifa_nature_wildlife: buildOwnedLinks('tarifa.experience.nature-wildlife'),
     tarifa_old_town_history: buildOwnedLinks('tarifa.experience.old-town-history'),
     tarifa_bolonia_baelo_claudia: buildOwnedLinks('tarifa.experience.bolonia-baelo-claudia'),
     tarifa_yoga: buildOwnedLinks('tarifa.experience.yoga'),

@@ -521,18 +521,18 @@ export const frigilianaMarketCopy = {
   },
   liveInfo: {
     eyebrow: l(
-      'Sources',
-      'Quellen',
-      'Fuentes',
-      'Bronnen',
-      'Källor'
+      'Explore further',
+      'Mehr erfahren',
+      'Explorar más',
+      'Meer ontdekken',
+      'Utforska mer'
     ),
     title: l(
-      'Where the details come from',
-      'Woher die Angaben kommen',
-      'De dónde salen los datos',
-      'Waar de gegevens vandaan komen',
-      'Varifrån uppgifterna kommer'
+      'Links to look into it yourself',
+      'Weiterführende Links',
+      'Enlaces para saber más',
+      'Links om zelf verder te kijken',
+      'Länkar för att läsa vidare'
     ),
     intro: l(
       'Tourist office and town map of the municipality of Frigiliana.',

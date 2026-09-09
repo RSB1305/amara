@@ -199,8 +199,8 @@ export const nerjaBalconContent = {
     ]
   },
   sources: {
-    eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
-    title: l("Where the details come from", "Woher die Angaben kommen", "De dónde salen los datos", "Waar de gegevens vandaan komen", "Varifrån uppgifterna kommer"),
+    eyebrow: l("Explore further", "Mehr erfahren", "Explorar más", "Meer ontdekken", "Utforska mer"),
+    title: l("Links to look into it yourself", "Weiterführende Links", "Enlaces para saber más", "Links om zelf verder te kijken", "Länkar för att läsa vidare"),
     intro: l("Nerja town hall and its cultural office for the history of the battery. The story of the king we pass on the way it is told in Nerja.", "Gemeinde und Kulturamt Nerja für die Geschichte der Batterie. Die Erzählung vom König geben wir weiter, wie sie in Nerja erzählt wird.", "El Ayuntamiento y la concejalía de cultura de Nerja para la historia de la batería. La historia del rey la contamos tal como se cuenta en Nerja.", "Gemeente en cultuurdienst van Nerja voor de geschiedenis van de batterij. Het verhaal van de koning geven we door zoals het in Nerja wordt verteld.", "Nerjas kommun och kulturförvaltning för batteriets historia. Berättelsen om kungen återger vi så som den berättas i Nerja."),
     checked: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026"),
     links: [

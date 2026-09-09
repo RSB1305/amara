@@ -222,7 +222,7 @@ export const gettingToNerjaContent = {
     }
   ],
   sources: {
-    eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
+    eyebrow: l("Explore further", "Mehr erfahren", "Explorar más", "Meer ontdekken", "Utforska mer"),
     title: l("Where these details come from", "Woher diese Angaben kommen", "De dónde salen estos datos", "Waar deze gegevens vandaan komen", "Varifrån uppgifterna kommer"),
     intro: l(
       "Connections from the airport and the bus operator; the distances from our front door from us.",

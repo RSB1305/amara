@@ -288,7 +288,7 @@ export const tarifaWinterStaysContent = {
     ]
   },
   sources: {
-    eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
+    eyebrow: l("Explore further", "Mehr erfahren", "Explorar más", "Meer ontdekken", "Utforska mer"),
     title: l("Where these details come from", "Woher diese Angaben kommen", "De dónde salen estos datos", "Waar deze gegevens vandaan komen", "Varifrån uppgifterna kommer"),
     intro: l(
       "The wind names come from official Junta information and the walking routes from Tarifa's tourism office. Everything about AMARA Family & Surf comes from us.",

@@ -2893,6 +2893,75 @@ const tarifaFamilySurfActivities: GuestGuideEntry = {
   ),
   categories: [
     {
+      heading: tarifaText('Yoga & wellness', 'Yoga & Wellness', 'Yoga y bienestar', 'Yoga & wellness', 'Yoga & wellness'),
+      items: [
+        {
+          icon: 'heart',
+          title: tarifaText('Yoga in Tarifa', 'Yoga in Tarifa', 'Yoga en Tarifa', 'Yoga in Tarifa', 'Yoga i Tarifa'),
+          subtitle: tarifaText(
+            'Studios, beach classes and teachers',
+            'Studios, Strandkurse und Lehrer',
+            'Estudios, clases en la playa y profesores',
+            'Studio’s, strandlessen en docenten',
+            'Studior, strandklasser och lärare'
+          ),
+          body: [
+            tarifaText(
+              'Yoga is big in Tarifa — a lot of studios and teachers for a small town, plus beach and ocean classes, family and aerial formats and retreats. Your apartment already has mats. A few we can point you to (confirm times and prices directly with them):',
+              'Yoga ist in Tarifa groß — für einen kleinen Ort viele Studios und Lehrer, dazu Strand- und Ocean-Kurse, Familien- und Aerial-Formate und Retreats. In eurer Wohnung liegen schon Matten. Ein paar, an die wir euch verweisen können (Zeiten und Preise bitte direkt bei ihnen bestätigen):',
+              'El yoga es grande en Tarifa: muchos estudios y profesores para un pueblo pequeño, además de clases junto al mar, formatos familiares y aéreos y retiros. Vuestro apartamento ya tiene esterillas. Algunos a los que os podemos orientar (confirmad horarios y precios directamente con ellos):',
+              'Yoga is groot in Tarifa — veel studio’s en docenten voor een klein dorp, plus strand- en zeelessen, familie- en aerial-vormen en retreats. In jullie appartement liggen al matten. Een paar waar we je naartoe kunnen wijzen (bevestig tijden en prijzen rechtstreeks bij hen):',
+              'Yoga är stort i Tarifa — många studior och lärare för en liten stad, plus strand- och havsklasser, familje- och aerialformer och retreat. I er lägenhet finns redan mattor. Några vi kan tipsa om (bekräfta tider och priser direkt hos dem):'
+            ),
+            tarifaBulletList([
+              tarifaText(
+                '<strong>Mama Tierra</strong> — Calle Mar Adriático 9, Local 8 · +34 606 565 405 · info@mamatierratarifa.com (on your own street)',
+                '<strong>Mama Tierra</strong> — Calle Mar Adriático 9, Local 8 · +34 606 565 405 · info@mamatierratarifa.com (in eurer Straße)',
+                '<strong>Mama Tierra</strong> — Calle Mar Adriático 9, Local 8 · +34 606 565 405 · info@mamatierratarifa.com (en vuestra propia calle)',
+                '<strong>Mama Tierra</strong> — Calle Mar Adriático 9, Local 8 · +34 606 565 405 · info@mamatierratarifa.com (in je eigen straat)',
+                '<strong>Mama Tierra</strong> — Calle Mar Adriático 9, Local 8 · +34 606 565 405 · info@mamatierratarifa.com (på er egen gata)'
+              ),
+              tarifaText(
+                '<strong>Mandalablue</strong> — +34 644 772 377 · mandalablueyoga@gmail.com (in town; ocean and beach classes, aerial)',
+                '<strong>Mandalablue</strong> — +34 644 772 377 · mandalablueyoga@gmail.com (im Ort; Ocean- und Beach-Kurse, Aerial)',
+                '<strong>Mandalablue</strong> — +34 644 772 377 · mandalablueyoga@gmail.com (en el pueblo; clases junto al mar, aéreo)',
+                '<strong>Mandalablue</strong> — +34 644 772 377 · mandalablueyoga@gmail.com (in het dorp; zee- en strandlessen, aerial)',
+                '<strong>Mandalablue</strong> — +34 644 772 377 · mandalablueyoga@gmail.com (i stan; havs- och strandklasser, aerial)'
+              ),
+              tarifaText(
+                '<strong>Respira</strong> (Asociación Holística) — +34 623 172 840 · info@respirayogatarifa.com (in town; children, pregnancy and aerial formats)',
+                '<strong>Respira</strong> (Asociación Holística) — +34 623 172 840 · info@respirayogatarifa.com (im Ort; Kinder-, Schwangerschafts- und Aerial-Formate)',
+                '<strong>Respira</strong> (Asociación Holística) — +34 623 172 840 · info@respirayogatarifa.com (en el pueblo; formatos infantil, embarazo y aéreo)',
+                '<strong>Respira</strong> (Asociación Holística) — +34 623 172 840 · info@respirayogatarifa.com (in het dorp; kinder-, zwangerschaps- en aerial-vormen)',
+                '<strong>Respira</strong> (Asociación Holística) — +34 623 172 840 · info@respirayogatarifa.com (i stan; barn-, gravid- och aerialformer)'
+              ),
+              tarifaText(
+                '<strong>OMAYA Yoga</strong> — +34 611 851 740 · omayayogacoach@gmail.com (La Vega; daily drop-in classes)',
+                '<strong>OMAYA Yoga</strong> — +34 611 851 740 · omayayogacoach@gmail.com (La Vega; tägliche Drop-in-Kurse)',
+                '<strong>OMAYA Yoga</strong> — +34 611 851 740 · omayayogacoach@gmail.com (La Vega; clases diarias sin reserva)',
+                '<strong>OMAYA Yoga</strong> — +34 611 851 740 · omayayogacoach@gmail.com (La Vega; dagelijkse inlooplessen)',
+                '<strong>OMAYA Yoga</strong> — +34 611 851 740 · omayayogacoach@gmail.com (La Vega; dagliga drop-in-klasser)'
+              ),
+              tarifaText(
+                '<strong>Yoga-Sunshine · Mona Abter</strong> — +34 646 867 376 · info@yoga-sunshine.com (in and around Tarifa)',
+                '<strong>Yoga-Sunshine · Mona Abter</strong> — +34 646 867 376 · info@yoga-sunshine.com (in und um Tarifa)',
+                '<strong>Yoga-Sunshine · Mona Abter</strong> — +34 646 867 376 · info@yoga-sunshine.com (en Tarifa y alrededores)',
+                '<strong>Yoga-Sunshine · Mona Abter</strong> — +34 646 867 376 · info@yoga-sunshine.com (in en rond Tarifa)',
+                '<strong>Yoga-Sunshine · Mona Abter</strong> — +34 646 867 376 · info@yoga-sunshine.com (i och kring Tarifa)'
+              )
+            ]),
+            tarifaText(
+              'Not sure which suits you? Ask us and we will point you to the right one, or help arrange a private session.',
+              'Unsicher, welches zu euch passt? Fragt uns — wir verweisen euch an das richtige oder helfen, eine private Session zu organisieren.',
+              '¿No sabéis cuál os encaja? Preguntadnos y os orientamos al adecuado, o ayudamos a organizar una sesión privada.',
+              'Niet zeker welke bij je past? Vraag het ons en we wijzen je de juiste, of helpen een privésessie te regelen.',
+              'Osäkra på vilken som passar er? Fråga oss så pekar vi ut rätt, eller hjälper till att ordna ett privat pass.'
+            )
+          ]
+        }
+      ]
+    },
+    {
       heading: tarifaText(
         'Ideas for no-wind days',
         'Ideen für windstille Tage',
@@ -3634,42 +3703,57 @@ const tarifaFamilySurfSightseeing: GuestGuideEntry = {
           icon: 'wave',
           recommendationId: 'tarifa.sightseeing.firmm-whale-watching',
           title: tarifaText(
-            'Respectful Whale Watching',
-            'Respektvolles Whale Watching',
-            'Avistamiento respetuoso de cetáceos',
-            'Respectvol walvissen spotten',
-            'Respektfull valskådning'
+            'Whale watching from the harbour',
+            'Whale Watching ab dem Hafen',
+            'Avistamiento de cetáceos desde el puerto',
+            'Walvissen spotten vanuit de haven',
+            'Valskådning från hamnen'
           ),
           body: tarifaParagraphs({
             en: [
-              'The Strait of Gibraltar is one of Europe’s best places to observe whales and dolphins in their natural habitat.',
-              'You may see striped dolphins, common dolphins, pilot whales, sperm whales from May to July, and even orcas from June to September.',
-              'Tours usually last around 2–3 hours and depart several times daily from Tarifa harbour. Choose a calm-sea day for the most comfortable experience.',
-              '<strong>Established operator:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org'
+              'The Strait of Gibraltar is one of Europe’s best places to see whales and dolphins in the wild. Pilot whales and three kinds of dolphin live here all year.',
+              'Sperm whales are more likely in spring and autumn; orcas appear in high summer, roughly July to August, and are never guaranteed. Operators quote sighting rates around 99%, but that means at least one species, not a promised one.',
+              'Our own recommendation is firmm, the research foundation — we have made this trip ourselves and it was a wonderful morning, which is why we send our guests there, families with children in particular. That does not make the other operators worse; firmm is simply the one we know first-hand. Briefings in German, English and Spanish, large stable boats with a toilet and a wheelchair space, life jackets for everyone including babies, reduced fares for children, and a free repeat ticket if no cetacean is seen. Trips last about 2–3 hours from Tarifa harbour.',
+              '<strong>firmm España</strong><br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org',
+              'Book with a spare morning and confirm on the day — strong wind can cancel several days in a row. Check the AEMET marine forecast for the Estrecho.',
+              '<strong>Other operators from the harbour.</strong> If firmm is full or you would like a different kind of boat, four more sail from the harbour. The real choice is the boat: a large ship is stable, with a toilet and the best wheelchair access; a small RIB (about ten guests) is more intimate but takes the waves harder. Turmares (the widest fleet), Aventura Tarifa and TOP Tarifa (small RIBs, private charters too) and Marina Blue (a comfortable motor yacht).',
+              '<strong>Good to know.</strong> Seasickness is the most common issue — if you are prone to it, take a remedy in good time (crews may not hand out medication) and choose a larger boat and the calmest slot. Bring a warm windproof layer and secure, non-slip shoes even on a hot day. Mid-strait your phone may pick up a Moroccan network outside EU roaming, so switch mobile data off; drones are not allowed on board. Park outside the harbour and arrive about an hour before departure. Children and babies are welcome on the large boats, at reduced fares.'
             ],
             de: [
-              'Die Straße von Gibraltar ist einer der besten Orte Europas, um Wale und Delfine in ihrem natürlichen Lebensraum zu beobachten.',
-              'Ihr könnt Streifendelfine, Gewöhnliche Delfine, Grindwale, Pottwale von Mai bis Juli und sogar Orcas von Juni bis September sehen.',
-              'Die Touren dauern meist 2–3 Stunden und starten mehrmals täglich am Hafen von Tarifa. Wählt für ein möglichst angenehmes Erlebnis einen Tag mit ruhiger See.',
-              '<strong>Etablierter Anbieter:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org'
+              'Die Straße von Gibraltar ist einer der besten Orte Europas, um Wale und Delfine in freier Wildbahn zu sehen. Grindwale und drei Delfinarten leben hier das ganze Jahr.',
+              'Pottwale sind im Frühjahr und Herbst wahrscheinlicher; Orcas kommen im Hochsommer, etwa Juli bis August, und sind nie garantiert. Anbieter nennen Sichtungsquoten um 99 %, das meint aber mindestens eine Art, keine bestimmte.',
+              'Unsere eigene Empfehlung ist firmm, die Forschungsstiftung — wir waren selbst mit ihnen draußen, es war ein wunderbarer Morgen, und deshalb schicken wir unsere Gäste dorthin, besonders Familien mit Kindern. Das heißt nicht, dass die anderen Anbieter schlechter sind; firmm ist einfach der, den wir aus eigener Erfahrung kennen. Einführung auf Deutsch, Englisch und Spanisch, große stabile Boote mit Toilette und Rollstuhlplatz, Rettungswesten für alle inklusive Babys, ermäßigte Preise für Kinder, und ein kostenloses Wiederholungsticket, falls kein Meeressäuger gesichtet wird. Die Fahrten dauern rund 2–3 Stunden ab dem Hafen Tarifa.',
+              '<strong>firmm España</strong><br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org',
+              'Bucht mit einem freien Morgen und bestätigt am Tag selbst — starker Wind kann mehrere Tage hintereinander ausfallen. Prüft die AEMET-Seewettervorhersage für den Estrecho.',
+              '<strong>Weitere Anbieter am Hafen.</strong> Falls firmm ausgebucht ist oder ihr eine andere Art Boot möchtet: Vier weitere fahren vom Hafen. Die eigentliche Wahl ist das Boot — ein großes Schiff ist stabil, mit Toilette und bestem Rollstuhlzugang; ein kleines RIB (etwa zehn Gäste) ist intimer, nimmt die Wellen aber härter. Turmares (größte Flotte), Aventura Tarifa und TOP Tarifa (kleine RIBs, auch private Charter) und Marina Blue (komfortable Motoryacht).',
+              '<strong>Gut zu wissen.</strong> Seekrankheit ist das häufigste Thema — wer anfällig ist, nimmt rechtzeitig ein Mittel (die Crew darf keine Medikamente ausgeben) und wählt ein größeres Boot und den ruhigsten Slot. Nehmt auch an heißen Tagen eine warme, winddichte Schicht und feste, rutschfeste Schuhe mit. Mitten in der Meerenge wählt das Handy vielleicht ein marokkanisches Netz außerhalb des EU-Roamings — mobile Daten aus; Drohnen sind an Bord nicht erlaubt. Parkt außerhalb des Hafens und seid etwa eine Stunde vor Abfahrt da. Kinder und Babys sind auf den großen Booten willkommen, zu ermäßigten Preisen.'
             ],
             es: [
-              'El Estrecho de Gibraltar es uno de los mejores lugares de Europa para observar ballenas y delfines en su hábitat natural.',
-              'Podéis ver delfines listados, delfines comunes, calderones, cachalotes de mayo a julio e incluso orcas de junio a septiembre.',
-              'Las excursiones suelen durar 2–3 horas y salen varias veces al día desde el puerto de Tarifa. Elegid un día con el mar en calma para disfrutar de una experiencia más cómoda.',
-              '<strong>Operador de confianza:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org'
+              'El Estrecho de Gibraltar es uno de los mejores lugares de Europa para ver ballenas y delfines en libertad. Calderones y tres especies de delfín viven aquí todo el año.',
+              'Los cachalotes son más probables en primavera y otoño; las orcas aparecen en pleno verano, de julio a agosto aproximadamente, y nunca están garantizadas. Los operadores anuncian tasas de avistamiento cercanas al 99 %, pero eso significa al menos una especie, no una concreta.',
+              'Nuestra propia recomendación es firmm, la fundación de investigación: nosotros mismos hicimos esta salida y fue una mañana maravillosa, y por eso enviamos allí a nuestros huéspedes, sobre todo a las familias con niños. Eso no significa que los demás operadores sean peores; firmm es simplemente el que conocemos de primera mano. Charlas en alemán, inglés y español, barcos grandes y estables con aseo y plaza para silla de ruedas, chalecos para todos incluidos los bebés, tarifas reducidas para niños, y un billete de repetición gratuito si no se ve ningún cetáceo. Las salidas duran unas 2–3 horas desde el puerto de Tarifa.',
+              '<strong>firmm España</strong><br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org',
+              'Reservad dejando una mañana libre y confirmad el mismo día: el viento fuerte puede anular varios días seguidos. Consultad la predicción marítima de AEMET para el Estrecho.',
+              '<strong>Otros operadores del puerto.</strong> Si firmm está completo o queréis otro tipo de barco, cuatro más salen del puerto. La verdadera elección es el barco: uno grande es estable, con aseo y el mejor acceso para sillas de ruedas; una lancha pequeña (unos diez pasajeros) es más íntima pero acusa más el oleaje. Turmares (mayor variedad), Aventura Tarifa y TOP Tarifa (lanchas pequeñas, también chárter privado) y Marina Blue (un yate a motor cómodo).',
+              '<strong>Conviene saber.</strong> El mareo es lo más habitual: si sois propensos, tomad un remedio con tiempo (la tripulación no puede daros medicación) y elegid un barco más grande y el horario más tranquilo. Llevad una capa cortavientos abrigada y calzado antideslizante aunque haga calor. En mitad del Estrecho el móvil puede coger una red marroquí fuera del roaming de la UE: apagad los datos; no se permiten drones a bordo. Aparcad fuera del puerto y llegad una hora antes. Los niños y bebés son bienvenidos en los barcos grandes, con tarifas reducidas.'
             ],
             nl: [
-              'De Straat van Gibraltar is een van de beste plekken in Europa om walvissen en dolfijnen in hun natuurlijke omgeving te zien.',
-              'Jullie kunnen gestreepte en gewone dolfijnen, grienden, potvissen van mei tot juli en zelfs orka’s van juni tot september tegenkomen.',
-              'Tours duren meestal 2–3 uur en vertrekken meerdere keren per dag vanuit de haven van Tarifa. Kies voor een comfortabele ervaring een dag met een rustige zee.',
-              '<strong>Ervaren aanbieder:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org'
+              'De Straat van Gibraltar is een van de beste plekken in Europa om walvissen en dolfijnen in het wild te zien. Grienden en drie soorten dolfijn leven hier het hele jaar.',
+              'Potvissen zijn waarschijnlijker in het voorjaar en de herfst; orka’s verschijnen in de hoogzomer, ruwweg juli tot augustus, en zijn nooit gegarandeerd. Aanbieders noemen spotkansen rond 99%, maar dat betekent minstens één soort, geen bepaalde.',
+              'Onze eigen aanbeveling is firmm, de onderzoeksstichting — we hebben deze tocht zelf gemaakt en het was een prachtige ochtend, en daarom sturen we onze gasten daarheen, vooral gezinnen met kinderen. Dat betekent niet dat de andere aanbieders slechter zijn; firmm is gewoon degene die we uit eigen ervaring kennen. Uitleg in het Duits, Engels en Spaans, grote stabiele boten met toilet en een rolstoelplek, reddingsvesten voor iedereen inclusief baby’s, gereduceerde tarieven voor kinderen, en een gratis herhalingsticket als er geen walvisachtige wordt gezien. Tochten duren ongeveer 2–3 uur vanuit de haven van Tarifa.',
+              '<strong>firmm España</strong><br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org',
+              'Boek met een vrije ochtend en bevestig op de dag zelf — harde wind kan meerdere dagen achter elkaar schrappen. Bekijk de AEMET-zeeverwachting voor de Estrecho.',
+              '<strong>Andere aanbieders in de haven.</strong> Als firmm vol is of je een ander soort boot wilt: vier andere vertrekken vanuit de haven. De echte keuze is de boot — een groot schip is stabiel, met toilet en de beste rolstoeltoegang; een kleine RIB (ongeveer tien gasten) is intiemer maar vangt de golven harder op. Turmares (grootste vloot), Aventura Tarifa en TOP Tarifa (kleine RIB’s, ook privécharters) en Marina Blue (een comfortabel motorjacht).',
+              '<strong>Handig om te weten.</strong> Zeeziekte is het meest voorkomend — ben je er gevoelig voor, neem op tijd een middel (de bemanning mag geen medicijnen uitdelen) en kies een grotere boot en het rustigste tijdslot. Neem ook op een warme dag een warme, winddichte laag en stevige, antislip schoenen mee. Midden in de Straat pakt je telefoon soms een Marokkaans netwerk buiten EU-roaming — zet mobiele data uit; drones zijn niet toegestaan. Parkeer buiten de haven en wees een uur voor vertrek aanwezig. Kinderen en baby’s zijn welkom op de grote boten, tegen gereduceerd tarief.'
             ],
             sv: [
-              'Gibraltarsund är en av Europas bästa platser för att se valar och delfiner i deras naturliga miljö.',
-              'Ni kan få se strimmiga och vanliga delfiner, grindvalar, kaskeloter från maj till juli och till och med späckhuggare från juni till september.',
-              'Turerna tar vanligtvis 2–3 timmar och avgår flera gånger om dagen från Tarifas hamn. Välj en dag med lugnt hav för en så bekväm upplevelse som möjligt.',
-              '<strong>Etablerad arrangör:</strong><br>Firmm España<br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org'
+              'Gibraltarsund är en av Europas bästa platser för att se valar och delfiner i det fria. Grindvalar och tre delfinarter lever här året runt.',
+              'Kaskeloter är mer troliga på våren och hösten; späckhuggare dyker upp på högsommaren, ungefär juli till augusti, och är aldrig garanterade. Arrangörer anger observationsfrekvenser kring 99 %, men det betyder minst en art, inte en bestämd.',
+              'Vår egen rekommendation är firmm, forskningsstiftelsen — vi har gjort turen själva och det var en underbar morgon, och därför skickar vi våra gäster dit, särskilt familjer med barn. Det betyder inte att de andra aktörerna är sämre; firmm är helt enkelt den vi känner av egen erfarenhet. Genomgång på tyska, engelska och spanska, stora stabila båtar med toalett och rullstolsplats, flytvästar för alla inklusive bebisar, reducerade priser för barn, och en gratis ombokningsbiljett om ingen val ses. Turerna tar cirka 2–3 timmar från Tarifas hamn.',
+              '<strong>firmm España</strong><br>Calle Alcalde Juan Núñez 10, L-1<br>+34 956 627 008<br>firmm.org',
+              'Boka med en ledig morgon och bekräfta samma dag — stark vind kan ställa in flera dagar i rad. Kolla AEMET:s sjöväderprognos för Estrecho.',
+              '<strong>Andra aktörer i hamnen.</strong> Om firmm är fullbokat eller ni vill ha en annan sorts båt: fyra till avgår från hamnen. Det verkliga valet är båten — ett stort fartyg är stabilt, med toalett och bäst rullstolstillgång; en liten RIB (ett tiotal gäster) är mer intim men tar vågorna hårdare. Turmares (störst flotta), Aventura Tarifa och TOP Tarifa (små RIB:ar, även privata charter) och Marina Blue (en bekväm motoryacht).',
+              '<strong>Bra att veta.</strong> Sjösjuka är vanligast — är ni känsliga, ta ett medel i god tid (besättningen får inte dela ut mediciner) och välj en större båt och det lugnaste tidsläget. Ta med ett varmt, vindtätt lager och halkfria skor även en varm dag. Mitt ute i sundet kan telefonen fånga ett marockanskt nät utanför EU-roaming — stäng av mobildata; drönare är inte tillåtna ombord. Parkera utanför hamnen och var på plats en timme före avgång. Barn och bebisar är välkomna på de stora båtarna, till reducerat pris.'
             ]
           })
         }

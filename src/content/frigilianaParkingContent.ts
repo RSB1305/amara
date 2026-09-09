@@ -516,7 +516,7 @@ export const frigilianaParkingCopy = {
     )
   },
   liveInfo: {
-    eyebrow: l('Sources', 'Quellen', 'Fuentes', 'Bronnen', 'Källor'),
+    eyebrow: l('Explore further', 'Mehr erfahren', 'Explorar más', 'Meer ontdekken', 'Utforska mer'),
     title: l(
       'Use the map to orientate — and the signs to decide',
       'Nutzt die Karte zur Orientierung – und die Schilder zur Entscheidung',

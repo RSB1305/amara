@@ -210,8 +210,8 @@ export const tarifaKitesurfSpotsContent = {
     ]
   },
   sources: {
-    eyebrow: l('Sources', 'Quellen', 'Fuentes', 'Bronnen', 'Källor'),
-    title: l('Where the details come from', 'Woher die Angaben kommen', 'De dónde salen los datos', 'Waar de gegevens vandaan komen', 'Varifrån uppgifterna kommer'),
+    eyebrow: l('Explore further', 'Mehr erfahren', 'Explorar más', 'Meer ontdekken', 'Utforska mer'),
+    title: l('Links to look into it yourself', 'Weiterführende Links', 'Enlaces para saber más', 'Links om zelf verder te kijken', 'Länkar för att läsa vidare'),
     text: l('Beach plan and beach regulations of the town of Tarifa, as of 3 September 2026. On the beach, buoys and signs count.', 'Strandplan und Strandordnung der Stadt Tarifa, Stand 3. September 2026. Am Strand zählen Bojen und Schilder.', 'Plano de playas y ordenanza de playas del Ayuntamiento de Tarifa, actualizado el 3 de septiembre de 2026. En la playa cuentan boyas y carteles.', 'Strandplan en strandverordening van de stad Tarifa, stand 3 september 2026. Op het strand tellen boeien en borden.', 'Strandplan och strandordning från Tarifa kommun, uppdaterad 3 september 2026. På stranden räknas bojar och skyltar.'),
     items: [
       { id: 'beach-plan', label: 'Ayuntamiento de Tarifa · Plan de Explotación de Playas 2024–2027', href: 'https://www.aytotarifa.com/notices/plan-de-explotacion-de-playas-2024-2027/' },

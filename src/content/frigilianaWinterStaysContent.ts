@@ -289,7 +289,7 @@ export const frigilianaWinterStaysContent = {
     ]
   },
   sources: {
-    eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
+    eyebrow: l("Explore further", "Mehr erfahren", "Explorar más", "Meer ontdekken", "Utforska mer"),
     title: l("Where these details come from", "Woher diese Angaben kommen", "De dónde salen estos datos", "Waar deze gegevens vandaan komen", "Varifrån uppgifterna kommer"),
     intro: l(
       "The terrain and the El Fuerte route description come from Frigiliana's official tourism information. Everything about our four apartments comes from us.",

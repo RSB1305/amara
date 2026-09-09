@@ -5,23 +5,39 @@
 // Extracted from GuestGuideBridge so the marketing landing and the in-article
 // bridge share one mockup instead of two copies.
 import AmaraImage from '../AmaraImage.astro';
-import { guestGuidePreviewContent } from '../../content/guestGuidePreviewContent';
+import { guestGuidePreviewContent, type GuestGuidePreviewCard } from '../../content/guestGuidePreviewContent';
 import type { StaySearchDestination } from '../../lib/staySearchHref';
 import type { AmaraLanguage } from '../../types/seo';
+import type { LocalizedText } from '../../types/content';
+
+/**
+ * When a page is about one specific topic (e.g. whale watching) it can pass a
+ * `topicPreview` so the phone shows that topic's guide screen in the page
+ * language, instead of the generic home menu. Cover photo stays per destination.
+ */
+export interface GuestGuidePhoneTopicPreview {
+  eyebrow?: LocalizedText;
+  title?: LocalizedText;
+  subtitle?: LocalizedText;
+  cards?: GuestGuidePreviewCard[];
+}
 
 interface Props {
   lang: AmaraLanguage;
   destination: StaySearchDestination;
   /** Extra wrapper classes for per-context layout (e.g. `lg:mx-0`). */
   class?: string;
+  topicPreview?: GuestGuidePhoneTopicPreview;
 }
 
-const { lang, destination, class: className } = Astro.props;
+const { lang, destination, class: className, topicPreview } = Astro.props;
 const preview = guestGuidePreviewContent;
 const place = preview.destinations[destination];
 const fill = (template: string, value: string) => template.replace('{destination}', value);
-const previewTitle = fill(preview.title[lang], place.name);
-const previewSubtitle = fill(preview.subtitle[lang], place.name);
+const previewEyebrow = topicPreview?.eyebrow ? topicPreview.eyebrow[lang] : `AMARA ${place.name}`;
+const previewTitle = topicPreview?.title ? topicPreview.title[lang] : fill(preview.title[lang], place.name);
+const previewSubtitle = topicPreview?.subtitle ? topicPreview.subtitle[lang] : fill(preview.subtitle[lang], place.name);
+const cards = topicPreview?.cards ?? preview.cards;
 ---
 
 <div class:list={['am-ggp mx-auto w-full max-w-[300px]', className]} aria-hidden="true">
@@ -46,10 +62,10 @@ const previewSubtitle = fill(preview.subtitle[lang], place.name);
         />
       </div>
       <div class="am-ggp__body">
-        <p class="am-ggp__eyebrow text-primary">{`AMARA ${place.name}`}</p>
+        <p class="am-ggp__eyebrow text-primary">{previewEyebrow}</p>
         <h3 class="am-ggp__title text-on-surface">{previewTitle}</h3>
         <p class="am-ggp__sub text-on-surface-variant">{previewSubtitle}</p>
-        {preview.cards.map((card) => (
+        {cards.map((card) => (
           <div class="am-ggp__card">
             <span class="am-ggp__icon" aria-hidden="true">{card.icon}</span>
             <span class="am-ggp__cardtext">

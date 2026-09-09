@@ -27,7 +27,6 @@ type NerjaExperienceId = NerjaExperienceThemeId;
 type FrigilianaAdditionalExperienceId = 'oldTown';
 type TarifaExperienceId =
   | 'food-evening-life'
-  | 'nature-wildlife'
   | 'whale-watching'
   | 'old-town-history'
   | 'bolonia-baelo-claudia'
@@ -121,14 +120,14 @@ const clusterLabels: Record<
   tarifa: {
     en: {
       cluster1: 'Sea & Wind',
-      cluster2: 'Landscape & Heritage',
+      cluster2: 'Nature & Heritage',
       cluster3: 'Old Town & History',
       cluster4: 'Food & Evenings',
       cluster5: 'Wellness & Calm'
     },
     de: {
       cluster1: 'Meer & Wind',
-      cluster2: 'Landschaft & Erbe',
+      cluster2: 'Natur & Erbe',
       cluster3: 'Altstadt & Geschichte',
       cluster4: 'Genuss & Abende',
       cluster5: 'Wellness & Ruhe',
@@ -136,7 +135,7 @@ const clusterLabels: Record<
     },
     es: {
       cluster1: 'Mar & viento',
-      cluster2: 'Paisaje & patrimonio',
+      cluster2: 'Naturaleza y patrimonio',
       cluster3: 'Casco antiguo & historia',
       cluster4: 'Gastronomía & ambiente nocturno',
       cluster5: 'Bienestar y calma',
@@ -144,7 +143,7 @@ const clusterLabels: Record<
     },
     nl: {
       cluster1: 'Zee & wind',
-      cluster2: 'Landschap & erfgoed',
+      cluster2: 'Natuur & erfgoed',
       cluster3: 'Oude stad & geschiedenis',
       cluster4: 'Eten & avonden',
       cluster5: 'Wellness & rust',
@@ -152,7 +151,7 @@ const clusterLabels: Record<
     },
     sv: {
       cluster1: 'Hav & vind',
-      cluster2: 'Landskap & kulturarv',
+      cluster2: 'Natur & kulturarv',
       cluster3: 'Gamla stan & historia',
       cluster4: 'Mat & kvällar',
       cluster5: 'Wellness & lugn',
@@ -303,7 +302,6 @@ const tarifaSiblingLinks = [
   'wind',
   'kitesurf-spots',
   'beaches',
-  'nature-wildlife',
   'whale-watching',
   'bolonia-baelo-claudia',
   'old-town-history',
@@ -398,7 +396,7 @@ const tarifaGroups: ContextNavigationGroup[] = selectNavigationGroups(
     {
       id: 'tarifa-landscape',
       label: 'cluster2',
-      itemIds: ['nature-wildlife', 'whale-watching', 'bolonia-baelo-claudia']
+      itemIds: ['whale-watching', 'bolonia-baelo-claudia']
     },
     {
       id: 'tarifa-town',

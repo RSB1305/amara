@@ -6,7 +6,7 @@ export type LocalizedExperienceText = Record<AmaraLanguage, string>;
 
 export type TarifaExperienceSpokeId = Extract<
   TarifaAuthorityChildId,
-  'food-evening-life' | 'nature-wildlife' | 'old-town-history' | 'bolonia-baelo-claudia' | 'yoga' | 'whale-watching' | 'family'
+  'food-evening-life' | 'old-town-history' | 'bolonia-baelo-claudia' | 'yoga' | 'whale-watching' | 'family'
 >;
 
 export interface TarifaExperienceSpokeSection {
@@ -65,6 +65,25 @@ export interface TarifaExperienceSpokeContent {
     hubLabel: LocalizedExperienceText;
     propertyLabel: LocalizedExperienceText;
   };
+  /**
+   * Optional quiet block of external providers for topics with many operators
+   * (e.g. whale watching). Links are followed editorial citations, opened in a
+   * new tab. `guideNote` is one understated sentence, not a sales pitch.
+   */
+  operators?: {
+    eyebrow: LocalizedExperienceText;
+    title: LocalizedExperienceText;
+    intro: LocalizedExperienceText;
+    items: Array<{ name: string; href?: string; note: LocalizedExperienceText }>;
+    guideNote: LocalizedExperienceText;
+  };
+  /** Optional topic screen for the Guest Guide phone (overrides the generic home menu). */
+  guidePreview?: {
+    eyebrow?: LocalizedExperienceText;
+    title: LocalizedExperienceText;
+    subtitle: LocalizedExperienceText;
+    cards: Array<{ icon: string; title: LocalizedExperienceText; meta: LocalizedExperienceText }>;
+  };
 }
 
 const l = (
@@ -103,14 +122,14 @@ const buildSeo = (
 });
 
 const shared = {
-  sourceEyebrow: l('Sources', 'Quellen', 'Fuentes', 'Bronnen', 'Källor'),
-  sourceTitle: l('Where the details come from', 'Woher die Angaben kommen', 'De dónde salen los datos', 'Waar de gegevens vandaan komen', 'Varifrån uppgifterna kommer'),
+  sourceEyebrow: l('Explore further', 'Mehr erfahren', 'Explorar más', 'Meer ontdekken', 'Utforska mer'),
+  sourceTitle: l('Links to look into it yourself', 'Weiterführende Links', 'Enlaces para saber más', 'Links om zelf verder te kijken', 'Länkar för att läsa vidare'),
   sourceIntro: l(
-    'The official pages behind this text.',
-    'Die amtlichen Seiten hinter diesem Text.',
-    'Las páginas oficiales detrás de este texto.',
-    'De officiële pagina’s achter deze tekst.',
-    'De officiella sidorna bakom den här texten.'
+    'A few links, if you would like to look into it yourself.',
+    'Ein paar Links, falls ihr euch selbst weiter erkundigen möchtet.',
+    'Algunos enlaces, por si queréis informaros por vuestra cuenta.',
+    'Een paar links, als je zelf verder wilt kijken.',
+    'Några länkar, om ni vill läsa vidare på egen hand.'
   ),
   checked: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026'),
   relatedEyebrow: l('Keep exploring', 'Tarifa weiter entdecken', 'Seguir descubriendo', 'Verder ontdekken', 'Fortsätt upptäcka'),
@@ -335,187 +354,6 @@ const food: TarifaExperienceSpokeContent = {
   }
 };
 
-const nature: TarifaExperienceSpokeContent = {
-  id: 'nature-wildlife',
-  token: 'tarifa_nature_wildlife',
-  seo: buildSeo(
-    '2026-08-13-tarifa-nature-wildlife-v1.0',
-    l(
-      'Nature in Tarifa: bird migration, whales and the Strait',
-      'Natur in Tarifa: Vogelzug, Wale und die Meerenge',
-      'Naturaleza en Tarifa: paso de aves, ballenas y el Estrecho',
-      'Natuur in Tarifa: vogeltrek, walvissen en de Straat',
-      'Natur i Tarifa: fågelflytt, valar och sundet'
-    ),
-    l(
-      'In migration season the birds cross the Strait, in the water whales and dolphins, on land the natural park from the beach to the hills. From our apartment by car to the west.',
-      'Zur Zugzeit ziehen die Vögel über die Meerenge, im Wasser Wale und Delfine, an Land der Naturpark vom Strand bis zu den Hügeln. Von unserer Wohnung mit dem Auto nach Westen.',
-      'En época de paso las aves cruzan el Estrecho, en el agua ballenas y delfines, en tierra el parque natural desde la playa hasta las colinas. Desde nuestro apartamento en coche hacia el oeste.',
-      'In de trektijd trekken de vogels over de Straat, in het water walvissen en dolfijnen, op het land het natuurpark van het strand tot de heuvels. Vanaf ons appartement met de auto naar het westen.',
-      'Under flyttningstiden drar fåglarna över sundet, i vattnet valar och delfiner, på land naturparken från stranden till kullarna. Från vår lägenhet med bil västerut.'
-    )
-  ),
-  navLabel: l('Nature & Wildlife', 'Natur & Tierwelt', 'Naturaleza y fauna', 'Natuur & dieren', 'Natur & djurliv'),
-  breadcrumbLabel: l('Nature & Wildlife', 'Natur & Tierwelt', 'Naturaleza y fauna', 'Natuur & dieren', 'Natur & djurliv'),
-  hero: {
-    eyebrow: l('Tarifa experience guide', 'Tarifa erleben', 'Experiencias en Tarifa', 'Tarifa beleven', 'Upplev Tarifa'),
-    title: l('Birds over the Strait, whales beneath', 'Vögel über der Meerenge, Wale darunter', 'Aves sobre el Estrecho, ballenas debajo', 'Vogels boven de Straat, walvissen eronder', 'Fåglar över sundet, valar under'),
-    standfirst: l(
-      'Between Tarifa and Africa lie 14 kilometres of water. Above it the birds cross in migration season, below it whales and dolphins, and all around the Parque Natural del Estrecho protects beaches, cliffs and hills. From our apartment you set off west; the car is in the garage.',
-      'Zwischen Tarifa und Afrika liegen 14 Kilometer Wasser. Darüber ziehen zur Zugzeit die Vögel, darunter Wale und Delfine, und drumherum schützt der Parque Natural del Estrecho Strände, Klippen und Hügel. Von unserer Wohnung fahrt ihr nach Westen los, das Auto steht in der Garage.',
-      'Entre Tarifa y África hay 14 kilómetros de agua. Por encima cruzan las aves en época de paso, por debajo ballenas y delfines, y alrededor el Parque Natural del Estrecho protege playas, acantilados y colinas. Desde nuestro apartamento salís hacia el oeste; el coche está en el garaje.',
-      'Tussen Tarifa en Afrika ligt 14 kilometer water. Daarboven trekken in de trektijd de vogels, daaronder walvissen en dolfijnen, en rondom beschermt het Parque Natural del Estrecho stranden, kliffen en heuvels. Vanaf ons appartement rijd je naar het westen; de auto staat in de garage.',
-      'Mellan Tarifa och Afrika ligger 14 kilometer vatten. Ovanför drar fåglarna under flyttningstiden, under valar och delfiner, och runtom skyddar Parque Natural del Estrecho stränder, klippor och kullar. Från vår lägenhet kör ni västerut; bilen står i garaget.'
-    ),
-    note: l(
-      '',
-      '',
-      '',
-      '',
-      ''
-    ),
-    updated: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')
-  },
-  facts: [
-    { label: l('Protected setting', 'Geschützter Raum', 'Entorno protegido', 'Beschermde omgeving', 'Skyddad miljö'), value: l('Parque Natural del Estrecho', 'Parque Natural del Estrecho', 'Parque Natural del Estrecho', 'Parque Natural del Estrecho', 'Parque Natural del Estrecho') },
-    { label: l('In migration season', 'Zur Zugzeit', 'En época de paso', 'In de trektijd', 'Under flyttningstiden'), value: l('Birds over the Strait, from Europe to Africa', 'Vögel über der Meerenge, von Europa nach Afrika', 'Aves sobre el Estrecho, de Europa a África', 'Vogels boven de Straat, van Europa naar Afrika', 'Fåglar över sundet, från Europa till Afrika') },
-    { label: l('On the water', 'Auf dem Wasser', 'En el agua', 'Op het water', 'På vattnet'), value: l('Whales and dolphins, when the sea allows', 'Wale und Delfine, wenn die See es zulässt', 'Ballenas y delfines, cuando el mar lo permite', 'Walvissen en dolfijnen, als de zee het toelaat', 'Valar och delfiner, när havet tillåter') }
-  ],
-  sections: [
-    {
-      id: 'strait-park',
-      eyebrow: l('01 · Strait landscape', '01 · Landschaft der Meerenge', '01 · Paisaje del Estrecho', '01 · Landschap van de Straat', '01 · Landskapet vid sundet'),
-      title: l('The natural park holds land and sea together', 'Der Naturpark verbindet Land und Meer', 'El parque natural une tierra y mar', 'Het natuurpark verbindt land en zee', 'Naturparken håller samman land och hav'),
-      paragraphs: [
-        l(
-          'The Parque Natural del Estrecho protects land and sea around Tarifa: the beaches, the cliffs, the hills behind them and the water between the continents.',
-          'Der Parque Natural del Estrecho schützt rund um Tarifa Land und Meer: die Strände, die Klippen, die Hügel dahinter und das Wasser zwischen den Kontinenten.',
-          'El Parque Natural del Estrecho protege tierra y mar alrededor de Tarifa: las playas, los acantilados, las colinas de detrás y el agua entre los continentes.',
-          'Het Parque Natural del Estrecho beschermt land en zee rond Tarifa: de stranden, de kliffen, de heuvels erachter en het water tussen de continenten.',
-          'Parque Natural del Estrecho skyddar land och hav runt Tarifa: stränderna, klipporna, kullarna bakom och vattnet mellan kontinenterna.'
-        ),
-        l(
-          'You do not have to go far for it: Los Lances is itself a nature reserve, and from the hills above town you see the Moroccan coast on a clear day.',
-          'Ihr müsst dafür nicht weit: Los Lances ist selbst Naturschutzgebiet, und von den Hügeln über der Stadt seht ihr bei klarer Sicht die marokkanische Küste.',
-          'No hace falta ir lejos: Los Lances es en sí espacio protegido, y desde las colinas sobre la ciudad se ve la costa marroquí en un día claro.',
-          'Je hoeft er niet ver voor: Los Lances is zelf natuurgebied, en vanaf de heuvels boven de stad zie je bij helder zicht de Marokkaanse kust.',
-          'Ni behöver inte långt för det: Los Lances är själv naturreservat, och från kullarna ovanför stan ser ni den marockanska kusten en klar dag.'
-        )
-      ]
-    },
-    {
-      id: 'walks-viewpoints',
-      eyebrow: l('02 · On land', '02 · An Land', '02 · En tierra', '02 · Op het land', '02 · På land'),
-      title: l('On foot over the hills', 'Zu Fuß über die Hügel', 'A pie por las colinas', 'Te voet over de heuvels', 'Till fots över kullarna'),
-      paragraphs: [
-        l(
-          'The paths in the hinterland lead over hills with views of both seas; the tourist office has mapped them, the link is below.',
-          'Die Wege im Hinterland führen über Hügel mit Blick auf beide Meere; das Tourismusbüro hat sie kartiert, der Link steht unten.',
-          'Los senderos del interior recorren colinas con vistas a los dos mares; la oficina de turismo los tiene cartografiados, el enlace está abajo.',
-          'De paden in het achterland lopen over heuvels met uitzicht op beide zeeën; het toeristenbureau heeft ze in kaart gebracht, de link staat onderaan.',
-          'Stigarna i inlandet går över kullar med utsikt över båda haven; turistbyrån har kartlagt dem, länken finns nedan.'
-        ),
-        l(
-          'In a Levante the hills are the better day than the beach: up there it blows just as hard, but the sand stays below.',
-          'Bei Levante sind die Hügel der bessere Tag als der Strand: Oben weht es genauso, aber der Sand bleibt unten.',
-          'Con levante, las colinas son mejor día que la playa: arriba sopla igual, pero la arena se queda abajo.',
-          'Bij Levante zijn de heuvels de betere dag dan het strand: boven waait het net zo hard, maar het zand blijft beneden.',
-          'Vid Levante är kullarna en bättre dag än stranden: uppe blåser det lika mycket, men sanden stannar nere.'
-        )
-      ]
-    },
-    {
-      id: 'bird-migration',
-      eyebrow: l('03 · Bird migration', '03 · Vogelzug', '03 · Migración de aves', '03 · Vogeltrek', '03 · Fågelflyttning'),
-      title: l('In migration season the birds cross the Strait', 'Zur Zugzeit ziehen die Vögel über die Meerenge', 'En época de paso las aves cruzan el Estrecho', 'In de trektijd trekken de vogels over de Straat', 'Under flyttningstiden drar fåglarna över sundet'),
-      paragraphs: [
-        l(
-          'The Strait is the shortest crossing between Europe and Africa, which is why the birds cross here: storks, raptors and flocks of smaller species, north in spring, south in autumn.',
-          'Die Meerenge ist die kürzeste Strecke zwischen Europa und Afrika, deshalb ziehen die Vögel hier hinüber: Störche, Greifvögel und Schwärme kleinerer Arten, im Frühjahr nach Norden, im Herbst nach Süden.',
-          'El Estrecho es el paso más corto entre Europa y África, por eso las aves cruzan aquí: cigüeñas, rapaces y bandadas de especies menores, hacia el norte en primavera, hacia el sur en otoño.',
-          'De Straat is de kortste oversteek tussen Europa en Afrika, daarom trekken de vogels hier over: ooievaars, roofvogels en zwermen kleinere soorten, in het voorjaar naar het noorden, in de herfst naar het zuiden.',
-          'Sundet är den kortaste vägen mellan Europa och Afrika, därför drar fåglarna över här: storkar, rovfåglar och flockar av mindre arter, norrut på våren, söderut på hösten.'
-        ),
-        l(
-          'Which ones you see, the day decides: wind and weather determine whether they fly. The viewpoints are on the N-340 towards Algeciras.',
-          'Welche ihr seht, entscheidet der Tag: Wind und Wetter bestimmen, ob sie fliegen. Die Aussichtspunkte liegen an der N-340 Richtung Algeciras.',
-          'Cuáles veis lo decide el día: viento y tiempo determinan si vuelan. Los miradores están en la N-340 hacia Algeciras.',
-          'Welke je ziet, bepaalt de dag: wind en weer beslissen of ze vliegen. De uitkijkpunten liggen aan de N-340 richting Algeciras.',
-          'Vilka ni ser avgör dagen: vind och väder bestämmer om de flyger. Utsiktsplatserna ligger vid N-340 mot Algeciras.'
-        )
-      ]
-    },
-    {
-      id: 'marine-wildlife',
-      eyebrow: l('04 · On the water', '04 · Auf dem Wasser', '04 · En el mar', '04 · Op het water', '04 · På vattnet'),
-      title: l('Whales and dolphins, when the sea allows', 'Wale und Delfine, wenn die See es zulässt', 'Ballenas y delfines, cuando el mar lo permite', 'Walvissen en dolfijnen, als de zee het toelaat', 'Valar och delfiner, när havet tillåter'),
-      paragraphs: [
-        l(
-          'Boats leave the port for the Strait, where dolphins and pilot whales are at home; with luck you see sperm whales or, in high summer, orcas.',
-          'Vom Hafen fahren Boote in die Meerenge, wo Delfine und Grindwale zu Hause sind; mit Glück seht ihr Pottwale oder, im Hochsommer, Orcas.',
-          'Del puerto salen barcos al Estrecho, donde viven delfines y calderones; con suerte veis cachalotes o, en pleno verano, orcas.',
-          'Vanuit de haven varen boten de Straat op, waar dolfijnen en grienden thuis zijn; met geluk zie je potvissen of, in de hoogzomer, orka’s.',
-          'Från hamnen går båtar ut i sundet, där delfiner och grindvalar hör hemma; med tur ser ni kaskeloter eller, på högsommaren, späckhuggare.'
-        ),
-        l(
-          'In strong wind the boats stay in port. Then Bolonia or the old town is the plan for the day.',
-          'Bei starkem Wind bleiben die Boote im Hafen. Dann sind Bolonia oder die Altstadt der Plan für den Tag.',
-          'Con viento fuerte los barcos se quedan en puerto. Entonces Bolonia o el casco antiguo son el plan del día.',
-          'Bij harde wind blijven de boten in de haven. Dan zijn Bolonia of de oude stad het plan voor de dag.',
-          'Vid stark vind stannar båtarna i hamnen. Då är Bolonia eller gamla stan planen för dagen.'
-        )
-      ]
-    }
-  ],
-  host: {
-    eyebrow: l('From La Marina', 'Von La Marina aus', 'Desde La Marina', 'Vanuit La Marina', 'Från La Marina'),
-    title: l('Off in the morning, on the terrace in the evening', 'Morgens los, abends auf der Terrasse', 'Por la mañana en marcha, por la tarde en la terraza', '’s Ochtends weg, ’s avonds op het terras', 'Iväg på morgonen, på terrassen på kvällen'),
-    paragraphs: [
-      l(
-        'From Family & Surf you set off west without having to pass through the old town; the car is in the underground garage.',
-        'Von Family & Surf fahrt ihr Richtung Westen los, ohne durch die Altstadt zu müssen; das Auto steht in der Tiefgarage.',
-        'Desde Family & Surf salís hacia el oeste sin tener que atravesar el casco antiguo; el coche está en el garaje subterráneo.',
-        'Vanaf Family & Surf rijd je naar het westen zonder door de oude stad te moeten; de auto staat in de ondergrondse garage.',
-        'Från Family & Surf kör ni västerut utan att behöva genom gamla stan; bilen står i garaget under huset.'
-      ),
-      l(
-        'And if the boats do not sail, the day is not lost: Los Lances is five minutes on foot, the terrace faces the sea.',
-        'Und wenn die Boote nicht fahren, ist der Tag nicht verloren: Los Lances liegt fünf Minuten zu Fuß, die Terrasse zeigt aufs Meer.',
-        'Y si los barcos no salen, el día no está perdido: Los Lances está a cinco minutos a pie, la terraza mira al mar.',
-        'En als de boten niet varen, is de dag niet verloren: Los Lances ligt vijf minuten te voet, het terras kijkt op zee.',
-        'Och om båtarna inte går är dagen inte förlorad: Los Lances ligger fem minuter till fots, terrassen vetter mot havet.'
-      )
-    ]
-  },
-  related: {
-    eyebrow: shared.relatedEyebrow,
-    title: shared.relatedTitle,
-    links: [
-      { token: 'tarifa_beaches_authority', label: l('Beaches & Coast', 'Strände & Küste', 'Playas y costa', 'Stranden & kust', 'Stränder & kust'), text: l('Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.') },
-      { token: 'tarifa_bolonia_baelo_claudia', label: l('Bolonia & Baelo Claudia', 'Bolonia & Baelo Claudia', 'Bolonia y Baelo Claudia', 'Bolonia & Baelo Claudia', 'Bolonia & Baelo Claudia'), text: l('Beach, dune and the Roman town of Baelo Claudia.', 'Strand, Düne und die Römerstadt Baelo Claudia.', 'Playa, duna y la ciudad romana de Baelo Claudia.', 'Strand, duin en de Romeinse stad Baelo Claudia.', 'Strand, dyn och den romerska staden Baelo Claudia.') },
-      { token: 'tarifa_experience_hub', label: l('Tarifa Experiences', 'Tarifa-Erlebnisse', 'Experiencias en Tarifa', 'Ervaringen in Tarifa', 'Upplevelser i Tarifa'), text: l('Beach, wind, old town, nature, Bolonia, yoga.', 'Strand, Wind, Altstadt, Natur, Bolonia, Yoga.', 'Playa, viento, casco antiguo, naturaleza, Bolonia, yoga.', 'Strand, wind, oude stad, natuur, Bolonia, yoga.', 'Strand, vind, gamla stan, natur, Bolonia, yoga.') }
-    ]
-  },
-  sources: {
-    eyebrow: shared.sourceEyebrow,
-    title: shared.sourceTitle,
-    intro: shared.sourceIntro,
-    checked: shared.checked,
-    links: [
-      { label: l('Junta de Andalucía · Parque Natural del Estrecho', 'Junta de Andalucía · Parque Natural del Estrecho', 'Junta de Andalucía · Parque Natural del Estrecho', 'Junta de Andalucía · Parque Natural del Estrecho', 'Junta de Andalucía · Parque Natural del Estrecho'), text: l('Official protected-area status and environmental context.', 'Offizieller Schutzstatus und Umweltkontext.', 'Figura de protección y contexto ambiental oficiales.', 'Officiële beschermingsstatus en natuurcontext.', 'Officiell skyddsstatus och naturbakgrund.'), href: sourceHrefs.naturalPark },
-      { label: l('Junta de Andalucía · Ecotourism resources', 'Junta de Andalucía · Naturtourismus', 'Junta de Andalucía · Recursos ecoturísticos', 'Junta de Andalucía · Ecotoerisme', 'Junta de Andalucía · Ekoturism'), text: l('Official context for bird observation and cetacean experiences in the park.', 'Offizieller Kontext zu Vogel- und Meerestierbeobachtung im Park.', 'Contexto oficial para la observación de aves y cetáceos en el parque.', 'Officiële context voor vogels en zeedieren in het park.', 'Officiell bakgrund om fågel- och valobservation i parken.'), href: sourceHrefs.naturalResources },
-      { label: l('Natura 2000 · Estrecho environmental values', 'Natura 2000 · Umweltwerte Estrecho', 'Natura 2000 · Valores ambientales del Estrecho', 'Natura 2000 · Natuurwaarden Estrecho', 'Natura 2000 · Naturvärden i Estrecho'), text: l('Protected habitats, bird status and the Europe–Africa setting.', 'Geschützte Lebensräume, Vogelstatus und die Lage zwischen Europa und Afrika.', 'Hábitats protegidos, figura para aves y situación entre Europa y África.', 'Beschermde leefgebieden, vogelstatus en ligging tussen Europa en Afrika.', 'Skyddade livsmiljöer, fågelstatus och läget mellan Europa och Afrika.'), href: sourceHrefs.naturalValues }
-    ]
-  },
-  closing: {
-    eyebrow: shared.closingEyebrow,
-    title: l('The wind decides, you have the choice', 'Der Wind entscheidet, ihr habt die Wahl', 'El viento decide, vosotros elegís', 'De wind beslist, jullie hebben de keuze', 'Vinden avgör, ni har valet'),
-    body: l('Boats or hills, beach or old town: from Family & Surf everything is close, the car is in the garage, and the terrace faces the Atlantic.', 'Boote oder Hügel, Strand oder Altstadt: Von Family & Surf ist alles nah, das Auto steht in der Garage, und die Terrasse zeigt auf den Atlantik.', 'Barcos o colinas, playa o casco antiguo: desde Family & Surf todo está cerca, el coche está en el garaje y la terraza mira al Atlántico.', 'Boten of heuvels, strand of oude stad: vanaf Family & Surf is alles dichtbij, de auto staat in de garage, en het terras kijkt op de Atlantische Oceaan.', 'Båtar eller kullar, strand eller gamla stan: från Family & Surf är allt nära, bilen står i garaget, och terrassen vetter mot Atlanten.'),
-    hubLabel: shared.hubLabel,
-    propertyLabel: shared.propertyLabel
-  }
-};
-
 const oldTown: TarifaExperienceSpokeContent = {
   id: 'old-town-history',
   token: 'tarifa_old_town_history',
@@ -674,7 +512,7 @@ const oldTown: TarifaExperienceSpokeContent = {
     title: shared.relatedTitle,
     links: [
       { token: 'tarifa_food_evening_life', label: l('Food & Evening Life', 'Essen & Ausgehen', 'Gastronomía y vida nocturna', 'Eten & uitgaan', 'Mat & kvällsliv'), text: l('Red tuna, Calle Batalla del Salado and the bars.', 'Roter Thunfisch, die Calle Batalla del Salado und die Bars.', 'Atún rojo, la calle Batalla del Salado y los bares.', 'Rode tonijn, de Calle Batalla del Salado en de bars.', 'Röd tonfisk, Calle Batalla del Salado och barerna.') },
-      { token: 'tarifa_nature_wildlife', label: l('Nature & Wildlife', 'Natur & Tierwelt', 'Naturaleza y fauna', 'Natuur & dieren', 'Natur & djurliv'), text: l('Bird migration, whales and the natural park.', 'Vogelzug, Wale und der Naturpark.', 'Paso de aves, ballenas y el parque natural.', 'Vogeltrek, walvissen en het natuurpark.', 'Fågelflytt, valar och naturparken.') },
+      { token: 'tarifa_whale_watching', label: l('Whale watching', 'Whale Watching', 'Avistamiento de cetáceos', 'Walvissen spotten', 'Valskådning'), text: l('Pilot whales and dolphins in the Strait, family-suitable from the harbour.', 'Grindwale und Delfine in der Meerenge, familientauglich ab Hafen.', 'Calderones y delfines en el Estrecho, aptos para familias desde el puerto.', 'Grienden en dolfijnen in de Straat, gezinsvriendelijk vanuit de haven.', 'Grindvalar och delfiner i sundet, familjevänligt från hamnen.') },
       { token: 'tarifa_experience_hub', label: l('Tarifa Experiences', 'Tarifa-Erlebnisse', 'Experiencias en Tarifa', 'Ervaringen in Tarifa', 'Upplevelser i Tarifa'), text: l('Beach, wind, old town, nature, Bolonia, yoga.', 'Strand, Wind, Altstadt, Natur, Bolonia, Yoga.', 'Playa, viento, casco antiguo, naturaleza, Bolonia, yoga.', 'Strand, wind, oude stad, natuur, Bolonia, yoga.', 'Strand, vind, gamla stan, natur, Bolonia, yoga.') }
     ]
   },
@@ -844,11 +682,11 @@ const bolonia: TarifaExperienceSpokeContent = {
           'Från La Marina kör ni en knapp halvtimme västerut på N-340; avtaget till Bolonia är skyltat.'
         ),
         l(
-          'In summer the morning is worth it, before it gets crowded. The opening hours of the ruins are below under sources.',
-          'Im Sommer lohnt sich der Vormittag, bevor es voll wird. Die Öffnungszeiten der Ruinen stehen unten bei den Quellen.',
-          'En verano compensa ir por la mañana, antes de que se llene. Los horarios de las ruinas están abajo, en las fuentes.',
-          'In de zomer loont de ochtend, voordat het vol wordt. De openingstijden van de ruïnes staan onderaan bij de bronnen.',
-          'På sommaren lönar sig förmiddagen, innan det blir fullt. Ruinernas öppettider finns nedan under källor.'
+          'In summer the morning is worth it, before it gets crowded. The opening hours of the ruins change with the season — check them on the day.',
+          'Im Sommer lohnt sich der Vormittag, bevor es voll wird. Die Öffnungszeiten der Ruinen ändern sich je nach Saison — prüft sie am Tag selbst.',
+          'En verano compensa ir por la mañana, antes de que se llene. Los horarios de las ruinas cambian según la temporada: comprobadlos el mismo día.',
+          'In de zomer loont de ochtend, voordat het vol wordt. De openingstijden van de ruïnes verschillen per seizoen — controleer ze op de dag zelf.',
+          'På sommaren lönar sig förmiddagen, innan det blir fullt. Ruinernas öppettider varierar med säsongen — kontrollera dem samma dag.'
         )
       ]
     }
@@ -878,7 +716,7 @@ const bolonia: TarifaExperienceSpokeContent = {
     title: shared.relatedTitle,
     links: [
       { token: 'tarifa_beaches_authority', label: l('Beaches & Coast', 'Strände & Küste', 'Playas y costa', 'Stranden & kust', 'Stränder & kust'), text: l('Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.', 'Playa Chica, Los Lances, Valdevaqueros.') },
-      { token: 'tarifa_nature_wildlife', label: l('Nature & Wildlife', 'Natur & Tierwelt', 'Naturaleza y fauna', 'Natuur & dieren', 'Natur & djurliv'), text: l('Bird migration, whales and the natural park.', 'Vogelzug, Wale und der Naturpark.', 'Paso de aves, ballenas y el parque natural.', 'Vogeltrek, walvissen en het natuurpark.', 'Fågelflytt, valar och naturparken.') },
+      { token: 'tarifa_whale_watching', label: l('Whale watching', 'Whale Watching', 'Avistamiento de cetáceos', 'Walvissen spotten', 'Valskådning'), text: l('Pilot whales and dolphins in the Strait, family-suitable from the harbour.', 'Grindwale und Delfine in der Meerenge, familientauglich ab Hafen.', 'Calderones y delfines en el Estrecho, aptos para familias desde el puerto.', 'Grienden en dolfijnen in de Straat, gezinsvriendelijk vanuit de haven.', 'Grindvalar och delfiner i sundet, familjevänligt från hamnen.') },
       { token: 'tarifa_experience_hub', label: l('Tarifa Experiences', 'Tarifa-Erlebnisse', 'Experiencias en Tarifa', 'Ervaringen in Tarifa', 'Upplevelser i Tarifa'), text: l('Beach, wind, old town, nature, Bolonia, yoga.', 'Strand, Wind, Altstadt, Natur, Bolonia, Yoga.', 'Playa, viento, casco antiguo, naturaleza, Bolonia, yoga.', 'Strand, wind, oude stad, natuur, Bolonia, yoga.', 'Strand, vind, gamla stan, natur, Bolonia, yoga.') }
     ]
   },
@@ -928,18 +766,18 @@ const yoga: TarifaExperienceSpokeContent = {
   hero: {
     eyebrow: l('Tarifa experience guide', 'Tarifa erleben', 'Experiencias en Tarifa', 'Tarifa beleven', 'Upplev Tarifa'),
     title: l(
-      'Yoga at the pace of the Atlantic',
-      'Yoga im Rhythmus des Atlantiks',
-      'Yoga al ritmo del Atlántico',
-      'Yoga op het ritme van de Atlantische Oceaan',
-      'Yoga i Atlantens takt'
+      'A lot of yoga for a small town',
+      'Viel Yoga für einen kleinen Ort',
+      'Mucho yoga para un pueblo pequeño',
+      'Veel yoga voor een klein dorp',
+      'Mycket yoga för en liten stad'
     ),
     standfirst: l(
-      'For its size, Tarifa carries an unusually broad yoga scene: town studios, classes by the sea, family and aerial formats and multi-day retreats. From Family & Surf in La Marina you begin inside a small wellness cluster on Calle Mar Adriático, with yoga mats already in the apartment for your own morning flow.',
-      'Für seine Größe hat Tarifa eine ungewöhnlich breite Yoga-Szene: Studios im Ort, Kurse am Meer, Familien- und Aerial-Formate und mehrtägige Retreats. Von Family & Surf in La Marina startet ihr mitten in einem kleinen Wellness-Cluster an der Calle Mar Adriático, mit Yogamatten, die schon in der Unterkunft liegen.',
-      'Para su tamaño, Tarifa reúne una escena de yoga sorprendentemente amplia: estudios en el pueblo, clases junto al mar, formatos familiares y aéreos y retiros de varios días. Desde Family & Surf, en La Marina, empezáis dentro de un pequeño núcleo de bienestar en la calle Mar Adriático, con esterillas ya en el apartamento para vuestra práctica de la mañana.',
-      'Voor haar formaat heeft Tarifa een opvallend brede yogascene: studio’s in het dorp, lessen aan zee, familie- en aerial-vormen en meerdaagse retreats. Vanaf Family & Surf in La Marina begin je midden in een klein wellnesscluster aan de Calle Mar Adriático, met yogamatten die al in het appartement liggen voor je eigen ochtendflow.',
-      'För sin storlek har Tarifa en ovanligt bred yogascen: studior i stan, klasser vid havet, familje- och aerialformer och flerdagarsretreat. Från Family & Surf i La Marina börjar ni mitt i ett litet wellnesskluster vid Calle Mar Adriático, med yogamattor som redan finns i lägenheten för er egen morgonflow.'
+      'Yoga is a big thing in Tarifa. For such a small town there are surprisingly many studios and teachers — classes in a studio, on the beach and by the sea, formats for families and children, aerial yoga and multi-day retreats. One of the spaces, Mama Tierra, is right on our own street, and there are yoga mats already in the apartment.',
+      'Yoga ist in Tarifa ein großes Thema. Für einen so kleinen Ort gibt es erstaunlich viele Studios und Lehrer — Stunden im Studio, am Strand und am Meer, Formate für Familien und Kinder, Aerial-Yoga und mehrtägige Retreats. Einer der Räume, Mama Tierra, liegt direkt in unserer Straße, und in der Wohnung liegen schon Yogamatten bereit.',
+      'El yoga es un gran tema en Tarifa. Para un pueblo tan pequeño hay sorprendentemente muchos estudios y profesores: clases en estudio, en la playa y junto al mar, formatos para familias y niños, yoga aéreo y retiros de varios días. Uno de los espacios, Mama Tierra, está en nuestra propia calle, y en el apartamento ya hay esterillas.',
+      'Yoga is groot in Tarifa. Voor zo’n klein dorp zijn er verrassend veel studio’s en docenten — lessen in een studio, op het strand en aan zee, vormen voor gezinnen en kinderen, aerial yoga en meerdaagse retreats. Een van de ruimtes, Mama Tierra, ligt in onze eigen straat, en in het appartement liggen al yogamatten.',
+      'Yoga är stort i Tarifa. För en så liten stad finns det förvånansvärt många studior och lärare — klasser i studio, på stranden och vid havet, former för familjer och barn, aerialyoga och flerdagarsretreat. En av platserna, Mama Tierra, ligger på vår egen gata, och i lägenheten finns redan yogamattor.'
     ),
     note: l(
       '',
@@ -969,11 +807,11 @@ const yoga: TarifaExperienceSpokeContent = {
           'Tarifa samlar flera slags yoga på en liten yta: studior i stan med veckoklasser, lärare som håller pass vid havet, familje-, barn- och aerialformer och flerdagarsretreat i omgivningarna. Bredden gör att ni kan hitta en enskild morgon eller en djupare vecka utan att lämna området.'
         ),
         l(
-          'Because so much of it is seasonal and personally run, the useful skill here is not memorising a timetable but knowing which format you want. We keep track of what is currently running and point you to the right teacher for a calm morning, a beach class or a family session.',
-          'Weil vieles saisonal und persönlich organisiert ist, geht es hier weniger darum, einen Stundenplan zu lernen, als zu wissen, welches Format ihr möchtet. Wir behalten im Blick, was gerade läuft, und verweisen euch an die passende Lehrkraft – für einen ruhigen Morgen, eine Strandstunde oder eine Familiensession.',
-          'Como buena parte es estacional y de gestión personal, aquí lo útil no es memorizar un horario, sino saber qué formato queréis. Nosotros seguimos lo que está activo y os orientamos hacia el profesor adecuado para una mañana tranquila, una clase en la playa o una sesión en familia.',
-          'Omdat veel seizoensgebonden en persoonlijk geregeld is, is de nuttige vaardigheid hier niet een rooster onthouden maar weten welke vorm je wilt. Wij houden bij wat er loopt en wijzen je naar de juiste docent voor een rustige ochtend, een strandles of een gezinssessie.',
-          'Eftersom mycket är säsongsbetonat och personligt drivet handlar det här inte om att lära sig ett schema, utan om att veta vilken form ni vill ha. Vi håller koll på vad som pågår och lotsar er till rätt lärare för en lugn morgon, en strandklass eller ett familjepass.'
+          'Most of it is small and personally run, so times change with the season and are often set at short notice on Instagram or WhatsApp. Write to the studio directly, or just ask us what is on that week — that is usually quicker than any timetable.',
+          'Das meiste ist klein und persönlich geführt, deshalb ändern sich die Zeiten mit der Saison und werden oft kurzfristig über Instagram oder WhatsApp bekannt gegeben. Schreibt am besten direkt an das Studio – oder fragt uns, was in eurer Woche läuft. Das geht meist schneller als jeder Stundenplan.',
+          'La mayoría son pequeños y de gestión personal, así que los horarios cambian con la temporada y a menudo se anuncian a última hora por Instagram o WhatsApp. Escribid directamente al estudio, o preguntadnos qué hay esa semana: suele ser más rápido que cualquier horario.',
+          'Het meeste is klein en persoonlijk gerund, dus tijden veranderen met het seizoen en worden vaak op het laatste moment via Instagram of WhatsApp bekendgemaakt. Schrijf de studio rechtstreeks, of vraag ons wat er die week is — dat gaat meestal sneller dan welk rooster dan ook.',
+          'Det mesta är litet och personligt drivet, så tiderna ändras med säsongen och meddelas ofta med kort varsel på Instagram eller WhatsApp. Skriv direkt till studion, eller fråga oss vad som är på gång den veckan — det går oftast snabbare än något schema.'
         )
       ]
     },
@@ -1087,6 +925,37 @@ const yoga: TarifaExperienceSpokeContent = {
     body: l('With mats already in the apartment and a small wellness cluster in the same street, a morning practice costs nothing to begin. Family & Surf keeps town, beach and teachers within easy reach, and on request we help arrange a private session so the practice fits your stay rather than a fixed timetable.', 'Mit Matten, die schon in der Unterkunft liegen, und einem kleinen Wellness-Cluster in derselben Straße kostet ein Morgen-Flow keinen Aufwand zum Start. Family & Surf hält Ort, Strand und Lehrkräfte in leichter Reichweite, und auf Wunsch organisieren wir eine private Session, damit die Praxis zu eurem Aufenthalt passt statt zu einem festen Stundenplan.', 'Con esterillas ya en el apartamento y un pequeño núcleo de bienestar en la misma calle, empezar una práctica matinal no cuesta nada. Family & Surf mantiene cerca el pueblo, la playa y los profesores y, si lo deseáis, ayudamos a organizar una sesión privada para que la práctica se ajuste a vuestra estancia y no a un horario fijo.', 'Met matten die al in het appartement liggen en een klein wellnesscluster in dezelfde straat kost het beginnen van een ochtendpraktijk niets. Family & Surf houdt stad, strand en docenten binnen handbereik, en op verzoek helpen we een privésessie te regelen zodat de praktijk bij je verblijf past in plaats van bij een vast rooster.', 'Med mattor redan i lägenheten och ett litet wellnesskluster på samma gata kostar det inget att börja en morgonpraktik. Family & Surf håller stad, strand och lärare inom nära räckhåll, och på begäran hjälper vi till att ordna ett privat pass så att praktiken passar er vistelse i stället för ett fast schema.'),
     hubLabel: shared.hubLabel,
     propertyLabel: shared.propertyLabel
+  },
+  operators: {
+    eyebrow: l('Yoga in town', 'Yoga vor Ort', 'Yoga en el pueblo', 'Yoga in de buurt', 'Yoga i stan'),
+    title: l(
+      'A few studios and teachers',
+      'Ein paar Studios und Lehrer',
+      'Algunos estudios y profesores',
+      'Een paar studio’s en docenten',
+      'Några studior och lärare'
+    ),
+    intro: l(
+      'Yoga is a big thing in Tarifa — a lot of studios and teachers for a small town. A few to start with; times and prices you check directly with them.',
+      'Yoga ist in Tarifa ein großes Thema — für einen kleinen Ort viele Studios und Lehrer. Ein paar zum Anfangen; Zeiten und Preise erfragt ihr direkt bei ihnen.',
+      'El yoga es un gran tema en Tarifa: muchos estudios y profesores para un pueblo pequeño. Algunos para empezar; horarios y precios los consultáis directamente con ellos.',
+      'Yoga is groot in Tarifa — veel studio’s en docenten voor een klein dorp. Een paar om mee te beginnen; tijden en prijzen check je rechtstreeks bij hen.',
+      'Yoga är stort i Tarifa — många studior och lärare för en liten stad. Några att börja med; tider och priser kollar ni direkt hos dem.'
+    ),
+    items: [
+      { name: 'Mama Tierra', href: 'https://www.mamatierratarifa.com', note: l('On our own street, Calle Mar Adriático — a few steps from Family & Surf.', 'In unserer Straße, Calle Mar Adriático — wenige Schritte von Family & Surf.', 'En nuestra propia calle, Mar Adriático, a pocos pasos de Family & Surf.', 'In onze eigen straat, Calle Mar Adriático — een paar stappen van Family & Surf.', 'På vår egen gata, Calle Mar Adriático — några steg från Family & Surf.') },
+      { name: 'Mandalablue', href: 'https://www.mandalablueyoga.es', note: l('In town, with ocean and beach classes and aerial yoga.', 'Im Ort, mit Ocean- und Beach-Kursen und Aerial-Yoga.', 'En el pueblo, con clases junto al mar y yoga aéreo.', 'In het dorp, met zee- en strandlessen en aerial yoga.', 'I stan, med havs- och strandklasser och aerialyoga.') },
+      { name: 'Respira', href: 'https://www.respirayogatarifa.com', note: l('In town: regular classes plus children, pregnancy and aerial formats.', 'Im Ort: reguläre Kurse plus Kinder-, Schwangerschafts- und Aerial-Formate.', 'En el pueblo: clases habituales y formatos infantil, embarazo y aéreo.', 'In het dorp: reguliere lessen plus kinder-, zwangerschaps- en aerial-vormen.', 'I stan: vanliga klasser plus barn-, gravid- och aerialformer.') },
+      { name: 'OMAYA Yoga', note: l('La Vega, with daily drop-in classes.', 'La Vega, mit täglichen Drop-in-Kursen.', 'La Vega, con clases diarias sin reserva.', 'La Vega, met dagelijkse inlooplessen.', 'La Vega, med dagliga drop-in-klasser.') },
+      { name: 'Yoga-Sunshine (Mona Abter)', href: 'https://www.yoga-sunshine.com', note: l('Classes in and around Tarifa with teacher Mona Abter.', 'Angebote in und um Tarifa bei Lehrerin Mona Abter.', 'Clases en Tarifa y alrededores con la profesora Mona Abter.', 'Lessen in en rond Tarifa bij docente Mona Abter.', 'Klasser i och kring Tarifa med läraren Mona Abter.') }
+    ],
+    guideNote: l(
+      'If you are staying with us, the current contacts and what is running that week are in your Guest Guide — and the mats are already in the apartment.',
+      'Wer bei uns wohnt, findet die aktuellen Kontakte und was gerade läuft im Gästeguide — und die Matten liegen schon in der Wohnung.',
+      'Si os alojáis con nosotros, los contactos actuales y lo que hay esa semana están en la guía del huésped, y las esterillas ya están en el apartamento.',
+      'Wie bij ons verblijft, vindt de actuele contacten en wat er die week loopt in de gastengids — en de matten liggen al in het appartement.',
+      'Bor ni hos oss finns aktuella kontakter och vad som pågår den veckan i gästguiden — och mattorna finns redan i lägenheten.'
+    )
   }
 };
 
@@ -1198,11 +1067,11 @@ const whaleWatching: TarifaExperienceSpokeContent = {
           'Fem operatörer avgår från hamnen, och det verkliga valet är typen av båt. Ett stort fartyg ger stabilitet, toalett och bäst rullstolstillgång; en liten ribbåt för ett tiotal gäster känns mer intim men tar vågorna hårdare. För familjer och alla som blir sjösjuka är de stora båtarna den lugnare dagen.'
         ),
         l(
-          'The one we point our guests to is firmm, a research foundation that briefs in German, English and Spanish, carries families and is clear about what it can and cannot promise. Prices change with the season, so we send you to their booking page rather than printing a figure that will be wrong by next year.',
-          'Wir schicken unsere Gäste zu firmm, einer Forschungsstiftung, die auf Deutsch, Englisch und Spanisch einführt, Familien mitnimmt und klar sagt, was sie versprechen kann und was nicht. Die Preise ändern sich mit der Saison, deshalb verweisen wir euch auf ihre Buchungsseite, statt eine Zahl zu drucken, die nächstes Jahr falsch ist.',
-          'A quien alojamos lo orientamos hacia firmm, una fundación de investigación que informa en alemán, inglés y español, lleva familias y es clara sobre lo que puede y no puede prometer. Los precios cambian con la temporada, así que os enviamos a su página de reservas en lugar de imprimir una cifra que el año que viene estará mal.',
-          'Wie bij ons verblijft, wijzen we naar firmm, een onderzoeksstichting die in het Duits, Engels en Spaans uitlegt, gezinnen meeneemt en duidelijk is over wat ze wel en niet kan beloven. Prijzen veranderen met het seizoen, dus sturen we je naar hun boekingspagina in plaats van een bedrag te drukken dat volgend jaar niet meer klopt.',
-          'Den vi vägleder våra gäster till är firmm, en forskningsstiftelse som informerar på tyska, engelska och spanska, tar med familjer och är tydlig med vad den kan och inte kan lova. Priserna ändras med säsongen, så vi hänvisar er till deras bokningssida i stället för att trycka en siffra som är fel nästa år.'
+          'The one we point our guests to is firmm — we have been out with them ourselves. A research foundation that briefs in German, English and Spanish, welcomes families and is clear about what it can and cannot promise. Prices change with the season, so we send you to their booking page rather than printing a figure that will be wrong by next year.',
+          'Wir schicken unsere Gäste zu firmm — wir waren selbst mit ihnen draußen. Eine Forschungsstiftung, die auf Deutsch, Englisch und Spanisch einführt, Familien mitnimmt und klar sagt, was sie versprechen kann und was nicht. Die Preise ändern sich mit der Saison, deshalb verweisen wir euch auf ihre Buchungsseite, statt eine Zahl zu drucken, die nächstes Jahr falsch ist.',
+          'A quien alojamos lo orientamos hacia firmm: nosotros mismos hemos salido con ellos. Una fundación de investigación que informa en alemán, inglés y español, lleva familias y es clara sobre lo que puede y no puede prometer. Los precios cambian con la temporada, así que os enviamos a su página de reservas en lugar de imprimir una cifra que el año que viene estará mal.',
+          'Wie bij ons verblijft, wijzen we naar firmm — we zijn er zelf mee op zee geweest. Een onderzoeksstichting die in het Duits, Engels en Spaans uitlegt, gezinnen meeneemt en duidelijk is over wat ze wel en niet kan beloven. Prijzen veranderen met het seizoen, dus sturen we je naar hun boekingspagina in plaats van een bedrag te drukken dat volgend jaar niet meer klopt.',
+          'Den vi vägleder våra gäster till är firmm — vi har varit ute med dem själva. En forskningsstiftelse som informerar på tyska, engelska och spanska, tar med familjer och är tydlig med vad den kan och inte kan lova. Priserna ändras med säsongen, så vi hänvisar er till deras bokningssida i stället för att trycka en siffra som är fel nästa år.'
         )
       ]
     },
@@ -1252,7 +1121,7 @@ const whaleWatching: TarifaExperienceSpokeContent = {
     eyebrow: shared.relatedEyebrow,
     title: shared.relatedTitle,
     links: [
-      { token: 'tarifa_nature_wildlife', label: l('Nature & Wildlife', 'Natur & Tierwelt', 'Naturaleza y fauna', 'Natuur & dieren', 'Natur & djurliv'), text: l('Bird migration over the Strait and the natural park on land.', 'Vogelzug über der Meerenge und der Naturpark an Land.', 'El paso de aves sobre el Estrecho y el parque natural en tierra.', 'Vogeltrek over de Straat en het natuurpark op het land.', 'Fågelflytt över sundet och naturparken på land.') },
+      { token: 'tarifa_bolonia_baelo_claudia', label: l('Bolonia & Baelo Claudia', 'Bolonia & Baelo Claudia', 'Bolonia y Baelo Claudia', 'Bolonia & Baelo Claudia', 'Bolonia & Baelo Claudia'), text: l('A beach, a huge dune and a Roman town in one day out.', 'Strand, riesige Düne und eine Römerstadt an einem Ausflugstag.', 'Playa, una duna enorme y una ciudad romana en una excursión.', 'Een strand, een enorm duin en een Romeinse stad in één uitstap.', 'En strand, en väldig dyn och en romersk stad på en utflykt.') },
       { token: 'tarifa_family', label: l('Family holidays', 'Familienurlaub', 'Vacaciones en familia', 'Gezinsvakantie', 'Familjesemester'), text: l('How a whale trip fits into a family week in Tarifa.', 'Wie eine Walfahrt in eine Familienwoche in Tarifa passt.', 'Cómo encaja una salida de ballenas en una semana en familia.', 'Hoe een walvistocht in een gezinsweek in Tarifa past.', 'Hur en valtur passar in i en familjevecka i Tarifa.') },
       { token: 'tarifa_experience_hub', label: l('Tarifa Experiences', 'Tarifa-Erlebnisse', 'Experiencias en Tarifa', 'Ervaringen in Tarifa', 'Upplevelser i Tarifa'), text: l('Beach, wind, old town, nature, Bolonia, yoga.', 'Strand, Wind, Altstadt, Natur, Bolonia, Yoga.', 'Playa, viento, casco antiguo, naturaleza, Bolonia, yoga.', 'Strand, wind, oude stad, natuur, Bolonia, yoga.', 'Strand, vind, gamla stan, natur, Bolonia, yoga.') }
     ]
@@ -1274,6 +1143,52 @@ const whaleWatching: TarifaExperienceSpokeContent = {
     body: l('From Family & Surf the harbour is a short walk, so you can hold a morning open for the calmest sea and still fill the rest of the day close to home.', 'Von Family & Surf ist der Hafen ein kurzer Weg, ihr könnt also einen Morgen für die ruhigste See offen halten und den Rest des Tages trotzdem nah bei zu Hause verbringen.', 'Desde Family & Surf el puerto queda a un paseo, así que podéis reservar una mañana para el mar más tranquilo y llenar el resto del día cerca de casa.', 'Vanaf Family & Surf is de haven een korte wandeling, dus je kunt een ochtend openhouden voor de rustigste zee en de rest van de dag toch dicht bij huis vullen.', 'Från Family & Surf är hamnen en kort promenad, så ni kan hålla en morgon öppen för det lugnaste havet och ändå fylla resten av dagen nära hemmet.'),
     hubLabel: shared.hubLabel,
     propertyLabel: shared.propertyLabel
+  },
+  operators: {
+    eyebrow: l('The operators', 'Weiterführend', 'Los operadores', 'De aanbieders', 'Aktörerna'),
+    title: l(
+      'Operators sailing from Tarifa harbour',
+      'Anbieter ab dem Hafen Tarifa',
+      'Operadores que salen del puerto de Tarifa',
+      'Aanbieders vanuit de haven van Tarifa',
+      'Aktörer från Tarifas hamn'
+    ),
+    intro: l(
+      'Five operators sail from here. A first overview — check prices, times and booking directly with them.',
+      'Fünf Anbieter fahren von hier aus. Ein erster Überblick — Preise, Zeiten und Buchung findet ihr direkt bei ihnen.',
+      'Cinco operadores salen de aquí. Un primer resumen: consultad precios, horarios y reservas directamente con ellos.',
+      'Vijf aanbieders vertrekken hiervandaan. Een eerste overzicht — prijzen, tijden en boeking vind je rechtstreeks bij hen.',
+      'Fem aktörer avgår härifrån. En första överblick — pris, tider och bokning hittar ni direkt hos dem.'
+    ),
+    items: [
+      { name: 'firmm', href: 'https://www.firmm.org/en/whale-watching', note: l('Research foundation, briefings in German, large stable boats, family-suitable.', 'Forschungsstiftung, Einführung auf Deutsch, große stabile Boote, familientauglich.', 'Fundación de investigación, charlas en alemán, barcos grandes y estables, apta para familias.', 'Onderzoeksstichting, uitleg in het Duits, grote stabiele boten, gezinsvriendelijk.', 'Forskningsstiftelse, genomgång på tyska, stora stabila båtar, familjevänligt.') },
+      { name: 'Turmares', href: 'https://www.turmares.com/en/excursions/', note: l('The widest choice of boats, from a large ship to a small hybrid.', 'Größte Bootsauswahl, vom großen Schiff bis zum kleinen Hybridboot.', 'La mayor variedad de barcos, desde un gran buque hasta un pequeño híbrido.', 'De grootste keuze aan boten, van een groot schip tot een kleine hybride.', 'Störst utbud av båtar, från stort fartyg till liten hybrid.') },
+      { name: 'Aventura Tarifa', href: 'https://www.aventuratarifa.com', note: l('Small group in a RIB, up to about ten guests.', 'Kleingruppe im RIB, bis etwa zehn Gäste.', 'Grupo reducido en lancha, hasta unos diez pasajeros.', 'Kleine groep in een RIB, tot ongeveer tien gasten.', 'Liten grupp i RIB, upp till cirka tio gäster.') },
+      { name: 'TOP Tarifa', href: 'https://toptarifa.es', note: l('Zodiac/RIB, private charters too.', 'Zodiac/RIB, auch private Charter.', 'Zódiac/lancha, también chárter privado.', 'Zodiac/RIB, ook privécharters.', 'Zodiac/RIB, även privata charter.') },
+      { name: 'Marina Blue', href: 'https://marinablue.es', note: l('A motor yacht, comfortable, year-round.', 'Motoryacht, komfortabel, ganzjährig.', 'Un yate a motor, cómodo, todo el año.', 'Een motorjacht, comfortabel, het hele jaar.', 'En motoryacht, bekväm, året runt.') }
+    ],
+    guideNote: l(
+      'If you are staying with us, you will not have to piece this together yourself: our Guest Guide keeps whale watching ready — operators, times and what matters on the morning you sail.',
+      'Wer bei uns wohnt, muss das nicht selbst zusammentragen: In unserem Gästeguide liegt der Bereich Whale Watching fertig — Anbieter, Zeiten und was am Morgen der Ausfahrt zählt.',
+      'Si os alojáis con nosotros, no tendréis que reunir todo esto: en nuestra guía del huésped el avistamiento está listo — operadores, horarios y lo que importa la mañana de la salida.',
+      'Wie bij ons verblijft, hoeft dit niet zelf bij elkaar te zoeken: in onze gastengids ligt walvissen spotten klaar — aanbieders, tijden en wat telt op de ochtend van vertrek.',
+      'Bor ni hos oss behöver ni inte samla ihop det själva: i vår gästguide ligger valskådning klart — aktörer, tider och vad som gäller på morgonen ni åker ut.'
+    )
+  },
+  guidePreview: {
+    title: l('Whale watching in Tarifa', 'Whale Watching in Tarifa', 'Avistamiento de cetáceos en Tarifa', 'Walvissen spotten in Tarifa', 'Valskådning i Tarifa'),
+    subtitle: l(
+      'Everything ready before you sail — operators, seasons and the calm-sea call.',
+      'Alles bereit vor der Ausfahrt — Anbieter, Saison und die Wahl der ruhigen See.',
+      'Todo listo antes de salir: operadores, temporadas y elegir el mar en calma.',
+      'Alles klaar voor vertrek — aanbieders, seizoenen en de keuze voor kalme zee.',
+      'Allt klart före avfärd — aktörer, säsonger och valet av lugnt hav.'
+    ),
+    cards: [
+      { icon: '≋', title: l('Operators & boats', 'Anbieter & Boote', 'Operadores y barcos', 'Aanbieders & boten', 'Aktörer & båtar'), meta: l('Five operators · which boat suits you', 'Fünf Anbieter · welches Boot passt', 'Cinco operadores · qué barco elegir', 'Vijf aanbieders · welke boot past', 'Fem aktörer · vilken båt passar') },
+      { icon: '◷', title: l('Best months', 'Beste Monate', 'Mejores meses', 'Beste maanden', 'Bästa månaderna'), meta: l('Dolphins year-round · orcas Jul–Aug', 'Delfine ganzjährig · Orcas Jul–Aug', 'Delfines todo el año · orcas jul–ago', 'Dolfijnen het hele jaar · orka’s jul–aug', 'Delfiner året runt · späckhuggare jul–aug') },
+      { icon: '✦', title: l('On the morning', 'Am Ausfahrtsmorgen', 'La mañana de la salida', 'Op de ochtend', 'På morgonen'), meta: l('Sea check · seasickness · what to bring', 'See-Check · Seekrankheit · was mitnehmen', 'El mar · mareo · qué llevar', 'Zee-check · zeeziekte · wat meenemen', 'Havskoll · sjösjuka · vad ta med') }
+    ]
   }
 };
 
@@ -1468,7 +1383,6 @@ export const tarifaExperienceSpokeContent: Record<
   TarifaExperienceSpokeContent
 > = {
   'food-evening-life': food,
-  'nature-wildlife': nature,
   'old-town-history': oldTown,
   'bolonia-baelo-claudia': bolonia,
   yoga,

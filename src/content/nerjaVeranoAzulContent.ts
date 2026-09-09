@@ -227,8 +227,8 @@ export const nerjaVeranoAzulContent = {
     ]
   },
   sources: {
-    eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
-    title: l("Where the details come from", "Woher die Angaben kommen", "De dónde salen los datos", "Waar de gegevens vandaan komen", "Varifrån uppgifterna kommer"),
+    eyebrow: l("Explore further", "Mehr erfahren", "Explorar más", "Meer ontdekken", "Utforska mer"),
+    title: l("Links to look into it yourself", "Weiterführende Links", "Enlaces para saber más", "Links om zelf verder te kijken", "Länkar för att läsa vidare"),
     intro: l("Dates and locations from RTVE reports and announcements by the town of Nerja.", "Daten und Drehorte aus RTVE-Berichten und Mitteilungen der Stadt Nerja.", "Fechas y localizaciones a partir de reportajes de RTVE y comunicados del Ayuntamiento de Nerja.", "Data en locaties uit RTVE-berichten en mededelingen van de stad Nerja.", "Datum och platser ur RTVE-rapporter och meddelanden från Nerjas kommun."),
     checked: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026"),
     links: [

@@ -114,18 +114,19 @@ export const tarifaSightseeingRecommendations = defineKnowledgeRecommendations([
     topic: 'sightseeing',
     place: { name: 'firmm', kind: 'provider', address: 'Calle Alcalde Juan Núñez 10, L-1, Tarifa', phone: '+34956627008', website: 'https://www.firmm.org/' },
     summary: 'The Strait of Gibraltar is one of Europe’s best places to observe whales and dolphins in their natural habitat. You may see striped dolphins, common dolphins, pilot whales, sperm whales from May to July, and even orcas from June to September. Tours usually last around 2–3 hours and depart several times daily from Tarifa harbour. Choose a calm-sea day for the most comfortable experience. Established operator: Firmm España Calle Alcalde Juan Núñez 10, L-1 +34 956 627 008 firmm.org',
-    provenance: 'researched',
+    provenance: 'amara-first-hand',
     status: 'APPROVED',
     scope: 'amara-experience',
-    basis: 'published-guide-carryover',
+    basis: 'operator-review',
     factIds: [
       'tarifa.nature.cetacean-excursions.from-port',
       'tarifa.nature.cetaceans.no-sighting-guarantee',
       'tarifa.nature.cetaceans.protected-observation'
     ],
-    checkedAt: '2026-08-24',
-    reviewAfter: '2027-02-28',
+    checkedAt: '2026-09-09',
+    reviewAfter: '2027-03-09',
     volatility: 'medium',
-    claimBoundary: 'Carried over from the published guide; the referenced facts bound the verified details, everything else is editorial selection without a dated check.'
+    claimBoundary: 'AMARA has taken this firmm trip first-hand (operator, 2026-09-09) and recommends it for families with children; the other harbour operators are listed neutrally, not judged. Season: dolphins and pilot whales year-round, sperm whales spring and autumn, orcas high summer (~July–August), never guaranteed.',
+    notes: 'Operator first-hand recommendation. No booking service and no special arrangement with the provider.'
   }
 ]);

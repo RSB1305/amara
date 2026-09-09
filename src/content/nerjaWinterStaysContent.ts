@@ -271,7 +271,7 @@ export const nerjaWinterStaysContent = {
     ]
   },
   sources: {
-    eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
+    eyebrow: l("Explore further", "Mehr erfahren", "Explorar más", "Meer ontdekken", "Utforska mer"),
     title: l("Where these details come from", "Woher diese Angaben kommen", "De dónde salen estos datos", "Waar deze gegevens vandaan komen", "Varifrån uppgifterna kommer"),
     intro: l(
       "Opening times come from the cave, the museum and the town hall. Everything about AMARA Playa comes from us.",

@@ -314,7 +314,7 @@ export const gettingToTarifaContent = {
     }
   ],
   sources: {
-    eyebrow: l("Sources", "Quellen", "Fuentes", "Bronnen", "Källor"),
+    eyebrow: l("Explore further", "Mehr erfahren", "Explorar más", "Meer ontdekken", "Utforska mer"),
     title: l("Where these details come from", "Woher diese Angaben kommen", "De dónde salen estos datos", "Waar deze gegevens vandaan komen", "Varifrån uppgifterna kommer"),
     intro: l(
       "The routes and connections come from the tourism office, the airports and the coach operators — go there for live times and tickets. The address, the garage and the supermarket opposite come from us.",

@@ -31,11 +31,10 @@ const t = (value: LocalizedExperienceText) => value[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa experience');
 const spokeGuideSlugs: Partial<Record<TarifaExperienceSpokeId, string>> = {
   'food-evening-life': 'tarifa-guest-food-drink',
-  'nature-wildlife': 'tarifa-guest-activities',
   'old-town-history': 'tarifa-guest-sightseeing',
   'bolonia-baelo-claudia': 'tarifa-guest-sightseeing',
   yoga: 'tarifa-guest-activities',
-  'whale-watching': 'tarifa-guest-activities',
+  'whale-watching': 'tarifa-guest-sightseeing',
   family: 'tarifa-guest-activities'
 };
 const guideSlug = spokeGuideSlugs[spoke] ?? 'tarifa-guest-local-guide';
@@ -178,7 +177,37 @@ const localizedSections = content.sections.map((section) => ({
       </div>
     </section>
 
-    <GuestGuideBridge lang={currentLang} destination="tarifa" guideSlugs={[guideSlug]} />
+    {content.operators && (
+      <section class="bg-surface px-6 py-20 md:px-12 md:py-28">
+        <div class="mx-auto max-w-screen-2xl">
+          <p class="am-text-eyebrow text-primary">{t(content.operators.eyebrow)}</p>
+          <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(content.operators.title)}</h2>
+          <p class="am-text-body mt-6 max-w-2xl leading-relaxed text-on-surface-variant">{t(content.operators.intro)}</p>
+          <ul class="mt-10 max-w-2xl border-t border-border-subtle">
+            {content.operators.items.map((op) => (
+              <li class="border-b border-border-subtle py-5">
+                {op.href ? (
+                  <a
+                    href={op.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="am-text-subtitle text-on-surface underline decoration-primary/50 underline-offset-4 transition-colors hover:text-primary"
+                  >
+                    {op.name}<span aria-hidden="true" class="text-primary"> ↗</span>
+                  </a>
+                ) : (
+                  <span class="am-text-subtitle text-on-surface">{op.name}</span>
+                )}
+                <span class="am-text-body mt-2 block leading-relaxed text-on-surface-variant">{t(op.note)}</span>
+              </li>
+            ))}
+          </ul>
+          <p class="am-text-body mt-8 max-w-2xl leading-relaxed text-on-surface">{t(content.operators.guideNote)}</p>
+        </div>
+      </section>
+    )}
+
+    <GuestGuideBridge lang={currentLang} destination="tarifa" guideSlugs={[guideSlug]} topicPreview={content.guidePreview} />
 
     <AuthorityStayBridge
       eyebrow={t(content.closing.eyebrow)}
