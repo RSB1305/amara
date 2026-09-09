@@ -22,19 +22,21 @@ import { getDestinationContextGroups } from '../../lib/location/destinationConte
 import { getTarifaAuthoritySubnav } from '../../lib/tarifa/tarifaAuthoritySubnav';
 import type { AmaraLanguage } from '../../types/seo';
 
-type ClusterLabelKey = 'cluster1' | 'cluster2' | 'cluster3' | 'cluster4' | 'cluster5';
+type ClusterLabelKey = 'cluster1' | 'cluster2' | 'cluster3' | 'cluster4' | 'cluster5' | 'cluster6';
 type NerjaExperienceId = NerjaExperienceThemeId;
 type FrigilianaAdditionalExperienceId = 'oldTown';
 type TarifaExperienceId =
   | 'food-evening-life'
   | 'nature-wildlife'
+  | 'whale-watching'
   | 'old-town-history'
   | 'bolonia-baelo-claudia'
   | 'beaches'
   | 'kitesurfing'
   | 'kitesurf-spots'
   | 'wind'
-  | 'yoga';
+  | 'yoga'
+  | 'family';
 type FrigilianaExperienceId = ExperienceId | FrigilianaAdditionalExperienceId;
 
 interface Props {
@@ -129,28 +131,32 @@ const clusterLabels: Record<
       cluster2: 'Landschaft & Erbe',
       cluster3: 'Altstadt & Geschichte',
       cluster4: 'Genuss & Abende',
-      cluster5: 'Wellness & Ruhe'
+      cluster5: 'Wellness & Ruhe',
+      cluster6: 'Mit Kindern'
     },
     es: {
       cluster1: 'Mar & viento',
       cluster2: 'Paisaje & patrimonio',
       cluster3: 'Casco antiguo & historia',
       cluster4: 'Gastronomía & ambiente nocturno',
-      cluster5: 'Bienestar y calma'
+      cluster5: 'Bienestar y calma',
+      cluster6: 'En familia'
     },
     nl: {
       cluster1: 'Zee & wind',
       cluster2: 'Landschap & erfgoed',
       cluster3: 'Oude stad & geschiedenis',
       cluster4: 'Eten & avonden',
-      cluster5: 'Wellness & rust'
+      cluster5: 'Wellness & rust',
+      cluster6: 'Met kinderen'
     },
     sv: {
       cluster1: 'Hav & vind',
       cluster2: 'Landskap & kulturarv',
       cluster3: 'Gamla stan & historia',
       cluster4: 'Mat & kvällar',
-      cluster5: 'Wellness & lugn'
+      cluster5: 'Wellness & lugn',
+      cluster6: 'Med barn'
     }
   }
 };
@@ -298,10 +304,12 @@ const tarifaSiblingLinks = [
   'kitesurf-spots',
   'beaches',
   'nature-wildlife',
+  'whale-watching',
   'bolonia-baelo-claudia',
   'old-town-history',
   'food-evening-life',
-  'yoga'
+  'yoga',
+  'family'
 ].reduce<ContextNavigationItem[]>((acc, id) => {
   const matchedItem = tarifaChildren.find((item) => item.id === id);
 
@@ -390,7 +398,7 @@ const tarifaGroups: ContextNavigationGroup[] = selectNavigationGroups(
     {
       id: 'tarifa-landscape',
       label: 'cluster2',
-      itemIds: ['nature-wildlife', 'bolonia-baelo-claudia']
+      itemIds: ['nature-wildlife', 'whale-watching', 'bolonia-baelo-claudia']
     },
     {
       id: 'tarifa-town',
@@ -406,6 +414,11 @@ const tarifaGroups: ContextNavigationGroup[] = selectNavigationGroups(
       id: 'tarifa-wellness',
       label: 'cluster5',
       itemIds: ['yoga']
+    },
+    {
+      id: 'tarifa-family',
+      label: 'cluster6',
+      itemIds: ['family']
     }
   ]
 );

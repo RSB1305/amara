@@ -24,9 +24,9 @@ export const tarifaWhaleWatchingRecommendations = defineKnowledgeRecommendations
     bestFor: ['families', 'German-speaking guests', 'reduced mobility (calm seas)', 'first-time whale watching'],
     access: [{ from: 'amara-family-surf', note: 'Harbour office inside Puerto de Tarifa; check in ~1h before, park outside the harbour.' }],
     provenance: 'researched',
-    status: 'CANDIDATE',
+    status: 'APPROVED',
     scope: 'public',
-    basis: 'research-candidate',
+    basis: 'operator-review',
     factIds: [
       'tarifa.whale-watching.boat-type-is-the-decision',
       'tarifa.whale-watching.family-value',
@@ -38,7 +38,7 @@ export const tarifaWhaleWatchingRecommendations = defineKnowledgeRecommendations
     reviewAfter: '2027-01-09',
     volatility: 'high',
     claimBoundary:
-      'Do not print a fixed price, season end (stated 2026-11-07) or daily timetable; route to live booking and a same-day AEMET/operator check. The ~99% rate is an operator claim for at least one species, never an orca guarantee. AROC licence still to verify.'
+      'Approved by the operator on 2026-09-09 as the lead whale-watching provider. Do not print a fixed price, season end (stated 2026-11-07) or daily timetable; route to live booking and a same-day AEMET/operator check. The ~99% rate is an operator claim for at least one species, never an orca guarantee.'
   },
   {
     id: 'tarifa.whale-watching.turmares',

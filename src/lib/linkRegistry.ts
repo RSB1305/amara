@@ -120,6 +120,8 @@ export const linkRegistry = {
     tarifa_old_town_history: buildOwnedLinks('tarifa.experience.old-town-history'),
     tarifa_bolonia_baelo_claudia: buildOwnedLinks('tarifa.experience.bolonia-baelo-claudia'),
     tarifa_yoga: buildOwnedLinks('tarifa.experience.yoga'),
+    tarifa_whale_watching: buildOwnedLinks('tarifa.experience.whale-watching'),
+    tarifa_family: buildOwnedLinks('tarifa.experience.family'),
     tarifa_parking: buildOwnedLinks('tarifa.parking'),
 
     /* =========================================================

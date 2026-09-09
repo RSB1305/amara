@@ -625,6 +625,34 @@ const definitions = [
     props: { spoke: 'yoga' },
     segment: shared('yoga')
   },
+  {
+    key: 'tarifa.experience.whale-watching',
+    legacySlug: 'tarifa-whale-watching',
+    family: 'tarifa-experience-spoke',
+    parent: 'tarifa.experience',
+    props: { spoke: 'whale-watching' },
+    segment: {
+      es: 'avistamiento-de-cetaceos',
+      en: 'whale-watching',
+      de: 'whale-watching',
+      nl: 'walvissen-spotten',
+      sv: 'valskadning'
+    }
+  },
+  {
+    key: 'tarifa.experience.family',
+    legacySlug: 'tarifa-family',
+    family: 'tarifa-experience-spoke',
+    parent: 'tarifa.experience',
+    props: { spoke: 'family' },
+    segment: {
+      es: 'familias',
+      en: 'family-holidays',
+      de: 'familienurlaub',
+      nl: 'gezinsvakantie',
+      sv: 'familjesemester'
+    }
+  },
   // Kitesurfing is Tarifa's largest cluster: one hub beneath Experiences with
   // its spokes nested under the hub, mirroring the cluster navigation.
   {
