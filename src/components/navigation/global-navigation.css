@@ -667,6 +667,16 @@ html.am-nav-lock {
     display: none;
   }
 
+  /* When the full mobile menu is open, the page's context sub-navigation is
+     redundant (the menu carries complete navigation) and its toolbar/breadcrumb
+     share a grid row, which read as an overlap. Hide the context strip while
+     open; the menu groups start at the top of the panel. */
+  [data-am-navigation]
+    .am-nav-mobile--contextual:not([data-am-contextual-closed])
+    .am-nav-mobile__context {
+    display: none;
+  }
+
   [data-am-navigation]
     .am-nav-mobile--contextual:not([data-am-contextual-closed])
     [data-am-context-layout] {
