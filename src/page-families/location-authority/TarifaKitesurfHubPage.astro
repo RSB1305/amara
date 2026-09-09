@@ -47,7 +47,11 @@ const hero = requireRouteImage('tarifa.kitesurfing', 'hero', currentLang);
 const waveImage = requireRouteImage('tarifa.kitesurfing', 'wave', currentLang);
 const jumpImage = requireRouteImage('tarifa.kitesurfing', 'jump', currentLang);
 const partnershipImage = requireRouteImage('tarifa.kitesurfing', 'partnership', currentLang);
+const markPortrait = requireRouteImage('tarifa.kitesurfing.surf-club', 'mark', currentLang);
+const robertPortrait = '/images/robert-amara-host.jpg';
 const t = (value: LocalizedText) => value[currentLang];
+/** German-first placeholder; grep `de1(` for strings the closing translation pass still owns. */
+const de1 = (de: string): LocalizedText => ({ en: de, de, es: de, nl: de, sv: de });
 const content = tarifaGuideContent.wind as TarifaTopicGuideContent;
 const partnership = content.partnership!;
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf hub');
@@ -85,6 +89,20 @@ const ui = {
   footerTown: { en: 'Tarifa, the town', de: 'Tarifa, der Ort', es: 'Tarifa, el pueblo', nl: 'Tarifa, de stad', sv: 'Tarifa, staden' },
   footerSpots: { en: 'Kitesurf spots', de: 'Kitesurf-Spots', es: 'Spots de kitesurf', nl: 'Kitesurfspots', sv: 'Kitesurfspots' }
 } satisfies Record<string, LocalizedText>;
+
+// The two people behind the cluster, up top as the trust anchor. German is authored
+// first; the bios (de1) still need EN/ES/NL/SV in the closing translation pass.
+const founders = {
+  eyebrow: de1('Wer euch hier empfängt'),
+  title: de1('Mark und Robert — zwei, die hier zu Hause sind'),
+  intro: de1('Diese Seiten schreiben wir zu zweit: Mark vom Tarifa Surf Club und ich, Robert von AMARA. Zusammen sind wir eure Ansprechpartner in Tarifa für Unterkunft und Kitesurfen — und kümmern uns gern um den Rest, damit ihr euch ums Wasser kümmern könnt.'),
+  robertName: 'Robert',
+  robertRole: { en: 'Host at AMARA', de: 'Gastgeber bei AMARA', es: 'Anfitrión de AMARA', nl: 'Host bij AMARA', sv: 'Värd på AMARA' } satisfies LocalizedText,
+  robert: de1('Ich wohne hier mit Blick auf Los Lances, sehe morgens, wann der Wind kommt, und bin dann selbst draußen. Kiten gelernt habe ich beim Tarifa Surf Club — für mich beim Kiten die erste Adresse in Tarifa, und dafür lege ich die Hand ins Feuer.'),
+  markName: 'Mark',
+  markRole: { en: 'Tarifa Surf Club', de: 'Tarifa Surf Club', es: 'Tarifa Surf Club', nl: 'Tarifa Surf Club', sv: 'Tarifa Surf Club' } satisfies LocalizedText,
+  mark: de1('Mark kommt seit über zwanzig Jahren nach Tarifa, hat den Tarifa Surf Club übernommen und zu dem gemacht, was er heute ist. Leidenschaftlicher Kitesurfer, Skater und Snowboarder — alles mit Brett, und immer auf dem Wasser. Ein Paradebeispiel für eine gesunde Work-Surf-Balance.')
+};
 
 const cards = [
   { id: 'learn', href: requiredLink('tarifa_kite_school'), eyebrow: t(ui.learnEyebrow), title: t(ui.learnTitle), text: t(ui.learnText) },
@@ -137,6 +155,32 @@ const footerHighlights: LabeledLink[] = [
           </div>
         ))}
       </dl>
+    </LocationModule>
+
+    <LocationModule id="founders" labelledby="founders-title" spacing="compact" data-am-topic="founders">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="max-w-3xl">
+          <p class="am-text-eyebrow text-primary">{t(founders.eyebrow)}</p>
+          <h2 id="founders-title" class="am-text-title mt-5 text-balance text-on-surface">{t(founders.title)}</h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{t(founders.intro)}</p>
+        </div>
+        <div class="mt-10 grid gap-8 md:grid-cols-2 md:gap-12">
+          <figure class="m-0 flex items-start gap-5" data-am-founder="robert">
+            <AmaraImage src={robertPortrait} alt={`${founders.robertName} · ${t(founders.robertRole)}`} profile="card" width={192} widths={[96, 144, 192]} sizes="6rem" class="h-20 w-20 shrink-0 rounded-full object-cover md:h-24 md:w-24" focalPoint="50% 20%" />
+            <div class="min-w-0">
+              <figcaption class="am-text-label am-text-label--sm text-primary">{founders.robertName} · {t(founders.robertRole)}</figcaption>
+              <p class="am-text-body mt-3 leading-relaxed text-on-surface">{t(founders.robert)}</p>
+            </div>
+          </figure>
+          <figure class="m-0 flex items-start gap-5" data-am-founder="mark">
+            <AmaraImage src={markPortrait.src} alt={markPortrait.alt} profile="card" width={192} widths={[96, 144, 192]} sizes="6rem" class="h-20 w-20 shrink-0 rounded-full object-cover md:h-24 md:w-24" focalPoint="50% 25%" />
+            <div class="min-w-0">
+              <figcaption class="am-text-label am-text-label--sm text-primary">{founders.markName} · {t(founders.markRole)}</figcaption>
+              <p class="am-text-body mt-3 leading-relaxed text-on-surface">{t(founders.mark)}</p>
+            </div>
+          </figure>
+        </div>
+      </div>
     </LocationModule>
 
     {/* The wave band is the panorama moment of this page; the first section rises into it. */}
