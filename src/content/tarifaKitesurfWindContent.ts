@@ -538,11 +538,11 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
           id: 'overlooked',
           lead: l('What gets overlooked most often in Tarifa:', 'Was in Tarifa am häufigsten übersehen wird:', 'Lo que más se pasa por alto en Tarifa:', 'Wat in Tarifa het vaakst over het hoofd wordt gezien:', 'Vad som oftast förbises i Tarifa:'),
           paragraphs: ll(
-            ['The gear. In a proper Levante I ride 5s to 7s here. If you only bring the 9, you stand on the beach on the strong days. And almost everyone ignores the tides: at high tide the beach at Los Lances gets extremely narrow. There is hardly any room left for launching and landing.'],
-            ['Das Material. Bei einem richtigen Levante fahre ich hier 5er bis 7er. Wer nur den 9er dabeihat, steht an starken Tagen am Strand. Und die Gezeiten blendet fast jeder aus: Bei Flut wird der Strand in Los Lances extrem schmal. Beim Starten und Landen bleibt dann kaum Platz.'],
-            ['El material. Con un levante de verdad, aquí yo navego con 5 a 7 metros. Quien solo trae la 9 se queda en la playa los días fuertes. Y las mareas casi todo el mundo las ignora: con marea alta, la playa de Los Lances se queda estrechísima. Para despegar y aterrizar apenas queda sitio.'],
-            ['Het materiaal. Bij een echte levante vaar ik hier 5 tot 7. Wie alleen de 9 bij zich heeft, staat op sterke dagen op het strand. En de getijden negeert bijna iedereen: bij vloed wordt het strand in Los Lances extreem smal. Bij het starten en landen blijft dan nauwelijks ruimte over.'],
-            ['Utrustningen. I en riktig levante kör jag 5:or till 7:or här. Den som bara har med sig 9:an står på stranden de starka dagarna. Och tidvattnet blundar nästan alla för: vid högvatten blir stranden i Los Lances extremt smal. Då finns det knappt plats för start och landning.']
+            ['The gear. In a proper Levante we ride 4s to 6s here — sizes most people don’t have sitting in the cellar at home. If you’re missing something there, we’re happy to provide it all.'],
+            ['Das Material. Bei einem richtigen Levante fahren wir hier Vierer bis Sechser — Größen, die die meisten nicht im Keller liegen haben. Wenn euch da etwas fehlt, stellen wir euch gerne alles zur Verfügung.'],
+            ['El material. Con un levante de verdad, aquí navegamos con 4 a 6 metros, tallas que la mayoría no tiene guardadas en el trastero. Si os falta algo, os lo prestamos todo encantados.'],
+            ['Het materiaal. Bij een echte levante varen we hier 4 tot 6 — maten die de meesten niet in de kelder hebben liggen. Ontbreekt jullie daar iets, dan stellen we het graag allemaal ter beschikking.'],
+            ['Utrustningen. I en riktig levante kör vi 4:or till 6:or här — storlekar som de flesta inte har liggande i källaren. Saknar ni något där, ställer vi gärna allt till förfogande.']
           )
         }
       ]
