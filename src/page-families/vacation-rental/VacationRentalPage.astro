@@ -554,7 +554,7 @@ const contextDestination: DestinationId | undefined =
             {t(ui.factsTitle as LocalizedText)}
           </h2>
           <div>
-            <dl class="grid grid-cols-2 gap-x-5 gap-y-7 sm:gap-x-10 sm:gap-y-8 lg:grid-cols-3">
+            <dl class="grid grid-cols-1 gap-x-5 gap-y-6 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-8 lg:grid-cols-3">
               {factRows.map(({ label, value, Icon }) => (
                 <div
                   class="grid grid-cols-[2rem_minmax(0,1fr)] items-start gap-x-2.5 sm:grid-cols-[2.5rem_minmax(0,1fr)] sm:gap-x-4"
@@ -567,7 +567,7 @@ const contextDestination: DestinationId | undefined =
                       {label}
                     </span>
                   </dt>
-                  <dd class="am-text-subtitle col-start-2 mt-1 text-on-surface">
+                  <dd class="am-text-subtitle col-start-2 mt-1 min-w-0 break-words text-on-surface">
                     {value}
                   </dd>
                 </div>
