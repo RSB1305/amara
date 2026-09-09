@@ -763,6 +763,13 @@ html.am-nav-lock {
     height: 81px;
   }
 
+  /* Grouped context strip (destination disclosures) is ~67px tall on mobile;
+     reserve that so the first content row (e.g. the dark kite-cluster nav band,
+     which has no top padding of its own) is not tucked under the fixed strip. */
+  [data-am-navigation]:has([data-am-context-navigation-shell]) + .am-nav-context-spacer {
+    height: 68px;
+  }
+
   [data-am-navigation]
     .am-nav-mobile--contextual:not([data-am-contextual-closed])
     [data-am-grouped-context-navigation] {
