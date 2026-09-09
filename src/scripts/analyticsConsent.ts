@@ -42,9 +42,13 @@ function deleteAnalyticsCookies(): void {
 }
 
 function loadAnalytics(): void {
+  // Re-enabling must always clear the opt-out flag, even when the script tag is
+  // already present from an earlier consent in the same document. The injection
+  // below stays guarded so the script loads only once.
+  window[`ga-disable-${MEASUREMENT_ID}`] = false;
+
   if (document.querySelector<HTMLScriptElement>(`script[data-am-ga4="${MEASUREMENT_ID}"]`)) return;
 
-  window[`ga-disable-${MEASUREMENT_ID}`] = false;
   window.dataLayer = window.dataLayer || [];
   window.gtag = (...args: unknown[]) => {
     window.dataLayer?.push(args);
