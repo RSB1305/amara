@@ -126,10 +126,17 @@ const officialLinks = {
 } as const;
 
 export const frigilianaFestivalsSeo: AmaraAuthoringSeo = {
-  version: '2026-07-29-frigiliana-festivals-v1.0-B',
+  version: '2026-09-10-frigiliana-festivals-v1.1-B',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: routeOgImage('frigiliana.experience.festivals'),
+  article: {
+    datePublished: '2026-07-29',
+    dateModified: '2026-09-10',
+    authorName: 'Robert Sebastian Böhmer',
+    authorType: 'Person',
+    authorRoute: 'about'
+  },
   languages: {
     en: {
       title: 'Festivals in Frigiliana & Nerja',
@@ -224,7 +231,7 @@ export const frigilianaFestivalsContent: Record<
       title: 'Start with the kind of day you want',
       intro:
         'A village saint’s day, a solemn procession and a major summer festival are very different evenings. Some dates are fixed years ahead, others are confirmed only weeks before — which is why the status matters as much as the month.',
-      reviewed: 'As of July 2026',
+      reviewed: 'As of September 2026',
       items: [
         {
           title: 'Village traditions',
@@ -273,7 +280,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Programme varies by year',
               summary:
-                'Frigiliana has two patron saints, and San Sebastián is honoured here around 20 January with a mass and procession. Until 1966 this was also the village’s main fair; poor winter weather led the council to move the fair to June. Procession details and accompanying activities depend on the annual programme.',
+                'Frigiliana has two patron saints, and San Sebastián is honoured here around 20 January with a mass and procession. This was once the village’s main fair too, until poor winter weather led the council to move the fair to June. Procession details and accompanying activities depend on the annual programme.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -350,7 +357,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Every year around this time',
               summary:
-                'Frigiliana’s main fair, moved here from January in 1967 and tied to the village’s other patron, San Antonio de Padua. It brings a romería, concerts, attractions and community events over several days. The exact schedule and traffic arrangements change annually.',
+                'Frigiliana’s main fair, moved here from January and tied to the village’s other patron, San Antonio de Padua. It brings a romería, concerts, attractions and community events over several days. The exact schedule and traffic arrangements change annually.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -454,7 +461,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Frigiliana historic quarter',
           dateStatus: 'Dates officially confirmed',
           description:
-            'Frigiliana’s largest cultural weekend brings together music, a craft market of around 150 stalls, street performances and a tapas route through the old town. It is a modern cultural festival, created by the municipality in 2006, rather than an old village tradition — and the village feels completely different from an ordinary summer evening.',
+            'Frigiliana’s largest cultural weekend brings together music, a large craft market, street performances and a tapas route through the old town. It is a modern cultural festival, created by the municipality in 2006, rather than an old village tradition — and the village feels completely different from an ordinary summer evening.',
           planningNote:
             'Come early, wear shoes for steep cobbled lanes and park down on the edge of the village; up top there is no space on these evenings.',
           officialHref: officialLinks.threeCultures2026
@@ -520,7 +527,7 @@ export const frigilianaFestivalsContent: Record<
         }
       ],
       note:
-        'Dates marked as confirmed refer to information available in July 2026. Weather, safety measures and municipal decisions can still alter routes, times or access, so check again shortly before setting out.'
+        'Dates marked as confirmed refer to information available in September 2026. Weather, safety measures and municipal decisions can still alter routes, times or access, so check again shortly before setting out.'
     },
     combine: {
       title: 'Build a balanced day around the event',
@@ -596,7 +603,7 @@ export const frigilianaFestivalsContent: Record<
       title: 'Beginnt mit dem Tag, den ihr erleben möchtet',
       intro:
         'Ein Heiligenfest im Dorf, eine feierliche Prozession und ein großes Sommerfestival sind völlig verschiedene Abende. Manche Termine stehen Jahre im Voraus fest, andere erst wenige Wochen vorher — deshalb zählt der Status so viel wie der Monat.',
-      reviewed: 'Stand Juli 2026',
+      reviewed: 'Stand September 2026',
       items: [
         {
           title: 'Dorftraditionen',
@@ -645,7 +652,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Programm wechselt jährlich',
               summary:
-                'Frigiliana hat zwei Schutzpatrone; San Sebastián wird um den 20. Januar mit Messe und Prozession geehrt. Bis 1966 war das zugleich die Hauptferia des Ortes — wegen des unbeständigen Winterwetters verlegte der Gemeinderat sie in den Juni. Ablauf der Prozession und Begleitveranstaltungen richten sich nach dem jeweiligen Jahresprogramm.',
+                'Frigiliana hat zwei Schutzpatrone; San Sebastián wird um den 20. Januar mit Messe und Prozession geehrt. Früher war das zugleich die Hauptferia des Ortes — wegen des unbeständigen Winterwetters verlegte der Gemeinderat sie in den Juni. Ablauf der Prozession und Begleitveranstaltungen richten sich nach dem jeweiligen Jahresprogramm.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -722,7 +729,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Jedes Jahr um diese Zeit',
               summary:
-                'Die Hauptferia des Ortes, 1967 vom Januar hierher verlegt und mit dem anderen Schutzpatron San Antonio de Padua verbunden. Sie bringt über mehrere Tage Romería, Konzerte, Fahrgeschäfte und gemeinschaftliche Veranstaltungen ins Dorf. Zeitplan und Verkehrsführung ändern sich jährlich.',
+                'Die Hauptferia des Ortes, vom Januar hierher verlegt und mit dem anderen Schutzpatron San Antonio de Padua verbunden. Sie bringt über mehrere Tage Romería, Konzerte, Fahrgeschäfte und gemeinschaftliche Veranstaltungen ins Dorf. Zeitplan und Verkehrsführung ändern sich jährlich.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -827,7 +834,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Altstadt von Frigiliana',
           dateStatus: 'Termine offiziell bestätigt',
           description:
-            'Frigilianas größtes Kulturwochenende verbindet Musik, einen Kunsthandwerksmarkt mit rund 150 Ständen, Straßenkunst und eine Tapas-Route durch die Altstadt. Es ist ein modernes Kulturfestival, das die Gemeinde 2006 ins Leben gerufen hat, und kein alter Dorfbrauch — das Dorf fühlt sich dann völlig anders an als an einem gewöhnlichen Sommerabend.',
+            'Frigilianas größtes Kulturwochenende verbindet Musik, einen großen Kunsthandwerksmarkt, Straßenkunst und eine Tapas-Route durch die Altstadt. Es ist ein modernes Kulturfestival, das die Gemeinde 2006 ins Leben gerufen hat, und kein alter Dorfbrauch — das Dorf fühlt sich dann völlig anders an als an einem gewöhnlichen Sommerabend.',
           planningNote:
             'Kommt früh, tragt Schuhe für steile Pflastergassen und parkt unten am Ortsrand; oben ist an diesen Abenden kein Platz.',
           officialHref: officialLinks.threeCultures2026
@@ -893,7 +900,7 @@ export const frigilianaFestivalsContent: Record<
         }
       ],
       note:
-        'Als bestätigt gekennzeichnete Termine beziehen sich auf den Informationsstand Juli 2026. Wetter, Sicherheitsmaßnahmen und Gemeindeentscheidungen können Routen, Zeiten oder Zufahrten dennoch verändern; prüft deshalb kurz vor dem Aufbruch erneut.'
+        'Als bestätigt gekennzeichnete Termine beziehen sich auf den Informationsstand September 2026. Wetter, Sicherheitsmaßnahmen und Gemeindeentscheidungen können Routen, Zeiten oder Zufahrten dennoch verändern; prüft deshalb kurz vor dem Aufbruch erneut.'
     },
     combine: {
       title: 'Ein ausgewogener Tag rund um das Fest',
@@ -969,7 +976,7 @@ export const frigilianaFestivalsContent: Record<
       title: 'Empezad por el tipo de día que queréis vivir',
       intro:
         'Una fiesta patronal de pueblo, una procesión solemne y un gran festival de verano son noches muy distintas. Algunas fechas se fijan años antes y otras se confirman semanas antes: por eso el estado importa tanto como el mes.',
-      reviewed: 'Actualizado en julio de 2026',
+      reviewed: 'Actualizado en septiembre de 2026',
       items: [
         {
           title: 'Tradiciones de pueblo',
@@ -1018,7 +1025,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'El programa varía cada año',
               summary:
-                'Frigiliana tiene dos patrones, y a San Sebastián se le honra hacia el 20 de enero con misa y procesión. Hasta 1966 esa fue también la feria principal del pueblo; el mal tiempo invernal llevó al ayuntamiento a trasladarla a junio. Los detalles de la procesión y las actividades paralelas dependen del programa anual.',
+                'Frigiliana tiene dos patrones, y a San Sebastián se le honra hacia el 20 de enero con misa y procesión. Antiguamente esa fue también la feria principal del pueblo; el mal tiempo invernal llevó al ayuntamiento a trasladarla a junio. Los detalles de la procesión y las actividades paralelas dependen del programa anual.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1095,7 +1102,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Cada año por esta época',
               summary:
-                'La feria principal del pueblo, trasladada aquí desde enero en 1967 y vinculada al otro patrón, San Antonio de Padua. Reúne durante varios días romería, conciertos, atracciones y actividades vecinales. El horario y la regulación del tráfico cambian cada año.',
+                'La feria principal del pueblo, trasladada aquí desde enero y vinculada al otro patrón, San Antonio de Padua. Reúne durante varios días romería, conciertos, atracciones y actividades vecinales. El horario y la regulación del tráfico cambian cada año.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1200,7 +1207,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Casco histórico de Frigiliana',
           dateStatus: 'Fechas confirmadas oficialmente',
           description:
-            'El gran fin de semana cultural de Frigiliana reúne música, un mercado artesanal de unos 150 puestos, espectáculos callejeros y una ruta de la tapa por el casco antiguo. Es un festival cultural moderno, creado por el ayuntamiento en 2006, y no una tradición antigua del pueblo: durante esos días Frigiliana se siente completamente distinta a una noche normal de verano.',
+            'El gran fin de semana cultural de Frigiliana reúne música, un gran mercado artesanal, espectáculos callejeros y una ruta de la tapa por el casco antiguo. Es un festival cultural moderno, creado por el ayuntamiento en 2006, y no una tradición antigua del pueblo: durante esos días Frigiliana se siente completamente distinta a una noche normal de verano.',
           planningNote:
             'Venid temprano, llevad calzado para callejuelas empinadas y empedradas y aparcad abajo, en el borde del pueblo; arriba no hay sitio esas noches.',
           officialHref: officialLinks.threeCultures2026
@@ -1266,7 +1273,7 @@ export const frigilianaFestivalsContent: Record<
         }
       ],
       note:
-        'Las fechas marcadas como confirmadas corresponden a la información disponible en julio de 2026. El tiempo, las medidas de seguridad y las decisiones municipales todavía pueden modificar recorridos, horarios o accesos; volved a comprobarlos poco antes de salir.'
+        'Las fechas marcadas como confirmadas corresponden a la información disponible en septiembre de 2026. El tiempo, las medidas de seguridad y las decisiones municipales todavía pueden modificar recorridos, horarios o accesos; volved a comprobarlos poco antes de salir.'
     },
     combine: {
       title: 'Completad la fiesta con un día equilibrado',
@@ -1342,7 +1349,7 @@ export const frigilianaFestivalsContent: Record<
       title: 'Begin met het soort dag dat jullie willen beleven',
       intro:
         'Een dorpsfeest rond een heilige, een plechtige processie en een groot zomerfestival zijn totaal verschillende avonden. Sommige data liggen jaren vast, andere pas weken van tevoren — daarom telt de status net zo zwaar als de maand.',
-      reviewed: 'Stand juli 2026',
+      reviewed: 'Stand september 2026',
       items: [
         {
           title: 'Dorpstradities',
@@ -1391,7 +1398,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Programma verschilt per jaar',
               summary:
-                'Frigiliana heeft twee patroonheiligen; San Sebastián wordt rond 20 januari geëerd met een mis en een processie. Tot 1966 was dit ook de belangrijkste feria van het dorp — vanwege het wisselvallige winterweer verplaatste de gemeenteraad die naar juni. Details van de processie en extra activiteiten hangen af van het jaarprogramma.',
+                'Frigiliana heeft twee patroonheiligen; San Sebastián wordt rond 20 januari geëerd met een mis en een processie. Vroeger was dit ook de belangrijkste feria van het dorp — vanwege het wisselvallige winterweer verplaatste de gemeenteraad die naar juni. Details van de processie en extra activiteiten hangen af van het jaarprogramma.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1468,7 +1475,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Elk jaar rond deze tijd',
               summary:
-                'De belangrijkste feria van het dorp, in 1967 vanuit januari hierheen verplaatst en verbonden met de andere patroonheilige, San Antonio de Padua. Meerdere dagen lang zijn er een romería, concerten, attracties en activiteiten voor de gemeenschap. Programma en verkeersmaatregelen veranderen jaarlijks.',
+                'De belangrijkste feria van het dorp, vanuit januari hierheen verplaatst en verbonden met de andere patroonheilige, San Antonio de Padua. Meerdere dagen lang zijn er een romería, concerten, attracties en activiteiten voor de gemeenschap. Programma en verkeersmaatregelen veranderen jaarlijks.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1573,7 +1580,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Historisch centrum van Frigiliana',
           dateStatus: 'Data officieel bevestigd',
           description:
-            'Frigiliana’s grootste culturele weekend combineert muziek, een ambachtsmarkt met zo’n 150 kramen, straatvoorstellingen en een tapasroute door de oude wijk. Het is een modern cultureel festival dat de gemeente in 2006 in het leven riep en geen oude dorpstraditie — het dorp voelt dan volledig anders dan op een gewone zomeravond.',
+            'Frigiliana’s grootste culturele weekend combineert muziek, een grote ambachtsmarkt, straatvoorstellingen en een tapasroute door de oude wijk. Het is een modern cultureel festival dat de gemeente in 2006 in het leven riep en geen oude dorpstraditie — het dorp voelt dan volledig anders dan op een gewone zomeravond.',
           planningNote:
             'Kom vroeg, draag schoenen voor steile kinderkopjes en parkeer beneden aan de rand van het dorp; boven is er op deze avonden geen plek.',
           officialHref: officialLinks.threeCultures2026
@@ -1639,7 +1646,7 @@ export const frigilianaFestivalsContent: Record<
         }
       ],
       note:
-        'Als bevestigd gemarkeerde data verwijzen naar de informatie die in juli 2026 beschikbaar was. Weer, veiligheidsmaatregelen en gemeentelijke besluiten kunnen routes, tijden of bereikbaarheid alsnog veranderen; controleer die kort voor vertrek opnieuw.'
+        'Als bevestigd gemarkeerde data verwijzen naar de informatie die in september 2026 beschikbaar was. Weer, veiligheidsmaatregelen en gemeentelijke besluiten kunnen routes, tijden of bereikbaarheid alsnog veranderen; controleer die kort voor vertrek opnieuw.'
     },
     combine: {
       title: 'Bouw een evenwichtige dag rond het feest',
@@ -1715,7 +1722,7 @@ export const frigilianaFestivalsContent: Record<
       title: 'Börja med vilken sorts dag ni vill uppleva',
       intro:
         'En helgondag i byn, en högtidlig procession och en stor sommarfestival är helt olika kvällar. Vissa datum ligger fast år i förväg, andra bekräftas först några veckor innan — därför betyder statusen lika mycket som månaden.',
-      reviewed: 'Uppdaterad juli 2026',
+      reviewed: 'Uppdaterad september 2026',
       items: [
         {
           title: 'Bytraditioner',
@@ -1764,7 +1771,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Programmet varierar från år till år',
               summary:
-                'Frigiliana har två skyddshelgon, och San Sebastián hedras kring den 20 januari med mässa och procession. Fram till 1966 var detta också byns huvudferia — det ostadiga vintervädret fick kommunfullmäktige att flytta den till juni. Processionens detaljer och kringaktiviteter beror på årets program.',
+                'Frigiliana har två skyddshelgon, och San Sebastián hedras kring den 20 januari med mässa och procession. Förr var detta också byns huvudferia — det ostadiga vintervädret fick kommunfullmäktige att flytta den till juni. Processionens detaljer och kringaktiviteter beror på årets program.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1841,7 +1848,7 @@ export const frigilianaFestivalsContent: Record<
               place: 'Frigiliana',
               dateStatus: 'Varje år vid den här tiden',
               summary:
-                'Byns huvudferia, flyttad hit från januari 1967 och knuten till det andra skyddshelgonet, San Antonio de Padua. Under flera dagar bjuder den på romería, konserter, attraktioner och aktiviteter för byn. Program och trafiklösningar ändras varje år.',
+                'Byns huvudferia, flyttad hit från januari och knuten till det andra skyddshelgonet, San Antonio de Padua. Under flera dagar bjuder den på romería, konserter, attraktioner och aktiviteter för byn. Program och trafiklösningar ändras varje år.',
               officialHref: officialLinks.frigilianaTraditions
             },
             {
@@ -1946,7 +1953,7 @@ export const frigilianaFestivalsContent: Record<
           place: 'Frigilianas historiska kvarter',
           dateStatus: 'Datumen är officiellt bekräftade',
           description:
-            'Frigilianas största kulturhelg förenar musik, en hantverksmarknad med omkring 150 stånd, gatuföreställningar och en tapasrunda genom den gamla bydelen. Det är en modern kulturfestival som kommunen startade 2006, inte en gammal bytradition — och byn känns helt annorlunda än under en vanlig sommarkväll.',
+            'Frigilianas största kulturhelg förenar musik, en stor hantverksmarknad, gatuföreställningar och en tapasrunda genom den gamla bydelen. Det är en modern kulturfestival som kommunen startade 2006, inte en gammal bytradition — och byn känns helt annorlunda än under en vanlig sommarkväll.',
           planningNote:
             'Kom tidigt, ha skor för branta kullerstensgränder och parkera nere i byns utkant; uppe finns ingen plats de här kvällarna.',
           officialHref: officialLinks.threeCultures2026
@@ -2012,7 +2019,7 @@ export const frigilianaFestivalsContent: Record<
         }
       ],
       note:
-        'Datum som märkts som bekräftade avser information tillgänglig i juli 2026. Väder, säkerhetsåtgärder och kommunala beslut kan ändå ändra rutter, tider eller tillträde; kontrollera igen strax före avfärd.'
+        'Datum som märkts som bekräftade avser information tillgänglig i september 2026. Väder, säkerhetsåtgärder och kommunala beslut kan ändå ändra rutter, tider eller tillträde; kontrollera igen strax före avfärd.'
     },
     combine: {
       title: 'Skapa en balanserad dag kring firandet',
