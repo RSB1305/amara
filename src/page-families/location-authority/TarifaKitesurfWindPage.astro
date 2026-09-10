@@ -23,6 +23,8 @@ import { resolveLocale } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import LocationModule from './LocationModule.astro';
 import LocationGuideIcon from '../../components/location/LocationGuideIcon.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import KiteThermalWindDiagram from '../../components/experience/KiteThermalWindDiagram.astro';
 import { requireRouteImage } from '../../lib/images/routeImages';
 
 /**
@@ -186,7 +188,7 @@ const footerHighlights: LabeledLink[] = [
             {content.windguru.rows.map((row) => (
               <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-windguru-row={row.id}>
                 <dt class="am-text-label am-text-label--sm text-on-surface">{row.title}</dt>
-                <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{row.text}</dd>
+                <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={row.text} /></dd>
               </div>
             ))}
           </dl>
@@ -258,7 +260,7 @@ const footerHighlights: LabeledLink[] = [
             <h2 id="poniente-levante-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.localWind.title}</h2>
           </div>
           <div class="space-y-5 lg:col-span-7">
-            {content.localWind.paragraphs.map((paragraph) => <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{paragraph}</p>)}
+            {content.localWind.paragraphs.map((paragraph) => <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>)}
           </div>
         </div>
 
@@ -279,6 +281,8 @@ const footerHighlights: LabeledLink[] = [
         </p>
       </div>
     </LocationModule>
+
+    <KiteThermalWindDiagram lang={currentLang} />
 
     <section class="bg-surface" data-am-topic="editorial-photo">
       <AmaraMediaFrame role="panorama" caption={sunsetImage.caption}>

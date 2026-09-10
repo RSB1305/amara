@@ -1,0 +1,123 @@
+---
+/**
+ * Thermal-wind (land–sea breeze) diagram for the Tarifa kitesurf wind page.
+ * The daytime loop: the sun heats the land faster than the sea, warm air rises
+ * over the land (low pressure), cooler air sinks over the sea (high pressure),
+ * a sea breeze is pulled in at the surface, and a return flow closes the loop
+ * aloft. Theme-aware via design tokens; the caption notes the weaker night
+ * reversal and the tie to the Poniente in Tarifa.
+ */
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang: AmaraLanguage;
+}
+
+const { lang } = Astro.props;
+type L = Record<AmaraLanguage, string>;
+const t = (v: L) => v[lang];
+
+const copy = {
+  eyebrow: { en: 'Thermal wind', de: 'Thermik', es: 'Térmica', nl: 'Thermiek', sv: 'Termik' } satisfies L,
+  title: {
+    en: 'How the sea breeze forms',
+    de: 'So entsteht der Seewind',
+    es: 'Cómo se forma la brisa marina',
+    nl: 'Zo ontstaat de zeewind',
+    sv: 'Så uppstår sjöbrisen'
+  } satisfies L,
+  sun: { en: 'Sun', de: 'Sonne', es: 'Sol', nl: 'Zon', sv: 'Sol' } satisfies L,
+  sea: { en: 'Sea · stays cool', de: 'Meer · bleibt kühl', es: 'Mar · se mantiene fresco', nl: 'Zee · blijft koel', sv: 'Hav · håller sig svalt' } satisfies L,
+  land: { en: 'Land · heats fast', de: 'Land · wird schnell warm', es: 'Tierra · se calienta rápido', nl: 'Land · warmt snel op', sv: 'Land · värms snabbt' } satisfies L,
+  sink: { en: 'Cool air sinks', de: 'Kühle Luft sinkt', es: 'El aire fresco baja', nl: 'Koele lucht daalt', sv: 'Sval luft sjunker' } satisfies L,
+  rise: { en: 'Warm air rises', de: 'Warme Luft steigt', es: 'El aire caliente sube', nl: 'Warme lucht stijgt', sv: 'Varm luft stiger' } satisfies L,
+  breeze: { en: 'Sea breeze', de: 'Seewind', es: 'Brisa marina', nl: 'Zeewind', sv: 'Sjöbris' } satisfies L,
+  aloft: { en: 'Return flow aloft', de: 'Höhenwind zurück', es: 'Retorno en altura', nl: 'Hoogtestroom terug', sv: 'Återflöde upptill' } satisfies L,
+  caption: {
+    en: 'By day the land heats faster than the sea. Warm air rises over the land, cooler air sinks over the sea, and the difference pulls a sea breeze in at the surface — with a return flow up high. At night it reverses, weaker. In Tarifa the Poniente runs the same way, so a clear afternoon can add to it.',
+    de: 'Tagsüber wird das Land schneller warm als das Meer. Über Land steigt die warme Luft, über dem Meer sinkt die kühlere, und das Gefälle zieht am Boden den Seewind heran – oben strömt es zurück. Nachts dreht es sich um, schwächer. In Tarifa läuft der Poniente in dieselbe Richtung, deshalb kann ein klarer Nachmittag nachlegen.',
+    es: 'De día la tierra se calienta más rápido que el mar. Sobre la tierra sube el aire caliente, sobre el mar baja el más fresco, y la diferencia atrae la brisa marina a ras de suelo, con un retorno en altura. De noche se invierte, más floja. En Tarifa el poniente va igual, por eso una tarde despejada puede sumar.',
+    nl: 'Overdag warmt het land sneller op dan de zee. Boven land stijgt de warme lucht, boven zee daalt de koelere, en het verschil trekt aan de grond de zeewind aan — bovenin stroomt het terug. ’s Nachts draait het om, zwakker. In Tarifa loopt de poniente net zo, dus een heldere middag kan er iets bovenop doen.',
+    sv: 'På dagen värms landet snabbare än havet. Över land stiger den varma luften, över havet sjunker den svalare, och skillnaden drar in sjöbrisen vid marken — högre upp strömmar det tillbaka. På natten vänder det, svagare. I Tarifa går poniente åt samma håll, så en klar eftermiddag kan spä på.'
+  } satisfies L
+};
+---
+
+<section class="bg-inverse-surface px-6 py-16 text-inverted-on-surface md:px-12 md:py-24" data-am-topic="thermal-wind-diagram">
+  <div class="mx-auto grid max-w-screen-2xl items-center gap-10 lg:grid-cols-12 lg:gap-16">
+    <div class="lg:col-span-4">
+      <p class="am-text-eyebrow text-primary-fixed-dim">{t(copy.eyebrow)}</p>
+      <h2 class="am-text-title mt-5 max-w-md text-balance text-inverted-on-surface">{t(copy.title)}</h2>
+      <p class="am-text-body mt-6 max-w-md leading-relaxed text-inverted-on-surface/72">{t(copy.caption)}</p>
+    </div>
+
+    <div class="thermal lg:col-span-8">
+      <svg viewBox="0 0 640 400" class="block h-auto w-full" role="img" aria-label={t(copy.title)}>
+        <!-- sea (left) and land (right) -->
+        <rect class="sea" x="24" y="300" width="276" height="62" />
+        <g class="wave"><path d="M40 314 q14 -6 28 0 t28 0 t28 0 t28 0" /><path d="M40 330 q14 -6 28 0 t28 0 t28 0 t28 0" /></g>
+        <rect class="land-base" x="300" y="300" width="316" height="62" />
+        <polygon class="land" points="300,300 372,300 452,242 528,300 616,300" />
+        <path class="ground" d="M24 300 H616" />
+
+        <!-- sun over the land -->
+        <g class="sun">
+          <circle cx="556" cy="76" r="20" />
+          <g class="ray">
+            <path d="M556 40 V26" /><path d="M556 126 V112" /><path d="M520 76 H506" /><path d="M592 76 H606" />
+            <path d="M531 51 L521 41" /><path d="M581 101 L591 111" /><path d="M581 51 L591 41" /><path d="M531 101 L521 111" />
+          </g>
+          <g class="heat"><path d="M540 96 L500 236" /><path d="M566 98 L534 238" /></g>
+        </g>
+
+        <!-- clockwise loop: cool air sinks over the sea -->
+        <g class="arrow arrow--sink">
+          <path class="shaft" d="M140 156 V282" /><path class="head" d="M134 273 L140 282 L146 273" />
+          <path class="shaft" d="M182 170 V282" /><path class="head" d="M176 273 L182 282 L188 273" />
+        </g>
+        <!-- surface sea breeze, sea to land -->
+        <g class="arrow arrow--breeze">
+          <path class="shaft" d="M150 288 H408" /><path class="head" d="M399 282 L408 288 L399 294" />
+        </g>
+        <!-- warm air rises over the land -->
+        <g class="arrow arrow--rise">
+          <path class="shaft" d="M452 282 V156" /><path class="head" d="M446 165 L452 156 L458 165" />
+          <path class="shaft" d="M494 282 V172" /><path class="head" d="M488 181 L494 172 L500 181" />
+        </g>
+        <!-- return flow aloft, land to sea -->
+        <g class="arrow arrow--aloft">
+          <path class="shaft" d="M452 124 H172" /><path class="head" d="M181 118 L172 124 L181 130" />
+        </g>
+
+        <!-- labels -->
+        <text class="lbl lbl--accent" x="556" y="44" text-anchor="middle">{t(copy.sun)}</text>
+        <text class="lbl" x="40" y="352">{t(copy.sea)}</text>
+        <text class="lbl" x="612" y="352" text-anchor="end">{t(copy.land)}</text>
+        <text class="lbl" x="206" y="150">{t(copy.sink)}</text>
+        <text class="lbl lbl--accent" x="500" y="150">{t(copy.rise)}</text>
+        <text class="lbl lbl--accent" x="279" y="278" text-anchor="middle">{t(copy.breeze)}</text>
+        <text class="lbl" x="312" y="110" text-anchor="middle">{t(copy.aloft)}</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<style>
+  .thermal { container-type: inline-size; }
+  .sea { fill: color-mix(in srgb, var(--color-inverted-on-surface) 10%, transparent); stroke: none; }
+  .wave path { fill: none; stroke: color-mix(in srgb, var(--color-inverted-on-surface) 26%, transparent); stroke-width: 1; stroke-linecap: round; }
+  .land-base { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 10%, transparent); stroke: none; }
+  .land { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 20%, transparent); stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 34%, transparent); stroke-width: 1; }
+  .ground { fill: none; stroke: color-mix(in srgb, var(--color-inverted-on-surface) 30%, transparent); stroke-width: 1.25; }
+  .sun circle { fill: color-mix(in srgb, var(--color-primary-fixed-dim) 70%, transparent); stroke: none; }
+  .sun .ray path { fill: none; stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 60%, transparent); stroke-width: 1.5; stroke-linecap: round; }
+  .sun .heat path { fill: none; stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 28%, transparent); stroke-width: 1; stroke-dasharray: 2 6; stroke-linecap: round; }
+  .arrow .shaft, .arrow .head { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .arrow--sink .shaft, .arrow--sink .head { stroke: color-mix(in srgb, var(--color-inverted-on-surface) 60%, transparent); stroke-width: 1.75; }
+  .arrow--rise .shaft, .arrow--rise .head { stroke: color-mix(in srgb, var(--color-primary-fixed-dim) 68%, transparent); stroke-width: 1.75; }
+  .arrow--breeze .shaft, .arrow--breeze .head { stroke: var(--color-primary-fixed-dim); stroke-width: 3; }
+  .arrow--aloft .shaft, .arrow--aloft .head { stroke: color-mix(in srgb, var(--color-inverted-on-surface) 48%, transparent); stroke-width: 1.5; stroke-dasharray: 5 5; }
+  .arrow--aloft .head { stroke-dasharray: none; }
+  .lbl { fill: color-mix(in srgb, var(--color-inverted-on-surface) 60%, transparent); font-family: var(--font-label); font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+  .lbl--accent { fill: var(--color-primary-fixed-dim); }
+</style>
