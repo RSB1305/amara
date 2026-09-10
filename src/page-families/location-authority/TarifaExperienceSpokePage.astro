@@ -58,13 +58,19 @@ const localizedSections = content.sections.map((section) => ({
   paragraphs: section.paragraphs.map(t)
 }));
 
-// Photographs, when the spoke has an image source (only whale-watching so far).
+// Photographs, when the spoke has an image source (whale-watching, yoga so far).
 const routeKey = `tarifa.experience.${spoke}`;
 const hasImages = Boolean(getRouteImageSet(routeKey));
 const galleryImages = hasImages ? routeImages(routeKey, 'gallery', currentLang) : [];
 const editorialImage = hasImages ? routeImage(routeKey, 'firmm-vision', currentLang) : undefined;
-// Credit line for the firmm photographs, shown wherever they appear.
-const photoCredit = { href: 'https://www.firmm.org', label: 'Fotos: foundation firmm' };
+// The photo credit line, per route: the source's name and the link it points to.
+const photoCredits: Partial<Record<string, { href: string; label: string }>> = {
+  'tarifa.experience.whale-watching': { href: 'https://www.firmm.org', label: 'Fotos: foundation firmm' },
+  'tarifa.experience.yoga': { href: 'https://www.mandalablueyoga.es', label: 'Fotos: Mandalablue Yoga' }
+};
+const photoCredit = photoCredits[routeKey];
+// Static column classes so Tailwind keeps them; the grid follows the image count.
+const galleryColsClass = ({ 2: 'lg:grid-cols-2', 3: 'lg:grid-cols-3' } as Record<number, string>)[galleryImages.length] ?? 'lg:grid-cols-4';
 ---
 
 <LocationAuthorityLayout
@@ -118,7 +124,7 @@ const photoCredit = { href: 'https://www.firmm.org', label: 'Fotos: foundation f
     {galleryImages.length > 0 && (
       <section class="bg-surface px-6 py-16 md:px-12 md:py-20" data-am-experience-gallery>
         <div class="mx-auto max-w-screen-2xl">
-          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div class:list={['grid gap-6 sm:grid-cols-2', galleryColsClass]}>
             {galleryImages.map((image) => (
               <figure>
                 <AmaraImage
@@ -134,14 +140,16 @@ const photoCredit = { href: 'https://www.firmm.org', label: 'Fotos: foundation f
               </figure>
             ))}
           </div>
-          <p class="am-text-caption mt-6 normal-case tracking-normal text-muted">
-            <a
-              href={photoCredit.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary"
-            >{photoCredit.label}</a>
-          </p>
+          {photoCredit && (
+            <p class="am-text-caption mt-6 normal-case tracking-normal text-muted">
+              <a
+                href={photoCredit.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary"
+              >{photoCredit.label}</a>
+            </p>
+          )}
         </div>
       </section>
     )}
@@ -236,12 +244,14 @@ const photoCredit = { href: 'https://www.firmm.org', label: 'Fotos: foundation f
               />
               <figcaption class="am-text-caption mt-3 normal-case tracking-normal text-on-surface-variant">
                 {editorialImage.caption}
-                <a
-                  href={photoCredit.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-muted underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary"
-                >{photoCredit.label}</a>
+                {photoCredit && (
+                  <a
+                    href={photoCredit.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-muted underline decoration-primary/40 underline-offset-4 transition-colors hover:text-primary"
+                  >{photoCredit.label}</a>
+                )}
               </figcaption>
             </figure>
           )}
