@@ -5,7 +5,7 @@ export const frigilianaMarketKnowledge = defineKnowledgePageManifest({
   destination: 'frigiliana',
   topic: 'weekly-market-outing',
   createdAt: '2026-08-28T18:30:00+02:00',
-  updatedAt: '2026-08-28T18:30:00+02:00',
+  updatedAt: '2026-09-10T09:45:00+02:00',
   status: 'needs-review',
   driveFolder: {
     id: '1sgmfPBSOAkhlMnFSJNh8EJLB-edglXek',
@@ -17,8 +17,24 @@ export const frigilianaMarketKnowledge = defineKnowledgePageManifest({
     '2026-08-22__064102__supermarkets-everyday-shopping__research-001',
     '2026-08-24__121347__frigiliana-agriculture-lived-landscape__research-001',
     '2026-08-28__092359__frigiliana-shopping-local-food-cooking__research-001',
+    '2026-09-10__085528__frigiliana-market-day__research-001',
   ],
   coverage: [
+    {
+      authoringArea: 'street-trade-regulation-baseline',
+      purpose: 'Anchor the market page on what is actually proven — municipally regulated street trade — and keep day, time, location, stall mix and farmers-market framing out of the copy until a current source confirms them.',
+      factIds: [
+        'frigiliana.market.regulated-street-trade',
+        'frigiliana.market.decree-2021-list',
+        'frigiliana.market.decree-2023-indexed',
+        'frigiliana.market.schedule-location-unverified-2026',
+        'frigiliana.market.not-local-produce-only',
+        'frigiliana.market.not-craft-market',
+        'frigiliana.market.stall-count-unknown',
+      ],
+      status: 'partial',
+      notes: 'The 2026 market-day run confirms regulated comercio ambulante exists (2021/2023 decrees) but explicitly does not verify the weekly day, time, current location, stall count or a farmers-/craft-market framing. Present those only as "per current listing — verify live".',
+    },
     {
       authoringArea: 'direct-answer-and-outing-job',
       purpose: 'Answer whether the weekly market is worth making part of a Thursday morning and what must be checked before relying on it.',
