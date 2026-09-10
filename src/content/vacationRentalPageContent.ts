@@ -448,6 +448,13 @@ export const ui = {
       es: 'Vistas',
       nl: 'Uitzicht',
       sv: 'Utsikt'
+    },
+    poolSeason: {
+      en: 'Pool season',
+      de: 'Poolsaison',
+      es: 'Temporada de piscina',
+      nl: 'Poolseizoen',
+      sv: 'Poolsäsong'
     }
   }
 } satisfies Record<string, unknown>;

@@ -23,7 +23,8 @@ import {
   KeyRound,
   Languages,
   MessageCircle,
-  PawPrint
+  PawPrint,
+  Waves
 } from '@lucide/astro';
 import type { AstroComponent } from '@lucide/astro';
 import {
@@ -228,6 +229,9 @@ const localizedVehicleAccess: LocalizedText | undefined = vehicleAccessHours
 const detailRows = [
   { label: t(ui.labels.bedSize as LocalizedText), value: rental.bed.map(formatBed).join(', '), Icon: BedDouble },
   { label: t(ui.labels.view as LocalizedText), value: t(rental.viewNote), Icon: Eye },
+  ...(rental.poolSeasonNote
+    ? [{ label: t(ui.labels.poolSeason as LocalizedText), value: t(rental.poolSeasonNote), Icon: Waves }]
+    : []),
   { label: t(ui.labels.access as LocalizedText), value: t(rental.accessNote), Icon: Accessibility },
   ...(localizedVehicleAccess
     ? [{ label: t(ui.labels.vehicleAccess as LocalizedText), value: t(localizedVehicleAccess), Icon: CarFront }]

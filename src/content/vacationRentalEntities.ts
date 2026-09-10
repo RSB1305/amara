@@ -94,6 +94,8 @@ export interface VacationRentalEntity {
   kitchenNote: LocalizedText;
   outdoorNote: LocalizedText;
   viewNote: LocalizedText;
+  /** Opening season of a (shared) pool, shown as its own labelled fact row. */
+  poolSeasonNote?: LocalizedText;
   /** Shown under the full address. */
   addressNote?: LocalizedText;
   /**
@@ -1104,6 +1106,13 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       es: 'Vistas directas sobre el Atlántico',
       nl: 'Direct zicht over de Atlantische Oceaan',
       sv: 'Direkt utsikt över Atlanten'
+    },
+    poolSeasonNote: {
+      en: 'Mid-May to mid-September, weather permitting',
+      de: 'Mitte Mai bis Mitte September, je nach Wetter',
+      es: 'De mediados de mayo a mediados de septiembre, según el tiempo',
+      nl: 'Half mei tot half september, afhankelijk van het weer',
+      sv: 'Mitten av maj till mitten av september, beroende på väder'
     },
     images: routeImageSources('la-amara-family-and-surf', 'gallery'),
     imageAlt: routeImageAltText('la-amara-family-and-surf', 'card'),
