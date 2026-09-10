@@ -68,6 +68,13 @@ export const frigilianaDayTripsSeo: AmaraAuthoringSeo = {
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: routeOgImage('frigiliana.experience.day-trips'),
+  article: {
+    datePublished: '2026-07-29',
+    dateModified: '2026-09-09',
+    authorName: 'Robert Sebastian Böhmer',
+    authorType: 'Person',
+    authorRoute: 'about'
+  },
   languages: {
     en: {
       title: 'Day Trips from Frigiliana: Málaga, Granada & Ronda',

@@ -22,6 +22,13 @@ export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
   /* og:image is emitted as an absolute URL, so it must stay inside the published image contract. */
   ogImage:
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
+  article: {
+    datePublished: '2026-08-19',
+    dateModified: '2026-09-09',
+    authorName: 'Robert Sebastian Böhmer',
+    authorType: 'Person',
+    authorRoute: 'about'
+  },
   languages: {
     en: {
       title: 'Frigiliana Old Town: What to See & the Story Behind It',
