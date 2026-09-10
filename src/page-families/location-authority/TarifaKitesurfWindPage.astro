@@ -22,6 +22,7 @@ import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro
 import { resolveLocale } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import LocationModule from './LocationModule.astro';
+import LocationGuideIcon from '../../components/location/LocationGuideIcon.astro';
 import { requireRouteImage } from '../../lib/images/routeImages';
 
 /**
@@ -135,7 +136,10 @@ const footerHighlights: LabeledLink[] = [
     <LocationModule id="today-in-tarifa" labelledby="today-in-tarifa-title" spacing="compact" data-am-topic="live-briefing">
       <div class="mx-auto max-w-screen-2xl">
         <div class="max-w-3xl">
-          <p class="am-text-eyebrow text-primary">{content.live.briefingEyebrow}</p>
+          <div class="flex items-center gap-2.5">
+            <LocationGuideIcon name="temperature" class="h-4 w-4" />
+            <p class="am-text-eyebrow text-primary">{content.live.briefingEyebrow}</p>
+          </div>
           <h2 id="today-in-tarifa-title" class="am-text-title mt-5 text-balance text-on-surface">{content.live.forecastHeading}</h2>
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.live.pending}</p>
         </div>
@@ -155,7 +159,10 @@ const footerHighlights: LabeledLink[] = [
     <LocationModule id="windguru" labelledby="windguru-title" spacing="compact" data-am-topic="windguru">
       <div class="mx-auto max-w-screen-2xl">
         <div class="max-w-3xl">
-          <p class="am-text-eyebrow text-primary">{content.windguru.eyebrow}</p>
+          <div class="flex items-center gap-2.5">
+            <LocationGuideIcon name="comparison" class="h-4 w-4" />
+            <p class="am-text-eyebrow text-primary">{content.windguru.eyebrow}</p>
+          </div>
           <h2 id="windguru-title" class="am-text-title mt-5 text-balance text-on-surface">{content.windguru.title}</h2>
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.windguru.intro}</p>
         </div>
@@ -244,7 +251,10 @@ const footerHighlights: LabeledLink[] = [
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
           <div class="lg:col-span-5">
-            <p class="am-text-eyebrow text-primary">{content.localWind.eyebrow}</p>
+            <div class="flex items-center gap-2.5">
+              <LocationGuideIcon name="wind" class="h-4 w-4" />
+              <p class="am-text-eyebrow text-primary">{content.localWind.eyebrow}</p>
+            </div>
             <h2 id="poniente-levante-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.localWind.title}</h2>
           </div>
           <div class="space-y-5 lg:col-span-7">
@@ -364,7 +374,10 @@ const footerHighlights: LabeledLink[] = [
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-12 lg:gap-20">
           <div class="lg:col-span-6">
-            <p class="am-text-eyebrow text-primary">{content.partner.eyebrow}</p>
+            <div class="flex items-center gap-2.5">
+              <LocationGuideIcon name="private-transfer" class="h-4 w-4" />
+              <p class="am-text-eyebrow text-primary">{content.partner.eyebrow}</p>
+            </div>
             <h2 id="tarifa-surf-club-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.partner.title}</h2>
             <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant">{content.partner.intro}</p>
             <div class="mt-8 space-y-6">
@@ -411,7 +424,10 @@ const footerHighlights: LabeledLink[] = [
 
     <LocationModule id="related-kite-guides" labelledby="related-kite-guides-title" surface="tint" spacing="compact" data-am-topic="related">
       <div class="mx-auto max-w-screen-2xl">
-        <p class="am-text-eyebrow text-primary">{content.related.eyebrow}</p>
+        <div class="flex items-center gap-2.5">
+          <LocationGuideIcon name="excursion" class="h-4 w-4" />
+          <p class="am-text-eyebrow text-primary">{content.related.eyebrow}</p>
+        </div>
         <h2 id="related-kite-guides-title" class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{content.related.title}</h2>
         <div class="mt-10 grid gap-5 md:grid-cols-3">
           {content.related.links.map((link) => (
@@ -429,7 +445,10 @@ const footerHighlights: LabeledLink[] = [
 
     <LocationModule id="tarifa-basecamp" labelledby="tarifa-basecamp-title" spacing="closing" data-am-topic="basecamp">
       <div class="mx-auto max-w-4xl text-center">
-        <p class="am-text-eyebrow text-primary">{content.closing.eyebrow}</p>
+        <div class="flex items-center justify-center gap-2.5">
+          <LocationGuideIcon name="village" class="h-4 w-4" />
+          <p class="am-text-eyebrow text-primary">{content.closing.eyebrow}</p>
+        </div>
         <h2 id="tarifa-basecamp-title" class="am-text-title mt-5 text-balance text-on-surface">{content.closing.title}</h2>
         <p class="am-text-body mx-auto mt-7 max-w-3xl leading-relaxed text-on-surface-variant">{content.closing.text}</p>
         <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">

@@ -20,6 +20,7 @@ import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import { requireRouteImage } from '../../lib/images/routeImages';
 import LocationModule from './LocationModule.astro';
+import LocationGuideIcon from '../../components/location/LocationGuideIcon.astro';
 
 /**
  * Educational-leave spoke of the Tarifa kitesurf cluster. German carries the
@@ -148,7 +149,10 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
           <div class="mx-auto max-w-screen-2xl">
             <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
               <div class="max-w-xl">
-                <p class="text-primary am-text-label am-text-label--wide">{de.week.eyebrow}</p>
+                <div class="flex items-center gap-2.5">
+                  <LocationGuideIcon name="longer-stay" class="h-4 w-4" />
+                  <p class="text-primary am-text-label am-text-label--wide">{de.week.eyebrow}</p>
+                </div>
                 <h2 id="woche-title" class="am-text-title mt-5 text-balance text-on-surface">{de.week.title}</h2>
                 <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.week.intro}</p>
               </div>
@@ -171,7 +175,10 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
           <div class="mx-auto max-w-screen-2xl">
             <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
               <div class="max-w-xl">
-                <p class="text-primary am-text-label am-text-label--wide">{de.seminars.eyebrow}</p>
+                <div class="flex items-center gap-2.5">
+                  <LocationGuideIcon name="excursion" class="h-4 w-4" />
+                  <p class="text-primary am-text-label am-text-label--wide">{de.seminars.eyebrow}</p>
+                </div>
                 <h2 id="seminare-title" class="am-text-title mt-5 text-balance text-on-surface">{de.seminars.title}</h2>
                 <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.seminars.intro}</p>
                 <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.seminars.combos}</p>
@@ -193,7 +200,10 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
           <div class="mx-auto max-w-screen-2xl">
             <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
               <div class="max-w-xl">
-                <p class="text-primary am-text-label am-text-label--wide">{de.states.eyebrow}</p>
+                <div class="flex items-center gap-2.5">
+                  <LocationGuideIcon name="landmark" class="h-4 w-4" />
+                  <p class="text-primary am-text-label am-text-label--wide">{de.states.eyebrow}</p>
+                </div>
                 <h2 id="anerkennung-title" class="am-text-title mt-5 text-balance text-on-surface">{de.states.title}</h2>
                 <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.states.intro}</p>
                 <p class="am-text-body mt-6 leading-relaxed text-on-surface"><InlineEmphasis text={de.states.howTo} /></p>
@@ -222,7 +232,10 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
           <div class="mx-auto max-w-screen-2xl">
             <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
               <div class="max-w-xl">
-                <p class="text-primary am-text-label am-text-label--wide">{de.prices.eyebrow}</p>
+                <div class="flex items-center gap-2.5">
+                  <LocationGuideIcon name="longer-stay" class="h-4 w-4" />
+                  <p class="text-primary am-text-label am-text-label--wide">{de.prices.eyebrow}</p>
+                </div>
                 <h2 id="preise-title" class="am-text-title mt-5 text-balance text-on-surface">{de.prices.title}</h2>
                 <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.prices.intro}</p>
                 <p class="am-text-body mt-6 leading-relaxed text-on-surface"><InlineEmphasis text={de.prices.dates} /></p>
@@ -246,7 +259,10 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
           <div class="mx-auto max-w-screen-2xl">
             <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
               <div class="max-w-xl">
-                <p class="text-primary am-text-label am-text-label--wide">{de.stay.eyebrow}</p>
+                <div class="flex items-center gap-2.5">
+                  <LocationGuideIcon name="village" class="h-4 w-4" />
+                  <p class="text-primary am-text-label am-text-label--wide">{de.stay.eyebrow}</p>
+                </div>
                 <h2 id="wohnen-title" class="am-text-title mt-5 text-balance text-on-surface">{de.stay.title}</h2>
                 <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.stay.intro}</p>
               </div>
@@ -268,7 +284,10 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
           <div class="mx-auto max-w-screen-2xl">
             <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
               <div class="max-w-xl">
-                <p class="text-primary am-text-label am-text-label--wide">{de.team.eyebrow}</p>
+                <div class="flex items-center gap-2.5">
+                  <LocationGuideIcon name="family" class="h-4 w-4" />
+                  <p class="text-primary am-text-label am-text-label--wide">{de.team.eyebrow}</p>
+                </div>
                 <h2 id="team-title" class="am-text-title mt-5 text-balance text-on-surface">{de.team.title}</h2>
                 <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.team.intro}</p>
               </div>

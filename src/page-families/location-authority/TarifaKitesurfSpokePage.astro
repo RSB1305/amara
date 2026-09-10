@@ -15,6 +15,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import { resolveLocale, type LocalizedText } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import LocationModule from './LocationModule.astro';
+import LocationGuideIcon, { type LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import { requireRouteImage } from '../../lib/images/routeImages';
 
 /**
@@ -49,6 +50,17 @@ const t = (value: LocalizedText) => value[currentLang];
 // so it is pulled out of the "continue" cards to avoid a duplicate link.
 const beginnerGuide = content.related.find((link) => link.token === 'tarifa_kitesurf_beginner_guide');
 const relatedCards = content.related.filter((link) => link.token !== 'tarifa_kitesurf_beginner_guide');
+/** One guide-vocabulary icon per explanation section across the three spokes, keyed by section id. Safety stays without one. */
+const sectionIcons: Record<string, LocationGuideIconName> = {
+  'right-course': 'excursion',
+  'daily-session': 'sunshine',
+  'why-low-season': 'longer-stay',
+  'where-you-sleep': 'village',
+  bildungsurlaub: 'family',
+  'deposit-and-damage': 'comparison',
+  'at-the-apartment': 'journey-time',
+  'test-and-buy': 'coast'
+};
 const routeKey = ({ 'kite-school': 'tarifa.kitesurfing.school', kitecamp: 'tarifa.kitesurfing.kitecamp', equipment: 'tarifa.kitesurfing.equipment' } as const)[spoke];
 const heroPhoto = requireRouteImage(routeKey, 'hero', currentLang);
 const photo = requireRouteImage(routeKey, 'photo', currentLang);
@@ -113,7 +125,10 @@ const footerHighlights: LabeledLink[] = [
             class="group block border-l-4 border-primary bg-primary/10 px-6 py-7 transition-colors hover:bg-primary/15 md:px-10 md:py-8 lg:flex lg:items-center lg:justify-between lg:gap-10"
           >
             <div class="max-w-2xl">
-              <p class="am-text-eyebrow text-primary">{t(ui.beginnerEyebrow)}</p>
+              <div class="flex items-center gap-2.5">
+                <LocationGuideIcon name="excursion" class="h-4 w-4" />
+                <p class="am-text-eyebrow text-primary">{t(ui.beginnerEyebrow)}</p>
+              </div>
               <h2 class="am-text-subtitle mt-3 text-on-surface transition-colors group-hover:text-primary">{beginnerGuide.label}</h2>
               <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{beginnerGuide.text}</p>
             </div>
@@ -129,7 +144,10 @@ const footerHighlights: LabeledLink[] = [
     <LocationModule id="offers" labelledby="offers-title" spacing="compact" data-am-topic="offers">
       <div class="mx-auto max-w-screen-2xl">
         <div class="max-w-3xl">
-          <p class="am-text-eyebrow text-primary">{content.offers.eyebrow}</p>
+          <div class="flex items-center gap-2.5">
+            <LocationGuideIcon name="comparison" class="h-4 w-4" />
+            <p class="am-text-eyebrow text-primary">{content.offers.eyebrow}</p>
+          </div>
           <h2 id="offers-title" class="am-text-title mt-5 text-balance text-on-surface">{content.offers.title}</h2>
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.offers.intro}</p>
         </div>
@@ -182,7 +200,10 @@ const footerHighlights: LabeledLink[] = [
       <LocationModule id={section.id} labelledby={`${section.id}-title`} surface={index % 2 === 0 ? 'tint' : 'white'} spacing="compact" data-am-topic="explanation">
         <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
           <div class="lg:col-span-5">
-            <p class="am-text-eyebrow text-primary">{section.eyebrow}</p>
+            <div class="flex items-center gap-2.5">
+              {sectionIcons[section.id] && <LocationGuideIcon name={sectionIcons[section.id]!} class="h-4 w-4" />}
+              <p class="am-text-eyebrow text-primary">{section.eyebrow}</p>
+            </div>
             <h2 id={`${section.id}-title`} class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{section.title}</h2>
           </div>
           <div class="lg:col-span-7">
@@ -219,7 +240,10 @@ const footerHighlights: LabeledLink[] = [
 
     <LocationModule id="related" labelledby="related-title" surface="tint" spacing="compact" data-am-topic="related">
       <div class="mx-auto max-w-screen-2xl">
-        <p class="am-text-eyebrow text-primary">{t(ui.relatedEyebrow)}</p>
+        <div class="flex items-center gap-2.5">
+          <LocationGuideIcon name="village" class="h-4 w-4" />
+          <p class="am-text-eyebrow text-primary">{t(ui.relatedEyebrow)}</p>
+        </div>
         <h2 id="related-title" class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(ui.relatedTitle)}</h2>
         <div class="mt-10 grid gap-5 lg:grid-cols-3">
           {relatedCards.map((link) => (

@@ -16,6 +16,7 @@ import { resolveLocale } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityStayBridge from './AuthorityStayBridge.astro';
 import LocationModule from './LocationModule.astro';
+import LocationGuideIcon, { type LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import { requireRouteImage, routeImages } from '../../lib/images/routeImages';
 
 /**
@@ -54,6 +55,15 @@ const galleryTitle = {
   sv: 'En klubb, inte bara en skola'
 }[currentLang];
 const galleryImages = routeImages('tarifa.kitesurfing.surf-club', 'gallery', currentLang);
+
+/** One guide-vocabulary icon per "way in" card, keyed by its stable id. */
+const pathIcons: Record<string, LocationGuideIconName> = {
+  beginners: 'excursion',
+  advanced: 'wind',
+  camp: 'longer-stay',
+  education: 'family',
+  gear: 'comparison'
+};
 ---
 
 <LocationAuthorityLayout seo={tarifaKitePartnerSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-spoke">
@@ -93,7 +103,10 @@ const galleryImages = routeImages('tarifa.kitesurfing.surf-club', 'gallery', cur
     <LocationModule id="partners" labelledby="partners-title" surface="tint" spacing="compact" data-am-topic="co-branding">
       <div class="mx-auto max-w-screen-2xl">
         <div class="max-w-3xl">
-          <p class="am-text-eyebrow text-primary">{content.partners.eyebrow}</p>
+          <div class="flex items-center gap-2.5">
+            <LocationGuideIcon name="private-transfer" class="h-4 w-4" />
+            <p class="am-text-eyebrow text-primary">{content.partners.eyebrow}</p>
+          </div>
           <h2 id="partners-title" class="am-text-title mt-5 text-balance text-on-surface">{content.partners.title}</h2>
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.partners.intro}</p>
         </div>
@@ -142,7 +155,10 @@ const galleryImages = routeImages('tarifa.kitesurfing.surf-club', 'gallery', cur
         <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {content.paths.items.map((item) => (
             <AmaraActionLink href={pathHref(item.token, item.anchor)} variant="card" class="group bg-surface-container-low px-7 pb-8 pt-7 transition-colors hover:bg-surface-container-lowest">
-              <span class="am-text-label am-text-label--sm text-primary">{item.eyebrow}</span>
+              <span class="flex items-center gap-2.5 text-primary">
+            <LocationGuideIcon name={pathIcons[item.id]} class="h-4 w-4" />
+            <span class="am-text-label am-text-label--sm">{item.eyebrow}</span>
+          </span>
               <h3 class="am-text-subtitle mt-4 text-on-surface transition-colors group-hover:text-primary">{item.title}</h3>
               <span class="am-text-body mt-4 block leading-relaxed text-on-surface-variant">{item.text}</span>
               <span aria-hidden="true" class="mt-7 inline-flex text-primary transition-transform group-hover:translate-x-1">→</span>
@@ -155,7 +171,10 @@ const galleryImages = routeImages('tarifa.kitesurfing.surf-club', 'gallery', cur
     <LocationModule id="season" labelledby="season-title" surface="tint" spacing="compact" data-am-topic="season">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
         <div class="lg:col-span-5">
-          <p class="am-text-eyebrow text-primary">{content.season.eyebrow}</p>
+          <div class="flex items-center gap-2.5">
+            <LocationGuideIcon name="sunshine" class="h-4 w-4" />
+            <p class="am-text-eyebrow text-primary">{content.season.eyebrow}</p>
+          </div>
           <h2 id="season-title" class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.season.title}</h2>
           <dl class="mt-8 grid gap-5">
             {content.season.facts.map((fact) => (
@@ -198,7 +217,10 @@ const galleryImages = routeImages('tarifa.kitesurfing.surf-club', 'gallery', cur
     <LocationModule id="stays" labelledby="stays-title" spacing="compact" data-am-topic="stays">
       <div class="mx-auto max-w-screen-2xl">
         <div class="max-w-3xl">
-          <p class="am-text-eyebrow text-primary">{content.stays.eyebrow}</p>
+          <div class="flex items-center gap-2.5">
+            <LocationGuideIcon name="village" class="h-4 w-4" />
+            <p class="am-text-eyebrow text-primary">{content.stays.eyebrow}</p>
+          </div>
           <h2 id="stays-title" class="am-text-title mt-5 text-balance text-on-surface">{content.stays.title}</h2>
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.stays.intro}</p>
         </div>
@@ -224,7 +246,10 @@ const galleryImages = routeImages('tarifa.kitesurfing.surf-club', 'gallery', cur
 
     <LocationModule id="knowledge" labelledby="knowledge-title" surface="tint" spacing="compact" data-am-topic="knowledge">
       <div class="mx-auto max-w-screen-2xl">
-        <p class="am-text-eyebrow text-primary">{content.knowledge.eyebrow}</p>
+        <div class="flex items-center gap-2.5">
+          <LocationGuideIcon name="excursion" class="h-4 w-4" />
+          <p class="am-text-eyebrow text-primary">{content.knowledge.eyebrow}</p>
+        </div>
         <h2 id="knowledge-title" class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{content.knowledge.title}</h2>
         <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {content.knowledge.links.map((link) => (

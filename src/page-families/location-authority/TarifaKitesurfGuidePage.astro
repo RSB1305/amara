@@ -23,6 +23,7 @@ import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import { requireRouteImage } from '../../lib/images/routeImages';
+import LocationGuideIcon from '../../components/location/LocationGuideIcon.astro';
 
 /**
  * Editorial beginner guide beneath the Tarifa kitesurf cluster. It reuses the
@@ -139,7 +140,10 @@ const localizedSections = content.sections.map((section) => ({
     <aside class="bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
         <div class="lg:col-span-5">
-          <p class="am-text-eyebrow text-primary">{t(content.host.eyebrow)}</p>
+          <div class="flex items-center gap-2.5">
+            <LocationGuideIcon name="village" class="h-4 w-4" />
+            <p class="am-text-eyebrow text-primary">{t(content.host.eyebrow)}</p>
+          </div>
           <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{t(content.host.title)}</h2>
         </div>
         <div class="max-w-4xl space-y-5 lg:col-span-7">
@@ -154,7 +158,10 @@ const localizedSections = content.sections.map((section) => ({
 
     <section class="bg-surface px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
-        <p class="am-text-eyebrow text-primary">{t(content.related.eyebrow)}</p>
+        <div class="flex items-center gap-2.5">
+          <LocationGuideIcon name="excursion" class="h-4 w-4" />
+          <p class="am-text-eyebrow text-primary">{t(content.related.eyebrow)}</p>
+        </div>
         <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(content.related.title)}</h2>
         <div class="mt-12 grid gap-5 lg:grid-cols-3">
           {content.related.links.map((link) => (
