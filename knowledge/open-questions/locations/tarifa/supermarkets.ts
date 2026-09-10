@@ -1,6 +1,37 @@
 import { defineKnowledgeOpenQuestions } from '../../../schema';
 
 export const tarifaSupermarketsOpenQuestions = defineKnowledgeOpenQuestions([
-  { id: 'tarifa.shopping-current-everyday-network', subject: 'tarifa', topic: 'supermarkets-everyday-shopping', question: 'Which current shops and areas form a durable everyday grocery network for the relevant Tarifa neighbourhoods?', priority: 'high', reason: 'Existing public copy does not establish a source-verified shopping model.', preferredEvidence: 'Official operator listings, municipal sources and a dated field check.', status: 'researching', createdAt: '2026-08-22' },
-  { id: 'tarifa.shopping-host-route', subject: 'tarifa', topic: 'supermarkets-everyday-shopping', question: 'What shopping route do we genuinely recommend from AMARA Family & Surf with and without a car?', priority: 'high', reason: 'Host guidance requires first-party evidence and must not be inferred from a map.', preferredEvidence: 'Dated host walkthrough with transport mode and practical trade-offs.', status: 'open', createdAt: '2026-08-22' },
+  {
+    id: 'tarifa.supermarkets.question.which-chains-current',
+    subject: 'tarifa',
+    topic: 'supermarkets-everyday-shopping',
+    question: 'Which supermarket chains actually operate in Tarifa now, resolving the conflict between the two 2026 runs (Mercadona C/ La Línea + Supeco vs DIA ×2, El Jamón, Carrefour Express at the N-340 station)?',
+    priority: 'medium',
+    reason: 'The two research runs disagree substantially on the current chain set and addresses.',
+    preferredEvidence: 'Current operator store locators (Lidl, DIA, Carrefour, Mercadona, El Jamón) and/or a dated on-site check.',
+    status: 'open',
+    createdAt: '2026-09-10'
+  },
+  {
+    id: 'tarifa.supermarkets.question.mercadona-presence',
+    subject: 'tarifa',
+    topic: 'supermarkets-everyday-shopping',
+    question: 'Is there a current address-confirmed Mercadona in Tarifa (the September run gives C/ La Línea s/n; the more current run could not confirm it)?',
+    priority: 'low',
+    reason: 'The two runs disagree on whether Mercadona is currently present and where.',
+    preferredEvidence: 'Mercadona\'s own store finder or a dated on-site confirmation.',
+    status: 'open',
+    createdAt: '2026-09-10'
+  },
+  {
+    id: 'tarifa.supermarkets.question.municipal-market-stalls',
+    subject: 'tarifa',
+    topic: 'supermarkets-everyday-shopping',
+    question: 'Are the municipal market-hall stalls (Calle Colón, awarded 12 Aug 2026 for charcutería/pescadería etc.) actually operating, and what are their hours?',
+    priority: 'low',
+    reason: 'The award protocol does not prove the stalls are open for everyday shopping.',
+    preferredEvidence: 'Ayuntamiento de Tarifa market information or a dated on-site check.',
+    status: 'open',
+    createdAt: '2026-09-10'
+  }
 ] as const);
