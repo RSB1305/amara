@@ -279,10 +279,12 @@ const footerHighlights: LabeledLink[] = [
           <div class="md:col-span-3 lg:col-span-2">
             <AmaraImage src={robertPortrait} alt={content.localWind.quote.imageAlt} profile="card" width={480} widths={[240, 360, 480]} sizes="(max-width: 767px) 10rem, 14rem" class="aspect-[4/5] w-40 object-cover md:w-full" focalPoint="50% 20%" />
           </div>
-          <blockquote class="m-0 space-y-5 md:col-span-9 lg:col-span-10">
-            {content.localWind.quote.paragraphs.map((paragraph) => <p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{paragraph}</p>)}
-          </blockquote>
-          <figcaption class="am-text-label am-text-label--sm text-primary md:col-span-9 md:col-start-4 lg:col-span-10 lg:col-start-3">— {content.localWind.quote.name} · {content.localWind.quote.role}</figcaption>
+          <div class="md:col-span-9 lg:col-span-10">
+            <blockquote class="m-0 space-y-5">
+              {content.localWind.quote.paragraphs.map((paragraph) => <p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{paragraph}</p>)}
+            </blockquote>
+            <figcaption class="am-text-label am-text-label--sm mt-5 text-primary">— {content.localWind.quote.name} · {content.localWind.quote.role}</figcaption>
+          </div>
         </figure>
 
         <p class="am-text-body mt-10 max-w-3xl leading-relaxed text-on-surface-variant">
@@ -352,11 +354,13 @@ const footerHighlights: LabeledLink[] = [
             ))}
           </div>
 
-          <p class="am-text-label am-text-label--sm mt-10 text-primary">{content.safety.rescueQuote.lead}</p>
-          <figure class="mt-4 flex items-start gap-5" data-am-voice="mark-rescue">
-            <AmaraImage src={markImage.src} alt={markImage.alt} profile="card" width={192} widths={[96, 144, 192]} sizes="4rem" class="h-16 w-16 shrink-0 rounded-full object-cover" focalPoint="50% 25%" />
-            <div class="min-w-0">
-              <blockquote class="m-0 space-y-4">
+          <figure class="mt-10 grid gap-8 md:grid-cols-12 md:gap-10" data-am-voice="mark-rescue">
+            <div class="md:col-span-3 lg:col-span-2">
+              <AmaraImage src={markImage.src} alt={markImage.alt} profile="card" width={480} widths={[240, 360, 480]} sizes="(max-width: 767px) 10rem, 14rem" class="aspect-[4/5] w-40 object-cover md:w-full" focalPoint="50% 25%" />
+            </div>
+            <div class="md:col-span-9 lg:col-span-10">
+              <p class="am-text-label am-text-label--sm text-primary">{content.safety.rescueQuote.lead}</p>
+              <blockquote class="m-0 mt-3 space-y-4">
                 {content.safety.rescueQuote.paragraphs.map((paragraph) => <p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{paragraph}</p>)}
               </blockquote>
               <figcaption class="am-text-label am-text-label--sm mt-4 text-primary">— {content.safety.rescueQuote.name} · {content.safety.rescueQuote.role}</figcaption>
@@ -416,30 +420,31 @@ const footerHighlights: LabeledLink[] = [
           </figure>
         </div>
 
-        <div class="mt-16 grid gap-10 lg:grid-cols-12 lg:gap-20" data-am-voice="mark">
-          <figure class="m-0 lg:col-span-4">
-            <AmaraImage src={markImage.src} alt={markImage.alt} profile="card" width={900} widths={[320, 480, 600, 900]} sizes="(max-width: 1023px) calc(100vw - 3rem), 30vw" class="aspect-[3/4] w-full max-w-sm object-cover" />
-            <figcaption class="am-text-label am-text-label--sm mt-4 text-primary">{content.partner.voice.name} · {content.partner.voice.role}</figcaption>
-          </figure>
-          <div class="lg:col-span-8">
-            <h3 class="am-text-title text-balance text-on-surface">{content.partner.voice.title}</h3>
-            <div class="mt-8">
+        <figure class="mt-16 grid gap-8 md:grid-cols-12 md:gap-10 lg:gap-16" data-am-voice="mark">
+          <div class="md:col-span-3 lg:col-span-2">
+            <AmaraImage src={markImage.src} alt={markImage.alt} profile="card" width={480} widths={[240, 360, 480]} sizes="(max-width: 767px) 10rem, 14rem" class="aspect-[4/5] w-40 object-cover md:w-full" focalPoint="50% 25%" />
+          </div>
+          <div class="md:col-span-9 lg:col-span-10">
+            <h3 class="am-text-subtitle text-balance text-on-surface">{content.partner.voice.title}</h3>
+            <div class="mt-6">
               {content.partner.voice.quotes.map((quote) => (
-                <figure class="mt-10 first:mt-0" data-am-voice-quote={quote.id}>
+                <div class="mt-8 first:mt-0" data-am-voice-quote={quote.id}>
                   <p class="am-text-label am-text-label--sm text-primary">{quote.lead}</p>
                   <blockquote class="m-0 mt-3 space-y-4">
                     {quote.paragraphs.map((paragraph) => <p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{paragraph}</p>)}
                   </blockquote>
-                  <figcaption class="am-text-label am-text-label--sm mt-3 text-muted">— {content.partner.voice.name}, {content.partner.voice.role}</figcaption>
-                </figure>
+                </div>
               ))}
             </div>
+            <figcaption class="am-text-label am-text-label--sm mt-6 text-primary">— {content.partner.voice.name} · {content.partner.voice.role}</figcaption>
           </div>
-        </div>
+        </figure>
       </div>
     </LocationModule>
 
-    <LocationModule id="related-kite-guides" labelledby="related-kite-guides-title" surface="tint" spacing="compact" data-am-topic="related">
+    <GuestGuideBridge lang={currentLang} destination="tarifa" guideSlugs={['tarifa-guest-kitesurfing']} />
+
+    <LocationModule id="related-kite-guides" labelledby="related-kite-guides-title" surface="tint" spacing="closing" data-am-topic="closing">
       <div class="mx-auto max-w-screen-2xl">
         <div class="flex items-center gap-2.5">
           <LocationGuideIcon name="excursion" class="h-4 w-4" />
@@ -455,24 +460,20 @@ const footerHighlights: LabeledLink[] = [
             </AmaraActionLink>
           ))}
         </div>
-      </div>
-    </LocationModule>
 
-    <GuestGuideBridge lang={currentLang} destination="tarifa" guideSlugs={['tarifa-guest-kitesurfing']} />
-
-    <LocationModule id="tarifa-basecamp" labelledby="tarifa-basecamp-title" spacing="closing" data-am-topic="basecamp">
-      <div class="mx-auto max-w-4xl text-center">
-        <div class="flex items-center justify-center gap-2.5">
-          <LocationGuideIcon name="village" class="h-4 w-4" />
-          <p class="am-text-eyebrow text-primary">{content.closing.eyebrow}</p>
+        <div id="tarifa-basecamp" class="mt-20 border-t border-border-subtle pt-16 text-center" data-am-topic="basecamp">
+          <div class="flex items-center justify-center gap-2.5">
+            <LocationGuideIcon name="village" class="h-4 w-4" />
+            <p class="am-text-eyebrow text-primary">{content.closing.eyebrow}</p>
+          </div>
+          <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.closing.title}</h2>
+          <p class="am-text-body mx-auto mt-7 max-w-3xl leading-relaxed text-on-surface-variant">{content.closing.text}</p>
+          <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href={requiredLink('tarifa')} class="am-btn am-btn--secondary w-full justify-center sm:w-auto">{content.closing.stayLabel}</a>
+            <a href={requiredLink('book')} class="am-btn am-btn--primary w-full justify-center sm:w-auto">{content.closing.availabilityLabel}</a>
+          </div>
+          <p class="am-text-body mx-auto mt-14 max-w-3xl leading-relaxed text-muted" data-am-final-line>{content.closing.finalLine}</p>
         </div>
-        <h2 id="tarifa-basecamp-title" class="am-text-title mt-5 text-balance text-on-surface">{content.closing.title}</h2>
-        <p class="am-text-body mx-auto mt-7 max-w-3xl leading-relaxed text-on-surface-variant">{content.closing.text}</p>
-        <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <a href={requiredLink('tarifa')} class="am-btn am-btn--secondary w-full justify-center sm:w-auto">{content.closing.stayLabel}</a>
-          <a href={requiredLink('book')} class="am-btn am-btn--primary w-full justify-center sm:w-auto">{content.closing.availabilityLabel}</a>
-        </div>
-        <p class="am-text-body mx-auto mt-14 max-w-3xl leading-relaxed text-muted" data-am-final-line>{content.closing.finalLine}</p>
       </div>
     </LocationModule>
 
