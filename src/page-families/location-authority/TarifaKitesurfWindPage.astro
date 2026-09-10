@@ -1,6 +1,5 @@
 ---
 import AmaraImage from '../../components/AmaraImage.astro';
-import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
 import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -311,10 +310,17 @@ const footerHighlights: LabeledLink[] = [
       </div>
     </LocationModule>
 
-    <section class="bg-surface" data-am-topic="editorial-photo">
-      <AmaraMediaFrame role="panorama" caption={sunsetImage.caption}>
+    <section class="relative isolate overflow-hidden bg-inverse-surface" data-am-topic="editorial-photo">
+      <div class="aspect-[4/5] w-full sm:aspect-video lg:aspect-[21/9]">
         <AmaraImage src={sunsetImage.src} alt={sunsetImage.alt} profile="background" class="h-full w-full object-cover" focalPoint={sunsetImage.focalPoint} />
-      </AmaraMediaFrame>
+      </div>
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
+      <div class="absolute inset-x-0 bottom-0">
+        <div class="mx-auto w-full max-w-screen-2xl px-6 pb-8 md:px-12 md:pb-12">
+          <p class="am-text-subtitle max-w-2xl text-balance text-inverted-on-surface">{sunsetImage.caption}</p>
+          <p class="am-text-caption mt-3 normal-case tracking-normal text-inverted-on-surface/65">{sunsetImage.credit}</p>
+        </div>
+      </div>
     </section>
 
     {/* SICHERHEIT — ein Block: Vorrang, Zonen, Tide, Rettung, Seenotruf */}
