@@ -40,14 +40,14 @@ export interface GettingToTarifaLocale {
 
 const article = {
   datePublished: '2026-08-13',
-  dateModified: '2026-08-29',
+  dateModified: '2026-09-10',
   authorName: 'Robert Sebastian Böhmer',
   authorType: 'Person' as const,
   authorRoute: 'about'
 };
 
 export const gettingToTarifaSeo: AmaraAuthoringSeo = {
-  version: '2026-08-29-getting-to-tarifa-v2.0',
+  version: '2026-09-10-getting-to-tarifa-v2.1',
   pageType: 'A',
   entityKey: 'amara-brand',
   article,
@@ -115,11 +115,11 @@ export const gettingToTarifaContent = {
       title: l("Three airports, and then a stretch of road", "Drei Flughäfen, und dann noch ein Stück Straße", "Tres aeropuertos, y luego un trecho de carretera", "Drie luchthavens, en dan nog een stuk weg", "Tre flygplatser, och sedan en bit väg"),
       paragraphs: [
         l(
-          "Málaga usually has the widest choice of flights. Gibraltar is geographically closer but adds a land border and the documents that go with it. Jerez brings you in from the Cádiz side.",
-          "Málaga hat meist die größte Flugauswahl. Gibraltar liegt geografisch näher, bringt aber eine Landgrenze und die dazugehörigen Dokumente mit. Jerez führt euch von der Cádiz-Seite heran.",
-          "Málaga suele tener la mayor oferta de vuelos. Gibraltar queda más cerca pero añade una frontera terrestre y su documentación. Jerez os acerca desde el lado de Cádiz.",
-          "Málaga heeft meestal het grootste vluchtaanbod. Gibraltar ligt geografisch dichterbij maar voegt een landgrens en de bijbehorende documenten toe. Jerez brengt je binnen vanaf de kant van Cádiz.",
-          "Málaga har oftast störst flygutbud. Gibraltar ligger geografiskt närmare men lägger till en landgräns och de handlingar som hör dit. Jerez tar er in från Cádizsidan."
+          "Málaga usually has the widest choice of flights. Gibraltar is geographically closer but adds a land border and the documents that go with it. Jerez brings you in from the Cádiz side. Roughly, Málaga is about 160 km and around two hours by road, Jerez about 120 km, and Gibraltar only about 45 km plus the border.",
+          "Málaga hat meist die größte Flugauswahl. Gibraltar liegt geografisch näher, bringt aber eine Landgrenze und die dazugehörigen Dokumente mit. Jerez führt euch von der Cádiz-Seite heran. Grob: Málaga sind etwa 160 km und rund zwei Stunden Fahrt, Jerez etwa 120 km und Gibraltar nur rund 45 km plus Grenze.",
+          "Málaga suele tener la mayor oferta de vuelos. Gibraltar queda más cerca pero añade una frontera terrestre y su documentación. Jerez os acerca desde el lado de Cádiz. A grandes rasgos: Málaga está a unos 160 km y cerca de dos horas por carretera, Jerez a unos 120 km y Gibraltar a solo unos 45 km más la frontera.",
+          "Málaga heeft meestal het grootste vluchtaanbod. Gibraltar ligt geografisch dichterbij maar voegt een landgrens en de bijbehorende documenten toe. Jerez brengt je binnen vanaf de kant van Cádiz. Ruwweg: Málaga is ongeveer 160 km en zo'n twee uur rijden, Jerez ongeveer 120 km en Gibraltar maar zo'n 45 km plus de grens.",
+          "Málaga har oftast störst flygutbud. Gibraltar ligger geografiskt närmare men lägger till en landgräns och de handlingar som hör dit. Jerez tar er in från Cádizsidan. Grovt: Málaga är cirka 160 km och runt två timmars körning, Jerez cirka 120 km och Gibraltar bara cirka 45 km plus gränsen."
         ),
         l(
           "Aena lists buses from Málaga Airport towards Algeciras and La Línea, and from Jerez Airport towards Jerez and Cádiz. In each case a further leg to Tarifa follows.",
@@ -234,11 +234,11 @@ export const gettingToTarifaContent = {
       title: l("In town you can leave the car parked", "Im Ort könnt ihr das Auto stehen lassen", "En el pueblo podéis dejar el coche aparcado", "In de stad kun je de auto laten staan", "I stan kan ni låta bilen stå"),
       paragraphs: [
         l(
-          "From La Marina the old town is a walk, and the supermarket is directly opposite the building. Everyday shopping and evenings in town need no car at all.",
-          "Von La Marina aus geht ihr zu Fuß in die Altstadt, und der Supermarkt liegt direkt gegenüber dem Haus. Für den täglichen Einkauf und Abende im Ort braucht ihr gar kein Auto.",
-          "Desde La Marina el casco antiguo se hace andando, y el supermercado está justo enfrente del edificio. La compra diaria y las noches en el pueblo no piden coche.",
-          "Vanuit La Marina loop je naar de oude kern, en de supermarkt ligt recht tegenover het gebouw. Dagelijkse boodschappen en avonden in de stad hebben geen auto nodig.",
-          "Från La Marina går ni till gamla stan, och mataffären ligger mitt emot huset. Vardagshandel och kvällar i stan kräver ingen bil alls."
+          "From La Marina the old town is a walk, and the supermarket is directly opposite the building. The old town itself is largely car-free — from about 13:30, Monday to Saturday, only residents, permit holders and deliveries drive in — so La Marina with its garage is the easy side to arrive on. Everyday shopping and evenings in town need no car at all.",
+          "Von La Marina aus geht ihr zu Fuß in die Altstadt, und der Supermarkt liegt direkt gegenüber dem Haus. Die Altstadt selbst ist weitgehend autofrei — ab etwa 13:30 Uhr, montags bis samstags, fahren nur Anwohner, Genehmigungsinhaber und Lieferdienste hinein —, deshalb ist La Marina mit seiner Garage die unkomplizierte Seite zum Ankommen. Für den täglichen Einkauf und Abende im Ort braucht ihr gar kein Auto.",
+          "Desde La Marina el casco antiguo se hace andando, y el supermercado está justo enfrente del edificio. El propio casco antiguo es en gran parte peatonal —desde las 13:30, de lunes a sábado, solo entran residentes, titulares de permiso y repartos—, así que La Marina, con su garaje, es el lado fácil para llegar. La compra diaria y las noches en el pueblo no piden coche.",
+          "Vanuit La Marina loop je naar de oude kern, en de supermarkt ligt recht tegenover het gebouw. De oude kern zelf is grotendeels autovrij — vanaf ongeveer 13:30 uur, maandag tot en met zaterdag, rijden alleen bewoners, vergunninghouders en leveranciers naar binnen — dus La Marina met zijn garage is de makkelijke kant om aan te komen. Dagelijkse boodschappen en avonden in de stad hebben geen auto nodig.",
+          "Från La Marina går ni till gamla stan, och mataffären ligger mitt emot huset. Själva gamla stan är till stor del bilfri — från cirka 13:30, måndag till lördag, kör bara boende, tillståndshavare och leveranser in — så La Marina med sitt garage är den enkla sidan att komma till. Vardagshandel och kvällar i stan kräver ingen bil alls."
         ),
         l(
           "It changes outside town. The western beaches, shifting wind conditions and day trips are much easier when you can choose your transport freely.",

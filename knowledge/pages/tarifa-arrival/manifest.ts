@@ -4,7 +4,7 @@ export const tarifaArrivalKnowledge = defineKnowledgePageManifest({
   id: 'page-tarifa-arrival', destination: 'tarifa', topic: 'arrival',
   createdAt: '2026-09-10T11:30:00+02:00', updatedAt: '2026-09-10T11:30:00+02:00', status: 'needs-review',
   driveFolder: { id: '1H_E2FwF1sN8tgPXI7V6ItWzBQoPmUVTP', url: 'https://drive.google.com/drive/folders/1H_E2FwF1sN8tgPXI7V6ItWzBQoPmUVTP', path: 'AMARA – Research Vault/10_LOCATIONS/tarifa/arrival' },
-  publicContentPath: 'src/content/tarifaArrivalGuideContent.ts',
+  publicContentPath: 'src/content/gettingToTarifaContent.ts',
   researchRunIds: ['2026-09-10__110515__tarifa-arrival-getting-there__research-001'],
   coverage: [
     { authoringArea: 'airport-and-road', purpose: 'Model the airport choice (Málaga/Jerez/Gibraltar/Seville) and the road corridors to Tarifa.', factIds: ['tarifa.arrival.airport-options', 'tarifa.arrival.road-route'], status: 'covered', notes: 'Distances/times are approximate orientation, not guaranteed.' },
