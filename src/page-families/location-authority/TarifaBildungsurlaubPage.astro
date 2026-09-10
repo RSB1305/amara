@@ -271,14 +271,29 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
                 <h2 id="team-title" class="am-text-title mt-5 text-balance text-on-surface">{de.team.title}</h2>
                 <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{de.team.intro}</p>
               </div>
-              <dl class="grid gap-5 sm:grid-cols-2">
-                {de.team.people.map((person) => (
-                  <div class="border-t border-border-subtle bg-surface-container-low/60 px-5 pb-7 pt-6">
-                    <dt class="am-text-subtitle text-on-surface">{person.name}</dt>
-                    <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{person.role}</dd>
-                  </div>
-                ))}
-              </dl>
+              <div class="grid gap-5 sm:grid-cols-2">
+                {de.team.people.map((person) => {
+                  const portrait = requireRouteImage('tarifa.kitesurfing.bildungsurlaub', person.id, currentLang);
+                  return (
+                    <figure class="border-t border-border-subtle bg-surface-container-low/60 px-5 pb-7 pt-6">
+                      <AmaraImage
+                        src={portrait.src}
+                        alt={portrait.alt}
+                        profile="card"
+                        width={600}
+                        widths={[320, 480, 600]}
+                        sizes="(max-width: 639px) calc(100vw - 3rem), (max-width: 1023px) 45vw, 22vw"
+                        class="aspect-[3/4] w-full object-cover"
+                        focalPoint={portrait.focalPoint}
+                      />
+                      <figcaption class="mt-5">
+                        <p class="am-text-subtitle text-on-surface">{person.name}</p>
+                        <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{person.role}</p>
+                      </figcaption>
+                    </figure>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </LocationModule>
