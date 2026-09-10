@@ -35,6 +35,8 @@ const copy: Record<
     legalAriaLabel: string;
     cookies: string;
     cookiesAriaLabel: string;
+    sitemap: string;
+    sitemapAriaLabel: string;
     instagram: string;
   }
 > = {
@@ -44,6 +46,8 @@ const copy: Record<
     legalAriaLabel: 'Legal Notice & Privacy',
     cookies: 'Cookies',
     cookiesAriaLabel: 'Cookies — Cookie settings',
+    sitemap: 'Site map',
+    sitemapAriaLabel: 'Site map — all pages',
     instagram: 'AMARA on Instagram'
   },
   de: {
@@ -52,6 +56,8 @@ const copy: Record<
     legalAriaLabel: 'Rechtliches — Impressum & Datenschutz',
     cookies: 'Cookies',
     cookiesAriaLabel: 'Cookies — Cookie-Einstellungen',
+    sitemap: 'Seitenübersicht',
+    sitemapAriaLabel: 'Seitenübersicht — alle Seiten',
     instagram: 'AMARA auf Instagram'
   },
   es: {
@@ -60,6 +66,8 @@ const copy: Record<
     legalAriaLabel: 'Aviso legal y privacidad',
     cookies: 'Cookies',
     cookiesAriaLabel: 'Cookies — configurar cookies',
+    sitemap: 'Mapa del sitio',
+    sitemapAriaLabel: 'Mapa del sitio — todas las páginas',
     instagram: 'AMARA en Instagram'
   },
   nl: {
@@ -68,6 +76,8 @@ const copy: Record<
     legalAriaLabel: 'Juridische kennisgeving & privacy',
     cookies: 'Cookies',
     cookiesAriaLabel: 'Cookies — cookie-instellingen',
+    sitemap: 'Sitemap',
+    sitemapAriaLabel: "Sitemap — alle pagina's",
     instagram: 'AMARA op Instagram'
   },
   sv: {
@@ -76,6 +86,8 @@ const copy: Record<
     legalAriaLabel: 'Juridisk information & integritet',
     cookies: 'Cookies',
     cookiesAriaLabel: 'Cookies — cookieinställningar',
+    sitemap: 'Webbplatskarta',
+    sitemapAriaLabel: 'Webbplatskarta — alla sidor',
     instagram: 'AMARA på Instagram'
   }
 };
@@ -118,6 +130,14 @@ const labels = copy[currentLang] ?? copy.en;
 
       <div class="footer-core__right flex flex-col items-start gap-3 md:items-end">
         <div class="inline-flex items-center gap-2 whitespace-nowrap">
+          <a
+            href={resolveLink('sitemap', currentLang)}
+            aria-label={labels.sitemapAriaLabel}
+            class="text-on-surface-variant hover:text-primary am-text-label transition-colors"
+          >
+            {labels.sitemap}
+          </a>
+          <span class="flex items-center justify-center leading-none text-outline-variant/60" aria-hidden="true">·</span>
           <a
             href={resolveLink('legal_notice', currentLang)}
             aria-label={labels.legalAriaLabel}

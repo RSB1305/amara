@@ -241,6 +241,18 @@ const definitions = [
     indexable: false,
     paths: shared('instagram')
   },
+  // Human-readable site map (Seitenübersicht): the on-page orientation list and
+  // internal-link hub, distinct from the machine sitemap.xml. It is a brand-new
+  // page with no pre-migration URL, so it is an identity route whose legacy slug
+  // equals its shared path — no migration redirect is required. The footer link
+  // that reaches it stays localized even though the URL segment is shared.
+  {
+    key: 'sitemap',
+    legacySlug: 'sitemap',
+    family: 'sitemap',
+    identity: true,
+    paths: shared('sitemap')
+  },
 
   /* =========================================================
      STAYS
