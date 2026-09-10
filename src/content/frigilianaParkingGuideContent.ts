@@ -4,10 +4,10 @@ import type { ParkingGuideLocale, ParkingGuideSection } from './parkingGuideCont
 type Localized = Record<AmaraLanguage, string>;
 const l = (en: string, de: string, es: string, nl: string, sv: string): Localized => ({ en, de, es, nl, sv });
 const langs: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
-const article = { datePublished: '2026-08-20', dateModified: '2026-08-31', authorName: 'Robert Sebastian Böhmer', authorType: 'Person' as const, authorRoute: 'about' };
+const article = { datePublished: '2026-08-20', dateModified: '2026-09-10', authorName: 'Robert Sebastian Böhmer', authorType: 'Person' as const, authorRoute: 'about' };
 
 export const frigilianaParkingGuideSeo: AmaraAuthoringSeo = {
-  version: '2026-08-31-frigiliana-parking-v2.1', pageType: 'A', entityKey: 'amara-brand', article,
+  version: '2026-09-10-frigiliana-parking-v2.2', pageType: 'A', entityKey: 'amara-brand', article,
   languages: {
     en: { title: 'Parking in Frigiliana: Where to Leave the Car', description: 'For overnight guests, parking in Frigiliana is usually straightforward. Most pressure comes from day visitors; timing your arrival makes the last stretch easier.', robots: 'index, follow', canonical: 'auto' },
     de: { title: 'Parken in Frigiliana: Wo ihr das Auto lasst', description: 'Für Übernachtungsgäste ist Parken in Frigiliana normalerweise unkompliziert. Der größte Andrang kommt von Tagesgästen; die passende Ankunftszeit macht es leichter.', robots: 'index, follow', canonical: 'auto' },
@@ -51,6 +51,7 @@ const hero = {
 const facts = [
   { label: l('The village streets', 'Die Dorfstraßen', 'Las calles del pueblo', 'De dorpsstraten', 'Byns gator'), value: l('Usually closed from about 10–11 until around 17:00', 'Meist von etwa 10–11 bis gegen 17 Uhr gesperrt', 'Suelen cerrarse de 10–11 h a las 17 h', 'Meestal dicht van ongeveer 10–11 tot 17 uur', 'Oftast avstängda från cirka 10–11 till omkring 17') },
   { label: l('Where to leave it', 'Wo ihr es abstellt', 'Dónde dejarlo', 'Waar je hem laat', 'Var ni lämnar den'), value: l('Paid car park below Plaza de las Tres Culturas', 'Kostenpflichtiger Parkplatz unter der Plaza de las Tres Culturas', 'Aparcamiento de pago bajo la Plaza de las Tres Culturas', 'Betaalde parking onder de Plaza de las Tres Culturas', 'Avgiftsparkering under Plaza de las Tres Culturas') },
+  { label: l('Rough cost', 'Ungefährer Preis', 'Coste aproximado', 'Richtprijs', 'Ungefär pris'), value: l('About €2.50/hour, €15/day cap (seen Aug 2026; the sign has today’s rate)', 'Etwa 2,50 €/Std., max. 15 €/Tag (Stand Aug. 2026; es gilt das Schild)', 'Unos 2,50 €/h, máx. 15 €/día (visto en ago. 2026; vale el cartel)', 'Circa € 2,50/u, max. € 15/dag (gezien aug. 2026; het bord geldt)', 'Cirka 2,50 €/tim, max 15 €/dygn (sett aug. 2026; skylten gäller)') },
   { label: l('The last stretch', 'Der letzte Weg', 'El último tramo', 'Het laatste stuk', 'Sista biten'), value: l('Gradients, cobbles and steps', 'Steigung, Pflaster und Stufen', 'Cuestas, adoquines y escalones', 'Hellingen, kasseien en trappen', 'Backar, kullersten och trappsteg') },
   { label: l('Fixed spaces', 'Feste Plätze', 'Plazas fijas', 'Vaste plekken', 'Fasta platser'), value: l('None in the village; usually free anyway', 'Gibt es im Dorf nicht; frei ist meist trotzdem', 'No las hay en el pueblo; aun así casi siempre hay sitio', 'Zijn er in het dorp niet; vrij is er meestal toch', 'Finns inte i byn; ledigt är det oftast ändå') }
 ] as const;
