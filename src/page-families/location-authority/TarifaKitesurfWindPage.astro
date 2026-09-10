@@ -182,8 +182,14 @@ const footerHighlights: LabeledLink[] = [
           <AmaraActionLink href={content.windguru.linkHref} variant="editorial" external class="inline-flex">{content.windguru.linkLabel}</AmaraActionLink>
         </div>
 
-        <div class="mt-14">
-          <h3 class="am-text-subtitle max-w-md text-balance text-on-surface">{content.windguru.rowsTitle}</h3>
+        <details class="group mt-14 border-t border-border-subtle pt-6 outline-none" data-am-windguru-rows open>
+          <summary class="am-accordion__trigger items-center">
+            <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.windguru.rowsTitle}</h3>
+            <span class="am-accordion__indicator" aria-hidden="true">
+              <span class="group-open:hidden">+</span>
+              <span class="hidden group-open:inline">−</span>
+            </span>
+          </summary>
           <dl class="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {content.windguru.rows.map((row) => (
               <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-windguru-row={row.id}>
@@ -192,13 +198,17 @@ const footerHighlights: LabeledLink[] = [
               </div>
             ))}
           </dl>
-        </div>
+        </details>
 
-        <div class="mt-14 grid gap-8 lg:grid-cols-12 lg:gap-20">
-          <div class="lg:col-span-5">
-            <h3 class="am-text-subtitle max-w-md text-balance text-on-surface">{content.windguru.modelsTitle}</h3>
-          </div>
-          <div class="space-y-6 lg:col-span-7">
+        <details class="group mt-12 border-t border-border-subtle pt-6 outline-none" data-am-windguru-models>
+          <summary class="am-accordion__trigger items-center">
+            <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.windguru.modelsTitle}</h3>
+            <span class="am-accordion__indicator" aria-hidden="true">
+              <span class="group-open:hidden">+</span>
+              <span class="hidden group-open:inline">−</span>
+            </span>
+          </summary>
+          <div class="mt-8 space-y-6">
             <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.windguru.modelsIntro}</p>
             <dl class="space-y-4">
               {content.windguru.models.map((model) => (
@@ -210,7 +220,7 @@ const footerHighlights: LabeledLink[] = [
             </dl>
             <p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{content.windguru.modelsWhy}</p>
           </div>
-        </div>
+        </details>
 
         <details class="group mt-12 border-t border-border-subtle pt-6 outline-none" data-am-beaufort>
           <summary class="am-accordion__trigger items-center">
