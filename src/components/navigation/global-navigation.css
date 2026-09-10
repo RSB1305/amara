@@ -657,17 +657,17 @@ html.am-nav-lock {
     justify-content: flex-start;
   }
 
-  /* Location HOME (hub) only: its breadcrumb is just home + town, and that town
-     crumb duplicates the "<Town> \25be" disclosure tab sitting right beside it.
-     So on mobile collapse the breadcrumb to the home mark and lift the two tabs
-     onto the same row — one flatter line instead of breadcrumb-over-tabs. Gated
-     to the two-crumb hub via :has(): deeper location sub-pages (whose current
-     crumb, e.g. "Wetter", is meaningful and leaves no room beside the two tabs)
-     keep the stacked strip above. */
+  /* Every destination page with the town + experiences disclosures: on mobile
+     the breadcrumb only ever shows the home mark and the town (deeper crumbs are
+     hidden above), and that town crumb duplicates the "<Town> \25be" tab beside
+     it. So collapse the breadcrumb to the home mark and lift the two tabs onto
+     the same row — one flatter line instead of breadcrumb-over-tabs. Gated to the
+     grouped disclosures band via :has(), so it covers both the location context
+     and the experience context (kite pages etc.); simple grouped strips without
+     the two-branch disclosures are untouched. */
   [data-am-navigation]
     .am-nav-mobile--contextual[data-am-contextual-closed]
-    [data-am-location-context]
-    [data-am-context-layout]:not(:has([data-am-context-breadcrumb-row] ol > li:nth-child(4))) {
+    [data-am-context-layout]:has([data-am-destination-context-disclosures]) {
     grid-template-columns: max-content minmax(0, 1fr);
     align-items: center;
     row-gap: 0;
@@ -675,8 +675,7 @@ html.am-nav-lock {
 
   [data-am-navigation]
     .am-nav-mobile--contextual[data-am-contextual-closed]
-    [data-am-location-context]
-    [data-am-context-layout]:not(:has([data-am-context-breadcrumb-row] ol > li:nth-child(4)))
+    [data-am-context-layout]:has([data-am-destination-context-disclosures])
     > [data-am-context-breadcrumb-row] {
     grid-column: 1;
     grid-row: 1;
@@ -684,8 +683,7 @@ html.am-nav-lock {
 
   [data-am-navigation]
     .am-nav-mobile--contextual[data-am-contextual-closed]
-    [data-am-location-context]
-    [data-am-context-layout]:not(:has([data-am-context-breadcrumb-row] ol > li:nth-child(4)))
+    [data-am-context-layout]:has([data-am-destination-context-disclosures])
     > [data-am-context-toolbar] {
     grid-column: 2;
     grid-row: 1;
@@ -694,27 +692,24 @@ html.am-nav-lock {
   /* Keep only the home mark; the town name is carried by the tab beside it. */
   [data-am-navigation]
     .am-nav-mobile--contextual[data-am-contextual-closed]
-    [data-am-location-context]
-    [data-am-context-layout]:not(:has([data-am-context-breadcrumb-row] ol > li:nth-child(4)))
+    [data-am-context-layout]:has([data-am-destination-context-disclosures])
     [data-am-context-breadcrumb-row] ol > li:not(:first-child) {
     display: none;
   }
 
   /* Anchor the two tabs to the strip's right edge, so the home mark sits alone
      on the left and the disclosures line up under the rail above. Overrides the
-     closed-grouped flex-start default via the hub's higher specificity. */
+     closed-grouped flex-start default via the higher specificity. */
   [data-am-navigation]
     .am-nav-mobile--contextual[data-am-contextual-closed]
-    [data-am-location-context]
-    [data-am-context-layout]:not(:has([data-am-context-breadcrumb-row] ol > li:nth-child(4)))
+    [data-am-context-layout]:has([data-am-destination-context-disclosures])
     [data-am-destination-context-disclosures] {
     width: 100%;
   }
 
   [data-am-navigation]
     .am-nav-mobile--contextual[data-am-contextual-closed]
-    [data-am-location-context]
-    [data-am-context-layout]:not(:has([data-am-context-breadcrumb-row] ol > li:nth-child(4)))
+    [data-am-context-layout]:has([data-am-destination-context-disclosures])
     [data-am-destination-context-disclosures] > div {
     justify-content: flex-end;
   }
@@ -832,9 +827,11 @@ html.am-nav-lock {
     height: 68px;
   }
 
-  /* Location hub collapses breadcrumb + tabs onto one row (see above), so its
-     fixed strip is a row shorter — reserve the flatter height there only. */
-  [data-am-navigation]:has([data-am-location-context]):not(:has([data-am-context-breadcrumb-row] ol > li:nth-child(4))) + .am-nav-context-spacer {
+  /* Destination pages with the town + experiences disclosures collapse
+     breadcrumb + tabs onto one row (see above), so their fixed strip is a row
+     shorter — reserve the flatter height wherever that band is present. Simple
+     grouped strips without it keep the 68px reserved above. */
+  [data-am-navigation]:has([data-am-destination-context-disclosures]) + .am-nav-context-spacer {
     height: 53px;
   }
 
