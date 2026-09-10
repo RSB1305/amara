@@ -13,7 +13,7 @@ export interface GettingToFrigilianaOption {
 }
 
 export const gettingToFrigilianaSeo: AmaraAuthoringSeo = {
-  version: '2026-08-18-getting-to-frigiliana-v1.1-A',
+  version: '2026-09-10-getting-to-frigiliana-v1.2-A',
   pageType: 'A',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg',
@@ -479,11 +479,11 @@ export const gettingToFrigilianaCopy = {
           sv: 'Upp till byn'
         } satisfies LocalizedText,
         text: {
-          en: 'The local bus takes a quarter of an hour and stops on Calle Real down in the village. If you would rather not wait, take a taxi.',
-          de: 'Der Ortsbus braucht eine Viertelstunde und hält an der Calle Real unten im Ort. Wer nicht warten will, nimmt ein Taxi.',
-          es: 'El autobús local tarda un cuarto de hora y para en la calle Real, en la parte baja del pueblo. Quien no quiera esperar, coge un taxi.',
-          nl: 'De streekbus rijdt een kwartier en stopt aan Calle Real beneden in het dorp. Wie niet wil wachten, neemt een taxi.',
-          sv: 'Lokalbussen tar en kvart och stannar på Calle Real nere i byn. Vill ni inte vänta tar ni en taxi.'
+          en: 'The local bus takes about a quarter of an hour and stops at Plaza del Ingenio, down in the village — the same square where the taxis wait. If you would rather not wait, take a taxi.',
+          de: 'Der Ortsbus braucht etwa eine Viertelstunde und hält an der Plaza del Ingenio unten im Ort — demselben Platz, an dem auch die Taxis stehen. Wer nicht warten will, nimmt ein Taxi.',
+          es: 'El autobús local tarda un cuarto de hora y para en la Plaza del Ingenio, en la parte baja del pueblo, la misma plaza donde esperan los taxis. Quien no quiera esperar, coge un taxi.',
+          nl: 'De streekbus rijdt ongeveer een kwartier en stopt aan de Plaza del Ingenio beneden in het dorp — hetzelfde plein waar ook de taxi’s staan. Wie niet wil wachten, neemt een taxi.',
+          sv: 'Lokalbussen tar ungefär en kvart och stannar vid Plaza del Ingenio nere i byn — samma torg där taxibilarna står. Vill ni inte vänta tar ni en taxi.'
         } satisfies LocalizedText
       }
     ],
@@ -557,6 +557,22 @@ export const gettingToFrigilianaCopy = {
           es: 'Un traslado reservado. El conductor sigue vuestro vuelo, y no tenéis que leer horarios a medianoche.',
           nl: 'Een geboekte transfer. De chauffeur volgt jullie vlucht, en jullie hoeven om middernacht geen dienstregeling te lezen.',
           sv: 'En bokad transfer. Chauffören följer ert flyg, och ni behöver inte läsa någon tidtabell vid midnatt.'
+        } satisfies LocalizedText
+      },
+      {
+        question: {
+          en: 'Does it work with heavy luggage or limited mobility?',
+          de: 'Klappt das mit viel Gepäck oder eingeschränkter Mobilität?',
+          es: '¿Funciona con mucho equipaje o movilidad reducida?',
+          nl: 'Lukt het met veel bagage of beperkte mobiliteit?',
+          sv: 'Fungerar det med mycket bagage eller nedsatt rörlighet?'
+        } satisfies LocalizedText,
+        answer: {
+          en: 'Car, taxi or bus brings you to the lower village; from there the old-town lanes are stepped and cobbled, not level. With a lot of luggage the short walk up is easier with two, and one of the Frigiliana taxis is an adapted seven-seater you can arrange in advance. The exact last stretch depends on your stay — the arrival guide covers it.',
+          de: 'Auto, Taxi oder Bus bringen euch in den unteren Ort; von dort sind die Altstadtgassen gestuft und gepflastert, nicht eben. Mit viel Gepäck ist der kurze Weg hinauf zu zweit leichter, und eines der Frigiliana-Taxis ist ein angepasster Siebensitzer, den ihr vorab anfragen könnt. Die genaue letzte Strecke hängt von eurer Unterkunft ab — der Ankunftsguide zeigt sie.',
+          es: 'El coche, el taxi o el autobús os dejan en la parte baja del pueblo; desde allí las callejuelas del casco son de escalones y adoquines, no llanas. Con mucho equipaje el corto tramo de subida se lleva mejor entre dos, y uno de los taxis de Frigiliana es un siete plazas adaptado que podéis pedir con antelación. El último tramo exacto depende de vuestro alojamiento: la guía de llegada lo detalla.',
+          nl: 'Auto, taxi of bus brengt jullie naar het lagere dorp; vanaf daar zijn de steegjes van de oude kern getrapt en gekasseid, niet vlak. Met veel bagage gaat de korte klim makkelijker met z’n tweeën, en een van de taxi’s in Frigiliana is een aangepaste zevenzitter die je vooraf kunt regelen. Het exacte laatste stuk hangt af van jullie verblijf — de aankomstgids legt het uit.',
+          sv: 'Bil, taxi eller buss tar er till nedre byn; därifrån är gamla byns gränder trappade och kullerstensbelagda, inte plana. Med mycket bagage går den korta vägen upp lättare när ni är två, och en av taxibilarna i Frigiliana är en anpassad sjusitsig som ni kan boka i förväg. Exakt sista biten beror på ert boende — ankomstguiden visar den.'
         } satisfies LocalizedText
       }
     ]
@@ -642,11 +658,11 @@ export const gettingToFrigilianaCopy = {
       sv: 'Tidtabellerna finns hos Aena, ALSA och Frigilianas kommun.'
     } satisfies LocalizedText,
     checked: {
-      en: 'As of July 2026',
-      de: 'Stand Juli 2026',
-      es: 'Actualizado en julio de 2026',
-      nl: 'Stand juli 2026',
-      sv: 'Uppdaterad juli 2026'
+      en: 'As of September 2026',
+      de: 'Stand September 2026',
+      es: 'Actualizado en septiembre de 2026',
+      nl: 'Stand september 2026',
+      sv: 'Uppdaterad september 2026'
     } satisfies LocalizedText,
     links: [
       {
@@ -693,11 +709,11 @@ export const gettingToFrigilianaCopy = {
           sv: 'Frigiliana kommun · Lokalbuss'
         } satisfies LocalizedText,
         text: {
-          en: 'The local bus Nerja–Frigiliana with times and stops.',
-          de: 'Der Ortsbus Nerja–Frigiliana mit Zeiten und Haltestellen.',
-          es: 'El autobús local Nerja–Frigiliana con horarios y paradas.',
-          nl: 'De streekbus Nerja–Frigiliana met tijden en haltes.',
-          sv: 'Lokalbussen Nerja–Frigiliana med tider och hållplatser.'
+          en: 'The local bus Nerja–Frigiliana with the current times and stops — worth a live look, the timetable changed recently.',
+          de: 'Der Ortsbus Nerja–Frigiliana mit aktuellen Zeiten und Haltestellen — lohnt den Live-Blick, der Fahrplan hat sich zuletzt geändert.',
+          es: 'El autobús local Nerja–Frigiliana con horarios y paradas actuales — conviene comprobarlo en vivo, el horario cambió hace poco.',
+          nl: 'De streekbus Nerja–Frigiliana met actuele tijden en haltes — check het live, de dienstregeling is onlangs gewijzigd.',
+          sv: 'Lokalbussen Nerja–Frigiliana med aktuella tider och hållplatser — värt en live-koll, tidtabellen ändrades nyligen.'
         } satisfies LocalizedText
       }
     ]
