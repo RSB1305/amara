@@ -156,7 +156,7 @@ export const tarifaBildungsurlaubDe = {
   },
   team: {
     eyebrow: 'Wer dahintersteht',
-    title: 'Vier Leute, ein Kiteschulgründer darunter',
+    title: 'Das Team von Work Surf Balance',
     intro: 'Die Work Surf Balance GmbH, zertifiziert nach ISO 9001:2015.',
     people: [
       { id: 'lukas', name: 'Lukas', role: 'Trainer für IT, Künstliche Intelligenz und Marketing' },
