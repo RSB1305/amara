@@ -255,8 +255,9 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
                   <p class="am-text-body leading-relaxed text-on-surface"><InlineEmphasis text={paragraph} /></p>
                 ))}
                 <div class="flex flex-wrap gap-x-8 gap-y-3 pt-2">
-                  <a href={campHref} class="am-cta-link">{t(ui.campLink)}</a>
+                  <a href={requiredLink('tarifa')} class="am-cta-link">{t(ui.propertyLabel)}</a>
                   <a href={requiredLink('tarifa_kite_school')} class="am-cta-link">{de.stay.clubLinkLabel}</a>
+                  <AmaraActionLink href={de.stay.altStaysHref} variant="editorial" external class="inline-flex">{de.stay.altStaysLabel}</AmaraActionLink>
                 </div>
               </div>
             </div>

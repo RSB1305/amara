@@ -145,7 +145,9 @@ export const tarifaBildungsurlaubDe = {
       'Wer das Paket mit Unterkunft nimmt, wohnt in den Häusern des Clubs, im TSC Guesthouse oder in einer seiner Wohnungen. Wer lieber eine eigene Wohnung hat, bucht Seminar oder Seminar mit Kitekurs bei Work Surf Balance und wohnt bei uns: **AMARA Family & Surf, private Terrasse zum Atlantik**, freies WLAN für die Seminarunterlagen, Tiefgarage für Auto und Boards, ein Supermarkt gegenüber, Los Lances zu Fuß.',
       'Eine Nachricht reicht, egal an wen. Wir kennen Mark vom Tarifa Surf Club seit Jahren, und Mark gehört auch zum Team von Work Surf Balance.'
     ],
-    clubLinkLabel: 'Kurse und Help 2 Kite beim Club'
+    clubLinkLabel: 'Kurse und Help 2 Kite beim Club',
+    altStaysLabel: 'Alternativen: alle Unterkünfte bei Work Surf Balance',
+    altStaysHref: 'https://worksurfbalance.com/warumwir#unsereunterkuenfte'
   },
   bridge: {
     title: 'Die Wohnung mit Blick auf Los Lances',
