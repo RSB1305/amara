@@ -5,14 +5,14 @@ export const frigilianaExperienceOldTownImages = defineRouteImages({
   images: [
     {
       role: 'hero',
-      src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
-      width: 2000,
+      src: '/images/frigiliana/frigiliana-panorama-sonnenuntergang-weisses-dorf.jpg',
+      width: 2048,
       alt: {
-        en: "Whitewashed lanes and stepped streets in Frigiliana’s historic centre",
-        de: "Weiße Gassen und Treppenwege im historischen Zentrum von Frigiliana",
-        es: "Calles encaladas y escalonadas del casco histórico de Frigiliana",
-        nl: "Witte straatjes en trappen in de historische kern van Frigiliana",
-        sv: "Vitkalkade gränder och trappgator i Frigilianas historiska kärna"
+        en: "Frigiliana’s whitewashed old town at sunset, seen across the rooftops",
+        de: "Frigilianas weiß gekalkte Altstadt bei Sonnenuntergang, über die Dächer gesehen",
+        es: "El casco antiguo encalado de Frigiliana al atardecer, sobre los tejados",
+        nl: "De witgekalkte oude kern van Frigiliana bij zonsondergang, over de daken gezien",
+        sv: "Frigilianas vitkalkade gamla stan i solnedgången, sett över taken"
       }
     }
   ]

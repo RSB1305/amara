@@ -6,9 +6,9 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
-import blueDoorsImage from '../../assets/images/content/amara-frigiliana-pueblo/frigiliana-blue-doors.jpeg';
-import oldTownStepsImage from '../../assets/images/content/amara-frigiliana-pueblo/frigiliana-old-town-steps.jpeg';
-import heritageDetailImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/03-frigiliana-pueblo.jpg';
+import historicVillageImage from '../../assets/images/content/frigiliana/frigiliana-historisches-foto-dorf-panorama.jpg';
+import elIngenioImage from '../../assets/images/content/frigiliana/frigiliana-el-ingenio-palast-zuckerrohrfabrik.jpg';
+import roofscapeImage from '../../assets/images/content/frigiliana/frigiliana-luftaufnahme-daecher-mosaik-gasse.jpg';
 import {
   frigilianaOldTownCopy,
   frigilianaOldTownExternalLinks,
@@ -83,25 +83,25 @@ const combineItems = copy.combine.items.map((item) => ({
 
 const visualAlts = {
   sights: {
-    en: 'Stepped lane between white houses in Frigiliana old town',
-    de: 'Treppengasse zwischen weißen Häusern in Frigilianas Altstadt',
-    es: 'Calle escalonada entre casas blancas del casco antiguo de Frigiliana',
-    nl: 'Straat met trappen tussen witte huizen in de oude kern van Frigiliana',
-    sv: 'Trappgränd mellan vita hus i Frigilianas gamla stad'
+    en: 'El Ingenio, the former sugar works, at the lower edge of Frigiliana’s old town',
+    de: 'El Ingenio, das ehemalige Zuckerwerk, am unteren Rand von Frigilianas Altstadt',
+    es: 'El Ingenio, la antigua fábrica azucarera, en el borde bajo del casco antiguo de Frigiliana',
+    nl: 'El Ingenio, de voormalige suikerfabriek, aan de onderrand van de oude kern van Frigiliana',
+    sv: 'El Ingenio, det före detta sockerbruket, i nedre kanten av Frigilianas gamla stan'
   },
   history: {
-    en: 'Whitewashed homes with blue doors and windows in Frigiliana',
-    de: 'Weiß gekalkte Häuser mit blauen Türen und Fenstern in Frigiliana',
-    es: 'Casas encaladas con puertas y ventanas azules en Frigiliana',
-    nl: 'Witgekalkte huizen met blauwe deuren en ramen in Frigiliana',
-    sv: 'Vitkalkade hus med blå dörrar och fönster i Frigiliana'
+    en: 'Historic photograph of Frigiliana below the Peñón, with the old sugar-works chimneys',
+    de: 'Historische Aufnahme von Frigiliana unterhalb des Peñón, mit den Schornsteinen des alten Zuckerwerks',
+    es: 'Fotografía histórica de Frigiliana bajo el Peñón, con las chimeneas del antiguo ingenio',
+    nl: 'Historische foto van Frigiliana onder de Peñón, met de schoorstenen van de oude suikerfabriek',
+    sv: 'Historiskt fotografi av Frigiliana nedanför Peñón, med skorstenarna från det gamla sockerbruket'
   },
   heritage: {
-    en: 'Traditional turquoise window behind iron bars on a white wall',
-    de: 'Traditionelles türkisfarbenes Fenster hinter einem Eisengitter an einer weißen Wand',
-    es: 'Ventana tradicional turquesa tras una reja de hierro en una pared blanca',
-    nl: 'Traditioneel turquoise raam achter een ijzeren hek in een witte muur',
-    sv: 'Traditionellt turkost fönster bakom ett järngaller på en vit vägg'
+    en: 'Aerial view of Frigiliana’s tiled roofs and a pebble-mosaic lane',
+    de: 'Luftaufnahme von Frigilianas Ziegeldächern und einer Kieselmosaik-Gasse',
+    es: 'Vista aérea de los tejados de Frigiliana y una calle con mosaico de guijarros',
+    nl: 'Luchtfoto van de pannendaken van Frigiliana en een straat met kiezelmozaïek',
+    sv: 'Flygbild över Frigilianas tegeltak och en gränd med kiselmosaik'
   }
 } as const satisfies Record<string, LocalizedRow>;
 ---
@@ -148,12 +148,12 @@ const visualAlts = {
         <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <AmaraMediaFrame role="gallery" mobileFullBleed class="lg:col-span-7 lg:self-start">
             <AmaraImage
-              src={oldTownStepsImage}
+              src={elIngenioImage}
               alt={t(visualAlts.sights)}
               profile="gallery"
               class="h-full w-full object-cover"
               mediaRole="gallery"
-              focalPoint="50% 54%"
+              focalPoint="50% 45%"
             />
           </AmaraMediaFrame>
 
@@ -195,7 +195,7 @@ const visualAlts = {
         <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <AmaraMediaFrame role="gallery" mobileFullBleed class="lg:col-span-5 lg:self-start">
             <AmaraImage
-              src={blueDoorsImage}
+              src={historicVillageImage}
               alt={t(visualAlts.history)}
               profile="gallery"
               class="h-full w-full object-cover"
@@ -246,7 +246,7 @@ const visualAlts = {
         <div class="mx-auto max-w-screen-2xl">
           <AmaraMediaFrame role="editorial" mobileFullBleed>
             <AmaraImage
-              src={heritageDetailImage}
+              src={roofscapeImage}
               alt={t(visualAlts.heritage)}
               profile="gallery"
               class="h-full w-full object-cover"
