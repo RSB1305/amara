@@ -39,6 +39,7 @@ import { staysImages } from './stays';
 import { tarifaExperienceBeachesImages } from './tarifa-experience-beaches';
 import { tarifaExperienceImages } from './tarifa-experience';
 import { tarifaExperienceWhaleWatchingImages } from './tarifa-experience-whale-watching';
+import { tarifaExperienceYogaImages } from './tarifa-experience-yoga';
 import { tarifaKitesurfingBeginnerGuideImages } from './tarifa-kitesurfing-beginner-guide';
 import { tarifaKitesurfingBildungsurlaubImages } from './tarifa-kitesurfing-bildungsurlaub';
 import { tarifaKitesurfingEquipmentImages } from './tarifa-kitesurfing-equipment';
@@ -92,6 +93,7 @@ const sets: readonly RouteImageSet[] = [
   tarifaExperienceBeachesImages,
   tarifaExperienceImages,
   tarifaExperienceWhaleWatchingImages,
+  tarifaExperienceYogaImages,
   tarifaKitesurfingBeginnerGuideImages,
   tarifaKitesurfingBildungsurlaubImages,
   tarifaKitesurfingEquipmentImages,
