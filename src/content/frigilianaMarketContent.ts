@@ -23,6 +23,13 @@ export const frigilianaMarketSeo: AmaraAuthoringSeo = {
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: routeOgImage('frigiliana.experience.market'),
+  article: {
+    datePublished: '2026-07-27',
+    dateModified: '2026-09-09',
+    authorName: 'Robert Sebastian Böhmer',
+    authorType: 'Person',
+    authorRoute: 'about'
+  },
   languages: {
     en: {
       title: 'Frigiliana Market: Day, Time & What to Expect',
