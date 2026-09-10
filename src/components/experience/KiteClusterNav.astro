@@ -53,7 +53,7 @@ const links = items.filter((item) => item.id !== currentId && (!item.languages |
 
 <AmaraSection surface="inverse" family="location" class="mx-0 bg-inverse-surface px-6 py-0 text-inverted-on-surface md:px-12" data-am-topic="kite-cluster-nav" data-am-kite-cluster-nav data-am-kite-cluster-current={currentId}>
   <nav aria-label={t(ariaLabel)} class="mx-auto max-w-screen-2xl">
-    <ul class="-mx-3 flex min-w-0 flex-nowrap items-center overflow-x-auto overscroll-x-contain md:flex-wrap md:overflow-visible">
+    <ul class="-mx-3 flex min-w-0 flex-nowrap items-center overflow-x-auto overscroll-x-contain md:flex-wrap md:overflow-visible" data-am-kite-scroller>
       {links.map((item) => (
         <li class="shrink-0">
           <a
@@ -67,3 +67,49 @@ const links = items.filter((item) => item.id !== currentId && (!item.languages |
     </ul>
   </nav>
 </AmaraSection>
+
+<style>
+  /*
+   * On phones the band scrolls sideways. A soft edge fade signals that the row
+   * continues, shown only on the side that can still scroll — the script below
+   * sets the two widths from the scroll position (0 at each end). Above md the
+   * list wraps and nothing scrolls, so the mask stays off.
+   */
+  @media (max-width: 767px) {
+    [data-am-kite-cluster-nav] [data-am-kite-scroller] {
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        #000 var(--am-kite-fade-left, 0px),
+        #000 calc(100% - var(--am-kite-fade-right, 0px)),
+        transparent 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0,
+        #000 var(--am-kite-fade-left, 0px),
+        #000 calc(100% - var(--am-kite-fade-right, 0px)),
+        transparent 100%
+      );
+    }
+  }
+</style>
+
+<script>
+  const FADE = '2rem';
+  document.querySelectorAll<HTMLElement>('[data-am-kite-scroller]').forEach((scroller) => {
+    const update = () => {
+      const max = scroller.scrollWidth - scroller.clientWidth;
+      if (max <= 1) {
+        scroller.style.setProperty('--am-kite-fade-left', '0px');
+        scroller.style.setProperty('--am-kite-fade-right', '0px');
+        return;
+      }
+      scroller.style.setProperty('--am-kite-fade-left', scroller.scrollLeft > 1 ? FADE : '0px');
+      scroller.style.setProperty('--am-kite-fade-right', scroller.scrollLeft < max - 1 ? FADE : '0px');
+    };
+    update();
+    scroller.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+  });
+</script>
