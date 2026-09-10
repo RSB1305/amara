@@ -290,10 +290,12 @@ const footerHighlights: LabeledLink[] = [
           <a class="am-link" href={requiredLink(content.localWind.spotLink.token)}>{content.localWind.spotLink.label}</a>{' '}
           {content.localWind.spotLink.after}
         </p>
+
+        <div class="mt-12">
+          <KiteThermalWindDiagram lang={currentLang} />
+        </div>
       </div>
     </LocationModule>
-
-    <KiteThermalWindDiagram lang={currentLang} />
 
     <section class="bg-surface" data-am-topic="editorial-photo">
       <AmaraMediaFrame role="panorama" caption={sunsetImage.caption}>
