@@ -153,6 +153,13 @@ export const nerjaNightlifeSeo: AmaraAuthoringSeo = {
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: routeOgImage('nerja.experience.nightlife'),
+  article: {
+    datePublished: '2026-07-29',
+    dateModified: '2026-09-09',
+    authorName: 'Robert Sebastian Böhmer',
+    authorType: 'Person',
+    authorRoute: 'about'
+  },
   languages: {
     en: {
       title: 'Nerja in the evening: Balcón, Tutti Frutti & Burriana',
