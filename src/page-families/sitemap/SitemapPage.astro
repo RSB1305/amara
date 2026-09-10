@@ -5,8 +5,11 @@
  * A user-facing orientation page: the whole website as a board of cards, each
  * destination a small tree whose nesting matches the URL hierarchy 1:1. Styled
  * in the AMARA CI (Newsreader serif, Plus Jakarta Sans, ochre accent, warm
- * neutrals). Every board also emits an ItemList (JSON-LD) so search engines and
- * LLMs can read the clusters explicitly, independent of the DOM.
+ * neutrals).
+ *
+ * The page carries no JSON-LD of its own: structured data is owned centrally by
+ * the layout resolver, which emits exactly one graph per page. The site map's
+ * value is the crawlable HTML link hub itself — every route as a real anchor.
  *
  * Hrefs are read from the route manifest, labels and copy from sitemapContent.
  */
@@ -18,7 +21,6 @@ import { resolveLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import {
-  flattenGroupLinks,
   resolveSitemapGroups,
   sitemapClosing,
   sitemapHero,
@@ -37,26 +39,6 @@ const bookingHref = resolveLink('book', currentLang);
 
 const leadGroups = groups.filter((group) => group.id === 'brand' || group.id === 'booking');
 const placeGroups = groups.filter((group) => ['frigiliana', 'nerja', 'tarifa'].includes(group.id));
-
-// GEO: one ItemList per board so the clusters are machine-readable without DOM
-// parsing. URLs are absolute against the configured site (or the request origin
-// in dev), as structured data requires.
-const origin = (Astro.site?.href ?? Astro.url.origin).replace(/\/$/, '');
-const toAbsolute = (href: string) => new URL(href, `${origin}/`).href;
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@graph': groups.map((group) => ({
-    '@type': 'ItemList',
-    name: group.title,
-    description: group.blurb,
-    itemListElement: flattenGroupLinks(group).map((link, index) => ({
-      '@type': 'SiteNavigationElement',
-      position: index + 1,
-      name: link.name,
-      url: toAbsolute(link.href)
-    }))
-  }))
-};
 ---
 
 <BaseLayout seo={sitemapSeo} pageLang={currentLang} navigationLanguageToken="sitemap">
@@ -145,8 +127,6 @@ const structuredData = {
       </div>
     </AmaraSection>
   </AmaraPageShell>
-
-  <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)} />
 </BaseLayout>
 
 <style>
