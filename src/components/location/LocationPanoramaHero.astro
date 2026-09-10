@@ -6,6 +6,7 @@
 // contract. No dark gradient sits over the image: legibility comes from the panel.
 import type { ImageMetadata } from 'astro';
 import AmaraImage from '../AmaraImage.astro';
+import InlineEmphasis from '../text/InlineEmphasis.astro';
 import { getAmaraHeroAttributes, type AmaraHeroFamily } from '../hero/heroContract';
 
 interface Props {
@@ -60,7 +61,7 @@ const hasMetaSlot = Astro.slots.has('meta');
       {paragraphs.length > 0 && (
         <div class="mt-5 max-w-2xl space-y-4">
           {paragraphs.map((paragraph) => (
-            <p class="am-text-body leading-relaxed text-on-surface-variant">{paragraph}</p>
+            <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
           ))}
         </div>
       )}
