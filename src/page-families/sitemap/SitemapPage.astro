@@ -1,0 +1,308 @@
+---
+/**
+ * AMARA site map (Seitenübersicht).
+ *
+ * A user-facing orientation page: the whole website as a board of cards, each
+ * destination a small tree whose nesting matches the URL hierarchy 1:1. Styled
+ * in the AMARA CI (Newsreader serif, Plus Jakarta Sans, ochre accent, warm
+ * neutrals).
+ *
+ * The page carries no JSON-LD of its own: structured data is owned centrally by
+ * the layout resolver, which emits exactly one graph per page. The site map's
+ * value is the crawlable HTML link hub itself — every route as a real anchor.
+ *
+ * Hrefs are read from the route manifest, labels and copy from sitemapContent.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustHero from '../../components/hero/TrustHero.astro';
+import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
+import { resolveLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import {
+  resolveSitemapGroups,
+  sitemapClosing,
+  sitemapHero,
+  sitemapPagesLabel,
+  sitemapSeo,
+  type ResolvedSitemapBranch
+} from './sitemapContent';
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = sitemapHero[currentLang];
+const groups = resolveSitemapGroups(currentLang);
+const pagesLabel = sitemapPagesLabel[currentLang];
+const closing = sitemapClosing[currentLang];
+const bookingHref = resolveLink('book', currentLang);
+
+const leadGroups = groups.filter((group) => group.id === 'brand' || group.id === 'booking');
+const placeGroups = groups.filter((group) => ['frigiliana', 'nerja', 'tarifa'].includes(group.id));
+---
+
+<BaseLayout seo={sitemapSeo} pageLang={currentLang} navigationLanguageToken="sitemap">
+  <AmaraPageShell family="sitemap" dataLang={currentLang}>
+    <AmaraSection variant="hero" dataComponent="sitemap-hero">
+      <TrustHero eyebrow={hero.eyebrow} title={hero.title} lead={hero.lead} spacing="section" />
+    </AmaraSection>
+
+    <AmaraSection variant="default" dataComponent="sitemap-directory">
+      <div class="smap">
+        <div class="smap-grid smap-grid--lead">
+          {leadGroups.map((group) => (
+            <article class="smap-board">
+              <p class="am-text-caption text-primary smap-board__count">{pagesLabel(group.count)}</p>
+              <h2 class="am-text-title italic tracking-tight text-on-surface smap-board__title">{group.title}</h2>
+              <p class="am-text-body text-on-surface-variant smap-board__blurb">{group.blurb}</p>
+
+              <ul class="smap-tree">
+                {group.items.map((item) => (
+                  <li class="smap-leaf"><a href={item.href}>{item.label}</a></li>
+                ))}
+                {group.branches.map((branch) => (
+                  <li class="smap-branch">
+                    {branch.href
+                      ? <a class="smap-branch__label smap-branch__label--link" href={branch.href}>{branch.title}</a>
+                      : <p class="smap-branch__label">{branch.title}</p>}
+                    <ul>
+                      {branch.items.map((item) => (
+                        <li class="smap-leaf"><a href={item.href}>{item.label}</a></li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+
+        <div class="smap-grid smap-grid--places">
+          {placeGroups.map((group) => (
+            <article class="smap-board smap-board--place">
+              <p class="am-text-caption text-primary smap-board__count">{pagesLabel(group.count)}</p>
+              <h2 class="am-text-title italic tracking-tight text-on-surface smap-board__title">{group.title}</h2>
+              <p class="am-text-body text-on-surface-variant smap-board__blurb">{group.blurb}</p>
+
+              <ul class="smap-tree">
+                {group.items.map((item) => (
+                  <li class="smap-leaf"><a href={item.href}>{item.label}</a></li>
+                ))}
+                {group.branches.map((branch) => (
+                  <li class="smap-branch">
+                    {branch.href
+                      ? <a class="smap-branch__label smap-branch__label--link" href={branch.href}>{branch.title}</a>
+                      : <p class="smap-branch__label">{branch.title}</p>}
+                    <ul>
+                      {branch.items.map((item) => (
+                        <li class="smap-leaf"><a href={item.href}>{item.label}</a></li>
+                      ))}
+                      {branch.branches.map((sub: ResolvedSitemapBranch) => (
+                        <li class="smap-branch smap-branch--nested">
+                          {sub.href
+                            ? <a class="smap-branch__label smap-branch__label--link" href={sub.href}>{sub.title}</a>
+                            : <p class="smap-branch__label">{sub.title}</p>}
+                          <ul>
+                            {sub.items.map((item) => (
+                              <li class="smap-leaf"><a href={item.href}>{item.label}</a></li>
+                            ))}
+                          </ul>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </AmaraSection>
+
+    <AmaraSection variant="closing" dataComponent="sitemap-closing">
+      <div class="smap-closing">
+        <h2 class="am-text-title italic tracking-tight text-on-surface">{closing.title}</h2>
+        <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{closing.text}</p>
+        <a class="smap-cta" href={bookingHref}>{closing.cta}</a>
+      </div>
+    </AmaraSection>
+  </AmaraPageShell>
+</BaseLayout>
+
+<style>
+  .smap {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .smap-grid {
+    display: grid;
+    gap: 1.5rem;
+    align-items: start;
+  }
+
+  .smap-grid--lead {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  }
+
+  .smap-grid--places {
+    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+  }
+
+  /* ---- board / card ---- */
+  .smap-board {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface-container-lowest);
+    border: 1px solid color-mix(in srgb, var(--color-outline-variant) 65%, transparent);
+    border-radius: 18px;
+    padding: 1.6rem 1.6rem 1.75rem;
+    box-shadow: 0 1px 2px rgba(27, 28, 26, 0.03), 0 22px 40px -30px rgba(27, 28, 26, 0.28);
+  }
+
+  .smap-board__count {
+    margin-bottom: 0.6rem;
+  }
+
+  .smap-board__title {
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 1.9rem);
+    line-height: 1.05;
+  }
+
+  .smap-board__blurb {
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding-bottom: 1.25rem;
+    margin-bottom: 0.35rem;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 50%, transparent);
+  }
+
+  /* ---- tree ---- */
+  .smap-tree,
+  .smap-tree ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .smap-leaf > a {
+    display: block;
+    padding: 0.32rem 0;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    line-height: 1.35;
+    color: var(--color-on-surface);
+    text-decoration: none;
+    transition: color 150ms ease, transform 150ms ease;
+  }
+
+  .smap-leaf > a:hover,
+  .smap-leaf > a:focus-visible {
+    color: var(--color-primary);
+    transform: translateX(2px);
+    outline: none;
+  }
+
+  .smap-leaf > a:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+
+  .smap-branch {
+    margin-top: 1.15rem;
+  }
+
+  .smap-branch__label {
+    display: block;
+    margin: 0 0 0.2rem;
+    font-family: var(--font-label);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+
+  a.smap-branch__label--link {
+    transition: opacity 150ms ease;
+  }
+
+  a.smap-branch__label--link:hover,
+  a.smap-branch__label--link:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 0.22em;
+    outline: none;
+  }
+
+  .smap-branch > ul {
+    margin-left: 0.15rem;
+    padding-left: 0.9rem;
+    border-left: 1px solid color-mix(in srgb, var(--color-outline-variant) 70%, transparent);
+  }
+
+  .smap-branch > ul > li {
+    position: relative;
+    padding-left: 0.85rem;
+  }
+
+  .smap-branch > ul > li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.05em;
+    width: 0.55rem;
+    height: 1px;
+    background: color-mix(in srgb, var(--color-outline-variant) 80%, transparent);
+  }
+
+  /* nested branch (e.g. Kitesurfing under Experiences) keeps the connector look */
+  .smap-branch--nested {
+    margin-top: 0.85rem;
+    padding-left: 0.85rem;
+  }
+
+  .smap-branch--nested::before {
+    top: 0.75em;
+  }
+
+  /* ---- closing ---- */
+  .smap-closing {
+    text-align: center;
+    max-width: 40rem;
+    margin-inline: auto;
+    padding-block: 0.5rem;
+  }
+
+  .smap-cta {
+    display: inline-block;
+    margin-top: 1.75rem;
+    padding: 0.85rem 2.1rem;
+    border-radius: 999px;
+    background: var(--color-primary);
+    font-family: var(--font-label);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-surface-container-lowest);
+    text-decoration: none;
+    transition: background-color 180ms ease, transform 180ms ease;
+  }
+
+  .smap-cta:hover,
+  .smap-cta:focus-visible {
+    background: var(--color-primary-container, var(--color-primary));
+    transform: translateY(-1px);
+    outline: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .smap-leaf > a,
+    .smap-cta {
+      transition: none;
+    }
+  }
+</style>
