@@ -112,7 +112,16 @@ const sightMedia: ReadonlyArray<{
       sv: 'El Ingenio: palats, sockerbruk och stenbockarna på taket'
     }
   },
-  {},
+  {
+    href: resolveOptionalLink('frigiliana_casa_del_apero', currentLang, { suppressMissing: true }) ?? undefined,
+    linkLabel: {
+      en: 'Casa del Apero: the farm store that became the cultural centre',
+      de: 'Casa del Apero: der Wirtschaftshof, der zum Kulturzentrum wurde',
+      es: 'Casa del Apero: el almacén agrícola que se hizo centro cultural',
+      nl: 'Casa del Apero: de boerenopslag die cultureel centrum werd',
+      sv: 'Casa del Apero: lantbruksmagasinet som blev kulturcentrum'
+    }
+  },
   {},
   {
     image: calleRealImage,
