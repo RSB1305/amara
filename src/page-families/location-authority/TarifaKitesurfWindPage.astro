@@ -61,6 +61,7 @@ const hero = requireRouteImage('tarifa.kitesurfing.wind', 'hero', currentLang);
 const sunsetImage = requireRouteImage('tarifa.kitesurfing.wind', 'sunset', currentLang);
 const partnerImage = requireRouteImage('tarifa.kitesurfing.wind', 'partner', currentLang);
 const windguruImage = requireRouteImage('tarifa.kitesurfing.wind', 'windguru', currentLang);
+const stickerImage = requireRouteImage('tarifa.kitesurfing.wind', 'windguru-sticker', currentLang);
 const markImage = requireRouteImage('tarifa.kitesurfing.surf-club', 'mark', currentLang);
 const content = resolveLocale(tarifaKitesurfWindContent, currentLang);
 const briefingCopy = resolveLocale(tarifaKiteBriefingCopy, currentLang);
@@ -96,7 +97,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       visualBreakpoint="lg"
     >
       <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
-      {/* Hero-Foto mit der Windguru-Tabelle als Sticker darüber (Operator-Wunsch nach einer Instagram-Story); der Sticker führt zur vollen Tabelle im Heute-Block */}
+      {/* Hero-Foto mit einem kompakten Windguru-Ausschnitt als Sticker oben im Himmel (Operator-Wunsch nach einer Instagram-Story); Kiter und Gebäude bleiben frei, der Sticker führt zur vollen Tabelle im Heute-Block */}
       <div slot="visual" class="relative" data-am-hero-sticker-frame>
         <AmaraImage
           src={hero.src}
@@ -110,11 +111,8 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
           decoding="async"
           fetchpriority="high"
         />
-        <a href="#heute" class="absolute inset-x-[7%] top-1/2 block -translate-y-1/2 bg-surface p-1.5 shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60" aria-label={content.hero.stickerLabel} data-am-hero-sticker>
-          <span class="relative block aspect-[3/2] overflow-hidden" aria-hidden="true">
-            <AmaraImage src={windguruImage.src} alt={windguruImage.alt} profile="gallery" width={1150} widths={[768, 1150]} sizes="(max-width: 1023px) 160vw, 60vw" class="absolute left-0 top-0 h-full w-auto max-w-none" quality={90} avifQuality={80} />
-          </span>
-          <span class="am-text-label am-text-label--sm mt-1.5 flex items-center justify-between px-1.5 pb-0.5 text-on-surface" aria-hidden="true"><span>{content.today.windguru.eyebrow}</span><span>↓</span></span>
+        <a href="#heute" class="absolute inset-x-[10%] top-[8%] block bg-surface p-0.5 shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60" aria-label={content.hero.stickerLabel} data-am-hero-sticker>
+          <AmaraImage src={stickerImage.src} alt={stickerImage.alt} profile="gallery" width={1040} widths={[520, 780, 1040]} sizes="(max-width: 1023px) 80vw, 30vw" class="block h-auto w-full" quality={92} avifQuality={82} />
         </a>
       </div>
     </LocationGuideHero>

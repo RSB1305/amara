@@ -76,6 +76,19 @@ export const tarifaKitesurfingWindImages = defineRouteImages({
       }
     },
     {
+      role: 'editorial',
+      id: 'windguru-sticker',
+      src: '/images/tarifa/windguru-tarifa-hero-sticker.webp',
+      credit: "Screenshot: windguru.cz, 11.9.2026",
+      alt: {
+        en: "Cut-out of the Windguru table for Tarifa: two days of wind speed, gusts, direction and temperature",
+        de: "Ausschnitt der Windguru-Tabelle für Tarifa: zwei Tage Windstärke, Böen, Richtung und Temperatur",
+        es: "Recorte de la tabla de Windguru para Tarifa: dos días de viento, rachas, dirección y temperatura",
+        nl: "Uitsnede van de Windguru-tabel voor Tarifa: twee dagen windsterkte, vlagen, richting en temperatuur",
+        sv: "Utsnitt ur Windguru-tabellen för Tarifa: två dagar vindstyrka, byar, riktning och temperatur"
+      }
+    },
+    {
       role: 'og',
       src: '/images/robert-amara-host.jpg'
     }
