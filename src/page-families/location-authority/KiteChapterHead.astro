@@ -1,0 +1,31 @@
+---
+/**
+ * Head of a numbered chapter on the Tarifa kitesurf wind page: a short
+ * scannable label as the H2, the sentence that used to be the heading as a
+ * subtitle underneath, and the chapter number as the eyebrow. The page reads
+ * as the morning of a kiter in the order it happens; the numbers carry that
+ * order into the anchor row under the hero.
+ */
+import LocationGuideIcon from '../../components/location/LocationGuideIcon.astro';
+import type { LocationGuideIconName } from '../../components/location/locationGuideIconContract';
+
+interface Props {
+  id: string;
+  label: string;
+  title: string;
+  subtitle: string;
+  icon?: LocationGuideIconName;
+  class?: string;
+}
+
+const { id, label, title, subtitle, icon, class: className } = Astro.props;
+---
+
+<div class:list={['max-w-3xl', className]} data-am-chapter-head>
+  <div class="flex items-center gap-2.5">
+    {icon && <LocationGuideIcon name={icon} class="h-4 w-4" />}
+    <p class="am-text-eyebrow text-primary">{label}</p>
+  </div>
+  <h2 id={id} class="am-text-title mt-5 text-balance text-on-surface">{title}</h2>
+  <p class="am-text-subtitle mt-4 max-w-2xl text-balance text-on-surface-variant">{subtitle}</p>
+</div>

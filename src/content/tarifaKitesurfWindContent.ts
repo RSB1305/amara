@@ -13,6 +13,17 @@ export interface TarifaKitesurfVoiceQuote {
   paragraphs: LocalizedTextList;
 }
 
+/**
+ * Head of a numbered chapter. The page reads as the morning of a kiter in
+ * Tarifa, in the order it happens: the label is the short scannable H2, the
+ * subtitle carries the sentence that used to be the heading.
+ */
+export interface TarifaKitesurfChapterHead {
+  label: LocalizedText;
+  title: LocalizedText;
+  subtitle: LocalizedText;
+}
+
 export interface TarifaKitesurfWindContent {
   token: LinkToken;
   hero: {
@@ -24,121 +35,110 @@ export interface TarifaKitesurfWindContent {
     updated: LocalizedText;
     note: LocalizedText;
   };
-  live: {
-    eyebrow: LocalizedText;
-    title: LocalizedText;
+  /** In-page anchor row under the hero: one entry per numbered chapter. */
+  toc: {
+    label: LocalizedText;
+    items: Array<{ id: string; number: string; label: LocalizedText }>;
+  };
+  today: TarifaKitesurfChapterHead & {
+    windguru: { eyebrow: LocalizedText; title: LocalizedText; text: LocalizedText; linkLabel: LocalizedText; linkHref: string };
+    official: { title: LocalizedText; text: LocalizedText; href: string; linkLabel: LocalizedText; briefingText: LocalizedText };
+    forecast: {
+      loading: LocalizedText;
+      today: LocalizedText;
+      tomorrow: LocalizedText;
+      high: LocalizedText;
+      low: LocalizedText;
+      rain: LocalizedText;
+      issued: LocalizedText;
+      unavailableTitle: LocalizedText;
+      unavailableText: LocalizedText;
+      aemetLabel: LocalizedText;
+    };
+  };
+  wind: TarifaKitesurfChapterHead & {
     intro: LocalizedText;
-    loading: LocalizedText;
-    today: LocalizedText;
-    tomorrow: LocalizedText;
-    high: LocalizedText;
-    low: LocalizedText;
-    rain: LocalizedText;
-    issued: LocalizedText;
-    unavailableTitle: LocalizedText;
-    unavailableText: LocalizedText;
-    briefingEyebrow: LocalizedText;
-    forecastHeading: LocalizedText;
-    pending: LocalizedText;
-    windHeading: LocalizedText;
-    windText: LocalizedText;
-    waveHeading: LocalizedText;
-    waveText: LocalizedText;
-    skyHeading: LocalizedText;
-    skyText: LocalizedText;
-    checkHeading: LocalizedText;
-    checkText: LocalizedText;
-    meanWind: LocalizedText;
-    gusts: LocalizedText;
-    from: LocalizedText;
-    totalCloud: LocalizedText;
-    lowCloud: LocalizedText;
-    midCloud: LocalizedText;
-    highCloud: LocalizedText;
-    radiation: LocalizedText;
-    totalWave: LocalizedText;
-    windWave: LocalizedText;
-    primarySwell: LocalizedText;
-    secondarySwell: LocalizedText;
-    height: LocalizedText;
-    direction: LocalizedText;
-    period: LocalizedText;
-    source: LocalizedText;
-    models: LocalizedText;
-    fetched: LocalizedText;
-    forecastTime: LocalizedText;
-    attribution: LocalizedText;
-    aemetLabel: LocalizedText;
+    recognizeTitle: LocalizedText;
+    robert: { name: string; role: LocalizedText; imageAlt: LocalizedText };
+    robertMorning: LocalizedTextList;
+    mark: { name: string; role: LocalizedText };
+    markReading: TarifaKitesurfVoiceQuote;
+    experienceTitle: LocalizedText;
+    robertExperience: LocalizedTextList;
+    bridge: { label: LocalizedText; text: LocalizedText; links: Array<{ id: string; anchor: string; label: LocalizedText }> };
   };
   /**
-   * The Windguru teaching block: the two live tables (GFS 13 km trend, WRF 3 km
-   * local day), then a beginner walk-through of exactly the rows they show, then
-   * the models explained with the reason the locals read WRF 3 km.
+   * The Windguru teaching chapter: an example table in Windguru's own row
+   * order (two typical days, a Levante and a Poniente), the rows explained
+   * under the same numbers, two reading examples, the models and Beaufort.
    */
-  windguru: {
-    eyebrow: LocalizedText;
-    title: LocalizedText;
+  table: TarifaKitesurfChapterHead & {
     intro: LocalizedText;
-    loading: LocalizedText;
-    noscript: LocalizedText;
-    lazyNote: LocalizedText;
-    linkLabel: LocalizedText;
-    linkHref: string;
-    gfsLabel: LocalizedText;
-    wrfLabel: LocalizedText;
-    rowsTitle: LocalizedText;
-    rows: Array<{ id: string; title: LocalizedText; text: LocalizedText }>;
+    example: {
+      label: LocalizedText;
+      note: LocalizedText;
+      linkLabel: LocalizedText;
+      linkHref: string;
+      hourRowLabel: LocalizedText;
+      hourLabel: LocalizedText;
+      days: Array<{ id: 'levante' | 'poniente'; label: LocalizedText }>;
+      colorNote: LocalizedText;
+    };
+    rows: Array<{ id: string; number: string; title: LocalizedText; text: LocalizedText }>;
+    waveNote: { title: LocalizedText; text: LocalizedText };
+    examples: Array<{ id: string; label: LocalizedText; value: LocalizedText; text: LocalizedText }>;
     modelsTitle: LocalizedText;
     modelsIntro: LocalizedText;
     models: Array<{ id: string; name: string; text: LocalizedText }>;
     modelsWhy: LocalizedText;
+    beaufort: {
+      title: LocalizedText;
+      intro: LocalizedText;
+      columnKnots: LocalizedText;
+      columnForce: LocalizedText;
+      columnName: LocalizedText;
+      columnSea: LocalizedText;
+      rows: Array<{ id: string; knots: string; force: string; name: LocalizedText; sea: LocalizedText }>;
+      note: LocalizedText;
+      warningNote: LocalizedText;
+    };
   };
-  beaufort: {
-    title: LocalizedText;
+  thermal: TarifaKitesurfChapterHead & {
     intro: LocalizedText;
-    columnKnots: LocalizedText;
-    columnForce: LocalizedText;
-    columnName: LocalizedText;
-    columnSea: LocalizedText;
-    rows: Array<{ id: string; knots: string; force: string; name: LocalizedText; sea: LocalizedText }>;
-    note: LocalizedText;
+    panels: Array<{ id: 'morning' | 'afternoon' | 'evening'; label: LocalizedText; title: LocalizedText; text: LocalizedText; sea: LocalizedText; land: LocalizedText; note: LocalizedText }>;
+    consequences: Array<{ id: string; title: LocalizedText; text: LocalizedText }>;
+    bridge: { label: LocalizedText; text: LocalizedText };
   };
-  localWind: {
-    eyebrow: LocalizedText;
-    title: LocalizedText;
-    paragraphs: LocalizedText[];
-    quote: { name: string; role: LocalizedText; imageAlt: LocalizedText; paragraphs: LocalizedTextList };
+  beach: TarifaKitesurfChapterHead & {
+    intro: LocalizedText;
+    whichBeachTitle: LocalizedText;
+    markFirstLevante: TarifaKitesurfVoiceQuote;
     spotLink: { before: LocalizedText; token: LinkToken; label: LocalizedText; after: LocalizedText };
-  };
-  safety: {
-    eyebrow: LocalizedText;
-    title: LocalizedText;
-    intro: LocalizedText;
+    zonesTitle: LocalizedText;
+    zonesText: LocalizedText;
     priority: LocalizedText;
-    checks: Array<{ id: string; title: LocalizedText; text: LocalizedText }>;
-    lagoon: LocalizedText;
-    tides: { title: LocalizedText; text: LocalizedText };
-    rescueEyebrow: LocalizedText;
-    rescueHeading: LocalizedText;
-    rescueTitle: LocalizedText;
-    rescueIntro: LocalizedText;
+    beaches: Array<{ id: string; title: LocalizedText; text: LocalizedText }>;
+    tides: { title: LocalizedText; text: LocalizedText; note: LocalizedText };
+  };
+  emergency: TarifaKitesurfChapterHead & {
+    intro: LocalizedText;
+    providersTitle: LocalizedText;
     providers: Array<{ id: string; name: string; text: LocalizedText; href: string; label: LocalizedText }>;
-    rescueQuote: { name: string; role: LocalizedText; lead: LocalizedText; paragraphs: LocalizedTextList };
-    rescueContext: LocalizedText;
-    rescuePlanB: LocalizedText;
-    emergencyTitle: LocalizedText;
-    emergencyText: LocalizedText;
-    emergencyNumbers: Array<{ id: string; label: LocalizedText; value: string }>;
-    aemetText: LocalizedText;
-    aemetHref: string;
-    aemetLabel: LocalizedText;
+    markRescue: TarifaKitesurfVoiceQuote;
+    context: LocalizedText;
+    planB: LocalizedText;
+    stateEyebrow: LocalizedText;
+    stateTitle: LocalizedText;
+    stateText: LocalizedText;
+    numbers: Array<{ id: string; label: LocalizedText; value: string }>;
   };
   partner: {
     eyebrow: LocalizedText;
     title: LocalizedText;
+    subtitle: LocalizedText;
     intro: LocalizedText;
     benefits: Array<{ id: string; title: LocalizedText; text: LocalizedText }>;
-    voice: { name: string; role: LocalizedText; title: LocalizedText; quotes: TarifaKitesurfVoiceQuote[] };
+    voice: { name: string; role: LocalizedText; quote: TarifaKitesurfVoiceQuote };
     partnerHref: string;
     partnerLabel: LocalizedText;
     contactLabel: LocalizedText;
@@ -170,13 +170,13 @@ const title = l(
 const description = l('The wind forecast for Tarifa in one place: today’s live AEMET values, the Windguru table explained field by field, Levante and Poniente at Los Lances, the beach zones and the emergency channels. From AMARA, with Mark of Tarifa Surf Club.', 'Die Wind-Vorhersage für Tarifa an einem Ort: die aktuellen AEMET-Werte für heute, die Windguru-Tabelle Feld für Feld erklärt, Levante und Poniente an Los Lances, die Zonen am Strand und die Notrufwege. Von AMARA, mit Mark vom Tarifa Surf Club.', 'La previsión de viento de Tarifa en un solo lugar: los valores de AEMET de hoy, la tabla de Windguru explicada campo por campo, levante y poniente en Los Lances, las zonas de la playa y las vías de emergencia. De AMARA, con Mark del Tarifa Surf Club.', 'De windvoorspelling voor Tarifa op één plek: de actuele AEMET-waarden van vandaag, de Windguru-tabel veld voor veld uitgelegd, levante en poniente bij Los Lances, de strandzones en de noodkanalen. Van AMARA, met Mark van Tarifa Surf Club.', 'Vindprognosen för Tarifa på ett ställe: dagens AEMET-värden, Windguru-tabellen förklarad fält för fält, levante och poniente vid Los Lances, strandzonerna och nödvägarna. Från AMARA, med Mark från Tarifa Surf Club.');
 
 export const tarifaKitesurfWindSeo: AmaraAuthoringSeo = {
-  version: '2026-09-09-tarifa-wind-kitesurfing-v4.0',
+  version: '2026-09-11-tarifa-wind-kitesurfing-v5.0',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: routeOgImage('tarifa.kitesurfing.wind'),
   article: {
     datePublished: '2026-09-03',
-    dateModified: '2026-09-03',
+    dateModified: '2026-09-11',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorRoute: 'about'
@@ -190,126 +190,217 @@ export const tarifaKitesurfWindSeo: AmaraAuthoringSeo = {
   }
 };
 
+const chapter = (n: string) => l('Chapter ' + n, 'Kapitel ' + n, 'Capítulo ' + n, 'Hoofdstuk ' + n, 'Kapitel ' + n);
+const robertRole = l('Host at AMARA', 'Gastgeber bei AMARA', 'Anfitrión de AMARA', 'Host bij AMARA', 'Värd på AMARA');
+const markRole = l('Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club');
+const aemetHref = 'https://www.aemet.es/es/eltiempo/prediccion/municipios/tarifa-id11035';
+const aemetLabel = l('Open official AEMET forecast and warnings', 'Warnungen bei AEMET', 'Abrir previsión y avisos oficiales de AEMET', 'Open de officiële AEMET-verwachting en waarschuwingen', 'Öppna AEMET:s officiella prognos och varningar');
+const windguruHref = 'https://www.windguru.cz/976270';
+
 export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
   token: 'tarifa_wind_kitesurfing_authority',
   hero: {
     eyebrow: l('Kitesurfing in Tarifa', 'Kitesurfen in Tarifa', 'Kitesurf en Tarifa', 'Kitesurfen in Tarifa', 'Kitesurfing i Tarifa'),
     title: l('Wind, weather and safety', 'Wind, Wetter und Sicherheit', 'Viento, tiempo y seguridad', 'Wind, weer en veiligheid', 'Vind, väder och säkerhet'),
-    subtitle: l('How to read a forecast before you believe it', 'Levante, Poniente, und die Tabelle, auf die hier morgens alle schauen', 'Cómo leer un parte antes de creérselo', 'Hoe je een forecast leest voordat je hem gelooft', 'Hur ni läser en prognos innan ni tror på den'),
-    lead: l('Tarifa has two defining wind patterns: Poniente from the west and Levante from the east. On the water they feel completely different — in the models you read on Windguru in the morning, they sit side by side in the same table. Today’s live values are at the top; below them we show you how to read that table: what mean wind and gusts actually say, why a finer model grid does not automatically mean a better forecast at your beach, and what wave, swell and period mean for the day. Plus the official rules that apply in Tarifa and the emergency channels that count when it matters. None of it clears a session: official AEMET warnings come first, and you make the decision on the beach — with a better eye for what you see there.', 'In Tarifa fragt morgens niemand, ob Wind kommt, sondern welcher. Der Poniente vom Atlantik oder der Levante aus Osten: Am Wasser fühlen sie sich völlig verschieden an, in der Windguru-Tabelle stehen sie nebeneinander. Oben stehen die aktuellen Werte für heute; darunter zeigen wir euch, wie ihr die Windguru-Tabelle lest, was die beiden Winde an unserem Strand bedeuten, welche Zonen am Strand gelten und wen ihr ruft, wenn wirklich etwas passiert. Nichts davon gibt eine Session frei: Amtliche AEMET-Warnungen gehen vor, und die Entscheidung trefft ihr am Strand — mit besserem Blick auf das, was ihr dort seht.', 'Tarifa tiene dos vientos que lo marcan todo: el poniente, del oeste, y el levante, del este. En el agua se sienten completamente distintos; en los modelos que leéis por la mañana en Windguru aparecen uno al lado del otro en la misma tabla. Arriba están los valores de hoy; debajo os enseñamos a leer esa tabla: qué dicen de verdad el viento medio y las rachas, por qué una malla más fina no significa automáticamente una previsión mejor en vuestra playa, y qué suponen la ola, el mar de fondo y el periodo para el día. Además, las normas oficiales que rigen en Tarifa y las vías de emergencia que cuentan cuando hace falta. Nada de esto da luz verde a una sesión: los avisos oficiales de AEMET van por delante, y la decisión la tomáis en la playa, con mejor ojo para lo que veis allí.', 'Tarifa heeft twee bepalende windsituaties: poniente uit het westen en levante uit het oosten. Op het water voelen ze totaal verschillend — in de modellen die jullie ’s ochtends op Windguru lezen, staan ze naast elkaar in dezelfde tabel. Bovenaan staan de actuele waarden van vandaag; daaronder laten we zien hoe je die tabel leest: wat gemiddelde wind en vlagen werkelijk zeggen, waarom een fijner modelraster niet automatisch een betere verwachting voor jullie strand betekent, en wat golf, swell en periode voor de dag betekenen. Daarbij de officiële regels die in Tarifa gelden en de noodkanalen die tellen als het erop aankomt. Niets daarvan geeft een sessie vrij: officiële AEMET-waarschuwingen gaan voor, en de beslissing nemen jullie op het strand — met een betere blik op wat jullie daar zien.', 'Tarifa har två vindlägen som präglar allt: poniente från väst och levante från öst. På vattnet känns de helt olika – i modellerna ni läser på Windguru på morgonen står de bredvid varandra i samma tabell. Överst står dagens värden; under dem visar vi hur man läser den tabellen: vad medelvind och byar faktiskt säger, varför ett finare modellrutnät inte automatiskt betyder en bättre prognos på er strand, och vad våg, swell och period betyder för dagen. Dessutom de officiella regler som gäller i Tarifa och de nödvägar som räknas när det gäller. Inget av det ger grönt ljus för en session: officiella AEMET-varningar går först, och beslutet fattar ni på stranden — med bättre blick för det ni ser där.'),
+    subtitle: l('Levante, Poniente, and the table everyone here checks in the morning', 'Levante, Poniente, und die Tabelle, auf die hier morgens alle schauen', 'Levante, poniente y la tabla que todos miran aquí por la mañana', 'Levante, poniente, en de tabel waar hier ’s ochtends iedereen naar kijkt', 'Levante, poniente och tabellen alla här tittar på om morgonen'),
+    lead: l('In Tarifa nobody asks in the morning whether the wind will come, only which one. This page walks through the morning with you in the order it happens here: the official warning first, then the Windguru table, then which of the two winds is blowing and where you launch in it. None of it clears a session: official AEMET warnings come first, and you make the decision on the beach.', 'In Tarifa fragt morgens niemand, ob Wind kommt, sondern welcher. Diese Seite geht den Morgen mit euch durch, in der Reihenfolge, in der er hier abläuft: erst die amtliche Warnung, dann die Windguru-Tabelle, dann die Frage, welcher der zwei Winde steht und wo ihr damit rausgeht. Nichts davon gibt eine Session frei: Amtliche AEMET-Warnungen gehen vor, und die Entscheidung trefft ihr am Strand.', 'En Tarifa nadie pregunta por la mañana si habrá viento, sino cuál. Esta página recorre la mañana con vosotros en el orden en que ocurre aquí: primero el aviso oficial, luego la tabla de Windguru, después cuál de los dos vientos sopla y dónde salís con él. Nada de esto da luz verde a una sesión: los avisos oficiales de AEMET van por delante, y la decisión la tomáis en la playa.', 'In Tarifa vraagt ’s ochtends niemand óf er wind komt, alleen welke. Deze pagina loopt de ochtend met jullie door in de volgorde waarin hij hier verloopt: eerst de officiële waarschuwing, dan de Windguru-tabel, dan de vraag welke van de twee winden staat en waar jullie daarmee het water op gaan. Niets daarvan geeft een sessie vrij: officiële AEMET-waarschuwingen gaan voor, en de beslissing nemen jullie op het strand.', 'I Tarifa frågar ingen på morgonen om det blir vind, bara vilken. Den här sidan går igenom morgonen med er i den ordning den sker här: först den officiella varningen, sedan Windguru-tabellen, sedan frågan vilken av de två vindarna som blåser och var ni går ut i den. Inget av det ger grönt ljus för ett pass: officiella AEMET-varningar går först, och beslutet fattar ni på stranden.'),
     imageAlt: l('The Tarifa Surf Club team with the club flag on the beach', 'Das Team des Tarifa Surf Club mit der Vereinsflagge am Strand', 'El equipo de Tarifa Surf Club con la bandera del club en la playa', 'Het team van Tarifa Surf Club met de clubvlag op het strand', 'Tarifa Surf Clubs team med klubbflaggan på stranden'),
     updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026'),
     note: l('We live and kite here ourselves.', 'Wir wohnen und kiten hier selbst.', 'Vivimos y hacemos kite aquí.', 'We wonen en kiten hier zelf.', 'Vi bor och kitar här själva.')
   },
-  live: {
-    eyebrow: l('Official', 'Amtlich', 'Oficial', 'Officieel', 'Officiellt'),
-    title: l('What the Spanish weather service reports for today', 'Was die spanische Wetterbehörde für heute meldet', 'Qué dice hoy la agencia meteorológica española', 'Wat de Spaanse weerdienst voor vandaag meldt', 'Vad den spanska vädertjänsten rapporterar för i dag'),
-    intro: l('AEMET is Spain’s official weather service. Its warnings and its municipal forecast have a priority of their own: they rank above any model calculation and above everything that follows on this page. When AEMET issues a warning for the Strait, that is the information that counts.', 'Die AEMET ist der offizielle spanische Wetterdienst. Ihre Warnungen und ihre Gemeindevorhersage haben eine eigene Priorität: Sie stehen über jeder Modellrechnung und über allem, was auf dieser Seite folgt. Wenn AEMET eine Warnung für den Estrecho ausgibt, ist das die Information, die zählt.', 'AEMET es el servicio meteorológico oficial de España. Sus avisos y su previsión municipal tienen prioridad propia: están por encima de cualquier cálculo de modelo y de todo lo que sigue en esta página. Si AEMET emite un aviso para el Estrecho, esa es la información que cuenta.', 'AEMET is de officiële Spaanse weerdienst. Zijn waarschuwingen en zijn gemeenteverwachting hebben een eigen prioriteit: ze staan boven elke modelberekening en boven alles wat op deze pagina volgt. Geeft AEMET een waarschuwing af voor de Straat, dan is dat de informatie die telt.', 'AEMET är Spaniens officiella vädertjänst. Dess varningar och kommunprognos har en egen prioritet: de står över varje modellberäkning och över allt som följer på den här sidan. När AEMET utfärdar en varning för sundet är det den informationen som räknas.'),
-    loading: l('Loading the official AEMET forecast …', 'Amtliche AEMET-Vorhersage wird geladen …', 'Cargando la previsión oficial de AEMET …', 'Officiële AEMET-verwachting wordt geladen …', 'AEMET:s officiella prognos laddas …'),
-    today: l('Today', 'Heute', 'Hoy', 'Vandaag', 'I dag'),
-    tomorrow: l('Tomorrow', 'Morgen', 'Mañana', 'Morgen', 'I morgon'),
-    high: l('High', 'Höchstwert', 'Máxima', 'Maximum', 'Högsta'),
-    low: l('Low', 'Tiefstwert', 'Mínima', 'Minimum', 'Lägsta'),
-    rain: l('Rain probability', 'Regenwahrscheinlichkeit', 'Probabilidad de lluvia', 'Neerslagkans', 'Regnsannolikhet'),
-    issued: l('Forecast issued', 'Vorhersage ausgegeben', 'Previsión emitida', 'Verwachting uitgegeven', 'Prognosen utfärdad'),
-    unavailableTitle: l('The official AEMET forecast is currently unavailable', 'Die amtliche AEMET-Vorhersage ist gerade nicht verfügbar', 'La previsión oficial de AEMET no está disponible ahora mismo', 'De officiële AEMET-verwachting is op dit moment niet beschikbaar', 'AEMET:s officiella prognos är inte tillgänglig just nu'),
-    unavailableText: l('When data is missing, the field stays empty; the official forecast and warnings are directly at AEMET.', 'Wenn Daten fehlen, bleibt das Feld leer; die amtliche Vorhersage und die Warnungen stehen direkt bei AEMET.', 'Si faltan datos, el campo queda vacío; el pronóstico oficial y los avisos están directamente en AEMET.', 'Als gegevens ontbreken, blijft het veld leeg; de officiële voorspelling en waarschuwingen staan direct bij AEMET.', 'Saknas data lämnas fältet tomt; den officiella prognosen och varningarna finns direkt hos AEMET.'),
-    briefingEyebrow: l('Today in Tarifa', 'Heute in Tarifa', 'Hoy en Tarifa', 'Vandaag in Tarifa', 'I dag i Tarifa'),
-    forecastHeading: l('What the models are calculating right now', 'Was die Modelle gerade rechnen', 'Qué están calculando los modelos ahora mismo', 'Wat de modellen nu berekenen', 'Vad modellerna räknar just nu'),
-    pending: l('AEMET’s hourly forecast for Tarifa, read for you by fixed rules: what wind, gusts, sea state and sky mean for the hour. Nothing here chooses a spot, names a kite size or approves a session.', 'Die AEMET-Stundenvorhersage für Tarifa, nach festen Regeln für euch eingeordnet: was Wind, Böen, Wellengang und Himmel für die Stunde bedeuten. Nichts hier wählt einen Spot, nennt eine Kitegröße oder gibt eine Session frei.', 'La previsión horaria de AEMET para Tarifa, leída para vosotros con reglas fijas: qué significan viento, rachas, oleaje y cielo para esa hora. Nada aquí elige un spot, nombra una talla de cometa ni autoriza una sesión.', 'De AEMET-uurverwachting voor Tarifa, met vaste regels voor jullie geduid: wat wind, vlagen, golfslag en lucht voor dat uur betekenen. Niets hier kiest een spot, noemt een kitemaat of keurt een sessie goed.', 'AEMET:s timprognos för Tarifa, tolkad åt er med fasta regler: vad vind, byar, sjögång och himmel betyder för timmen. Inget här väljer spot, nämner kitestorlek eller godkänner en session.'),
-    windHeading: l('Wind and gusts', 'Wind und Böen', 'Viento y rachas', 'Wind en vlagen', 'Vind och byar'),
-    windText: l('The modelled value at 10 metres, the calculated direction, and the gust peak — which is the maximum of the previous hour, not a value for one moment.', 'Der Modellwert für 10 Meter Höhe, die berechnete Richtung, und die Böenspitze — die ist das Maximum der vorangegangenen Stunde, nicht ein Wert für einen Moment.', 'El valor del modelo a 10 metros de altura, la dirección calculada y el pico de racha, que es el máximo de la hora anterior, no un valor de un instante.', 'De modelwaarde op 10 meter hoogte, de berekende richting en de vlaagpiek — dat is het maximum van het voorgaande uur, geen waarde voor één moment.', 'Modellvärdet på 10 meters höjd, den beräknade riktningen och bytoppen – som är maxvärdet för den föregående timmen, inte ett värde för ett ögonblick.'),
-    waveHeading: l('Wave and swell', 'Welle und Swell', 'Ola y mar de fondo', 'Golf en swell', 'Våg och swell'),
-    waveText: l('Total wave, the wind-driven part and the swell, each with direction and period. Wind wave and swell can arrive from different directions at the same time — that is the difference between an orderly day and a messy one.', 'Gesamtwelle, der windgetriebene Anteil und der Swell, jeweils mit Richtung und Periode. Windwelle und Swell können gleichzeitig aus verschiedenen Richtungen kommen — das ist der Unterschied zwischen einem geordneten und einem unruhigen Tag.', 'Ola total, la parte generada por el viento y el mar de fondo, cada uno con dirección y periodo. La ola de viento y el mar de fondo pueden llegar a la vez desde direcciones distintas: esa es la diferencia entre un día ordenado y uno revuelto.', 'Totale golf, het door wind opgewekte deel en de swell, elk met richting en periode. Windgolf en swell kunnen tegelijk uit verschillende richtingen komen — dat is het verschil tussen een geordende en een rommelige dag.', 'Total våg, den vinddrivna delen och swellen, var och en med riktning och period. Vindvåg och swell kan komma från olika håll samtidigt – det är skillnaden mellan en ordnad och en rörig dag.'),
-    skyHeading: l('Clouds and sun', 'Wolken und Sonne', 'Nubes y sol', 'Wolken en zon', 'Moln och sol'),
-    skyText: l('Weather context. A sun icon says nothing about whether a thermal wind will set in.', 'Wetterkontext. Ein Sonnen-Icon sagt nichts darüber, ob Thermik einsetzt.', 'Contexto meteorológico. Un icono de sol no dice nada sobre si entrará la térmica.', 'Weercontext. Een zonicoon zegt niets over of er thermiek op gang komt.', 'Väderkontext. En solsymbol säger ingenting om huruvida termiken sätter in.'),
-    checkHeading: l('Check before the water', 'Vor dem Wasser prüfen', 'Comprobad antes de entrar al agua', 'Controleer vóór het water', 'Kontrollera före vattnet'),
-    checkText: l('Actual direction, gusts, sea state, buoys, signs and official warnings; the forecast figure describes one model hour.', 'Tatsächliche Richtung, Böen, Seegang, Bojen, Beschilderung und amtliche Warnungen; die Forecast-Zahl beschreibt eine Modellstunde.', 'Dirección real, rachas, estado del mar, boyas, señales y avisos oficiales; la cifra del pronóstico describe una hora del modelo.', 'Werkelijke richting, vlagen, zeegang, boeien, borden en officiële waarschuwingen; het voorspellingsgetal beschrijft één modeluur.', 'Verklig riktning, byar, sjögång, bojar, skyltar och officiella varningar; prognossiffran beskriver en modelltimme.'),
-    meanWind: l('10 m wind', 'Wind auf 10 m', 'Viento a 10 m', 'Wind op 10 m', 'Vind på 10 m'),
-    gusts: l('Gust peak', 'Böenspitze', 'Pico de racha', 'Vlaagpiek', 'Bytopp'),
-    from: l('from', 'aus', 'desde', 'uit', 'från'),
-    totalCloud: l('Total cloud', 'Gesamtbewölkung', 'Nubosidad total', 'Totale bewolking', 'Total molnighet'),
-    lowCloud: l('Low cloud', 'Tiefe Wolken', 'Nubes bajas', 'Lage bewolking', 'Låga moln'),
-    midCloud: l('Mid cloud', 'Mittlere Wolken', 'Nubes medias', 'Middelbare bewolking', 'Mellanmoln'),
-    highCloud: l('High cloud', 'Hohe Wolken', 'Nubes altas', 'Hoge bewolking', 'Höga moln'),
-    radiation: l('Radiation (hourly mean)', 'Einstrahlung (Stundenmittel)', 'Radiación (media horaria)', 'Straling (uurgemiddelde)', 'Instrålning (timmedel)'),
-    totalWave: l('Total wave', 'Gesamtwelle', 'Ola total', 'Totale golf', 'Total våg'),
-    windWave: l('Wind wave', 'Windwelle', 'Ola de viento', 'Windgolf', 'Vindvåg'),
-    primarySwell: l('Primary swell', 'Primärer Swell', 'Mar de fondo principal', 'Primaire swell', 'Primär swell'),
-    secondarySwell: l('Secondary swell', 'Sekundärswell', 'Mar de fondo secundario', 'Secundaire swell', 'Sekundär swell'),
-    height: l('height', 'Höhe', 'altura', 'hoogte', 'höjd'),
-    direction: l('from', 'aus', 'desde', 'uit', 'från'),
-    period: l('period', 'Periode', 'periodo', 'periode', 'period'),
-    source: l('Weather data', 'Wetterdaten', 'Datos meteorológicos', 'Weerdata', 'Väderdata'),
-    models: l('Model', 'Modell', 'Modelo', 'Model', 'Modell'),
-    fetched: l('fetched', 'abgerufen', 'obtenido', 'opgehaald', 'hämtat'),
-    forecastTime: l('Forecast valid for', 'Vorhersage gültig für', 'Previsión válida para', 'Verwachting geldig voor', 'Prognos giltig för'),
-    attribution: l('Weather data: AEMET', 'Wetterdaten: AEMET', 'Datos meteorológicos: AEMET', 'Weerdata: AEMET', 'Väderdata: AEMET'),
-    aemetLabel: l('Open official AEMET forecast and warnings', 'Warnungen bei AEMET', 'Abrir previsión y avisos oficiales de AEMET', 'Open de officiële AEMET-verwachting en waarschuwingen', 'Öppna AEMET:s officiella prognos och varningar')
+  toc: {
+    label: l('On this page', 'Auf dieser Seite', 'En esta página', 'Op deze pagina', 'På den här sidan'),
+    items: [
+      { id: 'heute', number: '1', label: l('Today', 'Heute', 'Hoy', 'Vandaag', 'I dag') },
+      { id: 'welcher-wind', number: '2', label: l('Which wind', 'Welcher Wind', 'Qué viento', 'Welke wind', 'Vilken vind') },
+      { id: 'tabelle', number: '3', label: l('Reading the table', 'Die Tabelle lesen', 'Leer la tabla', 'De tabel lezen', 'Läsa tabellen') },
+      { id: 'thermik', number: '4', label: l('Thermal wind', 'Thermik', 'Térmica', 'Thermiek', 'Termik') },
+      { id: 'wo-raus', number: '5', label: l('Where to launch', 'Wo raus', 'Dónde salir', 'Waar het water op', 'Var man går ut') },
+      { id: 'ernstfall', number: '6', label: l('In an emergency', 'Im Ernstfall', 'En caso de emergencia', 'In noodgevallen', 'I ett nödläge') }
+    ]
   },
-  windguru: {
-    eyebrow: l('Windguru for beginners', 'Windguru für Anfänger', 'Windguru para principiantes', 'Windguru voor beginners', 'Windguru för nybörjare'),
-    title: l('How to read Windguru — the table everyone here checks in the morning', 'So lest ihr Windguru — die Tabelle, auf die hier morgens alle schauen', 'Cómo leer Windguru: la tabla que todos miran aquí por la mañana', 'Zo lezen jullie Windguru — de tabel waar hier ’s ochtends iedereen naar kijkt', 'Så läser ni Windguru — tabellen alla här tittar på om morgonen'),
-    intro: l(
-      'The first time you look at Windguru as a beginner, you see a wall of numbers, colours and arrows — and it makes you nervous. It did the same to us. So we go through it calmly here, on real live data. Above you see the two models the locals here work with: GFS 13 km for the rough trend over the next days, and WRF 3 km for the local day. What each row means, we go through step by step below.',
-      'Als Anfänger schaut ihr zum ersten Mal auf Windguru und seht eine Wand aus Zahlen, Farben und Pfeilen — und werdet erst mal nervös. Ging uns genauso. Deshalb gehen wir es hier in Ruhe durch, an echten Live-Daten. Oben seht ihr die zwei Modelle, mit denen die Locals hier arbeiten: GFS 13 km für den groben Trend der nächsten Tage und WRF 3 km für den lokalen Tag. Was jede Zeile bedeutet, geht ihr hier Schritt für Schritt durch.',
-      'La primera vez que miráis Windguru como principiantes veis un muro de números, colores y flechas, y os ponéis nerviosos. A nosotros nos pasó igual. Por eso aquí lo vemos con calma, con datos reales en directo. Arriba veis los dos modelos con los que trabajan los locales: GFS 13 km para la tendencia general de los próximos días y WRF 3 km para el día local. Lo que significa cada fila lo repasamos paso a paso más abajo.',
-      'De eerste keer dat jullie als beginner naar Windguru kijken, zien jullie een muur van cijfers, kleuren en pijlen — en worden jullie nerveus. Ging ons net zo. Daarom nemen we het hier rustig door, met echte livegegevens. Hierboven zien jullie de twee modellen waar de locals hier mee werken: GFS 13 km voor de grove trend van de komende dagen en WRF 3 km voor de lokale dag. Wat elke rij betekent, nemen we hieronder stap voor stap door.',
-      'Första gången ni som nybörjare tittar på Windguru ser ni en vägg av siffror, färger och pilar — och blir nervösa. Det gick likadant för oss. Därför går vi igenom det i lugn och ro här, på riktiga livedata. Ovan ser ni de två modeller som de lokala här jobbar med: GFS 13 km för den grova trenden de närmaste dagarna och WRF 3 km för den lokala dagen. Vad varje rad betyder går vi igenom steg för steg nedan.'
+  today: {
+    label: chapter('1'),
+    title: l('Today', 'Heute', 'Hoy', 'Vandaag', 'I dag'),
+    subtitle: l('The official warning status first, then the table everyone checks', 'Erst der amtliche Warnstatus, dann die Tabelle, auf die alle schauen', 'Primero el estado oficial de avisos, luego la tabla que mira todo el mundo', 'Eerst de officiële waarschuwingsstatus, dan de tabel waar iedereen naar kijkt', 'Först den officiella varningsstatusen, sedan tabellen alla tittar på'),
+    windguru: {
+      eyebrow: l('Windguru · Tarifa', 'Windguru · Tarifa', 'Windguru · Tarifa', 'Windguru · Tarifa', 'Windguru · Tarifa'),
+      title: l('The table everyone here checks in the morning, live at Windguru', 'Die Tabelle, auf die hier morgens alle schauen, live bei Windguru', 'La tabla que todos miran aquí por la mañana, en directo en Windguru', 'De tabel waar hier ’s ochtends iedereen naar kijkt, live bij Windguru', 'Tabellen alla här tittar på om morgonen, live hos Windguru'),
+      text: l('Two models: GFS 13 km for the trend over the next days, WRF 3 km for the local day. How to read the rows is in chapter 3 below, on an example day.', 'Zwei Modelle: GFS 13 km für den Trend der nächsten Tage, WRF 3 km für den lokalen Tag. Wie ihr die Zeilen lest, steht unten in Kapitel 3, an einem Beispieltag.', 'Dos modelos: GFS 13 km para la tendencia de los próximos días, WRF 3 km para el día local. Cómo leer las filas está más abajo, en el capítulo 3, con un día de ejemplo.', 'Twee modellen: GFS 13 km voor de trend van de komende dagen, WRF 3 km voor de lokale dag. Hoe jullie de rijen lezen, staat hieronder in hoofdstuk 3, aan de hand van een voorbeelddag.', 'Två modeller: GFS 13 km för trenden de närmaste dagarna, WRF 3 km för den lokala dagen. Hur ni läser raderna står nedan i kapitel 3, på en exempeldag.'),
+      linkLabel: l('Open Windguru Tarifa', 'Windguru Tarifa öffnen', 'Abrir Windguru Tarifa', 'Open Windguru Tarifa', 'Öppna Windguru Tarifa'),
+      linkHref: windguruHref
+    },
+    official: {
+      title: l('What the Spanish weather service reports for today', 'Was die spanische Wetterbehörde für heute meldet', 'Qué dice hoy la agencia meteorológica española', 'Wat de Spaanse weerdienst voor vandaag meldt', 'Vad den spanska vädertjänsten rapporterar för i dag'),
+      text: l('Official AEMET warnings take precedence over any model calculation. We do not summarise them and we do not weigh them against other models. The Estrecho warning zone (611104) has been checked against AEMET’s official zone register; the block above shows AEMET’s wording, and whenever it fails the link leads straight to AEMET.', 'Amtliche AEMET-Warnungen haben Vorrang vor jeder Modellrechnung. Wir fassen sie nicht zusammen und rechnen sie nicht gegen andere Modelle auf. Die Warnzone Estrecho (611104) ist gegen das amtliche Zonenverzeichnis von AEMET geprüft; oben steht AEMETs Wortlaut, und bei jedem Ausfall führt der Link direkt zu AEMET.', 'Los avisos oficiales de AEMET prevalecen sobre cualquier cálculo de modelo. No los resumimos ni los contraponemos a otros modelos. La zona de aviso Estrecho (611104) está comprobada con el registro oficial de zonas de AEMET; arriba aparece el texto de AEMET, y si falla, el enlace lleva directamente a AEMET.', 'Officiële AEMET-waarschuwingen gaan boven elke modelberekening. We vatten ze niet samen en zetten ze niet af tegen andere modellen. De waarschuwingszone Estrecho (611104) is gecontroleerd aan de hand van het officiële zoneregister van AEMET; hierboven staat de tekst van AEMET, en bij elke storing leidt de link rechtstreeks naar AEMET.', 'Officiella AEMET-varningar går före varje modellberäkning. Vi sammanfattar dem inte och väger dem inte mot andra modeller. Varningszonen Estrecho (611104) är kontrollerad mot AEMET:s officiella zonregister; ovan står AEMET:s ordalydelse, och vid varje avbrott leder länken direkt till AEMET.'),
+      href: aemetHref,
+      linkLabel: aemetLabel,
+      briefingText: l('AEMET’s hourly forecast for Tarifa, read for you by fixed rules: what wind, gusts, sea state and sky mean for the hour. Nothing here chooses a spot, names a kite size or approves a session.', 'Die AEMET-Stundenvorhersage für Tarifa, nach festen Regeln für euch eingeordnet: was Wind, Böen, Wellengang und Himmel für die Stunde bedeuten. Nichts hier wählt einen Spot, nennt eine Kitegröße oder gibt eine Session frei.', 'La previsión horaria de AEMET para Tarifa, leída para vosotros con reglas fijas: qué significan viento, rachas, oleaje y cielo para esa hora. Nada aquí elige un spot, nombra una talla de cometa ni autoriza una sesión.', 'De AEMET-uurverwachting voor Tarifa, met vaste regels voor jullie geduid: wat wind, vlagen, golfslag en lucht voor dat uur betekenen. Niets hier kiest een spot, noemt een kitemaat of keurt een sessie goed.', 'AEMET:s timprognos för Tarifa, tolkad åt er med fasta regler: vad vind, byar, sjögång och himmel betyder för timmen. Inget här väljer spot, nämner kitestorlek eller godkänner en session.')
+    },
+    forecast: {
+      loading: l('Loading the official AEMET forecast …', 'Amtliche AEMET-Vorhersage wird geladen …', 'Cargando la previsión oficial de AEMET …', 'Officiële AEMET-verwachting wordt geladen …', 'AEMET:s officiella prognos laddas …'),
+      today: l('Today', 'Heute', 'Hoy', 'Vandaag', 'I dag'),
+      tomorrow: l('Tomorrow', 'Morgen', 'Mañana', 'Morgen', 'I morgon'),
+      high: l('High', 'Höchstwert', 'Máxima', 'Maximum', 'Högsta'),
+      low: l('Low', 'Tiefstwert', 'Mínima', 'Minimum', 'Lägsta'),
+      rain: l('Rain probability', 'Regenwahrscheinlichkeit', 'Probabilidad de lluvia', 'Neerslagkans', 'Regnsannolikhet'),
+      issued: l('Forecast issued', 'Vorhersage ausgegeben', 'Previsión emitida', 'Verwachting uitgegeven', 'Prognosen utfärdad'),
+      unavailableTitle: l('The official AEMET forecast is currently unavailable', 'Die amtliche AEMET-Vorhersage ist gerade nicht verfügbar', 'La previsión oficial de AEMET no está disponible ahora mismo', 'De officiële AEMET-verwachting is op dit moment niet beschikbaar', 'AEMET:s officiella prognos är inte tillgänglig just nu'),
+      unavailableText: l('When data is missing, the field stays empty; the official forecast and warnings are directly at AEMET.', 'Wenn Daten fehlen, bleibt das Feld leer; die amtliche Vorhersage und die Warnungen stehen direkt bei AEMET.', 'Si faltan datos, el campo queda vacío; el pronóstico oficial y los avisos están directamente en AEMET.', 'Als gegevens ontbreken, blijft het veld leeg; de officiële voorspelling en waarschuwingen staan direct bij AEMET.', 'Saknas data lämnas fältet tomt; den officiella prognosen och varningarna finns direkt hos AEMET.'),
+      aemetLabel
+    }
+  },
+  wind: {
+    label: chapter('2'),
+    title: l('Which wind', 'Welcher Wind', 'Qué viento', 'Welke wind', 'Vilken vind'),
+    subtitle: l('Two wind patterns, two completely different days', 'Der Poniente bringt die Welle, der Levante die Stärke und die Böen', 'Dos vientos, dos días completamente distintos', 'Twee windsituaties, twee totaal verschillende dagen', 'Två vindlägen, två helt olika dagar'),
+    intro: l('Poniente comes from the west, off the Atlantic. On the main beaches it is side-onshore, usually runs more evenly and typically brings waves with it. Levante comes from the east. On the main beaches such as Los Lances it mostly blows side-offshore and is known for strength and gustiness. That is not the same everywhere; stretches like Balneario or Palmones sit differently. So wind direction alone yields neither a choice of spot nor a safety assessment.', 'Der Poniente kommt vom Atlantik, aus Westen. An Los Lances steht er schräg auflandig, läuft gleichmäßiger und bringt die Welle mit; das ist der Wind, um den es im Zitat unten geht. Der Levante kommt aus Osten, vom Land aufs Meer, an Los Lances schräg ablandig, warm, kräftig und böig. Nicht jeder Strand liegt gleich zum Wind: Am Balneario direkt an der Stadt oder in Palmones sieht dieselbe Richtung anders aus. Deshalb sagt die Richtung allein noch nicht, wo ihr heute startet.', 'El poniente viene del oeste, del Atlántico. En las playas principales entra side-onshore, de lado y de mar, suele ser más regular y normalmente trae ola. El levante viene del este. En las playas principales como Los Lances sopla casi siempre side-offshore, de lado y de tierra, y es conocido por su fuerza y sus rachas. No es igual en todas partes; tramos como Balneario o Palmones están orientados de otra manera. Por eso, de la dirección del viento por sí sola no sale ni una elección de spot ni una valoración de seguridad.', 'Poniente komt uit het westen, van de Atlantische Oceaan. Op de hoofdstranden staat hij side-onshore — schuin aanlandig —, loopt meestal gelijkmatiger en brengt doorgaans golven mee. Levante komt uit het oosten. Op de hoofdstranden zoals Los Lances waait hij meestal side-offshore — schuin aflandig — en staat hij bekend om kracht en vlagerigheid. Dat geldt niet overal hetzelfde; delen als Balneario of Palmones liggen anders. Uit de windrichting alleen volgt daarom noch een spotkeuze, noch een veiligheidsinschatting.', 'Poniente kommer från väst, från Atlanten. På huvudstränderna är den side-onshore – snett pålands –, löper oftast jämnare och för vanligtvis med sig vågor. Levante kommer från öst. På huvudstränder som Los Lances blåser den för det mesta side-offshore – snett frånlands – och är känd för styrka och byighet. Det gäller inte överallt på samma sätt; sträckor som Balneario eller Palmones ligger annorlunda. Av vindriktningen ensam följer därför varken ett spotval eller en säkerhetsbedömning.'),
+    recognizeTitle: l('Reading the morning before you look at the table', 'Am Morgen erkennen, bevor ihr auf die Tabelle schaut', 'Reconocer la mañana antes de mirar la tabla', 'De ochtend lezen voordat jullie naar de tabel kijken', 'Läsa morgonen innan ni tittar på tabellen'),
+    robert: {
+      name: 'Robert',
+      role: robertRole,
+      imageAlt: l('Robert Böhmer, host at AMARA', 'Robert Böhmer, Gastgeber bei AMARA', 'Robert Böhmer, anfitrión de AMARA', 'Robert Böhmer, host bij AMARA', 'Robert Böhmer, värd på AMARA')
+    },
+    robertMorning: ll(
+      ['In the morning I can already feel the wind in the temperature: warm usually means Levante, cool brings Poniente. And Levante often needs a day — the first day is fidgety and gusty, the second one really runs.'],
+      ['Morgens spüre ich den Wind schon an der Temperatur: Ist es warm, steht meist Levante; ist es kühl, kommt der Poniente. Und der Levante braucht oft einen Tag — der erste ist zickig und böig, der zweite läuft dann richtig rund.'],
+      ['Por la mañana ya noto el viento en la temperatura: si hace calor suele ser levante; si está fresco entra el poniente. Y el levante muchas veces necesita un día: el primero va nervioso y racheado, el segundo ya rueda de verdad.'],
+      ['’s Ochtends voel ik de wind al aan de temperatuur: is het warm, dan staat meestal levante; is het fris, dan komt poniente. En levante heeft vaak een dag nodig — de eerste is nerveus en vlagerig, de tweede loopt pas echt lekker.'],
+      ['På morgonen känner jag vinden redan på temperaturen: är det varmt är det oftast levante, är det svalt kommer poniente. Och levanten behöver ofta en dag – den första är nyckfull och byig, den andra rullar det på ordentligt.']
     ),
-    loading: l('The Windguru table loads when it scrolls into view.', 'Die Windguru-Tabelle lädt, sobald sie ins Bild kommt.', 'La tabla de Windguru se carga cuando entra en pantalla.', 'De Windguru-tabel laadt zodra hij in beeld komt.', 'Windguru-tabellen laddas när den kommer in i bild.'),
-    noscript: l('The Windguru table needs JavaScript. Open the Tarifa spot directly at Windguru instead.', 'Die Windguru-Tabelle braucht JavaScript. Öffnet stattdessen den Spot Tarifa direkt bei Windguru.', 'La tabla de Windguru necesita JavaScript. Abrid el spot de Tarifa directamente en Windguru.', 'De Windguru-tabel heeft JavaScript nodig. Open in plaats daarvan de spot Tarifa rechtstreeks bij Windguru.', 'Windguru-tabellen kräver JavaScript. Öppna i stället spoten Tarifa direkt hos Windguru.'),
-    lazyNote: l('The table is loaded from windguru.cz only once you scroll to it. Availability, models and presentation are Windguru’s.', 'Die Tabelle wird erst von windguru.cz geladen, wenn ihr bis hierher scrollt. Verfügbarkeit, Modelle und Darstellung liegen bei Windguru.', 'La tabla solo se carga desde windguru.cz cuando llegáis hasta aquí. Disponibilidad, modelos y presentación son de Windguru.', 'De tabel wordt pas van windguru.cz geladen zodra jullie tot hier scrollen. Beschikbaarheid, modellen en weergave liggen bij Windguru.', 'Tabellen laddas från windguru.cz först när ni skrollar hit. Tillgänglighet, modeller och presentation ligger hos Windguru.'),
-    linkLabel: l('Open Windguru: Tarifa', 'Windguru: Tarifa öffnen', 'Abrir Windguru: Tarifa', 'Open Windguru: Tarifa', 'Öppna Windguru: Tarifa'),
-    linkHref: 'https://www.windguru.cz/976270',
-    gfsLabel: l('GFS 13 km — the rough trend for the next few days', 'GFS 13 km — der grobe Trend für die nächsten Tage', 'GFS 13 km: la tendencia general de los próximos días', 'GFS 13 km — de grove trend voor de komende dagen', 'GFS 13 km — den grova trenden för de närmaste dagarna'),
-    wrfLabel: l('WRF 3 km — the local day, high resolution', 'WRF 3 km — der lokale Tag, hochaufgelöst', 'WRF 3 km: el día local, en alta resolución', 'WRF 3 km — de lokale dag, in hoge resolutie', 'WRF 3 km — den lokala dagen, i hög upplösning'),
-    rowsTitle: l('Row by row, what the tables show', 'Zeile für Zeile, was die Tabellen zeigen', 'Fila por fila, lo que muestran las tablas', 'Rij voor rij, wat de tabellen tonen', 'Rad för rad, vad tabellerna visar'),
+    mark: { name: 'Mark', role: markRole },
+    markReading: {
+      id: 'reading-the-day',
+      lead: l('How he can tell a day is running differently from the forecast:', 'Woran er sieht, dass ein Tag anders läuft als der Forecast:', 'En qué nota que un día va distinto de lo que decía el parte:', 'Waaraan hij ziet dat een dag anders loopt dan de forecast:', 'Hur han ser att en dag går annorlunda än prognosen:'),
+      paragraphs: ll(
+        ['I really only look at the mountains. If that thick Levante cloud is sitting over Gibraltar, the wind stays steady. If the cloud dissolves, the wind usually collapses shortly after. Another good indicator: when everyone out there suddenly loses ground upwind, the tidal current is running off downwind. That steals the pressure from your kite immediately, whatever the app says.'],
+        ['Ich schaue eigentlich nur auf die Berge. Hängt diese dicke Levante-Wolke über Gibraltar, bleibt der Wind stabil. Löst die Wolke sich auf, bricht der Wind meist kurz danach zusammen. Noch ein guter Indikator: Wenn draußen plötzlich alle Höhe verlieren, zieht die Gezeitenströmung gerade in Windrichtung ab. Das klaut dir sofort den Druck im Schirm, egal was die App sagt.'],
+        ['Yo en realidad solo miro a las montañas. Si esa nube gorda de levante está sobre Gibraltar, el viento se mantiene estable. Si la nube se deshace, el viento suele venirse abajo poco después. Otro buen indicador: cuando fuera todos pierden altura de repente, la corriente de marea está tirando en la dirección del viento. Eso te quita la presión de la cometa al instante, diga lo que diga la app.'],
+        ['Ik kijk eigenlijk alleen naar de bergen. Hangt die dikke levantewolk boven Gibraltar, dan blijft de wind stabiel. Lost de wolk op, dan zakt de wind meestal kort daarna in elkaar. Nog een goede indicator: als iedereen buiten ineens hoogte verliest, trekt de getijstroom net met de wind mee weg. Dat steelt meteen de druk uit je kite, wat de app ook zegt.'],
+        ['Jag tittar egentligen bara på bergen. Hänger det där tjocka levantemolnet över Gibraltar håller vinden sig stabil. Löser molnet upp sig bryter vinden oftast ihop strax därefter. Ännu en bra indikator: när alla därute plötsligt tappar höjd drar tidvattenströmmen just då iväg i vindriktningen. Det stjäl trycket i kiten direkt, oavsett vad appen säger.']
+      )
+    },
+    experienceTitle: l('The Tarifa we mean', 'Das Tarifa-Erlebnis, das wir meinen', 'La Tarifa que queremos decir', 'Het Tarifa dat wij bedoelen', 'Det Tarifa vi menar'),
+    robertExperience: ll(
+      [
+        'From my personal experience: Tarifa is advertised with around 300 kite days a year, and yes — some of those are Levante days. Anyone who wants to catch them all has to be able to kite in Levante too.',
+        'But the kitesurfing I mean, the kind the locals do here: that is Poniente. Los Lances right outside the door, waves in it, the wind not brutal but strong enough for a lot of fun. For me, that is the Tarifa experience.',
+        'That is why I wanted my apartment exactly there — with a view of Los Lances. I can see when the wind arrives. And when it arrives, I pack my things and go out.'
+      ],
+      [
+        'Aus meiner persönlichen Erfahrung: Tarifa wird mit rund 300 Kitetagen im Jahr beworben, und ja — ein Teil davon sind Levante-Tage. Wer die alle mitnehmen will, muss auch bei Levante kiten können.',
+        'Aber das Kitesurfen, das ich meine, das, was die Locals hier machen: das ist Poniente. Los Lances direkt vor der Tür, Welle drin, der Wind nicht brutal, aber stark genug für richtig viel Spaß. Das ist für mich das Tarifa-Erlebnis.',
+        'Deshalb wollte ich meine Wohnung auch genau dort haben — mit Blick auf Los Lances. Ich sehe, wann der Wind kommt. Und wenn er kommt, packe ich meine Sachen und gehe raus.'
+      ],
+      [
+        'Por experiencia personal: Tarifa se promociona con unos 300 días de kite al año, y sí, una parte son días de levante. Quien quiera aprovecharlos todos tiene que saber navegar también con levante.',
+        'Pero el kitesurf al que me refiero, el que hacen los locales aquí, es el de poniente. Los Lances justo delante de la puerta, con ola, el viento no brutal pero sí suficiente para disfrutar de verdad. Para mí, eso es la experiencia de Tarifa.',
+        'Por eso quise tener mi apartamento exactamente ahí, con vistas a Los Lances. Veo cuándo llega el viento. Y cuando llega, cojo mis cosas y salgo.'
+      ],
+      [
+        'Uit mijn persoonlijke ervaring: Tarifa wordt aangeprezen met zo’n 300 kitedagen per jaar, en ja — een deel daarvan zijn levantedagen. Wie die allemaal wil meepakken, moet ook bij levante kunnen kiten.',
+        'Maar het kitesurfen dat ik bedoel, dat wat de locals hier doen: dat is poniente. Los Lances direct voor de deur, golven erin, de wind niet bruut, maar sterk genoeg voor heel veel plezier. Dat is voor mij de Tarifa-ervaring.',
+        'Daarom wilde ik mijn appartement ook precies daar hebben — met uitzicht op Los Lances. Ik zie wanneer de wind komt. En als hij komt, pak ik mijn spullen en ga ik naar buiten.'
+      ],
+      [
+        'Av egen erfarenhet: Tarifa marknadsförs med runt 300 kitedagar om året, och ja – en del av dem är levantedagar. Den som vill ta alla måste kunna kita i levante också.',
+        'Men den kitesurfing jag menar, den som de lokala kör här: det är poniente. Los Lances direkt utanför dörren, vågor i, vinden inte brutal men stark nog för riktigt mycket glädje. Det är Tarifa-upplevelsen för mig.',
+        'Därför ville jag ha min lägenhet precis där – med utsikt över Los Lances. Jag ser när vinden kommer. Och när den kommer packar jag mina grejer och går ut.'
+      ]
+    ),
+    bridge: {
+      label: l('How it shows in the table', 'So steht es in der Tabelle', 'Así se ve en la tabla', 'Zo staat het in de tabel', 'Så syns det i tabellen'),
+      text: l('In the wind-direction row the arrow points left: from the east, Levante. Pointing right, it is Poniente. And in a Levante the gap between wind speed and gusts is wide — exactly what the example day in chapter 3 shows. Which beach suits which wind is in chapter 5.', 'In der Zeile Windrichtung zeigt der Pfeil nach links: aus Osten, Levante. Zeigt er nach rechts, kommt Poniente. Und beim Levante ist der Abstand zwischen Windstärke und Böen groß — genau das zeigt der Beispieltag in Kapitel 3. Welcher Strand zu welchem Wind passt, steht in Kapitel 5.', 'En la fila de dirección del viento la flecha apunta a la izquierda: viene del este, levante. Si apunta a la derecha, es poniente. Y con levante la diferencia entre viento medio y rachas es grande: justo lo que muestra el día de ejemplo del capítulo 3. Qué playa va con cada viento está en el capítulo 5.', 'In de rij windrichting wijst de pijl naar links: uit het oosten, levante. Wijst hij naar rechts, dan is het poniente. En bij levante is het verschil tussen windsterkte en vlagen groot — precies wat de voorbeelddag in hoofdstuk 3 laat zien. Welk strand bij welke wind past, staat in hoofdstuk 5.', 'I raden vindriktning pekar pilen åt vänster: från öst, levante. Pekar den åt höger är det poniente. Och i levante är avståndet mellan vindstyrka och byar stort — precis det exempeldagen i kapitel 3 visar. Vilken strand som passar vilken vind står i kapitel 5.'),
+      links: [
+        { id: 'table', anchor: 'tabelle', label: l('Chapter 3: the example day', 'Kapitel 3: der Beispieltag', 'Capítulo 3: el día de ejemplo', 'Hoofdstuk 3: de voorbeelddag', 'Kapitel 3: exempeldagen') },
+        { id: 'beach', anchor: 'wo-raus', label: l('Chapter 5: which beach', 'Kapitel 5: welcher Strand', 'Capítulo 5: qué playa', 'Hoofdstuk 5: welk strand', 'Kapitel 5: vilken strand') }
+      ]
+    }
+  },
+  table: {
+    label: chapter('3'),
+    title: l('Reading the table', 'Die Tabelle lesen', 'Leer la tabla', 'De tabel lezen', 'Läsa tabellen'),
+    subtitle: l('Windguru row by row, on two typical days: a Levante and a Poniente', 'Windguru Zeile für Zeile, an zwei typischen Tagen: einem Levante und einem Poniente', 'Windguru fila por fila, en dos días típicos: uno de levante y uno de poniente', 'Windguru rij voor rij, op twee typische dagen: een levante en een poniente', 'Windguru rad för rad, på två typiska dagar: en levante och en poniente'),
+    intro: l('The first time you look at Windguru as a beginner, you see a wall of numbers, colours and arrows — and it makes you nervous. It did the same to us. So we go through the table calmly here, on an example with the same rows as Windguru. The numbers at the start of each row come back in the explanations below.', 'Als Anfänger schaut ihr zum ersten Mal auf Windguru und seht eine Wand aus Zahlen, Farben und Pfeilen — und werdet erst mal nervös. Ging uns genauso. Deshalb gehen wir die Tabelle hier in Ruhe durch, an einem Beispiel mit denselben Zeilen wie bei Windguru. Die Nummern am Zeilenanfang findet ihr darunter wieder.', 'La primera vez que miráis Windguru como principiantes veis un muro de números, colores y flechas, y os ponéis nerviosos. A nosotros nos pasó igual. Por eso aquí repasamos la tabla con calma, con un ejemplo que tiene las mismas filas que Windguru. Los números al principio de cada fila los encontráis de nuevo debajo.', 'De eerste keer dat jullie als beginner naar Windguru kijken, zien jullie een muur van cijfers, kleuren en pijlen — en worden jullie nerveus. Ging ons net zo. Daarom nemen we de tabel hier rustig door, aan de hand van een voorbeeld met dezelfde rijen als bij Windguru. De nummers aan het begin van elke rij vinden jullie hieronder terug.', 'Första gången ni som nybörjare tittar på Windguru ser ni en vägg av siffror, färger och pilar — och blir nervösa. Det gick likadant för oss. Därför går vi igenom tabellen i lugn och ro här, på ett exempel med samma rader som hos Windguru. Numren i början av varje rad hittar ni igen nedanför.'),
+    example: {
+      label: l('Example in Windguru style · WRF 3 km · Tarifa', 'Beispiel im Windguru-Stil · WRF 3 km · Tarifa', 'Ejemplo al estilo Windguru · WRF 3 km · Tarifa', 'Voorbeeld in Windguru-stijl · WRF 3 km · Tarifa', 'Exempel i Windguru-stil · WRF 3 km · Tarifa'),
+      note: l('Example days, not a forecast. Live values:', 'Beispieltage, keine Vorhersage. Live-Werte:', 'Días de ejemplo, no una previsión. Valores en directo:', 'Voorbeelddagen, geen verwachting. Livewaarden:', 'Exempeldagar, ingen prognos. Livevärden:'),
+      linkLabel: l('Windguru Tarifa', 'Windguru Tarifa', 'Windguru Tarifa', 'Windguru Tarifa', 'Windguru Tarifa'),
+      linkHref: windguruHref,
+      hourRowLabel: l('Day · hour', 'Tag · Stunde', 'Día · hora', 'Dag · uur', 'Dag · timme'),
+      hourLabel: l('Time', 'Uhrzeit', 'Hora', 'Tijd', 'Klockslag'),
+      days: [
+        { id: 'levante', label: l('Levante day', 'Levante-Tag', 'Día de levante', 'Levantedag', 'Levantedag') },
+        { id: 'poniente', label: l('Poniente day', 'Poniente-Tag', 'Día de poniente', 'Ponientedag', 'Ponientedag') }
+      ],
+      colorNote: l('Colours as at Windguru: from light blue (light) through green and yellow to red (strong).', 'Farben wie bei Windguru: von hellblau (leicht) über grün und gelb bis rot (stark).', 'Colores como en Windguru: de azul claro (flojo) pasando por verde y amarillo hasta rojo (fuerte).', 'Kleuren zoals bij Windguru: van lichtblauw (licht) via groen en geel naar rood (sterk).', 'Färger som hos Windguru: från ljusblått (svagt) via grönt och gult till rött (starkt).')
+    },
     rows: [
       {
+        id: 'hour',
+        number: '1',
+        title: l('Day and hour', 'Tag und Stunde', 'Día y hora', 'Dag en uur', 'Dag och timme'),
+        text: l('Each column is one hour of the model, not a measurement. Between two columns the wind can do whatever it likes.', 'Jede Spalte ist eine Stunde des Modells, nicht eine Messung. Zwischen zwei Spalten kann der Wind machen, was er will.', 'Cada columna es una hora del modelo, no una medición. Entre dos columnas el viento puede hacer lo que quiera.', 'Elke kolom is één uur van het model, geen meting. Tussen twee kolommen kan de wind doen wat hij wil.', 'Varje kolumn är en timme i modellen, inte en mätning. Mellan två kolumner kan vinden göra vad den vill.')
+      },
+      {
         id: 'wind',
+        number: '2',
         title: l('Wind speed (knots)', 'Windstärke (Knoten)', 'Velocidad del viento (nudos)', 'Windsterkte (knopen)', 'Vindstyrka (knop)'),
         text: l('The mean wind the model calculates for that hour, not the force you feel in the kite. One knot is one nautical mile per hour, i.e. **1.85 km/h** — 20 knots is about 37 km/h, 30 about 55. The Beaufort table below turns the number into a picture of the sea.', 'Der Mittelwind, den das Modell für diese Stunde berechnet, nicht die Kraft, die ihr am Kite spürt. Ein Knoten ist eine Seemeile pro Stunde, also **1,85 km/h** — 20 Knoten sind rund 37 km/h, 30 rund 55. Die Beaufort-Tabelle unten macht aus der Zahl ein Bild vom Meer.', 'El viento medio que el modelo calcula para esa hora, no la fuerza que sentís en la cometa. Un nudo es una milla náutica por hora, es decir **1,85 km/h**: 20 nudos son unos 37 km/h, 30 unos 55. La tabla Beaufort de abajo convierte la cifra en una imagen del mar.', 'De gemiddelde wind die het model voor dat uur berekent, niet de kracht die je in de kite voelt. Eén knoop is één zeemijl per uur, dus **1,85 km/h** — 20 knopen is ongeveer 37 km/h, 30 ongeveer 55. De Beaufort-tabel hieronder maakt van het getal een beeld van de zee.', 'Medelvinden som modellen beräknar för den timmen, inte kraften ni känner i kiten. En knop är en sjömil i timmen, alltså **1,85 km/h** — 20 knop är ungefär 37 km/h, 30 ungefär 55. Beaufort-tabellen nedan gör siffran till en bild av havet.')
       },
       {
         id: 'gusts',
+        number: '3',
         title: l('Gusts (knots)', 'Windböen (Knoten)', 'Rachas (nudos)', 'Windvlagen (knopen)', 'Vindbyar (knop)'),
-        text: l('Read the gap to the mean wind: in Tarifa it says more than the mean itself.', 'Lest den Abstand zum Mittelwind: In Tarifa sagt er mehr als der Mittelwert selbst.', 'Mirad la diferencia con el viento medio: en Tarifa dice más que la propia media.', 'Lees het verschil met de gemiddelde wind: in Tarifa zegt het meer dan het gemiddelde zelf.', 'Läs avståndet till medelvinden: i Tarifa säger det mer än medelvärdet självt.')
+        text: l('Read the gap to the mean wind: in Tarifa it says more than the mean itself. That the wind comes in gusts, never perfectly even, is nature. Near the beach the Levante is **markedly gustier** than the Poniente: it comes off the land and over the mountains, which makes it rough close in, while further out it runs cleaner. The Poniente arrives over the open Atlantic and is softer and more forgiving.', 'Lest den Abstand zum Mittelwind: In Tarifa sagt er mehr als der Mittelwert selbst. Dass der Wind in Böen kommt, nie ganz gleichmäßig, ist Natur. Am Strand ist der Levante **deutlich böiger** als der Poniente: Er kommt von Land und über die Berge, das macht ihn nah am Ufer ruppig, während er weiter draußen sauberer läuft. Der Poniente kommt über den offenen Atlantik und ist weicher, er verzeiht mehr.', 'Mirad la diferencia con el viento medio: en Tarifa dice más que la propia media. Que el viento llegue a rachas, nunca del todo constante, es la naturaleza. Cerca de la playa el levante es **bastante más racheado** que el poniente: viene de tierra y por encima de las montañas, lo que lo hace áspero junto a la orilla, mientras que más afuera va más limpio. El poniente llega por el Atlántico abierto y es más suave, perdona más.', 'Lees het verschil met de gemiddelde wind: in Tarifa zegt het meer dan het gemiddelde zelf. Dat de wind in vlagen komt, nooit helemaal gelijkmatig, is de natuur. Bij het strand is de levante **duidelijk vlageriger** dan de poniente: hij komt van het land en over de bergen, wat hem dicht bij de kust ruw maakt, terwijl hij verder op zee schoner loopt. De poniente komt over de open Atlantische Oceaan en is zachter, hij vergeeft meer.', 'Läs avståndet till medelvinden: i Tarifa säger det mer än medelvärdet självt. Att vinden kommer i byar, aldrig helt jämn, är naturen. Nära stranden är levanten **betydligt byigare** än poniente: den kommer från land och över bergen, vilket gör den skrovlig nära land, medan den längre ut löper renare. Poniente kommer över öppna Atlanten och är mjukare, den förlåter mer.')
       },
       {
         id: 'direction',
+        number: '4',
         title: l('Wind direction', 'Windrichtung', 'Dirección del viento', 'Windrichting', 'Vindriktning'),
-        text: l('The arrow points where the wind blows to: left means from the east, Levante; right means from the west, Poniente.', 'Der Pfeil zeigt, wohin der Wind weht: nach links heißt aus Osten, Levante; nach rechts heißt aus Westen, Poniente.', 'La flecha señala hacia dónde sopla el viento: a la izquierda viene del este, levante; a la derecha viene del oeste, poniente.', 'De pijl wijst waarheen de wind waait: naar links betekent uit het oosten, levante; naar rechts uit het westen, poniente.', 'Pilen visar vart vinden blåser: åt vänster betyder från öst, levante; åt höger från väst, poniente.')
-      },
-      {
-        id: 'wave-height',
-        title: l('Wave height', 'Wellenhöhe', 'Altura de ola', 'Golfhoogte', 'Våghöjd'),
-        text: l('The significant wave value of a wave model — the average of the higher waves, not one wave or the shorebreak. The two models we embed here are wind-first and do not carry this row; for the wave itself you open a wave model on windguru.cz. For kiting in Tarifa **the wind decides**, so we keep the view to what you steer by.', 'Die Höhe, mit der ein Wellenmodell rechnet, als Mittel der höheren Wellen — nicht die eine große Welle am Ufer. Unsere zwei eingebetteten Modelle sind auf den Wind ausgelegt und führen diese Zeile nicht; die Welle selbst schaut ihr bei Bedarf in einem Wellenmodell auf windguru.cz nach. Fürs Kiten in Tarifa **entscheidet der Wind**, deshalb halten wir die Ansicht auf das, wonach ihr steuert.', 'El valor de ola significativa de un modelo de oleaje —la media de las olas más altas, no una ola concreta ni la rompiente—. Los dos modelos que integramos aquí van orientados al viento y no incluyen esta fila; para la ola en sí abrís un modelo de oleaje en windguru.cz. Para el kite en Tarifa **decide el viento**, por eso dejamos la vista en lo que de verdad manejáis.', 'De significante golfwaarde van een golfmodel — het gemiddelde van de hogere golven, niet één golf of de shorebreak. De twee modellen die wij hier tonen zijn windgericht en bevatten deze rij niet; voor de golf zelf open je een golfmodel op windguru.cz. Voor het kiten in Tarifa **beslist de wind**, daarom houden we de weergave bij waar je op stuurt.', 'En vågmodells signifikanta vågvärde — medelvärdet av de högre vågorna, inte en enskild våg eller strandbrytningen. De två modeller vi bäddar in här är vindinriktade och har inte den här raden; själva vågen tittar ni vid behov på i en vågmodell på windguru.cz. För kiting i Tarifa **avgör vinden**, så vi håller vyn till det ni styr efter.')
-      },
-      {
-        id: 'period',
-        title: l('Period', 'Periode', 'Periodo', 'Periode', 'Period'),
-        text: l('The time in seconds between the modelled waves — the rhythm of the water, not the height. A long period (roughly ten seconds and more) means swell that has gathered power over a long way; a short one (under about six seconds) means local, choppy, gutless water — exactly what a Levante blowing against the tide makes. This row, too, is not in our wind-first view.', 'Der Abstand zwischen zwei Wellen in Sekunden — der Rhythmus des Wassers, nicht die Höhe. Eine lange Periode (etwa ab zehn Sekunden) heißt Welle, die über eine weite Strecke Kraft gesammelt hat; eine kurze (unter etwa sechs Sekunden) heißt kabbeliges, kraftloses Wasser — genau das, was ein Levante gegen die Tide macht. Auch diese Zeile steht nicht in unserer windorientierten Ansicht.', 'El tiempo en segundos entre las olas modelizadas —el ritmo del agua, no la altura—. Un periodo largo (a partir de unos diez segundos) es mar de fondo que ha acumulado fuerza en un largo recorrido; uno corto (por debajo de unos seis segundos) es agua picada y sin fuerza, justo lo que produce un levante contra la marea. Esta fila tampoco está en nuestra vista orientada al viento.', 'De tijd in seconden tussen de gemodelleerde golven — het ritme van het water, niet de hoogte. Een lange periode (ruwweg vanaf tien seconden) betekent deining die over een lange weg kracht heeft verzameld; een korte (onder ongeveer zes seconden) betekent kort, krachteloos kabbelwater — precies wat een levante tegen het tij maakt. Ook deze rij zit niet in onze windgerichte weergave.', 'Tiden i sekunder mellan de modellerade vågorna — vattnets rytm, inte höjden. En lång period (ungefär från tio sekunder) betyder svall som samlat kraft över en lång sträcka; en kort (under omkring sex sekunder) betyder kort, kraftlöst krabbsjövatten — precis vad en levante mot tidvattnet skapar. Även den här raden finns inte i vår vindinriktade vy.')
+        text: l('The arrow points where the wind blows to: left means from the east, Levante; right means from the west, Poniente. Anything in between is one of the two, veering a little.', 'Der Pfeil zeigt, wohin der Wind weht: nach links heißt aus Osten, Levante; nach rechts heißt aus Westen, Poniente. Schräg dazwischen ist einer der beiden, der etwas dreht.', 'La flecha señala hacia dónde sopla el viento: a la izquierda viene del este, levante; a la derecha viene del oeste, poniente. Lo que queda en medio es uno de los dos que gira un poco.', 'De pijl wijst waarheen de wind waait: naar links betekent uit het oosten, levante; naar rechts uit het westen, poniente. Schuin ertussenin is een van de twee die wat draait.', 'Pilen visar vart vinden blåser: åt vänster betyder från öst, levante; åt höger från väst, poniente. Snett däremellan är en av de två som vrider lite.')
       },
       {
         id: 'temperature',
+        number: '5',
         title: l('Temperature (°C)', 'Temperatur (°C)', 'Temperatura (°C)', 'Temperatuur (°C)', 'Temperatur (°C)'),
         text: l('Air temperature. Together with the wind it decides how thick a wetsuit you want; the water stays cooler than the air for most of the year.', 'Lufttemperatur. Zusammen mit dem Wind entscheidet sie, wie dick der Neo sein soll; das Wasser bleibt den größten Teil des Jahres kühler als die Luft.', 'Temperatura del aire. Junto con el viento decide el grosor del neopreno; el agua está más fría que el aire la mayor parte del año.', 'Luchttemperatuur. Samen met de wind bepaalt ze hoe dik het wetsuit moet zijn; het water blijft het grootste deel van het jaar koeler dan de lucht.', 'Lufttemperatur. Tillsammans med vinden avgör den hur tjock våtdräkt ni vill ha; vattnet är svalare än luften större delen av året.')
       },
       {
         id: 'cloud',
+        number: '6',
         title: l('Cloud cover (%)', 'Bewölkung (%)', 'Nubosidad (%)', 'Bewolking (%)', 'Molnighet (%)'),
         text: l('Weather context for the day. Little cloud is no proof of thermal wind. On windguru.cz the same row is split into high, mid and low layers.', 'Wetterkontext für den Tag. Wenig Wolken sind kein Beleg für Thermik. Auf windguru.cz ist dieselbe Zeile in hohe, mittlere und niedrige Schichten aufgeteilt.', 'Contexto meteorológico del día. Pocas nubes no demuestran que haya térmica. En windguru.cz la misma fila se divide en capas alta, media y baja.', 'Weercontext voor de dag. Weinig bewolking is geen bewijs voor thermiek. Op windguru.cz is dezelfde rij opgesplitst in hoge, midden- en lage lagen.', 'Väderkontext för dagen. Lite moln är inget bevis för termik. På windguru.cz är samma rad uppdelad i höga, mellan- och låga lager.')
       },
       {
         id: 'rain',
+        number: '7',
         title: l('Precipitation (mm/h)', 'Niederschlag (mm/h)', 'Precipitación (mm/h)', 'Neerslag (mm/h)', 'Nederbörd (mm/h)'),
         text: l('Modelled rain per hour. A dash means none. Showers often come with sudden wind shifts, which is worth knowing when you plan a session.', 'Modellierter Regen pro Stunde. Ein Strich heißt keiner. Schauer bringen oft plötzliche Winddreher mit, und das ist gut zu wissen, wenn ihr eine Session plant.', 'Lluvia modelizada por hora. Un guion significa nada. Los chubascos suelen traer cambios bruscos de viento, algo que conviene saber al planear una sesión.', 'Gemodelleerde regen per uur. Een streepje betekent geen. Buien brengen vaak plotselinge winddraaiingen mee, goed om te weten als je een sessie plant.', 'Modellerat regn per timme. Ett streck betyder inget. Skurar för ofta med sig plötsliga vindvridningar, bra att veta när ni planerar ett pass.')
       },
       {
         id: 'rating',
+        number: '8',
         title: l('Windguru rating', 'Windguru-Wertung', 'Valoración de Windguru', 'Windguru-beoordeling', 'Windguru-betyg'),
         text: l('The stars are Windguru’s own rating of the wind for its users, based on speed alone. They are not a safety judgement and know nothing about zones, gusts on the beach or your level. A friendly hint, no more.', 'Die Sternchen sind Windgurus eigene Bewertung des Winds für seine Nutzer, allein nach Stärke. Sie sind kein Sicherheitsurteil und wissen nichts über Zonen, Böen am Strand oder euer Niveau. Ein netter Hinweis, mehr nicht.', 'Las estrellas son la valoración propia de Windguru del viento para sus usuarios, solo por la fuerza. No son un juicio de seguridad y no saben nada de zonas, rachas en la playa ni de vuestro nivel. Una pista simpática, nada más.', 'De sterren zijn Windguru’s eigen beoordeling van de wind voor zijn gebruikers, alleen op basis van kracht. Ze zijn geen veiligheidsoordeel en weten niets van zones, vlagen op het strand of jullie niveau. Een vriendelijke hint, meer niet.', 'Stjärnorna är Windgurus eget betyg på vinden för sina användare, enbart efter styrka. De är inget säkerhetsomdöme och vet inget om zoner, byar på stranden eller er nivå. En vänlig hint, inget mer.')
+      }
+    ],
+    waveNote: {
+      title: l('Not in this view: wave and period', 'Nicht in dieser Ansicht: Welle und Periode', 'No está en esta vista: ola y periodo', 'Niet in deze weergave: golf en periode', 'Inte i den här vyn: våg och period'),
+      text: l('For kiting in Tarifa the wind decides, so we leave the wave rows out. In short: wave height is an average of the higher waves, not the one big wave at the shore; the period is the time in seconds between two waves — long means swell with power, short means choppy water, exactly what a Levante against the tide makes. Both are in a wave model on windguru.cz.', 'Fürs Kiten in Tarifa entscheidet der Wind, deshalb zeigen wir die Wellenzeilen nicht. Kurz gesagt: Die Wellenhöhe ist ein Mittel der höheren Wellen, nicht die eine große am Ufer; die Periode ist der Abstand zwischen zwei Wellen in Sekunden — lang heißt Welle mit Kraft, kurz heißt kabbeliges Wasser, genau das, was ein Levante gegen die Tide macht. Beides steht in einem Wellenmodell auf windguru.cz.', 'Para el kite en Tarifa decide el viento, por eso no mostramos las filas de ola. En resumen: la altura de ola es una media de las olas más altas, no la ola grande de la orilla; el periodo es el tiempo en segundos entre dos olas: largo significa mar de fondo con fuerza, corto significa agua picada, justo lo que hace un levante contra la marea. Las dos están en un modelo de oleaje en windguru.cz.', 'Voor het kiten in Tarifa beslist de wind, daarom laten we de golfrijen weg. Kort gezegd: de golfhoogte is een gemiddelde van de hogere golven, niet die ene grote golf aan de kant; de periode is de tijd in seconden tussen twee golven — lang betekent deining met kracht, kort betekent kabbelwater, precies wat een levante tegen het tij maakt. Beide staan in een golfmodel op windguru.cz.', 'För kiting i Tarifa avgör vinden, så vi utelämnar vågraderna. Kort sagt: våghöjden är ett medel av de högre vågorna, inte den enda stora vågen vid stranden; perioden är tiden i sekunder mellan två vågor — lång betyder svall med kraft, kort betyder krabb sjö, precis vad en levante mot tidvattnet skapar. Båda finns i en vågmodell på windguru.cz.')
+    },
+    examples: [
+      {
+        id: 'levante',
+        label: l('Reading example · Levante day, 3 pm', 'Lesebeispiel · Levante-Tag, 15 Uhr', 'Ejemplo de lectura · día de levante, 15 h', 'Leesvoorbeeld · levantedag, 15 uur', 'Läsexempel · levantedag, kl. 15'),
+        value: l('32 kn, gusts 44, arrow to the left', '32 kn, Böen 44, Pfeil nach links', '32 kn, rachas 44, flecha a la izquierda', '32 kn, vlagen 44, pijl naar links', '32 kn, byar 44, pil åt vänster'),
+        text: l('Twelve knots between mean wind and gusts, direction from the east: a Levante day. Warm, strong, rough close to the shore. What that means for the beach is in chapter 5.', 'Zwölf Knoten Abstand zwischen Mittelwind und Böen, Richtung aus Osten: ein Levante-Tag. Warm, kräftig, ruppig nah am Ufer. Was das für den Strand heißt, steht in Kapitel 5.', 'Doce nudos de diferencia entre viento medio y rachas, dirección del este: un día de levante. Cálido, fuerte, áspero junto a la orilla. Lo que eso significa para la playa está en el capítulo 5.', 'Twaalf knopen verschil tussen gemiddelde wind en vlagen, richting uit het oosten: een levantedag. Warm, sterk, ruw dicht bij de kust. Wat dat voor het strand betekent, staat in hoofdstuk 5.', 'Tolv knop mellan medelvind och byar, riktning från öst: en levantedag. Varm, stark, skrovlig nära stranden. Vad det betyder för stranden står i kapitel 5.')
+      },
+      {
+        id: 'poniente',
+        label: l('Reading example · Poniente day, 3 pm', 'Lesebeispiel · Poniente-Tag, 15 Uhr', 'Ejemplo de lectura · día de poniente, 15 h', 'Leesvoorbeeld · ponientedag, 15 uur', 'Läsexempel · ponientedag, kl. 15'),
+        value: l('20 kn, gusts 24, arrow to the right', '20 kn, Böen 24, Pfeil nach rechts', '20 kn, rachas 24, flecha a la derecha', '20 kn, vlagen 24, pijl naar rechts', '20 kn, byar 24, pil åt höger'),
+        text: l('Four knots of gap, direction from the west: Poniente, even, with waves. The wind Robert’s quote is about. Why it builds on a clear afternoon is in chapter 4.', 'Vier Knoten Abstand, Richtung aus Westen: Poniente, gleichmäßig, mit Welle. Der Wind, um den es in Roberts Zitat geht. Warum er am klaren Nachmittag zulegt, steht in Kapitel 4.', 'Cuatro nudos de diferencia, dirección del oeste: poniente, regular, con ola. El viento del que habla la cita de Robert. Por qué se refuerza en una tarde despejada está en el capítulo 4.', 'Vier knopen verschil, richting uit het westen: poniente, gelijkmatig, met golven. De wind waar Roberts citaat over gaat. Waarom hij op een heldere middag aanzwelt, staat in hoofdstuk 4.', 'Fyra knops avstånd, riktning från väst: poniente, jämn, med vågor. Vinden Roberts citat handlar om. Varför den tar i en klar eftermiddag står i kapitel 4.')
       }
     ],
     modelsTitle: l('The models — and why the locals pick WRF 3 km', 'Die Modelle — und warum die Locals WRF 3 km nehmen', 'Los modelos: y por qué los locales eligen WRF 3 km', 'De modellen — en waarom de locals WRF 3 km kiezen', 'Modellerna — och varför de lokala väljer WRF 3 km'),
@@ -317,72 +408,95 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
     models: [
       { id: 'gfs', name: 'GFS 13 km', text: l('A global model — it computes the whole world, so it stays coarse, on a 13 km grid. Good for the rough trend over several days, too coarse for your beach.', 'Ein globales Modell, es rechnet die ganze Welt — dafür grob, mit 13-km-Raster. Gut für den groben Trend über mehrere Tage, zu grob für euren Strand.', 'Un modelo global: calcula el mundo entero, por eso es grueso, con malla de 13 km. Bueno para la tendencia general de varios días, demasiado grueso para vuestra playa.', 'Een globaal model — het rekent de hele wereld, dus blijft het grof, met een raster van 13 km. Goed voor de grove trend over meerdere dagen, te grof voor jullie strand.', 'En global modell — den räknar hela världen och blir därför grov, med 13 km rutnät. Bra för den grova trenden över flera dagar, för grov för er strand.') },
       { id: 'ifs', name: 'IFS-HRES 9 km', text: l('The European model, a bit finer at 9 km. A solid middle ground, but not yet tailored to the Strait.', 'Das europäische Modell, etwas feiner mit 9 km. Solider Mittelbau, aber noch nicht auf die Meerenge zugeschnitten.', 'El modelo europeo, algo más fino con 9 km. Un término medio sólido, pero aún no ajustado al Estrecho.', 'Het Europese model, iets fijner met 9 km. Een solide middenweg, maar nog niet toegesneden op de Straat.', 'Den europeiska modellen, något finare med 9 km. En stabil medelväg, men ännu inte anpassad till sundet.') },
-      { id: 'wrf3', name: 'WRF 3 km', text: l('The local, high-resolution model for the Strait of Gibraltar — a 3 km grid, short-range and close to Tarifa. This is the row the locals check in the morning, and the one you see live above.', 'Das lokale, hochaufgelöste Modell für die Straße von Gibraltar — 3-km-Raster, kurzfristig und nah an Tarifa. Das ist die Zeile, auf die die Locals morgens schauen, und die ihr oben live seht.', 'El modelo local de alta resolución para el Estrecho de Gibraltar: malla de 3 km, a corto plazo y cerca de Tarifa. Es la fila que miran los locales por la mañana, y la que veis en directo arriba.', 'Het lokale model met hoge resolutie voor de Straat van Gibraltar — een raster van 3 km, korte termijn en dicht bij Tarifa. Dit is de rij waar de locals ’s ochtends naar kijken, en die jullie hierboven live zien.', 'Den lokala högupplösta modellen för Gibraltar sund — 3 km rutnät, kortsiktig och nära Tarifa. Det är raden de lokala tittar på om morgonen, och den ni ser live ovan.') },
+      { id: 'wrf3', name: 'WRF 3 km', text: l('The local, high-resolution model for the Strait of Gibraltar — a 3 km grid, short-range and close to Tarifa. This is the row the locals check first in the morning.', 'Das lokale, hochaufgelöste Modell für die Straße von Gibraltar — 3-km-Raster, kurzfristig und nah an Tarifa. Das ist die Zeile, auf die die Locals morgens zuerst schauen.', 'El modelo local de alta resolución para el Estrecho de Gibraltar: malla de 3 km, a corto plazo y cerca de Tarifa. Es la fila que los locales miran primero por la mañana.', 'Het lokale model met hoge resolutie voor de Straat van Gibraltar — een raster van 3 km, korte termijn en dicht bij Tarifa. Dit is de rij waar de locals ’s ochtends het eerst naar kijken.', 'Den lokala högupplösta modellen för Gibraltar sund — 3 km rutnät, kortsiktig och nära Tarifa. Det är raden de lokala tittar på först om morgonen.') },
       { id: 'wrf1', name: 'WRF 1 km', text: l('Finer still, on a 1 km grid. Finer means more detailed — but not automatically more accurate, more on that in a moment.', 'Noch feiner, mit 1-km-Raster. Feiner heißt detaillierter — aber nicht automatisch genauer, dazu gleich mehr.', 'Aún más fino, con malla de 1 km. Más fino significa más detallado, pero no automáticamente más preciso; enseguida más sobre esto.', 'Nog fijner, met een raster van 1 km. Fijner betekent gedetailleerder — maar niet automatisch nauwkeuriger, zo meer daarover.', 'Ännu finare, med 1 km rutnät. Finare betyder mer detaljerat — men inte automatiskt mer träffsäkert, mer om det strax.') }
     ],
-    modelsWhy: l('Why WRF 3 km of all of them? Because a fine, local grid is what can represent the Strait of Gibraltar in the first place — the coarse global models smooth away exactly the effects that make Tarifa what it is. But watch out for the most common mistake: finer is not automatically more correct. That is why you never read just one row. When two or three models roughly agree on direction, strength and timing, the day is stable. When they diverge, that is the information — the day is uncertain, and you take another look at the beach. The green stars are a nice touch. They will not carry your board to the water.', 'Warum ausgerechnet WRF 3 km? Weil ein feines, lokales Raster die Straße von Gibraltar überhaupt erst abbilden kann — die groben globalen Modelle glätten genau die Effekte weg, die Tarifa ausmachen. Aber Vorsicht vor dem häufigsten Denkfehler: feiner ist nicht automatisch richtiger. Deshalb liest man nie nur eine Zeile. Sagen zwei, drei Modelle ungefähr dasselbe über Richtung, Stärke und Uhrzeit, ist der Tag stabil. Laufen sie auseinander, ist genau das die Information — der Tag ist unsicher, und ihr schaut am Strand noch einmal hin. Die grünen Sternchen sind nett. Euer Board tragen sie nicht ins Wasser.', '¿Por qué precisamente WRF 3 km? Porque una malla fina y local es lo único que puede representar el Estrecho de Gibraltar; los modelos globales gruesos suavizan justo los efectos que hacen que Tarifa sea Tarifa. Pero cuidado con el error más común: más fino no es automáticamente más acertado. Por eso nunca se lee una sola fila. Si dos o tres modelos coinciden más o menos en dirección, intensidad y hora, el día es estable. Si se separan, esa es la información: el día es incierto, y volvéis a mirar en la playa. Las estrellas verdes están bien. Vuestra tabla no la llevan al agua.', 'Waarom juist WRF 3 km? Omdat een fijn, lokaal raster de Straat van Gibraltar überhaupt kan weergeven — de grove globale modellen vlakken juist de effecten weg die Tarifa Tarifa maken. Maar pas op voor de meestgemaakte denkfout: fijner is niet automatisch juister. Daarom lees je nooit maar één rij. Zeggen twee, drie modellen ongeveer hetzelfde over richting, kracht en tijdstip, dan is de dag stabiel. Lopen ze uiteen, dan is dat juist de informatie — de dag is onzeker, en jullie kijken op het strand nog eens goed. De groene sterretjes zijn leuk. Jullie board dragen ze niet het water in.', 'Varför just WRF 3 km? För att ett fint, lokalt rutnät är det som över huvud taget kan återge Gibraltar sund — de grova globala modellerna slätar ut precis de effekter som gör Tarifa till Tarifa. Men se upp för det vanligaste tankefelet: finare är inte automatiskt mer rätt. Därför läser man aldrig bara en rad. Säger två, tre modeller ungefär detsamma om riktning, styrka och tid, är dagen stabil. Går de isär är det just det som är informationen — dagen är osäker, och ni tittar en gång till på stranden. De gröna stjärnorna är trevliga. Er bräda bär de inte ner till vattnet.')
+    modelsWhy: l('Why WRF 3 km of all of them? Because a fine, local grid is what can represent the Strait of Gibraltar in the first place — the coarse global models smooth away exactly the effects that make Tarifa what it is. But watch out for the most common mistake: finer is not automatically more correct. That is why you never read just one row. When two or three models roughly agree on direction, strength and timing, the day is stable. When they diverge, that is the information — the day is uncertain, and you take another look at the beach. The green stars are a nice touch. They will not carry your board to the water.', 'Warum ausgerechnet WRF 3 km? Weil ein feines, lokales Raster die Straße von Gibraltar überhaupt erst abbilden kann — die groben globalen Modelle glätten genau die Effekte weg, die Tarifa ausmachen. Aber Vorsicht vor dem häufigsten Denkfehler: feiner ist nicht automatisch richtiger. Deshalb liest man nie nur eine Zeile. Sagen zwei, drei Modelle ungefähr dasselbe über Richtung, Stärke und Uhrzeit, ist der Tag stabil. Laufen sie auseinander, ist genau das die Information — der Tag ist unsicher, und ihr schaut am Strand noch einmal hin. Die grünen Sternchen sind nett. Euer Board tragen sie nicht ins Wasser.', '¿Por qué precisamente WRF 3 km? Porque una malla fina y local es lo único que puede representar el Estrecho de Gibraltar; los modelos globales gruesos suavizan justo los efectos que hacen que Tarifa sea Tarifa. Pero cuidado con el error más común: más fino no es automáticamente más acertado. Por eso nunca se lee una sola fila. Si dos o tres modelos coinciden más o menos en dirección, intensidad y hora, el día es estable. Si se separan, esa es la información: el día es incierto, y volvéis a mirar en la playa. Las estrellas verdes están bien. Vuestra tabla no la llevan al agua.', 'Waarom juist WRF 3 km? Omdat een fijn, lokaal raster de Straat van Gibraltar überhaupt kan weergeven — de grove globale modellen vlakken juist de effecten weg die Tarifa Tarifa maken. Maar pas op voor de meestgemaakte denkfout: fijner is niet automatisch juister. Daarom lees je nooit maar één rij. Zeggen twee, drie modellen ongeveer hetzelfde over richting, kracht en tijdstip, dan is de dag stabiel. Lopen ze uiteen, dan is dat juist de informatie — de dag is onzeker, en jullie kijken op het strand nog eens goed. De groene sterretjes zijn leuk. Jullie board dragen ze niet het water in.', 'Varför just WRF 3 km? För att ett fint, lokalt rutnät är det som över huvud taget kan återge Gibraltar sund — de grova globala modellerna slätar ut precis de effekter som gör Tarifa till Tarifa. Men se upp för det vanligaste tankefelet: finare är inte automatiskt mer rätt. Därför läser man aldrig bara en rad. Säger två, tre modeller ungefär detsamma om riktning, styrka och tid, är dagen stabil. Går de isär är det just det som är informationen — dagen är osäker, och ni tittar en gång till på stranden. De gröna stjärnorna är trevliga. Er bräda bär de inte ner till vattnet.'),
+    beaufort: {
+      title: l('Putting the knots in proportion: the Beaufort scale', 'Die Knoten ins Verhältnis setzen: die Beaufort-Skala', 'Poner los nudos en proporción: la escala Beaufort', 'De knopen in verhouding: de Beaufort-schaal', 'Sätt knopen i proportion: Beaufort-skalan'),
+      intro: l('The Beaufort scale is the official way of turning a wind speed into a picture of the sea. It describes the water, not your session.', 'Die Beaufort-Skala ist der amtliche Weg, aus einer Windgeschwindigkeit ein Bild vom Meer zu machen. Sie beschreibt das Wasser, nicht eure Session.', 'La escala Beaufort es la forma oficial de convertir una velocidad de viento en una imagen del mar. Describe el agua, no vuestra sesión.', 'De Beaufort-schaal is de officiële manier om van een windsnelheid een beeld van de zee te maken. Ze beschrijft het water, niet jullie sessie.', 'Beaufort-skalan är det officiella sättet att göra en vindhastighet till en bild av havet. Den beskriver vattnet, inte ert pass.'),
+      columnKnots: l('Knots', 'Knoten', 'Nudos', 'Knopen', 'Knop'),
+      columnForce: l('Beaufort', 'Beaufort', 'Beaufort', 'Beaufort', 'Beaufort'),
+      columnName: l('Name', 'Bezeichnung', 'Nombre', 'Benaming', 'Benämning'),
+      columnSea: l('What the sea looks like', 'So sieht das Meer aus', 'Cómo se ve el mar', 'Zo ziet de zee eruit', 'Så ser havet ut'),
+      rows: [
+        { id: 'bft3', knots: '7–10', force: '3', name: l('Gentle breeze', 'Schwache Brise', 'Flojo', 'Matige bries', 'Lätt bris'), sea: l('Small wavelets, crests begin to break', 'Kleine Wellen, Kämme beginnen zu brechen', 'Olas pequeñas, las crestas empiezan a romper', 'Kleine golfjes, kammen beginnen te breken', 'Små vågor, kammarna börjar brytas') },
+        { id: 'bft4', knots: '11–16', force: '4', name: l('Moderate breeze', 'Mäßige Brise', 'Bonancible', 'Matige wind', 'Måttlig bris'), sea: l('Small waves, fairly frequent white horses', 'Kleine Wellen, ziemlich häufig Schaumköpfe', 'Olas pequeñas, borregos bastante frecuentes', 'Kleine golven, vrij veel schuimkoppen', 'Små vågor, ganska många vita gäss') },
+        { id: 'bft5', knots: '17–21', force: '5', name: l('Fresh breeze', 'Frische Brise', 'Fresquito', 'Vrij krachtige wind', 'Frisk bris'), sea: l('Moderate waves, many white horses, some spray', 'Mäßige Wellen, viele Schaumköpfe, etwas Gischt', 'Olas moderadas, muchos borregos, algo de rociones', 'Matige golven, veel schuimkoppen, wat buiswater', 'Måttliga vågor, många vita gäss, lite stänk') },
+        { id: 'bft6', knots: '22–27', force: '6', name: l('Strong breeze', 'Starker Wind', 'Fresco', 'Krachtige wind', 'Frisk vind'), sea: l('Large waves form, white foam crests everywhere, more spray', 'Größere Wellen, überall Schaumkämme, mehr Gischt', 'Se forman olas grandes, crestas de espuma por todas partes, más rociones', 'Grotere golven, overal schuimkammen, meer buiswater', 'Större vågor, skumkammar överallt, mer stänk') },
+        { id: 'bft7', knots: '28–33', force: '7', name: l('Near gale', 'Steifer Wind', 'Frescachón', 'Harde wind', 'Styv kuling'), sea: l('Sea heaps up, foam blown in streaks along the wind', 'Die See türmt sich auf, Schaum legt sich in Streifen in den Wind', 'La mar se encrespa, la espuma forma estelas en dirección del viento', 'De zee stapelt op, schuim in strepen in de windrichting', 'Sjön tornar upp sig, skummet lägger sig i strimmor i vindens riktning') },
+        { id: 'bft8', knots: '34–40', force: '8', name: l('Gale', 'Stürmischer Wind', 'Temporal', 'Stormachtige wind', 'Hård kuling'), sea: l('Moderately high waves, crests break into spindrift', 'Mäßig hohe Wellen, Gischt weht von den Kämmen', 'Olas de altura media, las crestas se rompen en rociones', 'Matig hoge golven, buiswater waait van de kammen', 'Måttligt höga vågor, stänk blåser från kammarna') }
+      ],
+      note: l('Ranges as used by the World Meteorological Organization. Which force is fun and which is too much is a question for your level, the beach and the day — and for the school if you are unsure.', 'Bereiche nach der Weltorganisation für Meteorologie. Welche Stärke Spaß macht und welche zu viel ist, hängt an eurem Niveau, dem Strand und dem Tag — und an der Schule, wenn ihr unsicher seid.', 'Rangos según la Organización Meteorológica Mundial. Qué fuerza es divertida y cuál es demasiada depende de vuestro nivel, de la playa y del día, y de la escuela si tenéis dudas.', 'Bereiken volgens de Wereld Meteorologische Organisatie. Welke kracht leuk is en welke te veel, hangt af van jullie niveau, het strand en de dag — en van de school als jullie twijfelen.', 'Intervall enligt Meteorologiska världsorganisationen. Vilken styrka som är rolig och vilken som är för mycket beror på er nivå, stranden och dagen – och på skolan om ni är osäkra.'),
+      warningNote: l('When AEMET writes “fuerza 7” in a warning, this is the scale it means: 28 to 33 knots, roughly 50 to 61 km/h.', 'Schreibt AEMET in einer Warnung „fuerza 7“, ist diese Skala gemeint: 28 bis 33 Knoten, rund 50 bis 61 km/h.', 'Cuando AEMET escribe «fuerza 7» en un aviso, se refiere a esta escala: de 28 a 33 nudos, unos 50 a 61 km/h.', 'Schrijft AEMET in een waarschuwing “fuerza 7”, dan is deze schaal bedoeld: 28 tot 33 knopen, ongeveer 50 tot 61 km/h.', 'När AEMET skriver ”fuerza 7” i en varning är det den här skalan som menas: 28 till 33 knop, ungefär 50 till 61 km/h.')
+    }
   },
-  beaufort: {
-    title: l('Putting the knots in proportion: the Beaufort scale', 'Die Knoten ins Verhältnis setzen: die Beaufort-Skala', 'Poner los nudos en proporción: la escala Beaufort', 'De knopen in verhouding: de Beaufort-schaal', 'Sätt knopen i proportion: Beaufort-skalan'),
-    intro: l('The Beaufort scale is the official way of turning a wind speed into a picture of the sea. It describes the water, not your session.', 'Die Beaufort-Skala ist der amtliche Weg, aus einer Windgeschwindigkeit ein Bild vom Meer zu machen. Sie beschreibt das Wasser, nicht eure Session.', 'La escala Beaufort es la forma oficial de convertir una velocidad de viento en una imagen del mar. Describe el agua, no vuestra sesión.', 'De Beaufort-schaal is de officiële manier om van een windsnelheid een beeld van de zee te maken. Ze beschrijft het water, niet jullie sessie.', 'Beaufort-skalan är det officiella sättet att göra en vindhastighet till en bild av havet. Den beskriver vattnet, inte ert pass.'),
-    columnKnots: l('Knots', 'Knoten', 'Nudos', 'Knopen', 'Knop'),
-    columnForce: l('Beaufort', 'Beaufort', 'Beaufort', 'Beaufort', 'Beaufort'),
-    columnName: l('Name', 'Bezeichnung', 'Nombre', 'Benaming', 'Benämning'),
-    columnSea: l('What the sea looks like', 'So sieht das Meer aus', 'Cómo se ve el mar', 'Zo ziet de zee eruit', 'Så ser havet ut'),
-    rows: [
-      { id: 'bft3', knots: '7–10', force: '3', name: l('Gentle breeze', 'Schwache Brise', 'Flojo', 'Matige bries', 'Lätt bris'), sea: l('Small wavelets, crests begin to break', 'Kleine Wellen, Kämme beginnen zu brechen', 'Olas pequeñas, las crestas empiezan a romper', 'Kleine golfjes, kammen beginnen te breken', 'Små vågor, kammarna börjar brytas') },
-      { id: 'bft4', knots: '11–16', force: '4', name: l('Moderate breeze', 'Mäßige Brise', 'Bonancible', 'Matige wind', 'Måttlig bris'), sea: l('Small waves, fairly frequent white horses', 'Kleine Wellen, ziemlich häufig Schaumköpfe', 'Olas pequeñas, borregos bastante frecuentes', 'Kleine golven, vrij veel schuimkoppen', 'Små vågor, ganska många vita gäss') },
-      { id: 'bft5', knots: '17–21', force: '5', name: l('Fresh breeze', 'Frische Brise', 'Fresquito', 'Vrij krachtige wind', 'Frisk bris'), sea: l('Moderate waves, many white horses, some spray', 'Mäßige Wellen, viele Schaumköpfe, etwas Gischt', 'Olas moderadas, muchos borregos, algo de rociones', 'Matige golven, veel schuimkoppen, wat buiswater', 'Måttliga vågor, många vita gäss, lite stänk') },
-      { id: 'bft6', knots: '22–27', force: '6', name: l('Strong breeze', 'Starker Wind', 'Fresco', 'Krachtige wind', 'Frisk vind'), sea: l('Large waves form, white foam crests everywhere, more spray', 'Größere Wellen, überall Schaumkämme, mehr Gischt', 'Se forman olas grandes, crestas de espuma por todas partes, más rociones', 'Grotere golven, overal schuimkammen, meer buiswater', 'Större vågor, skumkammar överallt, mer stänk') },
-      { id: 'bft7', knots: '28–33', force: '7', name: l('Near gale', 'Steifer Wind', 'Frescachón', 'Harde wind', 'Styv kuling'), sea: l('Sea heaps up, foam blown in streaks along the wind', 'Die See türmt sich auf, Schaum legt sich in Streifen in den Wind', 'La mar se encrespa, la espuma forma estelas en dirección del viento', 'De zee stapelt op, schuim in strepen in de windrichting', 'Sjön tornar upp sig, skummet lägger sig i strimmor i vindens riktning') },
-      { id: 'bft8', knots: '34–40', force: '8', name: l('Gale', 'Stürmischer Wind', 'Temporal', 'Stormachtige wind', 'Hård kuling'), sea: l('Moderately high waves, crests break into spindrift', 'Mäßig hohe Wellen, Gischt weht von den Kämmen', 'Olas de altura media, las crestas se rompen en rociones', 'Matig hoge golven, buiswater waait van de kammen', 'Måttligt höga vågor, stänk blåser från kammarna') }
+  thermal: {
+    label: chapter('4'),
+    title: l('Thermal wind', 'Thermik', 'Térmica', 'Thermiek', 'Termik'),
+    subtitle: l('Why the Poniente builds on clear afternoons — and the Levante does not', 'Warum der Poniente an klaren Nachmittagen zulegt — und der Levante nicht', 'Por qué el poniente se refuerza en las tardes despejadas, y el levante no', 'Waarom de poniente op heldere middagen aanzwelt — en de levante niet', 'Varför poniente tar i på klara eftermiddagar — och levanten inte'),
+    intro: l('Thermal wind is the push the sun builds up over the day and takes away again in the evening. It comes from land and water warming at different speeds, and on every clear day it follows the same pattern.', 'Thermik ist der Schub, den die Sonne über den Tag aufbaut und abends wieder wegnimmt. Er entsteht, weil Land und Wasser verschieden schnell warm werden, und das läuft an jedem klaren Tag nach demselben Muster.', 'La térmica es el empuje que el sol acumula durante el día y retira de nuevo por la tarde. Nace de que la tierra y el agua se calientan a distinta velocidad, y en cada día despejado sigue el mismo patrón.', 'Thermiek is de duw die de zon over de dag opbouwt en ’s avonds weer wegneemt. Hij ontstaat doordat land en water verschillend snel opwarmen, en op elke heldere dag verloopt dat volgens hetzelfde patroon.', 'Termik är den skjuts solen bygger upp under dagen och tar bort igen på kvällen. Den uppstår för att land och vatten värms olika snabbt, och varje klar dag följer den samma mönster.'),
+    panels: [
+      {
+        id: 'morning',
+        label: l('Morning', 'Morgen', 'Mañana', 'Ochtend', 'Morgon'),
+        title: l('Everything equally cool', 'Alles gleich kühl', 'Todo igual de fresco', 'Alles even koel', 'Allt lika svalt'),
+        text: l('After the night, land and sea are at almost the same temperature. Nothing sets air in motion. Whatever blows now is pure Poniente or Levante, with nothing added.', 'Nach der Nacht haben Land und Meer fast dieselbe Temperatur. Es gibt nichts, was Luft in Bewegung setzt. Was jetzt weht, ist reiner Poniente oder Levante, ohne Zugabe.', 'Tras la noche, tierra y mar tienen casi la misma temperatura. No hay nada que ponga el aire en movimiento. Lo que sopla ahora es poniente o levante puro, sin añadidos.', 'Na de nacht hebben land en zee bijna dezelfde temperatuur. Er is niets dat lucht in beweging zet. Wat er nu waait, is pure poniente of levante, zonder toegift.', 'Efter natten har land och hav nästan samma temperatur. Inget sätter luften i rörelse. Det som blåser nu är ren poniente eller levante, utan tillägg.'),
+        sea: l('Sea · cool', 'Meer · kühl', 'Mar · fresco', 'Zee · koel', 'Hav · svalt'),
+        land: l('Land · cool', 'Land · kühl', 'Tierra · fresca', 'Land · koel', 'Land · svalt'),
+        note: l('no gradient yet', 'noch kein Gefälle', 'aún sin diferencia', 'nog geen verschil', 'ännu ingen skillnad')
+      },
+      {
+        id: 'afternoon',
+        label: l('Afternoon', 'Nachmittag', 'Tarde', 'Middag', 'Eftermiddag'),
+        title: l('The land pulls air in from the sea', 'Das Land zieht Luft vom Meer', 'La tierra atrae aire del mar', 'Het land trekt lucht van zee', 'Landet drar luft från havet'),
+        text: l('The sun heats the land quickly and the water hardly at all: water absorbs a lot of heat without getting warmer, and mixes it down into the depths. Over the hot land the air rises. Where it rises, air is missing at ground level, and the cool air from the sea flows in — that is the sea breeze. It is strongest when the land is warmest, in the afternoon.', 'Die Sonne heizt das Land schnell auf, das Wasser kaum: Wasser nimmt viel Wärme auf, ohne wärmer zu werden, und mischt sie in die Tiefe. Über dem heißen Land steigt die Luft auf. Wo sie aufsteigt, fehlt am Boden Luft, und die kühle Luft vom Meer strömt nach — das ist der Seewind. Am stärksten ist er, wenn das Land am wärmsten ist, also am Nachmittag.', 'El sol calienta la tierra deprisa y el agua apenas: el agua absorbe mucho calor sin calentarse y lo reparte hacia el fondo. Sobre la tierra caliente el aire sube. Donde sube, falta aire a ras de suelo, y el aire fresco del mar entra a ocupar su sitio: eso es la brisa marina. Es más fuerte cuando la tierra está más caliente, por la tarde.', 'De zon warmt het land snel op en het water nauwelijks: water neemt veel warmte op zonder warmer te worden en mengt die naar de diepte. Boven het hete land stijgt de lucht. Waar ze stijgt, ontbreekt lucht aan de grond, en de koele lucht van zee stroomt aan — dat is de zeewind. Hij is het sterkst als het land het warmst is, ’s middags.', 'Solen värmer landet snabbt och vattnet knappt alls: vatten tar upp mycket värme utan att bli varmare och blandar ner den på djupet. Över det heta landet stiger luften. Där den stiger saknas luft vid marken, och den svala luften från havet strömmar in — det är sjöbrisen. Den är starkast när landet är varmast, på eftermiddagen.'),
+        sea: l('Sea · stays cool', 'Meer · bleibt kühl', 'Mar · sigue fresco', 'Zee · blijft koel', 'Hav · håller sig svalt'),
+        land: l('Land · hot', 'Land · heiß', 'Tierra · caliente', 'Land · heet', 'Land · hett'),
+        note: l('sea breeze', 'Seewind', 'brisa marina', 'zeewind', 'sjöbris')
+      },
+      {
+        id: 'evening',
+        label: l('Evening and night', 'Abend und Nacht', 'Tarde-noche y noche', 'Avond en nacht', 'Kväll och natt'),
+        title: l('The engine is gone', 'Der Antrieb fehlt', 'Falta el motor', 'De motor valt weg', 'Drivkraften försvinner'),
+        text: l('Without sun the land cools quickly, the difference to the sea shrinks, the sea breeze dies away. At night it weakly reverses: the sea is now the warmer one, and a light land breeze drifts out over the water.', 'Ohne Sonne kühlt das Land schnell aus, der Unterschied zum Meer schrumpft, der Seewind schläft ein. Nachts kehrt es sich schwach um: Das Meer ist jetzt das Wärmere, und ein leichter Landwind zieht aufs Wasser hinaus.', 'Sin sol la tierra se enfría rápido, la diferencia con el mar se reduce y la brisa marina se apaga. De noche se invierte débilmente: ahora el mar es lo más cálido, y una ligera brisa de tierra sale hacia el agua.', 'Zonder zon koelt het land snel af, het verschil met de zee krimpt, de zeewind valt stil. ’s Nachts keert het zwak om: de zee is nu het warmst, en een lichte landwind trekt het water op.', 'Utan sol svalnar landet snabbt, skillnaden mot havet krymper, sjöbrisen somnar. På natten vänder det svagt: havet är nu det varmare, och en lätt landbris drar ut över vattnet.'),
+        sea: l('Sea · still mild', 'Meer · noch lau', 'Mar · aún templado', 'Zee · nog lauw', 'Hav · ännu ljummet'),
+        land: l('Land · cooling down', 'Land · kühlt aus', 'Tierra · se enfría', 'Land · koelt af', 'Land · svalnar'),
+        note: l('light land breeze', 'schwacher Landwind', 'brisa de tierra floja', 'zwakke landwind', 'svag landbris')
+      }
     ],
-    note: l('Ranges as used by the World Meteorological Organization. Which force is fun and which is too much is a question for your level, the beach and the day — and for the school if you are unsure.', 'Bereiche nach der Weltorganisation für Meteorologie. Welche Stärke Spaß macht und welche zu viel ist, hängt an eurem Niveau, dem Strand und dem Tag — und an der Schule, wenn ihr unsicher seid.', 'Rangos según la Organización Meteorológica Mundial. Qué fuerza es divertida y cuál es demasiada depende de vuestro nivel, de la playa y del día, y de la escuela si tenéis dudas.', 'Bereiken volgens de Wereld Meteorologische Organisatie. Welke kracht leuk is en welke te veel, hangt af van jullie niveau, het strand en de dag — en van de school als jullie twijfelen.', 'Intervall enligt Meteorologiska världsorganisationen. Vilken styrka som är rolig och vilken som är för mycket beror på er nivå, stranden och dagen – och på skolan om ni är osäkra.')
+    consequences: [
+      {
+        id: 'poniente',
+        title: l('What that means for the Poniente', 'Was das für den Poniente heißt', 'Qué significa para el poniente', 'Wat dat voor de poniente betekent', 'Vad det betyder för poniente'),
+        text: l('The Poniente comes off the Atlantic, from the sea — the same direction the sea breeze pulls. On a clear afternoon the two add up, which is why the Poniente often builds after midday. When it clouds over, the sun is missing and the push stays away.', 'Der Poniente kommt vom Atlantik, also vom Meer — dieselbe Richtung, in die der Seewind zieht. An einem klaren Nachmittag addiert sich beides, deshalb legt der Poniente nach dem Mittag oft zu. Zieht es zu, fehlt die Sonne, und der Schub bleibt aus.', 'El poniente viene del Atlántico, del mar: la misma dirección en la que tira la brisa marina. En una tarde despejada los dos se suman, por eso el poniente suele reforzarse después del mediodía. Si se nubla, falta el sol y el empuje no llega.', 'De poniente komt van de Atlantische Oceaan, dus van zee — dezelfde richting als de zeewind. Op een heldere middag tellen beide op, daarom zwelt de poniente na het middaguur vaak aan. Trekt het dicht, dan ontbreekt de zon en blijft de duw uit.', 'Poniente kommer från Atlanten, alltså från havet — samma riktning som sjöbrisen drar. En klar eftermiddag adderas de två, därför tar poniente ofta i efter middagstid. Mulnar det på saknas solen och skjutsen uteblir.')
+      },
+      {
+        id: 'levante',
+        title: l('What that means for the Levante', 'Was das für den Levante heißt', 'Qué significa para el levante', 'Wat dat voor de levante betekent', 'Vad det betyder för levanten'),
+        text: l('The Levante comes from the other direction, off the land. It gets nothing from this push; it keeps its own clock, and you read that best from Mark’s cloud over Gibraltar. Towards evening it often eases — the last session of the day is frequently the cleanest.', 'Der Levante kommt aus der anderen Richtung, vom Land. Von diesem Schub hat er nichts; er hat seine eigene Uhr, und die lest ihr am ehesten an Marks Wolke über Gibraltar ab. Zum Abend lässt er oft nach — die letzte Session des Tages ist häufig die sauberste.', 'El levante viene de la otra dirección, de tierra. De este empuje no recibe nada; tiene su propio reloj, y ese se lee mejor en la nube de Mark sobre Gibraltar. Hacia la tarde suele amainar: la última sesión del día es a menudo la más limpia.', 'De levante komt uit de andere richting, van het land. Van deze duw krijgt hij niets; hij heeft zijn eigen klok, en die lees je het best af aan Marks wolk boven Gibraltar. Tegen de avond zwakt hij vaak af — de laatste sessie van de dag is vaak de schoonste.', 'Levanten kommer från andra hållet, från land. Av den här skjutsen får den inget; den har sin egen klocka, och den läser ni bäst av på Marks moln över Gibraltar. Mot kvällen mojnar den ofta — dagens sista pass är ofta det renaste.')
+      }
+    ],
+    bridge: {
+      label: l('And in the table', 'Und in der Tabelle', 'Y en la tabla', 'En in de tabel', 'Och i tabellen'),
+      text: l('Still, thermal wind is not a number you add to the forecast. Anyone calculating “forecast plus a few knots” in the morning is talking themselves into a good day. What you can see in the table: a Poniente that rises from 1 pm to 5 pm with little cloud. That is the thermal push the model has already counted in.', 'Eine Zahl, die ihr auf die Vorhersage draufrechnet, ist die Thermik trotzdem nicht. Wer morgens „Prognose plus ein paar Knoten“ rechnet, rechnet sich den Tag schön. Was ihr in der Tabelle sehen könnt: einen Poniente, der von 13 bis 17 Uhr ansteigt, bei wenig Bewölkung. Das ist die Thermik, die das Modell schon mitgerechnet hat.', 'Aun así, la térmica no es una cifra que se sume a la previsión. Quien por la mañana calcula «previsión más unos nudos» se está haciendo trampas. Lo que sí podéis ver en la tabla: un poniente que sube de 13 a 17 h con poca nubosidad. Esa es la térmica que el modelo ya ha contado.', 'Toch is thermiek geen getal dat je bij de verwachting optelt. Wie ’s ochtends rekent met “verwachting plus een paar knopen”, rekent zichzelf rijk. Wat jullie in de tabel wél kunnen zien: een poniente die van 13 tot 17 uur oploopt, bij weinig bewolking. Dat is de thermiek die het model al heeft meegerekend.', 'Ändå är termik inget tal man lägger till prognosen. Den som på morgonen räknar ”prognos plus några knop” lurar sig själv. Vad ni kan se i tabellen: en poniente som stiger från kl. 13 till 17 med lite moln. Det är termiken som modellen redan räknat in.')
+    }
   },
-  localWind: {
-    eyebrow: l('Wind in Tarifa', 'Levante und Poniente', 'El viento en Tarifa', 'Wind in Tarifa', 'Vind i Tarifa'),
-    title: l('Two wind patterns, two completely different days', 'Der Poniente bringt die Welle, der Levante die Stärke und die Böen', 'Dos vientos, dos días completamente distintos', 'Twee windsituaties, twee totaal verschillende dagen', 'Två vindlägen, två helt olika dagar'),
-    paragraphs: [
-      l('Poniente comes from the west, off the Atlantic. On the main beaches it is side-onshore, usually runs more evenly and typically brings waves with it. Levante comes from the east. On the main beaches such as Los Lances it mostly blows side-offshore and is known for strength and gustiness. That is not the same everywhere; stretches like Balneario or Palmones sit differently. So wind direction alone yields neither a choice of spot nor a safety assessment.', 'Der Poniente kommt vom Atlantik, aus Westen. An Los Lances steht er schräg auflandig, läuft gleichmäßiger und bringt die Welle mit; das ist der Wind, um den es im Zitat unten geht. Der Levante kommt aus Osten, vom Land aufs Meer, an Los Lances schräg ablandig, warm, kräftig und böig. Nicht jeder Strand liegt gleich zum Wind: Am Balneario direkt an der Stadt oder in Palmones sieht dieselbe Richtung anders aus. Deshalb sagt die Richtung allein noch nicht, wo ihr heute startet.', 'El poniente viene del oeste, del Atlántico. En las playas principales entra side-onshore, de lado y de mar, suele ser más regular y normalmente trae ola. El levante viene del este. En las playas principales como Los Lances sopla casi siempre side-offshore, de lado y de tierra, y es conocido por su fuerza y sus rachas. No es igual en todas partes; tramos como Balneario o Palmones están orientados de otra manera. Por eso, de la dirección del viento por sí sola no sale ni una elección de spot ni una valoración de seguridad.', 'Poniente komt uit het westen, van de Atlantische Oceaan. Op de hoofdstranden staat hij side-onshore — schuin aanlandig —, loopt meestal gelijkmatiger en brengt doorgaans golven mee. Levante komt uit het oosten. Op de hoofdstranden zoals Los Lances waait hij meestal side-offshore — schuin aflandig — en staat hij bekend om kracht en vlagerigheid. Dat geldt niet overal hetzelfde; delen als Balneario of Palmones liggen anders. Uit de windrichting alleen volgt daarom noch een spotkeuze, noch een veiligheidsinschatting.', 'Poniente kommer från väst, från Atlanten. På huvudstränderna är den side-onshore – snett pålands –, löper oftast jämnare och för vanligtvis med sig vågor. Levante kommer från öst. På huvudstränder som Los Lances blåser den för det mesta side-offshore – snett frånlands – och är känd för styrka och byighet. Det gäller inte överallt på samma sätt; sträckor som Balneario eller Palmones ligger annorlunda. Av vindriktningen ensam följer därför varken ett spotval eller en säkerhetsbedömning.'),
-      l('And that the wind comes in gusts, never perfectly even — that is normal, that is nature. Near the beach the Levante is **markedly gustier** than the Poniente: it comes off the land and over the mountains, which makes it rough close in, while further out it runs cleaner. The Poniente arrives over the open Atlantic and is softer and more forgiving.', 'Und dass der Wind in Böen kommt, nie ganz gleichmäßig — das ist normal, das ist Natur. Am Strand ist der Levante **deutlich böiger** als der Poniente: Er kommt von Land und über die Berge, das macht ihn nah am Ufer ruppig, während er weiter draußen sauberer läuft. Der Poniente kommt über den offenen Atlantik und ist weicher, er verzeiht mehr.', 'Y que el viento llega a rachas, nunca del todo constante: eso es normal, es la naturaleza. Cerca de la playa el levante es **bastante más racheado** que el poniente: viene de tierra y por encima de las montañas, lo que lo hace áspero junto a la orilla, mientras que más afuera va más limpio. El poniente llega por el Atlántico abierto y es más suave, perdona más.', 'En dat de wind in vlagen komt, nooit helemaal gelijkmatig — dat is normaal, dat is de natuur. Bij het strand is de levante **duidelijk vlageriger** dan de poniente: hij komt van het land en over de bergen, wat hem dicht bij de kust ruw maakt, terwijl hij verder op zee schoner loopt. De poniente komt over de open Atlantische Oceaan en is zachter, hij vergeeft meer.', 'Och att vinden kommer i byar, aldrig helt jämn — det är normalt, det är naturen. Nära stranden är levanten **betydligt byigare** än poniente: den kommer från land och över bergen, vilket gör den skrovlig nära land, medan den längre ut löper renare. Poniente kommer över öppna Atlanten och är mjukare, den förlåter mer.'),
-      l('And what is thermal wind, actually? Land warms quickly, water hardly at all. When the sun is out, the land heats up, the warm air rises and cooler air flows in from the sea — **that is the sea breeze**; in the evening it reverses, weaker, as the land breeze. In Tarifa the Poniente runs in the same direction as that sea breeze, so on clear afternoons it can build; when clouds move in, it drops back.', 'Und was ist Thermik überhaupt? Land wird schnell warm, Wasser kaum. Scheint die Sonne, heizt sich das Land auf, die warme Luft steigt, und vom kühlen Meer strömt Luft nach — **das ist der Seewind**; abends dreht es sich um und schwächer, das ist der Landwind. In Tarifa läuft der Poniente in dieselbe Richtung wie dieser Seewind, deshalb kann er an klaren Nachmittagen zulegen; zieht es zu, fällt er zurück.', '¿Y qué es la térmica, en realidad? La tierra se calienta rápido, el agua casi nada. Cuando hay sol, la tierra se calienta, el aire caliente sube y del mar entra aire más fresco: **es la brisa marina**; al atardecer se invierte, más floja, es la brisa de tierra. En Tarifa el poniente va en la misma dirección que esa brisa marina, por eso en tardes despejadas puede reforzarse; si se nubla, decae.', 'En wat is thermiek eigenlijk? Land wordt snel warm, water nauwelijks. Als de zon schijnt, warmt het land op, de warme lucht stijgt en van de koele zee stroomt lucht aan — **dat is de zeewind**; ’s avonds draait het om en zwakker, dat is de landwind. In Tarifa loopt de poniente in dezelfde richting als die zeewind, daarom kan hij op heldere middagen aanzwellen; trekt het dicht, dan zakt hij terug.', 'Och vad är termik egentligen? Land blir snabbt varmt, vatten knappt alls. När solen är framme värms landet upp, den varma luften stiger och från det svala havet strömmar luft in — **det är sjöbrisen**; på kvällen vänder det, svagare, det är landbrisen. I Tarifa går poniente i samma riktning som den sjöbrisen, därför kan den ta i på klara eftermiddagar; drar det ihop sig faller den tillbaka.'),
-      l('Still, thermal wind is not a number you add to the forecast. Anyone calculating “forecast plus X knots” in the morning is talking themselves into something.', 'Eine Zahl, die ihr auf die Vorhersage draufrechnet, ist die Thermik trotzdem nicht. Wer morgens „Prognose plus ein paar Knoten“ rechnet, rechnet sich den Tag schön.', 'Aun así, la térmica no es una cifra que se sume a la previsión. Quien por la mañana calcula «previsión más X nudos» se está haciendo trampas.', 'Toch is thermiek geen getal dat je bij de verwachting optelt. Wie ’s ochtends rekent met “verwachting plus X knopen”, rekent zichzelf rijk.', 'Ändå är termik inget tal man lägger till prognosen. Den som på morgonen räknar ”prognos plus X knop” lurar sig själv.')
-    ],
-    quote: {
-      name: 'Robert',
-      role: l('Host at AMARA', 'Gastgeber bei AMARA', 'Anfitrión de AMARA', 'Host bij AMARA', 'Värd på AMARA'),
-      imageAlt: l('Robert Böhmer, host at AMARA', 'Robert Böhmer, Gastgeber bei AMARA', 'Robert Böhmer, anfitrión de AMARA', 'Robert Böhmer, host bij AMARA', 'Robert Böhmer, värd på AMARA'),
+  beach: {
+    label: chapter('5'),
+    title: l('Where to launch', 'Wo raus', 'Dónde salir', 'Waar het water op', 'Var man går ut'),
+    subtitle: l('Which beach suits which wind, what the buoys say, and what the tide does to it', 'Welcher Strand zu welchem Wind passt, was die Bojen sagen, und was die Tide damit macht', 'Qué playa va con cada viento, qué dicen las boyas y qué hace la marea con todo eso', 'Welk strand bij welke wind past, wat de boeien zeggen, en wat het tij ermee doet', 'Vilken strand som passar vilken vind, vad bojarna säger och vad tidvattnet gör med det'),
+    intro: l('A forecast describes model values. What you find on the water, you judge yourselves — on the beach, looking at the wind, the sea state and the situation. Do not go out alone, especially not in demanding or offshore conditions. If you are unsure, talk to a qualified local school or to Tarifa Surf Club and go out accompanied or in a group.', 'Ein Forecast ist eine Rechnung, der Strand ist die Wirklichkeit: Richtung, Böen, Welle, Bojen, und wie voll es ist. Das schaut ihr euch an, bevor ihr aufbaut. Geht zu zweit raus, und wenn ihr euch bei Levante noch nicht sicher seid, geht mit dem Tarifa Surf Club: ein Kurstag oder Help 2 Kite, dann ist das Boot draußen.', 'Un parte describe valores de modelo. Lo que os encontráis en el agua lo juzgáis vosotros, en la playa, mirando el viento, el estado del mar y la situación. No salgáis solos, y menos con condiciones exigentes o de viento de tierra. Si tenéis dudas, hablad con una escuela local cualificada o con Tarifa Surf Club y salid acompañados o en grupo.', 'Een forecast beschrijft modelwaarden. Wat jullie op het water aantreffen, beoordelen jullie zelf — op het strand, met het oog op wind, zeegang en de situatie. Ga niet alleen het water op, zeker niet bij veeleisende of aflandige omstandigheden. Twijfelen jullie, praat dan met een gekwalificeerde lokale school of met Tarifa Surf Club en ga begeleid of in een groep het water op.', 'En prognos beskriver modellvärden. Vad ni möter på vattnet avgör ni själva – på stranden, med blick på vind, sjögång och läget. Gå inte ut ensamma, särskilt inte i krävande förhållanden eller frånlandsvind. Är ni osäkra, prata med en kvalificerad lokal skola eller med Tarifa Surf Club och gå ut med sällskap eller i grupp.'),
+    whichBeachTitle: l('Which beach in which wind', 'Welcher Strand bei welchem Wind', 'Qué playa con cada viento', 'Welk strand bij welke wind', 'Vilken strand i vilken vind'),
+    markFirstLevante: {
+      id: 'first-levante',
+      lead: l('What Mark tells guests who want to go out in Levante for the first time:', 'Was Mark Gästen sagt, die zum ersten Mal bei Levante rauswollen:', 'Lo que Mark dice a los huéspedes que quieren salir con levante por primera vez:', 'Wat Mark zegt tegen gasten die voor het eerst bij levante het water op willen:', 'Vad Mark säger till gäster som vill ut i levante för första gången:'),
       paragraphs: ll(
-        [
-          'In the morning I can already feel the wind in the temperature: warm usually means Levante, cool brings Poniente. And Levante often needs a day — the first day is fidgety and gusty, the second one really runs.',
-          'From my personal experience: Tarifa is advertised with around 300 kite days a year, and yes — some of those are Levante days. Anyone who wants to catch them all has to be able to kite in Levante too.',
-          'But the kitesurfing I mean, the kind the locals do here: that is Poniente. Los Lances right outside the door, waves in it, the wind not brutal but strong enough for a lot of fun. For me, that is the Tarifa experience.',
-          'That is why I wanted my apartment exactly there — with a view of Los Lances. I can see when the wind arrives. And when it arrives, I pack my things and go out.'
-        ],
-        [
-          'Morgens spüre ich den Wind schon an der Temperatur: Ist es warm, steht meist Levante; ist es kühl, kommt der Poniente. Und der Levante braucht oft einen Tag — der erste ist zickig und böig, der zweite läuft dann richtig rund.',
-          'Aus meiner persönlichen Erfahrung: Tarifa wird mit rund 300 Kitetagen im Jahr beworben, und ja — ein Teil davon sind Levante-Tage. Wer die alle mitnehmen will, muss auch bei Levante kiten können.',
-          'Aber das Kitesurfen, das ich meine, das, was die Locals hier machen: das ist Poniente. Los Lances direkt vor der Tür, Welle drin, der Wind nicht brutal, aber stark genug für richtig viel Spaß. Das ist für mich das Tarifa-Erlebnis.',
-          'Deshalb wollte ich meine Wohnung auch genau dort haben — mit Blick auf Los Lances. Ich sehe, wann der Wind kommt. Und wenn er kommt, packe ich meine Sachen und gehe raus.'
-        ],
-        [
-          'Por la mañana ya noto el viento en la temperatura: si hace calor suele ser levante; si está fresco entra el poniente. Y el levante muchas veces necesita un día: el primero va nervioso y racheado, el segundo ya rueda de verdad.',
-          'Por experiencia personal: Tarifa se promociona con unos 300 días de kite al año, y sí, una parte son días de levante. Quien quiera aprovecharlos todos tiene que saber navegar también con levante.',
-          'Pero el kitesurf al que me refiero, el que hacen los locales aquí, es el de poniente. Los Lances justo delante de la puerta, con ola, el viento no brutal pero sí suficiente para disfrutar de verdad. Para mí, eso es la experiencia de Tarifa.',
-          'Por eso quise tener mi apartamento exactamente ahí, con vistas a Los Lances. Veo cuándo llega el viento. Y cuando llega, cojo mis cosas y salgo.'
-        ],
-        [
-          '’s Ochtends voel ik de wind al aan de temperatuur: is het warm, dan staat meestal levante; is het fris, dan komt poniente. En levante heeft vaak een dag nodig — de eerste is nerveus en vlagerig, de tweede loopt pas echt lekker.',
-          'Uit mijn persoonlijke ervaring: Tarifa wordt aangeprezen met zo’n 300 kitedagen per jaar, en ja — een deel daarvan zijn levantedagen. Wie die allemaal wil meepakken, moet ook bij levante kunnen kiten.',
-          'Maar het kitesurfen dat ik bedoel, dat wat de locals hier doen: dat is poniente. Los Lances direct voor de deur, golven erin, de wind niet bruut, maar sterk genoeg voor heel veel plezier. Dat is voor mij de Tarifa-ervaring.',
-          'Daarom wilde ik mijn appartement ook precies daar hebben — met uitzicht op Los Lances. Ik zie wanneer de wind komt. En als hij komt, pak ik mijn spullen en ga ik naar buiten.'
-        ],
-        [
-          'På morgonen känner jag vinden redan på temperaturen: är det varmt är det oftast levante, är det svalt kommer poniente. Och levanten behöver ofta en dag – den första är nyckfull och byig, den andra rullar det på ordentligt.',
-          'Av egen erfarenhet: Tarifa marknadsförs med runt 300 kitedagar om året, och ja – en del av dem är levantedagar. Den som vill ta alla måste kunna kita i levante också.',
-          'Men den kitesurfing jag menar, den som de lokala kör här: det är poniente. Los Lances direkt utanför dörren, vågor i, vinden inte brutal men stark nog för riktigt mycket glädje. Det är Tarifa-upplevelsen för mig.',
-          'Därför ville jag ha min lägenhet precis där – med utsikt över Los Lances. Jag ser när vinden kommer. Och när den kommer packar jag mina grejer och går ut.'
-        ]
+        ['For a first Levante I send people to Valdevaqueros. The wind sits a bit more onshore there, and the big dune at your back makes a difference. Anyone going out from the main beach at Los Lances in offshore wind has a rescue card in their wetsuit with me — without one I do not ride there. And out there I almost always rig one size smaller than it looks from the shore. The gusts here really do pack a punch.'],
+        ['Beim ersten Levante schicke ich die Leute nach Valdevaqueros. Der Wind steht dort etwas auflandiger, und die große Düne im Rücken macht einen Unterschied. Wer bei ablandigem Wind am Hauptstrand in Los Lances rausgeht, hat bei mir eine Rescue-Karte im Neo — ohne die fahre ich da nicht. Und ich baue draußen fast immer eine Nummer kleiner auf, als es am Ufer aussieht. Die Böen haben es hier wirklich in sich.'],
+        ['Con el primer levante mando a la gente a Valdevaqueros. Allí el viento entra algo más de mar, y la gran duna a la espalda marca la diferencia. Quien sale con viento de tierra desde la playa principal de Los Lances lleva conmigo una tarjeta de rescate en el neopreno; sin ella yo ahí no navego. Y fuera casi siempre monto una talla menos de lo que parece desde la orilla. Las rachas aquí son de verdad.'],
+        ['Bij de eerste levante stuur ik mensen naar Valdevaqueros. De wind staat daar iets aanlandiger, en de grote duin in de rug maakt verschil. Wie bij aflandige wind vanaf het hoofdstrand in Los Lances het water op gaat, heeft bij mij een rescuekaart in het wetsuit — zonder vaar ik daar niet. En buiten tuig ik bijna altijd een maat kleiner op dan het vanaf de kant lijkt. De vlagen hebben het hier echt in zich.'],
+        ['Vid första levanten skickar jag folk till Valdevaqueros. Vinden ligger lite mer pålands där, och den stora dynen i ryggen gör skillnad. Den som går ut från huvudstranden i Los Lances i frånlandsvind har hos mig ett räddningskort i våtdräkten – utan det kör jag inte där. Och därute riggar jag nästan alltid en storlek mindre än det ser ut från stranden. Byarna här har verkligen kraft.']
       )
     },
     spotLink: {
@@ -390,34 +504,44 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
       token: 'tarifa_kitesurf_spots',
       label: l('Kitesurf spots in Tarifa', 'Kitesurf-Spots in Tarifa', 'Spots de kitesurf en Tarifa', 'Kitesurfspots in Tarifa', 'Kitesurfspots i Tarifa'),
       after: l('— which stretch works in which conditions, and where the zones run.', 'mit allem, was dort vor Ort gilt.', '— qué tramo funciona con cada situación y por dónde van las zonas.', '— welk deel bij welke situatie werkt en waar de zones lopen.', '— vilken sträcka som fungerar i vilket läge och var zonerna går.')
-    }
-  },
-  safety: {
-    eyebrow: l('On site', 'Regeln am Strand', 'Sobre el terreno', 'Ter plaatse', 'På plats'),
-    title: l('What is officially regulated in Tarifa', 'Der Strand hat Zonen, und die Bojen zeigen sie euch', 'Lo que está regulado oficialmente en Tarifa', 'Wat in Tarifa officieel geregeld is', 'Vad som är officiellt reglerat i Tarifa'),
-    intro: l('The basis is the municipal Plan de Explotación de Playas 2024–2027 of the Ayuntamiento de Tarifa. It separates different use areas on the beaches, and that separation is implemented on site through markings, buoys and signage.', 'Die Stadt Tarifa teilt ihre Strände im Plan de Explotación de Playas 2024–2027 in Bereiche ein: Baden, Wassersport, Schulen. Am Strand seht ihr diese Einteilung als Bojen, Fahnen und Schilder, und die sind das, was zählt, nicht die Karte aus dem letzten Sommer.', 'La base es el Plan de Explotación de Playas 2024–2027 del Ayuntamiento de Tarifa. Separa en las playas distintas zonas de uso, y esa separación se aplica sobre el terreno mediante marcas, boyas y señalización.', 'De basis is het gemeentelijke Plan de Explotación de Playas 2024–2027 van het Ayuntamiento de Tarifa. Het scheidt op de stranden verschillende gebruikszones, en die scheiding wordt ter plaatse uitgevoerd met markeringen, boeien en bebording.', 'Grunden är den kommunala Plan de Explotación de Playas 2024–2027 från Ayuntamiento de Tarifa. Den skiljer olika användningsområden på stränderna, och den uppdelningen genomförs på plats med markeringar, bojar och skyltning.'),
+    },
+    zonesTitle: l('What is officially regulated in Tarifa', 'Der Strand hat Zonen, und die Bojen zeigen sie euch', 'Lo que está regulado oficialmente en Tarifa', 'Wat in Tarifa officieel geregeld is', 'Vad som är officiellt reglerat i Tarifa'),
+    zonesText: l('The basis is the municipal Plan de Explotación de Playas 2024–2027 of the Ayuntamiento de Tarifa. It separates different use areas on the beaches, and that separation is implemented on site through markings, buoys and signage.', 'Die Stadt Tarifa teilt ihre Strände im Plan de Explotación de Playas 2024–2027 in Bereiche ein: Baden, Wassersport, Schulen. Am Strand seht ihr diese Einteilung als Bojen, Fahnen und Schilder, und die sind das, was zählt, nicht die Karte aus dem letzten Sommer.', 'La base es el Plan de Explotación de Playas 2024–2027 del Ayuntamiento de Tarifa. Separa en las playas distintas zonas de uso, y esa separación se aplica sobre el terreno mediante marcas, boyas y señalización.', 'De basis is het gemeentelijke Plan de Explotación de Playas 2024–2027 van het Ayuntamiento de Tarifa. Het scheidt op de stranden verschillende gebruikszones, en die scheiding wordt ter plaatse uitgevoerd met markeringen, boeien en bebording.', 'Grunden är den kommunala Plan de Explotación de Playas 2024–2027 från Ayuntamiento de Tarifa. Den skiljer olika användningsområden på stränderna, och den uppdelningen genomförs på plats med markeringar, bojar och skyltning.'),
     priority: l('Signs, buoys and current instructions on site take priority.', 'Beschilderung, Bojen und aktuelle Anordnungen vor Ort gehen vor.', 'La señalización, las boyas y las indicaciones vigentes sobre el terreno tienen prioridad.', 'Borden, boeien en actuele aanwijzingen ter plaatse gaan voor.', 'Skyltar, bojar och aktuella anvisningar på plats har företräde.'),
-    checks: [
+    beaches: [
       {
-        id: 'no-solo',
-        title: l('What we want you to take with you', 'Zu zweit aufs Wasser, bei Levante mit dem Club', 'Lo que queremos que os llevéis', 'Wat we jullie meegeven', 'Vad vi vill skicka med er'),
-        text: l('A forecast describes model values. What you find on the water, you judge yourselves — on the beach, looking at the wind, the sea state and the situation. Do not go out alone, especially not in demanding or offshore conditions. If you are unsure, talk to a qualified local school or to Tarifa Surf Club and go out accompanied or in a group.', 'Ein Forecast ist eine Rechnung, der Strand ist die Wirklichkeit: Richtung, Böen, Welle, Bojen, und wie voll es ist. Das schaut ihr euch an, bevor ihr aufbaut. Geht zu zweit raus, und wenn ihr euch bei Levante noch nicht sicher seid, geht mit dem Tarifa Surf Club: ein Kurstag oder Help 2 Kite, dann ist das Boot draußen.', 'Un parte describe valores de modelo. Lo que os encontráis en el agua lo juzgáis vosotros, en la playa, mirando el viento, el estado del mar y la situación. No salgáis solos, y menos con condiciones exigentes o de viento de tierra. Si tenéis dudas, hablad con una escuela local cualificada o con Tarifa Surf Club y salid acompañados o en grupo.', 'Een forecast beschrijft modelwaarden. Wat jullie op het water aantreffen, beoordelen jullie zelf — op het strand, met het oog op wind, zeegang en de situatie. Ga niet alleen het water op, zeker niet bij veeleisende of aflandige omstandigheden. Twijfelen jullie, praat dan met een gekwalificeerde lokale school of met Tarifa Surf Club en ga begeleid of in een groep het water op.', 'En prognos beskriver modellvärden. Vad ni möter på vattnet avgör ni själva – på stranden, med blick på vind, sjögång och läget. Gå inte ut ensamma, särskilt inte i krävande förhållanden eller frånlandsvind. Är ni osäkra, prata med en kvalificerad lokal skola eller med Tarifa Surf Club och gå ut med sällskap eller i grupp.')
+        id: 'valdevaqueros',
+        title: l('Valdevaqueros', 'Valdevaqueros', 'Valdevaqueros', 'Valdevaqueros', 'Valdevaqueros'),
+        text: l('The official plan designates, among other things, bathing areas, areas for free water-sport launch and exit, school areas and separate kite and windsurf areas. The exact boundaries are set on site by the intended markings and buoy lines.', 'Badebereiche, Ein- und Ausfahrten für Wassersport, Schulbereiche und eigene Kite- und Windsurfbereiche; die Grenzen dazwischen setzt die Stadt mit Bojen und Markierung.', 'El plan oficial delimita, entre otras, zonas de baño, zonas de entrada y salida libre para deportes acuáticos, zonas de escuelas y zonas separadas para kite y windsurf. Los límites exactos se fijan sobre el terreno con las marcas y las boyas previstas.', 'Het officiële plan wijst onder meer zwemzones, zones voor vrije in- en uitvaart van watersporters, schoolzones en aparte kite- en windsurfzones aan. De exacte grenzen ontstaan ter plaatse door de voorziene markering en boeienlijn.', 'Den officiella planen anger bland annat badområden, områden för fri start och landning för vattensport, skolområden samt särskilda kite- och vindsurfingområden. De exakta gränserna sätts på plats genom den avsedda markeringen och bojlinjen.')
       },
       {
-        id: 'zones',
-        title: l('Valdevaqueros, Los Lances Norte and Lances Sur', 'Valdevaqueros, Los Lances Norte, Lances Sur: drei Strände, drei Einteilungen', 'Valdevaqueros, Los Lances Norte y Lances Sur', 'Valdevaqueros, Los Lances Norte en Lances Sur', 'Valdevaqueros, Los Lances Norte och Lances Sur'),
-        text: l('Valdevaqueros: the official plan designates, among other things, bathing areas, areas for free water-sport launch and exit, school areas and separate kite and windsurf areas. The exact boundaries are set on site by the intended markings and buoy lines. Los Lances Norte: in the official plan this is not one uniformly usable area. There are separate bathing and water-sport areas, plus school and channel areas and ecological protection zones. Lances Sur: for Lances Sur Natural and Lances Sur Urbana we draw no kite boundary of our own. The municipal beach plan and the markings on site are what counts.', 'Valdevaqueros: Badebereiche, Ein- und Ausfahrten für Wassersport, Schulbereiche und eigene Kite- und Windsurfbereiche; die Grenzen dazwischen setzt die Stadt mit Bojen und Markierung. Los Lances Norte: kein durchgehender Kitestrand, sondern getrennte Bade- und Wassersportbereiche, dazu Schul- und Kanalbereiche und geschützte Flächen. Lances Sur Natural und Lances Sur Urbana: Hier zeichnen wir keine eigene Kite-Grenze, es gelten der Strandplan und die Markierung vor Ort.', 'Valdevaqueros: el plan oficial delimita, entre otras, zonas de baño, zonas de entrada y salida libre para deportes acuáticos, zonas de escuelas y zonas separadas para kite y windsurf. Los límites exactos se fijan sobre el terreno con las marcas y las boyas previstas. Los Lances Norte: en el plan oficial no es una superficie de uso uniforme. Hay zonas de baño y de deportes acuáticos separadas, además de zonas de escuelas y canales y espacios de protección ecológica. Lances Sur: para Lances Sur Natural y Lances Sur Urbana no trazamos ningún límite de kite propio. Lo que manda es el plan municipal de playas y la señalización sobre el terreno.', 'Valdevaqueros: het officiële plan wijst onder meer zwemzones, zones voor vrije in- en uitvaart van watersporters, schoolzones en aparte kite- en windsurfzones aan. De exacte grenzen ontstaan ter plaatse door de voorziene markering en boeienlijn. Los Lances Norte: in het officiële plan is dit geen uniform bruikbaar gebied. Er zijn gescheiden zwem- en watersportzones, plus school- en kanaalzones en ecologische beschermingszones. Lances Sur: voor Lances Sur Natural en Lances Sur Urbana tekenen we geen eigen kitegrens. Bepalend zijn het gemeentelijke strandplan en de markering ter plaatse.', 'Valdevaqueros: den officiella planen anger bland annat badområden, områden för fri start och landning för vattensport, skolområden samt särskilda kite- och vindsurfingområden. De exakta gränserna sätts på plats genom den avsedda markeringen och bojlinjen. Los Lances Norte: i den officiella planen är det ingen enhetligt användbar yta. Det finns separata bad- och vattensportområden, dessutom skol- och kanalområden samt ekologiska skyddsytor. Lances Sur: för Lances Sur Natural och Lances Sur Urbana ritar vi ingen egen kitegräns. Det som gäller är den kommunala strandplanen och markeringen på plats.')
+        id: 'lances-norte',
+        title: l('Los Lances Norte', 'Los Lances Norte', 'Los Lances Norte', 'Los Lances Norte', 'Los Lances Norte'),
+        text: l('In the official plan this is not one uniformly usable area. There are separate bathing and water-sport areas, plus school and channel areas and ecological protection zones.', 'Kein durchgehender Kitestrand, sondern getrennte Bade- und Wassersportbereiche, dazu Schul- und Kanalbereiche und geschützte Flächen.', 'En el plan oficial no es una superficie de uso uniforme. Hay zonas de baño y de deportes acuáticos separadas, además de zonas de escuelas y canales y espacios de protección ecológica.', 'In het officiële plan is dit geen uniform bruikbaar gebied. Er zijn gescheiden zwem- en watersportzones, plus school- en kanaalzones en ecologische beschermingszones.', 'I den officiella planen är det ingen enhetligt användbar yta. Det finns separata bad- och vattensportområden, dessutom skol- och kanalområden samt ekologiska skyddsytor.')
+      },
+      {
+        id: 'lances-sur',
+        title: l('Lances Sur Natural and Urbana', 'Lances Sur Natural und Urbana', 'Lances Sur Natural y Urbana', 'Lances Sur Natural en Urbana', 'Lances Sur Natural och Urbana'),
+        text: l('For Lances Sur Natural and Lances Sur Urbana we draw no kite boundary of our own. The municipal beach plan and the markings on site are what counts.', 'Hier zeichnen wir keine eigene Kite-Grenze, es gelten der Strandplan und die Markierung vor Ort.', 'Para Lances Sur Natural y Lances Sur Urbana no trazamos ningún límite de kite propio. Lo que manda es el plan municipal de playas y la señalización sobre el terreno.', 'Voor Lances Sur Natural en Lances Sur Urbana tekenen we geen eigen kitegrens. Bepalend zijn het gemeentelijke strandplan en de markering ter plaatse.', 'För Lances Sur Natural och Lances Sur Urbana ritar vi ingen egen kitegräns. Det som gäller är den kommunala strandplanen och markeringen på plats.')
+      },
+      {
+        id: 'lagoon',
+        title: l('The Los Lances lagoon', 'Die Lagune von Los Lances', 'La laguna de Los Lances', 'De lagune van Los Lances', 'Lagunen vid Los Lances'),
+        text: l('There is no leeway here. Kitesurfing is officially prohibited in the protected lagoon area. The Junta de Andalucía bases this on protected-area law and on the municipal beach regulations.', 'Naturschutz, und dort ist Kitesurfen amtlich verboten, egal wie flach und verlockend das Wasser aussieht. Die Junta de Andalucía stützt das auf das Schutzgebietsrecht und die Strandordnung der Stadt.', 'Aquí no hay margen. En la zona protegida de la laguna el kitesurf está prohibido oficialmente. La Junta de Andalucía se remite para ello a la normativa de espacios protegidos y a la ordenanza municipal de playas.', 'Hier is geen speelruimte. In het beschermde lagunegebied is kitesurfen officieel verboden. De Junta de Andalucía verwijst daarvoor naar het natuurbeschermingsrecht en naar de gemeentelijke strandverordening.', 'Här finns inget utrymme. I det skyddade lagunområdet är kitesurfing officiellt förbjuden. Junta de Andalucía hänvisar till lagstiftningen om skyddade områden och till den kommunala strandordningen.')
       }
     ],
-    lagoon: l('The Los Lances lagoon: there is no leeway here. Kitesurfing is officially prohibited in the protected lagoon area. The Junta de Andalucía bases this on protected-area law and on the municipal beach regulations.', 'Die Lagune von Los Lances ist Naturschutz, und dort ist Kitesurfen amtlich verboten, egal wie flach und verlockend das Wasser aussieht. Die Junta de Andalucía stützt das auf das Schutzgebietsrecht und die Strandordnung der Stadt.', 'La laguna de Los Lances: aquí no hay margen. En la zona protegida de la laguna el kitesurf está prohibido oficialmente. La Junta de Andalucía se remite para ello a la normativa de espacios protegidos y a la ordenanza municipal de playas.', 'De lagune van Los Lances: hier is geen speelruimte. In het beschermde lagunegebied is kitesurfen officieel verboden. De Junta de Andalucía verwijst daarvoor naar het natuurbeschermingsrecht en naar de gemeentelijke strandverordening.', 'Lagunen vid Los Lances: här finns inget utrymme. I det skyddade lagunområdet är kitesurfing officiellt förbjuden. Junta de Andalucía hänvisar till lagstiftningen om skyddade områden och till den kommunala strandordningen.'),
     tides: {
       title: l('The factor no forecast shows', 'Bei Flut wird Los Lances schmal', 'El factor que no aparece en ningún parte', 'De factor die in geen enkele forecast staat', 'Faktorn som inte finns i någon prognos'),
-      text: l('The tides. At high tide the beach at Los Lances becomes noticeably narrower, and so does the space for launching and landing. No wind app shows that, and the modelled sea level some weather APIs deliver is expressly not suitable for the coast — it does not replace a tide table. So factor in the tide separately, just as you do with the wind.', 'Die Gezeiten stehen in keiner Wind-App. Bei Flut rückt das Wasser in Los Lances weit den Strand hinauf, und der Platz zum Starten und Landen schrumpft. Die Meereshöhe, die manche Wetter-Apps mitliefern, ist für die Küste ausdrücklich nicht gedacht und ersetzt keine Gezeitentabelle. Schaut also auf die Tide wie auf den Wind: getrennt, und vor dem Aufbauen.', 'Las mareas. Con marea alta, la playa de Los Lances se estrecha de forma notable, y con ella el espacio para despegar y aterrizar. Eso no aparece en ninguna app de viento, y el nivel del mar modelizado que ofrecen algunas API meteorológicas no es apto para la costa, expresamente: no sustituye a una tabla de mareas. Así que tened en cuenta la marea por separado, igual que hacéis con el viento.', 'De getijden. Bij vloed wordt het strand van Los Lances duidelijk smaller, en daarmee ook de ruimte om te starten en te landen. Dat staat in geen enkele windapp, en de gemodelleerde zeehoogte die sommige weer-API’s meeleveren is uitdrukkelijk niet geschikt voor de kust — die vervangt geen getijdentabel. Reken het tij dus apart mee, net zoals jullie dat met de wind doen.', 'Tidvattnet. Vid högvatten blir stranden i Los Lances märkbart smalare, och därmed också platsen för start och landning. Det syns inte i någon vindapp, och den modellerade havsnivån som vissa väder-API:er levererar är uttryckligen inte lämpad för kusten – den ersätter ingen tidvattentabell. Räkna alltså in tidvattnet separat, precis som ni gör med vinden.')
-    },
-    rescueEyebrow: l('In an emergency', 'Im Ernstfall', 'En caso de emergencia', 'In noodgevallen', 'I ett nödläge'),
-    rescueHeading: l('Two different systems that are often confused', 'Private Rescue-Boote und die Seenotrettung sind zwei verschiedene Dinge', 'Dos sistemas distintos que a menudo se confunden', 'Twee verschillende systemen die vaak worden verward', 'Två olika system som ofta förväxlas'),
-    rescueTitle: l('Private water-sport rescue — commercial providers with their own terms', 'Die privaten Rescue-Boote: zwei Anbieter, eigene Bedingungen', 'Rescate privado de deportes acuáticos: proveedores comerciales con condiciones propias', 'Private watersportrescue — commerciële aanbieders met eigen voorwaarden', 'Privat räddning för vattensport – kommersiella aktörer med egna villkor'),
-    rescueIntro: l('These are companies with their own zones, hours and contract terms. Check current availability and conditions directly with the provider.', 'Zwei Firmen fahren mit Booten an Los Lances Norte und Valdevaqueros, gegen Voucher. Zonen, Zeiten und Bedingungen legt jeder Anbieter selbst fest, und was gerade gilt, steht bei ihnen.', 'Son empresas con sus propias zonas, horarios y condiciones contractuales. Comprobad la disponibilidad actual y las condiciones directamente con el proveedor.', 'Dit zijn bedrijven met eigen zones, tijden en contractvoorwaarden. Controleer de actuele beschikbaarheid en de voorwaarden rechtstreeks bij de aanbieder.', 'Det här är företag med egna zoner, tider och avtalsvillkor. Kontrollera aktuell tillgänglighet och villkor direkt hos leverantören.'),
+      text: l('The tides. At high tide the beach at Los Lances becomes noticeably narrower, and so does the space for launching and landing. No wind app shows that, and the modelled sea level some weather APIs deliver is expressly not suitable for the coast — it does not replace a tide table. So factor in the tide separately, just as you do with the wind.', 'Die Gezeiten stehen in keiner Wind-App. Bei Flut rückt das Wasser in Los Lances weit den Strand hinauf, und der Platz zum Starten und Landen schrumpft. Die Meereshöhe, die manche Wetter-Apps mitliefern, ist für die Küste ausdrücklich nicht gedacht und ersetzt keine Gezeitentabelle. Schaut also auf die Tide wie auf den Wind: getrennt, und vor dem Aufbauen.', 'Las mareas. Con marea alta, la playa de Los Lances se estrecha de forma notable, y con ella el espacio para despegar y aterrizar. Eso no aparece en ninguna app de viento, y el nivel del mar modelizado que ofrecen algunas API meteorológicas no es apto para la costa, expresamente: no sustituye a una tabla de mareas. Así que tened en cuenta la marea por separado, igual que hacéis con el viento.', 'De getijden. Bij vloed wordt het strand van Los Lances duidelijk smaller, en daarmee ook de ruimte om te starten en te landen. Dat staat in geen enkele windapp, en de gemodelleerde zeehoogte die sommige weer-API’s meeleveren is uitdrukkelijk niet geschikt voor de kust — die vervangt geen getijdentabel. Reken het tij dus apart mee, net zoals jullie dat met de wind doen.', 'Tidvattnet. Vid högvatten blir stranden i Los Lances märkbart smalare, och därmed också platsen för start och landning. Det syns inte i någon vindapp, och den modellerade havsnivån som vissa väder-API:er levererar är uttryckligen inte lämpad för kusten – den ersätter ingen tidvattentabell. Räkna alltså in tidvattnet separat, precis som ni gör med vinden.'),
+      note: l('And the tide works out on the water too: when the tidal current runs off downwind, everyone suddenly loses ground upwind — Mark’s pointer from chapter 2.', 'Und die Tide arbeitet auch draußen: Zieht die Gezeitenströmung in Windrichtung ab, verliert plötzlich jeder Höhe — Marks Hinweis aus Kapitel 2.', 'Y la marea también trabaja fuera: cuando la corriente de marea tira en la dirección del viento, todos pierden altura de repente, la pista de Mark del capítulo 2.', 'En het tij werkt ook buiten: trekt de getijstroom met de wind mee weg, dan verliest iedereen ineens hoogte — Marks aanwijzing uit hoofdstuk 2.', 'Och tidvattnet jobbar även därute: när tidvattenströmmen drar iväg i vindriktningen tappar alla plötsligt höjd — Marks tips från kapitel 2.')
+    }
+  },
+  emergency: {
+    label: chapter('6'),
+    title: l('In an emergency', 'Im Ernstfall', 'En caso de emergencia', 'In noodgevallen', 'I ett nödläge'),
+    subtitle: l('Two different systems that are often confused', 'Private Rescue-Boote und die Seenotrettung sind zwei verschiedene Dinge', 'Dos sistemas distintos que a menudo se confunden', 'Twee verschillende systemen die vaak worden verward', 'Två olika system som ofta förväxlas'),
+    intro: l('These are companies with their own zones, hours and contract terms. Check current availability and conditions directly with the provider.', 'Zwei Firmen fahren mit Booten an Los Lances Norte und Valdevaqueros, gegen Voucher. Zonen, Zeiten und Bedingungen legt jeder Anbieter selbst fest, und was gerade gilt, steht bei ihnen.', 'Son empresas con sus propias zonas, horarios y condiciones contractuales. Comprobad la disponibilidad actual y las condiciones directamente con el proveedor.', 'Dit zijn bedrijven met eigen zones, tijden en contractvoorwaarden. Controleer de actuele beschikbaarheid en de voorwaarden rechtstreeks bij de aanbieder.', 'Det här är företag med egna zoner, tider och avtalsvillkor. Kontrollera aktuell tillgänglighet och villkor direkt hos leverantören.'),
+    providersTitle: l('Private water-sport rescue — commercial providers with their own terms', 'Die privaten Rescue-Boote: zwei Anbieter, eigene Bedingungen', 'Rescate privado de deportes acuáticos: proveedores comerciales con condiciones propias', 'Private watersportrescue — commerciële aanbieders met eigen voorwaarden', 'Privat räddning för vattensport – kommersiella aktörer med egna villkor'),
     providers: [
       {
         id: 'new-angels',
@@ -434,9 +558,8 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
         label: l('Check Sea Rescue details', 'Details bei Sea Rescue', 'Consultar los detalles de Sea Rescue', 'Bekijk de details van Sea Rescue', 'Kontrollera Sea Rescue-information')
       }
     ],
-    rescueQuote: {
-      name: 'Mark',
-      role: l('Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club'),
+    markRescue: {
+      id: 'rescue',
       lead: l('What Mark says about it, and you will not find this on any website:', 'Was Mark dazu sagt, und das steht so auf keiner Website:', 'Lo que dice Mark al respecto, y esto no está en ninguna web:', 'Wat Mark erover zegt, en dat staat zo op geen enkele website:', 'Vad Mark säger om det, och det står inte på någon webbplats:'),
       paragraphs: ll(
         ['The hours you see online are shop opening hours. The boats go out when the Levante is blowing. And they take you along with your gear — that is the difference from the state rescue service.'],
@@ -446,22 +569,21 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
         ['Tiderna ni ser online är butikens öppettider. Båtarna går ut när levanten står på. Och de tar med er tillsammans med utrustningen – det är skillnaden mot den statliga räddningen.']
       )
     },
-    rescueContext: l('That is the practical reason these providers exist at all: in an emergency, the state sea rescue picks up the person. The gear stays in the water.', 'Genau deshalb gibt es diese Anbieter: Die staatliche Seenotrettung holt im Ernstfall euch. Der Kite bleibt im Wasser.', 'Esa es la razón práctica de que existan estos servicios: en una emergencia, el salvamento marítimo estatal recoge a la persona. El material se queda en el agua.', 'Dat is de praktische reden dat deze aanbieders überhaupt bestaan: bij een noodgeval haalt de staatsredding de persoon op. Het materiaal blijft in het water.', 'Det är det praktiska skälet till att de här aktörerna över huvud taget finns: i ett nödläge hämtar den statliga sjöräddningen personen. Utrustningen blir kvar i vattnet.'),
-    rescuePlanB: l('A rescue card is plan B. It does not change the conditions on the water.', 'Eine Rescue-Card ist Plan B. Den Wind macht sie nicht kleiner.', 'Una tarjeta de rescate es el plan B. No cambia las condiciones en el agua.', 'Een rescuekaart is plan B. Hij verandert niets aan de omstandigheden op het water.', 'Ett räddningskort är plan B. Det ändrar inte förhållandena på vattnet.'),
-    emergencyTitle: l('Distress at sea and acute emergency', 'Im Notfall: 112, Salvamento Marítimo, Kanal 16', 'Emergencia en el mar y urgencia aguda', 'Noodgeval op zee en acute nood', 'Sjönöd och akut nödläge'),
-    emergencyText: l('This is a different system, run by the state, and it has nothing to do with the vouchers above. Give your position, what has happened and how many people need help. Private radio channels of individual providers are not official emergency channels.', 'Das ist die staatliche Rettung, unabhängig von jedem Voucher. Sagt, wo ihr seid, was passiert ist und wie viele Menschen Hilfe brauchen. Der Funkkanal eines privaten Anbieters ersetzt diese Nummern nicht.', 'Este es otro sistema, estatal, y no tiene nada que ver con los bonos de arriba. Indicad vuestra posición, qué ha pasado y cuántas personas necesitan ayuda. Los canales de radio privados de los proveedores no son canales oficiales de emergencia.', 'Dit is een ander systeem, van de overheid, en het heeft niets te maken met de vouchers hierboven. Geef jullie positie door, wat er is gebeurd en hoeveel mensen hulp nodig hebben. Privékanalen van afzonderlijke aanbieders zijn geen officiële noodkanalen.', 'Det här är ett annat system, statligt, och det har inget med voucherna ovan att göra. Ange er position, vad som har hänt och hur många som behöver hjälp. Enskilda leverantörers privata radiokanaler är inga officiella nödkanaler.'),
-    emergencyNumbers: [
+    context: l('That is the practical reason these providers exist at all: in an emergency, the state sea rescue picks up the person. The gear stays in the water.', 'Genau deshalb gibt es diese Anbieter: Die staatliche Seenotrettung holt im Ernstfall euch. Der Kite bleibt im Wasser.', 'Esa es la razón práctica de que existan estos servicios: en una emergencia, el salvamento marítimo estatal recoge a la persona. El material se queda en el agua.', 'Dat is de praktische reden dat deze aanbieders überhaupt bestaan: bij een noodgeval haalt de staatsredding de persoon op. Het materiaal blijft in het water.', 'Det är det praktiska skälet till att de här aktörerna över huvud taget finns: i ett nödläge hämtar den statliga sjöräddningen personen. Utrustningen blir kvar i vattnet.'),
+    planB: l('A rescue card is plan B. It does not change the conditions on the water.', 'Eine Rescue-Card ist Plan B. Den Wind macht sie nicht kleiner.', 'Una tarjeta de rescate es el plan B. No cambia las condiciones en el agua.', 'Een rescuekaart is plan B. Hij verandert niets aan de omstandigheden op het water.', 'Ett räddningskort är plan B. Det ändrar inte förhållandena på vattnet.'),
+    stateEyebrow: l('State rescue', 'Staatliche Rettung', 'Rescate estatal', 'Staatsredding', 'Statlig räddning'),
+    stateTitle: l('Distress at sea and acute emergency', 'Im Notfall: 112, Salvamento Marítimo, Kanal 16', 'Emergencia en el mar y urgencia aguda', 'Noodgeval op zee en acute nood', 'Sjönöd och akut nödläge'),
+    stateText: l('This is a different system, run by the state, and it has nothing to do with the vouchers above. Give your position, what has happened and how many people need help. Private radio channels of individual providers are not official emergency channels.', 'Das ist die staatliche Rettung, unabhängig von jedem Voucher. Sagt, wo ihr seid, was passiert ist und wie viele Menschen Hilfe brauchen. Der Funkkanal eines privaten Anbieters ersetzt diese Nummern nicht.', 'Este es otro sistema, estatal, y no tiene nada que ver con los bonos de arriba. Indicad vuestra posición, qué ha pasado y cuántas personas necesitan ayuda. Los canales de radio privados de los proveedores no son canales oficiales de emergencia.', 'Dit is een ander systeem, van de overheid, en het heeft niets te maken met de vouchers hierboven. Geef jullie positie door, wat er is gebeurd en hoeveel mensen hulp nodig hebben. Privékanalen van afzonderlijke aanbieders zijn geen officiële noodkanalen.', 'Det här är ett annat system, statligt, och det har inget med voucherna ovan att göra. Ange er position, vad som har hänt och hur många som behöver hjälp. Enskilda leverantörers privata radiokanaler är inga officiella nödkanaler.'),
+    numbers: [
       { id: 'emergency-112', label: l('Europe-wide emergency number', 'Europaweiter Notruf', 'Emergencias en toda Europa', 'Europees noodnummer', 'Europeiskt nödnummer'), value: '112' },
       { id: 'salvamento', label: l('Salvamento Marítimo', 'Salvamento Marítimo', 'Salvamento Marítimo', 'Salvamento Marítimo', 'Salvamento Marítimo'), value: '900 202 202' },
       { id: 'vhf-16', label: l('Marine radio (VHF)', 'Seefunk (VHF)', 'Radio marítima (VHF)', 'Marifoon (VHF)', 'Sjöradio (VHF)'), value: 'Channel 16' }
-    ],
-    aemetText: l('Official AEMET warnings take precedence over any model calculation. We do not summarise them and we do not weigh them against other models. The Estrecho warning zone (611104) has been checked against AEMET’s official zone register; the block above shows AEMET’s wording, and whenever it fails the link leads straight to AEMET.', 'Amtliche AEMET-Warnungen haben Vorrang vor jeder Modellrechnung. Wir fassen sie nicht zusammen und rechnen sie nicht gegen andere Modelle auf. Die Warnzone Estrecho (611104) ist gegen das amtliche Zonenverzeichnis von AEMET geprüft; oben steht AEMETs Wortlaut, und bei jedem Ausfall führt der Link direkt zu AEMET.', 'Los avisos oficiales de AEMET prevalecen sobre cualquier cálculo de modelo. No los resumimos ni los contraponemos a otros modelos. La zona de aviso Estrecho (611104) está comprobada con el registro oficial de zonas de AEMET; arriba aparece el texto de AEMET, y si falla, el enlace lleva directamente a AEMET.', 'Officiële AEMET-waarschuwingen gaan boven elke modelberekening. We vatten ze niet samen en zetten ze niet af tegen andere modellen. De waarschuwingszone Estrecho (611104) is gecontroleerd aan de hand van het officiële zoneregister van AEMET; hierboven staat de tekst van AEMET, en bij elke storing leidt de link rechtstreeks naar AEMET.', 'Officiella AEMET-varningar går före varje modellberäkning. Vi sammanfattar dem inte och väger dem inte mot andra modeller. Varningszonen Estrecho (611104) är kontrollerad mot AEMET:s officiella zonregister; ovan står AEMET:s ordalydelse, och vid varje avbrott leder länken direkt till AEMET.'),
-    aemetHref: 'https://www.aemet.es/es/eltiempo/prediccion/municipios/tarifa-id11035',
-    aemetLabel: l('Open official AEMET forecast and warnings', 'Warnungen bei AEMET', 'Abrir previsión y avisos oficiales de AEMET', 'Open de officiële AEMET-verwachting en waarschuwingen', 'Öppna AEMET:s officiella prognos och varningar')
+    ]
   },
   partner: {
-    eyebrow: l('Together', 'AMARA × Tarifa Surf Club', 'Juntos', 'Samen', 'Tillsammans'),
-    title: l('Why we send you to Tarifa Surf Club', 'Material in der Wohnung, Kaution geregelt, bei Levante ein Boot', 'Por qué os mandamos a Tarifa Surf Club', 'Waarom we jullie naar Tarifa Surf Club sturen', 'Varför vi skickar er till Tarifa Surf Club'),
+    eyebrow: l('AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club'),
+    title: l('With the club', 'Mit dem Club', 'Con el club', 'Met de club', 'Med klubben'),
+    subtitle: l('Why we send you to Tarifa Surf Club', 'Material in der Wohnung, Kaution geregelt, bei Levante ein Boot', 'Por qué os mandamos a Tarifa Surf Club', 'Waarom we jullie naar Tarifa Surf Club sturen', 'Varför vi skickar er till Tarifa Surf Club'),
     intro: l('Mark and I met ten years ago at a Tarifa Surf Club kitecamp, and our shared love of kitesurfing grew into a close friendship. Today Mark runs the club with Simone and we see each other almost every day. What that means for you in practice:', 'Mark und ich haben uns vor zehn Jahren in einem Kitecamp des Tarifa Surf Club kennengelernt; aus unserer gemeinsamen Liebe zum Kitesurfen wurde eine enge Freundschaft. Heute führt Mark den Club mit Simone, und wir sehen uns fast täglich. Für euch heißt das:', 'Mark y yo nos conocimos hace diez años en un kitecamp de Tarifa Surf Club; de nuestro amor compartido por el kitesurf nació una amistad muy estrecha. Hoy Mark dirige el club con Simone y nos vemos casi a diario. Para vosotros, eso significa en la práctica:', 'Mark en ik leerden elkaar tien jaar geleden kennen tijdens een kitecamp van Tarifa Surf Club; uit onze gedeelde liefde voor kitesurfen groeide een hechte vriendschap. Tegenwoordig leidt Mark de club samen met Simone en zien we elkaar bijna dagelijks. Voor jullie betekent dat in de praktijk:', 'Mark och jag lärde känna varandra för tio år sedan på ett av Tarifa Surf Clubs kitecamp; vår gemensamma kärlek till kitesurfingen växte till en nära vänskap. I dag driver Mark klubben tillsammans med Simone och vi ses nästan varje dag. För er betyder det i praktiken:'),
     benefits: [
       {
@@ -482,43 +604,18 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
     ],
     voice: {
       name: 'Mark',
-      role: l('Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club', 'Tarifa Surf Club'),
-      title: l('Mark’s view', 'Drei Dinge, die Mark am Strand sagt', 'La mirada de Mark', 'Marks kijk', 'Marks blick'),
-      quotes: [
-        {
-          id: 'first-levante',
-          lead: l('What he tells guests who want to go out in Levante for the first time:', 'Was er Gästen sagt, die zum ersten Mal bei Levante rauswollen:', 'Lo que dice a los huéspedes que quieren salir con levante por primera vez:', 'Wat hij zegt tegen gasten die voor het eerst bij levante het water op willen:', 'Vad han säger till gäster som vill ut i levante för första gången:'),
-          paragraphs: ll(
-            ['For a first Levante I send people to Valdevaqueros. The wind sits a bit more onshore there, and the big dune at your back makes a difference. Anyone going out from the main beach at Los Lances in offshore wind has a rescue card in their wetsuit with me — without one I do not ride there. And out there I almost always rig one size smaller than it looks from the shore. The gusts here really do pack a punch.'],
-            ['Beim ersten Levante schicke ich die Leute nach Valdevaqueros. Der Wind steht dort etwas auflandiger, und die große Düne im Rücken macht einen Unterschied. Wer bei ablandigem Wind am Hauptstrand in Los Lances rausgeht, hat bei mir eine Rescue-Karte im Neo — ohne die fahre ich da nicht. Und ich baue draußen fast immer eine Nummer kleiner auf, als es am Ufer aussieht. Die Böen haben es hier wirklich in sich.'],
-            ['Con el primer levante mando a la gente a Valdevaqueros. Allí el viento entra algo más de mar, y la gran duna a la espalda marca la diferencia. Quien sale con viento de tierra desde la playa principal de Los Lances lleva conmigo una tarjeta de rescate en el neopreno; sin ella yo ahí no navego. Y fuera casi siempre monto una talla menos de lo que parece desde la orilla. Las rachas aquí son de verdad.'],
-            ['Bij de eerste levante stuur ik mensen naar Valdevaqueros. De wind staat daar iets aanlandiger, en de grote duin in de rug maakt verschil. Wie bij aflandige wind vanaf het hoofdstrand in Los Lances het water op gaat, heeft bij mij een rescuekaart in het wetsuit — zonder vaar ik daar niet. En buiten tuig ik bijna altijd een maat kleiner op dan het vanaf de kant lijkt. De vlagen hebben het hier echt in zich.'],
-            ['Vid första levanten skickar jag folk till Valdevaqueros. Vinden ligger lite mer pålands där, och den stora dynen i ryggen gör skillnad. Den som går ut från huvudstranden i Los Lances i frånlandsvind har hos mig ett räddningskort i våtdräkten – utan det kör jag inte där. Och därute riggar jag nästan alltid en storlek mindre än det ser ut från stranden. Byarna här har verkligen kraft.']
-          )
-        },
-        {
-          id: 'reading-the-day',
-          lead: l('How he can tell a day is running differently from the forecast:', 'Woran er sieht, dass ein Tag anders läuft als der Forecast:', 'En qué nota que un día va distinto de lo que decía el parte:', 'Waaraan hij ziet dat een dag anders loopt dan de forecast:', 'Hur han ser att en dag går annorlunda än prognosen:'),
-          paragraphs: ll(
-            ['I really only look at the mountains. If that thick Levante cloud is sitting over Gibraltar, the wind stays steady. If the cloud dissolves, the wind usually collapses shortly after. Another good indicator: when everyone out there suddenly loses ground upwind, the tidal current is running off downwind. That steals the pressure from your kite immediately, whatever the app says.'],
-            ['Ich schaue eigentlich nur auf die Berge. Hängt diese dicke Levante-Wolke über Gibraltar, bleibt der Wind stabil. Löst die Wolke sich auf, bricht der Wind meist kurz danach zusammen. Noch ein guter Indikator: Wenn draußen plötzlich alle Höhe verlieren, zieht die Gezeitenströmung gerade in Windrichtung ab. Das klaut dir sofort den Druck im Schirm, egal was die App sagt.'],
-            ['Yo en realidad solo miro a las montañas. Si esa nube gorda de levante está sobre Gibraltar, el viento se mantiene estable. Si la nube se deshace, el viento suele venirse abajo poco después. Otro buen indicador: cuando fuera todos pierden altura de repente, la corriente de marea está tirando en la dirección del viento. Eso te quita la presión de la cometa al instante, diga lo que diga la app.'],
-            ['Ik kijk eigenlijk alleen naar de bergen. Hangt die dikke levantewolk boven Gibraltar, dan blijft de wind stabiel. Lost de wolk op, dan zakt de wind meestal kort daarna in elkaar. Nog een goede indicator: als iedereen buiten ineens hoogte verliest, trekt de getijstroom net met de wind mee weg. Dat steelt meteen de druk uit je kite, wat de app ook zegt.'],
-            ['Jag tittar egentligen bara på bergen. Hänger det där tjocka levantemolnet över Gibraltar håller vinden sig stabil. Löser molnet upp sig bryter vinden oftast ihop strax därefter. Ännu en bra indikator: när alla därute plötsligt tappar höjd drar tidvattenströmmen just då iväg i vindriktningen. Det stjäl trycket i kiten direkt, oavsett vad appen säger.']
-          )
-        },
-        {
-          id: 'overlooked',
-          lead: l('What gets overlooked most often in Tarifa:', 'Was in Tarifa am häufigsten übersehen wird:', 'Lo que más se pasa por alto en Tarifa:', 'Wat in Tarifa het vaakst over het hoofd wordt gezien:', 'Vad som oftast förbises i Tarifa:'),
-          paragraphs: ll(
-            ['The gear. In a proper Levante we ride 4s to 6s here — sizes most people don’t have sitting in the cellar at home. If you’re missing something there, we’re happy to provide it all.'],
-            ['Das Material. Bei einem richtigen Levante fahren wir hier Vierer bis Sechser — Größen, die die meisten nicht im Keller liegen haben. Wenn euch da etwas fehlt, stellen wir euch gerne alles zur Verfügung.'],
-            ['El material. Con un levante de verdad, aquí navegamos con 4 a 6 metros, tallas que la mayoría no tiene guardadas en el trastero. Si os falta algo, os lo prestamos todo encantados.'],
-            ['Het materiaal. Bij een echte levante varen we hier 4 tot 6 — maten die de meesten niet in de kelder hebben liggen. Ontbreekt jullie daar iets, dan stellen we het graag allemaal ter beschikking.'],
-            ['Utrustningen. I en riktig levante kör vi 4:or till 6:or här — storlekar som de flesta inte har liggande i källaren. Saknar ni något där, ställer vi gärna allt till förfogande.']
-          )
-        }
-      ]
+      role: markRole,
+      quote: {
+        id: 'overlooked',
+        lead: l('What gets overlooked most often in Tarifa:', 'Was in Tarifa am häufigsten übersehen wird:', 'Lo que más se pasa por alto en Tarifa:', 'Wat in Tarifa het vaakst over het hoofd wordt gezien:', 'Vad som oftast förbises i Tarifa:'),
+        paragraphs: ll(
+          ['The gear. In a proper Levante we ride 4s to 6s here — sizes most people don’t have sitting in the cellar at home. If you’re missing something there, we’re happy to provide it all.'],
+          ['Das Material. Bei einem richtigen Levante fahren wir hier Vierer bis Sechser — Größen, die die meisten nicht im Keller liegen haben. Wenn euch da etwas fehlt, stellen wir euch gerne alles zur Verfügung.'],
+          ['El material. Con un levante de verdad, aquí navegamos con 4 a 6 metros, tallas que la mayoría no tiene guardadas en el trastero. Si os falta algo, os lo prestamos todo encantados.'],
+          ['Het materiaal. Bij een echte levante varen we hier 4 tot 6 — maten die de meesten niet in de kelder hebben liggen. Ontbreekt jullie daar iets, dan stellen we het graag allemaal ter beschikking.'],
+          ['Utrustningen. I en riktig levante kör vi 4:or till 6:or här — storlekar som de flesta inte har liggande i källaren. Saknar ni något där, ställer vi gärna allt till förfogande.']
+        )
+      }
     },
     partnerHref: 'https://tarifasurfclub.com/',
     partnerLabel: l('Visit Tarifa Surf Club', 'Tarifa Surf Club besuchen', 'Visitar Tarifa Surf Club', 'Bezoek Tarifa Surf Club', 'Besök Tarifa Surf Club'),

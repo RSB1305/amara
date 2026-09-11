@@ -1,0 +1,41 @@
+---
+/**
+ * A named voice on the Tarifa kitesurf wind page: one 4:5 portrait and a
+ * first-person quote, signed with name and role. Robert and Mark speak in
+ * this frame throughout the page; the quote is their experience, never an
+ * AMARA rule, and the frame keeps that visibly separate from the editorial
+ * copy around it. `tone` picks the card surface against the section behind
+ * it: a white card on a tinted section, a tinted card on a white one.
+ */
+import type { ImageMetadata } from 'astro';
+import AmaraImage from '../../components/AmaraImage.astro';
+
+interface Props {
+  id: string;
+  name: string;
+  role: string;
+  paragraphs: string[];
+  lead?: string;
+  imageSrc: ImageMetadata | string;
+  imageAlt: string;
+  focalPoint?: string;
+  tone?: 'on-tint' | 'on-white';
+  class?: string;
+}
+
+const { id, name, role, paragraphs, lead, imageSrc, imageAlt, focalPoint = '50% 20%', tone = 'on-tint', class: className } = Astro.props;
+const surfaceClass = tone === 'on-tint' ? 'bg-surface' : 'bg-surface-container-low';
+---
+
+<figure class:list={['m-0 grid gap-6 px-6 py-7 md:grid-cols-12 md:gap-8 md:px-8', surfaceClass, className]} data-am-voice={id}>
+  <div class="md:col-span-3 lg:col-span-2">
+    <AmaraImage src={imageSrc} alt={imageAlt} profile="card" width={480} widths={[240, 360, 480]} sizes="(max-width: 767px) 10rem, 14rem" class="aspect-[4/5] w-32 object-cover md:w-full" focalPoint={focalPoint} />
+  </div>
+  <div class="md:col-span-9 lg:col-span-10">
+    {lead && <p class="am-text-label am-text-label--sm text-primary">{lead}</p>}
+    <blockquote class:list={['m-0 space-y-4', { 'mt-3': Boolean(lead) }]}>
+      {paragraphs.map((paragraph) => <p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{paragraph}</p>)}
+    </blockquote>
+    <figcaption class="am-text-label am-text-label--sm mt-4 text-primary">— {name} · {role}</figcaption>
+  </div>
+</figure>

@@ -7,6 +7,13 @@
  * The panel frames each warning with level, phenomenon, zone, validity and
  * source; it never summarises, softens or weighs a warning against a model.
  * Empty and error states are stated as such.
+ *
+ * The block is a disclosure, folded by default (operator decision of
+ * 11 September 2026): the status line stays visible — count, highest level,
+ * first headline — and carries AEMET's own level colour (yellow, orange, red)
+ * on the chip and the left rule, so the official status reads at a glance
+ * without the full wording taking the top of the page. The colours are the
+ * semantic warning palette of this block only, not the brand accent.
  */
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import LocationGuideIcon from './LocationGuideIcon.astro';
@@ -26,48 +33,108 @@ const { endpoint, lang, timezone, copy, officialHref } = Astro.props;
 const widgetId = 'am-aemet-warnings';
 ---
 
-<section id={widgetId} class="mt-10 bg-surface px-6 py-7 md:px-8" aria-labelledby={`${widgetId}-title`} aria-live="polite" aria-busy="true" data-am-official-warnings>
-  <h3 id={`${widgetId}-title`} class="am-text-subtitle text-on-surface">{copy.title}</h3>
+<details id={widgetId} class="group bg-surface" aria-busy="true" data-am-official-warnings data-warnings-level="loading">
+  <summary class="am-accordion__trigger items-center gap-4 px-6 py-5 md:px-8">
+    <span class="flex min-w-0 flex-1 flex-wrap items-center gap-x-4 gap-y-2">
+      <span class="am-text-label am-text-label--sm inline-flex shrink-0 items-center gap-2 px-2.5 py-1" data-warnings-chip>
+        <span class="h-2 w-2 rounded-full bg-current" aria-hidden="true"></span>
+        <span data-warnings-chip-text>{copy.summary.chipUnknown}</span>
+      </span>
+      <span class="min-w-64 flex-1">
+        <span class="am-text-body block text-on-surface" data-warnings-summary>{copy.summary.loading}</span>
+        <span class="am-text-caption mt-1 hidden normal-case tracking-normal text-muted" data-warnings-summary-detail></span>
+      </span>
+    </span>
+    <span class="am-accordion__indicator" aria-hidden="true">
+      <span class="group-open:hidden">+</span>
+      <span class="hidden group-open:inline">−</span>
+    </span>
+  </summary>
 
-  <div data-warnings-loading class="mt-5 flex items-center gap-3">
-    <LocationGuideIcon name="temperature" class="h-5 w-5" />
-    <p class="am-text-body text-on-surface-variant">{copy.loading}</p>
+  <div class="px-6 pb-7 md:px-8" aria-labelledby={`${widgetId}-title`} aria-live="polite">
+    <h3 id={`${widgetId}-title`} class="sr-only">{copy.title}</h3>
+
+    <div data-warnings-loading class="flex items-center gap-3">
+      <LocationGuideIcon name="temperature" class="h-5 w-5" />
+      <p class="am-text-body text-on-surface-variant">{copy.loading}</p>
+    </div>
+
+    <div data-warnings-list class="hidden space-y-5"></div>
+
+    <div data-warnings-empty class="hidden">
+      <p class="am-text-body text-on-surface" data-warnings-empty-title></p>
+      <p class="am-text-body mt-2 max-w-2xl leading-relaxed text-on-surface-variant" data-warnings-empty-text></p>
+    </div>
+
+    <div data-warnings-fallback class="hidden">
+      <p class="am-text-body text-on-surface">{copy.unavailableTitle}</p>
+      <p class="am-text-body mt-2 max-w-2xl leading-relaxed text-on-surface-variant">{copy.unavailableText}</p>
+    </div>
+
+    <p class="am-text-caption mt-5 hidden normal-case tracking-normal text-muted" data-warnings-meta></p>
+    <AmaraActionLink href={officialHref} variant="editorial" external class="mt-5 inline-flex">{copy.linkLabel}</AmaraActionLink>
+
+    <template data-warning-template>
+      <article class="border-l-4 bg-surface-container-low px-5 py-5" data-warning-level="">
+        <p class="am-text-label am-text-label--sm text-on-surface"><span data-field="levelLabel"></span>: <span data-field="level"></span></p>
+        <p class="am-text-subtitle mt-2 text-on-surface" data-field="headline"></p>
+        <p class="am-text-caption mt-2 normal-case tracking-normal text-muted" data-field="meta"></p>
+        <p class="am-text-body mt-3 max-w-3xl leading-relaxed text-on-surface" data-field="description"></p>
+        <p class="am-text-body mt-2 max-w-3xl leading-relaxed text-on-surface-variant" data-field="instruction"></p>
+        <div class="mt-3 hidden" data-field="englishBlock">
+          <p class="am-text-label am-text-label--sm text-muted" data-field="englishLabel"></p>
+          <p class="am-text-body mt-1 max-w-3xl leading-relaxed text-on-surface-variant" data-field="english"></p>
+        </div>
+        <p class="am-text-caption mt-3 normal-case tracking-normal text-muted" data-field="verbatim"></p>
+      </article>
+    </template>
+
+    <noscript>
+      <p class="am-text-body mt-5 text-on-surface-variant">{copy.unavailableText}</p>
+    </noscript>
   </div>
+</details>
 
-  <div data-warnings-list class="mt-5 hidden space-y-5"></div>
-
-  <div data-warnings-empty class="mt-5 hidden">
-    <p class="am-text-body text-on-surface" data-warnings-empty-title></p>
-    <p class="am-text-body mt-2 max-w-2xl leading-relaxed text-on-surface-variant" data-warnings-empty-text></p>
-  </div>
-
-  <div data-warnings-fallback class="mt-5 hidden">
-    <p class="am-text-body text-on-surface">{copy.unavailableTitle}</p>
-    <p class="am-text-body mt-2 max-w-2xl leading-relaxed text-on-surface-variant">{copy.unavailableText}</p>
-  </div>
-
-  <p class="am-text-caption mt-5 hidden normal-case tracking-normal text-muted" data-warnings-meta></p>
-  <AmaraActionLink href={officialHref} variant="editorial" external class="mt-5 inline-flex">{copy.linkLabel}</AmaraActionLink>
-
-  <template data-warning-template>
-    <article class="border-l-4 bg-surface-container-low px-5 py-5" data-warning-level="">
-      <p class="am-text-label am-text-label--sm text-on-surface"><span data-field="levelLabel"></span>: <span data-field="level"></span></p>
-      <p class="am-text-subtitle mt-2 text-on-surface" data-field="headline"></p>
-      <p class="am-text-caption mt-2 normal-case tracking-normal text-muted" data-field="meta"></p>
-      <p class="am-text-body mt-3 max-w-3xl leading-relaxed text-on-surface" data-field="description"></p>
-      <p class="am-text-body mt-2 max-w-3xl leading-relaxed text-on-surface-variant" data-field="instruction"></p>
-      <div class="mt-3 hidden" data-field="englishBlock">
-        <p class="am-text-label am-text-label--sm text-muted" data-field="englishLabel"></p>
-        <p class="am-text-body mt-1 max-w-3xl leading-relaxed text-on-surface-variant" data-field="english"></p>
-      </div>
-      <p class="am-text-caption mt-3 normal-case tracking-normal text-muted" data-field="verbatim"></p>
-    </article>
-  </template>
-
-  <noscript>
-    <p class="am-text-body mt-5 text-on-surface-variant">{copy.unavailableText}</p>
-  </noscript>
-</section>
+<style>
+  /*
+   * Semantic warning colours of the official block, keyed on the highest
+   * active level. They follow AEMET's yellow / orange / red and stay inside
+   * this component; the brand accent is deliberately not used for a warning.
+   */
+  [data-am-official-warnings] {
+    --am-warn-accent: var(--color-outline-variant);
+    --am-warn-ink: var(--color-on-surface-variant);
+    --am-warn-tint: var(--color-surface-container-low);
+    border-left: 4px solid var(--am-warn-accent);
+  }
+  [data-am-official-warnings][data-warnings-level='none'] {
+    --am-warn-accent: #4d7a5a;
+    --am-warn-ink: #2f5a3c;
+    --am-warn-tint: #e4efe6;
+  }
+  [data-am-official-warnings][data-warnings-level='amarillo'] {
+    --am-warn-accent: #e6b800;
+    --am-warn-ink: #5f4a00;
+    --am-warn-tint: #fff6c7;
+  }
+  [data-am-official-warnings][data-warnings-level='naranja'] {
+    --am-warn-accent: #e8781a;
+    --am-warn-ink: #6b3300;
+    --am-warn-tint: #ffe6cf;
+  }
+  [data-am-official-warnings][data-warnings-level='rojo'] {
+    --am-warn-accent: #c8281e;
+    --am-warn-ink: #6e0f0a;
+    --am-warn-tint: #fbdad6;
+  }
+  [data-warnings-chip] {
+    background: var(--am-warn-tint);
+    color: var(--am-warn-ink);
+  }
+  [data-warning-level='amarillo'] { border-color: #e6b800; }
+  [data-warning-level='naranja'] { border-color: #e8781a; }
+  [data-warning-level='rojo'] { border-color: #c8281e; }
+</style>
 
 <script is:inline define:vars={{ endpoint, lang, timezone, copy, widgetId }}>
   (function () {
@@ -80,13 +147,26 @@ const widgetId = 'am-aemet-warnings';
     const fallback = query('[data-warnings-fallback]');
     const meta = query('[data-warnings-meta]');
     const template = query('[data-warning-template]');
+    const chipText = query('[data-warnings-chip-text]');
+    const summary = query('[data-warnings-summary]');
+    const summaryDetail = query('[data-warnings-summary-detail]');
 
-    const LEVEL_CLASS = { amarillo: 'border-gold', naranja: 'border-primary', rojo: 'border-on-surface' };
+    const LEVEL_RANK = { amarillo: 1, naranja: 2, rojo: 3 };
     const stamp = new Intl.DateTimeFormat(lang, { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit', timeZone: timezone });
     const format = (value) => {
       const parsed = value ? Date.parse(value) : Number.NaN;
       return Number.isFinite(parsed) ? stamp.format(new Date(parsed)) : '—';
     };
+
+    function setStatus(level, chip, text, detail) {
+      root.dataset.warningsLevel = level;
+      chipText.textContent = chip;
+      summary.textContent = text;
+      if (detail) {
+        summaryDetail.textContent = detail;
+        summaryDetail.classList.remove('hidden');
+      }
+    }
 
     function finish() {
       root.setAttribute('aria-busy', 'false');
@@ -96,6 +176,7 @@ const widgetId = 'am-aemet-warnings';
     function showFallback() {
       finish();
       if (fallback) fallback.classList.remove('hidden');
+      setStatus('unknown', copy.summary.chipUnknown, copy.summary.unavailable, '');
     }
 
     function renderWarning(warning, zoneName) {
@@ -103,7 +184,6 @@ const widgetId = 'am-aemet-warnings';
       const field = (name) => node.querySelector('[data-field="' + name + '"]');
       const level = warning.level || '';
       node.dataset.warningLevel = level;
-      node.classList.add(LEVEL_CLASS[level] || 'border-outline-variant');
       field('levelLabel').textContent = copy.levelLabel;
       field('level').textContent = copy.levels[level] || level || '—';
       const primary = warning.spanish || warning.english;
@@ -132,6 +212,22 @@ const widgetId = 'am-aemet-warnings';
       return node;
     }
 
+    function summarize(warnings) {
+      let highest = '';
+      warnings.forEach((warning) => {
+        if ((LEVEL_RANK[warning.level] || 0) > (LEVEL_RANK[highest] || 0)) highest = warning.level;
+      });
+      const levelText = copy.summary.levelsShort[highest] || highest || '—';
+      const text = (warnings.length === 1 ? copy.summary.one : copy.summary.many)
+        .replace('{count}', String(warnings.length))
+        .replace('{level}', levelText);
+      const first = warnings[0];
+      const primary = first.spanish || first.english;
+      const detail = (primary.description || primary.headline || '') +
+        ' · ' + copy.validLabel + ': ' + format(first.onset) + ' ' + copy.until + ' ' + format(first.expires);
+      setStatus(highest || 'unknown', levelText, text, detail);
+    }
+
     (async function () {
       try {
         const response = await fetch(endpoint, { method: 'GET', headers: { Accept: 'application/json' } });
@@ -143,11 +239,14 @@ const widgetId = 'am-aemet-warnings';
         if (payload.warnings.length > 0) {
           payload.warnings.forEach((warning) => list.appendChild(renderWarning(warning, payload.zone.name)));
           list.classList.remove('hidden');
+          summarize(payload.warnings);
         } else {
           const listed = payload.coverage === 'zone-listed';
           query('[data-warnings-empty-title]').textContent = listed ? copy.noneTitle : copy.notListedTitle;
           query('[data-warnings-empty-text]').textContent = listed ? copy.noneText : copy.notListedText;
           empty.classList.remove('hidden');
+          if (listed) setStatus('none', copy.summary.chipNone, copy.summary.none, '');
+          else setStatus('unknown', copy.summary.chipUnknown, copy.notListedTitle, '');
         }
         meta.textContent = copy.sourceLabel + ' · ' + copy.zoneLabel + ': ' + payload.zone.name + ' (' + payload.zone.id + ') · ' + copy.fetchedLabel + ': ' + format(payload.source.fetchedAt);
         meta.classList.remove('hidden');
