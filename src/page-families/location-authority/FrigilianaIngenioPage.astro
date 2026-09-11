@@ -4,7 +4,6 @@ import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
-import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import facadeImage from '../../assets/images/content/frigiliana/frigiliana-el-ingenio-fassade-esgrafiado-balkone.jpg';
@@ -138,30 +137,42 @@ const ibexAlt = t({
       </div>
 
       <section id="palace-or-factory" class="am-section bg-surface">
-        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div class="lg:col-span-5 lg:self-start">
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-              {t(copy.palaceVsFactory.title)}
-            </h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
-              {t(copy.palaceVsFactory.intro)}
-            </p>
-            <AmaraMediaFrame role="gallery" mobileFullBleed>
-              <AmaraImage
-                src={historicImage}
-                alt={historicAlt}
-                profile="gallery"
-                class="h-full w-full object-cover"
-                mediaRole="gallery"
-                focalPoint="50% 50%"
-              />
-            </AmaraMediaFrame>
-          </div>
-          <div class="lg:col-span-6 lg:col-start-7">
-            <EditorialFeatureGrid cards={palaceCards} titleRole="card" />
-          </div>
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.palaceVsFactory.title)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {t(copy.palaceVsFactory.intro)}
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+          {
+            palaceCards.map((card) => (
+              <article>
+                <h3 class="am-text-body font-bold normal-case text-on-surface mb-3 pb-2 border-b border-on-surface/10">
+                  {card.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">{card.copy}</p>
+              </article>
+            ))
+          }
         </div>
       </section>
+
+      <div class="bg-surface px-6 pb-16 md:px-12 md:pb-24">
+        <div class="mx-auto max-w-screen-2xl">
+          <AmaraMediaFrame role="editorial" mobileFullBleed>
+            <AmaraImage
+              src={historicImage}
+              alt={historicAlt}
+              profile="gallery"
+              class="h-full w-full object-cover"
+              mediaRole="editorial"
+              focalPoint="50% 50%"
+            />
+          </AmaraMediaFrame>
+        </div>
+      </div>
 
       <section id="facade" class="am-section bg-surface-container-low">
         <div class="max-w-3xl mb-12">
@@ -185,34 +196,57 @@ const ibexAlt = t({
           </AmaraMediaFrame>
         </div>
 
-        <EditorialFeatureGrid cards={facadeCards} titleRole="card" />
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+          {
+            facadeCards.map((card) => (
+              <article>
+                <h3 class="am-text-body font-bold normal-case text-on-surface mb-3 pb-2 border-b border-on-surface/10">
+                  {card.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">{card.copy}</p>
+              </article>
+            ))
+          }
+        </div>
       </section>
 
       <section id="miel-de-cana" class="am-section bg-surface">
-        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
-          <div class="lg:col-span-5 lg:self-start">
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-              {t(copy.mielDeCana.title)}
-            </h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
-              {t(copy.mielDeCana.intro)}
-            </p>
-            <AmaraMediaFrame role="gallery" mobileFullBleed>
-              <AmaraImage
-                src={factoryImage}
-                alt={factoryAlt}
-                profile="gallery"
-                class="h-full w-full object-cover"
-                mediaRole="gallery"
-                focalPoint="50% 50%"
-              />
-            </AmaraMediaFrame>
-          </div>
-          <div class="lg:col-span-6 lg:col-start-7">
-            <EditorialFeatureGrid cards={mielCards} titleRole="card" />
-          </div>
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.mielDeCana.title)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {t(copy.mielDeCana.intro)}
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
+          {
+            mielCards.map((card) => (
+              <article>
+                <h3 class="am-text-body font-bold normal-case text-on-surface mb-3 pb-2 border-b border-on-surface/10">
+                  {card.title}
+                </h3>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">{card.copy}</p>
+              </article>
+            ))
+          }
         </div>
       </section>
+
+      <div class="bg-surface px-6 pb-16 md:px-12 md:pb-24">
+        <div class="mx-auto max-w-screen-2xl">
+          <AmaraMediaFrame role="editorial" mobileFullBleed>
+            <AmaraImage
+              src={factoryImage}
+              alt={factoryAlt}
+              profile="gallery"
+              class="h-full w-full object-cover"
+              mediaRole="editorial"
+              focalPoint="50% 50%"
+            />
+          </AmaraMediaFrame>
+        </div>
+      </div>
 
       <section id="ibex" class="am-section bg-surface-container-low">
         <div class="grid gap-12 lg:grid-cols-12 lg:gap-16 lg:items-center">
