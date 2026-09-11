@@ -30,6 +30,8 @@ const caption = t(copy.map.caption);
 const startSublabel = t(copy.map.startSublabel);
 const ariaLabel = t(copy.map.ariaLabel);
 const panelWord = t(copy.map.panelWord);
+const mapsLabel = t(copy.map.mapsLabel);
+const mapsHref = copy.map.mapsHref;
 
 const titleById = new Map<number, string>(copy.panels.map((p) => [p.n, p.titleEs]));
 const NODES = [
@@ -117,7 +119,15 @@ const REAL =
       }
     </svg>
   </div>
-  <figcaption class="km-caption">{caption}</figcaption>
+  <figcaption class="km-caption">
+    <span>{caption}</span>
+    <a class="km-maps" href={mapsHref} target="_blank" rel="noopener noreferrer">
+      {mapsLabel}
+      <svg class="km-maps__icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+        <path d="M6 3h7v7M13 3 4 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </a>
+  </figcaption>
 </figure>
 
 <style>
@@ -232,10 +242,37 @@ const REAL =
 
   .km-caption {
     margin: 14px 2px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1.25rem;
     font-family: var(--font-label);
     font-size: 13px;
     line-height: 1.6;
     color: var(--color-on-surface-variant);
+  }
+
+  .km-maps {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    color: var(--km-route);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--km-route) 35%, transparent);
+    padding-bottom: 1px;
+    transition: border-color 0.15s ease;
+  }
+
+  .km-maps:hover,
+  .km-maps:focus-visible {
+    border-bottom-color: var(--km-route);
+  }
+
+  .km-maps__icon {
+    width: 12px;
+    height: 12px;
+    flex: none;
   }
 
   @media (prefers-reduced-motion: reduce) {

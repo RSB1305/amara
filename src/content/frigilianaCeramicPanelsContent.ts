@@ -238,7 +238,18 @@ export const frigilianaCeramicPanelsCopy = {
       'Kaart van de twaalf keramische panelen in Frigiliana met de wandelroute',
       'Karta över Frigilianas tolv keramikpaneler med promenadrutten'
     ),
-    panelWord: l('Panel', 'Tafel', 'Azulejo', 'Paneel', 'Panel')
+    panelWord: l('Panel', 'Tafel', 'Azulejo', 'Paneel', 'Panel'),
+    mapsLabel: l(
+      'Open the walking route in Google Maps',
+      'Fußweg in Google Maps öffnen',
+      'Abrir la ruta a pie en Google Maps',
+      'Wandelroute openen in Google Maps',
+      'Öppna promenadrutten i Google Maps'
+    ),
+    /* Operator-supplied walking directions (3e2 = walking) through the panel lanes:
+       Hernando el Darra → Amargura → Alta → Sta. Teresa de Ávila → El Garral. */
+    mapsHref:
+      'https://www.google.com/maps/dir/C.+Hernando+el+Darra,+29788+Frigiliana,+M%C3%A1laga,+Spanien/C.+Amargura,+29788+Frigiliana,+M%C3%A1laga,+Spanien/C.+Alta,+29788+Frigiliana,+M%C3%A1laga,+Spanien/Calle+Sta.+Teresa+de+Avila,+29788+Frigiliana,+M%C3%A1laga,+Spanien/C.+el+Garral,+29788+Frigiliana,+M%C3%A1laga,+Spanien/@36.7928565,-3.9000319,17z/data=!3m1!4b1!4m32!4m31!1m5!1m1!1s0xd7224b0712c1efd:0xc0b3b8849f81f704!2m2!1d-3.8963792!2d36.7919455!1m5!1m1!1s0xd7224b015d84e13:0x4935fd50aa9b33ab!2m2!1d-3.897074!2d36.7924183!1m5!1m1!1s0xd7224b03cf90b55:0x169e6edccfc3f0f0!2m2!1d-3.8976217!2d36.7928842!1m5!1m1!1s0xd7224ae31b24bcd:0xa0f158e35bfa39ec!2m2!1d-3.8985348!2d36.7937589!1m5!1m1!1s0xd7224b1d526eeab:0x42fb9c4cacbf11c0!2m2!1d-3.8984509!2d36.7934542!3e2!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D'
   },
   panels: [
     {
