@@ -299,6 +299,134 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
         sv: 'Stränder i Nerja'
       },
       linkToken: 'nerja_beaches_authority'
+    },
+    {
+      id: 'sea-swimming',
+      // Alborán runs colder than the Balearics; here the beach is at the door,
+      // so the swimming window is a real planning fact for northern-market guests.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'coast',
+      eyebrow: {
+        de: 'Meer & Baden',
+        en: 'Sea & swimming',
+        nl: 'Zee & zwemmen',
+        sv: 'Hav & bad'
+      },
+      title: {
+        de: 'Wann das Meer warm genug zum Baden ist',
+        en: 'When the sea is warm enough to swim',
+        nl: 'Wanneer de zee warm genoeg is om te zwemmen',
+        sv: 'När havet är varmt nog att bada i'
+      },
+      body: {
+        de: 'Der Strand liegt hier direkt vor der Tür — aber das Alborán-Meer ist durch Atlantikströmungen kühler als etwa vor Mallorca. Angenehm zum Baden wird es meist **erst ab Mitte bis Ende Juni** und bleibt dann bis in den späten Oktober warm. Im Frühjahr fühlt sich die Luft oft schon sommerlich an, während das Wasser noch frisch ist.',
+        en: 'The beach is right on the doorstep here — but the Alborán Sea is cooler than, say, Mallorca, fed by Atlantic currents. It usually turns pleasant for swimming **only from mid to late June** and then stays warm into late October. In spring the air can already feel like summer while the water is still fresh.',
+        nl: 'Het strand ligt hier vlak voor de deur — maar de Alboránzee is door Atlantische stromingen koeler dan bijvoorbeeld bij Mallorca. Aangenaam om te zwemmen wordt het meestal **pas van half tot eind juni** en dan blijft het warm tot laat in oktober. In het voorjaar voelt de lucht vaak al zomers terwijl het water nog fris is.',
+        sv: 'Stranden ligger här precis utanför dörren — men Alboránsjön är genom atlantiska strömmar svalare än till exempel vid Mallorca. Behagligt att bada i blir det oftast **först från mitten till slutet av juni** och håller sig sedan varmt in i sena oktober. På våren känns luften ofta redan sommarlik medan vattnet ännu är friskt.'
+      },
+      linkLabel: {
+        de: 'Strände in Nerja',
+        en: 'Nerja’s beaches',
+        nl: 'Stranden in Nerja',
+        sv: 'Stränder i Nerja'
+      },
+      linkToken: 'nerja_beaches_authority'
+    },
+    {
+      id: 'calima-terral',
+      // The two Málaga-coast phenomena; on the coast the terral's cold-water
+      // effect is especially relevant. Spanish readers know both — out of es.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'sunshine',
+      eyebrow: {
+        de: 'Zwei Überraschungen',
+        en: 'Two surprises',
+        nl: 'Twee verrassingen',
+        sv: 'Två överraskningar'
+      },
+      title: {
+        de: 'Calima und Terral',
+        en: 'Calima and terral',
+        nl: 'Calima en terral',
+        sv: 'Calima och terral'
+      },
+      body: {
+        de: 'Zwei Wetterlagen überraschen Gäste oft. Bei der **Calima** trägt der Wind Saharastaub heran: Der Himmel wird milchig-orange, und manchmal fällt „Blutregen“, der einen feinen roten Schleier auf Autos und Balkone legt — meist nach ein, zwei Tagen vorbei. Der **Terral**, der klassische Málaga-Wind, ist ein trockener Fallwind aus dem Landesinneren: Er lässt die Temperatur binnen Stunden hochschnellen und drückt zugleich das warme Oberflächenwasser hinaus — dann ist das Meer trotz Hitze plötzlich empfindlich kalt.',
+        en: 'Two weather patterns often catch guests out. With the **calima**, the wind carries Sahara dust: the sky turns milky orange, and sometimes “blood rain” leaves a fine red film on cars and balconies — usually gone after a day or two. The **terral**, the classic Málaga wind, is a dry downslope wind off the interior: it sends the temperature shooting up within hours and at the same time pushes the warm surface water out — so the sea can turn suddenly, sharply cold despite the heat.',
+        nl: 'Twee weertypes verrassen gasten vaak. Bij de **calima** voert de wind Saharastof aan: de lucht wordt melkig oranje, en soms laat “bloedregen” een fijne rode waas op auto’s en balkons achter — meestal na een dag of twee voorbij. De **terral**, de klassieke Málaga-wind, is een droge valwind uit het binnenland: hij jaagt de temperatuur in enkele uren omhoog en duwt tegelijk het warme oppervlaktewater naar zee — zodat de zee ondanks de hitte ineens gevoelig koud kan zijn.',
+        sv: 'Två vädertyper överraskar ofta gäster. Vid **calima** för vinden med sig saharadamm: himlen blir mjölkigt orange, och ibland lämnar “blodregn” en fin röd hinna på bilar och balkonger — oftast över efter en dag eller två. **Terralen**, den klassiska Málaga-vinden, är en torr fallvind från inlandet: den får temperaturen att skjuta i höjden på några timmar och trycker samtidigt ut det varma ytvattnet — så havet kan bli plötsligt, kännbart kallt trots värmen.'
+      },
+      linkLabel: {
+        de: 'Alltag in Nerja',
+        en: 'Everyday life in Nerja',
+        nl: 'Dagelijks leven in Nerja',
+        sv: 'Vardagen i Nerja'
+      },
+      linkToken: 'nerja_daily_life'
+    },
+    {
+      id: 'shoulder-season',
+      // Spring/autumn practicalities: wide daily range, strong spring UV on the
+      // water, olive-blossom pollen. General climate knowledge, no property facts.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'temperature',
+      eyebrow: {
+        de: 'Frühjahr & Herbst',
+        en: 'Spring & autumn',
+        nl: 'Voorjaar & herfst',
+        sv: 'Vår & höst'
+      },
+      title: {
+        de: 'Morgens kühl, mittags warm — das Zwiebelprinzip',
+        en: 'Cool mornings, warm middays — dress in layers',
+        nl: 'Koele ochtenden, warme middagen — kleed je in laagjes',
+        sv: 'Svala morgnar, varma middagar — klä dig i lager'
+      },
+      body: {
+        de: 'Im Frühjahr und Herbst ist die **Tagesspanne groß**: morgens noch frisch, mittags in der Sonne schnell sommerlich, abends kühlt es wieder ab. Mit dem Zwiebelprinzip beim Packen — Pullover für morgens, T-Shirt für mittags — friert und schwitzt niemand. Unterschätzt die Sonne nicht: Auch bei „nur“ 20 Grad im April oder Oktober ist die UV-Strahlung durch den steileren Sonnenstand kräftiger als im Norden — am Strand und auf dem Wasser besonders. Und April/Mai ist Olivenblüte; an starken Pollentagen ist für Allergiker ein Antihistaminikum im Gepäck Gold wert.',
+        en: 'In spring and autumn the **daily range is wide**: still fresh in the morning, quickly summery in the midday sun, then a cool-down in the evening. Pack in layers — a jumper for the morning, a T-shirt for midday — and no one freezes or sweats. Don’t underestimate the sun: even at “just” 20 degrees in April or October, the steeper sun makes UV stronger than up north — on the beach and on the water especially. And April and May are the olive blossom; on heavy pollen days an antihistamine in the bag is worth its weight for allergy sufferers.',
+        nl: 'In het voorjaar en de herfst is het **verschil over de dag groot**: ’s ochtends nog fris, ’s middags in de zon snel zomers, en ’s avonds koelt het weer af. Kleed je in laagjes — een trui voor de ochtend, een T-shirt voor de middag — dan heeft niemand het koud of te warm. Onderschat de zon niet: zelfs bij “maar” 20 graden in april of oktober is de uv-straling door de steilere zonnestand sterker dan in het noorden — op het strand en op het water zeker. En april/mei is de olijfbloei; op dagen met veel pollen is een antihistaminicum in de tas goud waard voor allergiepatiënten.',
+        sv: 'På våren och hösten är **dygnsspannet stort**: fortfarande friskt på morgonen, snabbt sommarlikt i middagssolen, och sedan avkylning på kvällen. Klä dig i lager — en tröja för morgonen, en T-shirt för middagen — så fryser eller svettas ingen. Underskatta inte solen: även vid ”bara” 20 grader i april eller oktober gör den brantare solvinkeln UV-strålningen starkare än i norr — på stranden och på vattnet särskilt. Och april och maj är olivblomningen; dagar med mycket pollen är en antihistamin i väskan guld värd för allergiker.'
+      },
+      linkLabel: {
+        de: 'Ausflüge ab Nerja',
+        en: 'Day trips from Nerja',
+        nl: 'Uitstapjes vanuit Nerja',
+        sv: 'Utflykter från Nerja'
+      },
+      linkToken: 'nerja_daytrips_authority'
+    },
+    {
+      id: 'rain-gota-fria',
+      // How autumn/winter rain actually behaves on the coast: short heavy bursts,
+      // then it clears — reassuring for a rainy forecast. No steep-lane angle here.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'rainfall',
+      eyebrow: {
+        de: 'Herbst & Winter',
+        en: 'Autumn & winter',
+        nl: 'Herfst & winter',
+        sv: 'Höst & vinter'
+      },
+      title: {
+        de: 'Wie es hier regnet',
+        en: 'How the rain works here',
+        nl: 'Hoe het hier regent',
+        sv: 'Hur regnet fungerar här'
+      },
+      body: {
+        de: 'Der meiste Regen fällt im Herbst und Winter — selten als tagelanger, grauer Nieselregen wie in Mitteleuropa, eher als **kräftiger, kurzer Schauer oder Gewitter** (die berüchtigte Gota Fría), nach dem der Himmel schnell wieder aufreißt. Ein Regentag in der Vorhersage heißt hier also selten einen verlorenen Tag; oft reicht es, den Guss abzuwarten. Bei starker Gota Fría füllen sich Straßen und Rinnen aber rasch — dann kurz drinnen bleiben.',
+        en: 'Most of the rain falls in autumn and winter — rarely as days of grey drizzle like in central Europe, more as a **heavy, short downpour or thunderstorm** (the notorious gota fría), after which the sky soon clears again. So a rainy forecast rarely means a lost day here; often it is enough to wait out the downpour. In a strong gota fría, though, streets and gutters fill fast — then stay in for a bit.',
+        nl: 'De meeste regen valt in de herfst en winter — zelden als dagenlange grauwe motregen zoals in Midden-Europa, eerder als een **korte, felle bui of onweer** (de beruchte gota fría), waarna de lucht snel weer openbreekt. Een regendag in de verwachting betekent hier dus zelden een verloren dag; vaak is het genoeg de bui af te wachten. Bij een zware gota fría lopen straten en goten wel snel vol — blijf dan even binnen.',
+        sv: 'Det mesta regnet faller på hösten och vintern — sällan som dagar av grått duggregn som i Centraleuropa, snarare som en **kraftig, kort skur eller åska** (den ökända gota fría), varefter himlen snart spricker upp igen. En regnig prognos betyder alltså sällan en förlorad dag här; ofta räcker det att vänta ut skuren. Vid en kraftig gota fría fylls dock gator och rännor snabbt — håll dig inne en stund då.'
+      },
+      linkLabel: {
+        de: 'Alltag in Nerja',
+        en: 'Everyday life in Nerja',
+        nl: 'Dagelijks leven in Nerja',
+        sv: 'Vardagen i Nerja'
+      },
+      linkToken: 'nerja_daily_life'
     }
   ],
   tarifa: [
@@ -365,6 +493,102 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
         sv: 'Stränder i Tarifa'
       },
       linkToken: 'tarifa_beaches_authority'
+    },
+    {
+      id: 'sea-atlantic',
+      // Tarifa's water is Atlantic (the strait), not the warm Med — a genuine
+      // expectation-setter, and the reason wind sports are at home here.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'coast',
+      eyebrow: {
+        de: 'Meer & Wasser',
+        en: 'Sea & water',
+        nl: 'Zee & water',
+        sv: 'Hav & vatten'
+      },
+      title: {
+        de: 'Warum das Wasser frischer ist als am Mittelmeer',
+        en: 'Why the water is fresher than the Mediterranean',
+        nl: 'Waarom het water frisser is dan de Middellandse Zee',
+        sv: 'Varför vattnet är friskare än Medelhavet'
+      },
+      body: {
+        de: 'Tarifa liegt an der **Meerenge zum Atlantik** — das Wasser ist auch im Hochsommer kühler als am Mittelmeer, dazu kommen Strömung und oft Welle. Herrlich zum Abkühlen und der Grund, warum hier Kite und Surf zu Hause sind; ein bade-warmes Mittelmeer solltet ihr aber nicht erwarten. An windstillen Tagen ist das Wasser am angenehmsten.',
+        en: 'Tarifa sits on the **strait where the Atlantic meets the sea** — the water stays cooler than the Mediterranean even in high summer, with currents and often some swell. Bracing and refreshing, and the reason kite and surf are at home here; just don’t expect Mediterranean bath-warm water. On calm days the water is at its most pleasant.',
+        nl: 'Tarifa ligt aan de **zeestraat naar de Atlantische Oceaan** — het water blijft ook in de hoogzomer koeler dan de Middellandse Zee, met stroming en vaak wat golfslag. Heerlijk verfrissend, en de reden dat kite en surf hier thuis zijn; verwacht alleen geen badwarm Middellandse-Zeewater. Op windstille dagen is het water het aangenaamst.',
+        sv: 'Tarifa ligger vid **sundet mot Atlanten** — vattnet är svalare än Medelhavet även på högsommaren, med strömmar och ofta lite svall. Härligt svalkande och skälet till att kite och surf hör hemma här; vänta er bara inte badvarmt Medelhavsvatten. På vindstilla dagar är vattnet som skönast.'
+      },
+      linkLabel: {
+        de: 'Strände in Tarifa',
+        en: 'Tarifa’s beaches',
+        nl: 'Stranden in Tarifa',
+        sv: 'Stränder i Tarifa'
+      },
+      linkToken: 'tarifa_beaches_authority'
+    },
+    {
+      id: 'calima',
+      // Sahara dust crosses the strait on a strong Levante. No terral here — that
+      // is the Málaga-coast wind, wrong geography for Tarifa.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'sunshine',
+      eyebrow: {
+        de: 'Eine Überraschung',
+        en: 'A surprise',
+        nl: 'Een verrassing',
+        sv: 'En överraskning'
+      },
+      title: {
+        de: 'Calima — wenn der Himmel orange wird',
+        en: 'Calima — when the sky turns orange',
+        nl: 'Calima — als de lucht oranje wordt',
+        sv: 'Calima — när himlen blir orange'
+      },
+      body: {
+        de: 'Bei kräftigem Ostwind (Levante) trägt die Luft manchmal **Saharastaub** über die Meerenge: Der Himmel wird milchig-orange und die Sicht auf Afrika verschwindet, gelegentlich fällt „Blutregen“ mit feinem rotem Staub. Meist ist das nach ein, zwei Tagen vorbei — ein Wetterschauspiel, kein Grund zur Sorge.',
+        en: 'In a strong easterly (Levante), the air sometimes carries **Sahara dust** across the strait: the sky turns milky orange and the view of Africa disappears, and occasionally “blood rain” falls with a fine red dust. It usually passes after a day or two — a spectacle, not a worry.',
+        nl: 'Bij krachtige oostenwind (Levante) voert de lucht soms **Saharastof** over de zeestraat: de lucht wordt melkig oranje en het zicht op Afrika verdwijnt, en soms valt er “bloedregen” met fijn rood stof. Meestal na een dag of twee voorbij — een schouwspel, geen reden tot zorg.',
+        sv: 'Vid kraftig ostvind (Levante) för luften ibland med sig **saharadamm** över sundet: himlen blir mjölkigt orange och sikten mot Afrika försvinner, och ibland faller “blodregn” med fint rött damm. Oftast över efter en dag eller två — ett skådespel, inget att oroa sig för.'
+      },
+      linkLabel: {
+        de: 'Alltag in Tarifa',
+        en: 'Everyday life in Tarifa',
+        nl: 'Dagelijks leven in Tarifa',
+        sv: 'Vardagen i Tarifa'
+      },
+      linkToken: 'tarifa_daily_life'
+    },
+    {
+      id: 'wind-packing',
+      // Tarifa-specific twist on the UV/packing point: the constant wind hides
+      // the sun's strength (sunburn) and calls for a windbreaker even in summer.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'wind',
+      eyebrow: {
+        de: 'Packen für Tarifa',
+        en: 'Packing for Tarifa',
+        nl: 'Inpakken voor Tarifa',
+        sv: 'Packa för Tarifa'
+      },
+      title: {
+        de: 'Der Wind trügt — Windjacke und Sonnenschutz',
+        en: 'The wind deceives — windbreaker and sunscreen',
+        nl: 'De wind bedriegt — windjack en zonnebrand',
+        sv: 'Vinden bedrar — vindjacka och solskydd'
+      },
+      body: {
+        de: 'In Tarifa weht fast immer Wind. Er kühlt angenehm, **verdeckt aber, wie stark die Sonne brennt** — Sonnenbrand kommt hier schneller als gedacht, also Sonnencreme auch an bewölkten oder windigen Tagen. Und selbst im Sommer ist abends oder bei frischem Levante eine leichte Windjacke Gold wert; im Frühjahr und Herbst sowieso das Zwiebelprinzip.',
+        en: 'In Tarifa the wind almost always blows. It cools you pleasantly but **hides how hard the sun is burning** — sunburn comes faster here than you would think, so sunscreen even on cloudy or windy days. And even in summer a light windbreaker is worth its weight in the evening or in a fresh Levante; in spring and autumn, dress in layers anyway.',
+        nl: 'In Tarifa waait het bijna altijd. De wind koelt aangenaam, maar **verbergt hoe fel de zon brandt** — zonnebrand komt hier sneller dan je denkt, dus zonnebrand ook op bewolkte of winderige dagen. En zelfs in de zomer is ’s avonds of bij een frisse Levante een licht windjack goud waard; in voor- en najaar sowieso het laagjesprincipe.',
+        sv: 'I Tarifa blåser det nästan alltid. Vinden svalkar skönt men **döljer hur hårt solen bränner** — solbränna kommer snabbare här än man tror, så solkräm även molniga eller blåsiga dagar. Och även på sommaren är en lätt vindjacka guld värd på kvällen eller i en frisk Levante; på våren och hösten gäller lager-på-lager ändå.'
+      },
+      linkLabel: {
+        de: 'Wind in Tarifa verstehen',
+        en: 'Understanding Tarifa’s wind',
+        nl: 'De wind van Tarifa begrijpen',
+        sv: 'Förstå Tarifas vind'
+      },
+      linkToken: 'tarifa_wind_kitesurfing_authority'
     }
   ]
 };
