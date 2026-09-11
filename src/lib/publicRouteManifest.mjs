@@ -727,6 +727,13 @@ const definitions = [
     segment: { es: 'viento-y-seguridad', en: 'wind-and-safety', de: 'wind-und-sicherheit', nl: 'wind-en-veiligheid', sv: 'vind-och-sakerhet' }
   },
   {
+    key: 'tarifa.kitesurfing.rescue',
+    legacySlug: 'tarifa-kitesurf-rescue',
+    family: 'tarifa-kitesurf-rescue',
+    parent: 'tarifa.kitesurfing',
+    segment: { es: 'rescate-y-emergencias', en: 'rescue-and-emergency', de: 'rettung-und-notruf', nl: 'redding-en-noodoproep', sv: 'raddning-och-nodsamtal' }
+  },
+  {
     key: 'tarifa.kitesurfing.school',
     legacySlug: 'tarifa-kite-school',
     family: 'tarifa-kitesurf-spoke',

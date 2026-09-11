@@ -1,0 +1,145 @@
+---
+import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
+import EditorialByline from '../../components/editorial/EditorialByline.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import KiteClusterNav from '../../components/experience/KiteClusterNav.astro';
+import KitePartnerLogoBand from '../../components/experience/KitePartnerLogoBand.astro';
+import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import LocationGuideIcon from '../../components/location/LocationGuideIcon.astro';
+import Navigation from '../../components/Navigation.astro';
+import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
+import { tarifaKitesurfRescueContent, tarifaKitesurfRescueSeo } from '../../content/tarifaKitesurfRescueContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import { requireRouteImage } from '../../lib/images/routeImages';
+import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import { resolveLocale } from '../../types/content';
+import type { AmaraLanguage } from '../../types/seo';
+import KiteChapterHead from './KiteChapterHead.astro';
+import KiteVoice from './KiteVoice.astro';
+import LocationModule from './LocationModule.astro';
+
+/**
+ * Rescue and emergency page of the Tarifa kitesurf cluster: the two private
+ * rescue-boat providers with their own terms and Mark's word on them, then
+ * the state sea rescue with its numbers on the inverse surface — two systems
+ * kept visibly apart, so a voucher never reads as the emergency service. The
+ * page sits under the kitesurfing hub, is linked from the wind page and the
+ * site map, and stays out of the cluster band and the global navigation
+ * (operator decision of 11 September 2026).
+ */
+interface Props { lang?: string; }
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = requireRouteImage('tarifa.kitesurfing.rescue', 'hero', currentLang);
+const markImage = requireRouteImage('tarifa.kitesurfing.surf-club', 'mark', currentLang);
+const content = resolveLocale(tarifaKitesurfRescueContent, currentLang);
+const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf rescue spoke');
+const aboutHref = requiredLink('about');
+const footerHighlights: LabeledLink[] = [
+  { token: content.token, label: content.hero.title },
+  ...content.related.links.map((link) => ({ token: link.token, label: link.title }))
+];
+---
+
+<LocationAuthorityLayout seo={tarifaKitesurfRescueSeo} pageLang={currentLang} showContextNavigation={false} footerHighlights={footerHighlights} pageFamily="experience-tarifa-kite-spoke">
+  <Navigation slot="navigation" contextDestination="tarifa" currentLang={currentLang} languageToken={content.token}>
+    <ExperienceContextNav slot="context-navigation" currentId="kitesurfing" destination="tarifa" lang={currentLang} />
+  </Navigation>
+
+  <article class="am-tarifa-surface overflow-x-clip bg-surface" data-am-page="tarifa-kitesurf-rescue" data-am-family="experience" data-am-role="spoke" data-am-topic="kitesurf-rescue">
+    <KiteClusterNav lang={currentLang} currentId="guide" />
+
+    <LocationGuideHero
+      eyebrow={content.hero.eyebrow}
+      title={content.hero.title}
+      subtitle={content.hero.subtitle}
+      paragraphs={[content.hero.lead]}
+      family="experience"
+      role="spoke"
+      topic="kitesurf-rescue"
+      visualBreakpoint="lg"
+    >
+      <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
+      <AmaraImage
+        slot="visual"
+        src={hero.src}
+        alt={hero.alt}
+        profile="hero"
+        width={1080}
+        widths={[480, 640, 800, 1080]}
+        sizes="(max-width: 1023px) 100vw, 36vw"
+        class="aspect-[3/4] w-full object-cover"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+      />
+    </LocationGuideHero>
+
+    {/* PRIVATE RESCUE-BOOTE — zwei Anbieter, eigene Bedingungen, Marks Wort dazu */}
+    <LocationModule id="rescue-boote" labelledby="rescue-boote-title" surface="tint" spacing="compact" data-am-topic="rescue-private">
+      <div class="mx-auto max-w-screen-2xl">
+        <KiteChapterHead id="rescue-boote-title" label={content.providers.label} title={content.providers.title} subtitle={content.providers.subtitle} icon="boat" />
+
+        <div class="mt-10 grid gap-5 md:grid-cols-2" data-am-rescue="private">
+          {content.providers.items.map((provider) => (
+            <section class="min-w-0 bg-surface px-6 py-7" aria-labelledby={`rescue-${provider.id}`}>
+              <h3 id={`rescue-${provider.id}`} class="am-text-label text-on-surface">{provider.name}</h3>
+              <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={provider.text} /></p>
+              <AmaraActionLink href={provider.href} variant="editorial" external class="mt-6 inline-flex">{provider.label}</AmaraActionLink>
+            </section>
+          ))}
+        </div>
+
+        <KiteVoice id={content.providers.quote.id} name={content.providers.mark.name} role={content.providers.mark.role} lead={content.providers.quote.lead} paragraphs={content.providers.quote.paragraphs} imageSrc={markImage.src} imageAlt={markImage.alt} focalPoint="50% 25%" class="mt-5" />
+        <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.providers.context} /></p>
+        <p class="am-text-subtitle mt-5 max-w-3xl border-l-2 border-on-surface bg-surface px-6 py-5 leading-relaxed text-on-surface" data-am-plan-b>{content.providers.planB}</p>
+      </div>
+    </LocationModule>
+
+    {/* STAATLICHE RETTUNG — 112, Salvamento Marítimo, Kanal 16 */}
+    <LocationModule id="notruf" labelledby="maritime-emergency-title" surface="inverse" spacing="compact" data-am-topic="rescue-state">
+      <div class="mx-auto max-w-screen-2xl" data-am-rescue="emergency">
+        <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-5">
+            <p class="am-text-eyebrow text-primary-fixed-dim">{content.state.eyebrow}</p>
+            <h2 id="maritime-emergency-title" class="am-text-title mt-5 text-balance text-inverted-on-surface">{content.state.title}</h2>
+            <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/80"><InlineEmphasis text={content.state.text} /></p>
+          </div>
+          <dl class="grid gap-6 self-center lg:col-span-7">
+            {content.state.numbers.map((item) => (
+              <div class="flex flex-col gap-1 border-l border-inverted-on-surface/30 pl-5 sm:flex-row sm:items-baseline sm:gap-8">
+                <dt class="am-text-label am-text-label--sm text-inverted-on-surface/70 sm:w-56 sm:shrink-0">{item.label}</dt>
+                <dd class="am-text-title whitespace-nowrap tabular-nums text-inverted-on-surface">{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </LocationModule>
+
+    {/* WEITER — zurück zu Wind, Spots und Überblick */}
+    <LocationModule id="related-kite-guides" labelledby="related-kite-guides-title" surface="tint" spacing="closing" data-am-topic="closing">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="flex items-center gap-2.5">
+          <LocationGuideIcon name="excursion" class="h-4 w-4" />
+          <p class="am-text-eyebrow text-primary">{content.related.eyebrow}</p>
+        </div>
+        <h2 id="related-kite-guides-title" class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{content.related.title}</h2>
+        <div class="mt-10 grid gap-5 md:grid-cols-3">
+          {content.related.links.map((link) => (
+            <AmaraActionLink href={requiredLink(link.token)} variant="card" class="group bg-surface px-7 pb-8 pt-7 transition-colors hover:bg-surface-container-lowest">
+              <h3 class="am-text-subtitle text-on-surface transition-colors group-hover:text-primary">{link.title}</h3>
+              <span class="am-text-body mt-4 block leading-relaxed text-on-surface-variant">{link.text}</span>
+              <span aria-hidden="true" class="mt-7 inline-flex text-primary transition-transform group-hover:translate-x-1">→</span>
+            </AmaraActionLink>
+          ))}
+        </div>
+      </div>
+    </LocationModule>
+
+    <KitePartnerLogoBand lang={currentLang} />
+  </article>
+</LocationAuthorityLayout>

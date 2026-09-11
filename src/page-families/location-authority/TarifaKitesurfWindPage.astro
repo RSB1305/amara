@@ -40,8 +40,8 @@ import LocationModule from './LocationModule.astro';
  * folded), Which wind (Levante or Poniente), Thermal
  * wind (one clear day in three panels), Tides and wind (what the tidal
  * current in the Strait does to the wind a rider feels), Where to launch (which beach in
- * which wind, the zones) and In an emergency (private boats and
- * the state rescue, kept apart). The partner block, the guest-guide bridge
+ * which wind, the zones, and the chain link to the rescue page that now
+ * holds the private boats and the state rescue). The partner block, the guest-guide bridge
  * and the closing follow unchanged. Each chapter opens with a topic eyebrow, a
  * short label as the H2 and the former sentence heading as its subtitle; the
  * chapters carry no numbers (operator decision: peer tone, no textbook). The two named voices
@@ -440,50 +440,12 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
             ))}
           </div>
         </div>
-      </div>
-    </LocationModule>
 
-    {/* IM ERNSTFALL — private Rescue-Boote und staatliche Rettung, getrennt */}
-    <LocationModule id="ernstfall" labelledby="ernstfall-title" spacing="compact" data-am-wind-chapter="1" data-am-topic="rescue">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
-          <KiteChapterHead id="ernstfall-title" label={content.emergency.label} title={content.emergency.title} subtitle={content.emergency.subtitle} icon="boat" class="lg:col-span-5" />
-          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:self-end"><InlineEmphasis text={content.emergency.intro} /></p>
+        <div class="mt-12 max-w-3xl border-l-2 border-primary/35 bg-surface px-6 py-6" data-am-bridge="rescue">
+          <p class="am-text-label am-text-label--sm text-primary">{content.beach.rescueBridge.label}</p>
+          <p class="am-text-body mt-3 leading-relaxed text-on-surface"><InlineEmphasis text={content.beach.rescueBridge.text} /></p>
+          <p class="mt-4"><a class="am-link am-text-label am-text-label--sm" href={requiredLink(content.beach.rescueBridge.token)}>{content.beach.rescueBridge.linkLabel} →</a></p>
         </div>
-
-        <section class="mt-16" aria-labelledby="private-rescue-title" data-am-rescue="private">
-          <h3 id="private-rescue-title" class="am-text-subtitle max-w-2xl text-balance text-on-surface">{content.emergency.providersTitle}</h3>
-          <div class="mt-6 grid gap-5 md:grid-cols-2">
-            {content.emergency.providers.map((provider) => (
-              <section class="min-w-0 bg-surface-container-low px-6 py-7" aria-labelledby={`rescue-${provider.id}`}>
-                <h4 id={`rescue-${provider.id}`} class="am-text-label text-on-surface">{provider.name}</h4>
-                <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={provider.text} /></p>
-                <AmaraActionLink href={provider.href} variant="editorial" external class="mt-6 inline-flex">{provider.label}</AmaraActionLink>
-              </section>
-            ))}
-          </div>
-          <KiteVoice id={content.emergency.markRescue.id} name={content.wind.mark.name} role={content.wind.mark.role} lead={content.emergency.markRescue.lead} paragraphs={content.emergency.markRescue.paragraphs} imageSrc={markImage.src} imageAlt={markImage.alt} focalPoint="50% 25%" tone="on-white" class="mt-5" />
-          <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.emergency.context} /></p>
-          <p class="am-text-subtitle mt-5 max-w-3xl border-l-2 border-on-surface bg-surface-container-low px-6 py-5 leading-relaxed text-on-surface" data-am-plan-b>{content.emergency.planB}</p>
-        </section>
-
-        <aside class="mt-10 bg-inverse-surface px-6 py-10 text-inverted-on-surface md:px-10 md:py-12" aria-labelledby="maritime-emergency-title" data-am-rescue="emergency">
-          <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
-            <div class="lg:col-span-5">
-              <p class="am-text-eyebrow text-primary-fixed-dim">{content.emergency.stateEyebrow}</p>
-              <h3 id="maritime-emergency-title" class="am-text-title mt-5 text-balance text-inverted-on-surface">{content.emergency.stateTitle}</h3>
-              <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/80"><InlineEmphasis text={content.emergency.stateText} /></p>
-            </div>
-            <dl class="grid gap-6 self-center lg:col-span-7">
-              {content.emergency.numbers.map((item) => (
-                <div class="flex flex-col gap-1 border-l border-inverted-on-surface/30 pl-5 sm:flex-row sm:items-baseline sm:gap-8">
-                  <dt class="am-text-label am-text-label--sm text-inverted-on-surface/70 sm:w-56 sm:shrink-0">{item.label}</dt>
-                  <dd class="am-text-title whitespace-nowrap tabular-nums text-inverted-on-surface">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </aside>
       </div>
     </LocationModule>
 

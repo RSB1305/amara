@@ -117,6 +117,7 @@ export const linkRegistry = {
     tarifa_winter_stays: buildOwnedLinks('tarifa.winter'),
     tarifa_experience_hub: buildOwnedLinks('tarifa.experience'),
     tarifa_wind_kitesurfing_authority: buildOwnedLinks('tarifa.kitesurfing.wind'),
+    tarifa_kitesurf_rescue: buildOwnedLinks('tarifa.kitesurfing.rescue'),
     tarifa_kitesurf_spots: buildOwnedLinks('tarifa.kitesurfing.spots'),
     tarifa_kite_school: buildOwnedLinks('tarifa.kitesurfing.school'),
     tarifa_kitecamp: buildOwnedLinks('tarifa.kitesurfing.kitecamp'),

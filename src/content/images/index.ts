@@ -51,6 +51,7 @@ import { tarifaKitesurfingSchoolImages } from './tarifa-kitesurfing-school';
 import { tarifaKitesurfingSpotsImages } from './tarifa-kitesurfing-spots';
 import { tarifaKitesurfingSurfClubImages } from './tarifa-kitesurfing-surf-club';
 import { tarifaKitesurfingWindImages } from './tarifa-kitesurfing-wind';
+import { tarifaKitesurfingRescueImages } from './tarifa-kitesurfing-rescue';
 import { tarifaKitesurfingImages } from './tarifa-kitesurfing';
 import { tarifaWhereToStayImages } from './tarifa-where-to-stay';
 import { tarifaImages } from './tarifa';
@@ -108,6 +109,7 @@ const sets: readonly RouteImageSet[] = [
   tarifaKitesurfingSpotsImages,
   tarifaKitesurfingSurfClubImages,
   tarifaKitesurfingWindImages,
+  tarifaKitesurfingRescueImages,
   tarifaKitesurfingImages,
   tarifaWhereToStayImages,
   tarifaImages

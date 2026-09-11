@@ -126,18 +126,8 @@ export interface TarifaKitesurfWindContent {
     zonesText: LocalizedText;
     priority: LocalizedText;
     beaches: Array<{ id: string; title: LocalizedText; text: LocalizedText }>;
-  };
-  emergency: TarifaKitesurfChapterHead & {
-    intro: LocalizedText;
-    providersTitle: LocalizedText;
-    providers: Array<{ id: string; name: string; text: LocalizedText; href: string; label: LocalizedText }>;
-    markRescue: TarifaKitesurfVoiceQuote;
-    context: LocalizedText;
-    planB: LocalizedText;
-    stateEyebrow: LocalizedText;
-    stateTitle: LocalizedText;
-    stateText: LocalizedText;
-    numbers: Array<{ id: string; label: LocalizedText; value: string }>;
+    /** Chain link to the rescue page: the condition, the consequence and the numbers stay on this page. */
+    rescueBridge: { label: LocalizedText; text: LocalizedText; linkLabel: LocalizedText; token: LinkToken };
   };
   partner: {
     eyebrow: LocalizedText;
@@ -223,8 +213,7 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
       { id: 'welcher-wind', label: l('Which wind', 'Welcher Wind', 'Qué viento', 'Welke wind', 'Vilken vind') },
       { id: 'thermik', label: l('Thermal wind', 'Thermik', 'Térmica', 'Thermiek', 'Termik') },
       { id: 'gezeiten', label: l('Tides and wind', 'Gezeiten und Wind', 'Mareas y viento', 'Getij en wind', 'Tidvatten och vind') },
-      { id: 'wo-raus', label: l('Where to launch', 'Wo raus', 'Dónde salir', 'Waar het water op', 'Var man går ut') },
-      { id: 'ernstfall', label: l('In an emergency', 'Im Ernstfall', 'En caso de emergencia', 'In noodgevallen', 'I ett nödläge') }
+      { id: 'wo-raus', label: l('Where to launch', 'Wo raus', 'Dónde salir', 'Waar het water op', 'Var man går ut') }
     ]
   },
   today: {
@@ -556,51 +545,13 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
         title: l('The Los Lances lagoon', 'Die Lagune von Los Lances', 'La laguna de Los Lances', 'De lagune van Los Lances', 'Lagunen vid Los Lances'),
         text: l('There is no leeway here. **Kitesurfing is officially prohibited** in the protected lagoon area. The Junta de Andalucía bases this on protected-area law and on the municipal beach regulations.', 'Naturschutz, und dort ist **Kitesurfen amtlich verboten**, egal wie flach und verlockend das Wasser aussieht. Die Junta de Andalucía stützt das auf das Schutzgebietsrecht und die Strandordnung der Stadt.', 'Aquí no hay margen. En la zona protegida de la laguna **el kitesurf está prohibido oficialmente**. La Junta de Andalucía se remite para ello a la normativa de espacios protegidos y a la ordenanza municipal de playas.', 'Hier is geen speelruimte. In het beschermde lagunegebied is **kitesurfen officieel verboden**. De Junta de Andalucía verwijst daarvoor naar het natuurbeschermingsrecht en naar de gemeentelijke strandverordening.', 'Här finns inget utrymme. I det skyddade lagunområdet är **kitesurfing officiellt förbjuden**. Junta de Andalucía hänvisar till lagstiftningen om skyddade områden och till den kommunala strandordningen.')
       }
-    ]
-  },
-  emergency: {
-    label: l('Rescue and emergency call', 'Rettung und Notruf', 'Rescate y emergencias', 'Redding en noodoproep', 'Räddning och nödsamtal'),
-    title: l('In an emergency', 'Im Ernstfall', 'En caso de emergencia', 'In noodgevallen', 'I ett nödläge'),
-    subtitle: l('Two different systems that are often confused', 'Private Rescue-Boote und die Seenotrettung sind zwei verschiedene Dinge', 'Dos sistemas distintos que a menudo se confunden', 'Twee verschillende systemen die vaak worden verward', 'Två olika system som ofta förväxlas'),
-    intro: l('These are companies with their own zones, hours and contract terms. **Check current availability and conditions directly with the provider**.', 'Zwei Firmen fahren mit Booten an Los Lances Norte und Valdevaqueros, gegen Voucher. **Zonen, Zeiten und Bedingungen legt jeder Anbieter selbst fest**, und was gerade gilt, steht bei ihnen.', 'Son empresas con sus propias zonas, horarios y condiciones contractuales. **Comprobad la disponibilidad actual y las condiciones directamente con el proveedor**.', 'Dit zijn bedrijven met eigen zones, tijden en contractvoorwaarden. **Controleer de actuele beschikbaarheid en de voorwaarden rechtstreeks bij de aanbieder**.', 'Det här är företag med egna zoner, tider och avtalsvillkor. **Kontrollera aktuell tillgänglighet och villkor direkt hos leverantören**.'),
-    providersTitle: l('Private water-sport rescue — commercial providers with their own terms', 'Die privaten Rescue-Boote: zwei Anbieter, eigene Bedingungen', 'Rescate privado de deportes acuáticos: proveedores comerciales con condiciones propias', 'Private watersportrescue — commerciële aanbieders met eigen voorwaarden', 'Privat räddning för vattensport – kommersiella aktörer med egna villkor'),
-    providers: [
-      {
-        id: 'new-angels',
-        name: 'New Angels · Tarifa Rescue',
-        text: l('For its voucher the operator names Los Lances Norte and Valdevaqueros, up to two miles off the coast, in wind of **no more than 35 kn**. That is a condition of this voucher, not a general limit for Tarifa and not a promise of deployment. As of 3 September 2026.', 'New Angels nennt für seinen Voucher Los Lances Norte und Valdevaqueros, bis zwei Meilen vor der Küste, und als eigene Bedingung **Wind bis höchstens 35 kn**. Das ist die Regel dieses Anbieters, keine Grenze für Tarifa und kein Einsatzversprechen. Stand: 3. September 2026.', 'Para su bono, el operador indica Los Lances Norte y Valdevaqueros, hasta dos millas de la costa, con viento de **como máximo 35 kn**. Es una condición de ese bono, no un límite general para Tarifa ni una promesa de intervención. Fecha: 3 de septiembre de 2026.', 'Voor zijn voucher noemt de aanbieder Los Lances Norte en Valdevaqueros, tot twee mijl uit de kust, bij wind **tot maximaal 35 kn**. Dat is een voorwaarde van deze voucher, geen algemene grens voor Tarifa en geen inzetbelofte. Stand: 3 september 2026.', 'För sin voucher anger operatören Los Lances Norte och Valdevaqueros, upp till två sjömil från kusten, vid vind på **högst 35 kn**. Det är ett villkor för den här vouchern, ingen allmän gräns för Tarifa och inget löfte om insats. Läge: 3 september 2026.'),
-        href: 'https://www.tarifarescue.com/',
-        label: l('Check New Angels conditions', 'Bedingungen bei New Angels', 'Consultar las condiciones de New Angels', 'Bekijk de voorwaarden van New Angels', 'Kontrollera New Angels villkor')
-      },
-      {
-        id: 'sea-rescue',
-        name: 'Sea Rescue',
-        text: l('The operator describes its service as year-round, with stations at Los Lances Norte and Valdevaqueros and a stated zone of **up to one kilometre from the beach**. For June to September it names 11:00 to 20:00. The provider runs its own radio channel for its system. As of 3 September 2026.', 'Sea Rescue beschreibt seinen Dienst als ganzjährig, mit Stationen an Los Lances Norte und Valdevaqueros und einer Zone **bis einen Kilometer vom Strand**; von Juni bis September nennt er 11 bis 20 Uhr. Der Anbieter hat einen eigenen Funkkanal für sein System. Stand: 3. September 2026.', 'El operador describe su servicio como de todo el año, con puestos en Los Lances Norte y Valdevaqueros y una zona declarada de **hasta un kilómetro desde la playa**. De junio a septiembre indica de 11:00 a 20:00. El proveedor opera un canal de radio propio para su sistema. Fecha: 3 de septiembre de 2026.', 'De aanbieder beschrijft zijn dienst als het hele jaar door, met posten bij Los Lances Norte en Valdevaqueros en een opgegeven zone **tot een kilometer van het strand**. Voor juni tot september noemt hij 11:00 tot 20:00 uur. De aanbieder gebruikt een eigen radiokanaal voor zijn systeem. Stand: 3 september 2026.', 'Operatören beskriver sin tjänst som åretrunt, med stationer vid Los Lances Norte och Valdevaqueros och en angiven zon på **upp till en kilometer från stranden**. För juni till september anger den 11:00 till 20:00. Leverantören har en egen radiokanal för sitt system. Läge: 3 september 2026.'),
-        href: 'https://es.searescue.es/',
-        label: l('Check Sea Rescue details', 'Details bei Sea Rescue', 'Consultar los detalles de Sea Rescue', 'Bekijk de details van Sea Rescue', 'Kontrollera Sea Rescue-information')
-      }
     ],
-    markRescue: {
-      id: 'rescue',
-      lead: l('What Mark says about it, and you will not find this on any website:', 'Was Mark dazu sagt, und das steht so auf keiner Website:', 'Lo que dice Mark al respecto, y esto no está en ninguna web:', 'Wat Mark erover zegt, en dat staat zo op geen enkele website:', 'Vad Mark säger om det, och det står inte på någon webbplats:'),
-      paragraphs: ll(
-        ['The hours you see online are shop opening hours. The boats go out when the Levante is blowing. And they take you along with your gear — that is the difference from the state rescue service.'],
-        ['Die Zeiten, die ihr online seht, sind Ladenöffnungszeiten. Die Boote fahren raus, wenn Levante steht. Und sie nehmen euch mitsamt Material mit — das ist der Unterschied zur staatlichen Rettung.'],
-        ['Los horarios que veis online son los horarios de la tienda. Las lanchas salen cuando hay levante. Y os recogen con el material: esa es la diferencia con el rescate estatal.'],
-        ['De tijden die jullie online zien, zijn winkelopeningstijden. De boten gaan het water op als er levante staat. En ze nemen jullie mét materiaal mee — dat is het verschil met de staatsredding.'],
-        ['Tiderna ni ser online är butikens öppettider. Båtarna går ut när levanten står på. Och de tar med er tillsammans med utrustningen – det är skillnaden mot den statliga räddningen.']
-      )
-    },
-    context: l('That is the practical reason these providers exist at all: in an emergency, the state sea rescue picks up the person. **The gear stays in the water**.', 'Genau deshalb gibt es diese Anbieter: Die staatliche Seenotrettung holt im Ernstfall euch. **Der Kite bleibt im Wasser**.', 'Esa es la razón práctica de que existan estos servicios: en una emergencia, el salvamento marítimo estatal recoge a la persona. **El material se queda en el agua**.', 'Dat is de praktische reden dat deze aanbieders überhaupt bestaan: bij een noodgeval haalt de staatsredding de persoon op. **Het materiaal blijft in het water**.', 'Det är det praktiska skälet till att de här aktörerna över huvud taget finns: i ett nödläge hämtar den statliga sjöräddningen personen. **Utrustningen blir kvar i vattnet**.'),
-    planB: l('A rescue card is plan B. It does not change the conditions on the water.', 'Eine Rescue-Card ist Plan B. Den Wind macht sie nicht kleiner.', 'Una tarjeta de rescate es el plan B. No cambia las condiciones en el agua.', 'Een rescuekaart is plan B. Hij verandert niets aan de omstandigheden op het water.', 'Ett räddningskort är plan B. Det ändrar inte förhållandena på vattnet.'),
-    stateEyebrow: l('State rescue', 'Staatliche Rettung', 'Rescate estatal', 'Staatsredding', 'Statlig räddning'),
-    stateTitle: l('Distress at sea and acute emergency', 'Im Notfall: 112, Salvamento Marítimo, Kanal 16', 'Emergencia en el mar y urgencia aguda', 'Noodgeval op zee en acute nood', 'Sjönöd och akut nödläge'),
-    stateText: l('This is a different system, run by the state, and it has nothing to do with the vouchers above. **Give your position, what has happened and how many people need help**. Private radio channels of individual providers are not official emergency channels.', 'Das ist die staatliche Rettung, unabhängig von jedem Voucher. **Sagt, wo ihr seid, was passiert ist und wie viele Menschen Hilfe brauchen**. Der Funkkanal eines privaten Anbieters ersetzt diese Nummern nicht.', 'Este es otro sistema, estatal, y no tiene nada que ver con los bonos de arriba. **Indicad vuestra posición, qué ha pasado y cuántas personas necesitan ayuda**. Los canales de radio privados de los proveedores no son canales oficiales de emergencia.', 'Dit is een ander systeem, van de overheid, en het heeft niets te maken met de vouchers hierboven. **Geef jullie positie door, wat er is gebeurd en hoeveel mensen hulp nodig hebben**. Privékanalen van afzonderlijke aanbieders zijn geen officiële noodkanalen.', 'Det här är ett annat system, statligt, och det har inget med voucherna ovan att göra. **Ange er position, vad som har hänt och hur många som behöver hjälp**. Enskilda leverantörers privata radiokanaler är inga officiella nödkanaler.'),
-    numbers: [
-      { id: 'emergency-112', label: l('Europe-wide emergency number', 'Europaweiter Notruf', 'Emergencias en toda Europa', 'Europees noodnummer', 'Europeiskt nödnummer'), value: '112' },
-      { id: 'salvamento', label: l('Salvamento Marítimo', 'Salvamento Marítimo', 'Salvamento Marítimo', 'Salvamento Marítimo', 'Salvamento Marítimo'), value: '900 202 202' },
-      { id: 'vhf-16', label: l('Marine radio (VHF)', 'Seefunk (VHF)', 'Radio marítima (VHF)', 'Marifoon (VHF)', 'Sjöradio (VHF)'), value: 'Channel 16' }
-    ]
+    rescueBridge: {
+      label: l('In an emergency', 'Im Ernstfall', 'En caso de emergencia', 'In noodgevallen', 'I ett nödläge'),
+      text: l('Anyone going out from the main beach at Los Lances in offshore wind has a rescue card in their wetsuit with Mark. Which two providers run boats at Los Lances Norte and Valdevaqueros, what their vouchers cover, and how you reach the state sea rescue — **112, Salvamento Marítimo 900 202 202, VHF channel 16** — is on a page of its own.', 'Wer bei ablandigem Wind am Hauptstrand in Los Lances rausgeht, hat bei Mark eine Rescue-Karte im Neo. Welche zwei Anbieter mit Booten an Los Lances Norte und Valdevaqueros fahren, was ihre Voucher decken und wie ihr die staatliche Seenotrettung erreicht — **112, Salvamento Marítimo 900 202 202, Seefunk Kanal 16** — steht auf einer eigenen Seite.', 'Quien sale con viento de tierra desde la playa principal de Los Lances lleva con Mark una tarjeta de rescate en el neopreno. Qué dos proveedores sacan lanchas en Los Lances Norte y Valdevaqueros, qué cubren sus bonos y cómo llegáis al salvamento marítimo estatal — **112, Salvamento Marítimo 900 202 202, canal 16 de VHF** — está en una página propia.', 'Wie bij aflandige wind vanaf het hoofdstrand in Los Lances het water op gaat, heeft bij Mark een rescuekaart in het wetsuit. Welke twee aanbieders met boten bij Los Lances Norte en Valdevaqueros varen, wat hun vouchers dekken en hoe jullie de staatsredding op zee bereiken — **112, Salvamento Marítimo 900 202 202, marifoonkanaal 16** — staat op een eigen pagina.', 'Den som går ut från huvudstranden i Los Lances i frånlandsvind har hos Mark ett räddningskort i våtdräkten. Vilka två aktörer som kör båtar vid Los Lances Norte och Valdevaqueros, vad deras vouchrar täcker och hur ni når den statliga sjöräddningen — **112, Salvamento Marítimo 900 202 202, VHF-kanal 16** — står på en egen sida.'),
+      linkLabel: l('Rescue and emergency when kitesurfing in Tarifa', 'Rettung und Notruf beim Kitesurfen in Tarifa', 'Rescate y emergencias en el kitesurf en Tarifa', 'Redding en noodoproep bij het kitesurfen in Tarifa', 'Räddning och nödsamtal vid kitesurfing i Tarifa'),
+      token: 'tarifa_kitesurf_rescue'
+    }
   },
   partner: {
     eyebrow: l('AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club'),
