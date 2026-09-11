@@ -1,11 +1,16 @@
 ---
-import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
+import AmaraKeyFigures from '../../components/content/AmaraKeyFigures.astro';
+import LocationPanoramaHero from '../../components/location/LocationPanoramaHero.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import FrigilianaCeramicPanelsMap from '../../components/location/FrigilianaCeramicPanelsMap.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
+import heroImage from '../../assets/images/content/frigiliana/frigiliana-keramiktafel-morisken-landwirtschaft.jpg';
+import contextImage from '../../assets/images/content/frigiliana/frigiliana-gasse-bogen-kieselmosaik-abend.jpg';
 import {
   frigilianaCeramicPanelsCopy,
   frigilianaCeramicPanelsSeo
@@ -14,8 +19,6 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import type { LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import { routeHero } from '../../lib/images/routeImages';
-
 interface Props {
   lang?: string;
 }
@@ -24,8 +27,14 @@ type LocalizedRow = { readonly [K in AmaraLanguage]: string };
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const hero = routeHero('frigiliana.experience.old-town.ceramic-panels', currentLang);
 const copy = frigilianaCeramicPanelsCopy;
+const heroAlt = t({
+  en: 'A hand-painted ceramic panel in Frigiliana’s old town depicting a scene of the Morisco story',
+  de: 'Eine handbemalte Keramiktafel in Frigilianas Altstadt mit einer Szene der Morisken-Geschichte',
+  es: 'Un panel de cerámica pintado a mano en el casco antiguo de Frigiliana con una escena de la historia morisca',
+  nl: 'Een handbeschilderd keramisch paneel in de oude kern van Frigiliana met een scène uit de Moriskse geschiedenis',
+  sv: 'En handmålad keramikpanel i Frigilianas gamla stan med en scen ur den moriskiska historien'
+});
 
 function t(row: LocalizedRow): string {
   return row[currentLang] ?? row.en;
@@ -79,6 +88,21 @@ const phoneTopicPreview = {
   subtitle: copy.phonePreview.subtitle,
   cards: copy.phonePreview.cards.map((card) => ({ icon: card.icon, title: card.title, meta: card.meta }))
 };
+
+const keyFigures = copy.keyFigures.figures.map((figure) => ({ value: figure.value, label: t(figure.label) }));
+const keyFiguresNote = t(copy.keyFigures.note);
+
+const contextEyebrow = t({ en: 'The story', de: 'Die Geschichte', es: 'La historia', nl: 'Het verhaal', sv: 'Berättelsen' });
+const provenanceEyebrow = t({ en: 'Where they come from', de: 'Woher sie kommen', es: 'De dónde vienen', nl: 'Waar ze vandaan komen', sv: 'Varifrån de kommer' });
+const registerEyebrow = t({ en: 'The walk', de: 'Der Rundgang', es: 'El recorrido', nl: 'De wandeling', sv: 'Vandringen' });
+const historiographyEyebrow = t({ en: 'Memory vs. record', de: 'Erinnerung vs. Beleg', es: 'Memoria y documento', nl: 'Herinnering vs. bron', sv: 'Minne mot källa' });
+const contextAlt = t({
+  en: 'A stepped lane with an arch and pebble mosaic in the upper old town of Frigiliana at dusk',
+  de: 'Eine Treppengasse mit Bogen und Kieselmosaik im oberen Altstadtviertel von Frigiliana in der Abenddämmerung',
+  es: 'Una calle escalonada con arco y mosaico de guijarros en la parte alta del casco antiguo de Frigiliana al anochecer',
+  nl: 'Een trapstraat met boog en kiezelmozaïek in de hoge oude kern van Frigiliana in de schemering',
+  sv: 'En trappgränd med valv och kiselmosaik i övre gamla stan i Frigiliana i skymningen'
+});
 ---
 
 <LocationAuthorityLayout
@@ -97,58 +121,66 @@ const phoneTopicPreview = {
     <ExperienceContextNav slot="context-navigation" currentId="oldTown" destination="frigiliana" lang={currentLang} />
   </Navigation>
 
-  <div data-am-page="frigiliana-ceramic-panels">
-    <div class="w-full">
-      <div id="intro">
-        <LocationExperienceHero
-          topic="old-town"
-          eyebrow={t(copy.hero.kicker)}
-          title={t(copy.hero.title)}
-          subtitle={t(copy.hero.subtitle)}
-          paragraphs={copy.hero.paragraphs.map((paragraph) => t(paragraph))}
-          {...hero}
-        />
+  <article class="overflow-x-clip bg-surface" data-am-page="frigiliana-ceramic-panels" data-am-family="location" data-am-role="spoke">
+    <LocationPanoramaHero
+      eyebrow={t(copy.hero.kicker)}
+      title={t(copy.hero.title)}
+      subtitle={t(copy.hero.subtitle)}
+      paragraphs={[t(copy.hero.paragraphs[0])]}
+      imageSrc={heroImage}
+      imageAlt={heroAlt}
+      focalPoint="50% 45%"
+      role="spoke"
+      topic="old-town"
+    />
+
+    <section class="bg-surface px-6 pb-16 pt-12 md:px-12 md:pb-20" aria-label={keyFigures.map((figure) => figure.label).join(' · ')}>
+      <div class="mx-auto max-w-screen-2xl">
+        <AmaraKeyFigures figures={keyFigures} note={keyFiguresNote} />
       </div>
+    </section>
 
-      <section id="context" class="am-section bg-surface-container-low">
-        <div class="max-w-3xl">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {t(copy.context.title)}
-          </h2>
-          {
-            copy.context.paragraphs.map((paragraph) => (
-              <p class="am-text-body text-on-surface-variant leading-relaxed mb-5 last:mb-0">
-                {t(paragraph)}
-              </p>
-            ))
-          }
+    <section id="context" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+          <AmaraMediaFrame role="gallery" mobileFullBleed class="am-bleed-start lg:col-span-6">
+            <AmaraImage src={contextImage} alt={contextAlt} profile="gallery" class="h-full w-full object-cover" mediaRole="gallery" focalPoint="50% 50%" />
+          </AmaraMediaFrame>
+          <div class="am-overlap-start bg-surface-white lg:col-span-6">
+            <p class="am-text-eyebrow text-primary">{contextEyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(copy.context.title)}</h2>
+            <div class="mt-6 max-w-2xl space-y-5">
+              {copy.context.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant">{t(paragraph)}</p>)}
+            </div>
+          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section id="provenance" class="am-section bg-surface">
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {t(copy.provenance.title)}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {t(copy.provenance.intro)}
-          </p>
+    <section class="bg-surface px-6 py-20 md:px-12 md:py-24">
+      <div class="mx-auto max-w-4xl text-center">
+        <blockquote class="am-text-display italic text-balance text-on-surface">{t(copy.pullQuote)}</blockquote>
+      </div>
+    </section>
+
+    <section id="provenance" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <p class="am-text-eyebrow text-primary">{provenanceEyebrow}</p>
+        <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(copy.provenance.title)}</h2>
+        <p class="am-text-subtitle mt-6 max-w-2xl text-on-surface-variant">{t(copy.provenance.intro)}</p>
+        <div class="mt-14">
+          <EditorialFeatureGrid cards={provenanceCards} titleRole="card" />
         </div>
+      </div>
+    </section>
 
-        <EditorialFeatureGrid cards={provenanceCards} titleRole="card" />
-      </section>
-
-      <section id="register" class="am-section bg-surface-container-low">
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {t(copy.register.title)}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed mb-4">
-            {t(copy.register.intro)}
-          </p>
-          <p class="am-text-caption normal-case tracking-normal text-on-surface-variant">
-            {t(copy.register.note)}
-          </p>
+    <section id="register" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="max-w-3xl mb-12">
+          <p class="am-text-eyebrow text-primary">{registerEyebrow}</p>
+          <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(copy.register.title)}</h2>
+          <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{t(copy.register.intro)}</p>
+          <p class="am-text-caption normal-case tracking-normal text-on-surface-variant mt-4">{t(copy.register.note)}</p>
         </div>
 
         <div class="mb-16">
@@ -178,19 +210,17 @@ const phoneTopicPreview = {
             ))
           }
         </ol>
-      </section>
+      </div>
+    </section>
 
-      <section id="historiography" class="am-section bg-surface">
+    <section id="historiography" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div class="lg:col-span-4">
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-              {t(copy.historiography.title)}
-            </h2>
-            <p class="am-text-body text-on-surface-variant leading-relaxed">
-              {t(copy.historiography.intro)}
-            </p>
+            <p class="am-text-eyebrow text-primary">{historiographyEyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(copy.historiography.title)}</h2>
+            <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{t(copy.historiography.intro)}</p>
           </div>
-
           <div class="grid gap-y-12 lg:col-span-7 lg:col-start-6">
             {
               historiographyItems.map((item) => (
@@ -202,17 +232,18 @@ const phoneTopicPreview = {
             }
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <GuestGuideBridge
-        lang={currentLang}
-        destination="frigiliana"
-        guideSlugs={['frigiliana-guest-ceramic-panels']}
+    <GuestGuideBridge
+      lang={currentLang}
+      destination="frigiliana"
+      guideSlugs={['frigiliana-guest-ceramic-panels']}
         copyOverride={bridgeCopyOverride}
         topicPreview={phoneTopicPreview}
       />
 
-      <section class="max-w-screen-2xl mx-auto px-6 pt-24 pb-24 md:px-12">
+      <section class="max-w-screen-2xl mx-auto px-6 pt-20 pb-24 md:px-12">
         <EditorialClosingCta
           title={t(copy.closing.title)}
           lead={t(copy.closing.lead)}
@@ -231,8 +262,7 @@ const phoneTopicPreview = {
           ]}
         />
       </section>
-    </div>
-  </div>
+  </article>
 </LocationAuthorityLayout>
 
 <style>
