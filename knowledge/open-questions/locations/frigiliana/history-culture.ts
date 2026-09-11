@@ -36,7 +36,7 @@ export const frigilianaHistoryCultureOpenQuestions = defineKnowledgeOpenQuestion
     reason: 'The panels are important public-history objects but cannot serve as unexamined proof for every historical claim they display.',
     preferredEvidence:
       'Municipal or museum inventory, commission records, dated installation documentation, full panel transcription and source list.',
-    status: 'open',
+    status: 'resolved',
     createdAt: '2026-08-24',
   },
   {

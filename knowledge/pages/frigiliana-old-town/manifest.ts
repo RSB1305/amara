@@ -18,6 +18,7 @@ export const frigilianaOldTownKnowledge = defineKnowledgePageManifest({
     '2026-08-24__121345__frigiliana-three-cultures-evidence__research-001',
     '2026-08-24__121346__frigiliana-streetscape-overnight-atmosphere__research-001',
     '2026-08-24__121347__frigiliana-agriculture-lived-landscape__research-001',
+    '2026-09-11__080827__frigiliana-ceramic-panels-provenance__research-001',
   ],
   coverage: [
     {
@@ -47,13 +48,22 @@ export const frigilianaOldTownKnowledge = defineKnowledgePageManifest({
     },
     {
       authoringArea: 'ceramic-panels',
-      purpose: 'Treat the panels as public-history objects only after their commission, authorship, installation, sequence and source basis are documented.',
+      purpose: 'Author the panels as public-history objects: provenance, the twelve-panel sequence and the honest gap between the panels’ narrative and the documented record.',
       factIds: [
-        'frigiliana.history.morisco-uprising-expulsion-depopulation',
-        'frigiliana.history.castillo-lizar.destroyed-1569',
+        'frigiliana.ceramic-panels.count.twelve',
+        'frigiliana.ceramic-panels.installation.1982-beautification',
+        'frigiliana.ceramic-panels.texts.navas-acosta',
+        'frigiliana.ceramic-panels.ceramics.ruiz-de-luna',
+        'frigiliana.ceramic-panels.technique.four-colours',
+        'frigiliana.ceramic-panels.route.start-hernando-el-darra',
+        'frigiliana.ceramic-panels.textual-basis.marmol-hurtado',
+        'frigiliana.ceramic-panels.public-history.perspectival-inversion',
+        'frigiliana.ceramic-panels.omission.28-may-1569',
+        'frigiliana.ceramic-panels.anachronism.holocausto-patria',
+        'frigiliana.ceramic-panels.casualties.figures',
       ],
-      status: 'gap',
-      notes: 'The current twelve-panel, hand-painted, sequential-route, 45-minute and “best way to understand” claims are not authorized. Historical facts must come from their canonical sources, not from assumed panel provenance.',
+      status: 'covered',
+      notes: 'Provenance is now documented (research-001, 2026-09-11): twelve panels, installed 1982, texts by Navas Acosta, ceramics by Ruiz de Luna, four-colour technique. The twelve count and hand-painted, sequential-route claims are authorized. Exact per-panel positions (2–12) remain unverified — no turn-by-turn claim. Present the panels as 1982 public history and surface the documented differences (omitted 28 May 1569 assault; “Holocausto”/“patria” anachronisms), not as neutral primary proof.',
     },
     {
       authoringArea: 'el-ingenio',
