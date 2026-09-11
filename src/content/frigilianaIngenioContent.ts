@@ -97,6 +97,64 @@ export const frigilianaIngenioCopy = {
       )
     ]
   },
+  keyFigures: {
+    figures: [
+      {
+        value: '1508',
+        label: l(
+          'Lordship of the Manrique de Lara counts',
+          'Herrschaft der Grafen Manrique de Lara',
+          'Señorío de los condes Manrique de Lara',
+          'Heerlijkheid van de graven Manrique de Lara',
+          'Grevarna Manrique de Laras länsherravälde'
+        )
+      },
+      {
+        value: '1725',
+        label: l(
+          'Expanded into the sugar ingenio',
+          'Ausbau zum Zucker-Ingenio',
+          'Ampliación al ingenio azucarero',
+          'Uitbreiding tot het suiker-ingenio',
+          'Utbyggnad till socker-ingeniot'
+        )
+      },
+      {
+        value: '2.000 m²',
+        label: l(
+          'Renaissance palace, partly from castle stone',
+          'Renaissance-Palast, teils aus Burgstein',
+          'Palacio renacentista, en parte con piedra del castillo',
+          'Renaissancepaleis, deels van kasteelsteen',
+          'Renässanspalats, delvis av borgsten'
+        )
+      },
+      {
+        value: '~1.500',
+        label: l(
+          'Iberian ibex on the Málaga side of the park',
+          'Steinböcke auf der Málaga-Seite des Parks',
+          'Cabras monteses en la vertiente malagueña',
+          'Steenbokken aan de Málaga-kant van het park',
+          'Stenbockar på parkens Málaga-sida'
+        )
+      }
+    ],
+    note: l(
+      'Dates and floor area from heritage and noble-archive sources; the ibex figure is a park population estimate for the Málaga side, not a count at the building.',
+      'Jahreszahlen und Fläche aus Denkmal- und Adelsarchiv-Quellen; die Steinbockzahl ist ein Bestandswert für die Málaga-Seite des Parks, keine Zählung am Gebäude.',
+      'Fechas y superficie de fuentes patrimoniales y del archivo nobiliario; la cifra de cabras es una estimación de la población en la vertiente malagueña, no un recuento en el edificio.',
+      'Data en oppervlakte uit erfgoed- en adelsarchiefbronnen; het steenbokgetal is een schatting voor de Málaga-kant van het park, geen telling bij het gebouw.',
+      'Årtal och yta från kulturarvs- och adelsarkivkällor; stenbockssiffran är en uppskattning för parkens Málaga-sida, inte en räkning vid byggnaden.'
+    )
+  },
+  pullQuote: l(
+    'A palace on the outside, a sugar kitchen within.',
+    'Von außen ein Palast, von innen eine Zuckerküche.',
+    'Un palacio por fuera, una cocina de azúcar por dentro.',
+    'Vanbuiten een paleis, vanbinnen een suikerkeuken.',
+    'Ett palats utanpå, ett sockerkök inuti.'
+  ),
   palaceVsFactory: {
     title: l(
       'Palace or factory?',

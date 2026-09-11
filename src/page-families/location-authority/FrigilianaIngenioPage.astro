@@ -1,11 +1,13 @@
 ---
-import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
+import AmaraKeyFigures from '../../components/content/AmaraKeyFigures.astro';
+import LocationPanoramaHero from '../../components/location/LocationPanoramaHero.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
+import heroImage from '../../assets/images/content/frigiliana/frigiliana-el-ingenio-palast-zuckerrohrfabrik.jpg';
 import facadeImage from '../../assets/images/content/frigiliana/frigiliana-el-ingenio-fassade-esgrafiado-balkone.jpg';
 import coatOfArmsImage from '../../assets/images/content/frigiliana/frigiliana-steinwappen-el-ingenio-fassade.jpg';
 import nicheImage from '../../assets/images/content/frigiliana/frigiliana-nische-marienstatue-el-ingenio.jpg';
@@ -20,7 +22,6 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import type { LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import { routeHero } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -30,7 +31,6 @@ type LocalizedRow = { readonly [K in AmaraLanguage]: string };
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
-const hero = routeHero('frigiliana.experience.old-town.ingenio', currentLang);
 const copy = frigilianaIngenioCopy;
 
 function t(row: LocalizedRow): string {
@@ -40,71 +40,39 @@ function t(row: LocalizedRow): string {
 const footerHighlights: LabeledLink[] = [
   {
     token: 'frigiliana_old_town',
-    label: t({
-      en: 'Old town & history',
-      de: 'Altstadt & Geschichte',
-      es: 'Casco antiguo e historia',
-      nl: 'Oude kern & geschiedenis',
-      sv: 'Gamla stan & historia'
-    })
+    label: t({ en: 'Old town & history', de: 'Altstadt & Geschichte', es: 'Casco antiguo e historia', nl: 'Oude kern & geschiedenis', sv: 'Gamla stan & historia' })
   }
 ];
 
-const palaceCards = copy.palaceVsFactory.items.map((item) => ({
+const keyFigures = copy.keyFigures.figures.map((figure) => ({ value: figure.value, label: t(figure.label) }));
+const keyFiguresNote = t(copy.keyFigures.note);
+
+const palaceItems = copy.palaceVsFactory.items.map((item) => ({ title: t(item.title), text: t(item.text) }));
+const mielItems = copy.mielDeCana.items.map((item) => ({ title: t(item.title), text: t(item.text) }));
+
+/* Facade points are shown image-led: each column pairs a photo with its point. */
+const facadeColumns = copy.facade.items.map((item, index) => ({
   title: t(item.title),
-  copy: t(item.text)
-}));
-const facadeCards = copy.facade.items.map((item) => ({
-  title: t(item.title),
-  copy: t(item.text)
-}));
-const mielCards = copy.mielDeCana.items.map((item) => ({
-  title: t(item.title),
-  copy: t(item.text)
+  text: t(item.text),
+  image: [facadeImage, nicheImage, coatOfArmsImage][index],
+  alt: [
+    t({ en: 'The sgraffito facade of El Ingenio with its geometric bands and balconies', de: 'Die Esgrafiado-Fassade von El Ingenio mit geometrischen Bändern und Balkonen', es: 'La fachada de esgrafiados de El Ingenio con bandas geométricas y balcones', nl: 'De esgrafiado-gevel van El Ingenio met geometrische banden en balkons', sv: 'El Ingenios esgrafiado-fasad med geometriska band och balkonger' }),
+    t({ en: 'A facade niche of El Ingenio with a Marian figure', de: 'Eine Fassadennische von El Ingenio mit einer Marienfigur', es: 'Una hornacina de la fachada de El Ingenio con una figura mariana', nl: 'Een gevelnis van El Ingenio met een Mariabeeld', sv: 'En fasadnisch på El Ingenio med en Mariafigur' }),
+    t({ en: 'The counts’ stone coat of arms on the facade of El Ingenio', de: 'Das steinerne Wappen der Grafen an der Fassade von El Ingenio', es: 'El escudo de piedra de los condes en la fachada de El Ingenio', nl: 'Het stenen wapen van de graven op de gevel van El Ingenio', sv: 'Grevarnas vapensköld i sten på El Ingenios fasad' })
+  ][index]
 }));
 
-const facadeAlt = t({
-  en: 'The sgraffito facade of El Ingenio with its geometric bands and balconies',
-  de: 'Die Esgrafiado-Fassade von El Ingenio mit ihren geometrischen Bändern und Balkonen',
-  es: 'La fachada de esgrafiados de El Ingenio con sus bandas geométricas y balcones',
-  nl: 'De esgrafiado-gevel van El Ingenio met zijn geometrische banden en balkons',
-  sv: 'El Ingenios esgrafiado-fasad med sina geometriska band och balkonger'
-});
-const coatOfArmsAlt = t({
-  en: 'The counts’ stone coat of arms on the facade of El Ingenio',
-  de: 'Das steinerne Wappen der Grafen an der Fassade von El Ingenio',
-  es: 'El escudo de piedra de los condes en la fachada de El Ingenio',
-  nl: 'Het stenen wapen van de graven op de gevel van El Ingenio',
-  sv: 'Grevarnas vapensköld i sten på El Ingenios fasad'
-});
-const nicheAlt = t({
-  en: 'A facade niche of El Ingenio with a Marian figure',
-  de: 'Eine Fassadennische von El Ingenio mit einer Marienfigur',
-  es: 'Una hornacina de la fachada de El Ingenio con una figura mariana',
-  nl: 'Een gevelnis van El Ingenio met een Mariabeeld',
-  sv: 'En fasadnisch på El Ingenio med en Mariafigur'
-});
-const factoryAlt = t({
-  en: 'The entrance of the Nuestra Señora del Carmen miel-de-caña factory in El Ingenio',
-  de: 'Der Eingang der Miel-de-Caña-Fabrik Nuestra Señora del Carmen in El Ingenio',
-  es: 'La entrada de la fábrica de miel de caña Nuestra Señora del Carmen en El Ingenio',
-  nl: 'De ingang van de miel-de-caña-fabriek Nuestra Señora del Carmen in El Ingenio',
-  sv: 'Ingången till miel-de-caña-fabriken Nuestra Señora del Carmen i El Ingenio'
-});
-const historicAlt = t({
-  en: 'A historic photograph of El Ingenio with a truck at the sugar works',
-  de: 'Eine historische Aufnahme von El Ingenio mit einem Lastwagen am Zuckerwerk',
-  es: 'Una fotografía histórica de El Ingenio con un camión en el ingenio azucarero',
-  nl: 'Een historische foto van El Ingenio met een vrachtwagen bij de suikerfabriek',
-  sv: 'Ett historiskt foto av El Ingenio med en lastbil vid sockerbruket'
-});
-const ibexAlt = t({
-  en: 'Two wild Iberian ibex standing on the tiled roof of El Ingenio',
-  de: 'Zwei wilde Iberiensteinböcke auf dem Ziegeldach von El Ingenio',
-  es: 'Dos cabras monteses salvajes sobre el tejado de tejas de El Ingenio',
-  nl: 'Twee wilde Iberische steenbokken op het pannendak van El Ingenio',
-  sv: 'Två vilda iberiska stenbockar på El Ingenios tegeltak'
-});
+const historicAlt = t({ en: 'A historic photograph of El Ingenio with a truck at the sugar works', de: 'Eine historische Aufnahme von El Ingenio mit einem Lastwagen am Zuckerwerk', es: 'Una fotografía histórica de El Ingenio con un camión en el ingenio azucarero', nl: 'Een historische foto van El Ingenio met een vrachtwagen bij de suikerfabriek', sv: 'Ett historiskt foto av El Ingenio med en lastbil vid sockerbruket' });
+const factoryAlt = t({ en: 'The entrance of the Nuestra Señora del Carmen miel-de-caña factory in El Ingenio', de: 'Der Eingang der Miel-de-Caña-Fabrik Nuestra Señora del Carmen in El Ingenio', es: 'La entrada de la fábrica de miel de caña Nuestra Señora del Carmen en El Ingenio', nl: 'De ingang van de miel-de-caña-fabriek Nuestra Señora del Carmen in El Ingenio', sv: 'Ingången till miel-de-caña-fabriken Nuestra Señora del Carmen i El Ingenio' });
+const ibexAlt = t({ en: 'Two wild Iberian ibex standing on the tiled roof of El Ingenio', de: 'Zwei wilde Iberiensteinböcke auf dem Ziegeldach von El Ingenio', es: 'Dos cabras monteses salvajes sobre el tejado de tejas de El Ingenio', nl: 'Twee wilde Iberische steenbokken op het pannendak van El Ingenio', sv: 'Två vilda iberiska stenbockar på El Ingenios tegeltak' });
+const heroAlt = t({ en: 'El Ingenio, the former count’s palace and sugar works, at the lower edge of Frigiliana’s old town', de: 'El Ingenio, der ehemalige Grafenpalast und das Zuckerwerk, am unteren Rand von Frigilianas Altstadt', es: 'El Ingenio, el antiguo palacio condal y fábrica de azúcar, en el borde bajo del casco antiguo de Frigiliana', nl: 'El Ingenio, het voormalige grafelijk paleis en de suikerfabriek, aan de onderrand van de oude kern van Frigiliana', sv: 'El Ingenio, det forna grevepalatset och sockerbruket, i nedre kanten av Frigilianas gamla stan' });
+
+const labels = {
+  layers: t({ en: 'Two layers', de: 'Zwei Schichten', es: 'Dos capas', nl: 'Twee lagen', sv: 'Två lager' }),
+  fromTheLane: t({ en: 'From the lane', de: 'Von der Gasse aus', es: 'Desde la calle', nl: 'Vanaf het straatje', sv: 'Från gränden' }),
+  stillRunning: t({ en: 'Still in operation', de: 'Bis heute in Betrieb', es: 'Todavía en activo', nl: 'Nog steeds in bedrijf', sv: 'Fortfarande i drift' }),
+  wildlife: t({ en: 'Wildlife in the village', de: 'Wildtiere im Dorf', es: 'Fauna en el pueblo', nl: 'Wilde dieren in het dorp', sv: 'Vilda djur i byn' })
+};
 ---
 
 <LocationAuthorityLayout
@@ -123,183 +91,131 @@ const ibexAlt = t({
     <ExperienceContextNav slot="context-navigation" currentId="oldTown" destination="frigiliana" lang={currentLang} />
   </Navigation>
 
-  <div data-am-page="frigiliana-el-ingenio">
-    <div class="w-full">
-      <div id="intro">
-        <LocationExperienceHero
-          topic="old-town"
-          eyebrow={t(copy.hero.kicker)}
-          title={t(copy.hero.title)}
-          subtitle={t(copy.hero.subtitle)}
-          paragraphs={copy.hero.paragraphs.map((paragraph) => t(paragraph))}
-          {...hero}
-        />
+  <article class="overflow-x-clip bg-surface" data-am-page="frigiliana-el-ingenio" data-am-family="location" data-am-role="spoke">
+    <LocationPanoramaHero
+      eyebrow={t(copy.hero.kicker)}
+      title={t(copy.hero.title)}
+      subtitle={t(copy.hero.subtitle)}
+      paragraphs={[t(copy.hero.paragraphs[0])]}
+      imageSrc={heroImage}
+      imageAlt={heroAlt}
+      focalPoint="50% 45%"
+      role="spoke"
+      topic="old-town"
+    />
+
+    <section class="bg-surface px-6 pb-16 pt-12 md:px-12 md:pb-20" aria-label={keyFigures.map((figure) => figure.label).join(' · ')}>
+      <div class="mx-auto max-w-screen-2xl">
+        <AmaraKeyFigures figures={keyFigures} note={keyFiguresNote} />
       </div>
+    </section>
 
-      <section id="palace-or-factory" class="am-section bg-surface">
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {t(copy.palaceVsFactory.title)}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {t(copy.palaceVsFactory.intro)}
-          </p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-          {
-            palaceCards.map((card) => (
-              <article>
-                <h3 class="am-text-body font-bold normal-case text-on-surface mb-3 pb-2 border-b border-on-surface/10">
-                  {card.title}
-                </h3>
-                <p class="am-text-body text-on-surface-variant leading-relaxed">{card.copy}</p>
-              </article>
-            ))
-          }
-        </div>
-      </section>
-
-      <div class="bg-surface px-6 pb-16 md:px-12 md:pb-24">
-        <div class="mx-auto max-w-screen-2xl">
-          <AmaraMediaFrame role="editorial" mobileFullBleed>
-            <AmaraImage
-              src={historicImage}
-              alt={historicAlt}
-              profile="gallery"
-              class="h-full w-full object-cover"
-              mediaRole="editorial"
-              focalPoint="50% 50%"
-            />
+    <section id="palace-or-factory" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+          <AmaraMediaFrame role="gallery" mobileFullBleed class="am-bleed-start lg:col-span-6">
+            <AmaraImage src={historicImage} alt={historicAlt} profile="gallery" class="h-full w-full object-cover" mediaRole="gallery" focalPoint="50% 50%" />
           </AmaraMediaFrame>
-        </div>
-      </div>
-
-      <section id="facade" class="am-section bg-surface-container-low">
-        <div class="max-w-3xl mb-12">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {t(copy.facade.title)}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {t(copy.facade.intro)}
-          </p>
-        </div>
-
-        <div class="grid gap-6 sm:grid-cols-3 mb-14">
-          <AmaraMediaFrame role="gallery">
-            <AmaraImage src={facadeImage} alt={facadeAlt} profile="gallery" class="h-full w-full object-cover" mediaRole="gallery" focalPoint="50% 40%" />
-          </AmaraMediaFrame>
-          <AmaraMediaFrame role="gallery">
-            <AmaraImage src={coatOfArmsImage} alt={coatOfArmsAlt} profile="gallery" class="h-full w-full object-cover" mediaRole="gallery" focalPoint="50% 50%" />
-          </AmaraMediaFrame>
-          <AmaraMediaFrame role="gallery">
-            <AmaraImage src={nicheImage} alt={nicheAlt} profile="gallery" class="h-full w-full object-cover" mediaRole="gallery" focalPoint="50% 40%" />
-          </AmaraMediaFrame>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-          {
-            facadeCards.map((card) => (
-              <article>
-                <h3 class="am-text-body font-bold normal-case text-on-surface mb-3 pb-2 border-b border-on-surface/10">
-                  {card.title}
-                </h3>
-                <p class="am-text-body text-on-surface-variant leading-relaxed">{card.copy}</p>
-              </article>
-            ))
-          }
-        </div>
-      </section>
-
-      <section id="miel-de-cana" class="am-section bg-surface">
-        <div class="max-w-3xl mb-16">
-          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-            {t(copy.mielDeCana.title)}
-          </h2>
-          <p class="am-text-body text-on-surface-variant leading-relaxed">
-            {t(copy.mielDeCana.intro)}
-          </p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12">
-          {
-            mielCards.map((card) => (
-              <article>
-                <h3 class="am-text-body font-bold normal-case text-on-surface mb-3 pb-2 border-b border-on-surface/10">
-                  {card.title}
-                </h3>
-                <p class="am-text-body text-on-surface-variant leading-relaxed">{card.copy}</p>
-              </article>
-            ))
-          }
-        </div>
-      </section>
-
-      <div class="bg-surface px-6 pb-16 md:px-12 md:pb-24">
-        <div class="mx-auto max-w-screen-2xl">
-          <AmaraMediaFrame role="editorial" mobileFullBleed>
-            <AmaraImage
-              src={factoryImage}
-              alt={factoryAlt}
-              profile="gallery"
-              class="h-full w-full object-cover"
-              mediaRole="editorial"
-              focalPoint="50% 50%"
-            />
-          </AmaraMediaFrame>
-        </div>
-      </div>
-
-      <section id="ibex" class="am-section bg-surface-container-low">
-        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16 lg:items-center">
-          <AmaraMediaFrame role="gallery" mobileFullBleed class="lg:col-span-6 lg:self-start">
-            <AmaraImage
-              src={ibexImage}
-              alt={ibexAlt}
-              profile="gallery"
-              class="h-full w-full object-cover"
-              mediaRole="gallery"
-              focalPoint="50% 40%"
-            />
-          </AmaraMediaFrame>
-          <div class="lg:col-span-6">
-            <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
-              {t(copy.ibex.title)}
-            </h2>
-            {
-              copy.ibex.paragraphs.map((paragraph) => (
-                <p class="am-text-body text-on-surface-variant leading-relaxed mb-5 last:mb-0">
-                  {t(paragraph)}
-                </p>
-              ))
-            }
+          <div class="am-overlap-start bg-surface-white lg:col-span-6">
+            <p class="am-text-eyebrow text-primary">{labels.layers}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(copy.palaceVsFactory.title)}</h2>
+            <p class="am-text-body mt-6 max-w-2xl leading-relaxed text-on-surface-variant">{t(copy.palaceVsFactory.intro)}</p>
+            <div class="mt-8 space-y-7">
+              {
+                palaceItems.map((item) => (
+                  <div class="border-t border-outline-variant/30 pt-5">
+                    <h3 class="am-text-functional-heading text-on-surface">{item.title}</h3>
+                    <p class="am-text-body mt-2 leading-relaxed text-on-surface-variant">{item.text}</p>
+                  </div>
+                ))
+              }
+            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <GuestGuideBridge
+    <section class="bg-surface px-6 py-20 md:px-12 md:py-24">
+      <div class="mx-auto max-w-4xl text-center">
+        <blockquote class="am-text-display italic text-balance text-on-surface">{t(copy.pullQuote)}</blockquote>
+      </div>
+    </section>
+
+    <section id="facade" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <p class="am-text-eyebrow text-primary">{labels.fromTheLane}</p>
+        <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(copy.facade.title)}</h2>
+        <p class="am-text-subtitle mt-6 max-w-2xl text-on-surface-variant">{t(copy.facade.intro)}</p>
+        <div class="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-3">
+          {
+            facadeColumns.map((column) => (
+              <article>
+                <AmaraMediaFrame role="gallery">
+                  <AmaraImage src={column.image} alt={column.alt} profile="gallery" class="h-full w-full object-cover" mediaRole="gallery" focalPoint="50% 45%" />
+                </AmaraMediaFrame>
+                <h3 class="am-text-functional-heading mt-5 text-on-surface">{column.title}</h3>
+                <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{column.text}</p>
+              </article>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <section id="miel-de-cana" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+          <div class="am-overlap-end bg-surface order-2 lg:order-1 lg:col-span-6">
+            <p class="am-text-eyebrow text-primary">{labels.stillRunning}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(copy.mielDeCana.title)}</h2>
+            <p class="am-text-body mt-6 max-w-2xl leading-relaxed text-on-surface-variant">{t(copy.mielDeCana.intro)}</p>
+            <div class="mt-8 space-y-7">
+              {
+                mielItems.map((item) => (
+                  <div class="border-t border-outline-variant/30 pt-5">
+                    <h3 class="am-text-functional-heading text-on-surface">{item.title}</h3>
+                    <p class="am-text-body mt-2 leading-relaxed text-on-surface-variant">{item.text}</p>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+          <AmaraMediaFrame role="gallery" mobileFullBleed class="am-bleed-end order-1 lg:order-2 lg:col-span-6">
+            <AmaraImage src={factoryImage} alt={factoryAlt} profile="gallery" class="h-full w-full object-cover" mediaRole="gallery" focalPoint="50% 50%" />
+          </AmaraMediaFrame>
+        </div>
+      </div>
+    </section>
+
+    <section id="ibex" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
+          <AmaraMediaFrame role="panorama" mobileFullBleed class="am-bleed-start lg:col-span-7">
+            <AmaraImage src={ibexImage} alt={ibexAlt} profile="gallery" class="h-full w-full object-cover" mediaRole="panorama" focalPoint="50% 35%" />
+          </AmaraMediaFrame>
+          <div class="am-overlap-start bg-surface-white lg:col-span-5">
+            <p class="am-text-eyebrow text-primary">{labels.wildlife}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(copy.ibex.title)}</h2>
+            <div class="mt-6 space-y-5">
+              {copy.ibex.paragraphs.map((paragraph) => <p class="am-text-body leading-relaxed text-on-surface-variant">{t(paragraph)}</p>)}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <GuestGuideBridge lang={currentLang} destination="frigiliana" guideSlugs={['frigiliana-guest-sightseeing']} />
+
+    <section class="max-w-screen-2xl mx-auto px-6 pt-20 pb-24 md:px-12">
+      <EditorialClosingCta
+        title={t(copy.closing.title)}
+        lead={t(copy.closing.lead)}
         lang={currentLang}
-        destination="frigiliana"
-        guideSlugs={['frigiliana-guest-sightseeing']}
+        links={[
+          { token: 'frigiliana_old_town', label: t(copy.closing.oldTownCta), style: 'primary' },
+          { token: 'book', label: t(copy.closing.availabilityCta), style: 'secondary' }
+        ]}
       />
-
-      <section class="max-w-screen-2xl mx-auto px-6 pt-24 pb-24 md:px-12">
-        <EditorialClosingCta
-          title={t(copy.closing.title)}
-          lead={t(copy.closing.lead)}
-          lang={currentLang}
-          links={[
-            {
-              token: 'frigiliana_old_town',
-              label: t(copy.closing.oldTownCta),
-              style: 'primary'
-            },
-            {
-              token: 'book',
-              label: t(copy.closing.availabilityCta),
-              style: 'secondary'
-            }
-          ]}
-        />
-      </section>
-    </div>
-  </div>
+    </section>
+  </article>
 </LocationAuthorityLayout>
