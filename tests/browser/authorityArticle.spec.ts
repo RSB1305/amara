@@ -110,8 +110,6 @@ interface AuthorityPage {
   hasGuideBridge?: 'before-related' | 'after-related';
   /** Whether the winter-stays sun-hours chart renders after the sections, before related links. */
   hasSunHoursChart?: boolean;
-  /** Whether the winter-stays "sun sets later" weather-link handoff renders after the sun-hours chart. */
-  hasWinterWeatherLink?: boolean;
   closingCtas: [ClosingCta, ClosingCta];
 }
 
@@ -290,7 +288,6 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     arrivalModules: null,
     interleaved: [],
     hasSunHoursChart: true,
-    hasWinterWeatherLink: true,
     sectionMarkerAttribute: 'data-am-winter-stays-section',
     closingCtas: [
       { token: 'tarifa', labelKey: 'propertyLabel', className: DECISION_PRIMARY_CLASS },
@@ -344,7 +341,9 @@ interface BlockFingerprint {
  */
 const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> =>
   page.$$eval(`article[data-am-page="${pageId}"] > *`, (nodes) =>
-    nodes.map((node) => {
+    nodes
+      .filter((node) => node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE')
+      .map((node) => {
       const orientation = node.getAttribute('data-am-orientation');
       const arrivalModule = node.getAttribute('data-am-arrival-module');
       const marker =
@@ -358,10 +357,6 @@ const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> 
       if (node.hasAttribute('data-am-guest-guide-bridge')) return { kind: 'guide-bridge', marker: null };
       if (node.hasAttribute('data-am-climate-table')) return { kind: 'climate-table', marker: null };
       if (node.hasAttribute('data-am-sun-hours')) return { kind: 'sun-hours', marker: null };
-      if (node.hasAttribute('data-am-winter-gallery')) return { kind: 'winter-gallery', marker: null };
-      if (node.hasAttribute('data-am-winter-sun-bridge')) return { kind: 'winter-sun-bridge', marker: null };
-      if (node.hasAttribute('data-am-winter-sunset')) return { kind: 'winter-sunset', marker: null };
-      if (node.hasAttribute('data-am-winter-weather-link')) return { kind: 'winter-weather-link', marker: null };
       const groupedSectionIds = Array.from(
         node.querySelectorAll<HTMLElement>('[data-am-authority-layout="card"][id]')
       ).map((section) => section.id);
@@ -431,10 +426,6 @@ function expectedBlocks(entry: AuthorityPage, locale: AuthorityArticleLocale): B
 
   if (entry.hasSunHoursChart) {
     blocks.push({ kind: 'sun-hours', marker: null });
-  }
-
-  if (entry.hasWinterWeatherLink) {
-    blocks.push({ kind: 'winter-weather-link', marker: null });
   }
 
   if (entry.hasGuideBridge === 'before-related') {
