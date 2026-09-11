@@ -85,6 +85,7 @@ export const AMARA_PAGE_FAMILY_PROFILES = {
   'experience-frigiliana-ceramic-panels': { type: 'explore', tier: 'approved' },
   'experience-frigiliana-ingenio': { type: 'explore', tier: 'approved' },
   'experience-frigiliana-casa-del-apero': { type: 'explore', tier: 'approved' },
+  'experience-frigiliana-san-antonio': { type: 'explore', tier: 'approved' },
   'experience-nerja-article': { type: 'explore', tier: 'approved' },
   'experience-nerja-verano-azul': { type: 'explore', tier: 'approved' },
   'experience-tarifa-guide': { type: 'explore', tier: 'approved' },

@@ -1,0 +1,200 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import AmaraKeyFigures from '../../components/content/AmaraKeyFigures.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
+import {
+  frigilianaSanAntonioCopy,
+  frigilianaSanAntonioSeo
+} from '../../content/frigilianaSanAntonioContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import type { LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+type LocalizedRow = { readonly [K in AmaraLanguage]: string };
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = frigilianaSanAntonioCopy;
+
+function t(row: LocalizedRow): string {
+  return row[currentLang] ?? row.en;
+}
+
+const footerHighlights: LabeledLink[] = [
+  {
+    token: 'frigiliana_old_town',
+    label: t({ en: 'Old town & history', de: 'Altstadt & Geschichte', es: 'Casco antiguo e historia', nl: 'Oude kern & geschiedenis', sv: 'Gamla stan & historia' })
+  }
+];
+
+const keyFigures = copy.keyFigures.figures.map((figure) => ({ value: figure.value, label: t(figure.label) }));
+const keyFiguresNote = t(copy.keyFigures.note);
+const sections = copy.sections.map((section) => ({
+  eyebrow: t(section.eyebrow),
+  title: t(section.title),
+  text: t(section.text)
+}));
+const sectionBg = ['bg-surface-white', 'bg-surface', 'bg-surface-white'];
+---
+
+<LocationAuthorityLayout
+  pageFamily="experience-frigiliana-san-antonio"
+  seo={frigilianaSanAntonioSeo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    contextDestination="frigiliana"
+    currentLang={currentLang}
+    languageToken="frigiliana_old_town"
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="oldTown" destination="frigiliana" lang={currentLang} currentSpokeLabel={t(copy.hero.title)} />
+  </Navigation>
+
+  <article class="overflow-x-clip bg-surface" data-am-page="frigiliana-san-antonio" data-am-family="location" data-am-role="spoke">
+    <header class="am-sanantonio-cover">
+      <div class="am-sanantonio-cover__inner mx-auto max-w-screen-2xl px-6 md:px-12">
+        <p class="am-sanantonio-cover__kicker">{t(copy.hero.kicker)}</p>
+        <h1 class="am-sanantonio-cover__title">{t(copy.hero.title)}</h1>
+        <p class="am-sanantonio-cover__sub">{t(copy.hero.subtitle)}</p>
+        <p class="am-sanantonio-cover__lead">{t(copy.hero.paragraphs[0])}</p>
+      </div>
+    </header>
+
+    <section class="bg-surface px-6 pb-16 pt-12 md:px-12 md:pb-20" aria-label={keyFigures.map((figure) => figure.label).join(' · ')}>
+      <div class="mx-auto max-w-screen-2xl">
+        <AmaraKeyFigures figures={keyFigures} note={keyFiguresNote} />
+      </div>
+    </section>
+
+    <section class={`scroll-mt-28 ${sectionBg[0]} px-6 py-20 md:px-12 md:py-28`}>
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-4">
+            <p class="am-text-eyebrow text-primary">{sections[0].eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{sections[0].title}</h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6">
+            <p class="am-text-body leading-relaxed text-on-surface-variant">{sections[0].text}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface px-6 py-20 md:px-12 md:py-24">
+      <div class="mx-auto max-w-4xl text-center">
+        <blockquote class="am-text-display italic text-balance text-on-surface">{t(copy.pullQuote)}</blockquote>
+      </div>
+    </section>
+
+    <section class={`scroll-mt-28 ${sectionBg[1]} px-6 py-20 md:px-12 md:py-28`}>
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-4">
+            <p class="am-text-eyebrow text-primary">{sections[1].eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{sections[1].title}</h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6">
+            <p class="am-text-body leading-relaxed text-on-surface-variant">{sections[1].text}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class={`scroll-mt-28 ${sectionBg[2]} px-6 py-20 md:px-12 md:py-28`}>
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-4">
+            <p class="am-text-eyebrow text-primary">{sections[2].eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{sections[2].title}</h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6">
+            <p class="am-text-body leading-relaxed text-on-surface-variant">{sections[2].text}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <GuestGuideBridge lang={currentLang} destination="frigiliana" guideSlugs={['frigiliana-guest-sightseeing']} />
+
+    <section class="max-w-screen-2xl mx-auto px-6 pt-20 pb-24 md:px-12">
+      <EditorialClosingCta
+        title={t(copy.closing.title)}
+        lead={t(copy.closing.lead)}
+        lang={currentLang}
+        links={[
+          { token: 'frigiliana_old_town', label: t(copy.closing.oldTownCta), style: 'primary' },
+          { token: 'book', label: t(copy.closing.availabilityCta), style: 'secondary' }
+        ]}
+      />
+    </section>
+  </article>
+</LocationAuthorityLayout>
+
+<style>
+  /* Typographic cover: no dedicated photograph of San Antonio de Padua exists yet, so the
+     page opens with a brand-colour cover band instead of a panorama hero. When photography
+     arrives this is replaced by LocationPanoramaHero and the sections gain image splits. */
+  .am-sanantonio-cover {
+    background: var(--color-primary);
+    color: var(--color-surface-white);
+  }
+
+  .am-sanantonio-cover__inner {
+    padding-top: 5.5rem;
+    padding-bottom: 5.5rem;
+  }
+
+  .am-sanantonio-cover__kicker {
+    font-family: var(--font-label);
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: color-mix(in srgb, var(--color-surface-white) 82%, transparent);
+    margin: 0 0 1.4rem;
+  }
+
+  .am-sanantonio-cover__title {
+    font-family: var(--font-headline);
+    font-weight: 400;
+    font-size: clamp(2.5rem, 6.5vw, 5.5rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin: 0;
+  }
+
+  .am-sanantonio-cover__sub {
+    font-family: var(--font-headline);
+    font-style: italic;
+    font-size: clamp(1.15rem, 2.4vw, 1.75rem);
+    margin: 1.25rem 0 0;
+    max-width: 40ch;
+    color: color-mix(in srgb, var(--color-surface-white) 92%, transparent);
+  }
+
+  .am-sanantonio-cover__lead {
+    font-family: var(--font-body, inherit);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin: 2rem 0 0;
+    max-width: 60ch;
+    color: color-mix(in srgb, var(--color-surface-white) 88%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .am-sanantonio-cover__inner {
+      padding-top: 7.5rem;
+      padding-bottom: 7.5rem;
+    }
+  }
+</style>

@@ -21,6 +21,7 @@ export const frigilianaOldTownKnowledge = defineKnowledgePageManifest({
     '2026-09-11__080827__frigiliana-ceramic-panels-provenance__research-001',
     '2026-09-11__123300__frigiliana-el-ingenio-provenance__research-001',
     '2026-09-11__133000__frigiliana-casa-del-apero-provenance__research-001',
+    '2026-09-11__143000__frigiliana-san-antonio-provenance__research-001',
   ],
   coverage: [
     {
@@ -103,10 +104,17 @@ export const frigilianaOldTownKnowledge = defineKnowledgePageManifest({
     },
     {
       authoringArea: 'san-antonio',
-      purpose: 'Correctly identify the church and its architectural period without freezing opening or event information.',
-      factIds: ['frigiliana.heritage.san-antonio.baroque'],
+      purpose: 'Author San Antonio de Padua as its own spoke: the 1676 build on a former hermitage, the master builder and promoting bishop, the Latin-cross plan and Mudéjar armadura, and the official Baroque classification — without freezing opening or event information.',
+      factIds: [
+        'frigiliana.heritage.san-antonio.baroque',
+        'frigiliana.san-antonio.build.1676-on-ermita',
+        'frigiliana.san-antonio.builder.godoy-signed-beam',
+        'frigiliana.san-antonio.promoter.bishop-santo-tomas',
+        'frigiliana.san-antonio.plan.latin-cross-armadura',
+        'frigiliana.san-antonio.style.baroque-classification',
+      ],
       status: 'covered',
-      notes: 'The Baroque classification and dating are supported. Interior access, service times and the church’s role in a specific future feria remain live or separate event evidence.',
+      notes: 'Authored as its own spoke by research-001 (2026-09-11): present church built 1676 on the site of an earlier hermitage beside Calle Real; master builder Bernardo de Godoy (signed roof beam quoted); promoted under Bishop Fray Alonso de Santo Tomás (coat of arms on the façade); Latin-cross plan, three naves with semi-circular arches, Mudéjar timber armadura; official Baroque classification supersedes the older Renaissance reading. The Mudéjar timber roof is a construction feature, not a competing style. Interior access, service times and any feria role stay current checks, not fixed facts. Photography for a spoke/tile is still missing.',
     },
     {
       authoringArea: 'historical-sequence',

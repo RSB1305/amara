@@ -151,6 +151,13 @@ const casaDelAperoSegments = {
   nl: 'casa-del-apero',
   sv: 'casa-del-apero'
 };
+const sanAntonioSegments = {
+  es: 'iglesia-san-antonio',
+  en: 'san-antonio-church',
+  de: 'san-antonio-kirche',
+  nl: 'san-antonio-kerk',
+  sv: 'san-antonio-kyrkan'
+};
 const faqSegments = {
   es: 'preguntas-frecuentes',
   en: 'faq',
@@ -510,6 +517,7 @@ const definitions = [
   { key: 'frigiliana.experience.old-town.ceramic-panels', legacySlug: 'frigiliana-ceramic-panels', family: 'frigiliana-ceramic-panels', parent: 'frigiliana.experience.old-town', segment: ceramicPanelsSegments },
   { key: 'frigiliana.experience.old-town.ingenio', legacySlug: 'frigiliana-el-ingenio', family: 'frigiliana-ingenio', parent: 'frigiliana.experience.old-town', segment: ingenioSegments },
   { key: 'frigiliana.experience.old-town.casa-del-apero', legacySlug: 'frigiliana-casa-del-apero', family: 'frigiliana-casa-del-apero', parent: 'frigiliana.experience.old-town', segment: casaDelAperoSegments },
+  { key: 'frigiliana.experience.old-town.san-antonio', legacySlug: 'frigiliana-san-antonio', family: 'frigiliana-san-antonio', parent: 'frigiliana.experience.old-town', segment: sanAntonioSegments },
   {
     key: 'frigiliana.experience.weddings',
     legacySlug: 'frigiliana-weddings',

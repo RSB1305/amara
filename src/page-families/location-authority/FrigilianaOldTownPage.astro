@@ -122,7 +122,16 @@ const sightMedia: ReadonlyArray<{
       sv: 'Casa del Apero: lantbruksmagasinet som blev kulturcentrum'
     }
   },
-  {},
+  {
+    href: resolveOptionalLink('frigiliana_san_antonio', currentLang, { suppressMissing: true }) ?? undefined,
+    linkLabel: {
+      en: 'San Antonio de Padua: the 1676 parish church',
+      de: 'San Antonio de Padua: die Pfarrkirche von 1676',
+      es: 'San Antonio de Padua: la parroquia de 1676',
+      nl: 'San Antonio de Padua: de parochiekerk uit 1676',
+      sv: 'San Antonio de Padua: sockenkyrkan från 1676'
+    }
+  },
   {
     image: calleRealImage,
     alt: {

@@ -74,7 +74,7 @@ export const frigilianaIngenioSources = defineKnowledgeSources([
     id: 'archivo-historico-nobleza-manrique-lara-ingenio',
     title: 'Fondo Manrique de Lara — documentación del ingenio de Frigiliana (1672–1730)',
     publisher: 'Archivo Histórico de la Nobleza (Toledo, Hospital de Tavera) — Ministerio de Cultura',
-    sourceType: 'primary',
+    sourceType: 'secondary',
     accessedAt: '2026-09-11',
     language: 'es',
     scope:
