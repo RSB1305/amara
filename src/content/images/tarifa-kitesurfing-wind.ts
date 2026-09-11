@@ -56,6 +56,26 @@ export const tarifaKitesurfingWindImages = defineRouteImages({
       }
     },
     {
+      role: 'editorial',
+      id: 'windguru',
+      src: '/images/tarifa/windguru-tarifa-vorhersage-tabelle.webp',
+      credit: "Screenshot: windguru.cz, 11.9.2026",
+      alt: {
+        en: "The Windguru forecast table for Tarifa: wind speed, gusts, direction, temperature, cloud, rain and rating over several days, with the model tabs below",
+        de: "Die Windguru-Vorhersagetabelle für Tarifa: Windstärke, Böen, Richtung, Temperatur, Bewölkung, Regen und Wertung über mehrere Tage, darunter die Modell-Reiter",
+        es: "La tabla de previsión de Windguru para Tarifa: viento, rachas, dirección, temperatura, nubes, lluvia y valoración durante varios días, con las pestañas de modelos debajo",
+        nl: "De Windguru-verwachtingstabel voor Tarifa: windsterkte, vlagen, richting, temperatuur, bewolking, regen en beoordeling over meerdere dagen, met de modeltabs eronder",
+        sv: "Windgurus prognostabell för Tarifa: vindstyrka, byar, riktning, temperatur, moln, regn och betyg över flera dagar, med modellflikarna under"
+      },
+      caption: {
+        en: "This is what the table looks like at Windguru; the link opens it live. The rows are explained in chapter 3.",
+        de: "So sieht die Tabelle bei Windguru aus; der Link öffnet sie live. Die Zeilen erklären wir in Kapitel 3.",
+        es: "Así se ve la tabla en Windguru; el enlace la abre en directo. Las filas las explicamos en el capítulo 3.",
+        nl: "Zo ziet de tabel er bij Windguru uit; de link opent hem live. De rijen leggen we uit in hoofdstuk 3.",
+        sv: "Så ser tabellen ut hos Windguru; länken öppnar den live. Raderna förklarar vi i kapitel 3."
+      }
+    },
+    {
       role: 'og',
       src: '/images/robert-amara-host.jpg'
     }
