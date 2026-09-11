@@ -210,6 +210,53 @@ export const frigilianaHikingContent = {
       }
     ] satisfies HikingContextLink[]
   },
+  guided: {
+    eyebrow: text('Prefer to be guided', 'Lieber geführt', 'Mejor con guía', 'Liever begeleid', 'Hellre guidat'),
+    title: text(
+      'Rather walk with a guide?',
+      'Lieber mit Guide wandern?',
+      '¿Preferís caminar con guía?',
+      'Liever met een gids wandelen?',
+      'Vill ni hellre vandra med guide?'
+    ),
+    paragraphs: textList(
+      [
+        'If you would rather not plan the routes yourself, a local partner runs guided walking holidays right here in the Sierras de Tejeda, Alhama y Almijara around Frigiliana. Spanish Walking Adventures puts together bespoke trips for small groups — you choose the dates, the length of stay and whether you want it self-catered or all-inclusive with the guided walks arranged for you.',
+        'It is an independent operator, not part of AMARA, so the walks, prices and languages are theirs to confirm — enquire with them directly and tell them you are staying with us.'
+      ],
+      [
+        'Wenn ihr die Routen nicht selbst planen möchtet: Ein lokaler Partner bietet geführte Wanderreisen genau hier in der Sierra de Tejeda, Alhama y Almijara rund um Frigiliana. Spanish Walking Adventures stellt maßgeschneiderte Touren für kleine Gruppen zusammen — ihr wählt Termine, Aufenthaltsdauer und ob selbstversorgt oder all-inclusive mit organisierten geführten Wanderungen.',
+        'Es ist ein unabhängiger Anbieter, nicht Teil von AMARA; Wanderungen, Preise und Sprachen bestätigt er selbst — fragt am besten direkt an und sagt, dass ihr bei uns wohnt.'
+      ],
+      [
+        'Si preferís no planear las rutas por vuestra cuenta, un socio local ofrece vacaciones de senderismo guiado aquí mismo, en las Sierras de Tejeda, Alhama y Almijara, alrededor de Frigiliana. Spanish Walking Adventures prepara viajes a medida para grupos pequeños: elegís las fechas, la duración y si lo queréis en régimen libre o todo incluido con las caminatas guiadas organizadas.',
+        'Es un operador independiente, no forma parte de AMARA, así que las rutas, los precios y los idiomas los confirman ellos; escribidles directamente y decidles que os alojáis con nosotros.'
+      ],
+      [
+        'Als je de routes liever niet zelf plant: een lokale partner verzorgt begeleide wandelvakanties precies hier, in de Sierras de Tejeda, Alhama y Almijara rond Frigiliana. Spanish Walking Adventures stelt reizen op maat samen voor kleine groepen — je kiest de data, de duur en of je het zelfverzorgend of all-inclusive wilt met de begeleide wandelingen geregeld.',
+        'Het is een onafhankelijke aanbieder, geen onderdeel van AMARA; de wandelingen, prijzen en talen bevestigen zij zelf — neem rechtstreeks contact op en vermeld dat je bij ons verblijft.'
+      ],
+      [
+        'Om ni hellre slipper planera turerna själva: en lokal partner ordnar guidade vandringssemestrar just här, i Sierra de Tejeda, Alhama y Almijara runt Frigiliana. Spanish Walking Adventures sätter ihop skräddarsydda resor för små grupper — ni väljer datum, längd och om ni vill ha självhushåll eller allt-inkluderat med de guidade vandringarna ordnade.',
+        'Det är en fristående aktör, inte en del av AMARA; vandringarna, priserna och språken bekräftar de själva — hör av er direkt och nämn att ni bor hos oss.'
+      ]
+    ),
+    linkLabel: text(
+      'Spanish Walking Adventures',
+      'Spanish Walking Adventures',
+      'Spanish Walking Adventures',
+      'Spanish Walking Adventures',
+      'Spanish Walking Adventures'
+    ),
+    linkContext: text(
+      'Guided walking holidays in the Sierras around Frigiliana — enquire directly',
+      'Geführte Wanderreisen in den Sierras rund um Frigiliana — direkt anfragen',
+      'Vacaciones de senderismo guiado en las sierras de Frigiliana — consulta directa',
+      'Begeleide wandelvakanties in de sierras rond Frigiliana — rechtstreeks aanvragen',
+      'Guidade vandringssemestrar i bergen runt Frigiliana — fråga direkt'
+    ),
+    href: 'https://spanishwalkingadventures.com/'
+  },
   closing: {
     title: text('Steps that suit your stay', 'Stufen, die zu eurem Aufenthalt passen', 'Escaleras que encajan con vuestra estancia', 'Trappen die bij jullie verblijf passen', 'Trappor som passar er vistelse'),
     lead: text('After a day on Frigiliana’s walking routes, we also look at the steps inside your accommodation because they shape your comfort. Farah continues on one level after the shared entrance step; Lounis, Zaid and Maha each add further stairs.', 'Nach einem Tag auf Frigilianas Wanderwegen achten wir auch auf die Stufen in eurer Unterkunft, denn sie prägen euren Komfort. Farah verläuft nach der gemeinsamen Eingangsstufe auf einer Ebene; Lounis, Zaid und Maha haben jeweils zusätzliche Treppen.', 'Después de un día por las rutas de Frigiliana, también nos fijamos en las escaleras del alojamiento porque influyen en vuestro descanso. Farah continúa en un solo nivel tras el peldaño de la entrada compartida; Lounis, Zaid y Maha suman más escaleras.', 'Na een dag op de wandelroutes van Frigiliana letten we ook op de trappen in jullie accommodatie, omdat die jullie comfort bepalen. Farah loopt na de gedeelde entreetrede door op één niveau; Lounis, Zaid en Maha hebben elk extra trappen.', 'Efter en dag på Frigilianas vandringsleder tittar vi också på trapporna i boendet, eftersom de påverkar er komfort. Farah fortsätter på ett plan efter det gemensamma entrésteget; Lounis, Zaid och Maha har ytterligare trappor.'),

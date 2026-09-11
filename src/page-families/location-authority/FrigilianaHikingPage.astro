@@ -229,6 +229,30 @@ const combineIcons: Record<string, LocationGuideIconName> = {
         </div>
       </section>
 
+      <section class="am-section am-section--tint" aria-labelledby="hiking-guided-title">
+        <div class="max-w-3xl border-l-2 border-primary pl-6 sm:pl-8">
+          <div class="mb-4 flex items-center gap-3">
+            <LocationGuideIcon name="walkable" />
+            <p class="am-text-eyebrow text-primary">{copy.guided.eyebrow}</p>
+          </div>
+          <h2 id="hiking-guided-title" class="am-text-title italic text-on-surface tracking-tight">
+            {copy.guided.title}
+          </h2>
+          <div class="mt-6 space-y-4">
+            {copy.guided.paragraphs.map((paragraph) => (
+              <p class="am-text-body text-on-surface-variant leading-relaxed">{paragraph}</p>
+            ))}
+          </div>
+          <a
+            href={copy.guided.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="am-inline-link mt-6 inline-flex"
+          >{copy.guided.linkLabel}<span aria-hidden="true"> →</span></a>
+          <p class="mt-1 am-text-meta text-on-surface-variant">{copy.guided.linkContext}</p>
+        </div>
+      </section>
+
       <GuestGuideBridge
         lang={currentLang}
         destination="frigiliana"
