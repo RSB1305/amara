@@ -857,7 +857,7 @@ const wind: TarifaGuideContent = {
     windDescriptions,
     { ...article, dateModified: '2026-09-04' }
   ),
-  navLabel: l('Wind & Kitesurfing', 'Wind & Kitesurfen', 'Viento y kitesurf', 'Wind & kitesurfen', 'Vind & kitesurfing'),
+  navLabel: l('Wind & safety', 'Wind & Sicherheit', 'Viento y seguridad', 'Wind & veiligheid', 'Vind & säkerhet'),
   breadcrumbLabel: l('Wind & Kitesurfing', 'Wind & Kitesurfen', 'Viento y kitesurf', 'Wind & kitesurfen', 'Vind & kitesurfing'),
   hero: {
     eyebrow: l('Tarifa, Costa de la Luz', 'Tarifa, Costa de la Luz', 'Tarifa, Costa de la Luz', 'Tarifa, Costa de la Luz', 'Tarifa, Costa de la Luz'),

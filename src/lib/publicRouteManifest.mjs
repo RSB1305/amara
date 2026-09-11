@@ -682,7 +682,7 @@ const definitions = [
     legacySlug: 'tarifa-wind-kitesurfing',
     family: 'tarifa-kitesurf-wind',
     parent: 'tarifa.kitesurfing',
-    segment: { es: 'viento', en: 'wind', de: 'wind', nl: 'wind', sv: 'vind' }
+    segment: { es: 'viento-y-seguridad', en: 'wind-and-safety', de: 'wind-und-sicherheit', nl: 'wind-en-veiligheid', sv: 'vind-och-sakerhet' }
   },
   {
     key: 'tarifa.kitesurfing.school',
