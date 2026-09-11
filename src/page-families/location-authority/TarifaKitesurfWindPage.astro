@@ -33,12 +33,14 @@ import LocationModule from './LocationModule.astro';
  *
  * Reading order (operator direction, 11 September 2026): the page is the
  * morning of a kiter in Tarifa, in six chapters that the anchor row under
- * the hero repeats — Today (the official warning status, folded, and
- * a picture of the Windguru table with the live link), Which wind (Levante or Poniente, read before the
- * table), Reading the table (a Windguru-style example of two typical days,
- * the rows explained under the same numbers, the models, Beaufort), Thermal
- * wind (one clear day in three panels), Where to launch (which beach in
- * which wind, the zones, the tide) and In an emergency (private boats and
+ * the hero repeats — Today (the official warning status and forecast,
+ * folded; the picture of the Windguru table with the live link; and, folded
+ * directly under it, Reading the table: a Windguru-style example of two
+ * typical days, the rows explained under the same numbers, the models,
+ * Beaufort), Which wind (Levante or Poniente), Thermal
+ * wind (one clear day in three panels, then what the tidal current does to the
+ * wind a rider feels), Where to launch (which beach in
+ * which wind, the zones) and In an emergency (private boats and
  * the state rescue, kept apart). The partner block, the guest-guide bridge
  * and the closing follow unchanged. Each chapter opens with a topic eyebrow, a
  * short label as the H2 and the former sentence heading as its subtitle; the
@@ -59,6 +61,7 @@ const hero = requireRouteImage('tarifa.kitesurfing.wind', 'hero', currentLang);
 const sunsetImage = requireRouteImage('tarifa.kitesurfing.wind', 'sunset', currentLang);
 const partnerImage = requireRouteImage('tarifa.kitesurfing.wind', 'partner', currentLang);
 const windguruImage = requireRouteImage('tarifa.kitesurfing.wind', 'windguru', currentLang);
+const stickerImage = requireRouteImage('tarifa.kitesurfing.wind', 'windguru-sticker', currentLang);
 const markImage = requireRouteImage('tarifa.kitesurfing.surf-club', 'mark', currentLang);
 const content = resolveLocale(tarifaKitesurfWindContent, currentLang);
 const briefingCopy = resolveLocale(tarifaKiteBriefingCopy, currentLang);
@@ -94,19 +97,24 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       visualBreakpoint="lg"
     >
       <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
-      <AmaraImage
-        slot="visual"
-        src={hero.src}
-        alt={hero.alt}
-        profile="hero"
-        width={1080}
-        widths={[480, 640, 800, 1080]}
-        sizes="(max-width: 1023px) 100vw, 36vw"
-        class="aspect-[3/4] w-full object-cover"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-      />
+      {/* Hero-Foto mit einem kompakten Windguru-Ausschnitt als Sticker oben im Himmel (Operator-Wunsch nach einer Instagram-Story); Kiter und Gebäude bleiben frei, der Sticker führt zur vollen Tabelle im Heute-Block */}
+      <div slot="visual" class="relative" data-am-hero-sticker-frame>
+        <AmaraImage
+          src={hero.src}
+          alt={hero.alt}
+          profile="hero"
+          width={1080}
+          widths={[480, 640, 800, 1080]}
+          sizes="(max-width: 1023px) 100vw, 36vw"
+          class="aspect-[3/4] w-full object-cover"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <a href="#heute" class="absolute inset-x-[10%] top-[8%] block bg-surface p-0.5 shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60" aria-label={content.hero.stickerLabel} data-am-hero-sticker>
+          <AmaraImage src={stickerImage.src} alt={stickerImage.alt} profile="gallery" width={1040} widths={[520, 780, 1040]} sizes="(max-width: 1023px) 80vw, 30vw" class="block h-auto w-full" quality={92} avifQuality={82} />
+        </a>
+      </div>
     </LocationGuideHero>
 
     {/* ANKERLEISTE — die sechs Abschnitte des Morgens, klebt unter dem festen Kopf */}
@@ -125,7 +133,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       </div>
     </nav>
 
-    {/* 1 HEUTE — amtlicher Warnstatus (eingeklappt, Warnfarbe), Windguru live, amtliche Vorhersage aufklappbar */}
+    {/* HEUTE — amtlicher Warnstatus und Vorhersage (eingeklappt, Warnfarbe), Windguru live mit Bild, darunter „Die Tabelle lesen" aufklappbar */}
     <LocationModule id="heute" labelledby="heute-title" surface="tint" spacing="compact" data-am-wind-chapter="1" data-am-topic="live-today">
       <div class="mx-auto max-w-screen-2xl">
         <KiteChapterHead id="heute-title" label={content.today.label} title={content.today.title} subtitle={content.today.subtitle} icon="temperature" />
@@ -139,19 +147,6 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
             officialHref="https://www.aemet.es/es/eltiempo/prediccion/avisos?w=hoy&l=611104"
           />
         </div>
-
-        <figure class="m-0 mt-6 bg-inverse-surface px-6 py-8 text-inverted-on-surface md:px-8 md:py-10" data-am-windguru-live>
-          <div class="max-w-3xl">
-            <p class="am-text-eyebrow text-primary-fixed-dim">{content.today.windguru.eyebrow}</p>
-            <h3 class="am-text-subtitle mt-4 text-balance text-inverted-on-surface">{content.today.windguru.title}</h3>
-            <p class="am-text-body mt-4 leading-relaxed text-inverted-on-surface/80"><InlineEmphasis text={content.today.windguru.text} /></p>
-          </div>
-          <div class="mt-8 overflow-x-auto bg-surface p-2" role="region" aria-label={windguruImage.alt} tabindex="0">
-            <AmaraImage src={windguruImage.src} alt={windguruImage.alt} profile="gallery" width={1150} widths={[768, 1150]} sizes="(max-width: 1023px) 48rem, 72rem" class="block h-auto w-full min-w-[48rem]" quality={90} avifQuality={80} />
-          </div>
-          <figcaption class="am-text-caption mt-3 max-w-3xl normal-case tracking-normal text-inverted-on-surface/70">{windguruImage.caption} · {windguruImage.credit}</figcaption>
-          <AmaraActionLink href={content.today.windguru.linkHref} variant="secondary" inverse external class="mt-7 inline-flex">{content.today.windguru.linkLabel}</AmaraActionLink>
-        </figure>
 
         <details class="group mt-6 bg-surface px-6 py-6 outline-none md:px-8" data-am-official-detail>
             <summary class="am-accordion__trigger items-center">
@@ -198,10 +193,128 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
               />
             </div>
         </details>
+
+        <figure class="m-0 mt-6 bg-inverse-surface px-6 py-8 text-inverted-on-surface md:px-8 md:py-10" data-am-windguru-live>
+          <div class="max-w-3xl">
+            <p class="am-text-eyebrow text-primary-fixed-dim">{content.today.windguru.eyebrow}</p>
+            <h3 class="am-text-subtitle mt-4 text-balance text-inverted-on-surface">{content.today.windguru.title}</h3>
+            <p class="am-text-body mt-4 leading-relaxed text-inverted-on-surface/80"><InlineEmphasis text={content.today.windguru.text} /></p>
+          </div>
+          <div class="mt-8 overflow-x-auto bg-surface p-2" role="region" aria-label={windguruImage.alt} tabindex="0">
+            <AmaraImage src={windguruImage.src} alt={windguruImage.alt} profile="gallery" width={1150} widths={[768, 1150]} sizes="(max-width: 1023px) 48rem, 72rem" class="block h-auto w-full min-w-[48rem]" quality={90} avifQuality={80} />
+          </div>
+          <figcaption class="am-text-caption mt-3 max-w-3xl normal-case tracking-normal text-inverted-on-surface/70">{windguruImage.caption} · {windguruImage.credit}</figcaption>
+          <AmaraActionLink href={content.today.windguru.linkHref} variant="secondary" inverse external class="mt-7 inline-flex">{content.today.windguru.linkLabel}</AmaraActionLink>
+        </figure>
+
+        {/* DIE TABELLE LESEN — aufklappbar direkt unter dem Windguru-Bild: Beispieltag, Zeilen unter denselben Nummern, Modelle, Beaufort */}
+        <details id="tabelle" class="group mt-6 bg-surface px-6 py-6 outline-none md:px-8" data-am-wind-chapter="1" data-am-table-detail>
+          <summary class="am-accordion__trigger items-center">
+            <div class="pr-6">
+              <div class="flex items-center gap-2.5">
+                <LocationGuideIcon name="comparison" class="h-4 w-4" />
+                <p class="am-text-eyebrow text-primary">{content.table.label}</p>
+              </div>
+              <h3 id="tabelle-title" class="am-text-title mt-4 text-balance text-on-surface transition-colors group-hover:text-primary">{content.table.title}</h3>
+              <p class="am-text-subtitle mt-3 max-w-2xl text-balance text-on-surface-variant">{content.table.subtitle}</p>
+            </div>
+            <span class="am-accordion__indicator" aria-hidden="true">
+              <span class="group-open:hidden">+</span>
+              <span class="hidden group-open:inline">−</span>
+            </span>
+          </summary>
+          <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.table.intro} /></p>
+
+          <div class="mt-10">
+            <WindguruExampleTable copy={content.table.example} rows={content.table.rows} tone="on-white" />
+          </div>
+
+          <div class="mt-5 grid gap-5 md:grid-cols-2" data-am-reading-examples>
+            {content.table.examples.map((example) => (
+              <div class="min-w-0 border-l-2 border-on-surface bg-surface-container-low px-6 py-6" data-am-reading-example={example.id}>
+                <p class="am-text-label am-text-label--sm text-primary">{example.label}</p>
+                <p class="am-text-subtitle mt-2 text-balance text-on-surface">{example.value}</p>
+                <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={example.text} /></p>
+              </div>
+            ))}
+          </div>
+
+          <dl class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {content.table.rows.map((row) => (
+              <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-windguru-row={row.id}>
+                <dt class="am-text-label am-text-label--sm flex items-center text-on-surface"><span class={calloutClass} aria-hidden="true">{row.number}</span>{row.title}</dt>
+                <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={row.text} /></dd>
+              </div>
+            ))}
+            <div class="min-w-0 border-l-2 border-border-subtle bg-surface-container-low px-6 py-6" data-windguru-row="wave-note">
+              <dt class="am-text-label am-text-label--sm text-muted">{content.table.waveNote.title}</dt>
+              <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.table.waveNote.text} /></dd>
+            </div>
+          </dl>
+
+          <details class="group mt-12 pt-2 outline-none" data-am-windguru-models>
+            <summary class="am-accordion__trigger items-center">
+              <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.table.modelsTitle}</h3>
+              <span class="am-accordion__indicator" aria-hidden="true">
+                <span class="group-open:hidden">+</span>
+                <span class="hidden group-open:inline">−</span>
+              </span>
+            </summary>
+            <div class="mt-8 space-y-6">
+              <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.table.modelsIntro}</p>
+              <dl class="space-y-4">
+                {content.table.models.map((model) => (
+                  <div class="border-l-2 border-primary/35 pl-5" data-windguru-model={model.id}>
+                    <dt class="am-text-label text-on-surface">{model.name}</dt>
+                    <dd class="am-text-body mt-1 leading-relaxed text-on-surface-variant"><InlineEmphasis text={model.text} /></dd>
+                  </div>
+                ))}
+              </dl>
+              <p class="am-text-body max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.table.modelsWhy} /></p>
+            </div>
+          </details>
+
+          <details class="group mt-10 pt-2 outline-none" data-am-beaufort>
+            <summary class="am-accordion__trigger items-center">
+              <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.table.beaufort.title}</h3>
+              <span class="am-accordion__indicator" aria-hidden="true">
+                <span class="group-open:hidden">+</span>
+                <span class="hidden group-open:inline">−</span>
+              </span>
+            </summary>
+            <p class="am-text-body mt-5 max-w-3xl leading-relaxed text-on-surface-variant">{content.table.beaufort.intro}</p>
+            <div class="mt-6 overflow-x-auto bg-surface-container-low" role="region" aria-label={content.table.beaufort.title} tabindex="0">
+              <table class="w-full min-w-[40rem] border-collapse text-left">
+                <caption class="sr-only">{content.table.beaufort.title}</caption>
+                <thead>
+                  <tr class="border-b border-border-subtle">
+                    <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.table.beaufort.columnKnots}</th>
+                    <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.table.beaufort.columnForce}</th>
+                    <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.table.beaufort.columnName}</th>
+                    <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.table.beaufort.columnSea}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {content.table.beaufort.rows.map((row) => (
+                    <tr class="border-b border-border-subtle last:border-b-0" data-beaufort={row.id}>
+                      <th scope="row" class="whitespace-nowrap px-4 py-3 am-text-body tabular-nums text-on-surface">{row.knots} kn</th>
+                      <td class="whitespace-nowrap px-4 py-3 am-text-body tabular-nums text-on-surface-variant">{row.force}</td>
+                      <td class="whitespace-nowrap px-4 py-3 am-text-body text-on-surface-variant">{row.name}</td>
+                      <td class="px-4 py-3 am-text-body text-on-surface-variant">{row.sea}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p class="am-text-caption mt-4 max-w-3xl normal-case tracking-normal text-muted">{content.table.beaufort.note}</p>
+            <p class="am-text-body mt-4 max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.table.beaufort.warningNote} /></p>
+          </details>
+        </details>
+
       </div>
     </LocationModule>
 
-    {/* 2 WELCHER WIND — Levante oder Poniente, am Morgen erkennen, Brücke zur Tabelle */}
+    {/* WELCHER WIND — Levante oder Poniente, am Morgen erkennen, Brücke zur Tabelle */}
     <LocationModule id="welcher-wind" labelledby="welcher-wind-title" spacing="compact" data-am-wind-chapter="1" data-am-topic="local-wind">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
@@ -234,100 +347,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       </div>
     </LocationModule>
 
-    {/* 3 DIE TABELLE LESEN — Beispieltag im Windguru-Stil, Zeilen unter denselben Nummern, Modelle, Beaufort */}
-    <LocationModule id="tabelle" labelledby="tabelle-title" surface="tint" spacing="compact" data-am-wind-chapter="1" data-am-topic="windguru">
-      <div class="mx-auto max-w-screen-2xl">
-        <KiteChapterHead id="tabelle-title" label={content.table.label} title={content.table.title} subtitle={content.table.subtitle} icon="comparison" />
-        <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.table.intro} /></p>
-
-        <div class="mt-10">
-          <WindguruExampleTable copy={content.table.example} rows={content.table.rows} />
-        </div>
-
-        <div class="mt-5 grid gap-5 md:grid-cols-2" data-am-reading-examples>
-          {content.table.examples.map((example) => (
-            <div class="min-w-0 border-l-2 border-on-surface bg-surface px-6 py-6" data-am-reading-example={example.id}>
-              <p class="am-text-label am-text-label--sm text-primary">{example.label}</p>
-              <p class="am-text-subtitle mt-2 text-balance text-on-surface">{example.value}</p>
-              <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={example.text} /></p>
-            </div>
-          ))}
-        </div>
-
-        <dl class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {content.table.rows.map((row) => (
-            <div class="min-w-0 border-l-2 border-primary/35 bg-surface px-6 py-6" data-windguru-row={row.id}>
-              <dt class="am-text-label am-text-label--sm flex items-center text-on-surface"><span class={calloutClass} aria-hidden="true">{row.number}</span>{row.title}</dt>
-              <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={row.text} /></dd>
-            </div>
-          ))}
-          <div class="min-w-0 border-l-2 border-border-subtle bg-surface px-6 py-6" data-windguru-row="wave-note">
-            <dt class="am-text-label am-text-label--sm text-muted">{content.table.waveNote.title}</dt>
-            <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.table.waveNote.text} /></dd>
-          </div>
-        </dl>
-
-        <details class="group mt-12 pt-2 outline-none" data-am-windguru-models>
-          <summary class="am-accordion__trigger items-center">
-            <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.table.modelsTitle}</h3>
-            <span class="am-accordion__indicator" aria-hidden="true">
-              <span class="group-open:hidden">+</span>
-              <span class="hidden group-open:inline">−</span>
-            </span>
-          </summary>
-          <div class="mt-8 space-y-6">
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.table.modelsIntro}</p>
-            <dl class="space-y-4">
-              {content.table.models.map((model) => (
-                <div class="border-l-2 border-primary/35 pl-5" data-windguru-model={model.id}>
-                  <dt class="am-text-label text-on-surface">{model.name}</dt>
-                  <dd class="am-text-body mt-1 leading-relaxed text-on-surface-variant"><InlineEmphasis text={model.text} /></dd>
-                </div>
-              ))}
-            </dl>
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.table.modelsWhy} /></p>
-          </div>
-        </details>
-
-        <details class="group mt-10 pt-2 outline-none" data-am-beaufort>
-          <summary class="am-accordion__trigger items-center">
-            <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.table.beaufort.title}</h3>
-            <span class="am-accordion__indicator" aria-hidden="true">
-              <span class="group-open:hidden">+</span>
-              <span class="hidden group-open:inline">−</span>
-            </span>
-          </summary>
-          <p class="am-text-body mt-5 max-w-3xl leading-relaxed text-on-surface-variant">{content.table.beaufort.intro}</p>
-          <div class="mt-6 overflow-x-auto bg-surface" role="region" aria-label={content.table.beaufort.title} tabindex="0">
-            <table class="w-full min-w-[40rem] border-collapse text-left">
-              <caption class="sr-only">{content.table.beaufort.title}</caption>
-              <thead>
-                <tr class="border-b border-border-subtle">
-                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.table.beaufort.columnKnots}</th>
-                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.table.beaufort.columnForce}</th>
-                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.table.beaufort.columnName}</th>
-                  <th scope="col" class="px-4 py-3 am-text-label am-text-label--sm text-on-surface-variant">{content.table.beaufort.columnSea}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {content.table.beaufort.rows.map((row) => (
-                  <tr class="border-b border-border-subtle last:border-b-0" data-beaufort={row.id}>
-                    <th scope="row" class="whitespace-nowrap px-4 py-3 am-text-body tabular-nums text-on-surface">{row.knots} kn</th>
-                    <td class="whitespace-nowrap px-4 py-3 am-text-body tabular-nums text-on-surface-variant">{row.force}</td>
-                    <td class="whitespace-nowrap px-4 py-3 am-text-body text-on-surface-variant">{row.name}</td>
-                    <td class="px-4 py-3 am-text-body text-on-surface-variant">{row.sea}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          <p class="am-text-caption mt-4 max-w-3xl normal-case tracking-normal text-muted">{content.table.beaufort.note}</p>
-          <p class="am-text-body mt-4 max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.table.beaufort.warningNote} /></p>
-        </details>
-      </div>
-    </LocationModule>
-
-    {/* 4 THERMIK — ein klarer Tag in drei Tafeln, dann Poniente und Levante */}
+    {/* THERMIK — ein klarer Tag in drei Tafeln, dann Poniente und Levante */}
     <LocationModule id="thermik" labelledby="thermik-title" spacing="compact" data-am-wind-chapter="1" data-am-topic="thermal-wind">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
@@ -352,6 +372,22 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
           <p class="am-text-label am-text-label--sm text-primary">{content.thermal.bridge.label}</p>
           <p class="am-text-body mt-3 leading-relaxed text-on-surface"><InlineEmphasis text={content.thermal.bridge.text} /></p>
         </div>
+
+        <div class="mt-16 grid gap-6 lg:grid-cols-12 lg:gap-20" data-am-thermal-tides>
+          <h3 class="am-text-subtitle max-w-md text-balance text-on-surface lg:col-span-5">{content.thermal.tides.title}</h3>
+          <div class="lg:col-span-7">
+            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.thermal.tides.intro} /></p>
+            <div class="mt-6 grid gap-5 md:grid-cols-2">
+              {content.thermal.tides.cards.map((card) => (
+                <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-am-tide-card={card.id}>
+                  <h4 class="am-text-label am-text-label--sm text-on-surface">{card.title}</h4>
+                  <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={card.text} /></p>
+                </div>
+              ))}
+            </div>
+            <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.thermal.tides.note} /></p>
+          </div>
+        </div>
       </div>
     </LocationModule>
 
@@ -368,7 +404,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       </div>
     </section>
 
-    {/* 5 WO RAUS — Strand je Wind, Zonen und Bojen, Lagune, Tide */}
+    {/* WO RAUS — Strand je Wind, Zonen und Bojen, Lagune, Tide */}
     <LocationModule id="wo-raus" labelledby="wo-raus-title" surface="tint" spacing="compact" data-am-wind-chapter="1" data-am-topic="official-rules">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
@@ -399,18 +435,10 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
             ))}
           </div>
         </div>
-
-        <div class="mt-16 grid gap-6 lg:grid-cols-12 lg:gap-20" data-am-tides>
-          <h3 class="am-text-subtitle max-w-md text-balance text-on-surface lg:col-span-5">{content.beach.tides.title}</h3>
-          <div class="space-y-5 lg:col-span-7">
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.beach.tides.text} /></p>
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.beach.tides.note} /></p>
-          </div>
-        </div>
       </div>
     </LocationModule>
 
-    {/* 6 IM ERNSTFALL — private Rescue-Boote und staatliche Rettung, getrennt */}
+    {/* IM ERNSTFALL — private Rescue-Boote und staatliche Rettung, getrennt */}
     <LocationModule id="ernstfall" labelledby="ernstfall-title" spacing="compact" data-am-wind-chapter="1" data-am-topic="rescue">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
@@ -586,6 +614,15 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
   window.addEventListener('resize', schedulePlace);
   window.addEventListener('scroll', schedulePlace, { passive: true });
   header?.addEventListener('transitionend', placeToc);
+
+  // "Reading the table" is a folded block: any link to it opens it first.
+  const tableDetail = document.querySelector<HTMLDetailsElement>('details[data-am-table-detail]');
+  const openTable = () => { if (tableDetail) tableDetail.open = true; };
+  if (tableDetail) {
+    if (location.hash === '#' + tableDetail.id) openTable();
+    window.addEventListener('hashchange', () => { if (location.hash === '#' + tableDetail.id) openTable(); });
+    document.querySelectorAll<HTMLAnchorElement>('a[href="#' + tableDetail.id + '"]').forEach((link) => link.addEventListener('click', openTable));
+  }
 
   const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-am-wind-toc-link]'));
   if (links.length > 0 && 'IntersectionObserver' in window) {

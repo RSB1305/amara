@@ -39,13 +39,14 @@ export const tarifaKitesurfingWindImages = defineRouteImages({
     {
       role: 'split',
       id: 'partner',
-      src: '/images/tarifa/mark-robert-tarifa-surf-club.webp',
+      src: '/images/tarifa/mark-robert-tarifa-surf-club-beach.webp',
+      focalPoint: '50% 35%',
       alt: {
-        en: "Mark from Tarifa Surf Club and Robert from AMARA in Tarifa",
-        de: "Mark vom Tarifa Surf Club und Robert von AMARA in Tarifa",
-        es: "Mark de Tarifa Surf Club y Robert de AMARA en Tarifa",
-        nl: "Mark van Tarifa Surf Club en Robert van AMARA in Tarifa",
-        sv: "Mark från Tarifa Surf Club och Robert från AMARA i Tarifa"
+        en: "Mark from Tarifa Surf Club and Robert from AMARA sitting on a wall above Los Lances beach",
+        de: "Mark vom Tarifa Surf Club und Robert von AMARA auf einer Mauer über dem Strand von Los Lances",
+        es: "Mark, de Tarifa Surf Club, y Robert, de AMARA, sentados en un muro sobre la playa de Los Lances",
+        nl: "Mark van Tarifa Surf Club en Robert van AMARA op een muurtje boven het strand van Los Lances",
+        sv: "Mark från Tarifa Surf Club och Robert från AMARA på en mur ovanför stranden Los Lances"
       },
       caption: {
         en: "Mark and Robert: direct coordination in Tarifa",
@@ -68,11 +69,24 @@ export const tarifaKitesurfingWindImages = defineRouteImages({
         sv: "Windgurus prognostabell för Tarifa: vindstyrka, byar, riktning, temperatur, moln, regn och betyg över flera dagar, med modellflikarna under"
       },
       caption: {
-        en: "This is what the table looks like at Windguru; the link opens it live. The rows are explained further down.",
-        de: "So sieht die Tabelle bei Windguru aus; der Link öffnet sie live. Die Zeilen erklären wir weiter unten.",
-        es: "Así se ve la tabla en Windguru; el enlace la abre en directo. Las filas las explicamos más abajo.",
-        nl: "Zo ziet de tabel er bij Windguru uit; de link opent hem live. De rijen leggen we verderop uit.",
-        sv: "Så ser tabellen ut hos Windguru; länken öppnar den live. Raderna förklarar vi längre ner."
+        en: "This is what the table looks like at Windguru; the link opens it live. The rows are explained directly below.",
+        de: "So sieht die Tabelle bei Windguru aus; der Link öffnet sie live. Die Zeilen erklären wir direkt darunter.",
+        es: "Así se ve la tabla en Windguru; el enlace la abre en directo. Las filas las explicamos justo debajo.",
+        nl: "Zo ziet de tabel er bij Windguru uit; de link opent hem live. De rijen leggen we direct hieronder uit.",
+        sv: "Så ser tabellen ut hos Windguru; länken öppnar den live. Raderna förklarar vi direkt nedanför."
+      }
+    },
+    {
+      role: 'editorial',
+      id: 'windguru-sticker',
+      src: '/images/tarifa/windguru-tarifa-hero-sticker.webp',
+      credit: "Screenshot: windguru.cz, 11.9.2026",
+      alt: {
+        en: "Cut-out of the Windguru table for Tarifa: two days of wind speed, gusts, direction and temperature",
+        de: "Ausschnitt der Windguru-Tabelle für Tarifa: zwei Tage Windstärke, Böen, Richtung und Temperatur",
+        es: "Recorte de la tabla de Windguru para Tarifa: dos días de viento, rachas, dirección y temperatura",
+        nl: "Uitsnede van de Windguru-tabel voor Tarifa: twee dagen windsterkte, vlagen, richting en temperatuur",
+        sv: "Utsnitt ur Windguru-tabellen för Tarifa: två dagar vindstyrka, byar, riktning och temperatur"
       }
     },
     {
