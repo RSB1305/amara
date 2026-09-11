@@ -8,6 +8,8 @@
  * this component owns only the drawings and their in-drawing labels.
  * Theme-aware via design tokens.
  */
+import InlineEmphasis from '../text/InlineEmphasis.astro';
+
 interface Panel {
   id: 'morning' | 'afternoon' | 'evening';
   label: string;
@@ -60,7 +62,7 @@ const { panels } = Astro.props;
       <figcaption class="px-6 pt-5">
         <p class="am-text-eyebrow text-primary">{panel.label}</p>
         <h3 class="am-text-subtitle mt-2 text-balance text-on-surface">{panel.title}</h3>
-        <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{panel.text}</p>
+        <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={panel.text} /></p>
       </figcaption>
     </figure>
   ))}

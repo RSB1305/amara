@@ -144,7 +144,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
           <div class="max-w-3xl">
             <p class="am-text-eyebrow text-primary-fixed-dim">{content.today.windguru.eyebrow}</p>
             <h3 class="am-text-subtitle mt-4 text-balance text-inverted-on-surface">{content.today.windguru.title}</h3>
-            <p class="am-text-body mt-4 leading-relaxed text-inverted-on-surface/80">{content.today.windguru.text}</p>
+            <p class="am-text-body mt-4 leading-relaxed text-inverted-on-surface/80"><InlineEmphasis text={content.today.windguru.text} /></p>
           </div>
           <div class="mt-8 overflow-x-auto bg-surface p-2" role="region" aria-label={windguruImage.alt} tabindex="0">
             <AmaraImage src={windguruImage.src} alt={windguruImage.alt} profile="gallery" width={1150} widths={[768, 1150]} sizes="(max-width: 1023px) 48rem, 72rem" class="block h-auto w-full min-w-[48rem]" quality={90} avifQuality={80} />
@@ -161,7 +161,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
                 <span class="hidden group-open:inline">−</span>
               </span>
             </summary>
-            <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{content.today.official.text}</p>
+            <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.today.official.text} /></p>
             <div class="mt-6" data-am-official-weather>
               <AemetForecastPanel
                 endpoint="/api/weather/tarifa"
@@ -226,7 +226,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
 
         <div class="mt-12 max-w-3xl border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-am-bridge="table">
           <p class="am-text-label am-text-label--sm text-primary">{content.wind.bridge.label}</p>
-          <p class="am-text-body mt-3 leading-relaxed text-on-surface">{content.wind.bridge.text}</p>
+          <p class="am-text-body mt-3 leading-relaxed text-on-surface"><InlineEmphasis text={content.wind.bridge.text} /></p>
           <p class="mt-4 flex flex-wrap gap-x-6 gap-y-2">
             {content.wind.bridge.links.map((link) => <a class="am-link am-text-label am-text-label--sm" href={`#${link.anchor}`}>{link.label} ↓</a>)}
           </p>
@@ -238,7 +238,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
     <LocationModule id="tabelle" labelledby="tabelle-title" surface="tint" spacing="compact" data-am-wind-chapter="1" data-am-topic="windguru">
       <div class="mx-auto max-w-screen-2xl">
         <KiteChapterHead id="tabelle-title" label={content.table.label} title={content.table.title} subtitle={content.table.subtitle} icon="comparison" />
-        <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant">{content.table.intro}</p>
+        <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.table.intro} /></p>
 
         <div class="mt-10">
           <WindguruExampleTable copy={content.table.example} rows={content.table.rows} />
@@ -249,7 +249,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
             <div class="min-w-0 border-l-2 border-on-surface bg-surface px-6 py-6" data-am-reading-example={example.id}>
               <p class="am-text-label am-text-label--sm text-primary">{example.label}</p>
               <p class="am-text-subtitle mt-2 text-balance text-on-surface">{example.value}</p>
-              <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{example.text}</p>
+              <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={example.text} /></p>
             </div>
           ))}
         </div>
@@ -263,7 +263,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
           ))}
           <div class="min-w-0 border-l-2 border-border-subtle bg-surface px-6 py-6" data-windguru-row="wave-note">
             <dt class="am-text-label am-text-label--sm text-muted">{content.table.waveNote.title}</dt>
-            <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{content.table.waveNote.text}</dd>
+            <dd class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.table.waveNote.text} /></dd>
           </div>
         </dl>
 
@@ -281,11 +281,11 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
               {content.table.models.map((model) => (
                 <div class="border-l-2 border-primary/35 pl-5" data-windguru-model={model.id}>
                   <dt class="am-text-label text-on-surface">{model.name}</dt>
-                  <dd class="am-text-body mt-1 leading-relaxed text-on-surface-variant">{model.text}</dd>
+                  <dd class="am-text-body mt-1 leading-relaxed text-on-surface-variant"><InlineEmphasis text={model.text} /></dd>
                 </div>
               ))}
             </dl>
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{content.table.modelsWhy}</p>
+            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.table.modelsWhy} /></p>
           </div>
         </details>
 
@@ -322,7 +322,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
             </table>
           </div>
           <p class="am-text-caption mt-4 max-w-3xl normal-case tracking-normal text-muted">{content.table.beaufort.note}</p>
-          <p class="am-text-body mt-4 max-w-3xl leading-relaxed text-on-surface">{content.table.beaufort.warningNote}</p>
+          <p class="am-text-body mt-4 max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.table.beaufort.warningNote} /></p>
         </details>
       </div>
     </LocationModule>
@@ -332,7 +332,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
           <KiteChapterHead id="thermik-title" label={content.thermal.label} title={content.thermal.title} subtitle={content.thermal.subtitle} icon="sunshine" class="lg:col-span-5" />
-          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:self-end">{content.thermal.intro}</p>
+          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:self-end"><InlineEmphasis text={content.thermal.intro} /></p>
         </div>
 
         <div class="mt-12">
@@ -343,14 +343,14 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
           {content.thermal.consequences.map((item) => (
             <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-am-thermal-consequence={item.id}>
               <h3 class="am-text-label am-text-label--sm text-on-surface">{item.title}</h3>
-              <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{item.text}</p>
+              <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={item.text} /></p>
             </div>
           ))}
         </div>
 
         <div class="mt-10 max-w-3xl border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-am-bridge="thermal">
           <p class="am-text-label am-text-label--sm text-primary">{content.thermal.bridge.label}</p>
-          <p class="am-text-body mt-3 leading-relaxed text-on-surface">{content.thermal.bridge.text}</p>
+          <p class="am-text-body mt-3 leading-relaxed text-on-surface"><InlineEmphasis text={content.thermal.bridge.text} /></p>
         </div>
       </div>
     </LocationModule>
@@ -373,7 +373,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
           <KiteChapterHead id="wo-raus-title" label={content.beach.label} title={content.beach.title} subtitle={content.beach.subtitle} icon="coast" class="lg:col-span-5" />
-          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:self-end">{content.beach.intro}</p>
+          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:self-end"><InlineEmphasis text={content.beach.intro} /></p>
         </div>
 
         <div class="mt-16" data-am-which-beach>
@@ -388,13 +388,13 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
 
         <div class="mt-16" data-am-zones>
           <h3 class="am-text-subtitle max-w-xl text-balance text-on-surface">{content.beach.zonesTitle}</h3>
-          <p class="am-text-body mt-4 max-w-3xl leading-relaxed text-on-surface-variant">{content.beach.zonesText}</p>
+          <p class="am-text-body mt-4 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.beach.zonesText} /></p>
           <p class="am-text-subtitle mt-6 max-w-3xl border-l-2 border-on-surface bg-surface px-6 py-5 leading-relaxed text-on-surface" data-am-priority-rule>{content.beach.priority}</p>
           <div class="mt-6 grid gap-5 md:grid-cols-2">
             {content.beach.beaches.map((beach) => (
               <section class:list={['min-w-0 bg-surface px-6 py-7', { 'border-l-2 border-on-surface': beach.id === 'lagoon' }]} aria-labelledby={`beach-${beach.id}`} data-am-beach={beach.id}>
                 <h4 id={`beach-${beach.id}`} class="am-text-subtitle text-on-surface">{beach.title}</h4>
-                <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{beach.text}</p>
+                <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={beach.text} /></p>
               </section>
             ))}
           </div>
@@ -403,8 +403,8 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
         <div class="mt-16 grid gap-6 lg:grid-cols-12 lg:gap-20" data-am-tides>
           <h3 class="am-text-subtitle max-w-md text-balance text-on-surface lg:col-span-5">{content.beach.tides.title}</h3>
           <div class="space-y-5 lg:col-span-7">
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant">{content.beach.tides.text}</p>
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface">{content.beach.tides.note}</p>
+            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.beach.tides.text} /></p>
+            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.beach.tides.note} /></p>
           </div>
         </div>
       </div>
@@ -415,7 +415,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
           <KiteChapterHead id="ernstfall-title" label={content.emergency.label} title={content.emergency.title} subtitle={content.emergency.subtitle} icon="boat" class="lg:col-span-5" />
-          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:self-end">{content.emergency.intro}</p>
+          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:self-end"><InlineEmphasis text={content.emergency.intro} /></p>
         </div>
 
         <section class="mt-16" aria-labelledby="private-rescue-title" data-am-rescue="private">
@@ -424,13 +424,13 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
             {content.emergency.providers.map((provider) => (
               <section class="min-w-0 bg-surface-container-low px-6 py-7" aria-labelledby={`rescue-${provider.id}`}>
                 <h4 id={`rescue-${provider.id}`} class="am-text-label text-on-surface">{provider.name}</h4>
-                <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{provider.text}</p>
+                <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={provider.text} /></p>
                 <AmaraActionLink href={provider.href} variant="editorial" external class="mt-6 inline-flex">{provider.label}</AmaraActionLink>
               </section>
             ))}
           </div>
           <KiteVoice id={content.emergency.markRescue.id} name={content.wind.mark.name} role={content.wind.mark.role} lead={content.emergency.markRescue.lead} paragraphs={content.emergency.markRescue.paragraphs} imageSrc={markImage.src} imageAlt={markImage.alt} focalPoint="50% 25%" tone="on-white" class="mt-5" />
-          <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant">{content.emergency.context}</p>
+          <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.emergency.context} /></p>
           <p class="am-text-subtitle mt-5 max-w-3xl border-l-2 border-on-surface bg-surface-container-low px-6 py-5 leading-relaxed text-on-surface" data-am-plan-b>{content.emergency.planB}</p>
         </section>
 
@@ -439,7 +439,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
             <div class="lg:col-span-5">
               <p class="am-text-eyebrow text-primary-fixed-dim">{content.emergency.stateEyebrow}</p>
               <h3 id="maritime-emergency-title" class="am-text-title mt-5 text-balance text-inverted-on-surface">{content.emergency.stateTitle}</h3>
-              <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/80">{content.emergency.stateText}</p>
+              <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/80"><InlineEmphasis text={content.emergency.stateText} /></p>
             </div>
             <dl class="grid gap-6 self-center lg:col-span-7">
               {content.emergency.numbers.map((item) => (
@@ -465,7 +465,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
               {content.partner.benefits.map((benefit) => (
                 <section class="border-l-2 border-primary/35 pl-5" aria-labelledby={`partner-${benefit.id}`}>
                   <h3 id={`partner-${benefit.id}`} class="am-text-subtitle text-on-surface">{benefit.title}</h3>
-                  <p class="am-text-body mt-2 leading-relaxed text-on-surface-variant">{benefit.text}</p>
+                  <p class="am-text-body mt-2 leading-relaxed text-on-surface-variant"><InlineEmphasis text={benefit.text} /></p>
                 </section>
               ))}
             </div>
@@ -511,7 +511,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
             <p class="am-text-eyebrow text-primary">{content.closing.eyebrow}</p>
           </div>
           <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.closing.title}</h2>
-          <p class="am-text-body mx-auto mt-7 max-w-3xl leading-relaxed text-on-surface-variant">{content.closing.text}</p>
+          <p class="am-text-body mx-auto mt-7 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.closing.text} /></p>
           <div class="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a href={requiredLink('tarifa')} class="am-btn am-btn--secondary w-full justify-center sm:w-auto">{content.closing.stayLabel}</a>
             <a href={requiredLink('book')} class="am-btn am-btn--primary w-full justify-center sm:w-auto">{content.closing.availabilityLabel}</a>
