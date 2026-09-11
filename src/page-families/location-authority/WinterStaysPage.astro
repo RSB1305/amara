@@ -111,6 +111,13 @@ const sunCompareNote: Record<AmaraLanguage, (city: string, place: string, cityHo
 };
 const comparisonCity = comparisonCityByLang[currentLang];
 const decemberSun = locationClimateProfiles[destination][11].sunHours;
+const comparePrefix: Record<AmaraLanguage, string> = {
+  de: 'Vergleich mit',
+  en: 'Compare with',
+  es: 'Comparar con',
+  nl: 'Vergelijk met',
+  sv: 'Jämför med'
+};
 const sunChart = {
   ...sunHoursCopy[currentLang],
   months: locationClimateProfiles[destination].map((month, index) => ({
@@ -123,6 +130,13 @@ const sunChart = {
         formatDecimal(decemberSun, currentLang),
         formatDecimal(comparisonCitySunHours[comparisonCity.key][11], currentLang)
       )
+    : undefined,
+  comparison: comparisonCity
+    ? {
+        label: comparisonCity.name,
+        sunHours: [...comparisonCitySunHours[comparisonCity.key]],
+        toggleLabel: `${comparePrefix[currentLang]} ${comparisonCity.name}`
+      }
     : undefined
 };
 
