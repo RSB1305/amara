@@ -32,16 +32,17 @@ import LocationModule from './LocationModule.astro';
  * Wind, forecast, weather and safety page of the Tarifa kitesurf cluster.
  *
  * Reading order (operator direction, 11 September 2026): the page is the
- * morning of a kiter in Tarifa, in six numbered chapters that the anchor row
- * under the hero repeats — 1 Today (the official warning status, folded, and
- * a picture of the Windguru table with the live link), 2 Which wind (Levante or Poniente, read before the
- * table), 3 Reading the table (a Windguru-style example of two typical days,
- * the rows explained under the same numbers, the models, Beaufort), 4 Thermal
- * wind (one clear day in three panels), 5 Where to launch (which beach in
- * which wind, the zones, the tide) and 6 In an emergency (private boats and
+ * morning of a kiter in Tarifa, in six chapters that the anchor row under
+ * the hero repeats — Today (the official warning status, folded, and
+ * a picture of the Windguru table with the live link), Which wind (Levante or Poniente, read before the
+ * table), Reading the table (a Windguru-style example of two typical days,
+ * the rows explained under the same numbers, the models, Beaufort), Thermal
+ * wind (one clear day in three panels), Where to launch (which beach in
+ * which wind, the zones, the tide) and In an emergency (private boats and
  * the state rescue, kept apart). The partner block, the guest-guide bridge
- * and the closing follow unchanged. Each chapter opens with a short label as
- * the H2 and the former sentence heading as its subtitle. The two named voices
+ * and the closing follow unchanged. Each chapter opens with a topic eyebrow, a
+ * short label as the H2 and the former sentence heading as its subtitle; the
+ * chapters carry no numbers (operator decision: peer tone, no textbook). The two named voices
  * speak where their topic is, not in one block at the end.
  *
  * The four information classes stay visually separate so none can read as a
@@ -108,15 +109,14 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       />
     </LocationGuideHero>
 
-    {/* ANKERLEISTE — die sechs Kapitel des Morgens, klebt unter dem festen Kopf */}
+    {/* ANKERLEISTE — die sechs Abschnitte des Morgens, klebt unter dem festen Kopf */}
     <nav class="am-wind-toc sticky z-20 bg-surface px-6 md:px-12" aria-label={content.toc.label} data-am-wind-toc>
       <div class="mx-auto flex max-w-screen-2xl items-center gap-6 overflow-x-auto overscroll-x-contain" data-am-wind-toc-scroller>
         <span class="am-text-nav-context shrink-0 py-4 text-muted">{content.toc.label}</span>
         <ul class="m-0 flex shrink-0 list-none items-center gap-6 p-0">
           {content.toc.items.map((item) => (
             <li class="shrink-0">
-              <a href={`#${item.id}`} class="am-text-nav-context inline-flex items-center gap-1.5 border-b-2 border-transparent py-4 text-on-surface transition-colors hover:border-on-surface/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40" data-am-wind-toc-link={item.id}>
-                <span class="text-primary">{item.number}</span>
+              <a href={`#${item.id}`} class="am-text-nav-context inline-flex items-center border-b-2 border-transparent py-4 text-on-surface transition-colors hover:border-on-surface/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40" data-am-wind-toc-link={item.id}>
                 <span>{item.label}</span>
               </a>
             </li>
