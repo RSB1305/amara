@@ -23,18 +23,18 @@ const hero = {
   eyebrow: l('Parking & access · Nerja', 'Parken & Erreichbarkeit · Nerja', 'Aparcamiento y acceso · Nerja', 'Parkeren & toegankelijkheid · Nerja', 'Parkering & tillgänglighet · Nerja'),
   title: l('Parking in Nerja', 'Parken in Nerja', 'Aparcar en Nerja', 'Parkeren in Nerja', 'Parkering i Nerja'),
   standfirst: l(
-    'For the centre there are the Balcón de Europa and Parque Verano Azul car parks, for Burriana an area of its own in the east. AMARA Playa has no parking space of its own: you unload at the door and then park near Torrecilla.',
-    'Fürs Zentrum gibt es die Parkhäuser Balcón de Europa und Parque Verano Azul, für Burriana einen eigenen Bereich im Osten. AMARA Playa hat keinen eigenen Stellplatz: Ihr ladet vor der Tür aus und parkt danach in der Nähe von Torrecilla.',
-    'Para el centro están los parkings Balcón de Europa y Parque Verano Azul, para Burriana una zona propia en el este. AMARA Playa no tiene plaza propia: descargáis en la puerta y aparcáis después cerca de Torrecilla.',
-    'Voor het centrum zijn er de parkeergarages Balcón de Europa en Parque Verano Azul, voor Burriana een eigen zone in het oosten. AMARA Playa heeft geen eigen parkeerplaats: je laadt voor de deur uit en parkeert daarna in de buurt van Torrecilla.',
-    'För centrum finns parkeringshusen Balcón de Europa och Parque Verano Azul, för Burriana ett eget område i öster. AMARA Playa har ingen egen parkeringsplats: ni lastar av vid dörren och parkerar sedan nära Torrecilla.'
+    'For the centre there are the Balcón de Europa and Parque Verano Azul car parks, for Burriana an area of its own in the east. AMARA Playa has no parking space of its own — and does not need one: you unload at the door and then park free in the neighbourhood.',
+    'Fürs Zentrum gibt es die Parkhäuser Balcón de Europa und Parque Verano Azul, für Burriana einen eigenen Bereich im Osten. AMARA Playa hat keinen eigenen Stellplatz — braucht aber auch keinen: Ihr ladet vor der Tür aus und stellt das Auto danach kostenfrei in der Nachbarschaft ab.',
+    'Para el centro están los parkings Balcón de Europa y Parque Verano Azul, para Burriana una zona propia en el este. AMARA Playa no tiene plaza propia, ni le hace falta: descargáis en la puerta y aparcáis después gratis en el barrio.',
+    'Voor het centrum zijn er de parkeergarages Balcón de Europa en Parque Verano Azul, voor Burriana een eigen zone in het oosten. AMARA Playa heeft geen eigen parkeerplaats — en heeft er ook geen nodig: je laadt voor de deur uit en parkeert daarna gratis in de buurt.',
+    'För centrum finns parkeringshusen Balcón de Europa och Parque Verano Azul, för Burriana ett eget område i öster. AMARA Playa har ingen egen parkeringsplats — och behöver ingen: ni lastar av vid dörren och parkerar sedan gratis i grannskapet.'
   ),
   note: l(
-    'Unload at the door, park in the car park, walk back.',
-    'Vor der Tür ausladen, im Parkhaus parken, zu Fuß zurück.',
-    'Descargar en la puerta, aparcar en el parking, volver a pie.',
-    'Voor de deur uitladen, in de parkeergarage parkeren, te voet terug.',
-    'Lasta av vid dörren, parkera i parkeringshuset, gå tillbaka.'
+    'Unload at the door, park free in the neighbourhood, done.',
+    'Vor der Tür ausladen, kostenfrei in der Nachbarschaft parken, fertig.',
+    'Descargar en la puerta, aparcar gratis en el barrio, y listo.',
+    'Voor de deur uitladen, gratis in de buurt parkeren, klaar.',
+    'Lasta av vid dörren, parkera gratis i grannskapet, klart.'
   ),
   updated: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')
 };
@@ -42,8 +42,8 @@ const hero = {
 const facts = [
   { label: l('For the centre', 'Fürs Zentrum', 'Para el centro', 'Voor het centrum', 'För centrum'), value: l('Balcón de Europa or Parque Verano Azul', 'Balcón de Europa oder Parque Verano Azul', 'Balcón de Europa o Parque Verano Azul', 'Balcón de Europa of Parque Verano Azul', 'Balcón de Europa eller Parque Verano Azul') },
   { label: l('For Burriana', 'Für Burriana', 'Para Burriana', 'Voor Burriana', 'För Burriana'), value: l('Its own area on the eastern side', 'Ein eigener Bereich im Osten', 'Su propia zona, al este', 'Een eigen gebied aan de oostkant', 'Ett eget område på östra sidan') },
-  { label: l('At AMARA Playa', 'Bei AMARA Playa', 'En AMARA Playa', 'Bij AMARA Playa', 'Vid AMARA Playa'), value: l('Street parking, no private space', 'Straßenparken, kein privater Stellplatz', 'Aparcamiento en calle, sin plaza privada', 'Straatparkeren, geen eigen plek', 'Gatuparkering, ingen egen plats') },
-  { label: l('Fixed spaces', 'Feste Plätze', 'Plazas fijas', 'Vaste plekken', 'Fasta platser'), value: l('Do not exist in Nerja; the car park is close', 'Gibt es in Nerja nicht; das Parkhaus ist nah', 'No existen en Nerja; el parking está cerca', 'Bestaan in Nerja niet; de parkeergarage is dichtbij', 'Finns inte i Nerja; parkeringshuset ligger nära') }
+  { label: l('At AMARA Playa', 'Bei AMARA Playa', 'En AMARA Playa', 'Bij AMARA Playa', 'Vid AMARA Playa'), value: l('Free street parking in the neighbourhood', 'Kostenfreies Straßenparken in der Nachbarschaft', 'Aparcamiento gratuito en la calle, en el barrio', 'Gratis straatparkeren in de buurt', 'Gratis gatuparkering i grannskapet') },
+  { label: l('Fixed spaces', 'Feste Plätze', 'Plazas fijas', 'Vaste plekken', 'Fasta platser'), value: l('None; free neighbourhood spaces, car park as backup', 'Gibt es nicht; kostenfreie Plätze in der Nähe, Parkhaus als Reserve', 'No existen; plazas gratuitas en el barrio, parking de reserva', 'Bestaan niet; gratis plekken in de buurt, parkeergarage als reserve', 'Finns inte; gratis platser i grannskapet, parkeringshus i reserv') }
 ] as const;
 
 const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title: Localized; paragraphs: Localized[] }> = [
@@ -81,11 +81,11 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
         'AMARA Playa har ingen egen parkeringsplats; bilen står några gator bort.'
       ),
       l(
-        'Unload at the door if traffic allows: one person takes the luggage, the other drives to the car park. **If stopping is not possible right then, a taxi brings you the last few metres.**',
-        'Vor der Tür ausladen, wenn der Verkehr es zulässt: Eine Person nimmt das Gepäck, die andere fährt zum Parkhaus. **Geht das Halten gerade nicht, bringt euch ein Taxi die letzten Meter.**',
-        'Descargar en la puerta si el tráfico lo permite: una persona coge el equipaje, la otra lleva el coche al parking. **Si en ese momento no se puede parar, un taxi os trae los últimos metros.**',
-        'Voor de deur uitladen als het verkeer het toelaat: één persoon neemt de bagage, de ander rijdt naar de parkeergarage. **Kan stoppen op dat moment niet, dan brengt een taxi jullie de laatste meters.**',
-        'Lasta av vid dörren om trafiken tillåter: en person tar bagaget, den andra kör till parkeringshuset. **Går det inte att stanna just då tar en taxi er de sista metrarna.**'
+        'Unload at the door if traffic allows: one person takes the luggage, the other parks the car in one of the free spaces in the neighbourhood. It is quick and saves the trip through town. **If stopping is not possible right then, a taxi brings you the last few metres.**',
+        'Vor der Tür ausladen, wenn der Verkehr es zulässt: Eine Person nimmt das Gepäck, die andere stellt das Auto auf einen der kostenfreien Plätze in der Nachbarschaft. Das geht schnell und spart den Weg durch die Stadt. **Geht das Halten gerade nicht, bringt euch ein Taxi die letzten Meter.**',
+        'Descargar en la puerta si el tráfico lo permite: una persona coge el equipaje, la otra deja el coche en una de las plazas gratuitas del barrio. Es rápido y ahorra el rodeo por la ciudad. **Si en ese momento no se puede parar, un taxi os trae los últimos metros.**',
+        'Voor de deur uitladen als het verkeer het toelaat: één persoon neemt de bagage, de ander zet de auto op een van de gratis plekken in de buurt. Dat gaat snel en scheelt de rit door de stad. **Kan stoppen op dat moment niet, dan brengt een taxi jullie de laatste meters.**',
+        'Lasta av vid dörren om trafiken tillåter: en person tar bagaget, den andra ställer bilen på en av de gratis platserna i grannskapet. Det går snabbt och sparar vägen genom stan. **Går det inte att stanna just då tar en taxi er de sista metrarna.**'
       )
     ]
   },
@@ -116,18 +116,18 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
     title: l('For AMARA Playa: park once, then walk', 'Für AMARA Playa: einmal parken, dann laufen', 'Para AMARA Playa: aparcad una vez y caminad', 'Voor AMARA Playa: één keer parkeren, dan lopen', 'Till AMARA Playa: parkera en gång och gå sedan'),
     paragraphs: [
       l(
-        'Torrecilla beach is about 200 metres away and the Balcón de Europa about 500. For most central days the car can simply stay where you left it.',
-        'Zum Strand Torrecilla sind es rund 200 Meter, zum Balcón de Europa etwa 500. An den meisten Tagen im Zentrum kann das Auto einfach stehen bleiben.',
-        'La playa de Torrecilla queda a unos 200 metros y el Balcón de Europa a unos 500. La mayoría de los días en el centro el coche puede quedarse donde esté.',
-        "Het Torrecilla-strand ligt op ongeveer 200 meter en het Balcón de Europa op zo'n 500. Op de meeste centrumdagen kan de auto gewoon blijven staan.",
-        'Torrecillastranden ligger cirka 200 meter bort och Balcón de Europa omkring 500. De flesta dagar i centrum kan bilen helt enkelt stå kvar.'
+        'Torrecilla beach is about 200 metres away and the Balcón de Europa about 500. For a stay here you rarely need the paid car park at all: parking in the neighbourhood is usually free, and on most days the car can simply stay where you left it.',
+        'Zum Strand Torrecilla sind es rund 200 Meter, zum Balcón de Europa etwa 500. Das kostenpflichtige Parkhaus braucht ihr für einen Aufenthalt hier meist gar nicht: In der Nachbarschaft parkt ihr in der Regel kostenfrei, und an den meisten Tagen kann das Auto einfach stehen bleiben.',
+        'La playa de Torrecilla queda a unos 200 metros y el Balcón de Europa a unos 500. Para una estancia aquí casi nunca hace falta el parking de pago: en el barrio se aparca normalmente gratis y, la mayoría de los días, el coche puede quedarse donde esté.',
+        "Het Torrecilla-strand ligt op ongeveer 200 meter en het Balcón de Europa op zo'n 500. Voor een verblijf hier heb je de betaalde parkeergarage meestal helemaal niet nodig: in de buurt parkeer je doorgaans gratis, en op de meeste dagen kan de auto gewoon blijven staan.",
+        'Torrecillastranden ligger cirka 200 meter bort och Balcón de Europa omkring 500. För en vistelse här behöver ni oftast inte det avgiftsbelagda parkeringshuset alls: i grannskapet parkerar ni vanligtvis gratis, och de flesta dagar kan bilen helt enkelt stå kvar.'
       ),
       l(
-        '**Before arrival you get the exact approach and the way to the apartment.** A reserved parking space does not exist in Nerja for anyone; the car park is close on foot.',
-        '**Vor der Anreise bekommt ihr die genaue Anfahrt und den Weg zur Wohnung.** Einen reservierten Stellplatz gibt es in Nerja für niemanden; das Parkhaus ist zu Fuß nah.',
-        '**Antes de la llegada recibís el acceso exacto y el camino hasta el apartamento.** Una plaza reservada no existe en Nerja para nadie; el parking está cerca a pie.',
-        '**Vóór de aankomst krijg je de precieze route en de weg naar de woning.** Een gereserveerde parkeerplaats bestaat in Nerja voor niemand; de parkeergarage is te voet dichtbij.',
-        '**Före ankomsten får ni den exakta vägen hit och vägen till lägenheten.** En reserverad parkeringsplats finns inte för någon i Nerja; parkeringshuset ligger nära till fots.'
+        '**Before arrival you get the exact approach and the way to the apartment.** A reserved parking space does not exist in Nerja for anyone — but neighbourhood spaces are usually free and easy to find; only at the height of summer is the car park the backup.',
+        '**Vor der Anreise bekommt ihr die genaue Anfahrt und den Weg zur Wohnung.** Einen reservierten Stellplatz gibt es in Nerja für niemanden — Plätze in der Nachbarschaft sind aber meist kostenfrei und leicht zu finden; nur im Hochsommer ist das Parkhaus die Reserve.',
+        '**Antes de la llegada recibís el acceso exacto y el camino hasta el apartamento.** Una plaza reservada no existe en Nerja para nadie, pero las plazas del barrio suelen ser gratuitas y fáciles de encontrar; solo en pleno verano el parking es la reserva.',
+        '**Vóór de aankomst krijg je de precieze route en de weg naar de woning.** Een gereserveerde parkeerplaats bestaat in Nerja voor niemand — maar plekken in de buurt zijn meestal gratis en makkelijk te vinden; alleen in de hoogzomer is de parkeergarage de reserve.',
+        '**Före ankomsten får ni den exakta vägen hit och vägen till lägenheten.** En reserverad parkeringsplats finns inte för någon i Nerja — men platser i grannskapet är oftast gratis och lätta att hitta; bara mitt i sommaren är parkeringshuset reserven.'
       )
     ]
   }
