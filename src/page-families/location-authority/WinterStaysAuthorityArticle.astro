@@ -7,6 +7,7 @@ import AuthorityArticle from './AuthorityArticle.astro';
 import AuthorityRelatedLinks from './AuthorityRelatedLinks.astro';
 import AuthorityTextSection from './AuthorityTextSection.astro';
 import LocationSunHoursChart from '../../components/location/LocationSunHoursChart.astro';
+import LocationWinterSunset from '../../components/location/LocationWinterSunset.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import type { ResolvedRouteImage } from '../../lib/images/routeImages';
 
@@ -26,6 +27,8 @@ interface Props {
   sunBridgeImage?: ResolvedRouteImage;
   /** Contextual handoff from winter light to the year-round temperatures on the weather page. */
   weatherLink?: { href: string; label: string };
+  /** "The sun sets later here" graphic, shown only when the home-city gap is meaningful. */
+  winterSunset?: { placeName: string; placeSunset: string; cityName: string; citySunset: string };
   sunChart?: {
     eyebrow: string;
     title: string;
@@ -50,6 +53,7 @@ const {
   galleryImages = [],
   sunBridgeImage,
   weatherLink,
+  winterSunset,
   sunChart
 } = Astro.props;
 
@@ -131,6 +135,8 @@ const galleryColsClass =
   )}
 
   {sunChart && <LocationSunHoursChart lang={lang} {...sunChart} />}
+
+  {winterSunset && <LocationWinterSunset lang={lang} {...winterSunset} />}
 
   {weatherLink && (
     <section class="bg-surface px-6 pb-16 md:px-12" data-am-winter-weather-link>

@@ -23,7 +23,7 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import WinterStaysAuthorityArticle from './WinterStaysAuthorityArticle.astro';
-import { locationClimateProfiles, comparisonCityByLang, comparisonCitySunHours } from '../../content/locationClimateData';
+import { locationClimateProfiles, comparisonCityByLang, comparisonCitySunHours, winterSolsticeSunset, comparisonCityWinterSunset } from '../../content/locationClimateData';
 import { weatherMonthLabels } from '../../content/locationWeatherAuthorityContent';
 import { formatDecimal } from '../../lib/formatNumber';
 
@@ -161,6 +161,27 @@ const weatherHref = hasWinterImages
   ? resolveOptionalLink(`${destination}_weather` as Parameters<typeof resolveOptionalLink>[0], currentLang, { suppressMissing: true })
   : null;
 const weatherLink = weatherHref ? { href: weatherHref, label: weatherLinkLabel[currentLang] } : undefined;
+
+/**
+ * "The sun sets later here": shown only when the gap to the reader's home city
+ * is real. For a Spanish reader the home city is Madrid — also on CET — so the
+ * gap is minutes, not hours, and the graphic is suppressed rather than shown weak.
+ */
+const sunsetMinutes = (time: string) => {
+  const [h, m] = time.split(':').map(Number);
+  return h * 60 + m;
+};
+const placeWinterSunset = winterSolsticeSunset[destination];
+const citySunsetTime = comparisonCity ? comparisonCityWinterSunset[comparisonCity.key] : undefined;
+const winterSunset =
+  comparisonCity && citySunsetTime && sunsetMinutes(placeWinterSunset) - sunsetMinutes(citySunsetTime) >= 45
+    ? {
+        placeName: destination.charAt(0).toUpperCase() + destination.slice(1),
+        placeSunset: placeWinterSunset,
+        cityName: comparisonCity.name,
+        citySunset: citySunsetTime
+      }
+    : undefined;
 ---
 
 <LocationAuthorityLayout
@@ -211,5 +232,6 @@ const weatherLink = weatherHref ? { href: weatherHref, label: weatherLinkLabel[c
     sunBridgeImage={winterSunBridge}
     weatherLink={weatherLink}
     sunChart={sunChart}
+    winterSunset={winterSunset}
   />
 </LocationAuthorityLayout>
