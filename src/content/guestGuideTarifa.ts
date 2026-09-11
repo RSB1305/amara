@@ -637,19 +637,19 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              `Close windows during strong winds, switch off air conditioning when leaving, and bring terrace cushions inside if rain approaches.`
+              `Close windows during strong winds, switch off air conditioning when leaving, and bring the balcony cushions inside if rain approaches.`
             ],
             de: [
-              `Schließt bei starkem Wind die Fenster, schaltet die Klimaanlage aus, wenn ihr geht, und holt die Terrassenkissen herein, wenn Regen aufzieht.`
+              `Schließt bei starkem Wind die Fenster, schaltet die Klimaanlage aus, wenn ihr geht, und holt die Balkonkissen herein, wenn Regen aufzieht.`
             ],
             es: [
-              `Cerrad las ventanas si hace mucho viento, apagad el aire acondicionado al salir y meted los cojines de la terraza en el interior si se acerca lluvia.`
+              `Cerrad las ventanas si hace mucho viento, apagad el aire acondicionado al salir y meted los cojines del balcón en el interior si se acerca lluvia.`
             ],
             nl: [
-              `Sluit de ramen bij harde wind, schakel de airconditioning uit bij vertrek en breng de kussens van het terras naar binnen als er regen nadert.`
+              `Sluit de ramen bij harde wind, schakel de airconditioning uit bij vertrek en breng de kussens van het balkon naar binnen als er regen nadert.`
             ],
             sv: [
-              `Stäng fönstren vid hård vind, stäng av luftkonditioneringen när ni går ut och ta in terrasskuddarna om regn närmar sig.`
+              `Stäng fönstren vid hård vind, stäng av luftkonditioneringen när ni går ut och ta in balkongkuddarna om regn närmar sig.`
             ]
           })
         }
@@ -743,7 +743,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
           title: tarifaText('BBQ', 'Grill', 'Barbacoa', 'BBQ', 'Grill'),
           body: tarifaParagraphs({
             en: [
-              `The gas barbecue is available for your enjoyment on the terrace.`,
+              `The gas barbecue is available for your enjoyment on the balcony.`,
               `The barbecue uses a standard Spanish gas bottle. The regulator is usually already attached to the bottle.`,
               `To turn the gas on, move the black switch on the regulator upwards into the vertical position.`,
               `If the gas does not flow, the regulator may not be fully clipped onto the bottle. In that case, keep the black switch in the horizontal position, press the whole regulator firmly down onto the bottle until you hear or feel a click, and then move the black switch upwards into the vertical position.`,
@@ -753,7 +753,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Happy grilling!`
             ],
             de: [
-              `Der Gasgrill auf der Terrasse steht euch zur Verfügung.`,
+              `Der Gasgrill auf dem Balkon steht euch zur Verfügung.`,
               `Der Grill verwendet eine normale spanische Gasflasche. Der Regler ist in der Regel bereits an der Flasche befestigt.`,
               `Um das Gas einzuschalten, bewegt bitte den schwarzen Schalter am Regler nach oben in die vertikale Position.`,
               `Wenn kein Gas fließt, ist der Regler möglicherweise nicht vollständig auf der Flasche eingerastet. In diesem Fall lasst den schwarzen Schalter in der horizontalen Position, drückt den gesamten Regler fest nach unten auf die Flasche, bis ihr ein Klicken hört oder spürt, und bewegt den schwarzen Schalter danach nach oben in die vertikale Position.`,
@@ -763,7 +763,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Viel Freude beim Grillen!`
             ],
             es: [
-              `La barbacoa de gas está disponible para vuestro disfrute en la terraza.`,
+              `La barbacoa de gas está disponible para vuestro disfrute en el balcón.`,
               `La barbacoa utiliza una bombona de gas española estándar. Normalmente, el regulador ya está colocado en la bombona.`,
               `Para abrir el gas, moved el interruptor negro del regulador hacia arriba, en posición vertical.`,
               `Si el gas no fluye, puede que el regulador no esté completamente encajado en la bombona. En ese caso, mantened el interruptor negro en posición horizontal, presionad firmemente todo el regulador hacia abajo sobre la bombona hasta que oigáis o notéis un “clic”, y después moved el interruptor negro hacia arriba, en posición vertical.`,
@@ -773,7 +773,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `¡Que disfrutéis de la barbacoa!`
             ],
             nl: [
-              `De gasbarbecue is beschikbaar voor jullie gebruik op het terras.`,
+              `De gasbarbecue is beschikbaar voor jullie gebruik op het balkon.`,
               `De barbecue gebruikt een standaard Spaanse gasfles. De regelaar is normaal gesproken al op de gasfles bevestigd.`,
               `Om het gas aan te zetten, beweeg je de zwarte schakelaar op de regelaar omhoog naar de verticale positie.`,
               `Als er geen gas stroomt, zit de regelaar mogelijk niet volledig vastgeklikt op de gasfles. Houd in dat geval de zwarte schakelaar in de horizontale positie, druk de hele regelaar stevig naar beneden op de gasfles totdat je een klik hoort of voelt, en beweeg daarna de zwarte schakelaar omhoog naar de verticale positie.`,
@@ -783,7 +783,7 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
               `Veel grillplezier!`
             ],
             sv: [
-              `Gasolgrillen är tillgänglig för er att använda på terrassen.`,
+              `Gasolgrillen är tillgänglig för er att använda på balkongen.`,
               `Grillen använder en vanlig spansk gasolflaska. Regulatorn sitter vanligtvis redan på flaskan.`,
               `För att slå på gasolen, flytta den svarta brytaren på regulatorn uppåt till vertikalt läge.`,
               `Om gasolen inte flödar kan regulatorn eventuellt inte vara helt fastklickad på flaskan. Håll i så fall den svarta brytaren i horisontellt läge, tryck hela regulatorn ordentligt nedåt på flaskan tills ni hör eller känner ett klick, och flytta sedan den svarta brytaren uppåt till vertikalt läge.`,

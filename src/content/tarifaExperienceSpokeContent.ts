@@ -492,11 +492,11 @@ const oldTown: TarifaExperienceSpokeContent = {
     title: l('Twice over: once in the light, once in the dark', 'Zweimal hin: einmal im Licht, einmal im Dunkeln', 'Dos veces: una con luz, otra de noche', 'Twee keer: een keer in het licht, een keer in het donker', 'Två gånger: en gång i ljuset, en gång i mörkret'),
     paragraphs: [
       l(
-        'From Family & Surf it is ten to fifteen minutes on foot. You go in the afternoon, home to the terrace, and back again in the evening for dinner.',
-        'Von Family & Surf sind es zehn bis fünfzehn Minuten zu Fuß. Ihr geht nachmittags hin, nach Hause auf die Terrasse und abends noch einmal zum Essen.',
-        'Desde Family & Surf son diez o quince minutos a pie. Vais por la tarde, volvéis a casa a la terraza y por la noche otra vez a cenar.',
-        'Vanaf Family & Surf is het tien tot vijftien minuten te voet. Je gaat ’s middags, naar huis op het terras en ’s avonds nog eens om te eten.',
-        'Från Family & Surf är det tio till femton minuter till fots. Ni går dit på eftermiddagen, hem till terrassen och på kvällen en gång till för att äta.'
+        'From Family & Surf it is ten to fifteen minutes on foot. You go in the afternoon, home to the balcony, and back again in the evening for dinner.',
+        'Von Family & Surf sind es zehn bis fünfzehn Minuten zu Fuß. Ihr geht nachmittags hin, nach Hause auf den Balkon und abends noch einmal zum Essen.',
+        'Desde Family & Surf son diez o quince minutos a pie. Vais por la tarde, volvéis a casa al balcón y por la noche otra vez a cenar.',
+        'Vanaf Family & Surf is het tien tot vijftien minuten te voet. Je gaat ’s middags, naar huis op het balkon en ’s avonds nog eens om te eten.',
+        'Från Family & Surf är det tio till femton minuter till fots. Ni går dit på eftermiddagen, hem till balkongen och på kvällen en gång till för att äta.'
       ),
       l(
         'That is how we like the old town best: the same lanes in two moods.',
@@ -849,11 +849,11 @@ const yoga: TarifaExperienceSpokeContent = {
           'Family & Surf ligger vid Calle Mar Adriático i La Marina, och samma gata rymmer en liten rad wellnessadresser — bland dem det holistiska yogarummet Mama Tierra. Närheten gör en yogamorgon enkel: en kort promenad i stället för en bilfärd genom stan.'
         ),
         l(
-          'Use the apartment as your base. The mats are already there for a quiet practice on the terrace or indoors, and the nearby addresses are there for the mornings you want a teacher, company or a different room.',
-          'Nutzt die Unterkunft als Basis. Die Matten liegen schon bereit – für eine ruhige Praxis auf der Terrasse oder drinnen – und die nahen Adressen sind für die Morgen da, an denen ihr eine Lehrkraft, Gesellschaft oder einen anderen Raum möchtet.',
-          'Usad el apartamento como base. Las esterillas ya están para una práctica tranquila en la terraza o dentro, y las direcciones cercanas están para las mañanas en las que queréis profesor, compañía u otro espacio.',
-          'Gebruik het appartement als basis. De matten liggen er al voor een rustige praktijk op het terras of binnen, en de nabije adressen zijn er voor de ochtenden waarop je een docent, gezelschap of een andere ruimte wilt.',
-          'Använd lägenheten som bas. Mattorna finns redan för en lugn praktik på terrassen eller inomhus, och adresserna i närheten finns för de morgnar då ni vill ha en lärare, sällskap eller ett annat rum.'
+          'Use the apartment as your base. The mats are already there for a quiet practice on the balcony or indoors, and the nearby addresses are there for the mornings you want a teacher, company or a different room.',
+          'Nutzt die Unterkunft als Basis. Die Matten liegen schon bereit – für eine ruhige Praxis auf dem Balkon oder drinnen – und die nahen Adressen sind für die Morgen da, an denen ihr eine Lehrkraft, Gesellschaft oder einen anderen Raum möchtet.',
+          'Usad el apartamento como base. Las esterillas ya están para una práctica tranquila en el balcón o dentro, y las direcciones cercanas están para las mañanas en las que queréis profesor, compañía u otro espacio.',
+          'Gebruik het appartement als basis. De matten liggen er al voor een rustige praktijk op het balkon of binnen, en de nabije adressen zijn er voor de ochtenden waarop je een docent, gezelschap of een andere ruimte wilt.',
+          'Använd lägenheten som bas. Mattorna finns redan för en lugn praktik på balkongen eller inomhus, och adresserna i närheten finns för de morgnar då ni vill ha en lärare, sällskap eller ett annat rum.'
         )
       ]
     },
@@ -884,11 +884,11 @@ const yoga: TarifaExperienceSpokeContent = {
     title: l('Yoga-ready before you unpack', 'Yoga-ready, bevor ihr auspackt', 'Listos para el yoga antes de deshacer las maletas', 'Yoga-klaar voordat je uitpakt', 'Yogaklara innan ni packar upp'),
     paragraphs: [
       l(
-        'At Family & Surf the yoga mats are already in the apartment, so a morning practice needs no planning: roll one out on the terrace or indoors and start. It is a small thing, but it means the day can begin with your own quiet hour before anything else.',
-        'Bei Family & Surf liegen die Yogamatten schon in der Unterkunft, ein Morgen-Flow braucht also keine Planung: einfach auf der Terrasse oder drinnen ausrollen und beginnen. Eine Kleinigkeit – aber so kann der Tag mit eurer eigenen ruhigen Stunde starten, bevor irgendetwas anderes kommt.',
-        'En Family & Surf las esterillas ya están en el apartamento, así que una práctica matinal no exige planificación: la desplegáis en la terraza o dentro y empezáis. Es un detalle pequeño, pero permite que el día comience con vuestra propia hora tranquila antes que cualquier otra cosa.',
-        'Bij Family & Surf liggen de yogamatten al in het appartement, dus een ochtendpraktijk vraagt geen planning: rol er een uit op het terras of binnen en begin. Een klein ding, maar zo kan de dag beginnen met je eigen rustige uur voordat er iets anders komt.',
-        'På Family & Surf finns yogamattorna redan i lägenheten, så en morgonpraktik kräver ingen planering: rulla ut en på terrassen eller inomhus och börja. En liten sak, men den låter dagen börja med er egen stilla stund före allt annat.'
+        'At Family & Surf the yoga mats are already in the apartment, so a morning practice needs no planning: roll one out on the balcony or indoors and start. It is a small thing, but it means the day can begin with your own quiet hour before anything else.',
+        'Bei Family & Surf liegen die Yogamatten schon in der Unterkunft, ein Morgen-Flow braucht also keine Planung: einfach auf dem Balkon oder drinnen ausrollen und beginnen. Eine Kleinigkeit – aber so kann der Tag mit eurer eigenen ruhigen Stunde starten, bevor irgendetwas anderes kommt.',
+        'En Family & Surf las esterillas ya están en el apartamento, así que una práctica matinal no exige planificación: la desplegáis en el balcón o dentro y empezáis. Es un detalle pequeño, pero permite que el día comience con vuestra propia hora tranquila antes que cualquier otra cosa.',
+        'Bij Family & Surf liggen de yogamatten al in het appartement, dus een ochtendpraktijk vraagt geen planning: rol er een uit op het balkon of binnen en begin. Een klein ding, maar zo kan de dag beginnen met je eigen rustige uur voordat er iets anders komt.',
+        'På Family & Surf finns yogamattorna redan i lägenheten, så en morgonpraktik kräver ingen planering: rulla ut en på balkongen eller inomhus och börja. En liten sak, men den låter dagen börja med er egen stilla stund före allt annat.'
       ),
       l(
         'When you want more than a solo session, just ask us. We can point you to the class that is actually running that week, and on request we help arrange a private session for you, a couple or the family — with the teacher and style confirmed rather than assumed.',

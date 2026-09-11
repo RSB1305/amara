@@ -192,11 +192,11 @@ export const laAmaraFamilyAndSurfImages = defineRouteImages({
       id: 'photo-15',
       src: '/images/amara-tarifa/amara-tarifa-apartment15.webp',
       alt: {
-        en: "AMARA Family & Surf: private terrace with views towards the sea",
-        de: "AMARA Family & Surf: private Terrasse mit Blick in Richtung Meer",
-        es: "AMARA Family & Surf: terraza privada con vistas hacia el mar",
-        nl: "AMARA Family & Surf: privéterras met uitzicht richting zee",
-        sv: "AMARA Family & Surf: privat terrass med utsikt mot havet"
+        en: "AMARA Family & Surf: private balcony with views towards the sea",
+        de: "AMARA Family & Surf: privater Balkon mit Blick in Richtung Meer",
+        es: "AMARA Family & Surf: balcón privado con vistas hacia el mar",
+        nl: "AMARA Family & Surf: privébalkon met uitzicht richting zee",
+        sv: "AMARA Family & Surf: privat balkong med utsikt mot havet"
       }
     },
     {
@@ -276,11 +276,11 @@ export const laAmaraFamilyAndSurfImages = defineRouteImages({
       id: 'photo-22',
       src: '/images/amara-tarifa/amara-tarifa-apartment22.webp',
       alt: {
-        en: "AMARA Family & Surf: entrance from the apartment onto the private terrace",
-        de: "AMARA Family & Surf: Ausgang vom Apartment auf die private Terrasse",
-        es: "AMARA Family & Surf: salida del apartamento a la terraza privada",
-        nl: "AMARA Family & Surf: uitgang van het appartement naar het privéterras",
-        sv: "AMARA Family & Surf: utgång från lägenheten till den privata terrassen"
+        en: "AMARA Family & Surf: entrance from the apartment onto the private balcony",
+        de: "AMARA Family & Surf: Ausgang vom Apartment auf den privaten Balkon",
+        es: "AMARA Family & Surf: salida del apartamento al balcón privado",
+        nl: "AMARA Family & Surf: uitgang van het appartement naar het privébalkon",
+        sv: "AMARA Family & Surf: utgång från lägenheten till den privata balkongen"
       }
     },
     {

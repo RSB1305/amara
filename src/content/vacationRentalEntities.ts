@@ -1022,11 +1022,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Family & Surf: Tarifa med pool och garage | AMARA'
     },
     seoDescription: {
-      en: 'Family & Surf in Tarifa: 75 m² for two or a small family, with private Atlantic terrace, two bathrooms, shared pool and reserved underground parking.',
-      de: 'Family & Surf in Tarifa: 75 m² für zwei oder eine kleine Familie, mit privater Atlantikterrasse, zwei Bädern, Gemeinschaftspool und reservierter Tiefgarage.',
-      es: 'Family & Surf en Tarifa: 75 m² para dos o una familia pequeña, con terraza privada al Atlántico, dos baños, piscina comunitaria y garaje reservado.',
-      nl: 'Family & Surf in Tarifa: 75 m² voor twee of een klein gezin, met privéterras aan de Atlantische Oceaan, twee badkamers, gedeeld zwembad en eigen garageplaats.',
-      sv: 'Family & Surf i Tarifa: 75 m² för två eller en liten familj, med privat terrass mot Atlanten, två badrum, gemensam pool och reserverad garageplats.'
+      en: 'Family & Surf in Tarifa: 75 m² for two or a small family, with a private Atlantic balcony, two bathrooms, shared pool and reserved underground parking.',
+      de: 'Family & Surf in Tarifa: 75 m² für zwei oder eine kleine Familie, mit privatem Atlantikbalkon, zwei Bädern, Gemeinschaftspool und reservierter Tiefgarage.',
+      es: 'Family & Surf en Tarifa: 75 m² para dos o una familia pequeña, con balcón privado al Atlántico, dos baños, piscina comunitaria y garaje reservado.',
+      nl: 'Family & Surf in Tarifa: 75 m² voor twee of een klein gezin, met privébalkon aan de Atlantische Oceaan, twee badkamers, gedeeld zwembad en eigen garageplaats.',
+      sv: 'Family & Surf i Tarifa: 75 m² för två eller en liten familj, med privat balkong mot Atlanten, två badrum, gemensam pool och reserverad garageplats.'
     },
     eyebrow: {
       en: 'Tarifa · for two or a small family',
@@ -1036,32 +1036,32 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Tarifa · för två eller en liten familj'
     },
     headline: {
-      en: 'Plenty of room, an Atlantic terrace and a pool',
-      de: 'Viel Platz, Atlantikterrasse und Pool',
-      es: 'Mucho espacio, terraza al Atlántico y piscina',
-      nl: 'Veel ruimte, een terras aan de oceaan en een zwembad',
-      sv: 'Gott om plats, Atlantterrass och pool'
+      en: 'Plenty of room, an Atlantic balcony and a pool',
+      de: 'Viel Platz, Atlantikbalkon und Pool',
+      es: 'Mucho espacio, balcón al Atlántico y piscina',
+      nl: 'Veel ruimte, een balkon aan de oceaan en een zwembad',
+      sv: 'Gott om plats, Atlantbalkong och pool'
     },
     lead: {
-      en: 'Family & Surf gives you more room in Tarifa and a reserved parking space, so there is no daily search for a spot. The 75 m² apartment has a private Atlantic-facing terrace, two bedrooms, two bathrooms and a shared pool. It is generous for two and works best for two adults with one or two younger children.',
-      de: 'Family & Surf bietet euch in Tarifa mehr Platz und einen reservierten Tiefgaragenplatz – die tägliche Parkplatzsuche entfällt. Das 75 m² große Apartment hat eine private Terrasse zum Atlantik, zwei Schlafzimmer, zwei Bäder und Gemeinschaftspool. Zu zweit wohnt ihr hier sehr großzügig; mit Kindern passt die Aufteilung am besten für zwei Erwachsene und ein oder zwei jüngere Kinder.',
-      es: 'Family & Surf ofrece más espacio en Tarifa y una plaza reservada, así que no tendréis que buscar aparcamiento cada día. El apartamento de 75 m² tiene terraza privada orientada al Atlántico, dos dormitorios, dos baños y piscina comunitaria. Para dos es muy amplio; con niños, la distribución funciona mejor para dos adultos y uno o dos pequeños.',
-      nl: 'Family & Surf geeft jullie meer ruimte in Tarifa en een gereserveerde parkeerplaats, zodat jullie niet elke dag hoeven te zoeken. Het appartement van 75 m² heeft een privéterras aan de Atlantische Oceaan, twee slaapkamers, twee badkamers en een gedeeld zwembad. Voor twee is het bijzonder ruim; met kinderen past de indeling het best bij twee volwassenen en een of twee jonge kinderen.',
-      sv: 'Family & Surf ger er mer utrymme i Tarifa och en reserverad garageplats, så ni slipper leta parkering varje dag. Lägenheten på 75 m² har privat terrass mot Atlanten, två sovrum, två badrum och gemensam pool. För två är den mycket rymlig; med barn passar planlösningen bäst för två vuxna och ett eller två yngre barn.'
+      en: 'Family & Surf gives you more room in Tarifa and a reserved parking space, so there is no daily search for a spot. The 75 m² apartment has a private Atlantic-facing balcony, two bedrooms, two bathrooms and a shared pool. It is generous for two and works best for two adults with one or two younger children.',
+      de: 'Family & Surf bietet euch in Tarifa mehr Platz und einen reservierten Tiefgaragenplatz – die tägliche Parkplatzsuche entfällt. Das 75 m² große Apartment hat einen privaten Balkon zum Atlantik, zwei Schlafzimmer, zwei Bäder und Gemeinschaftspool. Zu zweit wohnt ihr hier sehr großzügig; mit Kindern passt die Aufteilung am besten für zwei Erwachsene und ein oder zwei jüngere Kinder.',
+      es: 'Family & Surf ofrece más espacio en Tarifa y una plaza reservada, así que no tendréis que buscar aparcamiento cada día. El apartamento de 75 m² tiene balcón privado orientado al Atlántico, dos dormitorios, dos baños y piscina comunitaria. Para dos es muy amplio; con niños, la distribución funciona mejor para dos adultos y uno o dos pequeños.',
+      nl: 'Family & Surf geeft jullie meer ruimte in Tarifa en een gereserveerde parkeerplaats, zodat jullie niet elke dag hoeven te zoeken. Het appartement van 75 m² heeft een privébalkon aan de Atlantische Oceaan, twee slaapkamers, twee badkamers en een gedeeld zwembad. Voor twee is het bijzonder ruim; met kinderen past de indeling het best bij twee volwassenen en een of twee jonge kinderen.',
+      sv: 'Family & Surf ger er mer utrymme i Tarifa och en reserverad garageplats, så ni slipper leta parkering varje dag. Lägenheten på 75 m² har privat balkong mot Atlanten, två sovrum, två badrum och gemensam pool. För två är den mycket rymlig; med barn passar planlösningen bäst för två vuxna och ett eller två yngre barn.'
     },
     description: {
-      en: 'Have breakfast on the private terrace facing the Atlantic, then walk around 500 metres to Los Lances or about 10–15 minutes to Tarifa’s Old Town. Back at the apartment, the shared pool and large kitchen make an unhurried day easy. The lift reaches the front door without outside or building steps.\n\nBoth bedrooms are upstairs. The main room has a 150 × 200 cm double bed; the second has a bunk bed with two single sleeping places. Internal stairs and that bunk-bed layout are why we recommend the apartment to couples or parents with younger children rather than four adults.',
-      de: 'Frühstückt auf der privaten Terrasse mit Blick zum Atlantik und geht danach rund 500 Meter zum Strand Los Lances oder etwa 10–15 Minuten in Tarifas Altstadt. Zurück in der Wohnung machen Gemeinschaftspool und große Küche auch einen ruhigen Tag unkompliziert. Der Aufzug fährt ohne Stufen draußen oder im Haus bis vor die Wohnungstür.\n\nBeide Schlafzimmer liegen oben. Im Hauptschlafzimmer steht ein 150 × 200 cm großes Doppelbett, im zweiten ein Hochbett mit zwei einzelnen Schlafplätzen. Wegen der Treppe in der Wohnung und dieser Aufteilung empfehlen wir das Apartment eher Paaren oder Eltern mit jüngeren Kindern als vier Erwachsenen.',
-      es: 'Desayunad en la terraza privada con vistas al Atlántico y caminad después unos 500 metros hasta Los Lances o alrededor de 10–15 minutos hasta el casco antiguo de Tarifa. Al volver, la piscina comunitaria y la cocina amplia facilitan también un día tranquilo. El ascensor llega hasta la puerta sin escalones fuera ni en el edificio.\n\nLos dos dormitorios están arriba. El principal tiene una cama doble de 150 × 200 cm y el segundo, una litera con dos camas individuales. Por la escalera interior y esta distribución, recomendamos el apartamento más para parejas o padres con niños pequeños que para cuatro adultos.',
-      nl: 'Ontbijt op het privéterras met uitzicht op de Atlantische Oceaan en loop daarna ongeveer 500 meter naar Los Lances of circa 10–15 minuten naar de oude stad van Tarifa. Terug in het appartement maken het gedeelde zwembad en de ruime keuken ook een rustige dag eenvoudig. De lift komt zonder treden buiten of in het gebouw tot aan de voordeur.\n\nBeide slaapkamers liggen boven. De hoofdslaapkamer heeft een tweepersoonsbed van 150 × 200 cm; in de tweede staat een stapelbed met twee aparte slaapplaatsen. Vanwege de trap binnen en deze indeling raden we het appartement eerder aan stellen of ouders met jonge kinderen aan dan vier volwassenen.',
-      sv: 'Ät frukost på den privata terrassen med utsikt mot Atlanten och gå sedan cirka 500 meter till Los Lances eller omkring 10–15 minuter till Tarifas gamla stad. Tillbaka i lägenheten gör den gemensamma poolen och det stora köket även en lugn dag enkel. Hissen går utan trappsteg ute eller i huset ända fram till dörren.\n\nBåda sovrummen ligger på övervåningen. Huvudsovrummet har en dubbelsäng på 150 × 200 cm och det andra en våningssäng med två separata sovplatser. På grund av trappan inne och den här planlösningen rekommenderar vi lägenheten hellre för par eller föräldrar med yngre barn än för fyra vuxna.'
+      en: 'Have breakfast on the private balcony facing the Atlantic, then walk around 500 metres to Los Lances or about 10–15 minutes to Tarifa’s Old Town. Back at the apartment, the shared pool and large kitchen make an unhurried day easy. The lift reaches the front door without outside or building steps.\n\nBoth bedrooms are upstairs. The main room has a 150 × 200 cm double bed; the second has a bunk bed with two single sleeping places. Internal stairs and that bunk-bed layout are why we recommend the apartment to couples or parents with younger children rather than four adults.',
+      de: 'Frühstückt auf dem privaten Balkon mit Blick zum Atlantik und geht danach rund 500 Meter zum Strand Los Lances oder etwa 10–15 Minuten in Tarifas Altstadt. Zurück in der Wohnung machen Gemeinschaftspool und große Küche auch einen ruhigen Tag unkompliziert. Der Aufzug fährt ohne Stufen draußen oder im Haus bis vor die Wohnungstür.\n\nBeide Schlafzimmer liegen oben. Im Hauptschlafzimmer steht ein 150 × 200 cm großes Doppelbett, im zweiten ein Hochbett mit zwei einzelnen Schlafplätzen. Wegen der Treppe in der Wohnung und dieser Aufteilung empfehlen wir das Apartment eher Paaren oder Eltern mit jüngeren Kindern als vier Erwachsenen.',
+      es: 'Desayunad en el balcón privado con vistas al Atlántico y caminad después unos 500 metros hasta Los Lances o alrededor de 10–15 minutos hasta el casco antiguo de Tarifa. Al volver, la piscina comunitaria y la cocina amplia facilitan también un día tranquilo. El ascensor llega hasta la puerta sin escalones fuera ni en el edificio.\n\nLos dos dormitorios están arriba. El principal tiene una cama doble de 150 × 200 cm y el segundo, una litera con dos camas individuales. Por la escalera interior y esta distribución, recomendamos el apartamento más para parejas o padres con niños pequeños que para cuatro adultos.',
+      nl: 'Ontbijt op het privébalkon met uitzicht op de Atlantische Oceaan en loop daarna ongeveer 500 meter naar Los Lances of circa 10–15 minuten naar de oude stad van Tarifa. Terug in het appartement maken het gedeelde zwembad en de ruime keuken ook een rustige dag eenvoudig. De lift komt zonder treden buiten of in het gebouw tot aan de voordeur.\n\nBeide slaapkamers liggen boven. De hoofdslaapkamer heeft een tweepersoonsbed van 150 × 200 cm; in de tweede staat een stapelbed met twee aparte slaapplaatsen. Vanwege de trap binnen en deze indeling raden we het appartement eerder aan stellen of ouders met jonge kinderen aan dan vier volwassenen.',
+      sv: 'Ät frukost på den privata balkongen med utsikt mot Atlanten och gå sedan cirka 500 meter till Los Lances eller omkring 10–15 minuter till Tarifas gamla stad. Tillbaka i lägenheten gör den gemensamma poolen och det stora köket även en lugn dag enkel. Hissen går utan trappsteg ute eller i huset ända fram till dörren.\n\nBåda sovrummen ligger på övervåningen. Huvudsovrummet har en dubbelsäng på 150 × 200 cm och det andra en våningssäng med två separata sovplatser. På grund av trappan inne och den här planlösningen rekommenderar vi lägenheten hellre för par eller föräldrar med yngre barn än för fyra vuxna.'
     },
     highlights: {
-      en: ['Private Atlantic terrace, around 500 m to Los Lances', '75 m² with two bedrooms and two bathrooms', 'Shared pool and reserved underground parking'],
-      de: ['Private Atlantikterrasse, rund 500 m zu Los Lances', '75 m² mit zwei Schlafzimmern und zwei Bädern', 'Gemeinschaftspool und reservierter Tiefgaragenplatz'],
-      es: ['Terraza privada al Atlántico, unos 500 m a Los Lances', '75 m² con dos dormitorios y dos baños', 'Piscina comunitaria y plaza reservada en el garaje'],
-      nl: ['Privéterras aan de Atlantische Oceaan, circa 500 m naar Los Lances', '75 m² met twee slaapkamers en twee badkamers', 'Gedeeld zwembad en gereserveerde garageplaats'],
-      sv: ['Privat Atlantterrass, cirka 500 m till Los Lances', '75 m² med två sovrum och två badrum', 'Gemensam pool och reserverad garageplats']
+      en: ['Private Atlantic balcony, around 500 m to Los Lances', '75 m² with two bedrooms and two bathrooms', 'Shared pool and reserved underground parking'],
+      de: ['Privater Atlantikbalkon, rund 500 m zu Los Lances', '75 m² mit zwei Schlafzimmern und zwei Bädern', 'Gemeinschaftspool und reservierter Tiefgaragenplatz'],
+      es: ['Balcón privado al Atlántico, unos 500 m a Los Lances', '75 m² con dos dormitorios y dos baños', 'Piscina comunitaria y plaza reservada en el garaje'],
+      nl: ['Privébalkon aan de Atlantische Oceaan, circa 500 m naar Los Lances', '75 m² met twee slaapkamers en twee badkamers', 'Gedeeld zwembad en gereserveerde garageplaats'],
+      sv: ['Privat Atlantbalkong, cirka 500 m till Los Lances', '75 m² med två sovrum och två badrum', 'Gemensam pool och reserverad garageplats']
     },
     accessFacts: {
       outsideStepsBeforeEntrance: 0,
@@ -1094,11 +1094,11 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       sv: 'Fullt kök'
     },
     outdoorNote: {
-      en: 'Terrace and shared pool',
-      de: 'Terrasse und Gemeinschaftspool',
-      es: 'Terraza y piscina compartida',
-      nl: 'Terras en gedeeld zwembad',
-      sv: 'Terrass och gemensam pool'
+      en: 'Balcony and shared pool',
+      de: 'Balkon und Gemeinschaftspool',
+      es: 'Balcón y piscina compartida',
+      nl: 'Balkon en gedeeld zwembad',
+      sv: 'Balkong och gemensam pool'
     },
     viewNote: {
       en: 'Direct view over the Atlantic',
@@ -1125,7 +1125,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
       { name: 'washingMachine', value: true },
       { name: 'fireplace', value: true },
       { name: 'kitchen', value: true },
-      { name: 'patio', value: true },
+      { name: 'balcony', value: true },
       { name: 'pool', value: true },
       { name: 'poolType', value: 'Outdoor' },
       { name: 'elevator', value: true },
