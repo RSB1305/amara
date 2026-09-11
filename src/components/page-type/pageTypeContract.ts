@@ -82,6 +82,7 @@ export const AMARA_PAGE_FAMILY_PROFILES = {
   'location-tarifa-where-to-stay': { type: 'authority', tier: 'approved' },
   'experience-hub': { type: 'explore', tier: 'reference' },
   'experience-frigiliana-old-town': { type: 'explore', tier: 'approved' },
+  'experience-frigiliana-ceramic-panels': { type: 'explore', tier: 'approved' },
   'experience-nerja-article': { type: 'explore', tier: 'approved' },
   'experience-nerja-verano-azul': { type: 'explore', tier: 'approved' },
   'experience-tarifa-guide': { type: 'explore', tier: 'approved' },

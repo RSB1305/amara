@@ -130,6 +130,13 @@ const oldTownSegments = {
   nl: 'oude-centrum',
   sv: 'gamla-stan'
 };
+const ceramicPanelsSegments = {
+  es: 'azulejos',
+  en: 'ceramic-panels',
+  de: 'keramiktafeln',
+  nl: 'keramische-panelen',
+  sv: 'keramikpaneler'
+};
 const faqSegments = {
   es: 'preguntas-frecuentes',
   en: 'faq',
@@ -486,6 +493,7 @@ const definitions = [
     segment: { es: 'bienestar', en: 'wellness', de: 'wellness', nl: 'wellness', sv: 'wellness' }
   },
   { key: 'frigiliana.experience.old-town', legacySlug: 'frigiliana-old-town', family: 'frigiliana-old-town', parent: 'frigiliana.experience', segment: oldTownSegments },
+  { key: 'frigiliana.experience.old-town.ceramic-panels', legacySlug: 'frigiliana-ceramic-panels', family: 'frigiliana-ceramic-panels', parent: 'frigiliana.experience.old-town', segment: ceramicPanelsSegments },
   {
     key: 'frigiliana.experience.weddings',
     legacySlug: 'frigiliana-weddings',
