@@ -188,6 +188,8 @@ export const STABLE_PUBLIC_IMAGE_PATHS = [
   '/images/hero-frigiliana.jpg',
   '/images/nerja/nerja-cave-VR.jpeg',
   '/images/robert-amara-host.jpg',
+  '/images/tarifa/mark-robert-tarifa-surf-club-beach.webp',
+  '/images/tarifa/mark-robert-tarifa-surf-club-promenade.webp',
   '/images/tarifa/mark-robert-tarifa-surf-club.webp',
 ] as const;
 

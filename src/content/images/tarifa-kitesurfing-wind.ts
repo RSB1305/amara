@@ -39,13 +39,14 @@ export const tarifaKitesurfingWindImages = defineRouteImages({
     {
       role: 'split',
       id: 'partner',
-      src: '/images/tarifa/mark-robert-tarifa-surf-club.webp',
+      src: '/images/tarifa/mark-robert-tarifa-surf-club-beach.webp',
+      focalPoint: '50% 35%',
       alt: {
-        en: "Mark from Tarifa Surf Club and Robert from AMARA in Tarifa",
-        de: "Mark vom Tarifa Surf Club und Robert von AMARA in Tarifa",
-        es: "Mark de Tarifa Surf Club y Robert de AMARA en Tarifa",
-        nl: "Mark van Tarifa Surf Club en Robert van AMARA in Tarifa",
-        sv: "Mark från Tarifa Surf Club och Robert från AMARA i Tarifa"
+        en: "Mark from Tarifa Surf Club and Robert from AMARA sitting on a wall above Los Lances beach",
+        de: "Mark vom Tarifa Surf Club und Robert von AMARA auf einer Mauer über dem Strand von Los Lances",
+        es: "Mark, de Tarifa Surf Club, y Robert, de AMARA, sentados en un muro sobre la playa de Los Lances",
+        nl: "Mark van Tarifa Surf Club en Robert van AMARA op een muurtje boven het strand van Los Lances",
+        sv: "Mark från Tarifa Surf Club och Robert från AMARA på en mur ovanför stranden Los Lances"
       },
       caption: {
         en: "Mark and Robert: direct coordination in Tarifa",

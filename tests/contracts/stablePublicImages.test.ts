@@ -30,9 +30,9 @@ const sourceFileFor = (path: string) =>
 const publicFileFor = (path: string) =>
   join(repositoryRoot, 'public', 'images', ...segmentsOf(path));
 
-test('the manifest holds exactly 148 unique paths', () => {
-  expect(STABLE_PUBLIC_IMAGE_PATHS).toHaveLength(148);
-  expect(new Set(STABLE_PUBLIC_IMAGE_PATHS).size).toBe(148);
+test('the manifest holds exactly 150 unique paths', () => {
+  expect(STABLE_PUBLIC_IMAGE_PATHS).toHaveLength(150);
+  expect(new Set(STABLE_PUBLIC_IMAGE_PATHS).size).toBe(150);
 });
 
 test('every entry is an already-normalized public image path', () => {

@@ -36,7 +36,7 @@ export const tarifaKitesurfingKitecampImages = defineRouteImages({
     },
     {
       role: 'og',
-      src: '/images/tarifa/mark-robert-tarifa-surf-club.webp'
+      src: '/images/tarifa/mark-robert-tarifa-surf-club-promenade.webp'
     }
   ]
 });

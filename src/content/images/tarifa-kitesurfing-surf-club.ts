@@ -68,13 +68,14 @@ export const tarifaKitesurfingSurfClubImages = defineRouteImages({
     {
       role: 'split',
       id: 'story',
-      src: '/images/tarifa/mark-robert-tarifa-surf-club.webp',
+      src: '/images/tarifa/mark-robert-tarifa-surf-club-promenade.webp',
+      focalPoint: '50% 30%',
       alt: {
-        en: "Mark from Tarifa Surf Club and Robert from AMARA in Tarifa",
-        de: "Mark vom Tarifa Surf Club und Robert von AMARA in Tarifa",
-        es: "Mark de Tarifa Surf Club y Robert de AMARA en Tarifa",
-        nl: "Mark van Tarifa Surf Club en Robert van AMARA in Tarifa",
-        sv: "Mark från Tarifa Surf Club och Robert från AMARA i Tarifa"
+        en: "Mark from Tarifa Surf Club and Robert from AMARA walking along the Tarifa promenade with their skateboards",
+        de: "Mark vom Tarifa Surf Club und Robert von AMARA mit Skateboards auf der Promenade von Tarifa",
+        es: "Mark, de Tarifa Surf Club, y Robert, de AMARA, con sus skates en el paseo de Tarifa",
+        nl: "Mark van Tarifa Surf Club en Robert van AMARA met skateboards op de promenade van Tarifa",
+        sv: "Mark från Tarifa Surf Club och Robert från AMARA med skateboards på Tarifas promenad"
       },
       caption: {
         en: "Mark and Robert: direct coordination in Tarifa",
