@@ -10,6 +10,18 @@ export const nerjaWinterImages = defineRouteImages({
   routeKey: 'nerja.winter',
   images: [
     {
+      role: 'hero',
+      src: '/images/nerja/winter/nerja-winter-rental-11.jpg',
+      focalPoint: '50% 32%',
+      alt: {
+        en: 'Nerja in winter: white houses above a calm bay with the Almijara mountains behind and an empty beach under a low bright sun',
+        de: 'Nerja im Winter: weiße Häuser über einer ruhigen Bucht mit den Almijara-Bergen dahinter und einem leeren Strand unter tiefer, heller Sonne',
+        es: 'Nerja en invierno: casas blancas sobre una bahía en calma con las montañas de la Almijara al fondo y una playa vacía bajo un sol bajo y brillante',
+        nl: 'Nerja in de winter: witte huizen boven een rustige baai met de Almijara-bergen erachter en een leeg strand onder een lage, heldere zon',
+        sv: 'Nerja på vintern: vita hus ovanför en stilla vik med Almijarabergen bakom och en tom strand under en låg, klar sol'
+      }
+    },
+    {
       role: 'gallery',
       src: '/images/nerja/winter/nerja-winter-rental-13.jpg',
       focalPoint: '50% 40%',
@@ -19,17 +31,6 @@ export const nerjaWinterImages = defineRouteImages({
         es: 'El paseo de palmeras del Balcón de Europa, vacío, con luz de invierno',
         nl: 'De lege palmenpromenade bij de Balcón de Europa in winterlicht',
         sv: 'Den tomma palmpromenaden vid Balcón de Europa i vinterljus'
-      }
-    },
-    {
-      role: 'gallery',
-      src: '/images/nerja/winter/nerja-winter-rental-11.jpg',
-      alt: {
-        en: "A calm bay and Nerja's white houses above Playa Calahonda",
-        de: 'Ruhige Bucht und die weißen Häuser von Nerja über der Playa Calahonda',
-        es: 'Una bahía en calma y las casas blancas de Nerja sobre la playa Calahonda',
-        nl: 'Een rustige baai en de witte huizen van Nerja boven Playa Calahonda',
-        sv: 'En stilla vik och Nerjas vita hus ovanför Playa Calahonda'
       }
     },
     {
@@ -81,8 +82,7 @@ export const nerjaWinterImages = defineRouteImages({
       }
     },
     {
-      role: 'editorial',
-      id: 'sun-bridge',
+      role: 'gallery',
       src: '/images/nerja/winter/nerja-winter-rental-12.jpg',
       focalPoint: '30% 45%',
       alt: {
@@ -91,13 +91,6 @@ export const nerjaWinterImages = defineRouteImages({
         es: 'Una estatua del Balcón de Europa a contraluz del sol de invierno sobre el mar',
         nl: 'Een standbeeld bij de Balcón de Europa in tegenlicht van de winterzon boven de zee',
         sv: 'En staty vid Balcón de Europa i motljus från vintersolen över havet'
-      },
-      caption: {
-        en: 'Even in December the sun sits high over the sea here — the hours below show how high.',
-        de: 'Selbst im Dezember steht die Sonne hier hoch über dem Meer — wie hoch, zeigen die Stunden darunter.',
-        es: 'Incluso en diciembre el sol está alto sobre el mar aquí; las horas de abajo muestran cuánto.',
-        nl: 'Zelfs in december staat de zon hier hoog boven de zee — de uren hieronder laten zien hoe hoog.',
-        sv: 'Även i december står solen högt över havet här – timmarna nedan visar hur högt.'
       }
     }
   ]

@@ -109,6 +109,21 @@ export const frigilianaHikingRecommendations = defineKnowledgeRecommendations([
     claimBoundary: 'Carried over from the published guide; the referenced facts bound the verified details, everything else is editorial selection without a dated check.'
   },
   {
+    id: 'frigiliana.hiking.spanish-walking-adventures',
+    destination: 'frigiliana',
+    topic: 'hiking',
+    place: { name: 'Spanish Walking Adventures', kind: 'provider', website: 'https://spanishwalkingadventures.com/' },
+    summary: 'A guided walking-holiday operator whose destinations include Frigiliana and the Sierras de Tejeda, Alhama y Almijara. Bespoke, small-group trips (about 4–24 people) where the guest chooses dates, length and location; offered self-catered or all-inclusive with guided walks arranged. Surfaced as the guided alternative on the public hiking page for guests who would rather not plan routes themselves. Added at the operator’s request 2026-09-11.',
+    provenance: 'researched',
+    status: 'APPROVED',
+    scope: 'public',
+    basis: 'operator-review',
+    checkedAt: '2026-09-11',
+    reviewAfter: '2027-03-11',
+    volatility: 'medium',
+    claimBoundary: 'Independent third-party operator, not part of AMARA; the exact walks, difficulty, languages and prices are theirs to confirm on enquiry and are not verified here. Website scope observed 2026-09-11.'
+  },
+  {
     id: 'frigiliana.hiking.gr-249-stage-6',
     destination: 'frigiliana',
     topic: 'hiking',

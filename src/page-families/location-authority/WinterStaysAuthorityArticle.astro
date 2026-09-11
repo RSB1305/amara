@@ -21,6 +21,8 @@ interface Props {
   propertyHref: string;
   resolveHref: RequiredLinkResolver;
   factIcons?: LocationGuideIconName[];
+  /** Optional panorama photo hero; when present the page opens with a photo hero. */
+  heroImage?: ResolvedRouteImage;
   /** Optional per-destination winter photographs. Absent destinations render no gallery. */
   galleryImages?: ResolvedRouteImage[];
   /** Wide editorial image that bridges the gallery into the sunshine-hours chart. */
@@ -50,6 +52,7 @@ const {
   propertyHref,
   resolveHref,
   factIcons,
+  heroImage,
   galleryImages = [],
   sunBridgeImage,
   weatherLink,
@@ -67,6 +70,7 @@ const galleryColsClass =
   topic="winter-stays"
   lang={lang}
   hero={content.hero}
+  heroImage={heroImage}
   authorName={seo.article!.authorName}
   authorHref={authorHref}
   facts={content.facts}

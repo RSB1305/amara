@@ -149,6 +149,10 @@ const winterRouteKey = `${destination}.winter`;
 const hasWinterImages = Boolean(getRouteImageSet(winterRouteKey));
 const winterGallery = hasWinterImages ? routeImages(winterRouteKey, 'gallery', currentLang) : [];
 const winterSunBridge = hasWinterImages ? routeImage(winterRouteKey, 'sun-bridge', currentLang) : undefined;
+/** Optional panorama photo hero: only a destination whose winter set carries a `hero`
+ * image opens with the photo hero (like the ceramic-panels spoke); others render the
+ * standard guide hero unchanged. */
+const winterHero = hasWinterImages ? routeImage(winterRouteKey, 'hero', currentLang) : undefined;
 
 const weatherLinkLabel: Record<AmaraLanguage, string> = {
   de: 'Temperaturen im Jahresverlauf: zur Wetterseite',
@@ -228,6 +232,7 @@ const winterSunset =
     locationHref={requiredLink(pageConfig.locationToken)}
     propertyHref={propertyHref}
     resolveHref={requiredLink}
+    heroImage={winterHero}
     galleryImages={winterGallery}
     sunBridgeImage={winterSunBridge}
     weatherLink={weatherLink}
