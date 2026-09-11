@@ -19,6 +19,7 @@ export const frigilianaOldTownKnowledge = defineKnowledgePageManifest({
     '2026-08-24__121346__frigiliana-streetscape-overnight-atmosphere__research-001',
     '2026-08-24__121347__frigiliana-agriculture-lived-landscape__research-001',
     '2026-09-11__080827__frigiliana-ceramic-panels-provenance__research-001',
+    '2026-09-11__123300__frigiliana-el-ingenio-provenance__research-001',
   ],
   coverage: [
     {
@@ -67,14 +68,24 @@ export const frigilianaOldTownKnowledge = defineKnowledgePageManifest({
     },
     {
       authoringArea: 'el-ingenio',
-      purpose: 'Explain El Ingenio as a visible historic and production landmark while preserving conflicts and access boundaries.',
+      purpose: 'Author El Ingenio as its own authority spoke: the palace/sugar-works layers, the facade, miel de caña, the ibex on the roof and the access boundary.',
       factIds: [
+        'frigiliana.ingenio.palace.manrique-de-lara-16c',
+        'frigiliana.ingenio.lordship.manrique-1508',
+        'frigiliana.ingenio.sugar.trapiche-to-ingenio-1725',
+        'frigiliana.ingenio.archive.nobleza-toledo-1672-1730',
+        'frigiliana.ingenio.facade.esgrafiado',
+        'frigiliana.ingenio.facade.niches-and-sundials',
+        'frigiliana.ingenio.mielcana.production-since-1725',
+        'frigiliana.ingenio.mielcana.last-on-peninsula-attributed',
+        'frigiliana.ingenio.ibex.cabra-montes-roofs',
+        'frigiliana.ingenio.access.working-site',
         'frigiliana.heritage.ingenio.origin-and-adaptation',
         'frigiliana.history.repopulation-and-sugar-recovery',
         'frigiliana.food.ingenio.current-cane-honey-production-claim',
       ],
-      status: 'partial',
-      notes: 'The official heritage owner describes a late-sixteenth-century residence later adapted for cane processing, while current public copy gives a 1725 industrial origin. The conflict must be reconciled before authoring. Current production is a bounded authority/producer claim; public access is not established.',
+      status: 'covered',
+      notes: 'Dating conflict reconciled by research-001 (2026-09-11): the 16th-century Manrique de Lara palace and the 1725 industrial ingenio are distinct layers of one building, both documented. Miel de caña produced since 1725 (factory Nuestra Señora del Carmen, 1950s mill train). Superlatives only attributed ("last ingenio of its kind on the peninsula", Diputación) — never "only factory in Europe". Ibex on the roof are wild cabra montés (not domestic goats/chamois); sightings not guaranteed. Working site — no promised public access.',
     },
     {
       authoringArea: 'casa-del-apero',

@@ -65,7 +65,11 @@ export interface EvidenceReferenceMap<FactId extends string = string> {
   };
 }
 
-export type KnowledgeResearchProvider = 'gpt-deep-research' | 'gemini-deep-research' | 'operator-provided';
+export type KnowledgeResearchProvider =
+  | 'gpt-deep-research'
+  | 'gemini-deep-research'
+  | 'operator-provided'
+  | 'claude-web-synthesis';
 
 export type KnowledgeResearchRunStatus = 'awaiting-raw' | 'raw-received' | 'normalized' | 'archived';
 
