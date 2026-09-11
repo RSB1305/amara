@@ -128,6 +128,7 @@ const seo: AmaraAuthoringSeo = {
                   caption: img.caption?.[lang]
                 }))}
                 video={item.video && { src: item.video.src, embedUrl: item.video.embedUrl, title: item.video.title[lang] }}
+                audio={item.audio && { src: `${item.audio.srcBase}-${lang}.mp3`, title: item.audio.title[lang] }}
                 actions={actions.length ? actions : undefined}
               />
             );

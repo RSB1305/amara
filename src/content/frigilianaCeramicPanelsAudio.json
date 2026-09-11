@@ -1,0 +1,145 @@
+{
+  "$comment": "Single source for the ceramic-panels audio guide. Narration text per panel drives both the generated mp3s (scripts/generate-ceramic-audio.mjs) and the visible transcript in the guest guide. Voices are Microsoft Edge neural voices, one warm female voice per language (Katja character).",
+  "audioBase": "/audio/frigiliana-ceramic-panels",
+  "voiceByLang": {
+    "de": "de-DE-KatjaNeural",
+    "en": "en-GB-SoniaNeural",
+    "es": "es-ES-ElviraNeural",
+    "nl": "nl-NL-ColetteNeural",
+    "sv": "sv-SE-SofieNeural"
+  },
+  "panels": [
+    {
+      "n": 1,
+      "titleEs": "La Tierra",
+      "narration": {
+        "de": "Willkommen am Anfang des Weges, an der Calle Hernando El Darra. Die erste Tafel zeigt die Kulisse: die fruchtbare Sierra de Bentomiz, klare Luft, zähe Menschen. Zweiundzwanzig Orte lagen hier verstreut, und Frigiliana war einer davon. Haltet kurz inne und stellt euch dieses Land vor, bevor die Geschichte beginnt.",
+        "en": "Welcome to the start of the walk, on Calle Hernando El Darra. The first panel sets the scene: the fertile Sierra de Bentomiz, clear air, hardy people. Twenty-two villages lay scattered here, and Frigiliana was one of them. Pause a moment and picture this land before the story begins.",
+        "es": "Bienvenidos al comienzo del recorrido, en la calle Hernando El Darra. El primer azulejo pone el escenario: la fértil Sierra de Bentomiz, su aire claro y su gente recia. Veintidós lugares se repartían por ella, y Frigiliana era uno. Deteneos un momento e imaginad esta tierra antes de que empiece la historia.",
+        "nl": "Welkom aan het begin van de wandeling, in de Calle Hernando El Darra. Het eerste paneel schetst het decor: de vruchtbare Sierra de Bentomiz, heldere lucht, taaie mensen. Tweeëntwintig dorpen lagen hier verspreid, en Frigiliana was er één van. Sta even stil en stel je dit land voor, voordat het verhaal begint.",
+        "sv": "Välkomna till vandringens början, på Calle Hernando El Darra. Den första panelen sätter scenen: den bördiga Sierra de Bentomiz, klar luft, härdigt folk. Tjugotvå byar låg utspridda här, och Frigiliana var en av dem. Stanna upp en stund och föreställ er detta land innan berättelsen börjar."
+      }
+    },
+    {
+      "n": 2,
+      "titleEs": "La Gente",
+      "narration": {
+        "de": "Hier lebten die Morisken ruhig von ihrem Handwerk und vom Land. Dann kippt das Leben in Furcht: Ein Erlass verbietet ihre Sprache, ihre Kleidung, Musik und Feste, und die Inquisition wird härter. Diese Tafel erzählt vom Anfang der Angst, noch ohne Gewalt, aber schon voller Misstrauen.",
+        "en": "Here the Moriscos lived quietly by their trades and the land. Then life turns to fear: a decree forbids their language, their dress, their music and feasts, and the Inquisition presses harder. This panel tells of the beginning of fear, still without violence, but already full of suspicion.",
+        "es": "Aquí los moriscos vivían tranquilos de sus oficios y de la tierra. Entonces la vida se vuelve miedo: una pragmática prohíbe su lengua, su vestido, su música y sus fiestas, y la Inquisición aprieta más. Este azulejo cuenta el comienzo del miedo, todavía sin violencia, pero ya lleno de desconfianza.",
+        "nl": "Hier leefden de Morisken rustig van hun ambachten en van het land. Dan slaat het leven om in angst: een besluit verbiedt hun taal, hun kleding, hun muziek en feesten, en de Inquisitie wordt strenger. Dit paneel vertelt over het begin van de angst, nog zonder geweld, maar al vol wantrouwen.",
+        "sv": "Här levde moriskerna stilla av sina hantverk och av jorden. Sedan vänds livet i rädsla: ett påbud förbjuder deras språk, deras dräkt, deras musik och fester, och Inkvisitionen pressar hårdare. Den här panelen berättar om rädslans början, ännu utan våld, men redan full av misstro."
+      }
+    },
+    {
+      "n": 3,
+      "titleEs": "La Revuelta",
+      "narration": {
+        "de": "Der Aufstand beginnt. Ein Bandit schürt die Wut; ein besonnener Mann, Luis Méndez, will ihn aufhalten und wird trotzdem mit Unschuldigen eingekerkert und gefoltert. Diese Tafel zeigt, wie schnell aus Unmut Eskalation wird, und wie oft es dabei die Falschen trifft.",
+        "en": "The revolt begins. An outlaw stirs the anger; a level-headed man, Luis Méndez, tries to stop it and is jailed and tortured all the same, alongside the innocent. This panel shows how quickly resentment turns to escalation, and how often it strikes the wrong people.",
+        "es": "Empieza la rebelión. Un monfí aviva la ira; un hombre sensato, Luis Méndez, intenta impedirla y aun así lo encarcelan y torturan junto a inocentes. Este azulejo muestra lo deprisa que el malestar se convierte en escalada, y cuántas veces paga quien no debe.",
+        "nl": "De opstand begint. Een vogelvrije wakkert de woede aan; een bezonnen man, Luis Méndez, probeert het te stoppen en wordt tóch met onschuldigen gevangengezet en gemarteld. Dit paneel laat zien hoe snel onvrede in escalatie omslaat, en hoe vaak de verkeerden het treffen.",
+        "sv": "Upproret börjar. En fredlös eldar på vreden; en behärskad man, Luis Méndez, försöker stoppa det och fängslas och torteras ändå, tillsammans med de oskyldiga. Den här panelen visar hur snabbt missnöje blir upptrappning, och hur ofta det drabbar fel personer."
+      }
+    },
+    {
+      "n": 4,
+      "titleEs": "Los Jofores",
+      "narration": {
+        "de": "Zwischen Furcht und Hoffnung: Die Menschen ziehen zur Rábita von Canillas und erflehen Schutz. Ein Alter beschwört sie, ihren glückbringenden Boden nicht zu verlassen. Diese Tafel fängt einen stillen Moment ein, kurz bevor die große Flucht beginnt.",
+        "en": "Between fear and hope: the people go to the hermitage of Canillas and beg for protection. An old man implores them not to leave their lucky ground. This panel captures a quiet moment, just before the great flight begins.",
+        "es": "Entre el miedo y la esperanza: la gente acude a la rábita de Canillas e implora protección. Un anciano les suplica que no abandonen su tierra afortunada. Este azulejo capta un momento de calma, justo antes de que empiece la gran huida.",
+        "nl": "Tussen angst en hoop: de mensen trekken naar de kluis van Canillas en smeken om bescherming. Een oude man bezweert hen hun gelukkige grond niet te verlaten. Dit paneel vangt een stil moment, vlak voordat de grote vlucht begint.",
+        "sv": "Mellan rädsla och hopp: folket går till eremitaget i Canillas och bönfaller om skydd. En gammal man besvär dem att inte överge sin lyckosamma mark. Den här panelen fångar ett stilla ögonblick, strax innan den stora flykten börjar."
+      }
+    },
+    {
+      "n": 5,
+      "titleEs": "La Identidad",
+      "narration": {
+        "de": "Ein altes Banner mit grünen Halbmonden taucht wieder auf, jahrzehntelang verwahrt. Der edle Martín Alguacil wird auf einem weißen Maultier zum Anführer erhoben, und alle küssen ihm Hand und Gewand. Hier wird aus Angst Identität: Ein Volk gibt sich einen Kopf.",
+        "en": "An old banner with green crescents reappears, kept safe for decades. The noble Martín Alguacil is raised on a white mule as leader, and all come to kiss his hand and robe. Here fear becomes identity: a people gives itself a head.",
+        "es": "Reaparece una vieja bandera de lunas verdes, guardada durante décadas. El noble Martín Alguacil es alzado sobre una mula blanca como caudillo, y todos acuden a besarle la mano y la ropa. Aquí el miedo se vuelve identidad: un pueblo se da un líder.",
+        "nl": "Een oude banier met groene halvemanen duikt weer op, decennialang bewaard. De edele Martín Alguacil wordt op een witte muildier tot leider verheven, en allen kussen zijn hand en gewaad. Hier wordt angst identiteit: een volk geeft zich een hoofd.",
+        "sv": "En gammal fana med gröna halvmånar dyker upp igen, bevarad i årtionden. Den ädle Martín Alguacil lyfts upp på en vit mulåsna till ledare, och alla kommer för att kyssa hans hand och dräkt. Här blir rädsla identitet: ett folk ger sig ett huvud."
+      }
+    },
+    {
+      "n": 6,
+      "titleEs": "El Éxodo",
+      "narration": {
+        "de": "Ende April 1569 verlassen Tausende Haus und Hof und ziehen zum Peñón, dem Felsen über Frigiliana. Stellt euch die Staubwolke der Menschen über den Höhen vor. Am elften Juni werden sie dort angegriffen; die Tafel springt hart vom Aufbruch zur Entscheidung.",
+        "en": "In late April 1569, thousands leave their homes and set out for the Peñón, the rock above Frigiliana. Picture the great cloud of people along the heights. On the eleventh of June they are attacked there; the panel leaps straight from the departure to the reckoning.",
+        "es": "A finales de abril de 1569, miles abandonan sus casas y marchan al Peñón, el risco sobre Frigiliana. Imaginad la gran polvareda de gente por las alturas. El once de junio son atacados allí; el azulejo salta de golpe de la partida al desenlace.",
+        "nl": "Eind april 1569 verlaten duizenden huis en haard en trekken naar de Peñón, de rots boven Frigiliana. Stel je de grote stofwolk van mensen langs de hoogten voor. Op elf juni worden ze daar aangevallen; het paneel springt hard van het vertrek naar de beslissing.",
+        "sv": "I slutet av april 1569 lämnar tusentals sina hem och drar mot Peñón, klippan ovanför Frigiliana. Föreställ er det stora molnet av människor längs höjderna. Den elfte juni angrips de där; panelen hoppar tvärt från uppbrottet till avgörandet."
+      }
+    },
+    {
+      "n": 7,
+      "titleEs": "Los Adalides",
+      "narration": {
+        "de": "Auf dem starken Felsen nahe dem Meer sammeln sich die Verteidiger. Zum Anführer wählen sie Hernando el Darra; seine Vorfahren waren einst die Alcaides von Frigiliana. Diese Tafel steht für den letzten Zusammenhalt, bevor die Übermacht kommt.",
+        "en": "On the strong rock near the sea, the defenders gather. As their leader they choose Hernando el Darra; his forebears were once the alcaides of Frigiliana. This panel stands for the last unity, before the overwhelming force arrives.",
+        "es": "En el fuerte peñón, cerca del mar, se reúnen los defensores. Como caudillo eligen a Hernando el Darra; sus antepasados fueron alcaides de Frigiliana. Este azulejo representa la última unión, antes de que llegue la superioridad aplastante.",
+        "nl": "Op de sterke rots bij de zee verzamelen de verdedigers zich. Als aanvoerder kiezen ze Hernando el Darra; zijn voorouders waren ooit de alcaides van Frigiliana. Dit paneel staat voor de laatste eenheid, voordat de overmacht komt.",
+        "sv": "På den starka klippan nära havet samlas försvararna. Till anförare väljer de Hernando el Darra; hans förfäder var en gång Frigilianas alcaides. Den här panelen står för den sista sammanhållningen, innan övermakten kommer."
+      }
+    },
+    {
+      "n": 8,
+      "titleEs": "Los Cristianos",
+      "narration": {
+        "de": "Jetzt die andere Seite: Die Krone rückt mit Flotte und Heer an, geführt von Requesens, Bazán und Leiva, Tausende Soldaten gegen einen Felsen, den man für uneinnehmbar hielt. Diese Tafel zeigt die erdrückende Übermacht, die sich zusammenzieht.",
+        "en": "Now the other side: the crown comes with fleet and army, led by Requesens, Bazán and Leiva, thousands of soldiers against a rock thought to be impregnable. This panel shows the crushing force gathering.",
+        "es": "Ahora la otra parte: la corona llega con armada y ejército, al mando de Requesens, Bazán y Leiva, miles de soldados contra un peñón tenido por inexpugnable. Este azulejo muestra la fuerza abrumadora que se concentra.",
+        "nl": "Nu de andere kant: de kroon komt met vloot en leger, geleid door Requesens, Bazán en Leiva, duizenden soldaten tegen een rots die voor onneembaar gold. Dit paneel toont de verpletterende overmacht die zich samenbalt.",
+        "sv": "Nu den andra sidan: kronan kommer med flotta och här, ledd av Requesens, Bazán och Leiva, tusentals soldater mot en klippa som ansågs ointaglig. Den här panelen visar den överväldigande styrka som samlas."
+      }
+    },
+    {
+      "n": 9,
+      "titleEs": "El Asedio",
+      "narration": {
+        "de": "Die Belagerung. Als die Soldaten den steilen Hang hochstürmen, rollen die Verteidiger präparierte Mühlsteine hinab und mähen ganze Reihen nieder. Eine verzweifelte, geradezu geniale Verteidigung; diese Tafel ist der dramatische Höhepunkt des Kampfes.",
+        "en": "The siege. As the soldiers storm up the steep slope, the defenders roll prepared millstones down and cut through whole rows of them. A desperate, almost ingenious defence; this panel is the dramatic climax of the battle.",
+        "es": "El asedio. Cuando los soldados suben la cuesta empinada, los defensores hacen rodar ruedas de molino preparadas y arrasan filas enteras. Una defensa desesperada y casi ingeniosa; este azulejo es el clímax dramático del combate.",
+        "nl": "Het beleg. Terwijl de soldaten de steile helling opstormen, laten de verdedigers geprepareerde molenstenen naar beneden rollen en maaien hele rijen neer. Een wanhopige, haast geniale verdediging; dit paneel is het dramatische hoogtepunt van de strijd.",
+        "sv": "Belägringen. När soldaterna stormar uppför den branta sluttningen rullar försvararna ner förberedda kvarnstenar och mejar ner hela led. Ett förtvivlat, nästan genialiskt försvar; den här panelen är stridens dramatiska höjdpunkt."
+      }
+    },
+    {
+      "n": 10,
+      "titleEs": "Las Moriscas",
+      "narration": {
+        "de": "Diese Tafel gehört den Frauen. Sie kämpfen an der Seite der Männer, und als der Felsen verloren ist, springen manche lieber in den Tod, als versklavt zu werden; andere fliehen mit den Kindern auf den Schultern über die Felsen. Ein Moment, der lange nachhallt.",
+        "en": "This panel belongs to the women. They fight beside the men, and when the rock is lost, some throw themselves to their death rather than be enslaved; others flee with their children on their shoulders across the crags. A moment that echoes for a long time.",
+        "es": "Este azulejo es de las mujeres. Pelean junto a los hombres y, perdido el peñón, algunas prefieren la muerte a la esclavitud; otras huyen con los hijos a los hombros por los riscos. Un momento que resuena durante mucho tiempo.",
+        "nl": "Dit paneel is van de vrouwen. Ze vechten naast de mannen en, als de rots verloren is, storten sommigen zich liever de dood in dan tot slaaf gemaakt te worden; anderen vluchten met hun kinderen op de schouders over de rotsen. Een moment dat lang nagalmt.",
+        "sv": "Den här panelen tillhör kvinnorna. De strider vid männens sida, och när klippan är förlorad störtar sig somliga i döden hellre än att förslavas; andra flyr med barnen på axlarna över klipporna. Ett ögonblick som ekar länge."
+      }
+    },
+    {
+      "n": 11,
+      "titleEs": "La Diáspora",
+      "narration": {
+        "de": "Die Bilanz ist bitter: Hunderte Tote, etwa dreitausend Menschen in die Sklaverei geführt. Die morische Welt der Sierra endet hier. Diese Tafel zählt nüchtern, was der Fall des Felsens gekostet hat, auf beiden Seiten.",
+        "en": "The toll is bitter: hundreds dead, about three thousand people taken into slavery. The Morisco world of the sierra ends here. This panel counts, plainly, what the fall of the rock cost, on both sides.",
+        "es": "El balance es amargo: cientos de muertos, unas tres mil personas llevadas a la esclavitud. El mundo morisco de la sierra termina aquí. Este azulejo cuenta, sin adornos, lo que costó la caída del peñón, en ambos bandos.",
+        "nl": "De balans is bitter: honderden doden, zo'n drieduizend mensen tot slaaf gemaakt. De Moriskse wereld van de sierra eindigt hier. Dit paneel telt, nuchter, wat de val van de rots heeft gekost, aan beide kanten.",
+        "sv": "Facit är bittert: hundratals döda, omkring tretusen människor förda i slaveri. Sierrans moriska värld slutar här. Den här panelen räknar, nyktert, vad klippans fall kostade, på båda sidor."
+      }
+    },
+    {
+      "n": 12,
+      "titleEs": "El Holocausto",
+      "narration": {
+        "de": "Am Ende: Stille über dem Dorf. Die Tafel trägt Martín Alguacils Worte über den Tod für die Heimat. Schon der Titel, „El Holocausto“, ist eine bewusste, moderne Setzung von 1982. Hier endet der Weg, kein Triumph, sondern ein Mahnmal. Nehmt euch einen Augenblick, bevor ihr zurückgeht.",
+        "en": "At the end: silence over the village. The panel carries Martín Alguacil's words about dying for the homeland. The very title, “El Holocausto”, is a deliberate modern choice from 1982. Here the walk ends, not a triumph but a memorial. Take a moment before you head back.",
+        "es": "Al final: silencio sobre el pueblo. El azulejo lleva las palabras de Martín Alguacil sobre morir por la patria. El propio título, «El Holocausto», es una elección moderna y deliberada de 1982. Aquí termina el recorrido, no un triunfo, sino un memorial. Tomaos un momento antes de volver.",
+        "nl": "Aan het einde: stilte over het dorp. Het paneel draagt Martín Alguacils woorden over het sterven voor het vaderland. Al de titel, „El Holocausto“, is een bewuste, moderne keuze uit 1982. Hier eindigt de wandeling, geen triomf maar een monument. Neem een moment voordat je teruggaat.",
+        "sv": "Till slut: tystnad över byn. Panelen bär Martín Alguacils ord om att dö för fäderneslandet. Redan titeln, ”El Holocausto”, är ett medvetet, modernt val från 1982. Här slutar vandringen, ingen triumf utan ett minnesmärke. Ta en stund innan ni går tillbaka."
+      }
+    }
+  ]
+}
