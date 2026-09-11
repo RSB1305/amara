@@ -233,7 +233,7 @@ export const frigilianaRestaurantsContent: Record<
           id: 'miel-de-cana',
           title: 'Miel de caña, made in the village',
           text:
-            'Frigiliana still runs the Ingenio Nuestra Señora del Carmen, the last sugar-cane molasses mill working in Europe. Its dark cane syrup turns up on menus here — over fried aubergine, with local goat or lamb. You can pick up a bottle at the mill to take the taste home.'
+            'Frigiliana still runs the Ingenio Nuestra Señora del Carmen, a working cane-syrup mill with a long local tradition. Its dark miel de caña turns up on menus here — over fried aubergine, with local goat or lamb. You can pick up a bottle at the mill to take the taste home.'
         },
         {
           id: 'tropical-fruit',
@@ -430,7 +430,7 @@ export const frigilianaRestaurantsContent: Record<
           id: 'miel-de-cana',
           title: 'Miel de caña – im Dorf gemacht',
           text:
-            'In Frigiliana arbeitet noch der Ingenio Nuestra Señora del Carmen, die letzte Zuckerrohr-Melassefabrik Europas. Ihr dunkler Zuckerrohrsirup steht hier auf den Karten – über gebratener Aubergine, zu Ziege oder Lamm. Eine Flasche gibt es direkt an der Fabrik zum Mitnehmen.'
+            'In Frigiliana arbeitet noch der Ingenio Nuestra Señora del Carmen, eine Zuckerrohrsirup-Fabrik mit langer lokaler Tradition. Ihr dunkler Miel de Caña steht hier auf den Karten – über gebratener Aubergine, zu Ziege oder Lamm. Eine Flasche gibt es direkt an der Fabrik zum Mitnehmen.'
         },
         {
           id: 'tropical-fruit',
@@ -627,7 +627,7 @@ export const frigilianaRestaurantsContent: Record<
           id: 'miel-de-cana',
           title: 'Miel de caña, hecha en el pueblo',
           text:
-            'En Frigiliana sigue funcionando el Ingenio Nuestra Señora del Carmen, la última fábrica de miel de caña en activo de Europa. Su sirope oscuro de caña aparece en las cartas de aquí: sobre berenjenas fritas, con cabrito o cordero de la zona. Podéis compraros una botella en la propia fábrica para llevaros el sabor a casa.'
+            'En Frigiliana sigue funcionando el Ingenio Nuestra Señora del Carmen, una fábrica de miel de caña en activo con una larga tradición local. Su sirope oscuro de caña aparece en las cartas de aquí: sobre berenjenas fritas, con cabrito o cordero de la zona. Podéis compraros una botella en la propia fábrica para llevaros el sabor a casa.'
         },
         {
           id: 'tropical-fruit',
@@ -824,7 +824,7 @@ export const frigilianaRestaurantsContent: Record<
           id: 'miel-de-cana',
           title: 'Miel de caña, in het dorp gemaakt',
           text:
-            'In Frigiliana draait nog de Ingenio Nuestra Señora del Carmen, de laatste werkende suikerrietmelassefabriek van Europa. Haar donkere rietstroop staat hier op de kaart: over gebakken aubergine, bij lokale geit of lam. Bij de fabriek kun je een fles kopen om de smaak mee naar huis te nemen.'
+            'In Frigiliana draait nog de Ingenio Nuestra Señora del Carmen, een werkende rietstroopfabriek met een lange lokale traditie. Haar donkere miel de caña staat hier op de kaart: over gebakken aubergine, bij lokale geit of lam. Bij de fabriek kun je een fles kopen om de smaak mee naar huis te nemen.'
         },
         {
           id: 'tropical-fruit',
@@ -1021,7 +1021,7 @@ export const frigilianaRestaurantsContent: Record<
           id: 'miel-de-cana',
           title: 'Miel de caña, gjord i byn',
           text:
-            'I Frigiliana drivs fortfarande Ingenio Nuestra Señora del Carmen, den sista sockerrörsmelassfabriken i drift i Europa. Dess mörka sockerrörssirap dyker upp på menyerna här – över stekt aubergine, till lokal killing eller lamm. Vid fabriken kan ni köpa en flaska och ta smaken med hem.'
+            'I Frigiliana drivs fortfarande Ingenio Nuestra Señora del Carmen, en sockerrörssirapsfabrik i drift med lång lokal tradition. Dess mörka miel de caña dyker upp på menyerna här – över stekt aubergine, till lokal killing eller lamm. Vid fabriken kan ni köpa en flaska och ta smaken med hem.'
         },
         {
           id: 'tropical-fruit',
