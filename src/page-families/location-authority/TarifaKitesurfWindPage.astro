@@ -426,7 +426,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
           </div>
         </div>
 
-        <div class="mt-12 max-w-3xl border-l-2 border-primary/35 bg-surface px-6 py-6" data-am-bridge="rescue">
+        <div class="mt-12 max-w-3xl border-l-2 bg-surface px-6 py-6" data-am-bridge="rescue">
           <p class="am-text-label am-text-label--sm text-primary">{content.beach.rescueBridge.label}</p>
           <p class="am-text-body mt-3 leading-relaxed text-on-surface"><InlineEmphasis text={content.beach.rescueBridge.text} /></p>
           <p class="mt-4"><a class="am-link am-text-label am-text-label--sm" href={requiredLink(content.beach.rescueBridge.token)}>{content.beach.rescueBridge.linkLabel} →</a></p>
@@ -518,6 +518,10 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
   }
   [data-am-wind-chapter] {
     scroll-margin-top: var(--am-wind-chapter-offset, 10rem);
+  }
+  /* The rescue link carries the emergency red of the warning block, not the brand accent. */
+  [data-am-bridge='rescue'] {
+    border-left-color: #c8281e;
   }
   [data-am-wind-toc-scroller] {
     scrollbar-width: none;
