@@ -74,6 +74,7 @@ export const linkRegistry = {
     frigiliana_ingenio: buildOwnedLinks('frigiliana.experience.old-town.ingenio'),
     frigiliana_casa_del_apero: buildOwnedLinks('frigiliana.experience.old-town.casa-del-apero'),
     frigiliana_san_antonio: buildOwnedLinks('frigiliana.experience.old-town.san-antonio'),
+    frigiliana_calle_real: buildOwnedLinks('frigiliana.experience.old-town.calle-real'),
 
     /* =========================================================
        LOCATIONS

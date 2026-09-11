@@ -151,7 +151,15 @@ const sightMedia: ReadonlyArray<{
       nl: 'Een man op een muildier in een straatje van de oude kern van Frigiliana',
       sv: 'En man på en mulåsna i en gränd i Frigilianas gamla stan'
     },
-    focalPoint: '50% 50%'
+    focalPoint: '50% 50%',
+    href: resolveOptionalLink('frigiliana_calle_real', currentLang, { suppressMissing: true }) ?? undefined,
+    linkLabel: {
+      en: 'Calle Real & the Barribajo: the wide lower axis — and Casa AMARA',
+      de: 'Calle Real & das Barribajo: die breite untere Achse — und Casa AMARA',
+      es: 'La calle Real y el Barribajo: el eje bajo y ancho — y Casa AMARA',
+      nl: 'Calle Real & het Barribajo: de brede lagere as — en Casa AMARA',
+      sv: 'Calle Real & Barribajo: den breda nedre axeln — och Casa AMARA'
+    }
   },
   {
     image: barribartoImage,

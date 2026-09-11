@@ -158,6 +158,13 @@ const sanAntonioSegments = {
   nl: 'san-antonio-kerk',
   sv: 'san-antonio-kyrkan'
 };
+const calleRealSegments = {
+  es: 'calle-real',
+  en: 'calle-real',
+  de: 'calle-real',
+  nl: 'calle-real',
+  sv: 'calle-real'
+};
 const faqSegments = {
   es: 'preguntas-frecuentes',
   en: 'faq',
@@ -518,6 +525,7 @@ const definitions = [
   { key: 'frigiliana.experience.old-town.ingenio', legacySlug: 'frigiliana-el-ingenio', family: 'frigiliana-ingenio', parent: 'frigiliana.experience.old-town', segment: ingenioSegments },
   { key: 'frigiliana.experience.old-town.casa-del-apero', legacySlug: 'frigiliana-casa-del-apero', family: 'frigiliana-casa-del-apero', parent: 'frigiliana.experience.old-town', segment: casaDelAperoSegments },
   { key: 'frigiliana.experience.old-town.san-antonio', legacySlug: 'frigiliana-san-antonio', family: 'frigiliana-san-antonio', parent: 'frigiliana.experience.old-town', segment: sanAntonioSegments },
+  { key: 'frigiliana.experience.old-town.calle-real', legacySlug: 'frigiliana-calle-real', family: 'frigiliana-calle-real', parent: 'frigiliana.experience.old-town', segment: calleRealSegments },
   {
     key: 'frigiliana.experience.weddings',
     legacySlug: 'frigiliana-weddings',
