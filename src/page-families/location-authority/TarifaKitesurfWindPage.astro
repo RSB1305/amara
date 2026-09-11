@@ -58,7 +58,6 @@ interface Props { lang?: string; }
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const hero = requireRouteImage('tarifa.kitesurfing.wind', 'hero', currentLang);
-const sunsetImage = requireRouteImage('tarifa.kitesurfing.wind', 'sunset', currentLang);
 const partnerImage = requireRouteImage('tarifa.kitesurfing.wind', 'partner', currentLang);
 const windguruImage = requireRouteImage('tarifa.kitesurfing.wind', 'windguru', currentLang);
 const stickerImage = requireRouteImage('tarifa.kitesurfing.wind', 'windguru-sticker', currentLang);
@@ -70,7 +69,6 @@ const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf wi
 const aboutHref = requiredLink('about');
 const contactHref = `https://wa.me/34604440964?text=${encodeURIComponent(content.partner.contactMessage)}`;
 const robertPortrait = '/images/robert-amara-host.jpg';
-const photoLabel = { en: 'Photo', de: 'Foto', es: 'Foto', nl: 'Foto', sv: 'Foto' }[currentLang];
 const footerHighlights: LabeledLink[] = [
   { token: content.token, label: content.hero.title },
   ...content.related.links.map((link) => ({ token: link.token, label: link.title }))
@@ -395,19 +393,6 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
         <p class="am-text-body mt-8 max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.tides.note} /></p>
       </div>
     </LocationModule>
-
-    <section class="relative isolate overflow-hidden bg-inverse-surface" data-am-topic="editorial-photo">
-      <div class="aspect-[4/5] w-full sm:aspect-video lg:aspect-[21/9]">
-        <AmaraImage src={sunsetImage.src} alt={sunsetImage.alt} profile="background" class="h-full w-full object-cover" focalPoint={sunsetImage.focalPoint} />
-      </div>
-      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
-      <div class="absolute inset-x-0 bottom-0">
-        <div class="mx-auto w-full max-w-screen-2xl px-6 pb-8 md:px-12 md:pb-12">
-          <p class="am-text-subtitle max-w-2xl text-balance text-inverted-on-surface">{sunsetImage.caption}</p>
-          <p class="am-text-caption mt-3 normal-case tracking-normal text-inverted-on-surface/65">{photoLabel}: {sunsetImage.credit}</p>
-        </div>
-      </div>
-    </section>
 
     {/* WO RAUS — Strand je Wind, Zonen und Bojen, Lagune, Tide */}
     <LocationModule id="wo-raus" labelledby="wo-raus-title" surface="tint" spacing="compact" data-am-wind-chapter="1" data-am-topic="official-rules">
