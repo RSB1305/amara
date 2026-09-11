@@ -40,7 +40,7 @@ import LocationModule from './LocationModule.astro';
  * Beaufort), Which wind (Levante or Poniente), Thermal
  * wind (one clear day in three panels, then what the tidal current does to the
  * wind a rider feels), Where to launch (which beach in
- * which wind, the zones, the tide) and In an emergency (private boats and
+ * which wind, the zones) and In an emergency (private boats and
  * the state rescue, kept apart). The partner block, the guest-guide bridge
  * and the closing follow unchanged. Each chapter opens with a topic eyebrow, a
  * short label as the H2 and the former sentence heading as its subtitle; the
@@ -427,14 +427,6 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
                 <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={beach.text} /></p>
               </section>
             ))}
-          </div>
-        </div>
-
-        <div class="mt-16 grid gap-6 lg:grid-cols-12 lg:gap-20" data-am-tides>
-          <h3 class="am-text-subtitle max-w-md text-balance text-on-surface lg:col-span-5">{content.beach.tides.title}</h3>
-          <div class="space-y-5 lg:col-span-7">
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.beach.tides.text} /></p>
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.beach.tides.note} /></p>
           </div>
         </div>
       </div>
