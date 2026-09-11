@@ -1,0 +1,210 @@
+---
+/**
+ * WindguruExampleTable
+ *
+ * A Windguru-style example table for the Tarifa wind page: two typical days —
+ * a Levante and a Poniente — in the exact row order of the WRF 3 km table at
+ * Windguru, so the row explanations under the same numbers point at what a
+ * guest will see live. The values are authored example days, never a
+ * forecast; the page says so next to the table and links to the live spot.
+ *
+ * The two days are built to teach the two lessons of the chapter: the gap
+ * between mean wind and gusts (wide in a Levante, narrow in a Poniente) and
+ * the direction arrow (left for east, right for west). Wind cells carry
+ * Windguru's colour ramp, computed at build time; the arrow points where the
+ * wind blows to, as at Windguru. No client JavaScript.
+ */
+interface RowLabel {
+  id: string;
+  number: string;
+  title: string;
+}
+
+interface Props {
+  copy: {
+    label: string;
+    note: string;
+    linkLabel: string;
+    linkHref: string;
+    hourRowLabel: string;
+    hourLabel: string;
+    days: Array<{ id: 'levante' | 'poniente'; label: string }>;
+    colorNote: string;
+  };
+  rows: RowLabel[];
+}
+
+const { copy, rows } = Astro.props;
+
+const HOURS = ['07h', '09h', '11h', '13h', '15h', '17h', '19h', '21h'];
+
+interface ExampleDay {
+  id: 'levante' | 'poniente';
+  wind: number[];
+  gusts: number[];
+  from: number[];
+  temperature: number[];
+  cloud: number[];
+  rain: string[];
+}
+
+const DAYS: ExampleDay[] = [
+  {
+    id: 'levante',
+    wind: [19, 23, 27, 30, 32, 31, 27, 22],
+    gusts: [29, 34, 39, 42, 44, 43, 38, 31],
+    from: [85, 88, 90, 92, 95, 95, 92, 90],
+    temperature: [24, 26, 28, 30, 30, 29, 27, 25],
+    cloud: [10, 10, 15, 20, 25, 20, 10, 5],
+    rain: ['–', '–', '–', '–', '–', '–', '–', '–']
+  },
+  {
+    id: 'poniente',
+    wind: [12, 14, 16, 18, 20, 21, 19, 15],
+    gusts: [15, 17, 19, 21, 24, 25, 23, 18],
+    from: [262, 265, 268, 270, 275, 278, 275, 270],
+    temperature: [21, 22, 23, 24, 25, 25, 24, 22],
+    cloud: [40, 30, 20, 10, 10, 10, 15, 20],
+    rain: ['–', '–', '–', '–', '–', '–', '–', '–']
+  }
+];
+
+/** Windguru's wind colour ramp, light blue to red, with the two darkest steps in white type. */
+function windColor(kn: number): { background: string; dark: boolean } {
+  if (kn < 8) return { background: '#ffffff', dark: false };
+  if (kn < 12) return { background: '#dbeefc', dark: false };
+  if (kn < 16) return { background: '#c6f0d2', dark: false };
+  if (kn < 20) return { background: '#e6f6a6', dark: false };
+  if (kn < 24) return { background: '#fff08c', dark: false };
+  if (kn < 28) return { background: '#ffd166', dark: false };
+  if (kn < 32) return { background: '#ffa447', dark: false };
+  if (kn < 36) return { background: '#ff6e4a', dark: true };
+  if (kn < 42) return { background: '#e63946', dark: true };
+  return { background: '#b5179e', dark: true };
+}
+
+/** Windguru's stars: a coarse rating by speed alone. */
+function stars(kn: number): string {
+  if (kn < 12) return '';
+  if (kn < 17) return '★';
+  if (kn < 22) return '★★';
+  return '★★★';
+}
+
+const rowById = new Map(rows.map((row) => [row.id, row]));
+const label = (id: string) => rowById.get(id);
+const dayLabel = (id: 'levante' | 'poniente') => copy.days.find((day) => day.id === id)?.label ?? id;
+const cellClass = 'am-text-data-note h-9 min-w-11 whitespace-nowrap px-1 text-center align-middle text-on-surface';
+const dayStart = (index: number) => (index === 0 ? '' : 'am-wg-day-start');
+---
+
+<figure class="m-0 bg-surface py-4" data-am-windguru-example>
+  <figcaption class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 px-5 pb-3 md:px-6">
+    <span class="am-text-label am-text-label--sm text-primary">{copy.label}</span>
+    <span class="am-text-caption normal-case tracking-normal text-muted">
+      {copy.note}{' '}
+      <a class="am-link" href={copy.linkHref} target="_blank" rel="noopener noreferrer">{copy.linkLabel} ↗</a>
+    </span>
+  </figcaption>
+
+  <div class="overflow-x-auto" role="region" aria-label={copy.label} tabindex="0">
+    <table class="am-wg w-full min-w-[54rem] border-collapse">
+      <thead>
+        <tr>
+          <th scope="col" class="am-wg-row am-text-label am-text-label--sm text-on-surface"><span class="am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5 place-items-center rounded-full bg-primary tracking-normal text-surface">{label('hour')?.number}</span>{copy.hourRowLabel}</th>
+          {DAYS.map((day, index) => (
+            <th scope="colgroup" colspan={HOURS.length} class:list={['am-wg-day am-text-label am-text-label--sm text-on-surface-variant', dayStart(index)]}>{dayLabel(day.id)}</th>
+          ))}
+        </tr>
+        <tr>
+          <th scope="col" class="am-wg-row am-text-data-note text-muted">{copy.hourLabel}</th>
+          {DAYS.map((_, index) => HOURS.map((hour, h) => <th scope="col" class:list={['am-text-data-note h-8 min-w-11 text-center text-on-surface-variant', h === 0 ? dayStart(index) : '']}>{hour}</th>))}
+        </tr>
+      </thead>
+      <tbody>
+        <tr data-windguru-example-row="wind">
+          <th scope="row" class="am-wg-row am-text-label am-text-label--sm text-on-surface"><span class="am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5 place-items-center rounded-full bg-primary tracking-normal text-surface">{label('wind')?.number}</span>{label('wind')?.title}</th>
+          {DAYS.map((day, index) => day.wind.map((kn, h) => { const c = windColor(kn); return <td class:list={[cellClass, 'font-semibold', h === 0 ? dayStart(index) : '', c.dark ? 'text-inverted-on-surface' : '']} style={`background:${c.background}`}>{kn}</td>; }))}
+        </tr>
+        <tr data-windguru-example-row="gusts">
+          <th scope="row" class="am-wg-row am-text-label am-text-label--sm text-on-surface"><span class="am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5 place-items-center rounded-full bg-primary tracking-normal text-surface">{label('gusts')?.number}</span>{label('gusts')?.title}</th>
+          {DAYS.map((day, index) => day.gusts.map((kn, h) => { const c = windColor(kn); return <td class:list={[cellClass, 'font-semibold', h === 0 ? dayStart(index) : '', c.dark ? 'text-inverted-on-surface' : '']} style={`background:${c.background}`}>{kn}</td>; }))}
+        </tr>
+        <tr data-windguru-example-row="direction">
+          <th scope="row" class="am-wg-row am-text-label am-text-label--sm text-on-surface"><span class="am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5 place-items-center rounded-full bg-primary tracking-normal text-surface">{label('direction')?.number}</span>{label('direction')?.title}</th>
+          {DAYS.map((day, index) => day.from.map((from, h) => (
+            <td class:list={[cellClass, h === 0 ? dayStart(index) : '']}>
+              <svg viewBox="0 0 16 16" class="mx-auto block h-4 w-4" role="img" aria-label={`${from}°`}>
+                <g transform={`rotate(${(from + 180) % 360} 8 8)`} fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 1.5 V14.5" />
+                  <path d="M4.5 5 L8 1.5 L11.5 5" />
+                </g>
+              </svg>
+            </td>
+          )))}
+        </tr>
+        <tr data-windguru-example-row="temperature">
+          <th scope="row" class="am-wg-row am-text-label am-text-label--sm text-on-surface"><span class="am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5 place-items-center rounded-full bg-primary tracking-normal text-surface">{label('temperature')?.number}</span>{label('temperature')?.title}</th>
+          {DAYS.map((day, index) => day.temperature.map((value, h) => <td class:list={[cellClass, h === 0 ? dayStart(index) : '']}>{value}</td>))}
+        </tr>
+        <tr data-windguru-example-row="cloud">
+          <th scope="row" class="am-wg-row am-text-label am-text-label--sm text-on-surface"><span class="am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5 place-items-center rounded-full bg-primary tracking-normal text-surface">{label('cloud')?.number}</span>{label('cloud')?.title}</th>
+          {DAYS.map((day, index) => day.cloud.map((value, h) => <td class:list={[cellClass, h === 0 ? dayStart(index) : '']}>{value}</td>))}
+        </tr>
+        <tr data-windguru-example-row="rain">
+          <th scope="row" class="am-wg-row am-text-label am-text-label--sm text-on-surface"><span class="am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5 place-items-center rounded-full bg-primary tracking-normal text-surface">{label('rain')?.number}</span>{label('rain')?.title}</th>
+          {DAYS.map((day, index) => day.rain.map((value, h) => <td class:list={[cellClass, h === 0 ? dayStart(index) : '']}>{value}</td>))}
+        </tr>
+        <tr data-windguru-example-row="rating">
+          <th scope="row" class="am-wg-row am-text-label am-text-label--sm text-on-surface"><span class="am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5 place-items-center rounded-full bg-primary tracking-normal text-surface">{label('rating')?.number}</span>{label('rating')?.title}</th>
+          {DAYS.map((day, index) => day.wind.map((kn, h) => <td class:list={[cellClass, 'am-wg-star', h === 0 ? dayStart(index) : '']}>{stars(kn)}</td>))}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="am-text-caption px-5 pt-3 normal-case tracking-normal text-muted md:px-6">{copy.colorNote}</p>
+</figure>
+
+<style>
+  /*
+   * The row-name column stays put while the hours scroll sideways, so the
+   * numbered callouts remain visible on a phone. Cell colours are inline
+   * (Windguru's ramp); everything else uses the page tokens.
+   */
+  .am-wg th,
+  .am-wg td {
+    border-bottom: 1px solid color-mix(in srgb, var(--color-on-surface) 9%, transparent);
+  }
+  .am-wg-row {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    width: 11.5rem;
+    min-width: 11.5rem;
+    padding: 0 0.5rem 0 1.25rem;
+    text-align: left;
+    white-space: nowrap;
+    background: var(--color-surface);
+    box-shadow: 2px 0 0 color-mix(in srgb, var(--color-on-surface) 9%, transparent);
+  }
+  @media (min-width: 768px) {
+    .am-wg-row {
+      width: 13rem;
+      min-width: 13rem;
+      padding: 0 0.75rem 0 1.5rem;
+    }
+  }
+  .am-wg-day {
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    text-align: left;
+    background: var(--color-surface-container-low);
+  }
+  .am-wg-day-start {
+    border-left: 2px solid color-mix(in srgb, var(--color-on-surface) 22%, transparent);
+  }
+  .am-wg-star {
+    color: var(--color-gold);
+    letter-spacing: -0.05em;
+  }
+</style>

@@ -27,6 +27,21 @@ export interface TarifaWeatherWarningsCopy {
   englishLabel: LocalizedText;
   linkLabel: LocalizedText;
   levels: { amarillo: LocalizedText; naranja: LocalizedText; rojo: LocalizedText };
+  /**
+   * The collapsed status line of the warning block. The block stays folded by
+   * default; this line carries the count, the highest level and the first
+   * headline so the official status is visible without opening it.
+   */
+  summary: {
+    loading: LocalizedText;
+    none: LocalizedText;
+    unavailable: LocalizedText;
+    one: LocalizedText;
+    many: LocalizedText;
+    chipNone: LocalizedText;
+    chipUnknown: LocalizedText;
+    levelsShort: { amarillo: LocalizedText; naranja: LocalizedText; rojo: LocalizedText };
+  };
   phenomena: Record<'PR' | 'NE' | 'VI' | 'TO' | 'AT' | 'BT' | 'CO' | 'VS', LocalizedText>;
 }
 
@@ -53,6 +68,20 @@ export const tarifaWeatherWarningsCopy: TarifaWeatherWarningsCopy = {
     amarillo: l('yellow (amarillo)', 'Gelb (amarillo)', 'amarillo', 'geel (amarillo)', 'gul (amarillo)'),
     naranja: l('orange (naranja)', 'Orange (naranja)', 'naranja', 'oranje (naranja)', 'orange (naranja)'),
     rojo: l('red (rojo)', 'Rot (rojo)', 'rojo', 'rood (rojo)', 'röd (rojo)')
+  },
+  summary: {
+    loading: l('Official warnings for the Estrecho zone: loading …', 'Amtliche Warnungen für die Zone Estrecho: wird geladen …', 'Avisos oficiales para la zona Estrecho: cargando …', 'Officiële waarschuwingen voor de zone Estrecho: laden …', 'Officiella varningar för zonen Estrecho: laddas …'),
+    none: l('Official warnings for the Estrecho zone: none in AEMET’s latest issue', 'Amtliche Warnungen für die Zone Estrecho: keine in der letzten AEMET-Ausgabe', 'Avisos oficiales para la zona Estrecho: ninguno en la última emisión de AEMET', 'Officiële waarschuwingen voor de zone Estrecho: geen in de laatste AEMET-uitgave', 'Officiella varningar för zonen Estrecho: inga i AEMET:s senaste utgåva'),
+    unavailable: l('Official warnings for the Estrecho zone: status could not be fetched', 'Amtliche Warnungen für die Zone Estrecho: Status gerade nicht abrufbar', 'Avisos oficiales para la zona Estrecho: estado no disponible ahora mismo', 'Officiële waarschuwingen voor de zone Estrecho: status nu niet op te halen', 'Officiella varningar för zonen Estrecho: status kunde inte hämtas'),
+    one: l('Official warnings for the Estrecho zone: 1 warning, level {level}', 'Amtliche Warnungen für die Zone Estrecho: 1 Warnung, Stufe {level}', 'Avisos oficiales para la zona Estrecho: 1 aviso, nivel {level}', 'Officiële waarschuwingen voor de zone Estrecho: 1 waarschuwing, niveau {level}', 'Officiella varningar för zonen Estrecho: 1 varning, nivå {level}'),
+    many: l('Official warnings for the Estrecho zone: {count} warnings, highest level {level}', 'Amtliche Warnungen für die Zone Estrecho: {count} Warnungen, höchste Stufe {level}', 'Avisos oficiales para la zona Estrecho: {count} avisos, nivel máximo {level}', 'Officiële waarschuwingen voor de zone Estrecho: {count} waarschuwingen, hoogste niveau {level}', 'Officiella varningar för zonen Estrecho: {count} varningar, högsta nivå {level}'),
+    chipNone: l('No warning', 'Keine Warnung', 'Sin aviso', 'Geen waarschuwing', 'Ingen varning'),
+    chipUnknown: l('Status open', 'Status offen', 'Estado pendiente', 'Status open', 'Status öppen'),
+    levelsShort: {
+      amarillo: l('Yellow', 'Gelb', 'Amarillo', 'Geel', 'Gul'),
+      naranja: l('Orange', 'Orange', 'Naranja', 'Oranje', 'Orange'),
+      rojo: l('Red', 'Rot', 'Rojo', 'Rood', 'Röd')
+    }
   },
   phenomena: {
     PR: l('Rain', 'Regen', 'Lluvias', 'Regen', 'Regn'),
