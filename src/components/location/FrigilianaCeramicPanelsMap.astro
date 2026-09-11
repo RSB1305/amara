@@ -1,0 +1,246 @@
+---
+import { frigilianaCeramicPanelsCopy } from '../../content/frigilianaCeramicPanelsContent';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+/**
+ * Redrawn route map of Frigiliana's twelve ceramic panels, in the panels' own
+ * four mineral colours (ivory, black, green, brown). The geometry follows the
+ * official azulejos brochure map (frigiliana-azulejos-official-pdf-2026): the
+ * walk starts at panel 1 by the Plaza del Ingenio and threads the lanes of the
+ * Barribarto to panel 12 at the church, with Casa AMARA marked below it.
+ *
+ * The site is light-only, so the palette is a fixed light set. Street names are
+ * Spanish proper nouns and stay untranslated; the caption, the start sublabel
+ * and the per-stop accessible labels localize with `lang`. Each numbered stop
+ * is a real link to its entry in the register below (`#panel-N`).
+ */
+interface Props {
+  lang: AmaraLanguage;
+}
+
+const { lang } = Astro.props;
+const currentLang = normalizeLanguage(lang);
+const copy = frigilianaCeramicPanelsCopy;
+
+type LocalizedRow = { readonly [K in AmaraLanguage]: string };
+const t = (row: LocalizedRow): string => row[currentLang] ?? row.en;
+
+const caption = t(copy.map.caption);
+const startSublabel = t(copy.map.startSublabel);
+const ariaLabel = t(copy.map.ariaLabel);
+const panelWord = t(copy.map.panelWord);
+
+const titleById = new Map<number, string>(copy.panels.map((p) => [p.n, p.titleEs]));
+const NODES = [
+  { n: 1, x: 698, y: 193 },
+  { n: 2, x: 665, y: 258 },
+  { n: 3, x: 635, y: 291 },
+  { n: 4, x: 592, y: 275 },
+  { n: 5, x: 530, y: 302 },
+  { n: 6, x: 490, y: 342 },
+  { n: 7, x: 456, y: 322 },
+  { n: 8, x: 408, y: 358 },
+  { n: 9, x: 392, y: 399 },
+  { n: 10, x: 331, y: 412 },
+  { n: 11, x: 265, y: 389 },
+  { n: 12, x: 244, y: 491 }
+];
+
+const ROUTE =
+  'M 770 120 C 758.0 132.2, 715.5 170.0, 698 193 C 680.5 216.0, 675.5 241.7, 665 258 C 654.5 274.3, 647.2 288.2, 635 291 C 622.8 293.8, 609.5 273.2, 592 275 C 574.5 276.8, 547.0 290.8, 530 302 C 513.0 313.2, 502.3 338.7, 490 342 C 477.7 345.3, 469.7 319.3, 456 322 C 442.3 324.7, 418.7 345.2, 408 358 C 397.3 370.8, 404.8 390.0, 392 399 C 379.2 408.0, 352.2 413.7, 331 412 C 309.8 410.3, 279.5 375.8, 265 389 C 250.5 402.2, 247.5 474.0, 244 491';
+const CORRIDOR =
+  'M 775 118 C 760.8 137.5, 719.2 204.7, 690 235 C 660.8 265.3, 631.7 284.2, 600 300 C 568.3 315.8, 528.3 320.0, 500 330 C 471.7 340.0, 455.0 347.5, 430 360 C 405.0 372.5, 376.7 395.8, 350 405 C 323.3 414.2, 287.7 400.7, 270 415 C 252.3 429.3, 248.3 478.3, 244 491';
+const REAL =
+  'M 905 175 C 887.5 198.3, 840.8 272.5, 800 315 C 759.2 357.5, 710.0 397.5, 660 430 C 610.0 462.5, 553.3 489.7, 500 510 C 446.7 530.3, 398.3 543.7, 340 552 C 281.7 560.3, 181.7 558.7, 150 560';
+---
+
+<figure class="km-figure" data-am-ceramic-map>
+  <div class="km-frame">
+    <svg viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" aria-label={ariaLabel}>
+      <!-- ground & gardens -->
+      <rect width="1000" height="620" fill="var(--km-green)" />
+      <path d="M 660 480 C 740 440, 880 452, 980 512 L 1000 620 L 640 620 Z" fill="var(--km-green-2)" />
+      <ellipse cx="140" cy="110" rx="140" ry="78" fill="var(--km-green-2)" opacity="0.85" />
+      <!-- old town corridor -->
+      <path d={CORRIDOR} fill="none" stroke="var(--km-town)" stroke-width="128" stroke-linecap="round" stroke-linejoin="round" />
+      <!-- main road (Calle Real) + lanes -->
+      <path d={REAL} fill="none" stroke="var(--km-road-edge)" stroke-width="16" stroke-linecap="round" />
+      <path d={REAL} fill="none" stroke="var(--km-road)" stroke-width="11" stroke-linecap="round" />
+      <path d="M 342 420 L 452 520" fill="none" stroke="var(--km-road)" stroke-width="6" stroke-linecap="round" />
+      <path d="M 402 350 L 452 288" fill="none" stroke="var(--km-road)" stroke-width="6" stroke-linecap="round" />
+      <path d="M 512 352 L 618 436" fill="none" stroke="var(--km-road)" stroke-width="5" stroke-linecap="round" />
+      <path d="M 596 278 L 556 236" fill="none" stroke="var(--km-road)" stroke-width="5" stroke-linecap="round" />
+      <path d="M 640 302 L 742 388" fill="none" stroke="var(--km-road)" stroke-width="5" stroke-linecap="round" />
+      <!-- panel walking route -->
+      <path d={ROUTE} fill="none" stroke="var(--km-route)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0.1 11" />
+      <!-- street names (Spanish proper nouns) -->
+      <text class="km-street" x="712" y="176" transform="rotate(30 712 176)">Calle Hernando El Darra</text>
+      <text class="km-street" x="590" y="232" transform="rotate(30 590 232)">Calle Peñón</text>
+      <text class="km-street" x="486" y="244" transform="rotate(24 486 244)">Calle Santo Cristo</text>
+      <text class="km-street" x="408" y="322" transform="rotate(-54 408 322)">C. Chorrera</text>
+      <text class="km-street" x="560" y="345" transform="rotate(18 560 345)">Calle Amargura</text>
+      <text class="km-street" x="512" y="404" transform="rotate(16 512 404)">Calle El Arriero</text>
+      <text class="km-street" x="300" y="452" transform="rotate(10 300 452)">Calle Santa Teresa</text>
+      <text class="km-street" x="470" y="500" font-size="10" transform="rotate(44 470 500)">C. Zacatín</text>
+      <text class="km-street km-street--road" x="660" y="452" transform="rotate(-24 660 452)">Calle Real</text>
+      <!-- Plaza del Ingenio (start area) -->
+      <circle cx="822" cy="94" r="4" fill="var(--km-ink)" />
+      <text class="km-place" x="836" y="90">PLAZA DEL INGENIO</text>
+      <text class="km-place-sub" x="836" y="104">{startSublabel}</text>
+      <!-- Jardín Botánico -->
+      <text class="km-place" x="885" y="590" text-anchor="middle">JARDÍN BOTÁNICO</text>
+      <!-- church -->
+      <path d="M 319 512 h 22 v -13 l -11 -8 -11 8 z" fill="var(--km-ink)" />
+      <text class="km-place" x="330" y="496" text-anchor="middle">IGLESIA</text>
+      <!-- Casa AMARA (our stay) -->
+      <path d="M 286 566 C 274 549, 274 538, 286 532 C 298 538, 298 549, 286 566 Z" fill="var(--km-route)" />
+      <circle cx="286" cy="543" r="4.2" fill="var(--km-node)" />
+      <text class="km-amara" x="286" y="590" text-anchor="middle">Casa AMARA</text>
+      <!-- compass -->
+      <g transform="translate(72 552)">
+        <circle r="26" fill="none" stroke="var(--km-ink-soft)" stroke-width="1.2" opacity="0.65" />
+        <path d="M 0 -22 L 5 0 L 0 22 L -5 0 Z" fill="var(--km-ink)" />
+        <text class="km-compass" x="0" y="-30" text-anchor="middle">N</text>
+      </g>
+      <!-- numbered stops (links into the register) -->
+      {
+        NODES.map((nd) => {
+          const isEnd = nd.n === 1 || nd.n === 12;
+          return (
+            <a href={`#panel-${nd.n}`} class:list={['km-stop', { 'km-stop--end': isEnd }]} aria-label={`${panelWord} ${nd.n}: ${titleById.get(nd.n)}`}>
+              <circle cx={nd.x} cy={nd.y} r="15" />
+              <text x={nd.x} y={nd.y + 4.5} text-anchor="middle">{nd.n}</text>
+            </a>
+          );
+        })
+      }
+    </svg>
+  </div>
+  <figcaption class="km-caption">{caption}</figcaption>
+</figure>
+
+<style>
+  .km-figure {
+    margin: 0;
+    --km-green: #bccaa2;
+    --km-green-2: #a7ba84;
+    --km-town: #e6d3b5;
+    --km-road: #f6f1e8;
+    --km-road-edge: #dcc8a6;
+    --km-route: #b1542c;
+    --km-ink: #2c2721;
+    --km-ink-soft: #6a6152;
+    --km-node: #f7f2e7;
+    --km-paper: #f3ecdd;
+  }
+
+  .km-frame {
+    background: var(--km-paper);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .km-frame svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .km-street {
+    font-family: var(--font-headline);
+    font-style: italic;
+    font-size: 11px;
+    fill: var(--km-ink-soft);
+  }
+
+  .km-street--road {
+    font-size: 12.5px;
+  }
+
+  .km-place {
+    font-family: var(--font-label);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    fill: var(--km-ink);
+  }
+
+  .km-place-sub {
+    font-family: var(--font-label);
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    fill: var(--km-ink-soft);
+  }
+
+  .km-amara {
+    font-family: var(--font-label);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    fill: var(--km-route);
+  }
+
+  .km-compass {
+    font-family: var(--font-label);
+    font-size: 10px;
+    font-weight: 700;
+    fill: var(--km-ink-soft);
+  }
+
+  .km-stop circle {
+    fill: var(--km-node);
+    stroke: var(--km-ink);
+    stroke-width: 2.5;
+    transition: transform 0.15s ease, filter 0.15s ease;
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .km-stop text {
+    font-family: var(--font-headline);
+    font-weight: 700;
+    font-size: 13px;
+    fill: var(--km-ink);
+    pointer-events: none;
+  }
+
+  .km-stop--end circle {
+    fill: var(--km-route);
+    stroke: var(--km-route);
+  }
+
+  .km-stop--end text {
+    fill: var(--km-node);
+  }
+
+  .km-stop {
+    cursor: pointer;
+  }
+
+  .km-stop:hover circle,
+  .km-stop:focus-visible circle {
+    transform: scale(1.18);
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
+  }
+
+  .km-stop:focus-visible circle {
+    outline: none;
+    stroke: var(--km-route);
+  }
+
+  .km-caption {
+    margin: 14px 2px 0;
+    font-family: var(--font-label);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-on-surface-variant);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .km-stop circle {
+      transition: none;
+    }
+  }
+</style>

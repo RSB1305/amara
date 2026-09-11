@@ -202,11 +202,11 @@ export const frigilianaCeramicPanelsCopy = {
       'Rutten börjar med panel 1 på Calle Hernando El Darra, nära de gamla spannmålsbodarna och El Ingenio, och stiger upp i Barribarto. Nedan varje panels scen med hela den spanska texten — tryck för att läsa originalet.'
     ),
     note: l(
-      'Panel 1 has a documented position; the exact spots of panels 2–12 are not officially recorded, so let the lanes lead you rather than a map.',
-      'Tafel 1 ist verortet; die genauen Standorte der Tafeln 2–12 sind offiziell nicht verzeichnet — lasst euch von den Gassen führen, nicht von einer Karte.',
-      'El azulejo 1 tiene ubicación documentada; los puntos exactos de los azulejos 2–12 no constan oficialmente, así que dejaos guiar por las calles más que por un plano.',
-      'Paneel 1 heeft een gedocumenteerde plek; de exacte plaatsen van de panelen 2–12 zijn niet officieel vastgelegd — laat je door de straatjes leiden, niet door een kaart.',
-      'Panel 1 har en dokumenterad plats; de exakta platserna för panel 2–12 är inte officiellt noterade, så låt gränderna leda er snarare än en karta.'
+      'All twelve stops sit on the official route: it begins at panel 1 near the Plaza del Ingenio and runs through the lanes of the Barribarto to panel 12 by the church. From Casa AMARA, down by the church, you reach the start in a few minutes.',
+      'Alle zwölf Standorte liegen an der offiziellen Route: Sie beginnt an Tafel 1 nahe der Plaza del Ingenio und zieht durch die Gassen des Barribarto bis Tafel 12 an der Kirche. Von Casa AMARA, unten an der Kirche, erreicht ihr den Start in wenigen Minuten.',
+      'Los doce puntos están en la ruta oficial: empieza en el azulejo 1, junto a la Plaza del Ingenio, y recorre las calles del Barribarto hasta el azulejo 12, junto a la iglesia. Desde Casa AMARA, abajo junto a la iglesia, llegáis al inicio en pocos minutos.',
+      'Alle twaalf plekken liggen op de officiële route: die begint bij paneel 1 bij de Plaza del Ingenio en loopt door de straatjes van de Barribarto tot paneel 12 bij de kerk. Vanaf Casa AMARA, beneden bij de kerk, ben je in een paar minuten bij het startpunt.',
+      'Alla tolv platser ligger längs den officiella rutten: den börjar vid panel 1 nära Plaza del Ingenio och löper genom Barribartos gränder till panel 12 vid kyrkan. Från Casa AMARA, nere vid kyrkan, når ni starten på några minuter.'
     ),
     transcriptionLabel: l(
       'Original Spanish text',
@@ -215,6 +215,30 @@ export const frigilianaCeramicPanelsCopy = {
       'Spaanse originele tekst',
       'Spansk originaltext'
     )
+  },
+  map: {
+    caption: l(
+      'The route of the twelve panels — tap a number to jump straight to that panel.',
+      'Der Weg der zwölf Tafeln — tippt eine Nummer an, um direkt zur Tafel zu springen.',
+      'El recorrido de los doce azulejos: toca un número para saltar directamente a ese azulejo.',
+      'De route van de twaalf panelen — tik op een nummer om meteen naar dat paneel te springen.',
+      'De tolv panelernas väg — tryck på en siffra för att hoppa direkt till panelen.'
+    ),
+    startSublabel: l(
+      'Start · parking · taxi',
+      'Start · Parken · Taxi',
+      'Inicio · aparcamiento · taxi',
+      'Start · parkeren · taxi',
+      'Start · parkering · taxi'
+    ),
+    ariaLabel: l(
+      'Map of the twelve ceramic panels in Frigiliana showing the walking route',
+      'Karte der zwölf Keramiktafeln in Frigiliana mit dem Routenverlauf',
+      'Mapa de los doce azulejos de Frigiliana con el recorrido a pie',
+      'Kaart van de twaalf keramische panelen in Frigiliana met de wandelroute',
+      'Karta över Frigilianas tolv keramikpaneler med promenadrutten'
+    ),
+    panelWord: l('Panel', 'Tafel', 'Azulejo', 'Paneel', 'Panel')
   },
   panels: [
     {
