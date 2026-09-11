@@ -196,6 +196,46 @@ export const tarifaWinterStaysContent = {
       ]
     },
     {
+      id: "fire-and-wood",
+      eyebrow: l("Fire & wood", "Feuer & Holz", "Fuego y leña", "Vuur & hout", "Eld & ved"),
+      title: l(
+        "The first fire is lit without any lifting",
+        "Das erste Kaminfeuer brennt ohne Schleppen",
+        "El primer fuego se enciende sin cargar nada",
+        "Het eerste haardvuur brandt zonder sjouwen",
+        "Den första brasan tänds utan att släpa"
+      ),
+      paragraphs: [
+        l(
+          "A real wood-burning fireplace is what makes winter evenings on the coast truly cosy. So you don't have to head straight out after arriving, **the first firewood is ready for you**. When you fetch more for the evenings that follow, the layout makes it easy: unload the wood sacks from the petrol station in the underground garage and take the lift straight to the apartment door — no stairs.",
+          "Ein echter Holzkamin macht die Winterabende an der Küste erst richtig gemütlich. Damit ihr nach der Anreise nicht direkt losmüsst, **liegt das erste Brennholz für euch bereit**. Wenn ihr für die nächsten Abende Nachschub holt, macht es unsere Infrastruktur leicht: Die Holzsäcke von der Tankstelle ladet ihr in der Tiefgarage aus und fahrt sie mit dem Aufzug direkt vor die Wohnungstür — ohne Treppensteigen.",
+          "Una auténtica chimenea de leña es lo que hace de verdad acogedoras las tardes de invierno en la costa. Para que no tengáis que salir nada más llegar, **la primera leña os espera lista**. Cuando vayáis a por más para las siguientes tardes, nuestra infraestructura lo pone fácil: descargáis los sacos de leña de la gasolinera en el garaje y subís con el ascensor directamente hasta la puerta del apartamento, sin escaleras.",
+          "Een echte houtkachel maakt de winteravonden aan de kust pas echt gezellig. Zodat jullie na aankomst niet meteen op pad moeten, **ligt het eerste brandhout voor jullie klaar**. Halen jullie bijvulling voor de volgende avonden, dan maakt onze indeling het makkelijk: de houtzakken van het tankstation laad je uit in de parkeergarage en breng je met de lift rechtstreeks tot aan de voordeur — zonder trappen.",
+          "En riktig braskamin är det som gör vinterkvällarna vid kusten riktigt mysiga. För att ni inte ska behöva ge er iväg direkt efter ankomsten **ligger den första veden framme åt er**. När ni hämtar påfyllning till kvällarna som följer gör vår planlösning det enkelt: vedsäckarna från bensinstationen lastar ni av i garaget och tar hissen ända fram till lägenhetsdörren — utan trappor."
+        )
+      ]
+    },
+    {
+      id: "after-kiting",
+      eyebrow: l("After kiting", "Nach dem Kiten", "Después de navegar", "Na het kiten", "Efter kiten"),
+      title: l(
+        "Where to put the wet wetsuit",
+        "Wohin mit dem nassen Neopren?",
+        "Dónde dejar el neopreno mojado",
+        "Waar laat je het natte wetsuit?",
+        "Var gör man av den våta våtdräkten?"
+      ),
+      paragraphs: [
+        l(
+          "Anyone who goes out on the water in winter brings back a thick, soaking wetsuit. The covered, 12 m² balcony is made for exactly that: **hang your gear here and let it drip**. The clammy Atlantic damp stays right outside the door, and inside by the fire it stays pleasantly dry.",
+          "Wer im Winter aufs Wasser geht, bringt danach einen dicken, klatschnassen Anzug mit nach Hause. Der überdachte, 12 m² große Balkon ist genau dafür da: **Hier könnt ihr euer Material aufhängen und abtropfen lassen**. So bleibt die klamme Atlantik-Feuchtigkeit direkt vor der Tür, und drinnen am Feuer bleibt es angenehm trocken.",
+          "Quien sale al agua en invierno vuelve con un traje grueso y empapado. El balcón cubierto de 12 m² está pensado justo para eso: **aquí colgáis el material y lo dejáis escurrir**. Así la humedad pegajosa del Atlántico se queda en la puerta, y dentro, junto al fuego, todo se mantiene agradablemente seco.",
+          "Wie in de winter het water op gaat, komt terug met een dik, kletsnat pak. Het overdekte balkon van 12 m² is daar precies voor: **hang je materiaal hier op en laat het uitlekken**. Zo blijft de klamme Atlantische vochtigheid buiten de deur, en binnen bij het vuur blijft het aangenaam droog.",
+          "Den som ger sig ut på vattnet på vintern kommer hem med en tjock, dyblöt dräkt. Den överbyggda balkongen på 12 m² är gjord just för det: **häng upp utrustningen här och låt den rinna av**. Så stannar den råa Atlantfukten utanför dörren, och inne vid elden håller det sig behagligt torrt."
+        )
+      ]
+    },
+    {
       id: "staying-longer",
       eyebrow: l("Staying longer", "Länger bleiben", "Quedarse más", "Langer blijven", "Stanna längre"),
       title: l(
