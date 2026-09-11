@@ -154,6 +154,9 @@ const c = {
     text: copy.content.arrivalByBus.text[currentLang]
   },
   luggageAdvice: { title: copy.content.luggageAdvice.title[currentLang], text: copy.content.luggageAdvice.text[currentLang] },
+  checkIn: 'checkIn' in copy.content
+    ? { title: copy.content.checkIn.title[currentLang], text: copy.content.checkIn.text[currentLang] }
+    : null,
   faq: { title: copy.content.faq.title[currentLang], items: copy.content.faq.items[currentLang] },
   sidebar: copy.sidebar
 };
@@ -473,6 +476,19 @@ const busIntro = c.arrivalByBus.text.split('\n\n')[0];
           </article>
         </div>
       </AmaraSection>
+
+      {c.checkIn && (
+        <AmaraSection labelledby="arrival-checkin-title" dataComponent="arrival-guide-checkin">
+          <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+            <h2 id="arrival-checkin-title" class="am-text-subtitle text-on-surface">{c.checkIn.title}</h2>
+            <div class="space-y-5">
+              {c.checkIn.text.split('\n\n').map((paragraph) => (
+                <p class="am-text-body max-w-2xl leading-relaxed text-on-surface-variant">{paragraph}</p>
+              ))}
+            </div>
+          </div>
+        </AmaraSection>
+      )}
 
       <AmaraSection labelledby="arrival-contact-title" dataComponent="arrival-guide-contact">
         <div class="grid gap-10 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
