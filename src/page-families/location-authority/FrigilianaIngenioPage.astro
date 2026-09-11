@@ -1,0 +1,271 @@
+---
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import Navigation from '../../components/Navigation.astro';
+import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
+import facadeImage from '../../assets/images/content/frigiliana/frigiliana-el-ingenio-fassade-esgrafiado-balkone.jpg';
+import coatOfArmsImage from '../../assets/images/content/frigiliana/frigiliana-steinwappen-el-ingenio-fassade.jpg';
+import nicheImage from '../../assets/images/content/frigiliana/frigiliana-nische-marienstatue-el-ingenio.jpg';
+import factoryImage from '../../assets/images/content/frigiliana/frigiliana-ingenio-nuestra-senora-del-carmen-eingang.jpg';
+import historicImage from '../../assets/images/content/frigiliana/frigiliana-historisches-foto-el-ingenio-lkw.jpg';
+import ibexImage from '../../assets/images/content/frigiliana/frigiliana-ziegen-auf-dach-el-ingenio.jpg';
+import {
+  frigilianaIngenioCopy,
+  frigilianaIngenioSeo
+} from '../../content/frigilianaIngenioContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import type { LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import { routeHero } from '../../lib/images/routeImages';
+
+interface Props {
+  lang?: string;
+}
+
+type LocalizedRow = { readonly [K in AmaraLanguage]: string };
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.old-town.ingenio', currentLang);
+const copy = frigilianaIngenioCopy;
+
+function t(row: LocalizedRow): string {
+  return row[currentLang] ?? row.en;
+}
+
+const footerHighlights: LabeledLink[] = [
+  {
+    token: 'frigiliana_old_town',
+    label: t({
+      en: 'Old town & history',
+      de: 'Altstadt & Geschichte',
+      es: 'Casco antiguo e historia',
+      nl: 'Oude kern & geschiedenis',
+      sv: 'Gamla stan & historia'
+    })
+  }
+];
+
+const palaceCards = copy.palaceVsFactory.items.map((item) => ({
+  title: t(item.title),
+  copy: t(item.text)
+}));
+const facadeCards = copy.facade.items.map((item) => ({
+  title: t(item.title),
+  copy: t(item.text)
+}));
+const mielCards = copy.mielDeCana.items.map((item) => ({
+  title: t(item.title),
+  copy: t(item.text)
+}));
+
+const facadeAlt = t({
+  en: 'The sgraffito facade of El Ingenio with its geometric bands and balconies',
+  de: 'Die Esgrafiado-Fassade von El Ingenio mit ihren geometrischen Bändern und Balkonen',
+  es: 'La fachada de esgrafiados de El Ingenio con sus bandas geométricas y balcones',
+  nl: 'De esgrafiado-gevel van El Ingenio met zijn geometrische banden en balkons',
+  sv: 'El Ingenios esgrafiado-fasad med sina geometriska band och balkonger'
+});
+const coatOfArmsAlt = t({
+  en: 'The counts’ stone coat of arms on the facade of El Ingenio',
+  de: 'Das steinerne Wappen der Grafen an der Fassade von El Ingenio',
+  es: 'El escudo de piedra de los condes en la fachada de El Ingenio',
+  nl: 'Het stenen wapen van de graven op de gevel van El Ingenio',
+  sv: 'Grevarnas vapensköld i sten på El Ingenios fasad'
+});
+const nicheAlt = t({
+  en: 'A facade niche of El Ingenio with a Marian figure',
+  de: 'Eine Fassadennische von El Ingenio mit einer Marienfigur',
+  es: 'Una hornacina de la fachada de El Ingenio con una figura mariana',
+  nl: 'Een gevelnis van El Ingenio met een Mariabeeld',
+  sv: 'En fasadnisch på El Ingenio med en Mariafigur'
+});
+const factoryAlt = t({
+  en: 'The entrance of the Nuestra Señora del Carmen miel-de-caña factory in El Ingenio',
+  de: 'Der Eingang der Miel-de-Caña-Fabrik Nuestra Señora del Carmen in El Ingenio',
+  es: 'La entrada de la fábrica de miel de caña Nuestra Señora del Carmen en El Ingenio',
+  nl: 'De ingang van de miel-de-caña-fabriek Nuestra Señora del Carmen in El Ingenio',
+  sv: 'Ingången till miel-de-caña-fabriken Nuestra Señora del Carmen i El Ingenio'
+});
+const historicAlt = t({
+  en: 'A historic photograph of El Ingenio with a truck at the sugar works',
+  de: 'Eine historische Aufnahme von El Ingenio mit einem Lastwagen am Zuckerwerk',
+  es: 'Una fotografía histórica de El Ingenio con un camión en el ingenio azucarero',
+  nl: 'Een historische foto van El Ingenio met een vrachtwagen bij de suikerfabriek',
+  sv: 'Ett historiskt foto av El Ingenio med en lastbil vid sockerbruket'
+});
+const ibexAlt = t({
+  en: 'Two wild Iberian ibex standing on the tiled roof of El Ingenio',
+  de: 'Zwei wilde Iberiensteinböcke auf dem Ziegeldach von El Ingenio',
+  es: 'Dos cabras monteses salvajes sobre el tejado de tejas de El Ingenio',
+  nl: 'Twee wilde Iberische steenbokken op het pannendak van El Ingenio',
+  sv: 'Två vilda iberiska stenbockar på El Ingenios tegeltak'
+});
+---
+
+<LocationAuthorityLayout
+  pageFamily="experience-frigiliana-ingenio"
+  seo={frigilianaIngenioSeo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    contextDestination="frigiliana"
+    currentLang={currentLang}
+    languageToken="frigiliana_old_town"
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="oldTown" destination="frigiliana" lang={currentLang} />
+  </Navigation>
+
+  <div data-am-page="frigiliana-el-ingenio">
+    <div class="w-full">
+      <div id="intro">
+        <LocationExperienceHero
+          topic="old-town"
+          eyebrow={t(copy.hero.kicker)}
+          title={t(copy.hero.title)}
+          subtitle={t(copy.hero.subtitle)}
+          paragraphs={copy.hero.paragraphs.map((paragraph) => t(paragraph))}
+          {...hero}
+        />
+      </div>
+
+      <section id="palace-or-factory" class="am-section bg-surface">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-5 lg:self-start">
+            <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+              {t(copy.palaceVsFactory.title)}
+            </h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
+              {t(copy.palaceVsFactory.intro)}
+            </p>
+            <AmaraMediaFrame role="gallery" mobileFullBleed>
+              <AmaraImage
+                src={historicImage}
+                alt={historicAlt}
+                profile="gallery"
+                class="h-full w-full object-cover"
+                mediaRole="gallery"
+                focalPoint="50% 50%"
+              />
+            </AmaraMediaFrame>
+          </div>
+          <div class="lg:col-span-6 lg:col-start-7">
+            <EditorialFeatureGrid cards={palaceCards} titleRole="card" />
+          </div>
+        </div>
+      </section>
+
+      <section id="facade" class="am-section bg-surface-container-low">
+        <div class="max-w-3xl mb-12">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.facade.title)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {t(copy.facade.intro)}
+          </p>
+        </div>
+
+        <div class="grid gap-6 sm:grid-cols-3 mb-14">
+          <AmaraMediaFrame role="gallery">
+            <AmaraImage src={facadeImage} alt={facadeAlt} profile="gallery" class="h-full w-full object-cover" mediaRole="gallery" focalPoint="50% 40%" />
+          </AmaraMediaFrame>
+          <AmaraMediaFrame role="gallery">
+            <AmaraImage src={coatOfArmsImage} alt={coatOfArmsAlt} profile="gallery" class="h-full w-full object-cover" mediaRole="gallery" focalPoint="50% 50%" />
+          </AmaraMediaFrame>
+          <AmaraMediaFrame role="gallery">
+            <AmaraImage src={nicheImage} alt={nicheAlt} profile="gallery" class="h-full w-full object-cover" mediaRole="gallery" focalPoint="50% 40%" />
+          </AmaraMediaFrame>
+        </div>
+
+        <EditorialFeatureGrid cards={facadeCards} titleRole="card" />
+      </section>
+
+      <section id="miel-de-cana" class="am-section bg-surface">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-5 lg:self-start">
+            <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+              {t(copy.mielDeCana.title)}
+            </h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed mb-8">
+              {t(copy.mielDeCana.intro)}
+            </p>
+            <AmaraMediaFrame role="gallery" mobileFullBleed>
+              <AmaraImage
+                src={factoryImage}
+                alt={factoryAlt}
+                profile="gallery"
+                class="h-full w-full object-cover"
+                mediaRole="gallery"
+                focalPoint="50% 50%"
+              />
+            </AmaraMediaFrame>
+          </div>
+          <div class="lg:col-span-6 lg:col-start-7">
+            <EditorialFeatureGrid cards={mielCards} titleRole="card" />
+          </div>
+        </div>
+      </section>
+
+      <section id="ibex" class="am-section bg-surface-container-low">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16 lg:items-center">
+          <AmaraMediaFrame role="gallery" mobileFullBleed class="lg:col-span-6 lg:self-start">
+            <AmaraImage
+              src={ibexImage}
+              alt={ibexAlt}
+              profile="gallery"
+              class="h-full w-full object-cover"
+              mediaRole="gallery"
+              focalPoint="50% 40%"
+            />
+          </AmaraMediaFrame>
+          <div class="lg:col-span-6">
+            <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+              {t(copy.ibex.title)}
+            </h2>
+            {
+              copy.ibex.paragraphs.map((paragraph) => (
+                <p class="am-text-body text-on-surface-variant leading-relaxed mb-5 last:mb-0">
+                  {t(paragraph)}
+                </p>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <GuestGuideBridge
+        lang={currentLang}
+        destination="frigiliana"
+        guideSlugs={['frigiliana-guest-sightseeing']}
+      />
+
+      <section class="max-w-screen-2xl mx-auto px-6 pt-24 pb-24 md:px-12">
+        <EditorialClosingCta
+          title={t(copy.closing.title)}
+          lead={t(copy.closing.lead)}
+          lang={currentLang}
+          links={[
+            {
+              token: 'frigiliana_old_town',
+              label: t(copy.closing.oldTownCta),
+              style: 'primary'
+            },
+            {
+              token: 'book',
+              label: t(copy.closing.availabilityCta),
+              style: 'secondary'
+            }
+          ]}
+        />
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>

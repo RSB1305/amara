@@ -102,7 +102,15 @@ const sightMedia: ReadonlyArray<{
       nl: 'El Ingenio, de voormalige suikerfabriek, aan de onderrand van de oude kern van Frigiliana',
       sv: 'El Ingenio, det före detta sockerbruket, i nedre kanten av Frigilianas gamla stan'
     },
-    focalPoint: '50% 45%'
+    focalPoint: '50% 45%',
+    href: resolveOptionalLink('frigiliana_ingenio', currentLang, { suppressMissing: true }) ?? undefined,
+    linkLabel: {
+      en: 'El Ingenio: palace, sugar works and the ibex on the roof',
+      de: 'El Ingenio: Palast, Zuckerwerk und die Steinböcke auf dem Dach',
+      es: 'El Ingenio: palacio, ingenio azucarero y las cabras del tejado',
+      nl: 'El Ingenio: paleis, suikerfabriek en de steenbokken op het dak',
+      sv: 'El Ingenio: palats, sockerbruk och stenbockarna på taket'
+    }
   },
   {},
   {},

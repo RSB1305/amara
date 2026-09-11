@@ -71,6 +71,7 @@ export const linkRegistry = {
     frigiliana_experience_hub: buildOwnedLinks('frigiliana.experience'),
     frigiliana_old_town: buildOwnedLinks('frigiliana.experience.old-town'),
     frigiliana_ceramic_panels: buildOwnedLinks('frigiliana.experience.old-town.ceramic-panels'),
+    frigiliana_ingenio: buildOwnedLinks('frigiliana.experience.old-town.ingenio'),
 
     /* =========================================================
        LOCATIONS

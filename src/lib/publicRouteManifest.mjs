@@ -137,6 +137,13 @@ const ceramicPanelsSegments = {
   nl: 'keramische-panelen',
   sv: 'keramikpaneler'
 };
+const ingenioSegments = {
+  es: 'el-ingenio',
+  en: 'el-ingenio',
+  de: 'el-ingenio',
+  nl: 'el-ingenio',
+  sv: 'el-ingenio'
+};
 const faqSegments = {
   es: 'preguntas-frecuentes',
   en: 'faq',
@@ -494,6 +501,7 @@ const definitions = [
   },
   { key: 'frigiliana.experience.old-town', legacySlug: 'frigiliana-old-town', family: 'frigiliana-old-town', parent: 'frigiliana.experience', segment: oldTownSegments },
   { key: 'frigiliana.experience.old-town.ceramic-panels', legacySlug: 'frigiliana-ceramic-panels', family: 'frigiliana-ceramic-panels', parent: 'frigiliana.experience.old-town', segment: ceramicPanelsSegments },
+  { key: 'frigiliana.experience.old-town.ingenio', legacySlug: 'frigiliana-el-ingenio', family: 'frigiliana-ingenio', parent: 'frigiliana.experience.old-town', segment: ingenioSegments },
   {
     key: 'frigiliana.experience.weddings',
     legacySlug: 'frigiliana-weddings',
