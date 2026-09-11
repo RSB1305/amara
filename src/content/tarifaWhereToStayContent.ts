@@ -205,18 +205,18 @@ export const tarifaStayTypeCopy = {
     {
       id: 'outdoors',
       attribute: {
-        en: 'Terrace and pool',
-        de: 'Terrasse und Pool',
-        es: 'Terraza y piscina',
-        nl: 'Terras en zwembad',
-        sv: 'Terrass och pool'
+        en: 'Balcony and pool',
+        de: 'Balkon und Pool',
+        es: 'Balcón y piscina',
+        nl: 'Balkon en zwembad',
+        sv: 'Balkong och pool'
       } satisfies LocalizedText,
       ours: {
-        en: 'Twelve square metres of private terrace facing the Atlantic. The pool belongs to the complex and is shared with the other residents.',
-        de: 'Zwölf Quadratmeter eigene Terrasse zum Atlantik. Der Pool gehört zur Wohnanlage und wird mit den übrigen Bewohnern geteilt.',
-        es: 'Doce metros cuadrados de terraza privada orientada al Atlántico. La piscina es de la comunidad y se comparte con el resto de residentes.',
-        nl: 'Twaalf vierkante meter eigen terras aan de Atlantische Oceaan. Het zwembad hoort bij het complex en wordt met de andere bewoners gedeeld.',
-        sv: 'Tolv kvadratmeter egen terrass mot Atlanten. Poolen tillhör anläggningen och delas med de övriga boende.'
+        en: 'Twelve square metres of private balcony facing the Atlantic. The pool belongs to the complex and is shared with the other residents.',
+        de: 'Zwölf Quadratmeter eigener Balkon zum Atlantik. Der Pool gehört zur Wohnanlage und wird mit den übrigen Bewohnern geteilt.',
+        es: 'Doce metros cuadrados de balcón privado orientado al Atlántico. La piscina es de la comunidad y se comparte con el resto de residentes.',
+        nl: 'Twaalf vierkante meter eigen balkon aan de Atlantische Oceaan. Het zwembad hoort bij het complex en wordt met de andere bewoners gedeeld.',
+        sv: 'Tolv kvadratmeter egen balkong mot Atlanten. Poolen tillhör anläggningen och delas med de övriga boende.'
       } satisfies LocalizedText,
       hotelWins: {
         en: 'You want a pool that comes with service — a lounger kept free for you and towels handed out.',

@@ -423,7 +423,7 @@ export const cinematicApartments: CinematicAptDef[] = [
       sv: 'Två våningar över Atlanten'
     },
     desc: {
-      en: 'The roomier choice: two bedrooms, two bathrooms, a shared pool and **your own underground parking**, with Atlantic sunsets from the terrace.',
+      en: 'The roomier choice: two bedrooms, two bathrooms, a shared pool and **your own underground parking**, with Atlantic sunsets from the balcony.',
       de: 'Die geräumigere Wahl: zwei Schlafzimmer, zwei Bäder, Gemeinschaftspool und **eigener Tiefgaragenplatz** – dazu Sonnenuntergänge über dem Atlantik.',
       es: 'La opción con más espacio: dos dormitorios, dos baños, piscina comunitaria y **garaje propio**, con puestas de sol sobre el Atlántico.',
       nl: 'De ruimere keuze: twee slaapkamers, twee badkamers, een gedeeld zwembad en **een eigen plek in de parkeergarage**, met zonsondergangen boven de Atlantische Oceaan.',
