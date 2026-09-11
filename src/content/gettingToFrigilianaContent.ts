@@ -306,11 +306,11 @@ export const gettingToFrigilianaCopy = {
           sv: 'Hyrbil'
         },
         summary: {
-          en: 'From the airport onto the A-7 heading east, off at Nerja and up the road to Frigiliana. At the end the village lies before you.',
-          de: 'Vom Flughafen auf die A-7 nach Osten, bei Nerja ab und die Straße hinauf nach Frigiliana. Am Ende liegt das Dorf vor euch.',
-          es: 'Desde el aeropuerto a la A-7 hacia el este, salida en Nerja y carretera arriba hasta Frigiliana. Al final el pueblo aparece delante de vosotros.',
-          nl: 'Vanaf de luchthaven de A-7 op naar het oosten, bij Nerja eraf en de weg omhoog naar Frigiliana. Aan het einde ligt het dorp voor jullie.',
-          sv: 'Från flygplatsen ut på A-7 österut, av vid Nerja och vägen upp till Frigiliana. I slutet ligger byn framför er.'
+          en: 'From the airport onto the A-7 heading east, off at Nerja and up the road to Frigiliana. At the end the village lies before you. The A-7 is toll-free the whole way.',
+          de: 'Vom Flughafen auf die A-7 nach Osten, bei Nerja ab und die Straße hinauf nach Frigiliana. Am Ende liegt das Dorf vor euch. Die A-7 ist die ganze Strecke mautfrei.',
+          es: 'Desde el aeropuerto a la A-7 hacia el este, salida en Nerja y carretera arriba hasta Frigiliana. Al final el pueblo aparece delante de vosotros. La A-7 no tiene peaje en todo el trayecto.',
+          nl: 'Vanaf de luchthaven de A-7 op naar het oosten, bij Nerja eraf en de weg omhoog naar Frigiliana. Aan het einde ligt het dorp voor jullie. De A-7 is de hele weg tolvrij.',
+          sv: 'Från flygplatsen ut på A-7 österut, av vid Nerja och vägen upp till Frigiliana. I slutet ligger byn framför er. A-7 är avgiftsfri hela vägen.'
         },
         timing: {
           en: '**A good hour.**',
@@ -327,11 +327,11 @@ export const gettingToFrigilianaCopy = {
           sv: '**Stranddagar, utflykter, vandringar** längre bort.'
         },
         consideration: {
-          en: '**The car stays in the underground car park** down in the village; from there you walk up. Electric car: the map shows the nearest charging points.',
-          de: '**Das Auto bleibt in der Tiefgarage** unten im Ort, von dort geht es zu Fuß hinauf. Mit Elektroauto: Die Karte zeigt die nächsten Ladepunkte.',
-          es: '**El coche se queda en el parking subterráneo** de la parte baja del pueblo; desde allí se sube a pie. Con coche eléctrico: el mapa muestra los puntos de recarga más cercanos.',
-          nl: '**De auto blijft in de parkeergarage** beneden in het dorp; van daar loop je omhoog. Met een elektrische auto: de kaart toont de dichtstbijzijnde laadpunten.',
-          sv: '**Bilen står kvar i parkeringshuset** nere i byn; därifrån går ni upp. Med elbil: kartan visar närmaste laddpunkter.'
+          en: '**The car stays in the underground car park** down in the village; from there you walk up. So do the big shop — water, wine, basics — down in Nerja first, for instance at the Lidl by the exit. Electric car: the map shows the nearest charging points.',
+          de: '**Das Auto bleibt in der Tiefgarage** unten im Ort, von dort geht es zu Fuß hinauf. Den Großeinkauf — Wasser, Wein, Basics — erledigt ihr deshalb am besten schon unten in Nerja, etwa beim Lidl an der Abfahrt. Mit Elektroauto: Die Karte zeigt die nächsten Ladepunkte.',
+          es: '**El coche se queda en el parking subterráneo** de la parte baja del pueblo; desde allí se sube a pie. Por eso la compra grande — agua, vino, básicos — mejor hacerla abajo en Nerja, por ejemplo en el Lidl de la salida. Con coche eléctrico: el mapa muestra los puntos de recarga más cercanos.',
+          nl: '**De auto blijft in de parkeergarage** beneden in het dorp; van daar loop je omhoog. Doe de grote boodschappen — water, wijn, basics — daarom het best beneden in Nerja, bijvoorbeeld bij de Lidl bij de afrit. Met een elektrische auto: de kaart toont de dichtstbijzijnde laadpunten.',
+          sv: '**Bilen står kvar i parkeringshuset** nere i byn; därifrån går ni upp. Gör därför storhandlingen — vatten, vin, basvaror — nere i Nerja först, till exempel på Lidl vid avfarten. Med elbil: kartan visar närmaste laddpunkter.'
         }
       },
       {
@@ -372,11 +372,11 @@ export const gettingToFrigilianaCopy = {
           sv: '**Sena flyg, familjer, mycket bagage** och alla som inte behöver bil på plats.'
         },
         consideration: {
-          en: '**Fixed price, child seats and drop-off point** you settle when booking.',
-          de: '**Festpreis, Kindersitze und Ausstiegspunkt** klärt ihr beim Buchen.',
-          es: '**Precio fijo, sillas infantiles y punto de bajada** se acuerdan al reservar.',
-          nl: '**Vaste prijs, kinderzitjes en uitstappunt** regel je bij het boeken.',
-          sv: '**Fast pris, bilbarnstolar och avlämningsplats** gör ni upp vid bokningen.'
+          en: '**Fixed price, child seats and drop-off point** you settle when booking; as a rough guide, reckon on about 70 to 90 euros each way, depending on the provider.',
+          de: '**Festpreis, Kindersitze und Ausstiegspunkt** klärt ihr beim Buchen; als grober Richtwert rechnet mit etwa 70 bis 90 Euro pro Strecke, je nach Anbieter.',
+          es: '**Precio fijo, sillas infantiles y punto de bajada** se acuerdan al reservar; como referencia aproximada, contad unos 70 a 90 euros por trayecto, según el proveedor.',
+          nl: '**Vaste prijs, kinderzitjes en uitstappunt** regel je bij het boeken; als grove richtprijs reken je op ongeveer 70 tot 90 euro per rit, afhankelijk van de aanbieder.',
+          sv: '**Fast pris, bilbarnstolar och avlämningsplats** gör ni upp vid bokningen; som grov riktlinje räkna med runt 70 till 90 euro per resa, beroende på leverantör.'
         }
       },
       {
