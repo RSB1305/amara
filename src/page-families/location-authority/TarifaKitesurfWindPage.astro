@@ -34,7 +34,7 @@ import LocationModule from './LocationModule.astro';
  * Reading order (operator direction, 11 September 2026): the page is the
  * morning of a kiter in Tarifa, in six numbered chapters that the anchor row
  * under the hero repeats — 1 Today (the official warning status, folded, and
- * the live Windguru link), 2 Which wind (Levante or Poniente, read before the
+ * a picture of the Windguru table with the live link), 2 Which wind (Levante or Poniente, read before the
  * table), 3 Reading the table (a Windguru-style example of two typical days,
  * the rows explained under the same numbers, the models, Beaufort), 4 Thermal
  * wind (one clear day in three panels), 5 Where to launch (which beach in
@@ -57,6 +57,7 @@ const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const hero = requireRouteImage('tarifa.kitesurfing.wind', 'hero', currentLang);
 const sunsetImage = requireRouteImage('tarifa.kitesurfing.wind', 'sunset', currentLang);
 const partnerImage = requireRouteImage('tarifa.kitesurfing.wind', 'partner', currentLang);
+const windguruImage = requireRouteImage('tarifa.kitesurfing.wind', 'windguru', currentLang);
 const markImage = requireRouteImage('tarifa.kitesurfing.surf-club', 'mark', currentLang);
 const content = resolveLocale(tarifaKitesurfWindContent, currentLang);
 const briefingCopy = resolveLocale(tarifaKiteBriefingCopy, currentLang);
@@ -139,15 +140,20 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
           />
         </div>
 
-        <div class="mt-6 grid gap-6 lg:grid-cols-12 lg:items-start">
-          <div class="bg-inverse-surface px-6 py-8 text-inverted-on-surface md:px-8 md:py-10 lg:col-span-7" data-am-windguru-live>
+        <figure class="m-0 mt-6 bg-inverse-surface px-6 py-8 text-inverted-on-surface md:px-8 md:py-10" data-am-windguru-live>
+          <div class="max-w-3xl">
             <p class="am-text-eyebrow text-primary-fixed-dim">{content.today.windguru.eyebrow}</p>
-            <h3 class="am-text-subtitle mt-4 max-w-xl text-balance text-inverted-on-surface">{content.today.windguru.title}</h3>
-            <p class="am-text-body mt-4 max-w-xl leading-relaxed text-inverted-on-surface/80">{content.today.windguru.text}</p>
-            <AmaraActionLink href={content.today.windguru.linkHref} variant="secondary" inverse external class="mt-8 inline-flex">{content.today.windguru.linkLabel}</AmaraActionLink>
+            <h3 class="am-text-subtitle mt-4 text-balance text-inverted-on-surface">{content.today.windguru.title}</h3>
+            <p class="am-text-body mt-4 leading-relaxed text-inverted-on-surface/80">{content.today.windguru.text}</p>
           </div>
+          <div class="mt-8 overflow-x-auto bg-surface p-2" role="region" aria-label={windguruImage.alt} tabindex="0">
+            <AmaraImage src={windguruImage.src} alt={windguruImage.alt} profile="gallery" width={1150} widths={[768, 1150]} sizes="(max-width: 1023px) 48rem, 72rem" class="block h-auto w-full min-w-[48rem]" quality={90} avifQuality={80} />
+          </div>
+          <figcaption class="am-text-caption mt-3 max-w-3xl normal-case tracking-normal text-inverted-on-surface/70">{windguruImage.caption} · {windguruImage.credit}</figcaption>
+          <AmaraActionLink href={content.today.windguru.linkHref} variant="secondary" inverse external class="mt-7 inline-flex">{content.today.windguru.linkLabel}</AmaraActionLink>
+        </figure>
 
-          <details class="group bg-surface px-6 py-6 outline-none md:px-8 lg:col-span-5" data-am-official-detail>
+        <details class="group mt-6 bg-surface px-6 py-6 outline-none md:px-8" data-am-official-detail>
             <summary class="am-accordion__trigger items-center">
               <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.today.official.title}</h3>
               <span class="am-accordion__indicator" aria-hidden="true">
@@ -191,8 +197,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
                 aemetLabel={content.today.official.linkLabel}
               />
             </div>
-          </details>
-        </div>
+        </details>
       </div>
     </LocationModule>
 
