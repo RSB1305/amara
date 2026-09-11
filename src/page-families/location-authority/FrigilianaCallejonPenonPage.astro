@@ -1,0 +1,18 @@
+---
+import OldTownSpokeBody from '../../components/location/OldTownSpokeBody.astro';
+import { frigilianaCallejonPenonCopy, frigilianaCallejonPenonSeo } from '../../content/frigilianaCallejonPenonContent';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<OldTownSpokeBody
+  lang={lang}
+  pageFamily="experience-frigiliana-callejon-penon"
+  dataPage="frigiliana-callejon-penon"
+  copy={frigilianaCallejonPenonCopy}
+  seo={frigilianaCallejonPenonSeo}
+/>

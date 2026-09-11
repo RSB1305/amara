@@ -117,6 +117,20 @@ export const frigilianaOldTownKnowledge = defineKnowledgePageManifest({
       notes: 'Authored as its own spoke by research-001 (2026-09-11): present church built 1676 on the site of an earlier hermitage beside Calle Real; master builder Bernardo de Godoy (signed roof beam quoted); promoted under Bishop Fray Alonso de Santo Tomás (coat of arms on the façade); Latin-cross plan, three naves with semi-circular arches, Mudéjar timber armadura; official Baroque classification supersedes the older Renaissance reading. The Mudéjar timber roof is a construction feature, not a competing style. Interior access, service times and any feria role stay current checks, not fixed facts. Photography for a spoke/tile is still missing.',
     },
     {
+      authoringArea: 'old-town-monuments',
+      purpose: 'Author five further old-town sights as their own spokes: the Fuente Vieja, the Castillo de Lizar ruins, Los Reales Pósitos, the Ermita de Ecce Homo and the Callejón del Peñón with its miradores.',
+      factIds: [
+        'frigiliana.fuente-vieja.build.1640-manrique',
+        'frigiliana.reales-positos.grain-store.1767',
+        'frigiliana.ermita-ecce-homo.chapel.18c-good-friday',
+        'frigiliana.castillo-lizar.moorish-fortress.9-11c',
+        'frigiliana.callejon-penon.mirador.el-fuerte-view',
+        'frigiliana.history.castillo-lizar.destroyed-1569',
+      ],
+      status: 'partial',
+      notes: 'Authored 2026-09-11 from the operator brief (operator-provided source), cross-referenced to the BOJA record where it applies (Castillo de Lizar razing). Specific datings — Fuente Vieja 1640 / Don Íñigo Manrique de Lara, Reales Pósitos 1767, Ermita 18th c., Castillo 9th–11th c. — are carried as operator-provided until confirmed against municipal or BOJA detail. Live details (Ermita worship and procession times; Reales Pósitos and Castillo access — private / open ruin) stay current checks. Photography exists only for the Fuente Vieja; the other four spokes use a typographic cover.',
+    },
+    {
       authoringArea: 'historical-sequence',
       purpose: 'Explain the documented rupture from conquest and forced Christianization through uprising, expulsion and later repopulation.',
       factIds: [

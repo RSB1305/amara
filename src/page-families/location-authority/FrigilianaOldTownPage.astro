@@ -13,6 +13,7 @@ import roofscapeImage from '../../assets/images/content/frigiliana/frigiliana-lu
 import ceramicPanelsImage from '../../assets/images/content/frigiliana/frigiliana-keramiktafel-morisken-landwirtschaft.jpg';
 import calleRealImage from '../../assets/images/content/frigiliana/frigiliana-mann-auf-maultier-altstadtgasse.jpg';
 import sanAntonioImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg';
+import fuenteViejaImage from '../../assets/images/content/frigiliana/frigiliana-fuente-vieja-historischer-brunnen.jpg';
 import barribartoImage from '../../assets/images/content/frigiliana/frigiliana-gasse-bogen-kieselmosaik-abend.jpg';
 import {
   frigilianaOldTownCopy,
@@ -171,6 +172,65 @@ const sightMedia: ReadonlyArray<{
       sv: 'Trappgränd med valv och kiselmosaik i övre gamla stan i Frigiliana i skymningen'
     },
     focalPoint: '50% 50%'
+  },
+  {
+    image: fuenteViejaImage,
+    alt: {
+      en: 'The Fuente Vieja in Frigiliana, a brick arch fountain with the weathered counts’ coat of arms and three spouts',
+      de: 'Die Fuente Vieja in Frigiliana, ein Ziegelbogen-Brunnen mit dem verwitterten Grafenwappen und drei Ausläufen',
+      es: 'La Fuente Vieja de Frigiliana, un caño de arco de ladrillo con el escudo desgastado de los condes y tres surtidores',
+      nl: 'De Fuente Vieja in Frigiliana, een bakstenen boogfontein met het verweerde wapen van de graven en drie tuiten',
+      sv: 'Fuente Vieja i Frigiliana, en tegelbågsbrunn med grevarnas nötta vapen och tre pipar'
+    },
+    focalPoint: '50% 45%',
+    href: resolveOptionalLink('frigiliana_fuente_vieja', currentLang, { suppressMissing: true }) ?? undefined,
+    linkLabel: {
+      en: 'Fuente Vieja: the old fountain of 1640',
+      de: 'Fuente Vieja: der alte Brunnen von 1640',
+      es: 'Fuente Vieja: el antiguo caño de 1640',
+      nl: 'Fuente Vieja: de oude bron van 1640',
+      sv: 'Fuente Vieja: den gamla brunnen från 1640'
+    }
+  },
+  {
+    href: resolveOptionalLink('frigiliana_castillo_lizar', currentLang, { suppressMissing: true }) ?? undefined,
+    linkLabel: {
+      en: 'Castillo de Lizar: the ruined Moorish fortress',
+      de: 'Castillo de Lizar: die maurische Burgruine',
+      es: 'Castillo de Lízar: la fortaleza árabe en ruinas',
+      nl: 'Castillo de Lizar: de vervallen Moorse vesting',
+      sv: 'Castillo de Lizar: den raserade moriska fästningen'
+    }
+  },
+  {
+    href: resolveOptionalLink('frigiliana_reales_positos', currentLang, { suppressMissing: true }) ?? undefined,
+    linkLabel: {
+      en: 'Los Reales Pósitos: the 1767 grain store',
+      de: 'Los Reales Pósitos: der Kornspeicher von 1767',
+      es: 'Los Reales Pósitos: el pósito de 1767',
+      nl: 'Los Reales Pósitos: de graanschuur van 1767',
+      sv: 'Los Reales Pósitos: sädesmagasinet från 1767'
+    }
+  },
+  {
+    href: resolveOptionalLink('frigiliana_ermita_ecce_homo', currentLang, { suppressMissing: true }) ?? undefined,
+    linkLabel: {
+      en: 'Ermita de Ecce Homo: the chapel of the Santo Cristo de la Caña',
+      de: 'Ermita de Ecce Homo: die Kapelle des Santo Cristo de la Caña',
+      es: 'Ermita del Ecce Homo: la capilla del Santo Cristo de la Caña',
+      nl: 'Ermita de Ecce Homo: de kapel van de Santo Cristo de la Caña',
+      sv: 'Ermita de Ecce Homo: kapellet för Santo Cristo de la Caña'
+    }
+  },
+  {
+    href: resolveOptionalLink('frigiliana_callejon_penon', currentLang, { suppressMissing: true }) ?? undefined,
+    linkLabel: {
+      en: 'Callejón del Peñón & miradores: the view of El Fuerte',
+      de: 'Callejón del Peñón & Miradores: der Blick auf El Fuerte',
+      es: 'Callejón del Peñón y miradores: la vista de El Fuerte',
+      nl: 'Callejón del Peñón & miradores: het uitzicht op El Fuerte',
+      sv: 'Callejón del Peñón & miradorer: vyn mot El Fuerte'
+    }
   }
 ];
 
