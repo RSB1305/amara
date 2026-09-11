@@ -160,7 +160,7 @@ export const tarifaKitesurfRescueContent: TarifaKitesurfRescueContent = {
         id: 'hub',
         token: 'tarifa_kitesurfing_hub',
         title: l('Kitesurfing in Tarifa', 'Kitesurfen in Tarifa', 'Kitesurf en Tarifa', 'Kitesurfen in Tarifa', 'Kitesurfing i Tarifa'),
-        text: l('The overview: school, kitecamp, equipment and everything around them.', 'Warum Tarifa, ein Tag hier, Kiten lernen, Wohnen bei AMARA.', 'La visión de conjunto: escuela, kitecamp, material y todo lo demás.', 'Het overzicht: school, kitecamp, materiaal en de rest.', 'Översikten: skola, kitecamp, utrustning och resten.')
+        text: l('The overview: school, kitecamp, equipment and everything around them.', 'Warum Tarifa, ein Tag hier, Kiten lernen, Übernachten bei AMARA.', 'La visión de conjunto: escuela, kitecamp, material y todo lo demás.', 'Het overzicht: school, kitecamp, materiaal en de rest.', 'Översikten: skola, kitecamp, utrustning och resten.')
       }
     ]
   }
