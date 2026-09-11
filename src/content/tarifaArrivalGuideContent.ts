@@ -48,7 +48,7 @@ export const tarifaArrivalGuideCopy = {
     },
     luggageAdvice: {
       title: l('The lift', 'Der Aufzug', 'El ascensor', 'De lift', 'Hissen'),
-      text: l('From the garage and from the entrance the lift goes right to the apartment door, with all your luggage.', 'Von der Garage und vom Eingang fährt der Aufzug bis vor die Wohnungstür, mit allem Gepäck.', 'Desde el garaje y desde la entrada, el ascensor llega hasta la puerta del apartamento, con todo el equipaje.', 'Vanuit de garage en vanaf de ingang gaat de lift tot voor de deur van het appartement, met alle bagage.', 'Från garaget och från entrén går hissen ända fram till lägenhetsdörren, med allt bagage.')
+      text: l('From the garage and from the entrance the lift goes right to the apartment door, with all your luggage. That way you never have to haul boardbags or wet boxes through narrow lanes.', 'Von der Garage und vom Eingang fährt der Aufzug bis vor die Wohnungstür, mit allem Gepäck. So müsst ihr weder Boardbags noch nasse Kisten durch enge Gassen schleppen.', 'Desde el garaje y desde la entrada, el ascensor llega hasta la puerta del apartamento, con todo el equipaje. Así no tenéis que arrastrar fundas de tablas ni cajas mojadas por callejones estrechos.', 'Vanuit de garage en vanaf de ingang gaat de lift tot voor de deur van het appartement, met alle bagage. Zo hoef je geen boardbags of natte kratten door smalle steegjes te sjouwen.', 'Från garaget och från entrén går hissen ända fram till lägenhetsdörren, med allt bagage. Så behöver ni aldrig släpa boardbags eller blöta lådor genom trånga gränder.')
     },
     faq: {
       title: l('Arrival FAQ', 'FAQ zur Anreise', 'Preguntas sobre la llegada', 'FAQ over de aankomst', 'Vanliga frågor om ankomst'),

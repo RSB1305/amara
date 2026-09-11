@@ -143,11 +143,11 @@ export const gettingToTarifaContent = {
       title: l("The N-340, then straight into the garage", "Die N-340 — und dann direkt in die Garage", "La N-340 y directos al garaje", "De N-340 en dan zo de garage in", "N-340 och sedan rakt in i garaget"),
       paragraphs: [
         l(
-          "From Málaga the route runs along the western Costa del Sol and through Algeciras; from Cádiz you come down the Atlantic coastal corridor. Traffic can change the last stretch of either.",
-          "Von Málaga führt die Strecke über die westliche Costa del Sol und durch Algeciras; von Cádiz kommt ihr durch den Küstenkorridor am Atlantik. Der Verkehr kann den letzten Abschnitt beider Routen verändern.",
-          "Desde Málaga la ruta va por la Costa del Sol occidental y atraviesa Algeciras; desde Cádiz se baja por el corredor costero atlántico. El tráfico puede cambiar el tramo final de ambas.",
-          "Vanaf Málaga loopt de route langs de westelijke Costa del Sol en door Algeciras; vanaf Cádiz kom je via de Atlantische kustcorridor. Verkeer kan het laatste stuk van beide veranderen.",
-          "Från Málaga går vägen längs västra Costa del Sol och genom Algeciras; från Cádiz kommer ni längs den atlantiska kustkorridoren. Trafiken kan förändra sista biten på båda."
+          "From Málaga the route runs along the western Costa del Sol and through Algeciras; from Cádiz you come down the Atlantic coastal corridor. Traffic can change the last stretch of either. From Málaga you have a choice: the AP-7 is the fast toll motorway, the A-7/N-340 along the coast the free alternative.",
+          "Von Málaga führt die Strecke über die westliche Costa del Sol und durch Algeciras; von Cádiz kommt ihr durch den Küstenkorridor am Atlantik. Der Verkehr kann den letzten Abschnitt beider Routen verändern. Von Málaga habt ihr die Wahl: Die AP-7 ist die schnelle Mautstrecke, die A-7/N-340 an der Küste die kostenlose Alternative.",
+          "Desde Málaga la ruta va por la Costa del Sol occidental y atraviesa Algeciras; desde Cádiz se baja por el corredor costero atlántico. El tráfico puede cambiar el tramo final de ambas. Desde Málaga tenéis elección: la AP-7 es la autopista de peaje rápida, y la A-7/N-340 por la costa, la alternativa gratuita.",
+          "Vanaf Málaga loopt de route langs de westelijke Costa del Sol en door Algeciras; vanaf Cádiz kom je via de Atlantische kustcorridor. Verkeer kan het laatste stuk van beide veranderen. Vanaf Málaga heb je de keuze: de AP-7 is de snelle tolweg, de A-7/N-340 langs de kust het gratis alternatief.",
+          "Från Málaga går vägen längs västra Costa del Sol och genom Algeciras; från Cádiz kommer ni längs den atlantiska kustkorridoren. Trafiken kan förändra sista biten på båda. Från Málaga har ni ett val: AP-7 är den snabba avgiftsvägen, A-7/N-340 längs kusten det avgiftsfria alternativet."
         ),
         l(
           "Enter Mar Adriático 29 before you reach the town, not just \"Tarifa\". That matters most with luggage or after dark.",
