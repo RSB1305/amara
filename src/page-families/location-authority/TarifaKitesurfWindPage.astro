@@ -96,19 +96,27 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       visualBreakpoint="lg"
     >
       <EditorialByline slot="meta" lang={currentLang} authorName="Robert Sebastian Böhmer" authorHref={aboutHref} updated={content.hero.updated} note={content.hero.note} />
-      <AmaraImage
-        slot="visual"
-        src={hero.src}
-        alt={hero.alt}
-        profile="hero"
-        width={1080}
-        widths={[480, 640, 800, 1080]}
-        sizes="(max-width: 1023px) 100vw, 36vw"
-        class="aspect-[3/4] w-full object-cover"
-        loading="eager"
-        decoding="async"
-        fetchpriority="high"
-      />
+      {/* Hero-Foto mit der Windguru-Tabelle als Sticker darüber (Operator-Wunsch nach einer Instagram-Story); der Sticker führt zur vollen Tabelle im Heute-Block */}
+      <div slot="visual" class="relative" data-am-hero-sticker-frame>
+        <AmaraImage
+          src={hero.src}
+          alt={hero.alt}
+          profile="hero"
+          width={1080}
+          widths={[480, 640, 800, 1080]}
+          sizes="(max-width: 1023px) 100vw, 36vw"
+          class="aspect-[3/4] w-full object-cover"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+        />
+        <a href="#heute" class="absolute inset-x-[7%] top-1/2 block -translate-y-1/2 bg-surface p-1.5 shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60" aria-label={content.hero.stickerLabel} data-am-hero-sticker>
+          <span class="relative block aspect-[3/2] overflow-hidden" aria-hidden="true">
+            <AmaraImage src={windguruImage.src} alt={windguruImage.alt} profile="gallery" width={1150} widths={[768, 1150]} sizes="(max-width: 1023px) 160vw, 60vw" class="absolute left-0 top-0 h-full w-auto max-w-none" quality={90} avifQuality={80} />
+          </span>
+          <span class="am-text-label am-text-label--sm mt-1.5 flex items-center justify-between px-1.5 pb-0.5 text-on-surface" aria-hidden="true"><span>{content.today.windguru.eyebrow}</span><span>↓</span></span>
+        </a>
+      </div>
     </LocationGuideHero>
 
     {/* ANKERLEISTE — die sechs Abschnitte des Morgens, klebt unter dem festen Kopf */}

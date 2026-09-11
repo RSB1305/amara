@@ -34,6 +34,8 @@ export interface TarifaKitesurfWindContent {
     imageAlt: LocalizedText;
     updated: LocalizedText;
     note: LocalizedText;
+    /** Accessible name of the Windguru sticker on the hero photograph; it links to the table below. */
+    stickerLabel: LocalizedText;
   };
   /** In-page anchor row under the hero: one entry per chapter. */
   toc: {
@@ -206,7 +208,8 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
     lead: l('In Tarifa nobody asks in the morning whether the wind will come, only which one. This page walks through the morning with you in the order it happens here: the official warning first, then the Windguru table, then which of the two winds is blowing and where you launch in it. None of it clears a session: **official AEMET warnings come first**, and you make the decision on the beach.', 'In Tarifa fragt morgens niemand, ob Wind kommt, sondern welcher. Diese Seite geht den Morgen mit euch durch, in der Reihenfolge, in der er hier abläuft: erst die amtliche Warnung, dann die Windguru-Tabelle, dann die Frage, welcher der zwei Winde steht und wo ihr damit rausgeht. Nichts davon gibt eine Session frei: **Amtliche AEMET-Warnungen gehen vor**, und die Entscheidung trefft ihr am Strand.', 'En Tarifa nadie pregunta por la mañana si habrá viento, sino cuál. Esta página recorre la mañana con vosotros en el orden en que ocurre aquí: primero el aviso oficial, luego la tabla de Windguru, después cuál de los dos vientos sopla y dónde salís con él. Nada de esto da luz verde a una sesión: **los avisos oficiales de AEMET van por delante**, y la decisión la tomáis en la playa.', 'In Tarifa vraagt ’s ochtends niemand óf er wind komt, alleen welke. Deze pagina loopt de ochtend met jullie door in de volgorde waarin hij hier verloopt: eerst de officiële waarschuwing, dan de Windguru-tabel, dan de vraag welke van de twee winden staat en waar jullie daarmee het water op gaan. Niets daarvan geeft een sessie vrij: **officiële AEMET-waarschuwingen gaan voor**, en de beslissing nemen jullie op het strand.', 'I Tarifa frågar ingen på morgonen om det blir vind, bara vilken. Den här sidan går igenom morgonen med er i den ordning den sker här: först den officiella varningen, sedan Windguru-tabellen, sedan frågan vilken av de två vindarna som blåser och var ni går ut i den. Inget av det ger grönt ljus för ett pass: **officiella AEMET-varningar går först**, och beslutet fattar ni på stranden.'),
     imageAlt: l('The Tarifa Surf Club team with the club flag on the beach', 'Das Team des Tarifa Surf Club mit der Vereinsflagge am Strand', 'El equipo de Tarifa Surf Club con la bandera del club en la playa', 'Het team van Tarifa Surf Club met de clubvlag op het strand', 'Tarifa Surf Clubs team med klubbflaggan på stranden'),
     updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026'),
-    note: l('We live and kite here ourselves.', 'Wir wohnen und kiten hier selbst.', 'Vivimos y hacemos kite aquí.', 'We wonen en kiten hier zelf.', 'Vi bor och kitar här själva.')
+    note: l('We live and kite here ourselves.', 'Wir wohnen und kiten hier selbst.', 'Vivimos y hacemos kite aquí.', 'We wonen en kiten hier zelf.', 'Vi bor och kitar här själva.'),
+    stickerLabel: l('To the Windguru table for today', 'Zur Windguru-Tabelle für heute', 'A la tabla de Windguru de hoy', 'Naar de Windguru-tabel van vandaag', 'Till Windguru-tabellen för i dag')
   },
   toc: {
     label: l('On this page', 'Auf dieser Seite', 'En esta página', 'Op deze pagina', 'På den här sidan'),
