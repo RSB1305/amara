@@ -12,6 +12,7 @@ import elIngenioImage from '../../assets/images/content/frigiliana/frigiliana-el
 import roofscapeImage from '../../assets/images/content/frigiliana/frigiliana-luftaufnahme-daecher-mosaik-gasse.jpg';
 import ceramicPanelsImage from '../../assets/images/content/frigiliana/frigiliana-keramiktafel-morisken-landwirtschaft.jpg';
 import calleRealImage from '../../assets/images/content/frigiliana/frigiliana-mann-auf-maultier-altstadtgasse.jpg';
+import sanAntonioImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg';
 import barribartoImage from '../../assets/images/content/frigiliana/frigiliana-gasse-bogen-kieselmosaik-abend.jpg';
 import {
   frigilianaOldTownCopy,
@@ -64,8 +65,8 @@ const sights = copy.sights.items.map((item) => ({
 
 /**
  * Card media aligned to `copy.sights.items` by index. Casa del Apero (index 2)
- * and the Iglesia de San Antonio (index 3) have no dedicated photograph, so
- * they render as typographic tiles rather than an empty image frame.
+ * has no dedicated photograph yet, so it renders as a typographic tile rather
+ * than an empty image frame.
  */
 const sightMedia: ReadonlyArray<{
   image?: ImageMetadata;
@@ -123,6 +124,15 @@ const sightMedia: ReadonlyArray<{
     }
   },
   {
+    image: sanAntonioImage,
+    alt: {
+      en: 'The Baroque façade of the Iglesia de San Antonio de Padua in Frigiliana, with the bishop’s coat of arms above the door',
+      de: 'Die barocke Fassade der Iglesia de San Antonio de Padua in Frigiliana, mit dem Bischofswappen über dem Portal',
+      es: 'La fachada barroca de la Iglesia de San Antonio de Padua en Frigiliana, con el escudo del obispo sobre la portada',
+      nl: 'De barokke gevel van de Iglesia de San Antonio de Padua in Frigiliana, met het bisschopswapen boven de deur',
+      sv: 'Den barocka fasaden på Iglesia de San Antonio de Padua i Frigiliana, med biskopsvapnet ovanför porten'
+    },
+    focalPoint: '50% 40%',
     href: resolveOptionalLink('frigiliana_san_antonio', currentLang, { suppressMissing: true }) ?? undefined,
     linkLabel: {
       en: 'San Antonio de Padua: the 1676 parish church',

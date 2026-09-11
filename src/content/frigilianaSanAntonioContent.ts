@@ -13,10 +13,10 @@ export const frigilianaSanAntonioSeo: AmaraAuthoringSeo = {
   version: '2026-09-11-frigiliana-san-antonio-v1',
   pageType: 'B',
   entityKey: 'amara-brand',
-  /* og:image stays inside the published image contract; no dedicated San Antonio
-     photograph exists yet, so a stable Frigiliana pueblo image carries the share card. */
+  /* og:image is emitted as an absolute URL, so it must stay inside the published image
+     contract; image 01 of the pueblo set is the San Antonio façade, so it carries the card. */
   ogImage:
-    '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
+    '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg',
   article: {
     datePublished: '2026-09-11',
     dateModified: '2026-09-11',
@@ -65,10 +65,9 @@ export const frigilianaSanAntonioSeo: AmaraAuthoringSeo = {
 
 /**
  * Explore-type spoke (B) under the old-town page, sibling to El Ingenio, the ceramic
- * panels and the Casa del Apero. Content follows research-001 (2026-09-11). No dedicated
- * photograph of the church exists yet, so the page opens with a typographic cover rather
- * than a panorama hero; when photography arrives, the cover becomes a LocationPanoramaHero
- * and image splits are added. Interior access and service times stay current checks.
+ * panels and the Casa del Apero. Content follows research-001 (2026-09-11). The page opens
+ * with a LocationPanoramaHero on the church façade (the bishop's coat of arms is visible
+ * above the door). Interior access and service times stay current checks.
  */
 export const frigilianaSanAntonioCopy = {
   hero: {
