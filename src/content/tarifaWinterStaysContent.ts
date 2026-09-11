@@ -180,11 +180,11 @@ export const tarifaWinterStaysContent = {
       ),
       paragraphs: [
         l(
-          "Family & Surf has a wood-burning fireplace, heating and air conditioning that also heats. The 75 m² are spread over two floors with two bedrooms and two bathrooms, plus a 12 m² terrace facing the Atlantic.",
-          "Family & Surf hat einen Holzkamin, Heizung und eine Klimaanlage, die auch heizt. Die 75 m² verteilen sich auf zwei Etagen mit zwei Schlafzimmern und zwei Bädern, dazu kommen 12 m² Terrasse zum Atlantik.",
-          "Family & Surf tiene chimenea de leña, calefacción y aire acondicionado que también calienta. Los 75 m² se reparten en dos plantas con dos dormitorios y dos baños, más 12 m² de terraza hacia el Atlántico.",
-          "Family & Surf heeft een houtkachel, verwarming en airconditioning die ook verwarmt. De 75 m² zijn verdeeld over twee verdiepingen met twee slaapkamers en twee badkamers, plus 12 m² terras op de Atlantische Oceaan.",
-          "Family & Surf har braskamin, värme och luftkonditionering som även värmer. De 75 m² fördelas på två plan med två sovrum och två badrum, plus 12 m² terrass mot Atlanten."
+          "Family & Surf has a wood-burning fireplace, heating and air conditioning that also heats — after a day in the wind, the evening belongs to the fire. The 75 m² are spread over two floors with two bedrooms and two bathrooms, plus a 12 m² balcony facing the Atlantic under a wooden canopy.",
+          "Family & Surf hat einen Holzkamin, Heizung und eine Klimaanlage, die auch heizt — nach einem Tag im Wind gehört der Abend dem Feuer. Die 75 m² verteilen sich auf zwei Etagen mit zwei Schlafzimmern und zwei Bädern, dazu kommt ein 12 m² großer Balkon zum Atlantik unter einer Holzüberdachung.",
+          "Family & Surf tiene chimenea de leña, calefacción y aire acondicionado que también calienta — tras un día de viento, la tarde es para el fuego. Los 75 m² se reparten en dos plantas con dos dormitorios y dos baños, más un balcón de 12 m² hacia el Atlántico bajo una cubierta de madera.",
+          "Family & Surf heeft een houtkachel, verwarming en airconditioning die ook verwarmt — na een dag in de wind is de avond voor het vuur. De 75 m² zijn verdeeld over twee verdiepingen met twee slaapkamers en twee badkamers, plus een balkon van 12 m² op de Atlantische Oceaan onder een houten overkapping.",
+          "Family & Surf har braskamin, värme och luftkonditionering som även värmer — efter en dag i vinden hör kvällen elden till. De 75 m² fördelas på två plan med två sovrum och två badrum, plus en 12 m² balkong mot Atlanten under ett trätak."
         ),
         l(
           "There are no steps outside and the lift goes to the apartment door. **Inside, steps lead up to the bedrooms** — worth knowing if stairs are a concern.",
@@ -207,11 +207,11 @@ export const tarifaWinterStaysContent = {
       ),
       paragraphs: [
         l(
-          "The kitchen is complete and there is a washing machine and Wi-Fi. Everyday shopping is directly opposite the building, Los Lances beach is about 500 metres away and the old town is a walk, not a drive.",
-          "Die Küche ist vollständig, Waschmaschine und WLAN sind da. Der tägliche Einkauf liegt direkt gegenüber, zum Strand Los Lances sind es rund 500 Meter, und in die Altstadt geht ihr zu Fuß statt zu fahren.",
-          "La cocina está completa y hay lavadora y wifi. La compra diaria está justo enfrente del edificio, la playa de Los Lances a unos 500 metros y al casco antiguo se va andando, no en coche.",
-          "De keuken is compleet en er zijn een wasmachine en wifi. De dagelijkse boodschappen liggen recht tegenover het gebouw, het strand Los Lances op ongeveer 500 meter, en naar de oude stad loop je in plaats van rijdt je.",
-          "Köket är komplett och det finns tvättmaskin och wifi. Vardagshandeln ligger mitt emot huset, stranden Los Lances cirka 500 meter bort och till gamla stan går man i stället för att köra."
+          "The kitchen is complete, and there is a washing machine and fast fibre Wi-Fi with a place to work and power sockets within reach. Everyday shopping is directly opposite the building, Los Lances beach is about 500 metres away and the old town is a walk, not a drive.",
+          "Die Küche ist vollständig, dazu Waschmaschine und schnelles Glasfaser-WLAN mit einem Platz zum Arbeiten und Steckdosen in Reichweite. Der tägliche Einkauf liegt direkt gegenüber, zum Strand Los Lances sind es rund 500 Meter, und in die Altstadt geht ihr zu Fuß statt zu fahren.",
+          "La cocina está completa, y hay lavadora y wifi de fibra rápida con un sitio para trabajar y enchufes a mano. La compra diaria está justo enfrente del edificio, la playa de Los Lances a unos 500 metros y al casco antiguo se va andando, no en coche.",
+          "De keuken is compleet, met een wasmachine en snelle glasvezel-wifi met een plek om te werken en stopcontacten binnen handbereik. De dagelijkse boodschappen liggen recht tegenover het gebouw, het strand Los Lances op ongeveer 500 meter, en naar de oude stad loop je in plaats van rijdt je.",
+          "Köket är komplett, med tvättmaskin och snabbt fiber-wifi med en plats att arbeta på och eluttag inom räckhåll. Vardagshandeln ligger mitt emot huset, stranden Los Lances cirka 500 meter bort och till gamla stan går man i stället för att köra."
         ),
         l(
           "**A reserved space in the underground garage comes with the apartment**, so the daily hunt for parking disappears. From eight nights a direct booking also includes one cleaning around the middle of the stay.",
