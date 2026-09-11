@@ -71,6 +71,135 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
       },
       linkLabel: { de: 'Wandern rund um Frigiliana' },
       linkToken: 'frigiliana_hiking_authority'
+    },
+    {
+      id: 'sea-swimming',
+      // The Alborán sea runs colder than the Balearics; a real planning fact for
+      // anyone counting on beach days, and unfamiliar to northern-market guests.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'coast',
+      eyebrow: {
+        de: 'Meer & Strand',
+        en: 'Sea & beach',
+        nl: 'Zee & strand',
+        sv: 'Hav & strand'
+      },
+      title: {
+        de: 'Wann das Meer warm genug zum Baden ist',
+        en: 'When the sea is warm enough to swim',
+        nl: 'Wanneer de zee warm genoeg is om te zwemmen',
+        sv: 'När havet är varmt nog att bada i'
+      },
+      body: {
+        de: 'Das Mittelmeer vor Andalusien, das Alborán-Meer, ist durch Atlantikströmungen kühler als etwa vor Mallorca. Angenehm zum Baden wird es meist **erst ab Mitte bis Ende Juni** und bleibt dann bis in den späten Oktober warm. Im Frühjahr fühlt sich die Luft oft schon sommerlich an, während das Wasser noch frisch ist.',
+        en: 'The Mediterranean off Andalusia — the Alborán Sea — is cooler than, say, Mallorca, because Atlantic currents feed it. It usually turns pleasant for swimming **only from mid to late June** and then stays warm into late October. In spring the air can already feel like summer while the water is still fresh.',
+        nl: 'De Middellandse Zee voor Andalusië — de Alboránzee — is koeler dan bijvoorbeeld bij Mallorca, doordat Atlantische stromingen haar voeden. Aangenaam om te zwemmen wordt het meestal **pas van half tot eind juni** en dan blijft het warm tot laat in oktober. In het voorjaar voelt de lucht vaak al zomers terwijl het water nog fris is.',
+        sv: 'Medelhavet utanför Andalusien — Alboránsjön — är svalare än till exempel vid Mallorca, eftersom atlantiska strömmar matar det. Det blir behagligt att bada i oftast **först från mitten till slutet av juni** och håller sig sedan varmt in i sena oktober. På våren känns luften ofta redan sommarlik medan vattnet ännu är friskt.'
+      },
+      linkLabel: {
+        de: 'Strände rund um Frigiliana',
+        en: 'Beaches around Frigiliana',
+        nl: 'Stranden rond Frigiliana',
+        sv: 'Stränder runt Frigiliana'
+      },
+      linkToken: 'frigiliana_beaches_authority'
+    },
+    {
+      id: 'calima-terral',
+      // Two Andalusian phenomena that regularly catch visitors out. Spanish
+      // readers know both, so this stays out of the es locale like the siesta card.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'sunshine',
+      eyebrow: {
+        de: 'Zwei Überraschungen',
+        en: 'Two surprises',
+        nl: 'Twee verrassingen',
+        sv: 'Två överraskningar'
+      },
+      title: {
+        de: 'Calima und Terral',
+        en: 'Calima and terral',
+        nl: 'Calima en terral',
+        sv: 'Calima och terral'
+      },
+      body: {
+        de: 'Zwei Wetterlagen überraschen Gäste oft. Bei der **Calima** trägt der Wind Saharastaub heran: Der Himmel wird milchig-orange, und manchmal fällt „Blutregen“, der einen feinen roten Schleier auf Autos und Terrassen hinterlässt — meist ist das nach ein, zwei Tagen vorbei. Der **Terral** ist ein trockener Fallwind aus dem Landesinneren: Er lässt die Temperatur binnen Stunden hochschnellen und die Luft sehr trocken werden — dann helfen nur Schatten und Wasser. Nebenbei drückt er warmes Oberflächenwasser hinaus, sodass das Meer trotz Hitze plötzlich kalt sein kann.',
+        en: 'Two weather patterns often catch guests out. With the **calima**, the wind carries Sahara dust: the sky turns milky orange, and sometimes “blood rain” falls and leaves a fine red film on cars and terraces — usually gone after a day or two. The **terral** is a dry downslope wind off the interior: it sends the temperature shooting up within hours and dries the air right out — then only shade and water help. In passing it pushes the warm surface water out to sea, so the water can turn suddenly cold despite the heat.',
+        nl: 'Twee weertypes verrassen gasten vaak. Bij de **calima** voert de wind Saharastof aan: de lucht wordt melkig oranje, en soms valt er “bloedregen” die een fijne rode waas op auto’s en terrassen achterlaat — meestal na een dag of twee voorbij. De **terral** is een droge valwind uit het binnenland: hij jaagt de temperatuur in enkele uren omhoog en maakt de lucht kurkdroog — dan helpen alleen schaduw en water. En passant duwt hij het warme oppervlaktewater naar zee, zodat het water ondanks de hitte ineens koud kan zijn.',
+        sv: 'Två vädertyper överraskar ofta gäster. Vid **calima** för vinden med sig saharadamm: himlen blir mjölkigt orange, och ibland faller “blodregn” som lämnar en fin röd hinna på bilar och terrasser — oftast över efter en dag eller två. **Terralen** är en torr fallvind från inlandet: den får temperaturen att skjuta i höjden på några timmar och gör luften mycket torr — då hjälper bara skugga och vatten. På kuppen trycker den ut det varma ytvattnet, så havet kan bli plötsligt kallt trots värmen.'
+      },
+      linkLabel: {
+        de: 'Alltag im Dorf',
+        en: 'Everyday life in the village',
+        nl: 'Dagelijks leven in het dorp',
+        sv: 'Vardagen i byn'
+      },
+      linkToken: 'frigiliana_daily_life'
+    },
+    {
+      id: 'rain-slippery',
+      // The steep polished cobbles turn slippery when wet — a safety note that
+      // matters most on the last stretch up to the shared front door.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'walking-surface',
+      eyebrow: {
+        de: 'Herbst & Winter',
+        en: 'Autumn & winter',
+        nl: 'Herfst & winter',
+        sv: 'Höst & vinter'
+      },
+      title: {
+        de: 'Bei Regen werden die Gassen rutschig',
+        en: 'The lanes get slippery in the rain',
+        nl: 'Bij regen worden de steegjes glad',
+        sv: 'I regn blir gränderna hala'
+      },
+      body: {
+        de: 'Im Herbst und Winter fällt der meiste Regen. Die steilen, mit glattem Stein gepflasterten Gassen werden dann **überraschend rutschig** — vor allem auf den letzten Metern bergauf bis zur Haustür. Schuhe mit gutem Profil sind hier bares Geld wert; und wie es morgens gerade aussieht, sagen wir euch auf Nachfrage.',
+        en: 'Most of the rain falls in autumn and winter. The steep lanes, paved with smooth stone, then turn **surprisingly slippery** — above all on the last stretch uphill to the front door. Shoes with a good grip are worth real money here; and if you ask, we’ll tell you how it looks that morning.',
+        nl: 'De meeste regen valt in de herfst en winter. De steile steegjes, geplaveid met gladde steen, worden dan **verrassend glad** — vooral op de laatste meters omhoog naar de voordeur. Schoenen met goed profiel zijn hier goud waard; en hoe het er ’s ochtends bij ligt, vertellen we je op verzoek.',
+        sv: 'Det mesta regnet faller på hösten och vintern. De branta gränderna, stenlagda med slät sten, blir då **förvånansvärt hala** — framför allt på de sista metrarna uppför till porten. Skor med bra grepp är värda riktiga pengar här; och hur det ser ut på morgonen säger vi på förfrågan.'
+      },
+      linkLabel: {
+        de: 'Wie der Ort aufgebaut ist',
+        en: 'How the village is laid out',
+        nl: 'Hoe het dorp is opgebouwd',
+        sv: 'Så är byn uppbyggd'
+      },
+      linkToken: 'frigiliana_stairs'
+    },
+    {
+      id: 'terrace-sun',
+      // First-party terrace-light observations from the property facts: Maha's
+      // upper terrace catches morning light earlier; sunsets seen from all three.
+      // Framed as observation, never a guarantee (climate claim boundary).
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'evening',
+      eyebrow: {
+        de: 'Sonne & Schatten',
+        en: 'Sun & shade',
+        nl: 'Zon & schaduw',
+        sv: 'Sol & skugga'
+      },
+      title: {
+        de: 'Die Sonne auf eurer Terrasse',
+        en: 'The sun on your terrace',
+        nl: 'De zon op je terras',
+        sv: 'Solen på er terrass'
+      },
+      body: {
+        de: 'Die Terrassen von Lounis, Zaid und Maha schauen nach **Südwesten** — Sonne bis in den Abend, wie gemacht für den Sundowner. Maha liegt als Dachterrasse ganz oben: die erste Sonne schon zum Frühstück und abends am längsten Licht. Auf Zaid und Lounis kommt sie etwa eine Viertelstunde später, kaum merklich. Schatten spenden Sonnensegel, Pergolas und der klassische Cañizo aus Rohr; abkühlen könnt ihr euch an der eigenen Außendusche.',
+        en: 'The terraces of Lounis, Zaid and Maha face **southwest** — sun into the evening, made for a sundowner. Maha, the roof terrace, sits right at the top: the first sun already at breakfast and the longest light in the evening. On Zaid and Lounis it arrives about a quarter of an hour later, barely noticeable. Sun sails, pergolas and the classic reed screen (cañizo) give shade; to cool off there is your own outdoor shower.',
+        nl: 'De terrassen van Lounis, Zaid en Maha kijken op het **zuidwesten** — zon tot in de avond, gemaakt voor een sundowner. Maha, het dakterras, ligt helemaal boven: de eerste zon al bij het ontbijt en ’s avonds het langst licht. Op Zaid en Lounis komt ze zo’n kwartier later, nauwelijks merkbaar. Schaduw geven schaduwdoeken, pergola’s en het klassieke rieten scherm (cañizo); afkoelen doe je onder je eigen buitendouche.',
+        sv: 'Terrasserna hos Lounis, Zaid och Maha vetter mot **sydväst** — sol in på kvällen, som gjort för en sundowner. Maha, takterrassen, ligger högst upp: den första solen redan vid frukosten och längst ljus på kvällen. På Zaid och Lounis kommer den ungefär en kvart senare, knappt märkbart. Skugga ger solsegel, pergolor och den klassiska vasskärmen (cañizo); svalka finns i er egen utedusch.'
+      },
+      linkLabel: {
+        de: 'Ausstattung der Wohnungen',
+        en: 'What the apartments offer',
+        nl: 'Wat de appartementen bieden',
+        sv: 'Vad lägenheterna erbjuder'
+      },
+      linkToken: 'amenities'
     }
   ],
   nerja: [

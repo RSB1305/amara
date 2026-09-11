@@ -106,4 +106,51 @@ export const casaAmaraPropertyFacts = defineKnowledgeFacts([
     volatility: 'low',
     claimBoundary: 'Standing practice confirmed by the operator, covering all four accommodations. It is not an audited inventory and says nothing about quantity per guest, replacement during a stay, or any other item.',
   },
+  {
+    id: 'casa-amara.cooling.summer-comfort',
+    subject: 'casa-amara',
+    topic: 'property-amenities',
+    statement: 'Each Frigiliana accommodation has air conditioning in the bedroom; the buildings are traditional thick-walled old-town houses with exterior shutters and stay cool during the day.',
+    status: 'first-party-observation',
+    sourceIds: ['casa-amara-operator-confirmation-2026-09-11'],
+    checkedAt: '2026-09-11',
+    reviewAfter: '2027-09-11',
+    volatility: 'low',
+    claimBoundary: 'Air conditioning is confirmed for the bedroom, not stated as whole-apartment or central. “Stays cool during the day” is a first-party experience of the building type, not a measured indoor temperature.'
+  },
+  {
+    id: 'casa-amara.terraces.southwest-orientation',
+    subject: 'casa-amara',
+    topic: 'property-terrace-light',
+    statement: 'The private terraces of Lounis, Zaid and Maha face southwest, giving sun into the evening.',
+    status: 'first-party-observation',
+    sourceIds: ['casa-amara-operator-confirmation-2026-09-11'],
+    checkedAt: '2026-09-11',
+    reviewAfter: '2027-09-11',
+    volatility: 'low',
+    claimBoundary: 'Approximate orientation given by the operator, not a surveyed bearing; the actual sun and sunset depend on weather, season and surrounding rooftops.'
+  },
+  {
+    id: 'casa-amara.terraces.per-apartment-sun-timing',
+    subject: 'casa-amara',
+    topic: 'property-terrace-light',
+    statement: 'Maha, the roof terrace at the top of the house, gets the first morning sun and the longest evening light; on Zaid and Lounis the sun arrives roughly a quarter of an hour later.',
+    status: 'first-party-observation',
+    sourceIds: ['casa-amara-operator-confirmation-2026-09-11'],
+    checkedAt: '2026-09-11',
+    volatility: 'high',
+    claimBoundary: 'Approximate personal observation of light timing. It varies by season and conditions and should not be presented as a measured or guaranteed duration.'
+  },
+  {
+    id: 'casa-amara.terraces.shade-structures',
+    subject: 'casa-amara',
+    topic: 'property-amenities',
+    statement: 'The private terraces have shade from sun sails, pergolas and traditional cane screening (cañizo).',
+    status: 'first-party-observation',
+    sourceIds: ['casa-amara-operator-confirmation-2026-09-11'],
+    checkedAt: '2026-09-11',
+    reviewAfter: '2027-09-11',
+    volatility: 'medium',
+    claimBoundary: 'Shade provision confirmed by the operator; recheck after material furnishing or maintenance changes.'
+  },
 ] as const);

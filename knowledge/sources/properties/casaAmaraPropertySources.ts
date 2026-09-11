@@ -26,6 +26,19 @@ export const casaAmaraPropertySources = defineKnowledgeSources([
       'A first-party statement, not an audited inventory. It describes standing practice at the time of confirmation and can change; it should be re-confirmed rather than assumed for future seasons.',
     reuse: 'internal-only',
   },
+  {
+    id: 'casa-amara-operator-confirmation-2026-09-11',
+    title: 'Operator confirmation, 11 September 2026',
+    publisher: 'AMARA Lodging',
+    sourceType: 'operator-provided',
+    url: 'internal://operator-confirmation/2026-09-11',
+    accessedAt: '2026-09-11',
+    language: 'de',
+    scope: 'Direct operator statements on summer cooling (air conditioning in the bedroom, exterior shutters, thick old-town walls), terrace orientation (southwest) and per-apartment sun timing, and terrace shade structures for the Frigiliana accommodations.',
+    limitations:
+      'A first-party statement, not an audited inventory or a measured light study. It describes standing equipment and typical light at the time of confirmation and can change; sun timing is an approximate personal observation, not a guarantee for any date or season.',
+    reuse: 'internal-only',
+  },
 ] as const);
 
 export type CasaAmaraPropertySourceId = (typeof casaAmaraPropertySources)[number]['id'];

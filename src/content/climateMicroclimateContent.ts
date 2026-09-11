@@ -42,7 +42,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'Frigiliana liegt am Hang, rund 300 Meter über dem Meer — Nerja unten direkt an der Küste. Luftlinie sind es kaum sechs Kilometer, und doch fühlt sich das Klima anders an. Das sind keine Messwerte einer Wetterstation, sondern was wir hier tagtäglich erleben.',
       summer: {
         label: 'Im Sommer',
-        body: 'Oben im Dorf kommt an heißen Abenden fast immer ein Lüftchen den Hang herunter, das unten am Meer fehlt — die Nächte fühlen sich hier leichter an. Nerja hält die Wärme länger und ist feuchter; der Ausgleich liegt dort direkt vor der Tür, im Wasser.'
+        body: 'Oben im Dorf kommt an heißen Abenden fast immer ein Lüftchen den Hang herunter, das unten am Meer fehlt — die Nächte fühlen sich hier leichter an, und tagsüber halten die dicken Mauern der Altstadthäuser, Fensterläden und **eine Klimaanlage im Schlafzimmer** die Wohnungen kühl. Nerja hält die Wärme länger und ist feuchter; der Ausgleich liegt dort direkt vor der Tür, im Wasser.'
       },
       winter: {
         label: 'Im Winter',
@@ -60,7 +60,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'Frigiliana está en la ladera, a unos 300 metros sobre el mar; Nerja, abajo, junto a la costa. En línea recta apenas seis kilómetros, y aun así el clima se siente distinto. No son datos de una estación meteorológica, sino lo que vivimos aquí a diario.',
       summer: {
         label: 'En verano',
-        body: 'Arriba, en el pueblo, las noches de calor casi siempre traen una brisa que baja por la ladera y que abajo, junto al mar, no llega — las noches se sienten más ligeras. Nerja retiene el calor más tiempo y es más húmeda; allí el alivio está a un paso, en el agua.'
+        body: 'Arriba, en el pueblo, las noches de calor casi siempre traen una brisa que baja por la ladera y que abajo, junto al mar, no llega — las noches se sienten más ligeras, y de día los muros gruesos de las casas del casco antiguo, las contraventanas y **el aire acondicionado en el dormitorio** mantienen los apartamentos frescos. Nerja retiene el calor más tiempo y es más húmeda; allí el alivio está a un paso, en el agua.'
       },
       winter: {
         label: 'En invierno',
@@ -78,7 +78,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'Frigiliana sits on the hillside, around 300 metres above the sea — Nerja lies right on the coast below. As the crow flies it is barely six kilometres, yet the climate feels different. These are not weather-station figures, but what we live here day to day.',
       summer: {
         label: 'In summer',
-        body: 'Up in the village, hot evenings almost always bring a breeze down the hillside that never reaches the coast — the nights feel lighter here. Nerja holds the warmth longer and is more humid; there the relief is right at the door, in the water.'
+        body: 'Up in the village, hot evenings almost always bring a breeze down the hillside that never reaches the coast — the nights feel lighter here, and by day the thick walls of the old-town houses, the shutters and **air conditioning in the bedroom** keep the apartments cool. Nerja holds the warmth longer and is more humid; there the relief is right at the door, in the water.'
       },
       winter: {
         label: 'In winter',
@@ -96,7 +96,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'Frigiliana ligt tegen de helling, zo’n 300 meter boven zee — Nerja beneden pal aan de kust. Hemelsbreed amper zes kilometer, en toch voelt het klimaat anders. Dit zijn geen cijfers van een weerstation, maar wat wij hier dagelijks meemaken.',
       summer: {
         label: 'In de zomer',
-        body: 'Boven in het dorp brengen hete avonden bijna altijd een briesje de helling af dat beneden aan zee ontbreekt — de nachten voelen hier lichter. Nerja houdt de warmte langer vast en is vochtiger; daar ligt de verkoeling vlak voor de deur, in het water.'
+        body: 'Boven in het dorp brengen hete avonden bijna altijd een briesje de helling af dat beneden aan zee ontbreekt — de nachten voelen hier lichter, en overdag houden de dikke muren van de oude huizen, de luiken en **airconditioning in de slaapkamer** de appartementen koel. Nerja houdt de warmte langer vast en is vochtiger; daar ligt de verkoeling vlak voor de deur, in het water.'
       },
       winter: {
         label: 'In de winter',
@@ -114,7 +114,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'Frigiliana ligger i sluttningen, runt 300 meter över havet — Nerja nere vid kusten. Fågelvägen knappt sex kilometer, och ändå känns klimatet olika. Det här är inga siffror från en väderstation, utan vad vi lever med här varje dag.',
       summer: {
         label: 'På sommaren',
-        body: 'Uppe i byn för heta kvällar nästan alltid med sig en bris ner för sluttningen som saknas nere vid havet — nätterna känns lättare här. Nerja håller värmen längre och är fuktigare; där finns svalkan precis utanför dörren, i vattnet.'
+        body: 'Uppe i byn för heta kvällar nästan alltid med sig en bris ner för sluttningen som saknas nere vid havet — nätterna känns lättare här, och på dagen håller de tjocka murarna i gamla stans hus, fönsterluckorna och **luftkonditionering i sovrummet** lägenheterna svala. Nerja håller värmen längre och är fuktigare; där finns svalkan precis utanför dörren, i vattnet.'
       },
       winter: {
         label: 'På vintern',
