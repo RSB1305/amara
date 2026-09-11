@@ -1,7 +1,8 @@
-import type { GuestGuideAccordionItem, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
+import type { GuestGuideAccordionItem, GuestGuideDetailEntry, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
 import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHref';
 import { guidePlaceItem } from '../lib/placeProjection';
 import { routeImageAltText, routeImageFigure, routeImageFigures, routeImageSrc } from '../lib/images/routeImages';
+import ceramicPanelsAudio from './frigilianaCeramicPanelsAudio.json' with { type: 'json' };
 
 const FRIGILIANA_SUPPORT_WHATSAPP = 'https://wa.me/34604440964';
 const NEED_HELP: LocalizedText = {
@@ -2556,6 +2557,25 @@ const frigilianaGuestSightseeing: GuestGuideEntry = {
           ]
         },
         {
+          kind: 'link',
+          icon: 'music',
+          title: {
+            en: 'Audio guide to the panels',
+            de: 'Audioguide zu den Tafeln',
+            es: 'Audioguía de los paneles',
+            nl: 'Audiogids bij de panelen',
+            sv: 'Ljudguide till panelerna'
+          },
+          subtitle: {
+            en: '12 stops · listen as you walk',
+            de: '12 Stationen · unterwegs anhören',
+            es: '12 paradas · escuchad al caminar',
+            nl: '12 haltes · luister onderweg',
+            sv: '12 stopp · lyssna medan ni går'
+          },
+          targetSlug: 'frigiliana-guest-ceramic-panels'
+        },
+        {
           icon: 'landmark',
           recommendationId: 'nerja.sightseeing.acueducto-del-aguila',
           title: { en: 'El Águila Aqueduct', de: 'Aquädukt El Águila', es: 'Acueducto del Águila', nl: 'Aquaduct El Águila', sv: 'El Águila Akvedukt' },
@@ -3423,6 +3443,25 @@ const frigilianaRecommendations: GuestGuideEntry = {
           icon: 'compass',
           targetSlug: 'frigiliana-guest-sightseeing',
           title: { en: 'Sightseeing', de: 'Sightseeing', es: 'Turismo', nl: 'Bezienswaardigheden', sv: 'Sevärdheter' }
+        },
+        {
+          kind: 'link',
+          icon: 'music',
+          targetSlug: 'frigiliana-guest-ceramic-panels',
+          title: {
+            en: 'Audio guide to the ceramic panels',
+            de: 'Audioguide zu den Keramiktafeln',
+            es: 'Audioguía de los azulejos',
+            nl: 'Audiogids bij de keramiekpanelen',
+            sv: 'Ljudguide till keramikpanelerna'
+          },
+          subtitle: {
+            en: '12 stops · listen as you walk',
+            de: '12 Stationen · unterwegs anhören',
+            es: '12 paradas · escuchad al caminar',
+            nl: '12 haltes · luister onderweg',
+            sv: '12 stopp · lyssna medan ni går'
+          }
         },
         {
           icon: 'guide',
@@ -5140,7 +5179,97 @@ const nerjaEssentials: GuestGuideEntry = {
   ]
 };
 
+/**
+ * The ceramic-panels audio guide: one detail entry with twelve stops, each an
+ * accordion carrying its self-hosted narration (Edge neural voices) and the same
+ * text as a visible transcript. Narration and audio come from one source
+ * (frigilianaCeramicPanelsAudio.json); the mp3s live under public/audio.
+ */
+const ceramicPanelsAudioEntry: GuestGuideDetailEntry = {
+  slug: 'frigiliana-guest-ceramic-panels',
+  type: 'detail',
+  backSlug: 'frigiliana-guest-sightseeing',
+  supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
+  supportLabel: NEED_HELP,
+  seoTitle: {
+    en: 'Frigiliana Guest Guide — Audio guide to the ceramic panels | AMARA',
+    de: 'Frigiliana Gästeguide — Audioguide zu den Keramiktafeln | AMARA',
+    es: 'Guía para huéspedes en Frigiliana — Audioguía de los azulejos | AMARA',
+    nl: 'Frigiliana Guest Guide — Audiogids bij de keramiekpanelen | AMARA',
+    sv: 'Frigiliana Gästguide — Ljudguide till keramikpanelerna | AMARA'
+  },
+  seoDescription: {
+    en: 'Walk the twelve ceramic panels of Frigiliana with a spoken guide for each stop, from La Tierra to El Holocausto.',
+    de: 'Geht die zwölf Keramiktafeln von Frigiliana mit einer gesprochenen Erzählung je Station ab, von La Tierra bis El Holocausto.',
+    es: 'Recorred los doce azulejos de Frigiliana con una narración hablada en cada parada, de La Tierra a El Holocausto.',
+    nl: 'Loop de twaalf keramiekpanelen van Frigiliana af met een gesproken verhaal bij elke halte, van La Tierra tot El Holocausto.',
+    sv: 'Vandra Frigilianas tolv keramikpaneler med en talad berättelse vid varje stopp, från La Tierra till El Holocausto.'
+  },
+  kicker: {
+    en: 'AMARA AUDIO GUIDE',
+    de: 'AMARA AUDIOGUIDE',
+    es: 'AUDIOGUÍA DE AMARA',
+    nl: 'AMARA AUDIOGIDS',
+    sv: 'AMARA LJUDGUIDE'
+  },
+  title: {
+    en: 'The twelve panels — audio guide',
+    de: 'Die zwölf Tafeln — Audioguide',
+    es: 'Los doce azulejos — audioguía',
+    nl: 'De twaalf panelen — audiogids',
+    sv: 'De tolv panelerna — ljudguide'
+  },
+  intro: {
+    en: 'Put in your headphones and follow the route from panel 1 by the Plaza del Ingenio down to the church. Open a stop when you reach it, press play, and let the story of 1569 unfold where it happened. Each clip is about half a minute; the text is below it to read along.',
+    de: 'Setzt die Kopfhörer auf und folgt der Route von Tafel 1 an der Plaza del Ingenio hinab bis zur Kirche. Öffnet eine Station, wenn ihr sie erreicht, drückt auf Play und lasst die Geschichte von 1569 dort entstehen, wo sie geschah. Jeder Clip dauert etwa eine halbe Minute; der Text steht zum Mitlesen darunter.',
+    es: 'Poneos los auriculares y seguid la ruta desde el azulejo 1, junto a la Plaza del Ingenio, hasta la iglesia. Abrid una parada al llegar, dadle al play y dejad que la historia de 1569 cobre vida donde ocurrió. Cada clip dura alrededor de medio minuto; el texto está debajo para leerlo a la vez.',
+    nl: 'Zet je koptelefoon op en volg de route vanaf paneel 1 bij de Plaza del Ingenio omlaag naar de kerk. Open een halte zodra je er bent, druk op play en laat het verhaal van 1569 tot leven komen waar het gebeurde. Elke clip duurt ongeveer een halve minuut; de tekst staat eronder om mee te lezen.',
+    sv: 'Sätt på er hörlurarna och följ rutten från panel 1 vid Plaza del Ingenio ner till kyrkan. Öppna ett stopp när ni är framme, tryck på play och låt berättelsen från 1569 väckas till liv där den hände. Varje klipp är ungefär en halv minut; texten står under för att läsa med.'
+  },
+  authorityLink: {
+    targetRoute: 'frigiliana.experience.old-town.ceramic-panels',
+    label: {
+      en: 'Prefer to read? The full panel-by-panel guide →',
+      de: 'Lieber lesen? Der vollständige Führer Tafel für Tafel →',
+      es: '¿Preferís leer? La guía completa azulejo a azulejo →',
+      nl: 'Liever lezen? De volledige gids paneel voor paneel →',
+      sv: 'Läser ni hellre? Hela guiden panel för panel →'
+    }
+  },
+  categories: [
+    {
+      heading: {
+        en: 'The route, stop by stop',
+        de: 'Die Route, Station für Station',
+        es: 'La ruta, parada a parada',
+        nl: 'De route, halte voor halte',
+        sv: 'Rutten, stopp för stopp'
+      },
+      items: ceramicPanelsAudio.panels.map((p): GuestGuideAccordionItem => {
+        const nn = String(p.n).padStart(2, '0');
+        const label = `${p.n} · ${p.titleEs}`;
+        return {
+          icon: 'landmark',
+          title: { en: label, de: label, es: label, nl: label, sv: label },
+          body: [p.narration],
+          audio: {
+            srcBase: `${ceramicPanelsAudio.audioBase}/panel-${nn}`,
+            title: {
+              en: `Panel ${p.n}: ${p.titleEs}`,
+              de: `Tafel ${p.n}: ${p.titleEs}`,
+              es: `Azulejo ${p.n}: ${p.titleEs}`,
+              nl: `Paneel ${p.n}: ${p.titleEs}`,
+              sv: `Panel ${p.n}: ${p.titleEs}`
+            }
+          }
+        };
+      })
+    }
+  ]
+};
+
 export const guestGuideFrigiliana: GuestGuideEntry[] = [
+  ceramicPanelsAudioEntry,
   frigilianaFarahHub,
   frigilianaFarahAccommodation,
   frigilianaLounisHub,

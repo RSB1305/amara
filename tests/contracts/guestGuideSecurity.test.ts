@@ -37,11 +37,11 @@ test('protected Guest Guide authoring still contains no credential or building-a
   }
 });
 
-test('all 36 Guest Guide entries publish under the protected route family in all five locales', () => {
-  expect(guestGuideEntries).toHaveLength(36);
-  expect(new Set(guestGuideEntries.map((entry) => entry.slug)).size).toBe(36);
+test('all 37 Guest Guide entries publish under the protected route family in all five locales', () => {
+  expect(guestGuideEntries).toHaveLength(37);
+  expect(new Set(guestGuideEntries.map((entry) => entry.slug)).size).toBe(37);
   expect(SUPPORTED_LANGUAGES).toEqual(['en', 'de', 'es', 'nl', 'sv']);
-  expect(guestGuideEntries.length * SUPPORTED_LANGUAGES.length).toBe(180);
+  expect(guestGuideEntries.length * SUPPORTED_LANGUAGES.length).toBe(185);
   expect(guideHref('guestwelcome-frigiliana-farah', 'es')).toBe(
     '/guia-huesped/farah'
   );

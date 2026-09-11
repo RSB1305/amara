@@ -16,6 +16,7 @@ interface Props {
   /** Shown under the title when the place exists only in the Guest Guide (DR-GUEST-006). */
   exclusiveLabel?: string;
   video?: { src?: string; embedUrl?: string; title: string };
+  audio?: { src: string; title: string };
   actions?: { label: string; href: string; variant?: 'primary' | 'secondary' }[];
   /** Map link owned by the recommendation record; wins over a link lifted from the copy. */
   mapsUrl?: string;
@@ -25,7 +26,7 @@ interface Props {
   places?: { name: string; mapsUrl?: string; address?: string; actions: { label: string; href: string }[] }[];
 }
 
-const { icon, title, subtitle, body, image, images, video, actions, facts, places, exclusiveLabel } = Astro.props;
+const { icon, title, subtitle, body, image, images, video, audio, actions, facts, places, exclusiveLabel } = Astro.props;
 
 /**
  * Entries used to end with a "Open in Google Maps" link on its own line, repeated
@@ -84,6 +85,9 @@ const mapLabel = `${title} — Google Maps`;
     </span>
   </summary>
   <div class="am-ios-panel">
+    {audio && (
+      <audio class="am-ios-audio" controls preload="none" src={audio.src} aria-label={audio.title}></audio>
+    )}
     {cleanedBody.map((paragraph) => <p set:html={paragraph} />)}
     {image && (
       <figure class="am-ios-figure">
@@ -163,3 +167,11 @@ const mapLabel = `${title} — Google Maps`;
     )}
   </div>
 </details>
+
+<style>
+  .am-ios-audio {
+    display: block;
+    width: 100%;
+    margin: 0 0 1rem;
+  }
+</style>

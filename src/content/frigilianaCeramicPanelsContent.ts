@@ -104,6 +104,31 @@ export const frigilianaCeramicPanelsCopy = {
       )
     ]
   },
+  context: {
+    title: l(
+      'What happened in 1569',
+      'Was 1569 geschah',
+      'Qué pasó en 1569',
+      'Wat er in 1569 gebeurde',
+      'Vad som hände 1569'
+    ),
+    paragraphs: [
+      l(
+        'To read the panels, it helps to picture the situation. After the fall of Granada, the Muslims of the Sierra de Bentomiz stayed on as baptised “Moriscos”, keeping their own language, dress and customs. A royal decree forbade all of it, and year by year the pressure and the fear grew.',
+        'Um die Tafeln zu lesen, hilft die Lage von damals. Nach der Eroberung Granadas blieben die Muslime der Sierra de Bentomiz als getaufte „Morisken“ im Land, mit eigener Sprache, Kleidung und eigenen Bräuchen. Ein königlicher Erlass verbot ihnen all das, und Jahr für Jahr wuchsen Druck und Furcht.',
+        'Para leer los azulejos ayuda imaginar la situación. Tras la conquista de Granada, los musulmanes de la Sierra de Bentomiz permanecieron como «moriscos» bautizados, conservando su lengua, su vestido y sus costumbres. Una pragmática real se lo prohibió todo, y año tras año crecieron la presión y el miedo.',
+        'Om de panelen te lezen helpt het je de situatie voor te stellen. Na de val van Granada bleven de moslims van de Sierra de Bentomiz achter als gedoopte „Morisken“, met behoud van hun eigen taal, kleding en gebruiken. Een koninklijk besluit verbood dat allemaal, en jaar na jaar groeiden de druk en de angst.',
+        'För att läsa panelerna hjälper det att föreställa sig situationen. Efter Granadas fall stannade muslimerna i Sierra de Bentomiz kvar som döpta ”morisker”, med eget språk, egen dräkt och egna seder. Ett kungligt påbud förbjöd allt detta, och år efter år växte trycket och rädslan.'
+      ),
+      l(
+        'In 1569 the villages rose. Thousands from the region gathered on the Peñón, the steep rock above Frigiliana, on which they pinned their hopes. In June the crown came with an army and a fleet; the rock fell, and the old world of the sierra came to an end. The twelve panels tell exactly this arc — from the land to the last silence.',
+        '1569 erhoben sich die Dörfer. Tausende aus der Umgebung sammelten sich auf dem Peñón, dem steilen Felsen über Frigiliana, auf den sie ihre Hoffnung setzten. Im Juni rückte die Krone mit Heer und Flotte an; der Felsen fiel, und die alte Welt der Sierra ging zu Ende. Die zwölf Tafeln erzählen genau diesen Bogen — vom Land bis zum letzten Schweigen.',
+        'En 1569 se alzaron los pueblos. Miles de personas de la comarca se reunieron en el Peñón, el escarpado risco sobre Frigiliana, en el que pusieron sus esperanzas. En junio la corona llegó con ejército y armada; el peñón cayó y el viejo mundo de la sierra llegó a su fin. Los doce azulejos cuentan justamente ese arco: de la tierra al último silencio.',
+        'In 1569 kwamen de dorpen in opstand. Duizenden mensen uit de streek verzamelden zich op de Peñón, de steile rots boven Frigiliana, waarop ze hun hoop vestigden. In juni kwam de kroon met een leger en een vloot; de rots viel, en de oude wereld van de sierra kwam ten einde. De twaalf panelen vertellen precies die boog — van het land tot de laatste stilte.',
+        'År 1569 reste sig byarna. Tusentals människor från trakten samlades på Peñón, den branta klippan ovanför Frigiliana, som de satte sitt hopp till. I juni kom kronan med här och flotta; klippan föll, och sierrans gamla värld gick under. De tolv panelerna berättar just denna båge — från landet till den sista tystnaden.'
+      )
+    ]
+  },
   provenance: {
     title: l(
       'Where the panels come from',
@@ -202,11 +227,11 @@ export const frigilianaCeramicPanelsCopy = {
       'Rutten börjar med panel 1 på Calle Hernando El Darra, nära de gamla spannmålsbodarna och El Ingenio, och stiger upp i Barribarto. Nedan varje panels scen med hela den spanska texten — tryck för att läsa originalet.'
     ),
     note: l(
-      'Panel 1 has a documented position; the exact spots of panels 2–12 are not officially recorded, so let the lanes lead you rather than a map.',
-      'Tafel 1 ist verortet; die genauen Standorte der Tafeln 2–12 sind offiziell nicht verzeichnet — lasst euch von den Gassen führen, nicht von einer Karte.',
-      'El azulejo 1 tiene ubicación documentada; los puntos exactos de los azulejos 2–12 no constan oficialmente, así que dejaos guiar por las calles más que por un plano.',
-      'Paneel 1 heeft een gedocumenteerde plek; de exacte plaatsen van de panelen 2–12 zijn niet officieel vastgelegd — laat je door de straatjes leiden, niet door een kaart.',
-      'Panel 1 har en dokumenterad plats; de exakta platserna för panel 2–12 är inte officiellt noterade, så låt gränderna leda er snarare än en karta.'
+      'All twelve stops sit on the official route: it begins at panel 1 near the Plaza del Ingenio and runs through the lanes of the Barribarto to panel 12 by the church. From Casa AMARA, down by the church, you reach the start in a few minutes.',
+      'Alle zwölf Standorte liegen an der offiziellen Route: Sie beginnt an Tafel 1 nahe der Plaza del Ingenio und zieht durch die Gassen des Barribarto bis Tafel 12 an der Kirche. Von Casa AMARA, unten an der Kirche, erreicht ihr den Start in wenigen Minuten.',
+      'Los doce puntos están en la ruta oficial: empieza en el azulejo 1, junto a la Plaza del Ingenio, y recorre las calles del Barribarto hasta el azulejo 12, junto a la iglesia. Desde Casa AMARA, abajo junto a la iglesia, llegáis al inicio en pocos minutos.',
+      'Alle twaalf plekken liggen op de officiële route: die begint bij paneel 1 bij de Plaza del Ingenio en loopt door de straatjes van de Barribarto tot paneel 12 bij de kerk. Vanaf Casa AMARA, beneden bij de kerk, ben je in een paar minuten bij het startpunt.',
+      'Alla tolv platser ligger längs den officiella rutten: den börjar vid panel 1 nära Plaza del Ingenio och löper genom Barribartos gränder till panel 12 vid kyrkan. Från Casa AMARA, nere vid kyrkan, når ni starten på några minuter.'
     ),
     transcriptionLabel: l(
       'Original Spanish text',
@@ -214,7 +239,49 @@ export const frigilianaCeramicPanelsCopy = {
       'Texto original en español',
       'Spaanse originele tekst',
       'Spansk originaltext'
+    ),
+    readMoreLabel: l(
+      'Read the text: translation & original',
+      'Text lesen: Übersetzung & Original',
+      'Leer el texto: versión actual y original',
+      'Lees de tekst: vertaling & origineel',
+      'Läs texten: översättning & original'
     )
+  },
+  map: {
+    caption: l(
+      'The route of the twelve panels — tap a number to jump straight to that panel.',
+      'Der Weg der zwölf Tafeln — tippt eine Nummer an, um direkt zur Tafel zu springen.',
+      'El recorrido de los doce azulejos: toca un número para saltar directamente a ese azulejo.',
+      'De route van de twaalf panelen — tik op een nummer om meteen naar dat paneel te springen.',
+      'De tolv panelernas väg — tryck på en siffra för att hoppa direkt till panelen.'
+    ),
+    startSublabel: l(
+      'Start · parking · taxi',
+      'Start · Parken · Taxi',
+      'Inicio · aparcamiento · taxi',
+      'Start · parkeren · taxi',
+      'Start · parkering · taxi'
+    ),
+    ariaLabel: l(
+      'Map of the twelve ceramic panels in Frigiliana showing the walking route',
+      'Karte der zwölf Keramiktafeln in Frigiliana mit dem Routenverlauf',
+      'Mapa de los doce azulejos de Frigiliana con el recorrido a pie',
+      'Kaart van de twaalf keramische panelen in Frigiliana met de wandelroute',
+      'Karta över Frigilianas tolv keramikpaneler med promenadrutten'
+    ),
+    panelWord: l('Panel', 'Tafel', 'Azulejo', 'Paneel', 'Panel'),
+    mapsLabel: l(
+      'Open the walking route in Google Maps',
+      'Fußweg in Google Maps öffnen',
+      'Abrir la ruta a pie en Google Maps',
+      'Wandelroute openen in Google Maps',
+      'Öppna promenadrutten i Google Maps'
+    ),
+    /* Operator-supplied walking directions (3e2 = walking) through the panel lanes:
+       Hernando el Darra → Amargura → Alta → Sta. Teresa de Ávila → El Garral. */
+    mapsHref:
+      'https://www.google.com/maps/dir/C.+Hernando+el+Darra,+29788+Frigiliana,+M%C3%A1laga,+Spanien/C.+Amargura,+29788+Frigiliana,+M%C3%A1laga,+Spanien/C.+Alta,+29788+Frigiliana,+M%C3%A1laga,+Spanien/Calle+Sta.+Teresa+de+Avila,+29788+Frigiliana,+M%C3%A1laga,+Spanien/C.+el+Garral,+29788+Frigiliana,+M%C3%A1laga,+Spanien/@36.7928565,-3.9000319,17z/data=!3m1!4b1!4m32!4m31!1m5!1m1!1s0xd7224b0712c1efd:0xc0b3b8849f81f704!2m2!1d-3.8963792!2d36.7919455!1m5!1m1!1s0xd7224b015d84e13:0x4935fd50aa9b33ab!2m2!1d-3.897074!2d36.7924183!1m5!1m1!1s0xd7224b03cf90b55:0x169e6edccfc3f0f0!2m2!1d-3.8976217!2d36.7928842!1m5!1m1!1s0xd7224ae31b24bcd:0xa0f158e35bfa39ec!2m2!1d-3.8985348!2d36.7937589!1m5!1m1!1s0xd7224b1d526eeab:0x42fb9c4cacbf11c0!2m2!1d-3.8984509!2d36.7934542!3e2!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D'
   },
   panels: [
     {
@@ -228,7 +295,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Miljön: den bördiga Sierra de Bentomiz, dess klara luft och härdiga folk, och dess tjugotvå befolkade orter — Frigiliana bland dem.'
       ),
       transcription:
-        '«La Sierra de Bentomíz cae en los términos de la ciudad de Vélez. Toda esta tierra fértil poblada de muchas arboledas, abundante de aguas frías y saludables que baxan entre las peñas. Alcanza un cielo tan claro, que haciéndola amenísima, cria los hombres ligeros, recios y de tan grande ánimo, que antiguamente los Reyes Moros los tenían por los más valientes, más sueltos y de mayor efeto que había en el reyno de Granada. Tenía veinte y dos lugares poblados de gente rica, entre ellos, Fragiliana».'
+        '«La Sierra de Bentomíz cae en los términos de la ciudad de Vélez. Toda esta tierra fértil poblada de muchas arboledas, abundante de aguas frías y saludables que baxan entre las peñas. Alcanza un cielo tan claro, que haciéndola amenísima, cria los hombres ligeros, recios y de tan grande ánimo, que antiguamente los Reyes Moros los tenían por los más valientes, más sueltos y de mayor efeto que había en el reyno de Granada. Tenía veinte y dos lugares poblados de gente rica, entre ellos, Fragiliana».',
+      translation: l(
+        'The Sierra de Bentomíz lies within the lands of the town of Vélez. All this fertile country is covered with woodland and rich in cool, wholesome waters that run down between the crags. Its sky is so clear that, making the land delightful, it breeds men so nimble, tough and high-spirited that in former times the Moorish kings held them to be the bravest, the most agile and the most effective in the whole kingdom of Granada. It had twenty-two places peopled by prosperous folk — Frigiliana among them.',
+        'Die Sierra de Bentomíz gehört zum Gebiet der Stadt Vélez. Dieses ganze fruchtbare Land ist von Wäldern bedeckt und reich an kühlen, gesunden Wassern, die zwischen den Felsen herabfließen. Sein Himmel ist so klar, dass er das Land überaus lieblich macht und Menschen hervorbringt, die so flink, zäh und beherzt sind, dass die maurischen Könige sie einst für die tapfersten, gewandtesten und tüchtigsten im ganzen Königreich Granada hielten. Es hatte zweiundzwanzig von wohlhabenden Leuten bewohnte Orte — Frigiliana darunter.',
+        'La Sierra de Bentomiz pertenece al término de la ciudad de Vélez. Toda esta tierra fértil está poblada de arboledas y es rica en aguas frías y saludables que bajan entre las peñas. Su cielo es tan claro que, haciéndola muy agradable, cría hombres ágiles, recios y de tan gran ánimo que antiguamente los reyes moros los tenían por los más valientes, más sueltos y de mayor eficacia de todo el reino de Granada. Tenía veintidós lugares poblados de gente rica, entre ellos Frigiliana.',
+        'De Sierra de Bentomíz valt onder het gebied van de stad Vélez. Dit hele vruchtbare land is begroeid met bossen en rijk aan koele, gezonde wateren die tussen de rotsen omlaag stromen. De hemel is er zo helder dat het land er heerlijk van wordt en mensen voortbrengt die zo lenig, taai en moedig zijn dat de Moorse koningen hen vroeger voor de dappersten, wendbaarsten en doeltreffendsten van het hele koninkrijk Granada hielden. Het telde tweeëntwintig door welgestelde mensen bewoonde plaatsen — Frigiliana daaronder.',
+        'Sierra de Bentomíz hör till staden Vélez marker. Hela detta bördiga land är täckt av skogar och rikt på svala, hälsosamma vatten som rinner ner mellan klipporna. Himlen är så klar att den gör landet ljuvligt och föder män så snabba, härdiga och modiga att de moriska kungarna förr höll dem för de tappraste, smidigaste och dugligaste i hela kungariket Granada. Det hade tjugotvå orter befolkade av välbärgat folk — Frigiliana bland dem.'
+      )
     },
     {
       n: 2,
@@ -241,7 +315,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Ett stadgat liv vänds i rädsla när påbudet 1567 förbjuder moriskernas språk, dräkt, musik, fester och sammankomster.'
       ),
       transcription:
-        '«Manteníase esta gente con sus oficios en aquellos lugares, casábanse, labraban la tierra, dábanse a su vida sosegada. Siguiéronse luego ofensas en su ley, en las haciendas, y en el uso de la vida, por que la Inquisición los comenzó a apretar más de los ordinario. El Rey les mandó dejar la habla morisca, quitóseles el hábito morisco, hubo fama que les mandaban tomar los hijos y pasarlos a Castilla, vedáronles los baños, la música, cantares, fiestas, bodas y cualesquier juntas de pasatiempo. Todo era confusión, sospecha y temor».'
+        '«Manteníase esta gente con sus oficios en aquellos lugares, casábanse, labraban la tierra, dábanse a su vida sosegada. Siguiéronse luego ofensas en su ley, en las haciendas, y en el uso de la vida, por que la Inquisición los comenzó a apretar más de los ordinario. El Rey les mandó dejar la habla morisca, quitóseles el hábito morisco, hubo fama que les mandaban tomar los hijos y pasarlos a Castilla, vedáronles los baños, la música, cantares, fiestas, bodas y cualesquier juntas de pasatiempo. Todo era confusión, sospecha y temor».',
+      translation: l(
+        'These people supported themselves by their trades in those villages; they married, worked the land and led a quiet life. Then came offences against their faith, their property and their way of living, as the Inquisition began to press them harder than usual. The King ordered them to give up the Morisco tongue; their Morisco dress was taken from them; it was rumoured that their children would be taken and sent away to Castile; they were forbidden their baths, their music, their songs, feasts, weddings and every gathering for pleasure. All was confusion, suspicion and fear.',
+        'Diese Leute lebten von ihren Handwerken in jenen Orten; sie heirateten, bestellten das Land und führten ein ruhiges Leben. Dann kamen Übergriffe auf ihren Glauben, ihren Besitz und ihre Lebensweise, als die Inquisition begann, sie härter als sonst zu bedrängen. Der König befahl ihnen, die morische Sprache aufzugeben; man nahm ihnen die morische Kleidung; es hieß, man werde ihnen die Kinder nehmen und nach Kastilien bringen; man verbot ihnen die Bäder, die Musik, die Lieder, Feste, Hochzeiten und jede Zusammenkunft zum Vergnügen. Alles war Verwirrung, Argwohn und Furcht.',
+        'Esta gente se mantenía con sus oficios en aquellos lugares; se casaban, labraban la tierra y llevaban una vida sosegada. Luego llegaron las ofensas a su religión, a sus haciendas y a su modo de vida, pues la Inquisición empezó a apretarlos más de lo habitual. El rey les mandó abandonar la lengua morisca; les quitaron el vestido morisco; corrió el rumor de que les tomarían a los hijos para llevarlos a Castilla; les prohibieron los baños, la música, los cantos, las fiestas, las bodas y cualquier reunión de esparcimiento. Todo era confusión, sospecha y temor.',
+        'Deze mensen leefden van hun ambachten in die dorpen; ze trouwden, bewerkten het land en leidden een rustig leven. Toen kwamen de aanvallen op hun geloof, hun bezit en hun manier van leven, toen de Inquisitie hen harder dan gewoonlijk begon aan te pakken. De koning gebood hun de Moriskse taal op te geven; hun Moriskse kleding werd hun ontnomen; er ging een gerucht dat men hun kinderen zou weghalen en naar Castilië brengen; men verbood hun de baden, de muziek, de liederen, feesten, bruiloften en elke bijeenkomst voor vermaak. Alles was verwarring, achterdocht en angst.',
+        'Detta folk livnärde sig på sina hantverk i dessa byar; de gifte sig, brukade jorden och levde ett stilla liv. Sedan kom kränkningarna mot deras tro, deras egendom och deras levnadssätt, när Inkvisitionen började pressa dem hårdare än vanligt. Kungen befallde dem att överge det moriska språket; deras moriska dräkt togs ifrån dem; det gick ett rykte om att man skulle ta deras barn och föra dem till Kastilien; man förbjöd dem baden, musiken, sångerna, festerna, bröllopen och varje sammankomst för nöjes skull. Allt var förvirring, misstanke och fruktan.'
+      )
     },
     {
       n: 3,
@@ -254,7 +335,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Upptrappning: fredlöse Andrés el Chorairán eldar på upproret; en måttfull man som försökte stoppa det fängslas och torteras med de oskyldiga.'
       ),
       transcription:
-        '«Andrés el Chorairán monfí natural de Sedella, concitó los ánimos de los suyos para escitarles a la rebelión. La gente moza que comenzaba a alborotarse la contuvo el morisco Luis Mendez, hombre influyente en Canillas, pero no pudo evitar que atacaran una venta de un cristiano, ni que mataran en ella a varias personas. Acudió el Juez de Vélez Pedro Guerra y muchos inocentes moriscos, entre ellos Luis Mendez que había impedido la revuelta, fueron presos y cargados de cadenas y sometidos a crueles tormentos».'
+        '«Andrés el Chorairán monfí natural de Sedella, concitó los ánimos de los suyos para escitarles a la rebelión. La gente moza que comenzaba a alborotarse la contuvo el morisco Luis Mendez, hombre influyente en Canillas, pero no pudo evitar que atacaran una venta de un cristiano, ni que mataran en ella a varias personas. Acudió el Juez de Vélez Pedro Guerra y muchos inocentes moriscos, entre ellos Luis Mendez que había impedido la revuelta, fueron presos y cargados de cadenas y sometidos a crueles tormentos».',
+      translation: l(
+        'Andrés el Chorairán, an outlaw from Sedella, stirred up his people to rouse them to revolt. The young men who were beginning to riot were held back by the Morisco Luis Méndez, an influential man in Canillas, but he could not stop them from attacking the inn of a Christian and killing several people there. The judge of Vélez, Pedro Guerra, arrived, and many innocent Moriscos — among them Luis Méndez, who had prevented the uprising — were seized, loaded with chains and subjected to cruel torture.',
+        'Andrés el Chorairán, ein Bandit aus Sedella, wiegelte die Seinen auf, um sie zum Aufstand zu treiben. Die jungen Männer, die zu randalieren begannen, hielt der Moriske Luis Méndez zurück, ein einflussreicher Mann in Canillas; doch er konnte nicht verhindern, dass sie das Gasthaus eines Christen überfielen und dort mehrere Menschen töteten. Der Richter von Vélez, Pedro Guerra, rückte an, und viele unschuldige Morisken — unter ihnen Luis Méndez, der den Aufruhr verhindert hatte — wurden gefangen, in Ketten gelegt und grausam gefoltert.',
+        'Andrés el Chorairán, monfí natural de Sedella, encendió los ánimos de los suyos para incitarlos a la rebelión. A los jóvenes que empezaban a alborotarse los contuvo el morisco Luis Méndez, hombre influyente en Canillas, pero no pudo evitar que atacaran la venta de un cristiano y que mataran allí a varias personas. Acudió el juez de Vélez, Pedro Guerra, y muchos moriscos inocentes —entre ellos Luis Méndez, que había impedido la revuelta— fueron apresados, cargados de cadenas y sometidos a crueles tormentos.',
+        'Andrés el Chorairán, een vogelvrije uit Sedella, hitste de zijnen op om hen tot opstand te bewegen. De jonge mannen die begonnen te muiten werden tegengehouden door de Morisk Luis Méndez, een invloedrijk man in Canillas, maar hij kon niet verhinderen dat ze de herberg van een christen aanvielen en er verscheidene mensen doodden. De rechter van Vélez, Pedro Guerra, kwam eraan, en veel onschuldige Morisken — onder wie Luis Méndez, die de opstand had verhinderd — werden gevangen, in de ketenen geslagen en wreed gemarteld.',
+        'Andrés el Chorairán, en fredlös från Sedella, hetsade de sina för att driva dem till uppror. De unga män som började ställa till oro hejdades av morisken Luis Méndez, en inflytelserik man i Canillas, men han kunde inte hindra att de anföll en kristens värdshus och dödade flera personer där. Domaren i Vélez, Pedro Guerra, kom, och många oskyldiga morisker — bland dem Luis Méndez, som hade förhindrat upproret — greps, belades med kedjor och utsattes för grym tortyr.'
+      )
     },
     {
       n: 4,
@@ -267,7 +355,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Profetia och vallfärd: en gammal man åkallar Allahs beskydd och manar folket att inte överge sin lyckosamma mark.'
       ),
       transcription:
-        '«Días después trasladáronse en romería, almorabito de la Rábita de Canillas para impetrar la protección de Alá y el viejo musulmán dirigió la palabra a la muchedumbre, exhortándoles a que no abandonasen el lugar. Cuando en un momento de la sublevación los moriscos decidieron abandonarlo para unirse a los de otro lugar más seguro, el peñón de Frigiliana, un viejo, el Jorrón de Leimón, protestó del acuerdo, porque decía que aquel había sido lugar dichoso, donde habían tenido siempre, felices sucesos los moros.»'
+        '«Días después trasladáronse en romería, almorabito de la Rábita de Canillas para impetrar la protección de Alá y el viejo musulmán dirigió la palabra a la muchedumbre, exhortándoles a que no abandonasen el lugar. Cuando en un momento de la sublevación los moriscos decidieron abandonarlo para unirse a los de otro lugar más seguro, el peñón de Frigiliana, un viejo, el Jorrón de Leimón, protestó del acuerdo, porque decía que aquel había sido lugar dichoso, donde habían tenido siempre, felices sucesos los moros.»',
+      translation: l(
+        'Days later they went in pilgrimage to the hermitage (rábita) of Canillas to beg for the protection of Allah, and the old Muslim addressed the crowd, urging them not to abandon the place. When, at one point in the uprising, the Moriscos decided to leave it and join those at a safer place, the Peñón de Frigiliana, an old man, the Jorrón de Leimón, protested against the decision, for he said that this had been a fortunate place, where the Moors had always met with happy fortunes.',
+        'Tage später zogen sie in einer Wallfahrt zur Einsiedelei (Rábita) von Canillas, um Allahs Schutz zu erflehen, und der alte Muslim wandte sich an die Menge und beschwor sie, den Ort nicht zu verlassen. Als die Morisken in einem Augenblick des Aufstands beschlossen, ihn zu verlassen und sich denen an einem sichereren Ort anzuschließen, dem Peñón de Frigiliana, widersprach ein Alter, der Jorrón de Leimón, dem Beschluss; denn er sagte, dies sei ein glückbringender Ort gewesen, wo den Mauren stets Gutes widerfahren sei.',
+        'Días después fueron en romería a la rábita de Canillas para implorar la protección de Alá, y el anciano musulmán se dirigió a la muchedumbre, exhortándola a no abandonar el lugar. Cuando, en un momento de la sublevación, los moriscos decidieron dejarlo para unirse a los de un lugar más seguro, el peñón de Frigiliana, un anciano, el Jorrón de Leimón, protestó contra el acuerdo, porque decía que aquel había sido un lugar dichoso, donde los moros siempre habían tenido felices sucesos.',
+        'Dagen later trokken ze in bedevaart naar de kluis (rábita) van Canillas om Allahs bescherming af te smeken, en de oude moslim sprak de menigte toe en drong er bij hen op aan de plek niet te verlaten. Toen de Morisken op een moment van de opstand besloten die te verlaten om zich aan te sluiten bij die op een veiliger plek, de Peñón de Frigiliana, protesteerde een oude man, de Jorrón de Leimón, tegen het besluit; want hij zei dat dit een gelukkige plek was geweest, waar de Moren altijd goede lotgevallen hadden gekend.',
+        'Dagar senare gick de i vallfärd till eremitaget (rábita) i Canillas för att bönfalla om Allahs beskydd, och den gamle muslimen talade till hopen och manade dem att inte överge platsen. När moriskerna i ett ögonblick av upproret beslöt att lämna den för att förena sig med dem på en säkrare plats, Peñón de Frigiliana, protesterade en gammal man, Jorrón de Leimón, mot beslutet; för han sade att detta hade varit en lycklig plats, där morerna alltid hade rönt goda öden.'
+      )
     },
     {
       n: 5,
@@ -280,7 +375,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Den gamla fanan med gröna halvmånar dyker upp igen; den ädle Martín Alguacil lyfts upp på en vit mulåsna till ledare.'
       ),
       transcription:
-        '«Aun no era bien acabado de alzar el pueblo, cuando pareció en la plaza del lugar una bandera de tafetán colorado, ya deslucida de vieja, con unas lunas verdes muy grandes, que la tenía guardada Francisco de Roxas, Morisco de aquel lugar, que había sido de sus pasados en tiempo Moros. Alzados los vecinos de Canillas de Aceytuno; los de Cómpeta movidos por Martín Alguacil, hombre noble y de mucha autoridad, tomoaron las armas, y ataviándole con ricos almayzares de seda y oro, le pusieron sobre una mula blanca y llegaron todos a besarle la mano y la ropa».'
+        '«Aun no era bien acabado de alzar el pueblo, cuando pareció en la plaza del lugar una bandera de tafetán colorado, ya deslucida de vieja, con unas lunas verdes muy grandes, que la tenía guardada Francisco de Roxas, Morisco de aquel lugar, que había sido de sus pasados en tiempo Moros. Alzados los vecinos de Canillas de Aceytuno; los de Cómpeta movidos por Martín Alguacil, hombre noble y de mucha autoridad, tomoaron las armas, y ataviándole con ricos almayzares de seda y oro, le pusieron sobre una mula blanca y llegaron todos a besarle la mano y la ropa».',
+      translation: l(
+        'The village had scarcely risen when there appeared in the square a banner of red taffeta, already faded with age, bearing very large green crescents — kept until then by Francisco de Rojas, a Morisco of that place, to whom it had come from his forebears in the time of the Moors. With the people of Canillas de Aceituno risen, those of Cómpeta, moved by Martín Alguacil, a noble man of great authority, took up arms; and dressing him in rich sashes of silk and gold, they set him on a white mule, and all came to kiss his hand and his robe.',
+        'Kaum hatte sich der Ort erhoben, als auf dem Platz ein Banner aus rotem Taft erschien, vom Alter schon verblichen, mit sehr großen grünen Halbmonden — bis dahin verwahrt von Francisco de Rojas, einem Morisken jenes Ortes, dem es von seinen Vorfahren aus der Maurenzeit geblieben war. Als sich die Bewohner von Canillas de Aceituno erhoben hatten, ergriffen die von Cómpeta, angeführt von Martín Alguacil, einem edlen Mann von großem Ansehen, die Waffen; und sie schmückten ihn mit reichen Schärpen aus Seide und Gold, setzten ihn auf ein weißes Maultier, und alle kamen, ihm Hand und Gewand zu küssen.',
+        'Apenas se había alzado el pueblo cuando apareció en la plaza una bandera de tafetán rojo, ya deslucida por el tiempo, con unas lunas verdes muy grandes, que había guardado Francisco de Rojas, morisco de aquel lugar, y que le venía de sus antepasados del tiempo de los moros. Alzados los vecinos de Canillas de Aceituno, los de Cómpeta, movidos por Martín Alguacil, hombre noble y de mucha autoridad, tomaron las armas; y ataviándolo con ricos almaizares de seda y oro, lo pusieron sobre una mula blanca, y todos llegaron a besarle la mano y la ropa.',
+        'Nauwelijks was het dorp in opstand of op het plein verscheen een vaandel van rood taf, al verbleekt van ouderdom, met zeer grote groene halvemanen — tot dan bewaard door Francisco de Rojas, een Morisk van die plaats, aan wie het van zijn voorouders uit de Moorse tijd was toegekomen. Nu de inwoners van Canillas de Aceituno in opstand waren, grepen die van Cómpeta, aangevoerd door Martín Alguacil, een edel man van groot gezag, naar de wapens; en ze tooiden hem met rijke sjerpen van zijde en goud, zetten hem op een witte muildier, en allen kwamen zijn hand en zijn gewaad kussen.',
+        'Byn hade knappt rest sig när det på torget dök upp en fana av rött taft, redan blekt av ålder, med mycket stora gröna halvmånar — dittills förvarad av Francisco de Rojas, en morisk från den orten, till vilken den kommit från hans förfäder i morernas tid. När invånarna i Canillas de Aceituno hade rest sig grep de i Cómpeta, ledda av Martín Alguacil, en ädel man med stor auktoritet, till vapen; och de smyckade honom med rika sjalar av siden och guld, satte honom på en vit mulåsna, och alla kom fram för att kyssa hans hand och hans dräkt.'
+      )
     },
     {
       n: 6,
@@ -293,7 +395,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Slutet av april 1569: en människomassa överger sina hem och drar mot Peñón — panelen hoppar rakt till nederlaget den 11 juni.'
       ),
       transcription:
-        '«En los últimos días de Abril de 1569, esta gran concentración humana, cerradas las puertas de sus casas, abandonados sus hogares, despobladas las alquerías, campos y caseríos, portando sus ajuares, herramienatas y armas, puso rumbo a Frigiliana. Sólo nos resta imaginar la gran polvaredas de almas destacada en las alturas del Mayarín, atravesando cerros y arroyos, camino de la triste senda que los conduciría a la muerte y la derrota. Llegados a Frigiliana se instalaron en la Cordillera del Fuerte, donde el 11 de Junio, día de S. Bernabé, fueron atacados por los cristianos».'
+        '«En los últimos días de Abril de 1569, esta gran concentración humana, cerradas las puertas de sus casas, abandonados sus hogares, despobladas las alquerías, campos y caseríos, portando sus ajuares, herramienatas y armas, puso rumbo a Frigiliana. Sólo nos resta imaginar la gran polvaredas de almas destacada en las alturas del Mayarín, atravesando cerros y arroyos, camino de la triste senda que los conduciría a la muerte y la derrota. Llegados a Frigiliana se instalaron en la Cordillera del Fuerte, donde el 11 de Junio, día de S. Bernabé, fueron atacados por los cristianos».',
+      translation: l(
+        'In the last days of April 1569, this great mass of people — the doors of their houses shut, their homes abandoned, the farmsteads, fields and hamlets left empty — set out for Frigiliana carrying their belongings, tools and weapons. We can only imagine the great cloud of souls outlined on the heights of the Mayarín, crossing hills and streams, on the sad path that would lead them to death and defeat. Reaching Frigiliana, they settled on the ridge of the Fort, where on 11 June, the feast of St Barnabas, they were attacked by the Christians.',
+        'In den letzten Apriltagen 1569 machte sich diese große Menschenmenge — die Türen ihrer Häuser verschlossen, die Heime verlassen, die Gehöfte, Felder und Weiler entvölkert — auf den Weg nach Frigiliana und trug ihr Hab und Gut, Werkzeug und Waffen. Wir können uns nur die große Wolke von Seelen vorstellen, die sich auf den Höhen des Mayarín abzeichnete, über Hügel und Bäche zog, auf dem traurigen Pfad, der sie in Tod und Niederlage führen sollte. In Frigiliana angekommen, ließen sie sich auf dem Bergrücken des Forts nieder, wo sie am 11. Juni, dem Tag des heiligen Barnabas, von den Christen angegriffen wurden.',
+        'En los últimos días de abril de 1569, esta gran concentración humana —cerradas las puertas de sus casas, abandonados sus hogares, despobladas las alquerías, campos y caseríos— puso rumbo a Frigiliana llevando sus ajuares, herramientas y armas. Solo nos queda imaginar la gran polvareda de almas recortada en las alturas del Mayarín, atravesando cerros y arroyos, camino de la triste senda que los conduciría a la muerte y la derrota. Llegados a Frigiliana, se instalaron en la cordillera del Fuerte, donde el 11 de junio, día de San Bernabé, fueron atacados por los cristianos.',
+        'In de laatste dagen van april 1569 trok deze grote mensenmassa — de deuren van hun huizen gesloten, hun woningen verlaten, de gehuchten, velden en boerderijen ontvolkt — naar Frigiliana, hun huisraad, gereedschap en wapens meedragend. We kunnen ons alleen de grote wolk van zielen voorstellen die zich aftekende op de hoogten van de Mayarín, over heuvels en beken, op het droeve pad dat hen naar de dood en de nederlaag zou voeren. In Frigiliana aangekomen vestigden ze zich op de bergkam van het Fort, waar ze op 11 juni, de dag van Sint-Barnabas, door de christenen werden aangevallen.',
+        'I de sista dagarna av april 1569 gav sig denna stora människomassa — dörrarna till deras hus stängda, hemmen övergivna, gårdarna, fälten och byarna avfolkade — i väg mot Frigiliana med sitt bohag, sina verktyg och vapen. Vi kan bara föreställa oss det stora molnet av själar som tecknade sig mot höjderna vid Mayarín, tvärs över kullar och bäckar, på den sorgliga stig som skulle föra dem till död och nederlag. Framme i Frigiliana slog de sig ner på Fortets bergsrygg, där de den 11 juni, på Sankt Barnabas dag, angreps av de kristna.'
+      )
     },
     {
       n: 7,
@@ -306,7 +415,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Försvararna samlas på den starka Peñón nära havet och utser Hernando el Darra — ättling till byns forna alcaides — till sin anförare.'
       ),
       transcription:
-        '«Y pareciéndoles que estarían mejor todos juntos en el Peñón de Frigiliana, que era muy fuerte, y cerca del mar, enviaron a decir a los del fuerte de Sedella, que se viniesen a juntar con ellos; nombraron por su caudillo y capitán general a Hernando el Darra, que tenía entre ellos opinión de muy noble, porque sus pasados en tiempo de Moros eran alcaydes y alguaciles de Fregiliana.»'
+        '«Y pareciéndoles que estarían mejor todos juntos en el Peñón de Frigiliana, que era muy fuerte, y cerca del mar, enviaron a decir a los del fuerte de Sedella, que se viniesen a juntar con ellos; nombraron por su caudillo y capitán general a Hernando el Darra, que tenía entre ellos opinión de muy noble, porque sus pasados en tiempo de Moros eran alcaydes y alguaciles de Fregiliana.»',
+      translation: l(
+        'And thinking they would be better all together on the Peñón de Frigiliana, which was very strong and near the sea, they sent word to those in the fort of Sedella to come and join them; and they named as their leader and captain-general Hernando el Darra, who was held among them to be very noble, because his forebears in the time of the Moors had been the alcaides and bailiffs of Frigiliana.',
+        'Und da es ihnen schien, sie seien alle zusammen besser auf dem Peñón de Frigiliana aufgehoben, der sehr stark und nahe dem Meer lag, ließen sie denen im Fort von Sedella ausrichten, sie sollten kommen und sich ihnen anschließen; und sie ernannten Hernando el Darra zu ihrem Anführer und Generalkapitän, der unter ihnen als sehr edel galt, weil seine Vorfahren zur Maurenzeit die Alcaides und Amtleute von Frigiliana gewesen waren.',
+        'Y pareciéndoles que estarían mejor todos juntos en el Peñón de Frigiliana, que era muy fuerte y estaba cerca del mar, mandaron aviso a los del fuerte de Sedella para que vinieran a unirse con ellos; y nombraron por su caudillo y capitán general a Hernando el Darra, a quien tenían por muy noble, porque sus antepasados, en tiempo de los moros, habían sido alcaides y alguaciles de Frigiliana.',
+        'En omdat het hun beter leek allen samen te zijn op de Peñón de Frigiliana, die zeer sterk was en dicht bij zee lag, lieten ze aan die van het fort van Sedella weten dat ze zich bij hen moesten voegen; en ze benoemden tot hun aanvoerder en opperbevelhebber Hernando el Darra, die onder hen als zeer edel gold, omdat zijn voorouders in de Moorse tijd de alcaides en baljuws van Frigiliana waren geweest.',
+        'Och eftersom de tyckte att de var bättre alla samlade på Peñón de Frigiliana, som var mycket stark och låg nära havet, sände de bud till dem i Sedellas fäste att komma och förena sig med dem; och de utsåg till sin hövding och överbefälhavare Hernando el Darra, som bland dem ansågs mycket ädel, eftersom hans förfäder i morernas tid hade varit alcaides och fogdar i Frigiliana.'
+      )
     },
     {
       n: 8,
@@ -319,7 +435,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Kronans överväldigande styrka: sjöbefälhavarna Requesens, Bazán och Leiva, och 6 000 man, däribland 800 sjömän.'
       ),
       transcription:
-        '«En la empresa tomaron parte fuerzas de mar a las órdenes de don Luis Requesens, de don Álvaro de Bazán y de don Sancho de Leiva. Esa Armada contribuyó eficazmente al buen éxito de la expedición, cooperando a operaciones tan brillantes como la del Peñón de Frigiliana, posición tenida por inexpugnable, y los acometió Requesens al frente de 6.000 hombres, entre los cuales se contaban 800 marinos».'
+        '«En la empresa tomaron parte fuerzas de mar a las órdenes de don Luis Requesens, de don Álvaro de Bazán y de don Sancho de Leiva. Esa Armada contribuyó eficazmente al buen éxito de la expedición, cooperando a operaciones tan brillantes como la del Peñón de Frigiliana, posición tenida por inexpugnable, y los acometió Requesens al frente de 6.000 hombres, entre los cuales se contaban 800 marinos».',
+      translation: l(
+        'Naval forces took part in the undertaking under don Luis de Requesens, don Álvaro de Bazán and don Sancho de Leiva. That fleet contributed effectively to the success of the expedition, aiding operations as brilliant as that of the Peñón de Frigiliana, a position held to be impregnable; and Requesens attacked them at the head of 6,000 men, among whom were 800 marines.',
+        'An dem Unternehmen nahmen Seestreitkräfte teil, unter dem Befehl von Don Luis de Requesens, Don Álvaro de Bazán und Don Sancho de Leiva. Diese Flotte trug wirksam zum Erfolg der Expedition bei und unterstützte so glänzende Unternehmungen wie die am Peñón de Frigiliana, einer für uneinnehmbar gehaltenen Stellung; und Requesens griff sie an der Spitze von 6.000 Mann an, unter denen sich 800 Marinesoldaten befanden.',
+        'En la empresa tomaron parte fuerzas de mar a las órdenes de don Luis de Requesens, don Álvaro de Bazán y don Sancho de Leiva. Esa armada contribuyó eficazmente al éxito de la expedición, cooperando en operaciones tan brillantes como la del Peñón de Frigiliana, posición tenida por inexpugnable; y los acometió Requesens al frente de 6.000 hombres, entre los cuales se contaban 800 marinos.',
+        'Aan de onderneming namen zeestrijdkrachten deel onder bevel van don Luis de Requesens, don Álvaro de Bazán en don Sancho de Leiva. Die vloot droeg doeltreffend bij aan het welslagen van de expeditie en ondersteunde zulke schitterende operaties als die bij de Peñón de Frigiliana, een voor onneembaar gehouden stelling; en Requesens viel hen aan aan het hoofd van 6.000 man, onder wie 800 mariniers.',
+        'I företaget deltog sjöstridskrafter under befäl av don Luis de Requesens, don Álvaro de Bazán och don Sancho de Leiva. Denna flotta bidrog verksamt till expeditionens framgång och understödde så lysande operationer som den vid Peñón de Frigiliana, en ställning som ansågs ointaglig; och Requesens anföll dem i spetsen för 6 000 man, bland vilka 800 sjösoldater.'
+      )
     },
     {
       n: 9,
@@ -332,7 +455,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Asymmetriskt försvar: moriskerna rullar förberedda kvarnstenar nerför den branta sluttningen och mejar ner de klättrande soldaterna.'
       ),
       transcription:
-        '«Las Christianas vanderas comenzaron a subir a toda priessa por la cuesta arriba, mas los Moros comenzaron a defender la subida, arrojando muchas piedras con una endiablada invención, y fue que tenían muchas ruedas de molino apercibidas, y por los ojos atravesados unos maderos muy largos, y estas arrojaban en derecho de las Escuadras de los Christianos que subían por la cuesta, y no avía rueda destas, que no se llevasse de camino cincuenta Soldados, si delante los hallaba».'
+        '«Las Christianas vanderas comenzaron a subir a toda priessa por la cuesta arriba, mas los Moros comenzaron a defender la subida, arrojando muchas piedras con una endiablada invención, y fue que tenían muchas ruedas de molino apercibidas, y por los ojos atravesados unos maderos muy largos, y estas arrojaban en derecho de las Escuadras de los Christianos que subían por la cuesta, y no avía rueda destas, que no se llevasse de camino cincuenta Soldados, si delante los hallaba».',
+      translation: l(
+        'The Christian banners began to climb the slope in all haste, but the Moors set about defending the ascent, hurling down many stones by a devilish device: they had readied many millstones, run through the eye with very long beams, and these they rolled straight down onto the Christian squads climbing the slope; and there was not one of these wheels that did not carry off fifty soldiers on its way, if it found them in its path.',
+        'Die christlichen Fahnen begannen in aller Eile den Hang hinaufzusteigen, doch die Mauren gingen daran, den Aufstieg zu verteidigen, und schleuderten mit einer teuflischen Erfindung viele Steine herab: Sie hatten zahlreiche Mühlsteine bereitgelegt, durch deren Loch sehr lange Balken gesteckt waren, und diese ließen sie geradewegs auf die christlichen Trupps hinab, die den Hang hinaufstiegen; und es gab keinen dieser Steine, der nicht fünfzig Soldaten mit sich riss, wenn er sie vor sich fand.',
+        'Las banderas cristianas empezaron a subir a toda prisa por la cuesta arriba, pero los moros se pusieron a defender la subida, arrojando muchas piedras con una endiablada invención: tenían preparadas muchas ruedas de molino, atravesadas por el ojo con unos maderos muy largos, y estas las lanzaban derechas sobre las escuadras de los cristianos que subían por la cuesta; y no había rueda de estas que no se llevara por delante a cincuenta soldados, si los encontraba en su camino.',
+        'De christelijke vaandels begonnen in allerijl de helling op te klimmen, maar de Moren gingen de bestijging verdedigen en wierpen met een duivels vernuft vele stenen naar beneden: ze hadden talrijke molenstenen klaargelegd, door het oog gestoken met zeer lange balken, en die lieten ze recht neer op de christelijke troepen die de helling opklommen; en er was geen van die stenen die niet vijftig soldaten meesleurde, als hij ze op zijn weg vond.',
+        'De kristna fanorna började i all hast klättra uppför sluttningen, men morerna gick till att försvara uppstigningen och slungade ner många stenar med en djävulsk uppfinning: de hade gjort i ordning många kvarnstenar, genomdragna i hålet med mycket långa bjälkar, och dessa rullade de rakt ner mot de kristna skvadronerna som klättrade uppför sluttningen; och det fanns ingen av dessa stenar som inte förde med sig femtio soldater på vägen, om den fann dem framför sig.'
+      )
     },
     {
       n: 10,
@@ -345,7 +475,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Kvinnorna slåss vid männens sida och störtar sig, när fästet är förlorat, utför klipporna hellre än att förslavas.'
       ),
       transcription:
-        '«Hubo algunas Moras que pelearon como esforzados varones, ayudando a sus maridos, hermanos y hijos: y quando vieron el fuerte perdido, se despeñaron por las peñas más agrias, quiriendo más morir hechas pedazos, que venir en poder de Christianos. A otras no les faltó ánimos para ponerse en cobro con sus hijos en los hombros, saltando como cabras de peña en peña».'
+        '«Hubo algunas Moras que pelearon como esforzados varones, ayudando a sus maridos, hermanos y hijos: y quando vieron el fuerte perdido, se despeñaron por las peñas más agrias, quiriendo más morir hechas pedazos, que venir en poder de Christianos. A otras no les faltó ánimos para ponerse en cobro con sus hijos en los hombros, saltando como cabras de peña en peña».',
+      translation: l(
+        'There were some Moorish women who fought like valiant men, helping their husbands, brothers and sons; and when they saw the fort lost, they threw themselves from the harshest crags, choosing rather to die dashed to pieces than to fall into the hands of the Christians. Others did not lack the courage to save themselves with their children on their shoulders, leaping like goats from rock to rock.',
+        'Es gab einige maurische Frauen, die wie tapfere Männer kämpften und ihren Männern, Brüdern und Söhnen beistanden; und als sie das Fort verloren sahen, stürzten sie sich von den schroffsten Felsen, lieber in Stücke zerschmettert sterbend, als in die Hände der Christen zu fallen. Anderen fehlte der Mut nicht, sich mit ihren Kindern auf den Schultern in Sicherheit zu bringen und wie Ziegen von Fels zu Fels zu springen.',
+        'Hubo algunas moras que pelearon como esforzados varones, ayudando a sus maridos, hermanos e hijos; y cuando vieron el fuerte perdido, se despeñaron por las peñas más ásperas, prefiriendo morir hechas pedazos antes que caer en poder de los cristianos. A otras no les faltó ánimo para ponerse a salvo con sus hijos a los hombros, saltando como cabras de peña en peña.',
+        'Er waren enkele Moorse vrouwen die als dappere mannen vochten en hun echtgenoten, broers en zonen bijstonden; en toen ze het fort verloren zagen, stortten ze zich van de ruwste rotsen, liever aan stukken te pletter vallend dan in handen van de christenen te vallen. Anderen ontbrak het niet aan moed om zich met hun kinderen op de schouders in veiligheid te brengen en als geiten van rots tot rots te springen.',
+        'Det fanns några moriska kvinnor som stred som tappra män och hjälpte sina män, bröder och söner; och när de såg fästet förlorat störtade de sig utför de kargaste klipporna, hellre döende krossade i stycken än att falla i de kristnas händer. Andra saknade inte mod att rädda sig med sina barn på axlarna och hoppa som getter från klippa till klippa.'
+      )
     },
     {
       n: 11,
@@ -358,7 +495,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Facit: omkring 1 800 döda och cirka 3 000 tagna som slavar — ”allt betalt med kristet blod”.'
       ),
       transcription:
-        '«Ganado y saqueado el fuerte fueron captivas más de tres mil almas. Dentro del fuerte murieron quinientos hombres, la mayor parte viejos; mujeres y niños casi mil y trescientos. Cristianos fueron heridos más de seiscientos, muriendo en pelea pasados de trescientos soldados. El saco fué grande y se tomaron esclavos muchas moras y muchachos, aunque todo fué cobrado a precio de christiana sangre».'
+        '«Ganado y saqueado el fuerte fueron captivas más de tres mil almas. Dentro del fuerte murieron quinientos hombres, la mayor parte viejos; mujeres y niños casi mil y trescientos. Cristianos fueron heridos más de seiscientos, muriendo en pelea pasados de trescientos soldados. El saco fué grande y se tomaron esclavos muchas moras y muchachos, aunque todo fué cobrado a precio de christiana sangre».',
+      translation: l(
+        'The fort taken and sacked, more than three thousand souls were made captive. Within the fort five hundred men died, most of them old; women and children almost one thousand three hundred. More than six hundred Christians were wounded, and over three hundred soldiers died in the fighting. The plunder was great, and many Moorish women and boys were taken as slaves — though all of it was paid for in Christian blood.',
+        'Als das Fort erobert und geplündert war, wurden mehr als dreitausend Seelen gefangen genommen. Im Fort starben fünfhundert Männer, die meisten alt; Frauen und Kinder fast eintausenddreihundert. Über sechshundert Christen wurden verwundet, und mehr als dreihundert Soldaten fielen im Kampf. Die Beute war groß, und viele maurische Frauen und Knaben wurden als Sklaven genommen — doch alles wurde mit christlichem Blut bezahlt.',
+        'Ganado y saqueado el fuerte, fueron cautivadas más de tres mil almas. Dentro del fuerte murieron quinientos hombres, la mayor parte ancianos; mujeres y niños, casi mil trescientos. Fueron heridos más de seiscientos cristianos, y murieron en combate más de trescientos soldados. El saqueo fue grande y se tomaron como esclavos a muchas moras y muchachos, aunque todo se cobró a precio de sangre cristiana.',
+        'Nadat het fort was ingenomen en geplunderd, werden meer dan drieduizend zielen gevangengenomen. Binnen het fort stierven vijfhonderd mannen, de meesten oud; vrouwen en kinderen bijna dertienhonderd. Meer dan zeshonderd christenen raakten gewond, en meer dan driehonderd soldaten sneuvelden in het gevecht. De buit was groot, en veel Moorse vrouwen en jongens werden als slaven meegevoerd — al werd alles betaald met christelijk bloed.',
+        'När fästet var intaget och plundrat togs mer än tretusen själar till fånga. Inne i fästet dog femhundra män, de flesta gamla; kvinnor och barn nästan ettusen trehundra. Mer än sexhundra kristna sårades, och över trehundra soldater dog i striden. Bytet var stort, och många moriska kvinnor och pojkar togs som slavar — fast allt betalades med kristet blod.'
+      )
     },
     {
       n: 12,
@@ -371,7 +515,14 @@ export const frigilianaCeramicPanelsCopy = {
         'Tystnad över byn och Martín Alguacils ord om att dö för fäderneslandet. Redan titeln är ett medvetet modernt val.'
       ),
       transcription:
-        '«Un angustioso silencio se hizo sobre la alquería de Frigiliana. Allí quedaba el monte abandonado, los cuerpos muertos, la voz viva de Martín Alguacil: "Si defendiendo nuestra libertad muriésemos peleando, la madre tierra recibirá lo que produxo; y al que faltare sepultura que le esconda, no le faltará cielo que le cubra. No quiera Dios que se diga que los hombres de Bentomiz no osaron morir por su patria"».'
+        '«Un angustioso silencio se hizo sobre la alquería de Frigiliana. Allí quedaba el monte abandonado, los cuerpos muertos, la voz viva de Martín Alguacil: "Si defendiendo nuestra libertad muriésemos peleando, la madre tierra recibirá lo que produxo; y al que faltare sepultura que le esconda, no le faltará cielo que le cubra. No quiera Dios que se diga que los hombres de Bentomiz no osaron morir por su patria"».',
+      translation: l(
+        'An anguished silence fell over the hamlet of Frigiliana. There remained the abandoned mountain, the dead bodies, and the living voice of Martín Alguacil: “If, defending our freedom, we should die fighting, the mother earth will receive what she brought forth; and whoever lacks a grave to hide him will not lack a sky to cover him. God forbid it be said that the men of Bentomiz did not dare to die for their homeland.”',
+        'Ein beklommenes Schweigen legte sich über den Weiler Frigiliana. Zurück blieben der verlassene Berg, die toten Körper und die lebendige Stimme Martín Alguacils: „Wenn wir im Kampf für unsere Freiheit sterben, wird die Mutter Erde zurücknehmen, was sie hervorgebracht hat; und wem ein Grab fehlt, das ihn birgt, dem wird kein Himmel fehlen, der ihn deckt. Gott verhüte, dass man sage, die Männer von Bentomiz hätten nicht gewagt, für ihre Heimat zu sterben.“',
+        'Un angustioso silencio se hizo sobre la alquería de Frigiliana. Allí quedaban el monte abandonado, los cuerpos muertos y la voz viva de Martín Alguacil: «Si, defendiendo nuestra libertad, muriéramos peleando, la madre tierra recibirá lo que produjo; y a quien le falte sepultura que lo esconda, no le faltará cielo que lo cubra. No quiera Dios que se diga que los hombres de Bentomiz no osaron morir por su patria».',
+        'Een beklemmende stilte daalde neer over het gehucht Frigiliana. Daar bleven de verlaten berg, de dode lichamen en de levende stem van Martín Alguacil: „Als wij, onze vrijheid verdedigend, vechtend zouden sterven, zal moeder aarde terugnemen wat zij voortbracht; en wie een graf ontbeert dat hem verbergt, zal geen hemel ontberen die hem bedekt. God verhoede dat men zegt dat de mannen van Bentomiz niet durfden te sterven voor hun vaderland.“',
+        'En ångestfylld tystnad lade sig över byn Frigiliana. Kvar fanns det övergivna berget, de döda kropparna och Martín Alguacils levande röst: ”Om vi, försvarande vår frihet, skulle dö i strid, ska moder jord ta emot vad hon frambringade; och den som saknar en grav att gömma honom ska inte sakna en himmel att täcka honom. Gud förbjude att det sägs att männen från Bentomiz inte vågade dö för sitt fädernesland.”'
+      )
     }
   ],
   historiography: {
@@ -469,5 +620,82 @@ export const frigilianaCeramicPanelsCopy = {
       'Beschikbaarheid bekijken',
       'Se tillgänglighet'
     )
+  },
+  /* Page-specific guest-guide bridge: this page's concrete perk is the audio guide,
+     not the generic recommendations. Overrides the generic bridge copy and shows the
+     audio-guide screen in the phone mockup. */
+  bridge: {
+    eyebrow: l(
+      'Your guest extra',
+      'Euer Gäste-Extra',
+      'Vuestro extra de huésped',
+      'Jullie gasten-extra',
+      'Ert gästextra'
+    ),
+    title: l(
+      'The twelve panels as an audio guide — for our guests',
+      'Die zwölf Tafeln als Audioguide — für unsere Gäste',
+      'Los doce azulejos como audioguía, para nuestros huéspedes',
+      'De twaalf panelen als audiogids — voor onze gasten',
+      'De tolv panelerna som ljudguide — för våra gäster'
+    ),
+    lead: l(
+      'Book with us directly and the AMARA Guest Guide gives you a spoken story for each of the twelve panels: stand in front of a panel, press play, and hear what happened here instead of reading a few lines — with the exact walking route from your front door.',
+      'Wer direkt bei uns bucht, bekommt im AMARA Gästeguide zu jeder der zwölf Tafeln eine gesprochene Erzählung: Ihr steht vor der Tafel, drückt auf Play und hört, was hier geschah, statt nur ein paar Zeilen zu lesen — dazu die genaue Geh-Route ab eurer Haustür.',
+      'Si reserváis directamente con nosotros, el AMARA Gästeguide os ofrece una narración hablada para cada uno de los doce azulejos: os plantáis ante el azulejo, le dais al play y escucháis lo que aquí ocurrió, en vez de leer solo unas líneas, con la ruta a pie exacta desde vuestra puerta.',
+      'Wie rechtstreeks bij ons boekt, krijgt in de AMARA Gästeguide bij elk van de twaalf panelen een gesproken verhaal: je staat voor het paneel, drukt op play en hoort wat hier gebeurde, in plaats van slechts een paar regels te lezen — met de precieze wandelroute vanaf je voordeur.',
+      'Bokar ni direkt hos oss ger AMARA Gästeguide er en talad berättelse till var och en av de tolv panelerna: ni står framför panelen, trycker på play och hör vad som hände här, i stället för att bara läsa några rader — med den exakta promenadrutten från er dörr.'
+    ),
+    lines: [
+      l(
+        'A listening piece of about a minute and a half for each of the twelve panels, in your language',
+        'Zu jeder der zwölf Tafeln ein Hörstück von etwa anderthalb Minuten, in eurer Sprache',
+        'Un audio de un minuto y medio aproximadamente para cada uno de los doce azulejos, en vuestro idioma',
+        'Bij elk van de twaalf panelen een luisterfragment van ongeveer anderhalve minuut, in jullie taal',
+        'Ett lyssningsstycke på ungefär en och en halv minut till var och en av de tolv panelerna, på ert språk'
+      ),
+      l(
+        'Playable right there on the spot, with the text to read along',
+        'Direkt vor Ort abspielbar, mit Text zum Mitlesen',
+        'Reproducible allí mismo, con el texto para seguir la lectura',
+        'Ter plekke af te spelen, met de tekst om mee te lezen',
+        'Spelas upp direkt på plats, med texten att läsa med'
+      ),
+      l(
+        'The exact walking route from Casa AMARA, a few minutes to the start',
+        'Die genaue Geh-Route ab Casa AMARA, in wenigen Minuten am Start',
+        'La ruta a pie exacta desde Casa AMARA, a pocos minutos del inicio',
+        'De precieze wandelroute vanaf Casa AMARA, in een paar minuten bij het startpunt',
+        'Den exakta promenadrutten från Casa AMARA, några minuter till starten'
+      )
+    ]
+  },
+  phonePreview: {
+    eyebrow: l('AMARA audio guide', 'AMARA Audioguide', 'Audioguía AMARA', 'AMARA audiogids', 'AMARA ljudguide'),
+    title: l('The twelve panels', 'Die zwölf Tafeln', 'Los doce azulejos', 'De twaalf panelen', 'De tolv panelerna'),
+    subtitle: l(
+      '12 stops · listen as you walk',
+      '12 Stationen · unterwegs anhören',
+      '12 paradas · escuchad al caminar',
+      '12 haltes · luister onderweg',
+      '12 stopp · lyssna medan ni går'
+    ),
+    cards: [
+      {
+        icon: '▶',
+        title: l('1 · La Tierra', '1 · La Tierra', '1 · La Tierra', '1 · La Tierra', '1 · La Tierra'),
+        meta: l('Listen · ~1½ min', 'Anhören · ~1½ Min', 'Escuchar · ~1½ min', 'Luisteren · ~1½ min', 'Lyssna · ~1½ min')
+      },
+      {
+        icon: '▶',
+        title: l('5 · La Identidad', '5 · La Identidad', '5 · La Identidad', '5 · La Identidad', '5 · La Identidad'),
+        meta: l('Listen · ~1½ min', 'Anhören · ~1½ Min', 'Escuchar · ~1½ min', 'Luisteren · ~1½ min', 'Lyssna · ~1½ min')
+      },
+      {
+        icon: '▶',
+        title: l('9 · El Asedio', '9 · El Asedio', '9 · El Asedio', '9 · El Asedio', '9 · El Asedio'),
+        meta: l('Listen · ~1½ min', 'Anhören · ~1½ Min', 'Escuchar · ~1½ min', 'Luisteren · ~1½ min', 'Lyssna · ~1½ min')
+      }
+    ]
   }
 } as const;

@@ -102,6 +102,15 @@ export interface GuestGuideAccordionItem {
     embedUrl?: string;
     title: LocalizedText;
   };
+  /**
+   * Self-hosted audio (e.g. a panel of the ceramic-panels audio guide). `srcBase` is a
+   * language-neutral path under public/; the detail page resolves it per locale to
+   * `${srcBase}-${lang}.mp3`, so one field carries all five recordings.
+   */
+  audio?: {
+    srcBase: string;
+    title: LocalizedText;
+  };
   actions?: GuestGuideAction[];
 }
 

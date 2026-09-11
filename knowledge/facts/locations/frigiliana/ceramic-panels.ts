@@ -81,14 +81,14 @@ const facts = [
     subject: 'frigiliana',
     topic: 'ceramic-panels',
     statement:
-      'The route begins with panel 1 in Calle Hernando El Darra, near the old grain stores (Pósitos) and El Ingenio, and climbs through the steep lanes of the Barribarto (Calle Real, El Garral, Callejón del Señor, Pizarrillas, El Zacatín).',
-    status: 'partially-verified',
-    sourceIds: ['amara-ceramic-panels-deep-research-2026', 'frigiliana-azulejos-official-pdf-2026'],
+      'The official azulejos brochure plots all twelve panels on one marked route: it starts at panel 1 in Calle Hernando El Darra, by the Plaza del Ingenio and the old grain stores (Pósitos)/El Ingenio, and threads the lanes of the Barribarto (Peñón, Santo Cristo, Amargura, El Arriero, Chorrera, Zacatín, Santa Teresa, El Garral) to panel 12 near the church.',
+    status: 'verified',
+    sourceIds: ['frigiliana-azulejos-official-pdf-2026', 'amara-ceramic-panels-deep-research-2026'],
     checkedAt: '2026-09-11',
     reviewAfter: '2030-09-11',
     volatility: 'medium',
     claimBoundary:
-      'Only panel 1 has a precise documented position; exact street/house locations for panels 2–12 are not codified and require on-site verification before any turn-by-turn claim.',
+      'The official brochure route map documents all twelve panel positions, so earlier tourist writing that only panel 1 was locatable is superseded. AMARA’s own map is a stylised redraw of that route for orientation, not a survey-grade plan; on-street signage and lane spellings can vary.',
   },
   {
     id: 'frigiliana.ceramic-panels.textual-basis.marmol-hurtado',
