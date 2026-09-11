@@ -17,13 +17,25 @@ export const amaraPlayaPropertyFacts = defineKnowledgeFacts([
     id: 'amara-playa.cooling.air-conditioning',
     subject: 'amara-playa',
     topic: 'property-amenities',
-    statement: 'AMARA Playa has air conditioning.',
+    statement: 'AMARA Playa has a powerful air conditioner with a heating function — the same unit that cools in summer heats the apartment in winter.',
     status: 'first-party-observation',
     sourceIds: ['amara-playa-operator-confirmation-2026-09-11'],
     checkedAt: '2026-09-11',
     reviewAfter: '2027-09-11',
     volatility: 'low',
-    claimBoundary: 'The operator confirmed air conditioning for the apartment. The exact room placement (e.g. bedroom only) was not separately specified for this unit and should be re-confirmed if used prominently.'
+    claimBoundary: 'The operator confirmed a reverse-cycle air conditioner that also heats. Exact placement/number of units was not separately specified and should be re-confirmed if used prominently.'
+  },
+  {
+    id: 'amara-playa.location.flat-walk-to-seafront',
+    subject: 'amara-playa',
+    topic: 'property-location',
+    statement: 'The walk from AMARA Playa to Torrecilla beach and the Balcón de Europa is flat, without climbs — in contrast to hillside Frigiliana.',
+    status: 'first-party-observation',
+    sourceIds: ['amara-playa-operator-confirmation-2026-09-11'],
+    checkedAt: '2026-09-11',
+    reviewAfter: '2027-09-11',
+    volatility: 'low',
+    claimBoundary: 'Describes the outdoor walking route as level; the building entrance itself still has a few steps before the lift.'
   },
   {
     id: 'amara-playa.location.torrecilla-proximity-and-winter-sun',

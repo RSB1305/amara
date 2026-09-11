@@ -49,4 +49,16 @@ export const amaraFamilySurfPropertyFacts = defineKnowledgeFacts([
     volatility: 'low',
     claimBoundary: 'Wi-Fi is recorded for this unit in the rental data; "fibre" is the connection type stated by the operator, not an independently measured speed. Actual throughput varies.'
   },
+  {
+    id: 'amara-family-surf.winter.firewood-service',
+    subject: 'amara-family-surf',
+    topic: 'property-amenities',
+    statement: 'AMARA Family & Surf has a wood-burning fireplace; the first firewood is provided, and resupply is easy — wood sacks bought at the petrol station are unloaded in the underground garage and taken by lift to the apartment door, with no stairs.',
+    status: 'first-party-observation',
+    sourceIds: ['amara-family-surf-operator-confirmation-2026-09-11'],
+    checkedAt: '2026-09-11',
+    reviewAfter: '2027-09-11',
+    volatility: 'medium',
+    claimBoundary: 'The starter firewood and the step-free garage-to-door route are standing operator practice and should be re-confirmed for future seasons. Guests buy any further firewood themselves.'
+  },
 ] as const);
