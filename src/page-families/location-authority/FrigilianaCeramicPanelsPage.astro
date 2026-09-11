@@ -58,10 +58,12 @@ const panels = copy.panels.map((panel) => ({
   n: panel.n,
   titleEs: panel.titleEs,
   scene: t(panel.scene),
+  translation: t(panel.translation),
   transcription: panel.transcription
 }));
 
 const transcriptionLabel = t(copy.register.transcriptionLabel);
+const readMoreLabel = t(copy.register.readMoreLabel);
 ---
 
 <LocationAuthorityLayout
@@ -92,6 +94,21 @@ const transcriptionLabel = t(copy.register.transcriptionLabel);
           {...hero}
         />
       </div>
+
+      <section id="context" class="am-section bg-surface-container-low">
+        <div class="max-w-3xl">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.context.title)}
+          </h2>
+          {
+            copy.context.paragraphs.map((paragraph) => (
+              <p class="am-text-body text-on-surface-variant leading-relaxed mb-5 last:mb-0">
+                {t(paragraph)}
+              </p>
+            ))
+          }
+        </div>
+      </section>
 
       <section id="provenance" class="am-section bg-surface">
         <div class="max-w-3xl mb-16">
@@ -137,7 +154,9 @@ const transcriptionLabel = t(copy.register.transcriptionLabel);
                   {panel.scene}
                 </p>
                 <details class="am-panel__quote">
-                  <summary>{transcriptionLabel}</summary>
+                  <summary>{readMoreLabel}</summary>
+                  <p class="am-panel__translation">{panel.translation}</p>
+                  <p class="am-panel__orig-caption">{transcriptionLabel}</p>
                   <p lang="es" class="am-panel__transcription">{panel.transcription}</p>
                 </details>
               </li>
@@ -273,8 +292,25 @@ const transcriptionLabel = t(copy.register.transcriptionLabel);
     content: '\2013';
   }
 
-  .am-panel__transcription {
+  .am-panel__translation {
     margin: 1rem 0 0;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-on-surface-variant);
+  }
+
+  .am-panel__orig-caption {
+    margin: 1.25rem 0 0;
+    font-family: var(--font-label);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-on-surface-variant);
+  }
+
+  .am-panel__transcription {
+    margin: 0.5rem 0 0;
     padding-left: 1.1rem;
     border-left: 2px solid var(--color-outline-variant);
     font-family: var(--font-headline);
