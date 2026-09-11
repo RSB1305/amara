@@ -105,6 +105,27 @@ export const summerPeakHigh = {
   tarifa: 33
 } as const satisfies Record<'frigiliana' | 'nerja' | 'tarifa', number>;
 
+/**
+ * Sunset clock time on the winter solstice (21 December), local wall-clock.
+ * Spain, the Netherlands, Germany and Sweden are on CET; the UK on GMT. These
+ * are exact for that one named date (not an average), computed astronomically,
+ * and make the point that the afternoon lasts far longer on the Costa del Sol
+ * than in northern Europe — Spain sits far west but keeps Central European Time.
+ */
+export const winterSolsticeSunset = {
+  frigiliana: '18:03',
+  nerja: '18:03',
+  tarifa: '18:12'
+} as const satisfies Record<'frigiliana' | 'nerja' | 'tarifa', string>;
+
+export const comparisonCityWinterSunset = {
+  madrid: '17:51',
+  berlin: '15:54',
+  amsterdam: '16:29',
+  stockholm: '14:48',
+  london: '15:53'
+} as const satisfies Record<ComparisonCityKey, string>;
+
 export const climateDataPeriods = {
   temperatureRainfall: '1991–2021',
   sunshine: '1999–2019'

@@ -32,6 +32,7 @@ import { nerjaExperienceDayTripsImages } from './nerja-experience-day-trips';
 import { nerjaExperienceFoodImages } from './nerja-experience-food';
 import { nerjaExperienceNightlifeImages } from './nerja-experience-nightlife';
 import { nerjaExperienceImages } from './nerja-experience';
+import { nerjaWinterImages } from './nerja-winter';
 import { nerjaImages } from './nerja';
 import { staysCasaAmaraImages } from './stays-casa-amara';
 import { staysHoneymoonImages } from './stays-honeymoon';
@@ -87,6 +88,7 @@ const sets: readonly RouteImageSet[] = [
   nerjaExperienceFoodImages,
   nerjaExperienceNightlifeImages,
   nerjaExperienceImages,
+  nerjaWinterImages,
   nerjaImages,
   staysCasaAmaraImages,
   staysHoneymoonImages,

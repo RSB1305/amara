@@ -17,12 +17,13 @@ import {
   tarifaWinterStaysSeo
 } from '../../content/tarifaWinterStaysContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
+import { getRouteImageSet, routeImage, routeImages } from '../../lib/images/routeImages';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import type { LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
 import WinterStaysAuthorityArticle from './WinterStaysAuthorityArticle.astro';
-import { locationClimateProfiles, comparisonCityByLang, comparisonCitySunHours } from '../../content/locationClimateData';
+import { locationClimateProfiles, comparisonCityByLang, comparisonCitySunHours, winterSolsticeSunset, comparisonCityWinterSunset } from '../../content/locationClimateData';
 import { weatherMonthLabels } from '../../content/locationWeatherAuthorityContent';
 import { formatDecimal } from '../../lib/formatNumber';
 
@@ -110,6 +111,13 @@ const sunCompareNote: Record<AmaraLanguage, (city: string, place: string, cityHo
 };
 const comparisonCity = comparisonCityByLang[currentLang];
 const decemberSun = locationClimateProfiles[destination][11].sunHours;
+const comparePrefix: Record<AmaraLanguage, string> = {
+  de: 'Vergleich mit',
+  en: 'Compare with',
+  es: 'Comparar con',
+  nl: 'Vergelijk met',
+  sv: 'Jämför med'
+};
 const sunChart = {
   ...sunHoursCopy[currentLang],
   months: locationClimateProfiles[destination].map((month, index) => ({
@@ -122,8 +130,58 @@ const sunChart = {
         formatDecimal(decemberSun, currentLang),
         formatDecimal(comparisonCitySunHours[comparisonCity.key][11], currentLang)
       )
+    : undefined,
+  comparison: comparisonCity
+    ? {
+        label: comparisonCity.name,
+        sunHours: [...comparisonCitySunHours[comparisonCity.key]],
+        toggleLabel: `${comparePrefix[currentLang]} ${comparisonCity.name}`
+      }
     : undefined
 };
+
+/**
+ * Winter photographs are per-destination: only a destination with an image
+ * source in `src/content/images/<destination>-winter.ts` renders a gallery, the
+ * sun bridge and the handoff to its weather page. Others render exactly as before.
+ */
+const winterRouteKey = `${destination}.winter`;
+const hasWinterImages = Boolean(getRouteImageSet(winterRouteKey));
+const winterGallery = hasWinterImages ? routeImages(winterRouteKey, 'gallery', currentLang) : [];
+const winterSunBridge = hasWinterImages ? routeImage(winterRouteKey, 'sun-bridge', currentLang) : undefined;
+
+const weatherLinkLabel: Record<AmaraLanguage, string> = {
+  de: 'Temperaturen im Jahresverlauf: zur Wetterseite',
+  en: 'Temperatures across the year: see the weather page',
+  es: 'Temperaturas a lo largo del año: ver la página del tiempo',
+  nl: 'Temperaturen door het jaar: naar de weerpagina',
+  sv: 'Temperaturer under året: till vädersidan'
+};
+const weatherHref = hasWinterImages
+  ? resolveOptionalLink(`${destination}_weather` as Parameters<typeof resolveOptionalLink>[0], currentLang, { suppressMissing: true })
+  : null;
+const weatherLink = weatherHref ? { href: weatherHref, label: weatherLinkLabel[currentLang] } : undefined;
+
+/**
+ * "The sun sets later here": shown only when the gap to the reader's home city
+ * is real. For a Spanish reader the home city is Madrid — also on CET — so the
+ * gap is minutes, not hours, and the graphic is suppressed rather than shown weak.
+ */
+const sunsetMinutes = (time: string) => {
+  const [h, m] = time.split(':').map(Number);
+  return h * 60 + m;
+};
+const placeWinterSunset = winterSolsticeSunset[destination];
+const citySunsetTime = comparisonCity ? comparisonCityWinterSunset[comparisonCity.key] : undefined;
+const winterSunset =
+  comparisonCity && citySunsetTime && sunsetMinutes(placeWinterSunset) - sunsetMinutes(citySunsetTime) >= 45
+    ? {
+        placeName: destination.charAt(0).toUpperCase() + destination.slice(1),
+        placeSunset: placeWinterSunset,
+        cityName: comparisonCity.name,
+        citySunset: citySunsetTime
+      }
+    : undefined;
 ---
 
 <LocationAuthorityLayout
@@ -170,6 +228,10 @@ const sunChart = {
     locationHref={requiredLink(pageConfig.locationToken)}
     propertyHref={propertyHref}
     resolveHref={requiredLink}
+    galleryImages={winterGallery}
+    sunBridgeImage={winterSunBridge}
+    weatherLink={weatherLink}
     sunChart={sunChart}
+    winterSunset={winterSunset}
   />
 </LocationAuthorityLayout>

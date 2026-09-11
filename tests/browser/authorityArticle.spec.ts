@@ -341,7 +341,9 @@ interface BlockFingerprint {
  */
 const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> =>
   page.$$eval(`article[data-am-page="${pageId}"] > *`, (nodes) =>
-    nodes.map((node) => {
+    nodes
+      .filter((node) => node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE')
+      .map((node) => {
       const orientation = node.getAttribute('data-am-orientation');
       const arrivalModule = node.getAttribute('data-am-arrival-module');
       const marker =

@@ -1,7 +1,9 @@
 ---
 // Average daily hours of sunshine across the year, with the winter months
 // highlighted — the argument for a low-season stay, shown rather than claimed.
-// Data comes from the same climate profile as the weather page.
+// Data comes from the same climate profile as the weather page. An optional
+// home-city comparison (Berlin, London, Amsterdam, …) can be toggled on, using
+// the same switch mechanism as the weather page's climate table.
 import { formatDecimal } from '../../lib/formatNumber';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -21,13 +23,17 @@ interface Props {
   winterIndices?: number[];
   /** A one-line winter contrast against the reader's home city. */
   comparisonNote?: string;
+  /** Optional home-city sun hours per month, shown as a toggleable comparison. */
+  comparison?: { label: string; sunHours: number[]; toggleLabel: string };
 }
 
-const { lang, eyebrow, title, intro, unitLabel, months, winterIndices = [11, 0, 1], comparisonNote } = Astro.props;
-const maxSun = Math.max(...months.map((month) => month.sunHours));
+const { lang, eyebrow, title, intro, unitLabel, months, winterIndices = [11, 0, 1], comparisonNote, comparison } = Astro.props;
+const maxSun = Math.max(...months.map((month) => month.sunHours), ...(comparison?.sunHours ?? []));
+const barHeight = (value: number) => `height: ${Math.max(3, (value / maxSun) * 100)}%`;
+const hereLabel: Record<AmaraLanguage, string> = { de: 'Hier', en: 'Here', es: 'Aquí', nl: 'Hier', sv: 'Här' };
 ---
 
-<section class="bg-surface-container-low" data-am-sun-hours>
+<section class="bg-surface-container-low" data-am-sun-hours data-compare="off">
   <div class="mx-auto max-w-screen-2xl px-6 py-20 md:px-12 md:py-28">
     <header class="grid gap-8 lg:grid-cols-12 lg:gap-16">
       <div class="lg:col-span-4">
@@ -39,20 +45,41 @@ const maxSun = Math.max(...months.map((month) => month.sunHours));
       </p>
     </header>
 
-    <div class="mt-12 overflow-x-auto pb-2">
+    {comparison && (
+      <div class="mt-10 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex flex-wrap items-center gap-4 am-text-label am-text-label--sm text-on-surface-variant">
+          <span class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-sm bg-primary"></span>{hereLabel[lang]}</span>
+          <span class="am-cc-city flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-sm bg-on-surface/35"></span>{comparison.label}</span>
+        </div>
+        <button
+          type="button"
+          data-am-compare-toggle
+          aria-pressed="false"
+          class="am-cc-toggle inline-flex items-center gap-2.5 rounded-full border border-outline-variant/40 px-4 py-2 am-text-label am-text-label--sm text-on-surface-variant transition-colors hover:border-primary"
+        >
+          <span class="am-cc-switch" aria-hidden="true"><span class="am-cc-knob"></span></span>
+          {comparison.toggleLabel}
+        </button>
+      </div>
+    )}
+
+    <div class="mt-8 overflow-x-auto pb-2">
       <div class="grid min-w-[720px] grid-cols-12 gap-1.5" aria-hidden="true">
         {months.map((month, index) => (
           <div class="flex flex-col items-center">
-            <div class="flex h-40 w-full items-end justify-center">
+            <div class="flex h-40 w-full items-end justify-center gap-1">
               <div
-                class:list={[
-                  'w-full max-w-[1.4rem] rounded-t-sm',
-                  winterIndices.includes(index) ? 'bg-primary' : 'bg-primary/30'
-                ]}
-                style={`height: ${Math.max(3, (month.sunHours / maxSun) * 100)}%`}
+                class:list={['am-sun-bar', winterIndices.includes(index) ? 'bg-primary' : 'bg-primary/30']}
+                style={barHeight(month.sunHours)}
               ></div>
+              {comparison && (
+                <div class="am-sun-bar am-cc-city bg-on-surface/30" style={barHeight(comparison.sunHours[index])}></div>
+              )}
             </div>
             <p class="mt-3 tabular-nums am-text-subtitle leading-none text-on-surface">{formatDecimal(month.sunHours, lang)}</p>
+            {comparison && (
+              <p class="am-cc-city mt-1 tabular-nums am-text-label am-text-label--sm text-on-surface-variant">{formatDecimal(comparison.sunHours[index], lang)}</p>
+            )}
             <p class="mt-2 text-muted am-text-label am-text-label--sm am-text-label--wide">{month.month}</p>
           </div>
         ))}
@@ -68,3 +95,58 @@ const maxSun = Math.max(...months.map((month) => month.sunHours));
     <p class="mt-6 am-text-label am-text-label--sm text-muted">{unitLabel}</p>
   </div>
 </section>
+
+<style>
+  .am-sun-bar {
+    width: 0.7rem;
+    border-radius: 2px 2px 0 0;
+  }
+  /* The comparison city is opt-in: hidden until the switch turns it on. */
+  [data-am-sun-hours] .am-cc-city {
+    display: none;
+  }
+  [data-am-sun-hours][data-compare='on'] .am-cc-city {
+    display: block;
+  }
+  .am-cc-switch {
+    position: relative;
+    flex: none;
+    width: 34px;
+    height: 18px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-on-surface) 22%, transparent);
+    transition: background 0.18s ease;
+  }
+  .am-cc-knob {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--color-surface-white, #fff);
+    transition: transform 0.18s ease;
+  }
+  .am-cc-toggle[aria-pressed='true'] {
+    border-color: var(--color-primary);
+    color: var(--color-on-surface);
+  }
+  .am-cc-toggle[aria-pressed='true'] .am-cc-switch {
+    background: var(--color-primary);
+  }
+  .am-cc-toggle[aria-pressed='true'] .am-cc-knob {
+    transform: translateX(16px);
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-am-sun-hours] [data-am-compare-toggle]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const chart = button.closest('[data-am-sun-hours]');
+      if (!chart) return;
+      const on = chart.getAttribute('data-compare') !== 'on';
+      chart.setAttribute('data-compare', on ? 'on' : 'off');
+      button.setAttribute('aria-pressed', String(on));
+    });
+  });
+</script>
