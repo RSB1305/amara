@@ -137,6 +137,39 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
       linkToken: 'frigiliana_daily_life'
     },
     {
+      id: 'shoulder-season',
+      // Spring/autumn practicalities northern-market guests underestimate: the
+      // wide daily range, spring UV, and olive-blossom pollen. General climate
+      // knowledge, no property facts.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'temperature',
+      eyebrow: {
+        de: 'Frühjahr & Herbst',
+        en: 'Spring & autumn',
+        nl: 'Voorjaar & herfst',
+        sv: 'Vår & höst'
+      },
+      title: {
+        de: 'Morgens kühl, mittags warm — das Zwiebelprinzip',
+        en: 'Cool mornings, warm middays — dress in layers',
+        nl: 'Koele ochtenden, warme middagen — kleed je in laagjes',
+        sv: 'Svala morgnar, varma middagar — klä dig i lager'
+      },
+      body: {
+        de: 'Im Frühjahr und Herbst ist die **Tagesspanne groß**: morgens auf der Terrasse oft 10 bis 12 Grad, mittags in der Sonne wie 25, abends kühlt es schnell wieder ab. Mit dem Zwiebelprinzip — Pullover für morgens, T-Shirt für mittags — friert und schwitzt niemand. Unterschätzt dabei die Sonne nicht: Auch bei „nur“ 20 Grad im April oder Oktober ist die UV-Strahlung durch den steileren Sonnenstand kräftiger als im Norden, Sonnenschutz gehört also auch dann ins Gepäck, vor allem beim Wandern. Und April/Mai ist Olivenblüte — an starken Pollentagen ist für Allergiker ein Antihistaminikum im Gepäck Gold wert.',
+        en: 'In spring and autumn the **daily range is wide**: often 10 to 12 degrees on the terrace in the morning, like 25 in the midday sun, then a quick cool-down in the evening. Pack in layers — a jumper for the morning, a T-shirt for midday — and no one freezes or sweats. Don’t underestimate the sun either: even at “just” 20 degrees in April or October, the steeper sun makes the UV stronger than up north, so sun protection belongs in your bag then too, above all when hiking. And April and May are the olive blossom — on heavy pollen days an antihistamine in the bag is worth its weight for allergy sufferers.',
+        nl: 'In het voorjaar en de herfst is het **verschil over de dag groot**: ’s ochtends op het terras vaak 10 tot 12 graden, ’s middags in de zon als 25, en ’s avonds koelt het snel weer af. Kleed je in laagjes — een trui voor de ochtend, een T-shirt voor de middag — dan heeft niemand het koud of te warm. Onderschat de zon niet: zelfs bij “maar” 20 graden in april of oktober is de uv-straling door de steilere zonnestand sterker dan in het noorden, dus zonbescherming hoort er dan ook bij, zeker bij het wandelen. En april/mei is de olijfbloei — op dagen met veel pollen is een antihistaminicum in de tas goud waard voor allergiepatiënten.',
+        sv: 'På våren och hösten är **dygnsspannet stort**: ofta 10 till 12 grader på terrassen på morgonen, som 25 i middagssolen, och sedan snabb avkylning på kvällen. Klä dig i lager — en tröja för morgonen, en T-shirt för middagen — så fryser eller svettas ingen. Underskatta inte solen heller: även vid ”bara” 20 grader i april eller oktober gör den brantare solvinkeln UV-strålningen starkare än i norr, så solskydd hör med även då, framför allt vid vandring. Och april och maj är olivblomningen — dagar med mycket pollen är en antihistamin i väskan guld värd för allergiker.'
+      },
+      linkLabel: {
+        de: 'Wandern rund um Frigiliana',
+        en: 'Walking around Frigiliana',
+        nl: 'Wandelen rond Frigiliana',
+        sv: 'Vandra runt Frigiliana'
+      },
+      linkToken: 'frigiliana_hiking_authority'
+    },
+    {
       id: 'rain-slippery',
       // The steep polished cobbles turn slippery when wet — a safety note that
       // matters most on the last stretch up to the shared front door.
@@ -155,10 +188,10 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
         sv: 'I regn blir gränderna hala'
       },
       body: {
-        de: 'Im Herbst und Winter fällt der meiste Regen. Die steilen, mit glattem Stein gepflasterten Gassen werden dann **überraschend rutschig** — vor allem auf den letzten Metern bergauf bis zur Haustür. Schuhe mit gutem Profil sind hier bares Geld wert; und wie es morgens gerade aussieht, sagen wir euch auf Nachfrage.',
-        en: 'Most of the rain falls in autumn and winter. The steep lanes, paved with smooth stone, then turn **surprisingly slippery** — above all on the last stretch uphill to the front door. Shoes with a good grip are worth real money here; and if you ask, we’ll tell you how it looks that morning.',
-        nl: 'De meeste regen valt in de herfst en winter. De steile steegjes, geplaveid met gladde steen, worden dan **verrassend glad** — vooral op de laatste meters omhoog naar de voordeur. Schoenen met goed profiel zijn hier goud waard; en hoe het er ’s ochtends bij ligt, vertellen we je op verzoek.',
-        sv: 'Det mesta regnet faller på hösten och vintern. De branta gränderna, stenlagda med slät sten, blir då **förvånansvärt hala** — framför allt på de sista metrarna uppför till porten. Skor med bra grepp är värda riktiga pengar här; och hur det ser ut på morgonen säger vi på förfrågan.'
+        de: 'Im Herbst und Winter fällt der meiste Regen — selten als tagelanger, grauer Nieselregen wie in Mitteleuropa, eher als kräftiger, kurzer Schauer oder Gewitter (die berüchtigte Gota Fría), nach dem der Himmel schnell wieder aufreißt. Die steilen, mit glattem Stein gepflasterten Gassen werden dann **überraschend rutschig** — vor allem auf den letzten Metern bergauf bis zur Haustür. Schuhe mit gutem Profil sind hier bares Geld wert; und wie es morgens gerade aussieht, sagen wir euch auf Nachfrage.',
+        en: 'Most of the rain falls in autumn and winter — rarely as days of grey drizzle like in central Europe, more as a heavy, short downpour or thunderstorm (the notorious gota fría), after which the sky soon clears again. The steep lanes, paved with smooth stone, then turn **surprisingly slippery** — above all on the last stretch uphill to the front door. Shoes with a good grip are worth real money here; and if you ask, we’ll tell you how it looks that morning.',
+        nl: 'De meeste regen valt in de herfst en winter — zelden als dagenlange grauwe motregen zoals in Midden-Europa, eerder als een korte, felle bui of onweer (de beruchte gota fría), waarna de lucht snel weer openbreekt. De steile steegjes, geplaveid met gladde steen, worden dan **verrassend glad** — vooral op de laatste meters omhoog naar de voordeur. Schoenen met goed profiel zijn hier goud waard; en hoe het er ’s ochtends bij ligt, vertellen we je op verzoek.',
+        sv: 'Det mesta regnet faller på hösten och vintern — sällan som dagar av grått duggregn som i Centraleuropa, snarare som en kraftig, kort skur eller åska (den ökända gota fría), varefter himlen snart spricker upp igen. De branta gränderna, stenlagda med slät sten, blir då **förvånansvärt hala** — framför allt på de sista metrarna uppför till porten. Skor med bra grepp är värda riktiga pengar här; och hur det ser ut på morgonen säger vi på förfrågan.'
       },
       linkLabel: {
         de: 'Wie der Ort aufgebaut ist',
