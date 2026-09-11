@@ -1,0 +1,280 @@
+---
+import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
+import Navigation from '../../components/Navigation.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
+import {
+  frigilianaCeramicPanelsCopy,
+  frigilianaCeramicPanelsSeo
+} from '../../content/frigilianaCeramicPanelsContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import type { LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+import { routeHero } from '../../lib/images/routeImages';
+
+interface Props {
+  lang?: string;
+}
+
+type LocalizedRow = { readonly [K in AmaraLanguage]: string };
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const hero = routeHero('frigiliana.experience.old-town.ceramic-panels', currentLang);
+const copy = frigilianaCeramicPanelsCopy;
+
+function t(row: LocalizedRow): string {
+  return row[currentLang] ?? row.en;
+}
+
+const footerHighlights: LabeledLink[] = [
+  {
+    token: 'frigiliana_old_town',
+    label: t({
+      en: 'Old town & history',
+      de: 'Altstadt & Geschichte',
+      es: 'Casco antiguo e historia',
+      nl: 'Oude kern & geschiedenis',
+      sv: 'Gamla stan & historia'
+    })
+  }
+];
+
+const provenanceCards = copy.provenance.items.map((item) => ({
+  title: t(item.title),
+  copy: t(item.text)
+}));
+
+const historiographyItems = copy.historiography.items.map((item) => ({
+  title: t(item.title),
+  text: t(item.text)
+}));
+
+const panels = copy.panels.map((panel) => ({
+  n: panel.n,
+  titleEs: panel.titleEs,
+  scene: t(panel.scene),
+  transcription: panel.transcription
+}));
+
+const transcriptionLabel = t(copy.register.transcriptionLabel);
+---
+
+<LocationAuthorityLayout
+  pageFamily="experience-frigiliana-ceramic-panels"
+  seo={frigilianaCeramicPanelsSeo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    contextDestination="frigiliana"
+    currentLang={currentLang}
+    languageToken="frigiliana_old_town"
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="oldTown" destination="frigiliana" lang={currentLang} />
+  </Navigation>
+
+  <div data-am-page="frigiliana-ceramic-panels">
+    <div class="w-full">
+      <div id="intro">
+        <LocationExperienceHero
+          topic="old-town"
+          eyebrow={t(copy.hero.kicker)}
+          title={t(copy.hero.title)}
+          subtitle={t(copy.hero.subtitle)}
+          paragraphs={copy.hero.paragraphs.map((paragraph) => t(paragraph))}
+          {...hero}
+        />
+      </div>
+
+      <section id="provenance" class="am-section bg-surface">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.provenance.title)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed">
+            {t(copy.provenance.intro)}
+          </p>
+        </div>
+
+        <EditorialFeatureGrid cards={provenanceCards} titleRole="card" />
+      </section>
+
+      <section id="register" class="am-section bg-surface-container-low">
+        <div class="max-w-3xl mb-16">
+          <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+            {t(copy.register.title)}
+          </h2>
+          <p class="am-text-body text-on-surface-variant leading-relaxed mb-4">
+            {t(copy.register.intro)}
+          </p>
+          <p class="am-text-caption normal-case tracking-normal text-on-surface-variant">
+            {t(copy.register.note)}
+          </p>
+        </div>
+
+        <ol class="am-panel-register grid gap-x-10 gap-y-12 lg:grid-cols-2">
+          {
+            panels.map((panel) => (
+              <li class="am-panel">
+                <div class="am-panel__head">
+                  <span class="am-panel__num" aria-hidden="true">
+                    {String(panel.n).padStart(2, '0')}
+                  </span>
+                  <h3 class="am-panel__title">{panel.titleEs}</h3>
+                </div>
+                <p class="am-text-body text-on-surface-variant leading-relaxed">
+                  {panel.scene}
+                </p>
+                <details class="am-panel__quote">
+                  <summary>{transcriptionLabel}</summary>
+                  <p lang="es" class="am-panel__transcription">{panel.transcription}</p>
+                </details>
+              </li>
+            ))
+          }
+        </ol>
+      </section>
+
+      <section id="historiography" class="am-section bg-surface">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-4">
+            <h2 class="am-text-title italic text-on-surface tracking-tight mb-6">
+              {t(copy.historiography.title)}
+            </h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">
+              {t(copy.historiography.intro)}
+            </p>
+          </div>
+
+          <div class="grid gap-y-12 lg:col-span-7 lg:col-start-6">
+            {
+              historiographyItems.map((item) => (
+                <article class="border-t border-outline-variant/30 pt-7">
+                  <h3 class="am-text-subtitle text-on-surface mb-4">{item.title}</h3>
+                  <p class="am-text-body text-on-surface-variant leading-relaxed">{item.text}</p>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <GuestGuideBridge
+        lang={currentLang}
+        destination="frigiliana"
+        guideSlugs={['frigiliana-guest-sightseeing']}
+      />
+
+      <section class="max-w-screen-2xl mx-auto px-6 pt-24 pb-24 md:px-12">
+        <EditorialClosingCta
+          title={t(copy.closing.title)}
+          lead={t(copy.closing.lead)}
+          lang={currentLang}
+          links={[
+            {
+              token: 'frigiliana_old_town',
+              label: t(copy.closing.oldTownCta),
+              style: 'primary'
+            },
+            {
+              token: 'book',
+              label: t(copy.closing.availabilityCta),
+              style: 'secondary'
+            }
+          ]}
+        />
+      </section>
+    </div>
+  </div>
+</LocationAuthorityLayout>
+
+<style>
+  /* Ceramic-panel register: numbered cards, each with a collapsible original
+     Spanish transcription. */
+  .am-panel-register {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: none;
+  }
+
+  .am-panel {
+    border-top: 1px solid var(--color-outline-variant);
+    padding-top: 1.5rem;
+  }
+
+  .am-panel__head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.9rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .am-panel__num {
+    font-family: var(--font-headline);
+    font-style: italic;
+    font-weight: 300;
+    font-size: 1.35rem;
+    color: color-mix(in srgb, var(--color-primary) 55%, transparent);
+  }
+
+  .am-panel__title {
+    font-family: var(--font-headline);
+    font-weight: 300;
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--color-on-surface);
+    margin: 0;
+  }
+
+  .am-panel__quote {
+    margin-top: 1rem;
+  }
+
+  .am-panel__quote > summary {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-label);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--color-primary);
+    list-style: none;
+  }
+
+  .am-panel__quote > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .am-panel__quote > summary::before {
+    content: '+';
+    font-size: 1rem;
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  .am-panel__quote[open] > summary::before {
+    content: '\2013';
+  }
+
+  .am-panel__transcription {
+    margin: 1rem 0 0;
+    padding-left: 1.1rem;
+    border-left: 2px solid var(--color-outline-variant);
+    font-family: var(--font-headline);
+    font-style: italic;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-on-surface-variant);
+  }
+</style>

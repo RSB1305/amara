@@ -71,6 +71,8 @@ const sightMedia: ReadonlyArray<{
   image?: ImageMetadata;
   alt?: LocalizedRow;
   focalPoint?: string;
+  href?: string;
+  linkLabel?: LocalizedRow;
 }> = [
   {
     image: ceramicPanelsImage,
@@ -81,7 +83,15 @@ const sightMedia: ReadonlyArray<{
       nl: 'Handbeschilderd keramisch paneel in de oude kern van Frigiliana met een scène uit de Moriskse geschiedenis',
       sv: 'Handmålad keramikpanel i Frigilianas gamla stan med en scen ur den moriskiska historien'
     },
-    focalPoint: '50% 50%'
+    focalPoint: '50% 50%',
+    href: resolveOptionalLink('frigiliana_ceramic_panels', currentLang, { suppressMissing: true }) ?? undefined,
+    linkLabel: {
+      en: 'All twelve panels, with the original texts',
+      de: 'Alle zwölf Tafeln, mit den Originaltexten',
+      es: 'Los doce azulejos, con los textos originales',
+      nl: 'Alle twaalf panelen, met de originele teksten',
+      sv: 'Alla tolv panelerna, med originaltexterna'
+    }
   },
   {
     image: elIngenioImage,
@@ -245,6 +255,12 @@ const visualAlts = {
                     <p class="am-text-body text-on-surface-variant leading-relaxed">
                       {item.text}
                     </p>
+                    {media?.href && media?.linkLabel ? (
+                      <a href={media.href} class="am-inline-link mt-4 inline-block">
+                        {t(media.linkLabel)}
+                        <span aria-hidden="true"> &rarr;</span>
+                      </a>
+                    ) : null}
                   </div>
                 </article>
               );

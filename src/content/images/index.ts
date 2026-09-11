@@ -5,6 +5,7 @@ import { frigilianaExperienceFestivalsImages } from './frigiliana-experience-fes
 import { frigilianaExperienceHikingImages } from './frigiliana-experience-hiking';
 import { frigilianaExperienceMarketImages } from './frigiliana-experience-market';
 import { frigilianaExperienceOldTownImages } from './frigiliana-experience-old-town';
+import { frigilianaExperienceOldTownCeramicPanelsImages } from './frigiliana-experience-old-town-ceramic-panels';
 import { frigilianaExperienceRestaurantsImages } from './frigiliana-experience-restaurants';
 import { frigilianaExperienceWeddingsImages } from './frigiliana-experience-weddings';
 import { frigilianaExperienceWellnessImages } from './frigiliana-experience-wellness';
@@ -59,6 +60,7 @@ const sets: readonly RouteImageSet[] = [
   frigilianaExperienceHikingImages,
   frigilianaExperienceMarketImages,
   frigilianaExperienceOldTownImages,
+  frigilianaExperienceOldTownCeramicPanelsImages,
   frigilianaExperienceRestaurantsImages,
   frigilianaExperienceWeddingsImages,
   frigilianaExperienceWellnessImages,
