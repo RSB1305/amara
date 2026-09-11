@@ -153,4 +153,28 @@ export const casaAmaraPropertyFacts = defineKnowledgeFacts([
     volatility: 'medium',
     claimBoundary: 'Shade provision confirmed by the operator; recheck after material furnishing or maintenance changes.'
   },
+  {
+    id: 'casa-amara.winter.pellet-service-included',
+    subject: 'casa-amara',
+    topic: 'property-amenities',
+    statement: 'For the pellet-stove apartments (Lounis, Zaid and Maha), AMARA delivers the pellets to the apartment — carrying them up the roughly 30 steps — and they are included in the price.',
+    status: 'first-party-observation',
+    sourceIds: ['casa-amara-operator-confirmation-2026-09-11'],
+    checkedAt: '2026-09-11',
+    reviewAfter: '2027-09-11',
+    volatility: 'medium',
+    claimBoundary: 'Applies to the three apartments with a pellet stove; Farah has none. Delivery and price inclusion are standing operator practice and should be re-confirmed for future seasons.'
+  },
+  {
+    id: 'casa-amara.connectivity.fast-fibre-wifi',
+    subject: 'casa-amara',
+    topic: 'property-amenities',
+    statement: 'All four Casa AMARA accommodations have fast fibre Wi-Fi.',
+    status: 'first-party-observation',
+    sourceIds: ['casa-amara-operator-confirmation-2026-09-11'],
+    checkedAt: '2026-09-11',
+    reviewAfter: '2027-09-11',
+    volatility: 'low',
+    claimBoundary: 'Wi-Fi is recorded for all four units in the rental data; "fibre" is the connection type stated by the operator, not an independently measured speed. Actual throughput varies.'
+  },
 ] as const);

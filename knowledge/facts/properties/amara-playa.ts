@@ -37,4 +37,16 @@ export const amaraPlayaPropertyFacts = defineKnowledgeFacts([
     volatility: 'low',
     claimBoundary: 'The distance is approximate. The southwest aspect and the longer winter afternoon sun are an operator observation about a public beach, not a measured sun-hours study, and vary with date and conditions.'
   },
+  {
+    id: 'amara-playa.connectivity.fast-fibre-wifi',
+    subject: 'amara-playa',
+    topic: 'property-amenities',
+    statement: 'AMARA Playa has fast fibre Wi-Fi.',
+    status: 'first-party-observation',
+    sourceIds: ['amara-playa-operator-confirmation-2026-09-11'],
+    checkedAt: '2026-09-11',
+    reviewAfter: '2027-09-11',
+    volatility: 'low',
+    claimBoundary: 'Wi-Fi is recorded for this unit in the rental data; "fibre" is the connection type stated by the operator, not an independently measured speed. Actual throughput varies.'
+  },
 ] as const);

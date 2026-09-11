@@ -37,4 +37,16 @@ export const amaraFamilySurfPropertyFacts = defineKnowledgeFacts([
     volatility: 'medium',
     claimBoundary: 'An operator estimate of a general summer tendency for the open Atlantic at the Strait of Gibraltar, not a measured local time series; actual temperatures vary with year, wind and upwelling.'
   },
+  {
+    id: 'amara-family-surf.connectivity.fast-fibre-wifi',
+    subject: 'amara-family-surf',
+    topic: 'property-amenities',
+    statement: 'AMARA Family & Surf has fast fibre Wi-Fi.',
+    status: 'first-party-observation',
+    sourceIds: ['amara-family-surf-operator-confirmation-2026-09-11'],
+    checkedAt: '2026-09-11',
+    reviewAfter: '2027-09-11',
+    volatility: 'low',
+    claimBoundary: 'Wi-Fi is recorded for this unit in the rental data; "fibre" is the connection type stated by the operator, not an independently measured speed. Actual throughput varies.'
+  },
 ] as const);
