@@ -33,11 +33,11 @@ import LocationModule from './LocationModule.astro';
  *
  * Reading order (operator direction, 11 September 2026): the page is the
  * morning of a kiter in Tarifa, in six chapters that the anchor row under
- * the hero repeats — Today (the official warning status and forecast,
- * folded; the picture of the Windguru table with the live link; and, folded
- * directly under it, Reading the table: a Windguru-style example of two
- * typical days, the rows explained under the same numbers, the models,
- * Beaufort), Which wind (Levante or Poniente), Thermal
+ * the hero repeats — Today (the picture of the Windguru table with the live
+ * link; folded directly under it, Reading the table: a Windguru-style
+ * example of two typical days, the rows explained under the same numbers,
+ * the models, Beaufort; then the official warning status and forecast,
+ * folded), Which wind (Levante or Poniente), Thermal
  * wind (one clear day in three panels, then what the tidal current does to the
  * wind a rider feels), Where to launch (which beach in
  * which wind, the zones) and In an emergency (private boats and
@@ -133,68 +133,14 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       </div>
     </nav>
 
-    {/* HEUTE — amtlicher Warnstatus und Vorhersage (eingeklappt, Warnfarbe), Windguru live mit Bild, darunter „Die Tabelle lesen" aufklappbar */}
+    {/* HEUTE — Windguru live mit Bild, darunter „Die Tabelle lesen" aufklappbar, dann amtlicher Warnstatus und Vorhersage (eingeklappt, Warnfarbe) */}
     <LocationModule id="heute" labelledby="heute-title" surface="tint" spacing="compact" data-am-wind-chapter="1" data-am-topic="live-today">
       <div class="mx-auto max-w-screen-2xl">
         <KiteChapterHead id="heute-title" label={content.today.label} title={content.today.title} subtitle={content.today.subtitle} icon="temperature" />
 
-        <div class="mt-10">
-          <AemetWarningsPanel
-            endpoint="/api/weather/tarifa-warnings"
-            lang={currentLang}
-            timezone="Europe/Madrid"
-            copy={warningsCopy}
-            officialHref="https://www.aemet.es/es/eltiempo/prediccion/avisos?w=hoy&l=611104"
-          />
-        </div>
 
-        <details class="group mt-6 bg-surface px-6 py-6 outline-none md:px-8" data-am-official-detail>
-            <summary class="am-accordion__trigger items-center">
-              <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.today.official.title}</h3>
-              <span class="am-accordion__indicator" aria-hidden="true">
-                <span class="group-open:hidden">+</span>
-                <span class="hidden group-open:inline">−</span>
-              </span>
-            </summary>
-            <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.today.official.text} /></p>
-            <div class="mt-6" data-am-official-weather>
-              <AemetForecastPanel
-                endpoint="/api/weather/tarifa"
-                lang={currentLang}
-                labels={{
-                  loading: content.today.forecast.loading,
-                  today: content.today.forecast.today,
-                  tomorrow: content.today.forecast.tomorrow,
-                  high: content.today.forecast.high,
-                  low: content.today.forecast.low,
-                  rain: content.today.forecast.rain,
-                  issued: content.today.forecast.issued,
-                  unavailable: content.today.forecast.unavailableTitle,
-                  unavailableText: content.today.forecast.unavailableText,
-                  source: content.today.forecast.aemetLabel
-                }}
-                sourceHref={content.today.official.href}
-                fallbackLabel={content.today.forecast.aemetLabel}
-              />
-            </div>
-            <AmaraActionLink href={content.today.official.href} variant="editorial" external class="mt-5 inline-flex">{content.today.official.linkLabel}</AmaraActionLink>
 
-            <div class="mt-10">
-              <p class="am-text-body leading-relaxed text-on-surface-variant">{content.today.official.briefingText}</p>
-              <KiteBriefingPanel
-                endpoint="/api/weather/tarifa-kite"
-                warningsEndpoint="/api/weather/tarifa-warnings"
-                lang={currentLang}
-                timezone="Europe/Madrid"
-                copy={briefingCopy}
-                warningLevels={warningsCopy.levels}
-                aemetHref={content.today.official.href}
-                aemetLabel={content.today.official.linkLabel}
-              />
-            </div>
-        </details>
-
-        <figure class="m-0 mt-6 bg-inverse-surface px-6 py-8 text-inverted-on-surface md:px-8 md:py-10" data-am-windguru-live>
+        <figure class="m-0 mt-10 bg-inverse-surface px-6 py-8 text-inverted-on-surface md:px-8 md:py-10" data-am-windguru-live>
           <div class="max-w-3xl">
             <p class="am-text-eyebrow text-primary-fixed-dim">{content.today.windguru.eyebrow}</p>
             <h3 class="am-text-subtitle mt-4 text-balance text-inverted-on-surface">{content.today.windguru.title}</h3>
@@ -311,6 +257,61 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
           </details>
         </details>
 
+        <div class="mt-6">
+          <AemetWarningsPanel
+            endpoint="/api/weather/tarifa-warnings"
+            lang={currentLang}
+            timezone="Europe/Madrid"
+            copy={warningsCopy}
+            officialHref="https://www.aemet.es/es/eltiempo/prediccion/avisos?w=hoy&l=611104"
+          />
+        </div>
+
+        <details class="group mt-6 bg-surface px-6 py-6 outline-none md:px-8" data-am-official-detail>
+            <summary class="am-accordion__trigger items-center">
+              <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.today.official.title}</h3>
+              <span class="am-accordion__indicator" aria-hidden="true">
+                <span class="group-open:hidden">+</span>
+                <span class="hidden group-open:inline">−</span>
+              </span>
+            </summary>
+            <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.today.official.text} /></p>
+            <div class="mt-6" data-am-official-weather>
+              <AemetForecastPanel
+                endpoint="/api/weather/tarifa"
+                lang={currentLang}
+                labels={{
+                  loading: content.today.forecast.loading,
+                  today: content.today.forecast.today,
+                  tomorrow: content.today.forecast.tomorrow,
+                  high: content.today.forecast.high,
+                  low: content.today.forecast.low,
+                  rain: content.today.forecast.rain,
+                  issued: content.today.forecast.issued,
+                  unavailable: content.today.forecast.unavailableTitle,
+                  unavailableText: content.today.forecast.unavailableText,
+                  source: content.today.forecast.aemetLabel
+                }}
+                sourceHref={content.today.official.href}
+                fallbackLabel={content.today.forecast.aemetLabel}
+              />
+            </div>
+            <AmaraActionLink href={content.today.official.href} variant="editorial" external class="mt-5 inline-flex">{content.today.official.linkLabel}</AmaraActionLink>
+
+            <div class="mt-10">
+              <p class="am-text-body leading-relaxed text-on-surface-variant">{content.today.official.briefingText}</p>
+              <KiteBriefingPanel
+                endpoint="/api/weather/tarifa-kite"
+                warningsEndpoint="/api/weather/tarifa-warnings"
+                lang={currentLang}
+                timezone="Europe/Madrid"
+                copy={briefingCopy}
+                warningLevels={warningsCopy.levels}
+                aemetHref={content.today.official.href}
+                aemetLabel={content.today.official.linkLabel}
+              />
+            </div>
+        </details>
       </div>
     </LocationModule>
 
