@@ -137,6 +137,39 @@ const ceramicPanelsSegments = {
   nl: 'keramische-panelen',
   sv: 'keramikpaneler'
 };
+const ingenioSegments = {
+  es: 'el-ingenio',
+  en: 'el-ingenio',
+  de: 'el-ingenio',
+  nl: 'el-ingenio',
+  sv: 'el-ingenio'
+};
+const casaDelAperoSegments = {
+  es: 'casa-del-apero',
+  en: 'casa-del-apero',
+  de: 'casa-del-apero',
+  nl: 'casa-del-apero',
+  sv: 'casa-del-apero'
+};
+const sanAntonioSegments = {
+  es: 'iglesia-san-antonio',
+  en: 'san-antonio-church',
+  de: 'san-antonio-kirche',
+  nl: 'san-antonio-kerk',
+  sv: 'san-antonio-kyrkan'
+};
+const calleRealSegments = {
+  es: 'calle-real',
+  en: 'calle-real',
+  de: 'calle-real',
+  nl: 'calle-real',
+  sv: 'calle-real'
+};
+const fuenteViejaSegments = { es: 'fuente-vieja', en: 'fuente-vieja', de: 'fuente-vieja', nl: 'fuente-vieja', sv: 'fuente-vieja' };
+const castilloLizarSegments = { es: 'castillo-lizar', en: 'castillo-lizar', de: 'castillo-lizar', nl: 'castillo-lizar', sv: 'castillo-lizar' };
+const realesPositosSegments = { es: 'reales-positos', en: 'reales-positos', de: 'reales-positos', nl: 'reales-positos', sv: 'reales-positos' };
+const ermitaEcceHomoSegments = { es: 'ermita-ecce-homo', en: 'ermita-ecce-homo', de: 'ermita-ecce-homo', nl: 'ermita-ecce-homo', sv: 'ermita-ecce-homo' };
+const callejonPenonSegments = { es: 'callejon-del-penon', en: 'callejon-del-penon', de: 'callejon-del-penon', nl: 'callejon-del-penon', sv: 'callejon-del-penon' };
 const faqSegments = {
   es: 'preguntas-frecuentes',
   en: 'faq',
@@ -494,6 +527,15 @@ const definitions = [
   },
   { key: 'frigiliana.experience.old-town', legacySlug: 'frigiliana-old-town', family: 'frigiliana-old-town', parent: 'frigiliana.experience', segment: oldTownSegments },
   { key: 'frigiliana.experience.old-town.ceramic-panels', legacySlug: 'frigiliana-ceramic-panels', family: 'frigiliana-ceramic-panels', parent: 'frigiliana.experience.old-town', segment: ceramicPanelsSegments },
+  { key: 'frigiliana.experience.old-town.ingenio', legacySlug: 'frigiliana-el-ingenio', family: 'frigiliana-ingenio', parent: 'frigiliana.experience.old-town', segment: ingenioSegments },
+  { key: 'frigiliana.experience.old-town.casa-del-apero', legacySlug: 'frigiliana-casa-del-apero', family: 'frigiliana-casa-del-apero', parent: 'frigiliana.experience.old-town', segment: casaDelAperoSegments },
+  { key: 'frigiliana.experience.old-town.san-antonio', legacySlug: 'frigiliana-san-antonio', family: 'frigiliana-san-antonio', parent: 'frigiliana.experience.old-town', segment: sanAntonioSegments },
+  { key: 'frigiliana.experience.old-town.calle-real', legacySlug: 'frigiliana-calle-real', family: 'frigiliana-calle-real', parent: 'frigiliana.experience.old-town', segment: calleRealSegments },
+  { key: 'frigiliana.experience.old-town.fuente-vieja', legacySlug: 'frigiliana-fuente-vieja', family: 'frigiliana-fuente-vieja', parent: 'frigiliana.experience.old-town', segment: fuenteViejaSegments },
+  { key: 'frigiliana.experience.old-town.castillo-lizar', legacySlug: 'frigiliana-castillo-lizar', family: 'frigiliana-castillo-lizar', parent: 'frigiliana.experience.old-town', segment: castilloLizarSegments },
+  { key: 'frigiliana.experience.old-town.reales-positos', legacySlug: 'frigiliana-reales-positos', family: 'frigiliana-reales-positos', parent: 'frigiliana.experience.old-town', segment: realesPositosSegments },
+  { key: 'frigiliana.experience.old-town.ermita-ecce-homo', legacySlug: 'frigiliana-ermita-ecce-homo', family: 'frigiliana-ermita-ecce-homo', parent: 'frigiliana.experience.old-town', segment: ermitaEcceHomoSegments },
+  { key: 'frigiliana.experience.old-town.callejon-penon', legacySlug: 'frigiliana-callejon-penon', family: 'frigiliana-callejon-penon', parent: 'frigiliana.experience.old-town', segment: callejonPenonSegments },
   {
     key: 'frigiliana.experience.weddings',
     legacySlug: 'frigiliana-weddings',

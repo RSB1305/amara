@@ -1,0 +1,18 @@
+---
+import OldTownSpokeBody from '../../components/location/OldTownSpokeBody.astro';
+import { frigilianaRealesPositosCopy, frigilianaRealesPositosSeo } from '../../content/frigilianaRealesPositosContent';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<OldTownSpokeBody
+  lang={lang}
+  pageFamily="experience-frigiliana-reales-positos"
+  dataPage="frigiliana-reales-positos"
+  copy={frigilianaRealesPositosCopy}
+  seo={frigilianaRealesPositosSeo}
+/>

@@ -104,6 +104,64 @@ export const frigilianaCeramicPanelsCopy = {
       )
     ]
   },
+  keyFigures: {
+    figures: [
+      {
+        value: '12',
+        label: l(
+          'Hand-painted panels',
+          'Handbemalte Tafeln',
+          'Azulejos pintados a mano',
+          'Handbeschilderde panelen',
+          'Handmålade paneler'
+        )
+      },
+      {
+        value: '1569',
+        label: l(
+          'The revolt they retell',
+          'Der Aufstand, den sie erzählen',
+          'La rebelión que narran',
+          'De opstand die ze navertellen',
+          'Upproret de återberättar'
+        )
+      },
+      {
+        value: '1982',
+        label: l(
+          'Installed — not old',
+          'Angebracht — nicht alt',
+          'Colocados — no antiguos',
+          'Geplaatst — niet oud',
+          'Uppsatta — inte gamla'
+        )
+      },
+      {
+        value: '4',
+        label: l(
+          'Mineral colours, like the 16th century',
+          'Mineralfarben, wie im 16. Jahrhundert',
+          'Colores minerales, como en el siglo XVI',
+          'Mineraalkleuren, als in de 16e eeuw',
+          'Mineralfärger, som på 1500-talet'
+        )
+      }
+    ],
+    note: l(
+      'Provenance from the official booklet and commissioned research; the panels are 1982 memory culture, not primary evidence for 1569.',
+      'Provenienz aus der offiziellen Broschüre und beauftragter Recherche; die Tafeln sind Erinnerungskultur von 1982, kein Primärbeleg für 1569.',
+      'Procedencia del folleto oficial y de una investigación encargada; los azulejos son memoria de 1982, no una prueba primaria de 1569.',
+      'Herkomst uit het officiële boekje en opdrachtonderzoek; de panelen zijn geheugencultuur uit 1982, geen primair bewijs voor 1569.',
+      'Ursprung från den officiella broschyren och beställd research; panelerna är minneskultur från 1982, inte primärbevis för 1569.'
+    )
+  },
+  pullQuote: l(
+    'They look old — and were made in 1982.',
+    'Sie wirken alt — und entstanden 1982.',
+    'Parecen antiguos — y son de 1982.',
+    'Ze ogen oud — en zijn uit 1982.',
+    'De ser gamla ut — och gjordes 1982.'
+  ),
   context: {
     title: l(
       'What happened in 1569',

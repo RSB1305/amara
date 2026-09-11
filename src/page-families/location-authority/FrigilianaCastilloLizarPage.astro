@@ -1,0 +1,18 @@
+---
+import OldTownSpokeBody from '../../components/location/OldTownSpokeBody.astro';
+import { frigilianaCastilloLizarCopy, frigilianaCastilloLizarSeo } from '../../content/frigilianaCastilloLizarContent';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<OldTownSpokeBody
+  lang={lang}
+  pageFamily="experience-frigiliana-castillo-lizar"
+  dataPage="frigiliana-castillo-lizar"
+  copy={frigilianaCastilloLizarCopy}
+  seo={frigilianaCastilloLizarSeo}
+/>

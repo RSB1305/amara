@@ -1,0 +1,33 @@
+---
+import OldTownSpokeBody from '../../components/location/OldTownSpokeBody.astro';
+import heroImage from '../../assets/images/content/frigiliana/frigiliana-fuente-vieja-historischer-brunnen.jpg';
+import { frigilianaFuenteViejaCopy, frigilianaFuenteViejaSeo } from '../../content/frigilianaFuenteViejaContent';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+
+const heroAlt = {
+  en: 'The Fuente Vieja in Frigiliana: a brick arch fountain with the weathered counts’ coat of arms above three spouts running into a stone trough',
+  de: 'Die Fuente Vieja in Frigiliana: ein Ziegelbogen-Brunnen mit dem verwitterten Grafenwappen über drei Ausläufen, die in einen steinernen Trog rinnen',
+  es: 'La Fuente Vieja de Frigiliana: un caño de arco de ladrillo con el escudo desgastado de los condes sobre tres surtidores que vierten en un pilón de piedra',
+  nl: 'De Fuente Vieja in Frigiliana: een bakstenen boogfontein met het verweerde wapen van de graven boven drie tuiten die in een stenen trog lopen',
+  sv: 'Fuente Vieja i Frigiliana: en tegelbågsbrunn med grevarnas nötta vapen ovanför tre pipar som rinner ner i ett stentråg'
+}[currentLang];
+---
+
+<OldTownSpokeBody
+  lang={lang}
+  pageFamily="experience-frigiliana-fuente-vieja"
+  dataPage="frigiliana-fuente-vieja"
+  copy={frigilianaFuenteViejaCopy}
+  seo={frigilianaFuenteViejaSeo}
+  heroImage={heroImage}
+  heroAlt={heroAlt}
+  heroFocalPoint="50% 45%"
+/>

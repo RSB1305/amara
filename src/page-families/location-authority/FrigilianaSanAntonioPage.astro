@@ -1,0 +1,156 @@
+---
+import Navigation from '../../components/Navigation.astro';
+import AmaraKeyFigures from '../../components/content/AmaraKeyFigures.astro';
+import LocationPanoramaHero from '../../components/location/LocationPanoramaHero.astro';
+import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
+import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
+import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
+// Image 01 of the pueblo set is the San Antonio façade (the bishop's coat of arms is
+// visible above the door); it doubles as this spoke's og:image via the stable path.
+import heroImage from '../../assets/images/content/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg';
+import {
+  frigilianaSanAntonioCopy,
+  frigilianaSanAntonioSeo
+} from '../../content/frigilianaSanAntonioContent';
+import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
+import type { LabeledLink } from '../../lib/linkResolver';
+import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang?: string;
+}
+
+type LocalizedRow = { readonly [K in AmaraLanguage]: string };
+
+const { lang = 'es' } = Astro.props;
+const currentLang = normalizeLanguage(lang as AmaraLanguage);
+const copy = frigilianaSanAntonioCopy;
+
+function t(row: LocalizedRow): string {
+  return row[currentLang] ?? row.en;
+}
+
+const footerHighlights: LabeledLink[] = [
+  {
+    token: 'frigiliana_old_town',
+    label: t({ en: 'Old town & history', de: 'Altstadt & Geschichte', es: 'Casco antiguo e historia', nl: 'Oude kern & geschiedenis', sv: 'Gamla stan & historia' })
+  }
+];
+
+const keyFigures = copy.keyFigures.figures.map((figure) => ({ value: figure.value, label: t(figure.label) }));
+const keyFiguresNote = t(copy.keyFigures.note);
+const sections = copy.sections.map((section) => ({
+  eyebrow: t(section.eyebrow),
+  title: t(section.title),
+  text: t(section.text)
+}));
+const sectionBg = ['bg-surface-white', 'bg-surface', 'bg-surface-white'];
+
+const heroAlt = t({
+  en: 'The brick-pilastered Baroque façade of the Iglesia de San Antonio de Padua in Frigiliana, with the bishop’s coat of arms above the arched door',
+  de: 'Die barocke Ziegelpilaster-Fassade der Iglesia de San Antonio de Padua in Frigiliana, mit dem Bischofswappen über dem Bogenportal',
+  es: 'La fachada barroca de pilastras de ladrillo de la Iglesia de San Antonio de Padua en Frigiliana, con el escudo del obispo sobre la portada de arco',
+  nl: 'De barokke gevel met bakstenen pilasters van de Iglesia de San Antonio de Padua in Frigiliana, met het bisschopswapen boven de boogpoort',
+  sv: 'Den barocka tegelpilasterfasaden på Iglesia de San Antonio de Padua i Frigiliana, med biskopsvapnet ovanför den valvformade porten'
+});
+---
+
+<LocationAuthorityLayout
+  pageFamily="experience-frigiliana-san-antonio"
+  seo={frigilianaSanAntonioSeo}
+  pageLang={currentLang}
+  showContextNavigation={false}
+  footerHighlights={footerHighlights}
+>
+  <Navigation
+    slot="navigation"
+    contextDestination="frigiliana"
+    currentLang={currentLang}
+    languageToken="frigiliana_old_town"
+  >
+    <ExperienceContextNav slot="context-navigation" currentId="oldTown" destination="frigiliana" lang={currentLang} currentSpokeLabel={t(copy.hero.title)} />
+  </Navigation>
+
+  <article class="overflow-x-clip bg-surface" data-am-page="frigiliana-san-antonio" data-am-family="location" data-am-role="spoke">
+    <LocationPanoramaHero
+      eyebrow={t(copy.hero.kicker)}
+      title={t(copy.hero.title)}
+      subtitle={t(copy.hero.subtitle)}
+      paragraphs={[t(copy.hero.paragraphs[0])]}
+      imageSrc={heroImage}
+      imageAlt={heroAlt}
+      focalPoint="50% 40%"
+      role="spoke"
+      topic="old-town"
+    />
+
+    <section class="bg-surface px-6 pb-16 pt-12 md:px-12 md:pb-20" aria-label={keyFigures.map((figure) => figure.label).join(' · ')}>
+      <div class="mx-auto max-w-screen-2xl">
+        <AmaraKeyFigures figures={keyFigures} note={keyFiguresNote} />
+      </div>
+    </section>
+
+    <section class={`scroll-mt-28 ${sectionBg[0]} px-6 py-20 md:px-12 md:py-28`}>
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-4">
+            <p class="am-text-eyebrow text-primary">{sections[0].eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{sections[0].title}</h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6">
+            <p class="am-text-body leading-relaxed text-on-surface-variant">{sections[0].text}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-surface px-6 py-20 md:px-12 md:py-24">
+      <div class="mx-auto max-w-4xl text-center">
+        <blockquote class="am-text-display italic text-balance text-on-surface">{t(copy.pullQuote)}</blockquote>
+      </div>
+    </section>
+
+    <section class={`scroll-mt-28 ${sectionBg[1]} px-6 py-20 md:px-12 md:py-28`}>
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-4">
+            <p class="am-text-eyebrow text-primary">{sections[1].eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{sections[1].title}</h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6">
+            <p class="am-text-body leading-relaxed text-on-surface-variant">{sections[1].text}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class={`scroll-mt-28 ${sectionBg[2]} px-6 py-20 md:px-12 md:py-28`}>
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-4">
+            <p class="am-text-eyebrow text-primary">{sections[2].eyebrow}</p>
+            <h2 class="am-text-title mt-5 text-balance text-on-surface">{sections[2].title}</h2>
+          </div>
+          <div class="lg:col-span-7 lg:col-start-6">
+            <p class="am-text-body leading-relaxed text-on-surface-variant">{sections[2].text}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <GuestGuideBridge lang={currentLang} destination="frigiliana" guideSlugs={['frigiliana-guest-sightseeing']} />
+
+    <section class="max-w-screen-2xl mx-auto px-6 pt-20 pb-24 md:px-12">
+      <EditorialClosingCta
+        title={t(copy.closing.title)}
+        lead={t(copy.closing.lead)}
+        lang={currentLang}
+        links={[
+          { token: 'frigiliana_old_town', label: t(copy.closing.oldTownCta), style: 'primary' },
+          { token: 'book', label: t(copy.closing.availabilityCta), style: 'secondary' }
+        ]}
+      />
+    </section>
+  </article>
+</LocationAuthorityLayout>

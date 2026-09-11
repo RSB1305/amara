@@ -228,11 +228,11 @@ export const frigilianaOldTownCopy = {
           'Från lantbruksmagasin till kulturcentrum'
         ),
         text: l(
-          'Probably 17th century and originally built for farm tools and storage, the Casa del Apero now holds the cultural centre, the municipal library and archive, and the tourist office. It is the most practical stop on this list: if you want current opening times, festival programmes or a village map, this is where to ask.',
-          'Wohl aus dem 17. Jahrhundert und ursprünglich für Geräte und Lagerung gebaut, beherbergt die Casa del Apero heute das Kulturzentrum, Bibliothek und Gemeindearchiv sowie das Tourismusbüro. Es ist der praktischste Halt dieser Liste: aktuelle Öffnungszeiten, Festprogramme oder ein Ortsplan gibt es hier.',
-          'Probablemente del siglo XVII y construida en origen para aperos y almacenaje, la Casa del Apero acoge hoy el centro cultural, la biblioteca y el archivo municipal, y la oficina de turismo. Es la parada más práctica de esta lista: horarios actualizados, programas de fiestas o un plano del pueblo se piden aquí.',
-          'Waarschijnlijk 17e-eeuws en oorspronkelijk gebouwd voor landbouwgereedschap en opslag, herbergt de Casa del Apero nu het cultureel centrum, de bibliotheek en het gemeentearchief, en het toeristenbureau. Dit is de praktischste stop van deze lijst: actuele openingstijden, feestprogramma’s of een plattegrond vraag je hier.',
-          'Sannolikt från 1600-talet och ursprungligen byggd för redskap och förvaring rymmer Casa del Apero i dag kulturcentrum, bibliotek och kommunarkiv samt turistbyrån. Det är listans mest praktiska stopp: aktuella öppettider, festprogram eller en bykarta får ni här.'
+          'Built in the early 17th century as El Ingenio’s farm annex — granary, stables and store for the apero, the farming gear — the Casa del Apero today holds the village cultural centre: the municipal library, the Frigiliana archaeological museum, the historical archive and the tourist office. It is the most practical stop on the walk: current opening times, festival programmes or a village map are here.',
+          'Anfang des 17. Jahrhunderts als Wirtschaftshof von El Ingenio gebaut — Speicher, Ställe und Lager für das Gerät, das apero —, beherbergt die Casa del Apero heute das Kulturzentrum des Dorfes: die Gemeindebibliothek, das Archäologische Museum von Frigiliana, das Gemeindearchiv und das Tourismusbüro. Der praktischste Halt der Runde: aktuelle Öffnungszeiten, Festprogramme oder ein Ortsplan gibt es hier.',
+          'Construida a principios del siglo XVII como dependencia agrícola de El Ingenio —granero, cuadras y almacén para el apero—, hoy la Casa del Apero acoge el centro cultural del pueblo: la biblioteca municipal, el Museo Arqueológico de Frigiliana, el archivo histórico y la oficina de turismo. Es la parada más práctica del paseo: horarios actualizados, programas de fiestas o un plano del pueblo se piden aquí.',
+          'Begin 17e eeuw gebouwd als landbouwbijgebouw van El Ingenio — graanopslag, stallen en berging voor het apero, het gereedschap — herbergt de Casa del Apero vandaag het cultureel centrum van het dorp: de gemeentebibliotheek, het archeologisch museum van Frigiliana, het historisch archief en het toeristenbureau. Het is de praktischste stop van de wandeling: actuele openingstijden, feestprogramma’s of een plattegrond vraag je hier.',
+          'Byggd i början av 1600-talet som El Ingenios lantbruksbyggnad — spannmålsbod, stall och förråd för aperot, redskapen — rymmer Casa del Apero i dag byns kulturcentrum: kommunbiblioteket, Frigilianas arkeologiska museum, det historiska arkivet och turistbyrån. Det är vandringens mest praktiska stopp: aktuella öppettider, festprogram eller en bykarta får ni här.'
         )
       },
       {
@@ -302,6 +302,61 @@ export const frigilianaOldTownCopy = {
           'Por encima de la calle Real el grano cambia por completo: parcelas mínimas, casi siempre de dos plantas, casas construidas en la roca y alrededor de ella. Algunos pasajes son adarves, calles semiprivadas que solo dan servicio a las viviendas que se abren a ellas; conviene tenerlo presente antes de entrar. Es la zona más fotografiada del pueblo y la más exigente para caminar.',
           'Boven Calle Real verandert de korrel volledig: minieme percelen, meestal twee bouwlagen, huizen die in en om de rots zijn gebouwd. Sommige doorgangen zijn adarves, halfprivé straatjes die alleen de daaraan gelegen huizen ontsluiten — goed om te weten voordat je er inloopt. Dit is het meest gefotografeerde deel van het dorp en het zwaarste om te belopen.',
           'Ovanför Calle Real ändras kornigheten helt: pyttesmå tomter, oftast två våningar, hus byggda in i och runt klippan. Vissa passager är adarves, halvprivata gränder som bara betjänar husen längs dem – värt att tänka på innan man går in. Det är byns mest fotograferade del och den jobbigaste att gå i.'
+        )
+      },
+      {
+        title: l('Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja'),
+        subline: l('The old fountain of 1640', 'Der alte Brunnen von 1640', 'El antiguo caño de 1640', 'De oude bron van 1640', 'Den gamla brunnen från 1640'),
+        text: l(
+          'Built in 1640 by Don Íñigo Manrique de Lara, the fifth Lord of Frigiliana, the Fuente Vieja was the village’s main water source for centuries. Its brick arch still carries the weathered counts’ coat of arms, and three spouts still run at the lower edge of the old town.',
+          'Die 1640 von Don Íñigo Manrique de Lara, dem fünften Herrn von Frigiliana, erbaute Fuente Vieja war jahrhundertelang die wichtigste Wasserquelle des Dorfes. Ihr Ziegelbogen trägt bis heute das verwitterte Grafenwappen, und drei Ausläufe rinnen weiter am unteren Rand der Altstadt.',
+          'Construida en 1640 por Don Íñigo Manrique de Lara, quinto señor de Frigiliana, la Fuente Vieja fue durante siglos la principal fuente de agua del pueblo. Su arco de ladrillo conserva el escudo desgastado de los condes, y tres caños siguen manando en el borde bajo del casco antiguo.',
+          'De in 1640 door Don Íñigo Manrique de Lara, de vijfde heer van Frigiliana, gebouwde Fuente Vieja was eeuwenlang de belangrijkste waterbron van het dorp. Haar bakstenen boog draagt nog het verweerde wapen van de graven, en drie tuiten lopen nog aan de onderrand van de oude kern.',
+          'Fuente Vieja, byggd 1640 av Don Íñigo Manrique de Lara, Frigilianas femte herre, var i århundraden byns viktigaste vattenkälla. Dess tegelbåge bär än grevarnas nötta vapen, och tre pipar rinner alltjämt vid gamla stans nedre kant.'
+        )
+      },
+      {
+        title: l('Restos del Castillo de Lizar', 'Restos del Castillo de Lizar', 'Restos del Castillo de Lízar', 'Restos del Castillo de Lizar', 'Restos del Castillo de Lizar'),
+        subline: l('Ruined Moorish fortress, 9th–11th c.', 'Maurische Burgruine, 9.–11. Jh.', 'Fortaleza árabe en ruinas, ss. IX–XI', 'Vervallen Moorse vesting, 9e–11e eeuw', 'Raserad morisk fästning, 800–1000-tal'),
+        text: l(
+          'The wall remains of a Moorish fortress above the village, reckoned to the ninth to eleventh centuries. The crown had it largely razed after the 1569 uprising so it could not shelter rebels again; only limited masonry survives. Come for the vantage and the way it explains the medieval defensive line.',
+          'Die Mauerreste einer maurischen Festung oberhalb des Dorfes, ins 9. bis 11. Jahrhundert gerechnet. Die Krone ließ sie nach dem Aufstand von 1569 weitgehend schleifen, damit sie nie wieder Rebellen barg; erhalten ist nur wenig Mauerwerk. Kommt wegen des Ausblicks und weil er die mittelalterliche Verteidigungslinie erklärt.',
+          'Los restos de muro de una fortaleza árabe sobre el pueblo, de los siglos IX a XI. La Corona la arrasó en gran parte tras la rebelión de 1569 para que no volviera a amparar rebeldes; solo queda algo de fábrica. Subid por la panorámica y por cómo explica la línea defensiva medieval.',
+          'De muurresten van een Moorse vesting boven het dorp, gerekend tot de 9e–11e eeuw. De kroon liet haar na de opstand van 1569 grotendeels slechten zodat ze geen rebellen meer kon herbergen; slechts beperkt metselwerk bleef over. Kom voor het uitzicht en hoe het de middeleeuwse verdedigingslinie verklaart.',
+          'Murresterna av en morisk fästning ovanför byn, förd till 800–1000-talet. Kronan lät riva den till stor del efter upproret 1569 så att den inte skulle hysa rebeller igen; bara begränsat murverk återstår. Kom för utsikten och för hur den förklarar den medeltida försvarslinjen.'
+        )
+      },
+      {
+        title: l('Los Reales Pósitos', 'Los Reales Pósitos', 'Los Reales Pósitos', 'Los Reales Pósitos', 'Los Reales Pósitos'),
+        subline: l('The 1767 grain store', 'Der Kornspeicher von 1767', 'El pósito de 1767', 'De graanschuur van 1767', 'Sädesmagasinet från 1767'),
+        text: l(
+          'A public grain bank of 1767, built to secure the villagers’ supply through bad harvests. The structure is now folded into private houses, but its well-kept red-brick arches stand clear of the surrounding whitewash — a key witness to the village’s economic history.',
+          'Eine öffentliche Getreidebank von 1767, gebaut, um die Versorgung der Dorfbewohner durch Missernten zu sichern. Der Bau ist heute in Wohnhäuser integriert, doch seine gut erhaltenen roten Ziegelbögen heben sich klar von der umgebenden Tünche ab — ein zentrales Zeugnis der Wirtschaftsgeschichte.',
+          'Una alhóndiga pública de 1767, levantada para asegurar el abastecimiento de los vecinos en los malos años. La estructura está hoy integrada en viviendas, pero sus arcos de ladrillo rojo, bien conservados, destacan sobre el encalado del entorno: testimonio clave de la historia económica del pueblo.',
+          'Een openbare graanbank uit 1767, gebouwd om de voorziening van de dorpelingen in slechte oogstjaren veilig te stellen. De structuur is nu opgenomen in woonhuizen, maar de goed bewaarde rode baksteenbogen steken helder af tegen het omringende witsel — een sleuteltuige van de economische geschiedenis.',
+          'En offentlig spannmålsbank från 1767, byggd för att trygga bybornas försörjning genom dåliga skördar. Byggnaden är i dag infogad i bostadshus, men dess välbevarade rödtegelbågar sticker ut mot den omgivande kalkputsen — ett nyckelvittne om byns ekonomiska historia.'
+        )
+      },
+      {
+        title: l('Ermita de Ecce Homo', 'Ermita de Ecce Homo', 'Ermita del Ecce Homo', 'Ermita de Ecce Homo', 'Ermita de Ecce Homo'),
+        subline: l('Chapel of the Santo Cristo de la Caña, 18th c.', 'Kapelle des Santo Cristo de la Caña, 18. Jh.', 'Capilla del Santo Cristo de la Caña, s. XVIII', 'Kapel van de Santo Cristo de la Caña, 18e eeuw', 'Kapell för Santo Cristo de la Caña, 1700-tal'),
+        text: l(
+          'A very small single-nave chapel of the eighteenth century, hidden deep in the lanes. It stands for the popular devotion that took root after the Morisco expulsion, and once a year its image leads the village’s Good Friday procession.',
+          'Eine sehr kleine einschiffige Kapelle des 18. Jahrhunderts, tief in den Gassen versteckt. Sie steht für die Volksfrömmigkeit, die nach der Vertreibung der Morisken Wurzeln schlug, und einmal im Jahr führt ihr Bildnis die Karfreitagsprozession des Dorfes an.',
+          'Una capilla muy pequeña, de una sola nave y del siglo XVIII, escondida en las calles. Representa la devoción popular que arraigó tras la expulsión de los moriscos, y una vez al año su imagen encabeza la procesión del Viernes Santo del pueblo.',
+          'Een heel kleine eenbeukige kapel uit de 18e eeuw, verscholen in de straatjes. Ze staat voor de volksdevotie die na de verdrijving van de Morisken wortel schoot, en eens per jaar gaat haar beeld voorop in de Goedevrijdagprocessie van het dorp.',
+          'Ett mycket litet enskeppigt kapell från 1700-talet, gömt djupt i gränderna. Det står för den folkliga fromhet som slog rot efter moriskernas fördrivning, och en gång om året leder dess bild byns långfredagsprocession.'
+        )
+      },
+      {
+        title: l('Callejón del Peñón & miradores', 'Callejón del Peñón & Miradores', 'Callejón del Peñón y miradores', 'Callejón del Peñón & miradores', 'Callejón del Peñón & miradorer'),
+        subline: l('The photographed lane, and the view of El Fuerte', 'Die fotografierte Gasse und der Blick auf El Fuerte', 'La calle fotografiada y la vista de El Fuerte', 'Het gefotografeerde straatje en het uitzicht op El Fuerte', 'Den fotograferade gränden och vyn mot El Fuerte'),
+        text: l(
+          'The steep, much-photographed lane in the upper quarter opens the clearest view of El Fuerte, the massif directly above the village — and exactly the site of the 1569 battle. A handful of small miradores nearby give out over the tiled roofs; the light is best early and late.',
+          'Die steile, vielfotografierte Gasse im oberen Viertel öffnet den klarsten Blick auf El Fuerte, das Massiv direkt über dem Dorf — und genau den Schauplatz der Schlacht von 1569. Ein paar kleine Miradores in der Nähe gehen über die Ziegeldächer hinaus; das Licht ist früh und spät am schönsten.',
+          'La empinada y muy fotografiada calle de la parte alta abre la vista más clara de El Fuerte, el macizo justo sobre el pueblo, y el escenario mismo de la batalla de 1569. Unos pocos miradores cercanos dan sobre los tejados; la luz es mejor temprano y al atardecer.',
+          'Het steile, veel gefotografeerde straatje in de bovenwijk opent het helderste uitzicht op El Fuerte, het massief pal boven het dorp — en precies het toneel van de slag van 1569. Een paar kleine miradores in de buurt kijken uit over de pannendaken; het licht is het mooist vroeg en laat.',
+          'Den branta, mycket fotograferade gränden i övre stadsdelen öppnar den tydligaste vyn mot El Fuerte, massivet rakt ovanför byn — och just platsen för slaget 1569. En handfull små miradorer i närheten ger utsikt över tegeltaken; ljuset är bäst tidigt och sent.'
         )
       }
     ]

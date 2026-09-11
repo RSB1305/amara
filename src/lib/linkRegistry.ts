@@ -71,6 +71,15 @@ export const linkRegistry = {
     frigiliana_experience_hub: buildOwnedLinks('frigiliana.experience'),
     frigiliana_old_town: buildOwnedLinks('frigiliana.experience.old-town'),
     frigiliana_ceramic_panels: buildOwnedLinks('frigiliana.experience.old-town.ceramic-panels'),
+    frigiliana_ingenio: buildOwnedLinks('frigiliana.experience.old-town.ingenio'),
+    frigiliana_casa_del_apero: buildOwnedLinks('frigiliana.experience.old-town.casa-del-apero'),
+    frigiliana_san_antonio: buildOwnedLinks('frigiliana.experience.old-town.san-antonio'),
+    frigiliana_calle_real: buildOwnedLinks('frigiliana.experience.old-town.calle-real'),
+    frigiliana_fuente_vieja: buildOwnedLinks('frigiliana.experience.old-town.fuente-vieja'),
+    frigiliana_castillo_lizar: buildOwnedLinks('frigiliana.experience.old-town.castillo-lizar'),
+    frigiliana_reales_positos: buildOwnedLinks('frigiliana.experience.old-town.reales-positos'),
+    frigiliana_ermita_ecce_homo: buildOwnedLinks('frigiliana.experience.old-town.ermita-ecce-homo'),
+    frigiliana_callejon_penon: buildOwnedLinks('frigiliana.experience.old-town.callejon-penon'),
 
     /* =========================================================
        LOCATIONS

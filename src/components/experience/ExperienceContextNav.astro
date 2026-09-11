@@ -42,9 +42,15 @@ interface Props {
   currentId?: FrigilianaExperienceId | NerjaExperienceId | TarifaExperienceId;
   destination?: 'frigiliana' | 'nerja' | 'tarifa';
   lang: AmaraLanguage;
+  /**
+   * On a spoke page below a hub/topic (e.g. the ceramic panels or El Ingenio under
+   * the old town), pass the spoke's own breadcrumb label. The `currentId` topic crumb
+   * then becomes a link back to its page, and this label is the terminal current crumb.
+   */
+  currentSpokeLabel?: string;
 }
 
-const { currentId, destination = 'frigiliana', lang } = Astro.props;
+const { currentId, destination = 'frigiliana', lang, currentSpokeLabel } = Astro.props;
 const branchNavigation = getDestinationBranchNavigation(destination, lang);
 const branchGroups = getDestinationContextGroups(destination, lang);
 const sharedNavigation = experienceNavigationContent[lang];
@@ -435,9 +441,9 @@ const items =
       : nerjaSiblingLinks;
 const experienceBreadcrumb = destinationSpecificExperienceCopy[destination].breadcrumb;
 const switcherLabel = destinationSpecificExperienceCopy[destination].switcher;
-const currentLabel = currentId
-  ? items.find((item) => item.id === currentId)?.label
-  : undefined;
+const currentItem = currentId ? items.find((item) => item.id === currentId) : undefined;
+const currentLabel = currentItem?.label;
+const currentHref = currentItem?.href;
 
 const homeHref = resolveOptionalLink('home', lang, { suppressMissing: true });
 const breadcrumbs: ContextNavigationBreadcrumb[] = [
@@ -447,7 +453,11 @@ const breadcrumbs: ContextNavigationBreadcrumb[] = [
     label: experienceBreadcrumb,
     href: currentId ? hubHref ?? undefined : undefined
   },
-  ...(currentId && currentLabel ? [{ label: currentLabel }] : [])
+  // On a spoke, the topic crumb links back to its own page and the spoke is the terminal crumb.
+  ...(currentId && currentLabel
+    ? [{ label: currentLabel, href: currentSpokeLabel ? currentHref ?? undefined : undefined }]
+    : []),
+  ...(currentSpokeLabel ? [{ label: currentSpokeLabel }] : [])
 ];
 ---
 

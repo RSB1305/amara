@@ -1,0 +1,18 @@
+---
+import OldTownSpokeBody from '../../components/location/OldTownSpokeBody.astro';
+import { frigilianaErmitaEcceHomoCopy, frigilianaErmitaEcceHomoSeo } from '../../content/frigilianaErmitaEcceHomoContent';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<OldTownSpokeBody
+  lang={lang}
+  pageFamily="experience-frigiliana-ermita-ecce-homo"
+  dataPage="frigiliana-ermita-ecce-homo"
+  copy={frigilianaErmitaEcceHomoCopy}
+  seo={frigilianaErmitaEcceHomoSeo}
+/>
