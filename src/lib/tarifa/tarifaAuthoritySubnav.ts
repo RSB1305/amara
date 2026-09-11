@@ -64,7 +64,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     children: {
       beaches: 'Beaches',
       kitesurfing: 'Kitesurfing',
-      wind: 'Wind & watersports',
+      wind: 'Wind & safety',
       'kitesurf-spots': 'Kitesurf spots',
       'food-evening-life': 'Food & evening life',
       'old-town-history': 'Old Town & history',
@@ -80,7 +80,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     children: {
       beaches: 'Strände',
       kitesurfing: 'Kitesurfen',
-      wind: 'Wind & Wassersport',
+      wind: 'Wind & Sicherheit',
       'kitesurf-spots': 'Kitesurf-Spots',
       'food-evening-life': 'Essen & Ausgehen',
       'old-town-history': 'Altstadt & Geschichte',
@@ -96,7 +96,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     children: {
       beaches: 'Playas',
       kitesurfing: 'Kitesurf',
-      wind: 'Viento y deportes acuáticos',
+      wind: 'Viento y seguridad',
       'kitesurf-spots': 'Spots de kitesurf',
       'food-evening-life': 'Gastronomía y vida nocturna',
       'old-town-history': 'Casco antiguo e historia',
@@ -112,7 +112,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     children: {
       beaches: 'Stranden',
       kitesurfing: 'Kitesurfen',
-      wind: 'Wind & watersport',
+      wind: 'Wind & veiligheid',
       'kitesurf-spots': 'Kitesurfspots',
       'food-evening-life': 'Eten & uitgaan',
       'old-town-history': 'Oude stad & geschiedenis',
@@ -128,7 +128,7 @@ const labels: Record<AmaraLanguage, TarifaAuthorityLabels> = {
     children: {
       beaches: 'Stränder',
       kitesurfing: 'Kitesurfing',
-      wind: 'Vind & vattensport',
+      wind: 'Vind & säkerhet',
       'kitesurf-spots': 'Kitesurfspots',
       'food-evening-life': 'Mat & kvällsliv',
       'old-town-history': 'Gamla stan & historia',

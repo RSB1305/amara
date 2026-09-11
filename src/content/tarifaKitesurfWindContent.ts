@@ -160,11 +160,11 @@ export interface TarifaKitesurfWindContent {
 }
 
 const title = l(
-  'Tarifa wind forecast: how to read it, Levante & Poniente | AMARA',
-  'Wind in Tarifa: Vorhersage lesen, Levante und Poniente | AMARA',
-  'Viento en Tarifa: leer la previsión, levante y poniente | AMARA',
-  'Wind in Tarifa: de voorspelling lezen, levante & poniente | AMARA',
-  'Vind i Tarifa: läsa prognosen, levante & poniente | AMARA'
+  'Wind & safety when kitesurfing in Tarifa | AMARA',
+  'Wind & Sicherheit beim Kitesurfen in Tarifa | AMARA',
+  'Viento y seguridad para el kitesurf en Tarifa | AMARA',
+  'Wind & veiligheid bij het kitesurfen in Tarifa | AMARA',
+  'Vind & säkerhet vid kitesurfing i Tarifa | AMARA'
 );
 
 const description = l('The wind forecast for Tarifa in one place: today’s live AEMET values, the Windguru table explained field by field, Levante and Poniente at Los Lances, the beach zones and the emergency channels. From AMARA, with Mark of Tarifa Surf Club.', 'Die Wind-Vorhersage für Tarifa an einem Ort: die aktuellen AEMET-Werte für heute, die Windguru-Tabelle Feld für Feld erklärt, Levante und Poniente an Los Lances, die Zonen am Strand und die Notrufwege. Von AMARA, mit Mark vom Tarifa Surf Club.', 'La previsión de viento de Tarifa en un solo lugar: los valores de AEMET de hoy, la tabla de Windguru explicada campo por campo, levante y poniente en Los Lances, las zonas de la playa y las vías de emergencia. De AMARA, con Mark del Tarifa Surf Club.', 'De windvoorspelling voor Tarifa op één plek: de actuele AEMET-waarden van vandaag, de Windguru-tabel veld voor veld uitgelegd, levante en poniente bij Los Lances, de strandzones en de noodkanalen. Van AMARA, met Mark van Tarifa Surf Club.', 'Vindprognosen för Tarifa på ett ställe: dagens AEMET-värden, Windguru-tabellen förklarad fält för fält, levante och poniente vid Los Lances, strandzonerna och nödvägarna. Från AMARA, med Mark från Tarifa Surf Club.');

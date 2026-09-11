@@ -16,7 +16,7 @@ import type { AmaraLanguage } from '../../types/seo';
  * current page is left out rather than marked (operator decision of
  * 4 September 2026): the band shows only where you can still go. Wind and
  * forecast are one page — the wind page carries both the live values and the
- * evergreen explanation, under the single "Wind & forecast" entry. Educational
+ * evergreen explanation, under the single "Wind & safety" entry. Educational
  * leave is a German concept and is shown in German only. No caption: the
  * breadcrumb above already names the topic.
  *
@@ -40,7 +40,7 @@ const ariaLabel: LocalizedText = { en: 'More pages on kitesurfing in Tarifa', de
 const items: Array<{ id: KiteClusterPageId; token: LinkToken; label: LocalizedText; languages?: AmaraLanguage[] }> = [
   { id: 'hub', token: 'tarifa_kitesurfing_hub', label: { en: 'Intro', de: 'Intro', es: 'Intro', nl: 'Intro', sv: 'Intro' } },
   { id: 'spots', token: 'tarifa_kitesurf_spots', label: { en: 'Kite spots', de: 'Kitespots', es: 'Spots de kite', nl: 'Kitespots', sv: 'Kitespots' } },
-  { id: 'wind', token: 'tarifa_wind_kitesurfing_authority', label: { en: 'Wind & forecast', de: 'Wind & Vorhersage', es: 'Viento y previsión', nl: 'Wind & voorspelling', sv: 'Vind & prognos' } },
+  { id: 'wind', token: 'tarifa_wind_kitesurfing_authority', label: { en: 'Wind & safety', de: 'Wind & Sicherheit', es: 'Viento y seguridad', nl: 'Wind & veiligheid', sv: 'Vind & säkerhet' } },
   { id: 'school', token: 'tarifa_kite_school', label: { en: 'Kite school', de: 'Kiteschule', es: 'Escuela de kite', nl: 'Kiteschool', sv: 'Kiteskola' } },
   { id: 'camp', token: 'tarifa_kitecamp', label: { en: 'Kitecamps', de: 'Kitecamps', es: 'Kitecamps', nl: 'Kitecamps', sv: 'Kitecamps' } },
   { id: 'education', token: 'tarifa_bildungsurlaub', label: { en: 'Educational leave', de: 'Bildungsurlaub', es: 'Bildungsurlaub', nl: 'Bildungsurlaub', sv: 'Bildungsurlaub' }, languages: ['de'] },
