@@ -57,6 +57,7 @@ export interface FrigilianaRestaurantsPageCopy {
     title: string;
     intro: string;
     items: {
+      id: string;
       title: string;
       text: string;
     }[];
@@ -229,21 +230,25 @@ export const frigilianaRestaurantsContent: Record<
         'The Axarquía is a subtropical valley with a mountain ridge behind it, and that puts particular things on the menu. Recognise them and the local carte reads differently.',
       items: [
         {
+          id: 'miel-de-cana',
           title: 'Miel de caña, made in the village',
           text:
             'Frigiliana still runs the Ingenio Nuestra Señora del Carmen, the last sugar-cane molasses mill working in Europe. Its dark cane syrup turns up on menus here — over fried aubergine, with local goat or lamb. You can pick up a bottle at the mill to take the taste home.'
         },
         {
+          id: 'tropical-fruit',
           title: 'Avocado, mango and papaya from the valley',
           text:
             'The subtropical Axarquía climate ripens avocados, mangoes and papayas on the slopes below the village. In season they show up in salads, gazpachos and desserts — and on the market stalls, from the hillsides you can see from the village.'
         },
         {
+          id: 'moscatel',
           title: 'Sweet Moscatel and Málaga raisins',
           text:
             'The Axarquía’s Moscatel grape gives both things: the sweet wine you are offered after dinner, and the plump, sun-dried pasa de Málaga. A small glass of Moscatel is the usual way to close a meal here.'
         },
         {
+          id: 'sea-and-mountain',
           title: 'From the sea and from the mountain',
           text:
             'Two traditions meet on this coast: espetos — sardines skewered and grilled over driftwood on the Nerja beaches — and mountain cooking like choto al ajillo (kid goat with garlic) or migas on cooler days. The same coastline, two very different plates.'
@@ -422,21 +427,25 @@ export const frigilianaRestaurantsContent: Record<
         'Die Axarquía ist ein subtropisches Tal mit einem Bergrücken dahinter – das bringt bestimmte Dinge auf die Karte. Wer sie kennt, liest die Speisekarten hier anders.',
       items: [
         {
+          id: 'miel-de-cana',
           title: 'Miel de caña – im Dorf gemacht',
           text:
             'In Frigiliana arbeitet noch der Ingenio Nuestra Señora del Carmen, die letzte Zuckerrohr-Melassefabrik Europas. Ihr dunkler Zuckerrohrsirup steht hier auf den Karten – über gebratener Aubergine, zu Ziege oder Lamm. Eine Flasche gibt es direkt an der Fabrik zum Mitnehmen.'
         },
         {
+          id: 'tropical-fruit',
           title: 'Avocado, Mango und Papaya aus dem Tal',
           text:
             'Das subtropische Klima der Axarquía lässt Avocados, Mangos und Papayas an den Hängen unter dem Dorf reifen. In der Saison tauchen sie in Salaten, Gazpachos und Desserts auf – und auf den Marktständen, von denselben Hängen, die ihr vom Dorf aus seht.'
         },
         {
+          id: 'moscatel',
           title: 'Süßer Moscatel und Málaga-Rosinen',
           text:
             'Aus der Moscatel-Traube der Axarquía kommt beides: der süße Wein, den man euch nach dem Essen anbietet, und die pralle, sonnengetrocknete Pasa de Málaga. Ein kleines Glas Moscatel ist hier der übliche Abschluss.'
         },
         {
+          id: 'sea-and-mountain',
           title: 'Vom Meer und vom Berg',
           text:
             'Zwei Traditionen treffen sich an dieser Küste: Espetos – Sardinen am Spieß, über Treibholz an Nerjas Stränden gegrillt – und Bergküche wie Choto al ajillo (Zicklein mit Knoblauch) oder Migas an kühleren Tagen. Dieselbe Küste, zwei ganz verschiedene Teller.'
@@ -615,21 +624,25 @@ export const frigilianaRestaurantsContent: Record<
         'La Axarquía es un valle subtropical con una sierra detrás, y eso pone cosas concretas en la carta. Reconocerlas hace que los menús de aquí se lean de otra manera.',
       items: [
         {
+          id: 'miel-de-cana',
           title: 'Miel de caña, hecha en el pueblo',
           text:
             'En Frigiliana sigue funcionando el Ingenio Nuestra Señora del Carmen, la última fábrica de miel de caña en activo de Europa. Su sirope oscuro de caña aparece en las cartas de aquí: sobre berenjenas fritas, con cabrito o cordero de la zona. Podéis compraros una botella en la propia fábrica para llevaros el sabor a casa.'
         },
         {
+          id: 'tropical-fruit',
           title: 'Aguacate, mango y papaya del valle',
           text:
             'El clima subtropical de la Axarquía madura aguacates, mangos y papayas en las laderas que hay bajo el pueblo. En temporada aparecen en ensaladas, gazpachos y postres, y en los puestos del mercado, desde las mismas laderas que veis desde el pueblo.'
         },
         {
+          id: 'moscatel',
           title: 'Moscatel dulce y pasas de Málaga',
           text:
             'De la uva moscatel de la Axarquía sale lo uno y lo otro: el vino dulce que os ofrecen después de cenar y la pasa de Málaga, carnosa y secada al sol. Una copita de moscatel es aquí la forma habitual de cerrar la comida.'
         },
         {
+          id: 'sea-and-mountain',
           title: 'Del mar y de la sierra',
           text:
             'En esta costa se encuentran dos tradiciones: los espetos —sardinas ensartadas y asadas sobre leña en las playas de Nerja— y la cocina de sierra, como el choto al ajillo o las migas en los días más frescos. La misma costa, dos platos muy distintos.'
@@ -808,21 +821,25 @@ export const frigilianaRestaurantsContent: Record<
         'De Axarquía is een subtropisch dal met een bergrug erachter, en dat zet bepaalde dingen op de kaart. Herken je ze, dan lees je de menu’s hier anders.',
       items: [
         {
+          id: 'miel-de-cana',
           title: 'Miel de caña, in het dorp gemaakt',
           text:
             'In Frigiliana draait nog de Ingenio Nuestra Señora del Carmen, de laatste werkende suikerrietmelassefabriek van Europa. Haar donkere rietstroop staat hier op de kaart: over gebakken aubergine, bij lokale geit of lam. Bij de fabriek kun je een fles kopen om de smaak mee naar huis te nemen.'
         },
         {
+          id: 'tropical-fruit',
           title: 'Avocado, mango en papaja uit het dal',
           text:
             'Het subtropische klimaat van de Axarquía laat avocado’s, mango’s en papaja’s rijpen op de hellingen onder het dorp. In het seizoen duiken ze op in salades, gazpachos en desserts, en op de marktkramen, van dezelfde hellingen die je vanuit het dorp ziet.'
         },
         {
+          id: 'moscatel',
           title: 'Zoete Moscatel en Málaga-rozijnen',
           text:
             'Uit de moscateldruif van de Axarquía komt allebei: de zoete wijn die je na het eten wordt aangeboden en de mollige, in de zon gedroogde pasa de Málaga. Een klein glas moscatel is hier de gebruikelijke afsluiter.'
         },
         {
+          id: 'sea-and-mountain',
           title: 'Van de zee en van de berg',
           text:
             'Op deze kust komen twee tradities samen: espetos — sardines aan het spies, geroosterd boven drijfhout op de stranden van Nerja — en bergkeuken zoals choto al ajillo (geitenlam met knoflook) of migas op koelere dagen. Dezelfde kustlijn, twee heel verschillende borden.'
@@ -1001,21 +1018,25 @@ export const frigilianaRestaurantsContent: Record<
         'Axarquía är en subtropisk dal med en bergsrygg bakom, och det sätter särskilda saker på menyn. Känner du igen dem läser du de lokala menyerna på ett annat sätt.',
       items: [
         {
+          id: 'miel-de-cana',
           title: 'Miel de caña, gjord i byn',
           text:
             'I Frigiliana drivs fortfarande Ingenio Nuestra Señora del Carmen, den sista sockerrörsmelassfabriken i drift i Europa. Dess mörka sockerrörssirap dyker upp på menyerna här – över stekt aubergine, till lokal killing eller lamm. Vid fabriken kan ni köpa en flaska och ta smaken med hem.'
         },
         {
+          id: 'tropical-fruit',
           title: 'Avokado, mango och papaya från dalen',
           text:
             'Axarquías subtropiska klimat mognar avokado, mango och papaya på sluttningarna nedanför byn. I säsong dyker de upp i sallader, gazpachos och desserter – och på marknadsstånden, från samma sluttningar som ni ser från byn.'
         },
         {
+          id: 'moscatel',
           title: 'Söt Moscatel och russin från Málaga',
           text:
             'Ur Axarquías moscateldruva kommer bådadera: det söta vinet ni bjuds på efter maten och den fylliga, soltorkade pasa de Málaga. Ett litet glas moscatel är här det vanliga sättet att avsluta måltiden.'
         },
         {
+          id: 'sea-and-mountain',
           title: 'Från havet och från berget',
           text:
             'Två traditioner möts längs den här kusten: espetos – sardiner på spett, grillade över drivved på Nerjas stränder – och bergsmat som choto al ajillo (killing med vitlök) eller migas kyligare dagar. Samma kust, två helt olika tallrikar.'
