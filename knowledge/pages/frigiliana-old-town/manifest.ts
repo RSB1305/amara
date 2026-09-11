@@ -5,12 +5,12 @@ export const frigilianaOldTownKnowledge = defineKnowledgePageManifest({
   destination: 'frigiliana',
   topic: 'old-town-history-walk',
   createdAt: '2026-08-28T18:30:00+02:00',
-  updatedAt: '2026-08-28T18:30:00+02:00',
+  updatedAt: '2026-09-11T08:20:00+02:00',
   status: 'needs-review',
   driveFolder: {
-    id: '1QmNZHYefZNA0Sx6vTvGC00On5UP34HP_',
-    url: 'https://drive.google.com/drive/folders/1QmNZHYefZNA0Sx6vTvGC00On5UP34HP_',
-    path: 'AMARA – Research Vault/90_ARCHIVE/2026-08-24__121346__frigiliana-streetscape-overnight-atmosphere__research-001',
+    id: '173h0XI3CxBVmTwcYIJBIGUanAjXRp2sw',
+    url: 'https://drive.google.com/drive/folders/173h0XI3CxBVmTwcYIJBIGUanAjXRp2sw',
+    path: 'AMARA – Research Vault/10_LOCATIONS/frigiliana/experiences/old-town',
   },
   publicContentPath: 'src/content/frigilianaOldTownContent.ts',
   researchRunIds: [
