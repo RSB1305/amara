@@ -3445,6 +3445,25 @@ const frigilianaRecommendations: GuestGuideEntry = {
           title: { en: 'Sightseeing', de: 'Sightseeing', es: 'Turismo', nl: 'Bezienswaardigheden', sv: 'Sevärdheter' }
         },
         {
+          kind: 'link',
+          icon: 'music',
+          targetSlug: 'frigiliana-guest-ceramic-panels',
+          title: {
+            en: 'Audio guide to the ceramic panels',
+            de: 'Audioguide zu den Keramiktafeln',
+            es: 'Audioguía de los azulejos',
+            nl: 'Audiogids bij de keramiekpanelen',
+            sv: 'Ljudguide till keramikpanelerna'
+          },
+          subtitle: {
+            en: '12 stops · listen as you walk',
+            de: '12 Stationen · unterwegs anhören',
+            es: '12 paradas · escuchad al caminar',
+            nl: '12 haltes · luister onderweg',
+            sv: '12 stopp · lyssna medan ni går'
+          }
+        },
+        {
           icon: 'guide',
           title: {
             en: 'Guided City Tour in Frigiliana',
