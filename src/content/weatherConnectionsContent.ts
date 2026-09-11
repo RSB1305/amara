@@ -333,6 +333,102 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
       linkToken: 'nerja_beaches_authority'
     },
     {
+      id: 'wind-waves',
+      // On the coast the wind sets the sea state; Nerja's differently-facing
+      // coves let you dodge it. Operator-confirmed local knowledge.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'wind',
+      eyebrow: {
+        de: 'Wind & Wellen',
+        en: 'Wind & waves',
+        nl: 'Wind & golven',
+        sv: 'Vind & vågor'
+      },
+      title: {
+        de: 'Levante und Poniente',
+        en: 'Levante and poniente',
+        nl: 'Levante en poniente',
+        sv: 'Levante och poniente'
+      },
+      body: {
+        de: 'An der andalusischen Küste bestimmt oft der Wind, wie sich der Strandtag anfühlt. Der **Poniente** aus dem Westen bringt meist klares, erfrischenderes Wasser und eine ruhigere See. Der **Levante** aus dem Osten drückt warmes Wasser an die Küste, sorgt aber für mehr Wellengang und spürbaren Wind am Handtuch. Der Vorteil von Nerja: Die vielen kleinen Buchten sind unterschiedlich ausgerichtet — weht es am einen Strand zu stark, findet ihr ein paar hundert Meter weiter oft eine windgeschützte Ecke.',
+        en: 'On the Andalusian coast the wind often decides how a beach day feels. The **poniente** from the west usually brings clearer, fresher water and a calmer sea. The **levante** from the east pushes warm water onto the coast but brings more swell and a noticeable wind at your towel. Nerja’s advantage: its many small coves face different ways — if one beach is too blustery, a few hundred metres on you often find a sheltered corner.',
+        nl: 'Aan de Andalusische kust bepaalt de wind vaak hoe een stranddag aanvoelt. De **poniente** uit het westen brengt meestal helderder, frisser water en een rustiger zee. De **levante** uit het oosten duwt warm water naar de kust, maar zorgt voor meer golfslag en voelbare wind bij je handdoek. Het voordeel van Nerja: de vele kleine baaien liggen verschillend — waait het op het ene strand te hard, dan vind je een paar honderd meter verderop vaak een luwe hoek.',
+        sv: 'Vid Andalusiens kust avgör vinden ofta hur en stranddag känns. **Poniente** från väster ger oftast klarare, friskare vatten och lugnare hav. **Levante** från öster pressar varmt vatten mot kusten men ger mer svall och kännbar vind vid handduken. Nerjas fördel: de många små vikarna vetter åt olika håll — blåser det för hårt på en strand hittar du några hundra meter bort ofta ett vindskyddat hörn.'
+      },
+      linkLabel: {
+        de: 'Strände in Nerja',
+        en: 'Nerja’s beaches',
+        nl: 'Stranden in Nerja',
+        sv: 'Stränder i Nerja'
+      },
+      linkToken: 'nerja_beaches_authority'
+    },
+    {
+      id: 'winter-sun-cliffs',
+      // Winter low sun + cliff shadows; flat, SW-facing Torrecilla by AMARA Playa
+      // keeps the light longest. Operator-confirmed; a winter-booking argument.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'evening',
+      eyebrow: {
+        de: 'Sonne & Klippen',
+        en: 'Sun & cliffs',
+        nl: 'Zon & kliffen',
+        sv: 'Sol & klippor'
+      },
+      title: {
+        de: 'Wo die Wintersonne am längsten bleibt',
+        en: 'Where the winter sun stays longest',
+        nl: 'Waar de winterzon het langst blijft',
+        sv: 'Där vintersolen stannar längst'
+      },
+      body: {
+        de: 'Nerjas Steilküsten und eingerahmte Buchten wie Carabeo oder Burriana sind im Sommer ein Traum. Im Winterhalbjahr steht die Sonne aber tiefer, und die Klippen werfen an manchen Stränden schon am frühen Nachmittag lange Schatten. Der flachere **Torrecilla** — wenige Gehminuten von AMARA Playa — fängt durch seine offene Südwest-Ausrichtung das tiefe Winterlicht deutlich länger ein. Auch der eigene Balkon liegt nach Westen: Abendsonne inklusive, die Markise gibt tagsüber Schatten.',
+        en: 'Nerja’s cliffs and framed coves like Carabeo or Burriana are a dream in summer. In the winter half-year the sun sits lower, and the cliffs throw long shadows onto some beaches as early as the afternoon. The flatter **Torrecilla** — a few minutes’ walk from AMARA Playa — catches the low winter light much longer thanks to its open southwest aspect. The balcony faces west too: evening sun included, with an awning for shade during the day.',
+        nl: 'Nerja’s steile kusten en omlijste baaien zoals Carabeo of Burriana zijn in de zomer een droom. In het winterhalfjaar staat de zon lager, en de kliffen werpen op sommige stranden al in de vroege middag lange schaduwen. Het vlakkere **Torrecilla** — op een paar minuten lopen van AMARA Playa — vangt door zijn open zuidwestligging het lage winterlicht veel langer. Ook het balkon ligt op het westen: avondzon inbegrepen, met een markies voor schaduw overdag.',
+        sv: 'Nerjas branta kuster och inramade vikar som Carabeo eller Burriana är en dröm på sommaren. Under vinterhalvåret står solen lägre, och klipporna kastar långa skuggor på vissa stränder redan på eftermiddagen. Det flackare **Torrecilla** — några minuters promenad från AMARA Playa — fångar det låga vinterljuset betydligt längre tack vare sitt öppna sydvästläge. Balkongen vetter också mot väster: kvällssol inkluderad, med en markis för skugga på dagen.'
+      },
+      linkLabel: {
+        de: 'Winter in Nerja',
+        en: 'Winter in Nerja',
+        nl: 'Winter in Nerja',
+        sv: 'Vintern i Nerja'
+      },
+      linkToken: 'nerja_winter_stays'
+    },
+    {
+      id: 'tides-none',
+      // Mediterranean has hardly any tide — a reassurance for families, in
+      // contrast to the Atlantic (see the Tarifa page).
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'family',
+      eyebrow: {
+        de: 'Für Familien',
+        en: 'For families',
+        nl: 'Voor gezinnen',
+        sv: 'För familjer'
+      },
+      title: {
+        de: 'Kaum Ebbe und Flut',
+        en: 'Hardly any tide',
+        nl: 'Nauwelijks eb en vloed',
+        sv: 'Knappt något tidvatten'
+      },
+      body: {
+        de: 'Anders als an der Atlantikküste gibt es im Alborán-Meer **kaum spürbaren Tidenhub**. Für Familien ist das eine beruhigende Sache: Das Wasser zieht sich nachmittags nicht plötzlich hunderte Meter zurück, und tückische Gezeitenströmungen gibt es hier nicht. Die Sandburg vom Vormittag steht am Nachmittag noch.',
+        en: 'Unlike the Atlantic coast, the Alborán Sea has **hardly any noticeable tide**. For families that is reassuring: the water does not suddenly retreat hundreds of metres in the afternoon, and there are no treacherous tidal currents here. The sandcastle from the morning is still there in the afternoon.',
+        nl: 'Anders dan aan de Atlantische kust heeft de Alboránzee **nauwelijks merkbaar getij**. Voor gezinnen is dat geruststellend: het water trekt zich ’s middags niet plotseling honderden meters terug, en verraderlijke getijstromingen zijn er niet. Het zandkasteel van ’s ochtends staat er ’s middags nog.',
+        sv: 'Till skillnad från Atlantkusten har Alboránsjön **knappt något märkbart tidvatten**. För familjer är det lugnande: vattnet drar sig inte plötsligt tillbaka hundratals meter på eftermiddagen, och några lömska tidvattenströmmar finns inte här. Sandslottet från morgonen står kvar på eftermiddagen.'
+      },
+      linkLabel: {
+        de: 'Strände in Nerja',
+        en: 'Nerja’s beaches',
+        nl: 'Stranden in Nerja',
+        sv: 'Stränder i Nerja'
+      },
+      linkToken: 'nerja_beaches_authority'
+    },
+    {
       id: 'calima-terral',
       // The two Málaga-coast phenomena; on the coast the terral's cold-water
       // effect is especially relevant. Spanish readers know both — out of es.
@@ -513,10 +609,10 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
         sv: 'Varför vattnet är friskare än Medelhavet'
       },
       body: {
-        de: 'Tarifa liegt an der **Meerenge zum Atlantik** — das Wasser ist auch im Hochsommer kühler als am Mittelmeer, dazu kommen Strömung und oft Welle. Herrlich zum Abkühlen und der Grund, warum hier Kite und Surf zu Hause sind; ein bade-warmes Mittelmeer solltet ihr aber nicht erwarten. An windstillen Tagen ist das Wasser am angenehmsten.',
-        en: 'Tarifa sits on the **strait where the Atlantic meets the sea** — the water stays cooler than the Mediterranean even in high summer, with currents and often some swell. Bracing and refreshing, and the reason kite and surf are at home here; just don’t expect Mediterranean bath-warm water. On calm days the water is at its most pleasant.',
-        nl: 'Tarifa ligt aan de **zeestraat naar de Atlantische Oceaan** — het water blijft ook in de hoogzomer koeler dan de Middellandse Zee, met stroming en vaak wat golfslag. Heerlijk verfrissend, en de reden dat kite en surf hier thuis zijn; verwacht alleen geen badwarm Middellandse-Zeewater. Op windstille dagen is het water het aangenaamst.',
-        sv: 'Tarifa ligger vid **sundet mot Atlanten** — vattnet är svalare än Medelhavet även på högsommaren, med strömmar och ofta lite svall. Härligt svalkande och skälet till att kite och surf hör hemma här; vänta er bara inte badvarmt Medelhavsvatten. På vindstilla dagar är vattnet som skönast.'
+        de: 'Wer das warme Mittelmeer gewohnt ist, muss sich in Tarifa umstellen: Vor der Tür liegt der offene **Atlantik**. Selbst im Hochsommer wird das Wasser hier selten wärmer als 20 bis 22 Grad — für eine kurze Erfrischung an heißen Tagen perfekt. Wer länger im Wasser bleibt, ob zum Kiten, Wingfoilen oder Wellenreiten, zieht einen Neoprenanzug an: im Sommer reicht meist 3/2 mm, im Winter gehört ein 4/3- oder 5/3-mm-Anzug ins Gepäck.',
+        en: 'If you are used to the warm Mediterranean, Tarifa asks you to adjust: the open **Atlantic** is right at the door. Even in high summer the water rarely climbs above 20 to 22 degrees — perfect for a quick dip on hot days. For longer sessions, whether kiting, wingfoiling or surfing, you put on a wetsuit: a 3/2 mm is usually enough in summer, while a 4/3 or 5/3 mm belongs in the bag in winter.',
+        nl: 'Ben je de warme Middellandse Zee gewend, dan is Tarifa even wennen: voor de deur ligt de open **Atlantische Oceaan**. Zelfs in de hoogzomer wordt het water hier zelden warmer dan 20 tot 22 graden — perfect voor een korte verfrissing op hete dagen. Wie langer in het water blijft, of het nu kiten, wingfoilen of surfen is, trekt een wetsuit aan: in de zomer volstaat meestal 3/2 mm, in de winter hoort een 4/3- of 5/3-mm-pak in de tas.',
+        sv: 'Är du van vid det varma Medelhavet får du ställa om i Tarifa: utanför dörren ligger öppna **Atlanten**. Även på högsommaren blir vattnet här sällan varmare än 20 till 22 grader — perfekt för ett snabbt dopp heta dagar. Den som stannar längre i vattnet, oavsett om det är kite, wingfoil eller surf, tar på sig våtdräkt: på sommaren räcker oftast 3/2 mm, på vintern hör en 4/3- eller 5/3-mm-dräkt till packningen.'
       },
       linkLabel: {
         de: 'Strände in Tarifa',
@@ -527,28 +623,60 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
       linkToken: 'tarifa_beaches_authority'
     },
     {
-      id: 'calima',
-      // Sahara dust crosses the strait on a strong Levante. No terral here — that
-      // is the Málaga-coast wind, wrong geography for Tarifa.
+      id: 'tides',
+      // Atlantic tides reshape the beach daily; huge at low tide (charcas lagoons),
+      // tight at high tide. A must-have for a Tarifa "weather & nature" profile.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'comparison',
+      eyebrow: {
+        de: 'Ebbe & Flut',
+        en: 'Tides',
+        nl: 'Eb & vloed',
+        sv: 'Ebb & flod'
+      },
+      title: {
+        de: 'Die Gezeiten bauen den Strand jeden Tag neu',
+        en: 'The tides rebuild the beach every day',
+        nl: 'Het getij bouwt het strand elke dag opnieuw',
+        sv: 'Tidvattnet bygger om stranden varje dag'
+      },
+      body: {
+        de: 'Anders als am Mittelmeer bestimmt in Tarifa der **Tidenhub** den Platz am Wasser. Besonders an den großen Stränden wie Los Lances verändert sich das Bild stündlich: Bei Ebbe zieht sich der Ozean weit zurück, der Strand wird riesig breit und es bilden sich die berühmten flachen Lagunen (Charcas) — ein Traum zum Spazieren und Kiten. Bei Flut drückt das Wasser hoch bis an die Dünen, und der Platz für Handtücher und Schirme wird knapper. Ein Blick auf den Gezeitenkalender lohnt sich für die Tagesplanung so wie der Check der Windrichtung.',
+        en: 'Unlike the Mediterranean, in Tarifa the **tidal range** decides your space at the water. On the big beaches like Los Lances the picture changes by the hour: at low tide the ocean pulls far back, the beach turns vast and the famous shallow lagoons (charcas) form — a dream for walking and kiting. At high tide the water pushes up to the dunes and space for towels and parasols gets tight. A glance at the tide calendar is as worth it for planning your day as checking the wind direction.',
+        nl: 'Anders dan aan de Middellandse Zee bepaalt in Tarifa het **getij** je plek aan het water. Vooral op de grote stranden zoals Los Lances verandert het beeld per uur: bij eb trekt de oceaan ver terug, het strand wordt enorm breed en de beroemde ondiepe lagunes (charcas) ontstaan — een droom om te wandelen en te kiten. Bij vloed duwt het water op tot aan de duinen en wordt de ruimte voor handdoeken en parasols krapper. Een blik op de getijdenkalender loont voor je dagplanning net zozeer als het checken van de windrichting.',
+        sv: 'Till skillnad från Medelhavet avgör **tidvattnet** i Tarifa din plats vid vattnet. Särskilt på de stora stränderna som Los Lances ändras bilden varje timme: vid ebb drar sig havet långt tillbaka, stranden blir enorm och de berömda grunda lagunerna (charcas) bildas — en dröm för promenader och kite. Vid flod trycker vattnet upp till dynerna och platsen för handdukar och parasoll blir knappare. En titt på tidvattenkalendern lönar sig för dagsplaneringen lika mycket som koll på vindriktningen.'
+      },
+      linkLabel: {
+        de: 'Strände in Tarifa',
+        en: 'Tarifa’s beaches',
+        nl: 'Stranden in Tarifa',
+        sv: 'Stränder i Tarifa'
+      },
+      linkToken: 'tarifa_beaches_authority'
+    },
+    {
+      id: 'strait-view',
+      // Visibility across the strait: clear poniente shows Morocco (Tangier's
+      // lights); levante/calima hides it in Sahara haze. Ties in the west balcony.
       languages: ['de', 'en', 'nl', 'sv'],
       icon: 'sunshine',
       eyebrow: {
-        de: 'Eine Überraschung',
-        en: 'A surprise',
-        nl: 'Een verrassing',
-        sv: 'En överraskning'
+        de: 'Blick nach Afrika',
+        en: 'Looking to Africa',
+        nl: 'Blik op Afrika',
+        sv: 'Blick mot Afrika'
       },
       title: {
-        de: 'Calima — wenn der Himmel orange wird',
-        en: 'Calima — when the sky turns orange',
-        nl: 'Calima — als de lucht oranje wordt',
-        sv: 'Calima — när himlen blir orange'
+        de: 'Mal zum Greifen nah, mal im Dunst verschwunden',
+        en: 'Now within reach, now lost in haze',
+        nl: 'Nu binnen handbereik, dan verdwenen in nevel',
+        sv: 'Ibland nära, ibland borta i dis'
       },
       body: {
-        de: 'Bei kräftigem Ostwind (Levante) trägt die Luft manchmal **Saharastaub** über die Meerenge: Der Himmel wird milchig-orange und die Sicht auf Afrika verschwindet, gelegentlich fällt „Blutregen“ mit feinem rotem Staub. Meist ist das nach ein, zwei Tagen vorbei — ein Wetterschauspiel, kein Grund zur Sorge.',
-        en: 'In a strong easterly (Levante), the air sometimes carries **Sahara dust** across the strait: the sky turns milky orange and the view of Africa disappears, and occasionally “blood rain” falls with a fine red dust. It usually passes after a day or two — a spectacle, not a worry.',
-        nl: 'Bij krachtige oostenwind (Levante) voert de lucht soms **Saharastof** over de zeestraat: de lucht wordt melkig oranje en het zicht op Afrika verdwijnt, en soms valt er “bloedregen” met fijn rood stof. Meestal na een dag of twee voorbij — een schouwspel, geen reden tot zorg.',
-        sv: 'Vid kraftig ostvind (Levante) för luften ibland med sig **saharadamm** över sundet: himlen blir mjölkigt orange och sikten mot Afrika försvinner, och ibland faller “blodregn” med fint rött damm. Oftast över efter en dag eller två — ett skådespel, inget att oroa sig för.'
+        de: 'Je nach Wetter verändert sich der Blick über die Meerenge völlig. Bei klarem **Poniente** scheint Marokko zum Greifen nah — nachts seht ihr die Lichter von Tanger. Bei feuchtem Levante oder **Calima** trägt die Luft Saharastaub heran: Der Himmel wird milchig-orange, Afrika verschwindet im Dunst, und gelegentlich fällt „Blutregen“ mit feinem rotem Staub — meist nach ein, zwei Tagen vorbei. Vom eigenen Balkon nach Westen, unter der Holzüberdachung, habt ihr die Meerenge und den Sonnenuntergang im Blick.',
+        en: 'Depending on the weather, the view across the strait changes completely. In clear **poniente** Morocco seems within reach — at night you see the lights of Tangier. In humid levante or **calima** the air carries Sahara dust: the sky turns milky orange, Africa vanishes into haze, and occasionally “blood rain” falls with a fine red dust — usually gone after a day or two. From your own west-facing balcony, under its wooden canopy, the strait and the sunset are in view.',
+        nl: 'Afhankelijk van het weer verandert het zicht over de zeestraat volledig. Bij heldere **poniente** lijkt Marokko binnen handbereik — ’s nachts zie je de lichten van Tanger. Bij vochtige levante of **calima** voert de lucht Saharastof aan: de lucht wordt melkig oranje, Afrika verdwijnt in de nevel, en soms valt er „bloedregen“ met fijn rood stof — meestal na een dag of twee voorbij. Vanaf je eigen balkon op het westen, onder de houten overkapping, heb je de zeestraat en de zonsondergang in beeld.',
+        sv: 'Beroende på vädret ändras utsikten över sundet helt. I klar **poniente** verkar Marocko inom räckhåll — på natten ser ni ljusen från Tanger. I fuktig levante eller **calima** för luften med sig saharadamm: himlen blir mjölkigt orange, Afrika försvinner i diset, och ibland faller „blodregn“ med fint rött damm — oftast över efter en dag eller två. Från er egen västvända balkong, under trätaket, har ni sundet och solnedgången i blick.'
       },
       linkLabel: {
         de: 'Alltag in Tarifa',
@@ -589,6 +717,38 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
         sv: 'Förstå Tarifas vind'
       },
       linkToken: 'tarifa_wind_kitesurfing_authority'
+    },
+    {
+      id: 'coastal-fog',
+      // The taraballo: hot inland air over the cold Atlantic makes dense sea fog
+      // on a 30-degree day. A genuine surprise worth defusing in advance.
+      languages: ['de', 'en', 'nl', 'sv'],
+      icon: 'coast',
+      eyebrow: {
+        de: 'Küstennebel',
+        en: 'Coastal fog',
+        nl: 'Kustmist',
+        sv: 'Kustdimma'
+      },
+      title: {
+        de: 'Taraballo — Nebel bei 30 Grad',
+        en: 'Taraballo — fog at 30 degrees',
+        nl: 'Taraballo — mist bij 30 graden',
+        sv: 'Taraballo — dimma vid 30 grader'
+      },
+      body: {
+        de: 'Manchmal trifft im Sommer heiße Landluft auf den kalten Atlantik, und vom Wasser zieht dichter Seenebel an den Strand — die Einheimischen nennen ihn **Taraballo**. Das Kuriose: Es hat 30 Grad, und trotzdem seht ihr am Strand keine fünfzig Meter weit. Meist löst er sich im Lauf des Tages wieder auf; ein, zwei Kilometer landeinwärts scheint oft längst die Sonne.',
+        en: 'Sometimes in summer hot inland air meets the cold Atlantic, and dense sea fog drifts off the water onto the beach — locals call it the **taraballo**. The odd part: it is 30 degrees and yet you cannot see fifty metres along the sand. It usually lifts over the course of the day; a kilometre or two inland the sun is often already out.',
+        nl: 'Soms ontmoet in de zomer hete landlucht de koude Atlantische Oceaan, en vanaf het water drijft dichte zeemist het strand op — de locals noemen het de **taraballo**. Het gekke: het is 30 graden en toch zie je op het strand geen vijftig meter ver. Meestal trekt hij in de loop van de dag weer op; een kilometer of twee landinwaarts schijnt vaak allang de zon.',
+        sv: 'Ibland möter på sommaren het inlandsluft den kalla Atlanten, och tät havsdimma driver in från vattnet över stranden — lokalborna kallar den **taraballo**. Det märkliga: det är 30 grader och ändå ser man inte femtio meter på stranden. Oftast lättar den under dagens gång; en kilometer eller två inåt land skiner ofta redan solen.'
+      },
+      linkLabel: {
+        de: 'Strände in Tarifa',
+        en: 'Tarifa’s beaches',
+        nl: 'Stranden in Tarifa',
+        sv: 'Stränder i Tarifa'
+      },
+      linkToken: 'tarifa_beaches_authority'
     }
   ]
 };

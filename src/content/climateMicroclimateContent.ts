@@ -134,7 +134,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'Nerja liegt direkt an der Küste, Frigiliana rund 300 Meter höher am Hang. Luftlinie sind es kaum sechs Kilometer, und doch fühlt sich das Klima anders an. Das sind keine Messwerte einer Wetterstation, sondern was wir hier tagtäglich erleben.',
       summer: {
         label: 'Im Sommer',
-        body: 'Unten an der Küste ist die Sommerhitze feuchter und hält abends länger als oben im Dorf, wo ein Lüftchen den Hang herunterkommt. Der große Vorteil an der Küste: Die Abkühlung liegt direkt vor der Tür — ein Sprung ins Meer, und die heißesten Stunden sind vergessen. Gegen die schwüle Mittagshitze sorgt drinnen die **Klimaanlage** für Abkühlung.'
+        body: 'Unten an der Küste ist die Sommerhitze feuchter und hält abends länger als oben im Dorf, wo ein Lüftchen den Hang herunterkommt. Der große Vorteil an der Küste: Die Abkühlung liegt direkt vor der Tür — ein Sprung ins Meer, und die heißesten Stunden sind vergessen. An schwülen Tagen fühlen sich 30 Grad an wie 35, und die Wärme hält bis in die Nacht — dann nimmt die **Klimaanlage** im Schlafzimmer die Schwüle heraus.'
       },
       winter: {
         label: 'Im Winter',
@@ -152,7 +152,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'Nerja está junto a la costa; Frigiliana, unos 300 metros más arriba, en la ladera. En línea recta apenas seis kilómetros, y aun así el clima se siente distinto. No son datos de una estación meteorológica, sino lo que vivimos aquí a diario.',
       summer: {
         label: 'En verano',
-        body: 'Abajo, junto a la costa, el calor del verano es más húmedo y dura más por la tarde que arriba en el pueblo, donde baja una brisa por la ladera. La gran ventaja de la costa: el alivio está a un paso — un chapuzón en el mar y se olvidan las horas de más calor. Contra el bochorno del mediodía, dentro refresca el **aire acondicionado**.'
+        body: 'Abajo, junto a la costa, el calor del verano es más húmedo y dura más por la tarde que arriba en el pueblo, donde baja una brisa por la ladera. La gran ventaja de la costa: el alivio está a un paso — un chapuzón en el mar y se olvidan las horas de más calor. En días bochornosos, 30 grados parecen 35 y el calor se alarga hasta la noche — entonces el **aire acondicionado** del dormitorio quita esa pesadez.'
       },
       winter: {
         label: 'En invierno',
@@ -170,7 +170,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'Nerja lies right on the coast, Frigiliana around 300 metres higher on the hillside. As the crow flies it is barely six kilometres, yet the climate feels different. These are not weather-station figures, but what we live here day to day.',
       summer: {
         label: 'In summer',
-        body: 'Down on the coast the summer heat is more humid and lingers into the evening longer than up in the village, where a breeze comes down the hillside. The coast’s great advantage: the relief is right at the door — a plunge into the sea, and the hottest hours are forgotten. Against the muggy midday heat, indoors the **air conditioning** cools things down.'
+        body: 'Down on the coast the summer heat is more humid and lingers into the evening longer than up in the village, where a breeze comes down the hillside. The coast’s great advantage: the relief is right at the door — a plunge into the sea, and the hottest hours are forgotten. On muggy days 30 degrees can feel like 35, and the warmth lingers into the night — then the **air conditioning** in the bedroom takes the mugginess out.'
       },
       winter: {
         label: 'In winter',
@@ -188,7 +188,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'Nerja ligt pal aan de kust, Frigiliana zo’n 300 meter hoger tegen de helling. Hemelsbreed amper zes kilometer, en toch voelt het klimaat anders. Dit zijn geen cijfers van een weerstation, maar wat wij hier dagelijks meemaken.',
       summer: {
         label: 'In de zomer',
-        body: 'Beneden aan de kust is de zomerhitte vochtiger en houdt ’s avonds langer aan dan boven in het dorp, waar een briesje de helling af komt. Het grote voordeel van de kust: de verkoeling ligt vlak voor de deur — een duik in zee en de heetste uren zijn vergeten. Tegen de klamme middaghitte zorgt binnen de **airconditioning** voor verkoeling.'
+        body: 'Beneden aan de kust is de zomerhitte vochtiger en houdt ’s avonds langer aan dan boven in het dorp, waar een briesje de helling af komt. Het grote voordeel van de kust: de verkoeling ligt vlak voor de deur — een duik in zee en de heetste uren zijn vergeten. Op benauwde dagen voelen 30 graden als 35, en de warmte blijft tot in de nacht — dan haalt de **airconditioning** in de slaapkamer de klamheid eruit.'
       },
       winter: {
         label: 'In de winter',
@@ -206,7 +206,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'Nerja ligger vid kusten, Frigiliana runt 300 meter högre upp i sluttningen. Fågelvägen knappt sex kilometer, och ändå känns klimatet olika. Det här är inga siffror från en väderstation, utan vad vi lever med här varje dag.',
       summer: {
         label: 'På sommaren',
-        body: 'Nere vid kusten är sommarvärmen fuktigare och dröjer sig kvar längre på kvällen än uppe i byn, där en bris kommer ner för sluttningen. Kustens stora fördel: svalkan finns precis utanför dörren — ett dopp i havet och de hetaste timmarna är glömda. Mot den fuktiga middagshettan svalkar **luftkonditioneringen** inomhus.'
+        body: 'Nere vid kusten är sommarvärmen fuktigare och dröjer sig kvar längre på kvällen än uppe i byn, där en bris kommer ner för sluttningen. Kustens stora fördel: svalkan finns precis utanför dörren — ett dopp i havet och de hetaste timmarna är glömda. På kvava dagar känns 30 grader som 35, och värmen dröjer in på natten — då tar **luftkonditioneringen** i sovrummet bort tryckigheten.'
       },
       winter: {
         label: 'På vintern',
@@ -226,7 +226,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'In Tarifa fragt man nicht zuerst nach der Sonne, sondern nach dem Wind. An der Straße von Gibraltar treffen zwei aufeinander — und welcher weht, macht aus demselben Tag einen ganz anderen Urlaub. Das ist keine Wettervorhersage, sondern was wir hier erleben.',
       summer: {
         label: 'Levante oder Poniente',
-        body: 'Der **Levante** kommt heiß und brachial aus dem Osten: für Kitesurfer ein Fest, für alle anderen fliegt der Sand über den Strand. Der **Poniente** aus dem Westen ist milder und angenehmer. An vielen Tagen im Jahr weht es kräftig — dann ist die Frage nicht ob, sondern wo: je nach Richtung liegt die eine Bucht geschützt, während die offenen Strände tosen. An heißen Levante-Tagen sorgt drinnen die Klimaanlage für Abkühlung.'
+        body: 'Der **Levante** kommt heiß und brachial aus dem Osten: für Kitesurfer ein Fest, für alle anderen fliegt der Sand über den Strand. Der **Poniente** aus dem Westen ist milder und angenehmer. An vielen Tagen im Jahr weht es kräftig — dann ist die Frage nicht ob, sondern wo: je nach Richtung liegt die eine Bucht geschützt, während die offenen Strände tosen. Der Levante kommt selten nur für einen Nachmittag: Baut er sich auf, bläst er gern drei bis sieben Tage am Stück, bevor er abflaut oder auf Poniente dreht — gut zu wissen für die Wochenplanung. An heißen Levante-Tagen sorgt drinnen die Klimaanlage für Abkühlung.'
       },
       winter: {
         label: 'Im Winter',
@@ -244,7 +244,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'En Tarifa no se pregunta primero por el sol, sino por el viento. En el Estrecho de Gibraltar se enfrentan dos, y cuál sople convierte el mismo día en unas vacaciones muy distintas. No es una previsión del tiempo, sino lo que vivimos aquí.',
       summer: {
         label: 'Levante o Poniente',
-        body: 'El **Levante** llega caliente y brusco desde el este: una fiesta para los kitesurfistas, pero para el resto la arena vuela por la playa. El **Poniente**, del oeste, es más suave y agradable. Muchos días del año sopla con fuerza — entonces la pregunta no es si, sino dónde: según la dirección, una cala queda resguardada mientras las playas abiertas rugen. Los días de Levante caluroso, dentro refresca el aire acondicionado.'
+        body: 'El **Levante** llega caliente y brusco desde el este: una fiesta para los kitesurfistas, pero para el resto la arena vuela por la playa. El **Poniente**, del oeste, es más suave y agradable. Muchos días del año sopla con fuerza — entonces la pregunta no es si, sino dónde: según la dirección, una cala queda resguardada mientras las playas abiertas rugen. El Levante rara vez viene solo para una tarde: cuando se instala, sopla a gusto tres, cinco o hasta siete días seguidos antes de amainar o rolar a Poniente — conviene tenerlo en cuenta al planificar la semana. Los días de Levante caluroso, dentro refresca el aire acondicionado.'
       },
       winter: {
         label: 'En invierno',
@@ -262,7 +262,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'In Tarifa you don’t ask about the sun first, but about the wind. Two of them meet at the Strait of Gibraltar, and which one blows turns the same day into a very different holiday. This is not a forecast, but what we live here.',
       summer: {
         label: 'Levante or Poniente',
-        body: 'The **Levante** comes hot and fierce from the east: a party for kitesurfers, but for everyone else the sand flies across the beach. The **Poniente** from the west is milder and pleasant. On many days of the year it blows hard — then the question is not whether, but where: depending on the direction one cove sits sheltered while the open beaches roar. On hot Levante days, indoors the air conditioning cools things down.'
+        body: 'The **Levante** comes hot and fierce from the east: a party for kitesurfers, but for everyone else the sand flies across the beach. The **Poniente** from the west is milder and pleasant. On many days of the year it blows hard — then the question is not whether, but where: depending on the direction one cove sits sheltered while the open beaches roar. The levante rarely comes for just an afternoon: once it sets in, it likes to blow for three to seven days straight before it eases or turns to poniente — useful to know when planning the week. On hot Levante days, indoors the air conditioning cools things down.'
       },
       winter: {
         label: 'In winter',
@@ -280,7 +280,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'In Tarifa vraag je niet eerst naar de zon, maar naar de wind. Bij de Straat van Gibraltar botsen er twee, en welke waait maakt van dezelfde dag een heel andere vakantie. Dit is geen weersverwachting, maar wat wij hier meemaken.',
       summer: {
         label: 'Levante of Poniente',
-        body: 'De **Levante** komt heet en fel uit het oosten: een feest voor kitesurfers, maar voor de rest vliegt het zand over het strand. De **Poniente** uit het westen is milder en aangenamer. Veel dagen van het jaar waait het stevig — dan is de vraag niet of, maar waar: afhankelijk van de richting ligt de ene baai luw terwijl de open stranden razen. Op hete Levante-dagen zorgt binnen de airconditioning voor verkoeling.'
+        body: 'De **Levante** komt heet en fel uit het oosten: een feest voor kitesurfers, maar voor de rest vliegt het zand over het strand. De **Poniente** uit het westen is milder en aangenamer. Veel dagen van het jaar waait het stevig — dan is de vraag niet of, maar waar: afhankelijk van de richting ligt de ene baai luw terwijl de open stranden razen. De levante komt zelden voor één middag: als hij zich opbouwt, waait hij graag drie tot zeven dagen aan een stuk voordat hij gaat liggen of naar poniente draait — handig om te weten voor je weekplanning. Op hete Levante-dagen zorgt binnen de airconditioning voor verkoeling.'
       },
       winter: {
         label: 'In de winter',
@@ -298,7 +298,7 @@ export const climateMicroclimateContent: Partial<
       intro: 'I Tarifa frågar man inte först om solen, utan om vinden. Vid Gibraltarsundet möts två, och vilken som blåser gör samma dag till en helt annan semester. Det här är ingen väderprognos, utan vad vi lever med här.',
       summer: {
         label: 'Levante eller Poniente',
-        body: 'Den **Levante** kommer het och hård från öster: en fest för kitesurfare, men för alla andra flyger sanden över stranden. Den **Poniente** från väster är mildare och behagligare. Många dagar om året blåser det kraftigt — då är frågan inte om, utan var: beroende på riktning ligger en vik i lä medan de öppna stränderna dånar. Heta Levante-dagar svalkar luftkonditioneringen inomhus.'
+        body: 'Den **Levante** kommer het och hård från öster: en fest för kitesurfare, men för alla andra flyger sanden över stranden. Den **Poniente** från väster är mildare och behagligare. Många dagar om året blåser det kraftigt — då är frågan inte om, utan var: beroende på riktning ligger en vik i lä medan de öppna stränderna dånar. Levanten kommer sällan bara för en eftermiddag: när den sätter in blåser den gärna tre till sju dagar i sträck innan den mojnar eller vänder till poniente — bra att veta när man planerar veckan. Heta Levante-dagar svalkar luftkonditioneringen inomhus.'
       },
       winter: {
         label: 'På vintern',
