@@ -9,7 +9,9 @@ import LocationGuideIcon, {
 } from '../../components/location/LocationGuideIcon.astro';
 import LocationGuideEvidence from '../../components/location/LocationGuideEvidence.astro';
 import LocationGuideHero from '../../components/location/LocationGuideHero.astro';
+import LocationPanoramaHero from '../../components/location/LocationPanoramaHero.astro';
 import LocationWeatherHero from '../../components/location/LocationWeatherHero.astro';
+import type { ResolvedRouteImage } from '../../lib/images/routeImages';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import type { AmaraLanguage } from '../../types/seo';
 import { getPageEndAttributes, type AmaraPageEndRole } from '../../components/page-end/pageEndContract';
@@ -55,6 +57,9 @@ interface Props {
     updated?: string;
     note?: string;
   };
+  /** Optional panorama photo hero; when set (guide presentation), the page opens with an
+   * edge-to-edge photo hero instead of the guide evidence card. */
+  heroImage?: ResolvedRouteImage;
   authorName?: string;
   authorHref?: string;
   facts: Fact[];
@@ -108,6 +113,7 @@ const {
   topic,
   lang,
   hero,
+  heroImage,
   authorName,
   authorHref,
   facts,
@@ -170,6 +176,21 @@ if (presentation === 'article' && !byline) {
         evidenceNote={weatherVisual!.note}
         byline={byline}
       />
+    ) : presentation === 'guide' && heroImage ? (
+      <LocationPanoramaHero
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        subtitle={hero.subtitle}
+        paragraphs={[hero.standfirst]}
+        imageSrc={heroImage.src}
+        imageAlt={heroImage.alt}
+        focalPoint={heroImage.focalPoint ?? '50% 50%'}
+        family={family === 'experience' ? 'experience' : 'location'}
+        role="spoke"
+        topic={topic}
+      >
+        {byline && <EditorialByline slot="meta" {...byline} />}
+      </LocationPanoramaHero>
     ) : presentation === 'guide' ? (
       <LocationGuideHero
         eyebrow={hero.eyebrow}
