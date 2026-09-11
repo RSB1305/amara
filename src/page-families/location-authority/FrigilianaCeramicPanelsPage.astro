@@ -64,6 +64,21 @@ const panels = copy.panels.map((panel) => ({
 
 const transcriptionLabel = t(copy.register.transcriptionLabel);
 const readMoreLabel = t(copy.register.readMoreLabel);
+
+/* This page's concrete guest-guide perk is the audio guide, so the bridge speaks to
+   that instead of the generic recommendations, and the phone shows the audio screen. */
+const bridgeCopyOverride = {
+  eyebrow: t(copy.bridge.eyebrow),
+  title: t(copy.bridge.title),
+  lead: t(copy.bridge.lead),
+  lines: copy.bridge.lines.map((line) => t(line))
+};
+const phoneTopicPreview = {
+  eyebrow: copy.phonePreview.eyebrow,
+  title: copy.phonePreview.title,
+  subtitle: copy.phonePreview.subtitle,
+  cards: copy.phonePreview.cards.map((card) => ({ icon: card.icon, title: card.title, meta: card.meta }))
+};
 ---
 
 <LocationAuthorityLayout
@@ -192,7 +207,9 @@ const readMoreLabel = t(copy.register.readMoreLabel);
       <GuestGuideBridge
         lang={currentLang}
         destination="frigiliana"
-        guideSlugs={['frigiliana-guest-sightseeing']}
+        guideSlugs={['frigiliana-guest-ceramic-panels']}
+        copyOverride={bridgeCopyOverride}
+        topicPreview={phoneTopicPreview}
       />
 
       <section class="max-w-screen-2xl mx-auto px-6 pt-24 pb-24 md:px-12">

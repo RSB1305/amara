@@ -620,5 +620,82 @@ export const frigilianaCeramicPanelsCopy = {
       'Beschikbaarheid bekijken',
       'Se tillgänglighet'
     )
+  },
+  /* Page-specific guest-guide bridge: this page's concrete perk is the audio guide,
+     not the generic recommendations. Overrides the generic bridge copy and shows the
+     audio-guide screen in the phone mockup. */
+  bridge: {
+    eyebrow: l(
+      'Your guest extra',
+      'Euer Gäste-Extra',
+      'Vuestro extra de huésped',
+      'Jullie gasten-extra',
+      'Ert gästextra'
+    ),
+    title: l(
+      'The twelve panels as an audio guide — for our guests',
+      'Die zwölf Tafeln als Audioguide — für unsere Gäste',
+      'Los doce azulejos como audioguía, para nuestros huéspedes',
+      'De twaalf panelen als audiogids — voor onze gasten',
+      'De tolv panelerna som ljudguide — för våra gäster'
+    ),
+    lead: l(
+      'Book with us directly and the AMARA Guest Guide gives you a spoken story for each of the twelve panels: stand in front of a panel, press play, and hear what happened here instead of reading a few lines — with the exact walking route from your front door.',
+      'Wer direkt bei uns bucht, bekommt im AMARA Gästeguide zu jeder der zwölf Tafeln eine gesprochene Erzählung: Ihr steht vor der Tafel, drückt auf Play und hört, was hier geschah, statt nur ein paar Zeilen zu lesen — dazu die genaue Geh-Route ab eurer Haustür.',
+      'Si reserváis directamente con nosotros, el AMARA Gästeguide os ofrece una narración hablada para cada uno de los doce azulejos: os plantáis ante el azulejo, le dais al play y escucháis lo que aquí ocurrió, en vez de leer solo unas líneas, con la ruta a pie exacta desde vuestra puerta.',
+      'Wie rechtstreeks bij ons boekt, krijgt in de AMARA Gästeguide bij elk van de twaalf panelen een gesproken verhaal: je staat voor het paneel, drukt op play en hoort wat hier gebeurde, in plaats van slechts een paar regels te lezen — met de precieze wandelroute vanaf je voordeur.',
+      'Bokar ni direkt hos oss ger AMARA Gästeguide er en talad berättelse till var och en av de tolv panelerna: ni står framför panelen, trycker på play och hör vad som hände här, i stället för att bara läsa några rader — med den exakta promenadrutten från er dörr.'
+    ),
+    lines: [
+      l(
+        'A listening piece of about a minute and a half for each of the twelve panels, in your language',
+        'Zu jeder der zwölf Tafeln ein Hörstück von etwa anderthalb Minuten, in eurer Sprache',
+        'Un audio de un minuto y medio aproximadamente para cada uno de los doce azulejos, en vuestro idioma',
+        'Bij elk van de twaalf panelen een luisterfragment van ongeveer anderhalve minuut, in jullie taal',
+        'Ett lyssningsstycke på ungefär en och en halv minut till var och en av de tolv panelerna, på ert språk'
+      ),
+      l(
+        'Playable right there on the spot, with the text to read along',
+        'Direkt vor Ort abspielbar, mit Text zum Mitlesen',
+        'Reproducible allí mismo, con el texto para seguir la lectura',
+        'Ter plekke af te spelen, met de tekst om mee te lezen',
+        'Spelas upp direkt på plats, med texten att läsa med'
+      ),
+      l(
+        'The exact walking route from Casa AMARA, a few minutes to the start',
+        'Die genaue Geh-Route ab Casa AMARA, in wenigen Minuten am Start',
+        'La ruta a pie exacta desde Casa AMARA, a pocos minutos del inicio',
+        'De precieze wandelroute vanaf Casa AMARA, in een paar minuten bij het startpunt',
+        'Den exakta promenadrutten från Casa AMARA, några minuter till starten'
+      )
+    ]
+  },
+  phonePreview: {
+    eyebrow: l('AMARA audio guide', 'AMARA Audioguide', 'Audioguía AMARA', 'AMARA audiogids', 'AMARA ljudguide'),
+    title: l('The twelve panels', 'Die zwölf Tafeln', 'Los doce azulejos', 'De twaalf panelen', 'De tolv panelerna'),
+    subtitle: l(
+      '12 stops · listen as you walk',
+      '12 Stationen · unterwegs anhören',
+      '12 paradas · escuchad al caminar',
+      '12 haltes · luister onderweg',
+      '12 stopp · lyssna medan ni går'
+    ),
+    cards: [
+      {
+        icon: '▶',
+        title: l('1 · La Tierra', '1 · La Tierra', '1 · La Tierra', '1 · La Tierra', '1 · La Tierra'),
+        meta: l('Listen · ~1½ min', 'Anhören · ~1½ Min', 'Escuchar · ~1½ min', 'Luisteren · ~1½ min', 'Lyssna · ~1½ min')
+      },
+      {
+        icon: '▶',
+        title: l('5 · La Identidad', '5 · La Identidad', '5 · La Identidad', '5 · La Identidad', '5 · La Identidad'),
+        meta: l('Listen · ~1½ min', 'Anhören · ~1½ Min', 'Escuchar · ~1½ min', 'Luisteren · ~1½ min', 'Lyssna · ~1½ min')
+      },
+      {
+        icon: '▶',
+        title: l('9 · El Asedio', '9 · El Asedio', '9 · El Asedio', '9 · El Asedio', '9 · El Asedio'),
+        meta: l('Listen · ~1½ min', 'Anhören · ~1½ Min', 'Escuchar · ~1½ min', 'Luisteren · ~1½ min', 'Lyssna · ~1½ min')
+      }
+    ]
   }
 } as const;

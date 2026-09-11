@@ -1,6 +1,6 @@
 ---
 import GuestGuidePhone, { type GuestGuidePhoneTopicPreview } from './GuestGuidePhone.astro';
-import { buildGuestGuideBridgeCopy } from '../../lib/guestGuideBridge';
+import { buildGuestGuideBridgeCopy, type GuestGuideBridgeCopy } from '../../lib/guestGuideBridge';
 import { staySearchHref, type StaySearchDestination } from '../../lib/staySearchHref';
 import { experienceStayBridge } from '../../content/experienceStayBridgeContent';
 import { guestGuideLandingHref } from '../../../guest-experience/guide-routes.mjs';
@@ -27,10 +27,16 @@ interface Props {
   guideSlugs: readonly string[];
   /** When set, the phone shows this topic's guide screen instead of the generic home menu. */
   topicPreview?: GuestGuidePhoneTopicPreview;
+  /**
+   * Page-specific, already-localized copy that replaces the record-derived text
+   * field by field (e.g. a page about the ceramic-panels audio guide, whose guide
+   * entry carries no place records). Fields left out keep the generic value.
+   */
+  copyOverride?: Partial<GuestGuideBridgeCopy>;
 }
 
-const { lang, destination, guideSlugs, topicPreview } = Astro.props;
-const copy = buildGuestGuideBridgeCopy(destination, guideSlugs, lang);
+const { lang, destination, guideSlugs, topicPreview, copyOverride } = Astro.props;
+const copy: GuestGuideBridgeCopy = { ...buildGuestGuideBridgeCopy(destination, guideSlugs, lang), ...copyOverride };
 const availabilityHref = staySearchHref(lang, destination);
 const landingHref = guestGuideLandingHref(lang);
 ---
