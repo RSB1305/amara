@@ -68,11 +68,11 @@ export const tarifaKitesurfingWindImages = defineRouteImages({
         sv: "Windgurus prognostabell för Tarifa: vindstyrka, byar, riktning, temperatur, moln, regn och betyg över flera dagar, med modellflikarna under"
       },
       caption: {
-        en: "This is what the table looks like at Windguru; the link opens it live. The rows are explained further down.",
-        de: "So sieht die Tabelle bei Windguru aus; der Link öffnet sie live. Die Zeilen erklären wir weiter unten.",
-        es: "Así se ve la tabla en Windguru; el enlace la abre en directo. Las filas las explicamos más abajo.",
-        nl: "Zo ziet de tabel er bij Windguru uit; de link opent hem live. De rijen leggen we verderop uit.",
-        sv: "Så ser tabellen ut hos Windguru; länken öppnar den live. Raderna förklarar vi längre ner."
+        en: "This is what the table looks like at Windguru; the link opens it live. The rows are explained directly below.",
+        de: "So sieht die Tabelle bei Windguru aus; der Link öffnet sie live. Die Zeilen erklären wir direkt darunter.",
+        es: "Así se ve la tabla en Windguru; el enlace la abre en directo. Las filas las explicamos justo debajo.",
+        nl: "Zo ziet de tabel er bij Windguru uit; de link opent hem live. De rijen leggen we direct hieronder uit.",
+        sv: "Så ser tabellen ut hos Windguru; länken öppnar den live. Raderna förklarar vi direkt nedanför."
       }
     },
     {

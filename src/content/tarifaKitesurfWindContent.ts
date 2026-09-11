@@ -211,8 +211,8 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
     label: l('On this page', 'Auf dieser Seite', 'En esta página', 'Op deze pagina', 'På den här sidan'),
     items: [
       { id: 'heute', label: l('Today', 'Heute', 'Hoy', 'Vandaag', 'I dag') },
-      { id: 'welcher-wind', label: l('Which wind', 'Welcher Wind', 'Qué viento', 'Welke wind', 'Vilken vind') },
       { id: 'tabelle', label: l('Reading the table', 'Die Tabelle lesen', 'Leer la tabla', 'De tabel lezen', 'Läsa tabellen') },
+      { id: 'welcher-wind', label: l('Which wind', 'Welcher Wind', 'Qué viento', 'Welke wind', 'Vilken vind') },
       { id: 'thermik', label: l('Thermal wind', 'Thermik', 'Térmica', 'Thermiek', 'Termik') },
       { id: 'wo-raus', label: l('Where to launch', 'Wo raus', 'Dónde salir', 'Waar het water op', 'Var man går ut') },
       { id: 'ernstfall', label: l('In an emergency', 'Im Ernstfall', 'En caso de emergencia', 'In noodgevallen', 'I ett nödläge') }
@@ -225,7 +225,7 @@ export const tarifaKitesurfWindContent: TarifaKitesurfWindContent = {
     windguru: {
       eyebrow: l('Windguru · Tarifa', 'Windguru · Tarifa', 'Windguru · Tarifa', 'Windguru · Tarifa', 'Windguru · Tarifa'),
       title: l('The table everyone here checks in the morning, live at Windguru', 'Die Tabelle, auf die hier morgens alle schauen, live bei Windguru', 'La tabla que todos miran aquí por la mañana, en directo en Windguru', 'De tabel waar hier ’s ochtends iedereen naar kijkt, live bij Windguru', 'Tabellen alla här tittar på om morgonen, live hos Windguru'),
-      text: l('Two models: GFS 13 km for the trend over the next days, **WRF 3 km for the local day**. How to read the rows is further down under “Reading the table”, on an example day.', 'Zwei Modelle: GFS 13 km für den Trend der nächsten Tage, **WRF 3 km für den lokalen Tag**. Wie ihr die Zeilen lest, steht weiter unten unter „Die Tabelle lesen“, an einem Beispieltag.', 'Dos modelos: GFS 13 km para la tendencia de los próximos días, **WRF 3 km para el día local**. Cómo leer las filas está más abajo, en «Leer la tabla», con un día de ejemplo.', 'Twee modellen: GFS 13 km voor de trend van de komende dagen, **WRF 3 km voor de lokale dag**. Hoe jullie de rijen lezen, staat verderop onder “De tabel lezen”, aan de hand van een voorbeelddag.', 'Två modeller: GFS 13 km för trenden de närmaste dagarna, **WRF 3 km för den lokala dagen**. Hur ni läser raderna står längre ner under ”Läsa tabellen”, på en exempeldag.'),
+      text: l('Two models: GFS 13 km for the trend over the next days, **WRF 3 km for the local day**. How to read the rows is directly below, on an example day.', 'Zwei Modelle: GFS 13 km für den Trend der nächsten Tage, **WRF 3 km für den lokalen Tag**. Wie ihr die Zeilen lest, steht direkt darunter, an einem Beispieltag.', 'Dos modelos: GFS 13 km para la tendencia de los próximos días, **WRF 3 km para el día local**. Cómo leer las filas está justo debajo, con un día de ejemplo.', 'Twee modellen: GFS 13 km voor de trend van de komende dagen, **WRF 3 km voor de lokale dag**. Hoe jullie de rijen lezen, staat direct hieronder, aan de hand van een voorbeelddag.', 'Två modeller: GFS 13 km för trenden de närmaste dagarna, **WRF 3 km för den lokala dagen**. Hur ni läser raderna står direkt nedanför, på en exempeldag.'),
       linkLabel: l('Open Windguru Tarifa', 'Windguru Tarifa öffnen', 'Abrir Windguru Tarifa', 'Open Windguru Tarifa', 'Öppna Windguru Tarifa'),
       linkHref: windguruHref
     },
