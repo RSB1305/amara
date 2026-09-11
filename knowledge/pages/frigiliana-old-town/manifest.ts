@@ -20,6 +20,7 @@ export const frigilianaOldTownKnowledge = defineKnowledgePageManifest({
     '2026-08-24__121347__frigiliana-agriculture-lived-landscape__research-001',
     '2026-09-11__080827__frigiliana-ceramic-panels-provenance__research-001',
     '2026-09-11__123300__frigiliana-el-ingenio-provenance__research-001',
+    '2026-09-11__133000__frigiliana-casa-del-apero-provenance__research-001',
   ],
   coverage: [
     {
@@ -89,10 +90,16 @@ export const frigilianaOldTownKnowledge = defineKnowledgePageManifest({
     },
     {
       authoringArea: 'casa-del-apero',
-      purpose: 'Describe Casa del Apero, its date, former use and current public functions only from a normalized monument owner.',
-      factIds: [],
-      status: 'gap',
-      notes: 'The current seventeenth-century, agricultural-storage, cultural-centre, library, archive and tourist-office claims are not represented in the canonical fact layer.',
+      purpose: 'Describe Casa del Apero: the early-17th-century ingenio annex, the fabric, and the current cultural-centre functions, keeping opening hours and admission as current checks.',
+      factIds: [
+        'frigiliana.casa-del-apero.origin.ingenio-annex-17c',
+        'frigiliana.casa-del-apero.architecture.patio-tapial-brick',
+        'frigiliana.casa-del-apero.restoration.1980s-1990s',
+        'frigiliana.casa-del-apero.current-use.cultural-centre',
+        'frigiliana.casa-del-apero.museum.archaeological',
+      ],
+      status: 'covered',
+      notes: 'Covered by research-001 (2026-09-11): early-17th-century agricultural annex functionally linked to El Ingenio (granary, stables, apero store), rammed-earth-and-brick fabric around a patio, acquired early 1980s and restored through the 1990s; today the village cultural centre with library, archaeological museum, exhibition hall, historical archive and tourism office. Opening hours, admission and museum holdings stay current checks, not fixed facts. Photography for a spoke/tile is still missing.',
     },
     {
       authoringArea: 'san-antonio',
