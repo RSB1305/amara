@@ -25,6 +25,7 @@ export const frigilianaDayTripsKnowledge = defineKnowledgePageManifest({
         'frigiliana.day-trips.malaga.cathedral-rooftop',
         'frigiliana.day-trips.malaga.museum-closing-days',
         'frigiliana.day-trips.malaga.parking-and-espetos',
+        'frigiliana.day-trips.malaga.identity-history',
       ],
       status: 'covered',
       notes:
@@ -39,6 +40,7 @@ export const frigilianaDayTripsKnowledge = defineKnowledgePageManifest({
         'frigiliana.day-trips.granada.walk-to-nasrid',
         'frigiliana.day-trips.granada.free-tapas-and-mirador',
         'frigiliana.day-trips.granada.planb-generalife-albaicin',
+        'frigiliana.day-trips.granada.identity-nasrid-1492',
       ],
       status: 'covered',
       notes:
@@ -53,6 +55,7 @@ export const frigilianaDayTripsKnowledge = defineKnowledgePageManifest({
         'frigiliana.day-trips.caminito.rules',
         'frigiliana.day-trips.caminito.parking-logistic',
         'frigiliana.day-trips.caminito.planb-ardales-reservoirs',
+        'frigiliana.day-trips.caminito.history-alfonso-2015',
       ],
       status: 'covered',
       notes:
@@ -66,6 +69,7 @@ export const frigilianaDayTripsKnowledge = defineKnowledgePageManifest({
         'frigiliana.day-trips.ronda.puente-nuevo-view',
         'frigiliana.day-trips.ronda.plaza-de-toros',
         'frigiliana.day-trips.ronda.wine-and-setenil',
+        'frigiliana.day-trips.ronda.history-puente-1793',
       ],
       status: 'covered',
       notes:

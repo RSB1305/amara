@@ -119,6 +119,7 @@ export interface PublicDayTrip {
   kicker: string;
   title: string;
   summary: string;
+  background: string[];
   facts: { label: string; value: string }[];
   planningTitle: string;
   callout: string;
@@ -135,6 +136,7 @@ export function publicDayTrip(id: string, lang: AmaraLanguage): PublicDayTrip {
     kicker: copy.kicker[lang],
     title: copy.title[lang],
     summary: copy.summary[lang],
+    background: copy.background?.map((paragraph) => paragraph[lang]) ?? [],
     facts: copy.facts.map((fact) => ({ label: fact.label[lang], value: fact.value[lang] })),
     planningTitle: copy.planningTitle[lang],
     callout: copy.callout[lang],

@@ -264,6 +264,59 @@ const facts = [
     volatility: 'low',
     claimBoundary: 'The wine appellation is the Serranía de Ronda subzone, not an independent "D.O. Ronda".',
   },
+  // — durable context / history (public editorial depth) —
+  {
+    id: 'frigiliana.day-trips.malaga.identity-history',
+    subject: 'frigiliana',
+    topic: 'day-trips',
+    statement:
+      'Málaga is one of the oldest cities in Europe — Phoenician, then Roman, then Moorish — with the Roman theatre at the foot of the Moorish Alcazaba, and it is Picasso’s birthplace, anchoring a dense run of galleries.',
+    status: 'verified',
+    sourceIds: ['visita-malaga-official-2026'],
+    checkedAt: '2026-09-12',
+    reviewAfter: '2031-09-12',
+    volatility: 'low',
+    claimBoundary: 'Durable identity/history for the public editorial layer, not an operating detail.',
+  },
+  {
+    id: 'frigiliana.day-trips.granada.identity-nasrid-1492',
+    subject: 'frigiliana',
+    topic: 'day-trips',
+    statement:
+      'Granada was the last capital of Muslim Spain; the Alhambra is the Nasrid palace-city left when the kingdom fell in 1492, facing the Albaicín, which keeps the street plan of the medieval Moorish town.',
+    status: 'verified',
+    sourceIds: ['alhambra-patronato-visit-2026'],
+    checkedAt: '2026-09-12',
+    reviewAfter: '2031-09-12',
+    volatility: 'low',
+    claimBoundary: 'Durable identity/history for the public editorial layer.',
+  },
+  {
+    id: 'frigiliana.day-trips.caminito.history-alfonso-2015',
+    subject: 'frigiliana',
+    topic: 'day-trips',
+    statement:
+      'The Caminito del Rey was built in 1901–1905 as an access walkway for the Gaitanes-gorge hydroelectric works and named after King Alfonso XIII, who crossed it in 1921 to inaugurate the dam; after falling into a dangerous state it reopened following a full restoration in 2015.',
+    status: 'verified',
+    sourceIds: ['wikipedia-caminito-del-rey-2026', 'caminito-del-rey-official-2026'],
+    checkedAt: '2026-09-12',
+    reviewAfter: '2031-09-12',
+    volatility: 'low',
+    claimBoundary: 'Durable history; the exact 1901–1905 build span and the 1921 royal walk are the well-established dates.',
+  },
+  {
+    id: 'frigiliana.day-trips.ronda.history-puente-1793',
+    subject: 'frigiliana',
+    topic: 'day-trips',
+    statement:
+      'Ronda’s Puente Nuevo over the El Tajo gorge was completed in 1793 after decades of work, spanning a drop of well over a hundred metres between the old Moorish town and the newer quarter, and the split setting drew Romantic-era travellers and writers.',
+    status: 'verified',
+    sourceIds: ['wikipedia-puente-nuevo-ronda-2026', 'turismo-ronda-official-2026'],
+    checkedAt: '2026-09-12',
+    reviewAfter: '2031-09-12',
+    volatility: 'low',
+    claimBoundary: 'The 1793 completion is well established; the gorge depth is commonly given as ~100–120 m.',
+  },
 ] as const satisfies readonly DayTripFactInput[];
 
 export const frigilianaDayTripsFacts = defineKnowledgeFacts(facts);

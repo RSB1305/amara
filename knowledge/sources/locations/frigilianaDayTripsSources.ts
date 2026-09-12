@@ -170,6 +170,32 @@ export const frigilianaDayTripsSources = defineKnowledgeSources([
     reuse: 'internal-only',
   },
   {
+    id: 'wikipedia-caminito-del-rey-2026',
+    title: 'Caminito del Rey',
+    publisher: 'Wikipedia',
+    sourceType: 'secondary',
+    url: 'https://en.wikipedia.org/wiki/Caminito_del_Rey',
+    accessedAt: '2026-09-12',
+    language: 'en',
+    scope:
+      'History: built as an access walkway for the hydroelectric works in the Gaitanes gorge (1901–1905), named after King Alfonso XIII who crossed it in 1921 to inaugurate the Conde del Guadalhorce dam; it fell into a dangerous state and reopened after a full restoration in 2015.',
+    limitations: 'Tertiary encyclopaedia; dates are well established but presented as summary history.',
+    reuse: 'link-and-cite',
+  },
+  {
+    id: 'wikipedia-puente-nuevo-ronda-2026',
+    title: 'Puente Nuevo (Ronda)',
+    publisher: 'Wikipedia',
+    sourceType: 'secondary',
+    url: 'https://en.wikipedia.org/wiki/Puente_Nuevo_(Ronda)',
+    accessedAt: '2026-09-12',
+    language: 'en',
+    scope:
+      'The Puente Nuevo over the El Tajo gorge: begun 1759, completed 1793 after decades of work, spanning a drop of well over a hundred metres between the old and new town.',
+    limitations: 'Tertiary encyclopaedia; the gorge depth is commonly given around 100–120 m.',
+    reuse: 'link-and-cite',
+  },
+  {
     id: 'amara-day-trips-web-synthesis-2026',
     title: 'Amara web synthesis — Frigiliana day trips (Málaga, Granada, Caminito del Rey, Ronda)',
     publisher: 'AMARA Research Vault (web synthesis)',

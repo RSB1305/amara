@@ -9,6 +9,7 @@ interface DayTripDestination {
   kicker: string;
   title: string;
   summary: string;
+  background?: readonly string[];
   facts: readonly {
     label: string;
     value: string;
@@ -44,6 +45,16 @@ const { destinations, emphasizeText = false } = Astro.props;
         variant="editorial"
         emphasizeIntro={emphasizeText}
       />
+
+      {destination.background && destination.background.length > 0 && (
+        <div class="mb-14 max-w-3xl space-y-6">
+          {destination.background.map((paragraph) => (
+            <p class="am-text-body leading-relaxed text-on-surface-variant">
+              {emphasizeText ? <InlineEmphasis text={paragraph} /> : paragraph}
+            </p>
+          ))}
+        </div>
+      )}
 
       <div class="grid grid-cols-1 gap-x-16 gap-y-14 lg:grid-cols-12">
         <article class="border-t border-outline-variant/25 pt-8 lg:col-span-5">

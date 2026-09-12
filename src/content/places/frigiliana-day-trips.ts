@@ -26,6 +26,22 @@ export const frigilianaDayTripPlaceCopy = definePlaceCopy({
         nl: "Málaga is de eenvoudigste culturele dagtocht vanuit Frigiliana: een beloopbaar historisch centrum, musea, uitstekend eten en een moderne havensfeer. Het is de meest flexibele keuze voor een boeiende dag zonder strak tijdschema.",
         sv: "Málaga är den enklaste kulturella dagsutflykten från Frigiliana: en promenadvänlig gammal stad, museer, utmärkt mat och en modern hamnmiljö. Det är det mest flexibla valet när ni vill ha en givande dag utan ett strikt schema."
       },
+      background: [
+        {
+          en: "Málaga is one of the oldest cities in Europe — Phoenician, then Roman, then Moorish — and wears all of it openly: the Roman theatre sits at the very foot of the Moorish Alcazaba, one layer on the next within a few hundred metres. It is also Picasso's home town, and the museum in his old quarter anchors an unusually dense run of galleries for a city this size.",
+          de: "Málaga ist eine der ältesten Städte Europas — phönizisch, dann römisch, dann maurisch — und trägt all das offen: Das römische Theater liegt direkt am Fuß der maurischen Alcazaba, eine Schicht auf der nächsten, auf wenigen hundert Metern. Es ist außerdem Picassos Geburtsstadt, und das Museum in seinem alten Viertel bündelt eine für diese Stadtgröße ungewöhnlich dichte Reihe von Galerien.",
+          es: "Málaga es una de las ciudades más antiguas de Europa —fenicia, luego romana, luego musulmana— y lo lleva a la vista: el teatro romano está al pie mismo de la Alcazaba árabe, una capa sobre otra en unos pocos cientos de metros. Es además la ciudad natal de Picasso, y el museo en su antiguo barrio reúne una densidad de galerías poco común para una ciudad de este tamaño.",
+          nl: "Málaga is een van de oudste steden van Europa — Fenicisch, dan Romeins, dan Moors — en draagt dat allemaal openlijk: het Romeinse theater ligt pal aan de voet van de Moorse Alcazaba, de ene laag op de andere binnen een paar honderd meter. Het is ook de geboortestad van Picasso, en het museum in zijn oude wijk bundelt een voor deze stadsgrootte ongewoon dichte reeks galeries.",
+          sv: "Málaga är en av Europas äldsta städer — fenicisk, sedan romersk, sedan morisk — och bär allt öppet: den romerska teatern ligger vid själva foten av den moriska Alcazaba, det ena lagret på det andra inom några hundra meter. Det är dessutom Picassos födelsestad, och museet i hans gamla kvarter samlar en för en stad av den här storleken ovanligt tät rad av gallerier."
+        },
+        {
+          en: "What makes it the easy day is that the centre is flat and largely car-free. From the port at Muelle Uno you walk in along the marble-paved Calle Larios to the cathedral and the Atarazanas market hall, and the city rewards wandering — a museum or two, a long lunch, the sea never far — more than a checklist.",
+          de: "Zum einfachen Tag wird sie, weil das Zentrum flach und weitgehend autofrei ist. Vom Hafen am Muelle Uno lauft ihr über die marmorne Calle Larios hinein zur Kathedrale und zur Markthalle Atarazanas — und die Stadt belohnt Bummeln (ein, zwei Museen, ein langes Mittagessen, das Meer nie weit) mehr als eine Checkliste.",
+          es: "Lo que la convierte en el día fácil es que el centro es llano y casi peatonal. Desde el puerto, en Muelle Uno, entráis por la calle Larios, de mármol, hasta la catedral y el mercado de Atarazanas; y la ciudad premia el paseo —un museo o dos, una comida larga, el mar siempre cerca— más que una lista de tareas.",
+          nl: "Wat het de makkelijke dag maakt, is dat het centrum vlak en grotendeels autovrij is. Vanaf de haven bij Muelle Uno loop je via de marmeren Calle Larios naar binnen, naar de kathedraal en de markthal van Atarazanas — en de stad beloont slenteren (een museum of twee, een lange lunch, de zee nooit ver) meer dan een checklist.",
+          sv: "Det som gör den till den enkla dagen är att centrum är platt och till stor del bilfritt. Från hamnen vid Muelle Uno går ni in via den marmorlagda Calle Larios till katedralen och saluhallen Atarazanas — och staden belönar strövande (ett museum eller två, en lång lunch, havet aldrig långt borta) mer än en checklista."
+        }
+      ],
       facts: [
         { label: {
             en: "Typical drive",
@@ -199,6 +215,22 @@ export const frigilianaDayTripPlaceCopy = definePlaceCopy({
         nl: "Granada is een Andalusische klassieker: Moorse architectuur, theehuizen, het Albaicín en het Alhambra met de Sierra Nevada op de achtergrond. De stad verdient een volle dag en beloont extra voorbereiding.",
         sv: "Granada är en andalusisk klassiker: morisk arkitektur, tehus, Albaicín och Alhambra med Sierra Nevada i bakgrunden. Staden förtjänar en hel dag och belönar lite extra planering."
       },
+      background: [
+        {
+          en: "Granada was the last capital of Muslim Spain, and the Alhambra is what the Nasrid dynasty left when the kingdom fell in 1492: a palace-city of courtyards, running water and carved stucco set against the snow of the Sierra Nevada. Facing it across the valley, the Albaicín keeps the street plan of the medieval Moorish town — a warren of white houses and cármenes, the walled garden homes.",
+          de: "Granada war die letzte Hauptstadt des muslimischen Spaniens, und die Alhambra ist das, was die Nasriden-Dynastie hinterließ, als das Reich 1492 fiel: eine Palaststadt aus Höfen, fließendem Wasser und geschnitztem Stuck vor dem Schnee der Sierra Nevada. Ihr gegenüber, über das Tal, bewahrt das Albaicín den Grundriss der mittelalterlichen Maurenstadt — ein Gewirr weißer Häuser und Cármenes, der ummauerten Gartenhäuser.",
+          es: "Granada fue la última capital de la España musulmana, y la Alhambra es lo que dejó la dinastía nazarí cuando el reino cayó en 1492: una ciudad palaciega de patios, agua corriente y yesería tallada frente a la nieve de Sierra Nevada. Enfrente, al otro lado del valle, el Albaicín conserva el trazado de la ciudad medieval musulmana: un laberinto de casas blancas y cármenes, las casas con jardín amurallado.",
+          nl: "Granada was de laatste hoofdstad van moslim-Spanje, en het Alhambra is wat de Nasridische dynastie naliet toen het koninkrijk in 1492 viel: een paleisstad van binnenplaatsen, stromend water en gebeeldhouwd stucwerk tegen de sneeuw van de Sierra Nevada. Aan de overkant van het dal bewaart het Albaicín het stratenplan van de middeleeuwse Moorse stad — een wirwar van witte huizen en cármenes, de ommuurde tuinhuizen.",
+          sv: "Granada var det muslimska Spaniens sista huvudstad, och Alhambra är vad Nasriddynastin lämnade när riket föll 1492: en palatsstad av gårdar, rinnande vatten och skuren stuck mot Sierra Nevadas snö. Mitt emot, på andra sidan dalen, bevarar Albaicín den medeltida moriska stadens gatunät — en labyrint av vita hus och cármenes, de murade trädgårdshusen."
+        },
+        {
+          en: "A day here is really two places at once: the Alhambra hill, with the Nasrid Palaces, the Generalife gardens and the Alcazaba fortress, and the Albaicín opposite, where the classic view looks back at one from the other. It is the fullest and most planning-dependent of the four — the ticket note below is the part to get right.",
+          de: "Ein Tag hier sind eigentlich zwei Orte auf einmal: der Alhambra-Hügel mit Nasridenpalästen, Generalife-Gärten und der Festung Alcazaba, und das Albaicín gegenüber, von dem aus der klassische Blick auf den einen vom anderen zurückschaut. Es ist der vollste und planungsintensivste der vier — der Ticket-Hinweis unten ist der Teil, den man richtig machen sollte.",
+          es: "Un día aquí son en realidad dos lugares a la vez: la colina de la Alhambra, con los Palacios Nazaríes, los jardines del Generalife y la Alcazaba, y el Albaicín enfrente, desde donde la vista clásica mira de uno al otro. Es el más completo y el que más planificación exige de los cuatro: la nota sobre entradas de abajo es la parte que conviene acertar.",
+          nl: "Een dag hier zijn eigenlijk twee plekken tegelijk: de Alhambra-heuvel, met de Nasridische paleizen, de Generalife-tuinen en het Alcazaba-fort, en het Albaicín ertegenover, vanwaar het klassieke uitzicht van het een naar het ander kijkt. Het is de volste en meest planningsafhankelijke van de vier — de ticketnotitie hieronder is het deel dat je goed moet doen.",
+          sv: "En dag här är egentligen två platser på en gång: Alhambrakullen med Nasridpalatsen, Generalifes trädgårdar och fästningen Alcazaba, och Albaicín mittemot, varifrån den klassiska vyn blickar från den ena mot den andra. Det är den fullaste och mest planeringskrävande av de fyra — biljettnoteringen nedan är den del man bör få rätt."
+        }
+      ],
       facts: [
         { label: {
             en: "Typical drive",
@@ -362,6 +394,22 @@ export const frigilianaDayTripPlaceCopy = definePlaceCopy({
         nl: "Caminito del Rey loopt spectaculair door de Gaitanes-kloof, deels over paden en deels over loopbruggen tegen steile kalkstenen wanden. Geologie, weidse uitzichten en het bijzondere karakter maken dit tot een unieke dag.",
         sv: "Caminito del Rey går spektakulärt genom Gaitanesravinen, delvis på stigar och delvis på gångbroar längs branta kalkstensväggar. Geologi, vida vyer och platsens speciella känsla gör dagen unik."
       },
+      background: [
+        {
+          en: "The Caminito del Rey — the \"King's little path\" — began as a service walkway for the hydroelectric works in the Gaitanes gorge in the early 1900s, and takes its name from King Alfonso XIII, who walked it in 1921 to open the dam. It later crumbled into one of the most dangerous paths anywhere; a full restoration reopened it in 2015 as the secure boardwalk of today.",
+          de: "Der Caminito del Rey — der „Königspfad“ — begann Anfang des 20. Jahrhunderts als Betriebsweg für die Wasserkraftwerke in der Gaitanes-Schlucht und trägt seinen Namen nach König Alfons XIII., der ihn 1921 zur Einweihung des Staudamms abging. Später zerfiel er zu einem der gefährlichsten Wege überhaupt; eine vollständige Sanierung öffnete ihn 2015 als den sicheren Steg von heute.",
+          es: "El Caminito del Rey —el «camino del rey»— nació a principios del siglo XX como pasarela de servicio para los saltos hidroeléctricos del Desfiladero de los Gaitanes, y debe su nombre al rey Alfonso XIII, que lo recorrió en 1921 para inaugurar la presa. Con los años se deterioró hasta ser uno de los caminos más peligrosos del mundo; una rehabilitación completa lo reabrió en 2015 como la pasarela segura de hoy.",
+          nl: "De Caminito del Rey — het „koningspad“ — begon begin twintigste eeuw als dienstpad voor de waterkrachtwerken in de Gaitanes-kloof, en dankt zijn naam aan koning Alfons XIII, die het in 1921 bewandelde om de stuwdam te openen. Later verviel het tot een van de gevaarlijkste paden ter wereld; een volledige restauratie heropende het in 2015 als de veilige loopbrug van nu.",
+          sv: "Caminito del Rey — „kungens lilla stig“ — började i början av 1900-talet som en servicegång för vattenkraftverken i Gaitanesravinen, och har fått sitt namn efter kung Alfonso XIII, som gick den 1921 för att inviga dammen. Med tiden förföll den till en av världens farligaste stigar; en fullständig upprustning återöppnade den 2015 som dagens säkra gångbro."
+        },
+        {
+          en: "It clings to the sheer limestone walls of the Desfiladero de los Gaitanes, in places around a hundred metres above the river, and crosses the gorge on a hanging bridge. This is a booked, one-way experience — geology, big air and long views — with the logistics that come with it (see below).",
+          de: "Er klammert sich an die steilen Kalksteinwände des Desfiladero de los Gaitanes, stellenweise rund hundert Meter über dem Fluss, und quert die Schlucht auf einer Hängebrücke. Das ist ein gebuchtes Einbahn-Erlebnis — Geologie, viel Luft und weite Blicke — mit der Logistik, die dazugehört (siehe unten).",
+          es: "Se agarra a las paredes verticales de caliza del Desfiladero de los Gaitanes, a ratos a un centenar de metros sobre el río, y cruza el cañón por un puente colgante. Es una experiencia reservada y de sentido único —geología, vértigo y vistas amplias— con la logística que conlleva (ver más abajo).",
+          nl: "Het klampt zich vast aan de steile kalkstenen wanden van de Desfiladero de los Gaitanes, plaatselijk zo'n honderd meter boven de rivier, en kruist de kloof over een hangbrug. Dit is een geboekte eenrichtingservaring — geologie, veel lucht en weidse uitzichten — met de logistiek die daarbij hoort (zie onder).",
+          sv: "Den klamrar sig fast vid Desfiladero de los Gaitanes branta kalkstensväggar, ställvis omkring hundra meter över floden, och korsar ravinen på en hängbro. Det här är en bokad enkelriktad upplevelse — geologi, mycket luft och vida vyer — med den logistik som hör till (se nedan)."
+        }
+      ],
       facts: [
         { label: {
             en: "Typical drive",
@@ -518,6 +566,22 @@ export const frigilianaDayTripPlaceCopy = definePlaceCopy({
         nl: "Ronda wordt bepaald door de Puente Nuevo boven de diepe Tajo-kloof. De stad is filmisch, historisch en bijzonder fotogeniek; door de langere reis voelt dit echt als een grote dagtocht.",
         sv: "Ronda präglas av Puente Nuevo över den djupa Tajo-ravinen. Staden är filmisk, historisk och mycket fotogenisk, och den längre resan får utflykten att kännas som en riktig heldag."
       },
+      background: [
+        {
+          en: "Ronda straddles the El Tajo gorge, and the Puente Nuevo — finished in 1793 after some forty years of work — bridges the drop of well over a hundred metres between the old Moorish town and the newer quarter. That split-in-two setting made Ronda a fixture on the Romantic traveller's route and has drawn writers ever since; the town still trades on the drama.",
+          de: "Ronda liegt rittlings über der El-Tajo-Schlucht, und der Puente Nuevo — 1793 nach rund vierzig Baujahren vollendet — überbrückt den weit über hundert Meter tiefen Einschnitt zwischen der alten Maurenstadt und dem neueren Viertel. Diese in zwei Teile gespaltene Lage machte Ronda zu einem festen Punkt auf der Route der Romantik-Reisenden und zieht seither Schriftsteller an — und die Stadt lebt bis heute von dieser Dramatik.",
+          es: "Ronda se asienta a horcajadas sobre el Tajo, y el Puente Nuevo —terminado en 1793 tras unos cuarenta años de obras— salva el corte de bastante más de cien metros entre la ciudad vieja musulmana y el barrio nuevo. Ese emplazamiento partido en dos convirtió a Ronda en parada fija de los viajeros románticos y ha atraído a escritores desde entonces; la ciudad sigue viviendo de ese dramatismo.",
+          nl: "Ronda ligt schrijlings over de El Tajo-kloof, en de Puente Nuevo — voltooid in 1793 na zo'n veertig jaar bouwen — overbrugt de kloof van ruim honderd meter tussen de oude Moorse stad en de nieuwere wijk. Die in tweeën gespleten ligging maakte Ronda tot een vaste halte op de route van de romantische reizigers en trekt sindsdien schrijvers aan; de stad teert nog altijd op die dramatiek.",
+          sv: "Ronda ligger grensle över El Tajo-ravinen, och Puente Nuevo — färdig 1793 efter ett fyrtiotal års byggande — överbryggar det drygt hundra meter djupa insnittet mellan den gamla moriska staden och det nyare kvarteret. Det tudelade läget gjorde Ronda till en fast punkt på de romantiska resenärernas rutt och har dragit författare sedan dess; staden lever än på den dramatiken."
+        },
+        {
+          en: "The old side keeps its Moorish and Renaissance layers — churches, palaces, the Arab baths down by the river — while the newer side holds the Plaza de Toros, one of Spain's oldest bullrings, and the Alameda del Tajo, a garden balcony over the cliff. It is wine country too, the Serranía de Ronda.",
+          de: "Die alte Seite bewahrt ihre maurischen und Renaissance-Schichten — Kirchen, Paläste, die arabischen Bäder unten am Fluss —, während die neuere Seite die Plaza de Toros, eine der ältesten Stierkampfarenen Spaniens, und die Alameda del Tajo trägt, einen Gartenbalkon über der Kante. Weinland ist es außerdem, die Serranía de Ronda.",
+          es: "El lado antiguo conserva sus capas musulmana y renacentista —iglesias, palacios, los baños árabes junto al río—, mientras que el lado nuevo alberga la Plaza de Toros, una de las más antiguas de España, y la Alameda del Tajo, un balcón ajardinado sobre el precipicio. Es además tierra de vino, la Serranía de Ronda.",
+          nl: "De oude kant bewaart haar Moorse en renaissancelagen — kerken, paleizen, de Arabische baden beneden bij de rivier — terwijl de nieuwere kant de Plaza de Toros herbergt, een van de oudste arena's van Spanje, en de Alameda del Tajo, een tuinbalkon boven de rand. Het is ook wijnland, de Serranía de Ronda.",
+          sv: "Den gamla sidan bevarar sina moriska och renässanslager — kyrkor, palats, de arabiska baden nere vid floden — medan den nyare sidan rymmer Plaza de Toros, en av Spaniens äldsta tjurfäktningsarenor, och Alameda del Tajo, en trädgårdsbalkong över stupet. Det är dessutom vinland, Serranía de Ronda."
+        }
+      ],
       facts: [
         { label: {
             en: "Typical drive",

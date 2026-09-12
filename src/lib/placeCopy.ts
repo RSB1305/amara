@@ -51,6 +51,8 @@ export interface PublicDayTripCopy {
   kicker: LocalizedText;
   title: LocalizedText;
   summary: LocalizedText;
+  /** Durable editorial context (history and what you actually see); the public depth layer, distinct from the guide's on-the-day tips. */
+  background?: readonly LocalizedText[];
   facts: readonly { label: LocalizedText; value: LocalizedText }[];
   planningTitle: LocalizedText;
   callout: LocalizedText;
