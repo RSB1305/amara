@@ -106,6 +106,13 @@ interface ExperienceHubPageCopy {
   stories: Record<ExperienceId, ExperienceEditorial>;
   /** Lead card: the old town owns the strongest experience corridor and is not part of the shared catalogue ids. */
   oldTownStory: ExperienceEditorial;
+  /** What the year does to a Frigiliana day; the weather page is the corridor. */
+  seasons: {
+    kicker: string;
+    title: string;
+    text: string;
+    linkLabel: string;
+  };
   places: {
     kicker: string;
     title: string;
@@ -312,35 +319,35 @@ export const experienceHubSeo: AmaraAuthoringSeo = {
   ogImage: routeOgImage('frigiliana.experience'),
   languages: {
     en: {
-      title: 'Things to Do in Frigiliana',
+      title: 'Things to Do in Frigiliana: Village, Hills, Sea and Day Trips',
       description:
         'Walk through Frigiliana, head into the hills, spend a day by the sea or simply slow down at Casa AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Aktivitäten und Erlebnisse in Frigiliana',
+      title: 'Erlebnisse in Frigiliana: Dorf, Berge, Meer und Ausflüge',
       description:
         'Lauft durch Frigiliana, startet in die Berge, verbringt einen Tag am Meer oder macht es euch einfach bei Casa AMARA gemütlich.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Qué hacer en Frigiliana',
+      title: 'Qué hacer en Frigiliana: pueblo, montaña, mar y excursiones',
       description:
         'Pasead por Frigiliana, salid a la montaña, pasad el día junto al mar o disfrutad sin prisas de Casa AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Wat te doen in Frigiliana',
+      title: 'Wat te doen in Frigiliana: dorp, bergen, zee en dagtochten',
       description:
         'Wandel door Frigiliana, trek de heuvels in, breng een dag aan zee door of doe het rustig aan bij Casa AMARA.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Att göra i Frigiliana',
+      title: 'Att göra i Frigiliana: by, berg, hav och utflykter',
       description:
         'Promenera genom Frigiliana, ge er ut i bergen, tillbringa en dag vid havet eller ta det lugnt på Casa AMARA.',
       robots: 'index, follow',
@@ -520,6 +527,13 @@ export const experienceHubContent: Record<
         linkLabel: 'Explore Nerja'
       }
     },
+    seasons: {
+      kicker: 'Through the year',
+      title: 'Hiking in spring, sea in summer, sun in winter',
+      text:
+        'Spring and autumn are the hiking months, and late April to June and late August hold the village\'s big festivals. In summer you set off early and give the afternoon to the sea or the shade of the terrace. In winter Frigiliana is quiet, the midday sun is enough to sit outside, and the lanes are yours.',
+      linkLabel: 'Weather by month: what counts for hiking, beach and winter'
+    },
     closing: {
       title: 'And in the evening, walk home through the old village.',
       lead:
@@ -689,6 +703,13 @@ export const experienceHubContent: Record<
           'Die Küste bringt Strände, Spaziergänge am Meer, eine größere Restaurantauswahl und Abende, die länger dauern dürfen.',
         linkLabel: 'Nerja entdecken'
       }
+    },
+    seasons: {
+      kicker: 'Übers Jahr',
+      title: 'Wandern im Frühling, Meer im Sommer, Sonne im Winter',
+      text:
+        'Frühling und Herbst sind die Wandermonate, und von Ende April bis Juni sowie Ende August liegen die großen Feste des Dorfes. Im Sommer geht ihr früh los, der Nachmittag gehört dem Meer oder dem Schatten der Terrasse. Im Winter ist Frigiliana still, die Mittagssonne reicht für draußen, und die Gassen gehören euch.',
+      linkLabel: 'Wetter je Monat: was für Wandern, Strand und Winter zählt'
     },
     closing: {
       title: 'Und am Ende wieder nach Hause durch die Altstadt.',
@@ -860,6 +881,13 @@ export const experienceHubContent: Record<
         linkLabel: 'Descubrir Nerja'
       }
     },
+    seasons: {
+      kicker: 'A lo largo del año',
+      title: 'Senderismo en primavera, mar en verano, sol en invierno',
+      text:
+        'Primavera y otoño son los meses de senderismo, y entre finales de abril y junio, y a finales de agosto, caen las grandes fiestas del pueblo. En verano se sale temprano y la tarde es para el mar o la sombra de la terraza. En invierno Frigiliana está tranquila, el sol del mediodía basta para estar fuera y las calles son vuestras.',
+      linkLabel: 'El tiempo por meses: lo que cuenta para senderismo, playa e invierno'
+    },
     closing: {
       title: 'Y por la noche, volvéis a casa por el casco antiguo.',
       lead:
@@ -1030,6 +1058,13 @@ export const experienceHubContent: Record<
         linkLabel: 'Ontdek Nerja'
       }
     },
+    seasons: {
+      kicker: 'Door het jaar',
+      title: 'Wandelen in de lente, zee in de zomer, zon in de winter',
+      text:
+        'Lente en herfst zijn de wandelmaanden, en van eind april tot juni en eind augustus vallen de grote feesten van het dorp. In de zomer vertrek je vroeg en is de middag voor de zee of de schaduw van het terras. In de winter is Frigiliana stil, de middagzon is genoeg om buiten te zitten en de straatjes zijn van jullie.',
+      linkLabel: 'Weer per maand: wat telt voor wandelen, strand en winter'
+    },
     closing: {
       title: 'En ’s avonds lopen jullie door de oude kern naar huis.',
       lead:
@@ -1199,6 +1234,13 @@ export const experienceHubContent: Record<
           'Välj kusten för stränder, promenader längs havet, fler restauranger och en kväll som gärna får fortsätta.',
         linkLabel: 'Upptäck Nerja'
       }
+    },
+    seasons: {
+      kicker: 'Genom året',
+      title: 'Vandring på våren, hav på sommaren, sol på vintern',
+      text:
+        'Vår och höst är vandringsmånaderna, och från slutet av april till juni samt i slutet av augusti ligger byns stora fester. På sommaren ger ni er ut tidigt och eftermiddagen tillhör havet eller skuggan på terrassen. På vintern är Frigiliana stilla, middagssolen räcker för att sitta ute och gränderna är era.',
+      linkLabel: 'Väder per månad: vad som räknas för vandring, strand och vinter'
     },
     closing: {
       title: 'Och på kvällen går ni hem genom gamla byn.',

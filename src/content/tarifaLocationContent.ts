@@ -91,31 +91,31 @@ const seo: AmaraAuthoringSeo = {
   },
   languages: {
     en: {
-      title: 'Tarifa as a Base: Where to Stay and How to Get Around | AMARA',
+      title: 'Tarifa as a Base: Where to Stay and How to Get Around',
       description: 'Tarifa between the Atlantic and the Strait: Levante and Poniente, Los Lances in front of the balcony, tapas in the old town. Our apartment in La Marina, five minutes to the beach.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Tarifa als Urlaubsort: wohnen, bewegen, vorher wissen | AMARA',
+      title: 'Tarifa als Urlaubsort: wohnen, bewegen, vorher wissen',
       description: 'Tarifa zwischen Atlantik und Meerenge: Levante und Poniente, Los Lances vor dem Balkon, Tapas in der Altstadt. Unsere Wohnung in La Marina, fünf Minuten zum Strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Tarifa como base: dónde alojarse y cómo moverse | AMARA',
+      title: 'Tarifa como base: dónde alojarse y cómo moverse',
       description: 'Tarifa entre el Atlántico y el Estrecho: levante y poniente, Los Lances delante del balcón, tapas en el casco antiguo. Nuestro apartamento en La Marina, a cinco minutos de la playa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Tarifa als vakantiebasis: wonen, bewegen, weten | AMARA',
+      title: 'Tarifa als vakantiebasis: wonen, bewegen, weten',
       description: 'Tarifa tussen Atlantische Oceaan en Straat: Levante en Poniente, Los Lances voor het balkon, tapas in de oude stad. Ons appartement in La Marina, vijf minuten van het strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Tarifa som semesterbas: bo, röra sig, veta i förväg | AMARA',
+      title: 'Tarifa som semesterbas: bo, röra sig, veta i förväg',
       description: 'Tarifa mellan Atlanten och sundet: Levante och Poniente, Los Lances framför balkongen, tapas i gamla stan. Vår lägenhet i La Marina, fem minuter till stranden.',
       robots: 'index, follow',
       canonical: 'auto'

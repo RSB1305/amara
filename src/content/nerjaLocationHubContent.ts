@@ -68,31 +68,31 @@ const seo: AmaraAuthoringSeo = {
   },
   languages: {
     en: {
-      title: 'Nerja as a Base: Where to Stay and How to Get Around | AMARA',
+      title: 'Nerja as a Base: Where to Stay and How to Get Around',
       description: 'Nerja on the Mediterranean: coves, the Balcón de Europa, tapas until late and a town that is open all year. Our apartment is 200 metres from the beach.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Nerja als Urlaubsort: wohnen, bewegen, vorher wissen | AMARA',
+      title: 'Nerja als Urlaubsort: wohnen, bewegen, vorher wissen',
       description: 'Nerja am Mittelmeer: Buchten, der Balcón de Europa, Tapas bis spät und eine Stadt, die das ganze Jahr geöffnet hat. Unsere Wohnung liegt 200 Meter vom Strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Nerja como base: dónde alojarse y cómo moverse | AMARA',
+      title: 'Nerja como base: dónde alojarse y cómo moverse',
       description: 'Nerja en el Mediterráneo: calas, el Balcón de Europa, tapas hasta tarde y una ciudad abierta todo el año. Nuestro apartamento está a 200 metros de la playa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Nerja als vakantiebasis: wonen, bewegen, weten | AMARA',
+      title: 'Nerja als vakantiebasis: wonen, bewegen, weten',
       description: 'Nerja aan de Middellandse Zee: baaien, de Balcón de Europa, tapas tot laat en een stad die het hele jaar open is. Ons appartement ligt 200 meter van het strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Nerja som semesterbas: bo, röra sig, veta i förväg | AMARA',
+      title: 'Nerja som semesterbas: bo, röra sig, veta i förväg',
       description: 'Nerja vid Medelhavet: vikar, Balcón de Europa, tapas till sent och en stad som är öppen året runt. Vår lägenhet ligger 200 meter från stranden.',
       robots: 'index, follow',
       canonical: 'auto'

@@ -49,6 +49,8 @@ const sectionById = (id: string) => copy.sections.find((section) => section.id =
 const ourDay = sectionById('our-day');
 const stayLength = sectionById('stay-length');
 const tangier = sectionById('tangier');
+const seasons = sectionById('seasons');
+const seasonsHref = seasons?.cta ? requiredLink(seasons.cta.token) : undefined;
 
 const footerHighlights: LabeledLink[] = [
   { token: 'location_tarifa', label: tarifaGuideContent.overview.navLabel[currentLang] },
@@ -143,6 +145,32 @@ const footerHighlights: LabeledLink[] = [
                   <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
                 ))}
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Seasons: what the year does to a Tarifa day; the weather page is the corridor. -->
+    {seasons && (
+      <section id={seasons.id} class="scroll-mt-28 bg-surface-white px-6 py-16 md:px-12 md:py-20">
+        <div class="mx-auto max-w-screen-2xl">
+          <div class="grid gap-6 lg:grid-cols-12 lg:gap-16">
+            <div class="lg:col-span-5">
+              <h2 class="am-text-title text-balance text-on-surface">{seasons.title}</h2>
+            </div>
+            <div class="space-y-4 lg:col-span-7 lg:mt-1">
+              {seasons.paragraphs.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+              ))}
+              {seasons.cta && seasonsHref && (
+                <p class="pt-2">
+                  <a href={seasonsHref} class="am-inline-link">
+                    {seasons.cta.label}
+                    <span aria-hidden="true"> &rarr;</span>
+                  </a>
+                </p>
+              )}
             </div>
           </div>
         </div>

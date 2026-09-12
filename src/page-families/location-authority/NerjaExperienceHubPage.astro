@@ -40,6 +40,8 @@ const toTopic = (theme: (typeof themes)[number]) => ({
 const featuredThemeTopics = themes.slice(0, 4).map(toTopic);
 const additionalThemeTopics = themes.slice(4).map(toTopic);
 
+const seasonsHref = resolveOptionalLink(copy.seasons.token, currentLang, { suppressMissing: true });
+
 const footerHighlights: LabeledLink[] = [
   { token: 'nerja_experience_hub', label: copy.hero.eyebrow },
   ...copy.themes.slice(0, 2).map((theme) => ({ token: theme.token, label: theme.title }))
@@ -105,6 +107,26 @@ const footerHighlights: LabeledLink[] = [
       </div>
 
       <div class="mt-12"><ExperienceHubTopicGrid topics={additionalThemeTopics} /></div>
+
+      <div class="mt-20 grid grid-cols-1 gap-8 border-t border-outline-variant/20 pt-14 lg:grid-cols-12 lg:items-start lg:gap-12">
+        <div class="lg:col-span-5">
+          <p class="am-text-caption mb-5 text-primary">{copy.seasons.eyebrow}</p>
+          <h2 class="am-text-title max-w-xl text-balance italic tracking-tight text-on-surface">
+            {copy.seasons.title}
+          </h2>
+        </div>
+        <div class="lg:col-span-7">
+          <p class="am-text-body max-w-2xl leading-relaxed text-on-surface-variant">{copy.seasons.text}</p>
+          {seasonsHref && (
+            <p class="mt-6">
+              <a href={seasonsHref} class="am-inline-link">
+                {copy.seasons.linkLabel}
+                <span aria-hidden="true"> &rarr;</span>
+              </a>
+            </p>
+          )}
+        </div>
+      </div>
     </section>
 
     <AuthorityStayBridge

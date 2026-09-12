@@ -192,31 +192,31 @@ export const frigilianaLocationSeo: AmaraAuthoringSeo = {
   ogImage: routeOgImage('frigiliana'),
   languages: {
     de: {
-      title: 'Frigiliana als Urlaubsort: wohnen, bewegen, vorher wissen | AMARA',
+      title: 'Frigiliana als Urlaubsort: wohnen, bewegen, vorher wissen',
       description: 'Erlebt Frigiliana über Nacht: geschützte weiße Gassen, Abendessen zu Fuß, die Sierra im Rücken und Nerjas Küste weiter unten.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     en: {
-      title: 'Frigiliana as a Base: Where to Stay and How to Get Around | AMARA',
+      title: 'Frigiliana as a Base: Where to Stay and How to Get Around',
       description: 'Stay overnight in Frigiliana for protected white lanes, dinner on foot, the Sierra behind the village and Nerja’s coast below.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Frigiliana como base: dónde alojarse y cómo moverse | AMARA',
+      title: 'Frigiliana como base: dónde alojarse y cómo moverse',
       description: 'Quedaos en Frigiliana para vivir sus calles blancas protegidas, salir a cenar a pie, tener la sierra detrás y la costa de Nerja más abajo.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Frigiliana als vakantiebasis: wonen, bewegen, weten | AMARA',
+      title: 'Frigiliana als vakantiebasis: wonen, bewegen, weten',
       description: 'Blijf overnachten in Frigiliana voor beschermde witte straatjes, uit eten te voet, de Sierra achter het dorp en Nerja’s kust beneden.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Frigiliana som semesterbas: bo, röra sig, veta i förväg | AMARA',
+      title: 'Frigiliana som semesterbas: bo, röra sig, veta i förväg',
       description: 'Stanna över natten i Frigiliana för skyddade vita gränder, middag till fots, Sierran bakom byn och Nerjas kust nedanför.',
       robots: 'index, follow',
       canonical: 'auto'
