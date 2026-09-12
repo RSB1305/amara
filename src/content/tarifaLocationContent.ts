@@ -169,7 +169,7 @@ export const tarifaLocationContent: {
         title: 'Along the N-340, and then straight into the garage',
         paragraphs: [
           'From Málaga along the N-340, by coach to Calle Batalla del Salado, by ferry from Tangier into the port.',
-          'From Málaga it is around 160 kilometres, about two hours along the western Costa del Sol and through Algeciras. Gibraltar is closer, about an hour including the land border; Jerez a good hour and a half. The coach stops at Calle Batalla del Salado, the ferry from Tangier in the port.',
+          'From Málaga it is around 160 kilometres, about two hours along the western Costa del Sol and through Algeciras. Gibraltar is closer, about an hour including the land border; Jerez a good hour and a half, Seville two to two and a half hours. The coach stops at Calle Batalla del Salado, the ferry from Tangier in the port.',
           'The apartment comes with an underground parking space: drive in, stop looking. In town you walk; you need the car for the western beaches and Bolonia.'
         ],
         link: { label: 'Airports, coach and the garage in detail', token: 'getting_to_tarifa' }
@@ -316,7 +316,7 @@ export const tarifaLocationContent: {
         title: 'Über die N-340, und dann direkt in die Garage',
         paragraphs: [
           'Von Málaga über die N-340, mit dem Fernbus bis zur Calle Batalla del Salado, mit der Fähre aus Tanger in den Hafen.',
-          'Von Málaga sind es rund 160 Kilometer, etwa zwei Stunden über die westliche Costa del Sol und durch Algeciras. Gibraltar liegt näher, mit Landgrenze etwa eine Stunde; Jerez gut eineinhalb Stunden. Der Fernbus hält an der Calle Batalla del Salado, die Fähre aus Tanger im Hafen.',
+          'Von Málaga sind es rund 160 Kilometer, etwa zwei Stunden über die westliche Costa del Sol und durch Algeciras. Gibraltar liegt näher, mit Landgrenze etwa eine Stunde; Jerez gut eineinhalb Stunden, Sevilla zwei bis zweieinhalb. Der Fernbus hält an der Calle Batalla del Salado, die Fähre aus Tanger im Hafen.',
           'Zur Wohnung gehört ein Tiefgaragenplatz: hineinfahren, aufhören zu suchen. Im Ort geht ihr zu Fuß, das Auto braucht ihr für die westlichen Strände und Bolonia.'
         ],
         link: { label: 'Flughäfen, Fernbus und die Garage im Detail', token: 'getting_to_tarifa' }
@@ -460,7 +460,7 @@ export const tarifaLocationContent: {
         title: 'Por la N-340, y luego directo al garaje',
         paragraphs: [
           'Desde Málaga por la N-340, en autobús hasta la calle Batalla del Salado, en ferry desde Tánger al puerto.',
-          'Desde Málaga son unos 160 kilómetros, alrededor de dos horas por la Costa del Sol occidental y a través de Algeciras. Gibraltar está más cerca, alrededor de una hora con la frontera terrestre; Jerez, una hora y media larga. El autobús para en la calle Batalla del Salado, el ferry de Tánger en el puerto.',
+          'Desde Málaga son unos 160 kilómetros, alrededor de dos horas por la Costa del Sol occidental y a través de Algeciras. Gibraltar está más cerca, alrededor de una hora con la frontera terrestre; Jerez, una hora y media larga; Sevilla, entre dos horas y dos y media. El autobús para en la calle Batalla del Salado, el ferry de Tánger en el puerto.',
           'El apartamento incluye plaza en el garaje subterráneo: entrar y dejar de buscar. En el pueblo vais a pie; el coche lo necesitáis para las playas del oeste y Bolonia.'
         ],
         link: { label: 'Aeropuertos, autobús y el garaje en detalle', token: 'getting_to_tarifa' }
@@ -607,7 +607,7 @@ export const tarifaLocationContent: {
         title: 'Over de N-340, en dan direct de garage in',
         paragraphs: [
           'Vanuit Málaga over de N-340, met de streekbus tot de Calle Batalla del Salado, met de veerboot uit Tanger de haven in.',
-          'Vanuit Málaga is het zo’n 160 kilometer, ongeveer twee uur over de westelijke Costa del Sol en door Algeciras. Gibraltar ligt dichterbij, ongeveer een uur inclusief de landgrens; Jerez ruim anderhalf uur. De streekbus stopt aan de Calle Batalla del Salado, de veerboot uit Tanger in de haven.',
+          'Vanuit Málaga is het zo’n 160 kilometer, ongeveer twee uur over de westelijke Costa del Sol en door Algeciras. Gibraltar ligt dichterbij, ongeveer een uur inclusief de landgrens; Jerez ruim anderhalf uur, Sevilla twee tot tweeënhalf uur. De streekbus stopt aan de Calle Batalla del Salado, de veerboot uit Tanger in de haven.',
           'Bij het appartement hoort een plek in de ondergrondse garage: naar binnen rijden, klaar met zoeken. In de plaats loop je, de auto heb je nodig voor de westelijke stranden en Bolonia.'
         ],
         link: { label: 'Luchthavens, bus en de garage in detail', token: 'getting_to_tarifa' }
@@ -754,7 +754,7 @@ export const tarifaLocationContent: {
         title: 'Via N-340, och sedan direkt in i garaget',
         paragraphs: [
           'Från Málaga via N-340, med fjärrbuss till Calle Batalla del Salado, med färja från Tanger in i hamnen.',
-          'Från Málaga är det omkring 160 kilometer, ungefär två timmar längs västra Costa del Sol och genom Algeciras. Gibraltar ligger närmare, omkring en timme med landgränsen; Jerez drygt en och en halv timme. Fjärrbussen stannar vid Calle Batalla del Salado, färjan från Tanger i hamnen.',
+          'Från Málaga är det omkring 160 kilometer, ungefär två timmar längs västra Costa del Sol och genom Algeciras. Gibraltar ligger närmare, omkring en timme med landgränsen; Jerez drygt en och en halv timme, Sevilla två till två och en halv timme. Fjärrbussen stannar vid Calle Batalla del Salado, färjan från Tanger i hamnen.',
           'Till lägenheten hör en plats i garaget under huset: kör in, sluta leta. I stan går ni till fots, bilen behöver ni för de västliga stränderna och Bolonia.'
         ],
         link: { label: 'Flygplatser, buss och garaget i detalj', token: 'getting_to_tarifa' }

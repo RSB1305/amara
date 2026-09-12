@@ -25,6 +25,9 @@ type ExperienceLinkToken =
   | 'frigiliana_wellness_authority'
   | 'nerja_nightlife_authority';
 
+/** Type A spoke a story hands off to when its teaser raises a logistics question. */
+type ExperienceAsideToken = 'frigiliana_parking';
+
 type ExperienceDiscoveryLinkToken =
   | 'romantic_hideaways'
   | 'frigiliana_weddings'
@@ -39,6 +42,8 @@ export interface ExperienceDefinition {
   id: ExperienceId;
   token: ExperienceLinkToken;
   destination: ExperienceDestination;
+  /** Second, practical handoff; each locale edition carries its text as `asideLabel`. */
+  asideToken?: ExperienceAsideToken;
   image: string;
 }
 
@@ -47,6 +52,8 @@ interface ExperienceEditorial {
   title: string;
   text: string;
   linkLabel: string;
+  /** Text of the second handoff (TR-CONTENT-009 chain); rendered only where the catalogue names an `asideToken`. */
+  asideLabel?: string;
   imageAlt: string;
 }
 
@@ -168,12 +175,14 @@ export const experienceCatalog: Record<ExperienceId, ExperienceDefinition> = {
     id: 'festivals',
     token: 'frigiliana_events_authority',
     destination: 'frigiliana',
+    asideToken: 'frigiliana_parking',
     image: `${villageImageBase}/05-frigiliana-pueblo.jpg`
   },
   market: {
     id: 'market',
     token: 'frigiliana_market',
     destination: 'frigiliana',
+    asideToken: 'frigiliana_parking',
     image: `${villageImageBase}/06-frigiliana-pueblo.jpg`
   },
   dayTrips: {
@@ -321,35 +330,35 @@ export const experienceHubSeo: AmaraAuthoringSeo = {
     en: {
       title: 'Things to Do in Frigiliana: Village, Hills, Sea and Day Trips',
       description:
-        'Walk through Frigiliana, head into the hills, spend a day by the sea or simply slow down at Casa AMARA.',
+        'Village lanes at first light, walks from the door, beaches by car, one place a day in Andalusia: the kind of day Frigiliana offers and when it is worth it.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'Erlebnisse in Frigiliana: Dorf, Berge, Meer und Ausflüge',
       description:
-        'Lauft durch Frigiliana, startet in die Berge, verbringt einen Tag am Meer oder macht es euch einfach bei Casa AMARA gemütlich.',
+        'Dorfgassen am Morgen, Wanderwege ab Haustür, Strände mit dem Auto und ein Ziel pro Tag in Andalusien: welche Art Tag Frigiliana bietet und wann sie sich lohnt.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Qué hacer en Frigiliana: pueblo, montaña, mar y excursiones',
       description:
-        'Pasead por Frigiliana, salid a la montaña, pasad el día junto al mar o disfrutad sin prisas de Casa AMARA.',
+        'Callejuelas de mañana, senderos desde la puerta, playas en coche, un destino al día en Andalucía: qué tipo de día ofrece Frigiliana y cuándo merece la pena.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Wat te doen in Frigiliana: dorp, bergen, zee en dagtochten',
       description:
-        'Wandel door Frigiliana, trek de heuvels in, breng een dag aan zee door of doe het rustig aan bij Casa AMARA.',
+        'Straatjes in de ochtend, wandelen vanaf de deur, stranden met de auto, één plek per dag in Andalusië: welk soort dag Frigiliana biedt en wanneer die loont.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Att göra i Frigiliana: by, berg, hav och utflykter',
       description:
-        'Promenera genom Frigiliana, ge er ut i bergen, tillbringa en dag vid havet eller ta det lugnt på Casa AMARA.',
+        'Gränder på morgonen, vandringar från dörren, stränder med bil, ett mål om dagen i Andalusien: vilken sorts dag Frigiliana bjuder på och när den lönar sig.',
       robots: 'index, follow',
       canonical: 'auto'
     }
@@ -466,6 +475,7 @@ export const experienceHubContent: Record<
         text:
           'Over the year the Axarquía changes its rhythm: processions through the village lanes, decorated floats in Nerja, and in summer life moves into Frigiliana’s old town, densest at the Festival 3 Culturas at the end of August. The town halls publish programmes and times only shortly before each festival; if you travel for one, plan the month, not the day.',
         linkLabel: 'Check which festival falls in your travel dates and what it feels like',
+        asideLabel: 'On festival evenings there is no room up top: the car stays down in the village and you walk up',
         imageAlt: 'Traditional white houses along a Frigiliana street'
       },
       market: {
@@ -474,6 +484,7 @@ export const experienceHubContent: Record<
         text:
           'Every Thursday morning from about eight to two, all year: fruit and vegetables, olives and cheese, clothes and household goods, a few stalls for visitors. Loveliest between ten and twelve, then a coffee and up into the lanes. In holiday weeks the date can move.',
         linkLabel: 'Look up the hours, the stalls and the way up into the old town',
+        asideLabel: 'On Thursdays the stalls stand down at the plaza: the car goes into the underground car park beside it or to the village edge',
         imageAlt: 'Whitewashed homes and flowerpots in Frigiliana'
       },
       dayTrips: {
@@ -643,6 +654,7 @@ export const experienceHubContent: Record<
         text:
           'Im Lauf des Jahres wechselt die Axarquía ihren Rhythmus: Prozessionen durch die Dorfgassen, geschmückte Wagen in Nerja, im Sommer verlagert sich das Leben in Frigilianas Altstadt, Ende August beim Festival 3 Culturas am dichtesten. Die Gemeinden veröffentlichen Programme und Uhrzeiten erst kurz vor dem Fest; wer die Reise danach richtet, plant den Monat, nicht den Tag.',
         linkLabel: 'Nachsehen, welches Fest in eure Reisezeit fällt und wie es sich anfühlt',
+        asideLabel: 'An Festabenden ist oben kein Platz: das Auto bleibt unten im Ort, hinauf geht es zu Fuß',
         imageAlt: 'Traditionelle weiße Häuser an einer Gasse in Frigiliana'
       },
       market: {
@@ -651,6 +663,7 @@ export const experienceHubContent: Record<
         text:
           'Jeden Donnerstagvormittag von etwa acht bis zwei, das ganze Jahr: Obst und Gemüse, Oliven und Käse, Kleider und Haushaltskram, ein paar Stände für Besucher. Am schönsten zwischen zehn und zwölf, danach ein Kaffee und hinauf in die Gassen. In Feiertagswochen kann der Termin wandern.',
         linkLabel: 'Uhrzeit, Stände und den Weg hinauf in die Altstadt nachlesen',
+        asideLabel: 'Donnerstags stehen die Stände unten an der Plaza: das Auto kommt in die Tiefgarage daneben oder an den Ortsrand',
         imageAlt: 'Weiße Häuser und Pflanzentöpfe in Frigiliana'
       },
       dayTrips: {
@@ -820,6 +833,7 @@ export const experienceHubContent: Record<
         text:
           'A lo largo del año la Axarquía cambia de ritmo: procesiones por las calles del pueblo, carrozas engalanadas en Nerja y, en verano, la vida se traslada al casco antiguo de Frigiliana, con el Festival 3 Culturas a finales de agosto como momento más intenso. Los ayuntamientos publican programas y horarios poco antes de cada fiesta; si viajáis por una, planificad el mes, no el día.',
         linkLabel: 'Comprobar qué fiesta cae en vuestras fechas y cómo se vive',
+        asideLabel: 'En las noches de fiesta arriba no hay sitio: el coche se queda en la parte baja del pueblo y se sube a pie',
         imageAlt: 'Casas blancas tradicionales en una calle de Frigiliana'
       },
       market: {
@@ -828,6 +842,7 @@ export const experienceHubContent: Record<
         text:
           'Cada jueves por la mañana, de unas ocho a dos, todo el año: fruta y verdura, aceitunas y queso, ropa y menaje, algunos puestos para visitantes. Lo mejor entre las diez y las doce; después, un café y a subir por las calles. En semanas con festivo la fecha puede cambiar.',
         linkLabel: 'Consultar horario, puestos y el camino de subida al casco antiguo',
+        asideLabel: 'Los jueves los puestos están abajo, en la plaza: el coche va al parking subterráneo de al lado o al borde del pueblo',
         imageAlt: 'Casas encaladas y macetas en Frigiliana'
       },
       dayTrips: {
@@ -997,6 +1012,7 @@ export const experienceHubContent: Record<
         text:
           'Door het jaar heen verandert de Axarquía van ritme: processies door de dorpsstraatjes, versierde wagens in Nerja, en in de zomer verplaatst het leven zich naar de oude kern van Frigiliana, het drukst tijdens het Festival 3 Culturas eind augustus. De gemeenten publiceren programma’s en tijden pas kort voor elk feest; wie ervoor reist, plant de maand, niet de dag.',
         linkLabel: 'Kijk welk feest in jullie reisperiode valt en hoe het voelt',
+        asideLabel: 'Op feestavonden is er boven geen plek: de auto blijft beneden in het dorp, naar boven gaat het te voet',
         imageAlt: 'Traditionele witte huizen in een straat van Frigiliana'
       },
       market: {
@@ -1005,6 +1021,7 @@ export const experienceHubContent: Record<
         text:
           'Elke donderdagochtend van ongeveer acht tot twee, het hele jaar: groente en fruit, olijven en kaas, kleding en huishoudspullen, een paar kramen voor bezoekers. Het mooist tussen tien en twaalf, daarna een koffie en omhoog de straatjes in. In weken met een feestdag kan de datum verschuiven.',
         linkLabel: 'Tijden, kramen en de weg omhoog naar de oude kern nalezen',
+        asideLabel: 'Op donderdag staan de kramen beneden op het plein: de auto gaat de parkeergarage ernaast in of naar de dorpsrand',
         imageAlt: 'Witte huizen en plantenpotten in Frigiliana'
       },
       dayTrips: {
@@ -1174,6 +1191,7 @@ export const experienceHubContent: Record<
         text:
           'Under året byter Axarquía rytm: processioner genom byns gränder, smyckade vagnar i Nerja, och på sommaren flyttar livet in i Frigilianas gamla stan, som tätast under Festival 3 Culturas i slutet av augusti. Kommunerna publicerar program och tider först strax före varje fest; den som reser för en fest planerar månaden, inte dagen.',
         linkLabel: 'Se vilken fest som infaller under er resa och hur den känns',
+        asideLabel: 'På festkvällar finns ingen plats där uppe: bilen står kvar nere i byn och ni går upp till fots',
         imageAlt: 'Traditionella vita hus längs en gata i Frigiliana'
       },
       market: {
@@ -1182,6 +1200,7 @@ export const experienceHubContent: Record<
         text:
           'Varje torsdagsförmiddag från ungefär åtta till två, året runt: frukt och grönsaker, oliver och ost, kläder och husgeråd, några stånd för besökare. Vackrast mellan tio och tolv, sedan en kaffe och upp i gränderna. Under helgveckor kan datumet flytta sig.',
         linkLabel: 'Läs om tider, stånd och vägen upp till gamla stan',
+        asideLabel: 'På torsdagar står stånden nere vid torget: bilen ställs i parkeringshuset intill eller i byns utkant',
         imageAlt: 'Vitkalkade hus och krukväxter i Frigiliana'
       },
       dayTrips: {
