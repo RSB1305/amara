@@ -15,7 +15,7 @@
   /* HIER: Die fehlende Farbe hinzugefügt, damit der Fehler verschwindet */
   --color-on-primary-fixed: #271900; 
 
-  --color-surface: #F5F2ED;
+  --color-surface: #ffffff;
   --color-surface-white: #ffffff;
   --color-on-surface: #1b1c1a;
   --color-on-surface-variant: #4e4538;
@@ -29,10 +29,10 @@
   --color-inverted-on-surface: var(--color-inverse-on-surface);
   --color-inverted-on-surface-muted: color-mix(in srgb, var(--color-inverse-on-surface) 68%, var(--color-inverse-surface));
   --color-primary-fixed-dim: #edbf71;
-  --color-surface-container-low: #f5f3ef;
-  --color-surface-container-high: #eae8e4;
-  --color-surface-container-lowest: #faf8f4;
-  --color-surface-container: #f2ede6;
+  --color-surface-container-low: #ffffff;
+  --color-surface-container-high: #ededeb;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container: #f6f6f4;
 
   --color-muted: #666666;
   --color-hint: #888888;
