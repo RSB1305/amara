@@ -8,6 +8,14 @@ export type TarifaLocationHubLinkToken =
   | 'tarifa_beaches_authority'
   | 'tarifa_wind_kitesurfing_authority'
   | 'tarifa_kitesurfing_hub'
+  | 'tarifa_winter_stays'
+  | 'tarifa_parking'
+  | 'tarifa_daily_life'
+  | 'tarifa_old_town_history'
+  | 'tarifa_food_evening_life'
+  | 'tarifa_whale_watching'
+  | 'tarifa_bolonia_baelo_claudia'
+  | 'location_nerja'
   | 'tarifa';
 
 export interface TarifaLocationHubLink {
@@ -50,6 +58,12 @@ interface TarifaLocationHubLocale {
   weather: TarifaLocationHubFeature;
   dailyLife: TarifaLocationHubFeature;
   winter: TarifaLocationHubFeature;
+  /** Trade-offs of Tarifa as a base, with the honest pointer to Nerja where calm beach days matter more. */
+  tradeoffs: TarifaLocationHubFeature & {
+    axes: Array<{ id: 'beach' | 'evening' | 'season' | 'car'; title: string; tarifa: string; nerja: string }>;
+  };
+  /** Content corridors with a mini-answer each; the hub opens the destination architecture here. */
+  corridors: Array<{ id: string; group: 'stay' | 'explore'; label: string; text: string; token: TarifaLocationHubLinkToken }>;
   amara: TarifaLocationHubFeature & {
     facts: string[];
   };
@@ -77,31 +91,31 @@ const seo: AmaraAuthoringSeo = {
   },
   languages: {
     en: {
-      title: 'Tarifa: wind, Atlantic and old town | AMARA',
+      title: 'Tarifa as a Base: Where to Stay and How to Get Around',
       description: 'Tarifa between the Atlantic and the Strait: Levante and Poniente, Los Lances in front of the balcony, tapas in the old town. Our apartment in La Marina, five minutes to the beach.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Tarifa: Wind, Atlantik und Altstadt | AMARA',
+      title: 'Tarifa als Urlaubsort: wohnen, bewegen, vorher wissen',
       description: 'Tarifa zwischen Atlantik und Meerenge: Levante und Poniente, Los Lances vor dem Balkon, Tapas in der Altstadt. Unsere Wohnung in La Marina, fünf Minuten zum Strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Tarifa: viento, Atlántico y casco antiguo | AMARA',
+      title: 'Tarifa como base: dónde alojarse y cómo moverse',
       description: 'Tarifa entre el Atlántico y el Estrecho: levante y poniente, Los Lances delante del balcón, tapas en el casco antiguo. Nuestro apartamento en La Marina, a cinco minutos de la playa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Tarifa: wind, Atlantische Oceaan en oude stad | AMARA',
+      title: 'Tarifa als vakantiebasis: wonen, bewegen, weten',
       description: 'Tarifa tussen Atlantische Oceaan en Straat: Levante en Poniente, Los Lances voor het balkon, tapas in de oude stad. Ons appartement in La Marina, vijf minuten van het strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Tarifa: vind, Atlanten och gamla stan | AMARA',
+      title: 'Tarifa som semesterbas: bo, röra sig, veta i förväg',
       description: 'Tarifa mellan Atlanten och sundet: Levante och Poniente, Los Lances framför balkongen, tapas i gamla stan. Vår lägenhet i La Marina, fem minuter till stranden.',
       robots: 'index, follow',
       canonical: 'auto'
@@ -120,8 +134,8 @@ export const tarifaLocationContent: {
     en: {
       hero: {
         eyebrow: 'Tarifa · Costa de la Luz',
-        title: 'Tarifa, between two seas',
-        subtitle: 'Atlantic to the west, the Strait to the east, the old town in between. And our apartment looking out over Los Lances.',
+        title: 'Tarifa as a place to stay',
+        subtitle: 'Atlantic to the west, the Strait to the east, the old town in between',
         standfirst: 'Tarifa is small enough that you reach everything on foot, and lively enough that nobody has to go to bed early. The Levante from the east and the Poniente off the Atlantic shape the day more than the season does. We live in La Marina: five minutes to Los Lances beach, ten to fifteen into the old town, the balcony facing west, where the sun drops into the sea in the evening.',
         note: '',
         updated: 'As of August 2026'
@@ -148,18 +162,17 @@ export const tarifaLocationContent: {
           { label: 'Further west', value: 'Valdevaqueros, Punta Paloma and Bolonia, by car' }
         ],
         mapLabel: 'Tarifa on the Iberian Peninsula — at the southern tip of Andalusia on the Strait of Gibraltar, where the Atlantic meets the Mediterranean, with a possible round trip via Cádiz, Sevilla, Córdoba, Granada, Málaga and Ronda',
-        mapNote: 'A possible round trip from Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda and back through the hills. The circle enlarges Tarifa on the Strait.',
-        link: { label: 'Tarifa’s areas in detail', token: 'tarifa_where_to_stay' }
+        mapNote: 'A possible round trip from Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda and back through the hills. The circle enlarges Tarifa on the Strait.'
       },
       arrival: {
         eyebrow: 'Arriving',
         title: 'Along the N-340, and then straight into the garage',
         paragraphs: [
           'From Málaga along the N-340, by coach to Calle Batalla del Salado, by ferry from Tangier into the port.',
-          'From Málaga it is 150 kilometres, a good hour and a half along the western Costa del Sol and through Algeciras. The coach stops at Calle Batalla del Salado, the ferry from Tangier in the port.',
+          'From Málaga it is around 160 kilometres, about two hours along the western Costa del Sol and through Algeciras. Gibraltar is closer, about an hour including the land border; Jerez a good hour and a half. The coach stops at Calle Batalla del Salado, the ferry from Tangier in the port.',
           'The apartment comes with an underground parking space: drive in, stop looking. In town you walk; you need the car for the western beaches and Bolonia.'
         ],
-        link: { label: 'Getting to Tarifa', token: 'getting_to_tarifa' }
+        link: { label: 'Airports, coach and the garage in detail', token: 'getting_to_tarifa' }
       },
       areas: {
         eyebrow: 'Where you stay',
@@ -185,7 +198,7 @@ export const tarifaLocationContent: {
           'In summer the wind keeps the heat in check; the records barely exceed 37 degrees. In winter it stays mild, around 14 to 15 degrees, and windy enough for kiting.',
           'At accommodation level, orientation and building context affect exposure. We do not promise shelter for La Marina or AMARA Family & Surf without site-specific evidence for the actual conditions.'
         ],
-        link: { label: 'Weather in Tarifa', token: 'tarifa_weather' }
+        link: { label: 'Levante, Poniente and the monthly values for your dates', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Daily life',
@@ -201,9 +214,36 @@ export const tarifaLocationContent: {
         paragraphs: [
           'In July and August the town is full and parking is a chore; we then drive to Valdevaqueros to kite and into the garage to park.',
           'From September it gets quiet. You meet the same faces in the supermarket, get talking with locals, and the club runs its kite camps. For us this is the loveliest time here.',
-          'For longer stays the apartment has a fireplace, heating, kitchen and washing machine, and the supermarket is opposite.'
+          'For longer stays the apartment has a fireplace, heating, a kitchen and a washing machine.'
         ]
       },
+      tradeoffs: {
+        eyebrow: 'WHO TARIFA SUITS',
+        title: 'Wind as the programme or calm beach days',
+        paragraphs: [
+          'On Los Lances the wind sets the day: with the Levante the sand flies, so you swim on the Mediterranean side at Playa Chica or drive to Bolonia. In July and August the town is full and parking a chore; from September Tarifa belongs to the people who live here again.',
+          'If you are looking for calm beach days, a town without a summer rush or a Balcón instead of a strait, Nerja on the Costa del Sol is the better base: AMARA Playa there is 200 metres from the beach, and the day does not depend on the wind.'
+        ],
+        axes: [
+          { id: 'beach', title: 'Beach day', tarifa: 'The wind decides: Los Lances with the Poniente, Playa Chica with the Levante', nerja: 'Town beaches and coves, before breakfast' },
+          { id: 'evening', title: 'Evenings', tarifa: 'Old-town lanes and Calle Batalla del Salado, kiters at the bar', nerja: 'The Balcón, the promenade, tapas in the lanes' },
+          { id: 'season', title: 'Season', tarifa: 'July and August full, quiet from September; kite camps in autumn', nerja: 'Lively in summer; promenade, cave and museum in winter' },
+          { id: 'car', title: 'Car', tarifa: 'On foot in town; a car for the western beaches and Bolonia, a garage space at the apartment', nerja: 'Bus straight from the airport, unnecessary in the centre' }
+        ],
+        link: { label: 'See Nerja as the alternative base', token: 'location_nerja' }
+      },
+      corridors: [
+        { id: 'winter', group: 'stay', label: 'From September', text: 'Quiet, kite camps at the club, the same faces in the supermarket; fireplace and heating in the apartment.', token: 'tarifa_winter_stays' },
+        { id: 'parking', group: 'stay', label: 'Parking', text: 'The old town is residents-only from 13:30; the apartment comes with an underground garage space.', token: 'tarifa_parking' },
+        { id: 'dailyLife', group: 'stay', label: 'Everyday life', text: 'Supermarket opposite, bakery and pharmacy in the same street; Calle Batalla del Salado on foot in the evening.', token: 'tarifa_daily_life' },
+        { id: 'weather', group: 'stay', label: 'Wind and weather', text: 'The Levante warm and strong from the east, the Poniente steady off the Atlantic; monthly values for your dates.', token: 'tarifa_weather' },
+        { id: 'beaches', group: 'explore', label: 'Beach and coast', text: 'Swim close to town or watch the kiters further west; which beach suits today depends on the wind.', token: 'tarifa_beaches_authority' },
+        { id: 'kite', group: 'explore', label: 'Wind and kitesurfing', text: 'Afternoon wind on Los Lances, Valdevaqueros in high season; beginners through the Tarifa Surf Club.', token: 'tarifa_kitesurfing_hub' },
+        { id: 'oldTown', group: 'explore', label: 'Old town and history', text: 'Through the Puerta de Jerez into the walled core, the Castillo as the anchor, the Strait at your back.', token: 'tarifa_old_town_history' },
+        { id: 'food', group: 'explore', label: 'Food and evenings', text: 'Red tuna from the almadraba tradition, later Calle Batalla del Salado and the lanes of the old town.', token: 'tarifa_food_evening_life' },
+        { id: 'whales', group: 'explore', label: 'Whales in the Strait', text: 'A boat trip to whales and dolphins from the harbour, flexible around sea state and season.', token: 'tarifa_whale_watching' },
+        { id: 'bolonia', group: 'explore', label: 'Bolonia and Baelo Claudia', text: 'Open coast, the dune and the Roman town: a whole day, never a stopover.', token: 'tarifa_bolonia_baelo_claudia' }
+      ],
       amara: {
         eyebrow: 'Our apartment',
         title: 'Why we live in La Marina',
@@ -225,24 +265,24 @@ export const tarifaLocationContent: {
       experience: {
         eyebrow: 'Your days here',
         title: 'Beach, wind, old town and a day in Bolonia',
-        paragraphs: ['Açaí bowl at SURLA or Powerhouse in the morning, wind at midday, tapas in the lanes in the evening, and at the bar next to you might sit a kitesurfing world champion. Bolonia with the Roman town of Baelo Claudia fills a whole day; in migration season the birds cross the Strait.'],
+        paragraphs: ['Bolonia with the Roman town of Baelo Claudia fills a whole day; in migration season the birds cross the Strait above you, and in the evening you sit in the lanes.'],
         links: [
-          { label: 'Things to do in Tarifa', token: 'tarifa_experience_hub' },
-          { label: 'Explore Tarifa beaches', token: 'tarifa_beaches_authority' },
-          { label: 'Kitesurfing in Tarifa', token: 'tarifa_kitesurfing_hub' }
+          { label: 'See how many nights suit which days in Tarifa', token: 'tarifa_experience_hub' },
+          { label: 'Choose the beach by wind: Los Lances or Playa Chica', token: 'tarifa_beaches_authority' },
+          { label: 'Wind, spots and lessons for beginners', token: 'tarifa_kitesurfing_hub' }
         ]
       },
       closing: {
-        title: 'For us, Tarifa is the most beautiful place on this planet.',
-        lead: 'If that makes sense to you, the best place to stay is where the sun drops into the sea in front of you.',
+        title: 'For us, Tarifa is the most beautiful place we know.',
+        lead: 'Because of the evenings: the sun drops into the sea in front of the balcony, and the old town is ten to fifteen minutes on foot.',
         ctaLabel: 'View AMARA Family & Surf'
       }
     },
     de: {
       hero: {
         eyebrow: 'Tarifa · Costa de la Luz',
-        title: 'Tarifa, zwischen zwei Meeren',
-        subtitle: 'Atlantik im Westen, Meerenge im Osten, die Altstadt dazwischen. Und unsere Wohnung mit Blick auf Los Lances.',
+        title: 'Tarifa als Urlaubsort',
+        subtitle: 'Atlantik im Westen, Meerenge im Osten, die Altstadt dazwischen',
         standfirst: 'Tarifa ist klein genug, dass ihr alles zu Fuß erreicht, und lebendig genug, dass keiner früh ins Bett muss. Der Levante aus Osten und der Poniente vom Atlantik bestimmen den Tag mehr als die Jahreszeit. Wir wohnen in La Marina: fünf Minuten zum Strand von Los Lances, zehn bis fünfzehn in die Altstadt, der Balkon nach Westen, wo abends die Sonne ins Meer fällt.',
         note: '',
         updated: 'Stand August 2026'
@@ -269,18 +309,17 @@ export const tarifaLocationContent: {
           { label: 'Weiter westlich', value: 'Valdevaqueros, Punta Paloma und Bolonia, mit dem Auto' }
         ],
         mapLabel: 'Tarifa auf der Iberischen Halbinsel — an der Südspitze Andalusiens an der Straße von Gibraltar, wo Atlantik und Mittelmeer zusammentreffen, mit einer möglichen Rundreise über Cádiz, Sevilla, Córdoba, Granada, Málaga und Ronda',
-        mapNote: 'Eine mögliche Rundreise ab Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda und zurück durch die Berge. Der Kreis zeigt Tarifa an der Meerenge vergrößert.',
-        link: { label: 'Tarifas Lagen im Detail', token: 'tarifa_where_to_stay' }
+        mapNote: 'Eine mögliche Rundreise ab Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda und zurück durch die Berge. Der Kreis zeigt Tarifa an der Meerenge vergrößert.'
       },
       arrival: {
         eyebrow: 'Ankommen',
         title: 'Über die N-340, und dann direkt in die Garage',
         paragraphs: [
           'Von Málaga über die N-340, mit dem Fernbus bis zur Calle Batalla del Salado, mit der Fähre aus Tanger in den Hafen.',
-          'Von Málaga sind es 150 Kilometer, gut eineinhalb Stunden über die westliche Costa del Sol und durch Algeciras. Der Fernbus hält an der Calle Batalla del Salado, die Fähre aus Tanger im Hafen.',
+          'Von Málaga sind es rund 160 Kilometer, etwa zwei Stunden über die westliche Costa del Sol und durch Algeciras. Gibraltar liegt näher, mit Landgrenze etwa eine Stunde; Jerez gut eineinhalb Stunden. Der Fernbus hält an der Calle Batalla del Salado, die Fähre aus Tanger im Hafen.',
           'Zur Wohnung gehört ein Tiefgaragenplatz: hineinfahren, aufhören zu suchen. Im Ort geht ihr zu Fuß, das Auto braucht ihr für die westlichen Strände und Bolonia.'
         ],
-        link: { label: 'Anreise nach Tarifa', token: 'getting_to_tarifa' }
+        link: { label: 'Flughäfen, Fernbus und die Garage im Detail', token: 'getting_to_tarifa' }
       },
       areas: {
         eyebrow: 'Wo ihr wohnt',
@@ -304,7 +343,7 @@ export const tarifaLocationContent: {
           'Der Levante kommt aus Osten, warm und kräftig, und legt an Los Lances den Sand in Bewegung; dann ist die Playa Chica auf der Mittelmeerseite der Strand zum Baden. Der Poniente kommt vom Atlantik, gleichmäßiger, und bringt die Welle: der Wind, an dem wir selbst aufs Wasser gehen.',
           'Im Sommer hält der Wind die Hitze in Schach, die Rekorde liegen kaum über 37 Grad. Im Winter bleibt es mild, um 14 bis 15 Grad, und windig genug fürs Kiten.'
         ],
-        link: { label: 'Wetter in Tarifa', token: 'tarifa_weather' }
+        link: { label: 'Levante, Poniente und die Monatswerte für eure Reisezeit', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Alltag',
@@ -320,9 +359,36 @@ export const tarifaLocationContent: {
         paragraphs: [
           'Im Juli und August ist der Ort voll und Parken mühsam; wir fahren dann nach Valdevaqueros zum Kiten und in die Garage zum Parken.',
           'Ab September wird es ruhig. Man trifft dieselben Gesichter im Supermarkt, kommt mit Einheimischen ins Gespräch, und der Club fährt seine Kitecamps. Für uns ist das die schönste Zeit hier.',
-          'Für längere Aufenthalte hat die Wohnung Kamin, Heizung, Küche und Waschmaschine, und der Supermarkt liegt gegenüber.'
+          'Für längere Aufenthalte hat die Wohnung Kamin, Heizung, Küche und Waschmaschine.'
         ]
       },
+      tradeoffs: {
+        eyebrow: 'FÜR WEN TARIFA PASST',
+        title: 'Wind als Programm oder windstille Badetage',
+        paragraphs: [
+          'An Los Lances bestimmt der Wind den Tag: Bei Levante fliegt der Sand, dann badet ihr auf der Mittelmeerseite an der Playa Chica oder fahrt nach Bolonia. Im Juli und August ist der Ort voll und Parken mühsam; ab September gehört Tarifa wieder den Leuten, die hier leben.',
+          'Wer windstille Strandtage sucht, einen Ort ohne Sommerbetrieb oder einen Balcón statt einer Meerenge, wohnt besser in Nerja an der Costa del Sol: AMARA Playa liegt dort 200 Meter vom Strand, und der Tag hängt nicht vom Wind ab.'
+        ],
+        axes: [
+          { id: 'beach', title: 'Strandtag', tarifa: 'Der Wind entscheidet: Los Lances bei Poniente, Playa Chica bei Levante', nerja: 'Stadtstrände und Buchten, vor dem Frühstück' },
+          { id: 'evening', title: 'Abende', tarifa: 'Altstadtgassen und die Calle Batalla del Salado, Kiter an der Bar', nerja: 'Balcón, Promenade, Tapas in den Gassen' },
+          { id: 'season', title: 'Saison', tarifa: 'Juli und August voll, ab September ruhig; Kitecamps im Herbst', nerja: 'Sommer lebhaft; Promenade, Höhle und Museum im Winter' },
+          { id: 'car', title: 'Auto', tarifa: 'Im Ort zu Fuß; Auto für die westlichen Strände und Bolonia, Tiefgaragenplatz zur Wohnung', nerja: 'Bus direkt vom Flughafen, im Zentrum verzichtbar' }
+        ],
+        link: { label: 'Nerja als andere Base ansehen', token: 'location_nerja' }
+      },
+      corridors: [
+        { id: 'winter', group: 'stay', label: 'Ab September', text: 'Ruhig, Kitecamps im Club, dieselben Gesichter im Supermarkt; Kamin und Heizung in der Wohnung.', token: 'tarifa_winter_stays' },
+        { id: 'parking', group: 'stay', label: 'Parken', text: 'Altstadt ab 13:30 nur für Anwohner und Berechtigte; zur Wohnung gehört ein Tiefgaragenplatz.', token: 'tarifa_parking' },
+        { id: 'dailyLife', group: 'stay', label: 'Alltag', text: 'Supermarkt gegenüber, Bäckerei und Apotheke in derselben Straße; abends die Calle Batalla del Salado zu Fuß.', token: 'tarifa_daily_life' },
+        { id: 'weather', group: 'stay', label: 'Wind und Wetter', text: 'Levante warm und kräftig aus Osten, Poniente gleichmäßig vom Atlantik; Monatswerte für eure Reisezeit.', token: 'tarifa_weather' },
+        { id: 'beaches', group: 'explore', label: 'Strand und Küste', text: 'Nah am Ort baden oder weiter westlich den Kitern zuschauen; welcher Strand passt, entscheidet der Wind.', token: 'tarifa_beaches_authority' },
+        { id: 'kite', group: 'explore', label: 'Wind und Kitesurfen', text: 'Nachmittagswind an Los Lances, Valdevaqueros in der Hauptsaison; Anfänger über den Tarifa Surf Club.', token: 'tarifa_kitesurfing_hub' },
+        { id: 'oldTown', group: 'explore', label: 'Altstadt und Geschichte', text: 'Durch die Puerta de Jerez in den ummauerten Kern, das Castillo als Ankerpunkt, die Meerenge im Rücken.', token: 'tarifa_old_town_history' },
+        { id: 'food', group: 'explore', label: 'Essen und Ausgehen', text: 'Roter Thunfisch aus der Almadraba-Tradition, später die Calle Batalla del Salado und die Gassen der Altstadt.', token: 'tarifa_food_evening_life' },
+        { id: 'whales', group: 'explore', label: 'Wale in der Meerenge', text: 'Ausfahrt zu Walen und Delfinen ab Hafen, flexibel um Seegang und Saison.', token: 'tarifa_whale_watching' },
+        { id: 'bolonia', group: 'explore', label: 'Bolonia und Baelo Claudia', text: 'Offene Küste, Düne und die Römerstadt: ein ganzer Tag, kein Zwischenstopp.', token: 'tarifa_bolonia_baelo_claudia' }
+      ],
       amara: {
         eyebrow: 'Unsere Wohnung',
         title: 'Warum wir in La Marina wohnen',
@@ -343,24 +409,24 @@ export const tarifaLocationContent: {
       experience: {
         eyebrow: 'Eure Tage hier',
         title: 'Strand, Wind, Altstadt und ein Tag in Bolonia',
-        paragraphs: ['Morgens Açaí-Bowl im SURLA oder Powerhouse, mittags Wind, abends Tapas in den Gassen, und an der Bar neben euch sitzt vielleicht ein Weltmeister im Kitesurfen. Bolonia mit der Römerstadt Baelo Claudia füllt einen ganzen Tag; zur Zugzeit ziehen die Vögel über die Meerenge.'],
+        paragraphs: ['Bolonia mit der Römerstadt Baelo Claudia füllt einen ganzen Tag; zur Zugzeit ziehen die Vögel über die Meerenge, und abends sitzt ihr in den Gassen.'],
         links: [
-          { label: 'Tarifa erleben', token: 'tarifa_experience_hub' },
-          { label: 'Tarifas Strände entdecken', token: 'tarifa_beaches_authority' },
-          { label: 'Kitesurfen in Tarifa', token: 'tarifa_kitesurfing_hub' }
+          { label: 'Sehen, wie viele Nächte zu welchen Tagen in Tarifa passen', token: 'tarifa_experience_hub' },
+          { label: 'Den Strand nach Wind wählen: Los Lances oder Playa Chica', token: 'tarifa_beaches_authority' },
+          { label: 'Wind, Spots und Kurse für Anfänger', token: 'tarifa_kitesurfing_hub' }
         ]
       },
       closing: {
-        title: 'Tarifa ist für uns der schönste Ort auf diesem Planeten.',
-        lead: 'Wenn ihr das nachvollziehen könnt, wohnt ihr am besten dort, wo abends die Sonne vor euch ins Meer fällt.',
+        title: 'Tarifa ist für uns der schönste Ort, den wir kennen.',
+        lead: 'Wegen der Abende: Die Sonne fällt vor dem Balkon ins Meer, und die Altstadt liegt zehn bis fünfzehn Minuten zu Fuß entfernt.',
         ctaLabel: 'AMARA Family & Surf ansehen'
       }
     },
     es: {
       hero: {
         eyebrow: 'Tarifa · Costa de la Luz',
-        title: 'Tarifa, entre dos mares',
-        subtitle: 'Atlántico al oeste, Estrecho al este, el casco antiguo en medio. Y nuestro apartamento con vistas a Los Lances.',
+        title: 'Tarifa como base de vacaciones',
+        subtitle: 'Atlántico al oeste, Estrecho al este, el casco antiguo en medio',
         standfirst: 'Tarifa es lo bastante pequeña para llegar a todo a pie, y lo bastante viva para que nadie tenga que irse pronto a la cama. El levante del este y el poniente del Atlántico marcan el día más que la estación. Nosotros estamos en La Marina: cinco minutos a la playa de Los Lances, diez o quince al casco antiguo, el balcón hacia el oeste, donde por la tarde el sol cae al mar.',
         note: '',
         updated: 'Actualizado en agosto de 2026'
@@ -387,18 +453,17 @@ export const tarifaLocationContent: {
           { label: 'Más al oeste', value: 'Valdevaqueros, Punta Paloma y Bolonia, en coche' }
         ],
         mapLabel: 'Tarifa en la península ibérica — en el extremo sur de Andalucía, junto al estrecho de Gibraltar, donde se encuentran el Atlántico y el Mediterráneo, con una posible ruta por Cádiz, Sevilla, Córdoba, Granada, Málaga y Ronda',
-        mapNote: 'Una posible ruta desde Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda y vuelta por la sierra. El círculo amplía Tarifa junto al estrecho.',
-        link: { label: 'Las zonas de Tarifa en detalle', token: 'tarifa_where_to_stay' }
+        mapNote: 'Una posible ruta desde Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda y vuelta por la sierra. El círculo amplía Tarifa junto al estrecho.'
       },
       arrival: {
         eyebrow: 'Llegar',
         title: 'Por la N-340, y luego directo al garaje',
         paragraphs: [
           'Desde Málaga por la N-340, en autobús hasta la calle Batalla del Salado, en ferry desde Tánger al puerto.',
-          'Desde Málaga son 150 kilómetros, una hora y media larga por la Costa del Sol occidental y a través de Algeciras. El autobús para en la calle Batalla del Salado, el ferry de Tánger en el puerto.',
+          'Desde Málaga son unos 160 kilómetros, alrededor de dos horas por la Costa del Sol occidental y a través de Algeciras. Gibraltar está más cerca, alrededor de una hora con la frontera terrestre; Jerez, una hora y media larga. El autobús para en la calle Batalla del Salado, el ferry de Tánger en el puerto.',
           'El apartamento incluye plaza en el garaje subterráneo: entrar y dejar de buscar. En el pueblo vais a pie; el coche lo necesitáis para las playas del oeste y Bolonia.'
         ],
-        link: { label: 'Cómo llegar a Tarifa', token: 'getting_to_tarifa' }
+        link: { label: 'Aeropuertos, autobús y el garaje en detalle', token: 'getting_to_tarifa' }
       },
       areas: {
         eyebrow: 'Dónde os alojáis',
@@ -424,7 +489,7 @@ export const tarifaLocationContent: {
           'En verano el viento mantiene a raya el calor; los récords apenas pasan de 37 grados. En invierno sigue templado, entre 14 y 15 grados, y con viento suficiente para el kite.',
           'En un alojamiento, la orientación y el edificio cambian la exposición. Sin pruebas específicas del lugar y de las condiciones, no prometemos resguardo ni para La Marina ni para AMARA Family & Surf.'
         ],
-        link: { label: 'El tiempo en Tarifa', token: 'tarifa_weather' }
+        link: { label: 'Levante, poniente y los valores mensuales para vuestras fechas', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Vida diaria',
@@ -440,9 +505,36 @@ export const tarifaLocationContent: {
         paragraphs: [
           'En julio y agosto el pueblo está lleno y aparcar es un fastidio; entonces vamos a Valdevaqueros a hacer kite y al garaje a aparcar.',
           'A partir de septiembre llega la calma. Se ven las mismas caras en el supermercado, se habla con la gente de aquí, y el club hace sus kitecamps. Para nosotros es la época más bonita.',
-          'Para estancias largas el apartamento tiene chimenea, calefacción, cocina y lavadora, y el supermercado está enfrente.'
+          'Para estancias largas el apartamento tiene chimenea, calefacción, cocina y lavadora.'
         ]
       },
+      tradeoffs: {
+        eyebrow: 'PARA QUIÉN ES TARIFA',
+        title: 'El viento como plan o días de playa en calma',
+        paragraphs: [
+          'En Los Lances el viento marca el día: con levante vuela la arena, así que os bañáis en el lado mediterráneo, en la Playa Chica, o vais a Bolonia. En julio y agosto el pueblo está lleno y aparcar cuesta; desde septiembre Tarifa vuelve a ser de quienes viven aquí.',
+          'Si buscáis días de playa sin viento, un pueblo sin agobio veraniego o un Balcón en vez de un estrecho, Nerja, en la Costa del Sol, es la mejor base: allí AMARA Playa está a 200 metros de la playa y el día no depende del viento.'
+        ],
+        axes: [
+          { id: 'beach', title: 'Día de playa', tarifa: 'Decide el viento: Los Lances con poniente, Playa Chica con levante', nerja: 'Playas urbanas y calas, antes de desayunar' },
+          { id: 'evening', title: 'Noches', tarifa: 'Las calles del casco antiguo y la Calle Batalla del Salado, kitesurfistas en la barra', nerja: 'El Balcón, el paseo, tapas por las calles' },
+          { id: 'season', title: 'Temporada', tarifa: 'Julio y agosto llenos, tranquilo desde septiembre; kitecamps en otoño', nerja: 'Animado en verano; paseo, cueva y museo en invierno' },
+          { id: 'car', title: 'Coche', tarifa: 'A pie en el pueblo; coche para las playas del oeste y Bolonia, plaza de garaje en el apartamento', nerja: 'Autobús directo desde el aeropuerto, innecesario en el centro' }
+        ],
+        link: { label: 'Ver Nerja como base alternativa', token: 'location_nerja' }
+      },
+      corridors: [
+        { id: 'winter', group: 'stay', label: 'Desde septiembre', text: 'Tranquilo, kitecamps en el club, las mismas caras en el supermercado; chimenea y calefacción en el apartamento.', token: 'tarifa_winter_stays' },
+        { id: 'parking', group: 'stay', label: 'Aparcar', text: 'El casco antiguo es solo para residentes y autorizados desde las 13:30; el apartamento incluye plaza de garaje.', token: 'tarifa_parking' },
+        { id: 'dailyLife', group: 'stay', label: 'Día a día', text: 'Supermercado enfrente, panadería y farmacia en la misma calle; por la noche la Calle Batalla del Salado a pie.', token: 'tarifa_daily_life' },
+        { id: 'weather', group: 'stay', label: 'Viento y tiempo', text: 'Levante cálido y fuerte del este, poniente constante del Atlántico; valores mensuales para vuestras fechas.', token: 'tarifa_weather' },
+        { id: 'beaches', group: 'explore', label: 'Playa y costa', text: 'Bañarse cerca del pueblo o ver a los kitesurfistas más al oeste; qué playa toca hoy lo decide el viento.', token: 'tarifa_beaches_authority' },
+        { id: 'kite', group: 'explore', label: 'Viento y kitesurf', text: 'Viento de tarde en Los Lances, Valdevaqueros en temporada alta; principiantes con el Tarifa Surf Club.', token: 'tarifa_kitesurfing_hub' },
+        { id: 'oldTown', group: 'explore', label: 'Casco antiguo e historia', text: 'Por la Puerta de Jerez al recinto amurallado, el Castillo como referencia, el Estrecho a la espalda.', token: 'tarifa_old_town_history' },
+        { id: 'food', group: 'explore', label: 'Comer y salir', text: 'Atún rojo de la tradición de almadraba, después la Calle Batalla del Salado y las calles del casco antiguo.', token: 'tarifa_food_evening_life' },
+        { id: 'whales', group: 'explore', label: 'Ballenas en el Estrecho', text: 'Salida a ver ballenas y delfines desde el puerto, flexible según el estado del mar y la temporada.', token: 'tarifa_whale_watching' },
+        { id: 'bolonia', group: 'explore', label: 'Bolonia y Baelo Claudia', text: 'Costa abierta, la duna y la ciudad romana: un día entero, nunca una parada de paso.', token: 'tarifa_bolonia_baelo_claudia' }
+      ],
       amara: {
         eyebrow: 'Nuestro apartamento',
         title: 'Por qué vivimos en La Marina',
@@ -464,24 +556,24 @@ export const tarifaLocationContent: {
       experience: {
         eyebrow: 'Vuestros días aquí',
         title: 'Playa, viento, casco antiguo y un día en Bolonia',
-        paragraphs: ['Por la mañana un açaí bowl en SURLA o Powerhouse, a mediodía viento, por la noche tapas en las callejuelas, y en la barra de al lado quizá se sienta un campeón del mundo de kitesurf. Bolonia con la ciudad romana de Baelo Claudia llena un día entero; en época de paso, las aves cruzan el Estrecho.'],
+        paragraphs: ['Bolonia con la ciudad romana de Baelo Claudia llena un día entero; en época de paso las aves cruzan el Estrecho sobre vosotros, y por la noche os sentáis en las calles.'],
         links: [
-          { label: 'Qué hacer en Tarifa', token: 'tarifa_experience_hub' },
-          { label: 'Explorar las playas de Tarifa', token: 'tarifa_beaches_authority' },
-          { label: 'Kitesurf en Tarifa', token: 'tarifa_kitesurfing_hub' }
+          { label: 'Ver cuántas noches encajan con qué días en Tarifa', token: 'tarifa_experience_hub' },
+          { label: 'Elegir la playa según el viento: Los Lances o Playa Chica', token: 'tarifa_beaches_authority' },
+          { label: 'Viento, spots y cursos para principiantes', token: 'tarifa_kitesurfing_hub' }
         ]
       },
       closing: {
-        title: 'Para nosotros, Tarifa es el lugar más bonito de este planeta.',
-        lead: 'Si lo entendéis así, lo mejor es alojarse donde el sol cae al mar justo delante de vosotros.',
+        title: 'Para nosotros, Tarifa es el lugar más bonito que conocemos.',
+        lead: 'Por las noches: el sol cae al mar delante del balcón, y el casco antiguo está a diez o quince minutos a pie.',
         ctaLabel: 'Ver AMARA Family & Surf'
       }
     },
     nl: {
       hero: {
         eyebrow: 'Tarifa · Costa de la Luz',
-        title: 'Tarifa, tussen twee zeeën',
-        subtitle: 'Atlantische Oceaan in het westen, Straat in het oosten, de oude stad ertussen. En ons appartement met uitzicht op Los Lances.',
+        title: 'Tarifa als vakantiebasis',
+        subtitle: 'Atlantische Oceaan in het westen, Straat in het oosten, de oude stad ertussen',
         standfirst: 'Tarifa is klein genoeg om alles te voet te bereiken, en levendig genoeg dat niemand vroeg naar bed hoeft. De Levante uit het oosten en de Poniente vanaf de Atlantische Oceaan bepalen de dag meer dan het seizoen. Wij wonen in La Marina: vijf minuten naar het strand van Los Lances, tien tot vijftien naar de oude stad, het balkon op het westen, waar ’s avonds de zon in zee valt.',
         note: '',
         updated: 'Stand augustus 2026'
@@ -508,18 +600,17 @@ export const tarifaLocationContent: {
           { label: 'Verder westelijk', value: 'Valdevaqueros, Punta Paloma en Bolonia, met de auto' }
         ],
         mapLabel: 'Tarifa op het Iberisch Schiereiland — op de zuidpunt van Andalusië aan de Straat van Gibraltar, waar de Atlantische Oceaan en de Middellandse Zee elkaar ontmoeten, met een mogelijke rondreis via Cádiz, Sevilla, Córdoba, Granada, Málaga en Ronda',
-        mapNote: 'Een mogelijke rondreis vanuit Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda en terug door de bergen. De cirkel vergroot Tarifa aan de zeestraat.',
-        link: { label: 'De ligging van Tarifa in detail', token: 'tarifa_where_to_stay' }
+        mapNote: 'Een mogelijke rondreis vanuit Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda en terug door de bergen. De cirkel vergroot Tarifa aan de zeestraat.'
       },
       arrival: {
         eyebrow: 'Aankomen',
         title: 'Over de N-340, en dan direct de garage in',
         paragraphs: [
           'Vanuit Málaga over de N-340, met de streekbus tot de Calle Batalla del Salado, met de veerboot uit Tanger de haven in.',
-          'Vanuit Málaga is het 150 kilometer, ruim anderhalf uur over de westelijke Costa del Sol en door Algeciras. De streekbus stopt aan de Calle Batalla del Salado, de veerboot uit Tanger in de haven.',
+          'Vanuit Málaga is het zo’n 160 kilometer, ongeveer twee uur over de westelijke Costa del Sol en door Algeciras. Gibraltar ligt dichterbij, ongeveer een uur inclusief de landgrens; Jerez ruim anderhalf uur. De streekbus stopt aan de Calle Batalla del Salado, de veerboot uit Tanger in de haven.',
           'Bij het appartement hoort een plek in de ondergrondse garage: naar binnen rijden, klaar met zoeken. In de plaats loop je, de auto heb je nodig voor de westelijke stranden en Bolonia.'
         ],
-        link: { label: 'Aankomst in Tarifa', token: 'getting_to_tarifa' }
+        link: { label: 'Luchthavens, bus en de garage in detail', token: 'getting_to_tarifa' }
       },
       areas: {
         eyebrow: 'Waar jullie wonen',
@@ -545,7 +636,7 @@ export const tarifaLocationContent: {
           'In de zomer houdt de wind de hitte in de hand, de records liggen nauwelijks boven 37 graden. In de winter blijft het mild, rond 14 tot 15 graden, en winderig genoeg om te kiten.',
           'Bij een accommodatie beïnvloeden oriëntatie en gebouwcontext de blootstelling aan wind. Zonder plaatsgebonden bewijs voor de werkelijke omstandigheden beloven we geen beschutting voor La Marina of AMARA Family & Surf.'
         ],
-        link: { label: 'Weer in Tarifa', token: 'tarifa_weather' }
+        link: { label: 'Levante, poniente en de maandwaarden voor jullie reisperiode', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Dagelijks leven',
@@ -561,9 +652,36 @@ export const tarifaLocationContent: {
         paragraphs: [
           'In juli en augustus is de plaats vol en parkeren een gedoe; wij rijden dan naar Valdevaqueros om te kiten en de garage in om te parkeren.',
           'Vanaf september wordt het rustig. Je ziet dezelfde gezichten in de supermarkt, raakt aan de praat met locals, en de club draait zijn kitecamps. Voor ons is dat de mooiste tijd hier.',
-          'Voor langere verblijven heeft het appartement een open haard, verwarming, keuken en wasmachine, en de supermarkt ligt aan de overkant.'
+          'Voor langere verblijven heeft het appartement een open haard, verwarming, een keuken en een wasmachine.'
         ]
       },
+      tradeoffs: {
+        eyebrow: 'VOOR WIE TARIFA PAST',
+        title: 'Wind als programma of windstille stranddagen',
+        paragraphs: [
+          'Op Los Lances bepaalt de wind de dag: bij Levante vliegt het zand, dus zwem je aan de Middellandse Zeekant op Playa Chica of rijd je naar Bolonia. In juli en augustus is het dorp vol en parkeren lastig; vanaf september is Tarifa weer van de mensen die hier wonen.',
+          'Wie windstille stranddagen zoekt, een plaats zonder zomerdrukte of een Balcón in plaats van een zeestraat, zit beter in Nerja aan de Costa del Sol: AMARA Playa ligt daar 200 meter van het strand, en de dag hangt niet van de wind af.'
+        ],
+        axes: [
+          { id: 'beach', title: 'Stranddag', tarifa: 'De wind beslist: Los Lances bij Poniente, Playa Chica bij Levante', nerja: 'Stadsstranden en baaien, vóór het ontbijt' },
+          { id: 'evening', title: 'Avonden', tarifa: 'Straatjes van de oude stad en de Calle Batalla del Salado, kiters aan de bar', nerja: 'De Balcón, de boulevard, tapas in de straatjes' },
+          { id: 'season', title: 'Seizoen', tarifa: 'Juli en augustus vol, rustig vanaf september; kitekampen in de herfst', nerja: 'Levendig in de zomer; boulevard, grot en museum in de winter' },
+          { id: 'car', title: 'Auto', tarifa: 'Te voet in het dorp; auto voor de westelijke stranden en Bolonia, garageplek bij het appartement', nerja: 'Bus rechtstreeks vanaf de luchthaven, in het centrum overbodig' }
+        ],
+        link: { label: 'Nerja als alternatieve basis bekijken', token: 'location_nerja' }
+      },
+      corridors: [
+        { id: 'winter', group: 'stay', label: 'Vanaf september', text: 'Rustig, kitekampen bij de club, dezelfde gezichten in de supermarkt; open haard en verwarming in het appartement.', token: 'tarifa_winter_stays' },
+        { id: 'parking', group: 'stay', label: 'Parkeren', text: 'De oude stad is vanaf 13:30 alleen voor bewoners en vergunninghouders; bij het appartement hoort een garageplek.', token: 'tarifa_parking' },
+        { id: 'dailyLife', group: 'stay', label: 'Dagelijks leven', text: 'Supermarkt tegenover, bakker en apotheek in dezelfde straat; ’s avonds te voet naar de Calle Batalla del Salado.', token: 'tarifa_daily_life' },
+        { id: 'weather', group: 'stay', label: 'Wind en weer', text: 'Levante warm en krachtig uit het oosten, Poniente gelijkmatig van de Atlantische Oceaan; maandwaarden voor jullie reisperiode.', token: 'tarifa_weather' },
+        { id: 'beaches', group: 'explore', label: 'Strand en kust', text: 'Dicht bij het dorp zwemmen of verder westelijk naar de kiters kijken; welk strand vandaag past, bepaalt de wind.', token: 'tarifa_beaches_authority' },
+        { id: 'kite', group: 'explore', label: 'Wind en kitesurfen', text: 'Middagwind op Los Lances, Valdevaqueros in het hoogseizoen; beginners via de Tarifa Surf Club.', token: 'tarifa_kitesurfing_hub' },
+        { id: 'oldTown', group: 'explore', label: 'Oude stad en geschiedenis', text: 'Door de Puerta de Jerez de ommuurde kern in, het Castillo als ankerpunt, de Straat in de rug.', token: 'tarifa_old_town_history' },
+        { id: 'food', group: 'explore', label: 'Eten en uitgaan', text: 'Rode tonijn uit de almadraba-traditie, later de Calle Batalla del Salado en de straatjes van de oude stad.', token: 'tarifa_food_evening_life' },
+        { id: 'whales', group: 'explore', label: 'Walvissen in de Straat', text: 'Een boottocht naar walvissen en dolfijnen vanuit de haven, flexibel rond zeegang en seizoen.', token: 'tarifa_whale_watching' },
+        { id: 'bolonia', group: 'explore', label: 'Bolonia en Baelo Claudia', text: 'Open kust, de duin en de Romeinse stad: een hele dag, nooit een tussenstop.', token: 'tarifa_bolonia_baelo_claudia' }
+      ],
       amara: {
         eyebrow: 'Ons appartement',
         title: 'Waarom wij in La Marina wonen',
@@ -585,24 +703,24 @@ export const tarifaLocationContent: {
       experience: {
         eyebrow: 'Jullie dagen hier',
         title: 'Strand, wind, oude stad en een dag in Bolonia',
-        paragraphs: ['’s Ochtends een açaí bowl bij SURLA of Powerhouse, ’s middags wind, ’s avonds tapas in de steegjes, en aan de bar naast je zit misschien een wereldkampioen kitesurfen. Bolonia met de Romeinse stad Baelo Claudia vult een hele dag; in de trektijd trekken de vogels over de Straat.'],
+        paragraphs: ['Bolonia met de Romeinse stad Baelo Claudia vult een hele dag; in de trektijd trekken de vogels boven jullie over de Straat, en ’s avonds zit je in de straatjes.'],
         links: [
-          { label: 'Wat te doen in Tarifa', token: 'tarifa_experience_hub' },
-          { label: 'Ontdek de stranden van Tarifa', token: 'tarifa_beaches_authority' },
-          { label: 'Kitesurfen in Tarifa', token: 'tarifa_kitesurfing_hub' }
+          { label: 'Zie hoeveel nachten bij welke dagen in Tarifa passen', token: 'tarifa_experience_hub' },
+          { label: 'Kies het strand op wind: Los Lances of Playa Chica', token: 'tarifa_beaches_authority' },
+          { label: 'Wind, spots en lessen voor beginners', token: 'tarifa_kitesurfing_hub' }
         ]
       },
       closing: {
-        title: 'Voor ons is Tarifa de mooiste plek op deze planeet.',
-        lead: 'Als jullie dat begrijpen, verblijven jullie het best daar waar de zon voor jullie in zee valt.',
+        title: 'Voor ons is Tarifa de mooiste plek die we kennen.',
+        lead: 'Vanwege de avonden: de zon zakt voor het balkon in zee, en de oude stad ligt op tien tot vijftien minuten lopen.',
         ctaLabel: 'Bekijk AMARA Family & Surf'
       }
     },
     sv: {
       hero: {
         eyebrow: 'Tarifa · Costa de la Luz',
-        title: 'Tarifa, mellan två hav',
-        subtitle: 'Atlanten i väster, sundet i öster, gamla stan emellan. Och vår lägenhet med utsikt över Los Lances.',
+        title: 'Tarifa som semesterbas',
+        subtitle: 'Atlanten i väster, sundet i öster, gamla stan emellan',
         standfirst: 'Tarifa är litet nog för att ni ska nå allt till fots, och livligt nog för att ingen ska behöva gå i säng tidigt. Levante från öster och Poniente från Atlanten styr dagen mer än årstiden. Vi bor i La Marina: fem minuter till stranden Los Lances, tio till femton in till gamla stan, balkongen mot väster, där solen går ner i havet på kvällen.',
         note: '',
         updated: 'Uppdaterad augusti 2026'
@@ -629,18 +747,17 @@ export const tarifaLocationContent: {
           { label: 'Längre västerut', value: 'Valdevaqueros, Punta Paloma och Bolonia, med bil' }
         ],
         mapLabel: 'Tarifa på Iberiska halvön — på Andalusiens sydspets vid Gibraltar sund, där Atlanten möter Medelhavet, med en möjlig rundresa via Cádiz, Sevilla, Córdoba, Granada, Málaga och Ronda',
-        mapNote: 'En möjlig rundresa från Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda och tillbaka genom bergen. Cirkeln förstorar Tarifa vid sundet.',
-        link: { label: 'Tarifas lägen i detalj', token: 'tarifa_where_to_stay' }
+        mapNote: 'En möjlig rundresa från Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda och tillbaka genom bergen. Cirkeln förstorar Tarifa vid sundet.'
       },
       arrival: {
         eyebrow: 'Att komma fram',
         title: 'Via N-340, och sedan direkt in i garaget',
         paragraphs: [
           'Från Málaga via N-340, med fjärrbuss till Calle Batalla del Salado, med färja från Tanger in i hamnen.',
-          'Från Málaga är det 150 kilometer, en dryg och en halv timme längs västra Costa del Sol och genom Algeciras. Fjärrbussen stannar vid Calle Batalla del Salado, färjan från Tanger i hamnen.',
+          'Från Málaga är det omkring 160 kilometer, ungefär två timmar längs västra Costa del Sol och genom Algeciras. Gibraltar ligger närmare, omkring en timme med landgränsen; Jerez drygt en och en halv timme. Fjärrbussen stannar vid Calle Batalla del Salado, färjan från Tanger i hamnen.',
           'Till lägenheten hör en plats i garaget under huset: kör in, sluta leta. I stan går ni till fots, bilen behöver ni för de västliga stränderna och Bolonia.'
         ],
-        link: { label: 'Resan till Tarifa', token: 'getting_to_tarifa' }
+        link: { label: 'Flygplatser, buss och garaget i detalj', token: 'getting_to_tarifa' }
       },
       areas: {
         eyebrow: 'Var ni bor',
@@ -666,7 +783,7 @@ export const tarifaLocationContent: {
           'På sommaren håller vinden hettan i schack, rekorden ligger knappt över 37 grader. På vintern förblir det milt, kring 14 till 15 grader, och blåsigt nog för kitesurfing.',
           'För ett boende påverkar riktning och byggnad hur utsatt det är. Utan platsspecifika belägg för de aktuella förhållandena lovar vi inte vindskydd för vare sig La Marina eller AMARA Family & Surf.'
         ],
-        link: { label: 'Vädret i Tarifa', token: 'tarifa_weather' }
+        link: { label: 'Levante, poniente och månadsvärdena för er resa', token: 'tarifa_weather' }
       },
       dailyLife: {
         eyebrow: 'Vardagsliv',
@@ -682,9 +799,36 @@ export const tarifaLocationContent: {
         paragraphs: [
           'I juli och augusti är orten full och parkeringen ett släp; då kör vi till Valdevaqueros för att kita och in i garaget för att parkera.',
           'Från september blir det stilla. Man möter samma ansikten i mataffären, kommer i samspråk med lokalbefolkningen, och klubben kör sina kitecamps. För oss är det den vackraste tiden här.',
-          'För längre vistelser har lägenheten öppen spis, värme, kök och tvättmaskin, och mataffären ligger mittemot.'
+          'För längre vistelser har lägenheten öppen spis, värme, kök och tvättmaskin.'
         ]
       },
+      tradeoffs: {
+        eyebrow: 'FÖR VEM TARIFA PASSAR',
+        title: 'Vind som program eller vindstilla stranddagar',
+        paragraphs: [
+          'På Los Lances bestämmer vinden dagen: vid levante flyger sanden, så ni badar på medelhavssidan vid Playa Chica eller kör till Bolonia. I juli och augusti är staden full och parkering besvärlig; från september tillhör Tarifa åter dem som bor här.',
+          'Söker ni vindstilla stranddagar, en ort utan sommarträngsel eller en Balcón i stället för ett sund är Nerja på Costa del Sol den bättre basen: AMARA Playa ligger där 200 meter från stranden, och dagen hänger inte på vinden.'
+        ],
+        axes: [
+          { id: 'beach', title: 'Stranddag', tarifa: 'Vinden avgör: Los Lances vid poniente, Playa Chica vid levante', nerja: 'Stadsstränder och vikar, före frukost' },
+          { id: 'evening', title: 'Kvällar', tarifa: 'Gamla stans gränder och Calle Batalla del Salado, kitesurfare vid baren', nerja: 'Balcón, promenaden, tapas i gränderna' },
+          { id: 'season', title: 'Säsong', tarifa: 'Juli och augusti fullt, lugnt från september; kitecamp på hösten', nerja: 'Livligt på sommaren; promenad, grotta och museum på vintern' },
+          { id: 'car', title: 'Bil', tarifa: 'Till fots i staden; bil för de västra stränderna och Bolonia, garageplats vid lägenheten', nerja: 'Buss direkt från flygplatsen, onödig i centrum' }
+        ],
+        link: { label: 'Se Nerja som alternativ bas', token: 'location_nerja' }
+      },
+      corridors: [
+        { id: 'winter', group: 'stay', label: 'Från september', text: 'Lugnt, kitecamp på klubben, samma ansikten i mataffären; öppen spis och värme i lägenheten.', token: 'tarifa_winter_stays' },
+        { id: 'parking', group: 'stay', label: 'Parkering', text: 'Gamla stan är bara för boende och behöriga från 13:30; till lägenheten hör en garageplats.', token: 'tarifa_parking' },
+        { id: 'dailyLife', group: 'stay', label: 'Vardag', text: 'Mataffär mittemot, bageri och apotek på samma gata; på kvällen Calle Batalla del Salado till fots.', token: 'tarifa_daily_life' },
+        { id: 'weather', group: 'stay', label: 'Vind och väder', text: 'Levante varm och kraftig från öster, poniente jämn från Atlanten; månadsvärden för er resa.', token: 'tarifa_weather' },
+        { id: 'beaches', group: 'explore', label: 'Strand och kust', text: 'Bada nära staden eller se på kitesurfarna längre västerut; vilken strand som passar i dag avgör vinden.', token: 'tarifa_beaches_authority' },
+        { id: 'kite', group: 'explore', label: 'Vind och kitesurfing', text: 'Eftermiddagsvind på Los Lances, Valdevaqueros under högsäsong; nybörjare via Tarifa Surf Club.', token: 'tarifa_kitesurfing_hub' },
+        { id: 'oldTown', group: 'explore', label: 'Gamla stan och historia', text: 'Genom Puerta de Jerez in i den muromgärdade kärnan, Castillo som riktmärke, sundet i ryggen.', token: 'tarifa_old_town_history' },
+        { id: 'food', group: 'explore', label: 'Mat och kvällar', text: 'Röd tonfisk från almadraba-traditionen, senare Calle Batalla del Salado och gränderna i gamla stan.', token: 'tarifa_food_evening_life' },
+        { id: 'whales', group: 'explore', label: 'Valar i sundet', text: 'Båttur till valar och delfiner från hamnen, flexibelt efter sjögång och säsong.', token: 'tarifa_whale_watching' },
+        { id: 'bolonia', group: 'explore', label: 'Bolonia och Baelo Claudia', text: 'Öppen kust, dynen och den romerska staden: en hel dag, aldrig ett mellanstopp.', token: 'tarifa_bolonia_baelo_claudia' }
+      ],
       amara: {
         eyebrow: 'Vår lägenhet',
         title: 'Varför vi bor i La Marina',
@@ -706,16 +850,16 @@ export const tarifaLocationContent: {
       experience: {
         eyebrow: 'Era dagar här',
         title: 'Strand, vind, gamla stan och en dag i Bolonia',
-        paragraphs: ['På morgonen açaí bowl på SURLA eller Powerhouse, mitt på dagen vind, på kvällen tapas i gränderna, och vid baren bredvid er sitter kanske en världsmästare i kitesurfing. Bolonia med den romerska staden Baelo Claudia fyller en hel dag; under flyttningstiden drar fåglarna över sundet.'],
+        paragraphs: ['Bolonia med den romerska staden Baelo Claudia fyller en hel dag; under flyttningstiden drar fåglarna över sundet ovanför er, och på kvällen sitter ni i gränderna.'],
         links: [
-          { label: 'Att göra i Tarifa', token: 'tarifa_experience_hub' },
-          { label: 'Upptäck Tarifas stränder', token: 'tarifa_beaches_authority' },
-          { label: 'Kitesurfing i Tarifa', token: 'tarifa_kitesurfing_hub' }
+          { label: 'Se hur många nätter som passar vilka dagar i Tarifa', token: 'tarifa_experience_hub' },
+          { label: 'Välj strand efter vind: Los Lances eller Playa Chica', token: 'tarifa_beaches_authority' },
+          { label: 'Vind, spots och kurser för nybörjare', token: 'tarifa_kitesurfing_hub' }
         ]
       },
       closing: {
-        title: 'För oss är Tarifa den vackraste platsen på den här planeten.',
-        lead: 'Om ni känner igen er i det bor ni bäst där solen faller ner i havet framför er.',
+        title: 'För oss är Tarifa den vackraste plats vi känner till.',
+        lead: 'För kvällarnas skull: solen sjunker i havet framför balkongen, och gamla stan ligger tio till femton minuter bort till fots.',
         ctaLabel: 'Visa AMARA Family & Surf'
       }
     }

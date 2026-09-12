@@ -370,7 +370,7 @@ function arrivalHeroVisual(
       ...shared,
       destination: 'Frigiliana',
       region: labels.frigilianaRegion,
-      primaryAirport: { code: 'AGP', name: 'Málaga', distance: '≈ 66 km', time: '≈ 55 min' },
+      primaryAirport: { code: 'AGP', name: 'Málaga', distance: '≈ 160 km', time: '≈ 2 h' },
       routeLabels: {
         carRental: labels.carRental,
         bus: labels.bus,
@@ -405,8 +405,8 @@ function arrivalHeroVisual(
     airportLabel: labels.mainAirport,
     primaryAirport: { code: 'AGP', name: 'Málaga', distance: '≈ 150 km', time: '≈ 1 h 40' },
     otherAirports: [
-      { code: 'GIB', distance: '≈ 50 km', time: '≈ 30 min' },
-      { code: 'XRY', distance: '≈ 135 km', time: '≈ 1 h' }
+      { code: 'GIB', distance: '≈ 45 km', time: '≈ 1 h' },
+      { code: 'XRY', distance: '≈ 120 km', time: '≈ 1 h 40' }
     ],
     mapLabels: {
       morocco: labels.morocco,
