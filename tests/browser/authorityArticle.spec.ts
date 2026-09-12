@@ -209,7 +209,8 @@ const AUTHORITY_PAGES: AuthorityPage[] = [
     heroMark: null,
     relatedColumns: 'md:grid-cols-2',
     blockBeforeSections: null,
-    blockAfterSections: null,
+    // The Balcón photographs sit in one gallery band between the text sections and the related links.
+    blockAfterSections: 'photo-gallery',
     arrivalModules: null,
     interleaved: [],
     sectionMarkerAttribute: null,
@@ -357,6 +358,7 @@ const articleBlocks = (page: Page, pageId: string): Promise<BlockFingerprint[]> 
       if (node.hasAttribute('data-am-guest-guide-bridge')) return { kind: 'guide-bridge', marker: null };
       if (node.hasAttribute('data-am-climate-table')) return { kind: 'climate-table', marker: null };
       if (node.hasAttribute('data-am-sun-hours')) return { kind: 'sun-hours', marker: null };
+      if (node.hasAttribute('data-am-photo-gallery')) return { kind: 'photo-gallery', marker: null };
       const groupedSectionIds = Array.from(
         node.querySelectorAll<HTMLElement>('[data-am-authority-layout="card"][id]')
       ).map((section) => section.id);
