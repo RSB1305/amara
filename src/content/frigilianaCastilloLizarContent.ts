@@ -4,26 +4,27 @@ import type { AmaraAuthoringSeo } from '../types/seo';
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
 
 export const frigilianaCastilloLizarSeo: AmaraAuthoringSeo = {
-  version: '2026-09-11-frigiliana-castillo-lizar-v1',
+  version: '2026-09-12-frigiliana-castillo-lizar-v2',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/07-frigiliana-pueblo.jpg',
-  article: { datePublished: '2026-09-11', dateModified: '2026-09-11', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
+  article: { datePublished: '2026-09-11', dateModified: '2026-09-12', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
   languages: {
-    en: { title: 'Castillo de Lizar in Frigiliana: The Ruined Moorish Fortress', description: 'The wall remains of a 9th–11th-century Moorish fortress above Frigiliana, largely razed by royal order after the 1569 Morisco uprising — the key to reading the village’s medieval defensive line.', robots: 'index, follow', canonical: 'auto' },
-    de: { title: 'Castillo de Lizar in Frigiliana: die maurische Burgruine', description: 'Die Mauerreste einer maurischen Festung des 9.–11. Jahrhunderts oberhalb von Frigiliana, nach dem Morisken-Aufstand 1569 auf königlichen Befehl weitgehend geschleift — der Schlüssel zur mittelalterlichen Verteidigungslinie des Dorfes.', robots: 'index, follow', canonical: 'auto' },
-    es: { title: 'El castillo de Lízar en Frigiliana: la fortaleza árabe en ruinas', description: 'Los restos de muro de una fortaleza árabe de los siglos IX–XI sobre Frigiliana, arrasada en gran parte por orden real tras la rebelión morisca de 1569: la clave para leer la línea defensiva medieval del pueblo.', robots: 'index, follow', canonical: 'auto' },
-    nl: { title: 'Castillo de Lizar in Frigiliana: de vervallen Moorse vesting', description: 'De muurresten van een 9e–11e-eeuwse Moorse vesting boven Frigiliana, na de Moriskenopstand van 1569 op koninklijk bevel grotendeels geslecht — de sleutel tot de middeleeuwse verdedigingslinie van het dorp.', robots: 'index, follow', canonical: 'auto' },
-    sv: { title: 'Castillo de Lizar i Frigiliana: den raserade moriska fästningen', description: 'Murresterna av en morisk fästning från 800–1000-talet ovanför Frigiliana, till stor del raserad på kunglig order efter moriskupproret 1569 — nyckeln till byns medeltida försvarslinje.', robots: 'index, follow', canonical: 'auto' }
+    en: { title: 'Castillo de Lizar in Frigiliana: The Ruined Moorish Fortress', description: 'The wall remains of a 9th–11th-century Moorish fortress above Frigiliana, razed after the 1569 uprising under Don Luis de Requesens — its cut stone reused to build the counts’ palace, El Ingenio.', robots: 'index, follow', canonical: 'auto' },
+    de: { title: 'Castillo de Lizar in Frigiliana: die maurische Burgruine', description: 'Die Mauerreste einer maurischen Festung des 9.–11. Jahrhunderts oberhalb von Frigiliana, nach dem Aufstand 1569 unter Don Luis de Requesens geschleift — ihre behauenen Steine wurden für den Grafenpalast El Ingenio wiederverwendet.', robots: 'index, follow', canonical: 'auto' },
+    es: { title: 'El castillo de Lízar en Frigiliana: la fortaleza árabe en ruinas', description: 'Los restos de muro de una fortaleza árabe de los siglos IX–XI sobre Frigiliana, arrasada tras la rebelión de 1569 por orden de Don Luis de Requesens; sus sillares se reutilizaron para el palacio condal, El Ingenio.', robots: 'index, follow', canonical: 'auto' },
+    nl: { title: 'Castillo de Lizar in Frigiliana: de vervallen Moorse vesting', description: 'De muurresten van een 9e–11e-eeuwse Moorse vesting boven Frigiliana, na de opstand van 1569 geslecht onder Don Luis de Requesens — haar gehouwen stenen werden hergebruikt voor het grafelijk paleis El Ingenio.', robots: 'index, follow', canonical: 'auto' },
+    sv: { title: 'Castillo de Lizar i Frigiliana: den raserade moriska fästningen', description: 'Murresterna av en morisk fästning från 800–1000-talet ovanför Frigiliana, raserad efter upproret 1569 under Don Luis de Requesens — dess huggna stenar återanvändes till grevepalatset El Ingenio.', robots: 'index, follow', canonical: 'auto' }
   }
 };
 
 /**
- * Old-town spoke (B). The 1569 destruction is a verified fact (BOJA record: Requesens
- * ordered it razed so it could not shelter insurgents again; only limited wall remains
- * survive). The 9th–11th-century Moorish dating follows the operator brief. No photograph
- * yet, so the page opens with a typographic cover; the ruin must never read as an intact
- * castle.
+ * Old-town spoke (B). Reworked 2026-09-12 from the web synthesis: the razing was ordered by
+ * the royal commander Don Luis de Requesens with Philip II’s approval (not simply "the crown"),
+ * and the castle’s cut stone (sillares) was reused to build the Manrique de Lara palace, today
+ * El Ingenio. Fortress footprint ~4,000 m²; BIC since 1985; the hill name (cerro de Lízar vs.
+ * cerro de la Sabina) is left open. Distinct from El Fuerte / Peñón, the higher 1569 battle
+ * summit. No photograph yet: typographic cover; the ruin must never read as an intact castle.
  */
 export const frigilianaCastilloLizarCopy = {
   hero: {
@@ -49,16 +50,16 @@ export const frigilianaCastilloLizarCopy = {
   keyFigures: {
     figures: [
       { value: '9.–11. Jh.', label: l('A Moorish fortress above the village', 'Maurische Festung oberhalb des Dorfes', 'Fortaleza árabe sobre el pueblo', 'Moorse vesting boven het dorp', 'Morisk fästning ovanför byn') },
-      { value: '1569', label: l('Razed by royal order after the uprising', 'Nach dem Aufstand auf königlichen Befehl geschleift', 'Arrasada por orden real tras la rebelión', 'Na de opstand op koninklijk bevel geslecht', 'Raserad på kunglig order efter upproret') },
-      { value: 'Ruina', label: l('Only limited wall remains survive', 'Nur wenige Mauerreste erhalten', 'Solo se conservan restos de muro', 'Slechts beperkte muurresten over', 'Endast begränsade murrester kvar') },
-      { value: 'Topo­grafía', label: l('The key to the medieval defensive line', 'Schlüssel zur mittelalterlichen Verteidigungslinie', 'La clave de la línea defensiva medieval', 'De sleutel tot de middeleeuwse verdedigingslinie', 'Nyckeln till den medeltida försvarslinjen') }
+      { value: '1569', label: l('Razed under Requesens after the uprising', 'Nach dem Aufstand unter Requesens geschleift', 'Arrasada tras la rebelión por Requesens', 'Na de opstand geslecht onder Requesens', 'Raserad efter upproret under Requesens') },
+      { value: '~4.000 m²', label: l('The footprint of the hilltop fortress', 'Grundfläche der Festung auf der Höhe', 'La superficie de la fortaleza en la altura', 'De oppervlakte van de vesting op de hoogte', 'Fästningens yta på höjden') },
+      { value: 'El Ingenio', label: l('Its cut stone reused for the counts’ palace', 'Ihre Steine im Grafenpalast wiederverwendet', 'Sus sillares reutilizados en el palacio condal', 'Haar stenen hergebruikt in het grafelijk paleis', 'Dess stenar återanvända i grevepalatset') }
     ],
     note: l(
-      'The 1569 razing is documented in the heritage record; the 9th–11th-century dating follows the operator brief. The site is a ruin, not an intact castle.',
-      'Die Schleifung 1569 ist im Denkmalregister belegt; die Datierung ins 9.–11. Jahrhundert folgt dem Operator-Brief. Der Ort ist eine Ruine, keine intakte Burg.',
-      'El arrasamiento de 1569 está documentado en el registro patrimonial; la datación de los siglos IX–XI sigue la nota del operador. El lugar es una ruina, no un castillo intacto.',
-      'De slechting van 1569 is gedocumenteerd in het erfgoedregister; de datering 9e–11e eeuw volgt de operatornota. De plek is een ruïne, geen intact kasteel.',
-      'Raseringen 1569 är dokumenterad i kulturarvsregistret; dateringen till 800–1000-talet följer operatörsnoteringen. Platsen är en ruin, inte ett intakt slott.'
+      'The 1569 razing (ordered by Don Luis de Requesens with Philip II’s approval) and the reuse of the stone for El Ingenio are documented; the 9th–11th-century dating carries two hypotheses and the hill name is left open (cerro de Lízar / cerro de la Sabina). The site is a ruin, not an intact castle.',
+      'Die Schleifung 1569 (angeordnet von Don Luis de Requesens mit Zustimmung Philipps II.) und die Wiederverwendung der Steine für El Ingenio sind belegt; die Datierung ins 9.–11. Jahrhundert kennt zwei Hypothesen, und der Hügelname bleibt offen (cerro de Lízar / cerro de la Sabina). Der Ort ist eine Ruine, keine intakte Burg.',
+      'El arrasamiento de 1569 (ordenado por Don Luis de Requesens con la aprobación de Felipe II) y la reutilización de la piedra para El Ingenio están documentados; la datación de los siglos IX–XI tiene dos hipótesis y el nombre del cerro queda abierto (cerro de Lízar / cerro de la Sabina). El lugar es una ruina, no un castillo intacto.',
+      'De slechting van 1569 (bevolen door Don Luis de Requesens met goedkeuring van Filips II) en het hergebruik van de steen voor El Ingenio zijn gedocumenteerd; de datering 9e–11e eeuw kent twee hypotheses en de heuvelnaam blijft open (cerro de Lízar / cerro de la Sabina). De plek is een ruïne, geen intact kasteel.',
+      'Raseringen 1569 (beordrad av Don Luis de Requesens med Filip II:s godkännande) och återanvändningen av stenen till El Ingenio är dokumenterade; dateringen till 800–1000-talet har två hypoteser och kullens namn lämnas öppet (cerro de Lízar / cerro de la Sabina). Platsen är en ruin, inte ett intakt slott.'
     )
   },
   sections: [
@@ -77,11 +78,11 @@ export const frigilianaCastilloLizarCopy = {
       eyebrow: l('The razing', 'Die Schleifung', 'El arrasamiento', 'De slechting', 'Raseringen'),
       title: l('Destroyed so it could not shelter rebels again', 'Zerstört, damit es nie wieder Rebellen barg', 'Arrasada para que no volviera a amparar rebeldes', 'Verwoest opdat het nooit meer rebellen zou herbergen', 'Raserad så att den aldrig mer skulle hysa rebeller'),
       text: l(
-        'When the Morisco revolt was put down in 1569, the crown ordered the fortress largely destroyed so that it could never again serve as a refuge for insurgents. What survives is limited wall remains — enough to fix the position, not to reconstruct the building. The panels of the old-town walk tell that revolt in sequence; the ruin is its physical footnote, the reason the defensive height was deliberately unmade.',
-        'Als der Morisken-Aufstand 1569 niedergeschlagen war, ließ die Krone die Festung weitgehend zerstören, damit sie nie wieder Aufständischen als Zuflucht dienen konnte. Erhalten sind wenige Mauerreste — genug, um die Lage zu bestimmen, nicht, um den Bau zu rekonstruieren. Die Tafeln des Altstadt-Rundgangs erzählen diesen Aufstand der Reihe nach; die Ruine ist seine physische Fußnote, der Grund, warum die Verteidigungshöhe bewusst unbrauchbar gemacht wurde.',
-        'Sofocada la rebelión morisca en 1569, la Corona ordenó arrasar en gran parte la fortaleza para que no volviera a servir de refugio a los sublevados. Lo que queda son restos de muro: bastante para fijar la posición, no para reconstruir el edificio. Los azulejos del recorrido por el casco antiguo narran esa rebelión en orden; la ruina es su nota al pie física, el motivo por el que la altura defensiva se deshizo a propósito.',
-        'Toen de Moriskenopstand in 1569 was neergeslagen, liet de kroon de vesting grotendeels verwoesten zodat ze nooit meer opstandelingen als toevlucht kon dienen. Wat overblijft zijn beperkte muurresten — genoeg om de plek vast te leggen, niet om het gebouw te reconstrueren. De panelen van de oude-kernwandeling vertellen die opstand op volgorde; de ruïne is de fysieke voetnoot ervan, de reden waarom de verdedigingshoogte doelbewust onbruikbaar werd gemaakt.',
-        'När moriskupproret slogs ned 1569 lät kronan riva fästningen till stor del så att den aldrig mer skulle kunna tjäna som tillflykt för upprorsmän. Det som återstår är begränsade murrester — nog för att fastställa läget, inte för att återskapa byggnaden. Panelerna på gamla stan-vandringen berättar det upproret i ordning; ruinen är dess fysiska fotnot, skälet till att försvarshöjden medvetet gjordes obrukbar.'
+        'When the Morisco revolt was put down in 1569, the royal commander Don Luis de Requesens — with the approval of King Philip II — ordered the fortress largely destroyed so that it could never again serve as a refuge for insurgents. Its cut stone did not go to waste: much of it was carried down to build the Manrique de Lara counts’ palace, the building known today as El Ingenio. What survives up here is limited wall remains, enough to fix the position rather than reconstruct the building — the physical footnote to the revolt the ceramic panels tell in sequence a few lanes below.',
+        'Als der Morisken-Aufstand 1569 niedergeschlagen war, ließ der königliche Feldherr Don Luis de Requesens — mit Zustimmung König Philipps II. — die Festung weitgehend zerstören, damit sie nie wieder Aufständischen als Zuflucht dienen konnte. Ihre behauenen Steine gingen nicht verloren: Ein großer Teil wanderte hinab zum Bau des Grafenpalasts der Manrique de Lara — jenes Gebäude, das man heute El Ingenio nennt. Hier oben blieben wenige Mauerreste, genug, um die Lage zu bestimmen, nicht, um den Bau zu rekonstruieren — die physische Fußnote zu dem Aufstand, den die Keramiktafeln wenige Gassen tiefer der Reihe nach erzählen.',
+        'Sofocada la rebelión morisca en 1569, el capitán real Don Luis de Requesens —con la aprobación del rey Felipe II— ordenó arrasar en gran parte la fortaleza para que no volviera a servir de refugio a los sublevados. Sus sillares no se perdieron: buena parte bajó para levantar el palacio de los condes Manrique de Lara, el edificio que hoy llamamos El Ingenio. Aquí arriba quedan restos de muro, suficientes para fijar la posición, no para reconstruir el edificio: la nota al pie física de la rebelión que los azulejos narran en orden unas calles más abajo.',
+        'Toen de Moriskenopstand in 1569 was neergeslagen, liet de koninklijke bevelhebber Don Luis de Requesens — met goedkeuring van koning Filips II — de vesting grotendeels verwoesten zodat ze nooit meer opstandelingen als toevlucht kon dienen. Haar gehouwen stenen gingen niet verloren: een groot deel ging omlaag voor de bouw van het paleis van de graven Manrique de Lara, het gebouw dat we vandaag El Ingenio noemen. Hierboven bleven beperkte muurresten, genoeg om de plek vast te leggen, niet om het gebouw te reconstrueren — de fysieke voetnoot bij de opstand die de keramiekpanelen een paar straatjes lager op volgorde vertellen.',
+        'När moriskupproret slogs ned 1569 lät den kunglige befälhavaren Don Luis de Requesens — med kung Filip II:s godkännande — riva fästningen till stor del så att den aldrig mer skulle kunna tjäna som tillflykt för upprorsmän. Dess huggna stenar gick inte förlorade: en stor del bars ner för att bygga grevarna Manrique de Laras palats, byggnaden vi i dag kallar El Ingenio. Här uppe återstår begränsade murrester, nog för att fastställa läget, inte för att återskapa byggnaden — den fysiska fotnoten till upproret som keramikpanelerna berättar i ordning några gränder längre ner.'
       )
     },
     {
@@ -106,11 +107,11 @@ export const frigilianaCastilloLizarCopy = {
   closing: {
     title: l('Climb for the vantage', 'Steigt hinauf für den Ausblick', 'Subid por la panorámica', 'Klim voor het uitzicht', 'Klättra för utsikten'),
     lead: l(
-      'The remains of the Castillo de Lizar sit above the old town, a climb up through the oldest lanes from Casa AMARA. Pair it with the ceramic panels of the 1569 revolt and the view down the Callejón del Peñón towards El Fuerte.',
-      'Die Reste des Castillo de Lizar liegen über der Altstadt, ein Anstieg durch die ältesten Gassen von Casa AMARA aus. Verbindet ihn mit den Keramiktafeln des Aufstands von 1569 und dem Blick den Callejón del Peñón hinab zum El Fuerte.',
-      'Los restos del castillo de Lízar quedan sobre el casco antiguo, una subida por las calles más antiguas desde Casa AMARA. Combinadlo con los azulejos de la rebelión de 1569 y la vista por el callejón del Peñón hacia El Fuerte.',
-      'De resten van het Castillo de Lizar liggen boven de oude kern, een klim door de oudste straatjes vanaf Casa AMARA. Combineer het met de keramiekpanelen van de opstand van 1569 en het uitzicht door de Callejón del Peñón richting El Fuerte.',
-      'Resterna av Castillo de Lizar ligger ovanför gamla stan, en klättring genom de äldsta gränderna från Casa AMARA. Kombinera den med keramikpanelerna om upproret 1569 och utsikten nedför Callejón del Peñón mot El Fuerte.'
+      'The remains of the Castillo de Lizar sit above the old town, a climb up through the oldest lanes from Casa AMARA. Pair it with the ceramic panels of the 1569 revolt and the miradores of the Callejón del Peñón over the rooftops.',
+      'Die Reste des Castillo de Lizar liegen über der Altstadt, ein Anstieg durch die ältesten Gassen von Casa AMARA aus. Verbindet ihn mit den Keramiktafeln des Aufstands von 1569 und den Miradores des Callejón del Peñón über den Dächern.',
+      'Los restos del castillo de Lízar quedan sobre el casco antiguo, una subida por las calles más antiguas desde Casa AMARA. Combinadlo con los azulejos de la rebelión de 1569 y los miradores del callejón del Peñón sobre los tejados.',
+      'De resten van het Castillo de Lizar liggen boven de oude kern, een klim door de oudste straatjes vanaf Casa AMARA. Combineer het met de keramiekpanelen van de opstand van 1569 en de miradores van de Callejón del Peñón over de daken.',
+      'Resterna av Castillo de Lizar ligger ovanför gamla stan, en klättring genom de äldsta gränderna från Casa AMARA. Kombinera den med keramikpanelerna om upproret 1569 och miradorerna vid Callejón del Peñón över taken.'
     ),
     oldTownCta: l('Back to the old town', 'Zurück zur Altstadt', 'Volver al casco antiguo', 'Terug naar de oude kern', 'Tillbaka till gamla stan'),
     availabilityCta: l('Check availability', 'Verfügbarkeit prüfen', 'Consultar disponibilidad', 'Beschikbaarheid bekijken', 'Se tillgänglighet')
