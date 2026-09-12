@@ -43,6 +43,12 @@ interface NerjaLocationHubLocale {
   };
   coast: NerjaLocationHubFeature;
   dailyLife: NerjaLocationHubFeature;
+  /** Trade-offs of the coast as a base, with the honest pointer to Frigiliana where it fits better. */
+  tradeoffs: NerjaLocationHubFeature & {
+    axes: Array<{ id: 'doorstep' | 'sea' | 'steps' | 'car'; title: string; nerja: string; frigiliana: string }>;
+  };
+  /** Content corridors with a mini-answer each; the hub opens the destination architecture here. */
+  corridors: Array<{ id: string; group: 'stay' | 'explore'; label: string; text: string; token: LinkToken }>;
   seasons: NerjaLocationHubFeature;
   amara: NerjaLocationHubFeature & { facts: string[] };
   experience: NerjaLocationHubFeature;
@@ -62,31 +68,31 @@ const seo: AmaraAuthoringSeo = {
   },
   languages: {
     en: {
-      title: 'Nerja: beach, Balcón and tapas | AMARA',
+      title: 'Nerja as a Base: Where to Stay and How to Get Around | AMARA',
       description: 'Nerja on the Mediterranean: coves, the Balcón de Europa, tapas until late and a town that is open all year. Our apartment is 200 metres from the beach.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Nerja: Strand, Balcón und Tapas | AMARA',
+      title: 'Nerja als Urlaubsort: wohnen, bewegen, vorher wissen | AMARA',
       description: 'Nerja am Mittelmeer: Buchten, der Balcón de Europa, Tapas bis spät und eine Stadt, die das ganze Jahr geöffnet hat. Unsere Wohnung liegt 200 Meter vom Strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Nerja: playa, Balcón y tapas | AMARA',
+      title: 'Nerja como base: dónde alojarse y cómo moverse | AMARA',
       description: 'Nerja en el Mediterráneo: calas, el Balcón de Europa, tapas hasta tarde y una ciudad abierta todo el año. Nuestro apartamento está a 200 metros de la playa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Nerja: strand, Balcón en tapas | AMARA',
+      title: 'Nerja als vakantiebasis: wonen, bewegen, weten | AMARA',
       description: 'Nerja aan de Middellandse Zee: baaien, de Balcón de Europa, tapas tot laat en een stad die het hele jaar open is. Ons appartement ligt 200 meter van het strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Nerja: strand, Balcón och tapas | AMARA',
+      title: 'Nerja som semesterbas: bo, röra sig, veta i förväg | AMARA',
       description: 'Nerja vid Medelhavet: vikar, Balcón de Europa, tapas till sent och en stad som är öppen året runt. Vår lägenhet ligger 200 meter från stranden.',
       robots: 'index, follow',
       canonical: 'auto'
@@ -115,7 +121,7 @@ export const nerjaLocationHubContent: {
         title: 'Six questions that shape a Nerja stay',
         intro: 'Start with your real daily rhythm: arrival, beach choice, walking, errands and the outings you want beyond town.',
         items: [
-          { number: '01', title: 'Getting here', text: 'Airports, coach arrival and the final leg to Calle Castilla Pérez 60.', label: 'Arrival & mobility', token: 'getting_to_nerja' },
+          { number: '01', title: 'Getting here', text: 'Airports, coach arrival and the final leg.', label: 'Arrival & mobility', token: 'getting_to_nerja' },
           { number: '02', title: 'Read the town', text: 'Sea edge, old centre, eastern beaches and the hills behind Nerja.', label: 'Geography & orientation', token: 'nerja_where_to_stay' },
           { number: '03', title: 'Choose your area', text: 'Compare Torrecilla, the Old Town, Burriana and the upper residential areas.', label: 'Where to stay', token: 'nerja_where_to_stay' },
           { number: '04', title: 'Weather & seasons', text: 'How heat, rain and the quieter months change a coastal stay.', label: 'Weather & seasons', token: 'nerja_weather' },
@@ -136,8 +142,7 @@ export const nerjaLocationHubContent: {
           { label: 'Eastern coast', value: 'Calahonda + Carabeo + Burriana' }
         ],
         mapLabel: 'Nerja on the Iberian Peninsula — on Andalusia’s Mediterranean coast east of Málaga, with Frigiliana in the hills behind and a possible round trip via Málaga, Ronda, Sevilla, Córdoba and Granada',
-        mapNote: 'A possible round trip from Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada and back along the coast. The circle enlarges Nerja and Frigiliana.',
-        link: { label: 'Nerja’s areas in detail', token: 'nerja_where_to_stay' }
+        mapNote: 'A possible round trip from Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada and back along the coast. The circle enlarges Nerja and Frigiliana.'
       },
       arrival: {
         eyebrow: 'Arrival & mobility',
@@ -166,21 +171,46 @@ export const nerjaLocationHubContent: {
       },
       coast: {
         eyebrow: 'Beaches',
-        title: 'Calahonda before ten, Burriana for the paella, Maro for clear water',
+        title: 'Level town beaches in the centre, chiringuitos to the east, clear water at Maro',
         paragraphs: [
-          'Calahonda below the Balcón is loveliest before ten, when the light falls on the white houses. Burriana has space, sunbeds and AYO for paella at midday. For clear water you drive to Maro and Cantarriján, with snorkel and kayak.',
-          'From AMARA Playa it is 200 metres to Torrecilla. A second swim after dinner is therefore not a matter of planning.'
-        ]
+          'Below the Balcón and to its west lie the town beaches, level and reached on foot; to the east follows Burriana with chiringuitos and paella at lunchtime, and the way back to the centre climbs. For clear water you drive to Maro and Cantarriján.'
+        ],
+        link: { label: 'See which beach you reach on the level and which has the clearest water', token: 'nerja_beaches_authority' }
       },
       dailyLife: {
-        eyebrow: 'Eating and everyday life',
-        title: 'Fish at La Puntilla, tapas at the Balcón, bread at Good Stuff',
+        eyebrow: 'Food and everyday life',
+        title: 'Lunch by the sea, evenings in the lanes, kitchens open around seven',
         paragraphs: [
-          'Grilled fish at La Puntilla or paella on the beach at midday, tapas in the lanes around the Balcón in the evening, Oliva or 34 with a sea view for a special night. Dinner is late; in town the kitchens open around seven.',
-          'Carrefour Express is in our street, breakfast is two minutes on at Good Stuff, the pharmacy also on Calle Castilla Pérez.'
+          'Grilled fish or paella on the beach at lunchtime, tapas in the lanes around the Balcón in the evening, a table with a sea view for a special night. People eat late; in town the kitchens open around seven.',
+          'The supermarket and the pharmacy are in our street, the breakfast café two minutes further on.'
         ],
-        link: { label: 'Supermarkets and pharmacy in Nerja', token: 'nerja_daily_life' }
+        link: { label: 'Supermarkets, pharmacy and opening hours for ordinary weeks', token: 'nerja_daily_life' }
       },
+      tradeoffs: {
+        eyebrow: 'WHO THE COAST SUITS',
+        title: 'The beach on your doorstep or village evenings',
+        paragraphs: [
+          'Nerja is a coastal town with a summer season: in July and August the beaches, the promenade and the lanes are full until late. From autumn the promenade is yours, and a grey day has the cave and the museum.',
+          'If you want a quiet village in the evening, the Sierra outside the window in the morning and the beach as an outing, Frigiliana ten minutes above is the better base. Casa AMARA there sits in the middle of the old village; slope, cobbles and steps come with it.'
+        ],
+        axes: [
+          { id: 'doorstep', title: 'On your doorstep', nerja: 'Torrecilla beach 200 metres away, the Balcón 500, the promenade for the evening', frigiliana: 'White lanes, Calle Real with its restaurants, the village to yourselves from the evening' },
+          { id: 'sea', title: 'Getting to the sea', nerja: 'Into the water before breakfast, on foot', frigiliana: 'Ten minutes down, by car, bus or taxi' },
+          { id: 'steps', title: 'Steps and slopes', nerja: 'Level in the centre; uphill only towards Burriana and the upper districts', frigiliana: 'A hillside village with cobbles and steps; level along the lower main axis' },
+          { id: 'car', title: 'Car', nerja: 'Unnecessary; the bus runs straight from the airport, one or two rental days for Maro and the Axarquía', frigiliana: 'Unnecessary in the village, useful for beaches and day trips' }
+        ],
+        link: { label: 'Compare everyday life in Nerja and Frigiliana', token: 'nerja_vs_frigiliana' }
+      },
+      corridors: [
+        { id: 'weather', group: 'stay', label: 'Weather and seasons', text: 'Into the sea before breakfast in summer; in winter the promenade is yours, and on grey days the cave and the museum are open.', token: 'nerja_weather' },
+        { id: 'winter', group: 'stay', label: 'Staying longer', text: 'Quiet from October, the centre largely car-free; heating, air conditioning, a full kitchen and a washing machine carry ordinary weeks.', token: 'nerja_winter_stays' },
+        { id: 'parking', group: 'stay', label: 'Parking', text: 'In the centre the car stays put: Balcón de Europa or Verano Azul car park; the apartment has no space of its own.', token: 'nerja_parking' },
+        { id: 'dailyLife', group: 'stay', label: 'Everyday life and shopping', text: 'Supermarket and pharmacy in the same street; one or two rental days cover Maro, Frigiliana and the Axarquía.', token: 'nerja_daily_life' },
+        { id: 'beaches', group: 'explore', label: 'Beaches', text: 'Level town beaches below the Balcón, Burriana with chiringuitos to the east, clear water at Maro and Cantarriján.', token: 'nerja_beaches_authority' },
+        { id: 'food', group: 'explore', label: 'Food', text: 'Fish or paella by the sea at lunchtime, tapas in the lanes in the evening; at weekends a reservation is worth it.', token: 'nerja_food_authority' },
+        { id: 'caves', group: 'explore', label: 'Nerja Caves', text: 'At Maro, half a day; timed admission and steps inside, so check tickets beforehand.', token: 'nerja_caves' },
+        { id: 'experiences', group: 'explore', label: 'All experiences', text: 'The Balcón, Verano Azul, evening life and day trips: Málaga, Granada, Ronda and the Caminito each deserve a day.', token: 'nerja_experience_hub' }
+      ],
       seasons: {
         eyebrow: 'Weather, seasons & longer stays',
         title: 'Use weather for the conditions and daily life for the ordinary weeks',
@@ -252,14 +282,13 @@ export const nerjaLocationHubContent: {
           { label: 'Östliche Küste', value: 'Calahonda + Carabeo + Burriana' }
         ],
         mapLabel: 'Nerja auf der Iberischen Halbinsel — an Andalusiens Mittelmeerküste östlich von Málaga, mit Frigiliana in den Hügeln dahinter und einer möglichen Rundreise über Málaga, Ronda, Sevilla, Córdoba und Granada',
-        mapNote: 'Eine mögliche Rundreise ab Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada und zurück über die Küste. Der Kreis zeigt Nerja und Frigiliana vergrößert.',
-        link: { label: 'Nerjas Lagen im Detail', token: 'nerja_where_to_stay' }
+        mapNote: 'Eine mögliche Rundreise ab Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada und zurück über die Küste. Der Kreis zeigt Nerja und Frigiliana vergrößert.'
       },
       arrival: {
         eyebrow: 'Anreise & Mobilität',
         title: 'Der Bus fährt direkt, das Auto bleibt dann stehen',
         paragraphs: [
-          'Vom Flughafen Málaga fährt der ALSA-Bus ohne Umstieg nach Nerja, gut eine Stunde. Er endet am Busbahnhof; mit Koffern nehmt ihr von dort ein Taxi bis zur Calle Castilla Pérez 60.',
+          'Vom Flughafen Málaga fährt der ALSA-Bus ohne Umstieg nach Nerja, gut eine Stunde. Er endet am Busbahnhof; mit Koffern nehmt ihr von dort ein Taxi.',
           'Im Ort braucht ihr an den meisten Tagen kein Auto. Für Maro, Frigiliana und die Axarquía reichen ein oder zwei Miettage; geparkt wird im Parkhaus Balcón de Europa oder Verano Azul, ein eigener Platz gehört nicht zur Wohnung.',
           'Die Adresse für Taxi und Navi: Calle Castilla Pérez 60.'
         ],
@@ -282,21 +311,46 @@ export const nerjaLocationHubContent: {
       },
       coast: {
         eyebrow: 'Strände',
-        title: 'Calahonda vor zehn, Burriana für die Paella, Maro für klares Wasser',
+        title: 'Ebene Stadtstrände im Zentrum, Chiringuitos im Osten, klares Wasser bei Maro',
         paragraphs: [
-          'Calahonda unter dem Balcón ist am schönsten vor zehn Uhr, wenn das Licht auf die weißen Häuser fällt. Burriana hat Platz, Liegen und das AYO für die Paella am Mittag. Für klares Wasser fahrt ihr nach Maro und Cantarriján, mit Schnorchel und Kajak.',
-          'Von AMARA Playa sind es 200 Meter nach Torrecilla. Ein zweites Bad nach dem Abendessen ist deshalb keine Frage der Planung.'
-        ]
+          'Unter dem Balcón und westlich davon liegen die Stadtstrände, eben und zu Fuß erreichbar; nach Osten folgt Burriana mit Chiringuitos und Paella am Mittag, zurück ins Zentrum geht es bergauf. Für klares Wasser fahrt ihr nach Maro und Cantarriján.'
+        ],
+        link: { label: 'Sehen, welcher Strand eben erreichbar ist und welcher das klarste Wasser hat', token: 'nerja_beaches_authority' }
       },
       dailyLife: {
         eyebrow: 'Essen und Alltag',
-        title: 'Fisch bei La Puntilla, Tapas am Balcón, Brot bei Good Stuff',
+        title: 'Mittags am Meer, abends in den Gassen, die Küchen öffnen gegen sieben',
         paragraphs: [
-          'Mittags gegrillter Fisch bei La Puntilla oder Paella am Strand, abends Tapas in den Gassen um den Balcón, für einen besonderen Abend das Oliva oder das 34 mit Meerblick. Gegessen wird spät; im Ort öffnen die Küchen gegen sieben.',
-          'Der Carrefour Express liegt in unserer Straße, das Frühstück gibt es zwei Minuten weiter bei Good Stuff, die Apotheke ebenfalls in der Calle Castilla Pérez.'
+          'Mittags gegrillter Fisch oder Paella am Strand, abends Tapas in den Gassen um den Balcón, für einen besonderen Abend ein Tisch mit Meerblick. Gegessen wird spät; im Ort öffnen die Küchen gegen sieben.',
+          'Supermarkt und Apotheke liegen in unserer Straße, das Frühstückscafé zwei Minuten weiter.'
         ],
-        link: { label: 'Supermärkte und Apotheke in Nerja', token: 'nerja_daily_life' }
+        link: { label: 'Supermärkte, Apotheke und Öffnungszeiten für normale Wochen', token: 'nerja_daily_life' }
       },
+      tradeoffs: {
+        eyebrow: 'FÜR WEN DIE KÜSTE PASST',
+        title: 'Strand vor der Tür oder Dorfabend',
+        paragraphs: [
+          'Nerja ist eine Küstenstadt mit Sommerbetrieb: Im Juli und August sind Strände, Promenade und Gassen bis spät voll. Ab dem Herbst gehört euch die Promenade, und ein grauer Tag hat Höhle und Museum.',
+          'Wer abends ein stilles Dorf will, morgens die Sierra vor dem Fenster und den Strand als Ausflug, wohnt besser in Frigiliana, zehn Minuten oberhalb. Casa AMARA liegt dort mitten in der Altstadt; Hang, Pflaster und Stufen gehören dazu.'
+        ],
+        axes: [
+          { id: 'doorstep', title: 'Vor der Tür', nerja: 'Strand Torrecilla 200 Meter, Balcón 500, die Promenade für den Abend', frigiliana: 'Weiße Gassen, die Calle Real mit Restaurants, ab dem Abend das Dorf für euch' },
+          { id: 'sea', title: 'Der Weg zum Meer', nerja: 'Vor dem Frühstück ins Wasser, zu Fuß', frigiliana: 'Zehn Minuten hinunter, mit Auto, Bus oder Taxi' },
+          { id: 'steps', title: 'Stufen und Steigungen', nerja: 'Im Zentrum eben; bergauf nur Richtung Burriana und in die oberen Viertel', frigiliana: 'Hangdorf mit Pflaster und Stufen; unten an der Hauptachse eben' },
+          { id: 'car', title: 'Auto', nerja: 'Verzichtbar; Bus direkt vom Flughafen, für Maro und die Axarquía ein, zwei Miettage', frigiliana: 'Im Dorf verzichtbar, für Strand und Ausflüge hilfreich' }
+        ],
+        link: { label: 'Nerja und Frigiliana im Alltag vergleichen', token: 'nerja_vs_frigiliana' }
+      },
+      corridors: [
+        { id: 'weather', group: 'stay', label: 'Wetter und Jahreszeiten', text: 'Im Sommer vor dem Frühstück ins Meer, im Winter gehört euch die Promenade; an grauen Tagen sind Höhle und Museum offen.', token: 'nerja_weather' },
+        { id: 'winter', group: 'stay', label: 'Länger bleiben', text: 'Ab Oktober ruhig, das Zentrum weitgehend autofrei; Heizung, Klimaanlage, Küche und Waschmaschine tragen normale Wochen.', token: 'nerja_winter_stays' },
+        { id: 'parking', group: 'stay', label: 'Parken', text: 'Im Zentrum bleibt das Auto stehen: Parkhaus Balcón de Europa oder Verano Azul, ein eigener Platz gehört nicht zur Wohnung.', token: 'nerja_parking' },
+        { id: 'dailyLife', group: 'stay', label: 'Alltag und Einkauf', text: 'Supermarkt und Apotheke in derselben Straße; für Maro, Frigiliana und die Axarquía reichen ein, zwei Miettage.', token: 'nerja_daily_life' },
+        { id: 'beaches', group: 'explore', label: 'Strände', text: 'Stadtstrände eben unter dem Balcón, Burriana mit Chiringuitos im Osten, klares Wasser bei Maro und Cantarriján.', token: 'nerja_beaches_authority' },
+        { id: 'food', group: 'explore', label: 'Essen', text: 'Mittags Fisch oder Paella am Meer, abends Tapas in den Gassen; am Wochenende lohnt sich eine Reservierung.', token: 'nerja_food_authority' },
+        { id: 'caves', group: 'explore', label: 'Höhle von Nerja', text: 'Bei Maro, ein halber Tag; feste Einlasszeiten und Stufen im Inneren, Tickets vorher prüfen.', token: 'nerja_caves' },
+        { id: 'experiences', group: 'explore', label: 'Alle Erlebnisse', text: 'Balcón, Verano Azul, Abendleben und Tagesausflüge: Málaga, Granada, Ronda und der Caminito verdienen je einen Tag.', token: 'nerja_experience_hub' }
+      ],
       seasons: {
         eyebrow: 'Wetter, Jahreszeiten & längere Aufenthalte',
         title: 'Der Wetter-Guide erklärt die Bedingungen, der Alltags-Guide die normalen Wochen',
@@ -347,7 +401,7 @@ export const nerjaLocationHubContent: {
         title: 'Seis preguntas que dan forma a una estancia en Nerja',
         intro: 'Pensad primero en vuestro ritmo real: llegada, playa, paseos, compras y excursiones fuera del pueblo.',
         items: [
-          { number: '01', title: 'Llegar a Nerja', text: 'Aeropuertos, llegada en autobús y último tramo hasta Calle Castilla Pérez 60.', label: 'Llegada y movilidad', token: 'getting_to_nerja' },
+          { number: '01', title: 'Llegar a Nerja', text: 'Aeropuertos, llegada en autobús y último tramo.', label: 'Llegada y movilidad', token: 'getting_to_nerja' },
           { number: '02', title: 'Situarse en el pueblo', text: 'Frente marítimo, casco antiguo, playas orientales y laderas.', label: 'Geografía y orientación', token: 'nerja_where_to_stay' },
           { number: '03', title: 'Elegir zona', text: 'Torrecilla, casco antiguo, Burriana y urbanizaciones de la parte alta.', label: 'Dónde alojarse', token: 'nerja_where_to_stay' },
           { number: '04', title: 'Tiempo y temporadas', text: 'Cómo el calor, la lluvia y los meses tranquilos cambian la estancia.', label: 'Tiempo y temporadas', token: 'nerja_weather' },
@@ -368,8 +422,7 @@ export const nerjaLocationHubContent: {
           { label: 'Costa oriental', value: 'Calahonda + Carabeo + Burriana' }
         ],
         mapLabel: 'Nerja en la península ibérica — en la costa mediterránea de Andalucía, al este de Málaga, con Frigiliana en las colinas de detrás y una posible ruta por Málaga, Ronda, Sevilla, Córdoba y Granada',
-        mapNote: 'Una posible ruta desde Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada y vuelta por la costa. El círculo amplía Nerja y Frigiliana.',
-        link: { label: 'Las zonas de Nerja en detalle', token: 'nerja_where_to_stay' }
+        mapNote: 'Una posible ruta desde Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada y vuelta por la costa. El círculo amplía Nerja y Frigiliana.'
       },
       arrival: {
         eyebrow: 'Llegada y movilidad',
@@ -398,21 +451,46 @@ export const nerjaLocationHubContent: {
       },
       coast: {
         eyebrow: 'Playas',
-        title: 'Calahonda antes de las diez, Burriana para la paella, Maro para el agua clara',
+        title: 'Playas urbanas llanas en el centro, chiringuitos al este, agua clara en Maro',
         paragraphs: [
-          'Calahonda, bajo el Balcón, está más bonita antes de las diez, cuando la luz cae sobre las casas blancas. Burriana tiene espacio, hamacas y el AYO para la paella a mediodía. Para agua clara vais a Maro y Cantarriján, con snorkel y kayak.',
-          'Desde AMARA Playa son 200 metros hasta Torrecilla. Un segundo baño después de cenar no es, por tanto, cuestión de planificación.'
-        ]
+          'Bajo el Balcón y hacia el oeste están las playas urbanas, llanas y a pie; hacia el este sigue Burriana con chiringuitos y paella a mediodía, y la vuelta al centro es cuesta arriba. Para agua clara vais en coche a Maro y Cantarriján.'
+        ],
+        link: { label: 'Ver a qué playa se llega en llano y cuál tiene el agua más clara', token: 'nerja_beaches_authority' }
       },
       dailyLife: {
         eyebrow: 'Comer y día a día',
-        title: 'Pescado en La Puntilla, tapas en el Balcón, pan en Good Stuff',
+        title: 'A mediodía junto al mar, de noche por las calles; las cocinas abren hacia las siete',
         paragraphs: [
-          'A mediodía pescado a la brasa en La Puntilla o paella en la playa, por la noche tapas en las callejuelas del Balcón, y para una ocasión especial el Oliva o el 34 con vistas al mar. Se cena tarde; en el pueblo las cocinas abren hacia las siete.',
-          'El Carrefour Express está en nuestra calle, el desayuno a dos minutos en Good Stuff, la farmacia también en la calle Castilla Pérez.'
+          'A mediodía pescado a la brasa o paella en la playa, por la noche tapas en las calles alrededor del Balcón y, para una noche especial, una mesa con vistas al mar. Se cena tarde; en el pueblo las cocinas abren hacia las siete.',
+          'El supermercado y la farmacia están en nuestra calle; la cafetería para desayunar, dos minutos más allá.'
         ],
-        link: { label: 'Supermercados y farmacia en Nerja', token: 'nerja_daily_life' }
+        link: { label: 'Supermercados, farmacia y horarios para semanas normales', token: 'nerja_daily_life' }
       },
+      tradeoffs: {
+        eyebrow: 'PARA QUIÉN ES LA COSTA',
+        title: 'La playa en la puerta o noches de pueblo',
+        paragraphs: [
+          'Nerja es una ciudad costera con temporada de verano: en julio y agosto las playas, el paseo y las calles están llenos hasta tarde. Desde el otoño el paseo es vuestro, y un día gris tiene la cueva y el museo.',
+          'Si queréis un pueblo tranquilo por la noche, la sierra en la ventana por la mañana y la playa como excursión, Frigiliana, diez minutos más arriba, es la mejor base. Allí Casa AMARA está en pleno casco antiguo; cuesta, empedrado y escalones van incluidos.'
+        ],
+        axes: [
+          { id: 'doorstep', title: 'En la puerta', nerja: 'La playa de Torrecilla a 200 metros, el Balcón a 500, el paseo para la noche', frigiliana: 'Calles blancas, la calle Real con sus restaurantes, el pueblo para vosotros desde la tarde' },
+          { id: 'sea', title: 'Llegar al mar', nerja: 'Al agua antes de desayunar, a pie', frigiliana: 'Diez minutos bajando, en coche, autobús o taxi' },
+          { id: 'steps', title: 'Escalones y cuestas', nerja: 'Llano en el centro; cuesta arriba solo hacia Burriana y los barrios altos', frigiliana: 'Pueblo en ladera con empedrado y escalones; llano en el eje principal de abajo' },
+          { id: 'car', title: 'Coche', nerja: 'Innecesario; el autobús llega directo desde el aeropuerto, uno o dos días de alquiler para Maro y la Axarquía', frigiliana: 'Innecesario en el pueblo, útil para playas y excursiones' }
+        ],
+        link: { label: 'Comparar el día a día en Nerja y Frigiliana', token: 'nerja_vs_frigiliana' }
+      },
+      corridors: [
+        { id: 'weather', group: 'stay', label: 'Tiempo y temporadas', text: 'En verano al mar antes de desayunar; en invierno el paseo es vuestro, y en los días grises la cueva y el museo están abiertos.', token: 'nerja_weather' },
+        { id: 'winter', group: 'stay', label: 'Quedarse más tiempo', text: 'Tranquilo desde octubre, el centro casi sin coche; calefacción, aire acondicionado, cocina completa y lavadora sostienen las semanas normales.', token: 'nerja_winter_stays' },
+        { id: 'parking', group: 'stay', label: 'Aparcar', text: 'En el centro el coche se queda aparcado: parking Balcón de Europa o Verano Azul; el apartamento no tiene plaza propia.', token: 'nerja_parking' },
+        { id: 'dailyLife', group: 'stay', label: 'Día a día y compras', text: 'Supermercado y farmacia en la misma calle; uno o dos días de alquiler bastan para Maro, Frigiliana y la Axarquía.', token: 'nerja_daily_life' },
+        { id: 'beaches', group: 'explore', label: 'Playas', text: 'Playas urbanas llanas bajo el Balcón, Burriana con chiringuitos al este, agua clara en Maro y Cantarriján.', token: 'nerja_beaches_authority' },
+        { id: 'food', group: 'explore', label: 'Comer', text: 'A mediodía pescado o paella junto al mar, de noche tapas por las calles; los fines de semana conviene reservar.', token: 'nerja_food_authority' },
+        { id: 'caves', group: 'explore', label: 'Cueva de Nerja', text: 'En Maro, medio día; entradas con horario y escalones dentro, comprobad los tickets antes.', token: 'nerja_caves' },
+        { id: 'experiences', group: 'explore', label: 'Todas las experiencias', text: 'El Balcón, Verano Azul, la noche y las excursiones: Málaga, Granada, Ronda y el Caminito merecen un día cada uno.', token: 'nerja_experience_hub' }
+      ],
       seasons: {
         eyebrow: 'Tiempo, temporadas y estancias largas',
         title: 'El tiempo explica las condiciones; la vida diaria, las semanas normales',
@@ -463,7 +541,7 @@ export const nerjaLocationHubContent: {
         title: 'Zes vragen die jullie verblijf in Nerja bepalen',
         intro: 'Begin bij jullie echte dagritme: aankomst, strandkeuze, lopen, boodschappen en uitstapjes buiten de stad.',
         items: [
-          { number: '01', title: 'Naar Nerja reizen', text: 'Luchthavens, aankomst per bus en het laatste stuk naar Calle Castilla Pérez 60.', label: 'Aankomst & mobiliteit', token: 'getting_to_nerja' },
+          { number: '01', title: 'Naar Nerja reizen', text: 'Luchthavens, aankomst per bus en het laatste stuk.', label: 'Aankomst & mobiliteit', token: 'getting_to_nerja' },
           { number: '02', title: 'De stad lezen', text: 'Zeekant, oude centrum, oostelijke stranden en de heuvels erachter.', label: 'Geografie & oriëntatie', token: 'nerja_where_to_stay' },
           { number: '03', title: 'De juiste buurt kiezen', text: 'Vergelijk Torrecilla, het oude centrum, Burriana en hoger gelegen woonwijken.', label: 'Waar overnachten', token: 'nerja_where_to_stay' },
           { number: '04', title: 'Weer & seizoenen', text: 'Hoe warmte, regen en rustige maanden een kustverblijf veranderen.', label: 'Weer & seizoenen', token: 'nerja_weather' },
@@ -484,8 +562,7 @@ export const nerjaLocationHubContent: {
           { label: 'Oostkust', value: 'Calahonda + Carabeo + Burriana' }
         ],
         mapLabel: 'Nerja op het Iberisch Schiereiland — aan de Middellandse Zeekust van Andalusië ten oosten van Málaga, met Frigiliana in de heuvels erachter en een mogelijke rondreis via Málaga, Ronda, Sevilla, Córdoba en Granada',
-        mapNote: 'Een mogelijke rondreis vanuit Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada en terug langs de kust. De cirkel vergroot Nerja en Frigiliana.',
-        link: { label: 'De ligging van Nerja in detail', token: 'nerja_where_to_stay' }
+        mapNote: 'Een mogelijke rondreis vanuit Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada en terug langs de kust. De cirkel vergroot Nerja en Frigiliana.'
       },
       arrival: {
         eyebrow: 'Aankomst & mobiliteit',
@@ -514,21 +591,46 @@ export const nerjaLocationHubContent: {
       },
       coast: {
         eyebrow: 'Stranden',
-        title: 'Calahonda vóór tienen, Burriana voor de paella, Maro voor helder water',
+        title: 'Vlakke stadsstranden in het centrum, chiringuito’s in het oosten, helder water bij Maro',
         paragraphs: [
-          'Calahonda onder de Balcón is het mooist vóór tienen, als het licht op de witte huizen valt. Burriana heeft ruimte, ligbedden en AYO voor de paella ’s middags. Voor helder water rijd je naar Maro en Cantarriján, met snorkel en kajak.',
-          'Vanaf AMARA Playa is het 200 meter naar Torrecilla. Een tweede duik na het diner is daarom geen kwestie van plannen.'
-        ]
+          'Onder de Balcón en ten westen ervan liggen de stadsstranden, vlak en te voet bereikbaar; naar het oosten volgt Burriana met chiringuito’s en paella rond het middaguur, terug naar het centrum gaat het omhoog. Voor helder water rijd je naar Maro en Cantarriján.'
+        ],
+        link: { label: 'Zie welk strand je vlak bereikt en welk het helderste water heeft', token: 'nerja_beaches_authority' }
       },
       dailyLife: {
         eyebrow: 'Eten en dagelijks leven',
-        title: 'Vis bij La Puntilla, tapas aan de Balcón, brood bij Good Stuff',
+        title: '’s Middags aan zee, ’s avonds in de straatjes, de keukens openen rond zeven',
         paragraphs: [
-          '’s Middags gegrilde vis bij La Puntilla of paella op het strand, ’s avonds tapas in de steegjes rond de Balcón, voor een bijzondere avond Oliva of 34 met zeezicht. Er wordt laat gegeten; in de stad gaan de keukens rond zeven uur open.',
-          'De Carrefour Express ligt in onze straat, het ontbijt is twee minuten verder bij Good Stuff, de apotheek eveneens in Calle Castilla Pérez.'
+          '’s Middags gegrilde vis of paella op het strand, ’s avonds tapas in de straatjes rond de Balcón, voor een bijzondere avond een tafel met zeezicht. Er wordt laat gegeten; in het dorp gaan de keukens rond zeven uur open.',
+          'Supermarkt en apotheek liggen in onze straat, het ontbijtcafé twee minuten verderop.'
         ],
-        link: { label: 'Supermarkten en apotheek in Nerja', token: 'nerja_daily_life' }
+        link: { label: 'Supermarkten, apotheek en openingstijden voor gewone weken', token: 'nerja_daily_life' }
       },
+      tradeoffs: {
+        eyebrow: 'VOOR WIE DE KUST PAST',
+        title: 'Het strand voor de deur of dorpsavonden',
+        paragraphs: [
+          'Nerja is een kustplaats met een zomerseizoen: in juli en augustus zijn stranden, boulevard en straatjes tot laat vol. Vanaf de herfst is de boulevard van jullie, en een grijze dag heeft de grot en het museum.',
+          'Wie ’s avonds een stil dorp wil, ’s ochtends de Sierra voor het raam en het strand als uitstapje, zit beter in Frigiliana, tien minuten hogerop. Casa AMARA ligt daar midden in de oude kern; helling, kasseien en treden horen erbij.'
+        ],
+        axes: [
+          { id: 'doorstep', title: 'Voor de deur', nerja: 'Het strand Torrecilla op 200 meter, de Balcón op 500, de boulevard voor de avond', frigiliana: 'Witte straatjes, de Calle Real met restaurants, vanaf de avond het dorp voor jullie' },
+          { id: 'sea', title: 'Naar zee', nerja: 'Vóór het ontbijt het water in, te voet', frigiliana: 'Tien minuten naar beneden, met auto, bus of taxi' },
+          { id: 'steps', title: 'Treden en hellingen', nerja: 'Vlak in het centrum; omhoog alleen richting Burriana en de hogere wijken', frigiliana: 'Hellingdorp met kasseien en treden; vlak langs de lagere hoofdas' },
+          { id: 'car', title: 'Auto', nerja: 'Overbodig; de bus rijdt rechtstreeks vanaf de luchthaven, een of twee huurdagen voor Maro en de Axarquía', frigiliana: 'In het dorp overbodig, handig voor stranden en uitstapjes' }
+        ],
+        link: { label: 'Het dagelijks leven in Nerja en Frigiliana vergelijken', token: 'nerja_vs_frigiliana' }
+      },
+      corridors: [
+        { id: 'weather', group: 'stay', label: 'Weer en seizoenen', text: 'In de zomer vóór het ontbijt de zee in; in de winter is de boulevard van jullie, en op grijze dagen zijn grot en museum open.', token: 'nerja_weather' },
+        { id: 'winter', group: 'stay', label: 'Langer blijven', text: 'Rustig vanaf oktober, het centrum grotendeels autovrij; verwarming, airco, een volledige keuken en een wasmachine dragen gewone weken.', token: 'nerja_winter_stays' },
+        { id: 'parking', group: 'stay', label: 'Parkeren', text: 'In het centrum blijft de auto staan: parkeergarage Balcón de Europa of Verano Azul; het appartement heeft geen eigen plek.', token: 'nerja_parking' },
+        { id: 'dailyLife', group: 'stay', label: 'Dagelijks leven en boodschappen', text: 'Supermarkt en apotheek in dezelfde straat; een of twee huurdagen volstaan voor Maro, Frigiliana en de Axarquía.', token: 'nerja_daily_life' },
+        { id: 'beaches', group: 'explore', label: 'Stranden', text: 'Vlakke stadsstranden onder de Balcón, Burriana met chiringuito’s in het oosten, helder water bij Maro en Cantarriján.', token: 'nerja_beaches_authority' },
+        { id: 'food', group: 'explore', label: 'Eten', text: '’s Middags vis of paella aan zee, ’s avonds tapas in de straatjes; in het weekend loont reserveren.', token: 'nerja_food_authority' },
+        { id: 'caves', group: 'explore', label: 'Grotten van Nerja', text: 'Bij Maro, een halve dag; vaste toegangstijden en trappen binnen, dus tickets vooraf checken.', token: 'nerja_caves' },
+        { id: 'experiences', group: 'explore', label: 'Alle ervaringen', text: 'De Balcón, Verano Azul, het avondleven en dagtochten: Málaga, Granada, Ronda en de Caminito verdienen elk een dag.', token: 'nerja_experience_hub' }
+      ],
       seasons: {
         eyebrow: 'Weer, seizoenen & langer verblijf',
         title: 'Het weer gaat over omstandigheden, het dagelijks leven over gewone weken',
@@ -579,7 +681,7 @@ export const nerjaLocationHubContent: {
         title: 'Sex frågor som formar en vistelse i Nerja',
         intro: 'Börja med er verkliga vardag: ankomst, strandval, promenader, inköp och utflykter utanför staden.',
         items: [
-          { number: '01', title: 'Ta sig till Nerja', text: 'Flygplatser, bussankomst och sista sträckan till Calle Castilla Pérez 60.', label: 'Ankomst & mobilitet', token: 'getting_to_nerja' },
+          { number: '01', title: 'Ta sig till Nerja', text: 'Flygplatser, bussankomst och sista sträckan.', label: 'Ankomst & mobilitet', token: 'getting_to_nerja' },
           { number: '02', title: 'Orientera sig', text: 'Havskanten, gamla stan, östra stränder och höjderna bakom.', label: 'Geografi & orientering', token: 'nerja_where_to_stay' },
           { number: '03', title: 'Välj rätt område', text: 'Jämför Torrecilla, gamla stan, Burriana och bostadsområdena högre upp.', label: 'Var ska man bo', token: 'nerja_where_to_stay' },
           { number: '04', title: 'Väder & årstider', text: 'Hur värme, regn och lugnare månader förändrar kustvistelsen.', label: 'Väder & årstider', token: 'nerja_weather' },
@@ -600,8 +702,7 @@ export const nerjaLocationHubContent: {
           { label: 'Östra kusten', value: 'Calahonda + Carabeo + Burriana' }
         ],
         mapLabel: 'Nerja på Iberiska halvön — på Andalusiens medelhavskust öster om Málaga, med Frigiliana i kullarna bakom och en möjlig rundresa via Málaga, Ronda, Sevilla, Córdoba och Granada',
-        mapNote: 'En möjlig rundresa från Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada och tillbaka längs kusten. Cirkeln förstorar Nerja och Frigiliana.',
-        link: { label: 'Nerjas lägen i detalj', token: 'nerja_where_to_stay' }
+        mapNote: 'En möjlig rundresa från Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada och tillbaka längs kusten. Cirkeln förstorar Nerja och Frigiliana.'
       },
       arrival: {
         eyebrow: 'Ankomst & mobilitet',
@@ -630,21 +731,46 @@ export const nerjaLocationHubContent: {
       },
       coast: {
         eyebrow: 'Stränder',
-        title: 'Calahonda före tio, Burriana för paellan, Maro för klart vatten',
+        title: 'Plana stadsstränder i centrum, chiringuitos i öster, klart vatten vid Maro',
         paragraphs: [
-          'Calahonda under Balcón är vackrast före tio, när ljuset faller på de vita husen. Burriana har plats, solstolar och AYO för paella mitt på dagen. För klart vatten kör ni till Maro och Cantarriján, med snorkel och kajak.',
-          'Från AMARA Playa är det 200 meter till Torrecilla. Ett andra dopp efter middagen är därför ingen planeringsfråga.'
-        ]
+          'Nedanför Balcón och västerut ligger stadsstränderna, plana och nåbara till fots; österut följer Burriana med chiringuitos och paella till lunch, och vägen tillbaka till centrum går uppför. För klart vatten kör ni till Maro och Cantarriján.'
+        ],
+        link: { label: 'Se vilken strand ni når på plan mark och vilken som har klarast vatten', token: 'nerja_beaches_authority' }
       },
       dailyLife: {
         eyebrow: 'Mat och vardag',
-        title: 'Fisk på La Puntilla, tapas vid Balcón, bröd på Good Stuff',
+        title: 'Lunch vid havet, kvällar i gränderna, köken öppnar vid sju',
         paragraphs: [
-          'Mitt på dagen grillad fisk på La Puntilla eller paella på stranden, på kvällen tapas i gränderna kring Balcón, för en särskild kväll Oliva eller 34 med havsutsikt. Man äter sent; i stan öppnar köken runt sju.',
-          'Carrefour Express ligger på vår gata, frukosten finns två minuter bort på Good Stuff, apoteket likaså på Calle Castilla Pérez.'
+          'Grillad fisk eller paella på stranden till lunch, tapas i gränderna kring Balcón på kvällen, ett bord med havsutsikt för en särskild kväll. Man äter sent; i stan öppnar köken vid sjutiden.',
+          'Mataffär och apotek ligger på vår gata, frukostkaféet två minuter längre bort.'
         ],
-        link: { label: 'Mataffärer och apotek i Nerja', token: 'nerja_daily_life' }
+        link: { label: 'Mataffärer, apotek och öppettider för vanliga veckor', token: 'nerja_daily_life' }
       },
+      tradeoffs: {
+        eyebrow: 'FÖR VEM KUSTEN PASSAR',
+        title: 'Stranden utanför dörren eller bykvällar',
+        paragraphs: [
+          'Nerja är en kuststad med sommarsäsong: i juli och augusti är stränder, promenad och gränder fulla till sent. Från hösten är promenaden er, och en grå dag har grottan och museet.',
+          'Vill ni ha en stilla by på kvällen, Sierran utanför fönstret på morgonen och stranden som utflykt är Frigiliana tio minuter ovanför den bättre basen. Casa AMARA ligger där mitt i gamla byn; sluttning, kullersten och trappor hör till.'
+        ],
+        axes: [
+          { id: 'doorstep', title: 'Utanför dörren', nerja: 'Stranden Torrecilla 200 meter bort, Balcón 500, promenaden för kvällen', frigiliana: 'Vita gränder, Calle Real med restauranger, från kvällen byn för er' },
+          { id: 'sea', title: 'Vägen till havet', nerja: 'I vattnet före frukost, till fots', frigiliana: 'Tio minuter nedför, med bil, buss eller taxi' },
+          { id: 'steps', title: 'Trappor och backar', nerja: 'Plant i centrum; uppför bara mot Burriana och de övre kvarteren', frigiliana: 'Sluttningsby med kullersten och trappor; plant längs det nedre huvudstråket' },
+          { id: 'car', title: 'Bil', nerja: 'Onödig; bussen går direkt från flygplatsen, en eller två hyrdagar för Maro och Axarquía', frigiliana: 'Onödig i byn, användbar för stränder och utflykter' }
+        ],
+        link: { label: 'Jämför vardagen i Nerja och Frigiliana', token: 'nerja_vs_frigiliana' }
+      },
+      corridors: [
+        { id: 'weather', group: 'stay', label: 'Väder och årstider', text: 'På sommaren i havet före frukost; på vintern är promenaden er, och gråa dagar har grottan och museet öppet.', token: 'nerja_weather' },
+        { id: 'winter', group: 'stay', label: 'Stanna längre', text: 'Lugnt från oktober, centrum till stor del bilfritt; värme, luftkonditionering, fullt kök och tvättmaskin bär vanliga veckor.', token: 'nerja_winter_stays' },
+        { id: 'parking', group: 'stay', label: 'Parkering', text: 'I centrum får bilen stå: parkeringshuset Balcón de Europa eller Verano Azul; lägenheten har ingen egen plats.', token: 'nerja_parking' },
+        { id: 'dailyLife', group: 'stay', label: 'Vardag och inköp', text: 'Mataffär och apotek på samma gata; en eller två hyrdagar räcker för Maro, Frigiliana och Axarquía.', token: 'nerja_daily_life' },
+        { id: 'beaches', group: 'explore', label: 'Stränder', text: 'Plana stadsstränder nedanför Balcón, Burriana med chiringuitos i öster, klart vatten vid Maro och Cantarriján.', token: 'nerja_beaches_authority' },
+        { id: 'food', group: 'explore', label: 'Mat', text: 'Fisk eller paella vid havet till lunch, tapas i gränderna på kvällen; på helger lönar det sig att boka.', token: 'nerja_food_authority' },
+        { id: 'caves', group: 'explore', label: 'Nerjagrottan', text: 'Vid Maro, en halv dag; fasta insläppstider och trappor inne, kontrollera biljetter i förväg.', token: 'nerja_caves' },
+        { id: 'experiences', group: 'explore', label: 'Alla upplevelser', text: 'Balcón, Verano Azul, kvällslivet och dagsutflykter: Málaga, Granada, Ronda och Caminito förtjänar en dag var.', token: 'nerja_experience_hub' }
+      ],
       seasons: {
         eyebrow: 'Väder, årstider & längre vistelser',
         title: 'Vädret beskriver förhållandena, vardagsguiden de vanliga veckorna',
@@ -689,7 +815,7 @@ const nerjaLocationPeopleFirstCopy = {
   en: {
     hero: {
       eyebrow: 'Nerja · place & stay',
-      title: 'Nerja on the Mediterranean',
+      title: 'Nerja as a place to stay',
       subtitle: 'Into the sea in the morning, tapas in the evening, and a town that is open all year',
       standfirst: 'Nerja is a coastal town with small coves, a broad beach to the east and the Balcón de Europa in the middle. From Málaga airport the bus runs straight here, and in town almost everything is on foot. Our apartment is in Torrecilla: 200 metres to the beach, 500 to the Balcón, fifth floor with a view of the sea.',
       note: '',
@@ -735,7 +861,7 @@ const nerjaLocationPeopleFirstCopy = {
   de: {
     hero: {
       eyebrow: 'Nerja · Ort & Aufenthalt',
-      title: 'Nerja am Mittelmeer',
+      title: 'Nerja als Urlaubsort',
       subtitle: 'Morgens ins Meer, abends Tapas, und das ganze Jahr eine Stadt, die geöffnet hat',
       standfirst: 'Nerja ist eine Küstenstadt mit kleinen Buchten, einem breiten Strand im Osten und dem Balcón de Europa in der Mitte. Vom Flughafen Málaga fährt der Bus direkt hierher, im Ort geht fast alles zu Fuß. Unsere Wohnung liegt in Torrecilla: 200 Meter zum Strand, 500 zum Balcón, fünfter Stock mit Blick aufs Meer.',
       note: '',
@@ -781,7 +907,7 @@ const nerjaLocationPeopleFirstCopy = {
   es: {
     hero: {
       eyebrow: 'Nerja · lugar y estancia',
-      title: 'Nerja en el Mediterráneo',
+      title: 'Nerja como base de vacaciones',
       subtitle: 'Al mar por la mañana, tapas por la noche, y todo el año una ciudad abierta',
       standfirst: 'Nerja es una ciudad costera con calas pequeñas, una playa ancha al este y el Balcón de Europa en el centro. Desde el aeropuerto de Málaga el autobús llega directo, y en el pueblo casi todo se hace a pie. Nuestro apartamento está en Torrecilla: 200 metros a la playa, 500 al Balcón, un quinto con vistas al mar.',
       note: '',
@@ -827,7 +953,7 @@ const nerjaLocationPeopleFirstCopy = {
   nl: {
     hero: {
       eyebrow: 'Nerja · plek & verblijf',
-      title: 'Nerja aan de Middellandse Zee',
+      title: 'Nerja als vakantiebasis',
       subtitle: '’s Ochtends de zee in, ’s avonds tapas, en het hele jaar een stad die open is',
       standfirst: 'Nerja is een kustplaats met kleine baaien, een breed strand in het oosten en de Balcón de Europa in het midden. Vanaf de luchthaven Málaga rijdt de bus rechtstreeks hierheen, in de stad gaat bijna alles te voet. Ons appartement ligt in Torrecilla: 200 meter naar het strand, 500 naar de Balcón, vijfde verdieping met zeezicht.',
       note: '',
@@ -873,7 +999,7 @@ const nerjaLocationPeopleFirstCopy = {
   sv: {
     hero: {
       eyebrow: 'Nerja · plats & vistelse',
-      title: 'Nerja vid Medelhavet',
+      title: 'Nerja som semesterbas',
       subtitle: 'Ut i havet på morgonen, tapas på kvällen, och året runt en stad som är öppen',
       standfirst: 'Nerja är en kuststad med små vikar, en bred strand i öster och Balcón de Europa i mitten. Från Málagas flygplats går bussen direkt hit, och i stan går nästan allt till fots. Vår lägenhet ligger i Torrecilla: 200 meter till stranden, 500 till Balcón, femte våningen med havsutsikt.',
       note: '',

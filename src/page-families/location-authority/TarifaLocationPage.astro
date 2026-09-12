@@ -39,6 +39,11 @@ const content = tarifaLocationContent.locales[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa location hub');
 const aboutHref = requiredLink('about');
 const stayHref = requiredLink('tarifa');
+const tradeoffHref = content.tradeoffs.link?.token ? requiredLink(content.tradeoffs.link.token) : undefined;
+const corridorGroups = [
+  { id: 'stay', columns: 'lg:grid-cols-4', items: content.corridors.filter((item) => item.group === 'stay') },
+  { id: 'explore', columns: 'lg:grid-cols-3', items: content.corridors.filter((item) => item.group === 'explore') }
+].map((group) => ({ ...group, items: group.items.map((item) => ({ ...item, href: requiredLink(item.token) })) }));
 const footerHighlights: LabeledLink[] = [
   { token: 'location_tarifa', label: 'Tarifa' },
   { token: 'tarifa_where_to_stay', label: content.areas.link?.label ?? 'Where to stay' },
@@ -174,6 +179,41 @@ const byline = tarifaLocationContent.seo.article
       </div>
     </section>
 
+    <!-- Trade-offs: who the wind town suits, and when Nerja is the better base. -->
+    <section id="who-tarifa-suits" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:col-span-5">
+          <p class="am-text-eyebrow text-primary">{content.tradeoffs.eyebrow}</p>
+          <h2 class="am-text-title mt-5 max-w-xl text-balance text-on-surface">{content.tradeoffs.title}</h2>
+          <div class="mt-6 space-y-5">
+            {content.tradeoffs.paragraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+            ))}
+          </div>
+          {content.tradeoffs.link && tradeoffHref && (
+            <a href={tradeoffHref} class="am-cta-link mt-8 inline-flex">{content.tradeoffs.link.label}</a>
+          )}
+        </div>
+        <dl class="lg:col-span-6 lg:col-start-7">
+          {content.tradeoffs.axes.map((axis) => (
+            <div class="border-t border-outline-variant/25 py-7">
+              <dt class="am-text-subtitle text-on-surface">{axis.title}</dt>
+              <dd class="mt-4 grid gap-4 sm:grid-cols-2">
+                <div>
+                  <p class="am-text-label am-text-label--sm text-primary">Tarifa</p>
+                  <p class="am-text-body mt-2 leading-relaxed text-on-surface-variant">{axis.tarifa}</p>
+                </div>
+                <div>
+                  <p class="am-text-label am-text-label--sm text-primary">Nerja</p>
+                  <p class="am-text-body mt-2 leading-relaxed text-on-surface-variant">{axis.nerja}</p>
+                </div>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </section>
+
     <!-- Wind and seasons: the one place the kite photograph belongs. -->
     <section id="weather-seasons" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
@@ -245,6 +285,23 @@ const byline = tarifaLocationContent.seo.article
             )}
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Corridors: every spoke of the destination, each with its mini-answer. -->
+    <section id="corridors" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
+      <div class="mx-auto max-w-screen-2xl">
+        {corridorGroups.map((group) => (
+          <div class:list={['grid gap-x-10 gap-y-12 border-t border-outline-variant/25 py-10 sm:grid-cols-2', group.columns]}>
+            {group.items.map((item) => (
+              <a href={item.href} class="group block">
+                <h3 class="am-text-subtitle text-on-surface group-hover:text-primary">{item.label}</h3>
+                <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant">{item.text}</p>
+                <span class="am-cta-link mt-5 inline-flex" aria-hidden="true">→</span>
+              </a>
+            ))}
+          </div>
+        ))}
       </div>
     </section>
 

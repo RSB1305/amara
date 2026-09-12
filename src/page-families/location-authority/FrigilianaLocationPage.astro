@@ -45,7 +45,9 @@ const dailyLifeHref = optionalLink('frigiliana_daily_life');
 const gettingThereHref = buildOwnedLocalizedPath('frigiliana.arrival', currentLang);
 const parkingHref = buildOwnedLocalizedPath('frigiliana.parking', currentLang);
 const faqHref = buildOwnedLocalizedPath('frigiliana.faq', currentLang);
-const propertyForSaleHref = buildOwnedLocalizedPath('frigiliana.property-for-sale', currentLang);
+const winterHref = optionalLink('frigiliana_winter_stays');
+const weatherHref = optionalLink('weather_frigiliana');
+const comparisonHref = optionalLink('nerja_vs_frigiliana');
 const frigilianaStaysHref = buildOwnedLocalizedPath('stays.frigiliana', currentLang);
 
 const experienceTokenById = {
@@ -78,8 +80,8 @@ const villageLinks = [
   { href: dailyLifeHref, ...c.planning.dailyLife },
   { href: gettingThereHref, ...c.planning.gettingThere },
   { href: parkingHref, ...c.planning.parking },
-  { href: faqHref, ...c.planning.faq },
-  { href: propertyForSaleHref, ...c.planning.propertyForSale }
+  { href: winterHref, ...c.planning.winter },
+  { href: faqHref, ...c.planning.faq }
 ].filter((item): item is { href: string; label: string; text: string } => Boolean(item.href));
 
 const footerHighlights: LabeledLink[] = [
@@ -93,8 +95,12 @@ const footerHighlights: LabeledLink[] = [
     token: 'romantic_hideaways',
     label: c.decision.subsections[0].ctas.find((cta) => cta.token === 'FRIGILIANA_STAYS')?.label
       ?? c.decision.subsections[0].title
-  }
+  },
+  { token: 'property_sale', label: c.planning.propertyForSale.label }
 ];
+const tradeoffCta = c.tradeoffs.ctas.find((cta) => cta.token === 'COMPARISON');
+const transport = c.coast.subsections.find((section) => section.id === 'transport');
+const seasonWeatherCta = c.seasons.subsections.flatMap((section) => section.ctas).find((cta) => cta.token === 'WEATHER');
 
 const editorialImageAlt: Record<AmaraLanguage, EditorialImageAlt> = {
   en: {
@@ -341,6 +347,11 @@ const casaFacts = [
                   <InlineEmphasis text={paragraph} />
                 </p>
               ))}
+              {transport && transport.paragraphs.map((paragraph) => (
+                <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">
+                  <InlineEmphasis text={paragraph} />
+                </p>
+              ))}
             </div>
             <div class="mt-9 flex flex-wrap gap-x-8 gap-y-4">
               {gettingThereHref && (
@@ -348,6 +359,44 @@ const casaFacts = [
               )}
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="frigiliana-or-nerja" class="am-section am-section--plain py-24 md:py-32 lg:py-40">
+        <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:gap-20">
+          <div class="lg:col-span-5">
+            <p class="am-text-eyebrow text-primary">{c.tradeoffs.eyebrow}</p>
+            <h2 class="am-text-title mt-6 italic tracking-tight text-on-surface">{c.tradeoffs.title}</h2>
+            <div class="mt-9 space-y-6">
+              {c.tradeoffs.paragraphs.map((paragraph) => (
+                <p class="am-text-body leading-relaxed text-on-surface-variant">
+                  <InlineEmphasis text={paragraph} />
+                </p>
+              ))}
+            </div>
+            {tradeoffCta && comparisonHref && (
+              <div class="mt-9">
+                <a href={comparisonHref} class="am-cta-link">{tradeoffCta.label}</a>
+              </div>
+            )}
+          </div>
+          <dl class="lg:col-span-6 lg:col-start-7">
+            {c.tradeoffs.axes.map((axis) => (
+              <div class="border-t border-outline-variant/25 py-7">
+                <dt class="am-text-subtitle text-on-surface">{axis.title}</dt>
+                <dd class="mt-4 grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <p class="am-text-label am-text-label--sm text-primary">Frigiliana</p>
+                    <p class="am-text-body mt-2 leading-relaxed text-on-surface-variant">{axis.frigiliana}</p>
+                  </div>
+                  <div>
+                    <p class="am-text-label am-text-label--sm text-primary">Nerja</p>
+                    <p class="am-text-body mt-2 leading-relaxed text-on-surface-variant">{axis.nerja}</p>
+                  </div>
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
@@ -411,6 +460,23 @@ const casaFacts = [
             <p class="am-text-subtitle mt-8 leading-relaxed text-on-surface-variant">
               {c.planning.intro}
             </p>
+            <div class="mt-14 border-t border-outline-variant/25 pt-8">
+              <h3 class="am-text-subtitle italic text-on-surface">{c.seasons.title}</h3>
+              <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant">{c.seasons.paragraphs[0]}</p>
+              <dl class="mt-6 space-y-4">
+                {c.seasons.subsections.map((season) => (
+                  <div class="grid grid-cols-[6rem_1fr] gap-4">
+                    <dt class="am-text-label am-text-label--sm pt-1 text-primary">{season.title}</dt>
+                    <dd class="am-text-body leading-relaxed text-on-surface-variant">{season.paragraphs[0]}</dd>
+                  </div>
+                ))}
+              </dl>
+              {seasonWeatherCta && weatherHref && (
+                <div class="mt-7">
+                  <a href={weatherHref} class="am-cta-link">{seasonWeatherCta.label}</a>
+                </div>
+              )}
+            </div>
           </div>
           <div class="space-y-9 lg:col-span-6 lg:col-start-7">
             {

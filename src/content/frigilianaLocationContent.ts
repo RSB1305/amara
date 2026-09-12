@@ -101,6 +101,14 @@ export interface FrigilianaLocationPageCopy {
     }>;
   };
   seasons: FrigilianaLocationModule;
+  /** Trade-offs of the village as a base, with the honest pointer to Nerja where it fits better. */
+  tradeoffs: {
+    eyebrow: string;
+    title: string;
+    paragraphs: string[];
+    axes: Array<{ id: 'doorstep' | 'sea' | 'steps' | 'car'; title: string; frigiliana: string; nerja: string }>;
+    ctas: FrigilianaLocationCta[];
+  };
   planning: {
     eyebrow: string;
     title: string;
@@ -111,6 +119,7 @@ export interface FrigilianaLocationPageCopy {
     dailyLife: { label: string; text: string };
     comparison: { label: string; text: string };
     weather: { label: string; text: string };
+    winter: { label: string; text: string };
     faq: { label: string; text: string };
     propertyForSale: { label: string; text: string };
     oldTown: { label: string; text: string };
@@ -183,31 +192,31 @@ export const frigilianaLocationSeo: AmaraAuthoringSeo = {
   ogImage: routeOgImage('frigiliana'),
   languages: {
     de: {
-      title: 'Frigiliana: Dorf zwischen Bergen & Meer | AMARA',
+      title: 'Frigiliana als Urlaubsort: wohnen, bewegen, vorher wissen | AMARA',
       description: 'Erlebt Frigiliana über Nacht: geschützte weiße Gassen, Abendessen zu Fuß, die Sierra im Rücken und Nerjas Küste weiter unten.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     en: {
-      title: 'Frigiliana: A Village Between Mountains & Sea | AMARA',
+      title: 'Frigiliana as a Base: Where to Stay and How to Get Around | AMARA',
       description: 'Stay overnight in Frigiliana for protected white lanes, dinner on foot, the Sierra behind the village and Nerja’s coast below.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Frigiliana: un pueblo entre montaña y mar | AMARA',
+      title: 'Frigiliana como base: dónde alojarse y cómo moverse | AMARA',
       description: 'Quedaos en Frigiliana para vivir sus calles blancas protegidas, salir a cenar a pie, tener la sierra detrás y la costa de Nerja más abajo.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Frigiliana: dorp tussen bergen & zee | AMARA',
+      title: 'Frigiliana als vakantiebasis: wonen, bewegen, weten | AMARA',
       description: 'Blijf overnachten in Frigiliana voor beschermde witte straatjes, uit eten te voet, de Sierra achter het dorp en Nerja’s kust beneden.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Frigiliana: en by mellan berg & hav | AMARA',
+      title: 'Frigiliana som semesterbas: bo, röra sig, veta i förväg | AMARA',
       description: 'Stanna över natten i Frigiliana för skyddade vita gränder, middag till fots, Sierran bakom byn och Nerjas kust nedanför.',
       robots: 'index, follow',
       canonical: 'auto'
@@ -227,18 +236,18 @@ export const frigilianaLocationNav = {
 export const frigilianaLocationCopy = {
   heroKicker: text('FRIGILIANA · ANDALUSIA', 'FRIGILIANA · ANDALUSIEN', 'FRIGILIANA · ANDALUCÍA', 'FRIGILIANA · ANDALUSIË', 'FRIGILIANA · ANDALUSIEN'),
   h1: text(
-    'Frigiliana, a village between mountains and sea',
-    'Frigiliana – ein Dorf zwischen Bergen und Meer',
-    'Frigiliana, un pueblo entre la montaña y el mar',
-    'Frigiliana, een dorp tussen bergen en zee',
-    'Frigiliana, en by mellan berg och hav'
+    'Frigiliana as a place to stay',
+    'Frigiliana als Urlaubsort',
+    'Frigiliana como base de vacaciones',
+    'Frigiliana als vakantiebasis',
+    'Frigiliana som semesterbas'
   ),
   h1Subtitle: text(
-    'White lanes, long evenings and the Mediterranean below',
-    'Weiße Gassen, lange Abende und das Mittelmeer unterhalb',
-    'Calles blancas, noches largas y el Mediterráneo más abajo',
-    'Witte straatjes, lange avonden en de Middellandse Zee beneden',
-    'Vita gränder, långa kvällar och Medelhavet nedanför'
+    'Live in the village, mountains behind you, Nerja and the sea ten minutes below',
+    'Im Dorf wohnen, die Berge im Rücken, Nerja und das Meer zehn Minuten unterhalb',
+    'Vivir en el pueblo, la montaña detrás, Nerja y el mar a diez minutos',
+    'Wonen in het dorp, de bergen achter je, Nerja en de zee tien minuten lager',
+    'Bo i byn, bergen i ryggen, Nerja och havet tio minuter nedanför'
   ),
   heroUpdated: text('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026'),
   heroNote: text(
@@ -250,19 +259,19 @@ export const frigilianaLocationCopy = {
   ),
   intro: textList(
     [
-      'Frigiliana is a village for days that begin in white lanes and lead into the mountains or to the sea. Small restaurants climb the hillside, behind them begins the Sierra de Almijara, and down on the coast lies Nerja. If you stay overnight, you have the village almost to yourselves in the morning and evening, walk home after dinner and wake up in the middle of the old town.'
+      'Frigiliana is a hillside village around 300 metres above the sea, an hour from Málaga and ten minutes by car above Nerja. Small restaurants climb the slope, the Sierra de Almijara begins behind them, the coast lies below. You need no car for the village, but you do for beaches and day trips; steps and cobbles are part of everyday life. Stay overnight and you have the village almost to yourselves in the morning and evening, walk home after dinner and wake up in the middle of the old town.'
     ],
     [
-      'Frigiliana ist ein Dorf für Tage, die in weißen Gassen beginnen und in die Berge oder ans Meer führen. Kleine Restaurants ziehen sich den Hang hinauf, dahinter beginnt die Sierra de Almijara, unten an der Küste liegt Nerja. Wer über Nacht bleibt, hat das Dorf morgens und abends fast für sich, geht nach dem Essen zu Fuß nach Hause und wacht mitten in der Altstadt auf.'
+      'Frigiliana ist ein Hangdorf rund 300 Meter über dem Meer, eine Stunde ab Málaga und zehn Autominuten oberhalb von Nerja. Kleine Restaurants ziehen sich den Hang hinauf, dahinter beginnt die Sierra de Almijara, unten liegt die Küste. Fürs Dorf braucht ihr kein Auto, für Strand und Ausflüge schon; Stufen und Pflaster gehören zum Alltag. Wer über Nacht bleibt, hat das Dorf morgens und abends fast für sich, geht nach dem Essen zu Fuß nach Hause und wacht mitten in der Altstadt auf.'
     ],
     [
-      'Frigiliana es un pueblo para días que empiezan en callejuelas blancas y llevan a la montaña o al mar. Pequeños restaurantes suben por la ladera, detrás empieza la Sierra de Almijara, abajo en la costa está Nerja. Quien se queda a dormir tiene el pueblo casi para sí por la mañana y por la noche, vuelve a casa andando después de cenar y se despierta en pleno casco antiguo.'
+      'Frigiliana es un pueblo en ladera a unos 300 metros sobre el mar, a una hora de Málaga y a diez minutos en coche por encima de Nerja. Pequeños restaurantes suben por la cuesta, detrás empieza la Sierra de Almijara, abajo queda la costa. Para el pueblo no necesitáis coche; para playas y excursiones, sí. Escalones y empedrado forman parte del día a día. Quien se queda a dormir tiene el pueblo casi para sí por la mañana y por la noche, vuelve a casa andando después de cenar y se despierta en pleno casco antiguo.'
     ],
     [
-      'Frigiliana is een dorp voor dagen die in witte steegjes beginnen en naar de bergen of naar zee leiden. Kleine restaurants trekken zich de helling op, daarachter begint de Sierra de Almijara, beneden aan de kust ligt Nerja. Wie overnacht, heeft het dorp ’s ochtends en ’s avonds bijna voor zich alleen, loopt na het eten naar huis en wordt midden in de oude kern wakker.'
+      'Frigiliana is een dorp op de helling, zo’n 300 meter boven zee, een uur van Málaga en tien minuten rijden boven Nerja. Kleine restaurants klimmen de helling op, daarachter begint de Sierra de Almijara, beneden ligt de kust. Voor het dorp heb je geen auto nodig, voor stranden en uitstapjes wel; treden en kasseien horen bij het dagelijks leven. Wie overnacht, heeft het dorp ’s ochtends en ’s avonds bijna voor zich alleen, loopt na het eten naar huis en wordt midden in de oude kern wakker.'
     ],
     [
-      'Frigiliana är en by för dagar som börjar i vita gränder och leder upp i bergen eller ner till havet. Små restauranger klättrar uppför sluttningen, bakom börjar Sierra de Almijara, nere vid kusten ligger Nerja. Den som stannar över natten har byn nästan för sig själv på morgonen och kvällen, går hem till fots efter maten och vaknar mitt i gamla byn.'
+      'Frigiliana är en by på sluttningen omkring 300 meter över havet, en timme från Málaga och tio minuter med bil ovanför Nerja. Små restauranger klättrar uppför sluttningen, bakom börjar Sierra de Almijara, nedanför ligger kusten. I byn behöver ni ingen bil, till stränder och utflykter behövs den; trappsteg och kullersten hör till vardagen. Den som stannar över natten har byn nästan för sig själv på morgonen och kvällen, går hem till fots efter maten och vaknar mitt i gamla byn.'
     ]
   ),
   introPullLine: text(
@@ -313,7 +322,7 @@ export const frigilianaLocationCopy = {
       'En möjlig rundresa från Frigiliana: Málaga, Ronda, Sevilla, Córdoba, Granada och tillbaka längs kusten. Cirkeln förstorar Nerja och Frigiliana.'
     ),
     geographyLabel: text('See the geography guide', 'Geografie ansehen', 'Ver la guía geográfica', 'Bekijk de geografiegids', 'Se geografisidan'),
-    arrivalLabel: text('Plan your arrival', 'Anreise planen', 'Planificar la llegada', 'Plan jullie aankomst', 'Planera ankomsten'),
+    arrivalLabel: text('Arrival from Málaga and the last five minutes on foot', 'Anreise ab Málaga und die letzten fünf Minuten zu Fuß', 'La llegada desde Málaga y los últimos cinco minutos a pie', 'De aankomst vanaf Málaga en de laatste vijf minuten te voet', 'Ankomsten från Málaga och de sista fem minuterna till fots'),
     routeLabel: text('Open route from the airport', 'Route ab Flughafen öffnen', 'Abrir ruta desde el aeropuerto', 'Route vanaf de luchthaven openen', 'Öppna rutten från flygplatsen')
   },
   evening: {
@@ -352,45 +361,27 @@ export const frigilianaLocationCopy = {
     title: text('A village the hillside has shaped', 'Ein Dorf, das der Hang geformt hat', 'Un pueblo moldeado por la ladera', 'Een dorp gevormd door de helling', 'En by formad av sluttningen'),
     paragraphs: textList(
       [
-        'Frigiliana’s old centre is more than a collection of white façades. Since 2014 the delimited historic sector has been protected as a Bien de Interés Cultural. The Junta de Andalucía describes it as one of the best-preserved urban enclaves of Morisco tradition on the Iberian Peninsula.',
+        'Since 2014 the delimited historic core has been protected as a Bien de Interés Cultural; the Junta de Andalucía counts it among the best-preserved enclaves of Morisco tradition on the peninsula.',
         'You can read that history in the way the village moves. Calle Real follows the lower axis through Barribajo; above it, the original medieval core of Barribarto tightens into bends, adarves, covered passages and steep cross-streets. The hillside is not a backdrop here. It is the plan of the place.',
-        'Los Pueblos Más Bonitos de España lists Frigiliana among its member villages and records the national beautification award of 1982. The distinction fits what you discover on foot: not one monument surrounded by ordinary streets, but a protected ensemble that reveals itself turn by turn.'
       ],
       [
-        'Frigilianas Altstadt ist mehr als eine Ansammlung weißer Fassaden. Seit 2014 steht der abgegrenzte historische Ortskern als Bien de Interés Cultural unter Schutz. Die Junta de Andalucía zählt ihn zu den am besten erhaltenen städtischen Enklaven moriskischer Tradition auf der Iberischen Halbinsel.',
+        'Seit 2014 steht der abgegrenzte historische Ortskern als Bien de Interés Cultural unter Schutz; die Junta de Andalucía zählt ihn zu den am besten erhaltenen Enklaven moriskischer Tradition auf der Halbinsel.',
         'Diese Geschichte lässt sich beim Gehen lesen. Die Calle Real bildet die untere Achse durch das Barribajo; darüber verdichtet sich der ursprüngliche mittelalterliche Kern des Barribarto zu Kurven, Adarves, überbauten Durchgängen und steilen Quergassen. Der Hang ist hier keine Kulisse. Er ist der Grundriss des Dorfes.',
-        'Die Vereinigung Los Pueblos Más Bonitos de España führt Frigiliana als Mitglied und verzeichnet den nationalen Verschönerungspreis von 1982. Diese Anerkennung passt zu dem, was ihr zu Fuß entdeckt: kein einzelnes Denkmal zwischen gewöhnlichen Straßen, sondern ein geschütztes Ensemble, das sich Kurve für Kurve öffnet.'
       ],
       [
-        'El casco antiguo de Frigiliana es mucho más que un conjunto de fachadas blancas. Desde 2014, el sector histórico delimitado está protegido como Bien de Interés Cultural. La Junta de Andalucía lo describe como uno de los enclaves urbanos de tradición morisca mejor conservados de la península ibérica.',
+        'Desde 2014, el casco histórico delimitado está protegido como Bien de Interés Cultural; la Junta de Andalucía lo cuenta entre los enclaves de tradición morisca mejor conservados de la península.',
         'Esa historia se lee al caminar. La calle Real forma el eje bajo del Barribajo; por encima, el núcleo medieval original del Barribarto se estrecha entre curvas, adarves, pasajes cubiertos y calles transversales empinadas. Aquí la ladera no es un telón de fondo. Es el trazado del pueblo.',
-        'Los Pueblos Más Bonitos de España incluye Frigiliana entre sus pueblos asociados y recoge el Premio Nacional de Embellecimiento de 1982. El reconocimiento encaja con lo que descubrís a pie: no un único monumento rodeado de calles corrientes, sino un conjunto protegido que se revela curva a curva.'
       ],
       [
-        'De oude kern van Frigiliana is meer dan een verzameling witte gevels. Sinds 2014 is het afgebakende historische gebied beschermd als Bien de Interés Cultural. De Junta de Andalucía omschrijft het als een van de best bewaarde stedelijke enclaves met een Moriscotraditie op het Iberisch Schiereiland.',
+        'Sinds 2014 is de afgebakende historische kern beschermd als Bien de Interés Cultural; de Junta de Andalucía rekent hem tot de best bewaarde enclaves met een Moriscotraditie op het schiereiland.',
         'Die geschiedenis lees je tijdens het lopen. Calle Real vormt de lagere as door Barribajo; daarboven trekt de oorspronkelijke middeleeuwse kern van Barribarto zich samen in bochten, adarves, overdekte doorgangen en steile dwarsstraten. De helling is hier geen decor. Zij bepaalt de plattegrond van het dorp.',
-        'Los Pueblos Más Bonitos de España rekent Frigiliana tot zijn aangesloten dorpen en vermeldt de nationale verfraaiingsprijs van 1982. Die erkenning past bij wat jullie te voet ontdekken: geen los monument tussen gewone straten, maar een beschermd geheel dat zich bocht voor bocht ontvouwt.'
       ],
       [
-        'Frigilianas gamla bykärna är mer än en samling vita fasader. Sedan 2014 är det avgränsade historiska området skyddat som Bien de Interés Cultural. Junta de Andalucía beskriver det som en av de bäst bevarade urbana miljöerna med morisk tradition på Iberiska halvön.',
+        'Sedan 2014 är den avgränsade historiska bykärnan skyddad som Bien de Interés Cultural; Junta de Andalucía räknar den till de bäst bevarade miljöerna med morisk tradition på halvön.',
         'Historien går att läsa medan ni promenerar. Calle Real bildar den nedre axeln genom Barribajo; ovanför tätnar Barribartos ursprungliga medeltida kärna i svängar, adarves, täckta passager och branta tvärgator. Sluttningen är ingen kuliss här. Den är byns planritning.',
-        'Los Pueblos Más Bonitos de España räknar Frigiliana till sina medlemsbyar och redovisar det nationella försköningspriset från 1982. Utmärkelsen stämmer med det ni upptäcker till fots: inte ett enda monument bland vanliga gator, utan en skyddad helhet som öppnar sig sväng för sväng.'
       ]
     ),
-    subsections: [
-      {
-        id: 'ingenio',
-        title: text('El Ingenio and Frigiliana’s cane tradition', 'El Ingenio und Frigilianas Zuckerrohrtradition', 'El Ingenio y la tradición de la caña en Frigiliana', 'El Ingenio en Frigiliana’s suikerriettraditie', 'El Ingenio och Frigilianas sockerrörstradition'),
-        paragraphs: textList(
-          ['At the lower end of the old village, El Ingenio connects the streetscape with the cultivated slopes around it. Conceived in the late sixteenth century as the Manrique de Lara family residence, the building was later adapted for cane-sugar production. Miel de caña is still associated with production here today. It remains a working site, so do not count on a factory visit.'],
-          ['Am unteren Ende der Altstadt verbindet El Ingenio das Dorfbild mit den bewirtschafteten Hängen ringsum. Im späten 16. Jahrhundert als Wohnsitz der Familie Manrique de Lara angelegt, wurde das Gebäude später für die Verarbeitung von Zuckerrohr umgebaut. Bis heute ist El Ingenio mit der Herstellung von miel de caña verbunden. Es bleibt ein Produktionsort – mit einer Fabrikbesichtigung solltet ihr nicht rechnen.'],
-          ['En la parte baja del casco antiguo, El Ingenio conecta las calles con las laderas cultivadas que rodean el pueblo. Concebido a finales del siglo XVI como residencia de la familia Manrique de Lara, el edificio se adaptó más tarde a la producción de azúcar de caña. Hoy sigue vinculado a la elaboración de miel de caña. Es un lugar de producción, así que no contéis con una visita a la fábrica.'],
-          ['Aan de onderkant van de oude kern verbindt El Ingenio het straatbeeld met de bebouwde hellingen rondom. Het gebouw werd eind zestiende eeuw opgezet als woonhuis van de familie Manrique de Lara en later aangepast voor de verwerking van suikerriet. Ook nu is El Ingenio verbonden met de productie van miel de caña. Het blijft een productielocatie; reken dus niet op een fabrieksbezoek.'],
-          ['I den nedre delen av gamla byn förbinder El Ingenio gatubilden med de odlade sluttningarna runt omkring. Byggnaden utformades i slutet av 1500-talet som familjen Manrique de Laras bostad och anpassades senare för sockerrörsproduktion. Än i dag förknippas El Ingenio med tillverkningen av miel de caña. Det är fortfarande en produktionsplats, så räkna inte med ett fabriksbesök.']
-        ),
-        ctas: []
-      }
-    ],
+    subsections: [],
     ctas: []
   } satisfies LocalizedModule,
   heritageFacts: [
@@ -411,11 +402,11 @@ export const frigilianaLocationCopy = {
     }
   ],
   heritageLinkLabel: text(
-    'Walk through the old village',
-    'Die Altstadt entdecken',
-    'Recorrer el casco antiguo',
-    'Ontdek de oude kern',
-    'Upptäck gamla byn'
+    'Read the twelve ceramic panels and climb into the Barribarto',
+    'Die zwölf Keramiktafeln lesen und ins Barribarto steigen',
+    'Leer los doce paneles de cerámica y subir al Barribarto',
+    'De twaalf keramiektegels lezen en het Barribarto in klimmen',
+    'Läs de tolv keramiktavlorna och gå upp i Barribarto'
   ),
   villageLife: {
     title: text('In the old village, with the hillside still part of it', 'Mitten in der Altstadt – und trotzdem bleibt es ein Hangdorf', 'En pleno casco antiguo, sin olvidar que es un pueblo en cuesta', 'Midden in de oude kern, maar nog steeds op een helling', 'Mitt i gamla byn – fortfarande på en sluttning'),
@@ -543,17 +534,71 @@ export const frigilianaLocationCopy = {
     ],
     ctas: []
   } satisfies LocalizedModule,
+  tradeoffs: {
+    eyebrow: text('WHO THE VILLAGE SUITS', 'FÜR WEN DAS DORF PASST', 'PARA QUIÉN ES EL PUEBLO', 'VOOR WIE HET DORP PAST', 'FÖR VEM BYN PASSAR'),
+    title: text('Village evenings or the beach on your doorstep', 'Dorfabend oder Strand vor der Tür', 'Noches de pueblo o playa en la puerta', 'Dorpsavonden of het strand voor de deur', 'Bykvällar eller stranden utanför dörren'),
+    paragraphs: textList(
+      [
+        'Frigiliana is busy by day and quiet from early evening; the sea is an outing, not a given. The slope comes with it: stay higher up in the Barribarto and you climb it twice a day.',
+        'If you want to walk out with a towel every morning, need level streets or would rather manage without a car, Nerja is the better base. AMARA Playa there is 200 metres from the beach, has a lift, and the bus runs straight from the airport.'
+      ],
+      [
+        'Frigiliana ist tagsüber gut besucht und ab dem frühen Abend ruhig; das Meer ist ein Ausflug, keine Selbstverständlichkeit. Der Hang gehört dazu: Wer höher im Barribarto wohnt, hat ihn jeden Tag zweimal.',
+        'Wer jeden Morgen mit dem Handtuch aus der Tür will, ebene Wege braucht oder lieber ohne Auto bleibt, wohnt besser in Nerja. AMARA Playa liegt dort 200 Meter vom Strand, mit Aufzug und dem Bus direkt vom Flughafen.'
+      ],
+      [
+        'Frigiliana está llena de día y tranquila desde primera hora de la tarde; el mar es una salida, no algo dado. La cuesta va incluida: quien se aloja más arriba, en el Barribarto, la sube y baja cada día.',
+        'Si queréis salir cada mañana con la toalla, necesitáis calles llanas o preferís no depender del coche, Nerja es la mejor base. Allí AMARA Playa está a 200 metros de la playa, tiene ascensor y el autobús llega directo desde el aeropuerto.'
+      ],
+      [
+        'Frigiliana is overdag druk en vanaf de vroege avond rustig; de zee is een uitstapje, geen vanzelfsprekendheid. De helling hoort erbij: wie hoger in het Barribarto verblijft, loopt hem elke dag twee keer.',
+        'Wie elke ochtend met de handdoek de deur uit wil, vlakke straten nodig heeft of liever zonder auto blijft, zit beter in Nerja. AMARA Playa ligt daar 200 meter van het strand, heeft een lift en de bus rijdt rechtstreeks vanaf de luchthaven.'
+      ],
+      [
+        'Frigiliana är välbesökt på dagen och lugnt från tidig kväll; havet är en utflykt, inget självklart. Sluttningen hör till: den som bor högre upp i Barribarto går den två gånger om dagen.',
+        'Vill ni gå ut med handduken varje morgon, behöver plana gator eller helst klarar er utan bil är Nerja den bättre basen. AMARA Playa ligger där 200 meter från stranden, har hiss och bussen går direkt från flygplatsen.'
+      ]
+    ),
+    axes: [
+      {
+        id: 'doorstep' as const,
+        title: text('On your doorstep', 'Vor der Tür', 'En la puerta', 'Voor de deur', 'Utanför dörren'),
+        frigiliana: text('White lanes, Calle Real with its restaurants, the village to yourselves from the evening', 'Weiße Gassen, die Calle Real mit Restaurants, ab dem Abend das Dorf für euch', 'Calles blancas, la calle Real con sus restaurantes, el pueblo para vosotros desde la tarde', 'Witte straatjes, de Calle Real met restaurants, vanaf de avond het dorp voor jullie', 'Vita gränder, Calle Real med restauranger, från kvällen byn för er'),
+        nerja: text('Torrecilla beach 200 metres away, the Balcón 500, the promenade for the evening', 'Strand Torrecilla 200 Meter, Balcón 500, die Promenade für den Abend', 'La playa de Torrecilla a 200 metros, el Balcón a 500, el paseo para la noche', 'Het strand Torrecilla op 200 meter, de Balcón op 500, de boulevard voor de avond', 'Stranden Torrecilla 200 meter bort, Balcón 500, promenaden för kvällen')
+      },
+      {
+        id: 'sea' as const,
+        title: text('Getting to the sea', 'Der Weg zum Meer', 'Llegar al mar', 'Naar zee', 'Vägen till havet'),
+        frigiliana: text('Ten minutes down, by car, bus or taxi', 'Zehn Minuten hinunter, mit Auto, Bus oder Taxi', 'Diez minutos bajando, en coche, autobús o taxi', 'Tien minuten naar beneden, met auto, bus of taxi', 'Tio minuter nedför, med bil, buss eller taxi'),
+        nerja: text('Into the water before breakfast, on foot', 'Vor dem Frühstück ins Wasser, zu Fuß', 'Al agua antes de desayunar, a pie', 'Vóór het ontbijt het water in, te voet', 'I vattnet före frukost, till fots')
+      },
+      {
+        id: 'steps' as const,
+        title: text('Steps and slopes', 'Stufen und Steigungen', 'Escalones y cuestas', 'Treden en hellingen', 'Trappor och backar'),
+        frigiliana: text('A hillside village with cobbles and steps; level along the lower main axis', 'Hangdorf mit Pflaster und Stufen; unten an der Hauptachse eben', 'Pueblo en ladera con empedrado y escalones; llano en el eje principal de abajo', 'Hellingdorp met kasseien en treden; vlak langs de lagere hoofdas', 'Sluttningsby med kullersten och trappor; plant längs det nedre huvudstråket'),
+        nerja: text('Level in the centre; uphill only towards Burriana and the upper districts', 'Im Zentrum eben; bergauf nur Richtung Burriana und in die oberen Viertel', 'Llano en el centro; cuesta arriba solo hacia Burriana y los barrios altos', 'Vlak in het centrum; omhoog alleen richting Burriana en de hogere wijken', 'Plant i centrum; uppför bara mot Burriana och de övre kvarteren')
+      },
+      {
+        id: 'car' as const,
+        title: text('Car', 'Auto', 'Coche', 'Auto', 'Bil'),
+        frigiliana: text('Unnecessary in the village, useful for beaches and day trips', 'Im Dorf verzichtbar, für Strand und Ausflüge hilfreich', 'Innecesario en el pueblo, útil para playas y excursiones', 'In het dorp overbodig, handig voor stranden en uitstapjes', 'Onödig i byn, användbar för stränder och utflykter'),
+        nerja: text('Unnecessary; one or two rental days for Maro and the Axarquía', 'Verzichtbar; für Maro und die Axarquía ein, zwei Miettage', 'Innecesario; uno o dos días de alquiler para Maro y la Axarquía', 'Overbodig; een of twee huurdagen voor Maro en de Axarquía', 'Onödig; en eller två hyrdagar för Maro och Axarquía')
+      }
+    ],
+    ctas: [cta('COMPARISON', text('Compare everyday life in Frigiliana and Nerja', 'Frigiliana und Nerja im Alltag vergleichen', 'Comparar el día a día en Frigiliana y Nerja', 'Het dagelijks leven in Frigiliana en Nerja vergelijken', 'Jämför vardagen i Frigiliana och Nerja'))]
+  },
   planning: {
     eyebrow: text('CLOSER TO THE VILLAGE', 'NÄHER AM DORF', 'MÁS CERCA DEL PUEBLO', 'DICHTER BIJ HET DORP', 'NÄRMARE BYN'),
     title: text('When the village becomes everyday life', 'Wenn das Dorf Alltag wird', 'Cuando el pueblo se vuelve cotidiano', 'Als het dorp dagelijks leven wordt', 'När byn blir vardag'),
-    intro: text('After two days you know the way to the bakery, the table for the evening and the way home through the lanes. The car stays parked.', 'Nach zwei Tagen kennt ihr den Weg zur Bäckerei, den Tisch für den Abend und den Heimweg durch die Gassen. Das Auto bleibt stehen.', 'A los dos días conocéis el camino a la panadería, la mesa para la noche y la vuelta a casa por las callejuelas. El coche se queda aparcado.', 'Na twee dagen kennen jullie de weg naar de bakker, de tafel voor de avond en de weg naar huis door de steegjes. De auto blijft staan.', 'Efter två dagar känner ni vägen till bageriet, bordet för kvällen och hemvägen genom gränderna. Bilen står kvar.'),
+    intro: text('After two days you know the way to the bakery and the table for the evening. The car stays parked.', 'Nach zwei Tagen kennt ihr den Weg zur Bäckerei und den Tisch für den Abend. Das Auto bleibt stehen.', 'A los dos días conocéis el camino a la panadería y la mesa para la noche. El coche se queda aparcado.', 'Na twee dagen kennen jullie de weg naar de bakker en de tafel voor de avond. De auto blijft staan.', 'Efter två dagar känner ni vägen till bageriet och bordet för kvällen. Bilen står kvar.'),
     gettingThere: { label: text('An hour from Málaga', 'Eine Stunde ab Málaga', 'Una hora desde Málaga', 'Een uur vanaf Málaga', 'En timme från Málaga'), text: text('By rental car up via Nerja, by bus with a change in Nerja. Park below, the last five minutes on foot.', 'Mit dem Mietwagen über Nerja hinauf, mit dem Bus mit Umstieg in Nerja. Unten parken, die letzten fünf Minuten zu Fuß.', 'En coche de alquiler subiendo por Nerja, en autobús con cambio en Nerja. Aparcar abajo, los últimos cinco minutos a pie.', 'Met de huurauto via Nerja omhoog, met de bus met overstap in Nerja. Beneden parkeren, de laatste vijf minuten te voet.', 'Med hyrbil upp via Nerja, med buss med byte i Nerja. Parkera nedanför, de sista fem minuterna till fots.') },
     parking: { label: text('Parking on Avenida Carlos Cano', 'Parken an der Avenida Carlos Cano', 'Aparcar en la avenida Carlos Cano', 'Parkeren aan Avenida Carlos Cano', 'Parkering på Avenida Carlos Cano'), text: text('Before eleven or after five there is almost always space. From there five minutes uphill to our green front door.', 'Vor elf oder nach fünf ist fast immer Platz. Von dort fünf Minuten bergauf bis zu unserer grünen Haustür.', 'Antes de las once o después de las cinco casi siempre hay sitio. Desde ahí cinco minutos cuesta arriba hasta nuestra puerta verde.', 'Voor elf of na vijf uur is er bijna altijd plek. Van daar vijf minuten omhoog naar onze groene voordeur.', 'Före elva eller efter fem finns det nästan alltid plats. Därifrån fem minuter uppför till vår gröna ytterdörr.') },
     stairs: { label: text('Old town, newer village or campo', 'Altstadt, neuer Ort oder Campo', 'Casco antiguo, parte nueva o campo', 'Oude kern, nieuwer deel of campo', 'Gamla byn, nya delen eller campo'), text: text('Where you stay decides how many steps lie between you and the morning coffee. We are down on the main axis.', 'Wo ihr wohnt, entscheidet, wie viele Stufen zwischen euch und dem Morgenkaffee liegen. Wir wohnen unten an der Hauptachse.', 'Dónde os alojáis decide cuántos escalones hay entre vosotros y el café de la mañana. Nosotros estamos abajo, en el eje principal.', 'Waar jullie wonen, bepaalt hoeveel treden er tussen jullie en de ochtendkoffie liggen. Wij zitten beneden aan de hoofdas.', 'Var ni bor avgör hur många trappsteg som ligger mellan er och morgonkaffet. Vi bor nere vid huvudstråket.') },
     dailyLife: { label: text('Bread at Manolo’s, groceries at Silvia’s', 'Brot bei Manolo, Einkauf bei Silvia', 'El pan en Manolo, la compra en Silvia', 'Brood bij Manolo, boodschappen bij Silvia', 'Bröd hos Manolo, matinköp hos Silvia'), text: text('The bakery is four minutes along Calle Real, the supermarket a few steps to the right out of the front door. For the big shop you drive to Nerja.', 'Die Bäckerei liegt vier Minuten über die Calle Real, der Supermarkt ein paar Schritte rechts aus der Haustür. Für den Großeinkauf fahrt ihr nach Nerja.', 'La panadería está a cuatro minutos por la calle Real, el supermercado a unos pasos a la derecha al salir. Para la compra grande bajáis a Nerja.', 'De bakker ligt vier minuten via Calle Real, de supermarkt een paar stappen rechts de voordeur uit. Voor de grote boodschappen rijd je naar Nerja.', 'Bageriet ligger fyra minuter bort längs Calle Real, mataffären några steg till höger utanför dörren. För storhandlingen kör ni till Nerja.') },
     comparison: { label: text('Frigiliana or Nerja', 'Frigiliana oder Nerja', 'Frigiliana o Nerja', 'Frigiliana of Nerja', 'Frigiliana eller Nerja'), text: text('Compare village life with a stay by the coast.', 'Dorfleben mit einem Aufenthalt an der Küste vergleichen.', 'Comparar la vida de pueblo con una estancia en la costa.', 'Vergelijk dorpsleven met een verblijf aan de kust.', 'Jämför byliv med en vistelse vid kusten.') },
     weather: { label: text('Weather and seasons', 'Wetter und Jahreszeiten', 'Tiempo y estaciones', 'Weer en seizoenen', 'Väder och årstider'), text: text('Choose the best rhythm for walking, terraces and coast.', 'Den passenden Rhythmus für Wege, Terrasse und Küste finden.', 'Elegir el mejor ritmo para caminar, terraza y costa.', 'Kies het beste ritme voor wandelen, terras en kust.', 'Välj rätt rytm för promenader, terrass och kust.') },
-    faq: { label: text('Frigiliana FAQ', 'Fragen zu Frigiliana', 'Preguntas sobre Frigiliana', 'Vragen over Frigiliana', 'Frågor om Frigiliana'), text: text('Short answers to the most common practical questions.', 'Kurze Antworten auf häufige praktische Fragen.', 'Respuestas breves a las preguntas prácticas más habituales.', 'Korte antwoorden op veelvoorkomende praktische vragen.', 'Korta svar på vanliga praktiska frågor.') },
+    winter: { label: text('Winter in the village', 'Winter im Dorf', 'Invierno en el pueblo', 'Winter in het dorp', 'Vinter i byn'), text: text('Quiet days, steep lanes even in rain, heating in all four apartments and pellet stoves in Lounis, Zaid and Maha. Stays from a few nights to three weeks.', 'Ruhige Tage, steile Gassen auch bei Regen, Heizung in allen vier Wohnungen und Pelletofen in Lounis, Zaid und Maha. Aufenthalte von ein paar Nächten bis drei Wochen.', 'Días tranquilos, calles empinadas también con lluvia, calefacción en los cuatro apartamentos y estufa de pellets en Lounis, Zaid y Maha. Estancias de unas noches hasta tres semanas.', 'Rustige dagen, steile straatjes ook bij regen, verwarming in alle vier de appartementen en een pelletkachel in Lounis, Zaid en Maha. Verblijven van een paar nachten tot drie weken.', 'Lugna dagar, branta gränder även i regn, värme i alla fyra lägenheterna och pelletskamin i Lounis, Zaid och Maha. Vistelser från några nätter upp till tre veckor.') },
+    faq: { label: text('Frigiliana FAQ', 'Fragen zu Frigiliana', 'Preguntas sobre Frigiliana', 'Vragen over Frigiliana', 'Frågor om Frigiliana'), text: text('Car? Not in the village, yes for beaches and day trips. Back from Nerja in the evening: taxi. Luggage: hand luggage is fine, a heavy suitcase feels the 30 steps.', 'Auto? Im Dorf nicht, für Strände und Ausflüge ja. Abends aus Nerja zurück: Taxi. Gepäck: Handgepäck geht, ein schwerer Koffer merkt die 30 Stufen.', '¿Coche? En el pueblo no; para playas y excursiones, sí. Volver de Nerja de noche: en taxi. Equipaje: con equipaje de mano se va bien, una maleta pesada nota los 30 escalones.', 'Auto? In het dorp niet, voor stranden en uitstapjes wel. ’s Avonds terug uit Nerja: taxi. Bagage: handbagage gaat prima, een zware koffer voelt de 30 treden.', 'Bil? Inte i byn, men till stränder och utflykter. Hem från Nerja på kvällen: taxi. Bagage: handbagage går bra, en tung resväska känner de 30 trappstegen.') },
     propertyForSale: { label: text('Property for sale', 'Immobilie zu verkaufen', 'Casa en venta', 'Pand te koop', 'Fastighet till salu'), text: text('A Frigiliana property for sale — the details and how to get in touch.', 'Eine Immobilie in Frigiliana zu verkaufen — die Details und wie ihr Kontakt aufnehmt.', 'Una propiedad en Frigiliana en venta: los detalles y cómo contactar.', 'Een pand in Frigiliana te koop — de gegevens en hoe je contact opneemt.', 'En fastighet i Frigiliana till salu — detaljerna och hur ni tar kontakt.') },
     oldTown: { label: text('Old town and history', 'Altstadt und Geschichte', 'Casco antiguo e historia', 'Oude kern en geschiedenis', 'Gamla byn och historia'), text: text('Walk past the ceramic panels, El Ingenio and San Antonio.', 'Keramiktafeln, El Ingenio und San Antonio entdecken.', 'Pasear por los paneles, El Ingenio y San Antonio.', 'Loop langs de keramiekpanelen, El Ingenio en San Antonio.', 'Promenera förbi keramikpanelerna, El Ingenio och San Antonio.') },
     reviews: { label: text('Guest reviews', 'Gästebewertungen', 'Opiniones de huéspedes', 'Gastenbeoordelingen', 'Gästrecensioner'), text: text('Read what guests mention after their stay.', 'Lesen, was Gäste nach ihrem Aufenthalt erwähnen.', 'Leer qué cuentan los huéspedes después de su estancia.', 'Lees wat gasten na hun verblijf noemen.', 'Läs vad gäster berättar efter vistelsen.') },
@@ -573,12 +618,12 @@ export const frigilianaLocationCopy = {
       {
         id: 'old-town',
         label: text('The twelve ceramic panels of 1569', 'Die zwölf Keramiktafeln von 1569', 'Los doce paneles de cerámica de 1569', 'De twaalf keramische panelen van 1569', 'De tolv keramikplattorna från 1569'),
-        text: text('A walk through the Barribarto, 45 minutes at strolling pace, and you know what happened here in 1569.', 'Ein Rundgang durch das Barribarto, 45 Minuten im Spaziertempo, und ihr wisst, was hier 1569 geschah.', 'Un recorrido por el Barribarto, 45 minutos a paso de paseo, y sabréis lo que pasó aquí en 1569.', 'Een rondje door het Barribarto, 45 minuten in wandeltempo, en jullie weten wat hier in 1569 gebeurde.', 'En runda genom Barribarto, 45 minuter i promenadtakt, och ni vet vad som hände här 1569.')
+        text: text('A walk through the Barribarto, an unhurried hour, and you know what happened here in 1569.', 'Ein Rundgang durch das Barribarto, eine geruhsame Stunde, und ihr wisst, was hier 1569 geschah.', 'Un recorrido por el Barribarto, una hora sin prisa, y sabréis lo que pasó aquí en 1569.', 'Een rondje door het Barribarto, een rustig uur, en jullie weten wat hier in 1569 gebeurde.', 'En runda genom Barribarto, en lugn timme, och ni vet vad som hände här 1569.')
       },
       {
         id: 'hiking',
         label: text('Four hikes from the village', 'Vier Wanderungen ab dem Dorf', 'Cuatro rutas de senderismo desde el pueblo', 'Vier wandelingen vanuit het dorp', 'Fyra vandringar från byn'),
-        text: text('From the Cruz de Pinto panoramic trail to El Fuerte, 963 metres, four hours. Then the outdoor shower on the terrace.', 'Vom Panoramaweg Cruz de Pinto bis zum El Fuerte, 963 Meter, vier Stunden. Danach die Außendusche auf der Terrasse.', 'Desde la ruta panorámica de la Cruz de Pinto hasta El Fuerte, 963 metros, cuatro horas. Después, la ducha exterior en la terraza.', 'Van het panoramapad Cruz de Pinto tot El Fuerte, 963 meter, vier uur. Daarna de buitendouche op het terras.', 'Från panoramaleden Cruz de Pinto till El Fuerte, 963 meter, fyra timmar. Sedan uteduschen på terrassen.')
+        text: text('From the Cruz de Pinto panoramic trail to El Fuerte, 963 metres, four hours. In summer you set off early.', 'Vom Panoramaweg Cruz de Pinto bis zum El Fuerte, 963 Meter, vier Stunden. Im Sommer startet ihr früh.', 'Desde la ruta panorámica de la Cruz de Pinto hasta El Fuerte, 963 metros, cuatro horas. En verano salís temprano.', 'Van het panoramapad Cruz de Pinto tot El Fuerte, 963 meter, vier uur. In de zomer vertrekken jullie vroeg.', 'Från panoramaleden Cruz de Pinto till El Fuerte, 963 meter, fyra timmar. På sommaren ger ni er ut tidigt.')
       },
       {
         id: 'beaches',
