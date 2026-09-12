@@ -68,12 +68,36 @@ export const tarifaImages = defineRouteImages({
         nl: "AMARA Family & Surf in La Marina, Tarifa",
         sv: "AMARA Family & Surf i La Marina, Tarifa"
       }
+    },
+    {
+      role: 'card',
+      id: 'old-town',
+      src: '/images/tarifa/tarifa-old-town-hall-square.jpg',
+      focalPoint: '50% 62%',
+      alt: {
+        en: "Whitewashed building with battlements and palms on a square in Tarifa's old town",
+        de: "Weißes Gebäude mit Zinnen und Palmen an einem Platz in Tarifas Altstadt",
+        es: "Edificio encalado con almenas y palmeras en una plaza del casco antiguo de Tarifa",
+        nl: "Witgekalkt gebouw met kantelen en palmen aan een plein in de oude stad van Tarifa",
+        sv: "Vitkalkad byggnad med tinnar och palmer vid ett torg i Tarifas gamla stad"
+      }
+    },
+    {
+      role: 'panorama',
+      id: 'sunset',
+      src: '/images/tarifa/los-lances-beach-tarifa-sunset.jpg',
+      focalPoint: '50% 64%',
+      alt: {
+        en: "Sunset over the wide sand of Los Lances beach in Tarifa",
+        de: "Sonnenuntergang über dem breiten Sand von Los Lances in Tarifa",
+        es: "Atardecer sobre la ancha arena de la playa de Los Lances en Tarifa",
+        nl: "Zonsondergang boven het brede zand van het strand Los Lances in Tarifa",
+        sv: "Solnedgång över den breda sanden på stranden Los Lances i Tarifa"
+      }
     }
   ],
   briefs: [
     { role: 'split', id: 'strait', motif: "Playa Chica mit dem Damm zur Isla de Tarifa, dahinter die Meerenge", format: "quer 3:2", light: "vormittags, klare Sicht" },
-    { role: 'card', id: 'old-town', motif: "Altstadtgasse mit Kopfsteinpflaster, Puerta de Jerez oder Calle Sancho IV", format: "hochkant 4:5", light: "morgens, bevor die Terrassen aufbauen" },
-    { role: 'card', id: 'evening', motif: "Ein Abend in der Altstadt oder in der Calle Batalla del Salado: Tisch, Licht, Leute", format: "hochkant 4:5", light: "blaue Stunde" },
-    { role: 'panorama', id: 'sunset', motif: "Sonnenuntergang über Los Lances vom Strand oder vom Balkon, ohne Kites im Bild", format: "Panorama quer, mindestens 3:2, wird auf 21:9 beschnitten", light: "letzte Sonne, Horizont frei" }
+    { role: 'card', id: 'evening', motif: "Ein Abend in der Altstadt oder in der Calle Batalla del Salado: Tisch, Licht, Leute", format: "hochkant 4:5", light: "blaue Stunde" }
   ]
 });
