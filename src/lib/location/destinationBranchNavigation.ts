@@ -6,27 +6,37 @@ export type DestinationId = 'frigiliana' | 'nerja' | 'tarifa';
 
 const labels: Record<
   AmaraLanguage,
-  { experience: string; switcher: string }
+  {
+    experience: string;
+    switcher: string;
+    /** Accessible name of the chevron beside a branch label, which itself links to the hub. */
+    toggle: (branch: string) => string;
+  }
 > = {
   en: {
     experience: 'Experiences',
-    switcher: 'Switch between location and experiences'
+    switcher: 'Switch between location and experiences',
+    toggle: (branch) => `${branch}: show topics`
   },
   de: {
     experience: 'Erlebnisse',
-    switcher: 'Zwischen Ort und Erlebnissen wechseln'
+    switcher: 'Zwischen Ort und Erlebnissen wechseln',
+    toggle: (branch) => `${branch}: Themen anzeigen`
   },
   es: {
     experience: 'Experiencias',
-    switcher: 'Cambiar entre destino y experiencias'
+    switcher: 'Cambiar entre destino y experiencias',
+    toggle: (branch) => `${branch}: mostrar temas`
   },
   nl: {
     experience: 'Ervaringen',
-    switcher: 'Wisselen tussen locatie en ervaringen'
+    switcher: 'Wisselen tussen locatie en ervaringen',
+    toggle: (branch) => `${branch}: onderwerpen tonen`
   },
   sv: {
     experience: 'Upplevelser',
-    switcher: 'Växla mellan plats och upplevelser'
+    switcher: 'Växla mellan plats och upplevelser',
+    toggle: (branch) => `${branch}: visa ämnen`
   }
 };
 
@@ -151,14 +161,16 @@ export function getDestinationBranchNavigation(
         label: destinationName,
         title: intro.locationTitle,
         description: intro.locationDescription,
-        href: resolveLink(destinationTokens.location, lang)
+        href: resolveLink(destinationTokens.location, lang),
+        toggleLabel: copy.toggle(destinationName)
       },
       {
         id: 'experience' as const,
         label: copy.experience,
         title: intro.experienceTitle(destinationName),
         description: intro.experienceDescription(destinationName),
-        href: resolveLink(destinationTokens.experience, lang)
+        href: resolveLink(destinationTokens.experience, lang),
+        toggleLabel: copy.toggle(copy.experience)
       }
     ]
   };
