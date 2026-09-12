@@ -16,7 +16,7 @@ export const frigilianaOldTownExternalLinks = {
 } as const;
 
 export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
-  version: '2026-08-29-frigiliana-old-town-v1.1-B',
+  version: '2026-09-12-frigiliana-old-town-v1.2-B',
   pageType: 'B',
   entityKey: 'amara-brand',
   /* og:image is emitted as an absolute URL, so it must stay inside the published image contract. */
@@ -24,7 +24,7 @@ export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
   article: {
     datePublished: '2026-08-19',
-    dateModified: '2026-09-09',
+    dateModified: '2026-09-12',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorRoute: 'about'
@@ -308,11 +308,11 @@ export const frigilianaOldTownCopy = {
         title: l('Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja'),
         subline: l('The old fountain of 1640', 'Der alte Brunnen von 1640', 'El antiguo caño de 1640', 'De oude bron van 1640', 'Den gamla brunnen från 1640'),
         text: l(
-          'Built in 1640 by Don Íñigo Manrique de Lara, the fifth Lord of Frigiliana, the Fuente Vieja was the village’s main water source for centuries. Its brick arch still carries the weathered counts’ coat of arms, and three spouts still run at the lower edge of the old town.',
-          'Die 1640 von Don Íñigo Manrique de Lara, dem fünften Herrn von Frigiliana, erbaute Fuente Vieja war jahrhundertelang die wichtigste Wasserquelle des Dorfes. Ihr Ziegelbogen trägt bis heute das verwitterte Grafenwappen, und drei Ausläufe rinnen weiter am unteren Rand der Altstadt.',
-          'Construida en 1640 por Don Íñigo Manrique de Lara, quinto señor de Frigiliana, la Fuente Vieja fue durante siglos la principal fuente de agua del pueblo. Su arco de ladrillo conserva el escudo desgastado de los condes, y tres caños siguen manando en el borde bajo del casco antiguo.',
-          'De in 1640 door Don Íñigo Manrique de Lara, de vijfde heer van Frigiliana, gebouwde Fuente Vieja was eeuwenlang de belangrijkste waterbron van het dorp. Haar bakstenen boog draagt nog het verweerde wapen van de graven, en drie tuiten lopen nog aan de onderrand van de oude kern.',
-          'Fuente Vieja, byggd 1640 av Don Íñigo Manrique de Lara, Frigilianas femte herre, var i århundraden byns viktigaste vattenkälla. Dess tegelbåge bär än grevarnas nötta vapen, och tre pipar rinner alltjämt vid gamla stans nedre kant.'
+          'Built around 1640 by Don Íñigo Manrique de Lara, fifth Señor and first Count of Frigiliana, the Fuente Vieja was first called the “Fuente Nueva”. Its two-storey stone front carries the counts’ coat of arms in the upper central field, and three spouts still run into the trough that once watered the village animals too.',
+          'Um 1640 von Don Íñigo Manrique de Lara, dem fünften Herrn und ersten Grafen von Frigiliana, erbaut, hieß die Fuente Vieja zuerst „Fuente Nueva". Ihre zweigeschossige Steinfront trägt das Grafenwappen im oberen Mittelfeld, und drei Ausläufe rinnen weiter in den Trog, der einst auch das Vieh des Dorfes tränkte.',
+          'Construida hacia 1640 por Don Íñigo Manrique de Lara, quinto señor y primer conde de Frigiliana, la Fuente Vieja se llamó primero «Fuente Nueva». Su frente de piedra de dos cuerpos luce el escudo de los condes en la calle central superior, y tres caños siguen vertiendo en el pilón que también abrevaba al ganado del pueblo.',
+          'Rond 1640 gebouwd door Don Íñigo Manrique de Lara, vijfde heer en eerste graaf van Frigiliana, heette de Fuente Vieja eerst „Fuente Nueva". Haar stenen voorzijde van twee geledingen draagt het wapen van de graven in het bovenste middenveld, en drie tuiten lopen nog in de trog die ooit ook het vee van het dorp drenkte.',
+          'Byggd omkring 1640 av Don Íñigo Manrique de Lara, Frigilianas femte herre och förste greve, hette Fuente Vieja först ”Fuente Nueva”. Dess tvåvånings stenfront bär grevarnas vapen i det övre mittfältet, och tre pipar rinner alltjämt ner i tråget som en gång även vattnade byns djur.'
         )
       },
       {
@@ -341,22 +341,22 @@ export const frigilianaOldTownCopy = {
         title: l('Ermita de Ecce Homo', 'Ermita de Ecce Homo', 'Ermita del Ecce Homo', 'Ermita de Ecce Homo', 'Ermita de Ecce Homo'),
         subline: l('Chapel of the Santo Cristo de la Caña, 18th c.', 'Kapelle des Santo Cristo de la Caña, 18. Jh.', 'Capilla del Santo Cristo de la Caña, s. XVIII', 'Kapel van de Santo Cristo de la Caña, 18e eeuw', 'Kapell för Santo Cristo de la Caña, 1700-tal'),
         text: l(
-          'A very small single-nave chapel of the eighteenth century, hidden deep in the lanes. It stands for the popular devotion that took root after the Morisco expulsion, and once a year its image leads the village’s Good Friday procession.',
-          'Eine sehr kleine einschiffige Kapelle des 18. Jahrhunderts, tief in den Gassen versteckt. Sie steht für die Volksfrömmigkeit, die nach der Vertreibung der Morisken Wurzeln schlug, und einmal im Jahr führt ihr Bildnis die Karfreitagsprozession des Dorfes an.',
-          'Una capilla muy pequeña, de una sola nave y del siglo XVIII, escondida en las calles. Representa la devoción popular que arraigó tras la expulsión de los moriscos, y una vez al año su imagen encabeza la procesión del Viernes Santo del pueblo.',
-          'Een heel kleine eenbeukige kapel uit de 18e eeuw, verscholen in de straatjes. Ze staat voor de volksdevotie die na de verdrijving van de Morisken wortel schoot, en eens per jaar gaat haar beeld voorop in de Goedevrijdagprocessie van het dorp.',
-          'Ett mycket litet enskeppigt kapell från 1700-talet, gömt djupt i gränderna. Det står för den folkliga fromhet som slog rot efter moriskernas fördrivning, och en gång om året leder dess bild byns långfredagsprocession.'
+          'A small single-nave chapel of the eighteenth century at the edge of the old town, home to the Santo Cristo de la Caña — the reed of the mocked Christ, not the sugar cane. Once a year, on Holy Wednesday (Miércoles Santo), its image is carried in procession to the church of San Antonio.',
+          'Eine kleine einschiffige Kapelle des 18. Jahrhunderts am Rand der Altstadt, Heimat des Santo Cristo de la Caña — das Schilfrohr des verspotteten Christus, nicht das Zuckerrohr. Einmal im Jahr, am Karmittwoch (Miércoles Santo), wird ihr Bildnis in Prozession zur Kirche San Antonio getragen.',
+          'Una capilla pequeña, de una sola nave y del siglo XVIII, al borde del casco antiguo, que alberga al Santo Cristo de la Caña — el junco del Cristo escarnecido, no la caña de azúcar. Una vez al año, el Miércoles Santo, su imagen sale en procesión hacia la iglesia de San Antonio.',
+          'Een kleine eenbeukige kapel uit de 18e eeuw aan de rand van de oude kern, huis van de Santo Cristo de la Caña — het riet van de bespotte Christus, niet het suikerriet. Eens per jaar, op Stille Woensdag (Miércoles Santo), wordt haar beeld in processie naar de kerk van San Antonio gedragen.',
+          'Ett litet enskeppigt kapell från 1700-talet vid kanten av gamla stan, hem för Santo Cristo de la Caña — den hånade Kristi rör, inte sockerröret. En gång om året, på dymmelonsdagen (Miércoles Santo), bärs dess bild i procession till kyrkan San Antonio.'
         )
       },
       {
         title: l('Callejón del Peñón & miradores', 'Callejón del Peñón & Miradores', 'Callejón del Peñón y miradores', 'Callejón del Peñón & miradores', 'Callejón del Peñón & miradorer'),
-        subline: l('The photographed lane, and the view of El Fuerte', 'Die fotografierte Gasse und der Blick auf El Fuerte', 'La calle fotografiada y la vista de El Fuerte', 'Het gefotografeerde straatje en het uitzicht op El Fuerte', 'Den fotograferade gränden och vyn mot El Fuerte'),
+        subline: l('The photographed lane, and the miradores', 'Die fotografierte Gasse und die Miradores', 'La calle fotografiada y los miradores', 'Het gefotografeerde straatje en de miradores', 'Den fotograferade gränden och miradorerna'),
         text: l(
-          'The steep, much-photographed lane in the upper quarter opens the clearest view of El Fuerte, the massif directly above the village — and exactly the site of the 1569 battle. A handful of small miradores nearby give out over the tiled roofs; the light is best early and late.',
-          'Die steile, vielfotografierte Gasse im oberen Viertel öffnet den klarsten Blick auf El Fuerte, das Massiv direkt über dem Dorf — und genau den Schauplatz der Schlacht von 1569. Ein paar kleine Miradores in der Nähe gehen über die Ziegeldächer hinaus; das Licht ist früh und spät am schönsten.',
-          'La empinada y muy fotografiada calle de la parte alta abre la vista más clara de El Fuerte, el macizo justo sobre el pueblo, y el escenario mismo de la batalla de 1569. Unos pocos miradores cercanos dan sobre los tejados; la luz es mejor temprano y al atardecer.',
-          'Het steile, veel gefotografeerde straatje in de bovenwijk opent het helderste uitzicht op El Fuerte, het massief pal boven het dorp — en precies het toneel van de slag van 1569. Een paar kleine miradores in de buurt kijken uit over de pannendaken; het licht is het mooist vroeg en laat.',
-          'Den branta, mycket fotograferade gränden i övre stadsdelen öppnar den tydligaste vyn mot El Fuerte, massivet rakt ovanför byn — och just platsen för slaget 1569. En handfull små miradorer i närheten ger utsikt över tegeltaken; ljuset är bäst tidigt och sent.'
+          'The steep, much-photographed lane in the upper quarter opens at the top over the tiled roofs to the valley, the sierra and, on a clear day, the sea — the same heights above the village where the 1569 stand was made. Named miradores nearby, at Santo Cristo and the Plaza de las Tres Culturas, catch the same view; the light is best early and late.',
+          'Die steile, vielfotografierte Gasse im oberen Viertel öffnet sich oben über die Ziegeldächer hinaus ins Tal, zur Sierra und, an klaren Tagen, zum Meer — eben die Höhen über dem Dorf, auf denen 1569 der letzte Widerstand geleistet wurde. Benannte Miradores in der Nähe, an Santo Cristo und der Plaza de las Tres Culturas, fangen denselben Blick; das Licht ist früh und spät am schönsten.',
+          'La empinada y muy fotografiada calle de la parte alta se abre arriba sobre los tejados hacia el valle, la sierra y, en días claros, el mar — las mismas alturas sobre el pueblo donde se hizo la resistencia de 1569. Miradores cercanos con nombre, en Santo Cristo y la plaza de las Tres Culturas, recogen la misma vista; la luz es mejor temprano y al atardecer.',
+          'Het steile, veel gefotografeerde straatje in de bovenwijk opent zich bovenaan over de pannendaken naar het dal, de sierra en, op een heldere dag, de zee — dezelfde hoogten boven het dorp waar in 1569 het laatste verzet werd geboden. Miradores met naam in de buurt, bij Santo Cristo en de Plaza de las Tres Culturas, vangen hetzelfde uitzicht; het licht is het mooist vroeg en laat.',
+          'Den branta, mycket fotograferade gränden i övre stadsdelen öppnar sig där uppe över tegeltaken mot dalen, sierran och, en klar dag, havet — samma höjder ovanför byn där 1569 års motstånd gjordes. Namngivna miradorer i närheten, vid Santo Cristo och Plaza de las Tres Culturas, fångar samma vy; ljuset är bäst tidigt och sent.'
         )
       }
     ]
@@ -613,11 +613,11 @@ export const frigilianaOldTownCopy = {
           'Fester & traditioner'
         ),
         text: l(
-          'The same lanes carry the Good Friday procession, the May crosses and the largest cultural weekend of the year. Each changes how the centre can be used.',
-          'Dieselben Gassen tragen die Karfreitagsprozession, die Maikreuze und das größte Kulturwochenende des Jahres. Jedes verändert, wie der Ortskern nutzbar ist.',
-          'Las mismas calles acogen la procesión del Viernes Santo, las cruces de mayo y el mayor fin de semana cultural del año. Cada cita cambia cómo se puede usar el centro.',
-          'Dezelfde straatjes dragen de processie op Goede Vrijdag, de meikruisen en het grootste culturele weekend van het jaar. Elk verandert hoe de kern te gebruiken is.',
-          'Samma gränder bär långfredagsprocessionen, majkorsen och årets största kulturhelg. Var och en förändrar hur bykärnan kan användas.'
+          'The same lanes carry the Holy Week processions, the May crosses and the largest cultural weekend of the year. Each changes how the centre can be used.',
+          'Dieselben Gassen tragen die Prozessionen der Karwoche, die Maikreuze und das größte Kulturwochenende des Jahres. Jedes verändert, wie der Ortskern nutzbar ist.',
+          'Las mismas calles acogen las procesiones de Semana Santa, las cruces de mayo y el mayor fin de semana cultural del año. Cada cita cambia cómo se puede usar el centro.',
+          'Dezelfde straatjes dragen de processies van de Goede Week, de meikruisen en het grootste culturele weekend van het jaar. Elk verandert hoe de kern te gebruiken is.',
+          'Samma gränder bär påskveckans processioner, majkorsen och årets största kulturhelg. Var och en förändrar hur bykärnan kan användas.'
         ),
         linkLabel: l(
           'See the festival year',
