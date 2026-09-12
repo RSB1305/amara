@@ -80,7 +80,7 @@ export interface FrigilianaLocationPageCopy {
   evening: FrigilianaLocationModule;
   history: FrigilianaLocationModule;
   heritageFacts: Array<{
-    id: 'protected' | 'barribajo' | 'barribarto';
+    id: 'barribajo' | 'barribarto' | 'ingenio';
     value: string;
     label: string;
   }>;
@@ -361,35 +361,25 @@ export const frigilianaLocationCopy = {
     title: text('A village the hillside has shaped', 'Ein Dorf, das der Hang geformt hat', 'Un pueblo moldeado por la ladera', 'Een dorp gevormd door de helling', 'En by formad av sluttningen'),
     paragraphs: textList(
       [
-        'Since 2014 the delimited historic core has been protected as a Bien de Interés Cultural; the Junta de Andalucía counts it among the best-preserved enclaves of Morisco tradition on the peninsula.',
-        'You can read that history in the way the village moves. Calle Real follows the lower axis through Barribajo; above it, the original medieval core of Barribarto tightens into bends, adarves, covered passages and steep cross-streets. The hillside is not a backdrop here. It is the plan of the place.',
+        'You can read the village in the way it moves. Calle Real follows the lower axis through Barribajo; above it, the original medieval core of Barribarto tightens into bends, adarves, covered passages and steep cross-streets. The hillside is not a backdrop here. It is the plan of the place.',
       ],
       [
-        'Seit 2014 steht der abgegrenzte historische Ortskern als Bien de Interés Cultural unter Schutz; die Junta de Andalucía zählt ihn zu den am besten erhaltenen Enklaven moriskischer Tradition auf der Halbinsel.',
-        'Diese Geschichte lässt sich beim Gehen lesen. Die Calle Real bildet die untere Achse durch das Barribajo; darüber verdichtet sich der ursprüngliche mittelalterliche Kern des Barribarto zu Kurven, Adarves, überbauten Durchgängen und steilen Quergassen. Der Hang ist hier keine Kulisse. Er ist der Grundriss des Dorfes.',
+        'Das Dorf lässt sich beim Gehen lesen. Die Calle Real bildet die untere Achse durch das Barribajo; darüber verdichtet sich der ursprüngliche mittelalterliche Kern des Barribarto zu Kurven, Adarves, überbauten Durchgängen und steilen Quergassen. Der Hang ist hier keine Kulisse. Er ist der Grundriss des Dorfes.',
       ],
       [
-        'Desde 2014, el casco histórico delimitado está protegido como Bien de Interés Cultural; la Junta de Andalucía lo cuenta entre los enclaves de tradición morisca mejor conservados de la península.',
-        'Esa historia se lee al caminar. La calle Real forma el eje bajo del Barribajo; por encima, el núcleo medieval original del Barribarto se estrecha entre curvas, adarves, pasajes cubiertos y calles transversales empinadas. Aquí la ladera no es un telón de fondo. Es el trazado del pueblo.',
+        'El pueblo se lee al caminar. La calle Real forma el eje bajo del Barribajo; por encima, el núcleo medieval original del Barribarto se estrecha entre curvas, adarves, pasajes cubiertos y calles transversales empinadas. Aquí la ladera no es un telón de fondo. Es el trazado del pueblo.',
       ],
       [
-        'Sinds 2014 is de afgebakende historische kern beschermd als Bien de Interés Cultural; de Junta de Andalucía rekent hem tot de best bewaarde enclaves met een Moriscotraditie op het schiereiland.',
-        'Die geschiedenis lees je tijdens het lopen. Calle Real vormt de lagere as door Barribajo; daarboven trekt de oorspronkelijke middeleeuwse kern van Barribarto zich samen in bochten, adarves, overdekte doorgangen en steile dwarsstraten. De helling is hier geen decor. Zij bepaalt de plattegrond van het dorp.',
+        'Het dorp lees je tijdens het lopen. Calle Real vormt de lagere as door Barribajo; daarboven trekt de oorspronkelijke middeleeuwse kern van Barribarto zich samen in bochten, adarves, overdekte doorgangen en steile dwarsstraten. De helling is hier geen decor. Zij bepaalt de plattegrond van het dorp.',
       ],
       [
-        'Sedan 2014 är den avgränsade historiska bykärnan skyddad som Bien de Interés Cultural; Junta de Andalucía räknar den till de bäst bevarade miljöerna med morisk tradition på halvön.',
-        'Historien går att läsa medan ni promenerar. Calle Real bildar den nedre axeln genom Barribajo; ovanför tätnar Barribartos ursprungliga medeltida kärna i svängar, adarves, täckta passager och branta tvärgator. Sluttningen är ingen kuliss här. Den är byns planritning.',
+        'Byn går att läsa medan ni promenerar. Calle Real bildar den nedre axeln genom Barribajo; ovanför tätnar Barribartos ursprungliga medeltida kärna i svängar, adarves, täckta passager och branta tvärgator. Sluttningen är ingen kuliss här. Den är byns planritning.',
       ]
     ),
     subsections: [],
     ctas: []
   } satisfies LocalizedModule,
   heritageFacts: [
-    {
-      id: 'protected',
-      value: text('Since 2014', 'Seit 2014', 'Desde 2014', 'Sinds 2014', 'Sedan 2014'),
-      label: text('protected as a historic ensemble', 'als historisches Ensemble geschützt', 'protegido como conjunto histórico', 'beschermd als historisch geheel', 'skyddat som historisk helhet')
-    },
     {
       id: 'barribajo',
       value: text('Barribajo', 'Barribajo', 'Barribajo', 'Barribajo', 'Barribajo'),
@@ -399,6 +389,11 @@ export const frigilianaLocationCopy = {
       id: 'barribarto',
       value: text('Barribarto', 'Barribarto', 'Barribarto', 'Barribarto', 'Barribarto'),
       label: text('the original medieval core higher on the slope', 'der ursprüngliche mittelalterliche Kern weiter oben', 'el núcleo medieval original en la parte alta', 'de oorspronkelijke middeleeuwse kern hoger op de helling', 'den ursprungliga medeltida kärnan högre upp')
+    },
+    {
+      id: 'ingenio',
+      value: text('El Ingenio', 'El Ingenio', 'El Ingenio', 'El Ingenio', 'El Ingenio'),
+      label: text('the old sugar-cane factory at the lower edge of the village', 'die alte Zuckerrohrfabrik am unteren Dorfrand', 'la antigua fábrica de caña de azúcar en la parte baja del pueblo', 'de oude suikerrietfabriek aan de onderrand van het dorp', 'den gamla sockerrörsfabriken i byns nedre kant')
     }
   ],
   heritageLinkLabel: text(

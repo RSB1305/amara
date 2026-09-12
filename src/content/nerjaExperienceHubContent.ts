@@ -102,7 +102,9 @@ export const nerjaExperienceHubContent = {
       title: l("Day trips", "Tagesausflüge", "Excursiones", "Dagtochten", "Dagsutflykter"),
       text: l("Frigiliana is close enough for a few hours. Málaga, Granada, Caminito del Rey and Ronda each deserve their own day rather than being combined in a rush.", "Frigiliana liegt nah genug für ein paar Stunden. Málaga, Granada, der Caminito del Rey und Ronda verdienen jeweils einen eigenen Tag statt einer hastigen Kombination.", "Frigiliana está lo bastante cerca para pasar unas horas. Málaga, Granada, el Caminito del Rey y Ronda merecen cada uno su propio día, sin combinarlos con prisas.", "Frigiliana ligt dichtbij genoeg voor een paar uur. Málaga, Granada, Caminito del Rey en Ronda verdienen elk een eigen dag, zonder haastige combinaties.", "Frigiliana ligger nära nog för några timmar. Málaga, Granada, Caminito del Rey och Ronda förtjänar var sin dag i stället för en stressig kombination."),
       token: "nerja_daytrips_authority" as LinkToken,
-      linkLabel: l("See which destinations deserve a full day", "Sehen, welche Ziele einen ganzen Tag verdienen", "Ver qué destinos merecen un día entero", "Bekijk welke bestemmingen een hele dag verdienen", "Se vilka utflyktsmål som förtjänar en hel dag")
+      linkLabel: l("See which destinations deserve a full day", "Sehen, welche Ziele einen ganzen Tag verdienen", "Ver qué destinos merecen un día entero", "Bekijk welke bestemmingen een hele dag verdienen", "Se vilka utflyktsmål som förtjänar en hel dag"),
+      asideToken: "nerja_parking" as LinkToken,
+      asideLabel: l("A hire car for the outing days only: where it parks in Nerja", "Mietwagen nur für die Ausflugstage: wo er in Nerja steht", "Coche de alquiler solo para los días de excursión: dónde aparcarlo en Nerja", "Huurauto alleen voor de uitstapdagen: waar hij in Nerja staat", "Hyrbil bara för utflyktsdagarna: var den står i Nerja")
     },
     {
       id: "caves",

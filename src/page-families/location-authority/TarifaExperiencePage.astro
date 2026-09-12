@@ -43,7 +43,8 @@ const dayTopics = copy.dayChooser.days.map((day) => ({
   title: day.title,
   text: day.text,
   href: day.token ? requiredLink(day.token) : undefined,
-  linkLabel: day.linkLabel
+  linkLabel: day.linkLabel,
+  aside: day.asideToken && day.asideLabel ? { href: requiredLink(day.asideToken), label: day.asideLabel } : undefined
 }));
 const sectionById = (id: string) => copy.sections.find((section) => section.id === id);
 const ourDay = sectionById('our-day');

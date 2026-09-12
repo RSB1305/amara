@@ -28,14 +28,16 @@ const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja experience h
 
 const themes = copy.themes.map((theme) => ({
   ...theme,
-  href: resolveOptionalLink(theme.token, currentLang, { suppressMissing: true })
+  href: resolveOptionalLink(theme.token, currentLang, { suppressMissing: true }),
+  asideHref: theme.asideToken ? resolveOptionalLink(theme.asideToken, currentLang, { suppressMissing: true }) : null
 }));
 const toTopic = (theme: (typeof themes)[number]) => ({
   id: `experience-${theme.id}`,
   title: theme.title,
   text: theme.text,
   href: theme.href ?? undefined,
-  linkLabel: theme.linkLabel
+  linkLabel: theme.linkLabel,
+  aside: theme.asideHref && theme.asideLabel ? { href: theme.asideHref, label: theme.asideLabel } : undefined
 });
 const featuredThemeTopics = themes.slice(0, 4).map(toTopic);
 const additionalThemeTopics = themes.slice(4).map(toTopic);

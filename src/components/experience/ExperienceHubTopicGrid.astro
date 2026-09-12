@@ -9,6 +9,8 @@ export interface ExperienceHubTopic {
   text: string;
   href?: string;
   linkLabel?: string;
+  /** Second, practical handoff (Type A spoke) when the teaser raises a logistics question. */
+  aside?: { href: string; label: string };
 }
 
 interface Props {
@@ -52,6 +54,13 @@ const moduleAttributes = getAmaraContentModuleAttributes({
         <p class="mt-6 text-sm">
           <AmaraActionLink href={topic.href} variant="inline">
             {topic.linkLabel}<span aria-hidden="true"> &rarr;</span>
+          </AmaraActionLink>
+        </p>
+      )}
+      {topic.aside && (
+        <p class="mt-3 text-sm">
+          <AmaraActionLink href={topic.aside.href} variant="inline">
+            {topic.aside.label}<span aria-hidden="true"> &rarr;</span>
           </AmaraActionLink>
         </p>
       )}

@@ -23,7 +23,8 @@ export type TarifaExperienceLinkToken =
   | 'tarifa_old_town_history'
   | 'tarifa_bolonia_baelo_claudia'
   | 'tarifa_weather'
-  | 'tarifa_winter_stays';
+  | 'tarifa_winter_stays'
+  | 'tarifa_parking';
 
 export interface TarifaExperienceDayType {
   title: string;
@@ -31,6 +32,9 @@ export interface TarifaExperienceDayType {
   /** Routes to the spoke that owns this topic, so the hub links instead of retelling. */
   token?: TarifaExperienceLinkToken;
   linkLabel?: string;
+  /** Second, practical handoff to a Type-A spoke when the day raises a logistics question. */
+  asideToken?: TarifaExperienceLinkToken;
+  asideLabel?: string;
 }
 
 export type TarifaExperienceWorldId =
@@ -208,7 +212,9 @@ export const tarifaExperienceContent = {
         title: l("Bolonia and Baelo Claudia", "Bolonia und Baelo Claudia", "Bolonia y Baelo Claudia", "Bolonia en Baelo Claudia", "Bolonia och Baelo Claudia"),
         text: l("Open coast, protected dune and the Roman town of Baelo Claudia — that is a whole day, not a stopover.", "Offene Küste, geschützte Düne und die römische Stadt Baelo Claudia – das ist ein ganzer Tag, kein Zwischenstopp.", "Costa abierta, duna protegida y la ciudad romana de Baelo Claudia: eso es un día entero, no una parada.", "Open kust, beschermd duin en de Romeinse stad Baelo Claudia — dat is een hele dag, geen tussenstop.", "Öppen kust, skyddad dyn och den romerska staden Baelo Claudia – en hel dag, inte ett stopp på vägen."),
         token: "tarifa_bolonia_baelo_claudia" as LinkToken,
-        linkLabel: l("Dune, Roman town and the road to Bolonia", "Düne, Römerstadt und der Weg nach Bolonia", "Duna, ciudad romana y el camino a Bolonia", "Duin, Romeinse stad en de weg naar Bolonia", "Dyn, romersk stad och vägen till Bolonia")
+        linkLabel: l("Dune, Roman town and the road to Bolonia", "Düne, Römerstadt und der Weg nach Bolonia", "Duna, ciudad romana y el camino a Bolonia", "Duin, Romeinse stad en de weg naar Bolonia", "Dyn, romersk stad och vägen till Bolonia"),
+        asideToken: "tarifa_parking" as LinkToken,
+        asideLabel: l("Bolonia needs the car: garage at the apartment, no parking hunt on return", "Bolonia braucht das Auto: Garage an der Wohnung, keine Parkplatzsuche bei der Rückkehr", "Bolonia pide coche: garaje en el apartamento, sin buscar sitio a la vuelta", "Bolonia vraagt de auto: garage bij het appartement, geen parkeerzoektocht bij terugkomst", "Bolonia kräver bil: garage vid lägenheten, ingen parkeringsjakt vid hemkomsten")
       }
     ]
   },
