@@ -1,0 +1,58 @@
+---
+// One experience corridor on the Frigiliana experience hub: photograph on top, then the
+// kicker with its running number, the title as the link, the mini-answer and the handoff
+// whose text names the chain (TR-CONTENT-009). Used for the rail card beside the lead story
+// and for every card in the grid below, so the two placements stay one object.
+import AmaraImage from '../../components/AmaraImage.astro';
+
+interface Props {
+  story: {
+    image: string;
+    href: string | null | undefined;
+    editorial: { kicker: string; title: string; text: string; linkLabel: string; imageAlt: string };
+  };
+  number: string;
+  /** The rail card beside the lead story runs portrait on wide screens; grid cards stay landscape. */
+  placement: 'rail' | 'grid';
+}
+
+const { story, number, placement } = Astro.props;
+const sizes = '(max-width: 639px) calc(100vw - 3rem), (max-width: 1023px) 45vw, 30vw';
+---
+
+<article class="group flex h-full flex-col">
+  <div class="overflow-hidden bg-surface-container-low">
+    <AmaraImage
+      src={story.image}
+      alt={story.editorial.imageAlt}
+      profile="card"
+      width={960}
+      widths={[480, 720, 960]}
+      sizes={sizes}
+      class:list={[
+        'h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]',
+        placement === 'rail' ? 'aspect-[4/3] lg:aspect-[4/5]' : 'aspect-[4/3]'
+      ]}
+    />
+  </div>
+  <div class="mt-6 flex flex-1 flex-col">
+    <div class="mb-3 flex items-center justify-between gap-4">
+      <p class="am-text-caption text-primary">{story.editorial.kicker}</p>
+      <span class="am-text-label am-text-label--sm am-text-label--wide text-on-surface/35">{number}</span>
+    </div>
+    <h3 class="am-text-subtitle mb-4 text-on-surface">
+      {story.href ? <a href={story.href} class="am-magazine-title-link">{story.editorial.title}</a> : story.editorial.title}
+    </h3>
+    <p class="text-sm leading-relaxed text-on-surface-variant">{story.editorial.text}</p>
+    {
+      story.href && (
+        <p class="mt-5 text-sm">
+          <a href={story.href} class="am-inline-link">
+            {story.editorial.linkLabel}
+            <span aria-hidden="true"> &rarr;</span>
+          </a>
+        </p>
+      )
+    }
+  </div>
+</article>

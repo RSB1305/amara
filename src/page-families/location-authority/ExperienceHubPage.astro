@@ -3,6 +3,7 @@ import AmaraImage from '../../components/AmaraImage.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import Navigation from '../../components/Navigation.astro';
 import GuideClosingSection from './GuideClosingSection.astro';
+import ExperienceHubStoryCard from './ExperienceHubStoryCard.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import {
   experienceCatalog,
@@ -48,6 +49,8 @@ const leadStory = {
   href: resolveOptionalLink('frigiliana_old_town', currentLang, { suppressMissing: true })
 };
 const secondaryStories = copy.catalog.order.map(getExperience);
+// One card keeps the lead story company in the rail; the rest fill a three-column grid so no column runs empty.
+const [railStory, ...gridStories] = secondaryStories;
 const frigilianaStaysHref = buildOwnedLocalizedPath('stays.frigiliana', currentLang);
 const oldTownDiscovery = copy.moods.discoveryLinks.find(
   (item) => item.token === 'frigiliana_old_town'
@@ -168,61 +171,13 @@ const footerHighlights: LabeledLink[] = [
             </div>
           </article>
 
-          <div class="grid grid-cols-1 gap-14 sm:grid-cols-2 lg:col-span-4 lg:grid-cols-1 lg:gap-16 lg:pt-20">
-            {
-              secondaryStories.map((story, index) => (
-                <article class="group border-t border-outline-variant/25 pt-7">
-                  <div class="grid grid-cols-1 gap-6 xl:grid-cols-5 xl:items-start xl:gap-7">
-                    <div class="overflow-hidden bg-surface-container-low xl:col-span-2">
-                      <AmaraImage
-                        src={story.image}
-                        alt={story.editorial.imageAlt}
-                        profile="card"
-                        width={720}
-                        widths={[320, 480, 720]}
-                        sizes="(max-width: 639px) calc(100vw - 3rem), (max-width: 1023px) 45vw, 18vw"
-                        class="aspect-[4/3] h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] xl:aspect-[3/4]"
-                      />
-                    </div>
-                    <div class="xl:col-span-3">
-                      <div class="mb-4 flex items-center justify-between gap-4">
-                        <p class="am-text-caption text-primary">
-                          {story.editorial.kicker}
-                        </p>
-                        <span class="am-text-label am-text-label--sm am-text-label--wide text-on-surface/35">
-                          0{index + 2}
-                        </span>
-                      </div>
-                      <h3 class="am-text-subtitle mb-4 text-on-surface">
-                        {
-                          story.href ? (
-                            <a href={story.href} class="am-magazine-title-link">
-                              {story.editorial.title}
-                            </a>
-                          ) : (
-                            story.editorial.title
-                          )
-                        }
-                      </h3>
-                      <p class="text-sm leading-relaxed text-on-surface-variant">
-                        {story.editorial.text}
-                      </p>
-                      {
-                        story.href && (
-                          <p class="mt-5 text-sm">
-                            <a href={story.href} class="am-inline-link">
-                              {story.editorial.linkLabel}
-                              <span aria-hidden="true"> &rarr;</span>
-                            </a>
-                          </p>
-                        )
-                      }
-                    </div>
-                  </div>
-                </article>
-              ))
-            }
+          <div class="lg:col-span-4 lg:pt-20">
+            <ExperienceHubStoryCard story={railStory} number="02" placement="rail" />
           </div>
+        </div>
+
+        <div class="mt-16 grid grid-cols-1 gap-x-10 gap-y-14 border-t border-outline-variant/25 pt-14 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3 lg:gap-y-16">
+          {gridStories.map((story, index) => <ExperienceHubStoryCard story={story} number={`0${index + 3}`} placement="grid" />)}
         </div>
 
         {
