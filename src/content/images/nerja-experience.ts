@@ -5,15 +5,20 @@ export const nerjaExperienceImages = defineRouteImages({
   images: [
     {
       role: 'hero',
-      src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
-      width: 2000,
+      src: '/images/nerja/nerja-balcon-de-europa-palms-arcade.jpg',
+      focalPoint: '50% 50%',
       alt: {
-        en: "Aerial view of Nerja and the Mediterranean coast",
-        de: "Luftaufnahme von Nerja und der Mittelmeerküste",
-        es: "Vista aérea de Nerja y la costa mediterránea",
-        nl: "Luchtfoto van Nerja en de Middellandse Zeekust",
-        sv: "Flygvy över Nerja och Medelhavskusten"
+        en: "Palms below the white arcade of the Balcón de Europa in Nerja",
+        de: "Palmen unter der weißen Arkade des Balcón de Europa in Nerja",
+        es: "Palmeras bajo la arcada blanca del Balcón de Europa en Nerja",
+        nl: "Palmen onder de witte arcade van de Balcón de Europa in Nerja",
+        sv: "Palmer under den vita arkaden vid Balcón de Europa i Nerja"
       }
+    },
+    {
+      // The aerial stays the stable Open Graph address; the location hub keeps it as its hero.
+      role: 'og',
+      src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg'
     }
   ]
 });

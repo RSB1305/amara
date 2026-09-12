@@ -14,7 +14,8 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import { routeHero } from '../../lib/images/routeImages';
+import { routeHero, routeImages } from '../../lib/images/routeImages';
+import LocationPhotoGallery from '../../components/location/LocationPhotoGallery.astro';
 
 interface Props {
   lang?: string;
@@ -23,6 +24,7 @@ interface Props {
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const hero = routeHero('nerja.experience.nightlife', currentLang);
+const galleryImages = routeImages('nerja.experience.nightlife', 'gallery', currentLang);
 const copy = nerjaNightlifeContent[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja nightlife');
 
@@ -136,6 +138,8 @@ const footerHighlights: LabeledLink[] = [
           }
         </div>
       </section>
+
+      <LocationPhotoGallery images={galleryImages} />
 
       <section
         id="culture"

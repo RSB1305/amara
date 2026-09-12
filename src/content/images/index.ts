@@ -28,6 +28,7 @@ import { laAmaraLounisImages } from './la-amara-lounis';
 import { laAmaraMahaImages } from './la-amara-maha';
 import { laAmaraPlayaImages } from './la-amara-playa';
 import { laAmaraZaidImages } from './la-amara-zaid';
+import { nerjaExperienceBalconDeEuropaImages } from './nerja-experience-balcon-de-europa';
 import { nerjaExperienceBeachesImages } from './nerja-experience-beaches';
 import { nerjaExperienceDayTripsImages } from './nerja-experience-day-trips';
 import { nerjaExperienceFoodImages } from './nerja-experience-food';
@@ -86,6 +87,7 @@ const sets: readonly RouteImageSet[] = [
   laAmaraMahaImages,
   laAmaraPlayaImages,
   laAmaraZaidImages,
+  nerjaExperienceBalconDeEuropaImages,
   nerjaExperienceBeachesImages,
   nerjaExperienceDayTripsImages,
   nerjaExperienceFoodImages,

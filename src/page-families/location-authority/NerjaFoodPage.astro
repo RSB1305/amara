@@ -17,7 +17,8 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import ExperienceRelatedSection from './ExperienceRelatedSection.astro';
-import { routeHero } from '../../lib/images/routeImages';
+import { routeHero, routeImages } from '../../lib/images/routeImages';
+import LocationPhotoGallery from '../../components/location/LocationPhotoGallery.astro';
 import RestaurantSectionList from './RestaurantSectionList.astro';
 
 interface Props { lang?: string; }
@@ -25,6 +26,7 @@ interface Props { lang?: string; }
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const hero = routeHero('nerja.experience.food', currentLang);
+const galleryImages = routeImages('nerja.experience.food', 'gallery', currentLang);
 const shared = getNerjaDiningGuideFacts(currentLang);
 const copy = nerjaFoodPageContent[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja food');
@@ -81,6 +83,8 @@ const footerHighlights: LabeledLink[] = [
       labels={shared.cardLabels}
       emphasizeText
     />
+
+    <LocationPhotoGallery images={galleryImages} />
 
     <AuthorityFeatureSection
       id="planning"
