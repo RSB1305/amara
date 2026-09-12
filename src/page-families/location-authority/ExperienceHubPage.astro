@@ -15,7 +15,8 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import { routeHero } from '../../lib/images/routeImages';
+import { routeHero, routeImageSrc } from '../../lib/images/routeImages';
+import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 
 interface Props {
   lang?: string;
@@ -40,8 +41,14 @@ const getExperience = (id: ExperienceId) => {
 };
 
 const [leadId, ...secondaryIds] = copy.catalog.order;
-const leadStory = getExperience(leadId);
-const secondaryStories = secondaryIds.map(getExperience);
+// The old town leads: strongest corridor of the village, owned by its own spoke family.
+const leadStory = {
+  editorial: copy.oldTownStory,
+  image: routeImageSrc('frigiliana.experience.old-town', 'hero'),
+  href: resolveOptionalLink('frigiliana_old_town', currentLang, { suppressMissing: true })
+};
+const secondaryStories = copy.catalog.order.map(getExperience);
+const frigilianaStaysHref = buildOwnedLocalizedPath('stays.frigiliana', currentLang);
 const oldTownDiscovery = copy.moods.discoveryLinks.find(
   (item) => item.token === 'frigiliana_old_town'
 );
@@ -236,7 +243,7 @@ const footerHighlights: LabeledLink[] = [
         lang={currentLang}
         links={[
           {
-            token: 'romantic_hideaways',
+            href: frigilianaStaysHref,
             label: copy.closing.staysCta,
             style: 'text'
           }
