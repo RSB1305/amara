@@ -33,15 +33,15 @@ import LocationModule from './LocationModule.astro';
  *
  * Reading order (operator direction, 11 September 2026): the page is the
  * morning of a kiter in Tarifa, in six chapters that the anchor row under
- * the hero repeats — Today (the official warning status and forecast,
- * folded; the picture of the Windguru table with the live link; and, folded
- * directly under it, Reading the table: a Windguru-style example of two
- * typical days, the rows explained under the same numbers, the models,
- * Beaufort), Which wind (Levante or Poniente), Thermal
- * wind (one clear day in three panels, then what the tidal current does to the
- * wind a rider feels), Where to launch (which beach in
- * which wind, the zones) and In an emergency (private boats and
- * the state rescue, kept apart). The partner block, the guest-guide bridge
+ * the hero repeats — Today (the picture of the Windguru table with the live
+ * link; folded directly under it, Reading the table: a Windguru-style
+ * example of two typical days, the rows explained under the same numbers,
+ * the models, Beaufort; then the official warning status and forecast,
+ * folded), Which wind (Levante or Poniente), Thermal
+ * wind (one clear day in three panels), Tides and wind (what the tidal
+ * current in the Strait does to the wind a rider feels), Where to launch (which beach in
+ * which wind, the zones, and the chain link to the rescue page that now
+ * holds the private boats and the state rescue). The partner block, the guest-guide bridge
  * and the closing follow unchanged. Each chapter opens with a topic eyebrow, a
  * short label as the H2 and the former sentence heading as its subtitle; the
  * chapters carry no numbers (operator decision: peer tone, no textbook). The two named voices
@@ -58,7 +58,6 @@ interface Props { lang?: string; }
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const hero = requireRouteImage('tarifa.kitesurfing.wind', 'hero', currentLang);
-const sunsetImage = requireRouteImage('tarifa.kitesurfing.wind', 'sunset', currentLang);
 const partnerImage = requireRouteImage('tarifa.kitesurfing.wind', 'partner', currentLang);
 const windguruImage = requireRouteImage('tarifa.kitesurfing.wind', 'windguru', currentLang);
 const stickerImage = requireRouteImage('tarifa.kitesurfing.wind', 'windguru-sticker', currentLang);
@@ -70,7 +69,6 @@ const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa kitesurf wi
 const aboutHref = requiredLink('about');
 const contactHref = `https://wa.me/34604440964?text=${encodeURIComponent(content.partner.contactMessage)}`;
 const robertPortrait = '/images/robert-amara-host.jpg';
-const photoLabel = { en: 'Photo', de: 'Foto', es: 'Foto', nl: 'Foto', sv: 'Foto' }[currentLang];
 const footerHighlights: LabeledLink[] = [
   { token: content.token, label: content.hero.title },
   ...content.related.links.map((link) => ({ token: link.token, label: link.title }))
@@ -133,68 +131,14 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
       </div>
     </nav>
 
-    {/* HEUTE — amtlicher Warnstatus und Vorhersage (eingeklappt, Warnfarbe), Windguru live mit Bild, darunter „Die Tabelle lesen" aufklappbar */}
+    {/* HEUTE — Windguru live mit Bild, darunter „Die Tabelle lesen" aufklappbar, dann amtlicher Warnstatus und Vorhersage (eingeklappt, Warnfarbe) */}
     <LocationModule id="heute" labelledby="heute-title" surface="tint" spacing="compact" data-am-wind-chapter="1" data-am-topic="live-today">
       <div class="mx-auto max-w-screen-2xl">
         <KiteChapterHead id="heute-title" label={content.today.label} title={content.today.title} subtitle={content.today.subtitle} icon="temperature" />
 
-        <div class="mt-10">
-          <AemetWarningsPanel
-            endpoint="/api/weather/tarifa-warnings"
-            lang={currentLang}
-            timezone="Europe/Madrid"
-            copy={warningsCopy}
-            officialHref="https://www.aemet.es/es/eltiempo/prediccion/avisos?w=hoy&l=611104"
-          />
-        </div>
 
-        <details class="group mt-6 bg-surface px-6 py-6 outline-none md:px-8" data-am-official-detail>
-            <summary class="am-accordion__trigger items-center">
-              <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.today.official.title}</h3>
-              <span class="am-accordion__indicator" aria-hidden="true">
-                <span class="group-open:hidden">+</span>
-                <span class="hidden group-open:inline">−</span>
-              </span>
-            </summary>
-            <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.today.official.text} /></p>
-            <div class="mt-6" data-am-official-weather>
-              <AemetForecastPanel
-                endpoint="/api/weather/tarifa"
-                lang={currentLang}
-                labels={{
-                  loading: content.today.forecast.loading,
-                  today: content.today.forecast.today,
-                  tomorrow: content.today.forecast.tomorrow,
-                  high: content.today.forecast.high,
-                  low: content.today.forecast.low,
-                  rain: content.today.forecast.rain,
-                  issued: content.today.forecast.issued,
-                  unavailable: content.today.forecast.unavailableTitle,
-                  unavailableText: content.today.forecast.unavailableText,
-                  source: content.today.forecast.aemetLabel
-                }}
-                sourceHref={content.today.official.href}
-                fallbackLabel={content.today.forecast.aemetLabel}
-              />
-            </div>
-            <AmaraActionLink href={content.today.official.href} variant="editorial" external class="mt-5 inline-flex">{content.today.official.linkLabel}</AmaraActionLink>
 
-            <div class="mt-10">
-              <p class="am-text-body leading-relaxed text-on-surface-variant">{content.today.official.briefingText}</p>
-              <KiteBriefingPanel
-                endpoint="/api/weather/tarifa-kite"
-                warningsEndpoint="/api/weather/tarifa-warnings"
-                lang={currentLang}
-                timezone="Europe/Madrid"
-                copy={briefingCopy}
-                warningLevels={warningsCopy.levels}
-                aemetHref={content.today.official.href}
-                aemetLabel={content.today.official.linkLabel}
-              />
-            </div>
-        </details>
-
-        <figure class="m-0 mt-6 bg-inverse-surface px-6 py-8 text-inverted-on-surface md:px-8 md:py-10" data-am-windguru-live>
+        <figure class="m-0 mt-10 bg-inverse-surface px-6 py-8 text-inverted-on-surface md:px-8 md:py-10" data-am-windguru-live>
           <div class="max-w-3xl">
             <p class="am-text-eyebrow text-primary-fixed-dim">{content.today.windguru.eyebrow}</p>
             <h3 class="am-text-subtitle mt-4 text-balance text-inverted-on-surface">{content.today.windguru.title}</h3>
@@ -311,6 +255,61 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
           </details>
         </details>
 
+        <div class="mt-6">
+          <AemetWarningsPanel
+            endpoint="/api/weather/tarifa-warnings"
+            lang={currentLang}
+            timezone="Europe/Madrid"
+            copy={warningsCopy}
+            officialHref="https://www.aemet.es/es/eltiempo/prediccion/avisos?w=hoy&l=611104"
+          />
+        </div>
+
+        <details class="group mt-6 bg-surface px-6 py-6 outline-none md:px-8" data-am-official-detail>
+            <summary class="am-accordion__trigger items-center">
+              <h3 class="am-text-subtitle pr-6 text-on-surface transition-colors group-hover:text-primary">{content.today.official.title}</h3>
+              <span class="am-accordion__indicator" aria-hidden="true">
+                <span class="group-open:hidden">+</span>
+                <span class="hidden group-open:inline">−</span>
+              </span>
+            </summary>
+            <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.today.official.text} /></p>
+            <div class="mt-6" data-am-official-weather>
+              <AemetForecastPanel
+                endpoint="/api/weather/tarifa"
+                lang={currentLang}
+                labels={{
+                  loading: content.today.forecast.loading,
+                  today: content.today.forecast.today,
+                  tomorrow: content.today.forecast.tomorrow,
+                  high: content.today.forecast.high,
+                  low: content.today.forecast.low,
+                  rain: content.today.forecast.rain,
+                  issued: content.today.forecast.issued,
+                  unavailable: content.today.forecast.unavailableTitle,
+                  unavailableText: content.today.forecast.unavailableText,
+                  source: content.today.forecast.aemetLabel
+                }}
+                sourceHref={content.today.official.href}
+                fallbackLabel={content.today.forecast.aemetLabel}
+              />
+            </div>
+            <AmaraActionLink href={content.today.official.href} variant="editorial" external class="mt-5 inline-flex">{content.today.official.linkLabel}</AmaraActionLink>
+
+            <div class="mt-10">
+              <p class="am-text-body leading-relaxed text-on-surface-variant">{content.today.official.briefingText}</p>
+              <KiteBriefingPanel
+                endpoint="/api/weather/tarifa-kite"
+                warningsEndpoint="/api/weather/tarifa-warnings"
+                lang={currentLang}
+                timezone="Europe/Madrid"
+                copy={briefingCopy}
+                warningLevels={warningsCopy.levels}
+                aemetHref={content.today.official.href}
+                aemetLabel={content.today.official.linkLabel}
+              />
+            </div>
+        </details>
       </div>
     </LocationModule>
 
@@ -348,7 +347,7 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
     </LocationModule>
 
     {/* THERMIK — ein klarer Tag in drei Tafeln, dann Poniente und Levante */}
-    <LocationModule id="thermik" labelledby="thermik-title" spacing="compact" data-am-wind-chapter="1" data-am-topic="thermal-wind">
+    <LocationModule id="thermik" labelledby="thermik-title" surface="tint" spacing="compact" data-am-wind-chapter="1" data-am-topic="thermal-wind">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
           <KiteChapterHead id="thermik-title" label={content.thermal.label} title={content.thermal.title} subtitle={content.thermal.subtitle} icon="sunshine" class="lg:col-span-5" />
@@ -361,48 +360,39 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
 
         <div class="mt-5 grid gap-5 md:grid-cols-2" data-am-thermal-consequences>
           {content.thermal.consequences.map((item) => (
-            <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-am-thermal-consequence={item.id}>
+            <div class="min-w-0 border-l-2 border-primary/35 bg-surface px-6 py-6" data-am-thermal-consequence={item.id}>
               <h3 class="am-text-label am-text-label--sm text-on-surface">{item.title}</h3>
               <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={item.text} /></p>
             </div>
           ))}
         </div>
 
-        <div class="mt-10 max-w-3xl border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-am-bridge="thermal">
+        <div class="mt-10 max-w-3xl border-l-2 border-primary/35 bg-surface px-6 py-6" data-am-bridge="thermal">
           <p class="am-text-label am-text-label--sm text-primary">{content.thermal.bridge.label}</p>
           <p class="am-text-body mt-3 leading-relaxed text-on-surface"><InlineEmphasis text={content.thermal.bridge.text} /></p>
-        </div>
-
-        <div class="mt-16 grid gap-6 lg:grid-cols-12 lg:gap-20" data-am-thermal-tides>
-          <h3 class="am-text-subtitle max-w-md text-balance text-on-surface lg:col-span-5">{content.thermal.tides.title}</h3>
-          <div class="lg:col-span-7">
-            <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.thermal.tides.intro} /></p>
-            <div class="mt-6 grid gap-5 md:grid-cols-2">
-              {content.thermal.tides.cards.map((card) => (
-                <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-am-tide-card={card.id}>
-                  <h4 class="am-text-label am-text-label--sm text-on-surface">{card.title}</h4>
-                  <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={card.text} /></p>
-                </div>
-              ))}
-            </div>
-            <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.thermal.tides.note} /></p>
-          </div>
         </div>
       </div>
     </LocationModule>
 
-    <section class="relative isolate overflow-hidden bg-inverse-surface" data-am-topic="editorial-photo">
-      <div class="aspect-[4/5] w-full sm:aspect-video lg:aspect-[21/9]">
-        <AmaraImage src={sunsetImage.src} alt={sunsetImage.alt} profile="background" class="h-full w-full object-cover" focalPoint={sunsetImage.focalPoint} />
-      </div>
-      <div class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-transparent"></div>
-      <div class="absolute inset-x-0 bottom-0">
-        <div class="mx-auto w-full max-w-screen-2xl px-6 pb-8 md:px-12 md:pb-12">
-          <p class="am-text-subtitle max-w-2xl text-balance text-inverted-on-surface">{sunsetImage.caption}</p>
-          <p class="am-text-caption mt-3 normal-case tracking-normal text-inverted-on-surface/65">{photoLabel}: {sunsetImage.credit}</p>
+    {/* GEZEITEN UND WIND — was die Strömung in der Meerenge mit dem Wind macht, den ihr am Schirm spürt */}
+    <LocationModule id="gezeiten" labelledby="gezeiten-title" spacing="compact" data-am-wind-chapter="1" data-am-topic="tides">
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
+          <KiteChapterHead id="gezeiten-title" label={content.tides.label} title={content.tides.title} subtitle={content.tides.subtitle} icon="frequency" class="lg:col-span-5" />
+          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:self-end"><InlineEmphasis text={content.tides.intro} /></p>
         </div>
+
+        <div class="mt-12 grid gap-5 md:grid-cols-2" data-am-tide-cards>
+          {content.tides.cards.map((card) => (
+            <div class="min-w-0 border-l-2 border-primary/35 bg-surface-container-low px-6 py-6" data-am-tide-card={card.id}>
+              <h3 class="am-text-label am-text-label--sm text-on-surface">{card.title}</h3>
+              <p class="am-text-body mt-3 leading-relaxed text-on-surface-variant"><InlineEmphasis text={card.text} /></p>
+            </div>
+          ))}
+        </div>
+        <p class="am-text-body mt-8 max-w-3xl leading-relaxed text-on-surface"><InlineEmphasis text={content.tides.note} /></p>
       </div>
-    </section>
+    </LocationModule>
 
     {/* WO RAUS — Strand je Wind, Zonen und Bojen, Lagune, Tide */}
     <LocationModule id="wo-raus" labelledby="wo-raus-title" surface="tint" spacing="compact" data-am-wind-chapter="1" data-am-topic="official-rules">
@@ -435,50 +425,12 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
             ))}
           </div>
         </div>
-      </div>
-    </LocationModule>
 
-    {/* IM ERNSTFALL — private Rescue-Boote und staatliche Rettung, getrennt */}
-    <LocationModule id="ernstfall" labelledby="ernstfall-title" spacing="compact" data-am-wind-chapter="1" data-am-topic="rescue">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
-          <KiteChapterHead id="ernstfall-title" label={content.emergency.label} title={content.emergency.title} subtitle={content.emergency.subtitle} icon="boat" class="lg:col-span-5" />
-          <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:self-end"><InlineEmphasis text={content.emergency.intro} /></p>
+        <div class="mt-12 max-w-3xl border-l-2 bg-surface px-6 py-6" data-am-bridge="rescue">
+          <p class="am-text-label am-text-label--sm text-primary">{content.beach.rescueBridge.label}</p>
+          <p class="am-text-body mt-3 leading-relaxed text-on-surface"><InlineEmphasis text={content.beach.rescueBridge.text} /></p>
+          <p class="mt-4"><a class="am-link am-text-label am-text-label--sm" href={requiredLink(content.beach.rescueBridge.token)}>{content.beach.rescueBridge.linkLabel} →</a></p>
         </div>
-
-        <section class="mt-16" aria-labelledby="private-rescue-title" data-am-rescue="private">
-          <h3 id="private-rescue-title" class="am-text-subtitle max-w-2xl text-balance text-on-surface">{content.emergency.providersTitle}</h3>
-          <div class="mt-6 grid gap-5 md:grid-cols-2">
-            {content.emergency.providers.map((provider) => (
-              <section class="min-w-0 bg-surface-container-low px-6 py-7" aria-labelledby={`rescue-${provider.id}`}>
-                <h4 id={`rescue-${provider.id}`} class="am-text-label text-on-surface">{provider.name}</h4>
-                <p class="am-text-body mt-4 leading-relaxed text-on-surface-variant"><InlineEmphasis text={provider.text} /></p>
-                <AmaraActionLink href={provider.href} variant="editorial" external class="mt-6 inline-flex">{provider.label}</AmaraActionLink>
-              </section>
-            ))}
-          </div>
-          <KiteVoice id={content.emergency.markRescue.id} name={content.wind.mark.name} role={content.wind.mark.role} lead={content.emergency.markRescue.lead} paragraphs={content.emergency.markRescue.paragraphs} imageSrc={markImage.src} imageAlt={markImage.alt} focalPoint="50% 25%" tone="on-white" class="mt-5" />
-          <p class="am-text-body mt-6 max-w-3xl leading-relaxed text-on-surface-variant"><InlineEmphasis text={content.emergency.context} /></p>
-          <p class="am-text-subtitle mt-5 max-w-3xl border-l-2 border-on-surface bg-surface-container-low px-6 py-5 leading-relaxed text-on-surface" data-am-plan-b>{content.emergency.planB}</p>
-        </section>
-
-        <aside class="mt-10 bg-inverse-surface px-6 py-10 text-inverted-on-surface md:px-10 md:py-12" aria-labelledby="maritime-emergency-title" data-am-rescue="emergency">
-          <div class="grid gap-8 lg:grid-cols-12 lg:gap-20">
-            <div class="lg:col-span-5">
-              <p class="am-text-eyebrow text-primary-fixed-dim">{content.emergency.stateEyebrow}</p>
-              <h3 id="maritime-emergency-title" class="am-text-title mt-5 text-balance text-inverted-on-surface">{content.emergency.stateTitle}</h3>
-              <p class="am-text-body mt-6 leading-relaxed text-inverted-on-surface/80"><InlineEmphasis text={content.emergency.stateText} /></p>
-            </div>
-            <dl class="grid gap-6 self-center lg:col-span-7">
-              {content.emergency.numbers.map((item) => (
-                <div class="flex flex-col gap-1 border-l border-inverted-on-surface/30 pl-5 sm:flex-row sm:items-baseline sm:gap-8">
-                  <dt class="am-text-label am-text-label--sm text-inverted-on-surface/70 sm:w-56 sm:shrink-0">{item.label}</dt>
-                  <dd class="am-text-title whitespace-nowrap tabular-nums text-inverted-on-surface">{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </aside>
       </div>
     </LocationModule>
 
@@ -566,6 +518,10 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
   }
   [data-am-wind-chapter] {
     scroll-margin-top: var(--am-wind-chapter-offset, 10rem);
+  }
+  /* The rescue link carries the emergency red of the warning block, not the brand accent. */
+  [data-am-bridge='rescue'] {
+    border-left-color: #c8281e;
   }
   [data-am-wind-toc-scroller] {
     scrollbar-width: none;

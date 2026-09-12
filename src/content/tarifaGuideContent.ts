@@ -824,11 +824,11 @@ const windTitles = l(
 );
 
 const windDescriptions = l(
-  'Europe’s wind capital: Levante and Poniente, Playa de Los Lances below the terrace, lessons with Tarifa Surf Club and the apartment at AMARA. Separately or together.',
-  'Europas Windhauptstadt: Levante und Poniente, die Playa de Los Lances vor der Terrasse, Kurse beim Tarifa Surf Club und die Wohnung bei AMARA. Einzeln oder zusammen.',
-  'La capital europea del viento: levante y poniente, la playa de Los Lances bajo la terraza, cursos con Tarifa Surf Club y el apartamento de AMARA. Por separado o juntos.',
-  'De windhoofdstad van Europa: levante en poniente, Playa de Los Lances onder het terras, lessen bij Tarifa Surf Club en het appartement van AMARA. Apart of samen.',
-  'Europas vindhuvudstad: levante och poniente, Playa de Los Lances nedanför terrassen, kurser hos Tarifa Surf Club och lägenheten hos AMARA. Var för sig eller tillsammans.'
+  'Europe’s wind capital: Levante and Poniente, Playa de Los Lances below the balcony, lessons with Tarifa Surf Club and the apartment at AMARA. Separately or together.',
+  'Europas Windhauptstadt: Levante und Poniente, die Playa de Los Lances vor dem Balkon, Kurse beim Tarifa Surf Club und die Wohnung bei AMARA. Einzeln oder zusammen.',
+  'La capital europea del viento: levante y poniente, la playa de Los Lances bajo el balcón, cursos con Tarifa Surf Club y el apartamento de AMARA. Por separado o juntos.',
+  'De windhoofdstad van Europa: levante en poniente, Playa de Los Lances onder het balkon, lessen bij Tarifa Surf Club en het appartement van AMARA. Apart of samen.',
+  'Europas vindhuvudstad: levante och poniente, Playa de Los Lances nedanför balkongen, kurser hos Tarifa Surf Club och lägenheten hos AMARA. Var för sig eller tillsammans.'
 );
 
 const windEditorialNote = l(
@@ -895,7 +895,7 @@ const wind: TarifaGuideContent = {
   facts: [
     { label: l('Levante', 'Levante', 'Levante', 'Levante', 'Levante'), value: l('From the east, warm and strong, flat water off Los Lances', 'Aus Osten, warm und kräftig, flaches Wasser vor Los Lances', 'Del este, cálido y fuerte, agua plana frente a Los Lances', 'Uit het oosten, warm en krachtig, vlak water voor Los Lances', 'Från öster, varm och kraftig, platt vatten utanför Los Lances') },
     { label: l('Poniente', 'Poniente', 'Poniente', 'Poniente', 'Poniente'), value: l('From the Atlantic, steadier, with waves', 'Vom Atlantik, gleichmäßiger, mit Welle', 'Del Atlántico, más constante, con ola', 'Van de Atlantische Oceaan, gelijkmatiger, met golven', 'Från Atlanten, jämnare, med våg') },
-    { label: l('Playa de Los Lances', 'Playa de Los Lances', 'Playa de Los Lances', 'Playa de Los Lances', 'Playa de Los Lances'), value: l('Below the terrace, on foot in the off-season', 'Vor der Terrasse, in der Nebensaison zu Fuß', 'Bajo la terraza; en temporada baja, a pie', 'Onder het terras, in het laagseizoen te voet', 'Nedanför terrassen, till fots under lågsäsong') }
+    { label: l('Playa de Los Lances', 'Playa de Los Lances', 'Playa de Los Lances', 'Playa de Los Lances', 'Playa de Los Lances'), value: l('Below the balcony, on foot in the off-season', 'Vor dem Balkon, in der Nebensaison zu Fuß', 'Bajo el balcón; en temporada baja, a pie', 'Onder het balkon, in het laagseizoen te voet', 'Nedanför balkongen, till fots under lågsäsong') }
   ],
   partnership: {
     eyebrow: l('AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club', 'AMARA × Tarifa Surf Club'),
@@ -1006,11 +1006,11 @@ const wind: TarifaGuideContent = {
       ),
       paragraphs: [
         l(
-          'The Levante comes from the east, warm and strong, and turns the water off Los Lances as flat as a lake. The Poniente comes off the Atlantic, steadier, and brings the waves with it. Between them lies Playa de Los Lances: kilometres long, with marked school and launch areas, and regarded as one of the best kite spots in Europe. **You can see it from our terrace.**',
-          'Der Levante kommt aus Osten, warm und kräftig, und macht das Wasser vor Los Lances flach wie einen See. Der Poniente kommt vom Atlantik, gleichmäßiger, und bringt die Welle mit. Dazwischen liegt die Playa de Los Lances: kilometerlang, mit ausgewiesenen Schul- und Startbereichen, und sie gilt als einer der besten Kitespots Europas. **Von unserer Terrasse aus seht ihr sie.**',
-          'El levante llega del este, cálido y fuerte, y deja el agua frente a Los Lances plana como un lago. El poniente llega del Atlántico, más constante, y trae la ola. En medio está la playa de Los Lances: kilómetros de arena, con zonas señalizadas de escuela y de salida, y considerada uno de los mejores spots de kite de Europa. **Desde nuestra terraza la veis.**',
-          'De levante komt uit het oosten, warm en krachtig, en maakt het water voor Los Lances zo vlak als een meer. De poniente komt van de Atlantische Oceaan, gelijkmatiger, en brengt de golven mee. Daartussen ligt Playa de Los Lances: kilometers lang, met aangewezen school- en startzones, en het geldt als een van de beste kitespots van Europa. **Vanaf ons terras zien jullie het liggen.**',
-          'Levante kommer från öster, varm och kraftig, och gör vattnet utanför Los Lances platt som en sjö. Poniente kommer från Atlanten, jämnare, och tar vågen med sig. Däremellan ligger Playa de Los Lances: kilometerlång, med utmärkta skol- och startzoner, och den räknas som en av Europas bästa kitespots. **Från vår terrass ser ni den.**'
+          'The Levante comes from the east, warm and strong, and turns the water off Los Lances as flat as a lake. The Poniente comes off the Atlantic, steadier, and brings the waves with it. Between them lies Playa de Los Lances: kilometres long, with marked school and launch areas, and regarded as one of the best kite spots in Europe. **You can see it from our balcony.**',
+          'Der Levante kommt aus Osten, warm und kräftig, und macht das Wasser vor Los Lances flach wie einen See. Der Poniente kommt vom Atlantik, gleichmäßiger, und bringt die Welle mit. Dazwischen liegt die Playa de Los Lances: kilometerlang, mit ausgewiesenen Schul- und Startbereichen, und sie gilt als einer der besten Kitespots Europas. **Von unserem Balkon aus seht ihr sie.**',
+          'El levante llega del este, cálido y fuerte, y deja el agua frente a Los Lances plana como un lago. El poniente llega del Atlántico, más constante, y trae la ola. En medio está la playa de Los Lances: kilómetros de arena, con zonas señalizadas de escuela y de salida, y considerada uno de los mejores spots de kite de Europa. **Desde nuestro balcón la veis.**',
+          'De levante komt uit het oosten, warm en krachtig, en maakt het water voor Los Lances zo vlak als een meer. De poniente komt van de Atlantische Oceaan, gelijkmatiger, en brengt de golven mee. Daartussen ligt Playa de Los Lances: kilometers lang, met aangewezen school- en startzones, en het geldt als een van de beste kitespots van Europa. **Vanaf ons balkon zien jullie het liggen.**',
+          'Levante kommer från öster, varm och kraftig, och gör vattnet utanför Los Lances platt som en sjö. Poniente kommer från Atlanten, jämnare, och tar vågen med sig. Däremellan ligger Playa de Los Lances: kilometerlång, med utmärkta skol- och startzoner, och den räknas som en av Europas bästa kitespots. **Från vår balkong ser ni den.**'
         ),
         l(
           'In the off-season you walk down from AMARA. In high summer, when Los Lances fills up, you drive to Valdevaqueros, the dune bay a little further north.',
@@ -1025,11 +1025,11 @@ const wind: TarifaGuideContent = {
       id: 'day',
       eyebrow: l('A day in Tarifa', 'Ein Tag in Tarifa', 'Un día en Tarifa', 'Een dag in Tarifa', 'En dag i Tarifa'),
       title: l(
-        'Coffee on the terrace in the morning, wind at midday, old town at night',
-        'Morgens Kaffee auf der Terrasse, mittags Wind, abends Altstadt',
-        'Café en la terraza por la mañana, viento a mediodía, casco antiguo por la noche',
-        '’s Ochtends koffie op het terras, ’s middags wind, ’s avonds de oude stad',
-        'Kaffe på terrassen på morgonen, vind vid lunch, gamla stan på kvällen'
+        'Coffee on the balcony in the morning, wind at midday, old town at night',
+        'Morgens Kaffee auf dem Balkon, mittags Wind, abends Altstadt',
+        'Café en el balcón por la mañana, viento a mediodía, casco antiguo por la noche',
+        '’s Ochtends koffie op het balkon, ’s middags wind, ’s avonds de oude stad',
+        'Kaffe på balkongen på morgonen, vind vid lunch, gamla stan på kvällen'
       ),
       intro: l(
         'Tarifa is small enough to reach everything on foot, and lively enough that nobody has to go to bed early.',
@@ -1040,11 +1040,11 @@ const wind: TarifaGuideContent = {
       ),
       paragraphs: [
         l(
-          'A look at the water from the terrace before the coffee runs out: where the wind is coming from, whether the first kites are up. Around midday it usually picks up. Down to the beach, rig up, go. In the afternoon a second session or a nap in the shade. **Tapas in the old town in the evening**, and whoever wants to stays out late.',
-          'Ein Blick von der Terrasse aufs Wasser, bevor der Kaffee alle ist: woher der Wind kommt, ob die ersten Kites schon stehen. Gegen Mittag legt er meist zu. Runter zum Strand, aufbauen, rein. Nachmittags die zweite Session oder ein Nickerchen im Schatten. **Abends Tapas in der Altstadt**, und wer will, bleibt bis in die Nacht.',
-          'Un vistazo al agua desde la terraza antes de terminar el café: de dónde viene el viento, si ya hay cometas en el aire. Hacia mediodía suele apretar. Bajar a la playa, montar, entrar. Por la tarde, segunda sesión o siesta a la sombra. **Tapas en el casco antiguo por la noche** y, quien quiera, sigue hasta tarde.',
-          'Een blik vanaf het terras op het water voordat de koffie op is: waar de wind vandaan komt, of de eerste kites al staan. Rond het middaguur trekt hij meestal aan. Naar het strand, opbouwen, erin. ’s Middags een tweede sessie of een dutje in de schaduw. **’s Avonds tapas in de oude stad**, en wie wil, blijft tot diep in de nacht.',
-          'En blick från terrassen ut över vattnet innan kaffet är slut: varifrån vinden kommer, om de första kitarna redan står. Vid lunch brukar den öka. Ner till stranden, rigga, ut. På eftermiddagen en andra session eller en tupplur i skuggan. **Tapas i gamla stan på kvällen**, och den som vill stannar ute till sent.'
+          'A look at the water from the balcony before the coffee runs out: where the wind is coming from, whether the first kites are up. Around midday it usually picks up. Down to the beach, rig up, go. In the afternoon a second session or a nap in the shade. **Tapas in the old town in the evening**, and whoever wants to stays out late.',
+          'Ein Blick vom Balkon aufs Wasser, bevor der Kaffee alle ist: woher der Wind kommt, ob die ersten Kites schon stehen. Gegen Mittag legt er meist zu. Runter zum Strand, aufbauen, rein. Nachmittags die zweite Session oder ein Nickerchen im Schatten. **Abends Tapas in der Altstadt**, und wer will, bleibt bis in die Nacht.',
+          'Un vistazo al agua desde el balcón antes de terminar el café: de dónde viene el viento, si ya hay cometas en el aire. Hacia mediodía suele apretar. Bajar a la playa, montar, entrar. Por la tarde, segunda sesión o siesta a la sombra. **Tapas en el casco antiguo por la noche** y, quien quiera, sigue hasta tarde.',
+          'Een blik vanaf het balkon op het water voordat de koffie op is: waar de wind vandaan komt, of de eerste kites al staan. Rond het middaguur trekt hij meestal aan. Naar het strand, opbouwen, erin. ’s Middags een tweede sessie of een dutje in de schaduw. **’s Avonds tapas in de oude stad**, en wie wil, blijft tot diep in de nacht.',
+          'En blick från balkongen ut över vattnet innan kaffet är slut: varifrån vinden kommer, om de första kitarna redan står. Vid lunch brukar den öka. Ner till stranden, rigga, ut. På eftermiddagen en andra session eller en tupplur i skuggan. **Tapas i gamla stan på kvällen**, och den som vill stannar ute till sent.'
         )
       ]
     },
@@ -1101,11 +1101,11 @@ const wind: TarifaGuideContent = {
       ),
       paragraphs: [
         l(
-          '**A private terrace facing the Atlantic, room for two or a small family**, a reserved space in the underground garage for car and boards, a supermarket right opposite, and the club one message away. If you would rather live right in the surf house, you book the club’s guesthouse directly with Mark.',
-          '**Private Terrasse zum Atlantik, Platz für zwei oder eine kleine Familie**, ein reservierter Platz in der Tiefgarage für Auto und Boards, ein Supermarkt direkt gegenüber, und der Club eine Nachricht entfernt. Wer lieber mitten im Surferhaus wohnt: Das Guesthouse des Clubs bucht ihr direkt bei Mark.',
-          '**Terraza privada al Atlántico, sitio para dos o una familia pequeña**, plaza reservada en el garaje subterráneo para coche y tablas, supermercado justo enfrente y el club a un mensaje. Si preferís vivir en plena casa de surferos, el guesthouse del club lo reserváis directamente con Mark.',
-          '**Privéterras aan de Atlantische Oceaan, plek voor twee of een klein gezin**, een gereserveerde plaats in de ondergrondse garage voor auto en boards, een supermarkt recht tegenover, en de club één bericht verderop. Wie liever midden in het surfhuis woont: het guesthouse van de club boeken jullie rechtstreeks bij Mark.',
-          '**Privat terrass mot Atlanten, plats för två eller en liten familj**, en reserverad plats i garaget för bil och brädor, en mataffär rakt över gatan, och klubben ett meddelande bort. Den som hellre bor mitt i surfarhuset bokar klubbens guesthouse direkt hos Mark.'
+          '**A private balcony facing the Atlantic, room for two or a small family**, a reserved space in the underground garage for car and boards, a supermarket right opposite, and the club one message away. If you would rather live right in the surf house, you book the club’s guesthouse directly with Mark.',
+          '**Privater Balkon zum Atlantik, Platz für zwei oder eine kleine Familie**, ein reservierter Platz in der Tiefgarage für Auto und Boards, ein Supermarkt direkt gegenüber, und der Club eine Nachricht entfernt. Wer lieber mitten im Surferhaus wohnt: Das Guesthouse des Clubs bucht ihr direkt bei Mark.',
+          '**Balcón privado al Atlántico, sitio para dos o una familia pequeña**, plaza reservada en el garaje subterráneo para coche y tablas, supermercado justo enfrente y el club a un mensaje. Si preferís vivir en plena casa de surferos, el guesthouse del club lo reserváis directamente con Mark.',
+          '**Privébalkon aan de Atlantische Oceaan, plek voor twee of een klein gezin**, een gereserveerde plaats in de ondergrondse garage voor auto en boards, een supermarkt recht tegenover, en de club één bericht verderop. Wie liever midden in het surfhuis woont: het guesthouse van de club boeken jullie rechtstreeks bij Mark.',
+          '**Privat balkong mot Atlanten, plats för två eller en liten familj**, en reserverad plats i garaget för bil och brädor, en mataffär rakt över gatan, och klubben ett meddelande bort. Den som hellre bor mitt i surfarhuset bokar klubbens guesthouse direkt hos Mark.'
         )
       ]
     }
@@ -1193,7 +1193,7 @@ const wind: TarifaGuideContent = {
       question: l('When is the best time for a kite stay in Tarifa?', 'Wann kommen wir am besten?', '¿Cuál es la mejor época para un viaje de kite a Tarifa?', 'Wanneer is de beste tijd voor een kiteverblijf in Tarifa?', 'När är bästa tiden för en kitevistelse i Tarifa?'),
       answer: l(
         'Tarifa Surf Club runs its kitecamps from mid-September to mid-June. In that low season the way to the spot is short: Los Lances on foot; in high season more likely Valdevaqueros by car. Which day works on the water is always decided on the day itself.',
-        'Von Mitte September bis Mitte Juni, wenn die Strände ruhiger sind und der Club seine Kitecamps fährt. Dann geht ihr von AMARA zu Fuß nach Los Lances. Im Hochsommer ist Los Lances voll, und ihr fahrt mit dem Auto nach Valdevaqueros. Welcher Tag aufs Wasser passt, seht ihr morgens von der Terrasse und entscheidet ihr am Strand.',
+        'Von Mitte September bis Mitte Juni, wenn die Strände ruhiger sind und der Club seine Kitecamps fährt. Dann geht ihr von AMARA zu Fuß nach Los Lances. Im Hochsommer ist Los Lances voll, und ihr fahrt mit dem Auto nach Valdevaqueros. Welcher Tag aufs Wasser passt, seht ihr morgens vom Balkon und entscheidet ihr am Strand.',
         'Tarifa Surf Club organiza sus kitecamps de mediados de septiembre a mediados de junio. En esa temporada baja el camino al spot es corto: Los Lances a pie; en temporada alta, más bien Valdevaqueros en coche. Qué día funciona en el agua se decide siempre ese mismo día.',
         'Tarifa Surf Club organiseert zijn kitecamps van half september tot half juni. In dat laagseizoen is de weg naar de spot kort: Los Lances te voet; in het hoogseizoen eerder Valdevaqueros met de auto. Welke dag op het water past, wordt altijd op de dag zelf beslist.',
         'Tarifa Surf Club håller sina kitecamps från mitten av september till mitten av juni. Under den lågsäsongen är vägen till spoten kort: Los Lances till fots; under högsäsongen snarare Valdevaqueros med bil. Vilken dag som fungerar på vattnet avgörs alltid samma dag.'

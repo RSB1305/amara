@@ -75,31 +75,31 @@ const seo: AmaraAuthoringSeo = {
   languages: {
     en: {
       title: 'Tarifa: wind, Atlantic and old town | AMARA',
-      description: 'Tarifa between the Atlantic and the Strait: Levante and Poniente, Los Lances in front of the terrace, tapas in the old town. Our apartment in La Marina, five minutes to the beach.',
+      description: 'Tarifa between the Atlantic and the Strait: Levante and Poniente, Los Lances in front of the balcony, tapas in the old town. Our apartment in La Marina, five minutes to the beach.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
       title: 'Tarifa: Wind, Atlantik und Altstadt | AMARA',
-      description: 'Tarifa zwischen Atlantik und Meerenge: Levante und Poniente, Los Lances vor der Terrasse, Tapas in der Altstadt. Unsere Wohnung in La Marina, fünf Minuten zum Strand.',
+      description: 'Tarifa zwischen Atlantik und Meerenge: Levante und Poniente, Los Lances vor dem Balkon, Tapas in der Altstadt. Unsere Wohnung in La Marina, fünf Minuten zum Strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
       title: 'Tarifa: viento, Atlántico y casco antiguo | AMARA',
-      description: 'Tarifa entre el Atlántico y el Estrecho: levante y poniente, Los Lances delante de la terraza, tapas en el casco antiguo. Nuestro apartamento en La Marina, a cinco minutos de la playa.',
+      description: 'Tarifa entre el Atlántico y el Estrecho: levante y poniente, Los Lances delante del balcón, tapas en el casco antiguo. Nuestro apartamento en La Marina, a cinco minutos de la playa.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
       title: 'Tarifa: wind, Atlantische Oceaan en oude stad | AMARA',
-      description: 'Tarifa tussen Atlantische Oceaan en Straat: Levante en Poniente, Los Lances voor het terras, tapas in de oude stad. Ons appartement in La Marina, vijf minuten van het strand.',
+      description: 'Tarifa tussen Atlantische Oceaan en Straat: Levante en Poniente, Los Lances voor het balkon, tapas in de oude stad. Ons appartement in La Marina, vijf minuten van het strand.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
       title: 'Tarifa: vind, Atlanten och gamla stan | AMARA',
-      description: 'Tarifa mellan Atlanten och sundet: Levante och Poniente, Los Lances framför terrassen, tapas i gamla stan. Vår lägenhet i La Marina, fem minuter till stranden.',
+      description: 'Tarifa mellan Atlanten och sundet: Levante och Poniente, Los Lances framför balkongen, tapas i gamla stan. Vår lägenhet i La Marina, fem minuter till stranden.',
       robots: 'index, follow',
       canonical: 'auto'
     }

@@ -338,6 +338,13 @@ const PUBLIC_ROUTE_LABELS: Partial<Record<string, Record<AmaraLanguage, string>>
     nl: 'Wind & veiligheid',
     sv: 'Vind & säkerhet'
   },
+  'tarifa.kitesurfing.rescue': {
+    en: 'Rescue & emergency',
+    de: 'Rettung & Notruf',
+    es: 'Rescate y emergencias',
+    nl: 'Redding & noodoproep',
+    sv: 'Räddning & nödsamtal'
+  },
   'tarifa.kitesurfing.surf-club': {
     en: 'AMARA × Tarifa Surf Club',
     de: 'AMARA × Tarifa Surf Club',

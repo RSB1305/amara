@@ -16,27 +16,6 @@ export const tarifaKitesurfingWindImages = defineRouteImages({
       }
     },
     {
-      role: 'panorama',
-      id: 'sunset',
-      src: '/images/tarifa/_DCS2079_Sebastian_Lang.jpg',
-      focalPoint: '50% 45%',
-      credit: "Sebastian Lang",
-      alt: {
-        en: "A kitesurfer jumping against the setting sun over the sea at Tarifa",
-        de: "Kitesurfer im Sprung vor der untergehenden Sonne über dem Meer bei Tarifa",
-        es: "Un kitesurfista saltando contra el sol poniente sobre el mar en Tarifa",
-        nl: "Een kitesurfer die springt tegen de ondergaande zon boven de zee bij Tarifa",
-        sv: "En kitesurfare i ett hopp mot den nedgående solen över havet vid Tarifa"
-      },
-      caption: {
-        en: "The Levante often eases at dusk — the last session of the day is frequently the cleanest.",
-        de: "Der Levante lässt zum Abend oft nach — die letzte Session des Tages ist häufig die sauberste.",
-        es: "El levante suele amainar al anochecer: la última sesión del día es a menudo la más limpia.",
-        nl: "De levante zwakt tegen de avond vaak af — de laatste sessie van de dag is vaak de schoonste.",
-        sv: "Levanten mojnar ofta mot kvällen — dagens sista pass är ofta det renaste."
-      }
-    },
-    {
       role: 'split',
       id: 'partner',
       src: '/images/tarifa/mark-robert-tarifa-surf-club-beach.webp',

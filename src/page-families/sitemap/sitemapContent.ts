@@ -232,6 +232,7 @@ const GROUPS: Group[] = [
             items: [
               { key: 'tarifa.kitesurfing.spots', label: stat({ de: 'Kitespots in Tarifa', en: 'Tarifa kite spots', es: 'Kitespots en Tarifa', nl: 'Kitespots in Tarifa', sv: 'Kitespots i Tarifa' }) },
               { key: 'tarifa.kitesurfing.wind', label: stat({ de: 'Wind & Sicherheit in Tarifa', en: 'Tarifa wind & safety', es: 'Viento y seguridad en Tarifa', nl: 'Wind & veiligheid in Tarifa', sv: 'Vind & säkerhet i Tarifa' }) },
+              { key: 'tarifa.kitesurfing.rescue', label: stat({ de: 'Rettung & Notruf beim Kitesurfen', en: 'Kitesurf rescue & emergency', es: 'Rescate y emergencias en el kitesurf', nl: 'Redding & noodoproep bij kitesurfen', sv: 'Räddning & nödsamtal vid kitesurfing' }) },
               { key: 'tarifa.kitesurfing.school', label: stat({ de: 'Kiteschule in Tarifa', en: 'Kite school in Tarifa', es: 'Escuela de kite en Tarifa', nl: 'Kiteschool in Tarifa', sv: 'Kiteskola i Tarifa' }) },
               { key: 'tarifa.kitesurfing.kitecamp', label: stat({ de: 'Kitecamp in Tarifa', en: 'Kitecamp in Tarifa', es: 'Kitecamp en Tarifa', nl: 'Kitecamp in Tarifa', sv: 'Kitecamp i Tarifa' }) },
               { key: 'tarifa.kitesurfing.equipment', label: stat({ de: 'Kite-Material & Ausrüstung', en: 'Kite gear & equipment', es: 'Material y equipo de kite', nl: 'Kitemateriaal & uitrusting', sv: 'Kiteutrustning & material' }) },

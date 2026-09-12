@@ -14,6 +14,12 @@
  * on the chip and the left rule, so the official status reads at a glance
  * without the full wording taking the top of the page. The colours are the
  * semantic warning palette of this block only, not the brand accent.
+ *
+ * AEMET issues a warning per day and cuts at midnight, so the same wording
+ * arrives several times with different validity windows. Warnings with the
+ * same level, phenomenon, parameter and wording are shown as one card with
+ * one validity line per window (operator decision of 11 September 2026);
+ * the wording itself is never merged or shortened.
  */
 import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import LocationGuideIcon from './LocationGuideIcon.astro';
@@ -79,6 +85,7 @@ const widgetId = 'am-aemet-warnings';
         <p class="am-text-label am-text-label--sm text-on-surface"><span data-field="levelLabel"></span>: <span data-field="level"></span></p>
         <p class="am-text-subtitle mt-2 text-on-surface" data-field="headline"></p>
         <p class="am-text-caption mt-2 normal-case tracking-normal text-muted" data-field="meta"></p>
+        <ul class="am-text-caption mt-1 list-none space-y-0.5 p-0 normal-case tracking-normal text-muted" data-field="validity"></ul>
         <p class="am-text-body mt-3 max-w-3xl leading-relaxed text-on-surface" data-field="description"></p>
         <p class="am-text-body mt-2 max-w-3xl leading-relaxed text-on-surface-variant" data-field="instruction"></p>
         <div class="mt-3 hidden" data-field="englishBlock">
@@ -179,7 +186,29 @@ const widgetId = 'am-aemet-warnings';
       setStatus('unknown', copy.summary.chipUnknown, copy.summary.unavailable, '');
     }
 
-    function renderWarning(warning, zoneName) {
+    function groupWarnings(warnings) {
+      const groups = new Map();
+      warnings.forEach((warning) => {
+        const primary = warning.spanish || warning.english || {};
+        const key = [
+          warning.level,
+          warning.phenomenon && warning.phenomenon.code,
+          warning.parameter && warning.parameter.value,
+          primary.headline,
+          primary.description,
+          primary.instruction
+        ].join('|');
+        if (!groups.has(key)) groups.set(key, { warning, periods: [] });
+        groups.get(key).periods.push({ onset: warning.onset, expires: warning.expires });
+      });
+      return Array.from(groups.values()).map((group) => {
+        group.periods.sort((a, b) => (Date.parse(a.onset || '') || 0) - (Date.parse(b.onset || '') || 0));
+        return group;
+      });
+    }
+
+    function renderGroup(group, zoneName) {
+      const warning = group.warning;
       const node = template.content.firstElementChild.cloneNode(true);
       const field = (name) => node.querySelector('[data-field="' + name + '"]');
       const level = warning.level || '';
@@ -197,8 +226,13 @@ const widgetId = 'am-aemet-warnings';
         : '';
       field('meta').textContent =
         copy.phenomenonLabel + ': ' + phenomenon + parameter +
-        ' · ' + copy.zoneLabel + ': ' + (warning.areaDesc || zoneName) +
-        ' · ' + copy.validLabel + ': ' + format(warning.onset) + ' ' + copy.until + ' ' + format(warning.expires);
+        ' · ' + copy.zoneLabel + ': ' + (warning.areaDesc || zoneName);
+      const validity = field('validity');
+      group.periods.forEach((period) => {
+        const item = document.createElement('li');
+        item.textContent = copy.validLabel + ': ' + format(period.onset) + ' ' + copy.until + ' ' + format(period.expires);
+        validity.appendChild(item);
+      });
       field('description').textContent = primary.description || '';
       const instruction = field('instruction');
       if (primary.instruction) instruction.textContent = primary.instruction;
@@ -212,19 +246,21 @@ const widgetId = 'am-aemet-warnings';
       return node;
     }
 
-    function summarize(warnings) {
+    function summarize(groups) {
       let highest = '';
-      warnings.forEach((warning) => {
-        if ((LEVEL_RANK[warning.level] || 0) > (LEVEL_RANK[highest] || 0)) highest = warning.level;
+      groups.forEach((group) => {
+        if ((LEVEL_RANK[group.warning.level] || 0) > (LEVEL_RANK[highest] || 0)) highest = group.warning.level;
       });
       const levelText = copy.summary.levelsShort[highest] || highest || '—';
-      const text = (warnings.length === 1 ? copy.summary.one : copy.summary.many)
-        .replace('{count}', String(warnings.length))
+      const text = (groups.length === 1 ? copy.summary.one : copy.summary.many)
+        .replace('{count}', String(groups.length))
         .replace('{level}', levelText);
-      const first = warnings[0];
-      const primary = first.spanish || first.english;
+      const first = groups[0];
+      const primary = first.warning.spanish || first.warning.english;
+      const firstPeriod = first.periods[0];
+      const lastPeriod = first.periods[first.periods.length - 1];
       const detail = (primary.description || primary.headline || '') +
-        ' · ' + copy.validLabel + ': ' + format(first.onset) + ' ' + copy.until + ' ' + format(first.expires);
+        ' · ' + copy.validLabel + ': ' + format(firstPeriod.onset) + ' ' + copy.until + ' ' + format(lastPeriod.expires);
       setStatus(highest || 'unknown', levelText, text, detail);
     }
 
@@ -237,9 +273,10 @@ const widgetId = 'am-aemet-warnings';
 
         finish();
         if (payload.warnings.length > 0) {
-          payload.warnings.forEach((warning) => list.appendChild(renderWarning(warning, payload.zone.name)));
+          const groups = groupWarnings(payload.warnings);
+          groups.forEach((group) => list.appendChild(renderGroup(group, payload.zone.name)));
           list.classList.remove('hidden');
-          summarize(payload.warnings);
+          summarize(groups);
         } else {
           const listed = payload.coverage === 'zone-listed';
           query('[data-warnings-empty-title]').textContent = listed ? copy.noneTitle : copy.notListedTitle;
