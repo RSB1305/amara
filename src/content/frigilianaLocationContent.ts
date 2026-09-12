@@ -298,7 +298,7 @@ export const frigilianaLocationCopy = {
       ]
     ),
     facts: [],
-    mapLabel: text('Orientation from Málaga via Nerja to Frigiliana', 'Orientierung von Málaga über Nerja nach Frigiliana', 'Orientación desde Málaga, pasando por Nerja, hasta Frigiliana', 'Oriëntatie van Málaga via Nerja naar Frigiliana', 'Orientering från Málaga via Nerja till Frigiliana'),
+    mapLabel: text('Frigiliana in Andalusia — beside Nerja on the Mediterranean, within reach of Málaga, Granada, Córdoba, Sevilla and Ronda', 'Frigiliana in Andalusien — bei Nerja am Mittelmeer, in Reichweite von Málaga, Granada, Córdoba, Sevilla und Ronda', 'Frigiliana en Andalucía — junto a Nerja en el Mediterráneo, con Málaga, Granada, Córdoba, Sevilla y Ronda al alcance', 'Frigiliana in Andalusië — naast Nerja aan de Middellandse Zee, binnen bereik van Málaga, Granada, Córdoba, Sevilla en Ronda', 'Frigiliana i Andalusien — vid Nerja vid Medelhavet, inom räckhåll för Málaga, Granada, Córdoba, Sevilla och Ronda'),
     mapNote: text('Not to scale', 'Nicht maßstabsgetreu', 'No está a escala', 'Niet op schaal', 'Inte skalenlig'),
     geographyLabel: text('See the geography guide', 'Geografie ansehen', 'Ver la guía geográfica', 'Bekijk de geografiegids', 'Se geografisidan'),
     arrivalLabel: text('Plan your arrival', 'Anreise planen', 'Planificar la llegada', 'Plan jullie aankomst', 'Planera ankomsten'),
