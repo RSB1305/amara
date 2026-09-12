@@ -298,8 +298,20 @@ export const frigilianaLocationCopy = {
       ]
     ),
     facts: [],
-    mapLabel: text('Orientation from Málaga via Nerja to Frigiliana', 'Orientierung von Málaga über Nerja nach Frigiliana', 'Orientación desde Málaga, pasando por Nerja, hasta Frigiliana', 'Oriëntatie van Málaga via Nerja naar Frigiliana', 'Orientering från Málaga via Nerja till Frigiliana'),
-    mapNote: text('Not to scale', 'Nicht maßstabsgetreu', 'No está a escala', 'Niet op schaal', 'Inte skalenlig'),
+    mapLabel: text(
+      'Frigiliana on the Iberian Peninsula — beside Nerja on Andalusia\'s Mediterranean coast, with a possible round trip via Málaga, Ronda, Sevilla, Córdoba and Granada',
+      'Frigiliana auf der Iberischen Halbinsel — bei Nerja an Andalusiens Mittelmeerküste, mit einer möglichen Rundreise über Málaga, Ronda, Sevilla, Córdoba und Granada',
+      'Frigiliana en la península ibérica — junto a Nerja, en la costa mediterránea de Andalucía, con una posible ruta por Málaga, Ronda, Sevilla, Córdoba y Granada',
+      'Frigiliana op het Iberisch Schiereiland — naast Nerja aan de Middellandse Zeekust van Andalusië, met een mogelijke rondreis via Málaga, Ronda, Sevilla, Córdoba en Granada',
+      'Frigiliana på Iberiska halvön — vid Nerja på Andalusiens medelhavskust, med en möjlig rundresa via Málaga, Ronda, Sevilla, Córdoba och Granada'
+    ),
+    mapNote: text(
+      'A possible round trip from Frigiliana: Málaga, Ronda, Sevilla, Córdoba, Granada and back along the coast. The circle enlarges Nerja and Frigiliana.',
+      'Eine mögliche Rundreise ab Frigiliana: Málaga, Ronda, Sevilla, Córdoba, Granada und zurück über die Küste. Der Kreis zeigt Nerja und Frigiliana vergrößert.',
+      'Una posible ruta desde Frigiliana: Málaga, Ronda, Sevilla, Córdoba, Granada y vuelta por la costa. El círculo amplía Nerja y Frigiliana.',
+      'Een mogelijke rondreis vanuit Frigiliana: Málaga, Ronda, Sevilla, Córdoba, Granada en terug langs de kust. De cirkel vergroot Nerja en Frigiliana.',
+      'En möjlig rundresa från Frigiliana: Málaga, Ronda, Sevilla, Córdoba, Granada och tillbaka längs kusten. Cirkeln förstorar Nerja och Frigiliana.'
+    ),
     geographyLabel: text('See the geography guide', 'Geografie ansehen', 'Ver la guía geográfica', 'Bekijk de geografiegids', 'Se geografisidan'),
     arrivalLabel: text('Plan your arrival', 'Anreise planen', 'Planificar la llegada', 'Plan jullie aankomst', 'Planera ankomsten'),
     routeLabel: text('Open route from the airport', 'Route ab Flughafen öffnen', 'Abrir ruta desde el aeropuerto', 'Route vanaf de luchthaven openen', 'Öppna rutten från flygplatsen')

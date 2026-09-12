@@ -1,8 +1,8 @@
 ---
 import AmaraImage from '../../components/AmaraImage.astro';
-import FrigilianaOrientationMap from '../../components/location/FrigilianaOrientationMap.astro';
 import LocationContextNav from '../../components/location/LocationContextNav.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
+import IberiaOrientationMap from '../../components/location/IberiaOrientationMap.astro';
 import Navigation from '../../components/Navigation.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import decisionImage from '../../assets/images/content/amara-lounis/15-amara-frigiliana.jpg';
@@ -315,7 +315,8 @@ const casaFacts = [
       <section id="between-mountains-and-sea" class="am-section am-section--tint py-24 md:py-32 lg:py-40">
         <div class="mx-auto grid max-w-screen-2xl items-center gap-14 lg:grid-cols-12 lg:gap-20">
           <div class="lg:order-1 lg:col-span-7" data-am-orientation-map="frigiliana">
-            <FrigilianaOrientationMap
+            <IberiaOrientationMap
+              place="frigiliana"
               label={c.orientation.mapLabel}
               note={c.orientation.mapNote}
               lang={currentLang}

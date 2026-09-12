@@ -39,6 +39,9 @@ interface TarifaLocationHubLocale {
   };
   geography: TarifaLocationHubFeature & {
     markers: Array<{ label: string; value: string }>;
+    /** Accessible title and caption of the Iberian Peninsula orientation map. */
+    mapLabel: string;
+    mapNote: string;
   };
   arrival: TarifaLocationHubFeature;
   areas: TarifaLocationHubFeature & {
@@ -144,6 +147,8 @@ export const tarifaLocationContent: {
           { label: 'La Marina', value: 'The western edge of town, between old town and beach' },
           { label: 'Further west', value: 'Valdevaqueros, Punta Paloma and Bolonia, by car' }
         ],
+        mapLabel: 'Tarifa on the Iberian Peninsula — at the southern tip of Andalusia on the Strait of Gibraltar, where the Atlantic meets the Mediterranean, with a possible round trip via Cádiz, Sevilla, Córdoba, Granada, Málaga and Ronda',
+        mapNote: 'A possible round trip from Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda and back through the hills. The circle enlarges Tarifa on the Strait.',
         link: { label: 'Tarifa’s areas in detail', token: 'tarifa_where_to_stay' }
       },
       arrival: {
@@ -263,6 +268,8 @@ export const tarifaLocationContent: {
           { label: 'La Marina', value: 'Der westliche Ortsrand, zwischen Altstadt und Strand' },
           { label: 'Weiter westlich', value: 'Valdevaqueros, Punta Paloma und Bolonia, mit dem Auto' }
         ],
+        mapLabel: 'Tarifa auf der Iberischen Halbinsel — an der Südspitze Andalusiens an der Straße von Gibraltar, wo Atlantik und Mittelmeer zusammentreffen, mit einer möglichen Rundreise über Cádiz, Sevilla, Córdoba, Granada, Málaga und Ronda',
+        mapNote: 'Eine mögliche Rundreise ab Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda und zurück durch die Berge. Der Kreis zeigt Tarifa an der Meerenge vergrößert.',
         link: { label: 'Tarifas Lagen im Detail', token: 'tarifa_where_to_stay' }
       },
       arrival: {
@@ -379,6 +386,8 @@ export const tarifaLocationContent: {
           { label: 'La Marina', value: 'El borde oeste del pueblo, entre el casco antiguo y la playa' },
           { label: 'Más al oeste', value: 'Valdevaqueros, Punta Paloma y Bolonia, en coche' }
         ],
+        mapLabel: 'Tarifa en la península ibérica — en el extremo sur de Andalucía, junto al estrecho de Gibraltar, donde se encuentran el Atlántico y el Mediterráneo, con una posible ruta por Cádiz, Sevilla, Córdoba, Granada, Málaga y Ronda',
+        mapNote: 'Una posible ruta desde Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda y vuelta por la sierra. El círculo amplía Tarifa junto al estrecho.',
         link: { label: 'Las zonas de Tarifa en detalle', token: 'tarifa_where_to_stay' }
       },
       arrival: {
@@ -498,6 +507,8 @@ export const tarifaLocationContent: {
           { label: 'La Marina', value: 'De westelijke rand van de plaats, tussen oude stad en strand' },
           { label: 'Verder westelijk', value: 'Valdevaqueros, Punta Paloma en Bolonia, met de auto' }
         ],
+        mapLabel: 'Tarifa op het Iberisch Schiereiland — op de zuidpunt van Andalusië aan de Straat van Gibraltar, waar de Atlantische Oceaan en de Middellandse Zee elkaar ontmoeten, met een mogelijke rondreis via Cádiz, Sevilla, Córdoba, Granada, Málaga en Ronda',
+        mapNote: 'Een mogelijke rondreis vanuit Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda en terug door de bergen. De cirkel vergroot Tarifa aan de zeestraat.',
         link: { label: 'De ligging van Tarifa in detail', token: 'tarifa_where_to_stay' }
       },
       arrival: {
@@ -617,6 +628,8 @@ export const tarifaLocationContent: {
           { label: 'La Marina', value: 'Ortens västra kant, mellan gamla stan och stranden' },
           { label: 'Längre västerut', value: 'Valdevaqueros, Punta Paloma och Bolonia, med bil' }
         ],
+        mapLabel: 'Tarifa på Iberiska halvön — på Andalusiens sydspets vid Gibraltar sund, där Atlanten möter Medelhavet, med en möjlig rundresa via Cádiz, Sevilla, Córdoba, Granada, Málaga och Ronda',
+        mapNote: 'En möjlig rundresa från Tarifa: Cádiz, Sevilla, Córdoba, Granada, Málaga, Ronda och tillbaka genom bergen. Cirkeln förstorar Tarifa vid sundet.',
         link: { label: 'Tarifas lägen i detalj', token: 'tarifa_where_to_stay' }
       },
       arrival: {
