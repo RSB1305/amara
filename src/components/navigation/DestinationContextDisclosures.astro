@@ -9,6 +9,8 @@ interface BranchItem {
   label: string;
   title?: string;
   description?: string;
+  /** Accessible name of the chevron that opens the topic panel; the visible label is the hub link. */
+  toggleLabel?: string;
 }
 interface Props {
   activeBranchId?: string;
@@ -60,83 +62,114 @@ const experienceIcon = (id: string): LocationGuideIconName => {
 const iconFor = (branchId: string, item: ContextNavigationItem) =>
   branchId === 'location' ? locationIcons[item.id] ?? 'village-square' : experienceIcon(item.id);
 const isLive = (item: ContextNavigationItem) => item.status !== 'future' && Boolean(item.href);
+const isBranchPage = (branch: BranchItem) => branch.id === activeBranchId && !activeId;
 ---
 
+<!--
+  Each branch is a split control: the town or "Experiences" label is a plain link
+  to that hub, the chevron beside it is the native <details> toggle for the topic
+  panel. Keeping the two apart means the label navigates on every input (mouse,
+  touch, keyboard, no JavaScript) while the panel stays one tap or click away.
+  On pointer devices the script below also opens the panel on hover, so the
+  topics are as reachable as they were when the whole label toggled the panel.
+-->
 <nav aria-label={ariaLabel} class="min-w-0" data-am-destination-context-disclosures>
   <div class="flex flex-wrap items-center justify-end gap-x-1 gap-y-1">
     {branches.map((branch) => (
-      <details
-        class="am-destination-disclosure relative"
-        data-am-context-disclosure
-        data-am-context-branch={branch.id}
+      <div
+        class="am-destination-branch inline-flex items-center border-b-2 border-transparent"
+        data-am-context-branch-group={branch.id}
         data-am-context-branch-active={branch.id === activeBranchId ? '' : undefined}
       >
-        <summary
-          class="am-text-nav-context inline-flex min-h-9 cursor-pointer list-none items-center gap-1 border-b-2 border-transparent px-2.5 text-on-surface-variant transition-colors hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 xl:min-h-10 xl:px-3 [&::-webkit-details-marker]:hidden"
+        <a
+          href={branch.href}
+          aria-current={isBranchPage(branch) ? 'page' : undefined}
+          class="am-text-nav-context inline-flex min-h-9 items-center pl-2.5 pr-1 text-on-surface-variant transition-colors hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 xl:min-h-10 xl:pl-3"
+          data-am-context-branch-link
         >
-          <span>{branch.label}</span>
-          <ChevronDown aria-hidden="true" class="am-destination-disclosure__chevron size-3.5 shrink-0 transition-transform duration-200" stroke-width={1.5} />
-        </summary>
-        <div class="am-destination-disclosure__panel border border-outline-variant/15 bg-surface-white p-4 shadow-[0_14px_32px_rgba(45,39,31,0.08)]">
-          <div
-            class="mb-3 grid grid-cols-1 gap-y-1 px-2 md:min-h-10 md:grid-cols-[max-content_minmax(0,1fr)] md:items-center md:gap-x-5"
-            data-am-context-panel-intro
+          {branch.label}
+        </a>
+        <details
+          class="am-destination-disclosure relative"
+          data-am-context-disclosure
+          data-am-context-branch={branch.id}
+        >
+          <summary
+            class="am-text-nav-context inline-flex min-h-9 min-w-10 cursor-pointer list-none items-center justify-center pr-1.5 text-on-surface-variant transition-colors hover:text-on-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25 xl:min-h-10 xl:pr-2 [&::-webkit-details-marker]:hidden"
           >
-            <a
-              href={branch.href}
-              aria-current={branch.id === activeBranchId && !activeId ? 'page' : undefined}
-              class="am-text-nav-context inline-flex min-h-10 items-center border-b border-primary/30 font-bold text-on-surface hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25"
-              data-am-context-panel-title
+            <span class="sr-only">{branch.toggleLabel ?? branch.label}</span>
+            <ChevronDown aria-hidden="true" class="am-destination-disclosure__chevron size-3.5 shrink-0 transition-transform duration-200" stroke-width={1.5} />
+          </summary>
+          <div class="am-destination-disclosure__panel border border-outline-variant/15 bg-surface-white p-4 shadow-[0_14px_32px_rgba(45,39,31,0.08)]">
+            <div
+              class="mb-3 grid grid-cols-1 gap-y-1 px-2 md:min-h-10 md:grid-cols-[max-content_minmax(0,1fr)] md:items-center md:gap-x-5"
+              data-am-context-panel-intro
             >
-              {branch.title ?? branch.label}
-            </a>
-            {branch.description && (
-              <p
-                class="am-text-nav-context min-w-0 text-on-surface-variant"
-                data-am-context-panel-description
+              <a
+                href={branch.href}
+                aria-current={isBranchPage(branch) ? 'page' : undefined}
+                class="am-text-nav-context inline-flex min-h-10 items-center border-b border-primary/30 font-bold text-on-surface hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/25"
+                data-am-context-panel-title
               >
-                {branch.description}
-              </p>
-            )}
+                {branch.title ?? branch.label}
+              </a>
+              {branch.description && (
+                <p
+                  class="am-text-nav-context min-w-0 text-on-surface-variant"
+                  data-am-context-panel-description
+                >
+                  {branch.description}
+                </p>
+              )}
+            </div>
+            <div
+              class="grid gap-x-8 gap-y-4 md:grid-cols-2 xl:grid-cols-4"
+              data-am-context-panel-groups
+            >
+              {(groups[branch.id] ?? []).map((group) => (
+                <section aria-labelledby={`am-context-${branch.id}-${group.id}`}>
+                  <h2 id={`am-context-${branch.id}-${group.id}`} class="am-text-nav-context mb-1 px-2 font-bold text-on-surface">{group.label}</h2>
+                  <ul>
+                    {group.items.map((item) => (
+                      <li
+                        data-am-context-sibling
+                        data-am-context-sibling-status={isLive(item) ? 'live' : 'future'}
+                        data-am-experience-sibling={branch.id === 'experience' ? '' : undefined}
+                        data-am-location-sibling={branch.id === 'location' ? '' : undefined}
+                      >
+                        {isLive(item) ? (
+                          <a href={item.href} aria-current={item.id === activeId && branch.id === activeBranchId ? 'page' : undefined} class:list={['am-text-nav-context flex min-h-10 items-center gap-2 border-l-2 px-2 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/25', item.id === activeId && branch.id === activeBranchId ? 'border-primary bg-primary/[0.05] font-bold text-on-surface' : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:bg-primary/[0.03] hover:text-on-surface']}>
+                            <LocationGuideIcon name={iconFor(branch.id, item)} class="size-4" />
+                            <span>{item.label}</span>
+                          </a>
+                        ) : (
+                          <span aria-disabled="true" class="am-text-nav-context flex min-h-10 items-center gap-2 px-2 py-2 text-muted"><LocationGuideIcon name={iconFor(branch.id, item)} class="size-4" /><span>{item.label}</span></span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
           </div>
-          <div
-            class="grid gap-x-8 gap-y-4 md:grid-cols-2 xl:grid-cols-4"
-            data-am-context-panel-groups
-          >
-            {(groups[branch.id] ?? []).map((group) => (
-              <section aria-labelledby={`am-context-${branch.id}-${group.id}`}>
-                <h2 id={`am-context-${branch.id}-${group.id}`} class="am-text-nav-context mb-1 px-2 font-bold text-on-surface">{group.label}</h2>
-                <ul>
-                  {group.items.map((item) => (
-                    <li
-                      data-am-context-sibling
-                      data-am-context-sibling-status={isLive(item) ? 'live' : 'future'}
-                      data-am-experience-sibling={branch.id === 'experience' ? '' : undefined}
-                      data-am-location-sibling={branch.id === 'location' ? '' : undefined}
-                    >
-                      {isLive(item) ? (
-                        <a href={item.href} aria-current={item.id === activeId && branch.id === activeBranchId ? 'page' : undefined} class:list={['am-text-nav-context flex min-h-10 items-center gap-2 border-l-2 px-2 py-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-primary/25', item.id === activeId && branch.id === activeBranchId ? 'border-primary bg-primary/[0.05] font-bold text-on-surface' : 'border-transparent text-on-surface-variant hover:border-primary/45 hover:bg-primary/[0.03] hover:text-on-surface']}>
-                          <LocationGuideIcon name={iconFor(branch.id, item)} class="size-4" />
-                          <span>{item.label}</span>
-                        </a>
-                      ) : (
-                        <span aria-disabled="true" class="am-text-nav-context flex min-h-10 items-center gap-2 px-2 py-2 text-muted"><LocationGuideIcon name={iconFor(branch.id, item)} class="size-4" /><span>{item.label}</span></span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            ))}
-          </div>
-        </div>
-      </details>
+        </details>
+      </div>
     ))}
   </div>
 </nav>
 
 <style>
-  [data-am-context-branch-active] > summary,
-  .am-destination-disclosure[open] > summary { border-color: var(--color-primary); color: var(--color-on-surface); }
+  /* The underline spans label and chevron together, so the branch still reads as one tab. */
+  [data-am-context-branch-active],
+  .am-destination-branch:has(.am-destination-disclosure[open]) {
+    border-color: var(--color-primary);
+  }
+  [data-am-context-branch-active] > [data-am-context-branch-link],
+  [data-am-context-branch-active] > .am-destination-disclosure > summary,
+  .am-destination-branch:has(.am-destination-disclosure[open]) > [data-am-context-branch-link],
+  .am-destination-disclosure[open] > summary {
+    color: var(--color-on-surface);
+  }
   /*
    * Only one branch is marked at a time. The section you are in is marked while
    * everything is closed; once a disclosure opens, the open one takes over.
@@ -144,8 +177,13 @@ const isLive = (item: ContextNavigationItem) => item.status !== 'future' && Bool
    * active at once.
    */
   [data-am-destination-context-disclosures]:has(.am-destination-disclosure[open])
-    [data-am-context-branch-active]:not([open]) > summary {
+    [data-am-context-branch-active]:not(:has(.am-destination-disclosure[open])) {
     border-color: transparent;
+  }
+  [data-am-destination-context-disclosures]:has(.am-destination-disclosure[open])
+    [data-am-context-branch-active]:not(:has(.am-destination-disclosure[open])) > [data-am-context-branch-link],
+  [data-am-destination-context-disclosures]:has(.am-destination-disclosure[open])
+    [data-am-context-branch-active]:not(:has(.am-destination-disclosure[open])) > .am-destination-disclosure > summary {
     color: var(--color-on-surface-variant);
   }
   .am-destination-disclosure[open] .am-destination-disclosure__chevron { transform: rotate(180deg); }
@@ -159,14 +197,48 @@ const isLive = (item: ContextNavigationItem) => item.status !== 'future' && Bool
 <script>
   document.querySelectorAll<HTMLElement>('[data-am-destination-context-disclosures]').forEach((root) => {
     const disclosures = Array.from(root.querySelectorAll<HTMLDetailsElement>('[data-am-context-disclosure]'));
+    // Hover opening is for mouse-driven desktops only: touch and keyboard keep the chevron toggle.
+    const hoverQuery = window.matchMedia('(min-width: 1024px) and (hover: hover) and (pointer: fine)');
     const syncExpanded = (disclosure: HTMLDetailsElement) => {
       disclosure.querySelector('summary')?.setAttribute('aria-expanded', String(disclosure.open));
     };
     disclosures.forEach(syncExpanded);
-    disclosures.forEach((disclosure) => disclosure.addEventListener('toggle', () => {
-      if (disclosure.open) disclosures.forEach((other) => { if (other !== disclosure) other.open = false; });
-      disclosures.forEach(syncExpanded);
-    }));
+    disclosures.forEach((disclosure) => {
+      disclosure.addEventListener('toggle', () => {
+        if (disclosure.open) disclosures.forEach((other) => { if (other !== disclosure) other.open = false; });
+        else disclosure.removeAttribute('data-am-hover-open');
+        disclosures.forEach(syncExpanded);
+      });
+
+      // Moving the mouse onto a branch (label or chevron) opens its panel; leaving
+      // closes a hover-opened panel after a short grace period, long enough to cross
+      // the gap into the panel itself. A click on the chevron while hover-opened
+      // makes the opening deliberate instead of toggling the panel shut under the
+      // pointer; from then on only a click, Escape or an outside tap closes it.
+      const branch = disclosure.closest<HTMLElement>('[data-am-context-branch-group]') ?? disclosure;
+      let closeTimer: number | undefined;
+      branch.addEventListener('pointerenter', (event) => {
+        if (!hoverQuery.matches || event.pointerType !== 'mouse') return;
+        window.clearTimeout(closeTimer);
+        if (disclosure.open) return;
+        disclosure.setAttribute('data-am-hover-open', '');
+        disclosure.open = true;
+      });
+      branch.addEventListener('pointerleave', (event) => {
+        if (event.pointerType !== 'mouse' || !disclosure.hasAttribute('data-am-hover-open')) return;
+        window.clearTimeout(closeTimer);
+        closeTimer = window.setTimeout(() => {
+          if (!disclosure.hasAttribute('data-am-hover-open')) return;
+          if (disclosure.contains(document.activeElement)) return;
+          disclosure.open = false;
+        }, 180);
+      });
+      disclosure.querySelector('summary')?.addEventListener('click', (event) => {
+        if (!disclosure.open || !disclosure.hasAttribute('data-am-hover-open')) return;
+        event.preventDefault();
+        disclosure.removeAttribute('data-am-hover-open');
+      });
+    });
     root.addEventListener('keydown', (event) => {
       if (event.key !== 'Escape') return;
       const open = disclosures.find((disclosure) => disclosure.open);

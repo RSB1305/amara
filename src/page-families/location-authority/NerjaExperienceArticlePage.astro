@@ -1,6 +1,8 @@
 ---
 import { resolveLocale } from '../../types/content';
 import AmaraImage from '../../components/AmaraImage.astro';
+import LocationPhotoGallery from '../../components/location/LocationPhotoGallery.astro';
+import { getRouteImageSet, routeImages } from '../../lib/images/routeImages';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import Navigation from '../../components/Navigation.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
@@ -30,6 +32,9 @@ const languageToken = isCaves ? 'nerja_caves' : 'nerja_balcon_de_europa';
 const contextId = isCaves ? 'caves' : 'balcon';
 const pageId = isCaves ? 'nerja-caves' : 'nerja-balcon-de-europa';
 const guideSlug = isCaves ? 'nerja-guest-adventure' : 'nerja-guest-recommendations';
+const routeKey = isCaves ? 'nerja.experience.caves' : 'nerja.experience.balcon-de-europa';
+// Only a route with an image source carries the gallery; the caves page keeps its VR photograph below.
+const galleryImages = getRouteImageSet(routeKey) ? routeImages(routeKey, 'gallery', currentLang) : [];
 const requiredLink = createRequiredLinkResolver(
   currentLang,
   isCaves ? 'Nerja caves' : 'Nerja balcon'
@@ -84,6 +89,8 @@ const footerHighlights: LabeledLink[] = isCaves
     {content.sections.map((section, index) => (
       <AuthorityTextSection section={section} index={index} />
     ))}
+
+    <LocationPhotoGallery images={galleryImages} />
 
     {personal && (
       <section

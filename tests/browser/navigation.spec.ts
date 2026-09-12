@@ -331,7 +331,9 @@ test('the destination disclosures use one responsive DOM tree', async ({ page })
   await locationDisclosure.locator('summary').click();
   await expect(locationDisclosure).toHaveAttribute('open', '');
   await expect(panel).toBeVisible();
-  await expect(locationDisclosure.locator('summary')).toHaveText('Frigiliana');
+  // The town label is the link to its hub; the chevron beside it is the panel toggle.
+  await expect(root.locator('[data-am-context-branch-group="location"] > a')).toHaveText('Frigiliana');
+  await expect(locationDisclosure.locator('summary')).toHaveAccessibleName('Frigiliana: Themen anzeigen');
   await expect(panel.locator('[data-am-context-panel-title]')).toHaveText('Überblick');
   await expect(panel.locator('[data-am-context-panel-description]')).toHaveText(
     'Was ihr für euren Aufenthalt wissen solltet.'
@@ -544,6 +546,30 @@ test('the desktop destination disclosures remain available without JavaScript', 
   } finally {
     await context.close();
   }
+});
+
+test('the destination branch labels link to the town and experience hubs', async ({ page }) => {
+  await page.setViewportSize(DESKTOP_VIEWPORT);
+  await openPage(page, '/de/frigiliana/erlebnisse');
+
+  const root = page.locator('[data-am-destination-context-disclosures]');
+  const locationLink = root.locator('[data-am-context-branch-group="location"] > a');
+  const experienceLink = root.locator('[data-am-context-branch-group="experience"] > a');
+  const locationDisclosure = root.locator('[data-am-context-branch="location"]');
+
+  await expect(locationLink).toHaveText('Frigiliana');
+  await expect(locationLink).toHaveAttribute('href', resolveLink('location_frigiliana', 'de'));
+  await expect(experienceLink).toHaveText('Erlebnisse');
+  await expect(experienceLink).toHaveAttribute('href', resolveLink('frigiliana_experience_hub', 'de'));
+
+  // On a pointer device, hovering a branch opens its panel; a click on the chevron
+  // then keeps it open rather than toggling it shut under the pointer.
+  await locationLink.hover();
+  await expect(locationDisclosure).toHaveAttribute('open', '');
+  await locationDisclosure.locator('summary').click();
+  await expect(locationDisclosure).toHaveAttribute('open', '');
+  await locationDisclosure.locator('summary').click();
+  await expect(locationDisclosure).not.toHaveAttribute('open', '');
 });
 
 for (const language of LANGUAGES) {

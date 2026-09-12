@@ -1,0 +1,52 @@
+---
+/**
+ * Photographs of one route as a calm band between editorial sections: a single
+ * image runs wide, two sit side by side, three or more form a three-column grid.
+ * Fed by `routeImages(routeKey, 'gallery', lang)` so the page keeps no photograph
+ * of its own (DR-DESIGN-021); the band is omitted while the route has none. Same
+ * figure treatment as the winter-stays and Tarifa spoke galleries.
+ */
+import AmaraImage from '../AmaraImage.astro';
+import type { ResolvedRouteImage } from '../../lib/images/routeImages';
+
+interface Props {
+  images: ResolvedRouteImage[];
+  /** Surface tint of the band, matching the sections around it. */
+  tone?: 'surface' | 'low';
+}
+
+const { images, tone = 'surface' } = Astro.props;
+const count = images.length;
+const gridClass =
+  count >= 3 ? 'grid gap-5 sm:grid-cols-2 lg:grid-cols-3' : count === 2 ? 'grid gap-5 sm:grid-cols-2' : 'grid gap-5';
+const imageClass =
+  count === 1
+    ? 'aspect-[16/9] w-full rounded-sm object-cover lg:aspect-[21/9]'
+    : 'aspect-[4/3] w-full rounded-sm object-cover';
+---
+
+{count > 0 && (
+  <section
+    class:list={['px-6 py-14 md:px-12 md:py-16', tone === 'low' ? 'bg-surface-container-low' : 'bg-surface']}
+    data-am-photo-gallery
+  >
+    <div class="mx-auto max-w-screen-2xl">
+      <div class={gridClass}>
+        {images.map((image) => (
+          <figure class="m-0">
+            <AmaraImage
+              src={image.src}
+              alt={image.alt}
+              profile="gallery"
+              focalPoint={image.focalPoint}
+              class={imageClass}
+            />
+            {image.caption && (
+              <figcaption class="am-text-caption mt-3 normal-case tracking-normal text-on-surface-variant">{image.caption}</figcaption>
+            )}
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

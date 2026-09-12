@@ -18,7 +18,8 @@ import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import DayTripDestinationList from './DayTripDestinationList.astro';
-import { routeHero } from '../../lib/images/routeImages';
+import { routeHero, routeImages } from '../../lib/images/routeImages';
+import LocationPhotoGallery from '../../components/location/LocationPhotoGallery.astro';
 import ExperienceRelatedSection from './ExperienceRelatedSection.astro';
 
 interface Props { lang?: string; }
@@ -26,6 +27,7 @@ interface Props { lang?: string; }
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const hero = routeHero('nerja.experience.day-trips', currentLang);
+const galleryImages = routeImages('nerja.experience.day-trips', 'gallery', currentLang);
 const shared = getAndalusiaDayTripFacts(currentLang);
 const copy = nerjaDayTripsPageContent[currentLang];
 const origin = nerjaDayTripOriginContext[currentLang];
@@ -133,6 +135,8 @@ const dayTripGraphicData = dayTripGraphicByLang[currentLang];
     />
 
     <DayTripDestinationList destinations={destinations} emphasizeText />
+
+    <LocationPhotoGallery images={galleryImages} />
 
     <AuthorityFeatureSection
       id="practical"

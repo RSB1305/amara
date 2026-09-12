@@ -37,7 +37,10 @@ const getExperience = (id: ExperienceId) => {
     editorial: copy.stories[id],
     href: resolveOptionalLink(definition.token, currentLang, {
       suppressMissing: true
-    })
+    }),
+    asideHref: definition.asideToken
+      ? resolveOptionalLink(definition.asideToken, currentLang, { suppressMissing: true })
+      : null
   };
 };
 

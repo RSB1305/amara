@@ -92,6 +92,62 @@ export const nerjaWinterImages = defineRouteImages({
         nl: 'Een standbeeld bij de Balcón de Europa in tegenlicht van de winterzon boven de zee',
         sv: 'En staty vid Balcón de Europa i motljus från vintersolen över havet'
       }
+    },
+    {
+      role: 'gallery',
+      src: '/images/nerja/winter/nerja-winter-rental-09.jpg',
+      focalPoint: '50% 55%',
+      alt: {
+        en: 'The small cove of Calahonda below the Balcón de Europa, seen from above on a winter morning',
+        de: 'Die kleine Bucht Calahonda unterhalb des Balcón de Europa, an einem Wintermorgen von oben gesehen',
+        es: 'La pequeña cala de Calahonda bajo el Balcón de Europa, vista desde arriba una mañana de invierno',
+        nl: 'De kleine baai Calahonda onder de Balcón de Europa, van boven gezien op een winterochtend',
+        sv: 'Den lilla viken Calahonda nedanför Balcón de Europa, sedd uppifrån en vintermorgon'
+      }
+    },
+    {
+      role: 'gallery',
+      src: '/images/nerja/winter/nerja-winter-rental-08.jpg',
+      focalPoint: '50% 50%',
+      alt: {
+        en: "A ship's wheel on the Balcón de Europa with the sea and the coast behind it in winter light",
+        de: 'Ein Steuerrad am Balcón de Europa, dahinter Meer und Küste im Winterlicht',
+        es: 'Un timón en el Balcón de Europa, con el mar y la costa detrás bajo la luz de invierno',
+        nl: 'Een stuurwiel op de Balcón de Europa met de zee en de kust erachter in winterlicht',
+        sv: 'Ett skeppsratt på Balcón de Europa med havet och kusten bakom i vinterljus'
+      }
+    },
+    {
+      role: 'gallery',
+      src: '/images/nerja/winter/nerja-winter-rental-03.jpg',
+      focalPoint: '50% 50%',
+      alt: {
+        en: 'A whitewashed passage with a pebble-mosaic floor leading down to the sea near the Balcón de Europa',
+        de: 'Ein weißer Durchgang mit Kieselmosaik-Boden, der nahe dem Balcón de Europa zum Meer hinunterführt',
+        es: 'Un pasaje encalado con suelo de mosaico de cantos que baja al mar junto al Balcón de Europa',
+        nl: 'Een witgekalkte doorgang met een vloer van kiezelmozaïek die bij de Balcón de Europa naar zee afdaalt',
+        sv: 'En vitkalkad passage med golv av stenmosaik som leder ner mot havet nära Balcón de Europa'
+      }
+    },
+    {
+      role: 'editorial',
+      id: 'sun-bridge',
+      src: '/images/nerja/winter/nerja-winter-rental-02.jpg',
+      focalPoint: '50% 45%',
+      alt: {
+        en: 'The bronze statue at the Balcón de Europa backlit by the low winter sun over a calm sea',
+        de: 'Die Bronzestatue am Balcón de Europa im Gegenlicht der tiefen Wintersonne über ruhigem Meer',
+        es: 'La estatua de bronce del Balcón de Europa a contraluz del sol bajo de invierno sobre un mar en calma',
+        nl: 'Het bronzen standbeeld bij de Balcón de Europa in tegenlicht van de lage winterzon boven een kalme zee',
+        sv: 'Bronsstatyn vid Balcón de Europa i motljus från den låga vintersolen över ett stilla hav'
+      },
+      caption: {
+        en: 'Winter light at the Balcón de Europa: a low sun over the sea, and the terraces around it far quieter than in August.',
+        de: 'Winterlicht am Balcón de Europa: tiefe Sonne über dem Meer, die Terrassen ringsum deutlich leerer als im August.',
+        es: 'Luz de invierno en el Balcón de Europa: sol bajo sobre el mar y las terrazas de alrededor mucho más tranquilas que en agosto.',
+        nl: 'Winterlicht bij de Balcón de Europa: een lage zon boven zee, de terrassen eromheen veel rustiger dan in augustus.',
+        sv: 'Vinterljus vid Balcón de Europa: låg sol över havet och uteserveringarna runt omkring betydligt lugnare än i augusti.'
+      }
     }
   ]
 });

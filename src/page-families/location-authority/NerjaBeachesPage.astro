@@ -19,13 +19,15 @@ import AuthorityFeatureSection from './AuthorityFeatureSection.astro';
 import BeachPracticalSection from './BeachPracticalSection.astro';
 import BeachSectionList from './BeachSectionList.astro';
 import ExperienceRelatedSection from './ExperienceRelatedSection.astro';
-import { routeHero } from '../../lib/images/routeImages';
+import { routeHero, routeImages } from '../../lib/images/routeImages';
+import LocationPhotoGallery from '../../components/location/LocationPhotoGallery.astro';
 
 interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const hero = routeHero('nerja.experience.beaches', currentLang);
+const galleryImages = routeImages('nerja.experience.beaches', 'gallery', currentLang);
 const shared = getNerjaCoastGuideFacts(currentLang);
 const copy = nerjaBeachesPageContent[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja beaches');
@@ -122,6 +124,8 @@ const beachesGraphicData = beachesGraphicByLang[currentLang];
       labels={shared.cardLabels}
       emphasizeText
     />
+
+    <LocationPhotoGallery images={galleryImages} />
 
     <AuthorityFeatureSection
       id="conditions"
