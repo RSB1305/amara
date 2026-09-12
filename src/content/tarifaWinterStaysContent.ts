@@ -180,11 +180,11 @@ export const tarifaWinterStaysContent = {
       ),
       paragraphs: [
         l(
-          "Family & Surf has a wood-burning fireplace, heating and air conditioning that also heats. The 75 m² are spread over two floors with two bedrooms and two bathrooms, plus a 12 m² balcony facing the Atlantic.",
-          "Family & Surf hat einen Holzkamin, Heizung und eine Klimaanlage, die auch heizt. Die 75 m² verteilen sich auf zwei Etagen mit zwei Schlafzimmern und zwei Bädern, dazu kommen 12 m² Balkon zum Atlantik.",
-          "Family & Surf tiene chimenea de leña, calefacción y aire acondicionado que también calienta. Los 75 m² se reparten en dos plantas con dos dormitorios y dos baños, más 12 m² de balcón hacia el Atlántico.",
-          "Family & Surf heeft een houtkachel, verwarming en airconditioning die ook verwarmt. De 75 m² zijn verdeeld over twee verdiepingen met twee slaapkamers en twee badkamers, plus 12 m² balkon aan de Atlantische Oceaan.",
-          "Family & Surf har braskamin, värme och luftkonditionering som även värmer. De 75 m² fördelas på två plan med två sovrum och två badrum, plus 12 m² balkong mot Atlanten."
+          "Family & Surf has a wood-burning fireplace, heating and air conditioning that also heats — after a day in the wind, the evening belongs to the fire. The 75 m² are spread over two floors with two bedrooms and two bathrooms, plus a 12 m² balcony facing the Atlantic under a wooden canopy.",
+          "Family & Surf hat einen Holzkamin, Heizung und eine Klimaanlage, die auch heizt — nach einem Tag im Wind gehört der Abend dem Feuer. Die 75 m² verteilen sich auf zwei Etagen mit zwei Schlafzimmern und zwei Bädern, dazu kommt ein 12 m² großer Balkon zum Atlantik unter einer Holzüberdachung.",
+          "Family & Surf tiene chimenea de leña, calefacción y aire acondicionado que también calienta — tras un día de viento, la tarde es para el fuego. Los 75 m² se reparten en dos plantas con dos dormitorios y dos baños, más un balcón de 12 m² hacia el Atlántico bajo una cubierta de madera.",
+          "Family & Surf heeft een houtkachel, verwarming en airconditioning die ook verwarmt — na een dag in de wind is de avond voor het vuur. De 75 m² zijn verdeeld over twee verdiepingen met twee slaapkamers en twee badkamers, plus een balkon van 12 m² op de Atlantische Oceaan onder een houten overkapping.",
+          "Family & Surf har braskamin, värme och luftkonditionering som även värmer — efter en dag i vinden hör kvällen elden till. De 75 m² fördelas på två plan med två sovrum och två badrum, plus en 12 m² balkong mot Atlanten under ett trätak."
         ),
         l(
           "There are no steps outside and the lift goes to the apartment door. **Inside, steps lead up to the bedrooms** — worth knowing if stairs are a concern.",
@@ -192,6 +192,46 @@ export const tarifaWinterStaysContent = {
           "Fuera no hay escalones y el ascensor llega hasta la puerta del apartamento. **Dentro, unos escalones suben a los dormitorios**, conviene saberlo si las escaleras os preocupan.",
           "Buiten zijn er geen treden en de lift gaat tot aan de voordeur. **Binnen leiden treden omhoog naar de slaapkamers** — goed om te weten als trappen een punt zijn.",
           "Utomhus finns inga trappsteg och hissen går ända fram till lägenhetsdörren. **Inne leder trappsteg upp till sovrummen** — bra att veta om trappor är ett bekymmer."
+        )
+      ]
+    },
+    {
+      id: "fire-and-wood",
+      eyebrow: l("Fire & wood", "Feuer & Holz", "Fuego y leña", "Vuur & hout", "Eld & ved"),
+      title: l(
+        "The first fire is lit without any lifting",
+        "Das erste Kaminfeuer brennt ohne Schleppen",
+        "El primer fuego se enciende sin cargar nada",
+        "Het eerste haardvuur brandt zonder sjouwen",
+        "Den första brasan tänds utan att släpa"
+      ),
+      paragraphs: [
+        l(
+          "A real wood-burning fireplace is what makes winter evenings on the coast truly cosy. So you don't have to head straight out after arriving, **the first firewood is ready for you**. When you fetch more for the evenings that follow, the layout makes it easy: unload the wood sacks from the petrol station in the underground garage and take the lift straight to the apartment door — no stairs.",
+          "Ein echter Holzkamin macht die Winterabende an der Küste erst richtig gemütlich. Damit ihr nach der Anreise nicht direkt losmüsst, **liegt das erste Brennholz für euch bereit**. Wenn ihr für die nächsten Abende Nachschub holt, macht es unsere Infrastruktur leicht: Die Holzsäcke von der Tankstelle ladet ihr in der Tiefgarage aus und fahrt sie mit dem Aufzug direkt vor die Wohnungstür — ohne Treppensteigen.",
+          "Una auténtica chimenea de leña es lo que hace de verdad acogedoras las tardes de invierno en la costa. Para que no tengáis que salir nada más llegar, **la primera leña os espera lista**. Cuando vayáis a por más para las siguientes tardes, nuestra infraestructura lo pone fácil: descargáis los sacos de leña de la gasolinera en el garaje y subís con el ascensor directamente hasta la puerta del apartamento, sin escaleras.",
+          "Een echte houtkachel maakt de winteravonden aan de kust pas echt gezellig. Zodat jullie na aankomst niet meteen op pad moeten, **ligt het eerste brandhout voor jullie klaar**. Halen jullie bijvulling voor de volgende avonden, dan maakt onze indeling het makkelijk: de houtzakken van het tankstation laad je uit in de parkeergarage en breng je met de lift rechtstreeks tot aan de voordeur — zonder trappen.",
+          "En riktig braskamin är det som gör vinterkvällarna vid kusten riktigt mysiga. För att ni inte ska behöva ge er iväg direkt efter ankomsten **ligger den första veden framme åt er**. När ni hämtar påfyllning till kvällarna som följer gör vår planlösning det enkelt: vedsäckarna från bensinstationen lastar ni av i garaget och tar hissen ända fram till lägenhetsdörren — utan trappor."
+        )
+      ]
+    },
+    {
+      id: "after-kiting",
+      eyebrow: l("After kiting", "Nach dem Kiten", "Después de navegar", "Na het kiten", "Efter kiten"),
+      title: l(
+        "Where to put the wet wetsuit",
+        "Wohin mit dem nassen Neopren?",
+        "Dónde dejar el neopreno mojado",
+        "Waar laat je het natte wetsuit?",
+        "Var gör man av den våta våtdräkten?"
+      ),
+      paragraphs: [
+        l(
+          "Anyone who goes out on the water in winter brings back a thick, soaking wetsuit. The covered, 12 m² balcony is made for exactly that: **hang your gear here and let it drip**. The clammy Atlantic damp stays right outside the door, and inside by the fire it stays pleasantly dry.",
+          "Wer im Winter aufs Wasser geht, bringt danach einen dicken, klatschnassen Anzug mit nach Hause. Der überdachte, 12 m² große Balkon ist genau dafür da: **Hier könnt ihr euer Material aufhängen und abtropfen lassen**. So bleibt die klamme Atlantik-Feuchtigkeit direkt vor der Tür, und drinnen am Feuer bleibt es angenehm trocken.",
+          "Quien sale al agua en invierno vuelve con un traje grueso y empapado. El balcón cubierto de 12 m² está pensado justo para eso: **aquí colgáis el material y lo dejáis escurrir**. Así la humedad pegajosa del Atlántico se queda en la puerta, y dentro, junto al fuego, todo se mantiene agradablemente seco.",
+          "Wie in de winter het water op gaat, komt terug met een dik, kletsnat pak. Het overdekte balkon van 12 m² is daar precies voor: **hang je materiaal hier op en laat het uitlekken**. Zo blijft de klamme Atlantische vochtigheid buiten de deur, en binnen bij het vuur blijft het aangenaam droog.",
+          "Den som ger sig ut på vattnet på vintern kommer hem med en tjock, dyblöt dräkt. Den överbyggda balkongen på 12 m² är gjord just för det: **häng upp utrustningen här och låt den rinna av**. Så stannar den råa Atlantfukten utanför dörren, och inne vid elden håller det sig behagligt torrt."
         )
       ]
     },
@@ -207,11 +247,11 @@ export const tarifaWinterStaysContent = {
       ),
       paragraphs: [
         l(
-          "The kitchen is complete and there is a washing machine and Wi-Fi. Everyday shopping is directly opposite the building, Los Lances beach is about 500 metres away and the old town is a walk, not a drive.",
-          "Die Küche ist vollständig, Waschmaschine und WLAN sind da. Der tägliche Einkauf liegt direkt gegenüber, zum Strand Los Lances sind es rund 500 Meter, und in die Altstadt geht ihr zu Fuß statt zu fahren.",
-          "La cocina está completa y hay lavadora y wifi. La compra diaria está justo enfrente del edificio, la playa de Los Lances a unos 500 metros y al casco antiguo se va andando, no en coche.",
-          "De keuken is compleet en er zijn een wasmachine en wifi. De dagelijkse boodschappen liggen recht tegenover het gebouw, het strand Los Lances op ongeveer 500 meter, en naar de oude stad loop je in plaats van rijdt je.",
-          "Köket är komplett och det finns tvättmaskin och wifi. Vardagshandeln ligger mitt emot huset, stranden Los Lances cirka 500 meter bort och till gamla stan går man i stället för att köra."
+          "The kitchen is complete, and there is a washing machine and fast fibre Wi-Fi with a place to work and power sockets within reach. Everyday shopping is directly opposite the building, Los Lances beach is about 500 metres away and the old town is a walk, not a drive.",
+          "Die Küche ist vollständig, dazu Waschmaschine und schnelles Glasfaser-WLAN mit einem Platz zum Arbeiten und Steckdosen in Reichweite. Der tägliche Einkauf liegt direkt gegenüber, zum Strand Los Lances sind es rund 500 Meter, und in die Altstadt geht ihr zu Fuß statt zu fahren.",
+          "La cocina está completa, y hay lavadora y wifi de fibra rápida con un sitio para trabajar y enchufes a mano. La compra diaria está justo enfrente del edificio, la playa de Los Lances a unos 500 metros y al casco antiguo se va andando, no en coche.",
+          "De keuken is compleet, met een wasmachine en snelle glasvezel-wifi met een plek om te werken en stopcontacten binnen handbereik. De dagelijkse boodschappen liggen recht tegenover het gebouw, het strand Los Lances op ongeveer 500 meter, en naar de oude stad loop je in plaats van rijdt je.",
+          "Köket är komplett, med tvättmaskin och snabbt fiber-wifi med en plats att arbeta på och eluttag inom räckhåll. Vardagshandeln ligger mitt emot huset, stranden Los Lances cirka 500 meter bort och till gamla stan går man i stället för att köra."
         ),
         l(
           "**A reserved space in the underground garage comes with the apartment**, so the daily hunt for parking disappears. From eight nights a direct booking also includes one cleaning around the middle of the stay.",

@@ -79,6 +79,27 @@ const sections: Array<{ id: ParkingGuideSection['id']; eyebrow: Localized; title
     ]
   },
   {
+    id: 'during-stay',
+    eyebrow: l('Paying & charging', 'Bezahlen & Laden', 'Pagar y cargar', 'Betalen & laden', 'Betala & ladda'),
+    title: l('How the car park under the Plaza works', 'So läuft das Parkhaus an der Plaza', 'Cómo funciona el parking bajo la Plaza', 'Hoe de parkeergarage onder de Plaza werkt', 'Så fungerar parkeringen under Plaza'),
+    paragraphs: [
+      l(
+        'The underground car park below Plaza de las Tres Culturas is straightforward: you take a ticket at the barrier and pay at the machine on the way out — **by card, including contactless, or in cash**. No one has to hunt for coins in the stairwell.',
+        'Die Tiefgarage unter der Plaza de las Tres Culturas ist unkompliziert: An der Schranke zieht ihr ein Ticket, bezahlt wird am Ende am Kassenautomaten — **per Karte, auch kontaktlos, oder bar**. So sucht niemand im Treppenhaus nach Kleingeld.',
+        'El parking subterráneo bajo la Plaza de las Tres Culturas es sencillo: cogéis un ticket en la barrera y pagáis al salir en el cajero — **con tarjeta, también contactless, o en efectivo**. Nadie tiene que buscar monedas en la escalera.',
+        'De parkeergarage onder Plaza de las Tres Culturas is eenvoudig: je trekt een ticket bij de slagboom en betaalt bij vertrek aan de automaat — **met kaart, ook contactloos, of contant**. Niemand hoeft in het trappenhuis naar kleingeld te zoeken.',
+        'Parkeringen under Plaza de las Tres Culturas är okomplicerad: ni tar en biljett vid bommen och betalar vid automaten på vägen ut — **med kort, även kontaktlöst, eller kontant**. Ingen behöver leta småmynt i trapphuset.'
+      ),
+      l(
+        'For electric cars: reliable charging points right at the space are usually **not** available in the garage as things stand. The nearest public charging points are down at the edge of the village, in the marked spaces.',
+        'Für E-Autos: Verlässliche Ladesäulen direkt am Stellplatz gibt es in der Tiefgarage **Stand jetzt meist nicht**. Die nächsten öffentlichen Ladepunkte liegen unten am Ortsrand auf den ausgewiesenen Plätzen.',
+        'Para coches eléctricos: puntos de recarga fiables junto a la plaza dentro del garaje **hoy por hoy no suele haber**. Los puntos públicos más cercanos están abajo, en el borde del pueblo, en las plazas señalizadas.',
+        'Voor elektrische auto’s: betrouwbare laadpunten direct bij de plek zijn er in de garage op dit moment **meestal niet**. De dichtstbijzijnde openbare laadpunten liggen beneden aan de dorpsrand, op de aangegeven plekken.',
+        'För elbilar: pålitliga laddpunkter direkt vid platsen finns i garaget **oftast inte** i nuläget. De närmaste offentliga laddpunkterna ligger nere i byns utkant, på de skyltade platserna.'
+      )
+    ]
+  },
+  {
     id: 'arrival-luggage',
     eyebrow: l('With luggage', 'Mit Gepäck', 'Con maletas', 'Met bagage', 'Med bagage'),
     title: l('The lane is drivable in theory. We would still walk.', 'Die Gasse ist theoretisch befahrbar. Wir würden trotzdem laufen.', 'La calle es transitable en teoría. Aun así, iríamos andando.', 'De steeg is in theorie berijdbaar. Toch zouden we lopen.', 'Gränden går i teorin att köra på. Vi skulle ändå gå.'),

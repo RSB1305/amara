@@ -174,11 +174,11 @@ export const frigilianaWinterStaysContent = {
       ),
       paragraphs: [
         l(
-          "All four stays in Casa AMARA have heating and underfloor heating in the bathroom. Lounis, Zaid and Maha also have a pellet stove, and you notice it on a cool evening.",
-          "Alle vier Unterkünfte in Casa AMARA haben Heizung und Fußbodenheizung im Bad. In Lounis, Zaid und Maha steht zusätzlich ein Pelletofen — den merkt ihr an einem kühlen Abend.",
-          "Los cuatro alojamientos de Casa AMARA tienen calefacción y suelo radiante en el baño. Lounis, Zaid y Maha suman una estufa de pellets, y se nota en una tarde fresca.",
-          "Alle vier de verblijven in Casa AMARA hebben verwarming en vloerverwarming in de badkamer. In Lounis, Zaid en Maha staat daarnaast een pelletkachel, en dat merk je op een frisse avond.",
-          "Alla fyra boenden i Casa AMARA har värme och golvvärme i badrummet. Lounis, Zaid och Maha har dessutom en pelletskamin, och det märks en sval kväll."
+          "All four stays in Casa AMARA have heating and underfloor heating in the bathroom. Lounis, Zaid and Maha also have a pellet stove, and you notice it on a cool evening, settled on the couch in front of it. At midday the sun warms the terrace; in the evening the stove warms the room. So you don’t have to carry the heavy bags up the roughly 30 steps to us, we take care of it: we leave the pellets ready right at the apartment, **included in the price**.",
+          "Alle vier Unterkünfte in Casa AMARA haben Heizung und Fußbodenheizung im Bad. In Lounis, Zaid und Maha steht zusätzlich ein Pelletofen — den merkt ihr an einem kühlen Abend, wenn ihr es euch davor auf der Couch gemütlich macht. Mittags wärmt die Sonne die Terrasse, abends der Pelletofen den Raum. Damit ihr die schweren Säcke dafür nicht die rund 30 Stufen zu uns hochtragen müsst, übernehmen wir das: Die Pellets stellen wir euch direkt an der Wohnung bereit, **im Preis inklusive**.",
+          "Los cuatro alojamientos de Casa AMARA tienen calefacción y suelo radiante en el baño. Lounis, Zaid y Maha suman una estufa de pellets, y se nota en una tarde fresca, acomodados en el sofá frente a ella. Al mediodía el sol calienta la terraza; al anochecer, la estufa calienta la sala. Para que no tengáis que subir los sacos pesados por los unos 30 escalones hasta nosotros, lo hacemos nosotros: dejamos los pellets listos junto al alojamiento, **incluidos en el precio**.",
+          "Alle vier de verblijven in Casa AMARA hebben verwarming en vloerverwarming in de badkamer. In Lounis, Zaid en Maha staat daarnaast een pelletkachel, en dat merk je op een frisse avond, lekker op de bank ervoor. ’s Middags warmt de zon het terras; ’s avonds warmt de kachel de kamer. Zodat jullie de zware zakken niet de ongeveer 30 treden naar ons omhoog hoeven te dragen, doen wij dat: we zetten de pellets klaar direct bij het appartement, **inbegrepen in de prijs**.",
+          "Alla fyra boenden i Casa AMARA har värme och golvvärme i badrummet. Lounis, Zaid och Maha har dessutom en pelletskamin, och det märks en sval kväll, tillbakalutade i soffan framför den. Mitt på dagen värmer solen terrassen; på kvällen värmer kaminen rummet. För att ni inte ska behöva bära de tunga säckarna uppför de dryga 30 trappstegen till oss, sköter vi det: vi ställer fram pelletsen direkt vid lägenheten, **inkluderat i priset**."
         ),
         l(
           "**Lounis** has the most room for a longer stay, with 70 m² inside and a 39 m² terrace. **Zaid** is more compact at 33 m² but has the widest bed; six steps lead up to it. **Maha** sits at the top of the house, 35 m² inside and a 64 m² terrace.",
@@ -208,11 +208,11 @@ export const frigilianaWinterStaysContent = {
       ),
       paragraphs: [
         l(
-          "In winter we rent from a few nights up to three weeks. Longer than that we do not offer — this is a holiday stay, not a monthly let.",
-          "Wir vermieten im Winter von ein paar Nächten bis zu drei Wochen. Länger geht bei uns nicht — das ist Ferienvermietung, keine Monatsmiete.",
-          "En invierno alquilamos desde unas noches hasta tres semanas. Más tiempo no lo ofrecemos: es una estancia vacacional, no un alquiler mensual.",
-          "In de winter verhuren we van een paar nachten tot drie weken. Langer bieden we niet aan — dit is een vakantieverblijf, geen maandhuur.",
-          "På vintern hyr vi ut från några nätter upp till tre veckor. Längre än så erbjuder vi inte — det här är en semestervistelse, inte månadsuthyrning."
+          "In winter we rent from a few nights up to three weeks. Longer than that we do not offer — this is a holiday stay, not a monthly let. If you stay for two or three weeks and work in between, the basics are here: all the apartments have **fast fibre Wi-Fi** and a place to work with power sockets within reach, usually at the dining table.",
+          "Wir vermieten im Winter von ein paar Nächten bis zu drei Wochen. Länger geht bei uns nicht — das ist Ferienvermietung, keine Monatsmiete. Wer für zwei, drei Wochen bleibt und zwischendurch arbeitet, findet die Basis dafür: Alle Wohnungen haben **schnelles Glasfaser-WLAN** und einen Platz zum Arbeiten mit Steckdosen in Reichweite, meist am Esstisch.",
+          "En invierno alquilamos desde unas noches hasta tres semanas. Más tiempo no lo ofrecemos: es una estancia vacacional, no un alquiler mensual. Si os quedáis dos o tres semanas y trabajáis a ratos, la base está: todos los alojamientos tienen **wifi de fibra rápida** y un sitio para trabajar con enchufes a mano, normalmente en la mesa de comedor.",
+          "In de winter verhuren we van een paar nachten tot drie weken. Langer bieden we niet aan — dit is een vakantieverblijf, geen maandhuur. Blijf je twee of drie weken en werk je tussendoor, dan is de basis er: alle appartementen hebben **snelle glasvezel-wifi** en een plek om te werken met stopcontacten binnen handbereik, meestal aan de eettafel.",
+          "På vintern hyr vi ut från några nätter upp till tre veckor. Längre än så erbjuder vi inte — det här är en semestervistelse, inte månadsuthyrning. Stannar ni två eller tre veckor och jobbar däremellan finns grunden: alla lägenheter har **snabbt fiber-wifi** och en plats att arbeta på med eluttag inom räckhåll, oftast vid matbordet."
         ),
         l(
           "From eight nights a direct booking includes one cleaning around the middle of the stay. **For two or three weeks, Lounis is usually the calmest choice** — 70 m² simply carries a long stay better.",
@@ -240,6 +240,13 @@ export const frigilianaWinterStaysContent = {
           "Algunos restaurantes y tiendas reducen su horario en invierno o cierran unas semanas. Cuánto está abierto cambia de un año a otro.",
           "Sommige restaurants en winkels verkorten in de winter hun openingstijden of sluiten een paar weken. Hoeveel er draait, verschilt per jaar.",
           "Vissa restauranger och butiker kortar sina öppettider på vintern eller stänger några veckor. Hur mycket som är igång varierar från år till år."
+        ),
+        l(
+          "When less is open in the evening, your own kitchen becomes the opportunity: in Lounis, Zaid and Maha it is **fully equipped**. With local wine and ham from the market and the village's small shops, you cook yourselves a cosy evening at home.",
+          "Ist abends weniger offen, wird die eigene Küche zur Gelegenheit: In Lounis, Zaid und Maha ist sie **voll ausgestattet**. Mit lokalem Wein und Schinken vom Markt und aus den kleinen Läden im Dorf macht ihr euch einen gemütlichen Abend zu Hause.",
+          "Si por la tarde hay menos abierto, la propia cocina se vuelve una oportunidad: en Lounis, Zaid y Maha está **totalmente equipada**. Con vino y jamón locales del mercado y de las tiendas del pueblo, os preparáis una noche acogedora en casa.",
+          "Is er ’s avonds minder open, dan wordt je eigen keuken de kans: in Lounis, Zaid en Maha is die **volledig uitgerust**. Met lokale wijn en ham van de markt en de kleine winkels in het dorp kook je jezelf een gezellige avond thuis.",
+          "Är mindre öppet på kvällen blir det egna köket möjligheten: i Lounis, Zaid och Maha är det **fullt utrustat**. Med lokalt vin och skinka från marknaden och byns små butiker lagar ni en mysig kväll hemma."
         ),
         l(
           "We would rather not hand you a list that is already wrong by the time you read it. **Send us your dates and we will tell you what is open that week.**",

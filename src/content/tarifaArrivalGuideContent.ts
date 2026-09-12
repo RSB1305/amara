@@ -48,7 +48,7 @@ export const tarifaArrivalGuideCopy = {
     },
     luggageAdvice: {
       title: l('The lift', 'Der Aufzug', 'El ascensor', 'De lift', 'Hissen'),
-      text: l('From the garage and from the entrance the lift goes right to the apartment door, with all your luggage.', 'Von der Garage und vom Eingang fährt der Aufzug bis vor die Wohnungstür, mit allem Gepäck.', 'Desde el garaje y desde la entrada, el ascensor llega hasta la puerta del apartamento, con todo el equipaje.', 'Vanuit de garage en vanaf de ingang gaat de lift tot voor de deur van het appartement, met alle bagage.', 'Från garaget och från entrén går hissen ända fram till lägenhetsdörren, med allt bagage.')
+      text: l('From the garage and from the entrance the lift goes right to the apartment door, with all your luggage. That way you never have to haul boardbags or wet boxes through narrow lanes.', 'Von der Garage und vom Eingang fährt der Aufzug bis vor die Wohnungstür, mit allem Gepäck. So müsst ihr weder Boardbags noch nasse Kisten durch enge Gassen schleppen.', 'Desde el garaje y desde la entrada, el ascensor llega hasta la puerta del apartamento, con todo el equipaje. Así no tenéis que arrastrar fundas de tablas ni cajas mojadas por callejones estrechos.', 'Vanuit de garage en vanaf de ingang gaat de lift tot voor de deur van het appartement, met alle bagage. Zo hoef je geen boardbags of natte kratten door smalle steegjes te sjouwen.', 'Från garaget och från entrén går hissen ända fram till lägenhetsdörren, med allt bagage. Så behöver ni aldrig släpa boardbags eller blöta lådor genom trånga gränder.')
     },
     faq: {
       title: l('Arrival FAQ', 'FAQ zur Anreise', 'Preguntas sobre la llegada', 'FAQ over de aankomst', 'Vanliga frågor om ankomst'),
@@ -57,30 +57,35 @@ export const tarifaArrivalGuideCopy = {
           { question: 'Is a parking space included?', answer: 'Yes, a reserved space in the underground garage. Access and space number are in your arrival message.' },
           { question: 'What should we enter in navigation?', answer: 'Mar Adriático 29, Tarifa. The complex is called Las Terrazas de la Marina, in the La Marina neighbourhood.' },
           { question: 'Is the route from the garage step-free?', answer: 'Yes, the lift goes right to the apartment door. The stairs to the bedrooms only begin inside the apartment.' },
+          { question: 'How do we get into the garage and apartment?', answer: 'With no reception and at any hour: your arrival message before check-in contains the remote for the underground garage and the code for the house door and apartment door. That way a late arrival at night is no problem either.' },
           { question: 'And by bus?', answer: 'From Calle Batalla del Salado by taxi or on foot to Mar Adriático 29.' }
         ],
         de: [
           { question: 'Ist ein Parkplatz dabei?', answer: 'Ja, ein reservierter Stellplatz in der Tiefgarage. Zufahrt und Platznummer stehen in eurer Anreise-Nachricht.' },
           { question: 'Was geben wir ins Navi ein?', answer: 'Mar Adriático 29, Tarifa. Die Anlage heißt Las Terrazas de la Marina, im Viertel La Marina.' },
           { question: 'Ist der Weg von der Garage stufenfrei?', answer: 'Ja, der Aufzug fährt bis vor die Wohnungstür. Die Treppe zu den Schlafzimmern beginnt erst in der Wohnung.' },
+          { question: 'Wie kommen wir in Garage und Wohnung?', answer: 'Ganz ohne Rezeption und zu jeder Uhrzeit: In eurer Anreise-Nachricht vor dem Check-in stehen die Fernbedienung für die Tiefgarage und der Code für Haus- und Wohnungstür. So klappt auch eine späte Ankunft nachts problemlos.' },
           { question: 'Und mit dem Bus?', answer: 'Ab der Calle Batalla del Salado mit dem Taxi oder zu Fuß zur Mar Adriático 29.' }
         ],
         es: [
           { question: '¿Hay plaza de aparcamiento incluida?', answer: 'Sí, una plaza reservada en el garaje subterráneo. El acceso y el número de plaza están en vuestro mensaje de llegada.' },
           { question: '¿Qué ponemos en el navegador?', answer: 'Mar Adriático 29, Tarifa. La urbanización se llama Las Terrazas de la Marina, en el barrio de La Marina.' },
           { question: '¿El trayecto desde el garaje no tiene escalones?', answer: 'Sí, el ascensor llega hasta la puerta del apartamento. La escalera a los dormitorios empieza ya dentro de la vivienda.' },
+          { question: '¿Cómo entramos en el garaje y el apartamento?', answer: 'Sin recepción y a cualquier hora: en vuestro mensaje de llegada, antes del check-in, están el mando del garaje subterráneo y el código de la puerta del edificio y del apartamento. Así una llegada tardía por la noche tampoco supone ningún problema.' },
           { question: '¿Y en autobús?', answer: 'Desde la calle Batalla del Salado, en taxi o a pie hasta Mar Adriático 29.' }
         ],
         nl: [
           { question: 'Is er een parkeerplaats bij?', answer: 'Ja, een gereserveerde plek in de ondergrondse garage. Toegang en plaatsnummer staan in je aankomstbericht.' },
           { question: 'Wat voeren we in de navigatie in?', answer: 'Mar Adriático 29, Tarifa. Het complex heet Las Terrazas de la Marina, in de wijk La Marina.' },
           { question: 'Is de route vanaf de garage zonder treden?', answer: 'Ja, de lift gaat tot voor de deur van het appartement. De trap naar de slaapkamers begint pas in de woning.' },
+          { question: 'Hoe komen we in de garage en het appartement?', answer: 'Zonder receptie en op elk tijdstip: in je aankomstbericht vóór het inchecken staan de afstandsbediening voor de ondergrondse garage en de code voor de deur van het gebouw en van het appartement. Zo is ook een late aankomst ’s nachts geen probleem.' },
           { question: 'En met de bus?', answer: 'Vanaf de Calle Batalla del Salado met de taxi of te voet naar Mar Adriático 29.' }
         ],
         sv: [
           { question: 'Ingår en parkeringsplats?', answer: 'Ja, en reserverad plats i garaget under huset. Infart och platsnummer står i ert ankomstmeddelande.' },
           { question: 'Vad anger vi i navigationen?', answer: 'Mar Adriático 29, Tarifa. Anläggningen heter Las Terrazas de la Marina, i kvarteret La Marina.' },
           { question: 'Är vägen från garaget stegfri?', answer: 'Ja, hissen går ända fram till lägenhetsdörren. Trappan till sovrummen börjar först inne i lägenheten.' },
+          { question: 'Hur kommer vi in i garaget och lägenheten?', answer: 'Utan reception och när som helst: i ert ankomstmeddelande före incheckningen finns fjärrkontrollen till garaget och koden till portdörren och lägenhetsdörren. Så är en sen ankomst på natten inget problem heller.' },
           { question: 'Och med buss?', answer: 'Från Calle Batalla del Salado med taxi eller till fots till Mar Adriático 29.' }
         ]
       }
@@ -103,11 +108,11 @@ export const tarifaArrivalGuideCopy = {
 };
 
 export const tarifaArrivalGuideSteps = {
-  en: ['Mar Adriático 29 into the sat-nav.', 'Look out for Las Terrazas de la Marina.', 'Before the entrance, open the garage instructions from your message.', 'Into the underground garage and onto your reserved space.', 'By lift from level -1 right to the apartment door.'],
-  de: ['Mar Adriático 29 ins Navi.', 'Nach Las Terrazas de la Marina Ausschau halten.', 'Vor der Zufahrt die Garagenhinweise aus eurer Nachricht öffnen.', 'In die Tiefgarage und auf euren reservierten Platz.', 'Mit dem Aufzug von Ebene -1 bis vor die Wohnungstür.'],
-  es: ['Mar Adriático 29 en el navegador.', 'Buscar Las Terrazas de la Marina.', 'Antes de la entrada, abrir las indicaciones del garaje de vuestro mensaje.', 'Al garaje subterráneo y a vuestra plaza reservada.', 'En ascensor desde el nivel -1 hasta la puerta del apartamento.'],
-  nl: ['Mar Adriático 29 in de navigatie.', 'Uitkijken naar Las Terrazas de la Marina.', 'Vóór de inrit de garage-aanwijzingen uit je bericht openen.', 'De ondergrondse garage in en op je gereserveerde plek.', 'Met de lift van niveau -1 tot voor de deur van het appartement.'],
-  sv: ['Mar Adriático 29 i GPS:en.', 'Håll utkik efter Las Terrazas de la Marina.', 'Öppna garageanvisningarna från ert meddelande före infarten.', 'In i garaget och till er reserverade plats.', 'Med hissen från plan -1 ända fram till lägenhetsdörren.']
+  en: ['Mar Adriático 29 into the sat-nav.', 'Look out for Las Terrazas de la Marina; there are one-way streets around La Marina, and the sat-nav guides you safely to the garage entrance.', 'Before the entrance, open the garage instructions from your message.', 'Into the underground garage and onto your reserved space.', 'By lift from level -1 right to the apartment door.'],
+  de: ['Mar Adriático 29 ins Navi.', 'Nach Las Terrazas de la Marina Ausschau halten; rund um La Marina gibt es Einbahnstraßen, das Navi führt euch sicher zur Garageneinfahrt.', 'Vor der Zufahrt die Garagenhinweise aus eurer Nachricht öffnen.', 'In die Tiefgarage und auf euren reservierten Platz.', 'Mit dem Aufzug von Ebene -1 bis vor die Wohnungstür.'],
+  es: ['Mar Adriático 29 en el navegador.', 'Buscar Las Terrazas de la Marina; alrededor de La Marina hay calles de sentido único, y el navegador os lleva sin problema a la entrada del garaje.', 'Antes de la entrada, abrir las indicaciones del garaje de vuestro mensaje.', 'Al garaje subterráneo y a vuestra plaza reservada.', 'En ascensor desde el nivel -1 hasta la puerta del apartamento.'],
+  nl: ['Mar Adriático 29 in de navigatie.', 'Uitkijken naar Las Terrazas de la Marina; rond La Marina zijn er eenrichtingsstraten, de navigatie leidt je veilig naar de garage-inrit.', 'Vóór de inrit de garage-aanwijzingen uit je bericht openen.', 'De ondergrondse garage in en op je gereserveerde plek.', 'Met de lift van niveau -1 tot voor de deur van het appartement.'],
+  sv: ['Mar Adriático 29 i GPS:en.', 'Håll utkik efter Las Terrazas de la Marina; runt La Marina finns enkelriktade gator, och GPS:en leder er tryggt till garageinfarten.', 'Öppna garageanvisningarna från ert meddelande före infarten.', 'In i garaget och till er reserverade plats.', 'Med hissen från plan -1 ända fram till lägenhetsdörren.']
 };
 
 export const tarifaArrivalGuideBusRoutes = {

@@ -34,8 +34,8 @@ export const nerjaArrivalGuideCopy = {
       text: l('Enter Calle Castilla Pérez 60 into the sat-nav. In front of the entrance you can stop briefly and unload the luggage; the apartment has no parking space of its own, so the car then goes to a street space or into the car park.', 'Gebt Calle Castilla Pérez 60 ins Navi ein. Vor dem Eingang könnt ihr kurz halten und das Gepäck ausladen; einen eigenen Stellplatz hat das Apartment nicht, das Auto kommt danach auf einen Straßenplatz oder ins Parkhaus.', 'Poned calle Castilla Pérez 60 en el navegador. Delante de la entrada podéis parar un momento y descargar el equipaje; el apartamento no tiene plaza propia, el coche va después a una plaza en la calle o al parking.', 'Voer Calle Castilla Pérez 60 in de navigatie in. Voor de ingang kun je kort stoppen en de bagage uitladen; een eigen parkeerplaats heeft het appartement niet, de auto gaat daarna naar een plek op straat of de parkeergarage.', 'Skriv in Calle Castilla Pérez 60 i GPS:en. Framför entrén kan ni stanna kort och lasta av bagaget; någon egen parkeringsplats har lägenheten inte, bilen kör sedan till en gatuplats eller in i parkeringshuset.')
     },
     walkingAccess: {
-      title: l('Level in, up by lift', 'Ebenerdig hinein, mit dem Aufzug hinauf', 'Entrada a nivel de calle, subida en ascensor', 'Gelijkvloers naar binnen, met de lift omhoog', 'In i markplan, upp med hissen'),
-      text: l('The entrance is at street level, the lift takes you to the fifth floor. How you get into the building is in your arrival message before check-in.', 'Der Eingang liegt auf Straßenniveau, der Aufzug bringt euch in den fünften Stock. Wie ihr ins Gebäude kommt, steht in eurer Anreise-Nachricht vor dem Check-in.', 'La entrada está a nivel de calle, el ascensor os lleva a la quinta planta. Cómo entrar en el edificio está en vuestro mensaje de llegada antes del check-in.', 'De ingang ligt op straatniveau, de lift brengt je naar de vijfde verdieping. Hoe je het gebouw binnenkomt, staat vóór het inchecken in je aankomstbericht.', 'Entrén ligger i gatunivå, hissen tar er till femte våningen. Hur ni kommer in i huset står i ert ankomstmeddelande före incheckningen.')
+      title: l('Ten steps, then the lift', 'Zehn Stufen bis zum Aufzug', 'Diez escalones hasta el ascensor', 'Tien treden tot de lift', 'Tio trappsteg till hissen'),
+      text: l('The lift takes you comfortably to the fifth floor. Before the lift door, though, there are ten steps to manage: five in front of the main entrance and five more in the hallway.', 'Der Aufzug bringt euch bequem in den fünften Stock. Bis zur Aufzugstür müsst ihr allerdings zehn Stufen überwinden: fünf vor dem Haupteingang und fünf weitere im Flur.', 'El ascensor os sube cómodamente a la quinta planta. Antes de la puerta del ascensor, eso sí, hay diez escalones que salvar: cinco delante de la entrada principal y otros cinco en el portal.', 'De lift brengt jullie comfortabel naar de vijfde verdieping. Tot aan de liftdeur zijn er wel tien treden te nemen: vijf voor de hoofdingang en nog eens vijf in de hal.', 'Hissen tar er bekvämt upp till femte våningen. Fram till hissdörren är det dock tio trappsteg att ta: fem framför huvudentrén och fem till i hallen.')
     },
     arrivalTip: {
       title: l('By car or taxi', 'Mit Auto oder Taxi', 'En coche o taxi', 'Met auto of taxi', 'Med bil eller taxi'),
@@ -57,31 +57,31 @@ export const nerjaArrivalGuideCopy = {
           { question: 'Does AMARA Playa have a parking space?', answer: 'Not one of its own. You park on the street or in one of the public car parks; the parking guide shows which.' },
           { question: 'Can we unload at the door?', answer: 'Yes, a short stop to unload is fine. The car then goes on to the car park.' },
           { question: 'Can we walk from the bus station?', answer: 'Yes, about a kilometre and a quarter of an hour downhill. With a lot of luggage the taxi is more comfortable.' },
-          { question: 'How do we enter the building?', answer: 'That is in your arrival message, which you receive before check-in.' }
+          { question: 'How do we enter the building?', answer: 'Completely flexible and with no reception. You open the house door and the apartment door yourselves with a code. We send you the exact access details in good time before you arrive, so a late arrival at night works without any trouble.' }
         ],
         de: [
           { question: 'Hat AMARA Playa einen Parkplatz?', answer: 'Einen eigenen nicht. Ihr parkt auf der Straße oder in einem der öffentlichen Parkhäuser; der Parkguide zeigt, welche.' },
           { question: 'Können wir vor der Tür ausladen?', answer: 'Ja, kurz halten und ausladen geht. Danach fährt das Auto zum Parkplatz.' },
           { question: 'Können wir vom Busbahnhof laufen?', answer: 'Ja, etwa einen Kilometer und eine Viertelstunde bergab. Mit viel Gepäck ist das Taxi bequemer.' },
-          { question: 'Wie kommen wir ins Gebäude?', answer: 'Das steht in eurer Anreise-Nachricht, die ihr vor dem Check-in bekommt.' }
+          { question: 'Wie kommen wir ins Gebäude?', answer: 'Ganz flexibel und ohne Rezeption. Ihr öffnet die Haus- und Wohnungstür autonom per Code. Die genauen Zugangsdaten schicken wir euch rechtzeitig vor eurer Anreise, sodass auch eine späte Ankunft nachts problemlos klappt.' }
         ],
         es: [
           { question: '¿Tiene AMARA Playa aparcamiento?', answer: 'Propio no. Aparcáis en la calle o en uno de los parkings públicos; la guía de aparcamiento dice cuáles.' },
           { question: '¿Podemos descargar en la puerta?', answer: 'Sí, parar un momento y descargar se puede. Después el coche va al aparcamiento.' },
           { question: '¿Podemos ir andando desde la estación de autobuses?', answer: 'Sí, alrededor de un kilómetro y un cuarto de hora cuesta abajo. Con mucho equipaje el taxi es más cómodo.' },
-          { question: '¿Cómo entramos en el edificio?', answer: 'Está en vuestro mensaje de llegada, que recibís antes del check-in.' }
+          { question: '¿Cómo entramos en el edificio?', answer: 'Con total flexibilidad y sin recepción. Abrís la puerta del edificio y la del apartamento vosotros mismos con un código. Os enviamos los datos de acceso exactos con tiempo antes de vuestra llegada, de modo que una llegada tardía por la noche no supone ningún problema.' }
         ],
         nl: [
           { question: 'Heeft AMARA Playa een parkeerplaats?', answer: 'Geen eigen. Je parkeert op straat of in een van de openbare parkeergarages; de parkeergids laat zien welke.' },
           { question: 'Kunnen we voor de deur uitladen?', answer: 'Ja, kort stoppen en uitladen kan. Daarna rijdt de auto naar de parkeerplaats.' },
           { question: 'Kunnen we vanaf het busstation lopen?', answer: 'Ja, ongeveer een kilometer en een kwartier bergaf. Met veel bagage is de taxi comfortabeler.' },
-          { question: 'Hoe komen we het gebouw binnen?', answer: 'Dat staat in je aankomstbericht, dat je vóór het inchecken krijgt.' }
+          { question: 'Hoe komen we het gebouw binnen?', answer: 'Helemaal flexibel en zonder receptie. Je opent de deur van het gebouw en van het appartement zelf met een code. De precieze toegangsgegevens sturen we je op tijd vóór aankomst, zodat ook een late aankomst ’s nachts probleemloos verloopt.' }
         ],
         sv: [
           { question: 'Har AMARA Playa en parkeringsplats?', answer: 'Ingen egen. Ni parkerar på gatan eller i ett av de allmänna parkeringshusen; parkeringsguiden visar vilka.' },
           { question: 'Kan vi lasta av vid dörren?', answer: 'Ja, att stanna kort och lasta av går bra. Sedan kör bilen vidare till parkeringen.' },
           { question: 'Kan vi gå från busstationen?', answer: 'Ja, ungefär en kilometer och en kvart nedför. Med mycket bagage är taxin bekvämare.' },
-          { question: 'Hur kommer vi in i byggnaden?', answer: 'Det står i ert ankomstmeddelande, som ni får före incheckningen.' }
+          { question: 'Hur kommer vi in i byggnaden?', answer: 'Helt flexibelt och utan reception. Ni öppnar portdörren och lägenhetsdörren själva med en kod. De exakta åtkomstuppgifterna skickar vi er i god tid före ankomsten, så att en sen ankomst på natten fungerar utan problem.' }
         ]
       }
     }
