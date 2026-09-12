@@ -33,6 +33,9 @@ interface NerjaLocationHubLocale {
   };
   orientation: NerjaLocationHubFeature & {
     markers: Array<{ label: string; value: string }>;
+    /** Accessible title and caption of the Iberian Peninsula orientation map. */
+    mapLabel: string;
+    mapNote: string;
   };
   arrival: NerjaLocationHubFeature;
   areas: NerjaLocationHubFeature & {
@@ -131,7 +134,10 @@ export const nerjaLocationHubContent: {
           { label: 'Historic focus', value: 'Old Town + Balcón de Europa' },
           { label: 'Western coast', value: 'Torrecilla + El Chucho + Playazo' },
           { label: 'Eastern coast', value: 'Calahonda + Carabeo + Burriana' }
-        ]
+        ],
+        mapLabel: 'Nerja on the Iberian Peninsula — on Andalusia’s Mediterranean coast east of Málaga, with Frigiliana in the hills behind and a possible round trip via Málaga, Ronda, Sevilla, Córdoba and Granada',
+        mapNote: 'A possible round trip from Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada and back along the coast. The circle enlarges Nerja and Frigiliana.',
+        link: { label: 'Nerja’s areas in detail', token: 'nerja_where_to_stay' }
       },
       arrival: {
         eyebrow: 'Arrival & mobility',
@@ -244,7 +250,10 @@ export const nerjaLocationHubContent: {
           { label: 'Historischer Kern', value: 'Altstadt + Balcón de Europa' },
           { label: 'Westliche Küste', value: 'Torrecilla + El Chucho + Playazo' },
           { label: 'Östliche Küste', value: 'Calahonda + Carabeo + Burriana' }
-        ]
+        ],
+        mapLabel: 'Nerja auf der Iberischen Halbinsel — an Andalusiens Mittelmeerküste östlich von Málaga, mit Frigiliana in den Hügeln dahinter und einer möglichen Rundreise über Málaga, Ronda, Sevilla, Córdoba und Granada',
+        mapNote: 'Eine mögliche Rundreise ab Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada und zurück über die Küste. Der Kreis zeigt Nerja und Frigiliana vergrößert.',
+        link: { label: 'Nerjas Lagen im Detail', token: 'nerja_where_to_stay' }
       },
       arrival: {
         eyebrow: 'Anreise & Mobilität',
@@ -357,7 +366,10 @@ export const nerjaLocationHubContent: {
           { label: 'Centro histórico', value: 'Casco antiguo + Balcón de Europa' },
           { label: 'Costa occidental', value: 'Torrecilla + El Chucho + Playazo' },
           { label: 'Costa oriental', value: 'Calahonda + Carabeo + Burriana' }
-        ]
+        ],
+        mapLabel: 'Nerja en la península ibérica — en la costa mediterránea de Andalucía, al este de Málaga, con Frigiliana en las colinas de detrás y una posible ruta por Málaga, Ronda, Sevilla, Córdoba y Granada',
+        mapNote: 'Una posible ruta desde Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada y vuelta por la costa. El círculo amplía Nerja y Frigiliana.',
+        link: { label: 'Las zonas de Nerja en detalle', token: 'nerja_where_to_stay' }
       },
       arrival: {
         eyebrow: 'Llegada y movilidad',
@@ -470,7 +482,10 @@ export const nerjaLocationHubContent: {
           { label: 'Historisch hart', value: 'Oude centrum + Balcón de Europa' },
           { label: 'Westkust', value: 'Torrecilla + El Chucho + Playazo' },
           { label: 'Oostkust', value: 'Calahonda + Carabeo + Burriana' }
-        ]
+        ],
+        mapLabel: 'Nerja op het Iberisch Schiereiland — aan de Middellandse Zeekust van Andalusië ten oosten van Málaga, met Frigiliana in de heuvels erachter en een mogelijke rondreis via Málaga, Ronda, Sevilla, Córdoba en Granada',
+        mapNote: 'Een mogelijke rondreis vanuit Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada en terug langs de kust. De cirkel vergroot Nerja en Frigiliana.',
+        link: { label: 'De ligging van Nerja in detail', token: 'nerja_where_to_stay' }
       },
       arrival: {
         eyebrow: 'Aankomst & mobiliteit',
@@ -583,7 +598,10 @@ export const nerjaLocationHubContent: {
           { label: 'Historiskt centrum', value: 'Gamla stan + Balcón de Europa' },
           { label: 'Västra kusten', value: 'Torrecilla + El Chucho + Playazo' },
           { label: 'Östra kusten', value: 'Calahonda + Carabeo + Burriana' }
-        ]
+        ],
+        mapLabel: 'Nerja på Iberiska halvön — på Andalusiens medelhavskust öster om Málaga, med Frigiliana i kullarna bakom och en möjlig rundresa via Málaga, Ronda, Sevilla, Córdoba och Granada',
+        mapNote: 'En möjlig rundresa från Nerja: Málaga, Ronda, Sevilla, Córdoba, Granada och tillbaka längs kusten. Cirkeln förstorar Nerja och Frigiliana.',
+        link: { label: 'Nerjas lägen i detalj', token: 'nerja_where_to_stay' }
       },
       arrival: {
         eyebrow: 'Ankomst & mobilitet',

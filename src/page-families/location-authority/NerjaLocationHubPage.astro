@@ -4,6 +4,7 @@ import LocationAreasBand from './LocationAreasBand.astro';
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
+import IberiaOrientationMap from '../../components/location/IberiaOrientationMap.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
 import { getNerjaLocationHubLocale, nerjaLocationHubContent } from '../../content/nerjaLocationHubContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
@@ -87,25 +88,38 @@ const footerHighlights: LabeledLink[] = [
       as the authoring source for the footer highlight labels.
     */}
 
-    <section id="orientation" class="scroll-mt-28 bg-surface px-6 py-24 md:px-12 md:py-32 lg:py-40">
-      <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:gap-20">
-        <div class="lg:col-span-7">
+    <section id="orientation" class="am-section am-section--tint scroll-mt-28 py-24 md:py-32 lg:py-40">
+      <div class="mx-auto grid max-w-screen-2xl items-center gap-14 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:order-1 lg:col-span-7" data-am-orientation-map="nerja">
+          <IberiaOrientationMap
+            place="nerja"
+            label={content.orientation.mapLabel}
+            note={content.orientation.mapNote}
+            lang={currentLang}
+          />
+        </div>
+        <div class="lg:order-2 lg:col-span-4 lg:col-start-9">
           <p class="am-text-eyebrow text-primary">{content.orientation.eyebrow}</p>
-          <h2 class="am-text-title mt-6 max-w-5xl text-balance text-on-surface">{content.orientation.title}</h2>
-          <div class="mt-10 max-w-3xl space-y-5">
+          <h2 class="am-text-title mt-6 italic tracking-tight text-on-surface">{content.orientation.title}</h2>
+          <div class="mt-9 space-y-6">
             {content.orientation.paragraphs.map((paragraph) => (
               <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
             ))}
           </div>
-        </div>
-        <dl class="self-end border-y border-border-subtle lg:col-span-5">
-          {content.orientation.markers.map((marker, index) => (
-            <div class:list={['grid grid-cols-[0.65fr_1.35fr] gap-6 py-7', index > 0 && 'border-t border-border-subtle']}>
-              <dt class="text-primary am-text-label am-text-label--sm">{marker.label}</dt>
-              <dd class="am-text-subtitle text-on-surface">{marker.value}</dd>
+          <dl class="mt-10 border-t border-border-subtle">
+            {content.orientation.markers.map((marker) => (
+              <div class="grid grid-cols-[0.75fr_1.25fr] gap-6 border-b border-border-subtle py-5">
+                <dt class="am-text-label am-text-label--sm text-primary">{marker.label}</dt>
+                <dd class="am-text-body text-on-surface">{marker.value}</dd>
+              </div>
+            ))}
+          </dl>
+          {content.orientation.link && (
+            <div class="mt-9">
+              <a href={featureHref(content.orientation.link)} class="am-cta-link">{content.orientation.link.label}</a>
             </div>
-          ))}
-        </dl>
+          )}
+        </div>
       </div>
     </section>
 

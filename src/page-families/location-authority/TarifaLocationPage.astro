@@ -15,6 +15,7 @@ import EditorialByline from '../../components/editorial/EditorialByline.astro';
 import Navigation from '../../components/Navigation.astro';
 import LocationPanoramaHero from '../../components/location/LocationPanoramaHero.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
+import IberiaOrientationMap from '../../components/location/IberiaOrientationMap.astro';
 import { tarifaLocationContent } from '../../content/tarifaLocationContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
@@ -91,33 +92,38 @@ const byline = tarifaLocationContent.seo.article
     </section>
 
     <!-- Where you are: the two coasts. Photo brief: Playa Chica and the causeway to the Isla. -->
-    <section id="geography-orientation" class="scroll-mt-28 bg-surface-white px-6 pb-20 md:px-12 md:pb-28">
-      <div class="mx-auto max-w-screen-2xl">
-        <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <div class="am-overlap-end bg-surface-white lg:col-span-5">
-            <p class="am-text-eyebrow text-primary">{content.geography.eyebrow}</p>
-            <h2 class="am-text-title mt-5 text-balance text-on-surface">{content.geography.title}</h2>
-            <div class="mt-6 max-w-2xl space-y-5">
-              {content.geography.paragraphs.map((paragraph) => (
-                <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
-              ))}
-            </div>
-            {content.geography.link?.token && (
-              <a href={requiredLink(content.geography.link.token)} class="am-cta-link mt-8 inline-flex">
-                {content.geography.link.label}
-              </a>
-            )}
-          </div>
-          <PhotoBrief class="am-bleed-end aspect-[3/2] lg:col-span-7" {...requireRouteBrief('tarifa', 'strait')} />
+    <section id="geography-orientation" class="am-section am-section--plain scroll-mt-28 py-24 md:py-32 lg:py-40">
+      <div class="mx-auto grid max-w-screen-2xl items-center gap-14 lg:grid-cols-12 lg:gap-20">
+        <div class="lg:order-1 lg:col-span-7" data-am-orientation-map="tarifa">
+          <IberiaOrientationMap
+            place="tarifa"
+            label={content.geography.mapLabel}
+            note={content.geography.mapNote}
+            lang={currentLang}
+          />
         </div>
-        <dl class="am-overlap-up am-overlap-up--inset grid gap-5 bg-surface-white md:grid-cols-3 md:gap-8">
-          {content.geography.markers.map((marker) => (
-            <div>
-              <dt class="am-text-label am-text-label--sm text-primary">{marker.label}</dt>
-              <dd class="mt-2 text-on-surface">{marker.value}</dd>
+        <div class="lg:order-2 lg:col-span-4 lg:col-start-9">
+          <p class="am-text-eyebrow text-primary">{content.geography.eyebrow}</p>
+          <h2 class="am-text-title mt-6 italic tracking-tight text-on-surface">{content.geography.title}</h2>
+          <div class="mt-9 space-y-6">
+            {content.geography.paragraphs.map((paragraph) => (
+              <p class="am-text-body leading-relaxed text-on-surface-variant"><InlineEmphasis text={paragraph} /></p>
+            ))}
+          </div>
+          <dl class="mt-10 border-t border-border-subtle">
+            {content.geography.markers.map((marker) => (
+              <div class="grid grid-cols-[0.75fr_1.25fr] gap-6 border-b border-border-subtle py-5">
+                <dt class="am-text-label am-text-label--sm text-primary">{marker.label}</dt>
+                <dd class="am-text-body text-on-surface">{marker.value}</dd>
+              </div>
+            ))}
+          </dl>
+          {content.geography.link?.token && (
+            <div class="mt-9">
+              <a href={requiredLink(content.geography.link.token)} class="am-cta-link">{content.geography.link.label}</a>
             </div>
-          ))}
-        </dl>
+          )}
+        </div>
       </div>
     </section>
 
