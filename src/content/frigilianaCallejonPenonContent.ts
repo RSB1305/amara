@@ -4,11 +4,20 @@ import type { AmaraAuthoringSeo } from '../types/seo';
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
 
 export const frigilianaCallejonPenonSeo: AmaraAuthoringSeo = {
-  version: '2026-09-12-frigiliana-callejon-penon-v2',
+  version: '2026-09-13-frigiliana-callejon-penon-v3',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/05-frigiliana-pueblo.jpg',
-  article: { datePublished: '2026-09-11', dateModified: '2026-09-12', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
+  article: { datePublished: '2026-09-11', dateModified: '2026-09-13', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
+  landmark: {
+    name: { en: 'Callejón del Peñón', de: 'Callejón del Peñón', es: 'Callejón del Peñón', nl: 'Callejón del Peñón', sv: 'Callejón del Peñón' },
+    latitude: 36.794100,
+    longitude: -3.896200,
+    addressLocality: 'Frigiliana',
+    addressRegion: 'Andalusia',
+    addressCountry: 'ES',
+    isAccessibleForFree: true
+  },
   languages: {
     en: { title: 'Callejón del Peñón & the Miradores of Frigiliana', description: 'The steep, much-photographed lane in Frigiliana’s upper Barribarto, and the miradores nearby that open over the rooftops, the valley and the sierra — best early and late.', robots: 'index, follow', canonical: 'auto' },
     de: { title: 'Callejón del Peñón & die Miradores von Frigiliana', description: 'Die steile, vielfotografierte Gasse im oberen Barribarto von Frigiliana und die Miradores in der Nähe, die sich über die Dächer, das Tal und die Sierra öffnen — früh und spät am schönsten.', robots: 'index, follow', canonical: 'auto' },
@@ -104,14 +113,98 @@ export const frigilianaCallejonPenonCopy = {
     'Beklim het mooiste straatje van het dorp en het opent zich over de daken, het dal en de sierra erachter.',
     'Gå upp för byns vackraste gränd och den öppnar sig över taken, dalen och sierran bortom.'
   ),
+  visitFacts: {
+    heading: l('Visit & location', 'Besuch & Lage', 'Visita y ubicación', 'Bezoek & ligging', 'Besök & läge'),
+    items: [
+      {
+        label: l('Location', 'Standort', 'Ubicación', 'Ligging', 'Läge'),
+        value: l(
+          'The upper viewpoints of the Barribarto.',
+          'Die oberen Aussichtspunkte im Barribarto.',
+          'Los miradores altos del Barribarto.',
+          'De hoge uitkijkpunten van de Barribarto.',
+          'De övre utsiktspunkterna i Barribarto.'
+        )
+      },
+      {
+        label: l('Distance', 'Distanz', 'Distancia', 'Afstand', 'Avstånd'),
+        value: l(
+          'About 10–12 minutes on foot from Casa AMARA.',
+          'Etwa 10–12 Gehminuten von Casa AMARA.',
+          'A unos 10–12 minutos a pie desde Casa AMARA.',
+          'Ongeveer 10–12 minuten lopen vanaf Casa AMARA.',
+          'Ungefär 10–12 minuter till fots från Casa AMARA.'
+        )
+      },
+      {
+        label: l('Access', 'Zugang', 'Acceso', 'Toegang', 'Tillgång'),
+        value: l(
+          'Public stepped lanes, steep throughout — sturdy shoes needed; not wheelchair accessible.',
+          'Öffentliche Treppengassen, durchgehend steil — festes Schuhwerk nötig; nicht barrierefrei.',
+          'Callejones públicos con escalones, empinados en todo su trazado; hace falta calzado firme; no accesible en silla de ruedas.',
+          'Openbare trapstraatjes, overal steil — stevige schoenen nodig; niet rolstoeltoegankelijk.',
+          'Offentliga trappgränder, branta hela vägen — stadiga skor behövs; inte tillgängligt med rullstol.'
+        )
+      },
+      {
+        label: l('Best time', 'Beste Zeit', 'Mejor hora', 'Beste tijd', 'Bästa tid'),
+        value: l(
+          'Late afternoon, the golden hour, for the best light over the rooftops and the valley.',
+          'Später Nachmittag, die goldene Stunde, für das beste Licht über Dächern und Tal.',
+          'Al final de la tarde, la hora dorada, para la mejor luz sobre los tejados y el valle.',
+          'Laat in de middag, het gouden uur, voor het mooiste licht over de daken en het dal.',
+          'Sen eftermiddag, den gyllene timmen, för bästa ljuset över taken och dalen.'
+        )
+      }
+    ]
+  },
+  nearby: {
+    parts: [
+      {
+        text: l(
+          'From here you can climb on to the ',
+          'Von hier steigt ihr weiter hinauf zum ',
+          'Desde aquí podéis subir al ',
+          'Vanaf hier klim je verder naar het ',
+          'Härifrån kan ni klättra vidare till '
+        )
+      },
+      {
+        token: 'frigiliana_castillo_lizar',
+        label: l('Castillo de Lizar', 'Castillo de Lizar', 'Castillo de Lízar', 'Castillo de Lizar', 'Castillo de Lizar')
+      },
+      {
+        text: l(
+          ', or follow the ',
+          ', oder folgt dem ',
+          ', o seguir la ',
+          ', of volg je de ',
+          ', eller följa '
+        )
+      },
+      {
+        token: 'frigiliana_ceramic_panels',
+        label: l('ceramic-panel walk', 'Weg der Keramiktafeln', 'ruta de los azulejos', 'wandeling langs de keramische panelen', 'vandringen längs keramikpanelerna')
+      },
+      {
+        text: l(
+          ' back down into the lanes.',
+          ' wieder hinab in die Gassen.',
+          ' de vuelta a las calles.',
+          ' weer omlaag de straatjes in.',
+          ' tillbaka ner i gränderna.'
+        )
+      }
+    ]
+  },
   closing: {
     title: l('Time it for the light', 'Plant es fürs Licht', 'Buscad la luz', 'Kies het juiste licht', 'Sikta på ljuset'),
     lead: l(
-      'The Callejón del Peñón is a short, steep climb up from Casa AMARA into the Barribarto. Go early or late for the light across the white walls, and pair the view with the ceramic panels and the ruined Castillo de Lizar that tell you what you are looking at.',
-      'Der Callejón del Peñón ist ein kurzer, steiler Anstieg von Casa AMARA hinauf ins Barribarto. Geht früh oder spät wegen des Lichts über die weißen Wände und verbindet den Blick mit den Keramiktafeln und der Ruine des Castillo de Lizar, die euch sagen, was ihr da seht.',
-      'El callejón del Peñón es una subida corta y empinada desde Casa AMARA hasta el Barribarto. Id temprano o al atardecer por la luz sobre los muros blancos, y combinad la vista con los azulejos y los restos del castillo de Lízar, que os dicen qué estáis mirando.',
-      'Het Callejón del Peñón is een korte, steile klim vanaf Casa AMARA het Barribarto in. Ga vroeg of laat voor het licht over de witte muren, en combineer het uitzicht met de keramiekpanelen en de ruïne van het Castillo de Lizar die je vertellen waar je naar kijkt.',
-      'Callejón del Peñón är en kort, brant klättring från Casa AMARA upp i Barribarto. Gå tidigt eller sent för ljuset över de vita väggarna, och kombinera vyn med keramikpanelerna och ruinen av Castillo de Lizar som talar om vad ni ser.'
+      'The Callejón del Peñón is a short, steep climb up from Casa AMARA into the Barribarto. Go early or late for the light across the white walls, when the low sun rakes the lanes and the miradores are quiet.',
+      'Der Callejón del Peñón ist ein kurzer, steiler Anstieg von Casa AMARA hinauf ins Barribarto. Geht früh oder spät wegen des Lichts über die weißen Wände, wenn die tiefe Sonne die Gassen streift und die Miradores still sind.',
+      'El callejón del Peñón es una subida corta y empinada desde Casa AMARA hasta el Barribarto. Id temprano o al atardecer por la luz sobre los muros blancos, cuando el sol bajo roza las calles y los miradores están tranquilos.',
+      'Het Callejón del Peñón is een korte, steile klim vanaf Casa AMARA het Barribarto in. Ga vroeg of laat voor het licht over de witte muren, wanneer de lage zon de straatjes strijkt en de miradores stil zijn.',
+      'Callejón del Peñón är en kort, brant klättring från Casa AMARA upp i Barribarto. Gå tidigt eller sent för ljuset över de vita väggarna, när den låga solen stryker gränderna och miradorerna är tysta.'
     ),
     oldTownCta: l('Back to the old town', 'Zurück zur Altstadt', 'Volver al casco antiguo', 'Terug naar de oude kern', 'Tillbaka till gamla stan'),
     availabilityCta: l('Check availability', 'Verfügbarkeit prüfen', 'Consultar disponibilidad', 'Beschikbaarheid bekijken', 'Se tillgänglighet')

@@ -4,11 +4,21 @@ import type { AmaraAuthoringSeo } from '../types/seo';
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
 
 export const frigilianaRealesPositosSeo: AmaraAuthoringSeo = {
-  version: '2026-09-12-frigiliana-reales-positos-v2',
+  version: '2026-09-13-frigiliana-reales-positos-v3',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/08-frigiliana-pueblo.jpg',
-  article: { datePublished: '2026-09-11', dateModified: '2026-09-12', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
+  article: { datePublished: '2026-09-11', dateModified: '2026-09-13', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
+  landmark: {
+    name: { en: 'Los Reales Pósitos', de: 'Los Reales Pósitos', es: 'Los Reales Pósitos', nl: 'Los Reales Pósitos', sv: 'Los Reales Pósitos' },
+    latitude: 36.791550,
+    longitude: -3.896700,
+    addressLocality: 'Frigiliana',
+    addressRegion: 'Andalusia',
+    addressCountry: 'ES',
+    // Building is private (arches viewed from the lane); the flag marks the public lane.
+    isAccessibleForFree: true
+  },
   languages: {
     en: { title: 'Los Reales Pósitos in Frigiliana: The 1767 Grain Store', description: 'A public grain bank of 1767, built to secure the village’s supply through bad harvests. Now folded into private houses, its well-kept red-brick arches still stand out — a key witness to Frigiliana’s economic history.', robots: 'index, follow', canonical: 'auto' },
     de: { title: 'Los Reales Pósitos in Frigiliana: der Kornspeicher von 1767', description: 'Eine öffentliche Getreidebank von 1767, gebaut, um die Versorgung des Dorfes durch Missernten zu sichern. Heute in Wohnhäuser integriert, heben sich die gut erhaltenen roten Ziegelbögen deutlich ab — ein zentrales Zeugnis der Wirtschaftsgeschichte.', robots: 'index, follow', canonical: 'auto' },
@@ -39,11 +49,11 @@ export const frigilianaRealesPositosCopy = {
     ),
     paragraphs: [
       l(
-        'Set into the fabric of the old town, on Calle Real, are Los Reales Pósitos, a public grain store the Counts of Frigiliana had built in 1767. A pósito was a grain bank: it kept a reserve to secure the villagers’ supply — and their seed for the next sowing — through bad harvest years. The structure is now folded into private houses, but its well-kept red-brick arches still stand clear of the surrounding whitewash, a central witness to how Frigiliana fed and financed itself.',
-        'In das Gefüge der Altstadt eingelassen, an der Calle Real, liegen Los Reales Pósitos, ein öffentlicher Kornspeicher, den die Grafen von Frigiliana 1767 errichten ließen. Ein Pósito war eine Getreidebank: Er hielt eine Reserve, um die Versorgung der Dorfbewohner — und ihr Saatgut für die nächste Aussaat — durch Missernten zu sichern. Der Bau ist heute in Wohnhäuser integriert, doch seine gut erhaltenen roten Ziegelbögen heben sich weiterhin klar von der umgebenden Tünche ab — ein zentrales Zeugnis dafür, wie Frigiliana sich ernährte und finanzierte.',
-        'Encajados en el tejido del casco antiguo, en la calle Real, están Los Reales Pósitos, un almacén público de grano que los Condes de Frigiliana mandaron construir en 1767. Un pósito era una alhóndiga: guardaba una reserva para asegurar el abastecimiento de los vecinos —y su simiente para la siembra siguiente— en los años de malas cosechas. La estructura hoy está integrada en viviendas, pero sus arcos de ladrillo rojo, bien conservados, siguen destacando sobre el encalado del entorno: testimonio central de cómo Frigiliana se alimentaba y se financiaba.',
-        'Ingebed in het weefsel van de oude kern, aan de Calle Real, liggen Los Reales Pósitos, een openbare graanschuur die de Graven van Frigiliana in 1767 lieten bouwen. Een pósito was een graanbank: hij hield een reserve om de voorziening van de dorpelingen — en hun zaaigoed voor het volgende seizoen — door slechte oogstjaren veilig te stellen. De structuur is nu opgenomen in woonhuizen, maar de goed bewaarde rode baksteenbogen steken nog helder af tegen het omringende witsel — een sleuteltuige van hoe Frigiliana zich voedde en financierde.',
-        'Infogade i gamla stans väv, vid Calle Real, ligger Los Reales Pósitos, ett offentligt sädesmagasin som grevarna av Frigiliana lät uppföra 1767. En pósito var en spannmålsbank: den höll en reserv för att trygga bybornas försörjning — och deras utsäde till nästa sådd — genom dåliga skördeår. Byggnaden är i dag infogad i bostadshus, men dess välbevarade rödtegelbågar sticker fortfarande tydligt ut mot den omgivande kalkputsen — ett centralt vittne om hur Frigiliana födde och finansierade sig.'
+        'Set into the fabric of the old town, in the lower Barribarto, are Los Reales Pósitos, a public grain store the Counts of Frigiliana had built in 1767. A pósito was a grain bank: it kept a reserve to secure the villagers’ supply — and their seed for the next sowing — through bad harvest years. The structure is now folded into private houses, but its well-kept red-brick arches still stand clear of the surrounding whitewash, a central witness to how Frigiliana fed and financed itself.',
+        'In das Gefüge der Altstadt eingelassen, im unteren Barribarto, liegen Los Reales Pósitos, ein öffentlicher Kornspeicher, den die Grafen von Frigiliana 1767 errichten ließen. Ein Pósito war eine Getreidebank: Er hielt eine Reserve, um die Versorgung der Dorfbewohner — und ihr Saatgut für die nächste Aussaat — durch Missernten zu sichern. Der Bau ist heute in Wohnhäuser integriert, doch seine gut erhaltenen roten Ziegelbögen heben sich weiterhin klar von der umgebenden Tünche ab — ein zentrales Zeugnis dafür, wie Frigiliana sich ernährte und finanzierte.',
+        'Encajados en el tejido del casco antiguo, en el Barribarto bajo, están Los Reales Pósitos, un almacén público de grano que los Condes de Frigiliana mandaron construir en 1767. Un pósito era una alhóndiga: guardaba una reserva para asegurar el abastecimiento de los vecinos —y su simiente para la siembra siguiente— en los años de malas cosechas. La estructura hoy está integrada en viviendas, pero sus arcos de ladrillo rojo, bien conservados, siguen destacando sobre el encalado del entorno: testimonio central de cómo Frigiliana se alimentaba y se financiaba.',
+        'Ingebed in het weefsel van de oude kern, in het lagere Barribarto, liggen Los Reales Pósitos, een openbare graanschuur die de Graven van Frigiliana in 1767 lieten bouwen. Een pósito was een graanbank: hij hield een reserve om de voorziening van de dorpelingen — en hun zaaigoed voor het volgende seizoen — door slechte oogstjaren veilig te stellen. De structuur is nu opgenomen in woonhuizen, maar de goed bewaarde rode baksteenbogen steken nog helder af tegen het omringende witsel — een sleuteltuige van hoe Frigiliana zich voedde en financierde.',
+        'Infogade i gamla stans väv, i nedre Barribarto, ligger Los Reales Pósitos, ett offentligt sädesmagasin som grevarna av Frigiliana lät uppföra 1767. En pósito var en spannmålsbank: den höll en reserv för att trygga bybornas försörjning — och deras utsäde till nästa sådd — genom dåliga skördeår. Byggnaden är i dag infogad i bostadshus, men dess välbevarade rödtegelbågar sticker fortfarande tydligt ut mot den omgivande kalkputsen — ett centralt vittne om hur Frigiliana födde och finansierade sig.'
       )
     ]
   },
@@ -104,14 +114,90 @@ export const frigilianaRealesPositosCopy = {
     'Een openbare graanvoorraad, gebouwd zodat een mislukte oogst geen hongerwinter hoefde te betekenen.',
     'Ett offentligt spannmålsförråd, byggt så att en utebliven skörd inte behövde betyda en hungervinter.'
   ),
+  visitFacts: {
+    heading: l('Visit & location', 'Besuch & Lage', 'Visita y ubicación', 'Bezoek & ligging', 'Besök & läge'),
+    items: [
+      {
+        label: l('Location', 'Standort', 'Ubicación', 'Ligging', 'Läge'),
+        value: l(
+          'On Calle Hernando el Darra, in the lower Barribarto.',
+          'An der Calle Hernando el Darra, im unteren Barribarto.',
+          'En la calle Hernando el Darra, en el Barribarto bajo.',
+          'Aan de Calle Hernando el Darra, in het lagere Barribarto.',
+          'Vid Calle Hernando el Darra, i nedre Barribarto.'
+        )
+      },
+      {
+        label: l('Distance', 'Distanz', 'Distancia', 'Afstand', 'Avstånd'),
+        value: l(
+          'About a three-minute walk uphill from Casa AMARA.',
+          'Etwa drei Gehminuten bergauf von Casa AMARA.',
+          'A unos tres minutos a pie cuesta arriba desde Casa AMARA.',
+          'Ongeveer drie minuten lopen bergop vanaf Casa AMARA.',
+          'Ungefär tre minuters promenad uppför från Casa AMARA.'
+        )
+      },
+      {
+        label: l('Access', 'Zugang', 'Acceso', 'Toegang', 'Tillgång'),
+        value: l(
+          'Folded into private houses — the brick arches are seen from the outside only. The lane itself is public around the clock.',
+          'In Privathäuser integriert — die Ziegelbögen sind nur von außen zu sehen. Die Gasse selbst ist rund um die Uhr öffentlich.',
+          'Integrado en viviendas: los arcos de ladrillo solo se ven desde fuera. La calle en sí es pública a todas horas.',
+          'Opgenomen in woonhuizen — de baksteenbogen zijn alleen van buiten te zien. Het straatje zelf is dag en nacht openbaar.',
+          'Infogat i bostadshus — tegelbågarna ses endast utifrån. Själva gränden är offentlig dygnet runt.'
+        )
+      },
+      {
+        label: l('Best time', 'Beste Zeit', 'Mejor hora', 'Beste tijd', 'Bästa tid'),
+        value: l(
+          'By day, for the architectural contrast of red brick against the whitewash.',
+          'Tagsüber, für den architektonischen Kontrast von rotem Ziegel und Kalk.',
+          'De día, por el contraste arquitectónico del ladrillo rojo con la cal.',
+          'Overdag, voor het architectonische contrast van rode baksteen tegen het witsel.',
+          'Dagtid, för den arkitektoniska kontrasten mellan rött tegel och kalkputs.'
+        )
+      }
+    ]
+  },
+  nearby: {
+    parts: [
+      {
+        text: l(
+          'From here the lane climbs on toward the ',
+          'Von hier steigt die Gasse weiter hinauf zum ',
+          'Desde aquí la calle sube hacia el ',
+          'Vanaf hier klimt het straatje verder naar het ',
+          'Härifrån stiger gränden vidare mot '
+        )
+      },
+      {
+        token: 'frigiliana_callejon_penon',
+        label: l('Callejón del Peñón', 'Callejón del Peñón', 'Callejón del Peñón', 'Callejón del Peñón', 'Callejón del Peñón')
+      },
+      {
+        text: l(
+          ', or drops back down to the Plaza del Ingenio and ',
+          ', oder fällt zurück hinab zur Plaza del Ingenio und ',
+          ', o baja de nuevo a la Plaza del Ingenio y ',
+          ', of daalt terug naar de Plaza del Ingenio en ',
+          ', eller sjunker tillbaka ner till Plaza del Ingenio och '
+        )
+      },
+      {
+        token: 'frigiliana_ingenio',
+        label: l('El Ingenio', 'El Ingenio', 'El Ingenio', 'El Ingenio', 'El Ingenio')
+      },
+      { text: l('.', '.', '.', '.', '.') }
+    ]
+  },
   closing: {
     title: l('Spot the arches on your walk', 'Entdeckt die Bögen auf eurem Gang', 'Descubrid los arcos en vuestro paseo', 'Ontdek de bogen op je wandeling', 'Upptäck bågarna på er vandring'),
     lead: l(
-      'The Reales Pósitos are woven into the lanes of the old town, minutes from Casa AMARA. Note the red arches as you pass, then carry the thread on to El Ingenio, where the village’s bigger economy is still at work.',
-      'Die Reales Pósitos sind in die Gassen der Altstadt eingewoben, wenige Minuten von Casa AMARA. Merkt euch die roten Bögen im Vorbeigehen und nehmt den Faden dann mit zu El Ingenio, wo die größere Wirtschaft des Dorfes bis heute arbeitet.',
-      'Los Reales Pósitos están entretejidos en las calles del casco antiguo, a pocos minutos de Casa AMARA. Fijaos en los arcos rojos al pasar y llevad luego el hilo hasta El Ingenio, donde la economía mayor del pueblo sigue en marcha.',
-      'De Reales Pósitos zijn verweven met de straatjes van de oude kern, minuten van Casa AMARA. Let op de rode bogen in het voorbijgaan en neem de draad dan mee naar El Ingenio, waar de grotere economie van het dorp nog draait.',
-      'Los Reales Pósitos är invävda i gamla stans gränder, några minuter från Casa AMARA. Lägg märke till de röda bågarna när ni passerar och ta sedan tråden vidare till El Ingenio, där byns större ekonomi ännu arbetar.'
+      'The Reales Pósitos are woven into the lanes of the old town, minutes from Casa AMARA. Note the red arches as you pass — the everyday economy that carried the village through its lean years.',
+      'Die Reales Pósitos sind in die Gassen der Altstadt eingewoben, wenige Minuten von Casa AMARA. Merkt euch die roten Bögen im Vorbeigehen — die alltägliche Wirtschaft, die das Dorf durch die mageren Jahre trug.',
+      'Los Reales Pósitos están entretejidos en las calles del casco antiguo, a pocos minutos de Casa AMARA. Fijaos en los arcos rojos al pasar: la economía cotidiana que sostuvo al pueblo en los años flacos.',
+      'De Reales Pósitos zijn verweven met de straatjes van de oude kern, minuten van Casa AMARA. Let op de rode bogen in het voorbijgaan — de alledaagse economie die het dorp door de magere jaren droeg.',
+      'Los Reales Pósitos är invävda i gamla stans gränder, några minuter från Casa AMARA. Lägg märke till de röda bågarna när ni passerar — den vardagliga ekonomin som bar byn genom de magra åren.'
     ),
     oldTownCta: l('Back to the old town', 'Zurück zur Altstadt', 'Volver al casco antiguo', 'Terug naar de oude kern', 'Tillbaka till gamla stan'),
     availabilityCta: l('Check availability', 'Verfügbarkeit prüfen', 'Consultar disponibilidad', 'Beschikbaarheid bekijken', 'Se tillgänglighet')
