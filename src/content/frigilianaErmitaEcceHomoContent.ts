@@ -11,9 +11,9 @@ export const frigilianaErmitaEcceHomoSeo: AmaraAuthoringSeo = {
   article: { datePublished: '2026-09-11', dateModified: '2026-09-13', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
   landmark: {
     name: { en: 'Ermita de Ecce Homo', de: 'Ermita de Ecce Homo', es: 'Ermita del Ecce Homo', nl: 'Ermita de Ecce Homo', sv: 'Ermita de Ecce Homo' },
-    // OSM node at the far end of Calle Chorruelo (Calle Rosarico la Joaquín); pending an on-site GPS fix.
-    latitude: 36.795397,
-    longitude: -3.900603,
+    // Operator on-site GPS fix (2026-09-13); confirms the far end of Calle Chorruelo (Calle Rosarico la Joaquín).
+    latitude: 36.795405,
+    longitude: -3.900596,
     addressLocality: 'Frigiliana',
     addressRegion: 'Andalusia',
     addressCountry: 'ES',

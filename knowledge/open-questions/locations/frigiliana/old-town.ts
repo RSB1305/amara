@@ -96,13 +96,13 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
     subject: 'frigiliana',
     topic: 'ermita-ecce-homo',
     question:
-      'Where exactly is the Ermita del Ecce Homo, and what is at the operator GPS fix 36.788478, -3.894949? That point is about 640 m south-east of Casa AMARA and about 324 m south of El Ingenio, in the modern southern part of the village toward the Río Higuerón — roughly 920 m from the OpenStreetMap chapel node at the far end of Calle Chorruelo (36.7953972, -3.9006033) and far from the municipal route, which places the Ecce Homo about 300 m beyond the sculpture at the end of Chorruelo.',
+      'Where exactly is the Ermita del Ecce Homo (Santo Cristo de la Caña)?',
     priority: 'high',
     reason:
-      'The operator on-site GPS fix (2026-09-13) contradicts both prior candidates by hundreds of metres and would move the chapel out of Calle Chorruelo entirely; the spoke text (far end of Calle Chorruelo, by Calle Rosarico la Joaquín) and the Fuente Vieja handoff both depend on the real location. Because the fix is so far from every documentary source, the identity of the point is confirmed with the operator before the coordinate and the location prose are rewritten.',
+      'Resolved by the operator on-site GPS fix (2026-09-13): the chapel stands at 36.795405, -3.900596, at the far end of Calle Chorruelo by Calle Rosarico la Joaquín — within about 1 m of the OpenStreetMap node and consistent with the municipal route. An earlier operator point 640 m to the south-east (36.788478, -3.894949) was a mis-capture and is discarded. The spoke coordinate and the "far end of Calle Chorruelo" location text are confirmed.',
     preferredEvidence:
-      'Operator confirmation that the Santo Cristo de la Caña / Ecce Homo chapel stands at 36.788478, -3.894949, with the street or landmark it sits next to; the Catastro address of the chapel.',
-    status: 'open',
+      'Operator on-site GPS fix (confirmed 2026-09-13).',
+    status: 'resolved',
     createdAt: '2026-09-13'
   },
   {
