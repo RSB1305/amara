@@ -74,7 +74,7 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
       'The public page and the planned old-town map carry one coordinate; the fact frigiliana.fuente-vieja.location.coordinates claimed the inventory UTM matched the pin, which it does not. The ficha’s own text ("en la plaza del mismo nombre, travesía de la calle Chorruelo") and the decree boundary crossing the Plaza de la Fuente support the southern position.',
     preferredEvidence:
       'A GPS fix at the fountain by the operator, plus the Catastro or IECA street map; then correct the inventory-derived Wikidata item or the AMARA fact.',
-    status: 'open',
+    status: 'resolved',
     createdAt: '2026-09-13'
   },
   {
@@ -88,7 +88,7 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
       'The knowledge fact says Calle Real, the public spoke says Hernando el Darra with a different coordinate; a map with both nodes would expose the gap. The corner building may be addressed from either street.',
     preferredEvidence:
       'A GPS fix at the brick arches by the operator and the Catastro address of the building.',
-    status: 'open',
+    status: 'resolved',
     createdAt: '2026-09-13'
   },
   {
@@ -96,12 +96,12 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
     subject: 'frigiliana',
     topic: 'ermita-ecce-homo',
     question:
-      'Where exactly is the Ermita del Ecce Homo: at the end of Calle Chorruelo by Calle Rosarico la Joaquín (OpenStreetMap 36.7953972, -3.9006033; about 300 m beyond the end of Chorruelo per the municipal itinerary), or at the public spoke’s coordinate 36.793750, -3.898850 near the church, and what is the real walking distance from Casa AMARA?',
+      'Where exactly is the Ermita del Ecce Homo, and what is at the operator GPS fix 36.788478, -3.894949? That point is about 640 m south-east of Casa AMARA and about 324 m south of El Ingenio, in the modern southern part of the village toward the Río Higuerón — roughly 920 m from the OpenStreetMap chapel node at the far end of Calle Chorruelo (36.7953972, -3.9006033) and far from the municipal route, which places the Ecce Homo about 300 m beyond the sculpture at the end of Chorruelo.',
     priority: 'high',
     reason:
-      'The two positions are about 250 m apart; the spoke’s "three minutes on the flat" from Casa AMARA and the Fuente Vieja spoke’s "beside the Ermita" both depend on the answer.',
+      'The operator on-site GPS fix (2026-09-13) contradicts both prior candidates by hundreds of metres and would move the chapel out of Calle Chorruelo entirely; the spoke text (far end of Calle Chorruelo, by Calle Rosarico la Joaquín) and the Fuente Vieja handoff both depend on the real location. Because the fix is so far from every documentary source, the identity of the point is confirmed with the operator before the coordinate and the location prose are rewritten.',
     preferredEvidence:
-      'A GPS fix and a measured walk by the operator; the Catastro address of the chapel.',
+      'Operator confirmation that the Santo Cristo de la Caña / Ecce Homo chapel stands at 36.788478, -3.894949, with the street or landmark it sits next to; the Catastro address of the chapel.',
     status: 'open',
     createdAt: '2026-09-13'
   },

@@ -11,8 +11,9 @@ export const frigilianaFuenteViejaSeo: AmaraAuthoringSeo = {
   article: { datePublished: '2026-09-11', dateModified: '2026-09-13', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
   landmark: {
     name: { en: 'Fuente Vieja', de: 'Fuente Vieja', es: 'Fuente Vieja', nl: 'Fuente Vieja', sv: 'Fuente Vieja' },
-    latitude: 36.793401,
-    longitude: -3.899301,
+    // Operator on-site GPS fix (2026-09-13); confirms the plaza position (the fountain inventory’s UTM was ~90 m off). Elevation from the inventory sheet.
+    latitude: 36.793515,
+    longitude: -3.899285,
     elevation: 315,
     addressLocality: 'Frigiliana',
     addressRegion: 'Andalusia',

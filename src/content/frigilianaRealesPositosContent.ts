@@ -11,9 +11,9 @@ export const frigilianaRealesPositosSeo: AmaraAuthoringSeo = {
   article: { datePublished: '2026-09-11', dateModified: '2026-09-13', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
   landmark: {
     name: { en: 'Los Reales Pósitos', de: 'Los Reales Pósitos', es: 'Los Reales Pósitos', nl: 'Los Reales Pósitos', sv: 'Los Reales Pósitos' },
-    // OSM node at Calle Real 1, the building frontage; pending an on-site GPS fix.
-    latitude: 36.791477,
-    longitude: -3.895608,
+    // Operator on-site GPS fix (2026-09-13); confirms the Calle Real frontage near the Plaza del Ingenio.
+    latitude: 36.791565,
+    longitude: -3.895613,
     addressLocality: 'Frigiliana',
     addressRegion: 'Andalusia',
     addressCountry: 'ES',

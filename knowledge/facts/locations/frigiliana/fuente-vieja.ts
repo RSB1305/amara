@@ -96,15 +96,15 @@ const facts = [
     subject: 'frigiliana',
     topic: 'fuente-vieja',
     statement:
-      'The Plaza de la Fuente Vieja sits at 36.793401, -3.899301 (WGS84) according to the operator pin, which matches the OpenStreetMap fountain node and the Wikidata plaza item; the fountain inventory gives the altitude as about 315 m, but its own UTM ETRS89 zone 30 reading (X 419762.835, Y 4072417.131) converts to a point about 90 m further north along Calle Chorruelo.',
-    status: 'disputed',
+      'The Fuente Vieja sits at 36.793515, -3.899285 (WGS84), an operator on-site GPS fix (2026-09-13) about 13 m from the earlier operator pin and matching the OpenStreetMap fountain node; the fountain inventory gives the altitude as about 315 m. The inventory’s own UTM ETRS89 zone 30 reading (X 419762.835, Y 4072417.131), which converts to a point about 90 m further north, is superseded by the GPS fix.',
+    status: 'first-party-observation',
     sourceIds: ['amara-old-town-monuments-operator-brief-2026', 'conocetusfuentes-fuente-vieja-3209'],
     checkedAt: '2026-09-13',
-    reviewAfter: '2027-09-13',
+    reviewAfter: '2028-09-13',
     volatility: 'low',
     claimBoundary:
-      'Decimal coordinates are an operator-provided pin used for the page TouristAttraction geo node; the elevation is from the inventory sheet. The inventory UTM does not confirm the pin, so the position is recorded as disputed until a GPS fix on site (open question frigiliana.old-town.question.fuente-vieja-position). The ficha’s own text — on the plaza of that name, off Calle Chorruelo — and the decree boundary crossing the Plaza de la Fuente support the pin.',
-    notes: 'Flagged by the 2026-09-13 Calle Real & Barribajo run; the earlier wording that the inventory "records the same point" was wrong.',
+      'Coordinates are an operator on-site GPS fix used for the page TouristAttraction geo node; the elevation is from the inventory sheet. The fix resolves the earlier dispute (open question frigiliana.old-town.question.fuente-vieja-position) in favour of the plaza position off Calle Chorruelo, against the fountain inventory’s UTM.',
+    notes: 'Was disputed after the 2026-09-13 Calle Real & Barribajo run; resolved by the operator GPS fix the same day.',
   },
   {
     id: 'frigiliana.fuente-vieja.access.route-from-casa-amara',
