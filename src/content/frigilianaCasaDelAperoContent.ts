@@ -233,11 +233,11 @@ export const frigilianaCasaDelAperoCopy = {
       {
         label: l('Distance', 'Distanz', 'Distancia', 'Afstand', 'Avstånd'),
         value: l(
-          'About a two-minute walk from Casa AMARA — a short, flat way through the Barribajo.',
-          'Etwa zwei Gehminuten von Casa AMARA — ein kurzer, flacher Weg durch das Barribajo.',
-          'A unos dos minutos a pie de Casa AMARA: un camino corto y llano por el Barribajo.',
-          'Ongeveer twee minuten lopen vanaf Casa AMARA — een korte, vlakke weg door de Barribajo.',
-          'Ungefär två minuters promenad från Casa AMARA — en kort, flack väg genom Barribajo.'
+          'About 500 m as the crow flies from Casa AMARA — roughly a ten-minute walk, step-free and gently downhill, with a short climb up at the end.',
+          'Rund 500 m Luftlinie von Casa AMARA — zu Fuß etwa zehn Minuten, ohne Stufen und leicht bergab, mit einem kurzen Anstieg am Ende.',
+          'Unos 500 m en línea recta desde Casa AMARA: a pie, unos diez minutos, sin escalones y en ligera bajada, con una breve subida al final.',
+          'Ongeveer 500 m hemelsbreed vanaf Casa AMARA — te voet zo’n tien minuten, zonder treden en licht bergaf, met een korte klim aan het eind.',
+          'Ungefär 500 m fågelvägen från Casa AMARA — till fots omkring tio minuter, utan trappsteg och svagt nedför, med en kort stigning på slutet.'
         )
       },
       {
@@ -302,11 +302,11 @@ export const frigilianaCasaDelAperoCopy = {
       'Börja här, vandra sedan gamla stan'
     ),
     lead: l(
-      'The Casa del Apero sits at the foot of the old town, minutes below Casa AMARA.',
-      'Die Casa del Apero liegt am Fuß der Altstadt, wenige Minuten unterhalb von Casa AMARA.',
-      'La Casa del Apero está al pie del casco antiguo, a pocos minutos de Casa AMARA.',
-      'De Casa del Apero ligt aan de voet van de oude kern, minuten onder Casa AMARA.',
-      'Casa del Apero ligger vid foten av gamla stan, några minuter nedanför Casa AMARA.'
+      'The Casa del Apero sits at the foot of the old town, about a ten-minute walk below Casa AMARA.',
+      'Die Casa del Apero liegt am Fuß der Altstadt, gut zehn Gehminuten unterhalb von Casa AMARA.',
+      'La Casa del Apero está al pie del casco antiguo, a unos diez minutos a pie por debajo de Casa AMARA.',
+      'De Casa del Apero ligt aan de voet van de oude kern, ongeveer tien minuten lopen onder Casa AMARA.',
+      'Casa del Apero ligger vid foten av gamla stan, cirka tio minuters promenad nedanför Casa AMARA.'
     ),
     oldTownCta: l(
       'Back to the old town',
