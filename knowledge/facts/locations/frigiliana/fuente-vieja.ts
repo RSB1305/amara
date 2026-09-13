@@ -91,6 +91,34 @@ const facts = [
     volatility: 'low',
     claimBoundary: 'The named plaza and the proximity to the Ermita are attested; "lower edge of the old town" is imprecise and should be phrased as the plaza location.',
   },
+  {
+    id: 'frigiliana.fuente-vieja.location.coordinates',
+    subject: 'frigiliana',
+    topic: 'fuente-vieja',
+    statement:
+      'The Plaza de la Fuente Vieja sits at 36.793401, -3.899301 (WGS84), about 315 m above sea level. The Andalusian fountain inventory records the same point as UTM ETRS89 zone 30 X 419762.835, Y 4072417.131.',
+    status: 'verified',
+    sourceIds: ['amara-old-town-monuments-operator-brief-2026', 'conocetusfuentes-fuente-vieja-3209'],
+    checkedAt: '2026-09-13',
+    reviewAfter: '2031-09-13',
+    volatility: 'low',
+    claimBoundary:
+      'Decimal coordinates are an operator-provided on-site pin; the elevation and the UTM reading are from the fountain inventory sheet. Used for the page TouristAttraction geo node.',
+  },
+  {
+    id: 'frigiliana.fuente-vieja.access.route-from-casa-amara',
+    subject: 'frigiliana',
+    topic: 'fuente-vieja',
+    statement:
+      'From Casa AMARA the fountain is about 60 m away at the lower edge of the old town: you go back down Calle Chorruelo — a cobbled descent of roughly 10–15 vertical metres — and at the Bar El Alegría del Barrio turn down to the left, with the fountain a few steps along on the left. The surrounding Barribajo runs flat and wide; the fountain is an open public square, freely accessible at any hour.',
+    status: 'verified',
+    sourceIds: ['amara-old-town-monuments-operator-brief-2026'],
+    checkedAt: '2026-09-13',
+    reviewAfter: '2028-09-13',
+    volatility: 'medium',
+    claimBoundary:
+      'Operator first-hand wayfinding. The ~60 m distance and ~10–15 m descent are approximate on-site estimates; the Bar El Alegría del Barrio is a wayfinding landmark that may change name or close. Free public access is inherent to an open street fountain.',
+  },
 ] as const satisfies readonly FuenteViejaFactInput[];
 
 export const frigilianaFuenteViejaFacts = defineKnowledgeFacts(facts);
