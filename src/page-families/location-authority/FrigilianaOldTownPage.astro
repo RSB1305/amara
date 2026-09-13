@@ -171,7 +171,15 @@ const sightMedia: ReadonlyArray<{
       nl: 'Trapstraat met boog en kiezelmozaïek in de hoge oude kern van Frigiliana in de schemering',
       sv: 'Trappgränd med valv och kiselmosaik i övre gamla stan i Frigiliana i skymningen'
     },
-    focalPoint: '50% 50%'
+    focalPoint: '50% 50%',
+    href: resolveOptionalLink('frigiliana_barribarto', currentLang, { suppressMissing: true }) ?? undefined,
+    linkLabel: {
+      en: 'Barribarto: the upper quarter, its lanes and adarves',
+      de: 'Barribarto: das obere Viertel, seine Gassen und Adarves',
+      es: 'El Barribarto: la parte alta, sus calles y adarves',
+      nl: 'Barribarto: de bovenwijk, haar straatjes en adarves',
+      sv: 'Barribarto: det övre kvarteret, dess gränder och adarves'
+    }
   },
   {
     image: fuenteViejaImage,

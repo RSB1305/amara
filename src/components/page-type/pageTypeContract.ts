@@ -92,6 +92,7 @@ export const AMARA_PAGE_FAMILY_PROFILES = {
   'experience-frigiliana-reales-positos': { type: 'explore', tier: 'approved' },
   'experience-frigiliana-ermita-ecce-homo': { type: 'explore', tier: 'approved' },
   'experience-frigiliana-callejon-penon': { type: 'explore', tier: 'approved' },
+  'experience-frigiliana-barribarto': { type: 'explore', tier: 'approved' },
   'experience-nerja-article': { type: 'explore', tier: 'approved' },
   'experience-nerja-verano-azul': { type: 'explore', tier: 'approved' },
   'experience-tarifa-guide': { type: 'explore', tier: 'approved' },

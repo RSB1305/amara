@@ -11,8 +11,9 @@ export const frigilianaRealesPositosSeo: AmaraAuthoringSeo = {
   article: { datePublished: '2026-09-11', dateModified: '2026-09-13', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
   landmark: {
     name: { en: 'Los Reales Pósitos', de: 'Los Reales Pósitos', es: 'Los Reales Pósitos', nl: 'Los Reales Pósitos', sv: 'Los Reales Pósitos' },
-    latitude: 36.791550,
-    longitude: -3.896700,
+    // OSM node at Calle Real 1, the building frontage; pending an on-site GPS fix.
+    latitude: 36.791477,
+    longitude: -3.895608,
     addressLocality: 'Frigiliana',
     addressRegion: 'Andalusia',
     addressCountry: 'ES',
@@ -49,11 +50,11 @@ export const frigilianaRealesPositosCopy = {
     ),
     paragraphs: [
       l(
-        'Set into the fabric of the old town, in the lower Barribarto, are Los Reales Pósitos, a public grain store the Counts of Frigiliana had built in 1767. A pósito was a grain bank: it kept a reserve to secure the villagers’ supply — and their seed for the next sowing — through bad harvest years. The structure is now folded into private houses, but its well-kept red-brick arches still stand clear of the surrounding whitewash, a central witness to how Frigiliana fed and financed itself.',
-        'In das Gefüge der Altstadt eingelassen, im unteren Barribarto, liegen Los Reales Pósitos, ein öffentlicher Kornspeicher, den die Grafen von Frigiliana 1767 errichten ließen. Ein Pósito war eine Getreidebank: Er hielt eine Reserve, um die Versorgung der Dorfbewohner — und ihr Saatgut für die nächste Aussaat — durch Missernten zu sichern. Der Bau ist heute in Wohnhäuser integriert, doch seine gut erhaltenen roten Ziegelbögen heben sich weiterhin klar von der umgebenden Tünche ab — ein zentrales Zeugnis dafür, wie Frigiliana sich ernährte und finanzierte.',
-        'Encajados en el tejido del casco antiguo, en el Barribarto bajo, están Los Reales Pósitos, un almacén público de grano que los Condes de Frigiliana mandaron construir en 1767. Un pósito era una alhóndiga: guardaba una reserva para asegurar el abastecimiento de los vecinos —y su simiente para la siembra siguiente— en los años de malas cosechas. La estructura hoy está integrada en viviendas, pero sus arcos de ladrillo rojo, bien conservados, siguen destacando sobre el encalado del entorno: testimonio central de cómo Frigiliana se alimentaba y se financiaba.',
-        'Ingebed in het weefsel van de oude kern, in het lagere Barribarto, liggen Los Reales Pósitos, een openbare graanschuur die de Graven van Frigiliana in 1767 lieten bouwen. Een pósito was een graanbank: hij hield een reserve om de voorziening van de dorpelingen — en hun zaaigoed voor het volgende seizoen — door slechte oogstjaren veilig te stellen. De structuur is nu opgenomen in woonhuizen, maar de goed bewaarde rode baksteenbogen steken nog helder af tegen het omringende witsel — een sleuteltuige van hoe Frigiliana zich voedde en financierde.',
-        'Infogade i gamla stans väv, i nedre Barribarto, ligger Los Reales Pósitos, ett offentligt sädesmagasin som grevarna av Frigiliana lät uppföra 1767. En pósito var en spannmålsbank: den höll en reserv för att trygga bybornas försörjning — och deras utsäde till nästa sådd — genom dåliga skördeår. Byggnaden är i dag infogad i bostadshus, men dess välbevarade rödtegelbågar sticker fortfarande tydligt ut mot den omgivande kalkputsen — ett centralt vittne om hur Frigiliana födde och finansierade sig.'
+        'Set into the fabric of the old town, at the foot of Calle Real, are Los Reales Pósitos, a public grain store the Counts of Frigiliana had built in 1767. A pósito was a grain bank: it kept a reserve to secure the villagers’ supply — and their seed for the next sowing — through bad harvest years. The structure is now folded into private houses, but its well-kept red-brick arches still stand clear of the surrounding whitewash, a central witness to how Frigiliana fed and financed itself.',
+        'In das Gefüge der Altstadt eingelassen, am Fuß der Calle Real, liegen Los Reales Pósitos, ein öffentlicher Kornspeicher, den die Grafen von Frigiliana 1767 errichten ließen. Ein Pósito war eine Getreidebank: Er hielt eine Reserve, um die Versorgung der Dorfbewohner — und ihr Saatgut für die nächste Aussaat — durch Missernten zu sichern. Der Bau ist heute in Wohnhäuser integriert, doch seine gut erhaltenen roten Ziegelbögen heben sich weiterhin klar von der umgebenden Tünche ab — ein zentrales Zeugnis dafür, wie Frigiliana sich ernährte und finanzierte.',
+        'Encajados en el tejido del casco antiguo, al pie de la calle Real, están Los Reales Pósitos, un almacén público de grano que los Condes de Frigiliana mandaron construir en 1767. Un pósito era una alhóndiga: guardaba una reserva para asegurar el abastecimiento de los vecinos —y su simiente para la siembra siguiente— en los años de malas cosechas. La estructura hoy está integrada en viviendas, pero sus arcos de ladrillo rojo, bien conservados, siguen destacando sobre el encalado del entorno: testimonio central de cómo Frigiliana se alimentaba y se financiaba.',
+        'Ingebed in het weefsel van de oude kern, aan de voet van de Calle Real, liggen Los Reales Pósitos, een openbare graanschuur die de Graven van Frigiliana in 1767 lieten bouwen. Een pósito was een graanbank: hij hield een reserve om de voorziening van de dorpelingen — en hun zaaigoed voor het volgende seizoen — door slechte oogstjaren veilig te stellen. De structuur is nu opgenomen in woonhuizen, maar de goed bewaarde rode baksteenbogen steken nog helder af tegen het omringende witsel — een sleuteltuige van hoe Frigiliana zich voedde en financierde.',
+        'Infogade i gamla stans väv, vid foten av Calle Real, ligger Los Reales Pósitos, ett offentligt sädesmagasin som grevarna av Frigiliana lät uppföra 1767. En pósito var en spannmålsbank: den höll en reserv för att trygga bybornas försörjning — och deras utsäde till nästa sådd — genom dåliga skördeår. Byggnaden är i dag infogad i bostadshus, men dess välbevarade rödtegelbågar sticker fortfarande tydligt ut mot den omgivande kalkputsen — ett centralt vittne om hur Frigiliana födde och finansierade sig.'
       )
     ]
   },
@@ -120,21 +121,21 @@ export const frigilianaRealesPositosCopy = {
       {
         label: l('Location', 'Standort', 'Ubicación', 'Ligging', 'Läge'),
         value: l(
-          'On Calle Hernando el Darra, in the lower Barribarto.',
-          'An der Calle Hernando el Darra, im unteren Barribarto.',
-          'En la calle Hernando el Darra, en el Barribarto bajo.',
-          'Aan de Calle Hernando el Darra, in het lagere Barribarto.',
-          'Vid Calle Hernando el Darra, i nedre Barribarto.'
+          'On Calle Real, at the corner of Calle Hernando el Darra, near the Plaza del Ingenio.',
+          'An der Calle Real, an der Ecke zur Calle Hernando el Darra, nahe der Plaza del Ingenio.',
+          'En la calle Real, en la esquina con la calle Hernando el Darra, cerca de la Plaza del Ingenio.',
+          'Aan de Calle Real, op de hoek met de Calle Hernando el Darra, bij de Plaza del Ingenio.',
+          'Vid Calle Real, i hörnet mot Calle Hernando el Darra, nära Plaza del Ingenio.'
         )
       },
       {
         label: l('Distance', 'Distanz', 'Distancia', 'Afstand', 'Avstånd'),
         value: l(
-          'About a three-minute walk uphill from Casa AMARA.',
-          'Etwa drei Gehminuten bergauf von Casa AMARA.',
-          'A unos tres minutos a pie cuesta arriba desde Casa AMARA.',
-          'Ongeveer drie minuten lopen bergop vanaf Casa AMARA.',
-          'Ungefär tre minuters promenad uppför från Casa AMARA.'
+          'A short walk down Calle Real from Casa AMARA, toward the Plaza del Ingenio.',
+          'Ein kurzer Weg die Calle Real hinab von Casa AMARA, Richtung Plaza del Ingenio.',
+          'Un corto paseo bajando por la calle Real desde Casa AMARA, hacia la Plaza del Ingenio.',
+          'Een korte wandeling omlaag door de Calle Real vanaf Casa AMARA, richting de Plaza del Ingenio.',
+          'En kort promenad ner för Calle Real från Casa AMARA, mot Plaza del Ingenio.'
         )
       },
       {

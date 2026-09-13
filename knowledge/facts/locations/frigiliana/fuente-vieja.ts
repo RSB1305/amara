@@ -96,14 +96,15 @@ const facts = [
     subject: 'frigiliana',
     topic: 'fuente-vieja',
     statement:
-      'The Plaza de la Fuente Vieja sits at 36.793401, -3.899301 (WGS84), about 315 m above sea level. The Andalusian fountain inventory records the same point as UTM ETRS89 zone 30 X 419762.835, Y 4072417.131.',
-    status: 'verified',
+      'The Plaza de la Fuente Vieja sits at 36.793401, -3.899301 (WGS84) according to the operator pin, which matches the OpenStreetMap fountain node and the Wikidata plaza item; the fountain inventory gives the altitude as about 315 m, but its own UTM ETRS89 zone 30 reading (X 419762.835, Y 4072417.131) converts to a point about 90 m further north along Calle Chorruelo.',
+    status: 'disputed',
     sourceIds: ['amara-old-town-monuments-operator-brief-2026', 'conocetusfuentes-fuente-vieja-3209'],
     checkedAt: '2026-09-13',
-    reviewAfter: '2031-09-13',
+    reviewAfter: '2027-09-13',
     volatility: 'low',
     claimBoundary:
-      'Decimal coordinates are an operator-provided on-site pin; the elevation and the UTM reading are from the fountain inventory sheet. Used for the page TouristAttraction geo node.',
+      'Decimal coordinates are an operator-provided pin used for the page TouristAttraction geo node; the elevation is from the inventory sheet. The inventory UTM does not confirm the pin, so the position is recorded as disputed until a GPS fix on site (open question frigiliana.old-town.question.fuente-vieja-position). The ficha’s own text — on the plaza of that name, off Calle Chorruelo — and the decree boundary crossing the Plaza de la Fuente support the pin.',
+    notes: 'Flagged by the 2026-09-13 Calle Real & Barribajo run; the earlier wording that the inventory "records the same point" was wrong.',
   },
   {
     id: 'frigiliana.fuente-vieja.access.route-from-casa-amara',
