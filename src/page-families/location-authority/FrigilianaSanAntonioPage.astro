@@ -13,7 +13,8 @@ import {
   frigilianaSanAntonioSeo
 } from '../../content/frigilianaSanAntonioContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import type { LabeledLink } from '../../lib/linkResolver';
+import AmaraActionLink from '../../components/actions/AmaraActionLink.astro';
+import { resolveLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
 
@@ -46,6 +47,18 @@ const sections = copy.sections.map((section) => ({
   text: t(section.text)
 }));
 const sectionBg = ['bg-surface-white', 'bg-surface', 'bg-surface-white'];
+
+const visitFactsHeading = t(copy.visitFacts.heading);
+const visitFacts = copy.visitFacts.items.map((item) => ({ label: t(item.label), value: t(item.value) }));
+const castilloHref = resolveLink('frigiliana_castillo_lizar', currentLang);
+const fuenteHref = resolveLink('frigiliana_fuente_vieja', currentLang);
+const nearby = {
+  pre: t(copy.nearby.pre),
+  castilloLabel: t(copy.nearby.castilloLabel),
+  mid: t(copy.nearby.mid),
+  fuenteLabel: t(copy.nearby.fuenteLabel),
+  post: t(copy.nearby.post)
+};
 
 const heroAlt = t({
   en: 'The brick-pilastered Baroque façade of the Iglesia de San Antonio de Padua in Frigiliana, with the bishop’s coat of arms above the arched door',
@@ -88,6 +101,22 @@ const heroAlt = t({
     <section class="bg-surface px-6 pb-16 pt-12 md:px-12 md:pb-20" aria-label={keyFigures.map((figure) => figure.label).join(' · ')}>
       <div class="mx-auto max-w-screen-2xl">
         <AmaraKeyFigures figures={keyFigures} note={keyFiguresNote} />
+      </div>
+    </section>
+
+    <section class="bg-surface px-6 pb-16 pt-2 md:px-12" aria-label={visitFactsHeading}>
+      <div class="mx-auto max-w-screen-2xl">
+        <div class="max-w-3xl">
+          <p class="am-text-eyebrow text-primary">{visitFactsHeading}</p>
+          <dl class="mt-6 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+            {visitFacts.map((fact) => (
+              <div class="border-t border-outline-variant/40 pt-4">
+                <dt class="am-text-eyebrow text-on-surface">{fact.label}</dt>
+                <dd class="am-text-body mt-2 leading-relaxed text-on-surface-variant">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
       </div>
     </section>
 
@@ -141,7 +170,13 @@ const heroAlt = t({
 
     <GuestGuideBridge lang={currentLang} destination="frigiliana" guideSlugs={['frigiliana-guest-sightseeing']} />
 
-    <section class="max-w-screen-2xl mx-auto px-6 pt-20 pb-24 md:px-12">
+    <section class="max-w-screen-2xl mx-auto px-6 pt-16 md:px-12">
+      <p class="am-text-body mx-auto max-w-3xl text-center leading-relaxed text-on-surface-variant">
+        {nearby.pre}<AmaraActionLink href={castilloHref} variant="inline">{nearby.castilloLabel}</AmaraActionLink>{nearby.mid}<AmaraActionLink href={fuenteHref} variant="inline">{nearby.fuenteLabel}</AmaraActionLink>{nearby.post}
+      </p>
+    </section>
+
+    <section class="max-w-screen-2xl mx-auto px-6 pt-10 pb-24 md:px-12">
       <EditorialClosingCta
         title={t(copy.closing.title)}
         lead={t(copy.closing.lead)}

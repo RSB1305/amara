@@ -10,7 +10,7 @@ const l = (en: string, de: string, es: string, nl: string, sv: string): Localize
 });
 
 export const frigilianaSanAntonioSeo: AmaraAuthoringSeo = {
-  version: '2026-09-11-frigiliana-san-antonio-v1',
+  version: '2026-09-13-frigiliana-san-antonio-v2',
   pageType: 'B',
   entityKey: 'amara-brand',
   /* og:image is emitted as an absolute URL, so it must stay inside the published image
@@ -19,7 +19,7 @@ export const frigilianaSanAntonioSeo: AmaraAuthoringSeo = {
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/01-frigiliana-pueblo.jpg',
   article: {
     datePublished: '2026-09-11',
-    dateModified: '2026-09-11',
+    dateModified: '2026-09-13',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorRoute: 'about'
@@ -222,6 +222,70 @@ export const frigilianaSanAntonioCopy = {
     '„Bernardo de Godoy, bouwmeester, maakte mij vanaf de fundamenten, in het jaar 1676.“ — de gesigneerde dakbalk van de kerk zelf',
     '”Bernardo de Godoy, byggmästare, gjorde mig från grunden, år 1676.” — kyrkans egen signerade takbjälke'
   ),
+  visitFacts: {
+    heading: l('Visit & location', 'Besuch & Lage', 'Visita y ubicación', 'Bezoek & ligging', 'Besök & läge'),
+    items: [
+      {
+        label: l('Location', 'Standort', 'Ubicación', 'Ligging', 'Läge'),
+        value: l(
+          'On the Plaza de la Iglesia, right on the Calle Real spine.',
+          'An der Plaza de la Iglesia, direkt an der Hauptachse Calle Real.',
+          'En la Plaza de la Iglesia, sobre el eje principal de la calle Real.',
+          'Aan de Plaza de la Iglesia, pal aan de hoofdader Calle Real.',
+          'Vid Plaza de la Iglesia, mitt på huvudstråket Calle Real.'
+        )
+      },
+      {
+        label: l('Distance', 'Distanz', 'Distancia', 'Afstand', 'Avstånd'),
+        value: l(
+          'About a one-minute walk from Casa AMARA — all but next door, on the same flat level of the Barribajo.',
+          'Etwa eine Gehminute von Casa AMARA — quasi direkte Nachbarschaft, auf derselben flachen Ebene des Barribajo.',
+          'A un minuto a pie de Casa AMARA: casi puerta con puerta, en el mismo nivel llano del Barribajo.',
+          'Ongeveer een minuut lopen vanaf Casa AMARA — vrijwel naast de deur, op hetzelfde vlakke niveau van de Barribajo.',
+          'Ungefär en minuts promenad från Casa AMARA — nästan granne, på samma flacka nivå i Barribajo.'
+        )
+      },
+      {
+        label: l('Access', 'Zugang', 'Acceso', 'Toegang', 'Tillgång'),
+        value: l(
+          'A public parish church, free to enter — usually open by day and before mass. Step-free onto the plaza; a small step at the nave door.',
+          'Öffentliche Pfarrkirche, Eintritt frei — meist tagsüber und vor den Messen geöffnet. Barrierefrei auf den Platz; eine kleine Stufe ins Schiff.',
+          'Iglesia parroquial pública, de entrada gratuita: suele abrir de día y antes de misa. Acceso llano a la plaza; un pequeño escalón en la puerta de la nave.',
+          'Een openbare parochiekerk, gratis toegang — meestal overdag en vóór de mis open. Drempelvrij tot het plein; een kleine trede bij de deur van het schip.',
+          'En offentlig sockenkyrka, fri entré — oftast öppen dagtid och före mässan. Trappfritt ut till torget; ett litet trappsteg vid skeppets dörr.'
+        )
+      },
+      {
+        label: l('Best time', 'Beste Zeit', 'Mejor hora', 'Beste tijd', 'Bästa tid'),
+        value: l(
+          'Morning for the light in the nave, or Sunday morning when the square is at its liveliest with village life.',
+          'Vormittags fürs Licht im Kirchenschiff, oder am Sonntagvormittag, wenn der Platz durchs Dorfleben am lebhaftesten ist.',
+          'Por la mañana para la luz en la nave, o el domingo por la mañana, cuando la plaza está más animada con la vida del pueblo.',
+          '’s Ochtends voor het licht in het schip, of op zondagochtend, als het plein het levendigst is door het dorpsleven.',
+          'På förmiddagen för ljuset i skeppet, eller söndag förmiddag när torget är som livligast av byliv.'
+        )
+      }
+    ]
+  },
+  nearby: {
+    pre: l(
+      'From the church door, Calle Real runs on flat past the shops and cafés, the lanes of the Barribarto climb to the ',
+      'Von der Kirchentür führt die Calle Real flach weiter an Geschäften und Cafés vorbei, die Gassen des Barribarto steigen hinauf zum ',
+      'Desde la puerta de la iglesia, la calle Real sigue llana entre tiendas y cafés, las calles del Barribarto suben hasta el ',
+      'Vanaf de kerkdeur loopt Calle Real vlak verder langs winkels en cafés, de straatjes van de Barribarto klimmen naar het ',
+      'Från kyrkporten fortsätter Calle Real flackt förbi butiker och kaféer, Barribartos gränder stiger upp till '
+    ),
+    castilloLabel: l('Castillo de Lizar', 'Castillo de Lizar', 'Castillo de Lízar', 'Castillo de Lizar', 'Castillo de Lizar'),
+    mid: l(
+      ', and a turn down Calle Chorruelo reaches the ',
+      ', und ein Abzweig hinab die Calle Chorruelo erreicht die ',
+      ', y un desvío bajando por la calle Chorruelo llega a la ',
+      ', en een afslag omlaag de Calle Chorruelo bereikt de ',
+      ', och en avtagsväg ner för Calle Chorruelo når '
+    ),
+    fuenteLabel: l('Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja'),
+    post: l('.', '.', '.', '.', '.')
+  },
   closing: {
     title: l(
       'Find it on an old-town walk',
@@ -231,11 +295,11 @@ export const frigilianaSanAntonioCopy = {
       'Hitta den på en vandring i gamla stan'
     ),
     lead: l(
-      'San Antonio stands at the foot of the old town, minutes above Casa AMARA. Let it be your fixed point, then follow the lanes up to El Ingenio, the Casa del Apero and the ceramic panels.',
-      'San Antonio steht am Fuß der Altstadt, wenige Minuten oberhalb von Casa AMARA. Nehmt sie als festen Punkt und folgt dann den Gassen hinauf zu El Ingenio, der Casa del Apero und den Keramiktafeln.',
-      'San Antonio está al pie del casco antiguo, a pocos minutos de Casa AMARA. Tomadla como punto fijo y seguid luego las calles hasta El Ingenio, la Casa del Apero y los azulejos.',
-      'San Antonio staat aan de voet van de oude kern, minuten boven Casa AMARA. Neem haar als vast punt en volg dan de straatjes omhoog naar El Ingenio, de Casa del Apero en de keramiekpanelen.',
-      'San Antonio står vid foten av gamla stan, några minuter ovanför Casa AMARA. Låt den vara er fasta punkt och följ sedan gränderna upp till El Ingenio, Casa del Apero och keramikpanelerna.'
+      'San Antonio stands on Calle Real where the old town gathers, a minute from Casa AMARA — the easiest fixed point to steer by.',
+      'San Antonio steht an der Calle Real, wo sich der Ort trifft, eine Minute von Casa AMARA entfernt — der einfachste feste Orientierungspunkt.',
+      'San Antonio se alza en la calle Real, donde se junta el pueblo, a un minuto de Casa AMARA: el punto fijo más fácil para orientarse.',
+      'San Antonio staat aan Calle Real waar het dorp samenkomt, op een minuut van Casa AMARA — het makkelijkste vaste oriëntatiepunt.',
+      'San Antonio står vid Calle Real där byn samlas, en minut från Casa AMARA — den enklaste fasta punkten att orientera sig efter.'
     ),
     oldTownCta: l(
       'Back to the old town',
