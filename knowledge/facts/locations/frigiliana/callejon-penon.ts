@@ -61,12 +61,14 @@ const facts = [
     topic: 'callejon-penon',
     statement:
       'Named viewpoints in the upper village include the Mirador de Santo Cristo (Calle Santo Cristo, the highest quarter) and the Plaza/Mirador de las Tres Culturas, which is distinct from the separate Fuente de las Tres Culturas.',
-    status: 'verified',
+    status: 'superseded',
     sourceIds: ['andalucia-org-frigiliana-miradores'],
-    checkedAt: '2026-09-12',
+    checkedAt: '2026-09-13',
     reviewAfter: '2029-09-12',
     volatility: 'medium',
     claimBoundary: 'Names are attested by the regional portal; do not confuse the Mirador/Plaza de las Tres Culturas with the Fuente de las Tres Culturas.',
+    notes:
+      'Superseded 2026-09-13 by frigiliana.barribarto.callejon-penon.mirador-urbano-and-santo-cristo (facts/locations/frigiliana/barribarto.ts): the Plaza de las Tres Culturas lies in the lower village over the underground car park opposite El Ingenio, outside the BIC (Diputación Culturama, IGN CartoCiudad), about 200 m from and roughly 45 m below the lane — it is not a viewpoint beside the Callejón. The named neighbours are the Mirador urbano del Peñón in the lane and the Mirador C/ Santo Cristo. The public spoke text that names the Plaza de las Tres Culturas beside the Callejón awaits the operator’s correction in five languages.',
   },
   {
     id: 'frigiliana.callejon-penon.adarves',
