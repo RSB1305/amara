@@ -11,8 +11,9 @@ export const frigilianaErmitaEcceHomoSeo: AmaraAuthoringSeo = {
   article: { datePublished: '2026-09-11', dateModified: '2026-09-13', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
   landmark: {
     name: { en: 'Ermita de Ecce Homo', de: 'Ermita de Ecce Homo', es: 'Ermita del Ecce Homo', nl: 'Ermita de Ecce Homo', sv: 'Ermita de Ecce Homo' },
-    latitude: 36.793750,
-    longitude: -3.898850,
+    // OSM node at the far end of Calle Chorruelo (Calle Rosarico la Joaquín); pending an on-site GPS fix.
+    latitude: 36.795397,
+    longitude: -3.900603,
     addressLocality: 'Frigiliana',
     addressRegion: 'Andalusia',
     addressCountry: 'ES',
@@ -76,11 +77,11 @@ export const frigilianaErmitaEcceHomoCopy = {
       eyebrow: l('The chapel', 'Die Kapelle', 'La capilla', 'De kapel', 'Kapellet'),
       title: l('Small on purpose', 'Klein mit Absicht', 'Pequeña a propósito', 'Klein met opzet', 'Litet med avsikt'),
       text: l(
-        'This is a hermitage, not a church: a single nave, plainly built in the eighteenth century, tucked so deep into the lanes that you reach it almost by accident. Its scale is the point — an ermita belongs to its immediate quarter and its devotion, not to the skyline. Come upon it quietly and it rewards the small discovery; that is how it is meant to be met.',
-        'Dies ist eine Einsiedelei, keine Kirche: ein einziges Schiff, schlicht im 18. Jahrhundert gebaut, so tief in die Gassen geschoben, dass man sie fast zufällig erreicht. Ihr Maßstab ist der Sinn — eine Ermita gehört ihrem unmittelbaren Viertel und seiner Frömmigkeit, nicht der Silhouette. Stößt man still auf sie, belohnt sie die kleine Entdeckung; so soll man ihr begegnen.',
-        'Es una ermita, no una iglesia: una sola nave, de fábrica sencilla del siglo XVIII, tan metida en las calles que se llega a ella casi por casualidad. Su escala es lo esencial: una ermita pertenece a su barrio inmediato y a su devoción, no al perfil del pueblo. Toparse con ella en silencio recompensa el pequeño hallazgo; así se la debe encontrar.',
-        'Dit is een hermitage, geen kerk: één beuk, sober gebouwd in de 18e eeuw, zo diep in de straatjes weggestopt dat je haar bijna per ongeluk bereikt. Haar schaal is het punt — een ermita hoort bij haar directe wijk en haar devotie, niet bij de skyline. Kom je haar stil tegen, dan beloont ze de kleine ontdekking; zo hoort ze ontmoet te worden.',
-        'Detta är en eremitboning, inte en kyrka: ett enda skepp, enkelt byggt på 1700-talet, så djupt inkilat i gränderna att man når det nästan av en slump. Dess skala är poängen — en ermita hör till sitt närmaste kvarter och dess fromhet, inte till siluetten. Att stöta på det i stillhet belönar den lilla upptäckten; så är det menat att mötas.'
+        'This is a hermitage, not a church: a single nave, plainly built in the eighteenth century, set at the far edge of the old town where you reach it almost by accident. Its scale is the point — an ermita belongs to its immediate quarter and its devotion, not to the skyline. Come upon it quietly and it rewards the small discovery; that is how it is meant to be met.',
+        'Dies ist eine Einsiedelei, keine Kirche: ein einziges Schiff, schlicht im 18. Jahrhundert gebaut, an den äußeren Rand der Altstadt gesetzt, wo man sie fast zufällig erreicht. Ihr Maßstab ist der Sinn — eine Ermita gehört ihrem unmittelbaren Viertel und seiner Frömmigkeit, nicht der Silhouette. Stößt man still auf sie, belohnt sie die kleine Entdeckung; so soll man ihr begegnen.',
+        'Es una ermita, no una iglesia: una sola nave, de fábrica sencilla del siglo XVIII, situada en el borde del casco antiguo, adonde se llega casi por casualidad. Su escala es lo esencial: una ermita pertenece a su barrio inmediato y a su devoción, no al perfil del pueblo. Toparse con ella en silencio recompensa el pequeño hallazgo; así se la debe encontrar.',
+        'Dit is een hermitage, geen kerk: één beuk, sober gebouwd in de 18e eeuw, aan de rand van de oude kern geplaatst, waar je haar bijna per ongeluk bereikt. Haar schaal is het punt — een ermita hoort bij haar directe wijk en haar devotie, niet bij de skyline. Kom je haar stil tegen, dan beloont ze de kleine ontdekking; zo hoort ze ontmoet te worden.',
+        'Detta är en eremitboning, inte en kyrka: ett enda skepp, enkelt byggt på 1700-talet, placerat vid gamla stans yttre kant, dit man når nästan av en slump. Dess skala är poängen — en ermita hör till sitt närmaste kvarter och dess fromhet, inte till siluetten. Att stöta på det i stillhet belönar den lilla upptäckten; så är det menat att mötas.'
       )
     },
     {
@@ -119,21 +120,21 @@ export const frigilianaErmitaEcceHomoCopy = {
       {
         label: l('Location', 'Standort', 'Ubicación', 'Ligging', 'Läge'),
         value: l(
-          'On Calle Chorruelo, at the north-eastern edge of the old town.',
-          'An der Calle Chorruelo, am nordöstlichen Rand der Altstadt.',
-          'En la calle Chorruelo, en el borde nororiental del casco antiguo.',
-          'Aan de Calle Chorruelo, aan de noordoostelijke rand van de oude kern.',
-          'Vid Calle Chorruelo, i gamla stans nordöstra kant.'
+          'At the far end of Calle Chorruelo, where it meets Calle Rosarico la Joaquín, at the edge of the old town.',
+          'Am Ende der Calle Chorruelo, wo sie auf die Calle Rosarico la Joaquín trifft, am Rand der Altstadt.',
+          'Al final de la calle Chorruelo, donde se une con la calle Rosarico la Joaquín, al borde del casco antiguo.',
+          'Aan het einde van de Calle Chorruelo, waar deze op de Calle Rosarico la Joaquín uitkomt, aan de rand van de oude kern.',
+          'Vid Calle Chorruelos bortre ände, där den möter Calle Rosarico la Joaquín, i gamla stans kant.'
         )
       },
       {
         label: l('Distance', 'Distanz', 'Distancia', 'Afstand', 'Avstånd'),
         value: l(
-          'About a three-minute, flat walk from Casa AMARA.',
-          'Etwa drei Minuten flacher Weg von Casa AMARA.',
-          'A unos tres minutos a pie, en llano, desde Casa AMARA.',
-          'Ongeveer drie minuten vlakke wandeling vanaf Casa AMARA.',
-          'Ungefär tre minuters flack promenad från Casa AMARA.'
+          'A short walk out along Calle Chorruelo from Casa AMARA, to the edge of the village.',
+          'Ein kurzer Weg die Calle Chorruelo hinaus von Casa AMARA, bis an den Ortsrand.',
+          'Un corto paseo por la calle Chorruelo desde Casa AMARA, hasta el borde del pueblo.',
+          'Een korte wandeling langs de Calle Chorruelo vanaf Casa AMARA, tot de dorpsrand.',
+          'En kort promenad ut längs Calle Chorruelo från Casa AMARA, till byns kant.'
         )
       },
       {
@@ -162,11 +163,11 @@ export const frigilianaErmitaEcceHomoCopy = {
     parts: [
       {
         text: l(
-          'It stands right next to the ',
-          'Sie steht direkt neben der ',
-          'Está justo al lado de la ',
-          'Ze staat pal naast de ',
-          'Det står precis intill '
+          'Walk back down Calle Chorruelo and it carries you past the ',
+          'Geht die Calle Chorruelo wieder hinab, und sie führt euch an der ',
+          'Bajad de nuevo por la calle Chorruelo y os lleva junto a la ',
+          'Loop de Calle Chorruelo weer omlaag en ze voert je langs de ',
+          'Gå ner för Calle Chorruelo igen och den för er förbi '
         )
       },
       {
@@ -175,11 +176,11 @@ export const frigilianaErmitaEcceHomoCopy = {
       },
       {
         text: l(
-          ' — a perfect combined stop, a step down Calle Chorruelo.',
-          ' — ein perfekter Kombi-Stopp, einen Schritt die Calle Chorruelo hinab.',
-          ': una parada combinada perfecta, a un paso bajando por la calle Chorruelo.',
-          ' — een perfecte combinatiestop, een stap omlaag de Calle Chorruelo.',
-          ' — ett perfekt kombinerat stopp, ett steg ner för Calle Chorruelo.'
+          ' and on toward the church of San Antonio.',
+          ' vorbei und weiter zur Kirche San Antonio.',
+          ' y hacia la iglesia de San Antonio.',
+          ' en verder naar de kerk van San Antonio.',
+          ' och vidare mot kyrkan San Antonio.'
         )
       }
     ]
@@ -187,11 +188,11 @@ export const frigilianaErmitaEcceHomoCopy = {
   closing: {
     title: l('Find it, then keep walking', 'Findet sie, dann weiter', 'Encontradla y seguid', 'Vind haar, loop dan door', 'Hitta det, gå sedan vidare'),
     lead: l(
-      'The Ermita de Ecce Homo is a small discovery among the lanes above Casa AMARA. Let it be a quiet stop between the ceramic panels and San Antonio, and check locally if you want to catch the Holy Wednesday procession.',
-      'Die Ermita de Ecce Homo ist eine kleine Entdeckung in den Gassen oberhalb von Casa AMARA. Nehmt sie als stillen Halt zwischen den Keramiktafeln und San Antonio, und fragt vor Ort, wenn ihr die Karmittwochsprozession erleben wollt.',
-      'La Ermita del Ecce Homo es un pequeño hallazgo entre las calles sobre Casa AMARA. Que sea una parada tranquila entre los azulejos y San Antonio, y comprobad localmente si queréis ver la procesión del Miércoles Santo.',
-      'De Ermita de Ecce Homo is een kleine ontdekking tussen de straatjes boven Casa AMARA. Laat het een stille stop zijn tussen de keramiekpanelen en San Antonio, en informeer lokaal als je de processie op Stille Woensdag wilt meemaken.',
-      'Ermita de Ecce Homo är en liten upptäckt bland gränderna ovanför Casa AMARA. Låt det bli ett stilla stopp mellan keramikpanelerna och San Antonio, och kontrollera lokalt om ni vill uppleva processionen på dymmelonsdagen.'
+      'The Ermita de Ecce Homo is a small discovery at the quiet far edge of the old town, a short walk out along Calle Chorruelo from Casa AMARA. Let it be a quiet stop, and check locally if you want to catch the Holy Wednesday procession.',
+      'Die Ermita de Ecce Homo ist eine kleine Entdeckung am stillen äußeren Rand der Altstadt, einen kurzen Weg die Calle Chorruelo hinaus von Casa AMARA. Nehmt sie als stillen Halt, und fragt vor Ort, wenn ihr die Karmittwochsprozession erleben wollt.',
+      'La Ermita del Ecce Homo es un pequeño hallazgo en el tranquilo extremo del casco antiguo, a un corto paseo por la calle Chorruelo desde Casa AMARA. Que sea una parada tranquila, y comprobad localmente si queréis ver la procesión del Miércoles Santo.',
+      'De Ermita de Ecce Homo is een kleine ontdekking aan de stille buitenrand van de oude kern, een korte wandeling langs de Calle Chorruelo vanaf Casa AMARA. Laat het een stille stop zijn, en informeer lokaal als je de processie op Stille Woensdag wilt meemaken.',
+      'Ermita de Ecce Homo är en liten upptäckt vid gamla stans stilla yttre kant, en kort promenad ut längs Calle Chorruelo från Casa AMARA. Låt det bli ett stilla stopp, och kontrollera lokalt om ni vill uppleva processionen på dymmelonsdagen.'
     ),
     oldTownCta: l('Back to the old town', 'Zurück zur Altstadt', 'Volver al casco antiguo', 'Terug naar de oude kern', 'Tillbaka till gamla stan'),
     availabilityCta: l('Check availability', 'Verfügbarkeit prüfen', 'Consultar disponibilidad', 'Beschikbaarheid bekijken', 'Se tillgänglighet')
