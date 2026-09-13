@@ -4,11 +4,21 @@ import type { AmaraAuthoringSeo } from '../types/seo';
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
 
 export const frigilianaErmitaEcceHomoSeo: AmaraAuthoringSeo = {
-  version: '2026-09-12-frigiliana-ermita-ecce-homo-v2',
+  version: '2026-09-13-frigiliana-ermita-ecce-homo-v3',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/03-frigiliana-pueblo.jpg',
-  article: { datePublished: '2026-09-11', dateModified: '2026-09-12', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
+  article: { datePublished: '2026-09-11', dateModified: '2026-09-13', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
+  landmark: {
+    name: { en: 'Ermita de Ecce Homo', de: 'Ermita de Ecce Homo', es: 'Ermita del Ecce Homo', nl: 'Ermita de Ecce Homo', sv: 'Ermita de Ecce Homo' },
+    latitude: 36.793750,
+    longitude: -3.898850,
+    addressLocality: 'Frigiliana',
+    addressRegion: 'Andalusia',
+    addressCountry: 'ES',
+    // Chapel usually seen through the grille; the flag marks the free public forecourt.
+    isAccessibleForFree: true
+  },
   languages: {
     en: { title: 'Ermita de Ecce Homo in Frigiliana: The Santo Cristo de la Caña Chapel', description: 'A small single-nave 18th-century chapel at the edge of Frigiliana’s old town, home to the Santo Cristo de la Caña, whose image is carried to San Antonio on Holy Wednesday.', robots: 'index, follow', canonical: 'auto' },
     de: { title: 'Ermita de Ecce Homo in Frigiliana: die Kapelle des Santo Cristo de la Caña', description: 'Eine kleine, einschiffige Kapelle aus dem 18. Jahrhundert am Rand von Frigilianas Altstadt — Heimat des Santo Cristo de la Caña, dessen Bildnis am Karmittwoch zu San Antonio getragen wird.', robots: 'index, follow', canonical: 'auto' },
@@ -103,6 +113,77 @@ export const frigilianaErmitaEcceHomoCopy = {
     'Een kapel waar je het hele jaar langs zou kunnen lopen — en het hart van het dorp op één dag ervan.',
     'Ett kapell man kunde gå förbi hela året — och byns hjärta en dag av det.'
   ),
+  visitFacts: {
+    heading: l('Visit & location', 'Besuch & Lage', 'Visita y ubicación', 'Bezoek & ligging', 'Besök & läge'),
+    items: [
+      {
+        label: l('Location', 'Standort', 'Ubicación', 'Ligging', 'Läge'),
+        value: l(
+          'On Calle Chorruelo, at the north-eastern edge of the old town.',
+          'An der Calle Chorruelo, am nordöstlichen Rand der Altstadt.',
+          'En la calle Chorruelo, en el borde nororiental del casco antiguo.',
+          'Aan de Calle Chorruelo, aan de noordoostelijke rand van de oude kern.',
+          'Vid Calle Chorruelo, i gamla stans nordöstra kant.'
+        )
+      },
+      {
+        label: l('Distance', 'Distanz', 'Distancia', 'Afstand', 'Avstånd'),
+        value: l(
+          'About a three-minute, flat walk from Casa AMARA.',
+          'Etwa drei Minuten flacher Weg von Casa AMARA.',
+          'A unos tres minutos a pie, en llano, desde Casa AMARA.',
+          'Ongeveer drie minuten vlakke wandeling vanaf Casa AMARA.',
+          'Ungefär tre minuters flack promenad från Casa AMARA.'
+        )
+      },
+      {
+        label: l('Access', 'Zugang', 'Acceso', 'Toegang', 'Tillgång'),
+        value: l(
+          'Usually seen through the grille window (open on Holy Wednesday). The forecourt is freely accessible.',
+          'Meist nur durch das Gitterfenster einzusehen (offen am Miércoles Santo). Der Vorplatz ist frei zugänglich.',
+          'Suele verse por la reja (abierta el Miércoles Santo). El atrio es de acceso libre.',
+          'Meestal door het tralievenster te zien (open op Stille Woensdag). Het voorplein is vrij toegankelijk.',
+          'Ses oftast genom gallerfönstret (öppet på dymmelonsdagen). Förplatsen är fritt tillgänglig.'
+        )
+      },
+      {
+        label: l('Best time', 'Beste Zeit', 'Mejor hora', 'Beste tijd', 'Bästa tid'),
+        value: l(
+          'Afternoon, for a quiet pause off the main route.',
+          'Nachmittags, für eine ruhige Pause abseits der Hauptroute.',
+          'Por la tarde, para una pausa tranquila fuera de la ruta principal.',
+          '’s Middags, voor een rustige pauze buiten de hoofdroute.',
+          'På eftermiddagen, för en lugn paus utanför huvudrutten.'
+        )
+      }
+    ]
+  },
+  nearby: {
+    parts: [
+      {
+        text: l(
+          'It stands right next to the ',
+          'Sie steht direkt neben der ',
+          'Está justo al lado de la ',
+          'Ze staat pal naast de ',
+          'Det står precis intill '
+        )
+      },
+      {
+        token: 'frigiliana_fuente_vieja',
+        label: l('Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja')
+      },
+      {
+        text: l(
+          ' — a perfect combined stop, a step down Calle Chorruelo.',
+          ' — ein perfekter Kombi-Stopp, einen Schritt die Calle Chorruelo hinab.',
+          ': una parada combinada perfecta, a un paso bajando por la calle Chorruelo.',
+          ' — een perfecte combinatiestop, een stap omlaag de Calle Chorruelo.',
+          ' — ett perfekt kombinerat stopp, ett steg ner för Calle Chorruelo.'
+        )
+      }
+    ]
+  },
   closing: {
     title: l('Find it, then keep walking', 'Findet sie, dann weiter', 'Encontradla y seguid', 'Vind haar, loop dan door', 'Hitta det, gå sedan vidare'),
     lead: l(
