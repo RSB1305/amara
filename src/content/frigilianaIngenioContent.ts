@@ -23,6 +23,14 @@ export const frigilianaIngenioSeo: AmaraAuthoringSeo = {
     authorType: 'Person',
     authorRoute: 'about'
   },
+  landmark: {
+    name: { en: 'El Ingenio', de: 'El Ingenio', es: 'El Ingenio', nl: 'El Ingenio', sv: 'El Ingenio' },
+    latitude: 36.790833,
+    longitude: -3.895278,
+    addressLocality: 'Frigiliana',
+    addressRegion: 'Andalusia',
+    addressCountry: 'ES'
+  },
   languages: {
     en: {
       title: 'El Ingenio in Frigiliana: The Count’s Palace That Became a Sugar Factory',

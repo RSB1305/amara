@@ -24,6 +24,15 @@ export const frigilianaSanAntonioSeo: AmaraAuthoringSeo = {
     authorType: 'Person',
     authorRoute: 'about'
   },
+  landmark: {
+    name: { en: 'Iglesia de San Antonio de Padua', de: 'Iglesia de San Antonio de Padua', es: 'Iglesia de San Antonio de Padua', nl: 'Iglesia de San Antonio de Padua', sv: 'Iglesia de San Antonio de Padua' },
+    latitude: 36.792861,
+    longitude: -3.899056,
+    addressLocality: 'Frigiliana',
+    addressRegion: 'Andalusia',
+    addressCountry: 'ES',
+    isAccessibleForFree: true
+  },
   languages: {
     en: {
       title: 'Iglesia de San Antonio de Padua in Frigiliana: The 1676 Parish Church',

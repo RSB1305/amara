@@ -9,6 +9,16 @@ export const frigilianaCastilloLizarSeo: AmaraAuthoringSeo = {
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/07-frigiliana-pueblo.jpg',
   article: { datePublished: '2026-09-11', dateModified: '2026-09-12', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
+  landmark: {
+    name: { en: 'Restos del Castillo de Lizar', de: 'Restos del Castillo de Lizar', es: 'Restos del Castillo de Lízar', nl: 'Restos del Castillo de Lizar', sv: 'Restos del Castillo de Lizar' },
+    latitude: 36.795100,
+    longitude: -3.897300,
+    addressLocality: 'Frigiliana',
+    addressRegion: 'Andalusia',
+    addressCountry: 'ES',
+    isAccessibleForFree: true,
+    sameAs: ['https://es.wikipedia.org/wiki/Castillo_de_Frigiliana']
+  },
   languages: {
     en: { title: 'Castillo de Lizar in Frigiliana: The Ruined Moorish Fortress', description: 'The wall remains of a 9th–11th-century Moorish fortress above Frigiliana, razed after the 1569 uprising under Don Luis de Requesens — its cut stone reused to build the counts’ palace, El Ingenio.', robots: 'index, follow', canonical: 'auto' },
     de: { title: 'Castillo de Lizar in Frigiliana: die maurische Burgruine', description: 'Die Mauerreste einer maurischen Festung des 9.–11. Jahrhunderts oberhalb von Frigiliana, nach dem Aufstand 1569 unter Don Luis de Requesens geschleift — ihre behauenen Steine wurden für den Grafenpalast El Ingenio wiederverwendet.', robots: 'index, follow', canonical: 'auto' },

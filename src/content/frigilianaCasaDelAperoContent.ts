@@ -24,6 +24,15 @@ export const frigilianaCasaDelAperoSeo: AmaraAuthoringSeo = {
     authorType: 'Person',
     authorRoute: 'about'
   },
+  landmark: {
+    name: { en: 'Casa del Apero', de: 'Casa del Apero', es: 'Casa del Apero', nl: 'Casa del Apero', sv: 'Casa del Apero' },
+    latitude: 36.791850,
+    longitude: -3.897400,
+    addressLocality: 'Frigiliana',
+    addressRegion: 'Andalusia',
+    addressCountry: 'ES',
+    isAccessibleForFree: true
+  },
   languages: {
     en: {
       title: 'Casa del Apero in Frigiliana: From Farm Store to the Village’s Cultural Heart',
