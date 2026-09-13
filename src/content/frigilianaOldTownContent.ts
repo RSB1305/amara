@@ -496,11 +496,11 @@ export const frigilianaOldTownCopy = {
           'Vitt är ett krav'
         ),
         text: l(
-          'Keeping the white façade finish is part of the conservation conditions for the protected centre. The colour is not a marketing decision taken at some point in the past; it is the condition under which the ensemble is maintained.',
-          'Der Erhalt des weißen Fassadenanstrichs gehört zu den Erhaltungsauflagen für den geschützten Ortskern. Die Farbe ist keine irgendwann getroffene Marketingentscheidung, sondern die Bedingung, unter der das Ensemble erhalten wird.',
-          'Mantener el acabado blanco de las fachadas forma parte de las condiciones de conservación del centro protegido. El color no es una decisión de marketing tomada en algún momento, sino la condición bajo la que se conserva el conjunto.',
-          'Het behoud van de witte gevelafwerking hoort bij de behoudsvoorwaarden voor de beschermde kern. De kleur is geen marketingkeuze van ooit, maar de voorwaarde waaronder het ensemble in stand wordt gehouden.',
-          'Att bevara den vita fasadytan hör till bevarandevillkoren för den skyddade kärnan. Färgen är inget marknadsföringsbeslut fattat någon gång, utan villkoret för att ensemblet ska bevaras.'
+          'The white façade is old local custom, and for the protected centre the municipal ordinances uphold it strictly. The colour is not a marketing decision taken at some point in the past; it is the condition under which the ensemble is maintained.',
+          'Der weiße Fassadenanstrich ist alter Ortsbrauch, und für den geschützten Kern hält die Ortssatzung ihn streng ein. Die Farbe ist keine irgendwann getroffene Marketingentscheidung, sondern die Bedingung, unter der das Ensemble erhalten wird.',
+          'El encalado blanco es una vieja costumbre local y, para el centro protegido, las ordenanzas municipales lo mantienen con rigor. El color no es una decisión de marketing tomada en algún momento, sino la condición bajo la que se conserva el conjunto.',
+          'De witte gevel is oud plaatselijk gebruik, en voor de beschermde kern handhaven de gemeentelijke verordeningen het streng. De kleur is geen marketingkeuze van ooit, maar de voorwaarde waaronder het ensemble in stand wordt gehouden.',
+          'Den vita fasaden är gammal lokal sedvänja, och för den skyddade kärnan upprätthåller de kommunala föreskrifterna den strikt. Färgen är inget marknadsföringsbeslut fattat någon gång, utan villkoret för att ensemblet ska bevaras.'
         )
       },
       {

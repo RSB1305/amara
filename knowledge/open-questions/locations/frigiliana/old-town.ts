@@ -29,10 +29,10 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
       'On what basis is the white exterior treatment maintained: the conservation conditions of the 2014 BIC declaration (as the hub states), a municipal ordinance such as the widely repeated "1971 law", or a custom without bye-law as the municipal Barribarto page states?',
     priority: 'high',
     reason:
-      'The public hub says "Weiß ist Vorschrift" on the strength of the BIC conservation conditions, while the municipal tourism page says there is no bye-law and blogs repeat an unsourced 1971 law. The hub claim must rest on the decree wording, not on either popular version.',
+      'Resolved 2026-09-13 (operator, first-party): the white finish is old local custom, not a standalone abstract law and not the widely repeated 1971 bye-law; the municipal ordinances (ordenanzas municipales) for the protected Conjunto Histórico uphold it strictly. The hub text was refined from "conservation conditions" to name the custom-plus-ordinance basis; the 1971-law claim is discarded.',
     preferredEvidence:
-      'The instrucciones particulares of Decreto 183/2014 and the Frigiliana planning rules for the conjunto histórico (PGOU / normas urbanísticas); the municipal ordinance register for any 1971 rule.',
-    status: 'open',
+      'Operator local knowledge (2026-09-13); corroborated by the Frigiliana ordenanzas for the conjunto histórico. The municipal ordinance text can still be attached for a source id.',
+    status: 'resolved',
     createdAt: '2026-09-13'
   },
   {
@@ -43,10 +43,10 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
       'When were the twelve ceramic panels installed: 1982 (Spanish Wikipedia and the AMARA fact frigiliana.ceramic-panels.installation.1982-beautification) or the 1960s as the municipal panels page states, and how does a Navas Acosta publication dated 1995 relate to the texts on panels dated 1982?',
     priority: 'medium',
     reason:
-      'The public panels page states the 1982 installation as verified; a municipal page read during the search-intent run gives the 1960s and cites a 1995 book for the texts. A snippet does not overturn the fact, but the conflict must be closed at the source.',
+      'Resolved 2026-09-13 (operator, first-party): the panel series was installed in 1982 as part of the beautification under the then mayor; the "late 1970s / 1980s" wording reflects the planning phase, and the "1960s" on one municipal page is discarded. Confirms the AMARA fact frigiliana.ceramic-panels.installation.1982-beautification; no content change needed.',
     preferredEvidence:
-      'The municipal record of the Premio Nacional de Embellecimiento 1982 or the acta of the installation; the bibliography of Antonio Navas Acosta (first edition of the panel texts).',
-    status: 'open',
+      'Operator local knowledge (2026-09-13); consistent with Spanish Wikipedia. The municipal Premio record can still be attached for a source id.',
+    status: 'resolved',
     createdAt: '2026-09-13'
   },
   {
@@ -57,10 +57,10 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
       'What is the documented name of the hill carrying the Castillo de Lizar ruins: Cerro de Lízar, Cerro de la Sabina, or another toponym?',
     priority: 'low',
     reason:
-      'The Castillo spoke places the ruins "auf dem Cerro de Lizar"; ranking pages use "Cerro de la Sabina", and the Diputación names the Peñón de la Sabina as the rock below the castle. A proper noun on a landmark page must match the official toponym.',
+      'Resolved 2026-09-13 (operator, first-party): the hill is the Cerro de la Sabina; the ruin on it is the Castillo de Lízar / Castillo de Frigiliana. The Castillo spoke was corrected from "Cerro de Lizar" to "Cerro de la Sabina" (keyFigures and prose, five languages). Consistent with the ranking-page usage and the Diputación’s "Peñón de la Sabina" for the rock.',
     preferredEvidence:
-      'IGN Nomenclátor Geográfico, the 1985 BIC record of the castle and the Spanish Wikipedia article Castillo de Frigiliana with its sources.',
-    status: 'open',
+      'Operator local knowledge (2026-09-13); corroborated by secondary sources. The IGN Nomenclátor entry can still be attached for a source id.',
+    status: 'resolved',
     createdAt: '2026-09-13'
   },
   {
@@ -113,10 +113,10 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
       'Is the administrative seat of the Ayuntamiento at Cuesta del Apero 10 (official contact address), and what is the building on the Calle Real "plazuela" (Calle Real 80, opposite El Torreón) that tourism pages and directories still call the current town hall?',
     priority: 'medium',
     reason:
-      'The two sites are about 400 m apart; a page that says "the town hall" must point to the right building, and the festival lists both a "Patio del Ayuntamiento" at Cuesta del Apero 10 and a "Sala de Exposiciones" at Calle Real 80.',
+      'Resolved 2026-09-13 (operator, first-party): the official main building and public front desk of the Ayuntamiento is at Cuesta del Apero 10 (by the Casa del Apero). The Calle Real "plazuela" building is the historic Casa Consistorial and no longer the administrative seat; the tourism route text that calls it "el actual ayuntamiento" is outdated. Confirms the fact frigiliana.calle-real.ayuntamiento.seat-cuesta-del-apero-10.',
     preferredEvidence:
-      'The sede electrónica or a BOP/BOJA notice giving the seat; a plenary-session acta header naming the venue; a first-hand look at both façades.',
-    status: 'open',
+      'Operator local knowledge (2026-09-13); official contact address frigiliana.es.',
+    status: 'resolved',
     createdAt: '2026-09-13'
   },
   {
@@ -127,10 +127,10 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
       'Which of the eleven municipally named adarves are adarves in the decree’s sense — dead-end or semi-private passages entered openly or through an algorfa — and which are ordinary stepped lanes?',
     priority: 'medium',
     reason:
-      'A Barribarto page that explains the adarve must not label a public through-lane as semi-private, nor send guests into a passage that serves only its houses.',
+      'Resolved 2026-09-13 (operator, first-party): almost all eleven named adarves are classic dead-ends — mostly angled, half-private cul-de-sacs serving clusters of houses — not public through-streets across the historic core. The Barribarto page was updated from "some are public thoroughfares" to "almost all are dead-ends, half-private cul-de-sacs".',
     preferredEvidence:
-      'The IAPH record i24352 or the PGOU catalogue; failing that, a first-hand walk noting entry type and whether the lane continues.',
-    status: 'open',
+      'Operator local knowledge (2026-09-13); consistent with the decree’s definition of the adarve. Per-lane entry type (open vs through an algorfa) can still be recorded on a first-hand walk.',
+    status: 'resolved',
     createdAt: '2026-09-13'
   },
   {
@@ -140,9 +140,9 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
     question:
       'Where is the new panoramic mirador and pedestrian path "en la zona alta del Santo Cristo" built with the 2021 Consejería de Turismo grant: on Calle Santo Cristo, or above the Ermita del Santo Cristo?',
     priority: 'low',
-    reason: 'A named, recent viewpoint is worth a sentence on the Callejón or Barribarto page only if its position is known.',
-    preferredEvidence: 'The Ayuntamiento press note or the BOJA subsidy resolution; then a first-hand visit.',
-    status: 'open',
+    reason: 'Resolved 2026-09-13 (operator, first-party): the 2021 mirador is on Calle Santo Cristo, in the upper Moorish quarter near the Ermita/chapel of the same name — consistent with the "Mirador C/ Santo Cristo" that the Callejón del Peñón page already names as a neighbour of the lane.',
+    preferredEvidence: 'Operator local knowledge (2026-09-13). The BOJA subsidy resolution can still be attached for a source id.',
+    status: 'resolved',
     createdAt: '2026-09-13'
   },
   {
@@ -162,9 +162,9 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
     topic: 'festivals',
     question: 'On which night does the Procesión de la Soledad pass through the Barribarto by candlelight: the Viernes de Dolores (Junta agenda, frigiliana.es) or after the Santo Sepulcro on Viernes Santo (turismofrigiliana.es)?',
     priority: 'low',
-    reason: 'Two municipal pages disagree; the old-town page may name the procession only with the right night.',
-    preferredEvidence: 'The current Semana Santa programme published by the Ayuntamiento or the Agrupación de Cofradías for the year in question.',
-    status: 'open',
+    reason: 'Resolved 2026-09-13 (operator, first-party): the Procesión de la Soledad passes through the Barribarto by candlelight on the Viernes de Dolores (the Friday before Holy Week), late evening toward midnight — matching the Junta agenda and frigiliana.es, against the Viernes Santo sequencing on turismofrigiliana.es. No public page currently states the night; it can be named as Viernes de Dolores if used.',
+    preferredEvidence: 'Operator local knowledge (2026-09-13); Junta Agenda Cultural.',
+    status: 'resolved',
     createdAt: '2026-09-13'
   }
 ] as const);
