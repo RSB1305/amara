@@ -4,11 +4,11 @@ import type { AmaraAuthoringSeo } from '../types/seo';
 const l = (en: string, de: string, es: string, nl: string, sv: string): LocalizedText => ({ en, de, es, nl, sv });
 
 export const frigilianaCastilloLizarSeo: AmaraAuthoringSeo = {
-  version: '2026-09-12-frigiliana-castillo-lizar-v2',
+  version: '2026-09-13-frigiliana-castillo-lizar-v3',
   pageType: 'B',
   entityKey: 'amara-brand',
   ogImage: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/07-frigiliana-pueblo.jpg',
-  article: { datePublished: '2026-09-11', dateModified: '2026-09-12', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
+  article: { datePublished: '2026-09-11', dateModified: '2026-09-13', authorName: 'Robert Sebastian Böhmer', authorType: 'Person', authorRoute: 'about' },
   landmark: {
     name: { en: 'Restos del Castillo de Lizar', de: 'Restos del Castillo de Lizar', es: 'Restos del Castillo de Lízar', nl: 'Restos del Castillo de Lizar', sv: 'Restos del Castillo de Lizar' },
     latitude: 36.795100,
@@ -114,14 +114,92 @@ export const frigilianaCastilloLizarCopy = {
     'Van het kasteel bleef weinig — toch verklaart het nog waarom het dorp ligt zoals het ligt.',
     'Av slottet återstår föga — ändå förklarar det alltjämt varför byn ligger som den gör.'
   ),
+  visitFacts: {
+    heading: l('Visit & location', 'Besuch & Lage', 'Visita y ubicación', 'Bezoek & ligging', 'Besök & läge'),
+    items: [
+      {
+        label: l('Location', 'Standort', 'Ubicación', 'Ligging', 'Läge'),
+        value: l(
+          'On the Cerro de Lizar, high above the village rooftops.',
+          'Auf dem Cerro de Lizar, hoch über den Dächern des Dorfes.',
+          'En el cerro de Lízar, muy por encima de los tejados del pueblo.',
+          'Op de Cerro de Lizar, hoog boven de daken van het dorp.',
+          'På Cerro de Lizar, högt över byns tak.'
+        )
+      },
+      {
+        label: l('Distance', 'Distanz', 'Distancia', 'Afstand', 'Avstånd'),
+        value: l(
+          'About 15–20 minutes on foot from Casa AMARA — a steep, demanding climb all the way up through the Barribarto.',
+          'Etwa 15–20 Gehminuten von Casa AMARA — ein durchgehend steiler, fordernder Anstieg durch das Barribarto.',
+          'Unos 15–20 minutos a pie desde Casa AMARA: una subida empinada y exigente todo el camino por el Barribarto.',
+          'Ongeveer 15–20 minuten lopen vanaf Casa AMARA — een steile, veeleisende klim helemaal omhoog door de Barribarto.',
+          'Ungefär 15–20 minuter till fots från Casa AMARA — en brant, krävande stigning hela vägen upp genom Barribarto.'
+        )
+      },
+      {
+        label: l('Access', 'Zugang', 'Acceso', 'Toegang', 'Tillgång'),
+        value: l(
+          'Open ground (ruins), free and accessible around the clock. An unpaved, stony path — sturdy shoes are essential; not wheelchair accessible.',
+          'Öffentliches Gelände (Ruinen), rund um die Uhr und kostenlos zugänglich. Unbefestigter, steiniger Pfad — festes Schuhwerk ist zwingend nötig; nicht rollstuhlgerecht.',
+          'Terreno abierto (ruinas), gratuito y accesible a todas horas. Sendero sin asfaltar y pedregoso: el calzado firme es imprescindible; no accesible en silla de ruedas.',
+          'Open terrein (ruïnes), gratis en dag en nacht toegankelijk. Een onverhard, steenachtig pad — stevige schoenen zijn onmisbaar; niet rolstoeltoegankelijk.',
+          'Öppen mark (ruiner), gratis och tillgänglig dygnet runt. En obelagd, stenig stig — stadiga skor är ett måste; inte tillgänglig med rullstol.'
+        )
+      },
+      {
+        label: l('Best time', 'Beste Zeit', 'Mejor hora', 'Beste tijd', 'Bästa tid'),
+        value: l(
+          'Early morning or late afternoon for the panorama out to the sea. Avoid midday — the climb is steep and there is no shade.',
+          'Früh morgens oder am späten Nachmittag für den Panoramablick bis ans Meer. Mittags meiden — der Anstieg ist steil und ohne Schatten.',
+          'A primera hora o a última de la tarde para la panorámica hasta el mar. Evitad el mediodía: la subida es empinada y no hay sombra.',
+          'Vroeg in de ochtend of laat in de middag voor het panorama tot aan zee. Mijd de middag — de klim is steil en er is geen schaduw.',
+          'Tidig morgon eller sen eftermiddag för panoramat ut mot havet. Undvik mitt på dagen — stigningen är brant och saknar skugga.'
+        )
+      }
+    ]
+  },
+  nearby: {
+    parts: [
+      {
+        text: l(
+          'From the hilltop the only way back is down into the steep Barribarto — trace the 1569 story on the ',
+          'Vom Burghügel geht es unweigerlich wieder hinab ins steile Labyrinth des Barribarto — verbindet den Rückweg mit den 1569-Ereignissen auf dem ',
+          'Desde el cerro no queda más que bajar de nuevo al empinado laberinto del Barribarto: enlazad la vuelta con los sucesos de 1569 en la ',
+          'Vanaf de burchtheuvel gaat het onvermijdelijk weer omlaag het steile labyrint van de Barribarto in — verbind de terugweg met de gebeurtenissen van 1569 op de ',
+          'Från borgkullen bär det oundvikligen ner igen i Barribartos branta labyrint — knyt återvägen till händelserna 1569 på '
+        )
+      },
+      {
+        token: 'frigiliana_ceramic_panels',
+        label: l('ceramic-panel walk', 'Weg der Keramiktafeln', 'ruta de los azulejos', 'wandeling langs de keramische panelen', 'vandringen längs keramikpanelerna')
+      },
+      {
+        text: l(
+          ', or bear to the eastern edge of the old town and the ',
+          ', oder haltet auf den östlichen Rand der Altstadt und die ',
+          ', o poned rumbo al borde oriental del casco antiguo y la ',
+          ', of houd aan op de oostelijke rand van de oude kern en de ',
+          ', eller styr mot gamla stans östra kant och '
+        )
+      },
+      {
+        token: 'frigiliana_fuente_vieja',
+        label: l('Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja', 'Fuente Vieja')
+      },
+      {
+        text: l('.', ' zu.', '.', '.', '.')
+      }
+    ]
+  },
   closing: {
     title: l('Climb for the vantage', 'Steigt hinauf für den Ausblick', 'Subid por la panorámica', 'Klim voor het uitzicht', 'Klättra för utsikten'),
     lead: l(
-      'The remains of the Castillo de Lizar sit above the old town, a climb up through the oldest lanes from Casa AMARA. Pair it with the ceramic panels of the 1569 revolt and the miradores of the Callejón del Peñón over the rooftops.',
-      'Die Reste des Castillo de Lizar liegen über der Altstadt, ein Anstieg durch die ältesten Gassen von Casa AMARA aus. Verbindet ihn mit den Keramiktafeln des Aufstands von 1569 und den Miradores des Callejón del Peñón über den Dächern.',
-      'Los restos del castillo de Lízar quedan sobre el casco antiguo, una subida por las calles más antiguas desde Casa AMARA. Combinadlo con los azulejos de la rebelión de 1569 y los miradores del callejón del Peñón sobre los tejados.',
-      'De resten van het Castillo de Lizar liggen boven de oude kern, een klim door de oudste straatjes vanaf Casa AMARA. Combineer het met de keramiekpanelen van de opstand van 1569 en de miradores van de Callejón del Peñón over de daken.',
-      'Resterna av Castillo de Lizar ligger ovanför gamla stan, en klättring genom de äldsta gränderna från Casa AMARA. Kombinera den med keramikpanelerna om upproret 1569 och miradorerna vid Callejón del Peñón över taken.'
+      'The remains of the Castillo de Lizar sit above the old town, a climb up through the oldest lanes from Casa AMARA.',
+      'Die Reste des Castillo de Lizar liegen über der Altstadt, ein Anstieg durch die ältesten Gassen von Casa AMARA aus.',
+      'Los restos del castillo de Lízar quedan sobre el casco antiguo, una subida por las calles más antiguas desde Casa AMARA.',
+      'De resten van het Castillo de Lizar liggen boven de oude kern, een klim door de oudste straatjes vanaf Casa AMARA.',
+      'Resterna av Castillo de Lizar ligger ovanför gamla stan, en klättring genom de äldsta gränderna från Casa AMARA.'
     ),
     oldTownCta: l('Back to the old town', 'Zurück zur Altstadt', 'Volver al casco antiguo', 'Terug naar de oude kern', 'Tillbaka till gamla stan'),
     availabilityCta: l('Check availability', 'Verfügbarkeit prüfen', 'Consultar disponibilidad', 'Beschikbaarheid bekijken', 'Se tillgänglighet')
