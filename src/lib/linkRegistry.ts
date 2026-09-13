@@ -80,6 +80,7 @@ export const linkRegistry = {
     frigiliana_reales_positos: buildOwnedLinks('frigiliana.experience.old-town.reales-positos'),
     frigiliana_ermita_ecce_homo: buildOwnedLinks('frigiliana.experience.old-town.ermita-ecce-homo'),
     frigiliana_callejon_penon: buildOwnedLinks('frigiliana.experience.old-town.callejon-penon'),
+    frigiliana_barribarto: buildOwnedLinks('frigiliana.experience.old-town.barribarto'),
 
     /* =========================================================
        LOCATIONS

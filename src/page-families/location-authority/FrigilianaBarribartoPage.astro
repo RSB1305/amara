@@ -1,0 +1,18 @@
+---
+import OldTownSpokeBody from '../../components/location/OldTownSpokeBody.astro';
+import { frigilianaBarribartoCopy, frigilianaBarribartoSeo } from '../../content/frigilianaBarribartoContent';
+
+interface Props {
+  lang?: string;
+}
+
+const { lang = 'es' } = Astro.props;
+---
+
+<OldTownSpokeBody
+  lang={lang}
+  pageFamily="experience-frigiliana-barribarto"
+  dataPage="frigiliana-barribarto"
+  copy={frigilianaBarribartoCopy}
+  seo={frigilianaBarribartoSeo}
+/>
