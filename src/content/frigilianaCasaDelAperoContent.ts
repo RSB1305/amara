@@ -10,7 +10,7 @@ const l = (en: string, de: string, es: string, nl: string, sv: string): Localize
 });
 
 export const frigilianaCasaDelAperoSeo: AmaraAuthoringSeo = {
-  version: '2026-09-11-frigiliana-casa-del-apero-v1',
+  version: '2026-09-13-frigiliana-casa-del-apero-v2',
   pageType: 'B',
   entityKey: 'amara-brand',
   /* og:image stays inside the published image contract; no dedicated Casa del Apero
@@ -19,7 +19,7 @@ export const frigilianaCasaDelAperoSeo: AmaraAuthoringSeo = {
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
   article: {
     datePublished: '2026-09-11',
-    dateModified: '2026-09-11',
+    dateModified: '2026-09-13',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorRoute: 'about'
@@ -217,6 +217,82 @@ export const frigilianaCasaDelAperoCopy = {
     'De opslag die het suikergoed draaiende hield, is nu waar het dorp zijn geheugen bewaart.',
     'Förrådet som höll sockergodset i gång är i dag där byn bevarar sitt minne.'
   ),
+  visitFacts: {
+    heading: l('Visit & location', 'Besuch & Lage', 'Visita y ubicación', 'Bezoek & ligging', 'Besök & läge'),
+    items: [
+      {
+        label: l('Location', 'Standort', 'Ubicación', 'Ligging', 'Läge'),
+        value: l(
+          'On the Cuesta del Apero, just above the Plaza del Ingenio.',
+          'An der Cuesta del Apero, direkt oberhalb der Plaza del Ingenio.',
+          'En la Cuesta del Apero, justo encima de la Plaza del Ingenio.',
+          'Aan de Cuesta del Apero, net boven de Plaza del Ingenio.',
+          'Vid Cuesta del Apero, strax ovanför Plaza del Ingenio.'
+        )
+      },
+      {
+        label: l('Distance', 'Distanz', 'Distancia', 'Afstand', 'Avstånd'),
+        value: l(
+          'About a two-minute walk from Casa AMARA — a short, flat way through the Barribajo.',
+          'Etwa zwei Gehminuten von Casa AMARA — ein kurzer, flacher Weg durch das Barribajo.',
+          'A unos dos minutos a pie de Casa AMARA: un camino corto y llano por el Barribajo.',
+          'Ongeveer twee minuten lopen vanaf Casa AMARA — een korte, vlakke weg door de Barribajo.',
+          'Ungefär två minuters promenad från Casa AMARA — en kort, flack väg genom Barribajo.'
+        )
+      },
+      {
+        label: l('Access', 'Zugang', 'Acceso', 'Toegang', 'Tillgång'),
+        value: l(
+          'A public building: the courtyard and tourist office are free to enter, and the ground floor is step-free.',
+          'Öffentliches Gebäude: Patio und Tourismusbüro sind frei zugänglich, das Erdgeschoss ist barrierefrei.',
+          'Edificio público: el patio y la oficina de turismo son de entrada gratuita, y la planta baja es accesible.',
+          'Een openbaar gebouw: de patio en het toeristenbureau zijn gratis toegankelijk, en de begane grond is drempelvrij.',
+          'En offentlig byggnad: gården och turistbyrån är gratis att besöka, och bottenvåningen är trappfri.'
+        )
+      },
+      {
+        label: l('Best time', 'Beste Zeit', 'Mejor hora', 'Beste tijd', 'Bästa tid'),
+        value: l(
+          'Morning, as a first stop — pick up current maps and programmes at the tourist office.',
+          'Vormittags als erster Stopp — im Tourismusbüro aktuelle Pläne und Programme mitnehmen.',
+          'Por la mañana, como primera parada: recoged planos y programas actualizados en la oficina de turismo.',
+          '’s Ochtends, als eerste stop — haal actuele plattegronden en programma’s bij het toeristenbureau.',
+          'På förmiddagen, som första stopp — hämta aktuella kartor och program på turistbyrån.'
+        )
+      }
+    ]
+  },
+  nearby: {
+    pre: l(
+      'Pick up a map here, then step out to neighbouring ',
+      'Holt euch hier einen Plan und tretet dann hinaus zum benachbarten ',
+      'Coged aquí un plano y salid luego al vecino ',
+      'Pak hier een plattegrond en stap dan naar het naburige ',
+      'Hämta en karta här och gå sedan ut till närliggande '
+    ),
+    ingenioLabel: l('El Ingenio', 'El Ingenio', 'El Ingenio', 'El Ingenio', 'El Ingenio'),
+    mid: l(
+      ' before you take the ',
+      ', bevor ihr den ',
+      ' antes de tomar la ',
+      ', voordat je de ',
+      ' innan ni tar '
+    ),
+    panelsLabel: l(
+      'ceramic-panel walk',
+      'Weg der Keramiktafeln',
+      'ruta de los azulejos',
+      'wandeling langs de keramische panelen',
+      'vandringen längs keramikpanelerna'
+    ),
+    post: l(
+      ' up into the lanes of the Barribarto.',
+      ' hinauf in die Gassen des Barribarto nehmt.',
+      ' hacia las calles del Barribarto.',
+      ' omhoog de straatjes van het Barribarto in neemt.',
+      ' upp i Barribartos gränder.'
+    )
+  },
   closing: {
     title: l(
       'Start here, then walk the old town',
@@ -226,11 +302,11 @@ export const frigilianaCasaDelAperoCopy = {
       'Börja här, vandra sedan gamla stan'
     ),
     lead: l(
-      'The Casa del Apero sits at the foot of the old town, minutes below Casa AMARA. Pick up a map here, then let the lanes take you up to El Ingenio and the ceramic panels.',
-      'Die Casa del Apero liegt am Fuß der Altstadt, wenige Minuten unterhalb von Casa AMARA. Holt euch hier einen Plan und lasst euch dann von den Gassen hinauf zu El Ingenio und den Keramiktafeln führen.',
-      'La Casa del Apero está al pie del casco antiguo, a pocos minutos de Casa AMARA. Coged aquí un plano y dejad que las calles os lleven hasta El Ingenio y los azulejos.',
-      'De Casa del Apero ligt aan de voet van de oude kern, minuten onder Casa AMARA. Pak hier een plattegrond en laat de straatjes je omhoog voeren naar El Ingenio en de keramiekpanelen.',
-      'Casa del Apero ligger vid foten av gamla stan, några minuter nedanför Casa AMARA. Hämta en karta här och låt sedan gränderna föra er upp till El Ingenio och keramikpanelerna.'
+      'The Casa del Apero sits at the foot of the old town, minutes below Casa AMARA.',
+      'Die Casa del Apero liegt am Fuß der Altstadt, wenige Minuten unterhalb von Casa AMARA.',
+      'La Casa del Apero está al pie del casco antiguo, a pocos minutos de Casa AMARA.',
+      'De Casa del Apero ligt aan de voet van de oude kern, minuten onder Casa AMARA.',
+      'Casa del Apero ligger vid foten av gamla stan, några minuter nedanför Casa AMARA.'
     ),
     oldTownCta: l(
       'Back to the old town',
