@@ -675,6 +675,7 @@ interface WebPageNodeOptions {
   breadcrumbId?: string;
   publisherId?: string;
   mainEntityId?: string;
+  aboutId?: string;
   image?: string;
 }
 
@@ -713,6 +714,12 @@ function buildWebPageNode(
   if (options.mainEntityId) {
     node.mainEntity = {
       '@id': options.mainEntityId
+    };
+  }
+
+  if (options.aboutId) {
+    node.about = {
+      '@id': options.aboutId
     };
   }
 
@@ -795,6 +802,60 @@ function buildArticleNode(
 
   if (image) {
     node.image = [image];
+  }
+
+  return node;
+}
+
+/**
+ * A single TouristAttraction node for a page whose subject is a real, visitable
+ * place. It stays inside the one page @graph (DR-RUNTIME-002 / DR-SCHEMA-001):
+ * the WebPage references it as `about`, and it carries the verified coordinates,
+ * postal locality and public-access flags a location-authority page should give.
+ */
+function buildLandmarkNode(
+  landmark: NonNullable<AmaraAuthoringSeo['landmark']>,
+  canonicalUrl: string,
+  description: string,
+  currentLang: AmaraLanguage,
+  image?: string
+): SchemaNode {
+  const geo: SchemaNode = {
+    '@type': 'GeoCoordinates',
+    latitude: landmark.latitude,
+    longitude: landmark.longitude
+  };
+
+  if (typeof landmark.elevation === 'number') {
+    geo.elevation = landmark.elevation;
+  }
+
+  const node: SchemaNode = {
+    '@type': 'TouristAttraction',
+    '@id': `${canonicalUrl}#landmark`,
+    name: landmark.name[currentLang] ?? landmark.name.en,
+    description,
+    url: canonicalUrl,
+    geo,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: landmark.addressLocality ?? 'Frigiliana',
+      addressRegion: landmark.addressRegion ?? 'Andalusia',
+      addressCountry: landmark.addressCountry ?? 'ES'
+    }
+  };
+
+  if (typeof landmark.isAccessibleForFree === 'boolean') {
+    node.isAccessibleForFree = landmark.isAccessibleForFree;
+    node.publicAccess = landmark.isAccessibleForFree;
+  }
+
+  if (image) {
+    node.image = image;
+  }
+
+  if (landmark.sameAs && landmark.sameAs.length > 0) {
+    node.sameAs = [...landmark.sameAs];
   }
 
   return node;
@@ -1070,6 +1131,7 @@ export function resolveStructuredData(
         breadcrumbId: breadcrumbNode?.['@id'] as string | undefined,
         publisherId,
         mainEntityId: lodgingEntityId ?? itemListEntityId ?? articleEntityId,
+        aboutId: seo?.landmark ? `${canonicalUrl}#landmark` : undefined,
         image: ogImage
       }
     )
@@ -1077,6 +1139,12 @@ export function resolveStructuredData(
 
   if (breadcrumbNode) {
     graph.push(breadcrumbNode);
+  }
+
+  if (seo?.landmark) {
+    graph.push(
+      buildLandmarkNode(seo.landmark, canonicalUrl, current.description, currentLang, ogImage)
+    );
   }
 
   if (includeBrand) {

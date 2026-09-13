@@ -23,6 +23,23 @@ export const frigilianaCeramicPanelsSeo: AmaraAuthoringSeo = {
     authorType: 'Person',
     authorRoute: 'about'
   },
+  landmark: {
+    name: {
+      en: 'The Twelve Ceramic Panels Walk',
+      de: 'Rundgang der zwölf Keramiktafeln',
+      es: 'Ruta de los doce azulejos',
+      nl: 'Wandeling langs de twaalf keramische panelen',
+      sv: 'Vandringen längs de tolv keramikpanelerna'
+    },
+    // Single primary pin at the start of the route (panel 1, Calle Hernando El Darra
+    // by the Plaza del Ingenio); coordinate taken from the operator-supplied route.
+    latitude: 36.791946,
+    longitude: -3.896379,
+    addressLocality: 'Frigiliana',
+    addressRegion: 'Andalusia',
+    addressCountry: 'ES',
+    isAccessibleForFree: true
+  },
   languages: {
     en: {
       title: 'The Twelve Ceramic Panels of Frigiliana: What They Say, and Who Made Them',
@@ -291,6 +308,58 @@ export const frigilianaCeramicPanelsCopy = {
       'Alle twaalf plekken liggen op de officiële route: die begint bij paneel 1 bij de Plaza del Ingenio en loopt door de straatjes van de Barribarto tot paneel 12 bij de kerk. Vanaf Casa AMARA, beneden bij de kerk, ben je in een paar minuten bij het startpunt.',
       'Alla tolv platser ligger längs den officiella rutten: den börjar vid panel 1 nära Plaza del Ingenio och löper genom Barribartos gränder till panel 12 vid kyrkan. Från Casa AMARA, nere vid kyrkan, når ni starten på några minuter.'
     ),
+    routeFacts: [
+      {
+        label: l('Time & distance', 'Dauer & Distanz', 'Duración y distancia', 'Duur & afstand', 'Tid & sträcka'),
+        value: l(
+          'About 45–60 minutes for all twelve stops, reading included, over roughly 800 m of lanes.',
+          'Etwa 45–60 Minuten für alle zwölf Stationen, Lesen inklusive, auf rund 800 m Gassen.',
+          'Unos 45–60 minutos para las doce estaciones, con las lecturas, en unos 800 m de calles.',
+          'Ongeveer 45–60 minuten voor alle twaalf haltes, lezen inbegrepen, over zo’n 800 m straatjes.',
+          'Ungefär 45–60 minuter för alla tolv stationerna, läsning inräknad, längs cirka 800 m gränder.'
+        )
+      },
+      {
+        label: l('Terrain', 'Terrain', 'Terreno', 'Terrein', 'Terräng'),
+        value: l(
+          'Steep climbs in the Barribarto, steps and uneven cobbles — sturdy shoes needed; not step-free or wheelchair accessible.',
+          'Steile Anstiege im Barribarto, Treppen und unebenes Kopfsteinpflaster — festes Schuhwerk nötig; nicht stufenfrei oder rollstuhlgerecht.',
+          'Subidas empinadas en el Barribarto, escalones y adoquines irregulares; hace falta calzado firme. No está libre de escalones ni es accesible en silla de ruedas.',
+          'Steile klimmen in de Barribarto, trappen en ongelijke kasseien — stevige schoenen nodig; niet drempelvrij of rolstoeltoegankelijk.',
+          'Branta stigningar i Barribarto, trappor och ojämn kullersten — stadiga skor behövs; inte trappfritt eller tillgängligt med rullstol.'
+        )
+      },
+      {
+        label: l('Access', 'Zugang', 'Acceso', 'Toegang', 'Tillgång'),
+        value: l(
+          'Public streets, free and open around the clock — an open-air museum.',
+          'Öffentlicher Raum, rund um die Uhr frei zugänglich und kostenlos — ein Open-Air-Museum.',
+          'Calles públicas, gratis y abiertas a todas horas: un museo al aire libre.',
+          'Openbare straten, gratis en dag en nacht open — een openluchtmuseum.',
+          'Offentliga gator, gratis och öppna dygnet runt — ett friluftsmuseum.'
+        )
+      },
+      {
+        label: l('Best time', 'Beste Zeit', 'Mejor hora', 'Beste tijd', 'Bästa tid'),
+        value: l(
+          'Early morning or late afternoon, when shade falls into the lanes.',
+          'Früher Vormittag oder später Nachmittag, wenn Schatten in den Gassen liegt.',
+          'A primera hora de la mañana o a última de la tarde, cuando la sombra entra en las calles.',
+          'Vroeg in de ochtend of laat in de middag, als er schaduw in de straatjes valt.',
+          'Tidig förmiddag eller sen eftermiddag, när skugga faller i gränderna.'
+        )
+      },
+      {
+        label: l('Start', 'Startpunkt', 'Inicio', 'Start', 'Start'),
+        value: l(
+          'Panel 1 on Calle Hernando El Darra, a few minutes from Casa AMARA.',
+          'Tafel 1 in der Calle Hernando El Darra, wenige Minuten von Casa AMARA.',
+          'Azulejo 1 en la calle Hernando El Darra, a pocos minutos de Casa AMARA.',
+          'Paneel 1 in de Calle Hernando El Darra, op een paar minuten van Casa AMARA.',
+          'Panel 1 på Calle Hernando El Darra, några minuter från Casa AMARA.'
+        )
+      }
+    ],
     transcriptionLabel: l(
       'Original Spanish text',
       'Spanischer Originaltext',

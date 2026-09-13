@@ -14,8 +14,9 @@ import LocationPanoramaHero from './LocationPanoramaHero.astro';
 import EditorialClosingCta from '../editorial/EditorialClosingCta.astro';
 import ExperienceContextNav from '../experience/ExperienceContextNav.astro';
 import GuestGuideBridge from '../experience/GuestGuideBridge.astro';
+import AmaraActionLink from '../actions/AmaraActionLink.astro';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
-import type { LabeledLink } from '../../lib/linkResolver';
+import { resolveLink, type LabeledLink, type LinkToken } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 import type { AmaraPageFamilyId } from '../page-type/pageTypeContract';
@@ -40,6 +41,19 @@ interface SpokeCopy {
     lead: LocalizedRow;
     oldTownCta: LocalizedRow;
     availabilityCta: LocalizedRow;
+  };
+  /** Optional compact visitor-logistics block, rendered after the key figures. */
+  visitFacts?: {
+    heading: LocalizedRow;
+    items: readonly { label: LocalizedRow; value: LocalizedRow }[];
+  };
+  /**
+   * Optional linked handoff sentence before the closing. Ordered parts: plain text
+   * pieces and token-linked anchors, so a spoke can weave real internal links into
+   * its outward flow without a bespoke body.
+   */
+  nearby?: {
+    parts: readonly ({ text: LocalizedRow } | { token: LinkToken; label: LocalizedRow })[];
   };
 }
 
@@ -86,6 +100,8 @@ const sections = copy.sections.map((section) => ({
   text: t(section.text)
 }));
 const sectionBg = ['bg-surface-white', 'bg-surface', 'bg-surface-white'];
+const visitFactsHeading = copy.visitFacts ? t(copy.visitFacts.heading) : '';
+const visitFacts = copy.visitFacts?.items.map((item) => ({ label: t(item.label), value: t(item.value) })) ?? [];
 ---
 
 <LocationAuthorityLayout
@@ -134,6 +150,24 @@ const sectionBg = ['bg-surface-white', 'bg-surface', 'bg-surface-white'];
       </div>
     </section>
 
+    {copy.visitFacts && (
+      <section class="bg-surface px-6 pb-16 pt-2 md:px-12" aria-label={visitFactsHeading}>
+        <div class="mx-auto max-w-screen-2xl">
+          <div class="max-w-3xl">
+            <p class="am-text-eyebrow text-primary">{visitFactsHeading}</p>
+            <dl class="mt-6 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+              {visitFacts.map((fact) => (
+                <div class="border-t border-outline-variant/40 pt-4">
+                  <dt class="am-text-eyebrow text-on-surface">{fact.label}</dt>
+                  <dd class="am-text-body mt-2 leading-relaxed text-on-surface-variant">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </div>
+      </section>
+    )}
+
     {sections.map((section, index) => (
       <section class={`scroll-mt-28 ${sectionBg[index % sectionBg.length]} px-6 py-20 md:px-12 md:py-28`}>
         <div class="mx-auto max-w-screen-2xl">
@@ -157,7 +191,19 @@ const sectionBg = ['bg-surface-white', 'bg-surface', 'bg-surface-white'];
 
     <GuestGuideBridge lang={currentLang} destination="frigiliana" guideSlugs={['frigiliana-guest-sightseeing']} />
 
-    <section class="max-w-screen-2xl mx-auto px-6 pt-20 pb-24 md:px-12">
+    {copy.nearby && (
+      <section class="max-w-screen-2xl mx-auto px-6 pt-16 md:px-12">
+        <p class="am-text-body mx-auto max-w-3xl text-center leading-relaxed text-on-surface-variant">
+          {copy.nearby.parts.map((part) => (
+            'token' in part
+              ? <AmaraActionLink href={resolveLink(part.token, currentLang)} variant="inline">{t(part.label)}</AmaraActionLink>
+              : t(part.text)
+          ))}
+        </p>
+      </section>
+    )}
+
+    <section class:list={['max-w-screen-2xl mx-auto px-6 pb-24 md:px-12', copy.nearby ? 'pt-10' : 'pt-20']}>
       <EditorialClosingCta
         title={t(copy.closing.title)}
         lead={t(copy.closing.lead)}

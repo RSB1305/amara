@@ -31,6 +31,25 @@ export interface AmaraAuthoringSeo {
   };
 
   /**
+   * Optional physical landmark that a page documents as its subject. When
+   * present, the central structured-data resolver emits one TouristAttraction
+   * node inside the page @graph — with real geo-coordinates, a postal locality
+   * and public-access flags — and links it from the WebPage as its `about`
+   * entity. Reserved for pages whose subject is a real, visitable place.
+   */
+  landmark?: {
+    name: Record<AmaraLanguage, string>;
+    latitude: number;
+    longitude: number;
+    elevation?: number;
+    addressLocality?: string;
+    addressRegion?: string;
+    addressCountry?: string;
+    isAccessibleForFree?: boolean;
+    sameAs?: readonly string[];
+  };
+
+  /**
    * Explicit entity selection keeps schema assignment stable.
    * This avoids fragile pathname heuristics inside the resolver layer.
    */

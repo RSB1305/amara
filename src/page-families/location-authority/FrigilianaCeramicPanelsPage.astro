@@ -73,6 +73,7 @@ const panels = copy.panels.map((panel) => ({
 
 const transcriptionLabel = t(copy.register.transcriptionLabel);
 const readMoreLabel = t(copy.register.readMoreLabel);
+const routeFacts = copy.register.routeFacts.map((fact) => ({ label: t(fact.label), value: t(fact.value) }));
 
 /* This page's concrete guest-guide perk is the audio guide, so the bridge speaks to
    that instead of the generic recommendations, and the phone shows the audio screen. */
@@ -181,6 +182,18 @@ const contextAlt = t({
           <h2 class="am-text-title mt-5 text-balance text-on-surface">{t(copy.register.title)}</h2>
           <p class="am-text-body mt-6 leading-relaxed text-on-surface-variant">{t(copy.register.intro)}</p>
           <p class="am-text-caption normal-case tracking-normal text-on-surface-variant mt-4">{t(copy.register.note)}</p>
+        </div>
+
+        <div class="mb-14 max-w-3xl">
+          <p class="am-text-eyebrow text-primary">{t({ en: 'The walk at a glance', de: 'Tour-Fakten im Überblick', es: 'La ruta de un vistazo', nl: 'De wandeling in het kort', sv: 'Vandringen i korthet' })}</p>
+          <dl class="mt-6 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+            {routeFacts.map((fact) => (
+              <div class="border-t border-outline-variant/40 pt-4">
+                <dt class="am-text-eyebrow text-on-surface">{fact.label}</dt>
+                <dd class="am-text-body mt-2 leading-relaxed text-on-surface-variant">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
         <div class="mb-16">

@@ -10,7 +10,7 @@ const l = (en: string, de: string, es: string, nl: string, sv: string): Localize
 });
 
 export const frigilianaIngenioSeo: AmaraAuthoringSeo = {
-  version: '2026-09-11-frigiliana-el-ingenio-v1',
+  version: '2026-09-13-frigiliana-el-ingenio-v2',
   pageType: 'B',
   entityKey: 'amara-brand',
   /* og:image is emitted as an absolute URL, so it must stay inside the published image contract. */
@@ -18,10 +18,21 @@ export const frigilianaIngenioSeo: AmaraAuthoringSeo = {
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
   article: {
     datePublished: '2026-09-11',
-    dateModified: '2026-09-11',
+    dateModified: '2026-09-13',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorRoute: 'about'
+  },
+  landmark: {
+    name: { en: 'El Ingenio', de: 'El Ingenio', es: 'El Ingenio', nl: 'El Ingenio', sv: 'El Ingenio' },
+    latitude: 36.790833,
+    longitude: -3.895278,
+    addressLocality: 'Frigiliana',
+    addressRegion: 'Andalusia',
+    addressCountry: 'ES',
+    // The building is a working factory (seen from outside only); the flag marks
+    // the public forecourt/facade on the Plaza del Ingenio as freely accessible.
+    isAccessibleForFree: true
   },
   languages: {
     en: {
@@ -89,13 +100,81 @@ export const frigilianaIngenioCopy = {
     ),
     paragraphs: [
       l(
-        'At the lower edge of the old town stands Frigiliana’s largest building: El Ingenio. It looks like a palace — and it was one, the seat of the Manrique de Lara counts in the sixteenth century. It is also a working factory: since 1725 miel de caña, a concentrated cane syrup, has been boiled here. You can read the sgraffito facade from the lane, but do not count on going in — production still happens inside. And with a little luck, a wild ibex from the sierra will be standing on the roof.',
-        'Am unteren Rand der Altstadt steht Frigilianas größtes Gebäude: El Ingenio. Es wirkt wie ein Palast — und war auch einer, der Sitz der Grafen Manrique de Lara im 16. Jahrhundert. Zugleich ist es eine arbeitende Fabrik: Seit 1725 wird hier Miel de Caña gekocht, ein eingedickter Zuckerrohrsirup. Die Esgrafiado-Fassade könnt ihr von der Gasse aus lesen, aber rechnet nicht mit einer Besichtigung — drinnen wird bis heute produziert. Und mit etwas Glück steht ein wilder Steinbock aus der Sierra auf dem Dach.',
-        'En el borde bajo del casco antiguo se alza el edificio más grande de Frigiliana: El Ingenio. Parece un palacio — y lo fue, la sede de los condes Manrique de Lara en el siglo XVI. También es una fábrica en activo: desde 1725 se cuece aquí miel de caña, un jarabe concentrado de caña de azúcar. La fachada de esgrafiados se lee desde la calle, pero no deis por hecho que se puede entrar: dentro se sigue produciendo. Y con un poco de suerte, una cabra montés de la sierra estará en el tejado.',
-        'Aan de onderrand van de oude kern staat het grootste gebouw van Frigiliana: El Ingenio. Het lijkt een paleis — en dat was het ook, de zetel van de graven Manrique de Lara in de zestiende eeuw. Het is tegelijk een werkende fabriek: sinds 1725 wordt hier miel de caña gekookt, een geconcentreerde rietsuikersiroop. De esgrafiado-gevel lees je vanaf het straatje, maar reken niet op een bezoek — binnen wordt nog geproduceerd. En met een beetje geluk staat er een wilde steenbok uit de sierra op het dak.',
-        'I gamla stans nedre kant reser sig Frigilianas största byggnad: El Ingenio. Den ser ut som ett palats — och var det också, grevarna Manrique de Laras säte på 1500-talet. Den är samtidigt en fungerande fabrik: sedan 1725 kokas här miel de caña, en koncentrerad sockerrörssirap. Esgrafiado-fasaden kan ni läsa från gränden, men räkna inte med att komma in — inne pågår fortfarande produktion. Och med lite tur står en vild stenbock från sierran på taket.'
+        'On the Plaza del Ingenio at the lower edge of the old town stands Frigiliana’s largest building: El Ingenio. It looks like a palace — and it was one, the seat of the Manrique de Lara counts in the sixteenth century. It is also a working factory: since 1725 miel de caña, a concentrated cane syrup, has been boiled here. You can read the sgraffito facade from the lane, but do not count on going in — production still happens inside. And with a little luck, a wild ibex from the sierra will be standing on the roof.',
+        'An der Plaza del Ingenio am unteren Rand der Altstadt steht Frigilianas größtes Gebäude: El Ingenio. Es wirkt wie ein Palast — und war auch einer, der Sitz der Grafen Manrique de Lara im 16. Jahrhundert. Zugleich ist es eine arbeitende Fabrik: Seit 1725 wird hier Miel de Caña gekocht, ein eingedickter Zuckerrohrsirup. Die Esgrafiado-Fassade könnt ihr von der Gasse aus lesen, aber rechnet nicht mit einer Besichtigung — drinnen wird bis heute produziert. Und mit etwas Glück steht ein wilder Steinbock aus der Sierra auf dem Dach.',
+        'En la Plaza del Ingenio, en el borde bajo del casco antiguo, se alza el edificio más grande de Frigiliana: El Ingenio. Parece un palacio — y lo fue, la sede de los condes Manrique de Lara en el siglo XVI. También es una fábrica en activo: desde 1725 se cuece aquí miel de caña, un jarabe concentrado de caña de azúcar. La fachada de esgrafiados se lee desde la calle, pero no deis por hecho que se puede entrar: dentro se sigue produciendo. Y con un poco de suerte, una cabra montés de la sierra estará en el tejado.',
+        'Aan de Plaza del Ingenio, aan de onderrand van de oude kern, staat het grootste gebouw van Frigiliana: El Ingenio. Het lijkt een paleis — en dat was het ook, de zetel van de graven Manrique de Lara in de zestiende eeuw. Het is tegelijk een werkende fabriek: sinds 1725 wordt hier miel de caña gekookt, een geconcentreerde rietsuikersiroop. De esgrafiado-gevel lees je vanaf het straatje, maar reken niet op een bezoek — binnen wordt nog geproduceerd. En met een beetje geluk staat er een wilde steenbok uit de sierra op het dak.',
+        'Vid Plaza del Ingenio, i gamla stans nedre kant, reser sig Frigilianas största byggnad: El Ingenio. Den ser ut som ett palats — och var det också, grevarna Manrique de Laras säte på 1500-talet. Den är samtidigt en fungerande fabrik: sedan 1725 kokas här miel de caña, en koncentrerad sockerrörssirap. Esgrafiado-fasaden kan ni läsa från gränden, men räkna inte med att komma in — inne pågår fortfarande produktion. Och med lite tur står en vild stenbock från sierran på taket.'
       )
     ]
+  },
+  visitFacts: {
+    heading: l('Visit & location', 'Besuch & Lage', 'Visita y ubicación', 'Bezoek & ligging', 'Besök & läge'),
+    items: [
+      {
+        label: l('Location', 'Standort', 'Ubicación', 'Ligging', 'Läge'),
+        value: l(
+          'Right on the Plaza del Ingenio, where Calle Hernando El Darra begins.',
+          'Direkt an der Plaza del Ingenio, wo die Calle Hernando El Darra beginnt.',
+          'Junto a la Plaza del Ingenio, donde empieza la calle Hernando El Darra.',
+          'Direct aan de Plaza del Ingenio, waar de Calle Hernando El Darra begint.',
+          'Precis vid Plaza del Ingenio, där Calle Hernando El Darra börjar.'
+        )
+      },
+      {
+        label: l('Distance', 'Distanz', 'Distancia', 'Afstand', 'Avstånd'),
+        value: l(
+          'A flat three-minute walk from Casa AMARA, down in the Barribajo.',
+          'Ein flacher, dreiminütiger Fußweg von Casa AMARA, unten im Barribajo.',
+          'Un paseo llano de tres minutos desde Casa AMARA, abajo en el Barribajo.',
+          'Een vlakke wandeling van drie minuten vanaf Casa AMARA, beneden in de Barribajo.',
+          'En flack tre minuters promenad från Casa AMARA, nere i Barribajo.'
+        )
+      },
+      {
+        label: l('Access', 'Zugang', 'Acceso', 'Toegang', 'Tillgång'),
+        value: l(
+          'A working factory — seen from the outside only. The plaza in front is public, free and open around the clock.',
+          'Aktive Fabrik — nur von außen zu besichtigen. Die Plaza davor ist öffentlich, kostenlos und rund um die Uhr zugänglich.',
+          'Fábrica en activo: solo se contempla desde fuera. La plaza de delante es pública, gratuita y abierta a todas horas.',
+          'Een werkende fabriek — alleen van buiten te bekijken. Het plein ervoor is openbaar, gratis en dag en nacht toegankelijk.',
+          'En fungerande fabrik — ses endast utifrån. Torget framför är offentligt, gratis och öppet dygnet runt.'
+        )
+      },
+      {
+        label: l('Best time', 'Beste Zeit', 'Mejor hora', 'Beste tijd', 'Bästa tid'),
+        value: l(
+          'Morning for the light on the sgraffito facade, or evening for the best chance of ibex on the roof.',
+          'Vormittags für das Licht auf der Esgrafiado-Fassade, abends für die beste Chance auf Steinböcke auf dem Dach.',
+          'Por la mañana para la luz sobre la fachada de esgrafiados, o al atardecer para la mejor oportunidad de ver cabras monteses en el tejado.',
+          '’s Ochtends voor het licht op de esgrafiado-gevel, ’s avonds voor de grootste kans op steenbokken op het dak.',
+          'På förmiddagen för ljuset på esgrafiado-fasaden, på kvällen för störst chans till stenbockar på taket.'
+        )
+      }
+    ]
+  },
+  nearby: {
+    pre: l(
+      'Nearby, from the Plaza del Ingenio, begins the ',
+      'Ganz in der Nähe, an der Plaza del Ingenio, beginnt der ',
+      'Muy cerca, desde la Plaza del Ingenio, empieza la ',
+      'Vlakbij, vanaf de Plaza del Ingenio, begint de ',
+      'Alldeles intill, från Plaza del Ingenio, börjar '
+    ),
+    linkLabel: l(
+      'ceramic-panel walk',
+      'Weg der Keramiktafeln',
+      'ruta de los azulejos',
+      'wandeling langs de keramische panelen',
+      'vandringen längs keramikpanelerna'
+    ),
+    post: l(
+      ' — twelve hand-painted panels retelling the revolt of 1569.',
+      ' — zwölf handbemalte Tafeln erzählen den Aufstand von 1569.',
+      ' — doce paneles pintados a mano narran la rebelión de 1569.',
+      ' — twaalf handbeschilderde panelen over de opstand van 1569.',
+      ' — tolv handmålade paneler återberättar upproret 1569.'
+    )
   },
   keyFigures: {
     figures: [
@@ -375,11 +454,11 @@ export const frigilianaIngenioCopy = {
       'Från El Ingenio in i gamla stan'
     ),
     lead: l(
-      'El Ingenio marks the lower edge of the old town, a few minutes below Casa AMARA. From here the ceramic-panel walk begins nearby, and the white lanes of the Barribarto climb behind it.',
-      'El Ingenio markiert den unteren Rand der Altstadt, wenige Minuten unterhalb von Casa AMARA. Von hier beginnt ganz in der Nähe der Weg der Keramiktafeln, und dahinter steigen die weißen Gassen des Barribarto hinauf.',
-      'El Ingenio marca el borde bajo del casco antiguo, a pocos minutos por debajo de Casa AMARA. Desde aquí empieza cerca el recorrido de los azulejos, y detrás suben las calles blancas del Barribarto.',
-      'El Ingenio markeert de onderrand van de oude kern, een paar minuten onder Casa AMARA. Vanaf hier begint vlakbij de route van de keramiekpanelen, en daarachter klimmen de witte straatjes van het Barribarto omhoog.',
-      'El Ingenio markerar gamla stans nedre kant, några minuter nedanför Casa AMARA. Härifrån börjar keramikpanelernas vandring i närheten, och bakom stiger Barribartos vita gränder uppåt.'
+      'El Ingenio marks the lower edge of the old town, a few minutes below Casa AMARA. Behind it the white lanes of the Barribarto climb into the village.',
+      'El Ingenio markiert den unteren Rand der Altstadt, wenige Minuten unterhalb von Casa AMARA. Dahinter steigen die weißen Gassen des Barribarto ins Dorf hinauf.',
+      'El Ingenio marca el borde bajo del casco antiguo, a pocos minutos por debajo de Casa AMARA. Detrás suben las calles blancas del Barribarto hacia el pueblo.',
+      'El Ingenio markeert de onderrand van de oude kern, een paar minuten onder Casa AMARA. Daarachter klimmen de witte straatjes van het Barribarto het dorp in.',
+      'El Ingenio markerar gamla stans nedre kant, några minuter nedanför Casa AMARA. Bakom den stiger Barribartos vita gränder upp i byn.'
     ),
     oldTownCta: l(
       'Back to the old town',
