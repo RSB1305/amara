@@ -110,15 +110,28 @@ Before creating a new public page, route or guide, run a targeted repository-wid
 
 After a multilingual change intended for all five locales, check only the changed scope for required entries, sections and links across EN, DE, ES, NL and SV. Natural sentence and paragraph differences are allowed. Do not inspect all multilingual repository content or browser-test all five locales by default.
 
+## Task identity and write safety
+
+This gate applies to **every implementation task**, including single-agent work, resumed tasks and documentation changes. It does not depend on the operator explicitly announcing parallel work.
+
+- Before the first write, record the task identity, worker, canonical absolute worktree root, Git directory, expected branch, starting HEAD and bounded file/owner scope in the task conversation. Use the established task assignment; never adopt the branch that happens to be checked out as proof of ownership. A directory called `amara-codex` or `amara-claude` is not a task assignment.
+- Immediately before every mutating tool invocation, verify the actual worktree root, Git directory, branch and HEAD against that binding. This includes file edits, formatters, commands that generate files, staging and commits. Run the check inside the same command before command-based mutations and use an explicit working directory or `git -C <expected-root>`. For a separate file-edit tool, perform a fresh check immediately before calling it and target only absolute paths inside the bound worktree. Never batch staging and committing without checking again before the commit.
+- A task's own successful commit advances its recorded expected HEAD. Any unexpected root, Git directory, branch or HEAD change is a **hard stop before further writes**. Report expected versus actual values. Do not automatically switch branches, create a replacement worktree, stash, reset, move changes, cherry-pick or redefine the binding to make the check pass. Resume only after the operator explicitly resolves the assignment.
+- Recheck the same binding when a task resumes, after a context handover, and before integration. A new turn, compacted context or a generic instruction to continue never authorizes a different worktree or branch. If the binding cannot be recovered, stay read-only until ownership is established.
+- When parallel implementation is declared **or observed**, use one dedicated branch and worktree per active task. Never share an implementation directory or commit onto another worker's branch. The primary checkout remains control/integration space; existing tasks and dirty changes are not silently adopted. Read-only inspection and an explicitly assigned rule-maintenance edit do not authorize implementation or a commit on a foreign worker's branch.
+- Before staging, inspect the working tree and index. Stage only the bound scope; before committing, verify the complete staged set and `git diff --cached --check`. Unrelated staged changes stop the commit.
+
+This is a mandatory agent execution gate. It is not, by itself, an installed Git hook, filesystem lock or technical sandbox. Do not claim technical enforcement unless an actual enforcement mechanism has been installed and verified.
+
 ## Parallel traffic check
 
-When parallel agent work is explicitly active, apply `DR-EXEC-010` before a new implementation task and before integrating or pushing work: spend about 30 seconds maximum on a read-only check of active local worktrees, visible active remote branches or pull requests where available, and scopes declared by the operator or Traffic Controller.
+When parallel agent work is declared or observed, apply `DR-EXEC-010` before a new implementation task and before integrating or pushing work: spend about 30 seconds maximum on a read-only check of active local worktrees, visible active remote branches or pull requests where available, and scopes declared by the operator or Traffic Controller.
 
 - Stop and report only when another active worker owns the same files or the same shared owner/contract.
 - If scopes are separate, proceed immediately.
 - Do not turn the check into builds, tests, broad audits, architecture review, lengthy preflight or a new coordination system.
 
-For explicitly parallel Codex, Claude or Codex Cloud work, apply `DR-EXEC-011` as well:
+For declared or observed parallel Codex, Claude or Codex Cloud work, apply `DR-EXEC-011` as well:
 
 - One active implementation task owns one dedicated branch and one dedicated Git worktree. Do not share a working directory between agents.
 - The primary `main` worktree is control/integration space during parallel work; implementation happens in the task worktrees.
