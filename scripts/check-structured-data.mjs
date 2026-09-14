@@ -825,11 +825,15 @@ export function runStructuredDataAudit({
       contextualRentalReport(
         `expected publisher node ${publisherId} to exist in @graph; actual=missing`
       );
-    } else if (!hasType(publisherNode, 'LodgingBusiness') || publisherNode.name !== 'AMARA') {
+    } else if (!hasType(publisherNode, 'Organization') || publisherNode.name !== 'AMARA') {
       contextualRentalReport(
-        `expected publisher node ${publisherId} to identify AMARA LodgingBusiness; ` +
+        `expected publisher node ${publisherId} to identify AMARA Organization; ` +
           `actual=${JSON.stringify({ type: publisherNode['@type'], name: publisherNode.name })}`
       );
+    }
+
+    if (publisherNode && ['address', 'geo', 'latitude', 'longitude', 'priceRange'].some((key) => key in publisherNode)) {
+      contextualRentalReport('AMARA publisher must not inherit a rental location or portfolio price range');
     }
 
     const amenityFeatures = containsPlace?.amenityFeature;

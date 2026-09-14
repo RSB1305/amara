@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.82.0
+version: 1.83.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-14T10:31:12.316Z
+last_modified: 2026-09-14T10:55:40.982Z
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -22,7 +22,7 @@ The AMARA Register is the single source for active documents, authority classes,
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
 | 02 | AMARA Astro & Design Architecture Contract | 4.26.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
-| 03 | AMARA Runtime, SEO & Data Contract | 4.5.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
+| 03 | AMARA Runtime, SEO & Data Contract | 4.6.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` (4.1.0; transition note 2026-09-04 and published-locale amendment 2026-09-14) + Decision Register `DR-URL-003/005`, `DR-ROUTE-003` + executable owner `src/lib/publicRouteManifest.mjs` |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.9.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
@@ -89,6 +89,7 @@ Current operational feature owner during transition:
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-SEC-001 | Cloudflare Pages applies the active standard security headers to normal public, Guest Utility, legal and booking-entry documents. The validated resource-origin inventory is enforced through `Content-Security-Policy`: same-origin resources plus only the required Google Analytics, Open-Meteo and click-to-load YouTube origins are allowed; inline event-handler attributes are blocked, while deliberate Astro inline script elements and styles remain permitted. Any new origin or relaxation requires explicit alignment and representative compatibility validation. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-LINK-001 | Registry token + resolver remain the authored semantic internal-link contract. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-SCHEMA-002 | AMARA is the Organization publisher at the existing /#organization identity. Only the corresponding VacationRental nodes carry property location, photography and pricing. No new legal entity is asserted; rental identities and localized page URLs remain unchanged. | ACTIVE |
 | DR-SCHEMA-001 | Collection/ItemList schema is not mandatory; any implementation must reflect visible real items and stay in the central resolver. | ACTIVE CURRENT DECISION |
 | DR-UTILITY-001 | Guest Guide remains a separate noindex utility shell and is not a Type D conversion surface by principle. | APPROVED; code reconciliation pending |
 | DR-SURFACE-001 | Strategic A/B/C/D job and technical surface type should be separate; field reconciliation is a later controlled workstream. | IMPLEMENTATION PENDING |
@@ -416,3 +417,5 @@ Separate controlled workstreams remain for:
 | 1.81.0 | 2026-09-14T09:56:51+02:00 | Registered Governance 5.9.0 and the mandatory task-identity pre-write gate, unexpected-identity hard stop and isolation for observed parallel work; synchronized AGENTS.md. | this revision |
 
 | 1.82.0 | 2026-09-14T10:31:12.316Z | Registered Runtime 4.5.0, URL/Route 4.1.0 and DR-ROUTE-004: permanently German-only Bildungsurlaub, one published-locale contract and direct redirects for retired variants. | this revision |
+
+| 1.83.0 | 2026-09-14T10:55:40.982Z | Registered Runtime 4.6.0 and DR-SCHEMA-002: separate portfolio publisher from physical rentals. | this revision |

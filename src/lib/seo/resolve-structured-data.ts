@@ -4,7 +4,6 @@ import type {
 } from '../../types/seo';
 import {
   toVacationRentalPriceRange,
-  vacationRentalEntities,
   vacationRentalEntitiesByKey,
   type VacationRentalEntity
 } from '../../content/vacationRentalEntities';
@@ -21,49 +20,14 @@ import {
 type SchemaNode = Record<string, unknown>;
 
 interface BrandEntity {
-  key: 'amara-brand';
   name: 'AMARA';
-  url: string;
   email: string;
-  street: string;
-  city: string;
-  zip: string;
-  region: string;
-  country: string;
-  latitude: number;
-  longitude: number;
-  image: string;
-  priceRange: string;
   instagramProfile?: string;
 }
 
-function buildPortfolioPriceRange(): string {
-  const bounds = vacationRentalEntities.flatMap((entity) => [
-    entity.pricing.indicativeFrom,
-    entity.pricing.indicativeTo
-  ]);
-
-  if (bounds.length === 0) {
-    throw new Error('[Structured data] No valid rental price ranges found.');
-  }
-
-  return `EUR ${Math.min(...bounds)}-${Math.max(...bounds)}`;
-}
-
 const BRAND_ENTITY: BrandEntity = {
-  key: 'amara-brand',
   name: 'AMARA',
-  url: 'https://amara-lodging.es/',
   email: 'hola@amara-lodging.es',
-  street: 'Calle Chorruelo 5',
-  city: 'Frigiliana',
-  zip: '29788',
-  region: 'Andalusia',
-  country: 'ES',
-  latitude: 36.793171,
-  longitude: -3.899107,
-  image: '/images/hero-frigiliana.jpg',
-  priceRange: buildPortfolioPriceRange(),
   instagramProfile: 'https://www.instagram.com/amaralodging/'
 };
 
@@ -861,37 +825,23 @@ function buildLandmarkNode(
   return node;
 }
 
+// The publisher represents the portfolio; physical location and pricing belong to each rental.
 function buildBrandNode(entity: BrandEntity, origin: string) {
   const sameAs = [entity.instagramProfile].filter(Boolean);
   const base = getBase(origin);
 
   return {
-    '@type': 'LodgingBusiness',
-    '@id': `${base}/#organization`,
+    '@type': 'Organization',
+    '@id': base + '/#organization',
     name: entity.name,
-    url: `${base}/`,
+    url: base + '/',
     email: entity.email,
     sameAs,
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: entity.street,
-      addressLocality: entity.city,
-      postalCode: entity.zip,
-      addressRegion: entity.region,
-      addressCountry: entity.country
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: entity.latitude,
-      longitude: entity.longitude
-    },
     brand: {
       '@type': 'Brand',
       name: entity.name
     },
-    logo: `${base}/web-app-manifest-512x512.png`,
-    image: new URL(entity.image, base).href,
-    priceRange: entity.priceRange
+    logo: base + '/web-app-manifest-512x512.png'
   };
 }
 
