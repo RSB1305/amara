@@ -308,15 +308,26 @@ const controlLabelClasses = [
     text-align: left;
   }
 
+  /* Hover reuses the selected option's golden tint so the same highlight simply
+     follows the cursor down the list, rather than introducing a second grey
+     colour. (surface-container-low is white since the white-surface pass, which
+     had left the previous hover invisible on the white popover.) */
   .am-select-menu__option:hover,
   .am-select-menu__option:focus-visible {
-    background: var(--color-surface-container-low);
+    background: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface-white));
     outline: none;
   }
 
   .am-select-menu__option[aria-selected='true'] {
     background: color-mix(in srgb, var(--color-primary) 9%, var(--color-surface-white));
     color: var(--color-primary);
+  }
+
+  /* While the pointer is in the list, only the hovered option carries the tint:
+     the selected option drops its fill (its check mark still marks the choice)
+     so the highlight reads as one marker moving down, not two lit rows at once. */
+  [data-am-select-menu-listbox]:hover .am-select-menu__option[aria-selected='true']:not(:hover):not(:focus-visible) {
+    background: var(--color-surface-white);
   }
 
   .am-select-menu__option[aria-selected='true']::after {
