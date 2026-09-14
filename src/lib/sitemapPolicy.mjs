@@ -58,7 +58,7 @@ export function isSitemapPathAllowed(pathname) {
   const match = resolvePublicRoute(pathname);
 
   if (match) {
-    return match.route.indexable;
+    return match.route.indexable && match.route.locales.includes(match.locale);
   }
 
   if (resolveGuestGuidePath(pathname)) {
@@ -107,7 +107,12 @@ export function buildSitemapAlternates(page) {
   const match = resolvePublicRoute(pageUrl.pathname);
   const slug = sitemapSlug(pageUrl.pathname);
 
-  return ALTERNATE_LOCALES.map((locale) => {
+  if (match && (!match.route.indexable || !match.route.locales.includes(match.locale))) return [];
+  const locales = match
+    ? ALTERNATE_LOCALES.filter((locale) => match.route.locales.some((published) => published === locale))
+    : ALTERNATE_LOCALES;
+
+  return locales.map((locale) => {
     const pathname = match
       ? buildPublicRoutePath(match.route.key, locale)
       : locale === 'es'

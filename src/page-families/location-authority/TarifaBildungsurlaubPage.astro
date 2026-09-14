@@ -24,9 +24,8 @@ import LocationGuideIcon from '../../components/location/LocationGuideIcon.astro
 
 /**
  * Educational-leave spoke of the Tarifa kitesurf cluster. German carries the
- * full page (operator decision of 4 September 2026: German first, the other
- * locales in the translation pass at the end); the other locales still render
- * the short placeholder and stay out of the index. The request form at the
+ * full page. The operator made this route permanently German-only on
+ * 14 September 2026; the manifest excludes every other locale. The request form at the
  * end sends nothing to a server: it opens the guest's mail program with the
  * message template addressed to Work Surf Balance and the field values
  * appended, so nothing is stored on our side.
@@ -35,13 +34,12 @@ interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
+if (currentLang !== 'de') throw new Error('Bildungsurlaub is published only in German.');
 const heroImage = requireRouteImage('tarifa.kitesurfing.bildungsurlaub', 'hero', currentLang);
 const weekImage = requireRouteImage('tarifa.kitesurfing.bildungsurlaub', 'week', currentLang);
-const isGerman = currentLang === 'de';
 const t = (value: LocalizedText) => value[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa Bildungsurlaub');
 const aboutHref = requiredLink('about');
-const campHref = `${requiredLink('tarifa_kitecamp')}#bildungsurlaub`;
 const de = tarifaBildungsurlaubDe;
 
 const ui = {
@@ -101,9 +99,7 @@ const footerHighlights: LabeledLink[] = [
   { token: 'tarifa_kitecamp', label: t(ui.campLink) }
 ];
 
-const hero = isGerman
-  ? { eyebrow: de.hero.eyebrow, title: de.hero.title, subtitle: de.hero.subtitle, lead: de.hero.lead }
-  : { eyebrow: t(ui.eyebrow), title: t(ui.title), subtitle: t(ui.subtitle), lead: t(ui.lead) };
+const hero = de.hero;
 
 const fieldClass = 'am-form-control am-text-form-value mt-2';
 const labelClass = 'block text-on-surface-variant am-text-label am-text-label--sm';
@@ -143,8 +139,7 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
       />
     </LocationGuideHero>
 
-    {isGerman ? (
-      <Fragment>
+    <Fragment>
         <LocationModule id="woche" labelledby="woche-title" surface="tint" data-am-topic="week">
           <div class="mx-auto max-w-screen-2xl">
             <div class="grid gap-10 lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1.28fr)] lg:gap-20">
@@ -379,15 +374,7 @@ const labelClass = 'block text-on-surface-variant am-text-label am-text-label--s
           availabilityHref={requiredLink('book')}
           availabilityLabel={experienceStayBridge.availabilityLabel[currentLang]}
         />
-      </Fragment>
-    ) : (
-      <LocationModule id="placeholder-links" spacing="compact" data-am-topic="placeholder">
-        <div class="mx-auto flex max-w-screen-2xl flex-wrap gap-x-8 gap-y-3">
-          <a href={campHref} class="am-cta-link">{t(ui.campLink)}</a>
-          <AmaraActionLink href="https://worksurfbalance.com" variant="editorial" external class="inline-flex">{t(ui.providerLink)}</AmaraActionLink>
-        </div>
-      </LocationModule>
-    )}
+    </Fragment>
 
     <KitePartnerLogoBand lang={currentLang} />
   </article>

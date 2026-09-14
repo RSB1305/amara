@@ -18,7 +18,7 @@
  * Only indexable public pages are listed; the gated Guest Guide, the noindex
  * availability search and the private arrival-directions pages are left out.
  */
-import { buildPublicRoutePath } from '../../lib/publicRouteManifest.mjs';
+import { buildPublicRoutePath, getPublicRoute } from '../../lib/publicRouteManifest.mjs';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
 
 type L = Record<AmaraLanguage, string>;
@@ -270,13 +270,13 @@ function resolveBranch(branch: Branch, lang: AmaraLanguage): ResolvedSitemapBran
   return {
     title: branch.label[lang],
     href: branch.key ? buildPublicRoutePath(branch.key, lang) : undefined,
-    items: branch.items.map((item) => resolveItem(item, lang)),
+    items: branch.items.filter((item) => getPublicRoute(item.key).locales.includes(lang)).map((item) => resolveItem(item, lang)),
     branches: (branch.branches ?? []).map((sub) => resolveBranch(sub, lang))
   };
 }
 
-function countBranch(branch: Branch): number {
-  return (branch.key ? 1 : 0) + branch.items.length + (branch.branches ?? []).reduce((total, sub) => total + countBranch(sub), 0);
+function countBranch(branch: Branch, lang: AmaraLanguage): number {
+  return (branch.key ? 1 : 0) + branch.items.filter((item) => getPublicRoute(item.key).locales.includes(lang)).length + (branch.branches ?? []).reduce((total, sub) => total + countBranch(sub, lang), 0);
 }
 
 export function resolveSitemapGroups(lang: AmaraLanguage): ResolvedSitemapGroup[] {
@@ -284,7 +284,7 @@ export function resolveSitemapGroups(lang: AmaraLanguage): ResolvedSitemapGroup[
     id: group.id,
     title: group.title[lang],
     blurb: group.blurb[lang],
-    count: group.items.length + group.branches.reduce((total, branch) => total + countBranch(branch), 0),
+    count: group.items.length + group.branches.reduce((total, branch) => total + countBranch(branch, lang), 0),
     items: group.items.map((item) => resolveItem(item, lang)),
     branches: group.branches.map((branch) => resolveBranch(branch, lang))
   }));

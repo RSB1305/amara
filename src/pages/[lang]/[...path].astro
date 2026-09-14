@@ -16,7 +16,7 @@ export function getStaticPaths() {
   return SUPPORTED_LANGUAGES
     .filter((lang) => lang !== DEFAULT_LANGUAGE)
     .flatMap((lang) =>
-      getOwnedPublicRoutes().map((route) => ({
+      getOwnedPublicRoutes(lang).map((route) => ({
         params: { lang, path: route.paths[lang] || undefined },
         props: { routeKey: route.key, lang }
       }))

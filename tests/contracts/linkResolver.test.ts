@@ -10,7 +10,7 @@ import type { AmaraLanguage } from '../../src/types/seo';
 
 const languages: AmaraLanguage[] = ['en', 'de', 'es', 'nl', 'sv'];
 
-test('every localized registry entry resolves in all supported languages', () => {
+test('every registry entry resolves in its published languages', () => {
   for (const [token, entry] of Object.entries(linkRegistry.links)) {
     if (typeof entry === 'string') {
       expect(resolveLink(token as LinkToken, 'es'), token).toBe(entry);
@@ -18,6 +18,11 @@ test('every localized registry entry resolves in all supported languages', () =>
     }
 
     for (const language of languages) {
+      if (token === 'tarifa_bildungsurlaub' && language !== 'de') {
+        expect(entry[language]).toBeUndefined();
+        expect(() => resolveLink(token, language)).toThrow(/Translation missing/);
+        continue;
+      }
       expect(resolveLink(token as LinkToken, language), `${token}:${language}`).toBe(
         entry[language]
       );
@@ -43,6 +48,7 @@ test('no authored link sends a guest to the booking provider', () => {
     const urls = typeof entry === 'string' ? [entry] : Object.values(entry);
 
     for (const url of urls) {
+      if (url === undefined) continue;
       expect(url, `${token} must not link to the booking provider`).not.toContain(
         'lodgify.com'
       );

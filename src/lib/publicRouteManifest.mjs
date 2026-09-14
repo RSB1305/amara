@@ -35,6 +35,7 @@ export const DEFAULT_PUBLIC_ROUTE_LOCALE = 'es';
  * @property {LocalizedSegments} [paths] Full path per locale, used when the path is not composed.
  * @property {boolean} [identity] Every locale shares the same full path (brand or place identity).
  * @property {boolean} [indexable] False keeps the route out of the sitemap.
+ * @property {readonly PublicRouteLocale[]} [locales] Published locales; defaults to all five.
  * @property {Record<string, string>} [props] Authored props passed to the page family.
  *
  * @typedef {object} PublicRoute
@@ -44,6 +45,7 @@ export const DEFAULT_PUBLIC_ROUTE_LOCALE = 'es';
  * @property {string} [parent]
  * @property {boolean} identity
  * @property {boolean} indexable
+ * @property {readonly PublicRouteLocale[]} locales
  * @property {Record<string, string>} props
  * @property {LocalizedSegments} paths Full path per locale without the locale prefix.
  */
@@ -759,7 +761,7 @@ const definitions = [
     props: { spoke: 'equipment' },
     segment: { es: 'material', en: 'gear', de: 'material', nl: 'materiaal', sv: 'utrustning' }
   },
-  { key: 'tarifa.kitesurfing.bildungsurlaub', legacySlug: 'tarifa-bildungsurlaub', family: 'tarifa-bildungsurlaub', parent: 'tarifa.kitesurfing', segment: shared('bildungsurlaub') },
+  { key: 'tarifa.kitesurfing.bildungsurlaub', legacySlug: 'tarifa-bildungsurlaub', family: 'tarifa-bildungsurlaub', parent: 'tarifa.kitesurfing', locales: ['de'], segment: shared('bildungsurlaub') },
   { key: 'tarifa.kitesurfing.surf-club', legacySlug: 'amara-tarifa-surf-club', family: 'tarifa-kite-partner', parent: 'tarifa.kitesurfing', segment: shared('tarifa-surf-club') },
   {
     key: 'tarifa.kitesurfing.beginner-guide',
@@ -807,6 +809,13 @@ export const PUBLIC_ROUTES = Object.freeze(
       throw new Error(`[AMARA routes] "${definition.key}" needs either full paths or a parent and a segment.`);
     }
 
+    const locales = definition.locales ?? PUBLIC_ROUTE_LOCALES;
+    if (!locales.length || new Set(locales).size !== locales.length ||
+        locales.some((locale) => !PUBLIC_ROUTE_LOCALES.includes(locale) ||
+          (parent && !parent.locales.some((published) => published === locale)))) {
+      throw new Error('[AMARA routes] Invalid published locales for "' + definition.key + '".');
+    }
+
     /** @type {PublicRoute} */
     const route = Object.freeze({
       key: definition.key,
@@ -815,6 +824,7 @@ export const PUBLIC_ROUTES = Object.freeze(
       parent: definition.parent,
       identity: definition.identity === true,
       indexable: definition.indexable !== false,
+      locales: Object.freeze(/** @type {PublicRouteLocale[]} */ ([...locales])),
       props: Object.freeze({ ...(definition.props ?? {}) }),
       paths: Object.freeze({ ...paths })
     });
@@ -868,7 +878,7 @@ export function buildPublicRoutePath(key, locale) {
   const route = getPublicRoute(key);
   const path = route.paths[/** @type {PublicRouteLocale} */ (locale)];
 
-  if (typeof path !== 'string') {
+  if (!route.locales.some((published) => published === locale) || typeof path !== 'string') {
     throw new Error(`[AMARA routes] "${key}" has no path for locale "${locale}".`);
   }
 
@@ -917,7 +927,9 @@ export function normalizePublicPathname(pathname) {
 
 /**
  * Resolves a pathname (with or without `.html`, trailing slash, query or hash)
- * to the public route and locale that own it, or null for private routes.
+ * to its declared public route and locale, or null for private routes.
+ * Retired locale paths remain identifiable for redirects and sitemap exclusion;
+ * route.locales determines which of these paths actually publishes a page.
  * @param {string} pathname
  * @returns {{ route: PublicRoute; locale: PublicRouteLocale } | null}
  */
