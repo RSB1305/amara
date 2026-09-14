@@ -1,12 +1,16 @@
-import { buildOwnedLocalizedPath } from './routeOwnership';
+import { buildOwnedLocalizedPath, getOwnedPublicRoute } from './routeOwnership';
+import type { AmaraLanguage } from '../types/seo';
 
 function buildOwnedLinks(slug: string) {
+  const route = getOwnedPublicRoute(slug);
+  const href = (lang: AmaraLanguage) =>
+    route.locales.includes(lang) ? buildOwnedLocalizedPath(slug, lang) : undefined;
   return {
-    en: buildOwnedLocalizedPath(slug, 'en'),
-    de: buildOwnedLocalizedPath(slug, 'de'),
-    es: buildOwnedLocalizedPath(slug, 'es'),
-    nl: buildOwnedLocalizedPath(slug, 'nl'),
-    sv: buildOwnedLocalizedPath(slug, 'sv')
+    en: href('en'),
+    de: href('de'),
+    es: href('es'),
+    nl: href('nl'),
+    sv: href('sv')
   } as const;
 }
 
@@ -50,6 +54,7 @@ export const linkRegistry = {
     reviews_hub: buildOwnedLinks('about.reviews'),
     instagram_landing: buildOwnedLinks('instagram'),
     romantic_hideaways: buildOwnedLinks('stays'),
+    frigiliana_stays: buildOwnedLinks('stays.frigiliana'),
     sitemap: buildOwnedLinks('sitemap'),
     amara_experience: buildOwnedLinks('amara-experience'),
     stay_search_results: buildOwnedLinks('stays.search'),

@@ -7,6 +7,7 @@ import {
   getWeatherAuthorityContent,
   getWeatherSeo,
   weatherForecastUrls,
+  weatherDestinationNames,
   weatherMonthLabels
 } from '../../content/locationWeatherAuthorityContent';
 import { climateDataSourceUrls, locationClimateProfiles, comparisonCityByLang, comparisonCityHighs, comparisonCityRecords } from '../../content/locationClimateData';
@@ -148,6 +149,7 @@ const liveForecast = content.forecast.live
   </Navigation>
   <WeatherAuthorityBody
     pageId={`${destination}-weather`}
+    placeLabel={weatherDestinationNames[destination]}
     lang={currentLang}
     content={content}
     months={months}

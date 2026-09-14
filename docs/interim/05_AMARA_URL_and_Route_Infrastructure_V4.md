@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-URL-005
 title: AMARA URL & Route Infrastructure V4
-version: 4.0
+version: 4.1.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF
@@ -16,6 +16,8 @@ migration_state: PENDING PACKAGE 2/3 NORMALIZATION
 > **INTERIM SNAPSHOT.** This file preserves the wording of the currently approved source document while AMARA migrates active documentation into the repository. Formatting was normalized for Markdown; no substantive rule change is intended by this conversion. Where the System Constitution, Governance or Decision Register explicitly records an intentional supersession, the higher owner governs.
 
 > **Transition note (2026-09-04):** the locale-path direction recorded in `DR-URL-003` is now the implemented contract. Public routes are declared once in `src/lib/publicRouteManifest.mjs` with one language-neutral key, one parent and one native hierarchical path per locale, and rendered by two catch-all pages; canonical, hreflang, sitemap alternates, breadcrumb hierarchy, the Link Registry and the migration redirects derive from that manifest. Sections 2–5 and 7 below describe the superseded shared-slug model and are governed by `DR-URL-003`, `DR-URL-005` and `DR-ROUTE-003` in the Register. Redirect governance, semantic link resolution, the change gate and the definition of done continue to apply unchanged.
+
+> **Published-locale amendment (2026-09-14, DR-ROUTE-004):** Public routes publish in all five locales by default. An explicit locales list in src/lib/publicRouteManifest.mjs restricts publication for an operator-approved market-specific page. Static paths, public link availability, the language switch, hreflang and both sitemaps use that same list; no implicit cross-language link fallback is introduced. Bildungsurlaub is permanently German-only. Its four retired placeholder paths and old flat aliases redirect directly to the German canonical through public/_redirects. Spanish remains the site default; x-default is emitted only when the route actually publishes in Spanish.
 
 ---
 

@@ -72,3 +72,19 @@ test('serializes manifest alternates in native paths and keeps only the root sla
     `${ORIGIN}/sv`
   ]);
 });
+
+test('excludes retired Bildungsurlaub locales from XML and HTML sitemaps', async () => {
+  const { getPublicRoute, localizePublicPath } = await import('../../src/lib/publicRouteManifest.mjs');
+  const { resolveSitemapGroups, flattenGroupLinks } = await import('../../src/page-families/sitemap/sitemapContent');
+  const route = getPublicRoute('tarifa.kitesurfing.bildungsurlaub');
+  const german = pageUrl(buildPublicRoutePath(route.key, 'de'));
+  for (const lang of LANGUAGES) {
+    const url = pageUrl(localizePublicPath(route.paths[lang], lang));
+    expect(isSitemapPageAllowed(url)).toBe(lang === 'de');
+    expect(normalizeSitemapItem({ url }).links).toEqual(lang === 'de' ? [{ lang: 'de', url: german }] : []);
+    const groups = resolveSitemapGroups(lang);
+    const links = groups.flatMap(flattenGroupLinks).filter((link) => link.href.includes('/bildungsurlaub'));
+    expect(links).toHaveLength(lang === 'de' ? 1 : 0);
+    for (const group of groups) expect(group.count).toBe(flattenGroupLinks(group).length);
+  }
+});

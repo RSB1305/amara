@@ -37,8 +37,8 @@ export function isSupportedLanguage(lang: string): lang is AmaraLanguage {
 }
 
 /** Every public route in manifest order; the catch-all pages generate from it. */
-export function getOwnedPublicRoutes(): readonly PublicRoute[] {
-  return PUBLIC_ROUTES;
+export function getOwnedPublicRoutes(lang?: AmaraLanguage): readonly PublicRoute[] {
+  return lang ? PUBLIC_ROUTES.filter((route) => route.locales.includes(lang)) : PUBLIC_ROUTES;
 }
 
 export function getOwnedPublicRoute(key: string): PublicRoute {
@@ -53,7 +53,9 @@ export function getOwnedPublicRoute(key: string): PublicRoute {
 export function getOwnedRouteFromPathname(pathname: string): OwnedRouteMatch | null {
   const match = resolvePublicRoute(pathname);
 
-  return match ? { route: match.route, lang: match.locale } : null;
+  return match?.route.locales.includes(match.locale)
+    ? { route: match.route, lang: match.locale }
+    : null;
 }
 
 /**
@@ -93,12 +95,12 @@ export function isPublicLinkEnabled(
   return !DISABLED_PUBLIC_ROUTE_TOKENS.has(token);
 }
 
-/** Public routes are published in every language; private routes own only the current one. */
+/** Public routes own their published locales; private routes own only the current one. */
 export function getOwnedLanguagesForRoute(
   match: OwnedRouteMatch | null,
   currentLang: AmaraLanguage
 ): AmaraLanguage[] {
-  return match ? SUPPORTED_LANGUAGES : [currentLang];
+  return match ? SUPPORTED_LANGUAGES.filter((lang) => match.route.locales.includes(lang)) : [currentLang];
 }
 
 /** The localized public path of a manifest route key, e.g. `/de/frigiliana/anreise`. */

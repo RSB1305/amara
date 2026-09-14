@@ -1,5 +1,14 @@
 import type { LinkToken } from '../lib/linkResolver';
 import type { AmaraLanguage } from '../types/seo';
+import type { LocalizedText } from '../types/content';
+
+const comparisonToggleLabels = {
+  de: 'Vergleich zu Deutschland (Berlin)',
+  en: 'Compare with the UK (London)',
+  es: 'Comparar con España (Madrid)',
+  nl: 'Vergelijk met Nederland (Amsterdam)',
+  sv: 'Jämför med Sverige (Stockholm)'
+} satisfies LocalizedText;
 
 export type ClimateComparisonDestination = 'frigiliana' | 'nerja' | 'tarifa';
 
@@ -33,7 +42,7 @@ export const climateComparisonContent: Partial<
     de: {
       eyebrow: 'Frigiliana im Vergleich',
       title: 'Warm im Sommer, mild im Winter',
-      compareLabel: 'Vergleich mit Berlin',
+      compareLabel: comparisonToggleLabels.de,
       summer: {
         eyebrow: 'Im Hochsommer',
         title: 'Heißer im Schnitt — und die Rekorde überraschen',
@@ -52,7 +61,7 @@ export const climateComparisonContent: Partial<
     es: {
       eyebrow: 'Frigiliana en comparación',
       title: 'Cálido en verano, suave en invierno',
-      compareLabel: 'Comparar con Madrid',
+      compareLabel: comparisonToggleLabels.es,
       summer: {
         eyebrow: 'En pleno verano',
         title: 'Más llevadero que el calor de Madrid',
@@ -71,7 +80,7 @@ export const climateComparisonContent: Partial<
     en: {
       eyebrow: 'Frigiliana in comparison',
       title: 'Warm in summer, mild in winter',
-      compareLabel: 'Compare with London',
+      compareLabel: comparisonToggleLabels.en,
       summer: {
         eyebrow: 'In high summer',
         title: 'Warmer on average — and the records surprise',
@@ -90,7 +99,7 @@ export const climateComparisonContent: Partial<
     nl: {
       eyebrow: 'Frigiliana vergeleken',
       title: 'Warm in de zomer, zacht in de winter',
-      compareLabel: 'Vergelijk met Amsterdam',
+      compareLabel: comparisonToggleLabels.nl,
       summer: {
         eyebrow: 'In de hoogzomer',
         title: 'Gemiddeld warmer — en de records verrassen',
@@ -109,7 +118,7 @@ export const climateComparisonContent: Partial<
     sv: {
       eyebrow: 'Frigiliana i jämförelse',
       title: 'Varmt på sommaren, milt på vintern',
-      compareLabel: 'Jämför med Stockholm',
+      compareLabel: comparisonToggleLabels.sv,
       summer: {
         eyebrow: 'På högsommaren',
         title: 'Varmare i snitt — och rekorden överraskar',
@@ -130,7 +139,7 @@ export const climateComparisonContent: Partial<
     de: {
       eyebrow: 'Nerja im Vergleich',
       title: 'Warm im Sommer, mild im Winter',
-      compareLabel: 'Im Vergleich zu Deutschland (Datenreferenz: Berlin)',
+      compareLabel: comparisonToggleLabels.de,
       summer: {
         eyebrow: 'Im Hochsommer',
         title: 'Das Meer vor der Tür',
@@ -149,7 +158,7 @@ export const climateComparisonContent: Partial<
     es: {
       eyebrow: 'Nerja en comparación',
       title: 'Cálido en verano, suave en invierno',
-      compareLabel: 'Comparar con Madrid',
+      compareLabel: comparisonToggleLabels.es,
       summer: {
         eyebrow: 'En pleno verano',
         title: 'Más llevadero que el calor de Madrid',
@@ -168,7 +177,7 @@ export const climateComparisonContent: Partial<
     en: {
       eyebrow: 'Nerja in comparison',
       title: 'Warm in summer, mild in winter',
-      compareLabel: 'Compare with London',
+      compareLabel: comparisonToggleLabels.en,
       summer: {
         eyebrow: 'In high summer',
         title: 'Warmer on average — with the sea at the door',
@@ -187,7 +196,7 @@ export const climateComparisonContent: Partial<
     nl: {
       eyebrow: 'Nerja vergeleken',
       title: 'Warm in de zomer, zacht in de winter',
-      compareLabel: 'Vergelijk met Amsterdam',
+      compareLabel: comparisonToggleLabels.nl,
       summer: {
         eyebrow: 'In de hoogzomer',
         title: 'Gemiddeld warmer — met de zee voor de deur',
@@ -206,7 +215,7 @@ export const climateComparisonContent: Partial<
     sv: {
       eyebrow: 'Nerja i jämförelse',
       title: 'Varmt på sommaren, milt på vintern',
-      compareLabel: 'Jämför med Stockholm',
+      compareLabel: comparisonToggleLabels.sv,
       summer: {
         eyebrow: 'På högsommaren',
         title: 'Varmare i snitt — med havet vid dörren',
@@ -227,7 +236,7 @@ export const climateComparisonContent: Partial<
     de: {
       eyebrow: 'Tarifa im Vergleich',
       title: 'Windgekühlt im Sommer, mild im Winter',
-      compareLabel: 'Vergleich mit Berlin',
+      compareLabel: comparisonToggleLabels.de,
       summer: {
         eyebrow: 'Im Hochsommer',
         title: 'Der Wind hält die Hitze in Schach',
@@ -246,7 +255,7 @@ export const climateComparisonContent: Partial<
     es: {
       eyebrow: 'Tarifa en comparación',
       title: 'Refrescada por el viento en verano, suave en invierno',
-      compareLabel: 'Comparar con Madrid',
+      compareLabel: comparisonToggleLabels.es,
       summer: {
         eyebrow: 'En pleno verano',
         title: 'El viento mantiene el calor a raya',
@@ -265,7 +274,7 @@ export const climateComparisonContent: Partial<
     en: {
       eyebrow: 'Tarifa in comparison',
       title: 'Wind-cooled in summer, mild in winter',
-      compareLabel: 'Compare with London',
+      compareLabel: comparisonToggleLabels.en,
       summer: {
         eyebrow: 'In high summer',
         title: 'The wind keeps the heat in check',
@@ -284,7 +293,7 @@ export const climateComparisonContent: Partial<
     nl: {
       eyebrow: 'Tarifa vergeleken',
       title: 'Windgekoeld in de zomer, zacht in de winter',
-      compareLabel: 'Vergelijk met Amsterdam',
+      compareLabel: comparisonToggleLabels.nl,
       summer: {
         eyebrow: 'In de hoogzomer',
         title: 'De wind houdt de hitte in toom',
@@ -303,7 +312,7 @@ export const climateComparisonContent: Partial<
     sv: {
       eyebrow: 'Tarifa i jämförelse',
       title: 'Vindkyld på sommaren, mild på vintern',
-      compareLabel: 'Jämför med Stockholm',
+      compareLabel: comparisonToggleLabels.sv,
       summer: {
         eyebrow: 'På högsommaren',
         title: 'Vinden håller värmen i schack',

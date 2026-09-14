@@ -27,9 +27,8 @@ const content = tarifaWhereToStayBody[currentLang];
 
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa where to stay');
 const optionalLink = (token: LinkToken) => resolveOptionalLink(token, currentLang, { suppressMissing: true });
-const bookBase = optionalLink('book');
-const bookHref = bookBase ? `${bookBase}?destination=tarifa` : '#';
-const bookLabel = trustLabels.book[currentLang];
+const bookHref = requiredLink('tarifa');
+const bookLabel = {"de":"Family & Surf ansehen","en":"Explore Family & Surf","es":"Ver Family & Surf","nl":"Bekijk Family & Surf","sv":"Se Family & Surf"}[currentLang];
 const pointerHref = optionalLink(content.pointer.linkToken) ?? '#';
 const locationHref = requiredLink('location_tarifa');
 

@@ -67,6 +67,11 @@
 /de/gaesteguide /de/ueber-uns/gaesteguide 301
 /nl/gastengids /nl/over-ons/gastengids 301
 /sv/gastguide /sv/om-oss/gastguide 301
+# Bildungsurlaub is permanently German-only.
+/tarifa/experiencias/kitesurf/bildungsurlaub /de/tarifa/erlebnisse/kitesurfen/bildungsurlaub 301
+/en/tarifa/experiences/kitesurfing/bildungsurlaub /de/tarifa/erlebnisse/kitesurfen/bildungsurlaub 301
+/nl/tarifa/ervaringen/kitesurfen/bildungsurlaub /de/tarifa/erlebnisse/kitesurfen/bildungsurlaub 301
+/sv/tarifa/upplevelser/kitesurfing/bildungsurlaub /de/tarifa/erlebnisse/kitesurfen/bildungsurlaub 301
 # @astro-redirects:end
 
 # Guest Guide private pages under the old segment (Cloudflare rules; the access page and every
@@ -1132,11 +1137,11 @@
 /de/tarifa-kite-equipment /de/tarifa/erlebnisse/kitesurfen/material 301
 /nl/tarifa-kite-equipment /nl/tarifa/ervaringen/kitesurfen/materiaal 301
 /sv/tarifa-kite-equipment /sv/tarifa/upplevelser/kitesurfing/utrustning 301
-/tarifa-bildungsurlaub /tarifa/experiencias/kitesurf/bildungsurlaub 301
-/en/tarifa-bildungsurlaub /en/tarifa/experiences/kitesurfing/bildungsurlaub 301
+/tarifa-bildungsurlaub /de/tarifa/erlebnisse/kitesurfen/bildungsurlaub 301
+/en/tarifa-bildungsurlaub /de/tarifa/erlebnisse/kitesurfen/bildungsurlaub 301
 /de/tarifa-bildungsurlaub /de/tarifa/erlebnisse/kitesurfen/bildungsurlaub 301
-/nl/tarifa-bildungsurlaub /nl/tarifa/ervaringen/kitesurfen/bildungsurlaub 301
-/sv/tarifa-bildungsurlaub /sv/tarifa/upplevelser/kitesurfing/bildungsurlaub 301
+/nl/tarifa-bildungsurlaub /de/tarifa/erlebnisse/kitesurfen/bildungsurlaub 301
+/sv/tarifa-bildungsurlaub /de/tarifa/erlebnisse/kitesurfen/bildungsurlaub 301
 /amara-tarifa-surf-club /tarifa/experiencias/kitesurf/tarifa-surf-club 301
 /en/amara-tarifa-surf-club /en/tarifa/experiences/kitesurfing/tarifa-surf-club 301
 /de/amara-tarifa-surf-club /de/tarifa/erlebnisse/kitesurfen/tarifa-surf-club 301

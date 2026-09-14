@@ -89,12 +89,12 @@ const de: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Darum sind wir hier',
-    title: 'Der Altstadt-Charme, ohne den ständigen Anstieg',
+    title: "Vier Unterkünfte in der unteren Altstadt",
     caption: 'Die Altstadt steigt oberhalb der Hauptachse deutlich den Hang hinauf; AMARA liegt vergleichsweise tief an der Calle Chorruelo.',
     mapNote: '(siehe Orientierungskarte oben)',
-    lead: 'Die Altstadt steigt vom Hauptweg steil an — viele historische Adressen liegen deutlich höher am Hang, oben im Barribarto. Unsere Lage im Barribajo, an der **Calle Chorruelo**, setzt direkt an der ebenen Hauptachse an — mit echter Altstadt vor der Haustür, aber ohne dass jeder Einkauf zur Bergetappe wird. Deshalb haben wir hier investiert und das Haus über zwei Jahre restauriert.',
-    facts: ['**Mit dem Auto erreichbar** innerhalb der geltenden Altstadt-Zufahrtsfenster', '**Farah** hat nur eine Eingangsstufe', '**Lounis & Zaid**: private Terrassen mit Blick übers Grün bis zum Meer'],
-    honest: 'Ehrlich bleibt: voll ebenerdig mit eigenem Parkplatz → der neue Teil. Echte Abgeschiedenheit → El Campo. Für Altstadt-Charme mit vergleichsweise wenig Höhenmetern ist unsere Lage besonders praktisch.'
+    lead: "Unsere Casa AMARA liegt an der Calle Chorruelo. Von der Haustür erreicht ihr Cafés und Restaurants entlang der Calle Real ohne weitere Stufen. Im selben Haus wohnen jeweils zwei Gäste in drei Apartments und einer kompakten Suite.",
+    facts: ["**Farah:** 19 m², separates Schlafzimmer und Teeküche für Frühstück und kleine Mahlzeiten.","**Lounis und Zaid:** 70 beziehungsweise 33 m² innen, voll ausgestattete Küchen und private Terrassen mit 39 beziehungsweise 20 m².","**Maha:** 35 m² innen und 64 m² private Terrasse mit Außenküche und Essplatz."],
+    honest: "Eine Stufe liegt am gemeinsamen Hauseingang. Farah ist danach auf einer Ebene; bei Lounis, Zaid und Maha folgen weitere Stufen. Parken und den Fußweg zum Haus erklären wir in den Anreiseinformationen."
   }
 };
 
@@ -177,12 +177,12 @@ const en: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Why we chose this spot',
-    title: 'The old-town charm, without the constant climb',
+    title: "Four stays in the lower old town",
     caption: 'The old town climbs steeply above the main axis; AMARA sits comparatively low on Calle Chorruelo.',
     mapNote: '(see the orientation map above)',
-    lead: 'The old town climbs steeply from the main path — many historic addresses lie noticeably higher on the slope, up in Barribarto. Our position in Barribajo, on **Calle Chorruelo**, sits right on the level main axis — with real old town at the door, but without every shopping trip becoming a mountain stage. That is why we invested here and restored the house over two years.',
-    facts: ['**Reachable by car** within the current old-town access windows', '**Farah** has just one entrance step', '**Lounis & Zaid**: private terraces with views over the groves to the sea'],
-    honest: 'To stay honest: fully step-free with your own parking → the newer part. Real seclusion → El Campo. For old-town charm with comparatively few vertical metres, our position is particularly practical.'
+    lead: "Our Casa AMARA is on Calle Chorruelo. From the front door, you can reach cafés and restaurants along Calle Real without further steps. The house has three apartments and a compact suite, each for two guests.",
+    facts: ["**Farah:** 19 m², a separate bedroom and a kitchenette for breakfast and small meals.","**Lounis and Zaid:** 70 and 33 m² indoors, full kitchens and private terraces of 39 and 20 m² respectively.","**Maha:** 35 m² indoors and a 64 m² private terrace with an outdoor kitchen and dining area."],
+    honest: "There is one step at the shared entrance. Farah is on one level beyond it; Lounis, Zaid and Maha have further steps. Our arrival information explains parking and the walk to the house."
   }
 };
 
@@ -265,12 +265,12 @@ const es: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Por qué elegimos esta ubicación',
-    title: 'El encanto del casco, sin la subida constante',
+    title: "Cuatro alojamientos en la parte baja del casco antiguo",
     caption: 'El casco sube empinado por encima del eje principal; AMARA queda comparativamente bajo, en la calle Chorruelo.',
     mapNote: '(ver el mapa de orientación arriba)',
-    lead: 'El casco sube empinado desde el camino principal — muchas direcciones históricas quedan bastante más arriba, en el Barribarto. Nuestra ubicación en el Barribajo, en la **calle Chorruelo**, se asienta justo en el eje principal llano — con casco auténtico en la puerta, pero sin que cada compra sea una etapa de montaña. Por eso invertimos aquí y restauramos la casa durante dos años.',
-    facts: ['**Accesible en coche** dentro de las ventanas de acceso vigentes del casco', '**Farah** tiene un solo escalón de entrada', '**Lounis y Zaid**: terrazas privadas con vistas sobre el campo hasta el mar'],
-    honest: 'Para ser honestos: totalmente sin escalones y con aparcamiento propio → la zona nueva. Aislamiento real → El Campo. Para el encanto del casco con comparativamente pocos metros de desnivel, nuestra ubicación es especialmente práctica.'
+    lead: "Nuestra Casa AMARA está en Calle Chorruelo. Desde la puerta podéis llegar a los cafés y restaurantes de Calle Real sin más escalones. La casa reúne tres apartamentos y una suite compacta, todos para dos personas.",
+    facts: ["**Farah:** 19 m², dormitorio independiente y una pequeña cocina para desayunos y comidas sencillas.","**Lounis y Zaid:** 70 y 33 m² interiores, cocinas completas y terrazas privadas de 39 y 20 m², respectivamente.","**Maha:** 35 m² interiores y una terraza privada de 64 m² con cocina exterior y comedor."],
+    honest: "Hay un escalón en la entrada común. Después, Farah está en una sola planta; Lounis, Zaid y Maha tienen más escalones. En la información de llegada os explicamos dónde aparcar y cómo llegar a pie."
   }
 };
 
@@ -353,12 +353,12 @@ const nl: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Waarom wij hier zitten',
-    title: 'De charme van de oude kern, zonder het constante klimmen',
+    title: "Vier verblijven in het lagere deel van de oude stad",
     caption: 'De oude kern klimt steil boven de hoofdas uit; AMARA ligt vergelijkbaar laag aan Calle Chorruelo.',
     mapNote: '(zie de oriëntatiekaart hierboven)',
-    lead: 'De oude kern klimt steil vanaf het hoofdpad — veel historische adressen liggen merkbaar hoger, boven in Barribarto. Onze ligging in Barribajo, aan de **Calle Chorruelo**, zit pal op de vlakke hoofdas — met echte oude kern voor de deur, maar zonder dat elke boodschap een bergetappe wordt. Daarom investeerden we hier en restaureerden we het huis in twee jaar.',
-    facts: ['**Met de auto bereikbaar** binnen de geldende toegangsvensters van de oude kern', '**Farah** heeft maar één opstap', '**Lounis & Zaid**: privéterrassen met uitzicht over het groen tot de zee'],
-    honest: 'Eerlijk blijft: volledig gelijkvloers met eigen parkeerplaats → het nieuwere deel. Echte afzondering → El Campo. Voor kernkarakter met vergelijkenderwijs weinig hoogtemeters is onze ligging bijzonder praktisch.'
+    lead: "Ons Casa AMARA ligt aan Calle Chorruelo. Vanaf de voordeur bereiken jullie cafés en restaurants langs Calle Real zonder verdere treden. In het huis liggen drie appartementen en een compacte suite, elk voor twee gasten.",
+    facts: ["**Farah:** 19 m², een aparte slaapkamer en een kitchenette voor ontbijt en kleine maaltijden.","**Lounis en Zaid:** 70 en 33 m² binnenruimte, complete keukens en privéterrassen van respectievelijk 39 en 20 m².","**Maha:** 35 m² binnenruimte en een privéterras van 64 m² met buitenkeuken en eethoek."],
+    honest: "Bij de gezamenlijke ingang is één trede. Daarna ligt Farah op één niveau; Lounis, Zaid en Maha hebben meer treden. In onze aankomstinformatie vinden jullie het parkeren en de looproute naar het huis."
   }
 };
 
@@ -441,12 +441,12 @@ const sv: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Därför valde vi det här läget',
-    title: 'Gamla stans charm, utan den ständiga stigningen',
+    title: "Fyra boenden i den nedre delen av gamla stan",
     caption: 'Gamla stan stiger brant ovanför huvudaxeln; AMARA ligger jämförelsevis lågt vid Calle Chorruelo.',
     mapNote: '(se orienteringskartan ovan)',
-    lead: 'Gamla stan stiger brant från huvudvägen — många historiska adresser ligger märkbart högre, uppe i Barribarto. Vårt läge i Barribajo, vid **Calle Chorruelo**, ligger precis på den plana huvudaxeln — med riktig gammal stad vid dörren, men utan att varje inköpsrunda blir en bergsetapp. Därför investerade vi här och restaurerade huset under två år.',
-    facts: ['**Nåbart med bil** inom gamla stans gällande tillfartsfönster', '**Farah** har bara ett entrésteg', '**Lounis & Zaid**: privata terrasser med utsikt över grönskan mot havet'],
-    honest: 'Ärligt talat: helt trappfritt med egen parkering → den nyare delen. Verklig avskildhet → El Campo. För gammal-stans-charm med jämförelsevis få höjdmeter är vårt läge särskilt praktiskt.'
+    lead: "Vårt Casa AMARA ligger på Calle Chorruelo. Från ytterdörren når ni kaféer och restauranger längs Calle Real utan fler trappsteg. Huset rymmer tre lägenheter och en kompakt svit, alla för två gäster.",
+    facts: ["**Farah:** 19 m², separat sovrum och pentry för frukost och enklare måltider.","**Lounis och Zaid:** 70 respektive 33 m² inomhus, kompletta kök och privata terrasser på 39 respektive 20 m².","**Maha:** 35 m² inomhus och en privat terrass på 64 m² med utekök och matplats."],
+    honest: "Det finns ett trappsteg vid den gemensamma entrén. Därefter ligger Farah på ett plan; Lounis, Zaid och Maha har fler trappsteg. I vår ankomstinformation beskriver vi parkeringen och gångvägen till huset."
   }
 };
 

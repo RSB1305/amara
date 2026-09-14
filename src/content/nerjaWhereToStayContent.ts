@@ -87,12 +87,12 @@ const de: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Darum sind wir hier',
-    title: 'Zentral wohnen, ruhig zum Innenhof',
+    title: "Zentral wohnen, ruhig zum Innenhof",
     caption: 'Torrecilla liegt am Fuß der Altstadt: Stadtstrand direkt, der Balcón de Europa nur wenige Minuten entfernt.',
     mapNote: '(siehe Orientierungskarte oben)',
-    lead: 'In unserem Apartment AMARA Playa verbindet ihr kurze Wege mit einer ruhigen Wohnung: rund 200 Meter zur Torrecilla und etwa 500 Meter zum Balcón de Europa.',
-    facts: ['**Stadtstrand Torrecilla** direkt vor der Tür', '**5 Minuten** zu Fuß zum Balcón de Europa und den Tapas', '**Ruhig zum Innenhof**'],
-    honest: 'Auf dem Balkon habt ihr seitlichen Meerblick. Das 200 × 200 cm große Bett bietet viel Platz für euch beide.'
+    lead: "In unserer AMARA Playa wohnt ihr zentral in Nerja und ruhig zum Innenhof. Zur Torrecilla sind es rund 200 Meter, zum Balcón de Europa etwa 500 Meter zu Fuß.",
+    facts: ["**200 × 200 cm großes Bett** für euch beide.","**Voll ausgestattete Küche und Waschmaschine** für einen unabhängigen Aufenthalt.","**Privater Balkon mit seitlichem Meerblick.**"],
+    honest: "Die 37 m² große Wohnung liegt im fünften Stock mit Aufzug. Vor dem Aufzug liegen zehn Stufen: fünf vor dem Gebäude und fünf im Haus."
   }
 };
 
@@ -175,12 +175,12 @@ const en: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Why we chose this spot',
-    title: 'Beach at the door — and still right in it',
+    title: "Central Nerja, facing a quiet courtyard",
     caption: 'Torrecilla sits at the foot of the old town: the city beach right there, the Balcón de Europa just minutes away.',
     mapNote: '(see the orientation map above)',
-    lead: 'In Nerja you often have to choose: beach *or* centre, proximity *or* quiet. **AMARA Playa is in Torrecilla** — at the foot of the old town, with the city beach right at the door and only about five minutes on foot to the Balcón de Europa and the restaurants. And quieter than the old town itself.',
-    facts: ['**Torrecilla city beach** right at the door', '**5 minutes** on foot to the Balcón de Europa and the tapas', '**Quieter** than the busy old town — without the drive'],
-    honest: 'To stay honest: your biggest, most relaxed beach day is at Burriana; those who value quiet and space over proximity are better off in the hills. For beach and centre in one, Torrecilla is just right.'
+    lead: "Our AMARA Playa combines a central Nerja location with a quiet courtyard setting. Torrecilla beach is around 200 metres away, and the Balcón de Europa is about a 500-metre walk.",
+    facts: ["**A 200 × 200 cm bed** for the two of you.","**Full kitchen and washing machine** for an independent stay.","**Private balcony with a side sea view.**"],
+    honest: "The 37 m² apartment is on the fifth floor with a lift. Before the lift, there are ten steps: five outside the building and five inside."
   }
 };
 
@@ -263,12 +263,12 @@ const es: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Por qué elegimos esta ubicación',
-    title: 'Playa en la puerta — y aun así en el centro',
+    title: "En el centro, con la tranquilidad del patio interior",
     caption: 'Torrecilla está al pie del casco: la playa urbana justo ahí, el Balcón de Europa a pocos minutos.',
     mapNote: '(ver el mapa de orientación arriba)',
-    lead: 'En Nerja a menudo hay que elegir: playa *o* centro, cercanía *o* calma. **AMARA Playa está en Torrecilla** — al pie del casco, con la playa urbana en la puerta y a solo unos cinco minutos a pie del Balcón de Europa y los restaurantes. Y más tranquila que el propio casco.',
-    facts: ['**Playa urbana de Torrecilla** en la puerta', '**5 minutos** a pie al Balcón de Europa y las tapas', '**Más tranquila** que el casco animado — sin el coche'],
-    honest: 'Para ser honestos: el día de playa más grande y relajado lo tenéis en Burriana; quien valora la calma y el espacio por encima de la cercanía está mejor en la ladera. Para playa y centro en uno, Torrecilla es la opción justa.'
+    lead: "En nuestro AMARA Playa disfrutáis de una ubicación céntrica en Nerja y de la tranquilidad del patio interior. Torrecilla está a unos 200 metros y el Balcón de Europa, a unos 500 metros a pie.",
+    facts: ["**Cama de 200 × 200 cm** para los dos.","**Cocina completa y lavadora** para una estancia a vuestro ritmo.","**Balcón privado con vistas laterales al mar.**"],
+    honest: "El apartamento de 37 m² está en la quinta planta con ascensor. Antes de llegar al ascensor hay diez escalones: cinco fuera del edificio y cinco dentro."
   }
 };
 
@@ -351,12 +351,12 @@ const nl: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Waarom wij hier zitten',
-    title: 'Strand voor de deur — en toch middenin',
+    title: "Centraal in Nerja, rustig aan de binnenplaats",
     caption: 'Torrecilla ligt aan de voet van de oude kern: het stadsstrand direct, de Balcón de Europa op enkele minuten.',
     mapNote: '(zie de oriëntatiekaart hierboven)',
-    lead: 'In Nerja moet je vaak kiezen: strand *of* centrum, nabijheid *of* rust. **AMARA Playa ligt in Torrecilla** — aan de voet van de oude kern, met het stadsstrand pal voor de deur en maar zo’n vijf minuten lopen naar de Balcón de Europa en de restaurants. En rustiger dan de oude kern zelf.',
-    facts: ['**Stadsstrand Torrecilla** pal voor de deur', '**5 minuten** lopen naar de Balcón de Europa en de tapas', '**Rustiger** dan de drukke oude kern — zonder de auto'],
-    honest: 'Eerlijk blijft: je grootste, meest relaxte stranddag heb je bij Burriana; wie rust en ruimte boven nabijheid stelt, zit beter op de heuvel. Voor strand en centrum in één is Torrecilla precies goed.'
+    lead: "Ons AMARA Playa ligt centraal in Nerja en rustig aan de binnenplaats. Torrecilla ligt op ongeveer 200 meter; naar de Balcón de Europa lopen jullie ongeveer 500 meter.",
+    facts: ["**Een bed van 200 × 200 cm** voor jullie samen.","**Complete keuken en wasmachine** voor een verblijf op jullie eigen ritme.","**Privébalkon met zijdelings zeezicht.**"],
+    honest: "Het appartement van 37 m² ligt op de vijfde verdieping met lift. Voor de lift zijn er tien treden: vijf buiten het gebouw en vijf binnen."
   }
 };
 
@@ -439,12 +439,12 @@ const sv: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Därför valde vi det här läget',
-    title: 'Strand vid dörren — och ändå mitt i',
+    title: "Centralt i Nerja, lugnt mot innergården",
     caption: 'Torrecilla ligger vid foten av gamla stan: stadsstranden direkt, Balcón de Europa bara minuter bort.',
     mapNote: '(se orienteringskartan ovan)',
-    lead: 'I Nerja måste man ofta välja: strand *eller* centrum, närhet *eller* lugn. **AMARA Playa ligger i Torrecilla** — vid foten av gamla stan, med stadsstranden precis vid dörren och bara omkring fem minuters promenad till Balcón de Europa och restaurangerna. Och lugnare än gamla stan själv.',
-    facts: ['**Stadsstranden Torrecilla** precis vid dörren', '**5 minuter** till fots till Balcón de Europa och tapasen', '**Lugnare** än den livliga gamla stan — utan bilfärd'],
-    honest: 'Ärligt talat: din största, mest avslappnade stranddag har du vid Burriana; den som värderar lugn och rymd framför närhet trivs bättre på höjden. För strand och centrum i ett är Torrecilla precis rätt.'
+    lead: "Vår AMARA Playa ligger centralt i Nerja med ett lugnt läge mot innergården. Till Torrecilla är det ungefär 200 meter och till Balcón de Europa cirka 500 meter till fots.",
+    facts: ["**En säng på 200 × 200 cm** för er två.","**Komplett kök och tvättmaskin** för en vistelse i er egen takt.","**Privat balkong med sidoutsikt mot havet.**"],
+    honest: "Lägenheten på 37 m² ligger på femte våningen med hiss. Före hissen finns tio trappsteg: fem utanför huset och fem inne."
   }
 };
 

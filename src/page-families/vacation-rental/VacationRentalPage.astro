@@ -232,18 +232,23 @@ const detailRows = [
   ...(rental.poolSeasonNote
     ? [{ label: t(ui.labels.poolSeason as LocalizedText), value: t(rental.poolSeasonNote), Icon: Waves }]
     : []),
+  { label: t(ui.labels.pets as LocalizedText), value: t(rental.petsNote), Icon: PawPrint },
+  { label: t(ui.labels.hostLanguages as LocalizedText), value: t(vacationRentalHostLanguages), Icon: Languages }
+];
+
+// Access and parking stay visible on mobile alongside arrival times.
+const arrivalGuideToken = isFamilySurf
+  ? 'tarifa_arrival_guide'
+  : rental.city === 'Nerja' ? 'nerja_arrival_guide' : 'arrival_guide';
+const arrivalGuideHref = resolveOptionalLink(arrivalGuideToken, currentLang, { suppressMissing: true });
+const scheduleRows = [
   { label: t(ui.labels.access as LocalizedText), value: t(rental.accessNote), Icon: Accessibility },
   ...(localizedVehicleAccess
     ? [{ label: t(ui.labels.vehicleAccess as LocalizedText), value: t(localizedVehicleAccess), Icon: CarFront }]
     : []),
-  { label: t(ui.labels.pets as LocalizedText), value: t(rental.petsNote), Icon: PawPrint },
-  { label: t(ui.labels.hostLanguages as LocalizedText), value: t(vacationRentalHostLanguages), Icon: Languages },
   ...(parkingValue
     ? [{ label: t(ui.labels.parking as LocalizedText), value: localizedParking, Icon: CircleParking }]
-    : [])
-];
-
-const scheduleRows = [
+    : []),
   { label: t(ui.labels.checkin as LocalizedText), value: rental.checkinTime.slice(0, 5), Icon: Clock3 },
   { label: t(ui.labels.checkout as LocalizedText), value: rental.checkoutTime.slice(0, 5), Icon: Clock3 },
   ...(hasAmenity('selfCheckinCheckout')
@@ -428,11 +433,7 @@ const locationLinkSpecs: StayPlanningLinkSpec[] = [
       : []) satisfies StayPlanningLinkSpec[]),
   // Arrival belongs with property planning and must resolve to the accommodation's own final-mile guide.
   {
-    token: isFamilySurf
-      ? 'tarifa_arrival_guide'
-      : rental.city === 'Nerja'
-        ? 'nerja_arrival_guide'
-        : 'arrival_guide',
+    token: arrivalGuideToken,
     label: t(ui.arrivalGuide as LocalizedText),
     icon: 'distance'
   }
@@ -670,6 +671,11 @@ const contextDestination: DestinationId | undefined =
                 </div>
               ))}
             </dl>
+            {arrivalGuideHref && (
+              <p class="mt-6 am-text-body">
+                <a class="am-inline-link" href={arrivalGuideHref}>{t(ui.arrivalGuide as LocalizedText)}</a>
+              </p>
+            )}
           </div>
 
           {detailRows.length > 0 && (

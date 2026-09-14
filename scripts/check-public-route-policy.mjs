@@ -296,7 +296,7 @@ function buildCurrentRoutePaths(guestGuideSlugs) {
   const paths = new Set();
 
   for (const route of PUBLIC_ROUTES) {
-    for (const locale of PUBLIC_ROUTE_LOCALES) {
+    for (const locale of route.locales) {
       paths.add(buildPublicRoutePath(route.key, locale));
     }
   }
@@ -558,7 +558,10 @@ export function auditRedirectInfrastructure({
   for (const route of PUBLIC_ROUTES) {
     for (const locale of PUBLIC_ROUTE_LOCALES) {
       const legacyPath = buildLegacyPublicRoutePath(route.key, locale);
-      const currentPath = buildPublicRoutePath(route.key, locale);
+      // Retired Bildungsurlaub locales continue directly to the sole German page.
+      const targetLocale = route.locales.includes(locale) ? locale
+        : route.key === 'tarifa.kitesurfing.bildungsurlaub' ? 'de' : locale;
+      const currentPath = buildPublicRoutePath(route.key, targetLocale);
 
       if (legacyPath === currentPath) {
         continue;
@@ -625,7 +628,7 @@ if (violations.length > 0) {
   process.exit(1);
 }
 
-const localizedRouteCount = PUBLIC_ROUTES.length * PUBLIC_ROUTE_LOCALES.length;
+const localizedRouteCount = PUBLIC_ROUTES.reduce((total, route) => total + route.locales.length, 0);
 
 console.log('AMARA public route policy check passed.');
 console.log(

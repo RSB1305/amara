@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.81.0
+version: 1.83.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-14T09:56:51+02:00
+last_modified: 2026-09-14T10:55:40.982Z
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -22,11 +22,11 @@ The AMARA Register is the single source for active documents, authority classes,
 |---|---|---|---|---|
 | 01 | AMARA System Constitution | 5.2.0 ACTIVE | PRINCIPLE / governing | `docs/standards/01_AMARA_System_Constitution_V5.md` |
 | 02 | AMARA Astro & Design Architecture Contract | 4.26.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
-| 03 | AMARA Runtime, SEO & Data Contract | 4.4.1 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
-| 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` (transition note 2026-09-04) + Decision Register `DR-URL-003/005`, `DR-ROUTE-003` + executable owner `src/lib/publicRouteManifest.mjs` |
+| 03 | AMARA Runtime, SEO & Data Contract | 4.6.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
+| 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` (4.1.0; transition note 2026-09-04 and published-locale amendment 2026-09-14) + Decision Register `DR-URL-003/005`, `DR-ROUTE-003` + executable owner `src/lib/publicRouteManifest.mjs` |
 | 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.9.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
-| 07 | AMARA Register | 1.67.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
+| 07 | AMARA Register | 1.82.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.11.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
 | 09 | AMARA Content Production & Localization Playbook | 1.9.1 ACTIVE INTERIM | OPERATIONAL PLAYBOOK / non-governing | `docs/interim/10_AMARA_Content_Production_and_Localization_Playbook_V1_2.md` |
 | 10 | AMARA Frigiliana–Nerja SEO Strategy | PENDING Package 2/3 | WORKING STRATEGY / non-governing | Interim snapshot: `docs/interim/09_AMARA_Frigiliana_Nerja_SEO_Strategy_V2_1.md` |
@@ -89,6 +89,7 @@ Current operational feature owner during transition:
 | DR-RUNTIME-002 | `resolveStructuredData()` remains the normal sole JSON-LD owner. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-SEC-001 | Cloudflare Pages applies the active standard security headers to normal public, Guest Utility, legal and booking-entry documents. The validated resource-origin inventory is enforced through `Content-Security-Policy`: same-origin resources plus only the required Google Analytics, Open-Meteo and click-to-load YouTube origins are allowed; inline event-handler attributes are blocked, while deliberate Astro inline script elements and styles remain permitted. Any new origin or relaxation requires explicit alignment and representative compatibility validation. | ACTIVE CURRENT IMPLEMENTATION |
 | DR-LINK-001 | Registry token + resolver remain the authored semantic internal-link contract. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-SCHEMA-002 | AMARA is the Organization publisher at the existing /#organization identity. Only the corresponding VacationRental nodes carry property location, photography and pricing. No new legal entity is asserted; rental identities and localized page URLs remain unchanged. | ACTIVE |
 | DR-SCHEMA-001 | Collection/ItemList schema is not mandatory; any implementation must reflect visible real items and stay in the central resolver. | ACTIVE CURRENT DECISION |
 | DR-UTILITY-001 | Guest Guide remains a separate noindex utility shell and is not a Type D conversion surface by principle. | APPROVED; code reconciliation pending |
 | DR-SURFACE-001 | Strategic A/B/C/D job and technical surface type should be separate; field reconciliation is a later controlled workstream. | IMPLEMENTATION PENDING |
@@ -105,6 +106,7 @@ Current operational feature owner during transition:
 | DR-ROUTE-001 | Explicit Astro route wrappers remain the current implementation. | SUPERSEDED by DR-ROUTE-003 |
 | DR-ROUTE-002 | No route-manifest migration is currently approved. | SUPERSEDED by DR-ROUTE-003 |
 | DR-ROUTE-003 | The route manifest is the single declaration of public pages. Two catch-all pages (`src/pages/[...path].astro`, `src/pages/[lang]/[...path].astro`) render every manifest route through `src/pages/_routes/PublicRoutePage.astro`, the only place that maps a page family to its component. Explicit route files remain only for the 404, the legacy anonymous guide redirects and the private AMARA Experience family. `routeOwnership.ts`, the Link Registry, `resolve-seo-head.ts`, the sitemap alternates, the breadcrumb resolver and the structured-data audit read the manifest; `check:route-policy` (prebuild and `npm run check`) enforces manifest integrity, the retired-wrapper rule, authored route references and redirect coverage of the migration without chains, loops or collisions. | ACTIVE CURRENT IMPLEMENTATION |
+| DR-ROUTE-004 | Public routes publish in all five locales by default. An explicit locales list in src/lib/publicRouteManifest.mjs restricts publication for an operator-approved market-specific page. Static paths, public link availability, the language switch, hreflang and both sitemaps use that same list; no implicit cross-language link fallback is introduced. Bildungsurlaub is permanently German-only. Its four retired placeholder paths and old flat aliases redirect directly to the German canonical through public/_redirects. Spanish remains the site default; x-default is emitted only when the route actually publishes in Spanish. | ACTIVE CURRENT IMPLEMENTATION |
 
 
 ### URL-policy supersession boundary
@@ -413,3 +415,7 @@ Separate controlled workstreams remain for:
 | 1.66.0 | 2026-09-03T18:30:00+02:00 | Added the executable section boundary gate, hardened the CSS separator guard and removed page-local outer edge rules across public page families. | this revision |
 | 1.67.0 | 2026-09-04T17:00:00+02:00 | Executed the hierarchical native-language route migration through the public route manifest, two catch-all pages and `check:route-policy`; activated DR-URL-003/004/005 and DR-ROUTE-003, superseded DR-ROUTE-001/002 and marked DR-URL-002 executed. | this revision |
 | 1.81.0 | 2026-09-14T09:56:51+02:00 | Registered Governance 5.9.0 and the mandatory task-identity pre-write gate, unexpected-identity hard stop and isolation for observed parallel work; synchronized AGENTS.md. | this revision |
+
+| 1.82.0 | 2026-09-14T10:31:12.316Z | Registered Runtime 4.5.0, URL/Route 4.1.0 and DR-ROUTE-004: permanently German-only Bildungsurlaub, one published-locale contract and direct redirects for retired variants. | this revision |
+
+| 1.83.0 | 2026-09-14T10:55:40.982Z | Registered Runtime 4.6.0 and DR-SCHEMA-002: separate portfolio publisher from physical rentals. | this revision |

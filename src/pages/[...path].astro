@@ -8,7 +8,7 @@ import PublicRoutePage from './_routes/PublicRoutePage.astro';
 import { DEFAULT_LANGUAGE, getOwnedPublicRoutes } from '../lib/routeOwnership';
 
 export function getStaticPaths() {
-  return getOwnedPublicRoutes().map((route) => ({
+  return getOwnedPublicRoutes(DEFAULT_LANGUAGE).map((route) => ({
     params: { path: route.paths[DEFAULT_LANGUAGE] || undefined },
     props: { routeKey: route.key }
   }));

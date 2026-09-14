@@ -16,6 +16,7 @@ import type { LocationGuideIconName } from '../../components/location/locationGu
 
 interface Props {
   pageId: string;
+  placeLabel: string;
   lang: AmaraLanguage;
   content: WeatherAuthorityContent;
   months: Array<LocationClimateMonth & { month: string }>;
@@ -51,6 +52,7 @@ interface Props {
 
 const {
   pageId,
+  placeLabel,
   lang,
   content,
   months,
@@ -87,6 +89,7 @@ const {
   <div data-am-weather-module="monthly-data">
     <LocationClimateTable
       lang={lang}
+      placeLabel={placeLabel}
       eyebrow={content.table.eyebrow}
       title={content.table.title}
       intro={content.table.intro}

@@ -59,7 +59,7 @@ const dayTripGraphicByLang: Record<AmaraLanguage, DayTripRadiusGraphicData> = {
     ariaLabel: 'Map of four Andalusian day trips from Frigiliana with drive times',
     context: [
       { label: 'Destinations', value: 'Four day trips' },
-      { label: 'Drive time', value: '50 min – 2 h' },
+      { label: 'Drive time', value: '50 min – 2½ h' },
       { label: 'Our advice', value: 'One per day' }
     ]
   },
@@ -69,7 +69,7 @@ const dayTripGraphicByLang: Record<AmaraLanguage, DayTripRadiusGraphicData> = {
     ariaLabel: 'Karte mit vier andalusischen Tagesausflügen ab Frigiliana samt Fahrzeiten',
     context: [
       { label: 'Ziele', value: 'Vier Tagesausflüge' },
-      { label: 'Fahrzeit', value: '50 Min. – 2 Std.' },
+      { label: 'Fahrzeit', value: '50 Min. – 2½ Std.' },
       { label: 'Empfehlung', value: 'Eins pro Tag' }
     ]
   },
@@ -79,7 +79,7 @@ const dayTripGraphicByLang: Record<AmaraLanguage, DayTripRadiusGraphicData> = {
     ariaLabel: 'Mapa de cuatro excursiones andaluzas desde Frigiliana con tiempos de coche',
     context: [
       { label: 'Destinos', value: 'Cuatro excursiones' },
-      { label: 'Trayecto', value: '50 min – 2 h' },
+      { label: 'Trayecto', value: '50 min – 2½ h' },
       { label: 'Consejo', value: 'Uno por día' }
     ]
   },
@@ -89,7 +89,7 @@ const dayTripGraphicByLang: Record<AmaraLanguage, DayTripRadiusGraphicData> = {
     ariaLabel: 'Kaart met vier Andalusische dagtochten vanuit Frigiliana met rijtijden',
     context: [
       { label: 'Bestemmingen', value: 'Vier dagtochten' },
-      { label: 'Rijtijd', value: '50 min – 2 u' },
+      { label: 'Rijtijd', value: '50 min – 2½ u' },
       { label: 'Ons advies', value: 'Eén per dag' }
     ]
   },
@@ -99,7 +99,7 @@ const dayTripGraphicByLang: Record<AmaraLanguage, DayTripRadiusGraphicData> = {
     ariaLabel: 'Karta med fyra andalusiska dagsutflykter från Frigiliana med restider',
     context: [
       { label: 'Mål', value: 'Fyra dagsutflykter' },
-      { label: 'Restid', value: '50 min – 2 h' },
+      { label: 'Restid', value: '50 min – 2½ h' },
       { label: 'Vårt råd', value: 'En per dag' }
     ]
   }
@@ -172,8 +172,13 @@ const dayTripGraphicData = dayTripGraphicByLang[currentLang];
         lang={currentLang}
         links={[
           {
-            token: 'frigiliana_parking',
+            token: 'frigiliana_stays',
             label: copy.closing.nextCta,
+            style: 'primary'
+          },
+          {
+            token: 'frigiliana_parking',
+            label: copy.closing.parkingCta,
             style: 'text'
           }
         ]}

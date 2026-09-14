@@ -152,11 +152,11 @@ export const ui = {
     sv: 'Boendet i detalj'
   },
   additionalDetails: {
-    en: 'Beds, access, parking & more',
-    de: 'Betten, Zugang, Parken & mehr',
-    es: 'Camas, acceso, aparcamiento y más',
-    nl: 'Bedden, toegang, parkeren en meer',
-    sv: 'Sängar, tillträde, parkering med mera'
+    en: 'Beds, views & more',
+    de: 'Betten, Aussicht & mehr',
+    es: 'Camas, vistas y más',
+    nl: 'Bedden, uitzicht en meer',
+    sv: 'Sängar, utsikt med mera'
   },
   galleryTitle: {
     en: 'Photos of the accommodation',

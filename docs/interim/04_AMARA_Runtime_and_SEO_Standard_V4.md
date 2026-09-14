@@ -1,7 +1,7 @@
 ---
 document_id: AMARA-INT-RUNTIME-004
 title: AMARA Runtime & SEO Standard V4
-version: 4.4.1
+version: 4.6.0
 status: ACTIVE
 authority_class: CONTRACT / GOVERNING INTERIM
 source_type: INTERIM SNAPSHOT FROM APPROVED PDF
@@ -9,7 +9,7 @@ source_attachment: "04_AMARA_Runtime_and_SEO_Standard_V4(1).pdf"
 source_sha256: 65e3a3312c1c56a3c096800d3a267dc85e57c6e60f16b81eecc3cbce089eb621
 snapshot_created: 2026-08-14T09:08:00+02:00
 migration_state: PENDING PACKAGE 2/3 NORMALIZATION
-last_modified: 2026-08-29T22:20:00+02:00
+last_modified: 2026-09-14T10:55:40.982Z
 ---
 
 # AMARA Runtime & SEO Standard V4 — Interim Markdown Snapshot
@@ -77,6 +77,8 @@ Hreflang is generated centrally from the owned multilingual route set.
 Spanish is the default unprefixed language. EN, DE, NL, and SV use language prefixes.
 No page may emit a second manual hreflang cluster.
 
+Public routes publish in all five locales by default. An explicit locales list in src/lib/publicRouteManifest.mjs restricts publication for an operator-approved market-specific page. Static paths, public link availability, the language switch, hreflang and both sitemaps use that same list; no implicit cross-language link fallback is introduced. Bildungsurlaub is permanently German-only. Its four retired placeholder paths and old flat aliases redirect directly to the German canonical through public/_redirects. Spanish remains the site default; x-default is emitted only when the route actually publishes in Spanish.
+
 5. Structured-data ownership
 resolveStructuredData() is the only normal JSON-LD authority.
 Pages and components must not add independent application/ld+json blocks without an explicit runtime
@@ -85,11 +87,13 @@ The resolver may emit nodes such as:
 - WebSite where applicable;
 - WebPage;
 - BreadcrumbList;
-- AMARA brand/lodging-business entity;
+- AMARA Organization as the portfolio publisher, with its existing stable /#organization identity;
 - Article when explicitly authored;
 - VacationRental when a complete lodging entity is explicitly assigned.
 Structured data must describe visible, factual site content. It is not a hidden instruction channel for crawlers
 or AI agents.
+
+The AMARA publisher carries the public brand, contact, logo and verified profile link. It does not represent one physical accommodation and does not inherit Casa AMARA address, coordinates, destination photography or a portfolio price range. Physical addresses, coordinates, images and indicative prices remain on their corresponding VacationRental nodes. This does not assert a new legal entity or change property identifiers or localized page URLs.
 
 6. VacationRental rule
 A complete VacationRental node belongs on the corresponding public listing/detail page when that page
@@ -217,3 +221,7 @@ AMARA Runtime & SEO Standard V4 is binding.
 | 4.3.0 | 2026-08-28T18:00:00Z | Added the Cloudflare Pages security-header contract and introduced CSP strictly in report-only mode. |
 | 4.4.0 | 2026-08-29T07:01:07+02:00 | Enforced the validated CSP origin inventory after representative Public, Guest, consent/analytics, weather, YouTube, legal and booking-entry browser flows completed without violations. |
 | 4.4.1 | 2026-08-29T22:20:00+02:00 | Added YouTube's image host to the CSP image origins. The click-to-load trailer still is served from a separate origin to the player, so enforcing 4.4.0 blocked it; a preview check against the real origins found the gap that the pre-enforcement flows had not. |
+
+| 4.5.0 | 2026-09-14T10:31:12.316Z | Restricted locale publication for the permanently German-only Bildungsurlaub page, shared by route generation, links, hreflang and sitemaps. |
+
+| 4.6.0 | 2026-09-14T10:55:40.982Z | Separated the AMARA Organization publisher from the six physical VacationRental entities; retained stable identities and localized page URLs. |

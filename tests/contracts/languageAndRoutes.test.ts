@@ -93,10 +93,29 @@ test('composes every child path beneath its parent in every language', () => {
     const parent = byKey.get(route.parent);
     expect(parent, `${route.key} parent`).toBeDefined();
 
-    for (const lang of SUPPORTED_LANGUAGES) {
+    for (const lang of route.locales) {
       const parentPath = buildOwnedLocalizedPath(route.parent, lang);
       const childPath = buildOwnedLocalizedPath(route.key, lang);
       expect(childPath.startsWith(`${parentPath}/`), `${route.key} ${lang}`).toBe(true);
     }
   }
+});
+
+test('publishes Bildungsurlaub only in German without language fallbacks', async () => {
+  const { resolveOptionalLink } = await import('../../src/lib/linkResolver');
+  const { createGlobalNavigationModel } = await import('../../src/components/navigation/globalNavigationModel');
+  const { resolveSeoHead } = await import('../../src/lib/seo/resolve-seo-head');
+  const key = 'tarifa.kitesurfing.bildungsurlaub';
+  const path = '/de/tarifa/erlebnisse/kitesurfen/bildungsurlaub';
+  for (const lang of SUPPORTED_LANGUAGES) {
+    expect(getOwnedPublicRoutes(lang).some((route) => route.key === key)).toBe(lang === 'de');
+    expect(resolveOptionalLink('tarifa_bildungsurlaub', lang, { suppressMissing: true })).toBe(lang === 'de' ? path : null);
+    if (lang !== 'de') expect(() => buildOwnedLocalizedPath(key, lang)).toThrow(/no path/);
+  }
+  expect(getOwnedRouteFromPathname('/en/tarifa/experiences/kitesurfing/bildungsurlaub')).toBeNull();
+  const head = resolveSeoHead(undefined, 'https://amara-lodging.es', path, 'de');
+  expect(head.canonicalUrl).toBe('https://amara-lodging.es' + path);
+  expect(head.hreflangs).toEqual([{ hreflang: 'de', href: head.canonicalUrl }]);
+  const nav = createGlobalNavigationModel({ currentLang: 'de', currentPath: path, languageToken: 'tarifa_bildungsurlaub' });
+  expect(nav.languageOptions.map((option) => option.code)).toEqual(['de']);
 });
