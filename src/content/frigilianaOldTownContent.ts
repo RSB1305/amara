@@ -16,7 +16,7 @@ export const frigilianaOldTownExternalLinks = {
 } as const;
 
 export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
-  version: '2026-09-12-frigiliana-old-town-v1.2-B',
+  version: '2026-09-14-frigiliana-old-town-v1.3-B',
   pageType: 'B',
   entityKey: 'amara-brand',
   /* og:image is emitted as an absolute URL, so it must stay inside the published image contract. */
@@ -24,42 +24,62 @@ export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
   article: {
     datePublished: '2026-08-19',
-    dateModified: '2026-09-12',
+    dateModified: '2026-09-14',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorRoute: 'about'
   },
+  landmark: {
+    name: {
+      en: 'Frigiliana Old Town (Conjunto Histórico)',
+      de: 'Altstadt von Frigiliana (Conjunto Histórico)',
+      es: 'Casco antiguo de Frigiliana (Conjunto Histórico)',
+      nl: 'Oude kern van Frigiliana (Conjunto Histórico)',
+      sv: 'Frigilianas gamla stan (Conjunto Histórico)'
+    },
+    // Protected historic ensemble, BIC (Conjunto Histórico) by Decreto 183/2014 (BOJA 2015/23); representative point in the core.
+    latitude: 36.792357,
+    longitude: -3.897125,
+    addressLocality: 'Frigiliana',
+    addressRegion: 'Andalusia',
+    addressCountry: 'ES',
+    isAccessibleForFree: true,
+    sameAs: [
+      'https://www.wikidata.org/wiki/Q97633690',
+      'https://es.wikipedia.org/wiki/Conjunto_hist%C3%B3rico_de_Frigiliana'
+    ]
+  },
   languages: {
     en: {
-      title: 'Frigiliana Old Town: What to See & the Story Behind It',
+      title: 'Frigiliana Old Town: What to See, Walk & History',
       description:
         'A walking guide to Frigiliana’s protected old town: the twelve ceramic panels, El Ingenio, Calle Real and the Barribarto — and the 1569 history that shaped them.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     de: {
-      title: 'Frigilianas Altstadt: Sehenswürdigkeiten & Geschichte',
+      title: 'Frigiliana Altstadt: Sehenswürdigkeiten, Rundgang & Geschichte',
       description:
         'Ein Spaziergang durch Frigilianas denkmalgeschützte Altstadt: die zwölf Keramiktafeln, El Ingenio, Calle Real und das Barribarto — und die Geschichte von 1569 dahinter.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     es: {
-      title: 'Casco antiguo de Frigiliana: qué ver y su historia',
+      title: 'Casco antiguo de Frigiliana: qué ver, ruta e historia',
       description:
         'Un paseo por el casco antiguo protegido de Frigiliana: los doce paneles de cerámica, El Ingenio, la calle Real y el Barribarto, y la historia de 1569 que los explica.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     nl: {
-      title: 'Oude kern van Frigiliana: bezienswaardigheden & geschiedenis',
+      title: 'Oude kern van Frigiliana: bezienswaardigheden, wandeling & geschiedenis',
       description:
         'Een wandelgids door de beschermde oude kern van Frigiliana: de twaalf keramische panelen, El Ingenio, Calle Real en het Barribarto — en de geschiedenis van 1569 erachter.',
       robots: 'index, follow',
       canonical: 'auto'
     },
     sv: {
-      title: 'Frigilianas gamla stan: sevärdheter och historia',
+      title: 'Frigilianas gamla stan: sevärdheter, promenad & historia',
       description:
         'En vandringsguide genom Frigilianas skyddade gamla stan: de tolv keramikpanelerna, El Ingenio, Calle Real och Barribarto — och historien från 1569 bakom dem.',
       robots: 'index, follow',
@@ -496,11 +516,11 @@ export const frigilianaOldTownCopy = {
           'Vitt är ett krav'
         ),
         text: l(
-          'Keeping the white façade finish is part of the conservation conditions for the protected centre. The colour is not a marketing decision taken at some point in the past; it is the condition under which the ensemble is maintained.',
-          'Der Erhalt des weißen Fassadenanstrichs gehört zu den Erhaltungsauflagen für den geschützten Ortskern. Die Farbe ist keine irgendwann getroffene Marketingentscheidung, sondern die Bedingung, unter der das Ensemble erhalten wird.',
-          'Mantener el acabado blanco de las fachadas forma parte de las condiciones de conservación del centro protegido. El color no es una decisión de marketing tomada en algún momento, sino la condición bajo la que se conserva el conjunto.',
-          'Het behoud van de witte gevelafwerking hoort bij de behoudsvoorwaarden voor de beschermde kern. De kleur is geen marketingkeuze van ooit, maar de voorwaarde waaronder het ensemble in stand wordt gehouden.',
-          'Att bevara den vita fasadytan hör till bevarandevillkoren för den skyddade kärnan. Färgen är inget marknadsföringsbeslut fattat någon gång, utan villkoret för att ensemblet ska bevaras.'
+          'The white façade is old local custom, and for the protected centre the municipal ordinances uphold it strictly. The colour is not a marketing decision taken at some point in the past; it is the condition under which the ensemble is maintained.',
+          'Der weiße Fassadenanstrich ist alter Ortsbrauch, und für den geschützten Kern hält die Ortssatzung ihn streng ein. Die Farbe ist keine irgendwann getroffene Marketingentscheidung, sondern die Bedingung, unter der das Ensemble erhalten wird.',
+          'El encalado blanco es una vieja costumbre local y, para el centro protegido, las ordenanzas municipales lo mantienen con rigor. El color no es una decisión de marketing tomada en algún momento, sino la condición bajo la que se conserva el conjunto.',
+          'De witte gevel is oud plaatselijk gebruik, en voor de beschermde kern handhaven de gemeentelijke verordeningen het streng. De kleur is geen marketingkeuze van ooit, maar de voorwaarde waaronder het ensemble in stand wordt gehouden.',
+          'Den vita fasaden är gammal lokal sedvänja, och för den skyddade kärnan upprätthåller de kommunala föreskrifterna den strikt. Färgen är inget marknadsföringsbeslut fattat någon gång, utan villkoret för att ensemblet ska bevaras.'
         )
       },
       {

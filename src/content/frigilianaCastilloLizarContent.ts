@@ -17,7 +17,7 @@ export const frigilianaCastilloLizarSeo: AmaraAuthoringSeo = {
     addressRegion: 'Andalusia',
     addressCountry: 'ES',
     isAccessibleForFree: true,
-    sameAs: ['https://es.wikipedia.org/wiki/Castillo_de_Frigiliana']
+    sameAs: ['https://www.wikidata.org/wiki/Q67330309', 'https://es.wikipedia.org/wiki/Castillo_de_Frigiliana']
   },
   languages: {
     en: { title: 'Castillo de Lizar in Frigiliana: The Ruined Moorish Fortress', description: 'The wall remains of a 9th–11th-century Moorish fortress above Frigiliana, razed after the 1569 uprising under Don Luis de Requesens — its cut stone reused to build the counts’ palace, El Ingenio.', robots: 'index, follow', canonical: 'auto' },
@@ -32,8 +32,8 @@ export const frigilianaCastilloLizarSeo: AmaraAuthoringSeo = {
  * Old-town spoke (B). Reworked 2026-09-12 from the web synthesis: the razing was ordered by
  * the royal commander Don Luis de Requesens with Philip II’s approval (not simply "the crown"),
  * and the castle’s cut stone (sillares) was reused to build the Manrique de Lara palace, today
- * El Ingenio. Fortress footprint ~4,000 m²; BIC since 1985; the hill name (cerro de Lízar vs.
- * cerro de la Sabina) is left open. Distinct from El Fuerte / Peñón, the higher 1569 battle
+ * El Ingenio. Fortress footprint ~4,000 m²; BIC since 1985; the hill is the cerro de la Sabina
+ * (operator-confirmed 2026-09-13). Distinct from El Fuerte / Peñón, the higher 1569 battle
  * summit. No photograph yet: typographic cover; the ruin must never read as an intact castle.
  */
 export const frigilianaCastilloLizarCopy = {
@@ -65,11 +65,11 @@ export const frigilianaCastilloLizarCopy = {
       { value: 'El Ingenio', label: l('Its cut stone reused for the counts’ palace', 'Ihre Steine im Grafenpalast wiederverwendet', 'Sus sillares reutilizados en el palacio condal', 'Haar stenen hergebruikt in het grafelijk paleis', 'Dess stenar återanvända i grevepalatset') }
     ],
     note: l(
-      'The 1569 razing (ordered by Don Luis de Requesens with Philip II’s approval) and the reuse of the stone for El Ingenio are documented; the 9th–11th-century dating carries two hypotheses and the hill name is left open (cerro de Lízar / cerro de la Sabina). The site is a ruin, not an intact castle.',
-      'Die Schleifung 1569 (angeordnet von Don Luis de Requesens mit Zustimmung Philipps II.) und die Wiederverwendung der Steine für El Ingenio sind belegt; die Datierung ins 9.–11. Jahrhundert kennt zwei Hypothesen, und der Hügelname bleibt offen (cerro de Lízar / cerro de la Sabina). Der Ort ist eine Ruine, keine intakte Burg.',
-      'El arrasamiento de 1569 (ordenado por Don Luis de Requesens con la aprobación de Felipe II) y la reutilización de la piedra para El Ingenio están documentados; la datación de los siglos IX–XI tiene dos hipótesis y el nombre del cerro queda abierto (cerro de Lízar / cerro de la Sabina). El lugar es una ruina, no un castillo intacto.',
-      'De slechting van 1569 (bevolen door Don Luis de Requesens met goedkeuring van Filips II) en het hergebruik van de steen voor El Ingenio zijn gedocumenteerd; de datering 9e–11e eeuw kent twee hypotheses en de heuvelnaam blijft open (cerro de Lízar / cerro de la Sabina). De plek is een ruïne, geen intact kasteel.',
-      'Raseringen 1569 (beordrad av Don Luis de Requesens med Filip II:s godkännande) och återanvändningen av stenen till El Ingenio är dokumenterade; dateringen till 800–1000-talet har två hypoteser och kullens namn lämnas öppet (cerro de Lízar / cerro de la Sabina). Platsen är en ruin, inte ett intakt slott.'
+      'The 1569 razing (ordered by Don Luis de Requesens with Philip II’s approval) and the reuse of the stone for El Ingenio are documented; the 9th–11th-century dating carries two hypotheses. It stands on the Cerro de la Sabina. The site is a ruin, not an intact castle.',
+      'Die Schleifung 1569 (angeordnet von Don Luis de Requesens mit Zustimmung Philipps II.) und die Wiederverwendung der Steine für El Ingenio sind belegt; die Datierung ins 9.–11. Jahrhundert kennt zwei Hypothesen. Sie liegt auf dem Cerro de la Sabina. Der Ort ist eine Ruine, keine intakte Burg.',
+      'El arrasamiento de 1569 (ordenado por Don Luis de Requesens con la aprobación de Felipe II) y la reutilización de la piedra para El Ingenio están documentados; la datación de los siglos IX–XI tiene dos hipótesis. Se alza en el cerro de la Sabina. El lugar es una ruina, no un castillo intacto.',
+      'De slechting van 1569 (bevolen door Don Luis de Requesens met goedkeuring van Filips II) en het hergebruik van de steen voor El Ingenio zijn gedocumenteerd; de datering 9e–11e eeuw kent twee hypotheses. Zij ligt op de Cerro de la Sabina. De plek is een ruïne, geen intact kasteel.',
+      'Raseringen 1569 (beordrad av Don Luis de Requesens med Filip II:s godkännande) och återanvändningen av stenen till El Ingenio är dokumenterade; dateringen till 800–1000-talet har två hypoteser. Den ligger på Cerro de la Sabina. Platsen är en ruin, inte ett intakt slott.'
     )
   },
   sections: [
@@ -120,11 +120,11 @@ export const frigilianaCastilloLizarCopy = {
       {
         label: l('Location', 'Standort', 'Ubicación', 'Ligging', 'Läge'),
         value: l(
-          'On the Cerro de Lizar, high above the village rooftops.',
-          'Auf dem Cerro de Lizar, hoch über den Dächern des Dorfes.',
-          'En el cerro de Lízar, muy por encima de los tejados del pueblo.',
-          'Op de Cerro de Lizar, hoog boven de daken van het dorp.',
-          'På Cerro de Lizar, högt över byns tak.'
+          'On the Cerro de la Sabina, high above the village rooftops.',
+          'Auf dem Cerro de la Sabina, hoch über den Dächern des Dorfes.',
+          'En el cerro de la Sabina, muy por encima de los tejados del pueblo.',
+          'Op de Cerro de la Sabina, hoog boven de daken van het dorp.',
+          'På Cerro de la Sabina, högt över byns tak.'
         )
       },
       {
