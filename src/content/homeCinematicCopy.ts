@@ -531,11 +531,11 @@ export const cinematicPlaces: CinematicPlaceDef[] = [
     city: 'Frigiliana',
     token: 'location_frigiliana',
     character: {
-      en: 'A white mountain village above the mango and avocado plantations. Four of our stays are here, all in Casa AMARA in the protected old town.',
-      de: 'Ein weißes Bergdorf über den Mango- und Avocadoplantagen. Vier unserer Unterkünfte liegen hier, alle in Casa AMARA in der historischen Altstadt.',
-      es: 'Un pueblo blanco de montaña sobre los cultivos de mango y aguacate. Cuatro de nuestros alojamientos están aquí, todos en Casa AMARA, en el casco antiguo protegido.',
-      nl: 'Een wit bergdorp boven de mango- en avocadoplantages. Vier van onze verblijven liggen hier, allemaal in Casa AMARA in de beschermde oude kern.',
-      sv: 'En vit bergsby ovanför mango- och avokadoodlingarna. Fyra av våra boenden ligger här, alla i Casa AMARA i den skyddade gamla stadskärnan.'
+      en: 'One of Spain’s most beautiful white villages, with a character all its own above the mango and avocado plantations. Four of our stays are here, all in Casa AMARA.',
+      de: 'Eines der schönsten weißen Dörfer Spaniens, mit ganz eigenem Flair über den Mango- und Avocadoplantagen. Vier unserer Unterkünfte liegen hier, alle in Casa AMARA.',
+      es: 'Uno de los pueblos blancos más bonitos de España, con un encanto muy suyo sobre los cultivos de mango y aguacate. Cuatro de nuestros alojamientos están aquí, todos en Casa AMARA.',
+      nl: 'Een van de mooiste witte dorpen van Spanje, met een heel eigen sfeer boven de mango- en avocadoplantages. Vier van onze verblijven liggen hier, allemaal in Casa AMARA.',
+      sv: 'En av Spaniens vackraste vita byar, med en alldeles egen charm ovanför mango- och avokadoodlingarna. Fyra av våra boenden ligger här, alla i Casa AMARA.'
     },
     travel: {
       en: 'Right in the old town · diagonally opposite San Antonio church',
@@ -557,11 +557,11 @@ export const cinematicPlaces: CinematicPlaceDef[] = [
     city: 'Nerja',
     token: 'location_nerja',
     character: {
-      en: 'The Mediterranean, the Balcón de Europa and a town that keeps working all year round. One apartment, fifth floor with a lift.',
-      de: 'Das Mittelmeer, der Balcón de Europa und eine Stadt, die das ganze Jahr über funktioniert. Ein Apartment, im fünften Stock mit Aufzug.',
-      es: 'El Mediterráneo, el Balcón de Europa y una ciudad que funciona todo el año. Un apartamento, en la quinta planta con ascensor.',
-      nl: 'De Middellandse Zee, het Balcón de Europa en een stad die het hele jaar door blijft draaien. Eén appartement, vijfde verdieping met lift.',
-      sv: 'Medelhavet, Balcón de Europa och en stad som fungerar året om. En lägenhet, femte våningen med hiss.'
+      en: 'Famous across Spain since the TV series Verano Azul – an absolute favourite for feeling at home. One apartment, fifth floor with a lift.',
+      de: 'Spanienweit berühmt seit der Fernsehserie Verano Azul – ein absoluter Lieblingsort zum Wohlfühlen. Ein Apartment, im fünften Stock mit Aufzug.',
+      es: 'Famoso en toda España desde la serie Verano Azul: un lugar favorito para sentirse a gusto. Un apartamento, en la quinta planta con ascensor.',
+      nl: 'In heel Spanje bekend sinds de tv-serie Verano Azul – een absolute favoriet om je thuis te voelen. Eén appartement, vijfde verdieping met lift.',
+      sv: 'Känt i hela Spanien sedan tv-serien Verano Azul – en absolut favorit för att trivas. En lägenhet, femte våningen med hiss.'
     },
     travel: {
       en: '200 metres to Torrecilla beach · under 5 minutes to the Balcón de Europa',
@@ -583,11 +583,11 @@ export const cinematicPlaces: CinematicPlaceDef[] = [
     city: 'Tarifa',
     token: 'location_tarifa',
     character: {
-      en: 'Where the Mediterranean meets the Atlantic, with wind, wide beaches and Africa on the horizon. One penthouse over two floors.',
-      de: 'Wo das Mittelmeer auf den Atlantik trifft, mit Wind, weiten Stränden und Afrika am Horizont. Ein Penthouse über zwei Etagen.',
-      es: 'Donde el Mediterráneo se encuentra con el Atlántico, con viento, playas amplias y África en el horizonte. Un ático de dos plantas.',
-      nl: 'Waar de Middellandse Zee de Atlantische Oceaan ontmoet, met wind, brede stranden en Afrika aan de horizon. Eén penthouse over twee verdiepingen.',
-      sv: 'Där Medelhavet möter Atlanten, med vind, vida stränder och Afrika vid horisonten. Ett penthouse över två våningar.'
+      en: 'One of the world’s kitesurf hotspots, where the Atlantic meets the Mediterranean – wide beaches and a surfer vibe all its own. One penthouse over two floors.',
+      de: 'Einer der Kitesurf-Hotspots der Welt, wo Atlantik und Mittelmeer sich treffen – weite Strände und ein ganz besonderer Surfer-Vibe. Ein Penthouse über zwei Etagen.',
+      es: 'Uno de los hotspots de kitesurf del mundo, donde el Atlántico se encuentra con el Mediterráneo: playas amplias y un ambiente surfero muy especial. Un ático de dos plantas.',
+      nl: 'Een van de kitesurf-hotspots ter wereld, waar de Atlantische Oceaan en de Middellandse Zee elkaar ontmoeten – brede stranden en een heel eigen surfsfeer. Eén penthouse over twee verdiepingen.',
+      sv: 'En av världens kitesurf-hotspots, där Atlanten möter Medelhavet – vida stränder och en alldeles egen surfarkänsla. Ett penthouse över två våningar.'
     },
     travel: {
       en: '10 minutes to the old town · 5 minutes to Los Lances beach · ideal for kiting in the low season',
