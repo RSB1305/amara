@@ -139,6 +139,9 @@ const isStaySearchResults =
 const isLegalNotice = currentPath === normalizePath(resolveLink('legal_notice', lang));
 const isBookingStayTerms = currentPath === normalizePath(resolveLink('booking_stay_terms', lang));
 const isLegalDocument = isLegalNotice || isBookingStayTerms;
+// The site map is a brand-level orientation page reachable from the footer of
+// every page, so it sits directly under AMARA rather than inside a section.
+const isSitemap = currentPath === normalizePath(resolveLink('sitemap', lang));
 const isPrimaryTrustPage =
   isAbout ||
   isAmaraExperience ||
@@ -225,7 +228,7 @@ const activeId = items.find(
 // section name; a separate section crumb above it would just repeat the label.
 const breadcrumbs = isHome ? [] : [
   { label: 'AMARA', href: homeHref },
-  ...(!isLegalDocument && !isStaySearchResults && !isAbout
+  ...(!isLegalDocument && !isStaySearchResults && !isAbout && !isSitemap
     ? [{ label: breadcrumbSection, href: breadcrumbSectionHref }]
     : []),
   { label: resolvedBreadcrumbTitle }

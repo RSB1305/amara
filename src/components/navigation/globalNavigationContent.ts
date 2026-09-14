@@ -156,11 +156,11 @@ export const globalNavLabels = {
     sv: 'Tarifa'
   },
   locationFrigilianaMeta: {
-    en: 'One of Andalusia’s most beautiful white villages.',
-    de: 'Eines der schönsten weißen Dörfer Andalusiens.',
-    es: 'Uno de los pueblos blancos más bonitos de Andalucía.',
-    nl: 'Een van de mooiste witte dorpen van Andalusië.',
-    sv: 'En av Andalusiens vackraste vita byar.'
+    en: 'One of Spain’s most beautiful white villages.',
+    de: 'Eines der schönsten weißen Dörfer Spaniens.',
+    es: 'Uno de los pueblos blancos más bonitos de España.',
+    nl: 'Een van de mooiste witte dorpen van Spanje.',
+    sv: 'En av Spaniens vackraste vita byar.'
   },
   locationNerjaMeta: {
     en: 'Mediterranean coast, beaches and the Balcón de Europa.',

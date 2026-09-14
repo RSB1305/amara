@@ -45,10 +45,10 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
         sv: 'Därför stänger butikerna mitt på dagen'
       },
       body: {
-        de: 'Wenn die Sonne am höchsten steht, macht halb Frigiliana zu: Viele Läden und kleine Supermärkte schließen über Mittag für ein paar Stunden und öffnen am kühleren Nachmittag wieder. Das ist keine Bummelei, sondern gelebtes Hitzemanagement — **plant euren Einkauf für den Vormittag oder den frühen Abend.**',
-        en: 'When the sun is at its highest, half of Frigiliana shuts: many shops and small supermarkets close over midday for a few hours and reopen in the cooler afternoon. It isn’t idleness but lived heat management — **plan your shopping for the morning or the early evening.**',
-        nl: 'Als de zon op zijn hoogst staat, gaat half Frigiliana dicht: veel winkels en kleine supermarkten sluiten rond het middaguur een paar uur en openen in de koelere namiddag weer. Geen luiheid, maar geleefd hittebeheer — **doe je boodschappen ’s ochtends of in de vroege avond.**',
-        sv: 'När solen står som högst stänger halva Frigiliana: många butiker och små stormarknader stänger några timmar mitt på dagen och öppnar igen på den svalare eftermiddagen. Ingen lättja, utan levd värmehantering — **handla på morgonen eller tidiga kvällen.**'
+        de: 'Das nennt sich Siesta: In den heißesten Stunden legt Spanien eine Pause ein, und halb Frigiliana macht mit. Viele Läden und kleine Supermärkte schließen über Mittag für ein paar Stunden und öffnen am kühleren Nachmittag wieder — gelebtes Hitzemanagement, das den Tag angenehm einteilt. **Erledigt euren Einkauf am besten vormittags oder am frühen Abend.**',
+        en: 'It’s called the siesta: through the hottest hours Spain takes a break, and half of Frigiliana joins in. Many shops and small supermarkets close over midday for a few hours and reopen in the cooler afternoon — lived heat management that paces the day nicely. **Do your shopping in the morning or the early evening.**',
+        nl: 'Dat heet siësta: tijdens de heetste uren pauzeert Spanje, en half Frigiliana doet mee. Veel winkels en kleine supermarkten sluiten rond het middaguur een paar uur en openen in de koelere namiddag weer — geleefd hittebeheer dat de dag prettig indeelt. **Doe je boodschappen ’s ochtends of in de vroege avond.**',
+        sv: 'Det kallas siesta: under de hetaste timmarna tar Spanien en paus, och halva Frigiliana gör detsamma. Många butiker och små stormarknader stänger några timmar mitt på dagen och öppnar igen på den svalare eftermiddagen — levd värmehantering som ger dagen en skön rytm. **Handla på morgonen eller tidiga kvällen.**'
       },
       linkLabel: {
         de: 'Einkaufen & Öffnungszeiten',
@@ -253,10 +253,10 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
         sv: 'Därför stänger butikerna mitt på dagen'
       },
       body: {
-        de: 'Auch in Nerja legt sich über Mittag eine Ruhe über den Ort: Viele kleine Läden und Geschäfte schließen in den heißesten Stunden und öffnen am Nachmittag wieder. **Erledigt Einkäufe am besten vormittags oder am frühen Abend.**',
-        en: 'In Nerja too, a hush settles over midday: many small shops close during the hottest hours and reopen in the afternoon. **Do your shopping in the morning or the early evening.**',
-        nl: 'Ook in Nerja daalt er rond het middaguur rust neer: veel kleine winkels sluiten tijdens de heetste uren en openen ’s middags weer. **Doe je boodschappen ’s ochtends of in de vroege avond.**',
-        sv: 'Även i Nerja lägger sig ett lugn mitt på dagen: många små butiker stänger under de hetaste timmarna och öppnar igen på eftermiddagen. **Handla på morgonen eller tidiga kvällen.**'
+        de: 'Das ist die Siesta: In den heißesten Stunden legt der Ort eine Pause ein. Viele kleine Läden und Geschäfte schließen über Mittag und öffnen am Nachmittag wieder. **Erledigt Einkäufe am besten vormittags oder am frühen Abend.**',
+        en: 'This is the siesta: through the hottest hours the town pauses. Many small shops close over midday and reopen in the afternoon. **Do your shopping in the morning or the early evening.**',
+        nl: 'Dit is de siësta: tijdens de heetste uren pauzeert de plaats. Veel kleine winkels sluiten rond het middaguur en openen ’s middags weer. **Doe je boodschappen ’s ochtends of in de vroege avond.**',
+        sv: 'Det här är siestan: under de hetaste timmarna tar orten en paus. Många små butiker stänger mitt på dagen och öppnar igen på eftermiddagen. **Handla på morgonen eller tidiga kvällen.**'
       },
       linkLabel: {
         de: 'Einkaufen & Öffnungszeiten',
@@ -543,10 +543,10 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
         sv: 'Därför stänger butikerna mitt på dagen'
       },
       body: {
-        de: 'Auch in Tarifa macht der Ort über Mittag langsamer: Viele kleine Läden schließen in den heißesten Stunden und öffnen am Nachmittag wieder. **Plant Einkäufe für den Vormittag oder den frühen Abend.**',
-        en: 'In Tarifa too, the town slows over midday: many small shops close during the hottest hours and reopen in the afternoon. **Plan your shopping for the morning or the early evening.**',
-        nl: 'Ook in Tarifa gaat het stadje rond het middaguur langzamer: veel kleine winkels sluiten tijdens de heetste uren en openen ’s middags weer. **Plan je boodschappen ’s ochtends of in de vroege avond.**',
-        sv: 'Även i Tarifa saktar orten ner mitt på dagen: många små butiker stänger under de hetaste timmarna och öppnar igen på eftermiddagen. **Planera inköpen till morgonen eller tidiga kvällen.**'
+        de: 'Das ist die Siesta: In den heißesten Stunden schaltet der Ort einen Gang zurück. Viele kleine Läden schließen über Mittag und öffnen am Nachmittag wieder. **Plant Einkäufe für den Vormittag oder den frühen Abend.**',
+        en: 'This is the siesta: through the hottest hours the town shifts down a gear. Many small shops close over midday and reopen in the afternoon. **Plan your shopping for the morning or the early evening.**',
+        nl: 'Dit is de siësta: tijdens de heetste uren schakelt het stadje een tandje terug. Veel kleine winkels sluiten rond het middaguur en openen ’s middags weer. **Plan je boodschappen ’s ochtends of in de vroege avond.**',
+        sv: 'Det här är siestan: under de hetaste timmarna växlar orten ner. Många små butiker stänger mitt på dagen och öppnar igen på eftermiddagen. **Planera inköpen till morgonen eller tidiga kvällen.**'
       },
       linkLabel: {
         de: 'Einkaufen & Öffnungszeiten',

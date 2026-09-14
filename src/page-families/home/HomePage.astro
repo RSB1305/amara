@@ -4,9 +4,11 @@ import StaySearchFinder from '../../components/booking/StaySearchFinder.astro';
 import HomeCinematicMain, { type CinematicFact } from '../../components/home/HomeCinematicMain.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+import { trustLabels } from '../../content/trustLabels';
+import { ui as vacationRentalUi } from '../../content/vacationRentalPageContent';
 import {
   formatVacationRentalFromPrice,
   vacationRentalEntitiesByToken
@@ -243,6 +245,17 @@ const directHref = resolveOptionalLink('direct_booking_benefits', currentLang, {
 const honeymoonHref = resolveOptionalLink('honeymoon', currentLang, { suppressMissing: true });
 const hostAboutHref = resolveOptionalLink('about', currentLang, { suppressMissing: true });
 
+// The home page already presents every apartment and its comfort story above
+// the footer, so it needs neither the stays-collection nor the amenities link
+// here. The home footer is a curated trio: guest reviews, direct-booking
+// benefits, and the whole-house option (Casa AMARA for 4–8) that the page does
+// not otherwise surface.
+const homeFooterHighlights: { token: LinkToken; label: string }[] = [
+  { token: 'reviews_hub', label: trustLabels.reviews_hub[currentLang] },
+  { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits[currentLang] },
+  { token: 'casa_amara_groups', label: vacationRentalUi.groupStay[currentLang] }
+];
+
 /**
  * The opening viewport keeps its evidence compact. Later sections substantiate
  * the Booking.com and Airbnb signals without repeating the full proof here.
@@ -285,6 +298,7 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
   pageFamily="home"
   navigationLanguageToken="home"
   navigationAppearance="overlay"
+  footerHighlights={homeFooterHighlights}
 >
   <AmaraPageShell
     family="home"
