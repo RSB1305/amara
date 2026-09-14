@@ -1,6 +1,13 @@
+import { resolveLocale, type LocalizedText, type LocalizedTextList } from '../types/content';
 import type { LinkToken } from '../lib/linkResolver';
 import { routeOgImage } from '../lib/images/routeImages';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../types/seo';
+
+interface NerjaExperiencePracticalCopy {
+  title: string;
+  intro: string;
+  items: Array<{ id: string; title: string; text: string }>;
+}
 
 interface NerjaExperienceAdditionCopy {
   navLabel: string;
@@ -86,80 +93,523 @@ export const nerjaFoodSeo: AmaraAuthoringSeo = {
   }
 };
 
-export const nerjaBeachesPageContent: Record<AmaraLanguage, NerjaExperienceAdditionCopy> = {
-  en: {
-    navLabel: 'Beaches & coast',
-    hero: { kicker: 'Nerja · Beaches', title: 'Beaches in Nerja', subtitle: 'Town coves, Burriana and the coast towards Maro', paragraphs: ['Nerja places small town coves, a full-service beach and the protected coast towards Maro within one compact area.', 'They differ in access, shade, space and facilities; here is which suits what.'], imageAlt: 'Palm trees and the Mediterranean coast in Nerja' },
-    overview: { title: 'Three kinds of beach day', intro: 'How much time you have, how much comfort you want and whether the sea is calm enough for snorkelling.', items: [{ title: 'Easy from town', text: 'A central cove when the swim should belong to the Balcón, lunch or the evening walk.' }, { title: 'A complete beach day', text: 'Burriana has space, water sports and restaurants on the sand; a whole day without moving.' }, { title: 'More nature', text: 'Maro and Cantarriján: cliffs, clear water, pebbles instead of sunbeds.' }] },
-    related: { title: 'Continue the day in Nerja', items: [{ token: 'nerja_food_authority', title: 'Food in Nerja', text: 'Turn a swim into a seafood lunch, tapas round or special dinner.', label: 'Open the food guide' }, { token: 'nerja_balcon_de_europa', title: 'Balcón & Old Town', text: 'From the town beach up into the lanes and to the viewpoint.', label: 'Open the Balcón guide' }] },
-    closing: { title: 'Stay close enough to let the sea decide the morning.', lead: 'AMARA Playa is 200 metres from Torrecilla beach, with the rest of Nerja’s coast ready for a different kind of day.', propertyLabel: 'View AMARA Playa', hubLabel: 'All Nerja experiences' }
+const nerjaBeachesPageContentCopy = {
+  "navLabel": {
+    en: 'Beaches & coast',
+    de: 'Strände & Küste',
+    es: 'Playas y costa',
+    nl: 'Stranden & kust',
+    sv: 'Stränder & kust'
+  } satisfies LocalizedText,
+  "hero": {
+    "kicker": {
+      en: 'Nerja · Beaches',
+      de: 'Nerja · Strände',
+      es: 'Nerja · Playas',
+      nl: 'Nerja · Stranden',
+      sv: 'Nerja · Stränder'
+    } satisfies LocalizedText,
+    "title": {
+      en: 'Beaches in Nerja',
+      de: 'Strände in Nerja',
+      es: 'Playas en Nerja',
+      nl: 'Stranden in Nerja',
+      sv: 'Stränder i Nerja'
+    } satisfies LocalizedText,
+    "subtitle": {
+      en: 'Town coves, Burriana and the coast towards Maro',
+      de: 'Stadtbuchten, Burriana und die Küste nach Maro',
+      es: 'Calas urbanas, Burriana y la costa hacia Maro',
+      nl: 'Stadsbaaien, Burriana en de kust naar Maro',
+      sv: 'Stadsvikar, Burriana och kusten mot Maro'
+    } satisfies LocalizedText,
+    "paragraphs": {
+      en: [
+  "From our AMARA Playa, Torrecilla is around 200 metres away on foot, so a swim can fit between breakfast and the next part of your day. For the small coves by the Balcón de Europa, walk through the centre; Calahonda is reached by stairs from there.",
+  "Burriana has beach restaurants for a longer day by the sea. Maro and Cantarriján are separate coastal outings, with a journey and seasonal access arrangements. The choice also depends on whether you want to pop back to the apartment or spend the whole day out."
+],
+      de: [
+  "Von unserer AMARA Playa erreicht ihr Torrecilla nach rund 200 Metern zu Fuß. So passt ein Bad auch zwischen Frühstück und den nächsten Teil des Tages. Für die kleinen Buchten am Balcón de Europa geht ihr durchs Zentrum; Calahonda erreicht ihr dort über eine Treppe.",
+  "Burriana bietet Strandrestaurants für einen längeren Tag am Meer. Maro und Cantarriján sind dagegen eigene Küstenausflüge: Anfahrt und saisonaler Zugang gehören dazu. Die Wahl hängt deshalb auch davon ab, ob ihr später kurz zur Wohnung zurückmöchtet oder den ganzen Tag unterwegs bleibt."
+],
+      es: [
+  "Desde nuestro AMARA Playa llegáis a Torrecilla tras unos 200 metros a pie. Así, un baño cabe entre el desayuno y el siguiente plan del día. Para las pequeñas calas junto al Balcón de Europa, atravesáis el centro; a Calahonda bajáis por una escalera.",
+  "Burriana tiene restaurantes en la playa para pasar más horas junto al mar. Maro y Cantarriján son excursiones costeras con desplazamiento y acceso regulado en temporada. La elección depende también de si queréis volver un rato al apartamento o pasar todo el día fuera."
+],
+      nl: [
+  "Vanuit ons AMARA Playa lopen jullie ongeveer 200 meter naar Torrecilla. Zo past zwemmen ook tussen het ontbijt en het volgende deel van de dag. Voor de kleine baaien bij de Balcón de Europa wandelen jullie door het centrum; naar Calahonda gaat een trap omlaag.",
+  "Burriana heeft strandrestaurants voor een langere dag aan zee. Maro en Cantarriján zijn aparte uitstapjes langs de kust, met een reis en seizoensgebonden toegang. De keuze hangt er dus ook van af of jullie tussendoor terug willen naar het appartement of de hele dag op pad blijven."
+],
+      sv: [
+  "Från vår AMARA Playa går ni ungefär 200 meter till Torrecilla. Ett bad ryms därför även mellan frukosten och nästa del av dagen. Till de små vikarna vid Balcón de Europa promenerar ni genom centrum; vid Calahonda går en trappa ner till stranden.",
+  "Burriana har strandrestauranger för en längre dag vid havet. Maro och Cantarriján är egna kustutflykter med en resa och säsongsregler för tillträdet. Valet beror därför också på om ni vill kunna gå tillbaka till lägenheten en stund eller vara ute hela dagen."
+]
+    } satisfies LocalizedTextList,
+    "imageAlt": {
+      en: 'Palm trees and the Mediterranean coast in Nerja',
+      de: 'Palmen und Mittelmeerküste in Nerja',
+      es: 'Palmeras y costa mediterránea en Nerja',
+      nl: 'Palmbomen en de Middellandse Zeekust in Nerja',
+      sv: 'Palmer och Medelhavskust i Nerja'
+    } satisfies LocalizedText
   },
-  de: {
-    navLabel: 'Strände & Küste',
-    hero: { kicker: 'Nerja · Strände', title: 'Strände in Nerja', subtitle: 'Stadtbuchten, Burriana und die Küste nach Maro', paragraphs: ['In Nerja liegen kleine Stadtbuchten, ein voll ausgestatteter Strand und die geschützte Küste Richtung Maro nah beieinander.', 'Sie unterscheiden sich in Zugang, Schatten, Platz und Ausstattung; hier steht, welcher wofür taugt.'], imageAlt: 'Palmen und Mittelmeerküste in Nerja' },
-    overview: { title: 'Drei Arten Strandtag', intro: 'Wie viel Zeit ihr habt, wie viel Komfort ihr wollt und ob das Meer ruhig genug zum Schnorcheln ist.', items: [{ title: 'Einfach aus dem Zentrum', text: 'Eine zentrale Bucht, wenn das Bad zu Balcón, Mittagessen oder Abendspaziergang gehören soll.' }, { title: 'Ein kompletter Strandtag', text: 'Burriana hat Platz, Wassersport und Restaurants am Sand; ein ganzer Tag ohne Umziehen.' }, { title: 'Mehr Natur', text: 'Maro und Cantarriján: Klippen, klares Wasser, Kies statt Liegen.' }] },
-    related: { title: 'Den Tag in Nerja fortsetzen', items: [{ token: 'nerja_food_authority', title: 'Essen in Nerja', text: 'Aus dem Badetag wird ein Seafood-Lunch, eine Tapasrunde oder ein besonderes Dinner.', label: 'Food-Guide öffnen' }, { token: 'nerja_balcon_de_europa', title: 'Balcón & Altstadt', text: 'Vom Stadtstrand hinauf in die Gassen und zum Aussichtspunkt.', label: 'Balcón-Guide öffnen' }] },
-    closing: { title: 'Wohnt nah genug, damit das Meer den Morgen bestimmen darf.', lead: 'AMARA Playa liegt 200 Meter vom Torrecilla-Strand entfernt; für einen anderen Strandtag bleibt Nerjas übrige Küste offen.', propertyLabel: 'AMARA Playa ansehen', hubLabel: 'Alle Nerja-Erlebnisse' }
+  "overview": {
+    "title": {
+      en: 'Three kinds of beach day',
+      de: 'Drei Arten Strandtag',
+      es: 'Tres tipos de día de playa',
+      nl: 'Drie soorten stranddag',
+      sv: 'Tre sorters stranddag'
+    } satisfies LocalizedText,
+    "intro": {
+      en: 'How much time you have, how much comfort you want and whether the sea is calm enough for snorkelling.',
+      de: 'Wie viel Zeit ihr habt, wie viel Komfort ihr wollt und ob das Meer ruhig genug zum Schnorcheln ist.',
+      es: 'Cuánto tiempo tenéis, cuánta comodidad queréis y si el mar está lo bastante tranquilo para hacer snorkel.',
+      nl: 'Hoeveel tijd je hebt, hoeveel comfort je wilt en of de zee rustig genoeg is om te snorkelen.',
+      sv: 'Hur mycket tid ni har, hur mycket bekvämlighet ni vill ha och om havet är lugnt nog för snorkling.'
+    } satisfies LocalizedText,
+    "items": [
+      {
+        "title": {
+          en: 'Easy from town',
+          de: 'Einfach aus dem Zentrum',
+          es: 'Fácil desde el centro',
+          nl: 'Makkelijk vanuit de stad',
+          sv: 'Enkelt från centrum'
+        } satisfies LocalizedText,
+        "text": {
+          en: 'A central cove when the swim should belong to the Balcón, lunch or the evening walk.',
+          de: 'Eine zentrale Bucht, wenn das Bad zu Balcón, Mittagessen oder Abendspaziergang gehören soll.',
+          es: 'Una cala central cuando el baño va con el Balcón, la comida o el paseo de la tarde.',
+          nl: 'Een centrale baai als de duik bij de Balcón, de lunch of de avondwandeling moet horen.',
+          sv: 'En central vik när badet ska höra ihop med Balcón, lunchen eller kvällspromenaden.'
+        } satisfies LocalizedText
+      },
+      {
+        "title": {
+          en: 'A complete beach day',
+          de: 'Ein kompletter Strandtag',
+          es: 'Un día completo de playa',
+          nl: 'Een complete stranddag',
+          sv: 'En hel stranddag'
+        } satisfies LocalizedText,
+        "text": {
+          en: 'Burriana has space, water sports and restaurants on the sand; a whole day without moving.',
+          de: 'Burriana hat Platz, Wassersport und Restaurants am Sand; ein ganzer Tag ohne Umziehen.',
+          es: 'Burriana tiene espacio, deportes acuáticos y restaurantes en la arena; un día entero sin moverse.',
+          nl: 'Burriana heeft ruimte, watersport en restaurants aan het zand; een hele dag zonder te verkassen.',
+          sv: 'Burriana har plats, vattensport och restauranger på sanden; en hel dag utan att flytta sig.'
+        } satisfies LocalizedText
+      },
+      {
+        "title": {
+          en: 'More nature',
+          de: 'Mehr Natur',
+          es: 'Más naturaleza',
+          nl: 'Meer natuur',
+          sv: 'Mer natur'
+        } satisfies LocalizedText,
+        "text": {
+          en: 'Maro and Cantarriján: cliffs, clear water, pebbles instead of sunbeds.',
+          de: 'Maro und Cantarriján: Klippen, klares Wasser, Kies statt Liegen.',
+          es: 'Maro y Cantarriján: acantilados, agua clara, piedras en vez de hamacas.',
+          nl: 'Maro en Cantarriján: kliffen, helder water, kiezels in plaats van ligbedden.',
+          sv: 'Maro och Cantarriján: klippor, klart vatten, sten i stället för solstolar.'
+        } satisfies LocalizedText
+      }
+    ]
   },
-  es: {
-    navLabel: 'Playas y costa',
-    hero: { kicker: 'Nerja · Playas', title: 'Playas en Nerja', subtitle: 'Calas urbanas, Burriana y la costa hacia Maro', paragraphs: ['Nerja reúne calas urbanas, una playa con todos los servicios y la costa protegida hacia Maro en un espacio muy compacto.', 'Se diferencian en acceso, sombra, espacio y servicios; aquí está cuál sirve para qué.'], imageAlt: 'Palmeras y costa mediterránea en Nerja' },
-    overview: { title: 'Tres tipos de día de playa', intro: 'Cuánto tiempo tenéis, cuánta comodidad queréis y si el mar está lo bastante tranquilo para hacer snorkel.', items: [{ title: 'Fácil desde el centro', text: 'Una cala central cuando el baño va con el Balcón, la comida o el paseo de la tarde.' }, { title: 'Un día completo de playa', text: 'Burriana tiene espacio, deportes acuáticos y restaurantes en la arena; un día entero sin moverse.' }, { title: 'Más naturaleza', text: 'Maro y Cantarriján: acantilados, agua clara, piedras en vez de hamacas.' }] },
-    related: { title: 'Continuar el día en Nerja', items: [{ token: 'nerja_food_authority', title: 'Comer en Nerja', text: 'Convertid el baño en un almuerzo de pescado, una ruta de tapas o una cena especial.', label: 'Abrir la guía gastronómica' }, { token: 'nerja_balcon_de_europa', title: 'Balcón y casco antiguo', text: 'De la playa urbana arriba a las callejuelas y al mirador.', label: 'Abrir la guía del Balcón' }] },
-    closing: { title: 'Alojaos lo bastante cerca para que el mar decida la mañana.', lead: 'AMARA Playa está a 200 metros de Torrecilla y el resto de la costa de Nerja ofrece un día de playa diferente.', propertyLabel: 'Ver AMARA Playa', hubLabel: 'Todas las experiencias de Nerja' }
+  "related": {
+    "title": {
+      en: 'Continue the day in Nerja',
+      de: 'Den Tag in Nerja fortsetzen',
+      es: 'Continuar el día en Nerja',
+      nl: 'Ga verder met de dag in Nerja',
+      sv: 'Fortsätt dagen i Nerja'
+    } satisfies LocalizedText,
+    "items": [
+      {
+        "token": 'nerja_food_authority' as const,
+        "title": {
+          en: 'Food in Nerja',
+          de: 'Essen in Nerja',
+          es: 'Comer en Nerja',
+          nl: 'Eten in Nerja',
+          sv: 'Mat i Nerja'
+        } satisfies LocalizedText,
+        "text": {
+          en: 'Turn a swim into a seafood lunch, tapas round or special dinner.',
+          de: 'Aus dem Badetag wird ein Seafood-Lunch, eine Tapasrunde oder ein besonderes Dinner.',
+          es: 'Convertid el baño en un almuerzo de pescado, una ruta de tapas o una cena especial.',
+          nl: 'Maak van het zwemmen een vislunch, tapasronde of bijzonder diner.',
+          sv: 'Låt badet fortsätta med fisklunch, tapas eller en speciell middag.'
+        } satisfies LocalizedText,
+        "label": {
+          en: 'Open the food guide',
+          de: 'Food-Guide öffnen',
+          es: 'Abrir la guía gastronómica',
+          nl: 'Open de foodgids',
+          sv: 'Öppna matguiden'
+        } satisfies LocalizedText
+      },
+      {
+        "token": 'nerja_balcon_de_europa' as const,
+        "title": {
+          en: 'Balcón & Old Town',
+          de: 'Balcón & Altstadt',
+          es: 'Balcón y casco antiguo',
+          nl: 'Balcón & oude stad',
+          sv: 'Balcón & gamla stan'
+        } satisfies LocalizedText,
+        "text": {
+          en: 'From the town beach up into the lanes and to the viewpoint.',
+          de: 'Vom Stadtstrand hinauf in die Gassen und zum Aussichtspunkt.',
+          es: 'De la playa urbana arriba a las callejuelas y al mirador.',
+          nl: 'Van het stadsstrand omhoog de steegjes in en naar het uitzichtpunt.',
+          sv: 'Från stadsstranden upp i gränderna och till utsiktsplatsen.'
+        } satisfies LocalizedText,
+        "label": {
+          en: 'Open the Balcón guide',
+          de: 'Balcón-Guide öffnen',
+          es: 'Abrir la guía del Balcón',
+          nl: 'Open de Balcón-gids',
+          sv: 'Öppna Balcón-guiden'
+        } satisfies LocalizedText
+      }
+    ]
   },
-  nl: {
-    navLabel: 'Stranden & kust',
-    hero: { kicker: 'Nerja · Stranden', title: 'Stranden in Nerja', subtitle: 'Stadsbaaien, Burriana en de kust naar Maro', paragraphs: ['Nerja brengt kleine stadsbaaien, een compleet uitgerust strand en de beschermde kust richting Maro samen in een compact gebied.', 'Ze verschillen in toegang, schaduw, ruimte en voorzieningen; hier staat welk strand waarvoor geschikt is.'], imageAlt: 'Palmbomen en de Middellandse Zeekust in Nerja' },
-    overview: { title: 'Drie soorten stranddag', intro: 'Hoeveel tijd je hebt, hoeveel comfort je wilt en of de zee rustig genoeg is om te snorkelen.', items: [{ title: 'Makkelijk vanuit de stad', text: 'Een centrale baai als de duik bij de Balcón, de lunch of de avondwandeling moet horen.' }, { title: 'Een complete stranddag', text: 'Burriana heeft ruimte, watersport en restaurants aan het zand; een hele dag zonder te verkassen.' }, { title: 'Meer natuur', text: 'Maro en Cantarriján: kliffen, helder water, kiezels in plaats van ligbedden.' }] },
-    related: { title: 'Ga verder met de dag in Nerja', items: [{ token: 'nerja_food_authority', title: 'Eten in Nerja', text: 'Maak van het zwemmen een vislunch, tapasronde of bijzonder diner.', label: 'Open de foodgids' }, { token: 'nerja_balcon_de_europa', title: 'Balcón & oude stad', text: 'Van het stadsstrand omhoog de steegjes in en naar het uitzichtpunt.', label: 'Open de Balcón-gids' }] },
-    closing: { title: 'Verblijf dichtbij genoeg om de zee de ochtend te laten bepalen.', lead: 'AMARA Playa ligt 200 meter van het Torrecilla-strand; de rest van Nerja’s kust biedt telkens een ander soort dag.', propertyLabel: 'Bekijk AMARA Playa', hubLabel: 'Alle ervaringen in Nerja' }
+  "closing": {
+    "title": {
+      en: "A beach stay with your own apartment in Nerja",
+      de: "Euer Strandtag mit einer Wohnung in Nerja",
+      es: "Vuestra estancia de playa con apartamento en Nerja",
+      nl: "Een strandverblijf met een eigen appartement in Nerja",
+      sv: "Strandsemester med egen lägenhet i Nerja"
+    } satisfies LocalizedText,
+    "lead": {
+      en: "Our AMARA Playa combines a central location with a quiet courtyard setting and a private balcony with a side sea view. In the evening, you have a choice between your own kitchen and the town’s restaurants.",
+      de: "Unsere AMARA Playa verbindet die zentrale Lage mit einem ruhigen Innenhof und einem privaten Balkon mit seitlichem Meerblick. Abends habt ihr die Wahl zwischen der eigenen Küche und den Restaurants im Ort.",
+      es: "Nuestro AMARA Playa combina una ubicación céntrica con la tranquilidad del patio interior y un balcón privado con vistas laterales al mar. Por la noche podéis cocinar en casa o salir a los restaurantes del pueblo.",
+      nl: "Ons AMARA Playa combineert een centrale ligging met rust aan de binnenplaats en een privébalkon met zijdelings zeezicht. ’s Avonds kunnen jullie zelf koken of in Nerja uit eten gaan.",
+      sv: "Vår AMARA Playa kombinerar ett centralt läge med lugnet mot innergården och en privat balkong med sidoutsikt mot havet. På kvällen kan ni laga mat själva eller äta på restaurang i Nerja."
+    } satisfies LocalizedText,
+    "propertyLabel": {
+      en: 'View AMARA Playa',
+      de: 'AMARA Playa ansehen',
+      es: 'Ver AMARA Playa',
+      nl: 'Bekijk AMARA Playa',
+      sv: 'Se AMARA Playa'
+    } satisfies LocalizedText,
+    "hubLabel": {
+      en: 'All Nerja experiences',
+      de: 'Alle Nerja-Erlebnisse',
+      es: 'Todas las experiencias de Nerja',
+      nl: 'Alle ervaringen in Nerja',
+      sv: 'Alla upplevelser i Nerja'
+    } satisfies LocalizedText
   },
-  sv: {
-    navLabel: 'Stränder & kust',
-    hero: { kicker: 'Nerja · Stränder', title: 'Stränder i Nerja', subtitle: 'Stadsvikar, Burriana och kusten mot Maro', paragraphs: ['Nerja samlar små stadsvikar, en strand med full service och den skyddade kusten mot Maro inom ett kompakt område.', 'De skiljer sig i tillgång, skugga, plats och utrustning; här står vilken som passar till vad.'], imageAlt: 'Palmer och Medelhavskust i Nerja' },
-    overview: { title: 'Tre sorters stranddag', intro: 'Hur mycket tid ni har, hur mycket bekvämlighet ni vill ha och om havet är lugnt nog för snorkling.', items: [{ title: 'Enkelt från centrum', text: 'En central vik när badet ska höra ihop med Balcón, lunchen eller kvällspromenaden.' }, { title: 'En hel stranddag', text: 'Burriana har plats, vattensport och restauranger på sanden; en hel dag utan att flytta sig.' }, { title: 'Mer natur', text: 'Maro och Cantarriján: klippor, klart vatten, sten i stället för solstolar.' }] },
-    related: { title: 'Fortsätt dagen i Nerja', items: [{ token: 'nerja_food_authority', title: 'Mat i Nerja', text: 'Låt badet fortsätta med fisklunch, tapas eller en speciell middag.', label: 'Öppna matguiden' }, { token: 'nerja_balcon_de_europa', title: 'Balcón & gamla stan', text: 'Från stadsstranden upp i gränderna och till utsiktsplatsen.', label: 'Öppna Balcón-guiden' }] },
-    closing: { title: 'Bo nära nog för att låta havet bestämma morgonen.', lead: 'AMARA Playa ligger 200 meter från Torrecilla-stranden och resten av Nerjas kust väntar när ni vill ha en annan dag.', propertyLabel: 'Se AMARA Playa', hubLabel: 'Alla upplevelser i Nerja' }
+  "practical": {
+    "title": {
+      en: "Beach days from AMARA Playa",
+      de: "Strandtage ab AMARA Playa",
+      es: "Días de playa desde AMARA Playa",
+      nl: "Stranddagen vanuit AMARA Playa",
+      sv: "Stranddagar från AMARA Playa"
+    } satisfies LocalizedText,
+    "intro": {
+      en: "At the town beaches, the apartment remains part of your day. For Maro and Cantarriján, take what you need until you return.",
+      de: "Für die Stadtstrände bleibt die Wohnung Teil des Tages. Bei Maro und Cantarriján nehmt ihr mit, was ihr bis zur Rückkehr braucht.",
+      es: "En las playas urbanas, el apartamento sigue formando parte del día. Para Maro y Cantarriján, lleváis lo necesario hasta la vuelta.",
+      nl: "Bij de stadsstranden blijft het appartement onderdeel van de dag. Voor Maro en Cantarriján nemen jullie mee wat nodig is tot de terugkomst.",
+      sv: "Vid stadsstränderna förblir lägenheten en del av dagen. Till Maro och Cantarriján tar ni med det ni behöver tills ni kommer tillbaka."
+    } satisfies LocalizedText,
+    "items": [
+      {
+        "id": "local" as const,
+        "title": {
+          en: "Walk to the water",
+          de: "Zu Fuß ans Wasser",
+          es: "Al agua a pie",
+          nl: "Te voet naar het water",
+          sv: "Till fots till vattnet"
+        } satisfies LocalizedText,
+        "text": {
+          en: "Torrecilla is close to our apartment. For the coves by the Balcón, continue through the centre; at Calahonda, stairs lead from the viewpoint down to the sand.",
+          de: "Torrecilla liegt nah an unserer Wohnung. Zu den Buchten am Balcón geht ihr weiter durchs Zentrum; bei Calahonda führt die Treppe vom Aussichtspunkt hinunter zum Sand.",
+          es: "Torrecilla está cerca de nuestro apartamento. Para las calas del Balcón, seguís por el centro; en Calahonda, la escalera baja desde el mirador hasta la arena.",
+          nl: "Torrecilla ligt dicht bij ons appartement. Voor de baaien bij de Balcón lopen jullie verder door het centrum; bij Calahonda gaat de trap vanaf het uitzichtpunt omlaag naar het zand.",
+          sv: "Torrecilla ligger nära vår lägenhet. Till vikarna vid Balcón fortsätter ni genom centrum; vid Calahonda leder trappan från utsiktsplatsen ner till sanden."
+        } satisfies LocalizedText
+      },
+      {
+        "id": "coast" as const,
+        "title": {
+          en: "A separate outing to the east",
+          de: "Ein eigener Ausflug nach Osten",
+          es: "Una excursión hacia el este",
+          nl: "Een aparte tocht naar het oosten",
+          sv: "En egen utflykt österut"
+        } satisfies LocalizedText,
+        "text": {
+          en: "For Maro and Cantarriján, consider the journey and final beach access together. Seasonal restrictions can require a shuttle. Bring water, sun protection and shoes for the approach.",
+          de: "Für Maro und Cantarriján plant ihr die Anfahrt und den letzten Weg zum Strand zusammen. Saisonale Zufahrtsregeln können einen Shuttle nötig machen. Wasser, Sonnenschutz und Schuhe für den Zugang gehören für diesen Tag dazu.",
+          es: "Para Maro y Cantarriján, el desplazamiento y el último acceso a la playa van juntos. Las restricciones de temporada pueden requerir una lanzadera. Llevad agua, protección solar y calzado para el camino.",
+          nl: "Voor Maro en Cantarriján horen de reis en het laatste toegangspad bij elkaar. Seizoensbeperkingen kunnen een shuttle nodig maken. Neem water, zonbescherming en schoenen voor het pad mee.",
+          sv: "För Maro och Cantarriján hör resan och sista tillträdesvägen ihop. Säsongens regler kan kräva skyttelbuss. Ta med vatten, solskydd och skor för gångvägen."
+        } satisfies LocalizedText
+      },
+      {
+        "id": "return" as const,
+        "title": {
+          en: "Back to the apartment between outings",
+          de: "Zwischendurch zurück zur Wohnung",
+          es: "Volver un rato al apartamento",
+          nl: "Tussendoor terug naar het appartement",
+          sv: "Tillbaka till lägenheten mellan baden"
+        } satisfies LocalizedText,
+        "text": {
+          en: "After swimming, you can shower, make something to eat or use the washing machine at AMARA Playa. There are ten steps before the lift; the apartment is on the fifth floor.",
+          de: "Nach dem Baden könnt ihr in der AMARA Playa duschen, selbst etwas zu essen machen oder die Waschmaschine nutzen. Vor dem Aufzug liegen zehn Stufen; die Wohnung ist im fünften Stock.",
+          es: "Después del baño, en AMARA Playa podéis ducharos, preparar algo de comer o poner la lavadora. Hay diez escalones antes del ascensor; el apartamento está en la quinta planta.",
+          nl: "Na het zwemmen kunnen jullie bij AMARA Playa douchen, iets te eten maken of de wasmachine gebruiken. Voor de lift zijn tien treden; het appartement ligt op de vijfde verdieping.",
+          sv: "Efter badet kan ni duscha, laga något att äta eller använda tvättmaskinen i AMARA Playa. Det finns tio trappsteg före hissen; lägenheten ligger på femte våningen."
+        } satisfies LocalizedText
+      }
+    ]
+  }
+};
+
+export const nerjaBeachesPageContent: Record<AmaraLanguage, NerjaExperienceAdditionCopy & { practical: NerjaExperiencePracticalCopy }> = {
+  en: resolveLocale(nerjaBeachesPageContentCopy, 'en'),
+  de: resolveLocale(nerjaBeachesPageContentCopy, 'de'),
+  es: resolveLocale(nerjaBeachesPageContentCopy, 'es'),
+  nl: resolveLocale(nerjaBeachesPageContentCopy, 'nl'),
+  sv: resolveLocale(nerjaBeachesPageContentCopy, 'sv')
+};
+
+const nerjaDayTripsPageContentCopy = {
+  "navLabel": {
+    en: 'Day trips',
+    de: 'Tagesausflüge',
+    es: 'Excursiones',
+    nl: 'Dagtochten',
+    sv: 'Dagsutflykter'
+  } satisfies LocalizedText,
+  "hero": {
+    "kicker": {
+      en: 'Nerja · Day trips',
+      de: 'Nerja · Tagesausflüge',
+      es: 'Nerja · Excursiones',
+      nl: 'Nerja · Dagtochten',
+      sv: 'Nerja · Dagsutflykter'
+    } satisfies LocalizedText,
+    "title": {
+      en: 'Day trips from Nerja',
+      de: 'Tagesausflüge ab Nerja',
+      es: 'Excursiones desde Nerja',
+      nl: 'Dagtochten vanuit Nerja',
+      sv: 'Dagsutflykter från Nerja'
+    } satisfies LocalizedText,
+    "subtitle": {
+      en: 'Málaga, Granada, Caminito del Rey, Ronda',
+      de: 'Málaga, Granada, Caminito del Rey, Ronda',
+      es: 'Málaga, Granada, Caminito del Rey, Ronda',
+      nl: 'Málaga, Granada, Caminito del Rey, Ronda',
+      sv: 'Málaga, Granada, Caminito del Rey, Ronda'
+    } satisfies LocalizedText,
+    "paragraphs": {
+      en: [
+  "From Nerja, you can visit Málaga, Granada, the Caminito del Rey or Ronda and return to the coast in the evening. Málaga is reachable by bus from Nerja, so a stay at our AMARA Playa can work with a hire car just for individual trips to the other destinations.",
+  "Your Alhambra and Caminito entry slots set the timing for those days. Ronda is the furthest drive, at around two hours fifteen to thirty minutes each way. Once back in Nerja, allow for parking and the walk to the apartment."
+],
+      de: [
+  "Von Nerja aus besucht ihr Málaga, Granada, den Caminito del Rey oder Ronda und kehrt abends an die Küste zurück. Für Málaga könnt ihr den Bus ab Nerja nehmen; ein Aufenthalt in unserer AMARA Playa lässt sich deshalb auch mit einzelnen Mietwagentagen für die anderen Ziele verbinden.",
+  "Granada und der Caminito richten sich nach euren gebuchten Einlasszeiten. Ronda liegt mit etwa zwei Stunden und fünfzehn bis dreißig Minuten pro Strecke am weitesten entfernt. Nach der Rückfahrt gehören in Nerja noch Parken und der Weg zur Wohnung dazu."
+],
+      es: [
+  "Desde Nerja podéis visitar Málaga, Granada, el Caminito del Rey o Ronda y regresar a la costa por la tarde. A Málaga podéis ir en autobús desde Nerja; así, una estancia en nuestro AMARA Playa puede combinarse con un coche de alquiler solo para las excursiones a los otros destinos.",
+  "Las entradas con hora de la Alhambra y el Caminito marcan esos días. Ronda es el trayecto más largo: unas dos horas y cuarto a dos horas y media por sentido. Al volver a Nerja, quedan el aparcamiento y el camino hasta el apartamento."
+],
+      nl: [
+  "Vanuit Nerja bezoeken jullie Málaga, Granada, de Caminito del Rey of Ronda en keren ’s avonds terug naar de kust. Naar Málaga gaat een bus vanuit Nerja. Een verblijf in ons AMARA Playa is daardoor te combineren met een huurauto alleen voor de uitstapjes naar de andere bestemmingen.",
+  "Bij Granada en de Caminito bepalen jullie geboekte toegangstijden het dagritme. Ronda ligt het verst weg, op ongeveer twee uur en een kwartier tot tweeënhalf uur rijden per enkele reis. Terug in Nerja volgen nog het parkeren en de wandeling naar het appartement."
+],
+      sv: [
+  "Från Nerja kan ni besöka Málaga, Granada, Caminito del Rey eller Ronda och återvända till kusten på kvällen. Till Málaga kan ni ta bussen från Nerja. En vistelse i vår AMARA Playa går därför att kombinera med hyrbil enbart för utflykterna till de andra målen.",
+  "Vid Granada och Caminito styr de bokade entrétiderna dagen. Ronda ligger längst bort, ungefär två timmar och en kvart till två och en halv timme med bil i varje riktning. Tillbaka i Nerja återstår parkeringen och promenaden till lägenheten."
+]
+    } satisfies LocalizedTextList,
+    "imageAlt": {
+      en: 'Nerja on the coast as a base for day trips through Andalusia',
+      de: 'Nerja an der Küste als Basis für Tagesausflüge durch Andalusien',
+      es: 'Nerja en la costa como base para excursiones por Andalucía',
+      nl: 'Nerja aan de kust als uitvalsbasis voor dagtochten door Andalusië',
+      sv: 'Nerja vid kusten som bas för dagsutflykter i Andalusien'
+    } satisfies LocalizedText
+  },
+  "overview": {
+    "title": {
+      en: 'One destination is enough',
+      de: 'Ein Ziel genügt',
+      es: 'Un destino es suficiente',
+      nl: 'Eén bestemming is genoeg',
+      sv: 'Ett resmål räcker'
+    } satisfies LocalizedText,
+    "intro": {
+      en: 'The best day trips have a single reason to travel and enough unplanned time for lunch, a walk and the return.',
+      de: 'Die besten Tagesausflüge haben einen klaren Reisegrund und genug freie Zeit für Lunch, Spaziergang und Rückfahrt.',
+      es: 'Las mejores excursiones tienen un solo motivo principal y tiempo libre para comer, caminar y regresar sin prisas.',
+      nl: 'De beste dagtochten hebben één duidelijke reden om te reizen en vrije tijd voor lunch, een wandeling en de terugweg.',
+      sv: 'De bästa utflykterna har ett tydligt skäl att resa och fri tid för lunch, promenad och en lugn återfärd.'
+    } satisfies LocalizedText,
+    "items": [
+      {
+        "title": {
+          en: 'Most flexible',
+          de: 'Am flexibelsten',
+          es: 'La más flexible',
+          nl: 'Meest flexibel',
+          sv: 'Mest flexibel'
+        } satisfies LocalizedText,
+        "text": {
+          en: 'Málaga: museums, old town, market and lunch, without a fixed plan.',
+          de: 'Málaga: Museen, Altstadt, Markt und Mittagessen, ohne festen Plan.',
+          es: 'Málaga: museos, casco antiguo, mercado y comida, sin plan fijo.',
+          nl: 'Málaga: musea, oude stad, markt en lunch, zonder vast plan.',
+          sv: 'Málaga: museer, gamla stan, marknad och lunch, utan fast plan.'
+        } satisfies LocalizedText
+      },
+      {
+        "title": {
+          en: 'Book first',
+          de: 'Zuerst buchen',
+          es: 'Reservad primero',
+          nl: 'Eerst boeken',
+          sv: 'Boka först'
+        } satisfies LocalizedText,
+        "text": {
+          en: 'Granada and the Caminito del Rey run on dated tickets; those first, the rest follows.',
+          de: 'Granada und der Caminito del Rey laufen über datierte Tickets; die zuerst, der Rest ergibt sich.',
+          es: 'Granada y el Caminito del Rey van con entradas de fecha fija; esas primero, el resto sale solo.',
+          nl: 'Granada en de Caminito del Rey lopen op gedateerde tickets; die eerst, de rest volgt vanzelf.',
+          sv: 'Granada och Caminito del Rey går på daterade biljetter; de först, resten ger sig.'
+        } satisfies LocalizedText
+      },
+      {
+        "title": {
+          en: 'Longest day',
+          de: 'Der längste Tag',
+          es: 'La jornada más larga',
+          nl: 'Langste dag',
+          sv: 'Längsta dagen'
+        } satisfies LocalizedText,
+        "text": {
+          en: 'Ronda is the longest drive and gets the whole day.',
+          de: 'Ronda ist die weiteste Fahrt und bekommt den ganzen Tag.',
+          es: 'Ronda es el viaje más largo y se lleva el día entero.',
+          nl: 'Ronda is de verste rit en krijgt de hele dag.',
+          sv: 'Ronda är den längsta resan och får hela dagen.'
+        } satisfies LocalizedText
+      }
+    ]
+  },
+  "related": {
+    "title": {
+      en: 'Balance travel with an easy Nerja day',
+      de: 'Reisetage mit einem einfachen Nerja-Tag ausgleichen',
+      es: 'Equilibrar el viaje con un día sencillo en Nerja',
+      nl: 'Breng reizen in balans met een makkelijke dag in Nerja',
+      sv: 'Balansera resdagen med en enkel dag i Nerja'
+    } satisfies LocalizedText,
+    "items": [
+      {
+        "token": 'nerja_beaches_authority' as const,
+        "title": {
+          en: 'Beaches & coast',
+          de: 'Strände & Küste',
+          es: 'Playas y costa',
+          nl: 'Stranden & kust',
+          sv: 'Stränder & kust'
+        } satisfies LocalizedText,
+        "text": {
+          en: 'Stay close to the sea the day after.',
+          de: 'Am Tag danach nah am Meer bleiben.',
+          es: 'Al día siguiente, quedarse cerca del mar.',
+          nl: 'De dag erna dicht bij zee blijven.',
+          sv: 'Dagen efter: stanna nära havet.'
+        } satisfies LocalizedText,
+        "label": {
+          en: 'Open the beach guide',
+          de: 'Strandguide öffnen',
+          es: 'Abrir la guía de playas',
+          nl: 'Open de strandgids',
+          sv: 'Öppna strandguiden'
+        } satisfies LocalizedText
+      },
+      {
+        "token": 'nerja_food_authority' as const,
+        "title": {
+          en: 'Food in Nerja',
+          de: 'Essen in Nerja',
+          es: 'Comer en Nerja',
+          nl: 'Eten in Nerja',
+          sv: 'Mat i Nerja'
+        } satisfies LocalizedText,
+        "text": {
+          en: 'For the evening after, a simple dinner nearby.',
+          de: 'Für den Abend danach ein einfaches Dinner in der Nähe.',
+          es: 'Para la noche de después, una cena sencilla cerca.',
+          nl: 'Voor de avond erna een eenvoudig diner in de buurt.',
+          sv: 'För kvällen efter en enkel middag i närheten.'
+        } satisfies LocalizedText,
+        "label": {
+          en: 'Open the food guide',
+          de: 'Food-Guide öffnen',
+          es: 'Abrir la guía gastronómica',
+          nl: 'Open de foodgids',
+          sv: 'Öppna matguiden'
+        } satisfies LocalizedText
+      }
+    ]
+  },
+  "closing": {
+    "title": {
+      en: "Back to AMARA Playa after your day out",
+      de: "Nach dem Ausflug zurück zur AMARA Playa",
+      es: "Volver a AMARA Playa después de la excursión",
+      nl: "Na de dagtocht terug naar AMARA Playa",
+      sv: "Tillbaka till AMARA Playa efter utflykten"
+    } satisfies LocalizedText,
+    "lead": {
+      en: "At our courtyard-facing apartment, you can cook after the trip or spend the evening on the balcony with its side sea view. The apartment has a full kitchen and a 200 × 200 cm bed.",
+      de: "In unserer zum Innenhof gelegenen Wohnung könnt ihr nach dem Ausflug selbst kochen oder den Abend auf dem Balkon mit seitlichem Meerblick verbringen. Die voll ausgestattete Küche und das 200 × 200 cm große Bett gehören zur Wohnung.",
+      es: "En nuestro apartamento orientado al patio interior podéis cocinar al volver o pasar la tarde en el balcón con vistas laterales al mar. Tenéis cocina completa y una cama de 200 × 200 cm.",
+      nl: "In ons appartement aan de binnenplaats kunnen jullie na de uitstap zelf koken of op het balkon met zijdelings zeezicht zitten. De woning heeft een complete keuken en een bed van 200 × 200 cm.",
+      sv: "I vår lägenhet mot innergården kan ni laga mat efter utflykten eller tillbringa kvällen på balkongen med sidoutsikt mot havet. Lägenheten har komplett kök och en säng på 200 × 200 cm."
+    } satisfies LocalizedText,
+    "propertyLabel": {
+      en: 'View AMARA Playa',
+      de: 'AMARA Playa ansehen',
+      es: 'Ver AMARA Playa',
+      nl: 'Bekijk AMARA Playa',
+      sv: 'Se AMARA Playa'
+    } satisfies LocalizedText,
+    "hubLabel": {
+      en: 'All Nerja experiences',
+      de: 'Alle Nerja-Erlebnisse',
+      es: 'Todas las experiencias de Nerja',
+      nl: 'Alle ervaringen in Nerja',
+      sv: 'Alla upplevelser i Nerja'
+    } satisfies LocalizedText
   }
 };
 
 export const nerjaDayTripsPageContent: Record<AmaraLanguage, NerjaExperienceAdditionCopy> = {
-  en: {
-    navLabel: 'Day trips',
-    hero: { kicker: 'Nerja · Day trips', title: 'Day trips from Nerja', subtitle: 'Málaga, Granada, Caminito del Rey, Ronda', paragraphs: ['Nerja is a coastal base with Málaga, Granada, Caminito del Rey and Ronda all possible as distinct days out.', 'One destination a day, the tickets for Alhambra and Caminito weeks ahead, and back to the sea in the evening.'], imageAlt: 'Nerja on the coast as a base for day trips through Andalusia' },
-    overview: { title: 'One destination is enough', intro: 'The best day trips have a single reason to travel and enough unplanned time for lunch, a walk and the return.', items: [{ title: 'Most flexible', text: 'Málaga: museums, old town, market and lunch, without a fixed plan.' }, { title: 'Book first', text: 'Granada and the Caminito del Rey run on dated tickets; those first, the rest follows.' }, { title: 'Longest day', text: 'Ronda is the longest drive and gets the whole day.' }] },
-    related: { title: 'Balance travel with an easy Nerja day', items: [{ token: 'nerja_beaches_authority', title: 'Beaches & coast', text: 'Stay close to the sea the day after.', label: 'Open the beach guide' }, { token: 'nerja_food_authority', title: 'Food in Nerja', text: 'For the evening after, a simple dinner nearby.', label: 'Open the food guide' }] },
-    closing: { title: 'Travel for the day, then come home to the coast.', lead: 'AMARA Playa keeps the return simple: a quiet apartment near Torrecilla after museums, monuments or a long road through Andalusia.', propertyLabel: 'View AMARA Playa', hubLabel: 'All Nerja experiences' }
-  },
-  de: {
-    navLabel: 'Tagesausflüge',
-    hero: { kicker: 'Nerja · Tagesausflüge', title: 'Tagesausflüge ab Nerja', subtitle: 'Málaga, Granada, Caminito del Rey, Ronda', paragraphs: ['Nerja ist eine Basis an der Küste, von der Málaga, Granada, der Caminito del Rey und Ronda jeweils als eigener Ausflugstag funktionieren.', 'Ein Ziel pro Tag, die Tickets für Alhambra und Caminito Wochen vorher, und abends zurück ans Meer.'], imageAlt: 'Nerja an der Küste als Basis für Tagesausflüge durch Andalusien' },
-    overview: { title: 'Ein Ziel genügt', intro: 'Die besten Tagesausflüge haben einen klaren Reisegrund und genug freie Zeit für Lunch, Spaziergang und Rückfahrt.', items: [{ title: 'Am flexibelsten', text: 'Málaga: Museen, Altstadt, Markt und Mittagessen, ohne festen Plan.' }, { title: 'Zuerst buchen', text: 'Granada und der Caminito del Rey laufen über datierte Tickets; die zuerst, der Rest ergibt sich.' }, { title: 'Der längste Tag', text: 'Ronda ist die weiteste Fahrt und bekommt den ganzen Tag.' }] },
-    related: { title: 'Reisetage mit einem einfachen Nerja-Tag ausgleichen', items: [{ token: 'nerja_beaches_authority', title: 'Strände & Küste', text: 'Am Tag danach nah am Meer bleiben.', label: 'Strandguide öffnen' }, { token: 'nerja_food_authority', title: 'Essen in Nerja', text: 'Für den Abend danach ein einfaches Dinner in der Nähe.', label: 'Food-Guide öffnen' }] },
-    closing: { title: 'Tagsüber unterwegs, danach zurück an die Küste.', lead: 'AMARA Playa macht die Rückkehr einfach: ein ruhiges Apartment nahe Torrecilla nach Museen, Monumenten oder einer langen Andalusien-Fahrt.', propertyLabel: 'AMARA Playa ansehen', hubLabel: 'Alle Nerja-Erlebnisse' }
-  },
-  es: {
-    navLabel: 'Excursiones',
-    hero: { kicker: 'Nerja · Excursiones', title: 'Excursiones desde Nerja', subtitle: 'Málaga, Granada, Caminito del Rey, Ronda', paragraphs: ['Nerja es una base costera desde la que Málaga, Granada, Caminito del Rey y Ronda funcionan como jornadas independientes.', 'Un destino por día, las entradas de la Alhambra y el Caminito semanas antes, y por la noche de vuelta al mar.'], imageAlt: 'Nerja en la costa como base para excursiones por Andalucía' },
-    overview: { title: 'Un destino es suficiente', intro: 'Las mejores excursiones tienen un solo motivo principal y tiempo libre para comer, caminar y regresar sin prisas.', items: [{ title: 'La más flexible', text: 'Málaga: museos, casco antiguo, mercado y comida, sin plan fijo.' }, { title: 'Reservad primero', text: 'Granada y el Caminito del Rey van con entradas de fecha fija; esas primero, el resto sale solo.' }, { title: 'La jornada más larga', text: 'Ronda es el viaje más largo y se lleva el día entero.' }] },
-    related: { title: 'Equilibrar el viaje con un día sencillo en Nerja', items: [{ token: 'nerja_beaches_authority', title: 'Playas y costa', text: 'Al día siguiente, quedarse cerca del mar.', label: 'Abrir la guía de playas' }, { token: 'nerja_food_authority', title: 'Comer en Nerja', text: 'Para la noche de después, una cena sencilla cerca.', label: 'Abrir la guía gastronómica' }] },
-    closing: { title: 'Viajad durante el día y volved a casa junto al mar.', lead: 'AMARA Playa simplifica el regreso: un apartamento tranquilo cerca de Torrecilla después de museos, monumentos o una larga carretera andaluza.', propertyLabel: 'Ver AMARA Playa', hubLabel: 'Todas las experiencias de Nerja' }
-  },
-  nl: {
-    navLabel: 'Dagtochten',
-    hero: { kicker: 'Nerja · Dagtochten', title: 'Dagtochten vanuit Nerja', subtitle: 'Málaga, Granada, Caminito del Rey, Ronda', paragraphs: ['Nerja is een uitvalsbasis aan zee van waaruit Málaga, Granada, Caminito del Rey en Ronda elk als eigen dagtocht werken.', 'Eén bestemming per dag, de tickets voor Alhambra en Caminito weken vooraf, en ’s avonds terug naar zee.'], imageAlt: 'Nerja aan de kust als uitvalsbasis voor dagtochten door Andalusië' },
-    overview: { title: 'Eén bestemming is genoeg', intro: 'De beste dagtochten hebben één duidelijke reden om te reizen en vrije tijd voor lunch, een wandeling en de terugweg.', items: [{ title: 'Meest flexibel', text: 'Málaga: musea, oude stad, markt en lunch, zonder vast plan.' }, { title: 'Eerst boeken', text: 'Granada en de Caminito del Rey lopen op gedateerde tickets; die eerst, de rest volgt vanzelf.' }, { title: 'Langste dag', text: 'Ronda is de verste rit en krijgt de hele dag.' }] },
-    related: { title: 'Breng reizen in balans met een makkelijke dag in Nerja', items: [{ token: 'nerja_beaches_authority', title: 'Stranden & kust', text: 'De dag erna dicht bij zee blijven.', label: 'Open de strandgids' }, { token: 'nerja_food_authority', title: 'Eten in Nerja', text: 'Voor de avond erna een eenvoudig diner in de buurt.', label: 'Open de foodgids' }] },
-    closing: { title: 'Overdag op pad, daarna weer thuis aan de kust.', lead: 'AMARA Playa maakt de terugkeer eenvoudig: een rustig appartement bij Torrecilla na musea, monumenten of een lange rit door Andalusië.', propertyLabel: 'Bekijk AMARA Playa', hubLabel: 'Alle ervaringen in Nerja' }
-  },
-  sv: {
-    navLabel: 'Dagsutflykter',
-    hero: { kicker: 'Nerja · Dagsutflykter', title: 'Dagsutflykter från Nerja', subtitle: 'Málaga, Granada, Caminito del Rey, Ronda', paragraphs: ['Nerja är en bas vid kusten där Málaga, Granada, Caminito del Rey och Ronda fungerar som var sin tydliga dagsutflykt.', 'Ett mål per dag, biljetterna till Alhambra och Caminito veckor i förväg, och på kvällen tillbaka till havet.'], imageAlt: 'Nerja vid kusten som bas för dagsutflykter i Andalusien' },
-    overview: { title: 'Ett resmål räcker', intro: 'De bästa utflykterna har ett tydligt skäl att resa och fri tid för lunch, promenad och en lugn återfärd.', items: [{ title: 'Mest flexibel', text: 'Málaga: museer, gamla stan, marknad och lunch, utan fast plan.' }, { title: 'Boka först', text: 'Granada och Caminito del Rey går på daterade biljetter; de först, resten ger sig.' }, { title: 'Längsta dagen', text: 'Ronda är den längsta resan och får hela dagen.' }] },
-    related: { title: 'Balansera resdagen med en enkel dag i Nerja', items: [{ token: 'nerja_beaches_authority', title: 'Stränder & kust', text: 'Dagen efter: stanna nära havet.', label: 'Öppna strandguiden' }, { token: 'nerja_food_authority', title: 'Mat i Nerja', text: 'För kvällen efter en enkel middag i närheten.', label: 'Öppna matguiden' }] },
-    closing: { title: 'Res under dagen och kom hem till kusten.', lead: 'AMARA Playa gör återkomsten enkel: en lugn lägenhet nära Torrecilla efter museer, monument eller en lång väg genom Andalusien.', propertyLabel: 'Se AMARA Playa', hubLabel: 'Alla upplevelser i Nerja' }
-  }
+  en: resolveLocale(nerjaDayTripsPageContentCopy, 'en'),
+  de: resolveLocale(nerjaDayTripsPageContentCopy, 'de'),
+  es: resolveLocale(nerjaDayTripsPageContentCopy, 'es'),
+  nl: resolveLocale(nerjaDayTripsPageContentCopy, 'nl'),
+  sv: resolveLocale(nerjaDayTripsPageContentCopy, 'sv')
 };
 
 export const nerjaFoodPageContent: Record<AmaraLanguage, NerjaExperienceAdditionCopy> = {
@@ -206,7 +656,7 @@ interface NerjaDayTripOriginContext {
   driveTimes: Record<DayTripDestinationId, string>;
   malagaSummary: string;
   rondaDetails: string;
-  returnText: string;
+  practical: NerjaExperiencePracticalCopy;
 }
 
 /**
@@ -214,78 +664,146 @@ interface NerjaDayTripOriginContext {
  * Destination identity, venue facts, ticket cautions and visit advice remain
  * shared with the Frigiliana guide.
  */
+const nerjaDayTripOriginContextCopy = {
+  "driveTimes": {
+    "malaga": {
+      en: 'About 45–60 minutes via the A-7, depending on traffic',
+      de: 'Etwa 45–60 Minuten über die A-7, je nach Verkehr',
+      es: 'Unos 45–60 minutos por la A-7, según el tráfico',
+      nl: 'Ongeveer 45–60 minuten via de A-7, afhankelijk van verkeer',
+      sv: 'Cirka 45–60 minuter via A-7, beroende på trafik'
+    } satisfies LocalizedText,
+    "granada": {
+      en: 'About 1 hour 10 minutes to 1 hour 30 minutes inland, depending on traffic',
+      de: 'Etwa 1 Stunde 10 Minuten bis 1 Stunde 30 Minuten ins Landesinnere',
+      es: 'Entre 1 hora y 10 minutos y 1 hora y 30 minutos hacia el interior',
+      nl: 'Ongeveer 1 uur en 10 minuten tot 1 uur en 30 minuten landinwaarts',
+      sv: 'Cirka 1 timme och 10 minuter till 1 timme och 30 minuter inåt landet'
+    } satisfies LocalizedText,
+    "caminito": {
+      en: 'About 1 hour 30 minutes to 1 hour 45 minutes, depending on route and traffic',
+      de: 'Etwa 1 Stunde 30 Minuten bis 1 Stunde 45 Minuten, je nach Route und Verkehr',
+      es: 'Entre 1 hora y 30 minutos y 1 hora y 45 minutos, según la ruta',
+      nl: 'Ongeveer 1 uur en 30 minuten tot 1 uur en 45 minuten, afhankelijk van route en verkeer',
+      sv: 'Cirka 1 timme och 30 minuter till 1 timme och 45 minuter, beroende på väg och trafik'
+    } satisfies LocalizedText,
+    "ronda": {
+      en: 'About 2 hours 15–30 minutes each way, depending on route and traffic',
+      de: 'Etwa 2 Stunden 15–30 Minuten pro Strecke, je nach Route und Verkehr',
+      es: 'Entre 2 horas y 15 minutos y 2 horas y 30 minutos por sentido',
+      nl: 'Ongeveer 2 uur en 15–30 minuten per enkele reis',
+      sv: 'Cirka 2 timmar och 15–30 minuter per riktning'
+    } satisfies LocalizedText
+  },
+  "malagaSummary": {
+    en: 'Málaga is the easiest cultural day trip from Nerja: a walkable historic centre, museums, excellent food and a modern port atmosphere. It is the most flexible choice when you want a rewarding day without a rigid schedule.',
+    de: 'Málaga ist der unkomplizierteste kulturelle Tagesausflug ab Nerja: eine gut begehbare Altstadt, Museen, hervorragendes Essen und moderne Hafenatmosphäre. Die Stadt eignet sich besonders, wenn ihr einen lohnenden Tag ohne starren Zeitplan möchtet.',
+    es: 'Málaga es la excursión cultural más sencilla desde Nerja: un centro histórico cómodo para recorrer a pie, museos, muy buena gastronomía y un puerto contemporáneo. Es la opción más flexible si queréis un día completo sin un horario rígido.',
+    nl: 'Málaga is de eenvoudigste culturele dagtocht vanuit Nerja: een beloopbaar historisch centrum, musea, uitstekend eten en een moderne havensfeer. Het is de meest flexibele keuze voor een boeiende dag zonder strak tijdschema.',
+    sv: 'Málaga är den enklaste kulturella dagsutflykten från Nerja: en promenadvänlig gammal stad, museer, utmärkt mat och en modern hamnmiljö. Det är det mest flexibla valet när ni vill ha en givande dag utan ett strikt schema.'
+  } satisfies LocalizedText,
+  "rondaDetails": {
+    en: 'Leave Nerja early, explore the old and new sides of the gorge on foot and take time for a relaxed lunch. The longer coastal return makes daylight and a generous time margin more important than adding another stop.',
+    de: 'Fahrt früh in Nerja los, erkundet die alte und die neue Seite der Schlucht zu Fuß und nehmt euch Zeit für ein ruhiges Mittagessen. Wegen der längeren Rückfahrt an die Küste sind Tageslicht und ein großzügiger Puffer wichtiger als ein zusätzlicher Stopp.',
+    es: 'Salid temprano de Nerja, recorred a pie los dos lados del desfiladero y reservad tiempo para una comida tranquila. El regreso más largo hacia la costa hace que la luz del día y un margen amplio importen más que añadir otra parada.',
+    nl: 'Vertrek vroeg uit Nerja, verken beide kanten van de kloof te voet en neem tijd voor een ontspannen lunch. Door de langere terugrit naar de kust zijn daglicht en een ruime tijdsmarge belangrijker dan nog een extra stop.',
+    sv: 'Lämna Nerja tidigt, utforska båda sidorna av ravinen till fots och ta tid för en lugn lunch. Den längre återresan till kusten gör dagsljus och god tidsmarginal viktigare än ytterligare ett stopp.'
+  } satisfies LocalizedText,
+  "practical": {
+    "title": {
+      en: "Setting out from Nerja",
+      de: "Von Nerja aus unterwegs",
+      es: "Salir de excursión desde Nerja",
+      nl: "Vanuit Nerja op pad",
+      sv: "På utflykt från Nerja"
+    } satisfies LocalizedText,
+    "intro": {
+      en: "Málaga by bus, the other destinations by car: your transport shapes how the day starts and ends in Nerja.",
+      de: "Málaga mit dem Bus, die weiteren Ziele mit dem Auto: Das Verkehrsmittel bestimmt, wie euer Ausflug in Nerja beginnt und endet.",
+      es: "Málaga en autobús y los otros destinos en coche: el transporte determina cómo empieza y termina el día en Nerja.",
+      nl: "Málaga per bus, de andere bestemmingen met de auto: het vervoer bepaalt hoe jullie dag in Nerja begint en eindigt.",
+      sv: "Málaga med buss, de andra målen med bil: färdsättet avgör hur dagen börjar och slutar i Nerja."
+    } satisfies LocalizedText,
+    "items": [
+      {
+        "id": "bus" as const,
+        "title": {
+          en: "Málaga by bus from Nerja",
+          de: "Málaga direkt ab Nerja",
+          es: "Málaga en autobús desde Nerja",
+          nl: "Met de bus vanuit Nerja naar Málaga",
+          sv: "Buss från Nerja till Málaga"
+        } satisfies LocalizedText,
+        "text": {
+          en: "You can board the bus in Nerja for a day in Málaga. That saves finding city parking; your return depends on the service back to Nerja.",
+          de: "Für den Stadtbesuch könnt ihr in Nerja in den Bus steigen. So entfällt die Parkplatzsuche in Málaga; die Rückfahrt richtet sich nach der Verbindung nach Nerja.",
+          es: "Podéis subir al autobús en Nerja para visitar Málaga. Así os ahorráis buscar aparcamiento en la ciudad; la vuelta depende de la conexión hacia Nerja.",
+          nl: "Voor een dag Málaga stappen jullie in Nerja op de bus. Zo hoeven jullie in de stad geen parkeerplaats te zoeken; de terugreis hangt af van de verbinding naar Nerja.",
+          sv: "För en dag i Málaga kan ni stiga på bussen i Nerja. Då slipper ni leta parkering i staden; hemresan följer förbindelsen tillbaka till Nerja."
+        } satisfies LocalizedText
+      },
+      {
+        "id": "car" as const,
+        "title": {
+          en: "A car for your day trips",
+          de: "Ein Auto für die Ausflugstage",
+          es: "Un coche para las excursiones",
+          nl: "Een auto voor de uitstapjes",
+          sv: "En bil för utflyktsdagarna"
+        } satisfies LocalizedText,
+        "text": {
+          en: "A car gives you flexibility for Granada, Ronda and the Caminito. On your other days in central Nerja, beaches, restaurants and shops are reachable on foot.",
+          de: "Granada, Ronda und der Caminito sind mit dem Auto flexibel erreichbar. In Nerjas Zentrum könnt ihr Strand, Restaurants und Geschäfte während der übrigen Urlaubstage zu Fuß verbinden.",
+          es: "El coche os da flexibilidad para Granada, Ronda y el Caminito. El resto de los días, en el centro de Nerja podéis unir playas, restaurantes y tiendas a pie.",
+          nl: "Met een auto hebben jullie meer vrijheid voor Granada, Ronda en de Caminito. Op de andere vakantiedagen zijn strand, restaurants en winkels in het centrum van Nerja te voet bereikbaar.",
+          sv: "Med bil har ni större frihet att besöka Granada, Ronda och Caminito. Under övriga dagar når ni stränder, restauranger och butiker till fots i centrala Nerja."
+        } satisfies LocalizedText
+      },
+      {
+        "id": "entry" as const,
+        "title": {
+          en: "Allow time at the destination",
+          de: "Zeit am Ziel einrechnen",
+          es: "Tiempo para llegar a la entrada",
+          nl: "Tijd bij de bestemming",
+          sv: "Tid fram till entrén"
+        } satisfies LocalizedText,
+        "text": {
+          en: "Your booked entry time at the Alhambra or Caminito is the fixed point. Add parking and access paths to the drive; at the Caminito, the shuttle journey also depends on where you leave the car.",
+          de: "Die gebuchte Einlasszeit an der Alhambra oder am Caminito ist der feste Punkt. Parken und Zugangswege kommen zur Fahrt hinzu; beim Caminito hängt auch der Shuttleweg davon ab, wo ihr das Auto abstellt.",
+          es: "La hora reservada en la Alhambra o el Caminito es el punto fijo. Sumad aparcamiento y acceso a pie a la conducción; en el Caminito, el recorrido en lanzadera también depende de dónde dejéis el coche.",
+          nl: "Het geboekte tijdslot bij de Alhambra of Caminito is het vaste punt. Parkeren en toegangspaden komen boven op de rit; bij de Caminito hangt ook de shuttle af van waar jullie parkeren.",
+          sv: "Den bokade entrétiden vid Alhambra eller Caminito är den fasta punkten. Parkering och gångvägar tillkommer utöver körningen; vid Caminito beror även skyttelbussen på var ni parkerar."
+        } satisfies LocalizedText
+      },
+      {
+        "id": "return" as const,
+        "title": {
+          en: "Park, then walk home",
+          de: "Parken, dann zu Fuß nach Hause",
+          es: "Aparcar y volver andando",
+          nl: "Parkeren en naar huis lopen",
+          sv: "Parkera och promenera hem"
+        } satisfies LocalizedText,
+        "text": {
+          en: "Back in Nerja, park the car and walk to AMARA Playa. Before the lift there are ten steps, five outside and five inside; the lift takes you to the fifth floor.",
+          de: "Zurück in Nerja parkt ihr das Auto und geht zur AMARA Playa. Vor dem Aufzug liegen zehn Stufen, fünf draußen und fünf im Haus; der Aufzug fährt in den fünften Stock.",
+          es: "De vuelta en Nerja, aparcáis y camináis hasta AMARA Playa. Antes del ascensor hay diez escalones, cinco fuera y cinco dentro; el ascensor sube a la quinta planta.",
+          nl: "Terug in Nerja parkeren jullie en lopen naar AMARA Playa. Voor de lift zijn tien treden, vijf buiten en vijf binnen; de lift gaat naar de vijfde verdieping.",
+          sv: "Tillbaka i Nerja parkerar ni och går till AMARA Playa. Före hissen finns tio trappsteg, fem ute och fem inne; hissen går till femte våningen."
+        } satisfies LocalizedText
+      }
+    ]
+  }
+};
+
 export const nerjaDayTripOriginContext: Record<
   AmaraLanguage,
   NerjaDayTripOriginContext
 > = {
-  en: {
-    driveTimes: {
-      malaga: 'About 45–60 minutes via the A-7, depending on traffic',
-      granada: 'About 1 hour 10 minutes to 1 hour 30 minutes inland, depending on traffic',
-      caminito: 'About 1 hour 30 minutes to 1 hour 45 minutes, depending on route and traffic',
-      ronda: 'About 2 hours 15–30 minutes each way, depending on route and traffic'
-    },
-    malagaSummary:
-      'Málaga is the easiest cultural day trip from Nerja: a walkable historic centre, museums, excellent food and a modern port atmosphere. It is the most flexible choice when you want a rewarding day without a rigid schedule.',
-    rondaDetails:
-      'Leave Nerja early, explore the old and new sides of the gorge on foot and take time for a relaxed lunch. The longer coastal return makes daylight and a generous time margin more important than adding another stop.',
-    returnText:
-      'Leave margin for traffic, parking and an unhurried meal. Returning to Nerja before late evening keeps the arrival at the coast easy after a long day inland.'
-  },
-  de: {
-    driveTimes: {
-      malaga: 'Etwa 45–60 Minuten über die A-7, je nach Verkehr',
-      granada: 'Etwa 1 Stunde 10 Minuten bis 1 Stunde 30 Minuten ins Landesinnere',
-      caminito: 'Etwa 1 Stunde 30 Minuten bis 1 Stunde 45 Minuten, je nach Route und Verkehr',
-      ronda: 'Etwa 2 Stunden 15–30 Minuten pro Strecke, je nach Route und Verkehr'
-    },
-    malagaSummary:
-      'Málaga ist der unkomplizierteste kulturelle Tagesausflug ab Nerja: eine gut begehbare Altstadt, Museen, hervorragendes Essen und moderne Hafenatmosphäre. Die Stadt eignet sich besonders, wenn ihr einen lohnenden Tag ohne starren Zeitplan möchtet.',
-    rondaDetails:
-      'Fahrt früh in Nerja los, erkundet die alte und die neue Seite der Schlucht zu Fuß und nehmt euch Zeit für ein ruhiges Mittagessen. Wegen der längeren Rückfahrt an die Küste sind Tageslicht und ein großzügiger Puffer wichtiger als ein zusätzlicher Stopp.',
-    returnText:
-      'Lasst Puffer für Verkehr, Parkplatzsuche und ein entspanntes Essen. Wenn ihr vor dem späten Abend nach Nerja zurückkehrt, bleibt auch die Ankunft an der Küste nach einem langen Tag im Landesinneren einfach.'
-  },
-  es: {
-    driveTimes: {
-      malaga: 'Unos 45–60 minutos por la A-7, según el tráfico',
-      granada: 'Entre 1 hora y 10 minutos y 1 hora y 30 minutos hacia el interior',
-      caminito: 'Entre 1 hora y 30 minutos y 1 hora y 45 minutos, según la ruta',
-      ronda: 'Entre 2 horas y 15 minutos y 2 horas y 30 minutos por sentido'
-    },
-    malagaSummary:
-      'Málaga es la excursión cultural más sencilla desde Nerja: un centro histórico cómodo para recorrer a pie, museos, muy buena gastronomía y un puerto contemporáneo. Es la opción más flexible si queréis un día completo sin un horario rígido.',
-    rondaDetails:
-      'Salid temprano de Nerja, recorred a pie los dos lados del desfiladero y reservad tiempo para una comida tranquila. El regreso más largo hacia la costa hace que la luz del día y un margen amplio importen más que añadir otra parada.',
-    returnText:
-      'Dejad margen para el tráfico, el aparcamiento y una comida tranquila. Volver a Nerja antes de que sea demasiado tarde facilita la llegada a la costa después de una jornada larga en el interior.'
-  },
-  nl: {
-    driveTimes: {
-      malaga: 'Ongeveer 45–60 minuten via de A-7, afhankelijk van verkeer',
-      granada: 'Ongeveer 1 uur en 10 minuten tot 1 uur en 30 minuten landinwaarts',
-      caminito: 'Ongeveer 1 uur en 30 minuten tot 1 uur en 45 minuten, afhankelijk van route en verkeer',
-      ronda: 'Ongeveer 2 uur en 15–30 minuten per enkele reis'
-    },
-    malagaSummary:
-      'Málaga is de eenvoudigste culturele dagtocht vanuit Nerja: een beloopbaar historisch centrum, musea, uitstekend eten en een moderne havensfeer. Het is de meest flexibele keuze voor een boeiende dag zonder strak tijdschema.',
-    rondaDetails:
-      'Vertrek vroeg uit Nerja, verken beide kanten van de kloof te voet en neem tijd voor een ontspannen lunch. Door de langere terugrit naar de kust zijn daglicht en een ruime tijdsmarge belangrijker dan nog een extra stop.',
-    returnText:
-      'Houd marge voor verkeer, parkeren en een ontspannen maaltijd. Als jullie vóór de late avond in Nerja terug zijn, blijft de aankomst aan zee eenvoudig na een lange dag landinwaarts.'
-  },
-  sv: {
-    driveTimes: {
-      malaga: 'Cirka 45–60 minuter via A-7, beroende på trafik',
-      granada: 'Cirka 1 timme och 10 minuter till 1 timme och 30 minuter inåt landet',
-      caminito: 'Cirka 1 timme och 30 minuter till 1 timme och 45 minuter, beroende på väg och trafik',
-      ronda: 'Cirka 2 timmar och 15–30 minuter per riktning'
-    },
-    malagaSummary:
-      'Málaga är den enklaste kulturella dagsutflykten från Nerja: en promenadvänlig gammal stad, museer, utmärkt mat och en modern hamnmiljö. Det är det mest flexibla valet när ni vill ha en givande dag utan ett strikt schema.',
-    rondaDetails:
-      'Lämna Nerja tidigt, utforska båda sidorna av ravinen till fots och ta tid för en lugn lunch. Den längre återresan till kusten gör dagsljus och god tidsmarginal viktigare än ytterligare ett stopp.',
-    returnText:
-      'Lämna marginal för trafik, parkering och en avspänd måltid. Om ni återvänder till Nerja före sen kväll blir ankomsten till kusten enkel även efter en lång dag inåt landet.'
-  }
+  en: resolveLocale(nerjaDayTripOriginContextCopy, 'en'),
+  de: resolveLocale(nerjaDayTripOriginContextCopy, 'de'),
+  es: resolveLocale(nerjaDayTripOriginContextCopy, 'es'),
+  nl: resolveLocale(nerjaDayTripOriginContextCopy, 'nl'),
+  sv: resolveLocale(nerjaDayTripOriginContextCopy, 'sv')
 };
