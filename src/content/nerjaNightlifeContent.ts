@@ -155,7 +155,7 @@ export const nerjaNightlifeSeo: AmaraAuthoringSeo = {
   ogImage: routeOgImage('nerja.experience.nightlife'),
   article: {
     datePublished: '2026-07-29',
-    dateModified: '2026-09-09',
+    dateModified: '2026-09-14',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorRoute: 'about'
@@ -308,8 +308,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Burriana, evenings by the sea',
           paragraphs: [
-            'The beach day flows into the evening: a table at the chiringuito, espetos from the fire, a drink while the sand cools.',
-            'In summer the beach restaurants stay open late; in winter Burriana in the evening belongs to the walkers.'
+            'The beach day flows into the evening: a table at the chiringuito, espetos from the fire, a drink while the sand cools.'
           ],
           bestFor:
             'Summer evenings, beach restaurants, quieter nights.',
@@ -630,8 +629,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Burriana, Abende am Meer',
           paragraphs: [
-            'Der Strandtag geht in den Abend über: ein Tisch im Chiringuito, Espetos vom Feuer, dazu ein Drink, während der Sand kühl wird.',
-            'Im Sommer bleiben die Strandlokale lang offen; im Winter gehört Burriana am Abend den Spaziergängern.'
+            'Der Strandtag geht in den Abend über: ein Tisch im Chiringuito, Espetos vom Feuer, dazu ein Drink, während der Sand kühl wird.'
           ],
           bestFor:
             'Sommerabende, Strandlokale, ruhigere Nächte.',
@@ -952,8 +950,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Burriana, noches junto al mar',
           paragraphs: [
-            'El día de playa se convierte en noche: una mesa en el chiringuito, espetos a la brasa, una copa mientras la arena se enfría.',
-            'En verano los chiringuitos abren hasta tarde; en invierno Burriana por la noche es de los paseantes.'
+            'El día de playa se convierte en noche: una mesa en el chiringuito, espetos a la brasa, una copa mientras la arena se enfría.'
           ],
           bestFor:
             'Noches de verano, chiringuitos, noches más tranquilas.',
@@ -1274,8 +1271,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Burriana, avonden aan zee',
           paragraphs: [
-            'De stranddag loopt over in de avond: een tafel in de chiringuito, espetos van het vuur, een drankje terwijl het zand afkoelt.',
-            'In de zomer blijven de strandtenten lang open; in de winter is Burriana ’s avonds van de wandelaars.'
+            'De stranddag loopt over in de avond: een tafel in de chiringuito, espetos van het vuur, een drankje terwijl het zand afkoelt.'
           ],
           bestFor:
             'Zomeravonden, strandtenten, rustigere nachten.',
@@ -1596,8 +1592,7 @@ export const nerjaNightlifeContent: Record<
         {
           title: 'Burriana, kvällar vid havet',
           paragraphs: [
-            'Stranddagen övergår i kväll: ett bord på chiringuiton, espetos från elden, en drink medan sanden svalnar.',
-            'På sommaren har strandrestaurangerna öppet länge; på vintern tillhör Burriana på kvällen promenerarna.'
+            'Stranddagen övergår i kväll: ett bord på chiringuiton, espetos från elden, en drink medan sanden svalnar.'
           ],
           bestFor:
             'Sommarkvällar, strandrestauranger, lugnare nätter.',
