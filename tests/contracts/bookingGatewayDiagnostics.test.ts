@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 import { createBookingRoute } from '../../booking-gateway/gateway.mjs';
-import { createLodgifyClient } from '../../booking-gateway/lodgify-adapter.mjs';
+import { createLodgifyClient, normalizeRates } from '../../booking-gateway/lodgify-adapter.mjs';
 import {
   AMARA_STAY_KEYS,
   getLodgifyDiscoveryMapping,
@@ -348,6 +348,52 @@ test('the destination calendar fails only when every candidate stay is unavailab
 
   await expectGenericProviderFailure(response);
   expect(logs).toHaveLength(4);
+});
+
+test('skips the dateless default rate row and keeps the dated nightly prices', () => {
+  // Lodgify returns a property's base rate as a default calendar item with no
+  // date (is_default: true) alongside the dated per-day rates. It must not fail
+  // the whole rates normalization; the dated items carry the real prices.
+  const normalized = normalizeRates({
+    rate_settings: { currency_code: 'EUR' },
+    calendar_items: [
+      {
+        date: null,
+        is_default: true,
+        prices: [{ price_per_day: 85, min_stay: 1, max_stay: 1125, price_per_additional_guest: 0 }]
+      },
+      {
+        date: '2026-09-20',
+        is_default: false,
+        prices: [{ price_per_day: 85, min_stay: 1, max_stay: 1125, price_per_additional_guest: 0 }]
+      },
+      {
+        date: '2026-09-21',
+        is_default: false,
+        prices: [{ price_per_day: 90, min_stay: 1, max_stay: 1125, price_per_additional_guest: 0 }]
+      }
+    ]
+  }, '2026-09-20', '2026-09-21');
+
+  expect(normalized.map((rate) => rate.date)).toEqual(['2026-09-20', '2026-09-21']);
+  expect(normalized[0]).toMatchObject({ date: '2026-09-20', currency: 'EUR', amount: 85 });
+  expect(normalized[1]).toMatchObject({ date: '2026-09-21', currency: 'EUR', amount: 90 });
+});
+
+test('still rejects a dateless rate row that is not the default base rate', () => {
+  expect(() => normalizeRates({
+    rate_settings: { currency_code: 'EUR' },
+    calendar_items: [
+      {
+        date: null,
+        prices: [{ price_per_day: 85, min_stay: 1, max_stay: 1125, price_per_additional_guest: 0 }]
+      },
+      {
+        date: '2026-09-20',
+        prices: [{ price_per_day: 85, min_stay: 1, max_stay: 1125, price_per_additional_guest: 0 }]
+      }
+    ]
+  }, '2026-09-20', '2026-09-20')).toThrow(/no valid date/);
 });
 
 test('keeps dynamic property and room discovery available to the sandbox', async () => {
