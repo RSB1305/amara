@@ -132,49 +132,72 @@ async function searchCalendar(request, apiKey) {
     throw new BookingGatewayError(503, 'service_unavailable', 'Live booking data is unavailable.');
   }
   const client = createLodgifyClient({ apiKey });
-  const stays = await runWithConcurrency(input.candidates, async (candidate) => {
-    const availabilityDays = await withProviderStep('availability', async () => {
-      const payload = await client.getAvailability(
-        candidate.providerMapping.propertyId,
-        candidate.providerMapping.roomTypeId,
-        input.start,
-        input.end,
-      );
-      return normalizeAvailability(
-        payload,
-        candidate.providerMapping.propertyId,
-        candidate.providerMapping.roomTypeId,
-        input.start,
-        input.end,
-      );
-    });
-    const rateDays = await withProviderStep('rates', async () => {
-      const payload = await client.getRates(
-        candidate.providerMapping.propertyId,
-        candidate.providerMapping.roomTypeId,
-        input.start,
-        input.end,
-      );
-      return normalizeRates(payload, input.start, input.end);
-    });
-    const ratesByDate = new Map(rateDays.map((day) => [day.date, day]));
-    return {
-      stay: candidate.stay,
-      days: availabilityDays.map((day) => {
-        const rateDay = ratesByDate.get(day.date);
-        return {
-          date: day.date,
-          available: day.available,
-          currency: rateDay?.currency ?? null,
-          options: (rateDay?.priceOptions ?? []).map((option) => ({
-            nightlyRate: option.pricePerDay,
-            minStay: option.minStay,
-            maxStay: option.maxStay,
-          })),
-        };
-      }),
-    };
+  // Each candidate stay is resolved independently. A single stay that fails to
+  // load — a provider hiccup, or one malformed rate day in an otherwise healthy
+  // month — must not blank the finder for every destination and every date, so a
+  // failing candidate drops out and the others stand. This is the same
+  // partial-failure tolerance the Results page already applies per stay card;
+  // the failure is still logged as a safe diagnostic. Only when no candidate
+  // resolves does the whole response fail, so the finder shows its error state
+  // rather than a misleading "no availability".
+  const settled = await runWithConcurrency(input.candidates, async (candidate) => {
+    try {
+      const availabilityDays = await withProviderStep('availability', async () => {
+        const payload = await client.getAvailability(
+          candidate.providerMapping.propertyId,
+          candidate.providerMapping.roomTypeId,
+          input.start,
+          input.end,
+        );
+        return normalizeAvailability(
+          payload,
+          candidate.providerMapping.propertyId,
+          candidate.providerMapping.roomTypeId,
+          input.start,
+          input.end,
+        );
+      });
+      const rateDays = await withProviderStep('rates', async () => {
+        const payload = await client.getRates(
+          candidate.providerMapping.propertyId,
+          candidate.providerMapping.roomTypeId,
+          input.start,
+          input.end,
+        );
+        return normalizeRates(payload, input.start, input.end);
+      });
+      const ratesByDate = new Map(rateDays.map((day) => [day.date, day]));
+      return {
+        stay: candidate.stay,
+        days: availabilityDays.map((day) => {
+          const rateDay = ratesByDate.get(day.date);
+          return {
+            date: day.date,
+            available: day.available,
+            currency: rateDay?.currency ?? null,
+            options: (rateDay?.priceOptions ?? []).map((option) => ({
+              nightlyRate: option.pricePerDay,
+              minStay: option.minStay,
+              maxStay: option.maxStay,
+            })),
+          };
+        }),
+      };
+    } catch (error) {
+      if (error instanceof LodgifyProviderError) {
+        logProviderError('search-calendar', error);
+      }
+      return null;
+    }
   });
+  const stays = settled.filter((stay) => stay !== null);
+  if (!stays.length) {
+    throw new BookingGatewayError(
+      502,
+      'booking_data_unavailable',
+      'Live booking data is temporarily unavailable.',
+    );
+  }
   return {
     destination: input.destination,
     guests: input.guests,
