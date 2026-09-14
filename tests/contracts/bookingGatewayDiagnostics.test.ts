@@ -253,6 +253,103 @@ test('returns public nightly prices and stay rules in the destination calendar',
   expect(logs).toHaveLength(0);
 });
 
+function frigilianaProviderFetch(brokenRatesHouseIds: Set<string>): typeof fetch {
+  return (async (input: RequestInfo | URL) => {
+    const url = new URL(String(input));
+    if (url.pathname.startsWith('/v2/availability/')) {
+      const segments = url.pathname.split('/');
+      return jsonResponse([{
+        property_id: segments[3],
+        room_type_id: segments[4],
+        periods: [{
+          start: CALENDAR_START,
+          end: CALENDAR_END,
+          available: true,
+          closed_period: null
+        }]
+      }]);
+    }
+    if (url.pathname === '/v2/rates/calendar') {
+      if (brokenRatesHouseIds.has(url.searchParams.get('houseId') || '')) {
+        return jsonResponse({ message: PROVIDER_BODY }, 500);
+      }
+      return jsonResponse({
+        rate_settings: { currency_code: 'EUR' },
+        calendar_items: [CALENDAR_START, CALENDAR_END].map((date) => ({
+          date,
+          prices: [{
+            price_per_day: 120,
+            min_stay: 1,
+            max_stay: 30,
+            price_per_additional_guest: 0
+          }]
+        }))
+      });
+    }
+    throw new Error('Unexpected provider request in search-calendar test: ' + url.pathname);
+  }) as typeof fetch;
+}
+
+async function runSearchCalendar(destination: string, fetchImpl: typeof fetch) {
+  const originalFetch = globalThis.fetch;
+  const originalConsoleError = console.error;
+  const logs: unknown[][] = [];
+  globalThis.fetch = fetchImpl;
+  console.error = (...args: unknown[]) => {
+    logs.push(args);
+  };
+  try {
+    const request = new Request(
+      `https://amara.test/api/booking/search-calendar?destination=${destination}` +
+      `&guests=2&start=${CALENDAR_START}&end=${CALENDAR_END}`
+    );
+    const response = await createBookingRoute('search-calendar')({
+      request,
+      env: { LODGIFY_API_KEY: SECRET }
+    });
+    return { response, logs };
+  } finally {
+    globalThis.fetch = originalFetch;
+    console.error = originalConsoleError;
+  }
+}
+
+test('a single failing stay drops out of the destination calendar instead of failing the whole response', async () => {
+  const farah = getLodgifyStayMapping('farah');
+  const { response, logs } = await runSearchCalendar(
+    'frigiliana',
+    frigilianaProviderFetch(new Set([farah.propertyId]))
+  );
+
+  expect(response.status).toBe(200);
+  const body = await response.text();
+  expect(body).not.toContain(farah.propertyId);
+  expect(body).not.toContain(farah.roomTypeId);
+  const payload = JSON.parse(body) as { destination: string; stays: Array<{ stay: string }> };
+  expect(payload.destination).toBe('frigiliana');
+  // farah dropped out; the other three Frigiliana stays still resolve, in order.
+  expect(payload.stays.map((stay) => stay.stay)).toEqual(['lounis', 'zaid', 'maha']);
+  // The dropped stay is still recorded as one safe diagnostic without leaking IDs.
+  expect(diagnosticFrom(logs)).toMatchObject({
+    operation: 'search-calendar',
+    providerStep: 'rates',
+    category: 'http'
+  });
+});
+
+test('the destination calendar fails only when every candidate stay is unavailable', async () => {
+  const allHouseIds = new Set(
+    ['farah', 'lounis', 'zaid', 'maha'].map((stay) => getLodgifyStayMapping(stay).propertyId)
+  );
+  const { response, logs } = await runSearchCalendar(
+    'frigiliana',
+    frigilianaProviderFetch(allHouseIds)
+  );
+
+  await expectGenericProviderFailure(response);
+  expect(logs).toHaveLength(4);
+});
+
 test('keeps dynamic property and room discovery available to the sandbox', async () => {
   const client = createLodgifyClient({
     apiKey: SECRET,
