@@ -4,9 +4,12 @@ import StaySearchFinder from '../../components/booking/StaySearchFinder.astro';
 import HomeCinematicMain, { type CinematicFact } from '../../components/home/HomeCinematicMain.astro';
 import AmaraPageShell from '../../components/layout/AmaraPageShell.astro';
 import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
-import { resolveOptionalLink } from '../../lib/linkResolver';
+import { resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
+import { resolveLocale } from '../../types/content';
+import { trustLabels } from '../../content/trustLabels';
+import { casaAmaraGroupsContent } from '../../content/casaAmaraGroupsContent';
 import {
   formatVacationRentalFromPrice,
   vacationRentalEntitiesByToken
@@ -243,6 +246,17 @@ const directHref = resolveOptionalLink('direct_booking_benefits', currentLang, {
 const honeymoonHref = resolveOptionalLink('honeymoon', currentLang, { suppressMissing: true });
 const hostAboutHref = resolveOptionalLink('about', currentLang, { suppressMissing: true });
 
+// The home page already presents every apartment above the footer, so the
+// generic stays-collection link is redundant here. We replace only the first
+// footer highlight with the whole-house option (Casa AMARA for 4–8), which the
+// page does not otherwise surface; the remaining three keep the shared defaults.
+const homeFooterHighlights: { token: LinkToken; label: string }[] = [
+  { token: 'casa_amara_groups', label: resolveLocale(casaAmaraGroupsContent, currentLang).footer.groups },
+  { token: 'amenities', label: trustLabels.amenities[currentLang] },
+  { token: 'reviews_hub', label: trustLabels.reviews_hub[currentLang] },
+  { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits[currentLang] }
+];
+
 /**
  * The opening viewport keeps its evidence compact. Later sections substantiate
  * the Booking.com and Airbnb signals without repeating the full proof here.
@@ -285,6 +299,7 @@ const quoteTranslationNote = currentLang === 'de' ? null : t(cinematicQuoteTrans
   pageFamily="home"
   navigationLanguageToken="home"
   navigationAppearance="overlay"
+  footerHighlights={homeFooterHighlights}
 >
   <AmaraPageShell
     family="home"
