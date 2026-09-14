@@ -65,7 +65,7 @@ const cards = rentals.map((rental) => {
     `${rental.occupancy} ${units.guests}`,
     `${rental.interiorAreaSqm} m²`,
     rental.exteriorAreaSqm
-      ? `${units.terrace} ${rental.exteriorAreaSqm} m²`
+      ? `${(location === 'tarifa' ? units.balcony : units.terrace)} ${rental.exteriorAreaSqm} m²`
       : undefined
   ].filter(Boolean);
 
