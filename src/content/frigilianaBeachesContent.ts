@@ -347,10 +347,10 @@ export const frigilianaBeachesContent: Record<
       ]
     },
     closing: {
-      title: 'The beach route that fits your day',
+      title: "From the beach back to Frigiliana",
       lead:
-        'Torrecilla lies level with the centre, Carabeo has steps, from Burriana it is uphill back. AMARA Playa stands 200 metres from Torrecilla: beach, shower, evening in the old town, all on foot.',
-      nextCta: 'Routes between Nerja’s beaches & centre'
+        "After a day on the coast, you return to Frigiliana’s old town. Our four stays in Casa AMARA are each for two guests. Lounis, Zaid and Maha have private terraces for an evening outside; Farah is our compact suite in the same house.",
+      nextCta: "Our stays in Frigiliana"
     }
   },
   de: {
@@ -540,10 +540,10 @@ export const frigilianaBeachesContent: Record<
       ]
     },
     closing: {
-      title: 'Der Strandweg, der zu eurem Tag passt',
+      title: "Vom Strand zurück nach Frigiliana",
       lead:
-        'Torrecilla liegt eben am Zentrum, Carabeo hat Stufen, von Burriana geht es bergauf zurück. AMARA Playa steht 200 Meter von Torrecilla: Strand, Dusche, Abend in der Altstadt, alles zu Fuß.',
-      nextCta: 'Wege zwischen Nerjas Stränden & Zentrum'
+        "Nach dem Strandtag an der Küste kehrt ihr in Frigilianas alten Dorfkern zurück. Unsere vier Unterkünfte in Casa AMARA sind jeweils für zwei Gäste. Bei Lounis, Zaid und Maha gehört eine private Terrasse für den Abend draußen dazu; Farah ist unsere kompakte Suite im selben Haus.",
+      nextCta: "Unsere Unterkünfte in Frigiliana"
     }
   },
   es: {
@@ -733,10 +733,10 @@ export const frigilianaBeachesContent: Record<
       ]
     },
     closing: {
-      title: 'El camino a la playa que encaja con vuestro día',
+      title: "De la playa a Frigiliana",
       lead:
-        'Torrecilla está a nivel del centro, Carabeo tiene escalones, desde Burriana la vuelta es cuesta arriba. AMARA Playa está a 200 metros de Torrecilla: playa, ducha, noche en el casco antiguo, todo a pie.',
-      nextCta: 'Caminos entre las playas y el centro de Nerja'
+        "Después de un día en la costa, volvéis al casco antiguo de Frigiliana. Nuestros cuatro alojamientos en Casa AMARA son para dos huéspedes cada uno. Lounis, Zaid y Maha tienen terrazas privadas para pasar la tarde al aire libre; Farah es nuestra suite compacta en la misma casa.",
+      nextCta: "Nuestros alojamientos en Frigiliana"
     }
   },
   nl: {
@@ -926,10 +926,10 @@ export const frigilianaBeachesContent: Record<
       ]
     },
     closing: {
-      title: 'De strandroute die bij jullie dag past',
+      title: "Van het strand terug naar Frigiliana",
       lead:
-        'Torrecilla ligt vlak bij het centrum, Carabeo heeft treden, vanaf Burriana gaat het bergop terug. AMARA Playa staat 200 meter van Torrecilla: strand, douche, avond in de oude stad, alles te voet.',
-      nextCta: 'Routes tussen de stranden en het centrum van Nerja'
+        "Na een dag aan de kust keren jullie terug naar de oude stad van Frigiliana. Onze vier verblijven in Casa AMARA zijn elk voor twee gasten. Lounis, Zaid en Maha hebben privéterrassen om de avond buiten door te brengen; Farah is onze compacte suite in hetzelfde huis.",
+      nextCta: "Onze verblijven in Frigiliana"
     }
   },
   sv: {
@@ -1119,10 +1119,10 @@ export const frigilianaBeachesContent: Record<
       ]
     },
     closing: {
-      title: 'Strandvägen som passar er dag',
+      title: "Från stranden tillbaka till Frigiliana",
       lead:
-        'Torrecilla ligger plant vid centrum, Carabeo har trappsteg, från Burriana är det uppför tillbaka. AMARA Playa står 200 meter från Torrecilla: strand, dusch, kväll i gamla stan, allt till fots.',
-      nextCta: 'Vägar mellan Nerjas stränder och centrum'
+        "Efter en dag vid kusten återvänder ni till Frigilianas gamla stan. Våra fyra boenden i Casa AMARA är vart och ett för två gäster. Lounis, Zaid och Maha har privata terrasser för en kväll utomhus; Farah är vår kompakta svit i samma hus.",
+      nextCta: "Våra boenden i Frigiliana"
     }
   }
 };
