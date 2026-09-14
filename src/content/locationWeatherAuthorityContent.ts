@@ -667,6 +667,26 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
     nl: 'De tabel laat snel zien hoe het jaar verandert. In de zomer plan je steile wegen vroeg of laat; in de winter hoort een jas voor de avond in de koffer.',
     sv: 'Tabellen visar snabbt hur året förändras. På sommaren lägger ni branta vägar tidigt eller sent; på vintern hör en jacka för kvällen till packningen.'
   };
+  // These monthly values describe the six-kilometre coast Nerja and Frigiliana
+  // share; the point model returns the same series for both, so the table intro
+  // states plainly that this is a regional read rather than a Nerja measurement.
+  const nerjaTableIntros: Record<AmaraLanguage, string> = {
+    en: 'These monthly figures cover the coastal region Nerja and Frigiliana share — a regional read of how the year changes. For longer walks, summer is easiest in the morning and early evening, winter in the sunny hours around midday.',
+    de: 'Diese Monatswerte gelten für die gemeinsame Küstenregion von Nerja und Frigiliana — eine regionale Orientierung, wie sich das Jahr verändert. Für längere Spaziergänge sind im Sommer der Morgen und der frühe Abend am angenehmsten, im Winter die sonnigen Stunden mitten am Tag.',
+    es: 'Estos valores mensuales cubren la franja costera que comparten Nerja y Frigiliana: una orientación regional de cómo cambia el año. Para paseos largos, en verano lo mejor es la mañana y el atardecer; en invierno, las horas de sol del mediodía.',
+    nl: 'Deze maandwaarden gelden voor de kuststreek die Nerja en Frigiliana delen — een regionaal beeld van hoe het jaar verandert. Voor langere wandelingen is de zomer het prettigst in de ochtend en vroege avond, de winter in de zonnige uren rond het middaguur.',
+    sv: 'De här månadsvärdena gäller kustregionen som Nerja och Frigiliana delar — en regional bild av hur året förändras. För längre promenader är sommaren skönast på morgonen och tidiga kvällen, vintern under de soliga timmarna mitt på dagen.'
+  };
+  // Tarifa keeps its own modelled series, so the honesty note is different: these
+  // are a long-term read of the Strait, and the day-to-day story here is the wind
+  // the table cannot show — the wording mirrors the destination's own sourceText.
+  const tarifaTableIntros: Record<AmaraLanguage, string> = {
+    en: 'These monthly figures give a long-term read of temperature, rain and sun at the Strait. What the table does not show is the wind — and here it is the wind that decides a day more than the thermometer does.',
+    de: 'Diese Monatswerte geben eine langfristige Orientierung zu Temperatur, Regen und Sonne an der Meerenge. Was die Tabelle nicht abbildet, ist der Wind — und der entscheidet hier einen Tag mehr als das Thermometer.',
+    es: 'Estos valores mensuales ofrecen una orientación a largo plazo de temperatura, lluvia y sol en el Estrecho. Lo que la tabla no muestra es el viento, y aquí el viento decide un día más que el termómetro.',
+    nl: 'Deze maandwaarden geven een langjarig beeld van temperatuur, regen en zon aan de Straat. Wat de tabel niet laat zien is de wind — en die bepaalt hier een dag meer dan de thermometer.',
+    sv: 'De här månadsvärdena ger en långsiktig bild av temperatur, regn och sol vid sundet. Det tabellen inte visar är vinden — och här avgör vinden en dag mer än termometern.'
+  };
   const frigilianaIntentLinks: Record<AmaraLanguage, Array<{ token: LinkToken; label: string; extra?: { token: LinkToken; label: string } }>> = {
     en: [
       { token: 'frigiliana_beaches_authority', label: 'Explore beaches near Frigiliana', extra: { token: 'amenities', label: 'What else is waiting in the apartments' } },
@@ -782,7 +802,7 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       summary: profile.summary, summaryItems: profile.summaryItems
     },
     factors: { eyebrow: lang === 'de' ? 'Lokale Klimafaktoren' : lang === 'es' ? 'Factores climáticos locales' : lang === 'nl' ? 'Lokale klimaatfactoren' : lang === 'sv' ? 'Lokala klimatfaktorer' : 'Local climate drivers', title: profile.factorsTitle, paragraphs: profile.factors, items: profile.factorItems.map((item, index) => ({ ...item, icon: factorIcons[destination][index] })) },
-    table: { ...common.table, intro: destination === 'frigiliana' ? frigilianaTableIntros[lang] : destination === 'nerja' && lang === 'de' ? 'Für längere Spaziergänge sind im Sommer der Morgen und der frühe Abend besonders angenehm. Im Winter könnt ihr dafür die sonnigen Stunden mitten am Tag nutzen.' : common.table.intro, sourceText: profile.sourceText },
+    table: { ...common.table, intro: destination === 'frigiliana' ? frigilianaTableIntros[lang] : destination === 'nerja' ? nerjaTableIntros[lang] : destination === 'tarifa' ? tarifaTableIntros[lang] : common.table.intro, sourceText: profile.sourceText },
     seasons: { eyebrow: common.seasonEyebrow, title: common.seasonTitle, intro: common.seasonIntro, planningLabel: common.seasonPlanningLabel, items: common.seasons.map((season, index) => ({ ...season, summary: profile.seasonNotes[index] })) },
     bestTime: {
       eyebrow: destination === 'frigiliana' ? frigilianaBestTime[lang].eyebrow : common.bestEyebrow,
