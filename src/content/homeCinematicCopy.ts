@@ -538,11 +538,11 @@ export const cinematicPlaces: CinematicPlaceDef[] = [
       sv: 'En vit bergsby ovanför mango- och avokadoodlingarna. Fyra av våra boenden ligger här, alla i Casa AMARA i den skyddade gamla stadskärnan.'
     },
     travel: {
-      en: '50–60 minutes by car from Málaga airport · 10 minutes to Nerja',
-      de: '50–60 Minuten mit dem Auto ab Flughafen Málaga · 10 Minuten nach Nerja',
-      es: '50–60 minutos en coche desde el aeropuerto de Málaga · 10 minutos a Nerja',
-      nl: '50–60 minuten met de auto vanaf de luchthaven van Málaga · 10 minuten naar Nerja',
-      sv: '50–60 minuter med bil från Málagas flygplats · 10 minuter till Nerja'
+      en: 'Right in the old town · diagonally opposite San Antonio church',
+      de: 'Mitten in der Altstadt · schräg gegenüber der Kirche San Antonio',
+      es: 'En pleno casco antiguo · en diagonal frente a la iglesia de San Antonio',
+      nl: 'Midden in de oude stad · schuin tegenover de San Antonio-kerk',
+      sv: 'Mitt i gamla stan · snett emot San Antonio-kyrkan'
     },
     ctaLabel: {
       en: 'Frigiliana as a place to stay',
@@ -564,11 +564,11 @@ export const cinematicPlaces: CinematicPlaceDef[] = [
       sv: 'Medelhavet, Balcón de Europa och en stad som fungerar året om. En lägenhet, femte våningen med hiss.'
     },
     travel: {
-      en: '200 metres to Torrecilla beach · 10 minutes to Frigiliana',
-      de: '200 Meter zum Strand von Torrecilla · 10 Minuten nach Frigiliana',
-      es: '200 metros hasta la playa de Torrecilla · 10 minutos a Frigiliana',
-      nl: '200 meter naar het strand van Torrecilla · 10 minuten naar Frigiliana',
-      sv: '200 meter till Torrecillastranden · 10 minuter till Frigiliana'
+      en: '200 metres to Torrecilla beach · under 5 minutes to the Balcón de Europa',
+      de: '200 Meter zum Strand Torrecilla · unter 5 Minuten zum Balcón de Europa',
+      es: '200 metros a la playa de Torrecilla · a menos de 5 minutos del Balcón de Europa',
+      nl: '200 meter naar het Torrecilla-strand · onder 5 minuten naar de Balcón de Europa',
+      sv: '200 meter till Torrecillastranden · under 5 minuter till Balcón de Europa'
     },
     ctaLabel: {
       en: 'Nerja as a place to stay',
@@ -590,11 +590,11 @@ export const cinematicPlaces: CinematicPlaceDef[] = [
       sv: 'Där Medelhavet möter Atlanten, med vind, vida stränder och Afrika vid horisonten. Ett penthouse över två våningar.'
     },
     travel: {
-      en: '10–15 minutes on foot to the old town · supermarket directly opposite',
-      de: '10–15 Minuten zu Fuß in die Altstadt · Supermarkt direkt gegenüber',
-      es: '10–15 minutos a pie hasta el casco antiguo · supermercado justo enfrente',
-      nl: '10–15 minuten lopen naar de oude stad · supermarkt direct aan de overkant',
-      sv: '10–15 minuters promenad till Gamla stan · stormarknad direkt mittemot'
+      en: '10 minutes to the old town · 5 minutes to Los Lances beach · ideal for kiting in the low season',
+      de: '10 Minuten zur Altstadt · 5 Minuten zum Strand Los Lances · ideal zum Kiten in der Nebensaison',
+      es: '10 minutos al casco antiguo · 5 minutos a la playa de Los Lances · ideal para el kite en temporada baja',
+      nl: '10 minuten naar de oude stad · 5 minuten naar het strand van Los Lances · ideaal om te kiten in het laagseizoen',
+      sv: '10 minuter till Gamla stan · 5 minuter till Los Lances-stranden · perfekt för kite i lågsäsong'
     },
     ctaLabel: {
       en: 'Tarifa as a place to stay',
