@@ -18,6 +18,8 @@ interface SourceLink {
 
 interface Props {
   lang: AmaraLanguage;
+  /** Opt-in place-labelled temperature series and a separate rainfall row. */
+  placeLabel?: string;
   eyebrow: string;
   title: string;
   intro: string;
@@ -44,6 +46,7 @@ interface Props {
 
 const {
   lang,
+  placeLabel,
   eyebrow,
   title,
   intro,
@@ -81,6 +84,24 @@ const tempBar = (value: number) => `${Math.max(3, ((value - tempMin) / (tempMax 
 
     <div class="mt-12" data-am-climate-chart data-compare="off">
       <div class="flex flex-wrap items-center justify-between gap-4">
+        {placeLabel ? (
+          <div class="flex flex-wrap gap-x-8 gap-y-3 am-text-data-note text-on-surface-variant">
+            <div>
+              <p class="am-text-label am-text-label--sm text-primary">{placeLabel} · °C</p>
+              <div class="mt-2 flex flex-wrap gap-x-4 gap-y-2">
+                <span class="flex items-center gap-2"><span class="h-2.5 w-2.5 shrink-0 rounded-sm bg-primary" aria-hidden="true"></span>{labels.high}</span>
+                <span class="flex items-center gap-2"><span class="h-2.5 w-2.5 shrink-0 rounded-sm bg-primary/35" aria-hidden="true"></span>{labels.max}</span>
+              </div>
+            </div>
+            {comparison && <div class="am-cc-city">
+              <p class="am-text-label am-text-label--sm text-on-surface">{comparison.label} · °C</p>
+              <div class="mt-2 flex flex-wrap gap-x-4 gap-y-2">
+                <span class="flex items-center gap-2"><span class="h-2.5 w-2.5 shrink-0 rounded-sm bg-on-surface/70" aria-hidden="true"></span>{labels.high}</span>
+                <span class="flex items-center gap-2"><span class="h-2.5 w-2.5 shrink-0 rounded-sm bg-on-surface/30" aria-hidden="true"></span>{labels.max}</span>
+              </div>
+            </div>}
+          </div>
+        ) : (
         <div class="flex flex-wrap items-center gap-x-6 gap-y-2 am-text-label am-text-label--sm text-muted">
           <span class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-sm bg-primary"></span>{labels.high}</span>
           <span class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-sm bg-primary/35"></span>{labels.max}</span>
@@ -89,12 +110,13 @@ const tempBar = (value: number) => `${Math.max(3, ((value - tempMin) / (tempMax 
           )}
           <span class="flex items-center gap-2"><span class="h-2.5 w-2.5 rounded-sm bg-on-surface/20"></span>{chartLabels.rainfall}</span>
         </div>
+        )}
         {comparison && (
           <button
             type="button"
             data-am-compare-toggle
             aria-pressed="false"
-            class="am-cc-toggle inline-flex items-center gap-2.5 rounded-full border border-outline-variant/40 px-4 py-2 am-text-label am-text-label--sm text-on-surface-variant transition-colors hover:border-primary"
+            class:list={["am-cc-toggle inline-flex items-center gap-2.5 rounded-full border border-outline-variant/40 px-4 py-2 text-on-surface-variant transition-colors hover:border-primary", placeLabel ? "order-first max-w-full am-text-data-note text-left sm:order-last" : "am-text-label am-text-label--sm"]}
           >
             <span class="am-cc-switch" aria-hidden="true"><span class="am-cc-knob"></span></span>
             {comparison.toggleLabel}
@@ -111,8 +133,8 @@ const tempBar = (value: number) => `${Math.max(3, ((value - tempMin) / (tempMax 
                 <div class="am-cc-bar bg-primary/35" style={`height: ${tempBar(month.record)}`}></div>
                 {comparison && (
                   <>
-                    <div class="am-cc-bar am-cc-city am-cc-city-gap bg-on-surface/45" style={`height: ${tempBar(comparison.highs[index])}`}></div>
-                    <div class="am-cc-bar am-cc-city bg-on-surface/20" style={`height: ${tempBar(comparison.records[index])}`}></div>
+                    <div class:list={["am-cc-bar am-cc-city am-cc-city-gap", placeLabel ? "bg-on-surface/70" : "bg-on-surface/45"]} style={`height: ${tempBar(comparison.highs[index])}`}></div>
+                    <div class:list={["am-cc-bar am-cc-city", placeLabel ? "bg-on-surface/30" : "bg-on-surface/20"]} style={`height: ${tempBar(comparison.records[index])}`}></div>
                   </>
                 )}
               </div>
@@ -123,14 +145,30 @@ const tempBar = (value: number) => `${Math.max(3, ((value - tempMin) / (tempMax 
                   {displayTemperature(comparison.highs[index])}° · {displayTemperature(comparison.records[index])}°
                 </p>
               )}
+              {!placeLabel && <>
               <div class="mt-4 flex h-6 w-full items-end justify-center border-t border-outline-variant/15 pt-2">
                 <div class="w-1.5 rounded-sm bg-on-surface/20" style={`height: ${Math.max(8, (month.rain / maxRain) * 100)}%`}></div>
               </div>
               <p class="mt-1 tabular-nums am-text-data-note am-text-data-note--sm text-muted">{month.rain} mm</p>
+              </>}
               <p class="mt-2 text-muted am-text-label am-text-label--sm am-text-label--wide">{month.month}</p>
             </div>
           ))}
         </div>
+      {placeLabel && <div class="mt-8 min-w-[820px]">
+        <p class="sticky left-0 w-fit am-text-label am-text-label--sm text-muted">{chartLabels.rainfall} · {placeLabel} · mm</p>
+        <div class="mt-4">
+          <div class="grid min-w-[820px] grid-cols-12 gap-1" aria-hidden="true">
+            {months.map((month) => <div class="flex flex-col items-center px-1">
+              <div class="flex h-10 w-full items-end justify-center">
+                <div class="w-1.5 rounded-sm bg-on-surface/20" style={`height: ${Math.max(8, (month.rain / maxRain) * 100)}%`}></div>
+              </div>
+              <p class="mt-2 tabular-nums am-text-data-note text-muted">{month.rain} mm</p>
+              <p class="mt-2 am-text-label am-text-label--sm text-muted">{month.month}</p>
+            </div>)}
+          </div>
+        </div>
+      </div>}
       </div>
     </div>
 
@@ -149,10 +187,11 @@ const tempBar = (value: number) => `${Math.max(3, ((value - tempMin) / (tempMax 
           <thead>
             <tr class="border-b border-outline-variant/25 text-muted am-text-label am-text-label--sm">
               <th scope="col" class="py-4 pr-5">{labels.month}</th>
-              <th scope="col" class="px-5 py-4 text-right">{labels.high}</th>
-              <th scope="col" class="px-5 py-4 text-right">{labels.max}</th>
+              <th scope="col" class="px-5 py-4 text-right">{placeLabel ? `${placeLabel} · ${labels.high}` : labels.high}</th>
+              <th scope="col" class="px-5 py-4 text-right">{placeLabel ? `${placeLabel} · ${labels.max}` : labels.max}</th>
               <th scope="col" class="px-5 py-4 text-right">{labels.low}</th>
-              {comparison && <th scope="col" class="px-5 py-4 text-right text-primary">{comparison.label}</th>}
+              {comparison && <th scope="col" class="px-5 py-4 text-right text-primary">{placeLabel ? `${comparison.label} · ${labels.high}` : comparison.label}</th>}
+              {placeLabel && comparison && <th scope="col" class="px-5 py-4 text-right">{comparison.label} · {labels.max}</th>}
               <th scope="col" class="px-5 py-4 text-right">{labels.rain}</th>
               <th scope="col" class="py-4 pl-5 text-right">{labels.sunHours}</th>
             </tr>
@@ -165,6 +204,7 @@ const tempBar = (value: number) => `${Math.max(3, ((value - tempMin) / (tempMax 
                 <td class="px-5 py-4 text-right tabular-nums">{displayTemperature(month.record)} °C</td>
                 <td class="px-5 py-4 text-right tabular-nums">{displayTemperature(month.low)} °C</td>
                 {comparison && <td class="px-5 py-4 text-right tabular-nums text-on-surface">{displayTemperature(comparison.highs[index])} °C</td>}
+                {placeLabel && comparison && <td class="px-5 py-4 text-right tabular-nums text-on-surface">{displayTemperature(comparison.records[index])} °C</td>}
                 <td class="px-5 py-4 text-right tabular-nums">{month.rain} mm</td>
                 <td class="py-4 pl-5 text-right tabular-nums">{formatDecimal(month.sunHours, lang)} h</td>
               </tr>

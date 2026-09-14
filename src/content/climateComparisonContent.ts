@@ -130,7 +130,7 @@ export const climateComparisonContent: Partial<
     de: {
       eyebrow: 'Nerja im Vergleich',
       title: 'Warm im Sommer, mild im Winter',
-      compareLabel: 'Im Vergleich zu Deutschland (Datenreferenz: Berlin)',
+      compareLabel: 'Vergleich zu Deutschland (Berlin)',
       summer: {
         eyebrow: 'Im Hochsommer',
         title: 'Das Meer vor der Tür',

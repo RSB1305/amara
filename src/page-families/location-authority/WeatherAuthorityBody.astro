@@ -87,13 +87,14 @@ const {
   <div data-am-weather-module="monthly-data">
     <LocationClimateTable
       lang={lang}
+      placeLabel={pageId === 'nerja-weather' && lang === 'de' ? 'Nerja' : undefined}
       eyebrow={content.table.eyebrow}
       title={content.table.title}
       intro={content.table.intro}
       months={months}
       labels={{
         month: content.table.labels.month,
-        high: content.table.labels.high,
+        high: pageId === 'nerja-weather' && lang === 'de' ? 'Ø-Tageshoch' : content.table.labels.high,
         max: content.table.labels.max,
         low: content.table.labels.low,
         rain: content.table.labels.rain,
