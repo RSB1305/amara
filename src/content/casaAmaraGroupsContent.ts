@@ -9,7 +9,8 @@ export type CasaAmaraGroupGuideToken =
   | 'getting_to_frigiliana'
   | 'frigiliana_parking'
   | 'frigiliana_stairs'
-  | 'location_frigiliana';
+  | 'location_frigiliana'
+  | 'frigiliana_old_town';
 
 
 
@@ -176,6 +177,11 @@ export const casaAmaraGroupsContent = {
         token: "location_frigiliana" as LinkToken,
         label: l("Living in the village", "Leben im Dorf", "Vivir en el pueblo", "Leven in het dorp", "Livet i byn"),
         text: l("Bread at Manolo’s, groceries at Silvia’s, dinner on foot in the evening.", "Brot bei Manolo, Einkauf bei Silvia, abends zu Fuß essen.", "El pan en Manolo, la compra en Silvia, y a cenar a pie por la noche.", "Brood bij Manolo, boodschappen bij Silvia, ’s avonds lopend uit eten.", "Bröd hos Manolo, matinköp hos Silvia, middag till fots på kvällen.")
+      },
+      {
+        token: "frigiliana_old_town" as LinkToken,
+        label: l("Frigiliana old town", "Frigilianas Altstadt", "El casco antiguo de Frigiliana", "De oude kern van Frigiliana", "Frigilianas gamla stan"),
+        text: l("The whole protected quarter climbs from the door.", "Das ganze geschützte Viertel steigt von der Tür an.", "Todo el barrio protegido sube desde la puerta.", "De hele beschermde wijk klimt vanaf de deur.", "Hela det skyddade kvarteret klättrar från dörren.")
       }
     ]
   },

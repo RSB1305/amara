@@ -20,6 +20,7 @@ export const frigilianaFuenteViejaSeo: AmaraAuthoringSeo = {
     addressCountry: 'ES',
     isAccessibleForFree: true,
     sameAs: [
+      'https://www.wikidata.org/wiki/Q126054962',
       'https://www.conocetusfuentes.com/ficha_detalle.php?id_fuente=3209',
       'https://www.malaga.es/en/laprovincia/patrimonio/lis_cd-5391/fuente-vieja'
     ]

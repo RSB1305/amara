@@ -31,7 +31,8 @@ export const frigilianaSanAntonioSeo: AmaraAuthoringSeo = {
     addressLocality: 'Frigiliana',
     addressRegion: 'Andalusia',
     addressCountry: 'ES',
-    isAccessibleForFree: true
+    isAccessibleForFree: true,
+    sameAs: ['https://www.wikidata.org/wiki/Q98504857']
   },
   languages: {
     en: {

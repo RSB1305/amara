@@ -17,7 +17,7 @@ export const frigilianaCastilloLizarSeo: AmaraAuthoringSeo = {
     addressRegion: 'Andalusia',
     addressCountry: 'ES',
     isAccessibleForFree: true,
-    sameAs: ['https://es.wikipedia.org/wiki/Castillo_de_Frigiliana']
+    sameAs: ['https://www.wikidata.org/wiki/Q67330309', 'https://es.wikipedia.org/wiki/Castillo_de_Frigiliana']
   },
   languages: {
     en: { title: 'Castillo de Lizar in Frigiliana: The Ruined Moorish Fortress', description: 'The wall remains of a 9th–11th-century Moorish fortress above Frigiliana, razed after the 1569 uprising under Don Luis de Requesens — its cut stone reused to build the counts’ palace, El Ingenio.', robots: 'index, follow', canonical: 'auto' },

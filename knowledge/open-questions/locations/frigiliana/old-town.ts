@@ -151,9 +151,9 @@ export const frigilianaOldTownOpenQuestions = defineKnowledgeOpenQuestions([
     topic: 'calle-real-barribajo',
     question: 'What is the origin of the street name "Chorruelo"?',
     priority: 'low',
-    reason: 'A one-line answer would suit the Calle Real page and the stay pages; no reached source explains it, and a "chorrillo" snippet most likely concerns the neighbouring Calle Chorrera.',
-    preferredEvidence: 'Malagapedia (under maintenance on 2026-09-13), the municipal archive, or a local street-name study.',
-    status: 'open',
+    reason: 'Resolved 2026-09-14 (operator, first-party): "Chorruelo" is the diminutive of "chorro" (a jet or trickle of water) — a "little water jet / small spring". The local account ties it to the Fuente Vieja on its plaza just off the street, whose spouts gave the lane its name; Calle Chorruelo was once the uppermost street of the village, and today it is the cobbled continuation of Calle Real past the Fuente Vieja and the Tres Culturas sculpture.',
+    preferredEvidence: 'Operator local knowledge (2026-09-14). The chorro/-uelo derivation is standard Spanish; the fountain-name link is the local account, not an independent documentary source.',
+    status: 'resolved',
     createdAt: '2026-09-13'
   },
   {

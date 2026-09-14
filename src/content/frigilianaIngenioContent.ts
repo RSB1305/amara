@@ -32,7 +32,8 @@ export const frigilianaIngenioSeo: AmaraAuthoringSeo = {
     addressCountry: 'ES',
     // The building is a working factory (seen from outside only); the flag marks
     // the public forecourt/facade on the Plaza del Ingenio as freely accessible.
-    isAccessibleForFree: true
+    isAccessibleForFree: true,
+    sameAs: ['https://www.wikidata.org/wiki/Q6058379']
   },
   languages: {
     en: {
