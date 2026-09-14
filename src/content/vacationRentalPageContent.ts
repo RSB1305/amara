@@ -208,11 +208,11 @@ export const ui = {
     sv: 'Fler bekvämligheter som ingår'
   },
   moreAmenities: {
-    en: 'More about Comfort & Amenities',
-    de: 'Mehr unter Komfort & Ausstattung',
-    es: 'Más sobre confort y servicios',
-    nl: 'Meer over comfort en voorzieningen',
-    sv: 'Läs mer om komfort och bekvämligheter'
+    en: 'All comfort & amenity details',
+    de: 'Alle Details zu Komfort & Ausstattung',
+    es: 'Todos los detalles de confort y servicios',
+    nl: 'Alle details over comfort en voorzieningen',
+    sv: 'Alla detaljer om komfort och bekvämligheter'
   },
   locationTitle: {
     en: 'Location and arrival',
