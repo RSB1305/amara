@@ -114,12 +114,12 @@ const de: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Darum sind wir hier',
-    title: 'La Marina — flach am Wasser, mittendrin und doch bereit für die Spots',
+    title: "Atlantikbalkon, Garage und Platz für euch",
     caption: 'La Marina liegt in Los Lances Sur: ebener Grund direkt hinter dem Strand, fließender Übergang in die Neustadt.',
     mapNote: '(siehe Orientierungskarte oben)',
-    lead: 'In Tarifa muss man oft wählen: Strand *oder* Ort, Wind *oder* Ruhe, Blick *oder* kurze Wege. **AMARA liegt in La Marina** — dem flachen Strandviertel in Los Lances Sur. Breite, ebene Straßen, Tiefgarage und Aufzug, der Strand vor der Tür und über flache Wege in wenigen Minuten bei den Supermärkten und Cafés der Neustadt. Das Auto könnt ihr im Alltag stehen lassen — und habt es dennoch griffbereit, wenn ihr mit dem Material zu den Spots nach Valdevaqueros aufbrecht. Gerade außerhalb des Hochsommers spielt das seine Stärke aus: wenig Betrieb, kurze Wege, und Wind gibt es in Tarifa fast das ganze Jahr.',
-    facts: ['**Flach & eben** — breite Straßen, Tiefgarage, Aufzug, kein Kopfsteinpflaster', '**Strand vor der Tür** — zu Fuß ans Wasser, mit Board oder Kinderwagen', '**Neustadt in Minuten** — Supermärkte und Cafés über ebene Wege', '**Auto bereit** — im Alltag stehen lassen, für Valdevaqueros griffbereit'],
-    honest: 'Ehrlich bleibt: hinter den Altstadtmauern wohnt ihr windgeschützter, und den Blick über die Meerenge habt ihr oben an den Hanglagen. Für flache Wege, Strand und Ort in einem — gerade mit Material oder Kindern — ist La Marina genau richtig.'
+    lead: "Unsere AMARA Family & Surf liegt rund 500 Meter vom Strand Los Lances entfernt. Die Altstadt erreicht ihr in etwa 10–15 Minuten zu Fuß. Auf dem privaten, überdachten Balkon habt ihr 12 m² Platz mit Blick zum Atlantik.",
+    facts: ["**75 m² auf zwei Ebenen** mit eigener Küche und Waschmaschine.","**Zwei Schlafzimmer und zwei Bäder:** ein Doppelbett und ein Etagenbett, für bis zu vier Gäste.","**Reservierter Tiefgaragenplatz** im Haus.","**Gemeinschaftspool** in der Wohnanlage."],
+    honest: "Von der Tiefgarage bringt euch der Aufzug ohne Stufen bis zur Wohnungstür. Im Apartment führt eine Treppe zu den Schlafzimmern. Die Aufteilung passt besonders gut für zwei Erwachsene mit ein oder zwei jüngeren Kindern."
   }
 };
 
@@ -228,12 +228,12 @@ const en: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Why we chose this spot',
-    title: 'La Marina — flat by the water, right in it and yet ready for the spots',
+    title: "An Atlantic balcony, parking and room for you",
     caption: 'La Marina lies in Los Lances Sur: level ground right behind the beach, a fluid transition into the new town.',
     mapNote: '(see the orientation map above)',
-    lead: 'In Tarifa you often have to choose: beach *or* town, wind *or* quiet, a view *or* short walks. **AMARA is in La Marina** — the flat beach quarter in Los Lances Sur. Wide, level streets, an underground garage and a lift, the beach at the door and, on flat paths, a few minutes to the supermarkets and cafés of the new town. You can leave the car for the everyday — and still have it ready when you set off with the kit to the spots at Valdevaqueros. Outside the high summer it really comes into its own: little traffic, short walks, and wind Tarifa has almost all year.',
-    facts: ['**Flat & level** — wide streets, underground garage, lift, no cobbles', '**Beach at the door** — on foot to the water, with a board or a pushchair', '**New town in minutes** — supermarkets and cafés on level paths', '**Car ready** — leave it for the everyday, ready for Valdevaqueros'],
-    honest: 'To stay honest: behind the old-town walls you live more sheltered from the wind, and the view across the strait is up on the hillsides. For flat walks, beach and town in one — especially with kit or kids — La Marina is just right.'
+    lead: "Our AMARA Family & Surf is around 500 metres from Los Lances beach and a 10–15-minute walk from the old town. The private covered balcony gives you 12 m² of outdoor space facing the Atlantic.",
+    facts: ["**75 m² across two levels** with a kitchen and washing machine.","**Two bedrooms and two bathrooms:** a double bed and a bunk bed, for up to four guests.","**Reserved underground parking** in the building.","**Shared pool** in the residential complex."],
+    honest: "The lift takes you from the underground garage to the apartment door without steps. Inside, stairs lead to the bedrooms. The layout works particularly well for two adults with one or two younger children."
   }
 };
 
@@ -342,12 +342,12 @@ const es: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Por qué elegimos esta ubicación',
-    title: 'La Marina — llana junto al agua, en el centro y lista para los spots',
+    title: "Balcón al Atlántico, garaje y espacio para vosotros",
     caption: 'La Marina está en Los Lances Sur: terreno llano justo detrás de la playa, con paso fluido a la ciudad nueva.',
     mapNote: '(ver el mapa de orientación arriba)',
-    lead: 'En Tarifa a menudo hay que elegir: playa *o* pueblo, viento *o* calma, vistas *o* todo cerca. **AMARA está en La Marina** — el llano barrio de playa de Los Lances Sur. Calles anchas y a nivel, garaje subterráneo y ascensor, la playa en la puerta y, por caminos llanos, a pocos minutos de los supermercados y cafeterías de la ciudad nueva. El coche podéis dejarlo para el día a día — y tenerlo listo cuando salís con el material a los spots de Valdevaqueros. Fuera del pleno verano es cuando más luce: poco trajín, todo cerca, y viento en Tarifa hay casi todo el año.',
-    facts: ['**Llano y a nivel** — calles anchas, garaje, ascensor, sin adoquines', '**Playa en la puerta** — al agua a pie, con tabla o carrito', '**Ciudad nueva en minutos** — supermercados y cafeterías por caminos llanos', '**Coche listo** — dejarlo para el día a día, a punto para Valdevaqueros'],
-    honest: 'Para ser honestos: tras las murallas se vive más al abrigo del viento, y las vistas del estrecho están arriba, en las laderas. Para caminos llanos, playa y pueblo en uno — sobre todo con material o niños — La Marina es justo lo que buscáis.'
+    lead: "Nuestro AMARA Family & Surf está a unos 500 metros de la playa de Los Lances y a unos 10–15 minutos a pie del casco antiguo. El balcón privado y cubierto tiene 12 m² con vistas al Atlántico.",
+    facts: ["**75 m² en dos plantas** con cocina y lavadora.","**Dos dormitorios y dos baños:** cama doble y litera, para un máximo de cuatro personas.","**Plaza de garaje subterráneo reservada** en el edificio.","**Piscina comunitaria** en la urbanización."],
+    honest: "Desde el garaje, el ascensor os lleva sin escalones hasta la puerta del apartamento. Dentro hay una escalera hacia los dormitorios. La distribución encaja especialmente bien con dos adultos y uno o dos niños pequeños."
   }
 };
 
@@ -456,12 +456,12 @@ const nl: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Waarom wij hier zitten',
-    title: 'La Marina — vlak aan het water, middenin en toch klaar voor de spots',
+    title: "Atlantisch uitzicht, een garage en ruimte voor jullie",
     caption: 'La Marina ligt in Los Lances Sur: vlakke grond vlak achter het strand, met een vloeiende overgang naar de nieuwe stad.',
     mapNote: '(zie de oriëntatiekaart hierboven)',
-    lead: 'In Tarifa moet je vaak kiezen: strand *of* dorp, wind *of* rust, uitzicht *of* korte loopjes. **AMARA ligt in La Marina** — de vlakke strandwijk in Los Lances Sur. Brede, vlakke straten, een ondergrondse garage en een lift, het strand voor de deur en, over vlakke wegen, een paar minuten naar de supermarkten en cafés van de nieuwe stad. De auto kun je voor het dagelijkse laten staan — en toch bij de hand hebben als je met het materiaal naar de spots bij Valdevaqueros vertrekt. Juist buiten de hoogzomer komt dat tot zijn recht: weinig drukte, korte loopjes, en wind heeft Tarifa bijna het hele jaar.',
-    facts: ['**Vlak & egaal** — brede straten, ondergrondse garage, lift, geen kasseien', '**Strand voor de deur** — te voet naar het water, met board of kinderwagen', '**Nieuwe stad in minuten** — supermarkten en cafés over vlakke wegen', '**Auto klaar** — voor het dagelijkse laten staan, klaar voor Valdevaqueros'],
-    honest: 'Eerlijk blijft: achter de stadsmuren woon je beschutter tegen de wind, en het zicht over de zeestraat heb je boven in de hellingwijken. Voor vlakke wegen, strand en dorp in één — zeker met materiaal of kinderen — is La Marina precies goed.'
+    lead: "Ons AMARA Family & Surf ligt op ongeveer 500 meter van het strand Los Lances en op 10–15 minuten lopen van de oude stad. Het overdekte privébalkon biedt 12 m² buitenruimte met uitzicht op de Atlantische Oceaan.",
+    facts: ["**75 m² verdeeld over twee verdiepingen** met keuken en wasmachine.","**Twee slaapkamers en twee badkamers:** een tweepersoonsbed en een stapelbed, voor maximaal vier gasten.","**Gereserveerde plek in de parkeergarage** onder het gebouw.","**Gedeeld zwembad** in het wooncomplex."],
+    honest: "De lift brengt jullie vanuit de parkeergarage zonder treden tot aan de voordeur. Binnen leidt een trap naar de slaapkamers. De indeling past vooral bij twee volwassenen met één of twee jonge kinderen."
   }
 };
 
@@ -570,12 +570,12 @@ const sv: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Därför valde vi det här läget',
-    title: 'La Marina — flackt vid vattnet, mitt i och ändå redo för spotarna',
+    title: "Atlantbalkong, garage och plats för er",
     caption: 'La Marina ligger i Los Lances Sur: jämn mark precis bakom stranden, med en flytande övergång till nya staden.',
     mapNote: '(se orienteringskartan ovan)',
-    lead: 'I Tarifa måste man ofta välja: strand *eller* ort, vind *eller* lugn, utsikt *eller* korta avstånd. **AMARA ligger i La Marina** — den flacka strandstadsdelen i Los Lances Sur. Breda, jämna gator, garage under jord och hiss, stranden vid dörren och, på flacka vägar, några minuter till mataffärer och kaféer i nya staden. Bilen kan ni låta stå i vardagen — och ändå ha den redo när ni ger er av med utrustningen till spotarna vid Valdevaqueros. Just utanför högsommaren kommer det till sin rätt: lite folk, korta avstånd, och vind har Tarifa nästan hela året.',
-    facts: ['**Flackt & jämnt** — breda gator, garage under jord, hiss, ingen kullersten', '**Stranden vid dörren** — till fots till vattnet, med bräda eller barnvagn', '**Nya staden på minuter** — mataffärer och kaféer på jämna vägar', '**Bilen redo** — låt den stå i vardagen, redo för Valdevaqueros'],
-    honest: 'Ärligt talat: bakom gamla stans murar bor ni mer i lä, och utsikten över sundet har ni uppe i sluttningskvarteren. För flacka vägar, strand och ort i ett — särskilt med utrustning eller barn — är La Marina precis rätt.'
+    lead: "Vår AMARA Family & Surf ligger ungefär 500 meter från stranden Los Lances och 10–15 minuters promenad från gamla stan. Den privata, takförsedda balkongen har 12 m² yta med utsikt mot Atlanten.",
+    facts: ["**75 m² på två plan** med kök och tvättmaskin.","**Två sovrum och två badrum:** en dubbelsäng och en våningssäng, för upp till fyra gäster.","**Reserverad plats i garaget** under huset.","**Gemensam pool** i bostadsområdet."],
+    honest: "Hissen tar er från garaget till lägenhetsdörren utan trappsteg. Inne i lägenheten leder en trappa till sovrummen. Planlösningen passar särskilt bra för två vuxna med ett eller två yngre barn."
   }
 };
 

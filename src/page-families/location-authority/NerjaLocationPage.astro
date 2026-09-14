@@ -4,14 +4,13 @@ import Navigation from '../../components/Navigation.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
 import WhereToStayBody from './WhereToStayBody.astro';
-import {
-  nerjaLocationCopy,
+import { nerjaLocationCopy,
   nerjaLocationSeo
 } from '../../content/nerjaLocationContent';
 import { nerjaWhereToStayContent } from '../../content/nerjaWhereToStayContent';
 import { trustLabels } from '../../content/trustLabels';
 import { whereToStayOrientationGraphicContent } from '../../content/whereToStayOrientationGraphicContent';
-import { resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
+import { createRequiredLinkResolver, resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
 import { getLocationGuideTopicLabels } from '../../lib/location/locationGuideTopics';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
@@ -32,9 +31,8 @@ function t<T>(value: Readonly<Record<AmaraLanguage, T>>): T {
 const optionalLink = (token: LinkToken) => resolveOptionalLink(token, currentLang, { suppressMissing: true });
 
 const content = nerjaWhereToStayContent[currentLang];
-const bookBase = optionalLink('book');
-const bookHref = bookBase ? `${bookBase}?destination=nerja` : '#';
-const bookLabel = trustLabels.book[currentLang];
+const bookHref = createRequiredLinkResolver(currentLang, 'Where to stay')('playa');
+const bookLabel = {"de":"AMARA Playa ansehen","en":"Explore AMARA Playa","es":"Ver AMARA Playa","nl":"Bekijk AMARA Playa","sv":"Se AMARA Playa"}[currentLang];
 const pointerHref = optionalLink(content.pointer.linkToken) ?? '#';
 
 const faq = {
