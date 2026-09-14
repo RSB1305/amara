@@ -419,6 +419,11 @@ export function normalizeRates(payload, requestedStart, requestedEnd) {
   for (const item of calendarItems) {
     const date = validIsoDay(item?.date);
     if (!date) {
+      // Lodgify reports a property's base rate as a default calendar item with
+      // no date (is_default: true). It maps to no calendar day — the dated
+      // items carry the actual per-day prices — so it is skipped rather than
+      // rejected. Any other dateless item is still a malformed response.
+      if (item?.is_default === true) continue;
       throw new LodgifyProviderError('Unexpected Lodgify rates response: calendar item has no valid date.');
     }
     if (date < start || date > end) continue;
