@@ -107,109 +107,190 @@ function searchCta(destination: StaySearchDestination): LocalizedText {
 // one of these updates every apartment page that references it — see MEMORY notes on
 // the "Baukasten" principle. Apartments with genuinely different facts (a different
 // building, a different Wi-Fi network) should NOT reuse these — write a local item instead.
-const sharedFrigilianaCenterArrivalItem: GuestGuideAccordionItem = {
-  icon: 'location-pin',
-  title: { en: 'Arrival', de: 'Anreise', es: 'Llegada', nl: 'Aankomst', sv: 'Ankomst' },
-  body: [
-    {
-      en: 'La AMARA is located in the historic center at <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Chorruelo+5+29788+Frigiliana" target="_blank" rel="noopener">Calle Chorruelo 5, 29788 Frigiliana</a>.',
-      de: 'La AMARA befindet sich im historischen Zentrum in der <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Chorruelo+5+29788+Frigiliana" target="_blank" rel="noopener">Calle Chorruelo 5, 29788 Frigiliana</a>.',
-      es: 'La AMARA se encuentra en el centro histórico, en <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Chorruelo+5+29788+Frigiliana" target="_blank" rel="noopener">Calle Chorruelo 5, 29788 Frigiliana</a>.',
-      nl: 'La AMARA bevindt zich in het historische centrum aan de <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Chorruelo+5+29788+Frigiliana" target="_blank" rel="noopener">Calle Chorruelo 5, 29788 Frigiliana</a>.',
-      sv: 'La AMARA ligger i den historiska stadskärnan på <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Chorruelo+5+29788+Frigiliana" target="_blank" rel="noopener">Calle Chorruelo 5, 29788 Frigiliana</a>.'
+export const frigilianaCenterArrivalContent = {
+  copy: {
+    title: { en: 'Arrival & parking', de: 'Anreise & Parken', es: 'Llegada y aparcamiento', nl: 'Aankomst en parkeren', sv: 'Ankomst och parkering' },
+    intro: { en: 'Two steps to La AMARA', de: 'In 2 Schritten zu La AMARA', es: 'A La AMARA en dos pasos', nl: 'In 2 stappen naar La AMARA', sv: 'Två steg till La AMARA' },
+    driveTitle: { en: '1 · By car or taxi', de: '1 · Mit Auto oder Taxi', es: '1 · En coche o taxi', nl: '1 · Met de auto of taxi', sv: '1 · Med bil eller taxi' },
+    driveNote: {
+      en: 'Park or get out of your taxi here. The house is about a 4-minute walk from here.',
+      de: 'Hier parken oder aus dem Taxi steigen. Von dort sind es etwa 4 Minuten zu Fuß.',
+      es: 'Aparcad aquí o bajaos del taxi. Desde allí son unos 4 minutos a pie.',
+      nl: 'Parkeer hier of stap uit de taxi. Vanaf hier is het ongeveer 4 minuten lopen.',
+      sv: 'Parkera här eller kliv ur taxin. Härifrån tar det cirka 4 minuter att gå.'
     },
-    {
-      en: '<strong>Arrival by car / taxi</strong>',
-      de: '<strong>Anreise mit dem Auto / Taxi</strong>',
-      es: '<strong>Llegada en coche / taxi</strong>',
-      nl: '<strong>Aankomst met de auto / taxi</strong>',
-      sv: '<strong>Ankomst med bil / taxi</strong>'
+    driveAction: { en: 'Get directions to parking', de: 'Zum Parkplatz navigieren', es: 'Cómo llegar al aparcamiento', nl: 'Route naar de parkeerplek', sv: 'Visa vägen till parkeringen' },
+    walkTitle: { en: '2 · Walk the last stretch', de: '2 · Die letzten Meter zu Fuß', es: '2 · El último tramo, a pie', nl: '2 · Het laatste stukje te voet', sv: '2 · Sista biten till fots' },
+    walkNote: { en: 'About 4 minutes · 150 m · uphill', de: 'Ca. 4 Minuten · 150 m · bergauf', es: 'Unos 4 minutos · 150 m · cuesta arriba', nl: 'Ca. 4 minuten · 150 m · bergop', sv: 'Ca 4 minuter · 150 m · uppför' },
+    walkAction: { en: 'Walking directions to the house', de: 'Fußweg zum Haus öffnen', es: 'Ver la ruta a pie a la casa', nl: 'Open de looproute naar het huis', sv: 'Visa gångvägen till huset' },
+    fallbackTitle: { en: 'If navigation is not working', de: 'Falls die Navigation nicht funktioniert', es: 'Si falla la navegación', nl: 'Als de navigatie niet werkt', sv: 'Om navigeringen inte fungerar' },
+    addressLabel: { en: 'House address', de: 'Hausadresse', es: 'Dirección de la casa', nl: 'Adres van het huis', sv: 'Husets adress' },
+    accessNote: {
+      en: 'Our house is in the lower part of Frigiliana’s historic centre. The lanes are narrow and vehicle access is restricted, so we recommend arriving at Avenida Carlos Cano 42 and walking the final stretch.',
+      de: 'Unser Haus liegt im unteren Teil der historischen Altstadt von Frigiliana. Die Gassen sind eng und die Zufahrt ist eingeschränkt. Deshalb empfehlen wir Avenida Carlos Cano 42 als Ankunftspunkt und den letzten Abschnitt zu Fuß.',
+      es: 'Nuestra casa está en la parte baja del casco histórico de Frigiliana. Las calles son estrechas y el acceso en coche está restringido. Por eso os recomendamos llegar a Avenida Carlos Cano 42 y hacer el último tramo a pie.',
+      nl: 'Ons huis ligt in het lagere deel van de historische dorpskern van Frigiliana. De straatjes zijn smal en de toegang voor auto’s is beperkt. Daarom raden we Avenida Carlos Cano 42 aan als aankomstpunt, met het laatste stukje te voet.',
+      sv: 'Vårt hus ligger i den nedre delen av Frigilianas historiska bykärna. Gränderna är smala och biltrafiken är begränsad. Därför rekommenderar vi Avenida Carlos Cano 42 som ankomstplats och en kort promenad sista biten.'
     },
-    {
-      en: 'The streets in the historic center are narrow and vehicle access is restricted, so we recommend parking — or asking your taxi to drop you off — at <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Avenida+Carlos+Cano+42+29788+Frigiliana" target="_blank" rel="noopener">Avenida Carlos Cano 42</a> and continuing on foot from there.',
-      de: 'Da die Straßen im historischen Zentrum eng sind und die Zufahrt für Fahrzeuge eingeschränkt ist, empfehlen wir euch, an der <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Avenida+Carlos+Cano+42+29788+Frigiliana" target="_blank" rel="noopener">Avenida Carlos Cano 42</a> zu parken oder euch dort vom Taxi absetzen zu lassen und von dort zu Fuß weiterzugehen.',
-      es: 'Las calles del centro histórico son estrechas y el acceso en coche está restringido, así que os recomendamos aparcar —o pedir a vuestro taxi que os deje— en la <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Avenida+Carlos+Cano+42+29788+Frigiliana" target="_blank" rel="noopener">Avenida Carlos Cano 42</a> y continuar a pie desde allí.',
-      nl: 'De straten in het historische centrum zijn smal en toegankelijk voor voertuigen is beperkt. We raden daarom aan om te parkeren — of de taxi te laten stoppen — bij de <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Avenida+Carlos+Cano+42+29788+Frigiliana" target="_blank" rel="noopener">Avenida Carlos Cano 42</a> en vandaar te voet verder te gaan.',
-      sv: 'Gatorna i den historiska stadskärnan är smala och biltrafiken är begränsad. Vi rekommenderar därför att ni parkerar — eller ber taxin stanna — vid <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Avenida+Carlos+Cano+42+29788+Frigiliana" target="_blank" rel="noopener">Avenida Carlos Cano 42</a> och promenerar därifrån.'
+    busTitle: { en: 'Arriving by bus', de: 'Anreise mit dem Bus', es: 'Llegada en autobús', nl: 'Met de bus', sv: 'Med buss' },
+    busStopLabel: { en: 'Bus stop', de: 'Bushaltestelle', es: 'Parada de autobús', nl: 'Bushalte', sv: 'Busshållplats' },
+    busRouteAction: { en: 'Open walking route', de: 'Fußweg öffnen', es: 'Ver ruta a pie', nl: 'Open looproute', sv: 'Visa gångvägen' },
+    parkingTitle: { en: 'Parking & plan B', de: 'Parken & Plan B', es: 'Aparcamiento y plan B', nl: 'Parkeren en plan B', sv: 'Parkering och plan B' },
+    freeParking: {
+      en: 'Free public parking is usually available along Avenida Carlos Cano. We recommend parking near the La Fuente development at number 42.',
+      de: 'Kostenlose öffentliche Parkplätze findet ihr normalerweise entlang der Avenida Carlos Cano. Wir empfehlen die Nähe der Urbanisation La Fuente bei Hausnummer 42.',
+      es: 'Normalmente hay aparcamiento público gratuito a lo largo de Avenida Carlos Cano. Os recomendamos aparcar junto a la urbanización La Fuente, a la altura del número 42.',
+      nl: 'Langs Avenida Carlos Cano is meestal gratis openbare parkeergelegenheid. We raden de buurt van het wooncomplex La Fuente bij nummer 42 aan.',
+      sv: 'Det finns oftast gratis allmän parkering längs Avenida Carlos Cano. Vi rekommenderar området vid La Fuente, i höjd med nummer 42.'
     },
-    {
-      en: '<a class="am-link" href="https://www.google.com/maps/dir/Av.+Carlos+Cano,+42,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">From there it is roughly a 4-minute (150 m) walk uphill.</a>',
-      de: '<a class="am-link" href="https://www.google.com/maps/dir/Av.+Carlos+Cano,+42,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">Von dort aus sind es etwa 4 Minuten (150 m) bergauf zu Fuß.</a>',
-      es: '<a class="am-link" href="https://www.google.com/maps/dir/Av.+Carlos+Cano,+42,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">Desde allí es un paseo de unos 4 minutos (150 m) cuesta arriba.</a>',
-      nl: '<a class="am-link" href="https://www.google.com/maps/dir/Av.+Carlos+Cano,+42,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">Vanaf daar is het ongeveer 4 minuten (150 m) lopen, bergopwaarts.</a>',
-      sv: '<a class="am-link" href="https://www.google.com/maps/dir/Av.+Carlos+Cano,+42,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">Därifrån är det ungefär 4 minuters promenad (150 m) uppför.</a>'
+    planB: {
+      en: 'If the avenue is full, the central car park below Plaza de las Tres Culturas in the lower village offers paid parking.',
+      de: 'Wenn die Avenida voll ist, gibt es im unteren Ort das kostenpflichtige zentrale Parkhaus unter der Plaza de las Tres Culturas.',
+      es: 'Si la avenida está llena, tenéis el aparcamiento central de pago bajo la Plaza de las Tres Culturas, en la parte baja del pueblo.',
+      nl: 'Als de avenida vol staat, kunnen jullie terecht in de betaalde centrale parkeergarage onder Plaza de las Tres Culturas, in het lagere deel van het dorp.',
+      sv: 'Om avenyn är full finns den avgiftsbelagda centrala parkeringen under Plaza de las Tres Culturas i den nedre delen av byn.'
     },
-    {
-      en: 'To reach the house, take the staircase on the left-hand side of the "La Fuente" urbanization (Avenida Carlos Cano 42). Pass the well-known La Fuente Vieja fountain and continue for about 15 meters. At Bar El Señor, turn right and walk uphill; after roughly 40 more meters you will see La AMARA on the right — a green door with small windows and a black keypad to the left of the entrance.',
-      de: 'Um zum Haus zu gelangen, nehmt ihr die Treppe auf der linken Seite der Urbanisation „La Fuente" (Avenida Carlos Cano 42). Geht an der bekannten Wasserstelle La Fuente Vieja vorbei und lauft etwa 15 Meter weiter. An der Bar El Señor biegt ihr rechts ab und geht bergauf; nach etwa 40 weiteren Metern seht ihr La AMARA auf der rechten Seite – eine grüne Tür mit kleinen Fenstern und einem schwarzen Tastenfeld links neben dem Eingang.',
-      es: 'Para llegar a la casa, tomad las escaleras a la izquierda de la urbanización "La Fuente" (Avenida Carlos Cano 42). Pasad junto a la conocida fuente de La Fuente Vieja y continuad unos 15 metros. En el Bar El Señor, girad a la derecha y subid; tras unos 40 metros más veréis La AMARA a mano derecha: una puerta verde con ventanitas y un teclado negro a la izquierda de la entrada.',
-      nl: 'Om bij het huis te komen, nemen jullie de trap aan de linkerkant van de urbanisatie "La Fuente" (Avenida Carlos Cano 42). Loop langs de bekende fontein La Fuente Vieja en ga ongeveer 15 meter rechtdoor. Sla bij Bar El Señor rechtsaf en loop bergopwaarts; na ongeveer 40 meter zien jullie La AMARA aan de rechterkant — een groene deur met kleine raampjes en een zwart codeslot links van de ingang.',
-      sv: 'För att komma till huset, ta trappan på vänster sida om urbanisationen "La Fuente" (Avenida Carlos Cano 42). Gå förbi den kända fontänen La Fuente Vieja och fortsätt ungefär 15 meter. Vid Bar El Señor svänger ni höger och går uppför; efter ytterligare cirka 40 meter ser ni La AMARA på höger sida – en grön dörr med små fönster och en svart knappsats till vänster om entrén.'
-    },
-    {
-      en: '<strong>Arrival by bus</strong>',
-      de: '<strong>Anreise mit dem Bus</strong>',
-      es: '<strong>Llegada en autobús</strong>',
-      nl: '<strong>Aankomst met de bus</strong>',
-      sv: '<strong>Ankomst med buss</strong>'
-    },
-    {
-      en: 'The bus stops at <a class="am-link" href="https://maps.app.goo.gl/EoKEVsJo2J4NmC5h79" target="_blank" rel="noopener">Parada de Autobús – C. Real, Frigiliana</a>. From there you can choose between two walking routes to reach the house.',
-      de: 'Der Bus hält an der <a class="am-link" href="https://maps.app.goo.gl/EoKEVsJo2J4NmC5h79" target="_blank" rel="noopener">Parada de Autobús – C. Real, Frigiliana</a>. Von dort aus könnt ihr zwischen zwei Wegen zum Haus wählen.',
-      es: 'El autobús llega a la <a class="am-link" href="https://maps.app.goo.gl/EoKEVsJo2J4NmC5h79" target="_blank" rel="noopener">Parada de Autobús – C. Real, Frigiliana</a>. Desde allí podéis elegir entre dos caminos para llegar a la casa.',
-      nl: 'De bus stopt bij de <a class="am-link" href="https://maps.app.goo.gl/EoKEVsJo2J4NmC5h79" target="_blank" rel="noopener">Parada de Autobús – C. Real, Frigiliana</a>. Vanaf daar kunnen jullie kiezen uit twee looproutes naar het huis.',
-      sv: 'Bussen stannar vid <a class="am-link" href="https://maps.app.goo.gl/EoKEVsJo2J4NmC5h79" target="_blank" rel="noopener">Parada de Autobús – C. Real, Frigiliana</a>. Därifrån kan ni välja mellan två vägar till huset.'
-    },
-    {
-      en: '<strong>Shorter route – via <a class="am-link" href="https://www.google.com/maps/dir/Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">Calle Real</a></strong> — cobbled streets, no steps. Approx. 8 minutes (550 m), slightly uphill through the old village.',
-      de: '<strong>Kürzerer Weg – über die <a class="am-link" href="https://www.google.com/maps/dir/Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">Calle Real</a></strong> — Kopfsteinpflaster, keine Stufen. Ca. 8 Minuten (550 m), leicht bergauf durch den alten Ortskern.',
-      es: '<strong>Camino más corto – por <a class="am-link" href="https://www.google.com/maps/dir/Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">Calle Real</a></strong> — calles empedradas, sin escaleras. Aprox. 8 minutos (550 m), ligeramente cuesta arriba por el casco antiguo.',
-      nl: '<strong>Kortere weg – via de <a class="am-link" href="https://www.google.com/maps/dir/Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">Calle Real</a></strong> — geplaveide straatjes, geen trappen. Ca. 8 minuten (550 m), licht bergopwaarts door het oude dorp.',
-      sv: '<strong>Kortare väg – via <a class="am-link" href="https://www.google.com/maps/dir/Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">Calle Real</a></strong> — kullerstensgator, inga trappor. Ca 8 minuter (550 m), något uppför genom den gamla byn.'
-    },
-    {
-      en: '<strong>Longer route – via the <a class="am-link" href="https://www.google.com/maps/dir/Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+Fuente+APT6,+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">main road</a></strong> — mostly flat, with steps at the end. Approx. 12 minutes (750 m): flat until La Fuente, then several steps (approx. 25 m elevation).',
-      de: '<strong>Längerer Weg – über die <a class="am-link" href="https://www.google.com/maps/dir/Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+Fuente+APT6,+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">Hauptstraße</a></strong> — meist flach, Stufen am Ende. Ca. 12 Minuten (750 m): flach bis La Fuente, danach mehrere Stufen (ca. 25 Höhenmeter).',
-      es: '<strong>Camino más largo – por la <a class="am-link" href="https://www.google.com/maps/dir/Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+Fuente+APT6,+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">carretera principal</a></strong> — principalmente llano, con escaleras al final. Aprox. 12 minutos (750 m): llano hasta La Fuente, luego varias escaleras (aprox. 25 m de desnivel).',
-      nl: '<strong>Langere weg – via de <a class="am-link" href="https://www.google.com/maps/dir/Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+Fuente+APT6,+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">hoofdweg</a></strong> — grotendeels vlak, trappen aan het einde. Ca. 12 minuten (750 m): vlak tot aan La Fuente, daarna meerdere trappen (ca. 25 m hoogteverschil).',
-      sv: '<strong>Längre väg – via <a class="am-link" href="https://www.google.com/maps/dir/Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spanien/La+Fuente+APT6,+Frigiliana,+M%C3%A1laga,+Spanien/La+AMARA+-+Quiet+romantic+stays+in+Frigiliana,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spanien/" target="_blank" rel="noopener">huvudvägen</a></strong> — mestadels plant, trappor på slutet. Ca 12 minuter (750 m): plant fram till La Fuente, därefter flera trappor (ca 25 m höjdskillnad).'
+    planBAction: { en: 'Open the car park map', de: 'Parkhaus auf der Karte öffnen', es: 'Ver el aparcamiento en el mapa', nl: 'Bekijk de parkeergarage op de kaart', sv: 'Visa parkeringshuset på kartan' },
+    tariff: {
+      en: 'In August 2026 it was signed at €0.0417 per minute with a daily cap of €15. Tariffs can change; the signs on site apply.',
+      de: 'Im August 2026 war es mit 0,0417 € pro Minute und höchstens 15 € pro Tag ausgewiesen; Tarife können sich ändern, es gilt die Beschilderung vor Ort.',
+      es: 'En agosto de 2026 estaba señalizado a 0,0417 € por minuto, con un máximo de 15 € al día. Las tarifas pueden cambiar; se aplica lo indicado en los carteles del aparcamiento.',
+      nl: 'In augustus 2026 stond er 0,0417 € per minuut aangegeven, met een maximum van 15 € per dag. Tarieven kunnen veranderen; de borden ter plaatse zijn bepalend.',
+      sv: 'I augusti 2026 var priset skyltat till 0,0417 € per minut, med ett dygnstak på 15 €. Taxorna kan ändras; skyltningen på plats gäller.'
     }
-  ]
+  } satisfies Record<string, LocalizedText>,
+  arrivalAddress: 'Avenida Carlos Cano 42, 29788 Frigiliana',
+  houseAddress: 'Calle Chorruelo 5, 29788 Frigiliana',
+  // Keep the existing Google Maps destinations and the La Fuente waypoint;
+  // explicit travel modes open the appropriate driving or walking directions.
+  drivingHref: 'https://www.google.com/maps/dir/?api=1&destination=Avenida+Carlos+Cano+42+29788+Frigiliana&travelmode=driving&dir_action=navigate',
+  walkingHref: 'https://www.google.com/maps/dir/?api=1&origin=Av.+Carlos+Cano,+42,+29788+Frigiliana,+M%C3%A1laga,+Spain&destination=La+AMARA,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spain&travelmode=walking',
+  houseHref: 'https://www.google.com/maps/search/?api=1&query=Calle+Chorruelo+5+29788+Frigiliana',
+  busStop: 'Parada de Autobús – C. Real, Frigiliana',
+  busStopHref: 'https://www.google.com/maps/search/?api=1&query=Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spain',
+  carParkHref: 'https://www.google.com/maps/search/?api=1&query=Plaza+de+las+Tres+Culturas+Frigiliana',
+  directions: [
+    {
+      id: 'la-fuente-stairs',
+      text: {
+        en: 'At the La Fuente development (Avenida Carlos Cano 42), take the stairs on the left.',
+        de: 'Nehmt bei der Urbanisation La Fuente (Avenida Carlos Cano 42) die Treppe auf der linken Seite.',
+        es: 'En la urbanización La Fuente (Avenida Carlos Cano 42), tomad las escaleras de la izquierda.',
+        nl: 'Neem bij het wooncomplex La Fuente (Avenida Carlos Cano 42) de trap aan de linkerkant.',
+        sv: 'Ta trappan till vänster vid bostadsområdet La Fuente (Avenida Carlos Cano 42).'
+      }
+    },
+    {
+      id: 'fuente-vieja',
+      text: {
+        en: 'Walk past the La Fuente Vieja fountain.',
+        de: 'Geht an der Wasserstelle La Fuente Vieja vorbei.',
+        es: 'Pasad junto a la Fuente Vieja.',
+        nl: 'Loop langs de fontein La Fuente Vieja.',
+        sv: 'Gå förbi fontänen La Fuente Vieja.'
+      }
+    },
+    {
+      id: 'fifteen-metres',
+      text: {
+        en: 'Continue for about 15 metres.',
+        de: 'Geht etwa 15 Meter weiter.',
+        es: 'Seguid unos 15 metros.',
+        nl: 'Loop ongeveer 15 meter verder.',
+        sv: 'Fortsätt ungefär 15 meter.'
+      }
+    },
+    {
+      id: 'bar-el-senor',
+      text: {
+        en: 'Turn right at Bar El Señor and head uphill.',
+        de: 'Biegt bei der Bar El Señor rechts ab und geht bergauf.',
+        es: 'En el Bar El Señor, girad a la derecha y subid.',
+        nl: 'Sla bij Bar El Señor rechtsaf en loop bergop.',
+        sv: 'Sväng höger vid Bar El Señor och gå uppför.'
+      }
+    },
+    {
+      id: 'house-on-right',
+      text: {
+        en: 'After about another 40 metres, La AMARA is on your right.',
+        de: 'Nach etwa 40 weiteren Metern liegt La AMARA auf der rechten Seite.',
+        es: 'Unos 40 metros más adelante, La AMARA queda a vuestra derecha.',
+        nl: 'Na nog ongeveer 40 meter ligt La AMARA aan jullie rechterhand.',
+        sv: 'Efter ytterligare cirka 40 meter ligger La AMARA på höger sida.'
+      }
+    },
+    {
+      id: 'green-door',
+      text: {
+        en: 'Look for the green door with small windows and the black keypad to the left of the entrance.',
+        de: 'Ihr erkennt das Haus an der grünen Tür mit kleinen Fenstern und dem schwarzen Tastenfeld links neben dem Eingang.',
+        es: 'Reconoceréis la casa por la puerta verde con ventanitas y el teclado negro a la izquierda de la entrada.',
+        nl: 'Jullie herkennen het huis aan de groene deur met kleine raampjes en het zwarte toetsenpaneel links naast de ingang.',
+        sv: 'Ni känner igen huset på den gröna dörren med små fönster och den svarta knappsatsen till vänster om ingången.'
+      }
+    }
+  ] satisfies { id: string; text: LocalizedText }[],
+  busRoutes: [
+    {
+      id: 'calle-real',
+      title: {
+        en: 'Shorter · via Calle Real',
+        de: 'Kürzer · über Calle Real',
+        es: 'Más corto · por Calle Real',
+        nl: 'Korter · via Calle Real',
+        sv: 'Kortare · via Calle Real'
+      },
+      distance: {
+        en: 'About 8 minutes · 550 m',
+        de: 'Ca. 8 Minuten · 550 m',
+        es: 'Unos 8 minutos · 550 m',
+        nl: 'Ca. 8 minuten · 550 m',
+        sv: 'Ca 8 minuter · 550 m'
+      },
+      terrain: {
+        en: 'Slightly uphill through the old village · cobbles · no steps',
+        de: 'Leicht bergauf durch den alten Ortskern · Kopfsteinpflaster · keine Stufen',
+        es: 'Ligera subida por el casco antiguo · empedrado · sin escalones',
+        nl: 'Licht bergop door het oude dorp · kasseien · geen trappen',
+        sv: 'Svagt uppför genom gamla byn · kullersten · inga trappsteg'
+      },
+      href: 'https://www.google.com/maps/dir/?api=1&origin=Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spain&destination=La+AMARA,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spain&travelmode=walking'
+    },
+    {
+      id: 'main-road',
+      title: {
+        en: 'Longer, flatter start · via the main road',
+        de: 'Länger, zunächst flacher · über die Hauptstraße',
+        es: 'Más largo, inicio más llano · por la carretera principal',
+        nl: 'Langer, vlakker begin · via de hoofdweg',
+        sv: 'Längre, flackare början · via huvudvägen'
+      },
+      distance: {
+        en: 'About 12 minutes · 750 m',
+        de: 'Ca. 12 Minuten · 750 m',
+        es: 'Unos 12 minutos · 750 m',
+        nl: 'Ca. 12 minuten · 750 m',
+        sv: 'Ca 12 minuter · 750 m'
+      },
+      terrain: {
+        en: 'Mostly flat until La Fuente · several steps at the end, with about 25 m of ascent',
+        de: 'Bis La Fuente überwiegend flach · am Ende mehrere Stufen und ca. 25 Höhenmeter',
+        es: 'Mayormente llano hasta La Fuente · varios escalones al final, con unos 25 m de desnivel',
+        nl: 'Tot La Fuente grotendeels vlak · daarna meerdere trappen en ca. 25 m hoogteverschil',
+        sv: 'Mestadels plant fram till La Fuente · flera trappsteg på slutet, med cirka 25 m stigning'
+      },
+      href: 'https://www.google.com/maps/dir/?api=1&origin=Parada+de+Autob%C3%BAs,+C.+Real,+29788+Frigiliana,+M%C3%A1laga,+Spain&destination=La+AMARA,+C.+Chorruelo,+5,+29788+Frigiliana,+M%C3%A1laga,+Spain&waypoints=La+Fuente+APT6,+Frigiliana,+M%C3%A1laga,+Spain&travelmode=walking'
+    }
+  ] satisfies { id: string; title: LocalizedText; distance: LocalizedText; terrain: LocalizedText; href: string }[]
 };
 
-const sharedFrigilianaCenterParkingItem: GuestGuideAccordionItem = {
-  icon: 'car',
-  title: { en: 'Parking', de: 'Parken', es: 'Aparcamiento', nl: 'Parkeren', sv: 'Parkering' },
-  body: [
-    {
-      en: 'La AMARA sits in the historic center of Frigiliana, where access by car is limited — but in the lower part of the old town, which makes arrival noticeably easier than for properties further uphill.',
-      de: 'La AMARA liegt im historischen Zentrum von Frigiliana, wo die Zufahrt mit dem Auto eingeschränkt ist – allerdings im unteren Teil der Altstadt, was die Anreise im Vergleich zu höher gelegenen Häusern deutlich einfacher macht.',
-      es: 'La AMARA está en el centro histórico de Frigiliana, donde el acceso en coche es limitado, pero en la parte baja del casco antiguo, lo que facilita bastante la llegada en comparación con las casas situadas más arriba.',
-      nl: 'La AMARA ligt in het historische centrum van Frigiliana, waar de toegang met de auto beperkt is — maar wel in het lagere deel van het oude centrum, wat de aankomst een stuk makkelijker maakt dan bij huizen die hogerop liggen.',
-      sv: 'La AMARA ligger i Frigilianas historiska centrum, där biltrafiken är begränsad — men i den nedre delen av gamla stan, vilket gör ankomsten betydligt enklare jämfört med boenden som ligger högre upp.'
-    },
-    {
-      en: 'Free public parking is usually available along <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Avenida+Carlos+Cano+42+29788+Frigiliana" target="_blank" rel="noopener">Avenida Carlos Cano</a>.',
-      de: 'Kostenlose öffentliche Parkplätze findet ihr normalerweise entlang der <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Avenida+Carlos+Cano+42+29788+Frigiliana" target="_blank" rel="noopener">Avenida Carlos Cano</a>.',
-      es: 'Normalmente encontraréis aparcamiento público gratuito a lo largo de la <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Avenida+Carlos+Cano+42+29788+Frigiliana" target="_blank" rel="noopener">Avenida Carlos Cano</a>.',
-      nl: 'Langs de <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Avenida+Carlos+Cano+42+29788+Frigiliana" target="_blank" rel="noopener">Avenida Carlos Cano</a> is meestal gratis openbare parkeergelegenheid te vinden.',
-      sv: 'Gratis allmän parkering finns oftast längs <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Avenida+Carlos+Cano+42+29788+Frigiliana" target="_blank" rel="noopener">Avenida Carlos Cano</a>.'
-    },
-    {
-      en: 'For the most comfortable walk, we recommend parking near the "La Fuente" urbanization. It is short, with a few typical old-town steps and a gentle uphill stretch.',
-      de: 'Für den bequemsten Weg empfehlen wir euch, in der Nähe der Urbanisation „La Fuente" zu parken. Der Weg ist kurz und umfasst typische Altstadttreppen sowie eine sanfte Steigung.',
-      es: 'Para el trayecto más cómodo, os recomendamos aparcar cerca de la urbanización "La Fuente". Es un paseo corto, con algunas escaleras típicas del casco antiguo y un tramo suave cuesta arriba.',
-      nl: 'Voor de meest comfortabele wandeling raden we aan om te parkeren in de buurt van de urbanisatie "La Fuente". De wandeling is kort, met een paar typische trapjes van de oude stad en een licht hellend stuk.',
-      sv: 'För den bekvämaste promenaden rekommenderar vi att ni parkerar i närheten av urbanisationen "La Fuente". Promenaden är kort, med några typiska gamla trappor och en lätt uppförsbacke.'
-    },
-    {
-      en: '<strong>Plan B if the avenue is full:</strong> the paid central car park below <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Plaza+de+las+Tres+Culturas+Frigiliana" target="_blank" rel="noopener">Plaza de las Tres Culturas</a> in the lower village. In August 2026 it was signed at 0.0417 € per minute with a daily cap of 15 €; tariffs can change, the signs on site decide.',
-      de: '<strong>Plan B, wenn die Avenida voll ist:</strong> das kostenpflichtige zentrale Parkhaus unter der <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Plaza+de+las+Tres+Culturas+Frigiliana" target="_blank" rel="noopener">Plaza de las Tres Culturas</a> im unteren Ort. Im August 2026 war es mit 0,0417 € pro Minute und höchstens 15 € pro Tag ausgewiesen; Tarife können sich ändern, es gilt die Beschilderung vor Ort.',
-      es: '<strong>Plan B si la avenida está llena:</strong> el aparcamiento central de pago bajo la <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Plaza+de+las+Tres+Culturas+Frigiliana" target="_blank" rel="noopener">Plaza de las Tres Culturas</a>, en la zona baja del pueblo. En agosto de 2026 estaba señalizado a 0,0417 € por minuto con un máximo de 15 € al día; las tarifas pueden cambiar y manda la señalización del lugar.',
-      nl: '<strong>Plan B als de avenida vol staat:</strong> de betaalde centrale parkeergarage onder <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Plaza+de+las+Tres+Culturas+Frigiliana" target="_blank" rel="noopener">Plaza de las Tres Culturas</a> in het lagere dorp. In augustus 2026 stond die aangegeven op 0,0417 € per minuut met een dagmaximum van 15 €; tarieven kunnen veranderen, de borden ter plaatse zijn bepalend.',
-      sv: '<strong>Plan B om avenyn är full:</strong> den avgiftsbelagda centrala parkeringen under <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Plaza+de+las+Tres+Culturas+Frigiliana" target="_blank" rel="noopener">Plaza de las Tres Culturas</a> i nedre byn. I augusti 2026 var den skyltad till 0,0417 € per minut med ett dygnstak på 15 €; taxorna kan ändras och skyltningen på plats gäller.'
-    }
-  ]
+// This shared item is the opt-in for the Frigiliana arrival view; other guide
+// items continue to use the accordion's existing paragraph rendering.
+export const sharedFrigilianaCenterArrivalItem: GuestGuideAccordionItem = {
+  icon: 'location-pin',
+  title: frigilianaCenterArrivalContent.copy.title,
+  body: []
 };
 
 const sharedAmaraWifiItem: GuestGuideAccordionItem = {
@@ -865,7 +946,7 @@ const frigilianaFarahAccommodation: GuestGuideEntry = {
         nl: 'Aankomst & Basisinfo',
         sv: 'Ankomst & Grundläggande info'
       },
-      items: [sharedFrigilianaCenterArrivalItem, sharedFrigilianaCenterParkingItem, sharedAmaraWifiItem, sharedAmaraCoolingHeatingItem]
+      items: [sharedFrigilianaCenterArrivalItem, sharedAmaraWifiItem, sharedAmaraCoolingHeatingItem]
     },
     {
       heading: {
@@ -3749,7 +3830,7 @@ const frigilianaLounisAccommodation: GuestGuideEntry = {
         nl: 'Aankomst & Basisinfo',
         sv: 'Ankomst & Grundläggande info'
       },
-      items: [sharedFrigilianaCenterArrivalItem, sharedFrigilianaCenterParkingItem, sharedAmaraWifiItem, sharedAmaraCoolingHeatingItem]
+      items: [sharedFrigilianaCenterArrivalItem, sharedAmaraWifiItem, sharedAmaraCoolingHeatingItem]
     },
     {
       heading: {
@@ -3944,7 +4025,7 @@ const frigilianaZaidAccommodation: GuestGuideEntry = {
         nl: 'Aankomst & Basisinfo',
         sv: 'Ankomst & Grundläggande info'
       },
-      items: [sharedFrigilianaCenterArrivalItem, sharedFrigilianaCenterParkingItem, sharedAmaraWifiItem, sharedAmaraCoolingHeatingItem]
+      items: [sharedFrigilianaCenterArrivalItem, sharedAmaraWifiItem, sharedAmaraCoolingHeatingItem]
     },
     {
       heading: {
@@ -4139,7 +4220,7 @@ const frigilianaMahaAccommodation: GuestGuideEntry = {
         nl: 'Aankomst & Basisinfo',
         sv: 'Ankomst & Grundläggande info'
       },
-      items: [sharedFrigilianaCenterArrivalItem, sharedFrigilianaCenterParkingItem, sharedAmaraWifiItem, sharedAmaraCoolingHeatingItem]
+      items: [sharedFrigilianaCenterArrivalItem, sharedAmaraWifiItem, sharedAmaraCoolingHeatingItem]
     },
     {
       heading: {

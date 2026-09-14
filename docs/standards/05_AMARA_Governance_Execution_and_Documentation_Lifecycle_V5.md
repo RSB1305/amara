@@ -1,11 +1,11 @@
 ---
 document_id: AMARA-GOV-005
 title: AMARA Governance, Execution & Documentation Lifecycle
-version: 5.8.0
+version: 5.9.0
 status: ACTIVE
 authority_class: GOVERNING CONTRACT
 effective_from: 2026-08-14
-last_modified: 2026-08-29T06:45:33+02:00
+last_modified: 2026-09-14T09:56:51+02:00
 canonical_path: /docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md
 supersedes:
   - AMARA Governance & Execution Standard V4.2
@@ -203,7 +203,7 @@ Both checks are deterministic, cheap and performed by the implementing agent. Ne
 
 ### Parallel Traffic Check
 
-When the operator or Traffic Controller declares that parallel agent work is active, the implementing agent performs a read-only traffic check of about 30 seconds maximum before starting a new implementation task and again before integrating or pushing work.
+When the operator or Traffic Controller declares parallel agent work, or the agent observes concurrent implementation, the implementing agent performs a read-only traffic check of about 30 seconds maximum before starting a new implementation task and again before integrating or pushing work.
 
 The check is limited to:
 
@@ -220,6 +220,19 @@ The normal parallel-work sequence is:
 **30-second traffic check -> implement -> targeted validation -> local commit**
 
 Push remains centralized and batched at an intentional release point.
+
+### Mandatory task binding and pre-write gate
+
+This gate applies to **every implementation task**, including single-agent work, resumed tasks and documentation changes. It does not depend on the operator explicitly announcing parallel work.
+
+- Before the first write, record the task identity, worker, canonical absolute worktree root, Git directory, expected branch, starting HEAD and bounded file/owner scope in the task conversation. Use the established task assignment; never adopt the branch that happens to be checked out as proof of ownership. A directory called `amara-codex` or `amara-claude` is not a task assignment.
+- Immediately before every mutating tool invocation, verify the actual worktree root, Git directory, branch and HEAD against that binding. This includes file edits, formatters, commands that generate files, staging and commits. Run the check inside the same command before command-based mutations and use an explicit working directory or `git -C <expected-root>`. For a separate file-edit tool, perform a fresh check immediately before calling it and target only absolute paths inside the bound worktree. Never batch staging and committing without checking again before the commit.
+- A task's own successful commit advances its recorded expected HEAD. Any unexpected root, Git directory, branch or HEAD change is a **hard stop before further writes**. Report expected versus actual values. Do not automatically switch branches, create a replacement worktree, stash, reset, move changes, cherry-pick or redefine the binding to make the check pass. Resume only after the operator explicitly resolves the assignment.
+- Recheck the same binding when a task resumes, after a context handover, and before integration. A new turn, compacted context or a generic instruction to continue never authorizes a different worktree or branch. If the binding cannot be recovered, stay read-only until ownership is established.
+- When parallel implementation is declared **or observed**, use one dedicated branch and worktree per active task. Never share an implementation directory or commit onto another worker's branch. The primary checkout remains control/integration space; existing tasks and dirty changes are not silently adopted. Read-only inspection and an explicitly assigned rule-maintenance edit do not authorize implementation or a commit on a foreign worker's branch.
+- Before staging, inspect the working tree and index. Stage only the bound scope; before committing, verify the complete staged set and `git diff --cached --check`. Unrelated staged changes stop the commit.
+
+This is a mandatory agent execution gate. It is not, by itself, an installed Git hook, filesystem lock or technical sandbox. Do not claim technical enforcement unless an actual enforcement mechanism has been installed and verified.
 
 ### Isolated Worktrees and Central Release Integration
 
@@ -430,3 +443,4 @@ Project attachments/PDFs are not activation gates.
 | 5.6.0 | 2026-08-27T13:11:27+02:00 | Added the bounded read-only Parallel Traffic Check for declared parallel-agent work, with an overlap stop only for the same files or shared owner/contract and no expansion into builds, audits or new coordination infrastructure. | DR-EXEC-010, DR-EXEC-007 | this revision |
 | 5.7.0 | 2026-08-28T07:08:21+02:00 | Required one dedicated branch and worktree per parallel implementation task, reserved the primary `main` worktree for control/integration, added remote Codex Cloud handoff requirements and established a centralized release inventory that classifies every visible workstream before one integrated push/PR/merge. | DR-EXEC-011, DR-EXEC-010, DR-EXEC-007 | this revision |
 | 5.8.0 | 2026-08-29T06:45:33+02:00 | Made a dedicated remote branch and open pull request mandatory for every Codex Cloud implementation, prohibited manual artifact-transfer fallbacks and established standing authorization for the single handoff push/PR while retaining separate merge and deployment control. | DR-EXEC-011, DR-EXEC-006, DR-EXEC-007 | this revision |
+| 5.9.0 | 2026-09-14T09:56:51+02:00 | Required task-bound worktree, Git directory, branch and HEAD verification before every mutation and commit; unexpected identity changes stop writes without automatic reassignment. Extended isolation to observed parallel work and distinguished the agent gate from installed technical enforcement. | DR-EXEC-011 | this revision |

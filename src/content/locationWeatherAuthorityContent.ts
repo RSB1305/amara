@@ -662,7 +662,7 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
   };
   const frigilianaTableIntros: Record<AmaraLanguage, string> = {
     en: 'The table shows you how the year changes. In summer, put steep paths into the early or late hours; in winter, bring a jacket for the evening.',
-    de: 'Die Tabelle zeigt euch schnell, wie sich das Jahr verändert. Im Sommer plant ihr steile Wege früh oder spät, im Winter gehört eine Jacke für den Abend ins Gepäck.',
+    de: 'Durch Frigilianas steile Gassen spaziert es sich im Sommer morgens oder am frühen Abend besonders angenehm. An sonnigen Wintertagen eignet sich die Mittagszeit besonders gut für eine Runde durchs Dorf.',
     es: 'La tabla muestra cómo cambia el año. En verano, las cuestas se disfrutan mejor a primera o última hora; en invierno viene bien una chaqueta para la tarde.',
     nl: 'De tabel laat snel zien hoe het jaar verandert. In de zomer plan je steile wegen vroeg of laat; in de winter hoort een jas voor de avond in de koffer.',
     sv: 'Tabellen visar snabbt hur året förändras. På sommaren lägger ni branta vägar tidigt eller sent; på vintern hör en jacka för kvällen till packningen.'
@@ -782,7 +782,7 @@ export function getWeatherAuthorityContent(destination: WeatherDestination, lang
       summary: profile.summary, summaryItems: profile.summaryItems
     },
     factors: { eyebrow: lang === 'de' ? 'Lokale Klimafaktoren' : lang === 'es' ? 'Factores climáticos locales' : lang === 'nl' ? 'Lokale klimaatfactoren' : lang === 'sv' ? 'Lokala klimatfaktorer' : 'Local climate drivers', title: profile.factorsTitle, paragraphs: profile.factors, items: profile.factorItems.map((item, index) => ({ ...item, icon: factorIcons[destination][index] })) },
-    table: { ...common.table, intro: destination === 'frigiliana' ? frigilianaTableIntros[lang] : common.table.intro, sourceText: profile.sourceText },
+    table: { ...common.table, intro: destination === 'frigiliana' ? frigilianaTableIntros[lang] : destination === 'nerja' && lang === 'de' ? 'Für längere Spaziergänge sind im Sommer der Morgen und der frühe Abend besonders angenehm. Im Winter könnt ihr dafür die sonnigen Stunden mitten am Tag nutzen.' : common.table.intro, sourceText: profile.sourceText },
     seasons: { eyebrow: common.seasonEyebrow, title: common.seasonTitle, intro: common.seasonIntro, planningLabel: common.seasonPlanningLabel, items: common.seasons.map((season, index) => ({ ...season, summary: profile.seasonNotes[index] })) },
     bestTime: {
       eyebrow: destination === 'frigiliana' ? frigilianaBestTime[lang].eyebrow : common.bestEyebrow,

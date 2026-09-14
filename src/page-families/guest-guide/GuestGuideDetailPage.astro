@@ -3,6 +3,8 @@
 // all three share the same "back + intro + categorized accordion list" shape.
 import GuestGuideLayout from '../../layouts/GuestGuideLayout.astro';
 import GuestGuideAccordionItem from '../../components/guest-guide/GuestGuideAccordionItem.astro';
+import FrigilianaArrival from '../../components/guest-guide/FrigilianaArrival.astro';
+import { sharedFrigilianaCenterArrivalItem } from '../../content/guestGuideFrigiliana';
 import GuestGuideMenuItem from '../../components/guest-guide/GuestGuideMenuItem.astro';
 import GuestGuideWeatherWidget from '../../components/guest-guide/GuestGuideWeatherWidget.astro';
 import GuestGuideLanguageSwitcher from '../../components/guest-guide/GuestGuideLanguageSwitcher.astro';
@@ -98,6 +100,10 @@ const seo: AmaraAuthoringSeo = {
                   introBody={item.introBody.map((paragraph) => paragraph[lang])}
                 />
               );
+            }
+
+            if (item === sharedFrigilianaCenterArrivalItem) {
+              return <FrigilianaArrival lang={lang} />;
             }
 
             const recommendation = item.recommendationId ? buildRecommendationView(item.recommendationId, lang) : undefined;

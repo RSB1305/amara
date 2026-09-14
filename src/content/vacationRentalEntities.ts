@@ -883,14 +883,14 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     lead: {
       en: 'Playa gives you a morning walk to the sea and a bedroom away from most street noise. The apartment has a 200 × 200 cm bed, full kitchen, washing machine and a balcony with a side sea view. It is compact at 37 m²; ten steps lead to the lift.',
-      de: 'Von Playa geht ihr morgens zu Fuß ans Meer und schlaft trotzdem abseits vom meisten Straßenlärm. Das Apartment hat ein 200 × 200 cm großes Bett, voll ausgestattete Küche, Waschmaschine und einen Balkon mit seitlichem Meerblick. Mit 37 m² ist es kompakt; bis zum Aufzug führen zehn Stufen.',
+      de: 'Unser Apartment AMARA Playa liegt zentral in Nerja und zugleich ruhig zum Innenhof. Zum Strand Torrecilla geht ihr rund 200 Meter, zum Balcón de Europa etwa 500 Meter. Auf dem Balkon habt ihr seitlichen Meerblick; drinnen wartet ein 200 × 200 cm großes Bett. Eine voll ausgestattete Küche und eine Waschmaschine machen auch längere Aufenthalte bequem.',
       es: 'Playa os permite ir al mar andando por la mañana y dormir lejos de la mayor parte del ruido de la calle. El apartamento tiene una cama de 200 × 200 cm, cocina completa, lavadora y balcón con vistas laterales al mar. Con 37 m² es compacto; hay diez escalones hasta el ascensor.',
       nl: 'Vanuit Playa lopen jullie ’s ochtends naar zee en slapen toch buiten het meeste straatgeluid. Het appartement heeft een bed van 200 × 200 cm, een volledige keuken, wasmachine en balkon met zijdelings zeezicht. Met 37 m² is het compact; tot aan de lift zijn er tien treden.',
       sv: 'Från Playa går ni till havet på morgonen och sover ändå på avstånd från det mesta gatuljudet. Lägenheten har en säng på 200 × 200 cm, fullt kök, tvättmaskin och balkong med havsutsikt åt sidan. Med 37 m² är den kompakt; tio trappsteg leder fram till hissen.'
     },
     description: {
       en: 'Take a towel and walk around 200 metres to Torrecilla beach, or continue about 500 metres to the Balcón de Europa, restaurants and shops. Back at Playa, the fifth-floor position and the apartment’s set-back orientation keep most street noise at a distance.\n\nThe balcony gives you a side view towards the sea. Inside, the 200 × 200 cm bed is the largest in any AMARA stay.',
-      de: 'Nehmt ein Handtuch und geht rund 200 Meter zum Strand Torrecilla – oder etwa 500 Meter weiter zum Balcón de Europa, zu Restaurants und Geschäften. Zurück in Playa halten die Lage im fünften Stock und die nach hinten ausgerichtete Wohnung den meisten Straßenlärm auf Abstand.\n\nVom Balkon schaut ihr seitlich Richtung Meer. Drinnen steht mit 200 × 200 cm das größte Bett in einer AMARA-Unterkunft.',
+      de: 'Von unserer Wohnung erreicht ihr Torrecilla nach rund 200 Metern und den Balcón de Europa nach etwa 500 Metern zu Fuß. Restaurants und Geschäfte liegen ebenfalls in der Nähe. Zurück im Apartment genießt ihr die ruhige Lage zum Innenhof und den seitlichen Meerblick vom Balkon.',
       es: 'Coged una toalla y caminad unos 200 metros hasta la playa de Torrecilla, o seguid unos 500 metros hasta el Balcón de Europa, los restaurantes y las tiendas. De vuelta en Playa, la quinta planta y la orientación hacia la parte trasera mantienen a distancia la mayor parte del ruido de la calle.\n\nDesde el balcón tenéis vistas laterales hacia el mar. Dentro, la cama de 200 × 200 cm es la más grande de AMARA.',
       nl: 'Pak een handdoek en loop ongeveer 200 meter naar het Torrecilla-strand, of ga zo’n 500 meter verder naar het Balcón de Europa, restaurants en winkels. Terug in Playa houden de vijfde verdieping en de ligging aan de achterzijde het meeste straatgeluid op afstand.\n\nVanaf het balkon kijken jullie zijdelings richting zee. Binnen staat met 200 × 200 cm het grootste bed van alle AMARA-verblijven.',
       sv: 'Ta en handduk och gå cirka 200 meter till Torrecillastranden, eller fortsätt omkring 500 meter till Balcón de Europa, restauranger och butiker. Tillbaka i Playa håller femte våningen och läget mot husets baksida det mesta gatuljudet på avstånd.\n\nFrån balkongen ser ni mot havet från sidan. Inne står AMARAs största säng, 200 × 200 cm.'
@@ -913,7 +913,7 @@ export const vacationRentalEntities: VacationRentalEntity[] = [
     },
     accessNote: {
       en: 'Lift to the fifth floor. Before it, five steps outside the building and another five inside.',
-      de: 'Aufzug in den fünften Stock. Davor fünf Stufen vor dem Gebäude und weitere fünf im Haus.',
+      de: 'Die Wohnung hat 37 m² und liegt im fünften Stock mit Aufzug. Vor dem Aufzug liegen insgesamt zehn Stufen: fünf vor dem Gebäude und fünf im Haus.',
       es: 'Ascensor hasta la quinta planta. Antes, cinco escalones fuera del edificio y otros cinco dentro.',
       nl: 'Lift naar de vijfde verdieping. Daarvoor vijf treden buiten het gebouw en nog eens vijf binnen.',
       sv: 'Hiss till femte våningen. Dessförinnan fem trappsteg utanför huset och ytterligare fem inne.'

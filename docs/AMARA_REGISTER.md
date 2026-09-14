@@ -1,12 +1,12 @@
 ---
 document_id: AMARA-REG-001
 title: AMARA Register
-version: 1.80.0
+version: 1.81.0
 status: ACTIVE
 authority_class: LIVING BINDING REGISTER
 activation_state: ACTIVE
 effective_from: 2026-08-14
-last_modified: 2026-09-06T23:30:00+02:00
+last_modified: 2026-09-14T09:56:51+02:00
 canonical_path: /docs/AMARA_REGISTER.md
 ---
 
@@ -24,7 +24,7 @@ The AMARA Register is the single source for active documents, authority classes,
 | 02 | AMARA Astro & Design Architecture Contract | 4.26.0 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/03_AMARA_Astro_Technical_Standard_V4.md` + current repository implementation |
 | 03 | AMARA Runtime, SEO & Data Contract | 4.4.1 ACTIVE INTERIM | CONTRACT / governing | `docs/interim/04_AMARA_Runtime_and_SEO_Standard_V4.md` + current repository implementation |
 | 04 | AMARA URL, Route & Link Contract | PENDING Package 2 | CONTRACT / governing | Interim snapshot: `docs/interim/05_AMARA_URL_and_Route_Infrastructure_V4.md` (transition note 2026-09-04) + Decision Register `DR-URL-003/005`, `DR-ROUTE-003` + executable owner `src/lib/publicRouteManifest.mjs` |
-| 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.8.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
+| 05 | AMARA Governance, Execution & Documentation Lifecycle | 5.9.0 ACTIVE | CONTRACT / governing | `docs/standards/05_AMARA_Governance_Execution_and_Documentation_Lifecycle_V5.md` |
 | 06 | AMARA Performance & Delivery Standard | 2.1.0 ACTIVE INTERIM | PRINCIPLE/CONTRACT / governing | `docs/interim/07_AMARA_Performance_Standard_V2.md` |
 | 07 | AMARA Register | 1.67.0 ACTIVE | LIVING BINDING REGISTER | `docs/AMARA_REGISTER.md` |
 | 08 | AMARA Guest Utility Feature Contract | 2.11.0 ACTIVE INTERIM | FEATURE CONTRACT | `docs/interim/08_AMARA_Guest_Utility_Architecture_V2.md` |
@@ -69,7 +69,7 @@ Current operational feature owner during transition:
 | DR-EXEC-008 | Routine new SSOT information may enter an intake queue and be consolidated at `AMARA SSOT SYNC`; do not version multiple owner documents several times per day without a real urgent contract need. | APPROVED |
 | DR-EXEC-009 | After a material release batch, the area that batch actually changed may be reviewed for repeated content, renderer and presentation patterns and consolidated behaviour-preservingly, including the shared owners inside that area. The slot is bounded by the changed area; it is not an opening for repository-wide refactoring, redesign or new features, and it does not lower the Class 3 alignment requirement for contracts outside that area. | ACTIVE |
 | DR-EXEC-010 | When parallel agent work is explicitly active, a read-only traffic check of about 30 seconds maximum precedes a new implementation task and integration/push. It checks only active local worktrees, visible active remote branches/pull requests where available and operator/Traffic-Controller scopes. Same-file or same-owner/contract overlap stops the task; separate scopes proceed immediately. The check runs no builds, tests, broad audits, architecture reviews or new coordination infrastructure. | ACTIVE |
-| DR-EXEC-011 | During explicitly parallel Codex, Claude or Codex Cloud implementation, each active task owns one dedicated branch and Git worktree while the primary `main` worktree remains control/integration space. One release controller inventories local worktrees, unmerged local and visible remote branches, open pull requests and declared workstreams before push; every item is classified as included, waiting or intentionally excluded. Included committed work is integrated into one release branch from current `origin/main`, validated once and released through one push/PR/merge; unknown, dirty or unfinished work is never silently absorbed. Every Codex Cloud implementation must hand off through a dedicated remote branch and open pull request; manual patch, archive, Base64, clipboard or commit-only transfers are prohibited. Explicitly commissioning Cloud implementation authorizes that single handoff push/PR, but not merge, deployment, unrelated pushes or direct changes to `main`. Analysis-only Cloud tasks are exempt. | ACTIVE |
+| DR-EXEC-011 | Every implementation task binds its canonical worktree root, Git directory, branch, expected HEAD and bounded scope before writing, and verifies that identity immediately before every mutation, staging operation and commit. Unexpected identity changes stop writes; automatic branch switching, reassignment or transfer of work is prohibited. Resumed tasks retain the binding. This is a mandatory agent gate, not an installed technical lock. During declared or observed parallel Codex, Claude or Codex Cloud implementation, each active task owns one dedicated branch and Git worktree while the primary `main` worktree remains control/integration space. One release controller inventories local worktrees, unmerged local and visible remote branches, open pull requests and declared workstreams before push; every item is classified as included, waiting or intentionally excluded. Included committed work is integrated into one release branch from current `origin/main`, validated once and released through one push/PR/merge; unknown, dirty or unfinished work is never silently absorbed. Every Codex Cloud implementation must hand off through a dedicated remote branch and open pull request; manual patch, archive, Base64, clipboard or commit-only transfers are prohibited. Explicitly commissioning Cloud implementation authorizes that single handoff push/PR, but not merge, deployment, unrelated pushes or direct changes to `main`. Analysis-only Cloud tasks are exempt. | ACTIVE |
 | DR-GOV-001 | Conversational shorthand or a new isolated statement cannot silently supersede an ACTIVE contract; apparent conflicts trigger Reality Reconciliation and explicit contract-level confirmation. | APPROVED |
 
 ### Brand
@@ -412,3 +412,4 @@ Separate controlled workstreams remain for:
 | 1.65.0 | 2026-09-02T10:15:00+02:00 | Reduced the shared Location model to eight topics and split Daily Life into separate Supermarkets & Shopping and Health & Emergency pages for Frigiliana, Nerja and Tarifa; retired Practical & Local Rules as a navigation topic while preserving its evidence intake. | this revision |
 | 1.66.0 | 2026-09-03T18:30:00+02:00 | Added the executable section boundary gate, hardened the CSS separator guard and removed page-local outer edge rules across public page families. | this revision |
 | 1.67.0 | 2026-09-04T17:00:00+02:00 | Executed the hierarchical native-language route migration through the public route manifest, two catch-all pages and `check:route-policy`; activated DR-URL-003/004/005 and DR-ROUTE-003, superseded DR-ROUTE-001/002 and marked DR-URL-002 executed. | this revision |
+| 1.81.0 | 2026-09-14T09:56:51+02:00 | Registered Governance 5.9.0 and the mandatory task-identity pre-write gate, unexpected-identity hard stop and isolation for observed parallel work; synchronized AGENTS.md. | this revision |

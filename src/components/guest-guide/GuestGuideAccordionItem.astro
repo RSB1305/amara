@@ -88,7 +88,9 @@ const mapLabel = `${title} — Google Maps`;
     {audio && (
       <audio class="am-ios-audio" controls preload="none" src={audio.src} aria-label={audio.title}></audio>
     )}
-    {cleanedBody.map((paragraph) => <p set:html={paragraph} />)}
+    <slot name="content">
+      {cleanedBody.map((paragraph) => <p set:html={paragraph} />)}
+    </slot>
     {image && (
       <figure class="am-ios-figure">
         <AmaraImage src={image.src} alt={image.alt} profile="gallery" mediaRole="utility" />

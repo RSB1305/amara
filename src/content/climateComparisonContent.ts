@@ -130,18 +130,18 @@ export const climateComparisonContent: Partial<
     de: {
       eyebrow: 'Nerja im Vergleich',
       title: 'Warm im Sommer, mild im Winter',
-      compareLabel: 'Vergleich mit Berlin',
+      compareLabel: 'Im Vergleich zu Deutschland (Datenreferenz: Berlin)',
       summer: {
         eyebrow: 'Im Hochsommer',
-        title: 'Heißer im Schnitt — mit dem Meer vor der Tür',
-        body: 'Im Sommer ist es hier im Schnitt wärmer als in Berlin (27° zu 24°), und an Hitzetagen wird es auch im Norden heiß — Berlin bis 38°, hier bis 40°. Der Unterschied an der Küste: Das Meer ist zum **Abkühlen** direkt da. AMARA Playa liegt nur wenige Schritte vom Strand — nach dem Sprung ins Wasser sind die heißesten Stunden schnell vergessen.',
+        title: 'Das Meer vor der Tür',
+        body: 'Im Sommer könnt ihr von unserem Apartment schon morgens zum Schwimmen an die Torrecilla gehen – der Strand liegt rund 200 Meter entfernt. Für eine Pause zwischendurch seid ihr schnell wieder zu Hause.\n\nIm Vergleich zu Deutschland: im Schnitt 27°, an Hitzetagen bis 40° (Datenreferenz: Berlin, im Schnitt 24°, an Hitzetagen bis 38°).',
         linkLabel: 'AMARA Playa am Strand',
         linkToken: 'playa'
       },
       winter: {
         eyebrow: 'Im Winter',
-        title: 'Deutlich milder — und sonnig',
-        body: 'Der klarste Vorteil ist der Winter: tagsüber im Schnitt 12–13°, in Berlin um 3°. Dazu kommen die vielen **Sonnenstunden**, die den Tagen ihr mildes Licht geben. Genau deshalb lohnt sich ein längerer Aufenthalt in der ruhigen Nebensaison.',
+        title: 'Winter in Nerja im Vergleich zu Deutschland',
+        body: 'Der mildere Winter lässt euch mehr Zeit draußen verbringen: beim Spaziergang an der Küste, beim Kaffee in der Sonne oder auf dem Weg durch die Altstadt.\n\nIm Vergleich zu Deutschland: tagsüber im Schnitt 12–13° (Datenreferenz: Berlin, um 3°).',
         linkLabel: 'Winter in Nerja',
         linkToken: 'nerja_winter_stays'
       }
