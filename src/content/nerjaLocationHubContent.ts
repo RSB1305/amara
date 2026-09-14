@@ -896,7 +896,7 @@ const nerjaLocationPeopleFirstCopy = {
     experience: {
       eyebrow: 'Eure Tage',
       title: 'Morgens Strand, mittags Höhle, abends Balcón',
-      paragraphs: ['Ein Nerja-Tag braucht wenig Plan: vor dem Frühstück ins Meer, ein halber Tag in der Höhle von Nerja bei Maro, abends der Balcón, wenn die Tagesgäste weg sind und die Beleuchtung angeht. Frigiliana liegt zehn Minuten oberhalb, Granada und Málaga jeweils einen Tag entfernt.'],
+      paragraphs: ['Ein Nerja-Tag braucht wenig Plan: vor dem Frühstück ins Meer, ein halber Tag in der Höhle von Nerja bei Maro, abends der Balcón, wenn die Tagesgäste weg sind und die Beleuchtung angeht. Frigiliana liegt oberhalb von Nerja. Granada und Málaga könnt ihr jeweils bei einem Tagesausflug besuchen.'],
       links: [
         { label: 'Alle Strände in Nerja', token: 'nerja_beaches_authority' },
         { label: 'Balcón de Europa', token: 'nerja_balcon_de_europa' },

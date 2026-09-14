@@ -62,14 +62,14 @@ export const nerjaWinterStaysContent = {
     ),
     standfirst: l(
       "In winter the coast belongs to Nerja again: the promenade empties, the days by the sea are often mild and sunny, and a grey day still has somewhere to go — the Cueva de Nerja and the Museo de Nerja are open all year. Because AMARA Playa comes with heating, a full kitchen, a washing machine and the largest bed we have, the quiet weeks suit longer stays well — including working close to the sea. The beach is for walking, not for swimming: the municipal lifeguard service runs in summer only. AMARA Playa sits about 200 metres from Torrecilla beach and 500 from the Balcón de Europa. Off-season also means quieter rates; send us your dates and we will check current opening hours before you arrive.",
-      "Im Winter gehört die Küste wieder Nerja: Die Promenade leert sich, die Tage am Meer sind oft mild und sonnig, und ein grauer Tag hat trotzdem ein Ziel – die Cueva de Nerja und das Museo de Nerja sind ganzjährig geöffnet. Weil AMARA Playa Heizung, voll ausgestattete Küche, Waschmaschine und unser größtes Bett hat, taugen die ruhigen Wochen gut für längere Aufenthalte – auch zum Arbeiten nah am Meer. Der Strand ist zum Gehen da, nicht zum Baden: Der städtische Wachdienst läuft nur im Sommer. AMARA Playa liegt rund 200 Meter vom Strand Torrecilla und 500 Meter vom Balcón de Europa. Nebensaison heißt auch ruhigere Raten; schickt uns eure Reisedaten, dann prüfen wir vorab die aktuellen Öffnungszeiten.",
+      "Im Winter ist an Nerjas Küste mehr Ruhe. Ihr könnt an Torrecilla spazieren gehen, in der Sonne sitzen und durch die Altstadt zum Balcón de Europa schlendern. Von unserem Apartment erreicht ihr Strand und Zentrum bequem zu Fuß.",
       "En invierno la costa vuelve a ser de Nerja: el paseo marítimo se vacía, los días junto al mar suelen ser suaves y soleados, y un día gris también tiene destino: la Cueva de Nerja y el Museo de Nerja abren todo el año. Como AMARA Playa tiene calefacción, cocina completa, lavadora y nuestra cama más grande, las semanas tranquilas se prestan a estancias largas, también para trabajar cerca del mar. La playa es para caminar, no para bañarse: el servicio municipal de socorrismo funciona solo en verano. AMARA Playa está a unos 200 metros de la playa de Torrecilla y a 500 del Balcón de Europa. La temporada baja también significa tarifas más tranquilas; escribidnos vuestras fechas y comprobamos los horarios actuales antes de que lleguéis.",
       "In de winter is de kust weer van Nerja: de boulevard loopt leeg, de dagen aan zee zijn vaak mild en zonnig, en ook een grijze dag heeft een bestemming — de Cueva de Nerja en het Museo de Nerja zijn het hele jaar open. Omdat AMARA Playa verwarming, een volledige keuken, een wasmachine en ons grootste bed heeft, lenen de rustige weken zich goed voor langere verblijven — ook om dicht bij zee te werken. Het strand is om te wandelen, niet om te zwemmen: de gemeentelijke strandwacht draait alleen in de zomer. AMARA Playa ligt op ongeveer 200 meter van het Torrecilla-strand en 500 meter van het Balcón de Europa. Laagseizoen betekent ook rustigere tarieven; stuur ons jullie data, dan checken we vooraf de actuele openingstijden.",
       "På vintern tillhör kusten åter Nerja: strandpromenaden töms, dagarna vid havet är ofta milda och soliga, och även en grå dag har ett mål – Cueva de Nerja och Museo de Nerja har öppet året runt. Eftersom AMARA Playa har värme, fullt utrustat kök, tvättmaskin och vår största säng passar de lugna veckorna bra för längre vistelser – även för att arbeta nära havet. Stranden är till för promenader, inte för bad: den kommunala livräddartjänsten går bara på sommaren. AMARA Playa ligger cirka 200 meter från Torrecillastranden och 500 meter från Balcón de Europa. Lågsäsong betyder också lugnare priser; skicka era datum, så kontrollerar vi aktuella öppettider innan ni kommer."
     ),
     note: l(
       "If one detail decides it for you, ask us before you book. We know the apartment.",
-      "Wenn ein Detail für euch den Ausschlag gibt, fragt uns vor der Buchung. Wir kennen die Wohnung.",
+      "Schickt uns eure Reisedaten und die gewünschte Aufenthaltsdauer. Wir nennen euch den Preis für euren Aufenthalt in AMARA Playa.",
       "Si hay un detalle que os decide, preguntadnos antes de reservar. Conocemos el apartamento.",
       "Als één detail de doorslag geeft, vraag het ons vóór het boeken. We kennen het appartement.",
       "Om en detalj avgör för er, fråga oss innan ni bokar. Vi känner lägenheten."
@@ -122,7 +122,7 @@ export const nerjaWinterStaysContent = {
         ),
         l(
           "What is not there in winter is the lifeguard. **Nerja's municipal beach surveillance runs as a summer service**, so outside the season the beach is unsupervised. It is a place to walk, not to swim.",
-          "Was im Winter fehlt, ist die Strandwache. **Der städtische Wachdienst in Nerja ist ein Sommerservice**; außerhalb der Saison ist der Strand unbeaufsichtigt. Er ist zum Spazieren da, nicht zum Baden.",
+          "Von unserem Apartment erreicht ihr Strand und Zentrum bequem zu Fuß.",
           "Lo que no hay en invierno es socorrista. **La vigilancia municipal de playas de Nerja funciona como servicio de verano**, así que fuera de temporada la playa no está supervisada. Es sitio para pasear, no para bañarse.",
           "Wat er in de winter niet is, is de strandwacht. **De gemeentelijke strandbewaking van Nerja draait als zomerdienst**, dus buiten het seizoen is het strand onbewaakt. Het is een plek om te wandelen, niet om te zwemmen.",
           "Det som saknas på vintern är livräddaren. **Nerjas kommunala strandbevakning är en sommartjänst**, så utanför säsong är stranden obevakad. Den är till för promenader, inte för bad."
@@ -188,7 +188,7 @@ export const nerjaWinterStaysContent = {
       eyebrow: l("Everyday life", "Alltag", "Día a día", "Dagelijks leven", "Vardag"),
       title: l(
         "Staying longer means cooking for yourselves",
-        "Länger bleiben heißt: selbst kochen",
+        "Eine eigene Küche für längere Aufenthalte",
         "Quedarse más tiempo significa cocinar",
         "Langer blijven betekent zelf koken",
         "Att stanna längre betyder att laga mat själva"
@@ -203,7 +203,7 @@ export const nerjaWinterStaysContent = {
         ),
         l(
           "In winter that mix works well: eat out when the evening invites it, cook at home when it does not. **From eight nights a direct booking includes one cleaning around the middle of the stay.**",
-          "Im Winter passt diese Mischung gut: essen gehen, wenn der Abend danach ist, und zu Hause kochen, wenn nicht. **Ab acht Nächten ist bei Direktbuchung eine Reinigung zur Mitte des Aufenthalts dabei.**",
+          "Morgens auf dem Balkon frühstücken, abends selbst kochen oder in Nerja essen gehen: In unserer Wohnung könnt ihr euren Tag so gestalten, wie es euch gefällt. Die Küche ist voll ausgestattet, Einkaufsmöglichkeiten und Restaurants liegen in der Nähe. **Ab acht Nächten ist bei Direktbuchung eine Reinigung zur Mitte des Aufenthalts dabei.**",
           "En invierno esa mezcla funciona bien: salir a cenar cuando apetece y cocinar en casa cuando no. **A partir de ocho noches, la reserva directa incluye una limpieza a mitad de estancia.**",
           "In de winter werkt die mix goed: uit eten als de avond ernaar is, thuis koken als dat niet zo is. **Vanaf acht nachten hoort bij een directe boeking één schoonmaak halverwege het verblijf.**",
           "På vintern fungerar den mixen bra: ät ute när kvällen inbjuder till det, laga hemma när den inte gör det. **Från åtta nätter ingår en städning mitt i vistelsen vid direktbokning.**"
@@ -212,10 +212,10 @@ export const nerjaWinterStaysContent = {
     },
     {
       id: "what-winter-is-not",
-      eyebrow: l("Honestly", "Ehrlich gesagt", "Con franqueza", "Eerlijk gezegd", "Ärligt talat"),
+      eyebrow: l("Honestly", "Länger bleiben", "Con franqueza", "Eerlijk gezegd", "Ärligt talat"),
       title: l(
         "What winter here is, and what it is not",
-        "Was der Winter hier ist — und was nicht",
+        "Zeit für einen längeren Aufenthalt",
         "Qué es aquí el invierno y qué no",
         "Wat de winter hier is en wat niet",
         "Vad vintern här är och inte är"
@@ -223,14 +223,14 @@ export const nerjaWinterStaysContent = {
       paragraphs: [
         l(
           "Conditions change from day to day, and sea and beach services follow the season rather than the calendar you are looking at. Nothing here is a forecast.",
-          "Die Bedingungen wechseln von Tag zu Tag, und Meer wie Strandservices richten sich nach der Saison, nicht nach dem Kalender, in den ihr gerade schaut. Nichts hiervon ist eine Vorhersage.",
+          "Für einen längeren Aufenthalt bietet euch AMARA Playa viel Unabhängigkeit: eine eigene Küche, Waschmaschine und Heizung.",
           "Las condiciones cambian de un día a otro, y el mar y los servicios de playa siguen la temporada, no el calendario que estáis mirando. Nada de esto es una previsión.",
           "De omstandigheden wisselen per dag, en zee en stranddiensten volgen het seizoen, niet de kalender waar jullie nu naar kijken. Niets hiervan is een verwachting.",
           "Förhållandena växlar från dag till dag, och havet och strandtjänsterna följer säsongen snarare än kalendern ni tittar i. Inget av det här är en prognos."
         ),
         l(
           "**What stays: light, the coast and a town that keeps working through the winter.** What is missing: beach days like the ones in July.",
-          "**Was bleibt: Licht, die Küste und eine Stadt, die auch im Winter weiterarbeitet.** Was fehlt: Strandtage wie im Juli.",
+          "Das Meer ist nur einen kurzen Spaziergang entfernt.",
           "**Lo que queda: luz, la costa y un pueblo que sigue funcionando en invierno.** Lo que falta: días de playa como los de julio.",
           "**Wat blijft: licht, de kust en een stad die ook in de winter doorwerkt.** Wat ontbreekt: stranddagen zoals in juli.",
           "**Det som finns kvar: ljuset, kusten och en stad som fortsätter fungera på vintern.** Det som saknas: stranddagar som i juli."

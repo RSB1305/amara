@@ -87,12 +87,12 @@ const de: WhereToStayCopy = {
   },
   verdict: {
     eyebrow: 'Darum sind wir hier',
-    title: 'Strand vor der Tür — und trotzdem mittendrin',
+    title: 'Zentral wohnen, ruhig zum Innenhof',
     caption: 'Torrecilla liegt am Fuß der Altstadt: Stadtstrand direkt, der Balcón de Europa nur wenige Minuten entfernt.',
     mapNote: '(siehe Orientierungskarte oben)',
-    lead: 'In Nerja muss man sich oft entscheiden: Strand *oder* Zentrum, Nähe *oder* Ruhe. **AMARA Playa liegt in Torrecilla** — am Fuß der Altstadt, mit dem Stadtstrand direkt vor der Tür und nur rund fünf Minuten zu Fuß zum Balcón de Europa und den Restaurants. Dabei ruhiger als die Altstadt selbst.',
-    facts: ['**Stadtstrand Torrecilla** direkt vor der Tür', '**5 Minuten** zu Fuß zum Balcón de Europa und den Tapas', '**Ruhiger** als die belebte Altstadt — ohne den Weg mit dem Auto'],
-    honest: 'Ehrlich bleibt: den größten, entspanntesten Strandtag habt ihr an Burriana; wer Ruhe und Raum über Nähe stellt, ist am Hang besser aufgehoben. Für Strand und Zentrum in einem ist Torrecilla genau richtig.'
+    lead: 'In unserem Apartment AMARA Playa verbindet ihr kurze Wege mit einer ruhigen Wohnung: rund 200 Meter zur Torrecilla und etwa 500 Meter zum Balcón de Europa.',
+    facts: ['**Stadtstrand Torrecilla** direkt vor der Tür', '**5 Minuten** zu Fuß zum Balcón de Europa und den Tapas', '**Ruhig zum Innenhof**'],
+    honest: 'Auf dem Balkon habt ihr seitlichen Meerblick. Das 200 × 200 cm große Bett bietet viel Platz für euch beide.'
   }
 };
 

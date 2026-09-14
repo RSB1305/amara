@@ -91,7 +91,7 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
         sv: 'När havet är varmt nog att bada i'
       },
       body: {
-        de: 'Das Mittelmeer vor Andalusien, das Alborán-Meer, ist durch Atlantikströmungen kühler als etwa vor Mallorca. Angenehm zum Baden wird es meist **erst ab Mitte bis Ende Juni** und bleibt dann bis in den späten Oktober warm. Im Frühjahr fühlt sich die Luft oft schon sommerlich an, während das Wasser noch frisch ist.',
+        de: 'Sommer und Frühherbst bieten viel Zeit zum Baden in Nerjas Buchten. Am wärmsten ist das Meer meist von Juli bis September; im Frühjahr ist das Wasser noch frisch.',
         en: 'The Mediterranean off Andalusia — the Alborán Sea — is cooler than, say, Mallorca, because Atlantic currents feed it. It usually turns pleasant for swimming **only from mid to late June** and then stays warm into late October. In spring the air can already feel like summer while the water is still fresh.',
         nl: 'De Middellandse Zee voor Andalusië — de Alboránzee — is koeler dan bijvoorbeeld bij Mallorca, doordat Atlantische stromingen haar voeden. Aangenaam om te zwemmen wordt het meestal **pas van half tot eind juni** en dan blijft het warm tot laat in oktober. In het voorjaar voelt de lucht vaak al zomers terwijl het water nog fris is.',
         sv: 'Medelhavet utanför Andalusien — Alboránsjön — är svalare än till exempel vid Mallorca, eftersom atlantiska strömmar matar det. Det blir behagligt att bada i oftast **först från mitten till slutet av juni** och håller sig sedan varmt in i sena oktober. På våren känns luften ofta redan sommarlik medan vattnet ännu är friskt.'
@@ -319,7 +319,7 @@ export const weatherConnections: Partial<Record<WeatherConnectionDestination, We
         sv: 'När havet är varmt nog att bada i'
       },
       body: {
-        de: 'Der Strand liegt hier direkt vor der Tür — aber das Alborán-Meer ist durch Atlantikströmungen kühler als etwa vor Mallorca. Angenehm zum Baden wird es meist **erst ab Mitte bis Ende Juni** und bleibt dann bis in den späten Oktober warm. Im Frühjahr fühlt sich die Luft oft schon sommerlich an, während das Wasser noch frisch ist.',
+        de: 'Sommer und Frühherbst bieten viel Zeit zum Baden in Nerjas Buchten. Am wärmsten ist das Meer meist von Juli bis September; im Frühjahr ist das Wasser noch frisch. Von unserem Apartment sind es rund 200 Meter zur Torrecilla.',
         en: 'The beach is right on the doorstep here — but the Alborán Sea is cooler than, say, Mallorca, fed by Atlantic currents. It usually turns pleasant for swimming **only from mid to late June** and then stays warm into late October. In spring the air can already feel like summer while the water is still fresh.',
         nl: 'Het strand ligt hier vlak voor de deur — maar de Alboránzee is door Atlantische stromingen koeler dan bijvoorbeeld bij Mallorca. Aangenaam om te zwemmen wordt het meestal **pas van half tot eind juni** en dan blijft het warm tot laat in oktober. In het voorjaar voelt de lucht vaak al zomers terwijl het water nog fris is.',
         sv: 'Stranden ligger här precis utanför dörren — men Alboránsjön är genom atlantiska strömmar svalare än till exempel vid Mallorca. Behagligt att bada i blir det oftast **först från mitten till slutet av juni** och håller sig sedan varmt in i sena oktober. På våren känns luften ofta redan sommarlik medan vattnet ännu är friskt.'

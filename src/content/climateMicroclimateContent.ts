@@ -46,7 +46,7 @@ export const climateMicroclimateContent: Partial<
       },
       winter: {
         label: 'Im Winter',
-        body: 'Andalusien im Winter wird unterschätzt: Nachts wird es klamm, und am Berg fängt Frigiliana früher Nebel und kühle Luft als die geschützte Küste. Genau dafür hat **jede AMARA-Wohnung eine Heizung** — mittags im T-Shirt auf der Terrasse, abends drinnen warm.'
+        body: 'Nach einem Tag im Dorf könnt ihr es euch bei uns gemütlich machen. Alle vier Unterkünfte haben Heizung und Fußbodenheizung im Bad; in Lounis, Zaid und Maha sorgt zusätzlich ein Pelletofen für Wärme.'
       },
       links: [
         { label: 'Heizung & Ausstattung', token: 'amenities' },
@@ -134,11 +134,11 @@ export const climateMicroclimateContent: Partial<
       intro: 'Nerja liegt direkt an der Küste, Frigiliana rund 300 Meter höher am Hang. Luftlinie sind es kaum sechs Kilometer, und doch fühlt sich das Klima anders an. Das sind keine Messwerte einer Wetterstation, sondern was wir hier tagtäglich erleben.',
       summer: {
         label: 'Im Sommer',
-        body: 'Unten an der Küste ist die Sommerhitze feuchter und hält abends länger als oben im Dorf, wo ein Lüftchen den Hang herunterkommt. Der große Vorteil an der Küste: Die Abkühlung liegt direkt vor der Tür — ein Sprung ins Meer, und die heißesten Stunden sind vergessen. An schwülen Tagen fühlen sich 30 Grad an wie 35, und die Wärme hält bis in die Nacht — dann nimmt die **Klimaanlage** im Schlafzimmer die Schwüle heraus.'
+        body: 'Im Sommer könnt ihr von unserem Apartment schon morgens zum Schwimmen an die Torrecilla gehen – der Strand liegt rund 200 Meter entfernt. Für eine Pause zwischendurch seid ihr schnell wieder zu Hause. Die Klimaanlage sorgt in der Wohnung für angenehme Temperaturen.'
       },
       winter: {
         label: 'Im Winter',
-        body: 'Andalusien im Winter wird unterschätzt: Nachts wird es klamm. Direkt am Meer bleibt Nerja meist eine Idee milder und windgeschützter als der Berg, warm wird es aber nur drinnen. Deshalb hat **jede AMARA-Wohnung eine Heizung** — tagsüber auf der Terrasse, abends drinnen behaglich.'
+        body: 'Ein Spaziergang am Meer, danach ein gemütlicher Abend in unserer Wohnung: Auch dafür eignet sich der Winter in Nerja. In AMARA Playa sorgt die Klimaanlage mit Heizfunktion für angenehme Wärme.'
       },
       links: [
         { label: 'Heizung & Ausstattung', token: 'amenities' },

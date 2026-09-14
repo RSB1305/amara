@@ -321,7 +321,7 @@ export const nerjaLocationCopy = {
         attribute: localized('Evenings', 'Abends', 'Las tardes', 'De avonden', 'Kvällarna'),
         ours: localized(
           'The fifth floor and the set-back rooms keep most of the street noise at a distance. The Balcón is around five hundred metres on foot.',
-          'Der fünfte Stock und die nach hinten ausgerichtete Wohnung halten den meisten Straßenlärm auf Abstand. Zum Balcón sind es rund fünfhundert Meter zu Fuß.',
+          'Die Wohnung liegt zentral in Nerja und ruhig zum Innenhof. Zum Balcón sind es rund fünfhundert Meter zu Fuß.',
           'La quinta planta y la orientación hacia la parte trasera dejan a distancia la mayor parte del ruido de la calle. Hasta el Balcón hay unos quinientos metros a pie.',
           'De vijfde verdieping en de ligging aan de achterzijde houden het meeste straatgeluid op afstand. Naar het Balcón is het zo’n vijfhonderd meter lopen.',
           'Femte våningen och läget mot husets baksida håller det mesta gatuljudet på avstånd. Till Balcón är det ungefär femhundra meter till fots.'

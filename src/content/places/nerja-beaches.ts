@@ -27,7 +27,7 @@ export const nerjaBeachPlaceCopy = definePlaceCopy({
       },
       goodToKnow: {
         en: "We often choose Carabeíllo for a quiet afternoon swim for two. Early in the day it can feel surprisingly private; once the limited space fills, that intimacy disappears quickly.",
-        de: "Wir kommen gern für eine ruhige Schwimmrunde zu zweit hierher. Früh am Tag wirkt Carabeíllo überraschend privat; sobald der begrenzte Platz voll wird, verschwindet genau dieser Reiz schnell.",
+        de: "Carabeíllo ist eine kleine Bucht zwischen Burriana und Nerjas Zentrum.",
         es: "Solemos elegir Carabeíllo para nadar tranquilos en pareja. A primera hora puede parecer casi privada; cuando se llena su espacio reducido, pierde rápidamente esa intimidad.",
         nl: "Wij kiezen Carabeíllo graag voor een rustige zwembeurt met z’n tweeën. Vroeg op de dag voelt de baai verrassend privé; zodra de beperkte ruimte volloopt, verdwijnt die intimiteit snel.",
         sv: "Vi väljer gärna Carabeíllo för en lugn simtur på tu man hand. Tidigt kan viken kännas förvånansvärt privat; när den begränsade ytan fylls försvinner den känslan snabbt."
