@@ -309,10 +309,10 @@ export function flattenGroupLinks(group: ResolvedSitemapGroup): { name: string; 
 --------------------------------------------------------------------------- */
 export const sitemapHero: Record<AmaraLanguage, { eyebrow: string; title: string; lead: string }> = {
   de: { eyebrow: 'Alles auf einen Blick', title: 'Seitenübersicht', lead: 'Jede Seite unserer Website, nach Orten und Themen geordnet — damit ihr schnell findet, was ihr sucht.' },
-  en: { eyebrow: 'Everything at a glance', title: 'Site map', lead: 'Every page on our website, arranged by place and topic — so you find what you are looking for quickly.' },
-  es: { eyebrow: 'Todo de un vistazo', title: 'Mapa del sitio', lead: 'Todas las páginas de nuestra web, ordenadas por lugar y tema, para que encuentres rápido lo que buscas.' },
-  nl: { eyebrow: 'Alles in één oogopslag', title: 'Sitemap', lead: 'Elke pagina van onze website, geordend op plaats en thema — zodat je snel vindt wat je zoekt.' },
-  sv: { eyebrow: 'Allt på ett ställe', title: 'Webbplatskarta', lead: 'Alla sidor på vår webbplats, ordnade efter plats och tema — så att du snabbt hittar det du söker.' }
+  en: { eyebrow: 'Everything at a glance', title: 'All pages', lead: 'Every page on our website, arranged by place and topic — so you find what you are looking for quickly.' },
+  es: { eyebrow: 'Todo de un vistazo', title: 'Todas las páginas', lead: 'Todas las páginas de nuestra web, ordenadas por lugar y tema, para que encuentres rápido lo que buscas.' },
+  nl: { eyebrow: 'Alles in één oogopslag', title: "Alle pagina's", lead: 'Elke pagina van onze website, geordend op plaats en thema — zodat je snel vindt wat je zoekt.' },
+  sv: { eyebrow: 'Allt på ett ställe', title: 'Alla sidor', lead: 'Alla sidor på vår webbplats, ordnade efter plats och tema — så att du snabbt hittar det du söker.' }
 };
 
 export const sitemapPagesLabel: Record<AmaraLanguage, (count: number) => string> = {
@@ -337,9 +337,9 @@ export const sitemapSeo: AmaraAuthoringSeo = {
   entityKey: 'amara-brand',
   languages: {
     de: { title: 'Seitenübersicht – AMARA', description: 'Alle Seiten von AMARA auf einen Blick: Unterkünfte, Frigiliana, Nerja, Tarifa und der Gästeguide.', robots: 'index, follow', canonical: 'auto' },
-    en: { title: 'Site map – AMARA', description: 'Every AMARA page at a glance: stays, Frigiliana, Nerja, Tarifa and the Guest Guide.', robots: 'index, follow', canonical: 'auto' },
-    es: { title: 'Mapa del sitio – AMARA', description: 'Todas las páginas de AMARA de un vistazo: alojamientos, Frigiliana, Nerja, Tarifa y la guía del huésped.', robots: 'index, follow', canonical: 'auto' },
-    nl: { title: 'Sitemap – AMARA', description: "Alle AMARA-pagina's in één overzicht: verblijven, Frigiliana, Nerja, Tarifa en de gastengids.", robots: 'index, follow', canonical: 'auto' },
-    sv: { title: 'Webbplatskarta – AMARA', description: 'Alla AMARA-sidor på ett ställe: boenden, Frigiliana, Nerja, Tarifa och gästguiden.', robots: 'index, follow', canonical: 'auto' }
+    en: { title: 'All pages – AMARA', description: 'Every AMARA page at a glance: stays, Frigiliana, Nerja, Tarifa and the Guest Guide.', robots: 'index, follow', canonical: 'auto' },
+    es: { title: 'Todas las páginas – AMARA', description: 'Todas las páginas de AMARA de un vistazo: alojamientos, Frigiliana, Nerja, Tarifa y la guía del huésped.', robots: 'index, follow', canonical: 'auto' },
+    nl: { title: "Alle pagina's – AMARA", description: "Alle AMARA-pagina's in één overzicht: verblijven, Frigiliana, Nerja, Tarifa en de gastengids.", robots: 'index, follow', canonical: 'auto' },
+    sv: { title: 'Alla sidor – AMARA', description: 'Alla AMARA-sidor på ett ställe: boenden, Frigiliana, Nerja, Tarifa och gästguiden.', robots: 'index, follow', canonical: 'auto' }
   }
 };
