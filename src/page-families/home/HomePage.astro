@@ -245,15 +245,15 @@ const directHref = resolveOptionalLink('direct_booking_benefits', currentLang, {
 const honeymoonHref = resolveOptionalLink('honeymoon', currentLang, { suppressMissing: true });
 const hostAboutHref = resolveOptionalLink('about', currentLang, { suppressMissing: true });
 
-// The home page already presents every apartment above the footer, so the
-// generic stays-collection link is redundant here. We replace only the first
-// footer highlight with the whole-house option (Casa AMARA for 4–8), which the
-// page does not otherwise surface; the remaining three keep the shared defaults.
+// The home page already presents every apartment and its comfort story above
+// the footer, so it needs neither the stays-collection nor the amenities link
+// here. The home footer is a curated trio: guest reviews, direct-booking
+// benefits, and the whole-house option (Casa AMARA for 4–8) that the page does
+// not otherwise surface.
 const homeFooterHighlights: { token: LinkToken; label: string }[] = [
-  { token: 'casa_amara_groups', label: vacationRentalUi.groupStay[currentLang] },
-  { token: 'amenities', label: trustLabels.amenities[currentLang] },
   { token: 'reviews_hub', label: trustLabels.reviews_hub[currentLang] },
-  { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits[currentLang] }
+  { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits[currentLang] },
+  { token: 'casa_amara_groups', label: vacationRentalUi.groupStay[currentLang] }
 ];
 
 /**
