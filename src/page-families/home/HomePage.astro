@@ -7,9 +7,8 @@ import { createAmaraImage } from '../../lib/images/amaraImageProfiles';
 import { resolveOptionalLink, type LinkToken } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraAuthoringSeo, AmaraLanguage } from '../../types/seo';
-import { resolveLocale } from '../../types/content';
 import { trustLabels } from '../../content/trustLabels';
-import { casaAmaraGroupsContent } from '../../content/casaAmaraGroupsContent';
+import { ui as vacationRentalUi } from '../../content/vacationRentalPageContent';
 import {
   formatVacationRentalFromPrice,
   vacationRentalEntitiesByToken
@@ -251,7 +250,7 @@ const hostAboutHref = resolveOptionalLink('about', currentLang, { suppressMissin
 // footer highlight with the whole-house option (Casa AMARA for 4–8), which the
 // page does not otherwise surface; the remaining three keep the shared defaults.
 const homeFooterHighlights: { token: LinkToken; label: string }[] = [
-  { token: 'casa_amara_groups', label: resolveLocale(casaAmaraGroupsContent, currentLang).footer.groups },
+  { token: 'casa_amara_groups', label: vacationRentalUi.groupStay[currentLang] },
   { token: 'amenities', label: trustLabels.amenities[currentLang] },
   { token: 'reviews_hub', label: trustLabels.reviews_hub[currentLang] },
   { token: 'direct_booking_benefits', label: trustLabels.direct_booking_benefits[currentLang] }
