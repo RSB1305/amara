@@ -151,6 +151,19 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
           <AmaraActionLink href={content.today.windguru.linkHref} variant="secondary" inverse external class="mt-7 inline-flex">{content.today.windguru.linkLabel}</AmaraActionLink>
         </figure>
 
+        {/* Marks Praxis-Blick auf denselben Morgen — wie er den echten Tag jenseits der App liest. Als eingewobene Erststimme direkt neben dem Werkzeug, das sie kommentiert, statt in einem Zitat-Block am Seitenende */}
+        <KiteVoice
+          id={content.wind.markReading.id}
+          name={content.wind.mark.name}
+          role={content.wind.mark.role}
+          lead={content.wind.markReading.lead}
+          paragraphs={content.wind.markReading.paragraphs}
+          imageSrc={markImage.src}
+          imageAlt={markImage.alt}
+          focalPoint="50% 25%"
+          class="mt-10"
+        />
+
         {/* DIE TABELLE LESEN — aufklappbar direkt unter dem Windguru-Bild: Beispieltag, Zeilen unter denselben Nummern, Modelle, Beaufort */}
         <details id="tabelle" class="group mt-6 bg-surface px-6 py-6 outline-none md:px-8" data-am-wind-chapter="1" data-am-table-detail>
           <summary class="am-accordion__trigger items-center">
@@ -321,18 +334,11 @@ const calloutClass = 'am-text-label am-text-label--sm mr-2.5 inline-grid h-5 w-5
           <p class="am-text-body max-w-3xl leading-relaxed text-on-surface-variant lg:col-span-7 lg:self-end"><InlineEmphasis text={content.wind.intro} /></p>
         </div>
 
-        <div class="mt-16 grid gap-6 lg:grid-cols-12 lg:gap-20" data-am-wind-recognize>
-          <h3 class="am-text-subtitle max-w-md text-balance text-on-surface lg:col-span-5">{content.wind.recognizeTitle}</h3>
-          <div class="space-y-5 lg:col-span-7">
-            <KiteVoice id="robert-morning" name={content.wind.robert.name} role={content.wind.robert.role} paragraphs={content.wind.robertMorning} imageSrc={robertPortrait} imageAlt={content.wind.robert.imageAlt} tone="on-white" />
-            <KiteVoice id={content.wind.markReading.id} name={content.wind.mark.name} role={content.wind.mark.role} lead={content.wind.markReading.lead} paragraphs={content.wind.markReading.paragraphs} imageSrc={markImage.src} imageAlt={markImage.alt} focalPoint="50% 25%" tone="on-white" />
-          </div>
-        </div>
-
-        <div class="mt-16 grid gap-6 lg:grid-cols-12 lg:gap-20" data-am-wind-experience>
-          <h3 class="am-text-subtitle max-w-md text-balance text-on-surface lg:col-span-5">{content.wind.experienceTitle}</h3>
-          <div class="lg:col-span-7">
-            <KiteVoice id="robert-experience" name={content.wind.robert.name} role={content.wind.robert.role} paragraphs={content.wind.robertExperience} imageSrc={robertPortrait} imageAlt={content.wind.robert.imageAlt} tone="on-white" />
+        {/* Roberts Erststimmen eingewoben in den Fließtext des Kapitels statt in einem Zitat-Block: der Morgen-Blick und das, was Tarifa für ihn ausmacht, in der Lesespalte unter dem Intro — ohne Kasten, ohne Zwischenüberschrift. Marks Lese-Stimme steht jetzt im Kapitel „Heute" neben der Tabelle. */}
+        <div class="mt-10 grid gap-8 lg:grid-cols-12 lg:gap-20">
+          <div class="space-y-10 lg:col-span-7 lg:col-start-6">
+            <KiteVoice id="robert-morning" name={content.wind.robert.name} role={content.wind.robert.role} paragraphs={content.wind.robertMorning} imageSrc={robertPortrait} imageAlt={content.wind.robert.imageAlt} />
+            <KiteVoice id="robert-experience" name={content.wind.robert.name} role={content.wind.robert.role} paragraphs={content.wind.robertExperience} imageSrc={robertPortrait} imageAlt={content.wind.robert.imageAlt} />
           </div>
         </div>
 
