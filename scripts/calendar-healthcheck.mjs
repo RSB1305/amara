@@ -17,9 +17,32 @@
 // the Lodgify->Cloudflare cutover).
 
 const ORIGIN = (process.env.CALENDAR_HEALTHCHECK_ORIGIN || 'https://amara-staging.pages.dev').replace(/\/$/, '');
+const MODE = (process.env.CALENDAR_HEALTHCHECK_MODE || 'full').toLowerCase(); // 'full' | 'heartbeat'
 const REQUEST_TIMEOUT_MS = 15_000;
-const CONCURRENCY = 6;
+const CONCURRENCY = 4;
 const DAY_MS = 86_400_000;
+
+// Lodgify allows ~100 requests/minute, shared account-wide across every guest
+// calendar open, results search and quote. This check must never eat that budget,
+// so it paces itself to a reserved slice (default 40/min) and leaves the rest for
+// real guests. Each search-calendar request fans out on the server to availability
+// + rates per candidate stay, so cost is counted in those Lodgify units.
+const MAX_LODGIFY_RPM = Number(process.env.CALENDAR_HEALTHCHECK_MAX_LODGIFY_RPM || 40);
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+// Token bucket: MAX_LODGIFY_RPM tokens refill per minute; each Lodgify-costing
+// action waits for enough tokens before it is dispatched.
+let rateTokens = MAX_LODGIFY_RPM;
+let rateLast = Date.now();
+async function reserveLodgify(cost) {
+  for (;;) {
+    const now = Date.now();
+    rateTokens = Math.min(MAX_LODGIFY_RPM, rateTokens + ((now - rateLast) / 60_000) * MAX_LODGIFY_RPM);
+    rateLast = now;
+    if (rateTokens >= cost) { rateTokens -= cost; return; }
+    await sleep(Math.ceil(((cost - rateTokens) / MAX_LODGIFY_RPM) * 60_000));
+  }
+}
 
 const isoDay = (date) => date.toISOString().slice(0, 10);
 const fromToday = (days) => {
@@ -85,6 +108,10 @@ const candidatesFor = (destination, guests) => SEARCH_STAYS
   .filter((candidate) => (destination === 'all' || candidate.destination === destination) && candidate.capacity >= guests)
   .map((candidate) => candidate.stay);
 
+// Server-side Lodgify calls a search-calendar request triggers: availability +
+// rates per candidate stay. Zero candidates still hits the gateway once.
+const lodgifyCost = (destination, guests) => candidatesFor(destination, guests).length * 2 || 1;
+
 async function getJson(path) {
   for (let attempt = 0; attempt < 2; attempt += 1) {
     try {
@@ -103,6 +130,7 @@ async function getJson(path) {
 }
 
 async function stayHasPrices(stay, start, end) {
+  await reserveLodgify(1);
   const { status, payload } = await getJson(`/api/booking/rates?stay=${stay}&start=${start}&end=${end}`);
   return status === 200 && Array.isArray(payload?.days)
     && payload.days.some((day) => Array.isArray(day.options) && day.options.length > 0);
@@ -110,6 +138,7 @@ async function stayHasPrices(stay, start, end) {
 
 async function runScenario(scenario) {
   const { destination, guests, start, end } = scenario;
+  await reserveLodgify(lodgifyCost(destination, guests));
   const { status, payload, error } = await getJson(
     `/api/booking/search-calendar?destination=${destination}&guests=${guests}&start=${start}&end=${end}`
   );
@@ -137,6 +166,16 @@ function buildScenarios() {
     destination, guests, start: fromToday(startOffset), end: fromToday(startOffset + length),
     label: `${destination} g${guests} +${startOffset}..+${startOffset + length}`
   });
+
+  // Heartbeat: a broad probe (every stay via "all") plus the two single-stay
+  // destinations, enough to catch any live outage within one run at minimal
+  // Lodgify cost (~16 calls). Meant to run frequently between the daily deep runs.
+  if (MODE === 'heartbeat') {
+    add('all', 2, 1, 30);
+    add('nerja', 2, 1, 30);
+    add('tarifa', 2, 1, 30);
+    return scenarios;
+  }
 
   // Sweep the default "all" view across the whole booking horizon so a
   // date-specific defect (like the historical 20/21 Sep rate) cannot hide.
@@ -193,8 +232,8 @@ async function mapWithConcurrency(items, worker) {
 
 async function main() {
   const scenarios = buildScenarios();
-  console.log(`AMARA calendar healthcheck against ${ORIGIN}`);
-  console.log(`${scenarios.length} positive scenarios + ${negativeChecks().length} negative checks — ${new Date().toISOString()}\n`);
+  console.log(`AMARA calendar healthcheck (${MODE}) against ${ORIGIN}`);
+  console.log(`${scenarios.length} positive scenarios + ${negativeChecks().length} negative checks, paced to <=${MAX_LODGIFY_RPM} Lodgify req/min — ${new Date().toISOString()}\n`);
 
   const results = await mapWithConcurrency(scenarios, runScenario);
   let pass = 0; let horizon = 0; const failures = [];

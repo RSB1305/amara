@@ -29,7 +29,10 @@ permissions:
 jobs:
   healthcheck:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    # The check paces itself to a slice of Lodgify's ~100 req/min budget (default
+    # 40/min) so it never competes with real guests, so the full run spreads over
+    # ~15-20 minutes rather than bursting.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
 
