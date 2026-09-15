@@ -4919,60 +4919,11 @@ const nerjaEssentials: GuestGuideEntry = {
           title: { en: 'Supermarkets', de: 'Supermärkte', es: 'Supermercados', nl: 'Supermarkten', sv: 'Livsmedelsbutiker' },
           body: [
             {
-              en: 'Nerja has many supermarkets within walking distance. For a quick and easy shop from the house, we recommend starting with <strong>Carrefour Express</strong> on your street.',
-              de: 'In Nerja gibt es viele Supermärkte, die ihr gut zu Fuß erreichen könnt. Für einen schnellen und unkomplizierten Einkauf vom Haus aus würden wir zuerst <strong>Carrefour Express</strong> in eurer Straße empfehlen.',
-              es: 'En Nerja hay muchos supermercados a poca distancia a pie. Para una compra rápida y sencilla desde la casa, os recomendamos empezar por <strong>Carrefour Express</strong> en vuestra calle.',
-              nl: 'In Nerja zijn er veel supermarkten op loopafstand. Voor een snelle en makkelijke boodschap vanaf het huis raden we aan om eerst naar <strong>Carrefour Express</strong> in jullie straat te gaan.',
-              sv: 'Nerja har många livsmedelsbutiker på gångavstånd. För en snabb och enkel handling från huset rekommenderar vi att ni börjar med <strong>Carrefour Express</strong> på er gata.'
-            },
-            {
-              en: '<strong>Quickest option from the house</strong>',
-              de: '<strong>Die schnellste Option direkt vom Haus</strong>',
-              es: '<strong>La opción más rápida desde la casa</strong>',
-              nl: '<strong>De snelste optie vanaf het huis</strong>',
-              sv: '<strong>Snabbaste alternativet från huset</strong>'
-            },
-            {
-              en: '• <strong>Carrefour Express</strong> – step outside the house and it is on the same street.',
-              de: '• <strong>Carrefour Express</strong> – einfach aus dem Haus treten, er befindet sich in derselben Straße.',
-              es: '• <strong>Carrefour Express</strong> – salid de la casa, está en la misma calle.',
-              nl: '• <strong>Carrefour Express</strong> – stap het huis uit, het is in dezelfde straat.',
-              sv: '• <strong>Carrefour Express</strong> – gå ut ur huset, den ligger på samma gata.'
-            },
-            {
-              en: '<strong>Other local options</strong>',
-              de: '<strong>Weitere Optionen im Ort</strong>',
-              es: '<strong>Otras opciones locales</strong>',
-              nl: '<strong>Andere lokale opties</strong>',
-              sv: '<strong>Fler lokala alternativ</strong>'
-            },
-            {
-              en: 'If you want a little more choice nearby, there are other great supermarkets in the center as well:<br><br>• <strong>Mas Supermercado</strong><br><br>• <strong>Mercadona (C. San Miguel)</strong>',
-              de: 'Wenn ihr in der Nähe ein bisschen mehr Auswahl möchtet, gibt es im Zentrum außerdem noch andere sehr gute Supermärkte:<br><br>• <strong>Mas Supermercado</strong><br><br>• <strong>Mercadona (C. San Miguel)</strong>',
-              es: 'Si queréis un poco más de variedad cerca, en el centro también hay otros supermercados excelentes:<br><br>• <strong>Mas Supermercado</strong><br><br>• <strong>Mercadona (C. San Miguel)</strong>',
-              nl: 'Als jullie in de buurt iets meer keuze willen, zijn er in het centrum ook nog andere uitstekende supermarkten:<br><br>• <strong>Mas Supermercado</strong><br><br>• <strong>Mercadona (C. San Miguel)</strong>',
-              sv: 'Om ni vill ha lite större urval i närheten finns det också andra utmärkta livsmedelsbutiker i centrum:<br><br>• <strong>Mas Supermercado</strong><br><br>• <strong>Mercadona (C. San Miguel)</strong>'
-            },
-            {
-              en: '<strong>For a bigger shop, go just outside town</strong>',
-              de: '<strong>Für einen Großeinkauf ans Ortsende</strong>',
-              es: '<strong>Para una compra más grande, justo a las afueras</strong>',
-              nl: '<strong>Voor grotere boodschappen net buiten de stad</strong>',
-              sv: '<strong>För större handling rekommenderar vi butikerna utanför centrum</strong>'
-            },
-            {
-              en: 'For a larger out-of-town shop, we recommend the big supermarkets just off the N-340.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Aldi (Nerja)</strong>',
-              de: 'Für einen größeren Einkauf außerhalb des Zentrums empfehlen wir die großen Supermärkte direkt an der N-340.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Aldi (Nerja)</strong>',
-              es: 'Para una compra más grande a las afueras, recomendamos los grandes supermercados junto a la N-340.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Aldi (Nerja)</strong>',
-              nl: 'Voor een grotere boodschap buiten het centrum raden we de grote supermarkten net buiten de N-340 aan.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Aldi (Nerja)</strong>',
-              sv: 'För en större handling utanför centrum rekommenderar vi de stora mataffärerna precis vid N-340.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Aldi (Nerja)</strong>'
-            },
-            {
-              en: '<em>Please note:</em> Opening hours can vary seasonally, and Sundays are often more limited.',
-              de: '<em>Bitte beachten:</em> Die Öffnungszeiten können je nach Saison variieren, und sonntags ist die Auswahl oft eingeschränkter.',
-              es: '<em>A tener en cuenta:</em> Los horarios pueden variar según la temporada, y los domingos suelen ser más limitados.',
-              nl: '<em>Let op:</em> Openingstijden kunnen per seizoen verschillen, en op zondag is het aanbod vaak beperkter.',
-              sv: '<em>Observera:</em> Öppettiderna kan variera beroende på säsong, och på söndagar är utbudet ofta mer begränsat.'
+              en: 'Our picks, sorted by distance from your apartment (Calle Castilla Pérez 60) — tap a name to open it in Maps. Opening hours vary seasonally and Sundays are often more limited.',
+              de: 'Unsere Empfehlungen, sortiert nach Entfernung ab eurer Unterkunft (Calle Castilla Pérez 60) — ein Tipp auf den Namen öffnet die Karte. Öffnungszeiten variieren saisonal, sonntags ist die Auswahl oft eingeschränkter.',
+              es: 'Nuestra selección, ordenada por distancia desde vuestro alojamiento (Calle Castilla Pérez 60): tocad un nombre para abrirlo en el mapa. Los horarios varían según la temporada y los domingos suelen ser más limitados.',
+              nl: 'Onze tips, gesorteerd op afstand vanaf jullie accommodatie (Calle Castilla Pérez 60) — tik op een naam om hem in Maps te openen. Openingstijden verschillen per seizoen en op zondag is het aanbod vaak beperkter.',
+              sv: 'Våra tips, sorterade efter avstånd från ert boende (Calle Castilla Pérez 60) — tryck på ett namn för att öppna det i kartan. Öppettiderna varierar med säsong och på söndagar är utbudet ofta mer begränsat.'
             }
           ]
         },

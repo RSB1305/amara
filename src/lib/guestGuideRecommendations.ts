@@ -37,6 +37,8 @@ interface Labels {
   checked: string;
   walk: string;
   drive: string;
+  parkingYes: string;
+  parkingNo: string;
   from: Record<KnowledgeStayKey, string>;
 }
 
@@ -47,11 +49,11 @@ const STAYS: Record<KnowledgeStayKey, string> = {
 };
 
 const LABELS: Record<AmaraLanguage, Labels> = {
-  en: { address: 'Address', call: 'Call', whatsapp: 'WhatsApp', website: 'Website', route: 'Official route', reserve: 'Reserve', distance: 'Distance', checked: 'Checked', walk: 'on foot', drive: 'by car', from: STAYS },
-  de: { address: 'Adresse', call: 'Anrufen', whatsapp: 'WhatsApp', website: 'Website', route: 'Offizielle Route', reserve: 'Reservieren', distance: 'Entfernung', checked: 'Stand', walk: 'zu Fuß', drive: 'mit dem Auto', from: STAYS },
-  es: { address: 'Dirección', call: 'Llamar', whatsapp: 'WhatsApp', website: 'Sitio web', route: 'Ruta oficial', reserve: 'Reservar', distance: 'Distancia', checked: 'Comprobado', walk: 'a pie', drive: 'en coche', from: STAYS },
-  nl: { address: 'Adres', call: 'Bellen', whatsapp: 'WhatsApp', website: 'Website', route: 'Officiële route', reserve: 'Reserveren', distance: 'Afstand', checked: 'Gecontroleerd', walk: 'te voet', drive: 'met de auto', from: STAYS },
-  sv: { address: 'Adress', call: 'Ring', whatsapp: 'WhatsApp', website: 'Webbplats', route: 'Officiell led', reserve: 'Boka', distance: 'Avstånd', checked: 'Kontrollerad', walk: 'till fots', drive: 'med bil', from: STAYS }
+  en: { address: 'Address', call: 'Call', whatsapp: 'WhatsApp', website: 'Website', route: 'Official route', reserve: 'Reserve', distance: 'Distance', checked: 'Checked', walk: 'on foot', drive: 'by car', parkingYes: 'Parking', parkingNo: 'Street only', from: STAYS },
+  de: { address: 'Adresse', call: 'Anrufen', whatsapp: 'WhatsApp', website: 'Website', route: 'Offizielle Route', reserve: 'Reservieren', distance: 'Entfernung', checked: 'Stand', walk: 'zu Fuß', drive: 'mit dem Auto', parkingYes: 'Parkplatz', parkingNo: 'nur Straße', from: STAYS },
+  es: { address: 'Dirección', call: 'Llamar', whatsapp: 'WhatsApp', website: 'Sitio web', route: 'Ruta oficial', reserve: 'Reservar', distance: 'Distancia', checked: 'Comprobado', walk: 'a pie', drive: 'en coche', parkingYes: 'Aparcamiento', parkingNo: 'Solo calle', from: STAYS },
+  nl: { address: 'Adres', call: 'Bellen', whatsapp: 'WhatsApp', website: 'Website', route: 'Officiële route', reserve: 'Reserveren', distance: 'Afstand', checked: 'Gecontroleerd', walk: 'te voet', drive: 'met de auto', parkingYes: 'Parkeren', parkingNo: 'Alleen straat', from: STAYS },
+  sv: { address: 'Adress', call: 'Ring', whatsapp: 'WhatsApp', website: 'Webbplats', route: 'Officiell led', reserve: 'Boka', distance: 'Avstånd', checked: 'Kontrollerad', walk: 'till fots', drive: 'med bil', parkingYes: 'Parkering', parkingNo: 'Endast gata', from: STAYS }
 };
 
 function formatDistance(metres: number, lang: AmaraLanguage): string {
@@ -74,6 +76,12 @@ export interface GuestGuidePlaceRow {
   name: string;
   mapsUrl?: string;
   address?: string;
+  /** Formatted, approximate distance/time from the stay, when the record carries one. */
+  distance?: string;
+  /** True/false when the record states whether the place has parking; undefined otherwise. */
+  parking?: boolean;
+  /** Localized chip label for the parking state. */
+  parkingLabel?: string;
   actions: GuestGuideRecommendationAction[];
 }
 
@@ -90,7 +98,28 @@ export function buildRecommendationPlaces(ids: readonly string[], lang: AmaraLan
     if (place.whatsapp) actions.push({ label: t.whatsapp, href: `https://wa.me/${place.whatsapp.replace(/[^0-9]/g, '')}` });
     if (place.website) actions.push({ label: place.kind === 'hike' ? t.route : t.website, href: place.website });
     if (place.reservationUrl) actions.push({ label: t.reserve, href: place.reservationUrl });
-    rows.push({ name: place.name, mapsUrl: mapsUrlFor(record), address: place.address, actions });
+
+    const access = (record.access ?? []).find(
+      (entry) => entry.distanceMetres !== undefined || entry.walkMinutes !== undefined || entry.driveMinutes !== undefined
+    );
+    let distance: string | undefined;
+    if (access) {
+      const parts: string[] = [];
+      if (access.distanceMetres !== undefined) parts.push(`ca. ${formatDistance(access.distanceMetres, lang)}`);
+      if (access.walkMinutes !== undefined) parts.push(`~${access.walkMinutes} min ${t.walk}`);
+      if (access.driveMinutes !== undefined) parts.push(`~${access.driveMinutes} min ${t.drive}`);
+      if (parts.length) distance = parts.join(' · ');
+    }
+
+    rows.push({
+      name: place.name,
+      mapsUrl: mapsUrlFor(record),
+      address: place.address,
+      distance,
+      parking: place.parking,
+      parkingLabel: place.parking === undefined ? undefined : place.parking ? t.parkingYes : t.parkingNo,
+      actions
+    });
   }
   return rows;
 }
