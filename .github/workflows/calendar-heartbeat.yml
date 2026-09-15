@@ -1,0 +1,43 @@
+name: Calendar heartbeat
+
+# Frequent lightweight probe of the live Home calendar, between the daily deep
+# runs of the "Calendar healthcheck" workflow. It runs the healthcheck in
+# heartbeat mode — one broad "all" query plus the two single-stay destinations,
+# about 16 Lodgify calls, self-paced well under the shared 100 req/min budget — so
+# an outage is caught within a quarter hour without competing with real guests.
+#
+# GitHub schedules are best-effort: a 15-minute cron can run late or occasionally
+# be skipped, and a sustained outage will notify on each failed run. For
+# guaranteed minute-level uptime alerting, an external monitor or Cloudflare
+# Health Checks against a single endpoint is the stronger tool; this stays inside
+# the repo and costs nothing on a public repository.
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+    inputs:
+      origin:
+        description: Origin to check (defaults to the staging site)
+        required: false
+        default: https://amara-staging.pages.dev
+
+permissions:
+  contents: read
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Run calendar heartbeat
+        env:
+          CALENDAR_HEALTHCHECK_MODE: heartbeat
+          CALENDAR_HEALTHCHECK_ORIGIN: ${{ github.event.inputs.origin || 'https://amara-staging.pages.dev' }}
+        run: node scripts/calendar-healthcheck.mjs

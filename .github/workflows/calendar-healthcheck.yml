@@ -1,0 +1,48 @@
+name: Calendar healthcheck
+
+# Daily probe of the live Home-calendar gateway. The Home stay finder is the
+# site's booking entry point; if it returns 502s or contract-invalid data, guests
+# cannot book. This job exercises ~100 realistic scenarios against the live JSON
+# API and fails when any of them is degraded, so GitHub notifies the repository
+# owner before a guest meets a dead calendar. It hits only the public API — no
+# build, no Cloudflare deploy, no provider credential — so it does not consume the
+# Cloudflare Pages build budget.
+#
+# Scheduled runs use the default branch. Trigger it by hand from the Actions tab
+# (workflow_dispatch) to check a specific origin, e.g. the production apex after
+# the Lodgify -> Cloudflare cutover.
+
+on:
+  schedule:
+    # 06:17 UTC daily (offset from the top of the hour, which GitHub throttles).
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+    inputs:
+      origin:
+        description: Origin to check (defaults to the staging site)
+        required: false
+        default: https://amara-staging.pages.dev
+
+permissions:
+  contents: read
+
+jobs:
+  healthcheck:
+    runs-on: ubuntu-latest
+    # The check paces itself to a slice of Lodgify's ~100 req/min budget (default
+    # 40/min) so it never competes with real guests, so the full run spreads over
+    # ~15-20 minutes rather than bursting.
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      # The healthcheck is a single dependency-free script (global fetch only),
+      # so no install step is needed.
+      - name: Run calendar healthcheck
+        env:
+          CALENDAR_HEALTHCHECK_ORIGIN: ${{ github.event.inputs.origin || 'https://amara-staging.pages.dev' }}
+        run: node scripts/calendar-healthcheck.mjs
