@@ -59,6 +59,16 @@ const logoutLabel: Record<AmaraLanguage, string> = {
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+    <!-- Web-app signal for the booked-guest area: added to a phone's home screen, the
+         guide launches as a standalone, chrome-less surface (already app-like by design).
+         This also lets the save-to-home-screen hint hide itself via CSS display-mode. -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="AMARA" />
+
     <title>{head.current.title}</title>
     <meta name="description" content={head.current.description} />
     <meta name="robots" content={head.current.robots} />
