@@ -1,0 +1,293 @@
+---
+// Graphical climate strip for a location hub: the four seasons as horizontal
+// daytime-temperature bars on one shared scale (warmth encoded as fill opacity,
+// so summer and winter read at a glance) plus a sunshine meter per season.
+// Long-term monthly normals, not a live forecast — the same data the weather
+// page charts. Colours come from design tokens; it is theme-aware and needs no
+// client JavaScript.
+import { formatDecimal } from '../../lib/formatNumber';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface ClimateSeason {
+  title: string;
+  minHigh: number;
+  maxHigh: number;
+  sun: number;
+}
+
+interface Props {
+  lang: AmaraLanguage;
+  label: string;
+  daytimeLabel: string;
+  sunLabel: string;
+  sunUnit: string;
+  caption: string;
+  seasons: ClimateSeason[];
+}
+
+const { lang, label, daytimeLabel, sunLabel, sunUnit, caption, seasons } = Astro.props;
+
+// Shared temperature axis. Round bounds that comfortably contain the Costa del
+// Sol range keep the bars comparable across seasons and across locations.
+const AXIS_MIN = 5;
+const AXIS_MAX = 30;
+const AXIS_SPAN = AXIS_MAX - AXIS_MIN;
+const axisTicks = [10, 20, 30];
+
+const clamp = (value: number, min: number, max: number) => Math.min(max, Math.max(min, value));
+const toScale = (value: number) => clamp(((value - AXIS_MIN) / AXIS_SPAN) * 100, 0, 100);
+
+const seasonAverages = seasons.map((season) => (season.minHigh + season.maxHigh) / 2);
+const coolest = Math.min(...seasonAverages);
+const warmest = Math.max(...seasonAverages);
+const warmthSpan = warmest - coolest || 1;
+const maxSun = Math.max(...seasons.map((season) => season.sun));
+
+const rows = seasons.map((season, index) => {
+  const left = toScale(season.minHigh);
+  const right = toScale(season.maxHigh);
+  const warmth = (seasonAverages[index] - coolest) / warmthSpan;
+  return {
+    title: season.title,
+    left,
+    width: Math.max(right - left, 2.5),
+    fillOpacity: (0.4 + warmth * 0.6).toFixed(2),
+    rangeLabel: `${Math.round(season.minHigh)}–${Math.round(season.maxHigh)}°`,
+    sunValue: formatDecimal(season.sun, lang),
+    sunWidth: Math.round((season.sun / maxSun) * 100)
+  };
+});
+---
+
+<figure class="am-climate-strip">
+  <figcaption class="am-climate-strip__head">
+    <p class="am-text-caption am-text-caption--upper am-text-caption--wide text-primary">{label}</p>
+    <div class="am-climate-legend">
+      <span class="am-climate-legend__item">
+        <span class="am-climate-legend__swatch" aria-hidden="true"></span>{daytimeLabel}
+      </span>
+      <span class="am-climate-legend__item">
+        <svg class="am-climate-legend__sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.4" fill="currentColor" />
+          <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+            <line x1="12" y1="1.6" x2="12" y2="4.4" />
+            <line x1="12" y1="19.6" x2="12" y2="22.4" />
+            <line x1="1.6" y1="12" x2="4.4" y2="12" />
+            <line x1="19.6" y1="12" x2="22.4" y2="12" />
+            <line x1="4.6" y1="4.6" x2="6.6" y2="6.6" />
+            <line x1="17.4" y1="17.4" x2="19.4" y2="19.4" />
+            <line x1="4.6" y1="19.4" x2="6.6" y2="17.4" />
+            <line x1="17.4" y1="6.6" x2="19.4" y2="4.6" />
+          </g>
+        </svg>{sunLabel}
+      </span>
+    </div>
+  </figcaption>
+
+  <ul class="am-climate-rows" role="list">
+    {rows.map((row) => (
+      <li class="am-climate-row">
+        <div class="am-climate-row__head">
+          <span class="am-text-label am-text-label--sm text-on-surface">{row.title}</span>
+          <span class="am-text-subtitle tabular-nums text-on-surface">{row.rangeLabel}</span>
+        </div>
+        <div class="am-climate-track" role="presentation">
+          <span
+            class="am-climate-bar"
+            style={`left:${row.left}%;width:${row.width}%;opacity:${row.fillOpacity}`}
+          ></span>
+        </div>
+        <div class="am-climate-sun">
+          <svg class="am-climate-sun__icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.4" fill="currentColor" />
+            <g stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+              <line x1="12" y1="1.6" x2="12" y2="4.4" />
+              <line x1="12" y1="19.6" x2="12" y2="22.4" />
+              <line x1="1.6" y1="12" x2="4.4" y2="12" />
+              <line x1="19.6" y1="12" x2="22.4" y2="12" />
+              <line x1="4.6" y1="4.6" x2="6.6" y2="6.6" />
+              <line x1="17.4" y1="17.4" x2="19.4" y2="19.4" />
+              <line x1="4.6" y1="19.4" x2="6.6" y2="17.4" />
+              <line x1="17.4" y1="6.6" x2="19.4" y2="4.6" />
+            </g>
+          </svg>
+          <span class="am-climate-sun__meter" aria-hidden="true">
+            <span style={`width:${row.sunWidth}%`}></span>
+          </span>
+          <span class="am-text-label am-text-label--sm tabular-nums text-on-surface-variant">
+            {row.sunValue} {sunUnit}
+          </span>
+        </div>
+      </li>
+    ))}
+  </ul>
+
+  <div class="am-climate-axis" aria-hidden="true">
+    {axisTicks.map((tick) => (
+      <span class="am-climate-axis__tick" style={`left:${toScale(tick)}%`}>{tick}&deg;</span>
+    ))}
+  </div>
+
+  <p class="am-climate-strip__caption am-text-label am-text-label--sm text-muted">{caption}</p>
+</figure>
+
+<style>
+  .am-climate-strip {
+    margin: 0;
+    padding: 1.75rem;
+    background: var(--color-surface);
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 2px color-mix(in srgb, var(--color-on-surface) 6%, transparent);
+  }
+
+  @media (min-width: 768px) {
+    .am-climate-strip {
+      padding: 2.25rem;
+    }
+  }
+
+  .am-climate-strip__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.5rem;
+  }
+
+  .am-climate-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+  }
+
+  .am-climate-legend__item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    color: var(--color-on-surface-variant);
+  }
+
+  .am-climate-legend__swatch {
+    width: 1.5rem;
+    height: 0.4rem;
+    border-radius: 999px;
+    background: var(--color-primary);
+  }
+
+  .am-climate-legend__sun {
+    width: 1rem;
+    height: 1rem;
+    color: var(--color-primary);
+  }
+
+  .am-climate-rows {
+    list-style: none;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 1.35rem;
+  }
+
+  .am-climate-row {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .am-climate-row__head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .am-climate-track {
+    position: relative;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+    background-image: linear-gradient(
+        90deg,
+        transparent calc(20% - 0.5px),
+        color-mix(in srgb, var(--color-on-surface) 12%, transparent) calc(20% - 0.5px),
+        color-mix(in srgb, var(--color-on-surface) 12%, transparent) calc(20% + 0.5px),
+        transparent calc(20% + 0.5px)
+      ),
+      linear-gradient(
+        90deg,
+        transparent calc(60% - 0.5px),
+        color-mix(in srgb, var(--color-on-surface) 12%, transparent) calc(60% - 0.5px),
+        color-mix(in srgb, var(--color-on-surface) 12%, transparent) calc(60% + 0.5px),
+        transparent calc(60% + 0.5px)
+      );
+  }
+
+  .am-climate-bar {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    border-radius: 999px;
+    background: var(--color-primary);
+  }
+
+  .am-climate-sun {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .am-climate-sun__icon {
+    width: 1rem;
+    height: 1rem;
+    flex: none;
+    color: var(--color-primary);
+  }
+
+  .am-climate-sun__meter {
+    position: relative;
+    flex: 1 1 auto;
+    max-width: 8rem;
+    height: 0.3rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-outline-variant) 30%, transparent);
+    overflow: hidden;
+  }
+
+  .am-climate-sun__meter > span {
+    position: absolute;
+    inset: 0 auto 0 0;
+    border-radius: inherit;
+    background: color-mix(in srgb, var(--color-primary) 55%, transparent);
+  }
+
+  .am-climate-axis {
+    position: relative;
+    height: 1.5rem;
+    margin-top: 0.75rem;
+  }
+
+  .am-climate-axis__tick {
+    position: absolute;
+    top: 0.55rem;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+    color: var(--color-muted, var(--color-on-surface-variant));
+    white-space: nowrap;
+  }
+
+  .am-climate-axis__tick::before {
+    content: '';
+    position: absolute;
+    top: -0.5rem;
+    left: 50%;
+    width: 1px;
+    height: 0.3rem;
+    background: color-mix(in srgb, var(--color-on-surface) 18%, transparent);
+  }
+
+  .am-climate-strip__caption {
+    margin: 1.25rem 0 0;
+  }
+</style>

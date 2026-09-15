@@ -101,6 +101,14 @@ export interface FrigilianaLocationPageCopy {
     }>;
   };
   seasons: FrigilianaLocationModule;
+  /** Compact typical-climate strip beside the seasons copy — long-term averages, not a live forecast. */
+  climateStrip: {
+    label: string;
+    daytimeLabel: string;
+    sunLabel: string;
+    sunUnit: string;
+    caption: string;
+  };
   /** Trade-offs of the village as a base, with the honest pointer to Nerja where it fits better. */
   tradeoffs: {
     eyebrow: string;
@@ -243,11 +251,11 @@ export const frigilianaLocationCopy = {
     'Frigiliana som semesterbas'
   ),
   h1Subtitle: text(
-    'Live in the village, mountains behind you, Nerja and the sea ten minutes below',
-    'Im Dorf wohnen, die Berge im Rücken, Nerja und das Meer zehn Minuten unterhalb',
-    'Vivir en el pueblo, la montaña detrás, Nerja y el mar a diez minutos',
-    'Wonen in het dorp, de bergen achter je, Nerja en de zee tien minuten lager',
-    'Bo i byn, bergen i ryggen, Nerja och havet tio minuter nedanför'
+    'A place to fall in love with — live in the village, mountains behind you, the sea ten minutes below',
+    'Ein Ort zum Verlieben – im Dorf wohnen, die Berge im Rücken, das Meer zehn Minuten unterhalb',
+    'Un lugar del que enamorarse: vivir en el pueblo, la montaña detrás y el mar a diez minutos',
+    'Een plek om verliefd op te worden — wonen in het dorp, de bergen achter je en de zee tien minuten lager',
+    'En plats att bli kär i — bo i byn, bergen i ryggen och havet tio minuter nedanför'
   ),
   heroUpdated: text('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026'),
   heroNote: text(
@@ -529,6 +537,19 @@ export const frigilianaLocationCopy = {
     ],
     ctas: []
   } satisfies LocalizedModule,
+  climateStrip: {
+    label: text('Typical weather by season', 'Typisches Wetter je Jahreszeit', 'Tiempo típico por estación', 'Typisch weer per seizoen', 'Typiskt väder per årstid'),
+    daytimeLabel: text('Daytime', 'Tagsüber', 'De día', 'Overdag', 'Dagtid'),
+    sunLabel: text('Sun', 'Sonne', 'Sol', 'Zon', 'Sol'),
+    sunUnit: text('h/day', 'Std./Tag', 'h/día', 'u/dag', 'h/dag'),
+    caption: text(
+      'Long-term averages, not a forecast — the weather page has the month-by-month detail.',
+      'Langjährige Mittel, keine Vorhersage — Monat für Monat auf der Wetterseite.',
+      'Medias a largo plazo, no una previsión — el detalle mes a mes está en la página del tiempo.',
+      'Langjarige gemiddelden, geen voorspelling — maand voor maand op de weerpagina.',
+      'Långsiktiga medelvärden, ingen prognos — månad för månad på vädersidan.'
+    )
+  },
   tradeoffs: {
     eyebrow: text('WHO THE VILLAGE SUITS', 'FÜR WEN DAS DORF PASST', 'PARA QUIÉN ES EL PUEBLO', 'VOOR WIE HET DORP PAST', 'FÖR VEM BYN PASSAR'),
     title: text('Village evenings or the beach on your doorstep', 'Dorfabend oder Strand vor der Tür', 'Noches de pueblo o playa en la puerta', 'Dorpsavonden of het strand voor de deur', 'Bykvällar eller stranden utanför dörren'),
