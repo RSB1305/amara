@@ -219,8 +219,8 @@ const hasPlaces = places.length > 0;
             class="am-home-hero-slide absolute inset-0 h-full w-full object-cover"
             width={image.width}
             height={image.height}
-            loading="eager"
-            fetchpriority={index === 0 ? 'high' : 'auto'}
+            loading={index < 2 ? 'eager' : 'lazy'}
+            fetchpriority={index === 0 ? 'high' : 'low'}
             decoding="async"
             data-am-home-hero-slide={image.id}
             style={`--am-home-hero-slide-index: ${index}; --am-home-hero-slide-count: ${heroImages.length};`}
