@@ -6,6 +6,8 @@ import Navigation from '../../components/Navigation.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
 import IberiaOrientationMap from '../../components/location/IberiaOrientationMap.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import LocationClimateSeasonStrip from '../../components/location/LocationClimateSeasonStrip.astro';
+import { getClimateSeasons, getClimateStripCopy } from '../../lib/location/climateSeasons';
 import { getNerjaLocationHubLocale, nerjaLocationHubContent } from '../../content/nerjaLocationHubContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
@@ -24,6 +26,8 @@ const hero = routeHeroImage('nerja', currentLang);
 const stayImage = requireRouteImage('nerja', 'stay', currentLang);
 const galleryImages = routeImages('nerja', 'gallery', currentLang);
 const content = getNerjaLocationHubLocale(currentLang);
+const climateSeasons = getClimateSeasons('nerja', currentLang);
+const climateStrip = getClimateStripCopy(currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja location hub');
 const featureHref = (link?: { token?: LinkToken; anchor?: string }) =>
   link?.token ? requiredLink(link.token) : link?.anchor;
@@ -133,6 +137,11 @@ const footerHighlights: LabeledLink[] = [
           )}
         </div>
       </div>
+      {climateSeasons.length > 0 && (
+        <div class="mx-auto mt-14 max-w-screen-2xl lg:mt-20">
+          <LocationClimateSeasonStrip lang={currentLang} {...climateStrip} seasons={climateSeasons} />
+        </div>
+      )}
     </section>
 
     <section id="arrival" class="scroll-mt-28 bg-surface-container-low px-6 py-20 md:px-12 md:py-28">

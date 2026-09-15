@@ -16,6 +16,8 @@ import Navigation from '../../components/Navigation.astro';
 import LocationPanoramaHero from '../../components/location/LocationPanoramaHero.astro';
 import TarifaContextNav from '../../components/location/TarifaContextNav.astro';
 import IberiaOrientationMap from '../../components/location/IberiaOrientationMap.astro';
+import LocationClimateSeasonStrip from '../../components/location/LocationClimateSeasonStrip.astro';
+import { getClimateSeasons, getClimateStripCopy } from '../../lib/location/climateSeasons';
 import { tarifaLocationContent } from '../../content/tarifaLocationContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
@@ -36,6 +38,8 @@ const stayImage = requireRouteImage('tarifa', 'stay', currentLang);
 const oldTownImage = requireRouteImage('tarifa', 'old-town', currentLang);
 const sunsetImage = requireRouteImage('tarifa', 'sunset', currentLang);
 const content = tarifaLocationContent.locales[currentLang];
+const climateSeasons = getClimateSeasons('tarifa', currentLang);
+const climateStrip = getClimateStripCopy(currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Tarifa location hub');
 const aboutHref = requiredLink('about');
 const stayHref = requiredLink('tarifa');
@@ -235,6 +239,11 @@ const byline = tarifaLocationContent.seo.article
             <figcaption class="am-text-caption mt-3 normal-case tracking-normal text-muted">{walkImage.caption}</figcaption>
           </figure>
         </div>
+        {climateSeasons.length > 0 && (
+          <div class="mt-14 lg:mt-16">
+            <LocationClimateSeasonStrip lang={currentLang} {...climateStrip} seasons={climateSeasons} />
+          </div>
+        )}
       </div>
     </section>
 

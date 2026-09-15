@@ -101,14 +101,6 @@ export interface FrigilianaLocationPageCopy {
     }>;
   };
   seasons: FrigilianaLocationModule;
-  /** Compact typical-climate strip beside the seasons copy — long-term averages, not a live forecast. */
-  climateStrip: {
-    label: string;
-    daytimeLabel: string;
-    sunLabel: string;
-    sunUnit: string;
-    caption: string;
-  };
   /** Trade-offs of the village as a base, with the honest pointer to Nerja where it fits better. */
   tradeoffs: {
     eyebrow: string;
@@ -537,19 +529,6 @@ export const frigilianaLocationCopy = {
     ],
     ctas: []
   } satisfies LocalizedModule,
-  climateStrip: {
-    label: text('Typical weather by season', 'Typisches Wetter je Jahreszeit', 'Tiempo típico por estación', 'Typisch weer per seizoen', 'Typiskt väder per årstid'),
-    daytimeLabel: text('Daytime', 'Tagsüber', 'De día', 'Overdag', 'Dagtid'),
-    sunLabel: text('Sun', 'Sonne', 'Sol', 'Zon', 'Sol'),
-    sunUnit: text('h/day', 'Std./Tag', 'h/día', 'u/dag', 'h/dag'),
-    caption: text(
-      'Long-term averages, not a forecast — the weather page has the month-by-month detail.',
-      'Langjährige Mittel, keine Vorhersage — Monat für Monat auf der Wetterseite.',
-      'Medias a largo plazo, no una previsión — el detalle mes a mes está en la página del tiempo.',
-      'Langjarige gemiddelden, geen voorspelling — maand voor maand op de weerpagina.',
-      'Långsiktiga medelvärden, ingen prognos — månad för månad på vädersidan.'
-    )
-  },
   tradeoffs: {
     eyebrow: text('WHO THE VILLAGE SUITS', 'FÜR WEN DAS DORF PASST', 'PARA QUIÉN ES EL PUEBLO', 'VOOR WIE HET DORP PAST', 'FÖR VEM BYN PASSAR'),
     title: text('Village evenings or the beach on your doorstep', 'Dorfabend oder Strand vor der Tür', 'Noches de pueblo o playa en la puerta', 'Dorpsavonden of het strand voor de deur', 'Bykvällar eller stranden utanför dörren'),

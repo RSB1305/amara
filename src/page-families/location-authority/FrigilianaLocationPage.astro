@@ -18,8 +18,8 @@ import type { AmaraLanguage } from '../../types/seo';
 import LocationModule from './LocationModule.astro';
 import LocationStaySplitSection from './LocationStaySplitSection.astro';
 import { routeHeroImage } from '../../lib/images/routeImages';
-import { locationClimateProfiles } from '../../content/locationClimateData';
 import LocationClimateSeasonStrip from '../../components/location/LocationClimateSeasonStrip.astro';
+import { getClimateSeasons, getClimateStripCopy } from '../../lib/location/climateSeasons';
 
 interface Props {
   lang?: string;
@@ -162,30 +162,11 @@ const editorialImages = {
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/07-frigiliana-pueblo.jpg'
 } as const;
 
-// Typical-climate strip: long-term monthly normals grouped into the same four
-// seasons the copy already names, so the numbers reinforce the seasonal prose
-// without implying a live forecast (that lives on the dedicated weather page).
-const climateNormals = locationClimateProfiles.frigiliana;
-const seasonMonthIndices: Record<string, number[]> = {
-  spring: [2, 3, 4],
-  summer: [5, 6, 7],
-  autumn: [8, 9, 10],
-  winter: [11, 0, 1]
-};
-const climateBySeason = c.seasons.subsections
-  .filter((season) => seasonMonthIndices[season.id])
-  .map((season) => {
-    const months = seasonMonthIndices[season.id];
-    const highs = months.map((month) => climateNormals[month].high);
-    const sunAverage =
-      months.reduce((total, month) => total + climateNormals[month].sunHours, 0) / months.length;
-    return {
-      title: season.title,
-      minHigh: Math.round(Math.min(...highs)),
-      maxHigh: Math.round(Math.max(...highs)),
-      sun: Math.round(sunAverage * 10) / 10
-    };
-  });
+// Typical-climate strip: long-term monthly normals grouped into the four
+// seasons, reinforcing the seasonal prose without implying a live forecast
+// (that lives on the dedicated weather page). Shared across the location hubs.
+const climateSeasons = getClimateSeasons('frigiliana', currentLang);
+const climateStrip = getClimateStripCopy(currentLang);
 
 const decisionStay = c.decision.subsections[0];
 const decisionStaysCta = decisionStay.ctas.find((cta) => cta.token === 'FRIGILIANA_STAYS');
@@ -497,17 +478,9 @@ const casaFacts = [
                   </div>
                 ))}
               </dl>
-              {climateBySeason.length > 0 && (
+              {climateSeasons.length > 0 && (
                 <div class="mt-8">
-                  <LocationClimateSeasonStrip
-                    lang={currentLang}
-                    label={c.climateStrip.label}
-                    daytimeLabel={c.climateStrip.daytimeLabel}
-                    sunLabel={c.climateStrip.sunLabel}
-                    sunUnit={c.climateStrip.sunUnit}
-                    caption={c.climateStrip.caption}
-                    seasons={climateBySeason}
-                  />
+                  <LocationClimateSeasonStrip lang={currentLang} {...climateStrip} seasons={climateSeasons} />
                 </div>
               )}
               {seasonWeatherCta && weatherHref && (
