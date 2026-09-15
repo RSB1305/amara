@@ -1649,11 +1649,11 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
         {
           icon: 'warning',
           title: tarifaText(
-            'Emergency – Call 112',
-            'Notfall – 112 anrufen',
-            'Emergencias – Llamar al 112',
-            'Noodgeval – Bel 112',
-            'Nödsituation – Ring 112'
+            'Medical emergency – Call 112',
+            'Medizinischer Notfall – 112 anrufen',
+            'Emergencia médica – Llamad al 112',
+            'Medisch noodgeval – Bel 112',
+            'Medicinsk nödsituation – Ring 112'
           ),
           body: tarifaParagraphs({
             en: [

@@ -1399,19 +1399,19 @@ const frigilianaEssentials: GuestGuideEntry = {
         {
           icon: 'warning',
           title: {
-            en: 'Medical emergency – Call 061 or 112',
-            de: 'Medizinischer Notfall – 061 oder 112 anrufen',
-            es: 'Emergencia médica – Llamad al 061 o al 112',
-            nl: 'Medisch noodgeval – Bel 061 of 112',
-            sv: 'Medicinsk nödsituation – Ring 061 eller 112'
+            en: 'Medical emergency – Call 112',
+            de: 'Medizinischer Notfall – 112 anrufen',
+            es: 'Emergencia médica – Llamad al 112',
+            nl: 'Medisch noodgeval – Bel 112',
+            sv: 'Medicinsk nödsituation – Ring 112'
           },
           body: [
             {
-              en: '<strong>Life-threatening medical emergency:</strong> call <strong>061</strong>. For any general emergency in Spain, call <strong>112</strong>. For urgent medical help without immediate danger to life in Málaga province, call <strong>+34 951 03 14 37</strong>.',
-              de: '<strong>Lebensbedrohlicher medizinischer Notfall:</strong> Wählt <strong>061</strong>. Für allgemeine Notfälle in Spanien wählt ihr <strong>112</strong>. Für dringende medizinische Hilfe ohne unmittelbare Lebensgefahr in der Provinz Málaga ruft ihr <strong>+34 951 03 14 37</strong> an.',
-              es: '<strong>Emergencia médica con riesgo vital:</strong> llamad al <strong>061</strong>. Para cualquier emergencia general en España, llamad al <strong>112</strong>. Para asistencia médica urgente sin riesgo vital inmediato en la provincia de Málaga, llamad al <strong>+34 951 03 14 37</strong>.',
-              nl: '<strong>Levensbedreigende medische noodsituatie:</strong> bel <strong>061</strong>. Voor algemene noodgevallen in Spanje bellen jullie <strong>112</strong>. Voor dringende medische hulp zonder direct levensgevaar in de provincie Málaga bellen jullie <strong>+34 951 03 14 37</strong>.',
-              sv: '<strong>Livshotande medicinsk nödsituation:</strong> ring <strong>061</strong>. För allmänna nödsituationer i Spanien ringer ni <strong>112</strong>. För brådskande medicinsk hjälp utan omedelbar livsfara i Málagaprovinsen ringer ni <strong>+34 951 03 14 37</strong>.'
+              en: '<strong>Life-threatening medical emergency: call 112.</strong>',
+              de: '<strong>Lebensbedrohlicher medizinischer Notfall: Wählt 112.</strong>',
+              es: '<strong>Emergencia médica con riesgo vital: llamad al 112.</strong>',
+              nl: '<strong>Levensbedreigende medische noodsituatie: bel 112.</strong>',
+              sv: '<strong>Livshotande medicinsk nödsituation: ring 112.</strong>'
             },
             {
               en: '<strong>If the emergency happens while you are inside the house:</strong><br>Please share this address with emergency services:<br><strong>Calle Chorruelo 5<br>29788 Frigiliana</strong>',
@@ -1419,6 +1419,13 @@ const frigilianaEssentials: GuestGuideEntry = {
               es: '<strong>Si la emergencia ocurre mientras estáis dentro de la casa:</strong><br>Facilitad esta dirección a los servicios de emergencia:<br><strong>Calle Chorruelo 5<br>29788 Frigiliana</strong>',
               nl: '<strong>Als het noodgeval plaatsvindt terwijl jullie in het huis zijn:</strong><br>Geef dit adres door aan de hulpdiensten:<br><strong>Calle Chorruelo 5<br>29788 Frigiliana</strong>',
               sv: '<strong>Om nödsituationen inträffar medan ni är i huset:</strong><br>Uppge den här adressen till räddningstjänsten:<br><strong>Calle Chorruelo 5<br>29788 Frigiliana</strong>'
+            },
+            {
+              en: 'For urgent medical help <strong>without immediate danger to life</strong> in Málaga province, call +34 951 03 14 37.',
+              de: 'Für dringende medizinische Hilfe <strong>ohne unmittelbare Lebensgefahr</strong> in der Provinz Málaga ruft ihr +34 951 03 14 37 an.',
+              es: 'Para asistencia médica urgente <strong>sin riesgo vital inmediato</strong> en la provincia de Málaga, llamad al +34 951 03 14 37.',
+              nl: 'Voor dringende medische hulp <strong>zonder direct levensgevaar</strong> in de provincie Málaga bellen jullie +34 951 03 14 37.',
+              sv: 'För brådskande medicinsk hjälp <strong>utan omedelbar livsfara</strong> i Málagaprovinsen ringer ni +34 951 03 14 37.'
             }
           ]
         },
@@ -5023,19 +5030,19 @@ const nerjaEssentials: GuestGuideEntry = {
         {
           icon: 'warning',
           title: {
-            en: 'Medical emergency – Call 061 or 112',
-            de: 'Medizinischer Notfall – 061 oder 112 anrufen',
-            es: 'Emergencia médica – Llamad al 061 o al 112',
-            nl: 'Medisch noodgeval – Bel 061 of 112',
-            sv: 'Medicinsk nödsituation – Ring 061 eller 112'
+            en: 'Medical emergency – Call 112',
+            de: 'Medizinischer Notfall – 112 anrufen',
+            es: 'Emergencia médica – Llamad al 112',
+            nl: 'Medisch noodgeval – Bel 112',
+            sv: 'Medicinsk nödsituation – Ring 112'
           },
           body: [
             {
-              en: '<strong>Life-threatening medical emergency:</strong> call <strong>061</strong>. For any general emergency in Spain, call <strong>112</strong>. For urgent medical help without immediate danger to life in Málaga province, call <strong>+34 951 03 14 37</strong>.',
-              de: '<strong>Lebensbedrohlicher medizinischer Notfall:</strong> Wählt <strong>061</strong>. Für allgemeine Notfälle in Spanien wählt ihr <strong>112</strong>. Für dringende medizinische Hilfe ohne unmittelbare Lebensgefahr in der Provinz Málaga ruft ihr <strong>+34 951 03 14 37</strong> an.',
-              es: '<strong>Emergencia médica con riesgo vital:</strong> llamad al <strong>061</strong>. Para cualquier emergencia general en España, llamad al <strong>112</strong>. Para asistencia médica urgente sin riesgo vital inmediato en la provincia de Málaga, llamad al <strong>+34 951 03 14 37</strong>.',
-              nl: '<strong>Levensbedreigende medische noodsituatie:</strong> bel <strong>061</strong>. Voor algemene noodgevallen in Spanje bellen jullie <strong>112</strong>. Voor dringende medische hulp zonder direct levensgevaar in de provincie Málaga bellen jullie <strong>+34 951 03 14 37</strong>.',
-              sv: '<strong>Livshotande medicinsk nödsituation:</strong> ring <strong>061</strong>. För allmänna nödsituationer i Spanien ringer ni <strong>112</strong>. För brådskande medicinsk hjälp utan omedelbar livsfara i Málagaprovinsen ringer ni <strong>+34 951 03 14 37</strong>.'
+              en: '<strong>Life-threatening medical emergency: call 112.</strong>',
+              de: '<strong>Lebensbedrohlicher medizinischer Notfall: Wählt 112.</strong>',
+              es: '<strong>Emergencia médica con riesgo vital: llamad al 112.</strong>',
+              nl: '<strong>Levensbedreigende medische noodsituatie: bel 112.</strong>',
+              sv: '<strong>Livshotande medicinsk nödsituation: ring 112.</strong>'
             },
             {
               en: '<strong>If the emergency happens while you are inside the house:</strong><br>Please share this address with emergency services:<br><strong>Calle Castilla Pérez 60<br>Apartment 5-2<br>29780 Nerja</strong>',
@@ -5043,6 +5050,13 @@ const nerjaEssentials: GuestGuideEntry = {
               es: '<strong>Si la emergencia ocurre mientras estáis dentro de la casa:</strong><br>Facilitad esta dirección a los servicios de emergencia:<br><strong>Calle Castilla Pérez 60<br>Apartment 5-2<br>29780 Nerja</strong>',
               nl: '<strong>Als het noodgeval plaatsvindt terwijl jullie in het huis zijn:</strong><br>Geef dit adres door aan de hulpdiensten:<br><strong>Calle Castilla Pérez 60<br>Apartment 5-2<br>29780 Nerja</strong>',
               sv: '<strong>Om nödsituationen inträffar medan ni är i huset:</strong><br>Uppge den här adressen till räddningstjänsten:<br><strong>Calle Castilla Pérez 60<br>Apartment 5-2<br>29780 Nerja</strong>'
+            },
+            {
+              en: 'For urgent medical help <strong>without immediate danger to life</strong> in Málaga province, call +34 951 03 14 37.',
+              de: 'Für dringende medizinische Hilfe <strong>ohne unmittelbare Lebensgefahr</strong> in der Provinz Málaga ruft ihr +34 951 03 14 37 an.',
+              es: 'Para asistencia médica urgente <strong>sin riesgo vital inmediato</strong> en la provincia de Málaga, llamad al +34 951 03 14 37.',
+              nl: 'Voor dringende medische hulp <strong>zonder direct levensgevaar</strong> in de provincie Málaga bellen jullie +34 951 03 14 37.',
+              sv: 'För brådskande medicinsk hjälp <strong>utan omedelbar livsfara</strong> i Málagaprovinsen ringer ni +34 951 03 14 37.'
             }
           ]
         },
