@@ -243,11 +243,11 @@ export const frigilianaLocationCopy = {
     'Frigiliana som semesterbas'
   ),
   h1Subtitle: text(
-    'Live in the village, mountains behind you, Nerja and the sea ten minutes below',
-    'Im Dorf wohnen, die Berge im Rücken, Nerja und das Meer zehn Minuten unterhalb',
-    'Vivir en el pueblo, la montaña detrás, Nerja y el mar a diez minutos',
-    'Wonen in het dorp, de bergen achter je, Nerja en de zee tien minuten lager',
-    'Bo i byn, bergen i ryggen, Nerja och havet tio minuter nedanför'
+    'A place to fall in love with — live in the village, mountains behind you, the sea ten minutes below',
+    'Ein Ort zum Verlieben – im Dorf wohnen, die Berge im Rücken, das Meer zehn Minuten unterhalb',
+    'Un lugar del que enamorarse: vivir en el pueblo, la montaña detrás y el mar a diez minutos',
+    'Een plek om verliefd op te worden — wonen in het dorp, de bergen achter je en de zee tien minuten lager',
+    'En plats att bli kär i — bo i byn, bergen i ryggen och havet tio minuter nedanför'
   ),
   heroUpdated: text('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026'),
   heroNote: text(

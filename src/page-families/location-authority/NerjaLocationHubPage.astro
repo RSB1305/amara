@@ -6,6 +6,8 @@ import Navigation from '../../components/Navigation.astro';
 import LocationHubHero from '../../components/location/LocationHubHero.astro';
 import IberiaOrientationMap from '../../components/location/IberiaOrientationMap.astro';
 import NerjaContextNav from '../../components/location/NerjaContextNav.astro';
+import LocationClimateSeasonStrip from '../../components/location/LocationClimateSeasonStrip.astro';
+import { getClimateSeasons, getClimateStripCopy } from '../../lib/location/climateSeasons';
 import { getNerjaLocationHubLocale, nerjaLocationHubContent } from '../../content/nerjaLocationHubContent';
 import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro';
 import { createRequiredLinkResolver, resolveOptionalLink, type LinkToken, type LabeledLink } from '../../lib/linkResolver';
@@ -24,6 +26,8 @@ const hero = routeHeroImage('nerja', currentLang);
 const stayImage = requireRouteImage('nerja', 'stay', currentLang);
 const galleryImages = routeImages('nerja', 'gallery', currentLang);
 const content = getNerjaLocationHubLocale(currentLang);
+const climateSeasons = getClimateSeasons('nerja', currentLang);
+const climateStrip = getClimateStripCopy(currentLang);
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja location hub');
 const featureHref = (link?: { token?: LinkToken; anchor?: string }) =>
   link?.token ? requiredLink(link.token) : link?.anchor;
@@ -100,7 +104,7 @@ const footerHighlights: LabeledLink[] = [
       as the authoring source for the footer highlight labels.
     */}
 
-    <section id="orientation" class="am-section am-section--tint scroll-mt-28 py-24 md:py-32 lg:py-40">
+    <section id="orientation" class="am-section am-section--tint scroll-mt-28 py-16 md:py-24 lg:py-28">
       <div class="mx-auto grid max-w-screen-2xl items-center gap-14 lg:grid-cols-12 lg:gap-20">
         <div class="lg:order-1 lg:col-span-7" data-am-orientation-map="nerja">
           <IberiaOrientationMap
@@ -133,9 +137,14 @@ const footerHighlights: LabeledLink[] = [
           )}
         </div>
       </div>
+      {climateSeasons.length > 0 && (
+        <div class="mx-auto mt-14 max-w-screen-2xl lg:mt-20">
+          <LocationClimateSeasonStrip lang={currentLang} {...climateStrip} seasons={climateSeasons} />
+        </div>
+      )}
     </section>
 
-    <section id="arrival" class="scroll-mt-28 bg-surface-container-low px-6 py-20 md:px-12 md:py-28">
+    <section id="arrival" class="scroll-mt-28 bg-surface-container-low px-6 py-16 md:px-12 md:py-24">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:gap-20">
         <div class="lg:col-span-5">
           <p class="am-text-eyebrow text-primary">{content.arrival.eyebrow}</p>
@@ -160,7 +169,7 @@ const footerHighlights: LabeledLink[] = [
       link={content.areas.link ? { href: featureHref(content.areas.link), label: content.areas.link.label } : undefined}
     />
 
-    <section id="nerja-or-frigiliana" class="scroll-mt-28 bg-surface px-6 py-20 md:px-12 md:py-28">
+    <section id="nerja-or-frigiliana" class="scroll-mt-28 bg-surface px-6 py-16 md:px-12 md:py-24">
       <div class="mx-auto grid max-w-screen-2xl gap-14 lg:grid-cols-12 lg:gap-20">
         <div class="lg:col-span-5">
           <p class="am-text-eyebrow text-primary">{content.tradeoffs.eyebrow}</p>
@@ -198,7 +207,7 @@ const footerHighlights: LabeledLink[] = [
       <section
  id={feature.id}
  class:list={[
- 'scroll-mt-28 px-6 py-20 md:px-12 md:py-28',
+ 'scroll-mt-28 px-6 py-16 md:px-12 md:py-24',
  index % 2 === 0 ? 'bg-surface' : 'bg-surface-container-low'
  ]}
  >
@@ -221,7 +230,7 @@ const footerHighlights: LabeledLink[] = [
 
     <LocationPhotoGallery images={galleryImages} />
 
-    <section class="bg-surface px-6 py-24 md:px-12 md:py-32">
+    <section class="bg-surface px-6 py-16 md:px-12 md:py-24">
       <div class="mx-auto grid max-w-screen-2xl gap-10 lg:grid-cols-12 lg:items-end lg:gap-20">
         <div class="lg:col-span-7">
           <p class="am-text-eyebrow text-primary">{content.experience.eyebrow}</p>
