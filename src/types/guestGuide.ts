@@ -138,10 +138,76 @@ export interface GuestGuideWeatherItem {
   introBody: LocalizedText[];
 }
 
+/** One navigate/walk action button below an arrival step or detail. */
+export interface GuestGuideArrivalAction {
+  label: LocalizedText;
+  href: string;
+  /** Picks the leading glyph: a car (drive), footprints (walk) or a pin (map). */
+  icon?: 'car' | 'walk' | 'map';
+  variant?: 'primary' | 'secondary';
+}
+
+/** One numbered step of the arrival — the component supplies the number. */
+export interface GuestGuideArrivalStep {
+  id: string;
+  /** Short, without a leading number; may contain trusted inline HTML. */
+  title: LocalizedText;
+  /** One or two short lines; may contain <strong> and <a>. */
+  note: LocalizedText;
+  action?: GuestGuideArrivalAction;
+}
+
+/** A walking or bus route inside an arrival detail, with distance and terrain. */
+export interface GuestGuideArrivalRoute {
+  id: string;
+  title: LocalizedText;
+  distance: LocalizedText;
+  terrain: LocalizedText;
+  href?: string;
+  actionLabel?: LocalizedText;
+}
+
+/** A collapsible block under the steps: fallback directions, bus, parking, plan B. */
+export interface GuestGuideArrivalDetail {
+  id: string;
+  title: LocalizedText;
+  /** Prose paragraphs, each may contain <strong> and <a>. */
+  paragraphs?: LocalizedText[];
+  /** An ordered turn-by-turn list. */
+  directions?: LocalizedText[];
+  /** Route cards with distance and terrain. */
+  routes?: GuestGuideArrivalRoute[];
+  /** An optional closing link, e.g. a car-park map. */
+  action?: GuestGuideArrivalAction;
+}
+
+export interface GuestGuideArrivalContent {
+  /** The one-line promise, e.g. "In 3 Schritten angekommen". */
+  intro: LocalizedText;
+  steps: GuestGuideArrivalStep[];
+  /** An optional note between the steps and the collapsible details. */
+  note?: LocalizedText;
+  details?: GuestGuideArrivalDetail[];
+}
+
+/**
+ * The structured "Anreise & Parken" card: a short numbered path to the door with
+ * navigate buttons, and the longer detail (fallback directions, bus, parking)
+ * folded away. Rendered by GuestGuideArrival, one shared treatment for every
+ * stay, so a guest sees at a glance how simple the arrival is.
+ */
+export interface GuestGuideArrivalItem {
+  kind: 'arrival';
+  icon: GuestGuideIconName;
+  title: LocalizedText;
+  arrival: GuestGuideArrivalContent;
+}
+
 export type GuestGuideCategoryItem =
   | GuestGuideAccordionItem
   | GuestGuideCategoryLinkItem
-  | GuestGuideWeatherItem;
+  | GuestGuideWeatherItem
+  | GuestGuideArrivalItem;
 
 export interface GuestGuideCategory {
   heading: LocalizedText;

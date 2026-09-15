@@ -1,5 +1,6 @@
 import type {
   GuestGuideAccordionItem,
+  GuestGuideArrivalItem,
   GuestGuideCategoryLinkItem,
   GuestGuideEntry,
   GuestGuideIconName,
@@ -355,93 +356,83 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
       ),
       items: [
         {
+          kind: 'arrival',
           icon: 'location-pin',
-          title: tarifaText(
-            'Address & Directions',
-            'Adresse & Anfahrt',
-            'Dirección y cómo llegar',
-            'Adres & routebeschrijving',
-            'Adress & vägbeskrivning'
-          ),
-          body: tarifaParagraphs({
-            en: [
-              `<strong>AMARA Tarifa – Penthouse 433</strong>`,
-              `The apartment is located at <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `The residence is called <strong>Las Terrazas de la Marina</strong>. Your apartment number is <strong>433</strong> (Ático / Penthouse).`,
-              `If arriving by taxi, mentioning the building name often makes the drop-off easier.`
+          title: tarifaText('Arrival & parking', 'Anreise & Parken', 'Llegada y aparcamiento', 'Aankomst en parkeren', 'Ankomst och parkering'),
+          arrival: {
+            intro: tarifaText('Three steps to AMARA Tarifa', 'In 3 Schritten zu AMARA Tarifa', 'A AMARA Tarifa en tres pasos', 'In 3 stappen naar AMARA Tarifa', 'Tre steg till AMARA Tarifa'),
+            steps: [
+              {
+                id: 'checkin',
+                title: tarifaText('Drive to the door and check in', 'Zur Haustür fahren & einchecken', 'Conducir hasta la puerta y registrarse', 'Naar de deur rijden en inchecken', 'Kör fram till dörren och checka in'),
+                note: tarifaText(
+                  `<strong>Ático 433 · Las Terrazas de la Marina, Mar Adriatico 29</strong><br />Stop briefly and go up to the apartment — the two remote controls (gate and garage) are on the kitchen table.`,
+                  `<strong>Ático 433 · Las Terrazas de la Marina, Mar Adriatico 29</strong><br />Kurz halten und hoch ins Apartment — die beiden Fernbedienungen (Tor und Garage) liegen auf dem Küchentisch.`,
+                  `<strong>Ático 433 · Las Terrazas de la Marina, Mar Adriático 29</strong><br />Parad un momento y subid al apartamento: los dos mandos (puerta y garaje) están en la mesa de la cocina.`,
+                  `<strong>Ático 433 · Las Terrazas de la Marina, Mar Adriatico 29</strong><br />Stop even en ga naar boven — de twee afstandsbedieningen (poort en garage) liggen op de keukentafel.`,
+                  `<strong>Ático 433 · Las Terrazas de la Marina, Mar Adriatico 29</strong><br />Stanna kort och gå upp till lägenheten — de två fjärrkontrollerna (grind och garage) ligger på köksbordet.`
+                ),
+                action: {
+                  label: tarifaText('Navigate to the address', 'Zur Adresse navigieren', 'Cómo llegar a la dirección', 'Naar het adres navigeren', 'Visa vägen till adressen'),
+                  href: 'https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa',
+                  icon: 'car',
+                  variant: 'primary'
+                }
+              },
+              {
+                id: 'garage',
+                title: tarifaText('Drive to the garage', 'Zur Tiefgarage', 'Bajar al garaje', 'Naar de garage rijden', 'Kör till garaget'),
+                note: tarifaText(
+                  `The entrance is at the rear of the building via Calle Cigüeña Negra — or take the lift or stairs down to level -1.`,
+                  `Die Einfahrt liegt an der Rückseite über die Calle Cigüeña Negra — oder mit Aufzug bzw. Treppe auf Ebene -1.`,
+                  `La entrada está en la parte trasera por la Calle Cigüeña Negra, o bajad en ascensor o por las escaleras al nivel -1.`,
+                  `De inrit ligt aan de achterkant via de Calle Cigüeña Negra — of neem de lift of trap naar niveau -1.`,
+                  `Infarten ligger på baksidan via Calle Cigüeña Negra — eller ta hissen eller trappan ner till plan -1.`
+                ),
+                action: {
+                  label: tarifaText('Navigate to the entrance', 'Zur Garageneinfahrt navigieren', 'Cómo llegar a la entrada', 'Naar de inrit navigeren', 'Visa vägen till infarten'),
+                  href: 'https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa',
+                  icon: 'map',
+                  variant: 'secondary'
+                }
+              },
+              {
+                id: 'space',
+                title: tarifaText('Park in space 408', 'Stellplatz 408', 'Plaza 408', 'Parkeerplaats 408', 'Plats 408'),
+                note: tarifaText(
+                  `Level -1, your own space — please use only this one.`,
+                  `Ebene -1, euer eigener Platz — bitte nur diesen nutzen.`,
+                  `Nivel -1, vuestra propia plaza: utilizad solo esta.`,
+                  `Niveau -1, jullie eigen plek — gebruik alleen deze.`,
+                  `Plan -1, er egen plats — använd endast denna.`
+                )
+              }
             ],
-            de: [
-              `<strong>AMARA Tarifa – Penthouse 433</strong>`,
-              `Das Apartment befindet sich in der <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `Die Anlage heißt <strong>Las Terrazas de la Marina</strong>. Eure Apartmentnummer ist die <strong>433</strong> (Ático / Penthouse).`,
-              `Bei Anreise mit dem Taxi hilft es oft, den Namen der Anlage zu nennen, um den Ausstieg zu erleichtern.`
-            ],
-            es: [
-              `<strong>AMARA Tarifa – Ático 433</strong>`,
-              `El apartamento está situado en <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriático 29, 11380 Tarifa</a>.`,
-              `El residencial se llama <strong>Las Terrazas de la Marina</strong>. El número de vuestro apartamento es el <strong>433</strong> (Ático / Penthouse).`,
-              `Si llegáis en taxi, mencionar el nombre del edificio suele facilitar la llegada.`
-            ],
-            nl: [
-              `<strong>AMARA Tarifa – Penthouse 433</strong>`,
-              `Het appartement bevindt zich aan de <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `De residentie heet <strong>Las Terrazas de la Marina</strong>. Jullie appartementsnummer is <strong>433</strong> (Ático / Penthouse).`,
-              `Als jullie met de taxi aankomen, is het vaak makkelijker om de naam van het gebouw te vermelden.`
-            ],
-            sv: [
-              `<strong>AMARA Tarifa – Takvåning 433</strong>`,
-              `Lägenheten ligger på <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `Boendet heter <strong>Las Terrazas de la Marina</strong>. Ert lägenhetsnummer är <strong>433</strong> (Ático / Penthouse).`,
-              `Om ni anländer med taxi brukar det underlätta att nämna byggnadens namn.`
+            details: [
+              {
+                id: 'taxi',
+                title: tarifaText('Arriving by taxi', 'Mit dem Taxi', 'Llegada en taxi', 'Met de taxi', 'Med taxi'),
+                paragraphs: tarifaParagraphs({
+                  en: [`If arriving by taxi, mentioning the building name often makes the drop-off easier.`],
+                  de: [`Bei Anreise mit dem Taxi hilft es oft, den Namen der Anlage zu nennen, um den Ausstieg zu erleichtern.`],
+                  es: [`Si llegáis en taxi, mencionar el nombre del edificio suele facilitar la llegada.`],
+                  nl: [`Als jullie met de taxi aankomen, is het vaak makkelijker om de naam van het gebouw te vermelden.`],
+                  sv: [`Om ni anländer med taxi brukar det underlätta att nämna byggnadens namn.`]
+                })
+              },
+              {
+                id: 'street',
+                title: tarifaText('Parking on the street', 'Straße parken (Alternative)', 'Aparcar en la calle', 'Op straat parkeren', 'Gatuparkering'),
+                paragraphs: tarifaParagraphs({
+                  en: [`You can also park on the street around the building if you prefer. Street parking in the area is generally possible, depending on availability.`],
+                  de: [`Ihr könnt alternativ auch auf der Straße rund um das Gebäude parken, wenn ihr das bevorzugt. Straßenparken ist in der Umgebung grundsätzlich möglich, je nach Verfügbarkeit.`],
+                  es: [`También podéis aparcar en la calle alrededor del edificio si lo preferís. En la zona normalmente es posible aparcar en la calle, según disponibilidad.`],
+                  nl: [`Jullie kunnen ook op straat rondom het gebouw parkeren als jullie dat liever willen. Parkeren op straat is in de omgeving meestal mogelijk, afhankelijk van de beschikbaarheid.`],
+                  sv: [`Ni kan också parkera på gatan runt byggnaden om ni föredrar det. Gatuparkering i området är vanligtvis möjlig, beroende på tillgänglighet.`]
+                })
+              }
             ]
-          })
-        },
-        {
-          icon: 'car',
-          title: tarifaText(
-            'Private Parking',
-            'Privatparkplatz',
-            'Aparcamiento privado',
-            'Privéparkeerplaats',
-            'Privat parkering'
-          ),
-          body: tarifaParagraphs({
-            en: [
-              `Your private underground parking space is <strong>No. 408</strong>.`,
-              `You may access the garage by taking the elevator or stairs to level <strong>-1</strong>, or by driving to the rear of the building via <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa" target="_blank" rel="noopener">Calle Cigüeña Negra</a>.`,
-              `The remote controls for both the sliding gate and the garage door are placed on the kitchen table.`,
-              `Kindly use only your designated parking space.`,
-              `You can also park on the street around the building if you prefer. Street parking in the area is generally possible, depending on availability.`
-            ],
-            de: [
-              `Euer privater Tiefgaragenstellplatz ist die <strong>Nr. 408</strong>.`,
-              `Ihr erreicht die Garage über den Aufzug oder die Treppe auf Ebene <strong>-1</strong> oder fahrt über die <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa" target="_blank" rel="noopener">Calle Cigüeña Negra</a> an die Rückseite des Gebäudes.`,
-              `Die Fernbedienungen für das Schiebetor und das Garagentor liegen auf dem Küchentisch.`,
-              `Bitte nutzt ausschließlich euren zugewiesenen Parkplatz.`,
-              `Ihr könnt alternativ auch auf der Straße rund um das Gebäude parken, wenn ihr das bevorzugt. Straßenparken ist in der Umgebung grundsätzlich möglich, je nach Verfügbarkeit.`
-            ],
-            es: [
-              `Vuestra plaza de aparcamiento subterráneo privado es la <strong>nº 408</strong>.`,
-              `Podéis acceder al garaje tomando el ascensor o las escaleras hasta el nivel <strong>-1</strong>, o conduciendo hasta la parte trasera del edificio por la <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa" target="_blank" rel="noopener">Calle Cigüeña Negra</a>.`,
-              `Los mandos a distancia tanto de la puerta corredera como de la puerta del garaje se encuentran en la mesa de la cocina.`,
-              `Por favor, utilizad únicamente la plaza de aparcamiento asignada.`,
-              `También podéis aparcar en la calle alrededor del edificio si lo preferís. En la zona normalmente es posible aparcar en la calle, según disponibilidad.`
-            ],
-            nl: [
-              `Jullie privéparkeerplaats in de ondergrondse garage is <strong>nr. 408</strong>.`,
-              `Jullie bereiken de garage met de lift of trap naar verdieping <strong>-1</strong>, of door via de <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa" target="_blank" rel="noopener">Calle Cigüeña Negra</a> naar de achterkant van het gebouw te rijden.`,
-              `De afstandsbedieningen voor zowel de schuifpoort als de garagedeur liggen op de keukentafel.`,
-              `Gebruik alleen de aan jullie toegewezen parkeerplaats.`,
-              `Jullie kunnen ook op straat rondom het gebouw parkeren als jullie dat liever willen. Parkeren op straat is in de omgeving meestal mogelijk, afhankelijk van de beschikbaarheid.`
-            ],
-            sv: [
-              `Er privata parkeringsplats i garaget är <strong>nr 408</strong>.`,
-              `Ni når garaget genom att ta hissen eller trapporna till plan <strong>-1</strong>, eller genom att köra till baksidan av byggnaden via <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa" target="_blank" rel="noopener">Calle Cigüeña Negra</a>.`,
-              `Fjärrkontrollerna för både skjutgrinden och garagedörren ligger på köksbordet.`,
-              `Vänligen använd endast er anvisade parkeringsplats.`,
-              `Ni kan också parkera på gatan runt byggnaden om ni föredrar det. Gatuparkering i området är vanligtvis möjlig, beroende på tillgänglighet.`
-            ]
-          })
+          }
         },
         {
           icon: 'wifi',

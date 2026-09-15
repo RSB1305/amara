@@ -1,4 +1,4 @@
-import type { GuestGuideAccordionItem, GuestGuideDetailEntry, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
+import type { GuestGuideAccordionItem, GuestGuideArrivalItem, GuestGuideDetailEntry, GuestGuideEntry, GuestGuideMenuLink, LocalizedText } from '../types/guestGuide';
 import { staySearchHref, type StaySearchDestination } from '../lib/staySearchHref';
 import { guidePlaceItem } from '../lib/placeProjection';
 import { routeImageAltText, routeImageFigure, routeImageFigures, routeImageSrc } from '../lib/images/routeImages';
@@ -285,12 +285,81 @@ export const frigilianaCenterArrivalContent = {
   ] satisfies { id: string; title: LocalizedText; distance: LocalizedText; terrain: LocalizedText; href: string }[]
 };
 
-// This shared item is the opt-in for the Frigiliana arrival view; other guide
-// items continue to use the accordion's existing paragraph rendering.
-export const sharedFrigilianaCenterArrivalItem: GuestGuideAccordionItem = {
+// The shared Frigiliana arrival card, in the generic structured shape rendered by
+// GuestGuideArrival. It reuses the localized strings above; the two step titles
+// drop their old "1 · / 2 ·" prefix because the component now numbers the steps.
+const c = frigilianaCenterArrivalContent;
+export const sharedFrigilianaCenterArrivalItem: GuestGuideArrivalItem = {
+  kind: 'arrival',
   icon: 'location-pin',
-  title: frigilianaCenterArrivalContent.copy.title,
-  body: []
+  title: c.copy.title,
+  arrival: {
+    intro: c.copy.intro,
+    steps: [
+      {
+        id: 'drive',
+        title: { en: 'By car or taxi', de: 'Mit Auto oder Taxi', es: 'En coche o taxi', nl: 'Met de auto of taxi', sv: 'Med bil eller taxi' },
+        note: {
+          en: `<strong>${c.arrivalAddress}</strong><br />${c.copy.driveNote.en}`,
+          de: `<strong>${c.arrivalAddress}</strong><br />${c.copy.driveNote.de}`,
+          es: `<strong>${c.arrivalAddress}</strong><br />${c.copy.driveNote.es}`,
+          nl: `<strong>${c.arrivalAddress}</strong><br />${c.copy.driveNote.nl}`,
+          sv: `<strong>${c.arrivalAddress}</strong><br />${c.copy.driveNote.sv}`
+        },
+        action: { label: c.copy.driveAction, href: c.drivingHref, icon: 'car', variant: 'primary' }
+      },
+      {
+        id: 'walk',
+        title: { en: 'Walk the last stretch', de: 'Die letzten Meter zu Fuß', es: 'El último tramo, a pie', nl: 'Het laatste stukje te voet', sv: 'Sista biten till fots' },
+        note: c.copy.walkNote,
+        action: { label: c.copy.walkAction, href: c.walkingHref, icon: 'walk', variant: 'secondary' }
+      }
+    ],
+    note: c.copy.accessNote,
+    details: [
+      {
+        id: 'fallback',
+        title: c.copy.fallbackTitle,
+        directions: c.directions.map((direction) => direction.text),
+        paragraphs: [
+          {
+            en: `<strong>${c.copy.addressLabel.en}</strong><br /><a class="am-link" href="${c.houseHref}" target="_blank" rel="noopener">${c.houseAddress}</a>`,
+            de: `<strong>${c.copy.addressLabel.de}</strong><br /><a class="am-link" href="${c.houseHref}" target="_blank" rel="noopener">${c.houseAddress}</a>`,
+            es: `<strong>${c.copy.addressLabel.es}</strong><br /><a class="am-link" href="${c.houseHref}" target="_blank" rel="noopener">${c.houseAddress}</a>`,
+            nl: `<strong>${c.copy.addressLabel.nl}</strong><br /><a class="am-link" href="${c.houseHref}" target="_blank" rel="noopener">${c.houseAddress}</a>`,
+            sv: `<strong>${c.copy.addressLabel.sv}</strong><br /><a class="am-link" href="${c.houseHref}" target="_blank" rel="noopener">${c.houseAddress}</a>`
+          }
+        ]
+      },
+      {
+        id: 'bus',
+        title: c.copy.busTitle,
+        paragraphs: [
+          {
+            en: `<strong>${c.copy.busStopLabel.en}</strong><br /><a class="am-link" href="${c.busStopHref}" target="_blank" rel="noopener">${c.busStop}</a>`,
+            de: `<strong>${c.copy.busStopLabel.de}</strong><br /><a class="am-link" href="${c.busStopHref}" target="_blank" rel="noopener">${c.busStop}</a>`,
+            es: `<strong>${c.copy.busStopLabel.es}</strong><br /><a class="am-link" href="${c.busStopHref}" target="_blank" rel="noopener">${c.busStop}</a>`,
+            nl: `<strong>${c.copy.busStopLabel.nl}</strong><br /><a class="am-link" href="${c.busStopHref}" target="_blank" rel="noopener">${c.busStop}</a>`,
+            sv: `<strong>${c.copy.busStopLabel.sv}</strong><br /><a class="am-link" href="${c.busStopHref}" target="_blank" rel="noopener">${c.busStop}</a>`
+          }
+        ],
+        routes: c.busRoutes.map((route) => ({
+          id: route.id,
+          title: route.title,
+          distance: route.distance,
+          terrain: route.terrain,
+          href: route.href,
+          actionLabel: c.copy.busRouteAction
+        }))
+      },
+      {
+        id: 'parking',
+        title: c.copy.parkingTitle,
+        paragraphs: [c.copy.freeParking, c.copy.planB, c.copy.tariff],
+        action: { label: c.copy.planBAction, href: c.carParkHref, icon: 'map' }
+      }
+    ]
+  }
 };
 
 const sharedAmaraWifiItem: GuestGuideAccordionItem = {
@@ -4417,78 +4486,104 @@ const nerjaPlayaAccommodation: GuestGuideEntry = {
       },
       items: [
         {
+          kind: 'arrival',
           icon: 'location-pin',
-          title: {
-            en: 'Address & Directions',
-            de: 'Adresse & Anfahrt',
-            es: 'Dirección & Cómo llegar',
-            nl: 'Adres & Route',
-            sv: 'Adress & Vägbeskrivning'
-          },
-          body: [
-            {
-              en: '<strong>By car:</strong> AMARA Playa is located at <a class="am-link" href="https://maps.app.goo.gl/E886L2Huw3fXBQTt9" target="_blank" rel="noopener">Calle Castilla Pérez, 60, Nerja</a>. You can drive up to the entrance and stop there briefly when you arrive.',
-              de: '<strong>Anreise mit dem Auto:</strong> AMARA Playa befindet sich in der <a class="am-link" href="https://maps.app.goo.gl/E886L2Huw3fXBQTt9" target="_blank" rel="noopener">Calle Castilla Pérez, 60, Nerja</a>. Ihr könnt direkt bis zum Eingang fahren und dort bei eurer Ankunft kurz halten.',
-              es: '<strong>Llegada en coche:</strong> AMARA Playa se encuentra en <a class="am-link" href="https://maps.app.goo.gl/E886L2Huw3fXBQTt9" target="_blank" rel="noopener">Calle Castilla Pérez, 60, Nerja</a>. Podéis conducir hasta la entrada y parar allí brevemente al llegar.',
-              nl: '<strong>Aankomst met de auto:</strong> AMARA Playa bevindt zich aan de <a class="am-link" href="https://maps.app.goo.gl/E886L2Huw3fXBQTt9" target="_blank" rel="noopener">Calle Castilla Pérez, 60, Nerja</a>. Jullie kunnen tot aan de ingang rijden en daar bij aankomst even stoppen.',
-              sv: '<strong>Ankomst med bil:</strong> AMARA Playa ligger på <a class="am-link" href="https://maps.app.goo.gl/E886L2Huw3fXBQTt9" target="_blank" rel="noopener">Calle Castilla Pérez, 60, Nerja</a>. Ni kan köra fram till entrén och stanna där kort vid ankomst.'
-            },
-            {
-              en: 'We recommend unloading your luggage first and then using one of the public parking options around the apartment. As the apartment is very close to the beach and set in one of the most popular parts of Nerja, parking may take a little patience, especially during high season.',
-              de: 'Wir empfehlen euch, zuerst euer Gepäck auszuladen und anschließend einen der öffentlichen Parkplätze in der Nähe des Apartments zu nutzen. Da das Apartment sehr nah am Strand und in einem der beliebtesten Teile von Nerja liegt, braucht ihr beim Parken vor allem in der Hochsaison etwas Geduld.',
-              es: 'Os recomendamos descargar primero el equipaje y luego utilizar una de las opciones de aparcamiento público cerca del apartamento. Como el apartamento está muy cerca de la playa y en una de las zonas más concurridas de Nerja, aparcar puede requerir algo de paciencia, sobre todo en temporada alta.',
-              nl: 'We raden aan om eerst jullie bagage uit te laden en daarna gebruik te maken van een van de openbare parkeermogelijkheden rond het appartement. Omdat het appartement heel dicht bij het strand ligt en in een van de populairste delen van Nerja, kan parkeren wat geduld vergen, vooral in het hoogseizoen.',
-              sv: 'Vi rekommenderar att ni först lastar ur bagaget och sedan använder någon av de allmänna parkeringsmöjligheterna runt lägenheten. Eftersom lägenheten ligger mycket nära stranden och i en av de mest populära delarna av Nerja kan parkering kräva lite tålamod, särskilt under högsäsong.'
-            },
-            {
-              en: '<strong>By bus:</strong> Most buses from Málaga arrive at the <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">Nerja bus station</a>. From there, you can either take a taxi or walk to the apartment — the walk is around 1 km and takes approximately 15 minutes.',
-              de: '<strong>Anreise mit dem Bus:</strong> Die meisten Busse aus Málaga kommen am <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">Busbahnhof von Nerja</a> an. Von dort könnt ihr entweder ein Taxi nehmen oder zu Fuß zum Apartment gehen – der Weg ist etwa 1 km lang und dauert ungefähr 15 Minuten.',
-              es: '<strong>Llegada en autobús:</strong> La mayoría de los autobuses desde Málaga llegan a la <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">estación de autobuses de Nerja</a>. Desde allí podéis coger un taxi o ir andando al apartamento; el paseo es de aproximadamente 1 km y dura unos 15 minutos.',
-              nl: '<strong>Aankomst met de bus:</strong> De meeste bussen vanuit Málaga komen aan bij het <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">busstation van Nerja</a>. Vanaf daar kunnen jullie een taxi nemen of naar het appartement lopen — de wandeling is ongeveer 1 km en duurt ongeveer 15 minuten.',
-              sv: '<strong>Ankomst med buss:</strong> De flesta bussar från Málaga anländer till <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">Nerjas busstation</a>. Därifrån kan ni antingen ta en taxi eller promenera till lägenheten — promenaden är cirka 1 km och tar ungefär 15 minuter.'
-            }
-          ]
-        },
-        {
-          icon: 'car',
-          title: { en: 'Parking', de: 'Parken', es: 'Aparcamiento', nl: 'Parkeren', sv: 'Parkering' },
-          body: [
-            {
-              en: 'Parking near the apartment is usually possible, but in this area it can sometimes be a little more difficult than expected, especially in high season because of the beach proximity.',
-              de: 'In der Nähe des Apartments zu parken ist meist möglich, kann in dieser Gegend aber manchmal etwas schwieriger sein als erwartet – besonders in der Hochsaison aufgrund der Nähe zum Strand.',
-              es: 'Aparcar cerca del apartamento suele ser posible, pero en esta zona a veces puede ser un poco más difícil de lo esperado, especialmente en temporada alta por la cercanía a la playa.',
-              nl: 'Parkeren in de buurt van het appartement is meestal mogelijk, maar kan in deze omgeving soms wat lastiger zijn dan verwacht, vooral in het hoogseizoen vanwege de nabijheid van het strand.',
-              sv: 'Parkering nära lägenheten är oftast möjlig, men i det här området kan det ibland vara lite svårare än väntat, särskilt under högsäsong på grund av närheten till stranden.'
-            },
-            {
-              en: 'If you find a suitable parking space within around 200 metres before reaching the apartment, we recommend taking it and walking the short remaining distance rather than trying to stop directly in front of the building.',
-              de: 'Wenn ihr innerhalb von etwa 200 Metern vor dem Apartment einen passenden Parkplatz findet, empfehlen wir euch, diesen zu nehmen und die kurze restliche Strecke zu Fuß zu gehen, statt direkt vor dem Gebäude halten zu wollen.',
-              es: 'Si encontráis un sitio adecuado para aparcar a unos 200 metros antes de llegar al apartamento, os recomendamos aparcar ahí y caminar el corto trayecto restante, en lugar de intentar parar justo delante del edificio.',
-              nl: 'Als jullie binnen ongeveer 200 meter voor het appartement een geschikte parkeerplek vinden, raden we aan deze te nemen en het korte stukje resterende afstand te lopen, in plaats van te proberen direct voor het gebouw te stoppen.',
-              sv: 'Om ni hittar en lämplig parkeringsplats inom cirka 200 meter innan ni når lägenheten rekommenderar vi att ni tar den och promenerar den korta återstående sträckan, i stället för att försöka stanna direkt framför byggnaden.'
-            },
-            {
-              en: 'If you do not find a space straight away, continue past the apartment area, follow the street around, and check the nearby streets around the block. A little patience is often part of parking in Nerja, and we have usually had good luck finding something nearby.',
-              de: 'Falls ihr nicht sofort einen Platz findet, fahrt einfach am Apartment vorbei, folgt der Straße weiter und schaut in den umliegenden Straßen rund um den Block. Etwas Geduld gehört beim Parken in Nerja oft dazu, und meist hat es sich bisher gut gefügt, in der Nähe etwas zu finden.',
-              es: 'Si no encontráis sitio enseguida, continuad más allá de la zona del apartamento, seguid la calle y comprobad las calles cercanas alrededor de la manzana. Un poco de paciencia suele formar parte de aparcar en Nerja, y normalmente hemos tenido suerte encontrando algo cerca.',
-              nl: 'Als jullie niet meteen een plek vinden, rijd dan door voorbij het appartement, volg de straat verder en kijk in de omliggende straten rond het blok. Een beetje geduld hoort er bij het parkeren in Nerja vaak bij, en meestal hebben we goed geluk gehad om iets in de buurt te vinden.',
-              sv: 'Om ni inte hittar en plats direkt, fortsätt förbi lägenhetens område, följ gatan runt och kolla de närliggande gatorna runt kvarteret. Lite tålamod hör ofta till att parkera i Nerja, och vi har oftast haft tur att hitta något i närheten.'
-            },
-            {
-              en: 'Please only park where local signs and road markings clearly allow it. Avoid restricted areas and always check carefully before leaving your car.',
-              de: 'Bitte parkt nur dort, wo es die örtlichen Schilder und Markierungen eindeutig erlauben. Meidet Sperrzonen und prüft immer sorgfältig, bevor ihr euer Auto abstellt.',
-              es: 'Por favor, aparcad solo donde las señales y marcas viales locales lo permitan claramente. Evitad las zonas restringidas y comprobad siempre con cuidado antes de dejar el coche.',
-              nl: 'Parkeer alstublieft alleen waar plaatselijke borden en wegmarkeringen dit duidelijk toestaan. Vermijd verboden zones en controleer altijd zorgvuldig voordat jullie de auto achterlaten.',
-              sv: 'Vänligen parkera endast där lokala skyltar och vägmarkeringar tydligt tillåter det. Undvik förbjudna zoner och kontrollera alltid noga innan ni lämnar bilen.'
-            },
-            {
-              en: 'If nothing is available nearby, there are also two public parking options a little further away that may help as a fallback: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">public parking option 1</a> and <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">public parking option 2</a>. These are roughly 400 to 600 metres away and are best kept as a backup if nothing closer is available.',
-              de: 'Falls in der Nähe nichts frei ist, gibt es außerdem zwei etwas weiter entfernte öffentliche Parkmöglichkeiten, die als Ausweichoption dienen können: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">öffentlicher Parkplatz 1</a> und <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">öffentlicher Parkplatz 2</a>. Diese liegen etwa 400 bis 600 Meter entfernt und eignen sich am besten als Rückfalloption, falls in der Nähe nichts verfügbar ist.',
-              es: 'Si no hay nada disponible cerca, también hay dos opciones de aparcamiento público un poco más alejadas que pueden serviros como alternativa: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">aparcamiento público 1</a> y <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">aparcamiento público 2</a>. Están a unos 400–600 metros y es mejor guardarlos como opción de reserva si no hay nada más cerca.',
-              nl: 'Als er niets in de buurt beschikbaar is, zijn er ook twee openbare parkeeropties iets verder weg die als terugvaloptie kunnen dienen: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">openbare parkeerplaats 1</a> en <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">openbare parkeerplaats 2</a>. Deze liggen ongeveer 400 tot 600 meter verderop en zijn het beste te gebruiken als reserveoptie als er niets dichterbij beschikbaar is.',
-              sv: 'Om inget finns tillgängligt i närheten finns det även två offentliga parkeringsalternativ lite längre bort som kan fungera som reserv: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">offentlig parkering 1</a> och <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">offentlig parkering 2</a>. Dessa ligger cirka 400 till 600 meter bort och fungerar bäst som reserv om inget närmare finns tillgängligt.'
-            }
-          ]
+          title: { en: 'Arrival & parking', de: 'Anreise & Parken', es: 'Llegada y aparcamiento', nl: 'Aankomst en parkeren', sv: 'Ankomst och parkering' },
+          arrival: {
+            intro: { en: 'Two steps to AMARA Playa', de: 'In 2 Schritten zu AMARA Playa', es: 'A AMARA Playa en dos pasos', nl: 'In 2 stappen naar AMARA Playa', sv: 'Två steg till AMARA Playa' },
+            steps: [
+              {
+                id: 'drive',
+                title: { en: 'Drive to the door', de: 'Zur Haustür fahren', es: 'Conducir hasta la puerta', nl: 'Naar de deur rijden', sv: 'Kör fram till dörren' },
+                note: {
+                  en: '<strong>Calle Castilla Pérez 60, Nerja</strong><br />Drive up to the entrance, stop briefly and unload your luggage.',
+                  de: '<strong>Calle Castilla Pérez 60, Nerja</strong><br />Bis zum Eingang fahren, kurz halten und das Gepäck ausladen.',
+                  es: '<strong>Calle Castilla Pérez 60, Nerja</strong><br />Conducid hasta la entrada, parad un momento y descargad el equipaje.',
+                  nl: '<strong>Calle Castilla Pérez 60, Nerja</strong><br />Rijd tot aan de ingang, stop even en laad jullie bagage uit.',
+                  sv: '<strong>Calle Castilla Pérez 60, Nerja</strong><br />Kör fram till entrén, stanna kort och lasta ur bagaget.'
+                },
+                action: {
+                  label: { en: 'Navigate to the door', de: 'Zur Adresse navigieren', es: 'Cómo llegar a la puerta', nl: 'Naar het adres navigeren', sv: 'Visa vägen till dörren' },
+                  href: 'https://maps.app.goo.gl/E886L2Huw3fXBQTt9',
+                  icon: 'car',
+                  variant: 'primary'
+                }
+              },
+              {
+                id: 'park',
+                title: { en: 'Park nearby', de: 'In der Nähe parken', es: 'Aparcar cerca', nl: 'In de buurt parkeren', sv: 'Parkera i närheten' },
+                note: {
+                  en: 'Public street parking, ideally within about 200 m, then walk the short last stretch.',
+                  de: 'Öffentlich am Straßenrand, am besten innerhalb von etwa 200 m, dann das kurze letzte Stück zu Fuß.',
+                  es: 'Aparcamiento público en la calle, mejor a unos 200 m, y luego el corto tramo final a pie.',
+                  nl: 'Openbaar op straat, het liefst binnen ongeveer 200 m, en dan het korte laatste stukje te voet.',
+                  sv: 'Allmän gatuparkering, helst inom cirka 200 m, sedan den korta sista biten till fots.'
+                },
+                action: {
+                  label: { en: 'Public parking on the map', de: 'Parkplätze auf der Karte', es: 'Aparcamientos en el mapa', nl: 'Parkeerplekken op de kaart', sv: 'Parkeringar på kartan' },
+                  href: 'https://maps.app.goo.gl/6BwXaUPAChZxwg3u9',
+                  icon: 'map',
+                  variant: 'secondary'
+                }
+              }
+            ],
+            details: [
+              {
+                id: 'parking',
+                title: { en: 'Parking & plan B', de: 'Parken & Plan B', es: 'Aparcamiento y plan B', nl: 'Parkeren en plan B', sv: 'Parkering och plan B' },
+                paragraphs: [
+                  {
+                    en: 'Parking near the apartment is usually possible, but in this area it can sometimes be a little more difficult than expected, especially in high season because of the beach proximity.',
+                    de: 'In der Nähe des Apartments zu parken ist meist möglich, kann in dieser Gegend aber manchmal etwas schwieriger sein als erwartet – besonders in der Hochsaison aufgrund der Nähe zum Strand.',
+                    es: 'Aparcar cerca del apartamento suele ser posible, pero en esta zona a veces puede ser un poco más difícil de lo esperado, especialmente en temporada alta por la cercanía a la playa.',
+                    nl: 'Parkeren in de buurt van het appartement is meestal mogelijk, maar kan in deze omgeving soms wat lastiger zijn dan verwacht, vooral in het hoogseizoen vanwege de nabijheid van het strand.',
+                    sv: 'Parkering nära lägenheten är oftast möjlig, men i det här området kan det ibland vara lite svårare än väntat, särskilt under högsäsong på grund av närheten till stranden.'
+                  },
+                  {
+                    en: 'If you find a suitable parking space within around 200 metres before reaching the apartment, we recommend taking it and walking the short remaining distance rather than trying to stop directly in front of the building.',
+                    de: 'Wenn ihr innerhalb von etwa 200 Metern vor dem Apartment einen passenden Parkplatz findet, empfehlen wir euch, diesen zu nehmen und die kurze restliche Strecke zu Fuß zu gehen, statt direkt vor dem Gebäude halten zu wollen.',
+                    es: 'Si encontráis un sitio adecuado para aparcar a unos 200 metros antes de llegar al apartamento, os recomendamos aparcar ahí y caminar el corto trayecto restante, en lugar de intentar parar justo delante del edificio.',
+                    nl: 'Als jullie binnen ongeveer 200 meter voor het appartement een geschikte parkeerplek vinden, raden we aan deze te nemen en het korte stukje resterende afstand te lopen, in plaats van te proberen direct voor het gebouw te stoppen.',
+                    sv: 'Om ni hittar en lämplig parkeringsplats inom cirka 200 meter innan ni når lägenheten rekommenderar vi att ni tar den och promenerar den korta återstående sträckan, i stället för att försöka stanna direkt framför byggnaden.'
+                  },
+                  {
+                    en: 'If you do not find a space straight away, continue past the apartment area, follow the street around, and check the nearby streets around the block. A little patience is often part of parking in Nerja, and we have usually had good luck finding something nearby.',
+                    de: 'Falls ihr nicht sofort einen Platz findet, fahrt einfach am Apartment vorbei, folgt der Straße weiter und schaut in den umliegenden Straßen rund um den Block. Etwas Geduld gehört beim Parken in Nerja oft dazu, und meist hat es sich bisher gut gefügt, in der Nähe etwas zu finden.',
+                    es: 'Si no encontráis sitio enseguida, continuad más allá de la zona del apartamento, seguid la calle y comprobad las calles cercanas alrededor de la manzana. Un poco de paciencia suele formar parte de aparcar en Nerja, y normalmente hemos tenido suerte encontrando algo cerca.',
+                    nl: 'Als jullie niet meteen een plek vinden, rijd dan door voorbij het appartement, volg de straat verder en kijk in de omliggende straten rond het blok. Een beetje geduld hoort er bij het parkeren in Nerja vaak bij, en meestal hebben we goed geluk gehad om iets in de buurt te vinden.',
+                    sv: 'Om ni inte hittar en plats direkt, fortsätt förbi lägenhetens område, följ gatan runt och kolla de närliggande gatorna runt kvarteret. Lite tålamod hör ofta till att parkera i Nerja, och vi har oftast haft tur att hitta något i närheten.'
+                  },
+                  {
+                    en: 'Please only park where local signs and road markings clearly allow it. Avoid restricted areas and always check carefully before leaving your car.',
+                    de: 'Bitte parkt nur dort, wo es die örtlichen Schilder und Markierungen eindeutig erlauben. Meidet Sperrzonen und prüft immer sorgfältig, bevor ihr euer Auto abstellt.',
+                    es: 'Por favor, aparcad solo donde las señales y marcas viales locales lo permitan claramente. Evitad las zonas restringidas y comprobad siempre con cuidado antes de dejar el coche.',
+                    nl: 'Parkeer alstublieft alleen waar plaatselijke borden en wegmarkeringen dit duidelijk toestaan. Vermijd verboden zones en controleer altijd zorgvuldig voordat jullie de auto achterlaten.',
+                    sv: 'Vänligen parkera endast där lokala skyltar och vägmarkeringar tydligt tillåter det. Undvik förbjudna zoner och kontrollera alltid noga innan ni lämnar bilen.'
+                  },
+                  {
+                    en: 'If nothing is available nearby, there are also two public parking options a little further away that may help as a fallback: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">public parking option 1</a> and <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">public parking option 2</a>. These are roughly 400 to 600 metres away and are best kept as a backup if nothing closer is available.',
+                    de: 'Falls in der Nähe nichts frei ist, gibt es außerdem zwei etwas weiter entfernte öffentliche Parkmöglichkeiten, die als Ausweichoption dienen können: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">öffentlicher Parkplatz 1</a> und <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">öffentlicher Parkplatz 2</a>. Diese liegen etwa 400 bis 600 Meter entfernt und eignen sich am besten als Rückfalloption, falls in der Nähe nichts verfügbar ist.',
+                    es: 'Si no hay nada disponible cerca, también hay dos opciones de aparcamiento público un poco más alejadas que pueden serviros como alternativa: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">aparcamiento público 1</a> y <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">aparcamiento público 2</a>. Están a unos 400–600 metros y es mejor guardarlos como opción de reserva si no hay nada más cerca.',
+                    nl: 'Als er niets in de buurt beschikbaar is, zijn er ook twee openbare parkeeropties iets verder weg die als terugvaloptie kunnen dienen: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">openbare parkeerplaats 1</a> en <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">openbare parkeerplaats 2</a>. Deze liggen ongeveer 400 tot 600 meter verderop en zijn het beste te gebruiken als reserveoptie als er niets dichterbij beschikbaar is.',
+                    sv: 'Om inget finns tillgängligt i närheten finns det även två offentliga parkeringsalternativ lite längre bort som kan fungera som reserv: <a class="am-link" href="https://maps.app.goo.gl/6BwXaUPAChZxwg3u9" target="_blank" rel="noopener">offentlig parkering 1</a> och <a class="am-link" href="https://maps.app.goo.gl/jweJa9nodE2MAKuXA" target="_blank" rel="noopener">offentlig parkering 2</a>. Dessa ligger cirka 400 till 600 meter bort och fungerar bäst som reserv om inget närmare finns tillgängligt.'
+                  }
+                ]
+              },
+              {
+                id: 'bus',
+                title: { en: 'Arriving by bus', de: 'Anreise mit dem Bus', es: 'Llegada en autobús', nl: 'Met de bus', sv: 'Med buss' },
+                paragraphs: [
+                  {
+                    en: '<strong>By bus:</strong> Most buses from Málaga arrive at the <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">Nerja bus station</a>. From there, you can either take a taxi or walk to the apartment — the walk is around 1 km and takes approximately 15 minutes.',
+                    de: '<strong>Anreise mit dem Bus:</strong> Die meisten Busse aus Málaga kommen am <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">Busbahnhof von Nerja</a> an. Von dort könnt ihr entweder ein Taxi nehmen oder zu Fuß zum Apartment gehen – der Weg ist etwa 1 km lang und dauert ungefähr 15 Minuten.',
+                    es: '<strong>Llegada en autobús:</strong> La mayoría de los autobuses desde Málaga llegan a la <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">estación de autobuses de Nerja</a>. Desde allí podéis coger un taxi o ir andando al apartamento; el paseo es de aproximadamente 1 km y dura unos 15 minutos.',
+                    nl: '<strong>Aankomst met de bus:</strong> De meeste bussen vanuit Málaga komen aan bij het <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">busstation van Nerja</a>. Vanaf daar kunnen jullie een taxi nemen of naar het appartement lopen — de wandeling is ongeveer 1 km en duurt ongeveer 15 minuten.',
+                    sv: '<strong>Ankomst med buss:</strong> De flesta bussar från Málaga anländer till <a class="am-link" href="https://maps.app.goo.gl/TVrcmzESK8RiyRYX8" target="_blank" rel="noopener">Nerjas busstation</a>. Därifrån kan ni antingen ta en taxi eller promenera till lägenheten — promenaden är cirka 1 km och tar ungefär 15 minuter.'
+                  }
+                ]
+              }
+            ]
+          }
         },
         {
           icon: 'wifi',
