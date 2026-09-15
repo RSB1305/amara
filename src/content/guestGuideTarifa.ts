@@ -1,5 +1,6 @@
 import type {
   GuestGuideAccordionItem,
+  GuestGuideArrivalItem,
   GuestGuideCategoryLinkItem,
   GuestGuideEntry,
   GuestGuideIconName,
@@ -355,93 +356,83 @@ const tarifaFamilySurfApartment: GuestGuideEntry = {
       ),
       items: [
         {
+          kind: 'arrival',
           icon: 'location-pin',
-          title: tarifaText(
-            'Address & Directions',
-            'Adresse & Anfahrt',
-            'Dirección y cómo llegar',
-            'Adres & routebeschrijving',
-            'Adress & vägbeskrivning'
-          ),
-          body: tarifaParagraphs({
-            en: [
-              `<strong>AMARA Tarifa – Penthouse 433</strong>`,
-              `The apartment is located at <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `The residence is called <strong>Las Terrazas de la Marina</strong>. Your apartment number is <strong>433</strong> (Ático / Penthouse).`,
-              `If arriving by taxi, mentioning the building name often makes the drop-off easier.`
+          title: tarifaText('Arrival & parking', 'Anreise & Parken', 'Llegada y aparcamiento', 'Aankomst en parkeren', 'Ankomst och parkering'),
+          arrival: {
+            intro: tarifaText('Three steps to AMARA Tarifa', 'In 3 Schritten zu AMARA Tarifa', 'A AMARA Tarifa en tres pasos', 'In 3 stappen naar AMARA Tarifa', 'Tre steg till AMARA Tarifa'),
+            steps: [
+              {
+                id: 'checkin',
+                title: tarifaText('Drive to the door and check in', 'Zur Haustür fahren & einchecken', 'Conducir hasta la puerta y registrarse', 'Naar de deur rijden en inchecken', 'Kör fram till dörren och checka in'),
+                note: tarifaText(
+                  `<strong>Ático 433 · Las Terrazas de la Marina, Mar Adriatico 29</strong><br />Stop briefly and go up to the apartment — the two remote controls (gate and garage) are on the kitchen table.`,
+                  `<strong>Ático 433 · Las Terrazas de la Marina, Mar Adriatico 29</strong><br />Kurz halten und hoch ins Apartment — die beiden Fernbedienungen (Tor und Garage) liegen auf dem Küchentisch.`,
+                  `<strong>Ático 433 · Las Terrazas de la Marina, Mar Adriático 29</strong><br />Parad un momento y subid al apartamento: los dos mandos (puerta y garaje) están en la mesa de la cocina.`,
+                  `<strong>Ático 433 · Las Terrazas de la Marina, Mar Adriatico 29</strong><br />Stop even en ga naar boven — de twee afstandsbedieningen (poort en garage) liggen op de keukentafel.`,
+                  `<strong>Ático 433 · Las Terrazas de la Marina, Mar Adriatico 29</strong><br />Stanna kort och gå upp till lägenheten — de två fjärrkontrollerna (grind och garage) ligger på köksbordet.`
+                ),
+                action: {
+                  label: tarifaText('Navigate to the address', 'Zur Adresse navigieren', 'Cómo llegar a la dirección', 'Naar het adres navigeren', 'Visa vägen till adressen'),
+                  href: 'https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa',
+                  icon: 'car',
+                  variant: 'primary'
+                }
+              },
+              {
+                id: 'garage',
+                title: tarifaText('Drive to the garage', 'Zur Tiefgarage', 'Bajar al garaje', 'Naar de garage rijden', 'Kör till garaget'),
+                note: tarifaText(
+                  `The entrance is at the rear of the building via Calle Cigüeña Negra — or take the lift or stairs down to level -1.`,
+                  `Die Einfahrt liegt an der Rückseite über die Calle Cigüeña Negra — oder mit Aufzug bzw. Treppe auf Ebene -1.`,
+                  `La entrada está en la parte trasera por la Calle Cigüeña Negra, o bajad en ascensor o por las escaleras al nivel -1.`,
+                  `De inrit ligt aan de achterkant via de Calle Cigüeña Negra — of neem de lift of trap naar niveau -1.`,
+                  `Infarten ligger på baksidan via Calle Cigüeña Negra — eller ta hissen eller trappan ner till plan -1.`
+                ),
+                action: {
+                  label: tarifaText('Navigate to the entrance', 'Zur Garageneinfahrt navigieren', 'Cómo llegar a la entrada', 'Naar de inrit navigeren', 'Visa vägen till infarten'),
+                  href: 'https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa',
+                  icon: 'map',
+                  variant: 'secondary'
+                }
+              },
+              {
+                id: 'space',
+                title: tarifaText('Park in space 408', 'Stellplatz 408', 'Plaza 408', 'Parkeerplaats 408', 'Plats 408'),
+                note: tarifaText(
+                  `Level -1, your own space — please use only this one.`,
+                  `Ebene -1, euer eigener Platz — bitte nur diesen nutzen.`,
+                  `Nivel -1, vuestra propia plaza: utilizad solo esta.`,
+                  `Niveau -1, jullie eigen plek — gebruik alleen deze.`,
+                  `Plan -1, er egen plats — använd endast denna.`
+                )
+              }
             ],
-            de: [
-              `<strong>AMARA Tarifa – Penthouse 433</strong>`,
-              `Das Apartment befindet sich in der <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `Die Anlage heißt <strong>Las Terrazas de la Marina</strong>. Eure Apartmentnummer ist die <strong>433</strong> (Ático / Penthouse).`,
-              `Bei Anreise mit dem Taxi hilft es oft, den Namen der Anlage zu nennen, um den Ausstieg zu erleichtern.`
-            ],
-            es: [
-              `<strong>AMARA Tarifa – Ático 433</strong>`,
-              `El apartamento está situado en <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriático 29, 11380 Tarifa</a>.`,
-              `El residencial se llama <strong>Las Terrazas de la Marina</strong>. El número de vuestro apartamento es el <strong>433</strong> (Ático / Penthouse).`,
-              `Si llegáis en taxi, mencionar el nombre del edificio suele facilitar la llegada.`
-            ],
-            nl: [
-              `<strong>AMARA Tarifa – Penthouse 433</strong>`,
-              `Het appartement bevindt zich aan de <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `De residentie heet <strong>Las Terrazas de la Marina</strong>. Jullie appartementsnummer is <strong>433</strong> (Ático / Penthouse).`,
-              `Als jullie met de taxi aankomen, is het vaak makkelijker om de naam van het gebouw te vermelden.`
-            ],
-            sv: [
-              `<strong>AMARA Tarifa – Takvåning 433</strong>`,
-              `Lägenheten ligger på <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Mar+Adriatico+29+11380+Tarifa" target="_blank" rel="noopener">Mar Adriatico 29, 11380 Tarifa</a>.`,
-              `Boendet heter <strong>Las Terrazas de la Marina</strong>. Ert lägenhetsnummer är <strong>433</strong> (Ático / Penthouse).`,
-              `Om ni anländer med taxi brukar det underlätta att nämna byggnadens namn.`
+            details: [
+              {
+                id: 'taxi',
+                title: tarifaText('Arriving by taxi', 'Mit dem Taxi', 'Llegada en taxi', 'Met de taxi', 'Med taxi'),
+                paragraphs: tarifaParagraphs({
+                  en: [`If arriving by taxi, mentioning the building name often makes the drop-off easier.`],
+                  de: [`Bei Anreise mit dem Taxi hilft es oft, den Namen der Anlage zu nennen, um den Ausstieg zu erleichtern.`],
+                  es: [`Si llegáis en taxi, mencionar el nombre del edificio suele facilitar la llegada.`],
+                  nl: [`Als jullie met de taxi aankomen, is het vaak makkelijker om de naam van het gebouw te vermelden.`],
+                  sv: [`Om ni anländer med taxi brukar det underlätta att nämna byggnadens namn.`]
+                })
+              },
+              {
+                id: 'street',
+                title: tarifaText('Parking on the street', 'Straße parken (Alternative)', 'Aparcar en la calle', 'Op straat parkeren', 'Gatuparkering'),
+                paragraphs: tarifaParagraphs({
+                  en: [`You can also park on the street around the building if you prefer. Street parking in the area is generally possible, depending on availability.`],
+                  de: [`Ihr könnt alternativ auch auf der Straße rund um das Gebäude parken, wenn ihr das bevorzugt. Straßenparken ist in der Umgebung grundsätzlich möglich, je nach Verfügbarkeit.`],
+                  es: [`También podéis aparcar en la calle alrededor del edificio si lo preferís. En la zona normalmente es posible aparcar en la calle, según disponibilidad.`],
+                  nl: [`Jullie kunnen ook op straat rondom het gebouw parkeren als jullie dat liever willen. Parkeren op straat is in de omgeving meestal mogelijk, afhankelijk van de beschikbaarheid.`],
+                  sv: [`Ni kan också parkera på gatan runt byggnaden om ni föredrar det. Gatuparkering i området är vanligtvis möjlig, beroende på tillgänglighet.`]
+                })
+              }
             ]
-          })
-        },
-        {
-          icon: 'car',
-          title: tarifaText(
-            'Private Parking',
-            'Privatparkplatz',
-            'Aparcamiento privado',
-            'Privéparkeerplaats',
-            'Privat parkering'
-          ),
-          body: tarifaParagraphs({
-            en: [
-              `Your private underground parking space is <strong>No. 408</strong>.`,
-              `You may access the garage by taking the elevator or stairs to level <strong>-1</strong>, or by driving to the rear of the building via <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa" target="_blank" rel="noopener">Calle Cigüeña Negra</a>.`,
-              `The remote controls for both the sliding gate and the garage door are placed on the kitchen table.`,
-              `Kindly use only your designated parking space.`,
-              `You can also park on the street around the building if you prefer. Street parking in the area is generally possible, depending on availability.`
-            ],
-            de: [
-              `Euer privater Tiefgaragenstellplatz ist die <strong>Nr. 408</strong>.`,
-              `Ihr erreicht die Garage über den Aufzug oder die Treppe auf Ebene <strong>-1</strong> oder fahrt über die <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa" target="_blank" rel="noopener">Calle Cigüeña Negra</a> an die Rückseite des Gebäudes.`,
-              `Die Fernbedienungen für das Schiebetor und das Garagentor liegen auf dem Küchentisch.`,
-              `Bitte nutzt ausschließlich euren zugewiesenen Parkplatz.`,
-              `Ihr könnt alternativ auch auf der Straße rund um das Gebäude parken, wenn ihr das bevorzugt. Straßenparken ist in der Umgebung grundsätzlich möglich, je nach Verfügbarkeit.`
-            ],
-            es: [
-              `Vuestra plaza de aparcamiento subterráneo privado es la <strong>nº 408</strong>.`,
-              `Podéis acceder al garaje tomando el ascensor o las escaleras hasta el nivel <strong>-1</strong>, o conduciendo hasta la parte trasera del edificio por la <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa" target="_blank" rel="noopener">Calle Cigüeña Negra</a>.`,
-              `Los mandos a distancia tanto de la puerta corredera como de la puerta del garaje se encuentran en la mesa de la cocina.`,
-              `Por favor, utilizad únicamente la plaza de aparcamiento asignada.`,
-              `También podéis aparcar en la calle alrededor del edificio si lo preferís. En la zona normalmente es posible aparcar en la calle, según disponibilidad.`
-            ],
-            nl: [
-              `Jullie privéparkeerplaats in de ondergrondse garage is <strong>nr. 408</strong>.`,
-              `Jullie bereiken de garage met de lift of trap naar verdieping <strong>-1</strong>, of door via de <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa" target="_blank" rel="noopener">Calle Cigüeña Negra</a> naar de achterkant van het gebouw te rijden.`,
-              `De afstandsbedieningen voor zowel de schuifpoort als de garagedeur liggen op de keukentafel.`,
-              `Gebruik alleen de aan jullie toegewezen parkeerplaats.`,
-              `Jullie kunnen ook op straat rondom het gebouw parkeren als jullie dat liever willen. Parkeren op straat is in de omgeving meestal mogelijk, afhankelijk van de beschikbaarheid.`
-            ],
-            sv: [
-              `Er privata parkeringsplats i garaget är <strong>nr 408</strong>.`,
-              `Ni når garaget genom att ta hissen eller trapporna till plan <strong>-1</strong>, eller genom att köra till baksidan av byggnaden via <a class="am-link" href="https://www.google.com/maps/search/?api=1&query=Calle+Cig%C3%BCe%C3%B1a+Negra+Tarifa" target="_blank" rel="noopener">Calle Cigüeña Negra</a>.`,
-              `Fjärrkontrollerna för både skjutgrinden och garagedörren ligger på köksbordet.`,
-              `Vänligen använd endast er anvisade parkeringsplats.`,
-              `Ni kan också parkera på gatan runt byggnaden om ni föredrar det. Gatuparkering i området är vanligtvis möjlig, beroende på tillgänglighet.`
-            ]
-          })
+          }
         },
         {
           icon: 'wifi',
@@ -1168,6 +1159,7 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
   slug: 'tarifa-guest-local-essentials',
   entityKey: 'amara-family-surf',
   backSlug: 'guestwelcome-tarifa-family-surf',
+  stayKey: 'amara-family-surf',
   supportHref: TARIFA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: tarifaText(
@@ -1227,69 +1219,19 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              `<strong>Pastelito</strong> <span class="am-muted">(350 m · 4 min.)</span>`,
-              `A small French bakery with very good bread and pastries. This is the bakery we most often recommend for a simple morning bread run.`,
-              `C. Los Barrios, 4, Tarifa`,
-              `—`,
-              `<strong>Pastelería La Tarifeña</strong> <span class="am-muted">(near the apartment)</span>`,
-              `A long-standing local pastry shop for cakes, pastries and classic Andalusian sweets. The branch near the apartment is especially practical during your stay.`,
-              `C. Cigüeña Negra, 98, Tarifa`,
-              `—`,
-              `<strong>Pastelería Bernal</strong> <span class="am-muted">(Old Town)</span>`,
-              `Best known for its traditional pastries and its famous Pan Macho. A very good stop if you are already strolling through the centre.`,
-              `C. Sancho IV el Bravo, 3, Tarifa`
+              `Sorted by distance — tap a name to open it in Maps. Pastelito is our usual morning pick for good bread; La Tarifeña is the handy neighbourhood pastry shop; Bernal is worth a stop in the Old Town for its famous Pan Macho.`
             ],
             de: [
-              `<strong>Pastelito</strong> <span class="am-muted">(350 m · 4 Min.)</span>`,
-              `Eine kleine französische Bäckerei mit sehr gutem Brot und Gebäck. Dies ist die Bäckerei, die wir für die morgendlichen Brötchen meistens empfehlen.`,
-              `C. Los Barrios, 4, Tarifa`,
-              `—`,
-              `<strong>Pastelería La Tarifeña</strong> <span class="am-muted">(in der Nähe des Apartments)</span>`,
-              `Eine traditionsreiche lokale Konditorei für Kuchen, Gebäck und klassische andalusische Süßigkeiten. Die Filiale in der Nähe des Apartments ist besonders praktisch.`,
-              `C. Cigüeña Negra, 98, Tarifa`,
-              `—`,
-              `<strong>Pastelería Bernal</strong> <span class="am-muted">(Altstadt)</span>`,
-              `Bekannt für traditionelles Gebäck und das berühmte Pan Macho. Ein sehr guter Stopp, wenn ihr ohnehin durch das Zentrum bummelt.`,
-              `C. Sancho IV el Bravo, 3, Tarifa`
+              `Sortiert nach Entfernung — ein Tipp auf den Namen öffnet die Karte. Pastelito ist unsere übliche Wahl für gutes Brot am Morgen; La Tarifeña die praktische Konditorei im Viertel; Bernal lohnt einen Stopp in der Altstadt für das berühmte Pan Macho.`
             ],
             es: [
-              `<strong>Pastelito</strong> <span class="am-muted">(350 m · 4 min)</span>`,
-              `Una pequeña panadería francesa con muy buen pan y bollería. Esta es la panadería que solemos recomendar para comprar el pan por la mañana.`,
-              `C. Los Barrios, 4, Tarifa`,
-              `—`,
-              `<strong>Pastelería La Tarifeña</strong> <span class="am-muted">(cerca del apartamento)</span>`,
-              `Una pastelería local tradicional con tartas, pasteles y dulces clásicos andaluces. La sucursal cerca del apartamento es muy práctica.`,
-              `C. Cigüeña Negra, 98, Tarifa`,
-              `—`,
-              `<strong>Pastelería Bernal</strong> <span class="am-muted">(Casco Antiguo)</span>`,
-              `Conocida por su repostería tradicional y su famoso Pan Macho. Una buena parada si ya estáis paseando por el centro.`,
-              `C. Sancho IV el Bravo, 3, Tarifa`
+              `Ordenados por distancia — tocad un nombre para abrirlo en el mapa. Pastelito es nuestra opción habitual para buen pan por la mañana; La Tarifeña, la pastelería práctica del barrio; Bernal merece una parada en el Casco Antiguo por su famoso Pan Macho.`
             ],
             nl: [
-              `<strong>Pastelito</strong> <span class="am-muted">(350 m · 4 min.)</span>`,
-              `Een kleine Franse bakker met heel goed brood en gebak. Dit is de bakkerij die we het vaakst aanraden voor vers brood in de ochtend.`,
-              `C. Los Barrios, 4, Tarifa`,
-              `—`,
-              `<strong>Pastelería La Tarifeña</strong> <span class="am-muted">(vlak bij het appartement)</span>`,
-              `Een traditionele lokale patisserie voor taarten, gebakjes en klassieke Andalusische zoetigheden. De vestiging bij het appartement is erg praktisch.`,
-              `C. Cigüeña Negra, 98, Tarifa`,
-              `—`,
-              `<strong>Pastelería Bernal</strong> <span class="am-muted">(Oude Stad)</span>`,
-              `Bekend om het traditionele gebak en het beroemde Pan Macho. Een leuke stop als jullie toch al door het centrum wandelen.`,
-              `C. Sancho IV el Bravo, 3, Tarifa`
+              `Gesorteerd op afstand — tik op een naam om hem in Maps te openen. Pastelito is onze vaste keuze voor goed brood in de ochtend; La Tarifeña de handige buurtbanketbakker; Bernal is een stop waard in de Oude Stad om het beroemde Pan Macho.`
             ],
             sv: [
-              `<strong>Pastelito</strong> <span class="am-muted">(350 m · 4 min.)</span>`,
-              `Ett litet franskt bageri med mycket gott bröd och bakverk. Det här är det bageri vi oftast rekommenderar för att köpa morgonbrödet.`,
-              `C. Los Barrios, 4, Tarifa`,
-              `—`,
-              `<strong>Pastelería La Tarifeña</strong> <span class="am-muted">(nära lägenheten)</span>`,
-              `Ett anrikt lokalt konditori för tårtor, bakverk och klassiska andalusiska sötsaker. Filialen nära lägenheten är väldigt praktisk under er vistelse.`,
-              `C. Cigüeña Negra, 98, Tarifa`,
-              `—`,
-              `<strong>Pastelería Bernal</strong> <span class="am-muted">(Gamla Stan)</span>`,
-              `Mest känd för sina traditionella bakverk och sitt berömda Pan Macho. Ett bra stopp om ni redan strosar runt i centrum.`,
-              `C. Sancho IV el Bravo, 3, Tarifa`
+              `Sorterade efter avstånd — tryck på ett namn för att öppna det i kartan. Pastelito är vårt vanliga val för gott bröd på morgonen; La Tarifeña det smidiga konditoriet i kvarteret; Bernal är värt ett stopp i Gamla Stan för sitt berömda Pan Macho.`
             ]
           })
         },
@@ -1305,89 +1247,19 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              `<strong>Mercadona</strong> <span class="am-muted">(directly across from the apartment)</span>`,
-              `Usually the easiest option for daily groceries. It is especially practical for staple items and a simple same-day shop.`,
-              `C. Batalla del Salado, Tarifa`,
-              `—`,
-              `<strong>Lidl</strong> <span class="am-muted">(larger-format option)</span>`,
-              `A useful option for a broader grocery shop, especially if you are already moving around by car.`,
-              `C. Coronel Francisco Valdés, 27, Tarifa`,
-              `—`,
-              `<strong>DIA</strong> <span class="am-muted">(smaller local option)</span>`,
-              `Handy for a quick grocery stop if you are already in town and do not want to do a full supermarket run.`,
-              `C. San Sebastián, 30, Tarifa`,
-              `—`,
-              `<strong>Supeco</strong> <span class="am-muted">(for a larger stock-up)</span>`,
-              `A practical option for bigger shopping runs and household basics at the edge of town.`,
-              `Calle San José, 67, Tarifa`
+              `Sorted by distance — tap a name to open it in Maps. Mercadona across the street is easiest for daily groceries; Lidl and Supeco suit a bigger shop by car; DIA is a quick stop in the centre. Parking is easiest at the larger stores.`
             ],
             de: [
-              `<strong>Mercadona</strong> <span class="am-muted">(direkt gegenüber dem Apartment)</span>`,
-              `Normalerweise die einfachste Option für den täglichen Einkauf. Besonders praktisch für Grundnahrungsmittel und spontane Besorgungen.`,
-              `C. Batalla del Salado, Tarifa`,
-              `—`,
-              `<strong>Lidl</strong> <span class="am-muted">(größere Auswahl)</span>`,
-              `Eine gute Option für einen größeren Einkauf, besonders wenn ihr ohnehin mit dem Auto unterwegs seid.`,
-              `C. Coronel Francisco Valdés, 27, Tarifa`,
-              `—`,
-              `<strong>DIA</strong> <span class="am-muted">(kleinere lokale Option)</span>`,
-              `Praktisch für einen schnellen Einkauf, wenn ihr in der Stadt seid und keinen großen Supermarkt ansteuern wollt.`,
-              `C. San Sebastián, 30, Tarifa`,
-              `—`,
-              `<strong>Supeco</strong> <span class="am-muted">(für den Großeinkauf)</span>`,
-              `Eine praktische Option für größere Einkäufe und Haushaltsbasics am Stadtrand.`,
-              `Calle San José, 67, Tarifa`
+              `Sortiert nach Entfernung — ein Tipp auf den Namen öffnet die Karte. Mercadona gegenüber ist am einfachsten für den täglichen Einkauf; Lidl und Supeco eignen sich für den größeren Einkauf mit dem Auto; DIA ist der schnelle Stopp im Zentrum. Parken ist bei den größeren Märkten am einfachsten.`
             ],
             es: [
-              `<strong>Mercadona</strong> <span class="am-muted">(justo enfrente del apartamento)</span>`,
-              `Normalmente la opción más fácil para la compra diaria. Es especialmente práctico para productos básicos y una compra rápida para el día.`,
-              `C. Batalla del Salado, Tarifa`,
-              `—`,
-              `<strong>Lidl</strong> <span class="am-muted">(opción de formato más grande)</span>`,
-              `Una opción útil para una compra más amplia, especialmente si ya os movéis en coche.`,
-              `C. Coronel Francisco Valdés, 27, Tarifa`,
-              `—`,
-              `<strong>DIA</strong> <span class="am-muted">(opción local más pequeña)</span>`,
-              `Práctico para una compra rápida si ya estáis en el pueblo y no queréis ir a un supermercado grande.`,
-              `C. San Sebastián, 30, Tarifa`,
-              `—`,
-              `<strong>Supeco</strong> <span class="am-muted">(para una compra grande)</span>`,
-              `Una opción práctica para compras más grandes y productos básicos del hogar en las afueras del pueblo.`,
-              `Calle San José, 67, Tarifa`
+              `Ordenados por distancia — tocad un nombre para abrirlo en el mapa. Mercadona, enfrente, es lo más fácil para la compra diaria; Lidl y Supeco van bien para una compra grande en coche; DIA es la parada rápida del centro. Aparcar es más fácil en los supermercados grandes.`
             ],
             nl: [
-              `<strong>Mercadona</strong> <span class="am-muted">(direct tegenover het appartement)</span>`,
-              `Meestal de makkelijkste optie voor de dagelijkse boodschappen. Vooral praktisch voor basisproducten en een snelle boodschap voor dezelfde dag.`,
-              `C. Batalla del Salado, Tarifa`,
-              `—`,
-              `<strong>Lidl</strong> <span class="am-muted">(grotere winkel)</span>`,
-              `Een handige optie voor grotere boodschappen, vooral als jullie toch al met de auto op pad zijn.`,
-              `C. Coronel Francisco Valdés, 27, Tarifa`,
-              `—`,
-              `<strong>DIA</strong> <span class="am-muted">(kleinere lokale optie)</span>`,
-              `Handig voor een snelle boodschap als jullie al in het centrum zijn en geen grote supermarkt willen bezoeken.`,
-              `C. San Sebastián, 30, Tarifa`,
-              `—`,
-              `<strong>Supeco</strong> <span class="am-muted">(voor een grotere voorraad)</span>`,
-              `Een praktische optie voor grote boodschappen en huishoudelijke basisproducten aan de rand van de stad.`,
-              `Calle San José, 67, Tarifa`
+              `Gesorteerd op afstand — tik op een naam om hem in Maps te openen. Mercadona aan de overkant is het makkelijkst voor dagelijkse boodschappen; Lidl en Supeco zijn geschikt voor een grotere boodschap met de auto; DIA is de snelle stop in het centrum. Parkeren gaat het makkelijkst bij de grotere winkels.`
             ],
             sv: [
-              `<strong>Mercadona</strong> <span class="am-muted">(mitt emot lägenheten)</span>`,
-              `Oftast det enklaste alternativet för dagliga matinköp. Det är särskilt praktiskt för basvaror och en snabb inköpsrunda.`,
-              `C. Batalla del Salado, Tarifa`,
-              `—`,
-              `<strong>Lidl</strong> <span class="am-muted">(större alternativ)</span>`,
-              `Ett bra alternativ för större inköp, speciellt om ni ändå rör er med bil.`,
-              `C. Coronel Francisco Valdés, 27, Tarifa`,
-              `—`,
-              `<strong>DIA</strong> <span class="am-muted">(mindre lokalt alternativ)</span>`,
-              `Smidigt för ett snabbt stopp om ni redan är på stan och inte vill gå till en stor mataffär.`,
-              `C. San Sebastián, 30, Tarifa`,
-              `—`,
-              `<strong>Supeco</strong> <span class="am-muted">(för storhandling)</span>`,
-              `Ett praktiskt alternativ för större inköp och hushållsartiklar i utkanten av staden.`,
-              `Calle San José, 67, Tarifa`
+              `Sorterade efter avstånd — tryck på ett namn för att öppna det i kartan. Mercadona mitt emot är enklast för dagliga inköp; Lidl och Supeco passar för en större handling med bil; DIA är det snabba stoppet i centrum. Parkering är enklast vid de större butikerna.`
             ]
           })
         },
@@ -1403,29 +1275,19 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              `<strong>Mercado Público de Tarifa</strong> <span class="am-muted">(Old Town)</span>`,
-              `For fresh fish, fruit, vegetables and a more everyday side of Tarifa, this is one of the nicest places to go.`,
-              `C. Colón, 5, Tarifa`
+              `For fresh fish, fruit and vegetables — and a more everyday side of Tarifa — the public market in the Old Town is one of the nicest places to go.`
             ],
             de: [
-              `<strong>Mercado Público de Tarifa</strong> <span class="am-muted">(Altstadt)</span>`,
-              `Für frischen Fisch, Obst, Gemüse und eine eher alltägliche Seite von Tarifa ist dies einer der schönsten Orte.`,
-              `C. Colón, 5, Tarifa`
+              `Für frischen Fisch, Obst und Gemüse — und eine eher alltägliche Seite von Tarifa — ist der öffentliche Markt in der Altstadt einer der schönsten Orte.`
             ],
             es: [
-              `<strong>Mercado Público de Tarifa</strong> <span class="am-muted">(Casco Antiguo)</span>`,
-              `Para pescado fresco, frutas, verduras y un lado más cotidiano de Tarifa, este es uno de los mejores lugares.`,
-              `C. Colón, 5, Tarifa`
+              `Para pescado fresco, frutas y verduras — y un lado más cotidiano de Tarifa — el mercado público del Casco Antiguo es uno de los mejores lugares.`
             ],
             nl: [
-              `<strong>Mercado Público de Tarifa</strong> <span class="am-muted">(Oude Stad)</span>`,
-              `Voor verse vis, fruit, groenten en een meer alledaagse kant van Tarifa is dit een van de leukste plekken om naartoe te gaan.`,
-              `C. Colón, 5, Tarifa`
+              `Voor verse vis, fruit en groenten — en een meer alledaagse kant van Tarifa — is de openbare markt in de Oude Stad een van de leukste plekken om naartoe te gaan.`
             ],
             sv: [
-              `<strong>Mercado Público de Tarifa</strong> <span class="am-muted">(Gamla Stan)</span>`,
-              `För färsk fisk, frukt, grönsaker och en mer vardaglig sida av Tarifa är detta en av de trevligaste platserna att besöka.`,
-              `C. Colón, 5, Tarifa`
+              `För färsk fisk, frukt och grönsaker — och en mer vardaglig sida av Tarifa — är den offentliga marknaden i Gamla Stan en av de trevligaste platserna att besöka.`
             ]
           })
         }
@@ -1661,37 +1523,29 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
       items: [
         {
           icon: 'laundry',
+          recommendationIds: ['tarifa.essentials.lavanderia-eco-tarifa'],
           title: tarifaText('Laundry', 'Wäsche', 'Lavandería', 'Wasserette', 'Tvätt'),
           body: tarifaParagraphs({
             en: [
-              `You will find a washing machine in the kitchen, so you can do laundry in the apartment whenever you like.`,
-              `If you would rather stay in holiday mode, <strong>Lavandería Eco Tarifa</strong> is an easy local option. You can drop your clothes off and usually pick them up clean and nicely ironed the next day.`,
-              `C./ Mar del Norte 2`
+              `A washing machine is in the apartment kitchen. If you would rather stay in holiday mode, a local drop-off laundry takes your clothes and usually returns them clean and ironed the next day.`
             ],
             de: [
-              `In der Küche steht eine Waschmaschine, sodass ihr jederzeit im Apartment Wäsche waschen könnt.`,
-              `Wenn ihr lieber im Urlaubsmodus bleiben möchtet, ist <strong>Lavandería Eco Tarifa</strong> eine einfache Option vor Ort. Ihr könnt eure Kleidung abgeben und sie meist am nächsten Tag sauber und schön gebügelt wieder abholen.`,
-              `C./ Mar del Norte 2`
+              `In der Küche steht eine Waschmaschine. Wenn ihr lieber im Urlaubsmodus bleibt, nimmt ein lokaler Abgabe-Waschservice eure Kleidung an und gibt sie meist am nächsten Tag sauber und gebügelt zurück.`
             ],
             es: [
-              `Encontraréis una lavadora en la cocina, por lo que podéis lavar ropa en el apartamento cuando queráis.`,
-              `Si preferís seguir en modo vacaciones, <strong>Lavandería Eco Tarifa</strong> es una opción local muy cómoda. Podéis dejar la ropa y, por lo general, recogerla limpia y bien planchada al día siguiente.`,
-              `C./ Mar del Norte 2`
+              `Hay una lavadora en la cocina del apartamento. Si preferís seguir en modo vacaciones, una lavandería local de recogida se encarga de la ropa y suele devolverla limpia y planchada al día siguiente.`
             ],
             nl: [
-              `In de keuken staat een wasmachine, dus jullie kunnen in het appartement de was doen wanneer jullie maar willen.`,
-              `Als jullie liever in de vakantiestemming blijven, is <strong>Lavandería Eco Tarifa</strong> een makkelijke lokale optie. Jullie kunnen de kleding afgeven en meestal de volgende dag schoon en mooi gestreken ophalen.`,
-              `C./ Mar del Norte 2`
+              `In de keuken staat een wasmachine. Willen jullie liever in de vakantiestemming blijven, dan neemt een lokale drop-off-wasserette de kleding aan en geeft die meestal de volgende dag schoon en gestreken terug.`
             ],
             sv: [
-              `Ni hittar en tvättmaskin i köket, så ni kan tvätta i lägenheten när ni vill.`,
-              `Om ni hellre vill stanna kvar i semesterläget är <strong>Lavandería Eco Tarifa</strong> ett smidigt lokalt alternativ. Ni kan lämna in era kläder och vanligtvis hämta dem rena och fint strukna nästa dag.`,
-              `C./ Mar del Norte 2`
+              `Det finns en tvättmaskin i lägenhetens kök. Vill ni hellre stanna kvar i semesterläget tar en lokal inlämningstvätt hand om kläderna och lämnar dem oftast rena och strukna nästa dag.`
             ]
           })
         },
         {
           icon: 'info',
+          recommendationIds: ['tarifa.essentials.oficina-de-turismo'],
           title: tarifaText(
             'Tourist Office',
             'Touristeninformation',
@@ -1701,24 +1555,19 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              `If you would like local maps, printed information, or additional suggestions, the tourist office can be a useful stop in town.`,
-              `<strong>Paseo de la Alameda</strong><br>Monday to Friday, 10:00 – 13:30 and 16:00 – 18:00.<br>Weekend, 10:00 – 13:30.`
+              `For local maps, printed information or extra suggestions, the tourist office is a useful stop. Open Monday to Friday 10:00–13:30 and 16:00–18:00, weekends 10:00–13:30.`
             ],
             de: [
-              `Wenn ihr lokale Karten, gedruckte Informationen oder weitere Vorschläge möchtet, ist die Touristeninformation eine nützliche Anlaufstelle in der Stadt.`,
-              `<strong>Paseo de la Alameda</strong><br>Montag bis Freitag, 10:00 – 13:30 und 16:00 – 18:00 Uhr.<br>Wochenende, 10:00 – 13:30 Uhr.`
+              `Für lokale Karten, gedruckte Informationen oder weitere Vorschläge ist die Touristeninformation eine nützliche Anlaufstelle. Geöffnet Montag bis Freitag 10:00–13:30 und 16:00–18:00 Uhr, am Wochenende 10:00–13:30 Uhr.`
             ],
             es: [
-              `Si queréis mapas locales, información impresa o más sugerencias, la oficina de turismo puede ser una parada útil en el pueblo.`,
-              `<strong>Paseo de la Alameda</strong><br>De lunes a viernes, de 10:00 a 13:30 y de 16:00 a 18:00.<br>Fines de semana, de 10:00 a 13:30.`
+              `Para mapas locales, información impresa o más sugerencias, la oficina de turismo es una parada útil. Abierta de lunes a viernes de 10:00 a 13:30 y de 16:00 a 18:00, y los fines de semana de 10:00 a 13:30.`
             ],
             nl: [
-              `Voor lokale plattegronden, gedrukte informatie of meer suggesties kan het toeristenbureau een handige tussenstop in de stad zijn.`,
-              `<strong>Paseo de la Alameda</strong><br>Maandag t/m vrijdag, 10:00 – 13:30 en 16:00 – 18:00 uur.<br>Weekend, 10:00 – 13:30 uur.`
+              `Voor lokale plattegronden, gedrukte informatie of extra suggesties is het toeristenbureau een handige tussenstop. Open maandag t/m vrijdag 10:00–13:30 en 16:00–18:00 uur, in het weekend 10:00–13:30 uur.`
             ],
             sv: [
-              `Om ni vill ha lokala kartor, tryckt information eller ytterligare förslag kan turistbyrån vara ett bra ställe att stanna till på.`,
-              `<strong>Paseo de la Alameda</strong><br>Måndag till fredag, 10:00 – 13:30 och 16:00 – 18:00.<br>Helger, 10:00 – 13:30.`
+              `För lokala kartor, tryckt information eller fler förslag är turistbyrån ett bra ställe att stanna till på. Öppet måndag till fredag 10:00–13:30 och 16:00–18:00, helger 10:00–13:30.`
             ]
           })
         }
@@ -1729,27 +1578,23 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
       items: [
         {
           icon: 'car',
+          recommendationIds: ['tarifa.essentials.taxi-tarifa'],
           title: tarifaText('Taxi', 'Taxi', 'Taxi', 'Taxi', 'Taxi'),
           body: tarifaParagraphs({
             en: [
-              `If you need a taxi at any time, day or night, you can call:`,
-              `<strong>+34 956 23 07 62</strong><br><span class="am-muted">Open 24 hours.</span>`
+              `Need a taxi, day or night? One local dispatch runs around the clock.`
             ],
             de: [
-              `Falls ihr zu irgendeiner Zeit, tagsüber oder nachts, ein Taxi braucht, könnt ihr diese Nummer wählen:`,
-              `<strong>+34 956 23 07 62</strong><br><span class="am-muted">24 Stunden erreichbar.</span>`
+              `Ihr braucht tagsüber oder nachts ein Taxi? Eine lokale Zentrale ist rund um die Uhr erreichbar.`
             ],
             es: [
-              `Si necesitáis un taxi en cualquier momento, de día o de noche, podéis llamar a:`,
-              `<strong>+34 956 23 07 62</strong><br><span class="am-muted">Disponible las 24 horas.</span>`
+              `¿Necesitáis un taxi, de día o de noche? Una central local funciona las 24 horas.`
             ],
             nl: [
-              `Als jullie op welk moment dan ook, dag of nacht, een taxi nodig hebben, kunnen jullie bellen naar:`,
-              `<strong>+34 956 23 07 62</strong><br><span class="am-muted">24 uur bereikbaar.</span>`
+              `Een taxi nodig, dag of nacht? Een lokale centrale is de klok rond bereikbaar.`
             ],
             sv: [
-              `Om ni behöver en taxi när som helst, dag som natt, kan ni ringa:`,
-              `<strong>+34 956 23 07 62</strong><br><span class="am-muted">Öppet 24 timmar.</span>`
+              `Behöver ni en taxi, dag eller natt? En lokal central är öppen dygnet runt.`
             ]
           })
         },
@@ -1804,11 +1649,11 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
         {
           icon: 'warning',
           title: tarifaText(
-            'Emergency – Call 112',
-            'Notfall – 112 anrufen',
-            'Emergencias – Llamar al 112',
-            'Noodgeval – Bel 112',
-            'Nödsituation – Ring 112'
+            'Medical emergency – Call 112',
+            'Medizinischer Notfall – 112 anrufen',
+            'Emergencia médica – Llamad al 112',
+            'Medisch noodgeval – Bel 112',
+            'Medicinsk nödsituation – Ring 112'
           ),
           body: tarifaParagraphs({
             en: [
@@ -1845,7 +1690,7 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
         },
         {
           icon: 'medical',
-          recommendationId: 'tarifa.essentials.centro-de-salud-tarifa',
+          recommendationIds: ['tarifa.essentials.centro-de-salud-tarifa'],
           title: tarifaText(
             '24-Hour Medical Assistance',
             '24-Stunden medizinische Versorgung',
@@ -1855,24 +1700,19 @@ const tarifaFamilySurfLocalEssentials: GuestGuideEntry = {
           ),
           body: tarifaParagraphs({
             en: [
-              `For non-emergency medical care, the nearest 24-hour public health centre is:`,
-              `<strong>Centro de Salud Tarifa</strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Open 24 hours.`
+              `For non-emergency medical care, the nearest public health centre is Centro de Salud Tarifa — open around the clock.`
             ],
             de: [
-              `Für nicht akute medizinische Anliegen ist das nächstgelegene öffentliche 24-Stunden-Gesundheitszentrum:`,
-              `<strong>Centro de Salud Tarifa</strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>24 Stunden geöffnet.`
+              `Für nicht akute medizinische Anliegen ist das nächste öffentliche Gesundheitszentrum das Centro de Salud Tarifa — rund um die Uhr geöffnet.`
             ],
             es: [
-              `Para asuntos médicos que no sean una emergencia, el centro de salud público de 24 horas más cercano es:`,
-              `<strong>Centro de Salud Tarifa</strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Abierto 24 horas.`
+              `Para asuntos médicos que no sean una emergencia, el centro de salud público más cercano es el Centro de Salud Tarifa — abierto las 24 horas.`
             ],
             nl: [
-              `Voor niet-spoedeisende medische zorg is het dichtstbijzijnde openbare 24-uurs gezondheidscentrum:`,
-              `<strong>Centro de Salud Tarifa</strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>24 uur geopend.`
+              `Voor niet-spoedeisende medische zorg is het dichtstbijzijnde openbare gezondheidscentrum Centro de Salud Tarifa — dag en nacht geopend.`
             ],
             sv: [
-              `För icke-akut medicinsk vård är närmaste offentliga vårdcentral med öppet dygnet runt:`,
-              `<strong>Centro de Salud Tarifa</strong><br>Calle Antonio Maura, s/n<br>11380 Tarifa<br>Tel. +34 956 01 20 07<br>Öppet 24 timmar.`
+              `För icke-akut medicinsk vård är närmaste offentliga vårdcentral Centro de Salud Tarifa — öppen dygnet runt.`
             ]
           })
         },

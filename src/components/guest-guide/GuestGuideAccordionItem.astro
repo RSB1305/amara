@@ -22,8 +22,8 @@ interface Props {
   mapsUrl?: string;
   /** Language-neutral fact strip from the recommendation record (address, distance, check date). */
   facts?: { label: string; value: string; href?: string }[];
-  /** Place list from several recommendation records (name, map link, address, actions). */
-  places?: { name: string; mapsUrl?: string; address?: string; actions: { label: string; href: string }[] }[];
+  /** Place list from several recommendation records (name, map link, address, distance, parking, actions). */
+  places?: { name: string; mapsUrl?: string; address?: string; distance?: string; parking?: boolean; parkingLabel?: string; actions: { label: string; href: string }[] }[];
 }
 
 const { icon, title, subtitle, body, image, images, video, audio, actions, facts, places, exclusiveLabel } = Astro.props;
@@ -136,6 +136,12 @@ const mapLabel = `${title} — Google Maps`;
             ) : (
               <strong>{place.name}</strong>
             )}
+            {place.parking !== undefined && (
+              <span class:list={['am-ios-parking', place.parking ? 'am-ios-parking--yes' : 'am-ios-parking--no']}>
+                <span class="am-ios-parking__p" aria-hidden="true">P</span>{place.parkingLabel}
+              </span>
+            )}
+            {place.distance && <span class="am-muted"> · {place.distance}</span>}
             {place.address && <span class="am-muted"> · {place.address}</span>}
             {place.actions.map((action) => (
               <Fragment> · <a class="am-link" href={action.href} target={action.href.startsWith('tel:') ? undefined : '_blank'} rel="noopener">{action.label}</a></Fragment>
@@ -175,5 +181,34 @@ const mapLabel = `${title} — Google Maps`;
     display: block;
     width: 100%;
     margin: 0 0 1rem;
+  }
+
+  /* Small parking chip after a place name: whether the place has its own or an
+     adjacent car park (accent) or only street parking (muted). */
+  .am-ios-parking {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: 0.5rem;
+    padding: 0.05rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    white-space: nowrap;
+    vertical-align: 0.05em;
+  }
+
+  .am-ios-parking__p {
+    font-weight: 700;
+  }
+
+  .am-ios-parking--yes {
+    background: color-mix(in srgb, var(--color-primary) 12%, var(--color-surface-white));
+    color: var(--color-primary);
+  }
+
+  .am-ios-parking--no {
+    background: var(--color-surface-container-high);
+    color: var(--color-on-surface-variant);
   }
 </style>

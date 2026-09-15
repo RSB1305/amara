@@ -187,6 +187,12 @@ export interface KnowledgeRecommendationPlace {
   whatsapp?: string;
   website?: string;
   reservationUrl?: string;
+  /**
+   * Whether the place has its own or an adjacent car park (true) or only street
+   * parking (false). Surfaced as a small parking chip in the guest-guide place
+   * list. Leave undefined where parking is not a relevant or verified attribute.
+   */
+  parking?: boolean;
 }
 
 export interface KnowledgeRecommendationAccess {
