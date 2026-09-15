@@ -1,6 +1,7 @@
 import type { LocalizedText } from '../types/content';
 export type { LocalizedText };
 import type { AmaraEntityKey } from './seo';
+import type { KnowledgeStayKey } from '../../knowledge/schema';
 
 
 export type GuestGuideIconName =
@@ -255,6 +256,13 @@ export interface GuestGuideDetailEntry extends GuestGuideEntryBase {
   type: 'detail';
   /** Slug of the hub entry to return to; resolved to a localized href at render time. */
   backSlug: string;
+  /**
+   * The AMARA stay this guide page belongs to. When set, a place list only shows the
+   * distance measured from this stay, so a record reused across locations (e.g. a Nerja
+   * supermarket referenced from the Frigiliana guide) shows no distance rather than the
+   * wrong one.
+   */
+  stayKey?: KnowledgeStayKey;
   kicker: LocalizedText;
   title: LocalizedText;
   intro?: LocalizedText;

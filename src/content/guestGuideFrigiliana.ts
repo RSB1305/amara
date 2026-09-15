@@ -1090,6 +1090,7 @@ const frigilianaEssentials: GuestGuideEntry = {
   type: 'detail',
   slug: 'frigiliana-guest-essentials',
   backSlug: 'guestwelcome-frigiliana-farah',
+  stayKey: 'casa-amara',
   supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {
@@ -1177,74 +1178,18 @@ const frigilianaEssentials: GuestGuideEntry = {
           title: { en: 'Supermarkets', de: 'Supermärkte', es: 'Supermercados', nl: 'Supermarkten', sv: 'Livsmedelsbutiker' },
           body: [
             {
-              en: 'Frigiliana has a few small local supermarkets within walking distance. For a quick and easy shop from the house, we recommend starting with <strong>Supermarket Silvia</strong>.',
-              de: 'In Frigiliana gibt es mehrere kleine lokale Supermärkte, die ihr gut zu Fuß erreichen könnt. Für einen schnellen und unkomplizierten Einkauf vom Haus aus empfehlen wir zuerst <strong>Supermarkt Silvia</strong>.',
-              es: 'En Frigiliana hay varios pequeños supermercados locales a poca distancia a pie. Para una compra rápida y sencilla desde la casa, os recomendamos empezar por <strong>Supermercado Silvia</strong>.',
-              nl: 'In Frigiliana zijn er meerdere kleine lokale supermarkten op loopafstand. Voor een snelle en makkelijke boodschap vanaf het huis raden we aan om eerst naar <strong>Supermarkt Silvia</strong> te gaan.',
-              sv: 'Frigiliana har flera små lokala livsmedelsbutiker på gångavstånd. För ett snabbt och enkelt inköp från huset rekommenderar vi att ni börjar med <strong>Supermarket Silvia</strong>.'
+              en: 'Sorted by distance from the house — tap a name to open it in Maps. For a quick shop, Supermarket Silvia is right on the doorstep; EROSKI in the lower village has a wider range.',
+              de: 'Sortiert nach Entfernung ab dem Haus — ein Tipp auf den Namen öffnet die Karte. Für den schnellen Einkauf liegt Supermarkt Silvia direkt vor der Tür; EROSKI im unteren Ortsteil hat mehr Auswahl.',
+              es: 'Ordenados por distancia desde la casa — tocad un nombre para abrirlo en el mapa. Para una compra rápida, Supermercado Silvia está justo al lado; EROSKI, en la parte baja, tiene más variedad.',
+              nl: 'Gesorteerd op afstand vanaf het huis — tik op een naam om hem in Maps te openen. Voor een snelle boodschap ligt Supermarkt Silvia vlak bij de deur; EROSKI in het lagere dorp heeft meer keuze.',
+              sv: 'Sorterade efter avstånd från huset — tryck på ett namn för att öppna det i kartan. För ett snabbt inköp ligger Supermarket Silvia precis utanför dörren; EROSKI i nedre byn har ett bredare utbud.'
             },
             {
-              en: '<strong>Quickest option from the house</strong>',
-              de: '<strong>Die schnellste Option direkt vom Haus</strong>',
-              es: '<strong>La opción más rápida desde la casa</strong>',
-              nl: '<strong>De snelste optie vanaf het huis</strong>',
-              sv: '<strong>Snabbaste alternativet från huset</strong>'
-            },
-            {
-              en: '• <strong>Supermarket Silvia</strong> (Calle Real 131) — step outside the house and turn right.',
-              de: '• <strong>Supermarkt Silvia</strong> (Calle Real 131) — einfach aus dem Haus treten und nach rechts gehen.',
-              es: '• <strong>Supermercado Silvia</strong> (Calle Real 131) — salid de la casa y girad a la derecha.',
-              nl: '• <strong>Supermarkt Silvia</strong> (Calle Real 131) — stap het huis uit en ga naar rechts.',
-              sv: '• <strong>Supermarket Silvia</strong> (Calle Real 131) — gå ut ur huset och sväng höger.'
-            },
-            {
-              en: '<strong>Other village options</strong>',
-              de: '<strong>Weitere Optionen im Dorf</strong>',
-              es: '<strong>Otras opciones en el pueblo</strong>',
-              nl: '<strong>Andere opties in het dorp</strong>',
-              sv: '<strong>Fler alternativ i byn</strong>'
-            },
-            {
-              en: 'If you want a little more choice, there are one or two other small supermarkets in the village as well:<br><br>• <strong>La Plazituela “Saboreando la Comarca”</strong><br><br>• <strong>Tienda Silveria</strong>',
-              de: 'Wenn ihr ein bisschen mehr Auswahl möchtet, gibt es im Dorf außerdem noch ein oder zwei weitere kleine Supermärkte:<br><br>• <strong>La Plazituela “Saboreando la Comarca”</strong><br><br>• <strong>Tienda Silveria</strong>',
-              es: 'Si queréis un poco más de variedad, en el pueblo también hay uno o dos pequeños supermercados más:<br><br>• <strong>La Plazituela “Saboreando la Comarca”</strong><br><br>• <strong>Tienda Silveria</strong>',
-              nl: 'Als jullie iets meer keuze willen, zijn er in het dorp ook nog een of twee andere kleine supermarkten:<br><br>• <strong>La Plazituela “Saboreando la Comarca”</strong><br><br>• <strong>Tienda Silveria</strong>',
-              sv: 'Om ni vill ha lite större urval finns det också ytterligare en eller två små livsmedelsbutiker i byn:<br><br>• <strong>La Plazituela “Saboreando la Comarca”</strong><br><br>• <strong>Tienda Silveria</strong>'
-            },
-            {
-              en: '<strong>A larger option in Frigiliana</strong>',
-              de: '<strong>Eine größere Option in Frigiliana</strong>',
-              es: '<strong>Una opción más grande en Frigiliana</strong>',
-              nl: '<strong>Een grotere optie in Frigiliana</strong>',
-              sv: '<strong>Ett större alternativ i Frigiliana</strong>'
-            },
-            {
-              en: '<strong>EROSKI/city Frigiliana</strong> (Plaza Doña Amparo Guerrero 10), in the newer lower part of the village, has a wider range than the small shops in the historic centre. It is still much smaller than the large supermarket formats in Nerja.',
-              de: '<strong>EROSKI/city Frigiliana</strong> (Plaza Doña Amparo Guerrero 10) im neueren, unteren Ortsteil bietet mehr Auswahl als die kleinen Geschäfte im historischen Zentrum. Der Markt ist dennoch deutlich kleiner als die großen Supermarktformate in Nerja.',
-              es: '<strong>EROSKI/city Frigiliana</strong> (Plaza Doña Amparo Guerrero 10), en la parte nueva y baja del pueblo, ofrece más variedad que las pequeñas tiendas del centro histórico. Sigue siendo bastante más pequeño que los grandes formatos de supermercado de Nerja.',
-              nl: '<strong>EROSKI/city Frigiliana</strong> (Plaza Doña Amparo Guerrero 10), in het nieuwere lagere deel van het dorp, heeft meer keuze dan de kleine winkels in het historische centrum. De winkel is nog steeds duidelijk kleiner dan de grote supermarktformules in Nerja.',
-              sv: '<strong>EROSKI/city Frigiliana</strong> (Plaza Doña Amparo Guerrero 10), i den nyare nedre delen av byn, har ett bredare utbud än de små butikerna i det historiska centrumet. Den är fortfarande tydligt mindre än de stora mataffärsformaten i Nerja.'
-            },
-            {
-              en: '<strong>Add Nerja when you want more choice</strong>',
-              de: '<strong>Für mehr Auswahl Nerja bei Bedarf ergänzen</strong>',
-              es: '<strong>Añadid Nerja cuando queráis más variedad</strong>',
-              nl: '<strong>Vul aan met Nerja als jullie meer keuze willen</strong>',
-              sv: '<strong>Komplettera med Nerja när ni vill ha större utbud</strong>'
-            },
-            {
-              en: 'Frigiliana works well for normal daily shopping. For a larger basket or specialist products, you can combine a trip to Nerja or the coast with a bigger shop.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Mercadona (Nerja)</strong>',
-              de: 'Für normale tägliche Einkäufe funktioniert Frigiliana gut. Einen größeren Warenkorb oder spezielle Produkte könnt ihr bei Bedarf bequem mit einem Ausflug nach Nerja oder ans Meer verbinden.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Mercadona (Nerja)</strong>',
-              es: 'Frigiliana funciona bien para la compra diaria normal. Si necesitáis una compra más grande o productos específicos, podéis combinarla cómodamente con una visita a Nerja o a la costa.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Mercadona (Nerja)</strong>',
-              nl: 'Frigiliana werkt goed voor normale dagelijkse boodschappen. Voor een grotere winkelmand of specifieke producten kunnen jullie een bezoek aan Nerja of de kust gemakkelijk met een grotere boodschap combineren.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Mercadona (Nerja)</strong>',
-              sv: 'Frigiliana fungerar bra för vanliga vardagsinköp. För en större varukorg eller särskilda produkter kan ni enkelt kombinera ett besök i Nerja eller vid kusten med en större handling.<br><br>• <strong>Lidl (Nerja)</strong><br><br>• <strong>Mercadona (Nerja)</strong>'
-            },
-            {
-              en: '<em>Please note:</em> shopping is also possible on Sundays, with more choice often available in summer. Hours vary by business and season, so check current details outside the main season and on public holidays.',
-              de: '<em>Bitte beachten:</em> Auch sonntags gibt es Einkaufsmöglichkeiten; im Sommer ist die Auswahl erfahrungsgemäß größer. Die Zeiten unterscheiden sich je nach Betrieb und Saison, daher lohnt sich außerhalb der Hauptsaison und an Feiertagen ein aktueller Check.',
-              es: '<em>A tener en cuenta:</em> también es posible comprar los domingos y en verano suele haber más opciones. Los horarios varían según el negocio y la temporada; fuera de la temporada principal y en festivos conviene comprobarlos.',
-              nl: '<em>Let op:</em> ook op zondag zijn er winkelmogelijkheden; in de zomer is de keuze vaak groter. Tijden verschillen per zaak en seizoen, dus controleer de actuele informatie buiten het hoofdseizoen en op feestdagen.',
-              sv: '<em>Observera:</em> det går att handla även på söndagar, och på sommaren är utbudet ofta större. Tiderna varierar mellan verksamheter och säsonger, så kontrollera aktuella uppgifter utanför huvudsäsongen och på helgdagar.'
+              en: 'For a big weekly shop, combine it with a trip down to Nerja (Lidl, Mercadona). Shopping is possible on Sundays too, with more choice in summer; hours vary by shop and season.',
+              de: 'Für den großen Wocheneinkauf verbindet ihr es am besten mit einer Fahrt nach Nerja (Lidl, Mercadona). Auch sonntags gibt es Einkaufsmöglichkeiten, im Sommer mehr Auswahl; die Zeiten unterscheiden sich je nach Geschäft und Saison.',
+              es: 'Para una compra semanal grande, combinadla con una bajada a Nerja (Lidl, Mercadona). También se puede comprar los domingos, con más variedad en verano; los horarios varían según la tienda y la temporada.',
+              nl: 'Voor een grote weekboodschap combineren jullie het met een ritje naar Nerja (Lidl, Mercadona). Ook op zondag kunnen jullie terecht, met meer keuze in de zomer; tijden verschillen per winkel en seizoen.',
+              sv: 'För en stor veckohandling kombinerar ni den med en tur ner till Nerja (Lidl, Mercadona). Det går att handla även på söndagar, med större utbud på sommaren; tiderna varierar mellan butiker och säsonger.'
             }
           ]
         },
@@ -1254,11 +1199,11 @@ const frigilianaEssentials: GuestGuideEntry = {
           title: { en: 'Bakery', de: 'Bäckerei', es: 'Panadería', nl: 'Bakker', sv: 'Bageri' },
           body: [
             {
-              en: 'For fresh bread, we recommend <strong>Panadería Manolo</strong>. You can get there in about <strong>4 minutes via Calle Real</strong>, and the route is easy because you do <strong>not need to take any stairs</strong>.<br><br>In our view, this is the nicest and simplest bakery option from the house, especially in the morning.',
-              de: 'Für frisches Brot empfehlen wir euch <strong>Panadería Manolo</strong>. Ihr erreicht sie in etwa <strong>4 Minuten über die Calle Real</strong>, und der Weg ist angenehm, weil ihr <strong>keine Treppen</strong> nehmen müsst.<br><br>Aus unserer Sicht ist das vom Haus aus die schönste und einfachste Bäckerei-Option, besonders am Morgen.',
-              es: 'Para pan fresco, os recomendamos <strong>Panadería Manolo</strong>. Se llega en unos <strong>4 minutos por Calle Real</strong>, y el camino es cómodo porque <strong>no hay que subir ni bajar escaleras</strong>.<br><br>Desde la casa, nos parece la opción de panadería más agradable y más fácil, sobre todo por la mañana.',
-              nl: 'Voor vers brood raden we <strong>Panadería Manolo</strong> aan. Jullie lopen er in ongeveer <strong>4 minuten via Calle Real</strong> naartoe, en de route is prettig omdat jullie <strong>geen trappen</strong> hoeven te nemen.<br><br>Vanuit het huis vinden wij dit de fijnste en makkelijkste bakker, vooral in de ochtend.',
-              sv: 'För färskt bröd rekommenderar vi <strong>Panadería Manolo</strong>. Ni tar er dit på cirka <strong>4 minuter via Calle Real</strong>, och vägen är enkel eftersom ni <strong>inte behöver ta några trappor</strong>.<br><br>Från huset tycker vi att detta är det trevligaste och enklaste bagerialternativet, särskilt på morgonen.'
+              en: 'For fresh bread in the morning, our pick a few minutes along Calle Real — an easy, level walk with no stairs.',
+              de: 'Für frisches Brot am Morgen unsere Empfehlung ein paar Minuten die Calle Real entlang — ein angenehmer, ebener Weg ohne Treppen.',
+              es: 'Para pan fresco por la mañana, nuestra recomendación a unos minutos por Calle Real — un paseo cómodo y llano, sin escaleras.',
+              nl: 'Voor vers brood in de ochtend onze tip een paar minuten langs Calle Real — een prettige, vlakke route zonder trappen.',
+              sv: 'För färskt bröd på morgonen vårt tips några minuter längs Calle Real — en behaglig, plan väg utan trappor.'
             }
           ]
         }
@@ -1279,18 +1224,11 @@ const frigilianaEssentials: GuestGuideEntry = {
           title: { en: 'Laundry', de: 'Wäsche', es: 'Lavandería', nl: 'Wasgoed', sv: 'Tvätt' },
           body: [
             {
-              en: 'If you would like a <strong>drop-off service</strong>, <strong>Lavandería El Acebuchal</strong> is a practical option in Frigiliana and only about <strong>4 minutes from the house</strong>.<br><br>• <strong>Lavandería El Acebuchal</strong>',
-              de: 'Wenn ihr einen <strong>Wäsche-Abgabe-Service</strong> möchtet, ist <strong>Lavandería El Acebuchal</strong> eine praktische Option in Frigiliana und nur etwa <strong>4 Minuten vom Haus entfernt</strong>.<br><br>• <strong>Lavandería El Acebuchal</strong>',
-              es: 'Si queréis un <strong>servicio para dejar la ropa</strong>, <strong>Lavandería El Acebuchal</strong> es una opción práctica en Frigiliana y está a solo unos <strong>4 minutos de la casa</strong>.<br><br>• <strong>Lavandería El Acebuchal</strong>',
-              nl: 'Als jullie een <strong>drop-off-service</strong> willen, is <strong>Lavandería El Acebuchal</strong> een praktische optie in Frigiliana en slechts ongeveer <strong>4 minuten van het huis</strong> verwijderd.<br><br>• <strong>Lavandería El Acebuchal</strong>',
-              sv: 'Om ni vill ha en <strong>drop-off-tjänst</strong> är <strong>Lavandería El Acebuchal</strong> ett praktiskt alternativ i Frigiliana och ligger bara cirka <strong>4 minuter från huset</strong>.<br><br>• <strong>Lavandería El Acebuchal</strong>'
-            },
-            {
-              en: 'If you prefer <strong>self-service laundry</strong>, the most practical external option is in <strong>Nerja</strong>:<br><br>• <strong>Moeve AXARQUIA (formerly Cepsa) · self-service laundry</strong>',
-              de: 'Wenn ihr lieber <strong>Self Service</strong> möchtet, ist die praktischste externe Option in <strong>Nerja</strong>:<br><br>• <strong>Moeve AXARQUIA (ehemals Cepsa) · SB-Wäscherei</strong>',
-              es: 'Si preferís <strong>autoservicio</strong>, la opción externa más práctica está en <strong>Nerja</strong>:<br><br>• <strong>Moeve AXARQUIA (antes Cepsa) · lavandería autoservicio</strong>',
-              nl: 'Als jullie liever <strong>self-service</strong> willen, is de meest praktische externe optie in <strong>Nerja</strong>:<br><br>• <strong>Moeve AXARQUIA (voorheen Cepsa) · wasserette met zelfbediening</strong>',
-              sv: 'Om ni föredrar <strong>självservice</strong> är det mest praktiska externa alternativet i <strong>Nerja</strong>:<br><br>• <strong>Moeve AXARQUIA (tidigare Cepsa) · självbetjäningstvätt</strong>'
+              en: 'For a normal stay, the washing machine at home is easiest. For a drop-off service, Lavandería El Acebuchal is a few minutes from the house; for a self-service launderette, the practical option is down in Nerja (Moeve AXARQUIA, formerly Cepsa).',
+              de: 'Für einen normalen Aufenthalt ist die Waschmaschine im Haus am einfachsten. Für einen Abgabe-Service liegt die Lavandería El Acebuchal ein paar Minuten vom Haus; einen Self-Service-Waschsalon findet ihr unten in Nerja (Moeve AXARQUIA, ehemals Cepsa).',
+              es: 'Para una estancia normal, lo más fácil es la lavadora de la casa. Para un servicio de recogida, la Lavandería El Acebuchal está a unos minutos de la casa; para autoservicio, la opción práctica está abajo, en Nerja (Moeve AXARQUIA, antes Cepsa).',
+              nl: 'Voor een normaal verblijf is de wasmachine in huis het makkelijkst. Voor een drop-off-service ligt Lavandería El Acebuchal een paar minuten van het huis; voor een self-service wasserette is de praktische optie beneden in Nerja (Moeve AXARQUIA, voorheen Cepsa).',
+              sv: 'För en vanlig vistelse är tvättmaskinen hemma enklast. För en inlämningstjänst ligger Lavandería El Acebuchal några minuter från huset; för en självservicetvätt finns det praktiska alternativet nere i Nerja (Moeve AXARQUIA, tidigare Cepsa).'
             }
           ]
         },
@@ -1300,32 +1238,11 @@ const frigilianaEssentials: GuestGuideEntry = {
           title: { en: 'ATM', de: 'Geldautomat', es: 'Cajero automático', nl: 'Geldautomaat', sv: 'Bankomat' },
           body: [
             {
-              en: 'If you need cash during your stay, the easiest area to head for is the lower village entrance. From the house, it is a very pleasant walk of around <strong>500 metres</strong> along <strong>Calle Real</strong>, which is essentially the village\'s main street.<br><br>Down there, near the entrance to Frigiliana, you will also find the <strong>pharmacy</strong> and the <strong>bus stop</strong> — and this is where the ATM options are as well.',
-              de: 'Wenn ihr während eures Aufenthalts Bargeld braucht, geht ihr am besten in Richtung unterer Ortseingang. Vom Haus aus ist das ein sehr angenehmer Weg von rund <strong>500 Metern</strong> über die <strong>Calle Real</strong>, also praktisch die Hauptstraße von Frigiliana.<br><br>Unten am Ortseingang findet ihr auch die <strong>Apotheke</strong> und die <strong>Busstation</strong> — und genau dort befinden sich auch die Geldautomaten.',
-              es: 'Si necesitáis efectivo durante vuestra estancia, la zona más práctica es la entrada baja del pueblo. Desde la casa, es un paseo muy agradable de unos <strong>500 metros</strong> por <strong>Calle Real</strong>, que es básicamente la calle principal de Frigiliana.<br><br>Allí abajo, cerca de la entrada del pueblo, también encontraréis la <strong>farmacia</strong> y la <strong>parada de autobús</strong> — y es justo donde están también los cajeros.',
-              nl: 'Als jullie tijdens het verblijf contant geld nodig hebben, is de handigste richting de lagere dorpsingang. Vanaf het huis is dat een heel aangename wandeling van ongeveer <strong>500 meter</strong> via <strong>Calle Real</strong>, eigenlijk de hoofdstraat van Frigiliana.<br><br>Beneden bij de dorpsingang vinden jullie ook de <strong>apotheek</strong> en de <strong>bushalte</strong> — en precies daar liggen ook de geldautomaten.',
-              sv: 'Om ni behöver kontanter under vistelsen är det enklast att gå mot den nedre delen av byn. Från huset är det en mycket behaglig promenad på cirka <strong>500 meter</strong> längs <strong>Calle Real</strong>, som i princip är Frigilianas huvudgata.<br><br>Där nere vid byns infart hittar ni också <strong>apoteket</strong> och <strong>busshållplatsen</strong> — och det är också där bankomaterna finns.'
-            },
-            {
-              en: '<strong>ATM options in this area</strong>',
-              de: '<strong>Geldautomaten in diesem Bereich</strong>',
-              es: '<strong>Cajeros en esta zona</strong>',
-              nl: '<strong>Geldautomaten in dit gebied</strong>',
-              sv: '<strong>Bankomater i detta område</strong>'
-            },
-            {
-              en: '• <strong>Unicaja ATM</strong><br><br>• <strong>CaixaBank ATM</strong>',
-              de: '• <strong>Unicaja Geldautomat</strong><br><br>• <strong>CaixaBank Geldautomat</strong>',
-              es: '• <strong>Cajero Unicaja</strong><br><br>• <strong>Cajero CaixaBank</strong>',
-              nl: '• <strong>Unicaja geldautomaat</strong><br><br>• <strong>CaixaBank geldautomaat</strong>',
-              sv: '• <strong>Unicaja bankomat</strong><br><br>• <strong>CaixaBank bankomat</strong>'
-            },
-            {
-              en: '<em>Good to know:</em> this is the most convenient area to combine a few practical things at once if you are already heading down into the village.',
-              de: '<em>Gut zu wissen:</em> Das ist der praktischste Bereich, wenn ihr ohnehin schon ins Dorf hinuntergeht und mehrere kleine Dinge auf einmal erledigen möchtet.',
-              es: '<em>Conviene saber:</em> esta es la zona más práctica si ya vais bajando al pueblo y queréis resolver varias cosas útiles de una vez.',
-              nl: '<em>Goed om te weten:</em> dit is het handigste gebied als jullie toch al het dorp in lopen en meerdere praktische dingen tegelijk willen regelen.',
-              sv: '<em>Bra att veta:</em> det här är det mest praktiska området om ni ändå är på väg ner i byn och vill ordna flera småsaker samtidigt.'
+              en: 'If you need cash, head for the lower village entrance — a pleasant walk of around 500 m along Calle Real, the village\'s main street. The pharmacy and the bus stop are in the same spot.',
+              de: 'Wenn ihr Bargeld braucht, geht ihr am besten Richtung unterer Ortseingang — ein angenehmer Weg von rund 500 m über die Calle Real, die Hauptstraße von Frigiliana. Apotheke und Busstation liegen an derselben Stelle.',
+              es: 'Si necesitáis efectivo, id hacia la entrada baja del pueblo — un paseo agradable de unos 500 m por Calle Real, la calle principal de Frigiliana. La farmacia y la parada de autobús están en el mismo punto.',
+              nl: 'Als jullie contant geld nodig hebben, lopen jullie richting de lagere dorpsingang — een aangename wandeling van ongeveer 500 m via Calle Real, de hoofdstraat van Frigiliana. De apotheek en de bushalte liggen op dezelfde plek.',
+              sv: 'Behöver ni kontanter går ni mot byns nedre infart — en behaglig promenad på cirka 500 m längs Calle Real, Frigilianas huvudgata. Apoteket och busshållplatsen ligger på samma plats.'
             }
           ]
         },
@@ -1341,11 +1258,11 @@ const frigilianaEssentials: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'If you want a local map, current walking information, or a quick answer before heading out, the tourist office is the best place to ask in Frigiliana.<br><br>It is especially useful if you are planning a hike or want up-to-date local advice rather than relying only on general online information.<br><br>• <strong>Tourist Office Frigiliana</strong><br>Cuesta del Apero s/n<br>Call +34 952 534 261',
-              de: 'Wenn ihr einen Ortsplan, aktuelle Hinweise zu Spaziergängen oder Wanderungen oder einfach eine schnelle Auskunft vor Ort möchtet, ist die Touristeninformation in Frigiliana die beste Anlaufstelle.<br><br>Besonders sinnvoll ist sie, wenn ihr eine Wanderung plant oder lieber aktuelle lokale Hinweise haben möchtet, statt euch nur auf allgemeine Online-Infos zu verlassen.<br><br>• <strong>Touristeninformation Frigiliana</strong><br>Cuesta del Apero s/n<br>Anrufen: +34 952 534 261',
-              es: 'Si queréis un mapa del pueblo, información actual sobre paseos o rutas, o una respuesta rápida antes de salir, la oficina de turismo es el mejor lugar para preguntar en Frigiliana.<br><br>Es especialmente útil si estáis planeando una caminata o preferís información local actualizada en lugar de depender solo de información general de internet.<br><br>• <strong>Oficina de turismo de Frigiliana</strong><br>Cuesta del Apero s/n<br>Llamar: +34 952 534 261',
-              nl: 'Als jullie een plattegrond, actuele informatie over wandelingen of gewoon snel lokaal advies willen voordat jullie op pad gaan, is het VVV-kantoor in Frigiliana de beste plek om even te vragen.<br><br>Vooral handig als jullie een hike plannen of liever actuele lokale informatie hebben dan alleen algemene info van internet.<br><br>• <strong>VVV-kantoor Frigiliana</strong><br>Cuesta del Apero s/n<br>Bellen: +34 952 534 261',
-              sv: 'Om ni vill ha en karta, aktuell information om promenader eller vandringar eller bara ett snabbt lokalt svar innan ni går ut, är turistbyrån bästa stället att fråga på i Frigiliana.<br><br>Den är särskilt användbar om ni planerar en vandring eller vill ha uppdaterad lokal information i stället för att bara lita på allmän information på nätet.<br><br>• <strong>Turistbyrå Frigiliana</strong><br>Cuesta del Apero s/n<br>Ring: +34 952 534 261'
+              en: 'For a local map, current walking information, or a quick answer before heading out, the tourist office is the best place to ask — especially if you are planning a hike and want up-to-date local advice rather than only general information online.',
+              de: 'Für einen Ortsplan, aktuelle Hinweise zu Spaziergängen oder Wanderungen oder einfach eine schnelle Auskunft ist die Touristeninformation die beste Anlaufstelle — besonders, wenn ihr eine Wanderung plant und aktuelle lokale Hinweise haben möchtet statt nur allgemeiner Infos aus dem Netz.',
+              es: 'Para un mapa del pueblo, información actual sobre paseos o rutas o una respuesta rápida antes de salir, la oficina de turismo es el mejor lugar para preguntar — sobre todo si planeáis una caminata y queréis información local actualizada en lugar de solo información general de internet.',
+              nl: 'Voor een plattegrond, actuele wandelinformatie of gewoon snel lokaal advies voordat jullie op pad gaan, is het VVV-kantoor de beste plek om te vragen — vooral als jullie een wandeling plannen en liever actuele lokale informatie hebben dan alleen algemene info online.',
+              sv: 'För en karta, aktuell information om promenader och vandringar eller bara ett snabbt svar innan ni ger er ut är turistbyrån bästa stället att fråga på — särskilt om ni planerar en vandring och vill ha uppdaterad lokal information i stället för bara allmän information på nätet.'
             }
           ]
         }
@@ -1366,32 +1283,11 @@ const frigilianaEssentials: GuestGuideEntry = {
           title: { en: 'Taxi', de: 'Taxi', es: 'Taxi', nl: 'Taxi', sv: 'Taxi' },
           body: [
             {
-              en: 'In Frigiliana, we recommend arranging taxis a little in advance rather than expecting one to be nearby at any time.<br><br>This is especially helpful for dinner reservations, early departures, evening returns, or airport days.',
-              de: 'In Frigiliana empfehlen wir, Taxis lieber etwas im Voraus zu organisieren, statt darauf zu setzen, dass jederzeit spontan eines in der Nähe ist.<br><br>Das ist besonders sinnvoll für Restaurantbesuche, frühe Abfahrten, spätere Rückfahrten oder Flughafentage.',
-              es: 'En Frigiliana, os recomendamos organizar el taxi con algo de antelación en lugar de contar con que siempre haya uno cerca en cualquier momento.<br><br>Esto es especialmente útil para cenas, salidas tempranas, regresos por la noche o días de aeropuerto.',
-              nl: 'In Frigiliana raden we aan om een taxi liever iets van tevoren te regelen dan te verwachten dat er op elk moment direct eentje in de buurt is.<br><br>Dat is vooral handig voor etentjes, vroege vertrekken, latere terugritten of luchthavendagen.',
-              sv: 'I Frigiliana rekommenderar vi att ordna taxi lite i förväg i stället för att räkna med att en bil alltid finns i närheten.<br><br>Det är särskilt hjälpsamt för middagsbokningar, tidiga avresor, sena hemresor eller flygplatsdagar.'
-            },
-            {
-              en: '<strong>Local taxi contacts</strong>',
-              de: '<strong>Lokale Taxi-Kontakte</strong>',
-              es: '<strong>Contactos de taxi en Frigiliana</strong>',
-              nl: '<strong>Lokale taxicontacten</strong>',
-              sv: '<strong>Lokala taxikontakter</strong>'
-            },
-            {
-              en: '• <strong>Taxi 2 Frigiliana</strong> — good option for local rides and airport transfers<br>Call +34 696 969 469<br><br>• <strong>Taxi 3 Frigiliana</strong> — useful if you need a larger vehicle or a longer transfer<br>Call +34 616 388 964',
-              de: '• <strong>Taxi 2 Frigiliana</strong> — gute Option für lokale Fahrten und Flughafentransfers<br>Anrufen: +34 696 969 469<br><br>• <strong>Taxi 3 Frigiliana</strong> — sinnvoll, wenn ihr ein größeres Fahrzeug oder einen längeren Transfer braucht<br>Anrufen: +34 616 388 964',
-              es: '• <strong>Taxi 2 Frigiliana</strong> — buena opción para trayectos locales y traslados al aeropuerto<br>Llamar: +34 696 969 469<br><br>• <strong>Taxi 3 Frigiliana</strong> — útil si necesitáis un vehículo más grande o un traslado más largo<br>Llamar: +34 616 388 964',
-              nl: '• <strong>Taxi 2 Frigiliana</strong> — goede optie voor lokale ritten en luchthaventransfers<br>Bellen: +34 696 969 469<br><br>• <strong>Taxi 3 Frigiliana</strong> — handig als jullie een grotere auto of een langere transfer nodig hebben<br>Bellen: +34 616 388 964',
-              sv: '• <strong>Taxi 2 Frigiliana</strong> — bra alternativ för lokala resor och flygplatstransfer<br>Ring: +34 696 969 469<br><br>• <strong>Taxi 3 Frigiliana</strong> — bra om ni behöver ett större fordon eller en längre transfer<br>Ring: +34 616 388 964'
-            },
-            {
-              en: 'For airport runs or larger groups, booking ahead is especially worth it.',
-              de: 'Für Flughafentransfers oder größere Gruppen lohnt sich eine vorherige Reservierung ganz besonders.',
-              es: 'Para traslados al aeropuerto o grupos más grandes, merece especialmente la pena reservar con antelación.',
-              nl: 'Voor luchthaventransfers of grotere groepen is vooraf reserveren extra aan te raden.',
-              sv: 'För flygplatstransfer eller större grupper är det särskilt bra att boka i förväg.'
+              en: 'In Frigiliana, arrange taxis a little in advance rather than expecting one to be nearby — especially for dinners, early departures, evening returns, airport days or larger groups.',
+              de: 'In Frigiliana organisiert ihr Taxis am besten etwas im Voraus, statt darauf zu setzen, dass spontan eines in der Nähe ist — besonders für Restaurantbesuche, frühe Abfahrten, späte Rückfahrten, Flughafentage oder größere Gruppen.',
+              es: 'En Frigiliana, organizad el taxi con algo de antelación en lugar de contar con que siempre haya uno cerca — sobre todo para cenas, salidas tempranas, regresos de noche, días de aeropuerto o grupos más grandes.',
+              nl: 'Regel in Frigiliana een taxi liever iets van tevoren dan te verwachten dat er meteen eentje in de buurt is — vooral voor etentjes, vroege vertrekken, late terugritten, luchthavendagen of grotere groepen.',
+              sv: 'I Frigiliana ordnar ni taxi lite i förväg i stället för att räkna med att en bil alltid finns nära — särskilt för middagar, tidiga avresor, sena hemresor, flygplatsdagar eller större grupper.'
             }
           ]
         },
@@ -1408,18 +1304,11 @@ const frigilianaEssentials: GuestGuideEntry = {
               sv: 'Om ni vill ha en hyrbil under vistelsen är den mest praktiska upphämtningsplatsen i närheten oftast <strong>Nerja</strong> snarare än Frigiliana i sig.<br><br>För de flesta gäster rekommenderar vi två enkla alternativ: <strong>hämta bilen lokalt i Nerja</strong> om ni bara behöver den under en del av vistelsen, eller <strong>hyra direkt på Málaga flygplats</strong> om ni vill ha störst utbud.'
             },
             {
-              en: '<strong>Local option in Nerja</strong><br><br>• <strong>Europcar Nerja</strong> — practical if you want a proper town pickup point in Nerja.<br>Website',
-              de: '<strong>Lokale Option in Nerja</strong><br><br>• <strong>Europcar Nerja</strong> — praktisch, wenn ihr einen klassischen Abholpunkt direkt in Nerja möchtet.<br>Website',
-              es: '<strong>Opción local en Nerja</strong><br><br>• <strong>Europcar Nerja</strong> — práctico si queréis un punto de recogida claro dentro de Nerja.<br>Página web',
-              nl: '<strong>Lokale optie in Nerja</strong><br><br>• <strong>Europcar Nerja</strong> — praktisch als jullie een echt afhaalpunt in Nerja zelf willen.<br>Website',
-              sv: '<strong>Lokalt alternativ i Nerja</strong><br><br>• <strong>Europcar Nerja</strong> — praktiskt om ni vill ha en tydlig upphämtningsplats i själva Nerja.<br>Webbplats'
-            },
-            {
-              en: '<strong>Convenient delivery-style options around Nerja</strong><br><br>If you prefer something more flexible, there are also local providers in the Nerja area that work with <strong>hotel / apartment delivery</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
-              de: '<strong>Praktische Delivery-Optionen rund um Nerja</strong><br><br>Wenn ihr es etwas flexibler möchtet, gibt es in der Nerja-Region auch lokale Anbieter mit <strong>Hotel- / Apartment-Lieferung</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
-              es: '<strong>Opciones prácticas con entrega en la zona de Nerja</strong><br><br>Si preferís algo más flexible, en la zona de Nerja también hay proveedores locales que trabajan con <strong>entrega en hotel o apartamento</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
-              nl: '<strong>Handige delivery-opties rond Nerja</strong><br><br>Als jullie iets flexibelers willen, zijn er in de regio Nerja ook lokale aanbieders met <strong>levering bij hotel of appartement</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
-              sv: '<strong>Praktiska leveransalternativ runt Nerja</strong><br><br>Om ni föredrar något mer flexibelt finns det också lokala aktörer i Nerja-området som erbjuder <strong>leverans till hotell eller lägenhet</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>'
+              en: 'The providers below cover both styles: a proper town pickup point in Nerja, and local companies that deliver the car to your hotel or apartment if you prefer something more flexible.',
+              de: 'Die Anbieter unten decken beide Varianten ab: einen klassischen Abholpunkt in Nerja und lokale Firmen, die den Wagen zu Hotel oder Apartment liefern, wenn ihr es flexibler möchtet.',
+              es: 'Los proveedores de abajo cubren ambas modalidades: un punto de recogida claro en Nerja y empresas locales que llevan el coche al hotel o apartamento si preferís algo más flexible.',
+              nl: 'De aanbieders hieronder dekken beide varianten: een echt afhaalpunt in Nerja en lokale bedrijven die de auto bij jullie hotel of appartement bezorgen als jullie iets flexibelers willen.',
+              sv: 'Aktörerna nedan täcker båda varianterna: en tydlig upphämtningsplats i Nerja och lokala företag som levererar bilen till hotell eller lägenhet om ni vill ha något mer flexibelt.'
             },
             {
               en: '<strong>Best choice for the widest selection</strong><br><br>If you are arriving by plane, <strong>Málaga Airport (AGP)</strong> usually gives you the easiest overall choice because several major rental brands operate there in one place.<br><br><a class="am-link" href="https://www.aena.es/en/malaga-costa-del-sol/airport-services/car-hire.html" target="_blank" rel="noopener">Málaga Airport car hire overview</a>',
@@ -1545,25 +1434,18 @@ const frigilianaEssentials: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'For non-emergency public medical care, use <strong>Centro de Salud Nerja</strong>, about <strong>10–15 minutes by car</strong>.',
-              de: 'Für öffentliche medizinische Hilfe ohne Notfall nutzt ihr das <strong>Centro de Salud Nerja</strong>, etwa <strong>10–15 Autominuten entfernt</strong>.',
-              es: 'Para atención médica pública sin emergencia, acudid al <strong>Centro de Salud Nerja</strong>, a unos <strong>10–15 minutos en coche</strong>.',
-              nl: 'Voor openbare medische zorg zonder noodgeval gaan jullie naar <strong>Centro de Salud Nerja</strong>, op ongeveer <strong>10–15 minuten rijden</strong>.',
-              sv: 'För offentlig vård utan nödläge använder ni <strong>Centro de Salud Nerja</strong>, cirka <strong>10–15 minuter med bil</strong>.'
+              en: 'For non-emergency public medical care, the nearest public health centre is <strong>Centro de Salud Nerja</strong>, about 10–15 minutes by car.',
+              de: 'Für öffentliche medizinische Hilfe ohne Notfall ist das nächste Gesundheitszentrum das <strong>Centro de Salud Nerja</strong>, etwa 10–15 Autominuten entfernt.',
+              es: 'Para atención médica pública sin emergencia, el centro de salud más cercano es el <strong>Centro de Salud Nerja</strong>, a unos 10–15 minutos en coche.',
+              nl: 'Voor openbare medische zorg zonder noodgeval is het dichtstbijzijnde gezondheidscentrum <strong>Centro de Salud Nerja</strong>, op ongeveer 10–15 minuten rijden.',
+              sv: 'För offentlig vård utan nödläge är närmaste vårdcentral <strong>Centro de Salud Nerja</strong>, cirka 10–15 minuter med bil.'
             },
             {
-              en: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
-              de: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
-              es: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
-              nl: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
-              sv: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>'
-            },
-            {
-              en: '<strong>Centre:</strong> +34 951 28 96 62<br><strong>Salud Responde / appointments:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>The current SAS directory lists the centre as open throughout Monday to Friday. Services and hours can change, so call before travelling outside normal daytime hours or at a weekend.',
-              de: '<strong>Zentrum:</strong> +34 951 28 96 62<br><strong>Salud Responde / Termine:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>Das aktuelle SAS-Verzeichnis führt das Zentrum montags bis freitags durchgehend geöffnet. Servicezeiten können sich ändern; ruft deshalb vor einem Weg außerhalb der üblichen Tageszeiten oder am Wochenende an.',
-              es: '<strong>Centro:</strong> +34 951 28 96 62<br><strong>Salud Responde / citas:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>El directorio actual del SAS muestra el centro abierto de forma continuada de lunes a viernes. Los servicios y horarios pueden cambiar; llamad antes de desplazaros fuera del horario diurno habitual o durante el fin de semana.',
-              nl: '<strong>Centrum:</strong> +34 951 28 96 62<br><strong>Salud Responde / afspraken:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>In de actuele SAS-gids staat het centrum van maandag tot en met vrijdag doorlopend als geopend vermeld. Diensten en openingstijden kunnen veranderen; bel daarom vóór een bezoek buiten normale uren overdag of in het weekend.',
-              sv: '<strong>Vårdcentralen:</strong> +34 951 28 96 62<br><strong>Salud Responde / tidsbokning:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>I SAS aktuella register anges vårdcentralen som öppen hela måndag till fredag. Tjänster och öppettider kan ändras; ring därför före ett besök utanför normala dagtider eller på helgen.'
+              en: 'For appointments, call <strong>Salud Responde</strong>: <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a>. The centre is listed as open Monday to Friday; services and hours can change, so call before travelling outside normal daytime hours or at a weekend.',
+              de: 'Für Termine ruft ihr <strong>Salud Responde</strong> an: <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a>. Das Zentrum ist montags bis freitags geöffnet; Servicezeiten können sich ändern, ruft deshalb vor einem Weg außerhalb der üblichen Tageszeiten oder am Wochenende an.',
+              es: 'Para pedir cita, llamad a <strong>Salud Responde</strong>: <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a>. El centro figura abierto de lunes a viernes; los servicios y horarios pueden cambiar, así que llamad antes de desplazaros fuera del horario diurno habitual o durante el fin de semana.',
+              nl: 'Voor afspraken bellen jullie <strong>Salud Responde</strong>: <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a>. Het centrum staat van maandag tot en met vrijdag als geopend vermeld; diensten en openingstijden kunnen veranderen, dus bel vóór een bezoek buiten normale uren overdag of in het weekend.',
+              sv: 'För tidsbokning ringer ni <strong>Salud Responde</strong>: <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a>. Vårdcentralen anges som öppen måndag till fredag; tjänster och öppettider kan ändras, så ring före ett besök utanför normala dagtider eller på helgen.'
             }
           ]
         },
@@ -4839,6 +4721,7 @@ const nerjaEssentials: GuestGuideEntry = {
   type: 'detail',
   slug: 'nerja-guest-essentials',
   backSlug: 'guestwelcome-nerja-playa',
+  stayKey: 'amara-playa',
   supportHref: FRIGILIANA_SUPPORT_WHATSAPP,
   supportLabel: NEED_HELP,
   seoTitle: {

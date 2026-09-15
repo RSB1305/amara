@@ -86,9 +86,15 @@ export interface GuestGuidePlaceRow {
 }
 
 /** Place list for a card that references several records; unknown ids are skipped. */
-export function buildRecommendationPlaces(ids: readonly string[], lang: AmaraLanguage): GuestGuidePlaceRow[] {
+export function buildRecommendationPlaces(
+  ids: readonly string[],
+  lang: AmaraLanguage,
+  stayKey?: KnowledgeStayKey
+): GuestGuidePlaceRow[] {
   const t = LABELS[lang];
   const rows: GuestGuidePlaceRow[] = [];
+  const hasDistance = (entry: { distanceMetres?: number; walkMinutes?: number; driveMinutes?: number }) =>
+    entry.distanceMetres !== undefined || entry.walkMinutes !== undefined || entry.driveMinutes !== undefined;
   for (const id of ids) {
     const record = getRecommendation(id);
     if (!record) continue;
@@ -99,9 +105,12 @@ export function buildRecommendationPlaces(ids: readonly string[], lang: AmaraLan
     if (place.website) actions.push({ label: place.kind === 'hike' ? t.route : t.website, href: place.website });
     if (place.reservationUrl) actions.push({ label: t.reserve, href: place.reservationUrl });
 
-    const access = (record.access ?? []).find(
-      (entry) => entry.distanceMetres !== undefined || entry.walkMinutes !== undefined || entry.driveMinutes !== undefined
-    );
+    // Only show a distance measured from this page's stay. A record reused from another
+    // location (its access from a different stay) then shows no distance instead of a wrong one.
+    const accessList = record.access ?? [];
+    const access = stayKey
+      ? accessList.find((entry) => entry.from === stayKey && hasDistance(entry))
+      : accessList.find(hasDistance);
     let distance: string | undefined;
     if (access) {
       const parts: string[] = [];

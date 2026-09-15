@@ -106,7 +106,7 @@ const seo: AmaraAuthoringSeo = {
             }
 
             const recommendation = item.recommendationId ? buildRecommendationView(item.recommendationId, lang) : undefined;
-            const places = item.recommendationIds ? buildRecommendationPlaces(item.recommendationIds, lang) : undefined;
+            const places = item.recommendationIds ? buildRecommendationPlaces(item.recommendationIds, lang, entry.stayKey) : undefined;
             const ownActions = item.actions?.map((action) => ({
               label: action.label[lang],
               href: action.href,
