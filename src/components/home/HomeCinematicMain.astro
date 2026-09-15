@@ -191,6 +191,24 @@ const hasPlaces = places.length > 0;
     class="relative z-[2] h-[88vh] min-h-[28rem] w-full overflow-hidden bg-inverse-surface supports-[height:100svh]:h-[88svh]"
   >
     <div class="absolute inset-0 h-full w-full" data-am-home-hero-rotator>
+      {/* An always-opaque base frame sits behind the crossfading slides. The
+          slides fade to and from zero opacity, so at the crossover, and for any
+          slide not yet decoded, the near-black stage would otherwise show
+          through. The base keeps a real photograph on screen at all times, so a
+          transition can only ever reveal another image, never the dark stage. */}
+      <img
+        src={heroImages[0].src}
+        srcset={heroImages[0].srcSet}
+        sizes={heroImages[0].sizes}
+        alt=""
+        aria-hidden="true"
+        class="absolute inset-0 h-full w-full object-cover"
+        width={heroImages[0].width}
+        height={heroImages[0].height}
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+      />
       {
         heroImages.map((image, index) => (
           <img
