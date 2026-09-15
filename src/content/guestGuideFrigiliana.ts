@@ -4933,11 +4933,11 @@ const nerjaEssentials: GuestGuideEntry = {
           title: { en: 'Bakery', de: 'Bäckerei', es: 'Panadería', nl: 'Bakker', sv: 'Bageri' },
           body: [
             {
-              en: 'For fresh bread, we recommend <strong>Good Stuff Cafe & Bakery</strong>. You can get there in about <strong>2 minutes via Calle Castilla Pérez</strong>, and the route is easy because you do <strong>not need to take any stairs</strong>.<br><br>In our view, this is the nicest and simplest bakery option from the house, especially in the morning.',
-              de: 'Für frisches Brot würden wir euch das <strong>Good Stuff Cafe & Bakery</strong> empfehlen. Ihr erreicht sie in etwa <strong>2 Minuten über die Calle Castilla Pérez</strong>, und der Weg ist angenehm, weil ihr <strong>keine Treppen</strong> nehmen müsst.<br><br>Aus unserer Sicht ist das vom Haus aus die schönste und einfachste Bäckerei-Option, besonders am Morgen.',
-              es: 'Para pan fresco, os recomendamos <strong>Good Stuff Cafe & Bakery</strong>. Se llega en unos <strong>2 minutos por Calle Castilla Pérez</strong>, y el camino es cómodo porque <strong>no hay que subir ni bajar escaleras</strong>.<br><br>Desde la casa, nos parece la opción de panadería más agradable y más fácil, sobre todo por la mañana.',
-              nl: 'Voor vers brood raden we <strong>Good Stuff Cafe & Bakery</strong> aan. Jullie lopen er in ongeveer <strong>2 minuten via Calle Castilla Pérez</strong> heen, en de route is prettig omdat jullie <strong>geen trappen</strong> hoeven te nemen.<br><br>Vanuit het huis vinden wij dit de fijnste en makkelijkste bakker, vooral in de ochtend.',
-              sv: 'För färskt bröd rekommenderar vi <strong>Good Stuff Cafe & Bakery</strong>. Ni tar er dit på cirka <strong>2 minuter via Calle Castilla Pérez</strong>, och vägen är enkel eftersom ni <strong>inte behöver ta några trappor</strong>.<br><br>Från huset tycker vi att detta är det trevligaste och enklaste bagerialternativet, särskilt på morgonen.'
+              en: 'For fresh bread in the morning, our pick just around the corner — an easy, level walk with no stairs.',
+              de: 'Für frisches Brot am Morgen unsere Empfehlung gleich um die Ecke — ein angenehmer, ebener Weg ohne Treppen.',
+              es: 'Para pan fresco por la mañana, nuestra recomendación muy cerca — un paseo cómodo y llano, sin escaleras.',
+              nl: 'Voor vers brood in de ochtend onze tip vlakbij — een prettige, vlakke route zonder trappen.',
+              sv: 'För färskt bröd på morgonen vårt tips runt hörnet — en behaglig, plan väg utan trappor.'
             }
           ]
         }
@@ -4958,25 +4958,11 @@ const nerjaEssentials: GuestGuideEntry = {
           title: { en: 'Laundry', de: 'Wäsche', es: 'Lavandería', nl: 'Wasgoed', sv: 'Tvätt' },
           body: [
             {
-              en: 'For a normal stay, the easiest option is simply to use the washing machine at home.',
-              de: 'Für einen normalen Aufenthalt ist die einfachste Lösung ganz klar die Waschmaschine im Haus.',
-              es: 'Para una estancia normal, la opción más sencilla es simplemente usar la lavadora de la casa.',
-              nl: 'Voor een normaal verblijf is de makkelijkste oplossing gewoon de wasmachine in huis te gebruiken.',
-              sv: 'För en vanlig vistelse är det enklaste alternativet helt enkelt att använda tvättmaskinen hemma.'
-            },
-            {
-              en: 'If you prefer a <strong>drop-off service</strong>, <strong>Lavandería Nerja</strong> is a practical option in Nerja and only about <strong>4 minutes from the house</strong>.<br><br>• <strong>Lavandería Nerja</strong>',
-              de: 'Wenn ihr lieber einen <strong>Wäsche-Abgabe-Service</strong> möchtet, ist <strong>Lavandería Nerja</strong> eine praktische Option in Nerja und nur etwa <strong>4 Minuten vom Haus entfernt</strong>.<br><br>• <strong>Lavandería Nerja</strong>',
-              es: 'Si preferís un <strong>servicio para dejar la ropa</strong>, <strong>Lavandería Nerja</strong> es una opción práctica en Nerja y está a solo unos <strong>4 minutos de la casa</strong>.<br><br>• <strong>Lavandería Nerja</strong>',
-              nl: 'Als jullie liever een <strong>drop-off-service</strong> gebruiken, is <strong>Lavandería Nerja</strong> een praktische optie in Nerja en slechts ongeveer <strong>4 minuten van het huis</strong> verwijderd.<br><br>• <strong>Lavandería Nerja</strong>',
-              sv: 'Om ni föredrar en <strong>drop-off-tjänst</strong> är <strong>Lavandería Nerja</strong> ett praktiskt alternativ i Nerja och ligger bara cirka <strong>4 minuter från huset</strong>.<br><br>• <strong>Lavandería Nerja</strong>'
-            },
-            {
-              en: 'If you prefer <strong>self-service laundry</strong>, the most practical external option is also right in <strong>Nerja</strong>:<br><br>• <strong>Lavandería Autoservicio Open Wash Nerja</strong>',
-              de: 'Wenn ihr lieber <strong>Self Service</strong> möchtet, ist die praktischste externe Option ebenfalls direkt in <strong>Nerja</strong>:<br><br>• <strong>Lavandería Autoservicio Open Wash Nerja</strong>',
-              es: 'Si preferís <strong>autoservicio</strong>, la opción externa más práctica también está en <strong>Nerja</strong>:<br><br>• <strong>Lavandería Autoservicio Open Wash Nerja</strong>',
-              nl: 'Als jullie liever <strong>self-service</strong> willen, is de meest praktische externe optie ook direct in <strong>Nerja</strong>:<br><br>• <strong>Lavandería Autoservicio Open Wash Nerja</strong>',
-              sv: 'Om ni föredrar <strong>självservice</strong> är det mest praktiska externa alternativet också mitt i <strong>Nerja</strong>:<br><br>• <strong>Lavandería Autoservicio Open Wash Nerja</strong>'
+              en: 'For a normal stay, the washing machine at home is easiest. If you would rather wash out, Nerja has both: a drop-off service and a self-service launderette.',
+              de: 'Für einen normalen Aufenthalt ist die Waschmaschine im Haus am einfachsten. Möchtet ihr auswärts waschen, gibt es in Nerja beides: einen Abgabe-Service und einen Self-Service-Waschsalon.',
+              es: 'Para una estancia normal, lo más fácil es la lavadora de la casa. Si preferís lavar fuera, en Nerja hay ambas opciones: un servicio de recogida y una lavandería de autoservicio.',
+              nl: 'Voor een normaal verblijf is de wasmachine in huis het makkelijkst. Willen jullie liever buiten de deur wassen, dan heeft Nerja beide: een drop-off-service en een self-service wasserette.',
+              sv: 'För en vanlig vistelse är tvättmaskinen hemma enklast. Vill ni tvätta ute finns båda i Nerja: en inlämningstjänst och en självservicetvätt.'
             }
           ]
         },
@@ -4986,39 +4972,11 @@ const nerjaEssentials: GuestGuideEntry = {
           title: { en: 'ATM', de: 'Geldautomat', es: 'Cajero automático', nl: 'Geldautomaat', sv: 'Bankomat' },
           body: [
             {
-              en: 'If you need cash during your stay, the easiest area to head for is towards the Balcón de Europa. From the house, it is a very pleasant walk of around <strong>500 metres</strong> along <strong>Calle Castilla Pérez</strong> and <strong>Calle Diputación</strong>.<br><br>Around the center, you will also find pharmacies and the main shopping streets — and this is where the ATM options are as well.',
-              de: 'Wenn ihr während eures Aufenthalts Bargeld braucht, geht ihr am besten in Richtung Balcón de Europa. Vom Haus aus ist das ein sehr angenehmer Weg von rund <strong>500 Metern</strong> über die <strong>Calle Castilla Pérez</strong> und <strong>Calle Diputación</strong>.<br><br>Dort im Zentrum findet ihr auch Apotheken und die Haupteinkaufsstraßen — und genau dort befinden sich auch die Geldautomaten.',
-              es: 'Si necesitáis efectivo durante vuestra estancia, la zona más práctica es hacia el Balcón de Europa. Desde la casa, es un paseo muy agradable de unos <strong>500 metros</strong> por la <strong>Calle Castilla Pérez</strong> y <strong>Calle Diputación</strong>.<br><br>Por el centro también encontraréis farmacias y las principales calles comerciales — y es justo donde están también los cajeros.',
-              nl: 'Als jullie tijdens het verblijf contant geld nodig hebben, is de handigste richting de Balcón de Europa. Vanaf het huis is dat een heel aangename wandeling van ongeveer <strong>500 meter</strong> via <strong>Calle Castilla Pérez</strong> en <strong>Calle Diputación</strong>.<br><br>Daar in het centrum vinden jullie ook apotheken en de belangrijkste winkelstraten — en precies daar liggen ook de geldautomaten.',
-              sv: 'Om ni behöver kontanter under vistelsen är det enklast att gå mot Balcón de Europa. Från huset är det en mycket behaglig promenad på cirka <strong>500 meter</strong> längs <strong>Calle Castilla Pérez</strong> och <strong>Calle Diputación</strong>.<br><br>Där i centrum hittar ni också apotek och de främsta shoppinggatorna — och det är också där bankomaterna finns.'
-            },
-            {
-              en: '<strong>ATM options in this area</strong>',
-              de: '<strong>Geldautomaten in diesem Bereich</strong>',
-              es: '<strong>Cajeros en esta zona</strong>',
-              nl: '<strong>Geldautomaten in dit gebied</strong>',
-              sv: '<strong>Bankomater i detta område</strong>'
-            },
-            {
-              en: '• <strong>Unicaja ATM</strong>',
-              de: '• <strong>Unicaja Geldautomat</strong>',
-              es: '• <strong>Cajero Unicaja</strong>',
-              nl: '• <strong>Unicaja geldautomaat</strong>',
-              sv: '• <strong>Unicaja bankomat</strong>'
-            },
-            {
-              en: '• <strong>CaixaBank ATM</strong>',
-              de: '• <strong>CaixaBank Geldautomat</strong>',
-              es: '• <strong>Cajero CaixaBank</strong>',
-              nl: '• <strong>CaixaBank geldautomaat</strong>',
-              sv: '• <strong>CaixaBank bankomat</strong>'
-            },
-            {
-              en: '<em>Good to know:</em> This is the most convenient area to combine a few practical things at once if you are already heading towards the center.',
-              de: '<em>Gut zu wissen:</em> Das ist der praktischste Bereich, wenn ihr ohnehin schon ins Zentrum geht und mehrere kleine Dinge auf einmal erledigen möchtet.',
-              es: '<em>Conviene saber:</em> Esta es la zona más práctica si ya vais hacia el centro y queréis resolver varias cosas útiles de una vez.',
-              nl: '<em>Goed om te weten:</em> Dit is het handigste gebied als jullie toch al richting het centrum lopen en meerdere praktische dingen tegelijk willen regelen.',
-              sv: '<em>Bra att veta:</em> Det här är det mest praktiska området om ni ändå är på väg mot centrum och vill ordna flera småsaker samtidigt.'
+              en: 'If you need cash, head towards the Balcón de Europa — a pleasant walk of around 500 m along Calle Castilla Pérez and Calle Diputación. The pharmacies and the main shopping streets are in the same area.',
+              de: 'Wenn ihr Bargeld braucht, geht ihr am besten Richtung Balcón de Europa — ein angenehmer Weg von rund 500 m über die Calle Castilla Pérez und Calle Diputación. Im selben Bereich liegen auch die Apotheken und die Haupteinkaufsstraßen.',
+              es: 'Si necesitáis efectivo, id hacia el Balcón de Europa — un paseo agradable de unos 500 m por la Calle Castilla Pérez y la Calle Diputación. Las farmacias y las principales calles comerciales están en la misma zona.',
+              nl: 'Als jullie contant geld nodig hebben, lopen jullie richting de Balcón de Europa — een aangename wandeling van ongeveer 500 m via Calle Castilla Pérez en Calle Diputación. De apotheken en de belangrijkste winkelstraten liggen in hetzelfde gebied.',
+              sv: 'Behöver ni kontanter går ni mot Balcón de Europa — en behaglig promenad på cirka 500 m längs Calle Castilla Pérez och Calle Diputación. Apoteken och de främsta shoppinggatorna ligger i samma område.'
             }
           ]
         },
@@ -5034,11 +4992,11 @@ const nerjaEssentials: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'If you want a local map, current walking information, or a quick answer before heading out, the tourist office is the best place to ask in Nerja.<br><br>It is especially useful if you are planning a hike or want up-to-date local advice rather than relying only on general online information.<br><br>• <strong>Tourist Office Nerja</strong><br>Plaza Balcón de Europa, 1<br>Call +34 952 52 15 31',
-              de: 'Wenn ihr einen Ortsplan, aktuelle Hinweise zu Spaziergängen oder Wanderungen oder einfach eine schnelle Auskunft vor Ort möchtet, ist die Touristeninformation in Nerja die beste Anlaufstelle.<br><br>Besonders sinnvoll ist sie, wenn ihr eine Wanderung plant oder lieber aktuelle lokale Hinweise haben möchtet, statt euch nur auf allgemeine Online-Infos zu verlassen.<br><br>• <strong>Touristeninformation Nerja</strong><br>Plaza Balcón de Europa, 1<br>Anrufen: +34 952 52 15 31',
-              es: 'Si queréis un mapa del pueblo, información actual sobre paseos o rutas, o una respuesta rápida antes de salir, la oficina de turismo es el mejor lugar para preguntar en Nerja.<br><br>Es especialmente útil si estáis planeando una caminata o preferís información local actualizada en lugar de depender solo de información general de internet.<br><br>• <strong>Oficina de turismo de Nerja</strong><br>Plaza Balcón de Europa, 1<br>Llamar: +34 952 52 15 31',
-              nl: 'Als jullie een plattegrond, actuele informatie over wandelingen of gewoon snel lokaal advies willen voordat jullie op pad gaan, is het VVV-kantoor in Nerja de beste plek om even te vragen.<br><br>Vooral handig als jullie een hike plannen of liever actuele lokale informatie hebben dan alleen algemene info van internet.<br><br>• <strong>VVV-kantoor Nerja</strong><br>Plaza Balcón de Europa, 1<br>Bellen: +34 952 52 15 31',
-              sv: 'Om ni vill ha en karta, aktuell information om promenader eller vandringar eller bara ett snabbt lokalt svar innan ni går ut, är turistbyrån bästa stället att fråga på i Nerja.<br><br>Den är särskilt användbar om ni planerar en vandring eller vill ha uppdaterad lokal information i stället för att bara lita på allmän information på nätet.<br><br>• <strong>Turistbyrå Nerja</strong><br>Plaza Balcón de Europa, 1<br>Ring: +34 952 52 15 31'
+              en: 'For a local map, current walking information, or a quick answer before heading out, the tourist office is the best place to ask — especially if you are planning a hike and want up-to-date local advice rather than only general information online.',
+              de: 'Für einen Ortsplan, aktuelle Hinweise zu Spaziergängen oder Wanderungen oder einfach eine schnelle Auskunft ist die Touristeninformation die beste Anlaufstelle — besonders, wenn ihr eine Wanderung plant und aktuelle lokale Hinweise haben möchtet statt nur allgemeiner Infos aus dem Netz.',
+              es: 'Para un mapa del pueblo, información actual sobre paseos o rutas o una respuesta rápida antes de salir, la oficina de turismo es el mejor lugar para preguntar — sobre todo si planeáis una caminata y queréis información local actualizada en lugar de solo información general de internet.',
+              nl: 'Voor een plattegrond, actuele wandelinformatie of gewoon snel lokaal advies voordat jullie op pad gaan, is het VVV-kantoor de beste plek om te vragen — vooral als jullie een wandeling plannen en liever actuele lokale informatie hebben dan alleen algemene info online.',
+              sv: 'För en karta, aktuell information om promenader och vandringar eller bara ett snabbt svar innan ni ger er ut är turistbyrån bästa stället att fråga på — särskilt om ni planerar en vandring och vill ha uppdaterad lokal information i stället för bara allmän information på nätet.'
             }
           ]
         }
@@ -5059,39 +5017,11 @@ const nerjaEssentials: GuestGuideEntry = {
           title: { en: 'Taxi', de: 'Taxi', es: 'Taxi', nl: 'Taxi', sv: 'Taxi' },
           body: [
             {
-              en: 'In Nerja, we still recommend arranging taxis a little in advance rather than expecting one to be nearby at any time.<br><br>This is especially helpful for dinner reservations out of town, early departures, evening returns, or airport days.',
-              de: 'In Nerja würden wir ebenfalls empfehlen, Taxis lieber etwas im Voraus zu organisieren, statt darauf zu setzen, dass jederzeit spontan eines in der Nähe ist.<br><br>Das ist besonders sinnvoll für Restaurantbesuche außerhalb, frühe Abfahrten, spätere Rückfahrten oder Flughafentage.',
-              es: 'En Nerja, os seguimos recomendando organizar el taxi con algo de antelación en lugar de contar con que siempre haya uno cerca en cualquier momento.<br><br>Esto es especialmente útil para cenas fuera del centro, salidas tempranas, regresos por la noche o días de aeropuerto.',
-              nl: 'Ook in Nerja raden we aan om een taxi liever iets van tevoren te regelen dan te verwachten dat er op elk moment direct eentje in de buurt is.<br><br>Dat is vooral handig voor etentjes buiten het centrum, vroege vertrekken, latere terugritten of luchthavendagen.',
-              sv: 'Även i Nerja rekommenderar vi att ordna taxi lite i förväg i stället för att räkna med att en bil alltid finns i närheten.<br><br>Det är särskilt hjälpsamt för middagsbokningar utanför stan, tidiga avresor, sena hemresor eller flygplatsdagar.'
-            },
-            {
-              en: '<strong>Local taxi contacts</strong>',
-              de: '<strong>Lokale Taxi-Kontakte</strong>',
-              es: '<strong>Contactos de taxi locales</strong>',
-              nl: '<strong>Lokale taxicontacten</strong>',
-              sv: '<strong>Lokala taxikontakter</strong>'
-            },
-            {
-              en: '• <strong>Radio Taxis Nerja</strong> – good option for local rides and airport transfers<br>Call +34 952 52 05 37',
-              de: '• <strong>Radio Taxis Nerja</strong> – gute Option für lokale Fahrten und Flughafentransfers<br>Anrufen: +34 952 52 05 37',
-              es: '• <strong>Radio Taxis Nerja</strong> – buena opción para trayectos locales y traslados al aeropuerto<br>Llamar: +34 952 52 05 37',
-              nl: '• <strong>Radio Taxis Nerja</strong> – goede optie voor lokale ritten en luchthaventransfers<br>Bellen: +34 952 52 05 37',
-              sv: '• <strong>Radio Taxis Nerja</strong> – bra alternativ för lokala resor och flygplatstransfer<br>Ring: +34 952 52 05 37'
-            },
-            {
-              en: '• <strong>Taxi Nerja 21</strong> – useful if you need a reliable alternative or a longer transfer<br>Call +34 610 795 909',
-              de: '• <strong>Taxi Nerja 21</strong> – sinnvoll, wenn ihr eine zuverlässige Alternative oder einen längeren Transfer braucht<br>Anrufen: +34 610 795 909',
-              es: '• <strong>Taxi Nerja 21</strong> – útil si necesitáis una alternativa fiable o un traslado más largo<br>Llamar: +34 610 795 909',
-              nl: '• <strong>Taxi Nerja 21</strong> – handig als jullie een betrouwbaar alternatief of een langere transfer nodig hebben<br>Bellen: +34 610 795 909',
-              sv: '• <strong>Taxi Nerja 21</strong> – bra om ni behöver ett pålitligt alternativ eller en längre transfer<br>Ring: +34 610 795 909'
-            },
-            {
-              en: 'For airport runs or larger groups, booking ahead is especially worth it.',
-              de: 'Für Flughafentransfers oder größere Gruppen lohnt sich eine vorherige Reservierung ganz besonders.',
-              es: 'Para traslados al aeropuerto o grupos más grandes, merece especialmente la pena reservar con antelación.',
-              nl: 'Voor luchthaventransfers of grotere groepen is vooraf reserveren extra aan te raden.',
-              sv: 'För flygplatstransfer eller större grupper är det särskilt bra att boka i förväg.'
+              en: 'In Nerja, arrange taxis a little in advance rather than expecting one to be nearby — especially for dinners out of town, early departures, evening returns, airport days or larger groups.',
+              de: 'In Nerja organisiert ihr Taxis am besten etwas im Voraus, statt darauf zu setzen, dass spontan eines in der Nähe ist — besonders für Restaurantbesuche außerhalb, frühe Abfahrten, späte Rückfahrten, Flughafentage oder größere Gruppen.',
+              es: 'En Nerja, organizad el taxi con algo de antelación en lugar de contar con que siempre haya uno cerca — sobre todo para cenas fuera del centro, salidas tempranas, regresos de noche, días de aeropuerto o grupos más grandes.',
+              nl: 'Regel in Nerja een taxi liever iets van tevoren dan te verwachten dat er meteen eentje in de buurt is — vooral voor etentjes buiten het centrum, vroege vertrekken, late terugritten, luchthavendagen of grotere groepen.',
+              sv: 'I Nerja ordnar ni taxi lite i förväg i stället för att räkna med att en bil alltid finns nära — särskilt för middagar utanför stan, tidiga avresor, sena hemresor, flygplatsdagar eller större grupper.'
             }
           ]
         },
@@ -5108,25 +5038,11 @@ const nerjaEssentials: GuestGuideEntry = {
               sv: 'Om ni vill ha en hyrbil under vistelsen befinner ni er redan på den mest praktiska platsen: själva <strong>Nerja</strong>.<br><br>För de flesta gäster skulle vi rekommendera två enkla alternativ: <strong>hämta bilen lokalt här i Nerja</strong> om ni bara behöver den under en del av vistelsen, eller <strong>hyra direkt på Málaga flygplats</strong> om ni vill ha störst utbud.'
             },
             {
-              en: '<strong>Local option in Nerja</strong>',
-              de: '<strong>Lokale Option in Nerja</strong>',
-              es: '<strong>Opción local en Nerja</strong>',
-              nl: '<strong>Lokale optie in Nerja</strong>',
-              sv: '<strong>Lokalt alternativ i Nerja</strong>'
-            },
-            {
-              en: '• <strong>Europcar Nerja</strong> – practical if you want a proper town pickup point.<br>Website',
-              de: '• <strong>Europcar Nerja</strong> – praktisch, wenn ihr einen klassischen Abholpunkt in der Stadt möchtet.<br>Website',
-              es: '• <strong>Europcar Nerja</strong> – práctico si queréis un punto de recogida claro en el pueblo.<br>Página web',
-              nl: '• <strong>Europcar Nerja</strong> – praktisch als jullie een echt afhaalpunt in de stad zelf willen.<br>Website',
-              sv: '• <strong>Europcar Nerja</strong> – praktiskt om ni vill ha en tydlig upphämtningsplats i själva staden.<br>Webbplats'
-            },
-            {
-              en: '<strong>Convenient delivery-style options around Nerja</strong><br><br>If you prefer something more flexible, there are also local providers in the Nerja area that work with <strong>hotel / apartment delivery</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
-              de: '<strong>Praktische Delivery-Optionen rund um Nerja</strong><br><br>Wenn ihr es etwas flexibler möchtet, gibt es in der Nerja-Region auch lokale Anbieter mit <strong>Hotel- / Apartment-Lieferung</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
-              es: '<strong>Opciones prácticas con entrega en la zona de Nerja</strong><br><br>Si preferís algo más flexible, en la zona de Nerja también hay proveedores locales que trabajan con <strong>entrega en hotel o apartamento</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
-              nl: '<strong>Handige delivery-opties rond Nerja</strong><br><br>Als jullie iets flexibelers willen, zijn er in de regio Nerja ook lokale aanbieders met <strong>levering bij hotel of appartement</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>',
-              sv: '<strong>Praktiska leveransalternativ runt Nerja</strong><br><br>Om ni föredrar något mer flexibelt finns det också lokala aktörer i Nerja-området som erbjuder <strong>leverans till hotell eller lägenhet</strong>:<br><br>• <strong>Lessaggro Car Hire Nerja</strong><br><br>• <strong>Bahia Sexi Rent a Car</strong>'
+              en: 'The providers below cover both styles: a proper town pickup point in Nerja, and local companies that deliver the car to your hotel or apartment if you prefer something more flexible.',
+              de: 'Die Anbieter unten decken beide Varianten ab: einen klassischen Abholpunkt in Nerja und lokale Firmen, die den Wagen zu Hotel oder Apartment liefern, wenn ihr es flexibler möchtet.',
+              es: 'Los proveedores de abajo cubren ambas modalidades: un punto de recogida claro en Nerja y empresas locales que llevan el coche al hotel o apartamento si preferís algo más flexible.',
+              nl: 'De aanbieders hieronder dekken beide varianten: een echt afhaalpunt in Nerja en lokale bedrijven die de auto bij jullie hotel of appartement bezorgen als jullie iets flexibelers willen.',
+              sv: 'Aktörerna nedan täcker båda varianterna: en tydlig upphämtningsplats i Nerja och lokala företag som levererar bilen till hotell eller lägenhet om ni vill ha något mer flexibelt.'
             },
             {
               en: '<strong>Best choice for the widest selection</strong>',
@@ -5259,25 +5175,18 @@ const nerjaEssentials: GuestGuideEntry = {
           },
           body: [
             {
-              en: 'For non-emergency public medical care, use <strong>Centro de Salud Nerja</strong>, about <strong>10 minutes on foot</strong>.',
-              de: 'Für öffentliche medizinische Hilfe ohne Notfall nutzt ihr das <strong>Centro de Salud Nerja</strong>, etwa <strong>10 Minuten zu Fuß entfernt</strong>.',
-              es: 'Para atención médica pública sin emergencia, acudid al <strong>Centro de Salud Nerja</strong>, a unos <strong>10 minutos a pie</strong>.',
-              nl: 'Voor openbare medische zorg zonder noodgeval gaan jullie naar <strong>Centro de Salud Nerja</strong>, op ongeveer <strong>10 minuten lopen</strong>.',
-              sv: 'För offentlig vård utan nödläge använder ni <strong>Centro de Salud Nerja</strong>, cirka <strong>10 minuter till fots</strong>.'
+              en: 'For non-emergency public medical care, the nearest public health centre is an easy walk from the house.',
+              de: 'Für öffentliche medizinische Hilfe ohne Notfall ist das nächste Gesundheitszentrum bequem zu Fuß erreichbar.',
+              es: 'Para atención médica pública sin emergencia, el centro de salud más cercano está a un paseo fácil desde la casa.',
+              nl: 'Voor openbare medische zorg zonder noodgeval is het dichtstbijzijnde gezondheidscentrum makkelijk te belopen vanaf het huis.',
+              sv: 'För offentlig vård utan nödläge ligger närmaste vårdcentral på en enkel promenad från huset.'
             },
             {
-              en: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
-              de: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
-              es: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
-              nl: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>',
-              sv: '<strong>C. Carlos Millón, s/n<br>29780 Nerja, Málaga</strong>'
-            },
-            {
-              en: '<strong>Centre:</strong> +34 951 28 96 62<br><strong>Salud Responde / appointments:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>The current SAS directory lists the centre as open throughout Monday to Friday. Services and hours can change, so call before travelling outside normal daytime hours or at a weekend.',
-              de: '<strong>Zentrum:</strong> +34 951 28 96 62<br><strong>Salud Responde / Termine:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>Das aktuelle SAS-Verzeichnis führt das Zentrum montags bis freitags durchgehend geöffnet. Servicezeiten können sich ändern; ruft deshalb vor einem Weg außerhalb der üblichen Tageszeiten oder am Wochenende an.',
-              es: '<strong>Centro:</strong> +34 951 28 96 62<br><strong>Salud Responde / citas:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>El directorio actual del SAS muestra el centro abierto de forma continuada de lunes a viernes. Los servicios y horarios pueden cambiar; llamad antes de desplazaros fuera del horario diurno habitual o durante el fin de semana.',
-              nl: '<strong>Centrum:</strong> +34 951 28 96 62<br><strong>Salud Responde / afspraken:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>In de actuele SAS-gids staat het centrum van maandag tot en met vrijdag doorlopend als geopend vermeld. Diensten en openingstijden kunnen veranderen; bel daarom vóór een bezoek buiten normale uren overdag of in het weekend.',
-              sv: '<strong>Vårdcentralen:</strong> +34 951 28 96 62<br><strong>Salud Responde / tidsbokning:</strong> <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a><br><br>I SAS aktuella register anges vårdcentralen som öppen hela måndag till fredag. Tjänster och öppettider kan ändras; ring därför före ett besök utanför normala dagtider eller på helgen.'
+              en: 'For appointments, call <strong>Salud Responde</strong>: <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a>. The centre is listed as open Monday to Friday; services and hours can change, so call before travelling outside normal daytime hours or at a weekend.',
+              de: 'Für Termine ruft ihr <strong>Salud Responde</strong> an: <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a>. Das Zentrum ist montags bis freitags geöffnet; Servicezeiten können sich ändern, ruft deshalb vor einem Weg außerhalb der üblichen Tageszeiten oder am Wochenende an.',
+              es: 'Para pedir cita, llamad a <strong>Salud Responde</strong>: <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a>. El centro figura abierto de lunes a viernes; los servicios y horarios pueden cambiar, así que llamad antes de desplazaros fuera del horario diurno habitual o durante el fin de semana.',
+              nl: 'Voor afspraken bellen jullie <strong>Salud Responde</strong>: <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a>. Het centrum staat van maandag tot en met vrijdag als geopend vermeld; diensten en openingstijden kunnen veranderen, dus bel vóór een bezoek buiten normale uren overdag of in het weekend.',
+              sv: 'För tidsbokning ringer ni <strong>Salud Responde</strong>: <a class="am-link" href="tel:+34955545060">+34 955 54 50 60</a>. Vårdcentralen anges som öppen måndag till fredag; tjänster och öppettider kan ändras, så ring före ett besök utanför normala dagtider eller på helgen.'
             }
           ]
         },

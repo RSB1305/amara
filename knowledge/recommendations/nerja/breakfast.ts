@@ -23,7 +23,7 @@ export const nerjaBreakfastRecommendations = defineKnowledgeRecommendations([
     topic: 'breakfast',
     place: { name: 'Good Stuff Café', kind: 'cafe', mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Good+Stuff+Cafe+Nerja' },
     summary: 'A lovely option when you feel like a more modern breakfast with good coffee, fresh ingredients and a slightly more curated atmosphere. Especially nice if you want something healthier or more international before heading into town for the day.',
-    access: [{ from: 'amara-playa', distanceMetres: 850 }],
+    access: [{ from: 'amara-playa', distanceMetres: 200, walkMinutes: 2 }],
     provenance: 'researched',
     status: 'APPROVED',
     scope: 'amara-experience',
