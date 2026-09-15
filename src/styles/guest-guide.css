@@ -378,6 +378,139 @@
     min-width: 0;
   }
 
+  /* === Save-to-home-screen hint (stay welcome page only) ===
+     A calm card that mirrors the guide's own surfaces. Hidden entirely once the
+     guide runs from a home-screen icon in a reported standalone display mode. */
+  .am-guide-hs {
+    margin: 1.5rem 0 0;
+    padding: 1rem 1.125rem 1.125rem;
+    background-color: var(--color-surface-container-low);
+    border: 1px solid var(--color-outline-variant);
+    border-radius: var(--radius-overlay);
+  }
+
+  .am-guide-hs__head {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+  }
+
+  .am-guide-hs__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: var(--radius-pill);
+    background-color: var(--color-surface-container);
+    color: var(--color-primary);
+  }
+
+  .am-guide-hs__icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .am-guide-hs__text {
+    min-width: 0;
+  }
+
+  .am-guide-hs__title {
+    margin: 0.125rem 0 0.25rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--color-on-surface);
+  }
+
+  .am-guide-hs__lead {
+    margin: 0;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--color-on-surface-variant);
+  }
+
+  .am-guide-hs__details {
+    margin-top: 0.75rem;
+  }
+
+  .am-guide-hs__summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .am-guide-hs__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .am-guide-hs__summary::after {
+    content: '\203A';
+    font-size: 1rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+
+  .am-guide-hs__details[open] .am-guide-hs__summary::after {
+    transform: rotate(90deg);
+  }
+
+  .am-guide-hs__summary:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .am-guide-hs__panel {
+    padding-top: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--color-on-surface-variant);
+  }
+
+  .am-guide-hs__platform {
+    margin: 0.75rem 0 0.35rem;
+    font-family: var(--font-label);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+
+  .am-guide-hs__panel ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    list-style: decimal;
+  }
+
+  .am-guide-hs__panel li {
+    margin: 0 0 0.3rem;
+  }
+
+  .am-guide-hs__panel li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Opened from a home-screen icon in a reported standalone/app mode: the guide is
+     already saved, so the hint steps aside. Graceful by design — a browser that does
+     not report the mode simply keeps the hint visible; no JavaScript involved. */
+  @media (display-mode: standalone) {
+    .am-guide-hs {
+      display: none;
+    }
+  }
+
   /* === Guest Guide weather widget === */
   .am-weather-live-note {
     background: var(--color-surface-container-low);

@@ -1,6 +1,7 @@
 ---
 import GuestGuideLayout from '../../layouts/GuestGuideLayout.astro';
 import GuestGuideMenuItem from '../../components/guest-guide/GuestGuideMenuItem.astro';
+import GuestGuideHomescreenHint from '../../components/guest-guide/GuestGuideHomescreenHint.astro';
 import GuestGuideLanguageSwitcher from '../../components/guest-guide/GuestGuideLanguageSwitcher.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import { guideHref } from '../../lib/guestGuideHref';
@@ -49,6 +50,8 @@ const seo: AmaraAuthoringSeo = {
       <h1 class="am-hero-title">{entry.title[lang]}</h1>
       <p>{entry.intro[lang]}</p>
     </section>
+
+    <GuestGuideHomescreenHint lang={lang} />
 
     <nav aria-label="Guide menu">
       {entry.menuLinks.map((link) => (

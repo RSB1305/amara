@@ -1,0 +1,134 @@
+---
+// A quiet, presentation-only note on the stay welcome page telling guests how to
+// keep their guide one tap away on the phone's home screen. Pure HTML + CSS: the
+// disclosure is a native <details>, and the whole aside is hidden by CSS alone once
+// the guide is opened from a home-screen icon in a reported standalone display mode
+// (see .am-guide-hs in guest-guide.css). No client JavaScript, no install prompt.
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  lang: AmaraLanguage;
+}
+
+const { lang } = Astro.props;
+
+interface HintCopy {
+  title: string;
+  lead: string;
+  summary: string;
+  /** Platform names stay as brand strings; steps localize. */
+  iosSteps: string[];
+  androidSteps: string[];
+}
+
+const copy: Record<AmaraLanguage, HintCopy> = {
+  de: {
+    title: 'Gästemappe speichern',
+    lead: 'Speichert eure Gästemappe auf dem Startbildschirm. So habt ihr während eures Aufenthalts jederzeit schnellen Zugriff.',
+    summary: 'So geht’s',
+    iosSteps: [
+      'Tippt unten auf das Teilen-Symbol.',
+      'Wählt „Zum Home-Bildschirm“.',
+      'Tippt auf „Hinzufügen“.'
+    ],
+    androidSteps: [
+      'Tippt oben rechts auf das Drei-Punkte-Menü.',
+      'Wählt „Zum Startbildschirm hinzufügen“ oder – je nach Chrome-Version – „App installieren“.',
+      'Bestätigt mit „Hinzufügen“ bzw. „Installieren“.'
+    ]
+  },
+  en: {
+    title: 'Save your guide',
+    lead: 'Add your guide to the home screen and it stays one tap away for the whole of your stay.',
+    summary: 'How it works',
+    iosSteps: [
+      'Tap the share icon at the bottom.',
+      'Choose “Add to Home Screen”.',
+      'Tap “Add”.'
+    ],
+    androidSteps: [
+      'Tap the three-dot menu at the top right.',
+      'Choose “Add to Home screen” or, depending on your Chrome version, “Install app”.',
+      'Confirm with “Add” or “Install”.'
+    ]
+  },
+  es: {
+    title: 'Guardad la guía',
+    lead: 'Añadid la guía a la pantalla de inicio y la tendréis a un toque durante toda vuestra estancia.',
+    summary: 'Cómo se hace',
+    iosSteps: [
+      'Tocad el icono de compartir, abajo.',
+      'Elegid «Añadir a inicio».',
+      'Tocad «Añadir».'
+    ],
+    androidSteps: [
+      'Tocad el menú de tres puntos, arriba a la derecha.',
+      'Elegid «Añadir a pantalla de inicio» o, según la versión de Chrome, «Instalar aplicación».',
+      'Confirmad con «Añadir» o «Instalar».'
+    ]
+  },
+  nl: {
+    title: 'Bewaar de gids',
+    lead: 'Zet de gids op jullie startscherm, dan hebben jullie hem de hele vakantie met één tik bij de hand.',
+    summary: 'Zo werkt het',
+    iosSteps: [
+      'Tik onderaan op het deel-symbool.',
+      'Kies „Zet op beginscherm”.',
+      'Tik op „Voeg toe”.'
+    ],
+    androidSteps: [
+      'Tik rechtsboven op het menu met drie puntjes.',
+      'Kies „Toevoegen aan startscherm” of, afhankelijk van je Chrome-versie, „App installeren”.',
+      'Bevestig met „Toevoegen” of „Installeren”.'
+    ]
+  },
+  sv: {
+    title: 'Spara guiden',
+    lead: 'Lägg guiden på hemskärmen, så har ni den snabbt till hands under hela vistelsen.',
+    summary: 'Så gör ni',
+    iosSteps: [
+      'Tryck på dela-symbolen längst ner.',
+      'Välj ”Lägg till på hemskärmen”.',
+      'Tryck på ”Lägg till”.'
+    ],
+    androidSteps: [
+      'Tryck på trepunktsmenyn uppe till höger.',
+      'Välj ”Lägg till på startskärmen” eller, beroende på Chrome-version, ”Installera app”.',
+      'Bekräfta med ”Lägg till” eller ”Installera”.'
+    ]
+  }
+};
+
+const text = copy[lang];
+---
+
+<aside class="am-guide-hs">
+  <div class="am-guide-hs__head">
+    <span class="am-guide-hs__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+        <path d="M10 18h4" />
+        <path d="M12 8v5" />
+        <path d="M9.5 10.5h5" />
+      </svg>
+    </span>
+    <div class="am-guide-hs__text">
+      <h2 class="am-guide-hs__title">{text.title}</h2>
+      <p class="am-guide-hs__lead">{text.lead}</p>
+    </div>
+  </div>
+
+  <details class="am-guide-hs__details">
+    <summary class="am-guide-hs__summary">{text.summary}</summary>
+    <div class="am-guide-hs__panel">
+      <h3 class="am-guide-hs__platform">iPhone / Safari</h3>
+      <ol>
+        {text.iosSteps.map((step) => <li>{step}</li>)}
+      </ol>
+      <h3 class="am-guide-hs__platform">Android / Chrome</h3>
+      <ol>
+        {text.androidSteps.map((step) => <li>{step}</li>)}
+      </ol>
+    </div>
+  </details>
+</aside>
