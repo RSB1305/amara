@@ -382,20 +382,24 @@ export const frigilianaOldTownCopy = {
     ]
   },
   doors: {
-    "title": {
-      "en": "Every door tells a story",
-      "de": "Jede Tür erzählt eine Geschichte",
-      "es": "Cada puerta cuenta una historia",
-      "nl": "Elke deur vertelt een verhaal",
-      "sv": "Varje dörr berättar en historia"
-    },
-    "intro": {
-      "en": "Here in Frigiliana, colour begins at the doorstep. Mint-green paint reveals the wood beneath; dark ironwork curls across glass; a plant pot sits beside a ring knocker. On a wander through the lanes together, these small details are worth slowing down for.",
-      "de": "Bei uns in Frigiliana beginnt die Farbe an der Haustür. Unter Mintgrün kommt Holz zum Vorschein, dunkles Eisen windet sich vor Glas, neben einem Ringklopfer steht ein Pflanztopf. Wenn ihr zu zweit durch die Gassen schlendert, lohnt sich eine kleine Pause vor diesen Details.",
-      "es": "Aquí en Frigiliana, el color empieza en la puerta de casa. Bajo el verde menta asoma la madera, el hierro dibuja curvas ante el cristal y una maceta acompaña a una aldaba. Cuando paseáis en pareja por las calles, estos pequeños detalles merecen una pausa.",
-      "nl": "Bij ons in Frigiliana begint de kleur bij de voordeur. Onder mintgroene verf komt hout tevoorschijn, donker ijzer krult voor het glas en naast een ringklopper staat een plantenpot. Als jullie samen door de straatjes slenteren, zijn dit de details om even bij stil te staan.",
-      "sv": "Här hos oss i Frigiliana börjar färgen vid ytterdörren. Under mintgrön färg syns träet, mörkt järn slingrar sig framför glaset och en kruka står intill en ringkläpp. När ni strosar tillsammans genom gränderna är de små detaljerna värda en paus."
-    }
+    title: l(
+      'Frigiliana and its front doors',
+      'Frigiliana und seine Haustüren',
+      'Frigiliana y sus puertas',
+      'Frigiliana en zijn voordeuren',
+      'Frigiliana och dess dörrar'
+    ),
+    intro: l(
+      'Each with a story of its own.',
+      'Jede mit ihrer eigenen Geschichte.',
+      'Cada una con su propia historia.',
+      'Elke deur met een eigen verhaal.',
+      'Var och en med sin egen historia.'
+    ),
+    previous: l('Previous photo', 'Vorheriges Foto', 'Foto anterior', 'Vorige foto', 'Föregående bild'),
+    next: l('Next photo', 'Nächstes Foto', 'Foto siguiente', 'Volgende foto', 'Nästa bild'),
+    pause: l('Pause slideshow', 'Diashow pausieren', 'Pausar presentación', 'Diavoorstelling pauzeren', 'Pausa bildspelet'),
+    play: l('Play slideshow', 'Diashow abspielen', 'Reproducir presentación', 'Diavoorstelling afspelen', 'Spela bildspelet')
   },
   history: {
     title: l(
