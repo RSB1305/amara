@@ -1,4 +1,7 @@
 ---
+import { routeImages } from '../../lib/images/routeImages';
+import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import Navigation from '../../components/Navigation.astro';
 import AmaraKeyFigures from '../../components/content/AmaraKeyFigures.astro';
 import LocationPanoramaHero from '../../components/location/LocationPanoramaHero.astro';
@@ -67,6 +70,7 @@ const heroAlt = t({
   nl: 'De barokke gevel met bakstenen pilasters van de Iglesia de San Antonio de Padua in Frigiliana, met het bisschopswapen boven de boogpoort',
   sv: 'Den barocka tegelpilasterfasaden på Iglesia de San Antonio de Padua i Frigiliana, med biskopsvapnet ovanför den valvformade porten'
 });
+const photos = routeImages('frigiliana.experience.old-town.san-antonio', 'gallery', currentLang);
 ---
 
 <LocationAuthorityLayout
@@ -139,6 +143,16 @@ const heroAlt = t({
         <blockquote class="am-text-display italic text-balance text-on-surface">{t(copy.pullQuote)}</blockquote>
       </div>
     </section>
+
+    <div class="bg-surface px-6 pb-12 md:px-12 md:pb-16">
+      <div class="mx-auto grid max-w-screen-xl gap-8 sm:grid-cols-2">
+        {photos.map((photo) => (
+          <AmaraMediaFrame role="split" caption={photo.caption} class="self-start">
+            <AmaraImage {...photo} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
+          </AmaraMediaFrame>
+        ))}
+      </div>
+    </div>
 
     <section class={`scroll-mt-28 ${sectionBg[1]} px-6 py-20 md:px-12 md:py-28`}>
       <div class="mx-auto max-w-screen-2xl">

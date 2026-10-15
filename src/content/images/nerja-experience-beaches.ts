@@ -7,48 +7,49 @@ export const nerjaExperienceBeachesImages = defineRouteImages({
       role: 'og',
       src: '/images/amara-playa/apartment/chaparril-22.webp'
     },
-    // The hero keeps its coast graphic; the photographs sit in the gallery band after the beach list.
     {
-      role: 'gallery',
-      id: 'cove',
-      src: '/images/nerja/nerja-coast-view-balcon-de-europa.jpg',
-      focalPoint: '40% 50%',
+      role: "gallery",
+      sizes: "(max-width: 639px) calc(100vw - 3rem), (max-width: 767px) calc((100vw - 5rem) / 2), (max-width: 1375px) calc((100vw - 8rem) / 2), 624px",
+      id: "calahonda",
+      src: "/images/nerja/playa-calahonda-2026.webp",
       alt: {
-        en: "Turquoise cove below the cliffs of Nerja seen from the Balcón de Europa, with the Almijara mountains behind",
-        de: "Türkisfarbene Bucht unter den Klippen von Nerja, vom Balcón de Europa aus gesehen, dahinter die Almijara-Berge",
-        es: "Cala turquesa bajo los acantilados de Nerja vista desde el Balcón de Europa, con la sierra de Almijara al fondo",
-        nl: "Turquoise baai onder de kliffen van Nerja, gezien vanaf de Balcón de Europa, met de Almijara-bergen erachter",
-        sv: "Turkos vik under Nerjas klippor sedd från Balcón de Europa, med Almijarabergen bakom"
-      }
+        en: "Playa de Calahonda below the Balcón de Europa",
+        de: "Playa de Calahonda unterhalb des Balcón de Europa",
+        es: "Playa de Calahonda al pie del Balcón de Europa",
+        nl: "Playa de Calahonda onder het Balcón de Europa",
+        sv: "Playa de Calahonda nedanför Balcón de Europa"
+      },
+      caption: {
+        en: "Playa de Calahonda below the Balcón de Europa",
+        de: "Playa de Calahonda unterhalb des Balcón de Europa",
+        es: "Playa de Calahonda al pie del Balcón de Europa",
+        nl: "Playa de Calahonda onder het Balcón de Europa",
+        sv: "Playa de Calahonda nedanför Balcón de Europa"
+      },
+      takenAt: "2026-10-14"
     },
     {
-      role: 'gallery',
-      id: 'beach-house',
-      src: '/images/nerja/nerja-calahonda-beach-house.jpg',
-      focalPoint: '50% 60%',
+      role: "gallery",
+      sizes: "(max-width: 639px) calc(100vw - 3rem), (max-width: 767px) calc((100vw - 5rem) / 2), (max-width: 1375px) calc((100vw - 8rem) / 2), 624px",
+      id: "el-salon",
+      src: "/images/nerja/playa-el-salon-2026.webp",
       alt: {
-        en: "The small white house with a blue door on the sand of Playa de Calahonda below the cliffs",
-        de: "Das kleine weiße Haus mit blauer Tür im Sand der Playa de Calahonda unter den Klippen",
-        es: "La casita blanca con puerta azul sobre la arena de la playa de Calahonda, bajo los acantilados",
-        nl: "Het kleine witte huis met blauwe deur op het zand van Playa de Calahonda onder de kliffen",
-        sv: "Det lilla vita huset med blå dörr på sanden vid Playa de Calahonda nedanför klipporna"
-      }
-    },
-    {
-      role: 'gallery',
-      id: 'calahonda-winter',
-      src: '/images/nerja/winter/nerja-winter-rental-09.jpg',
-      focalPoint: '50% 55%',
-      alt: {
-        en: "The small cove of Calahonda below the Balcón de Europa, seen from above on a winter morning",
-        de: "Die kleine Bucht Calahonda unterhalb des Balcón de Europa, an einem Wintermorgen von oben gesehen",
-        es: "La pequeña cala de Calahonda bajo el Balcón de Europa, vista desde arriba una mañana de invierno",
-        nl: "De kleine baai Calahonda onder de Balcón de Europa, van boven gezien op een winterochtend",
-        sv: "Den lilla viken Calahonda nedanför Balcón de Europa, sedd uppifrån en vintermorgon"
-      }
+        en: "Playa El Salón seen from the Balcón de Europa",
+        de: "Playa El Salón vom Balcón de Europa aus gesehen",
+        es: "Playa El Salón vista desde el Balcón de Europa",
+        nl: "Playa El Salón gezien vanaf het Balcón de Europa",
+        sv: "Playa El Salón sedd från Balcón de Europa"
+      },
+      caption: {
+        en: "Playa El Salón seen from the Balcón de Europa",
+        de: "Playa El Salón vom Balcón de Europa aus gesehen",
+        es: "Playa El Salón vista desde el Balcón de Europa",
+        nl: "Playa El Salón gezien vanaf het Balcón de Europa",
+        sv: "Playa El Salón sedd från Balcón de Europa"
+      },
+      takenAt: "2026-10-14"
     }
   ],
-  // `routeHero` needs a hero image or brief; the page renders its coast graphic in that slot.
   briefs: [
     { role: 'hero', id: 'hero', motif: "Playa de Burriana oder Playa Carabeo vom Weg oberhalb, Bucht und Wasser", format: "hochkant 3:4", light: "vormittags" }
   ]

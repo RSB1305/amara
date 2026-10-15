@@ -1,3 +1,6 @@
+import { frigilianaExperienceOldTownCasaDelAperoImages } from './frigiliana-experience-old-town-casa-del-apero';
+import { frigilianaExperienceOldTownSanAntonioImages } from './frigiliana-experience-old-town-san-antonio';
+import { frigilianaWhereToStayImages } from './frigiliana-where-to-stay';
 import type { RouteImageSet } from '../../lib/images/routeImageContract';
 import { frigilianaExperienceBeachesImages } from './frigiliana-experience-beaches';
 import { frigilianaExperienceDayTripsImages } from './frigiliana-experience-day-trips';
@@ -58,6 +61,9 @@ import { tarifaWhereToStayImages } from './tarifa-where-to-stay';
 import { tarifaImages } from './tarifa';
 
 const sets: readonly RouteImageSet[] = [
+  frigilianaExperienceOldTownCasaDelAperoImages,
+  frigilianaExperienceOldTownSanAntonioImages,
+  frigilianaWhereToStayImages,
   frigilianaExperienceBeachesImages,
   frigilianaExperienceDayTripsImages,
   frigilianaExperienceFestivalsImages,

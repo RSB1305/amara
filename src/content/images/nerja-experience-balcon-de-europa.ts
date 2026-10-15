@@ -1,34 +1,49 @@
 import { defineRouteImages } from '../../lib/images/routeImageContract';
 
-/** Balcón de Europa article: the landmark itself, shown in the gallery band below the text sections. */
 export const nerjaExperienceBalconDeEuropaImages = defineRouteImages({
-  routeKey: 'nerja.experience.balcon-de-europa',
+  routeKey: "nerja.experience.balcon-de-europa",
   images: [
     {
-      role: 'gallery',
-      id: 'arcade',
-      src: '/images/nerja/nerja-balcon-de-europa-arcade-people.jpg',
-      focalPoint: '50% 55%',
+      role: "gallery",
+      sizes: "(max-width: 639px) calc(100vw - 3rem), (max-width: 767px) calc((100vw - 5rem) / 2), (max-width: 1375px) calc((100vw - 8rem) / 2), 624px",
+      id: "promenade",
+      src: "/images/nerja/balcon-de-europa-promenade-2026.webp",
       alt: {
-        en: "Visitors under the palms and the white arcade of the Balcón de Europa",
-        de: "Besucher unter den Palmen und der weißen Arkade des Balcón de Europa",
-        es: "Visitantes bajo las palmeras y la arcada blanca del Balcón de Europa",
-        nl: "Bezoekers onder de palmen en de witte arcade van de Balcón de Europa",
-        sv: "Besökare under palmerna och den vita arkaden vid Balcón de Europa"
-      }
+        en: "Palm-lined promenade at Balcón de Europa in Nerja",
+        de: "Palmenpromenade am Balcón de Europa in Nerja",
+        es: "Paseo de palmeras del Balcón de Europa en Nerja",
+        nl: "Palmenpromenade op het Balcón de Europa in Nerja",
+        sv: "Palmpromenaden på Balcón de Europa i Nerja"
+      },
+      caption: {
+        en: "Palm-lined promenade at Balcón de Europa in Nerja",
+        de: "Palmenpromenade am Balcón de Europa in Nerja",
+        es: "Paseo de palmeras del Balcón de Europa en Nerja",
+        nl: "Palmenpromenade op het Balcón de Europa in Nerja",
+        sv: "Palmpromenaden på Balcón de Europa i Nerja"
+      },
+      takenAt: "2026-10-14"
     },
     {
-      role: 'gallery',
-      id: 'palms',
-      src: '/images/nerja/nerja-balcon-de-europa-palms-arcade.jpg',
-      focalPoint: '50% 50%',
+      role: "gallery",
+      sizes: "(max-width: 639px) calc(100vw - 3rem), (max-width: 767px) calc((100vw - 5rem) / 2), (max-width: 1375px) calc((100vw - 8rem) / 2), 624px",
+      id: "sea-view",
+      src: "/images/nerja/balcon-de-europa-meerblick-2026.webp",
       alt: {
-        en: "Palms below the white arcade of the Balcón de Europa in Nerja",
-        de: "Palmen unter der weißen Arkade des Balcón de Europa in Nerja",
-        es: "Palmeras bajo la arcada blanca del Balcón de Europa en Nerja",
-        nl: "Palmen onder de witte arcade van de Balcón de Europa in Nerja",
-        sv: "Palmer under den vita arkaden vid Balcón de Europa i Nerja"
-      }
+        en: "Railing of the Balcón de Europa above rocks and the Mediterranean",
+        de: "Geländer des Balcón de Europa über Felsen und Mittelmeer",
+        es: "Barandilla del Balcón de Europa sobre las rocas y el Mediterráneo",
+        nl: "Balustrade van het Balcón de Europa boven de rotsen en de Middellandse Zee",
+        sv: "Räcket på Balcón de Europa ovanför klipporna och Medelhavet"
+      },
+      caption: {
+        en: "Railing of the Balcón de Europa above rocks and the Mediterranean",
+        de: "Geländer des Balcón de Europa über Felsen und Mittelmeer",
+        es: "Barandilla del Balcón de Europa sobre las rocas y el Mediterráneo",
+        nl: "Balustrade van het Balcón de Europa boven de rotsen en de Middellandse Zee",
+        sv: "Räcket på Balcón de Europa ovanför klipporna och Medelhavet"
+      },
+      takenAt: "2026-10-14"
     }
   ]
 });
