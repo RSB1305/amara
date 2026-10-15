@@ -80,7 +80,9 @@ domain changes. The Pages project keeps running untouched.
    npx wrangler deploy
    ```
 
-   The deploy prints the Worker's address, `https://amara-lodging.<account>.workers.dev`.
+   The deploy prints the Worker's address. Done on 2026-10-15 (version `f70ae6e2`): the
+   Worker answers on `https://amara-lodging.rob-boehmer.workers.dev`; every route family
+   was smoke-tested there, the three secrets were still unset at that point.
 3. Set the three runtime secrets. Each command asks for the value on the terminal;
    nothing is written to the repository. They take effect at once, no second deploy.
 
@@ -140,7 +142,8 @@ Then remove the two `amara-staging.pages.dev` rules from `public/_headers`.
 
 The daily calendar healthcheck (`.github/workflows/calendar-healthcheck.yml`) probes
 `https://amara-staging.pages.dev` by default; once the Worker is the staging site,
-replace that default (it appears twice in the workflow) with the Worker's address.
+replace that default (it appears twice in the workflow) with
+`https://amara-lodging.rob-boehmer.workers.dev`.
 
 `.github/workflows/check.yml` is unchanged and still runs the same gate on every pull
 request and on `main`.
