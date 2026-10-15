@@ -36,7 +36,7 @@ const violations = [];
 /**
  * The only route files that may exist outside the manifest: the two catch-all
  * pages, the 404, the legacy guide redirects and the private AMARA Experience
- * family, whose paths the Cloudflare Functions middleware is bound to.
+ * family, whose paths the Worker's Guest Guide middleware is bound to (wrangler.jsonc).
  */
 const approvedExplicitRouteFiles = new Set([
   'src/pages/404.astro',
@@ -501,7 +501,7 @@ export function auditRedirectInfrastructure({
 
   if (cloudflareResult.rules.length > CLOUDFLARE_STATIC_REDIRECT_LIMIT) {
     auditViolations.push(
-      `public/_redirects holds ${cloudflareResult.rules.length} rules; Cloudflare Pages allows ${CLOUDFLARE_STATIC_REDIRECT_LIMIT} static rules.`
+      `public/_redirects holds ${cloudflareResult.rules.length} rules; Cloudflare allows ${CLOUDFLARE_STATIC_REDIRECT_LIMIT} static rules in _redirects.`
     );
   }
 

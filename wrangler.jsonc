@@ -1,0 +1,49 @@
+{
+  // AMARA website on Cloudflare Workers with static assets, the successor of the
+  // Cloudflare Pages project. Astro builds the site into dist/; Cloudflare serves
+  // that directory directly, including the _headers and _redirects rules from
+  // public/. The Worker in worker/index.mjs runs only for the paths listed under
+  // assets.run_worker_first; every other request never invokes it.
+  // Deploy, preview and cutover steps: docs/CLOUDFLARE-WORKERS-DEPLOY.md.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "amara-lodging",
+  "main": "worker/index.mjs",
+  "compatibility_date": "2026-10-01",
+  // workers.dev address for the pre-cutover smoke test; the production domain is
+  // attached as a Custom Domain only at the documented go-live step.
+  "workers_dev": true,
+  // Version URLs and preview URLs of non-production builds (noindex via _headers).
+  "preview_urls": true,
+  // Workers Logs replace the Pages Functions real-time logs (free-plan quota).
+  "observability": {
+    "enabled": true
+  },
+  // No Wrangler usage metrics, in line with the disabled Astro telemetry.
+  "send_metrics": false,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // Astro emits foo.html and the site links without trailing slash
+    // (trailingSlash: 'never'); this mirrors the Pages serving behaviour.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page",
+    // Formerly public/_routes.json: the server-owned function routes and the
+    // gated Guest Guide roots run through the Worker; the public access page of
+    // each language stays a plain asset.
+    "run_worker_first": [
+      "/api/booking/*",
+      "/api/weather/*",
+      "/api/guest/*",
+      "/guia-huesped/*",
+      "/en/guest-guide/*",
+      "/de/gaesteguide/*",
+      "/nl/gastengids/*",
+      "/sv/gastguide/*",
+      "!/guia-huesped/acceso",
+      "!/en/guest-guide/access",
+      "!/de/gaesteguide/zugang",
+      "!/nl/gastengids/toegang",
+      "!/sv/gastguide/atkomst"
+    ]
+  }
+}

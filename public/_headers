@@ -6,7 +6,7 @@
   Content-Security-Policy: default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.windguru.cz; script-src-attr 'none'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://www.google-analytics.com https://i.ytimg.com https://www.windguru.cz; media-src 'self'; frame-src https://www.youtube-nocookie.com https://www.windguru.cz; connect-src 'self' https://api.open-meteo.com https://www.windguru.cz https://www.google-analytics.com https://region1.google-analytics.com https://analytics.google.com; manifest-src 'self'
 
 # Astro emits every build asset under /_astro/ with a content hash in its filename,
-# so a changed file is always a changed URL. Cloudflare Pages otherwise serves these
+# so a changed file is always a changed URL. Cloudflare otherwise serves these
 # assets with `max-age=0, must-revalidate`, which forces the browser to spend a full
 # network round trip revalidating each stylesheet, font and image on every page view
 # even though the bytes are already in its cache. Immutable caching removes those
@@ -23,6 +23,12 @@
   Cache-Control: no-store
   X-Robots-Tag: noindex, nofollow, noarchive
   Referrer-Policy: no-referrer
+
+# Only the production domain may be indexed. The Worker's workers.dev address and
+# every version or preview URL below it (<label>.<account>.workers.dev) stay out of
+# the index; the two Pages rules go when the Pages project is deleted.
+https://:worker.:account.workers.dev/*
+  X-Robots-Tag: noindex
 
 https://amara-staging.pages.dev/*
   X-Robots-Tag: noindex

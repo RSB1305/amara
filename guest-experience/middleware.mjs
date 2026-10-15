@@ -55,8 +55,8 @@ function protectResponse(response, refreshedCookie) {
 export async function handleExperienceGuide(context) {
   const { request, env } = context;
   // The landing and access pages sit under the same localized root as the guide
-  // but are public by design; `_routes.json` keeps them out of Functions, and this
-  // guard makes the same decision if the dispatch ever changes.
+  // but are public by design; `run_worker_first` in wrangler.jsonc keeps them out of
+  // the Worker, and this guard makes the same decision if the dispatch ever changes.
   const resolved = resolveGuestGuidePath(new URL(request.url).pathname);
   if (resolved && (resolved.kind === 'landing' || resolved.kind === 'access')) {
     return context.next();
