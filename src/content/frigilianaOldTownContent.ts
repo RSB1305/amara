@@ -16,7 +16,7 @@ export const frigilianaOldTownExternalLinks = {
 } as const;
 
 export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
-  version: '2026-09-14-frigiliana-old-town-v1.3-B',
+  version: '2026-10-15-frigiliana-old-town-v1.4-B',
   pageType: 'B',
   entityKey: 'amara-brand',
   /* og:image is emitted as an absolute URL, so it must stay inside the published image contract. */
@@ -24,7 +24,7 @@ export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
   article: {
     datePublished: '2026-08-19',
-    dateModified: '2026-09-14',
+    dateModified: '2026-10-15',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorRoute: 'about'
@@ -380,6 +380,22 @@ export const frigilianaOldTownCopy = {
         )
       }
     ]
+  },
+  doors: {
+    "title": {
+      "en": "Every door tells a story",
+      "de": "Jede Tür erzählt eine Geschichte",
+      "es": "Cada puerta cuenta una historia",
+      "nl": "Elke deur vertelt een verhaal",
+      "sv": "Varje dörr berättar en historia"
+    },
+    "intro": {
+      "en": "Here in Frigiliana, colour begins at the doorstep. Mint-green paint reveals the wood beneath; dark ironwork curls across glass; a plant pot sits beside a ring knocker. On a wander through the lanes together, these small details are worth slowing down for.",
+      "de": "Bei uns in Frigiliana beginnt die Farbe an der Haustür. Unter Mintgrün kommt Holz zum Vorschein, dunkles Eisen windet sich vor Glas, neben einem Ringklopfer steht ein Pflanztopf. Wenn ihr zu zweit durch die Gassen schlendert, lohnt sich eine kleine Pause vor diesen Details.",
+      "es": "Aquí en Frigiliana, el color empieza en la puerta de casa. Bajo el verde menta asoma la madera, el hierro dibuja curvas ante el cristal y una maceta acompaña a una aldaba. Cuando paseáis en pareja por las calles, estos pequeños detalles merecen una pausa.",
+      "nl": "Bij ons in Frigiliana begint de kleur bij de voordeur. Onder mintgroene verf komt hout tevoorschijn, donker ijzer krult voor het glas en naast een ringklopper staat een plantenpot. Als jullie samen door de straatjes slenteren, zijn dit de details om even bij stil te staan.",
+      "sv": "Här hos oss i Frigiliana börjar färgen vid ytterdörren. Under mintgrön färg syns träet, mörkt järn slingrar sig framför glaset och en kruka står intill en ringkläpp. När ni strosar tillsammans genom gränderna är de små detaljerna värda en paus."
+    }
   },
   history: {
     title: l(

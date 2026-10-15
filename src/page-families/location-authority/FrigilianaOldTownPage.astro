@@ -6,6 +6,7 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
 import type { ImageMetadata } from 'astro';
 import historicVillageImage from '../../assets/images/content/frigiliana/frigiliana-historisches-foto-dorf-panorama.jpg';
 import elIngenioImage from '../../assets/images/content/frigiliana/frigiliana-el-ingenio-palast-zuckerrohrfabrik.jpg';
@@ -279,6 +280,7 @@ const visualAlts = {
     sv: 'Flygbild över Frigilianas tegeltak och en gränd med kiselmosaik'
   }
 } as const satisfies Record<string, LocalizedRow>;
+const doorPhotos = routeImages('frigiliana.experience.old-town', 'split', currentLang);
 const nightPhotos = routeImages('frigiliana.experience.old-town', 'gallery', currentLang);
 const eveningTitle = t({ en: 'Evenings in the old town', de: 'Abends in der Altstadt', es: 'La noche en el casco antiguo', nl: 'De oude kern in de avond', sv: 'Kvällar i gamla stan' });
 ---
@@ -380,6 +382,32 @@ const eveningTitle = t({ en: 'Evenings in the old town', de: 'Abends in der Alts
           }
         </div>
       </section>
+
+
+      <div class="mx-auto max-w-screen-2xl bg-surface px-6 md:px-12">
+        <AmaraSection id="doors" labelledby="doors-title" family="experience" class="scroll-mt-40">
+          <div class="max-w-3xl mb-12">
+            <h2 id="doors-title" class="am-text-title italic text-on-surface mb-6">
+              {t(copy.doors.title)}
+            </h2>
+            <p class="am-text-body text-on-surface-variant leading-relaxed">
+              {t(copy.doors.intro)}
+            </p>
+          </div>
+          <div class="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+            {doorPhotos.map((photo) => (
+              <AmaraMediaFrame role="split" caption={photo.caption} class="self-start">
+                <AmaraImage
+                  {...photo}
+                  profile="gallery"
+                  class="aspect-[3/4] w-full object-cover"
+                  mediaRole="split"
+                />
+              </AmaraMediaFrame>
+            ))}
+          </div>
+        </AmaraSection>
+      </div>
 
       <section id="history" class="am-section bg-surface-container-low">
         <div class="max-w-3xl mb-16">
