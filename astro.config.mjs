@@ -51,7 +51,7 @@ function requirePublicSiteUrlForProduction() {
         if (command === 'build' && !process.env.PUBLIC_SITE_URL?.trim()) {
           throw new Error(
             '[AMARA] Production build aborted: PUBLIC_SITE_URL is required. ' +
-              'Set PUBLIC_SITE_URL=https://amara-lodging.es in the Cloudflare Pages Production environment.'
+              'Set PUBLIC_SITE_URL=https://amara-lodging.es as a build variable of the Cloudflare Workers build or in the shell.'
           );
         }
       }

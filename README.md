@@ -155,10 +155,23 @@ owned by `AMARA-BOOKING-ARCHITECTURE.md`.
 
 ## Deployment
 
-Cloudflare Pages builds from the repository and serves `dist/`.
-`PUBLIC_SITE_URL` must be set in the Production environment. Redirects live in
-`astro.config.mjs` and in the Cloudflare redirect list, both covered by the slug
-policy check.
+The site runs on Cloudflare Workers with static assets. Astro builds `dist/`,
+Cloudflare serves that directory directly (including the `_headers` and
+`_redirects` rules from `public/`), and the small Worker in `worker/index.mjs`
+runs only for the booking and weather gateways, the Guest Guide session endpoints
+and the gated Guest Guide pages (`assets.run_worker_first` in `wrangler.jsonc`).
+
+| Command | What it does |
+|---|---|
+| `npx wrangler dev` | Serve the built `dist/` plus the Worker locally on port 8787; secrets come from `.dev.vars` |
+| `npx wrangler deploy --dry-run --outdir .wrangler/dry-run` | Validate the configuration and bundle the Worker without touching the account |
+| `npx wrangler deploy` | Upload `dist/` and the Worker to the account's Worker `amara-lodging` |
+
+A production build needs `PUBLIC_SITE_URL` (see above); in Workers Builds it is a
+build variable. The runtime secrets `LODGIFY_API_KEY`, `AEMET_API_KEY` and
+`AMARA_EXPERIENCE_SESSION_SECRET` are Worker secrets. Redirects live in
+`astro.config.mjs` and in `public/_redirects`, both covered by the route policy
+check. Deploy, preview, cutover and rollback steps: `docs/CLOUDFLARE-WORKERS-DEPLOY.md`.
 
 ## Working conventions
 

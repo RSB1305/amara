@@ -45,3 +45,7 @@ src/assets/images/content/**/*.heic
 
 # Local sitemap export for external SEO reviews (copy of dist/sitemap-0.xml)
 sitemap-full.xml
+
+# Cloudflare Workers: local development secrets and wrangler's local state
+.dev.vars*
+.wrangler/

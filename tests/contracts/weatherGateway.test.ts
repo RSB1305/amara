@@ -23,6 +23,7 @@ import {
   selectZoneWarnings
 } from '../../weather-gateway/aemet-warnings.mjs';
 import { gzipSync } from 'node:zlib';
+import worker from '../../worker/index.mjs';
 
 const SECRET = 'unit-test-aemet-key-must-not-leak';
 const destinations = [
@@ -31,9 +32,13 @@ const destinations = [
   { destination: 'tarifa', locationName: 'Tarifa', municipalityId: '11035' }
 ] as const;
 
-test('Cloudflare Pages dispatches server-owned function and private guide routes', () => {
-  const routes = JSON.parse(readFileSync(new URL('../../public/_routes.json', import.meta.url), 'utf8'));
-  expect(routes.include).toEqual([
+test('the Worker runs first only for the server-owned routes and the gated Guest Guide roots', () => {
+  const config = JSON.parse(
+    readFileSync(new URL('../../wrangler.jsonc', import.meta.url), 'utf8').replace(/^\s*\/\/.*$/gm, '')
+  );
+  expect(config.main).toBe('worker/index.mjs');
+  expect(config.assets.binding).toBe('ASSETS');
+  expect(config.assets.run_worker_first).toEqual([
     '/api/booking/*',
     '/api/weather/*',
     '/api/guest/*',
@@ -41,15 +46,43 @@ test('Cloudflare Pages dispatches server-owned function and private guide routes
     '/en/guest-guide/*',
     '/de/gaesteguide/*',
     '/nl/gastengids/*',
-    '/sv/gastguide/*'
+    '/sv/gastguide/*',
+    '!/guia-huesped/acceso',
+    '!/en/guest-guide/access',
+    '!/de/gaesteguide/zugang',
+    '!/nl/gastengids/toegang',
+    '!/sv/gastguide/atkomst'
   ]);
-  expect(routes.exclude).toEqual([
-    '/guia-huesped/acceso',
-    '/en/guest-guide/access',
-    '/de/gaesteguide/zugang',
-    '/nl/gastengids/toegang',
-    '/sv/gastguide/atkomst'
-  ]);
+});
+
+test('the Worker dispatches the function routes and gates the Guest Guide pages', async () => {
+  const served: string[] = [];
+  const env = {
+    AMARA_EXPERIENCE_SESSION_SECRET: 'contract-test-session-secret-0123456789abcdef',
+    ASSETS: {
+      fetch: async (request: Request) => {
+        served.push(new URL(request.url).pathname);
+        return new Response('asset');
+      }
+    }
+  };
+  const ctx = { waitUntil() {}, passThroughOnException() {} };
+  const dispatch = (path: string, init?: RequestInit) =>
+    worker.fetch(new Request(`https://amara.test${path}`, init), env, ctx);
+
+  // The weather gateway is reached: without the AEMET key it fails closed instead of serving an asset.
+  expect((await dispatch('/api/weather/frigiliana')).status).toBe(503);
+  expect((await dispatch('/api/weather/frigiliana', { method: 'POST' })).status).toBe(405);
+  expect((await dispatch('/api/booking/availability', { method: 'POST' })).status).toBe(405);
+  expect((await dispatch('/api/guest/profile')).status).toBe(401);
+
+  const gated = await dispatch('/de/gaesteguide/zaid');
+  expect(gated.status).toBe(302);
+  expect(new URL(gated.headers.get('location') ?? '').pathname).toBe('/de/gaesteguide/zugang');
+
+  expect((await dispatch('/de/gaesteguide/zugang')).status).toBe(200);
+  expect((await dispatch('/de/ueber-uns')).status).toBe(200);
+  expect(served).toEqual(['/de/gaesteguide/zugang', '/de/ueber-uns']);
 });
 
 function jsonResponse(payload: unknown, status = 200): Response {
