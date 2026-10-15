@@ -1,4 +1,5 @@
 ---
+import { requireRouteImage } from '../../lib/images/routeImages';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
@@ -10,7 +11,6 @@ import ExperienceContextNav from '../../components/experience/ExperienceContextN
 import FrigilianaCeramicPanelsMap from '../../components/location/FrigilianaCeramicPanelsMap.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 import heroImage from '../../assets/images/content/frigiliana/frigiliana-keramiktafel-morisken-landwirtschaft.jpg';
-import contextImage from '../../assets/images/content/frigiliana/frigiliana-gasse-bogen-kieselmosaik-abend.jpg';
 import {
   frigilianaCeramicPanelsCopy,
   frigilianaCeramicPanelsSeo
@@ -97,13 +97,7 @@ const contextEyebrow = t({ en: 'The story', de: 'Die Geschichte', es: 'La histor
 const provenanceEyebrow = t({ en: 'Where they come from', de: 'Woher sie kommen', es: 'De dónde vienen', nl: 'Waar ze vandaan komen', sv: 'Varifrån de kommer' });
 const registerEyebrow = t({ en: 'The walk', de: 'Der Rundgang', es: 'El recorrido', nl: 'De wandeling', sv: 'Vandringen' });
 const historiographyEyebrow = t({ en: 'Memory vs. record', de: 'Erinnerung vs. Beleg', es: 'Memoria y documento', nl: 'Herinnering vs. bron', sv: 'Minne mot källa' });
-const contextAlt = t({
-  en: 'A stepped lane with an arch and pebble mosaic in the upper old town of Frigiliana at dusk',
-  de: 'Eine Treppengasse mit Bogen und Kieselmosaik im oberen Altstadtviertel von Frigiliana in der Abenddämmerung',
-  es: 'Una calle escalonada con arco y mosaico de guijarros en la parte alta del casco antiguo de Frigiliana al anochecer',
-  nl: 'Een trapstraat met boog en kiezelmozaïek in de hoge oude kern van Frigiliana in de schemering',
-  sv: 'En trappgränd med valv och kiselmosaik i övre gamla stan i Frigiliana i skymningen'
-});
+const panelPhoto = requireRouteImage('frigiliana.experience.old-town.ceramic-panels', 'panel', currentLang);
 ---
 
 <LocationAuthorityLayout
@@ -144,8 +138,8 @@ const contextAlt = t({
     <section id="context" class="scroll-mt-28 bg-surface-white px-6 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-screen-2xl">
         <div class="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-16">
-          <AmaraMediaFrame role="gallery" mobileFullBleed class="am-bleed-start lg:col-span-6">
-            <AmaraImage src={contextImage} alt={contextAlt} profile="gallery" class="h-full w-full object-cover" mediaRole="gallery" focalPoint="50% 50%" />
+          <AmaraMediaFrame role="split" mobileFullBleed class="am-bleed-start lg:col-span-6">
+            <AmaraImage {...panelPhoto} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
           </AmaraMediaFrame>
           <div class="am-overlap-start bg-surface-white lg:col-span-6">
             <p class="am-text-eyebrow text-primary">{contextEyebrow}</p>

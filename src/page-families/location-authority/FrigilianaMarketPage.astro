@@ -1,4 +1,5 @@
 ---
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import type { LabeledLink } from '../../lib/linkResolver';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
@@ -16,7 +17,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import { routeHero } from '../../lib/images/routeImages';
+import { routeHero, requireRouteImage } from '../../lib/images/routeImages';
 import GuideClosingSection from './GuideClosingSection.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 
@@ -91,6 +92,7 @@ const ingenioImage = {
   width: 2000,
   height: 1333
 };
+const honeyPhoto = requireRouteImage('frigiliana.experience.market', 'honey', currentLang);
 ---
 
 <LocationAuthorityLayout
@@ -153,6 +155,12 @@ const ingenioImage = {
             <p class="am-text-body text-on-surface-variant leading-relaxed">
               {t(copy.stalls.intro)}
             </p>
+          </div>
+
+          <div class="mb-16 max-w-xl">
+            <AmaraMediaFrame role="split" caption={honeyPhoto.caption}>
+              <AmaraImage {...honeyPhoto} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
+            </AmaraMediaFrame>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-16">

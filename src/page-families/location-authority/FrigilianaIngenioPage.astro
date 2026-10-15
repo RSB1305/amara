@@ -1,4 +1,5 @@
 ---
+import { requireRouteImage } from '../../lib/images/routeImages';
 import Navigation from '../../components/Navigation.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
@@ -79,6 +80,7 @@ const labels = {
   stillRunning: t({ en: 'Still in operation', de: 'Bis heute in Betrieb', es: 'Todavía en activo', nl: 'Nog steeds in bedrijf', sv: 'Fortfarande i drift' }),
   wildlife: t({ en: 'Wildlife in the village', de: 'Wildtiere im Dorf', es: 'Fauna en el pueblo', nl: 'Wilde dieren in het dorp', sv: 'Vilda djur i byn' })
 };
+const nightPhoto = requireRouteImage('frigiliana.experience.old-town.ingenio', 'night', currentLang);
 ---
 
 <LocationAuthorityLayout
@@ -168,6 +170,11 @@ const labels = {
         <p class="am-text-eyebrow text-primary">{labels.fromTheLane}</p>
         <h2 class="am-text-title mt-5 max-w-3xl text-balance text-on-surface">{t(copy.facade.title)}</h2>
         <p class="am-text-subtitle mt-6 max-w-2xl text-on-surface-variant">{t(copy.facade.intro)}</p>
+        <div class="mt-10">
+          <AmaraMediaFrame role="editorial" caption={nightPhoto.caption}>
+            <AmaraImage {...nightPhoto} profile="hero" class="h-full w-full object-cover" mediaRole="editorial" />
+          </AmaraMediaFrame>
+        </div>
         <div class="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-3">
           {
             facadeColumns.map((column) => (

@@ -4,16 +4,19 @@ export const nerjaImages = defineRouteImages({
   routeKey: 'nerja',
   images: [
     {
-      role: 'hero',
-      src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg',
+      role: "hero",
+      src: "/images/nerja/ortszentrum-fussgaengerzone-2026.webp",
       alt: {
-        en: "Nerja on the Mediterranean coast with the town rising inland",
-        de: "Nerja an der Mittelmeerküste mit dem landeinwärts ansteigenden Ort",
-        es: "Nerja en la costa mediterránea con el pueblo ascendiendo hacia el interior",
-        nl: "Nerja aan de Middellandse Zeekust met de stad die landinwaarts omhoogloopt",
-        sv: "Nerja vid Medelhavskusten med staden som stiger inåt land"
-      }
+        en: "Pedestrian street with trees and café terraces in central Nerja",
+        de: "Fußgängerzone mit Bäumen und Caféterrassen im Zentrum von Nerja",
+        es: "Calle peatonal con árboles y terrazas en el centro de Nerja",
+        nl: "Voetgangersstraat met bomen en terrassen in het centrum van Nerja",
+        sv: "Gågata med träd och uteserveringar i centrala Nerja"
+      },
+      takenAt: "2026-10-14",
+      width: 1800
     },
+    { role: 'og', src: '/images/amara-frigiliana-pueblo/nerja-coast-aerial.jpeg' },
     {
       role: 'split',
       id: 'stay',

@@ -1,4 +1,7 @@
 ---
+import { routeImages } from '../../lib/images/routeImages';
+import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import Navigation from '../../components/Navigation.astro';
 import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.astro';
@@ -55,6 +58,7 @@ const footerHighlights: LabeledLink[] = [
 const bookHref = createRequiredLinkResolver(currentLang, 'Where to stay')('frigiliana_stays');
 const pointerHref = resolveOptionalLink(c.pointer.linkToken, currentLang, { suppressMissing: true }) ?? '#';
 const bookLabel = {"de":"Unsere vier Unterkünfte ansehen","en":"Explore our four stays","es":"Ver nuestros cuatro alojamientos","nl":"Bekijk onze vier verblijven","sv":"Se våra fyra boenden"}[currentLang];
+const photos = routeImages('frigiliana.where-to-stay', 'gallery', currentLang);
 ---
 
 <LocationAuthorityLayout
@@ -87,6 +91,16 @@ const bookLabel = {"de":"Unsere vier Unterkünfte ansehen","en":"Explore our fou
       bookLabel={bookLabel}
       pointerHref={pointerHref}
     />
+
+    <div class="bg-surface px-6 py-12 md:px-12 md:py-16">
+      <div class="mx-auto grid max-w-screen-xl gap-8 sm:grid-cols-2">
+        {photos.map((photo) => (
+          <AmaraMediaFrame role="split" caption={photo.caption} class="self-start">
+            <AmaraImage {...photo} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
+          </AmaraMediaFrame>
+        ))}
+      </div>
+    </div>
 
     <FaqAccordion
       arrivalTitle={t(copy.selfCheck.title)}

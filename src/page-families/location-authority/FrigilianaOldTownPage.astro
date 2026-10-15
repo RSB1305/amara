@@ -24,7 +24,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { resolveOptionalLink, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import { routeHero } from '../../lib/images/routeImages';
+import { routeHero, routeImages, routeImageAltText, routeImageSrc } from '../../lib/images/routeImages';
 import GuideLinkCardSection from './GuideLinkCardSection.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 
@@ -64,13 +64,9 @@ const sights = copy.sights.items.map((item) => ({
   text: t(item.text)
 }));
 
-/**
- * Card media aligned to `copy.sights.items` by index. Casa del Apero (index 2)
- * has no dedicated photograph yet, so it renders as a typographic tile rather
- * than an empty image frame.
- */
+/** Card media aligned to `copy.sights.items` by index. */
 const sightMedia: ReadonlyArray<{
-  image?: ImageMetadata;
+  image?: ImageMetadata | string;
   alt?: LocalizedRow;
   focalPoint?: string;
   href?: string;
@@ -115,6 +111,8 @@ const sightMedia: ReadonlyArray<{
     }
   },
   {
+    image: routeImageSrc('frigiliana.experience.old-town.casa-del-apero', 'hero'),
+    alt: routeImageAltText('frigiliana.experience.old-town.casa-del-apero', 'hero'),
     href: resolveOptionalLink('frigiliana_casa_del_apero', currentLang, { suppressMissing: true }) ?? undefined,
     linkLabel: {
       en: 'Casa del Apero: the farm store that became the cultural centre',
@@ -281,6 +279,8 @@ const visualAlts = {
     sv: 'Flygbild över Frigilianas tegeltak och en gränd med kiselmosaik'
   }
 } as const satisfies Record<string, LocalizedRow>;
+const nightPhotos = routeImages('frigiliana.experience.old-town', 'gallery', currentLang);
+const eveningTitle = t({ en: 'Evenings in the old town', de: 'Abends in der Altstadt', es: 'La noche en el casco antiguo', nl: 'De oude kern in de avond', sv: 'Kvällar i gamla stan' });
 ---
 
 <LocationAuthorityLayout
@@ -484,6 +484,19 @@ const visualAlts = {
         </div>
       </section>
 
+      <div class="bg-surface-container-low px-6 pb-16 md:px-12 md:pb-24">
+        <div class="mx-auto max-w-screen-xl">
+          <h2 class="am-text-title mb-10 text-on-surface">{eveningTitle}</h2>
+        </div>
+        <div class="mx-auto grid max-w-screen-xl gap-8 sm:grid-cols-2">
+        {nightPhotos.map((photo) => (
+          <AmaraMediaFrame role="split" caption={photo.caption} class="self-start">
+            <AmaraImage {...photo} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
+          </AmaraMediaFrame>
+        ))}
+      </div>
+      </div>
+
       <GuideLinkCardSection
         title={t(copy.combine.title)}
         intro={t(copy.combine.intro)}
@@ -544,9 +557,7 @@ const visualAlts = {
 </LocationAuthorityLayout>
 
 <style>
-  /* Old-town sights, Muster C: uniform image tiles; the two sights without a
-     dedicated photograph (Casa del Apero, Iglesia de San Antonio) fall back to
-     a typographic tile so the grid stays whole without an empty image frame. */
+  /* Sights without dedicated photography retain a typographic tile. */
   .am-oldtown-sight {
     display: flex;
     flex-direction: column;

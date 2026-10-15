@@ -1,4 +1,6 @@
 ---
+import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import LocationExperienceHero from '../../components/location/LocationExperienceHero.astro';
 import BeachesCoastGraphic, { type BeachesCoastGraphicData } from '../../components/location/BeachesCoastGraphic.astro';
 import Navigation from '../../components/Navigation.astro';
@@ -20,14 +22,12 @@ import BeachPracticalSection from './BeachPracticalSection.astro';
 import BeachSectionList from './BeachSectionList.astro';
 import ExperienceRelatedSection from './ExperienceRelatedSection.astro';
 import { routeHero, routeImages } from '../../lib/images/routeImages';
-import LocationPhotoGallery from '../../components/location/LocationPhotoGallery.astro';
 
 interface Props { lang?: string; }
 
 const { lang = 'es' } = Astro.props;
 const currentLang = normalizeLanguage(lang as AmaraLanguage);
 const hero = routeHero('nerja.experience.beaches', currentLang);
-const galleryImages = routeImages('nerja.experience.beaches', 'gallery', currentLang);
 const shared = getNerjaCoastGuideFacts(currentLang);
 const copy = nerjaBeachesPageContent[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Nerja beaches');
@@ -92,6 +92,7 @@ const beachesGraphicByLang: Record<AmaraLanguage, BeachesCoastGraphicData> = {
 };
 const beachesGraphicData = beachesGraphicByLang[currentLang];
 
+const photos = routeImages('nerja.experience.beaches', 'gallery', currentLang);
 ---
 
 <LocationAuthorityLayout seo={nerjaBeachesSeo} pageLang={currentLang} footerHighlights={footerHighlights} pageFamily="experience-nerja-beaches">
@@ -119,13 +120,21 @@ const beachesGraphicData = beachesGraphicByLang[currentLang];
       emphasizeText
     />
 
+    <div class="bg-surface px-6 pb-12 md:px-12 md:pb-16">
+      <div class="mx-auto grid max-w-screen-xl gap-8 sm:grid-cols-2">
+        {photos.map((photo) => (
+          <AmaraMediaFrame role="split" caption={photo.caption} class="self-start">
+            <AmaraImage {...photo} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
+          </AmaraMediaFrame>
+        ))}
+      </div>
+    </div>
+
     <BeachSectionList
       sections={shared.sections}
       labels={shared.cardLabels}
       emphasizeText
     />
-
-    <LocationPhotoGallery images={galleryImages} />
 
     <AuthorityFeatureSection
       id="conditions"

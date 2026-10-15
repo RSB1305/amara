@@ -1,24 +1,25 @@
 import { defineRouteImages } from '../../lib/images/routeImageContract';
 
 export const frigilianaImages = defineRouteImages({
-  routeKey: 'frigiliana',
+  routeKey: "frigiliana",
   images: [
     {
-      role: 'hero',
-      src: '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/04-frigiliana-pueblo.jpg',
-      width: 2000,
-      sizes: '(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 35vw',
+      role: "hero",
+      src: "/images/frigiliana/dorfpanorama-2026.webp",
       alt: {
-        en: "Frigiliana hillside homes in afternoon light",
-        de: "Häuser am Hang von Frigiliana im Nachmittagslicht",
-        es: "Casas en la ladera de Frigiliana a la luz de la tarde",
-        nl: "Huizen tegen de heuvel van Frigiliana in het middaglicht",
-        sv: "Hus på Frigilianas sluttning i eftermiddagsljus"
-      }
+        en: "Frigiliana’s white houses between the hills and the distant sea",
+        de: "Frigilianas weiße Häuser zwischen den Hügeln und dem Meer in der Ferne",
+        es: "Casas blancas de Frigiliana entre las colinas y el mar al fondo",
+        nl: "De witte huizen van Frigiliana tussen de heuvels, met de zee in de verte",
+        sv: "Frigilianas vita hus mellan kullarna med havet i fjärran"
+      },
+      takenAt: "2026-10-14",
+      width: 2400,
+      sizes: "(max-width: 767px) calc(100vw - 3rem), (max-width: 1023px) 60vw, 35vw"
     },
     {
-      role: 'og',
-      src: '/images/amara-lounis/15-amara-frigiliana.jpg'
+      role: "og",
+      src: "/images/amara-lounis/15-amara-frigiliana.jpg"
     }
   ]
 });

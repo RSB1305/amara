@@ -14,6 +14,26 @@ export const frigilianaExperienceOldTownIngenioImages = defineRouteImages({
         nl: 'El Ingenio, het voormalige grafelijk paleis en de suikerfabriek, aan de onderrand van de oude kern van Frigiliana',
         sv: 'El Ingenio, det forna grevepalatset och sockerbruket, i nedre kanten av Frigilianas gamla stan'
       }
+    },
+    {
+      role: "editorial",
+      id: "night",
+      src: "/images/frigiliana/el-ingenio-nacht-2026.webp",
+      alt: {
+        en: "The façade of El Ingenio in Frigiliana at night",
+        de: "Die Fassade von El Ingenio in Frigiliana bei Nacht",
+        es: "La fachada de El Ingenio en Frigiliana de noche",
+        nl: "De gevel van El Ingenio in Frigiliana in de avond",
+        sv: "El Ingenios fasad i Frigiliana på kvällen"
+      },
+      caption: {
+        en: "The façade of El Ingenio in Frigiliana at night",
+        de: "Die Fassade von El Ingenio in Frigiliana bei Nacht",
+        es: "La fachada de El Ingenio en Frigiliana de noche",
+        nl: "De gevel van El Ingenio in Frigiliana in de avond",
+        sv: "El Ingenios fasad i Frigiliana på kvällen"
+      },
+      takenAt: "2026-10-13"
     }
   ]
 });
