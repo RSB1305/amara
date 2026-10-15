@@ -83,21 +83,21 @@ const photos = isCaves ? [] : routeImages('nerja.experience.balcon-de-europa', '
     primaryCta={{ href: propertyHref, label: content.closing.propertyLabel }}
     secondaryCta={{ href: requiredLink('book'), label: experienceStayBridge.availabilityLabel[currentLang] }}
   >
-    {!isCaves && (
-      <div class="bg-surface px-6 pb-12 md:px-12 md:pb-16">
-        <div class="mx-auto grid max-w-screen-xl gap-8 sm:grid-cols-2">
-        {photos.map((photo) => (
-          <AmaraMediaFrame role="split" caption={photo.caption} class="self-start">
-            <AmaraImage {...photo} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
-          </AmaraMediaFrame>
-        ))}
-      </div>
-      </div>
-    )}
-
     {content.sections.map((section, index) => (
       <AuthorityTextSection section={section} index={index} />
     ))}
+
+    {!isCaves && (
+      <div data-am-photo-gallery class="bg-surface px-6 pb-12 md:px-12 md:pb-16">
+        <div class="mx-auto grid max-w-screen-xl gap-8 sm:grid-cols-2">
+          {photos.map((photo) => (
+            <AmaraMediaFrame role="split" caption={photo.caption} class="self-start">
+              <AmaraImage {...photo} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
+            </AmaraMediaFrame>
+          ))}
+        </div>
+      </div>
+    )}
 
     {personal && (
       <section
