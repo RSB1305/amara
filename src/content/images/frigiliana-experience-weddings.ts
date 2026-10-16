@@ -39,6 +39,34 @@ export const frigilianaExperienceWeddingsImages = defineRouteImages({
       }
     },
     {
+      role: 'gallery',
+      id: 'church-nave',
+      src: '/images/frigiliana/san-antonio-kirchenschiff-2026.webp',
+      sizes: '(max-width: 639px) calc(100vw - 3rem), (max-width: 767px) calc((100vw - 5rem) / 2), (max-width: 991px) calc((100vw - 8rem) / 2), 432px',
+      alt: {
+        en: 'View along the central aisle towards the altar beneath the timber ceiling of San Antonio de Padua in Frigiliana',
+        de: 'Blick durch den Mittelgang zum Altar unter der Holzdecke von San Antonio de Padua in Frigiliana',
+        es: 'Vista del pasillo central hacia el altar bajo la techumbre de madera de San Antonio de Padua en Frigiliana',
+        nl: 'Zicht door het middenpad naar het altaar onder het houten plafond van San Antonio de Padua in Frigiliana',
+        sv: 'Utsikt längs mittgången mot altaret under trätaket i San Antonio de Padua i Frigiliana'
+      },
+      takenAt: '2026-10-14'
+    },
+    {
+      role: 'gallery',
+      id: 'church-altar',
+      src: '/images/frigiliana/san-antonio-innenraum-2026.webp',
+      sizes: '(max-width: 639px) calc(100vw - 3rem), (max-width: 767px) calc((100vw - 5rem) / 2), (max-width: 991px) calc((100vw - 8rem) / 2), 432px',
+      alt: {
+        en: 'Altar and front rows of pews in San Antonio de Padua in Frigiliana',
+        de: 'Altar und vordere Kirchenbänke von San Antonio de Padua in Frigiliana',
+        es: 'Altar y primeras filas de bancos de San Antonio de Padua en Frigiliana',
+        nl: 'Altaar en voorste kerkbanken van San Antonio de Padua in Frigiliana',
+        sv: 'Altaret och de främre kyrkbänkarna i San Antonio de Padua i Frigiliana'
+      },
+      takenAt: '2026-10-14'
+    },
+    {
       role: 'split',
       id: 'prepare',
       src: '/images/amara-zaid/cara-rural-frigiliana-amara-said-bano.jpg',
