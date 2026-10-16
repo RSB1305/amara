@@ -371,11 +371,11 @@ const nerjaNightlifeContentCopy = {
             sv: 'Uppdaterad'
           } satisfies LocalizedText,
           "value": {
-            en: "September 2026",
-            de: "September 2026",
-            es: "Septiembre de 2026",
-            nl: "September 2026",
-            sv: "September 2026"
+            en: "October 2026",
+            de: "Oktober 2026",
+            es: "Octubre de 2026",
+            nl: "Oktober 2026",
+            sv: "Oktober 2026"
           } satisfies LocalizedText
         }
       ]
@@ -455,11 +455,11 @@ const nerjaNightlifeContentCopy = {
       sv: 'Ja, om ni vill ha middag, terrasser, cocktailbarer och ett kompakt område för senare på samma ort. Välj ett annat resmål om stora klubbar till gryningen är huvudsyftet med resan.'
     } satisfies LocalizedText,
     "reviewed": {
-      en: 'As of July 2026',
-      de: 'Stand Juli 2026',
-      es: 'Actualizado en julio de 2026',
-      nl: 'Stand juli 2026',
-      sv: 'Uppdaterad juli 2026'
+      en: 'As of October 2026',
+      de: 'Stand Oktober 2026',
+      es: 'Actualizado en octubre de 2026',
+      nl: 'Stand oktober 2026',
+      sv: 'Uppdaterad oktober 2026'
     } satisfies LocalizedText,
     "items": [
       {

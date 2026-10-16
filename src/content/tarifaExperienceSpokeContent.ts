@@ -131,7 +131,7 @@ const shared = {
     'Een paar links, als je zelf verder wilt kijken.',
     'Några länkar, om ni vill läsa vidare på egen hand.'
   ),
-  checked: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026'),
+  checked: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026'),
   relatedEyebrow: l('Keep exploring', 'Tarifa weiter entdecken', 'Seguir descubriendo', 'Verder ontdekken', 'Fortsätt upptäcka'),
   relatedTitle: l('What else fits into the same holiday', 'Was sonst noch in denselben Urlaub passt', 'Qué más cabe en las mismas vacaciones', 'Wat verder nog in dezelfde vakantie past', 'Vad mer som ryms i samma semester'),
   closingEyebrow: l('Stay in Tarifa', 'In Tarifa bleiben', 'Alojarse en Tarifa', 'Verblijven in Tarifa', 'Bo i Tarifa'),
@@ -199,7 +199,7 @@ const food: TarifaExperienceSpokeContent = {
       '',
       ''
     ),
-    updated: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')
+    updated: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026')
   },
   facts: [
     { label: l('On the plate', 'Auf dem Teller', 'En el plato', 'Op het bord', 'På tallriken'), value: l('Atlantic fish, seafood, atún rojo', 'Atlantikfisch, Meeresfrüchte, atún rojo', 'Pescado del Atlántico, marisco, atún rojo', 'Atlantische vis, zeevruchten, atún rojo', 'Atlantfisk, skaldjur, atún rojo') },
@@ -393,7 +393,7 @@ const oldTown: TarifaExperienceSpokeContent = {
       '',
       ''
     ),
-    updated: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')
+    updated: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026')
   },
   facts: [
     { label: l('Historic entrance', 'Historischer Eingang', 'Entrada histórica', 'Historische toegang', 'Historisk ingång'), value: l('Puerta de Jerez', 'Puerta de Jerez', 'Puerta de Jerez', 'Puerta de Jerez', 'Puerta de Jerez') },
@@ -575,7 +575,7 @@ const bolonia: TarifaExperienceSpokeContent = {
       '',
       ''
     ),
-    updated: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')
+    updated: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026')
   },
   facts: [
     { label: l('On one bay', 'An einer Bucht', 'En una ensenada', 'Aan één baai', 'Vid en vik'), value: l('Beach, dune, Roman town', 'Strand, Düne, Römerstadt', 'Playa, duna, ciudad romana', 'Strand, duin, Romeinse stad', 'Strand, dyn, romersk stad') },
@@ -786,7 +786,7 @@ const yoga: TarifaExperienceSpokeContent = {
       '',
       ''
     ),
-    updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026')
+    updated: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026')
   },
   facts: [
     { label: l('The scene', 'Die Szene', 'La escena', 'De scene', 'Scenen'), value: l('Studios · beach yoga · family · retreats', 'Studios · Beach-Yoga · Familie · Retreats', 'Estudios · yoga en la playa · familia · retiros', 'Studio’s · strandyoga · familie · retreats', 'Studior · strandyoga · familj · retreat') },
@@ -912,7 +912,7 @@ const yoga: TarifaExperienceSpokeContent = {
     eyebrow: shared.sourceEyebrow,
     title: shared.sourceTitle,
     intro: shared.sourceIntro,
-    checked: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026'),
+    checked: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026'),
     links: [
       { label: l('Tarifa Tourism · Official visitor guide', 'Tarifa Tourismus · Offizieller Besucherführer', 'Turismo de Tarifa · Guía turística oficial', 'Tarifa Toerisme · Officiële bezoekersgids', 'Tarifa Turism · Officiell besöksguide'), text: l('Local context for wellness and yoga addresses in Tarifa.', 'Ortskontext zu Wellness- und Yoga-Adressen in Tarifa.', 'Contexto local sobre direcciones de bienestar y yoga en Tarifa.', 'Plaatselijke context over wellness- en yogaadressen in Tarifa.', 'Lokal bakgrund om wellness- och yogaadresser i Tarifa.'), href: sourceHrefs.tarifaTourismGuide },
       { label: l('Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness', 'Mandalablue Yoga & Wellness'), text: l('Ocean and beach classes, aerial yoga and current booking details.', 'Ocean- und Beach-Kurse, Aerial-Yoga und aktuelle Buchungsdetails.', 'Clases junto al mar, yoga aéreo y detalles de reserva vigentes.', 'Lessen aan zee, aerial yoga en actuele boekingsinformatie.', 'Havs- och strandklasser, aerialyoga och aktuell bokningsinfo.'), href: sourceHrefs.mandalablue },
@@ -1004,7 +1004,7 @@ const whaleWatching: TarifaExperienceSpokeContent = {
       'De tochten hangen af van de zee, niet van de kalender — bevestig ze op de ochtend zelf.',
       'Turerna beror på havet, inte kalendern — bekräfta dem samma morgon.'
     ),
-    updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026')
+    updated: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026')
   },
   facts: [
     { label: l('The residents', 'Die Standtiere', 'Los residentes', 'De vaste bewoners', 'De bofasta'), value: l('Pilot whales, bottlenose, common and striped dolphins', 'Grindwale, Große Tümmler, Gemeine und Streifendelfine', 'Calderones, delfines mulares, comunes y listados', 'Grienden, tuimelaars, gewone en gestreepte dolfijnen', 'Grindvalar, öresvin, vanliga och strimmiga delfiner') },
@@ -1130,7 +1130,7 @@ const whaleWatching: TarifaExperienceSpokeContent = {
     eyebrow: shared.sourceEyebrow,
     title: shared.sourceTitle,
     intro: shared.sourceIntro,
-    checked: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026'),
+    checked: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026'),
     links: [
       { label: l('firmm · Whale watching', 'firmm · Whale Watching', 'firmm · Avistamiento de cetáceos', 'firmm · Walvissen spotten', 'firmm · Valskådning'), text: l('Trips, boats, family pricing and the foundation’s conduct at sea.', 'Fahrten, Boote, Familienpreise und das Verhalten der Stiftung auf See.', 'Salidas, barcos, precios para familias y la conducta de la fundación en el mar.', 'Tochten, boten, gezinsprijzen en het gedrag van de stichting op zee.', 'Turer, båtar, familjepriser och stiftelsens uppträdande till sjöss.'), href: 'https://www.firmm.org/en/whale-watching' },
       { label: l('Tarifa Tourism · Whale watching', 'Tarifa Tourismus · Whale Watching', 'Turismo de Tarifa · Avistamiento', 'Tarifa Toerisme · Walvissen', 'Tarifa Turism · Valskådning'), text: l('The official listing of the operators sailing from the harbour.', 'Das offizielle Verzeichnis der Anbieter, die vom Hafen fahren.', 'El listado oficial de los operadores que salen del puerto.', 'De officiële lijst van aanbieders die vanuit de haven varen.', 'Den officiella listan över operatörer som avgår från hamnen.'), href: 'https://turismodetarifa.com/en/what-to-do/whale-watching/' },
@@ -1237,7 +1237,7 @@ const family: TarifaExperienceSpokeContent = {
       'De wind kan een stranddag in een heuvelwandeling veranderen — we houden voor elke dag een plan B achter de hand.',
       'Vinden kan förvandla en stranddag till en kullvandring — vi håller en plan B för varje dag.'
     ),
-    updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026')
+    updated: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026')
   },
   facts: [
     { label: l('With little ones', 'Mit den Kleinen', 'Con los más pequeños', 'Met de kleintjes', 'Med de små'), value: l('🏖️ Playa Chica: calm water, showers, a play area', '🏖️ Playa Chica: ruhiges Wasser, Duschen, Spielbereich', '🏖️ Playa Chica: agua tranquila, duchas, zona de juegos', '🏖️ Playa Chica: rustig water, douches, speelplek', '🏖️ Playa Chica: lugnt vatten, duschar, lekplats') },
@@ -1377,7 +1377,7 @@ const family: TarifaExperienceSpokeContent = {
     eyebrow: shared.sourceEyebrow,
     title: shared.sourceTitle,
     intro: shared.sourceIntro,
-    checked: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026'),
+    checked: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026'),
     links: [
       { label: l('Tarifa Tourism · Beaches', 'Tarifa Tourismus · Strände', 'Turismo de Tarifa · Playas', 'Tarifa Toerisme · Stranden', 'Tarifa Turism · Stränder'), text: l('Official context for Los Lances as a family beach and the natural park.', 'Ortskontext zu Los Lances als Familienstrand und zum Naturpark.', 'Contexto oficial sobre Los Lances como playa familiar y el parque natural.', 'Officiële context over Los Lances als gezinsstrand en het natuurpark.', 'Officiell bakgrund om Los Lances som familjestrand och naturparken.'), href: 'https://turismodetarifa.com/en/beaches/' },
       { label: l('Spain.info · Playa Chica', 'Spain.info · Playa Chica', 'Spain.info · Playa Chica', 'Spain.info · Playa Chica', 'Spain.info · Playa Chica'), text: l('The calm central beach, its facilities and the children play area.', 'Der ruhige zentrale Strand, seine Ausstattung und der Kinderspielbereich.', 'La playa céntrica y tranquila, sus servicios y la zona infantil.', 'Het rustige centrale strand, de voorzieningen en de speelplek.', 'Den lugna centrala stranden, dess faciliteter och lekplatsen.'), href: 'https://www.spain.info/en/beach/playa-chica-tarifa/' }

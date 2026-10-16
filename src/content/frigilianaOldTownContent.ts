@@ -722,11 +722,11 @@ export const frigilianaOldTownCopy = {
       'Länkar för att läsa vidare'
     ),
     text: l(
-      'Dates, building classifications and conservation conditions follow the Andalusian heritage decree for the Conjunto Histórico and published archive research; the 1569 sequence follows the contemporary chronicle rather than visitor summaries. As of August 2026.',
-      'Datierungen, Bauklassifizierungen und Erhaltungsauflagen folgen dem andalusischen Denkmalschutzdekret für den Conjunto Histórico und publizierter Archivforschung; die Abfolge von 1569 folgt der zeitgenössischen Chronik statt touristischer Zusammenfassungen. Stand August 2026.',
-      'Las dataciones, las clasificaciones de edificios y las condiciones de conservación siguen el decreto andaluz de patrimonio para el Conjunto Histórico y la investigación de archivo publicada; la secuencia de 1569 sigue la crónica contemporánea y no los resúmenes turísticos. Actualizado en agosto de 2026.',
-      'Dateringen, gebouwclassificaties en beschermingsvoorwaarden volgen het Andalusische erfgoeddecreet voor het Conjunto Histórico en gepubliceerd archiefonderzoek; de volgorde van 1569 volgt de eigentijdse kroniek en niet toeristische samenvattingen. Stand augustus 2026.',
-      'Dateringar, byggnadsklassificeringar och bevarandevillkor följer det andalusiska kulturarvsdekretet för Conjunto Histórico och publicerad arkivforskning; händelseförloppet 1569 följer den samtida krönikan snarare än turistsammanfattningar. Uppdaterad augusti 2026.'
+      'Dates, building classifications and conservation conditions follow the Andalusian heritage decree for the Conjunto Histórico and published archive research; the 1569 sequence follows the contemporary chronicle rather than visitor summaries. As of October 2026.',
+      'Datierungen, Bauklassifizierungen und Erhaltungsauflagen folgen dem andalusischen Denkmalschutzdekret für den Conjunto Histórico und publizierter Archivforschung; die Abfolge von 1569 folgt der zeitgenössischen Chronik statt touristischer Zusammenfassungen. Stand Oktober 2026.',
+      'Las dataciones, las clasificaciones de edificios y las condiciones de conservación siguen el decreto andaluz de patrimonio para el Conjunto Histórico y la investigación de archivo publicada; la secuencia de 1569 sigue la crónica contemporánea y no los resúmenes turísticos. Actualizado en octubre de 2026.',
+      'Dateringen, gebouwclassificaties en beschermingsvoorwaarden volgen het Andalusische erfgoeddecreet voor het Conjunto Histórico en gepubliceerd archiefonderzoek; de volgorde van 1569 volgt de eigentijdse kroniek en niet toeristische samenvattingen. Stand oktober 2026.',
+      'Dateringar, byggnadsklassificeringar och bevarandevillkor följer det andalusiska kulturarvsdekretet för Conjunto Histórico och publicerad arkivforskning; händelseförloppet 1569 följer den samtida krönikan snarare än turistsammanfattningar. Uppdaterad oktober 2026.'
     ),
     linkLabel: l(
       'Official monument information',

@@ -271,11 +271,11 @@ const frigilianaDayTripsContentCopy = {
       sv: "Vid Alhambra och Caminito styr den bokade entrétiden när ni ger er av. Promenaden till bilen, parkering vid målet och gångvägen till entrén tillkommer."
     } satisfies LocalizedText,
     "reviewed": {
-      en: 'As of July 2026',
-      de: 'Stand Juli 2026',
-      es: 'Actualizado en julio de 2026',
-      nl: 'Stand juli 2026',
-      sv: 'Uppdaterad juli 2026'
+      en: 'As of October 2026',
+      de: 'Stand Oktober 2026',
+      es: 'Actualizado en octubre de 2026',
+      nl: 'Stand oktober 2026',
+      sv: 'Uppdaterad oktober 2026'
     } satisfies LocalizedText,
     "items": [
       {

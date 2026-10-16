@@ -150,7 +150,7 @@ export const frigilianaHikingContent = {
       ['Volgens de gemeente blijft de Río Chíllar bij Nerja gesloten; de rivierwandeling valt daarom af.'],
       ['Enligt kommunen är Río Chíllar vid Nerja fortfarande avspärrad; flodvandringen utgår därför.']
     ),
-    checked: text('As of 27 August 2026', 'Stand 27. August 2026', 'Actualizado el 27 de agosto de 2026', 'Stand 27 augustus 2026', 'Uppdaterad 27 augusti 2026'),
+    checked: text('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026'),
     linkLabel: text('Read the Nerja Town Council notice', 'Mitteilung der Gemeinde Nerja lesen', 'Leer el aviso del Ayuntamiento de Nerja', 'Lees het bericht van de gemeente Nerja', 'Läs Nerja kommuns meddelande'),
     href: 'https://www.nerja.es/el-acceso-al-rio-chillar-permanece-cerrado/'
   },

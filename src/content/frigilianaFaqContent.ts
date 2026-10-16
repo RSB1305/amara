@@ -522,11 +522,11 @@ export const frigilianaFaqCopy = {
       'Tidtabeller, festivaldatum och vandringsleder i original.'
     ),
     checked: l(
-      'As of July 2026',
-      'Stand Juli 2026',
-      'Actualizado en julio de 2026',
-      'Stand juli 2026',
-      'Uppdaterad juli 2026'
+      'As of October 2026',
+      'Stand Oktober 2026',
+      'Actualizado en octubre de 2026',
+      'Stand oktober 2026',
+      'Uppdaterad oktober 2026'
     ),
     links: [
       {

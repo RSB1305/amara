@@ -155,7 +155,7 @@ export const tarifaKitesurfSpotsContent = {
       'Tarifa heeft meerdere spots, en de wind zegt welke vandaag past. Bij Poniente lopen we naar Los Lances. Bij Levante rijden we naar Valdevaqueros: de baai kromt zich zo dat je bij afdrijven weer land voor je hebt. Balneario is de Big-Air-spot voor zeer ervaren rijders, de lagune bij de Río Jara is natuurgebied en gesloten. Van 15 juni tot 15 september gelden de zones van de stad: boeien en borden tonen waar je start.',
       'Tarifa har flera spottar, och vinden säger vilken som passar i dag. Vid Poniente går vi till fots till Los Lances. Vid Levante kör vi till Valdevaqueros: viken kröker sig så att ni vid avdrift åter har land framför er. Balneario är Big Air-spoten för mycket erfarna åkare, lagunen vid Río Jara är naturskydd och avspärrad. Från 15 juni till 15 september gäller stadens zoner: bojar och skyltar visar var ni startar.'
     ),
-    updated: l('As of 3 September 2026', 'Stand 3. September 2026', 'Actualizado el 3 de septiembre de 2026', 'Stand 3 september 2026', 'Uppdaterad 3 september 2026'),
+    updated: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026'),
     note: l('', '', '', '', ''),
   },
   orientation: {

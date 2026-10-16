@@ -97,7 +97,7 @@ export const tarifaKitesurfBeginnerGuide: TarifaKitesurfGuideContent = {
       'Bedoeld om te lezen vóór je eerste les — het water op ga je met een instructeur, niet met deze tekst.',
       'Tänkt att läsa före din första lektion — ut på vattnet går du med en instruktör, inte med den här texten.'
     ),
-    updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026')
+    updated: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026')
   },
   facts: [
     { label: l('The order', 'Die Reihenfolge', 'El orden', 'De volgorde', 'Ordningen'), value: l('Kite control before the board', 'Kitekontrolle vor dem Board', 'Control de la cometa antes que la tabla', 'Kitecontrole vóór de board', 'Kitekontroll före brädan') },

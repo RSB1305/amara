@@ -223,7 +223,7 @@ export const tarifaBildungsurlaubDe = {
   sources: {
     eyebrow: 'Direkt zu den Anbietern',
     title: 'Weiterführende Links',
-    reviewed: 'Stand September 2026',
+    reviewed: 'Stand Oktober 2026',
     items: [
       { id: 'wsb-angebot', label: 'Work Surf Balance: Seminare und Pakete', href: 'https://worksurfbalance.com/angebot' },
       { id: 'wsb-anerkennung', label: 'Work Surf Balance: Anerkennung je Bundesland', href: 'https://worksurfbalance.com/#anerkennung' },

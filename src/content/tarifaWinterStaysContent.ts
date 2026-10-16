@@ -87,11 +87,11 @@ export const tarifaWinterStaysContent = {
       "Om en detalj avgör för er, fråga oss innan ni bokar. Vi känner lägenheten."
     ),
     updated: l(
-      "As of August 2026",
-      "Stand August 2026",
-      "Actualizado en agosto de 2026",
-      "Stand augustus 2026",
-      "Uppdaterad augusti 2026"
+      "As of October 2026",
+      "Stand Oktober 2026",
+      "Actualizado en octubre de 2026",
+      "Stand oktober 2026",
+      "Uppdaterad oktober 2026"
     ),
     mark: l("WINTER", "WINTER", "INVIERNO", "WINTER", "VINTER")
   },
@@ -337,7 +337,7 @@ export const tarifaWinterStaysContent = {
       "De windnamen komen uit officiële informatie van de Junta en de wandelroutes van het toeristenbureau van Tarifa. Alles over AMARA Family & Surf komt van ons.",
       "Vindnamnen kommer från officiell information från Junta och vandringslederna från Tarifas turistbyrå. Allt om AMARA Family & Surf kommer från oss."
     ),
-    checked: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026"),
+    checked: l("As of October 2026", "Stand Oktober 2026", "Actualizado en octubre de 2026", "Stand oktober 2026", "Uppdaterad oktober 2026"),
     links: [
       {
         label: l("Junta de Andalucía · wind in the Strait", "Junta de Andalucía · Wind an der Meerenge", "Junta de Andalucía · el viento en el Estrecho", "Junta de Andalucía · wind in de Straat", "Junta de Andalucía · vinden i sundet"),

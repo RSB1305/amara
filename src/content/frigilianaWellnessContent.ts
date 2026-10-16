@@ -166,7 +166,7 @@ export const frigilianaWellnessContent: Record<
       title: 'Stay in or drive out',
       intro:
         'The difference is simple: Frigiliana Wellness comes to you, to Lidia you drive.',
-      reviewed: 'As of July 2026',
+      reviewed: 'As of October 2026',
       items: [
         {
           title: 'At the house',
@@ -313,7 +313,7 @@ export const frigilianaWellnessContent: Record<
       title: 'Bleiben oder hinausfahren',
       intro:
         'Der Unterschied ist einfach: Frigiliana Wellness kommt zu euch, zu Lidia fahrt ihr.',
-      reviewed: 'Stand Juli 2026',
+      reviewed: 'Stand Oktober 2026',
       items: [
         {
           title: 'Im Haus',
@@ -460,7 +460,7 @@ export const frigilianaWellnessContent: Record<
       title: 'Quedarse o salir',
       intro:
         'La diferencia es sencilla: Frigiliana Wellness viene a vosotros, a Lidia vais vosotros.',
-      reviewed: 'Actualizado en julio de 2026',
+      reviewed: 'Actualizado en octubre de 2026',
       items: [
         {
           title: 'En casa',
@@ -607,7 +607,7 @@ export const frigilianaWellnessContent: Record<
       title: 'Blijven of eropuit',
       intro:
         'Het verschil is simpel: Frigiliana Wellness komt naar jullie, naar Lidia rijden jullie.',
-      reviewed: 'Stand juli 2026',
+      reviewed: 'Stand oktober 2026',
       items: [
         {
           title: 'In huis',
@@ -754,7 +754,7 @@ export const frigilianaWellnessContent: Record<
       title: 'Stanna eller åka ut',
       intro:
         'Skillnaden är enkel: Frigiliana Wellness kommer till er, till Lidia kör ni.',
-      reviewed: 'Uppdaterad juli 2026',
+      reviewed: 'Uppdaterad oktober 2026',
       items: [
         {
           title: 'Hemma',

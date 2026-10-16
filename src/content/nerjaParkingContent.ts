@@ -36,7 +36,7 @@ const hero = {
     'Voor de deur uitladen, ernaast parkeren, klaar.',
     'Lasta av vid dörren, parkera intill, klart.'
   ),
-  updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026')
+  updated: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026')
 };
 
 const facts = [
@@ -109,7 +109,7 @@ const makeLocale = (lang: AmaraLanguage): ParkingGuideLocale => ({
     eyebrow: l('Explore further', 'Mehr erfahren', 'Explorar más', 'Meer ontdekken', 'Utforska mer')[lang],
     title: l('Where these details come from', 'Woher diese Angaben kommen', 'De dónde salen estos datos', 'Waar deze gegevens vandaan komen', 'Varifrån uppgifterna kommer')[lang],
     intro: l('The car-park facts come from the town hall. Everything about AMARA Playa and its neighbourhood comes from us.', 'Die Angaben zu den Parkanlagen stammen von der Stadtverwaltung. Alles zu AMARA Playa und seiner Nachbarschaft kommt von uns.', 'Los datos de los aparcamientos proceden del ayuntamiento. Todo lo relativo a AMARA Playa y su barrio viene de nosotros.', 'De gegevens over de parkings komen van de gemeente. Alles over AMARA Playa en de buurt komt van ons.', 'Uppgifterna om parkeringarna kommer från kommunen. Allt om AMARA Playa och grannskapet kommer från oss.')[lang],
-    checked: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')[lang],
+    checked: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026')[lang],
     links: sourceRows.map((row) => ({ label: row.label[lang], text: row.text[lang], href: row.href }))
   },
   closing: {

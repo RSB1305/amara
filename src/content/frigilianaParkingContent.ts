@@ -532,11 +532,11 @@ export const frigilianaParkingCopy = {
       'Den officiella gatukartan hjälper er att förstå den gamla och nya bydelen. En aktuell kartsökning kan visa närliggande parkering, men varken kartan eller sökningen ersätter begränsningar och villkor på plats.'
     ),
     checked: l(
-      'As of July 2026',
-      'Stand Juli 2026',
-      'Actualizado en julio de 2026',
-      'Stand juli 2026',
-      'Uppdaterad juli 2026'
+      'As of October 2026',
+      'Stand Oktober 2026',
+      'Actualizado en octubre de 2026',
+      'Stand oktober 2026',
+      'Uppdaterad oktober 2026'
     ),
     links: [
       {

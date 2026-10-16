@@ -114,7 +114,7 @@ export const nerjaLocationHubContent: {
         title: 'A holiday in Nerja: beaches, old town and a place with several centres',
         standfirst: 'Welcome to Nerja. It is compact enough for many days on foot, yet its beaches and neighbourhoods create very different stays. This is the overview for choosing how you want to arrive, move and live here for more than a day trip.',
         note: 'A host-written guide for overnight guests, with AMARA Playa as the practical point of reference.',
-        updated: 'As of August 2026'
+        updated: 'As of October 2026'
       },
       discovery: {
         eyebrow: 'Plan the stay',
@@ -254,7 +254,7 @@ export const nerjaLocationHubContent: {
         title: 'Urlaub in Nerja: Strände, Altstadt und ein Ort mit mehreren Mittelpunkten',
         standfirst: 'Herzlich willkommen in Nerja. Hier lässt sich vieles zu Fuß erledigen, trotzdem entstehen je nach Strand und Wohnlage ganz unterschiedliche Aufenthalte. Dieser Überblick hilft euch bei Anreise, Lagewahl und Mobilität – für mehr als nur einen Tagesausflug.',
         note: 'Ein Gastgeber-Guide für Übernachtungsgäste, mit AMARA Playa als praktischem Bezugspunkt.',
-        updated: 'Stand August 2026'
+        updated: 'Stand Oktober 2026'
       },
       discovery: {
         eyebrow: 'Den Aufenthalt planen',
@@ -394,7 +394,7 @@ export const nerjaLocationHubContent: {
         title: 'Vacaciones en Nerja: playas, casco antiguo y un pueblo con varios centros',
         standfirst: 'Bienvenidos a Nerja. Aquí se pueden hacer muchos planes a pie, pero sus playas y barrios ofrecen estancias muy distintas. Este recorrido os ayuda a elegir cómo llegar, moveros y vivir el pueblo más allá de una excursión de un día.',
         note: 'Una guía escrita por vuestro anfitrión, con AMARA Playa como punto de referencia práctico.',
-        updated: 'Actualizado en agosto de 2026'
+        updated: 'Actualizado en octubre de 2026'
       },
       discovery: {
         eyebrow: 'Preparar la estancia',
@@ -534,7 +534,7 @@ export const nerjaLocationHubContent: {
         title: 'Vakantie in Nerja: stranden, oude kern en een plaats met meerdere centra',
         standfirst: 'Welkom in Nerja. Hier kunnen jullie veel te voet doen, maar de stranden en buurten leveren heel verschillende verblijven op. Dit overzicht helpt bij aankomst, locatiekeuze en vervoer – voor wie langer blijft dan een dagtrip.',
         note: 'Een gids van jullie host voor verblijfsgasten, met AMARA Playa als praktisch vertrekpunt.',
-        updated: 'Stand augustus 2026'
+        updated: 'Stand oktober 2026'
       },
       discovery: {
         eyebrow: 'Jullie verblijf plannen',
@@ -674,7 +674,7 @@ export const nerjaLocationHubContent: {
         title: 'Semester i Nerja: stränder, gamla stan och en ort med flera mittpunkter',
         standfirst: 'Välkomna till Nerja. Mycket här fungerar till fots, men stränderna och områdena ger helt olika vistelser. Den här överblicken hjälper er att välja ankomst, läge och vardagsrörelser för mer än en dagsutflykt.',
         note: 'En guide från er värd för övernattande gäster, med AMARA Playa som praktisk utgångspunkt.',
-        updated: 'Uppdaterad augusti 2026'
+        updated: 'Uppdaterad oktober 2026'
       },
       discovery: {
         eyebrow: 'Planera vistelsen',
@@ -819,7 +819,7 @@ const nerjaLocationPeopleFirstCopy = {
       subtitle: 'Into the sea in the morning, tapas in the evening, and a town that is open all year',
       standfirst: 'Nerja is a coastal town with small coves, a broad beach to the east and the Balcón de Europa in the middle. From Málaga airport the bus runs straight here, and in town almost everything is on foot. Our apartment is in Torrecilla: 200 metres to the beach, 500 to the Balcón, fifth floor with a view of the sea.',
       note: '',
-      updated: 'As of August 2026'
+      updated: 'As of October 2026'
     },
     orientation: {
       eyebrow: 'How Nerja lies',
@@ -865,7 +865,7 @@ const nerjaLocationPeopleFirstCopy = {
       subtitle: 'Morgens ins Meer, abends Tapas, und das ganze Jahr eine Stadt, die geöffnet hat',
       standfirst: 'Nerja ist eine Küstenstadt mit kleinen Buchten, einem breiten Strand im Osten und dem Balcón de Europa in der Mitte. Vom Flughafen Málaga fährt der Bus direkt hierher, im Ort geht fast alles zu Fuß. Unsere Wohnung liegt in Torrecilla: 200 Meter zum Strand, 500 zum Balcón, fünfter Stock mit Blick aufs Meer.',
       note: '',
-      updated: 'Stand August 2026'
+      updated: 'Stand Oktober 2026'
     },
     orientation: {
       eyebrow: 'So liegt Nerja',
@@ -911,7 +911,7 @@ const nerjaLocationPeopleFirstCopy = {
       subtitle: 'Al mar por la mañana, tapas por la noche, y todo el año una ciudad abierta',
       standfirst: 'Nerja es una ciudad costera con calas pequeñas, una playa ancha al este y el Balcón de Europa en el centro. Desde el aeropuerto de Málaga el autobús llega directo, y en el pueblo casi todo se hace a pie. Nuestro apartamento está en Torrecilla: 200 metros a la playa, 500 al Balcón, un quinto con vistas al mar.',
       note: '',
-      updated: 'Actualizado en agosto de 2026'
+      updated: 'Actualizado en octubre de 2026'
     },
     orientation: {
       eyebrow: 'Así es Nerja',
@@ -957,7 +957,7 @@ const nerjaLocationPeopleFirstCopy = {
       subtitle: '’s Ochtends de zee in, ’s avonds tapas, en het hele jaar een stad die open is',
       standfirst: 'Nerja is een kustplaats met kleine baaien, een breed strand in het oosten en de Balcón de Europa in het midden. Vanaf de luchthaven Málaga rijdt de bus rechtstreeks hierheen, in de stad gaat bijna alles te voet. Ons appartement ligt in Torrecilla: 200 meter naar het strand, 500 naar de Balcón, vijfde verdieping met zeezicht.',
       note: '',
-      updated: 'Stand augustus 2026'
+      updated: 'Stand oktober 2026'
     },
     orientation: {
       eyebrow: 'Zo ligt Nerja',
@@ -1003,7 +1003,7 @@ const nerjaLocationPeopleFirstCopy = {
       subtitle: 'Ut i havet på morgonen, tapas på kvällen, och året runt en stad som är öppen',
       standfirst: 'Nerja är en kuststad med små vikar, en bred strand i öster och Balcón de Europa i mitten. Från Málagas flygplats går bussen direkt hit, och i stan går nästan allt till fots. Vår lägenhet ligger i Torrecilla: 200 meter till stranden, 500 till Balcón, femte våningen med havsutsikt.',
       note: '',
-      updated: 'Uppdaterad augusti 2026'
+      updated: 'Uppdaterad oktober 2026'
     },
     orientation: {
       eyebrow: 'Så ligger Nerja',

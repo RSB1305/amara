@@ -432,11 +432,11 @@ const frigilianaFestivalsContentCopy = {
       sv: 'En helgondag i byn, en högtidlig procession och en stor sommarfestival är helt olika kvällar. Vissa datum ligger fast år i förväg, andra bekräftas först några veckor innan — därför betyder statusen lika mycket som månaden.'
     } satisfies LocalizedText,
     "reviewed": {
-      en: 'As of September 2026',
-      de: 'Stand September 2026',
-      es: 'Actualizado en septiembre de 2026',
-      nl: 'Stand september 2026',
-      sv: 'Uppdaterad september 2026'
+      en: 'As of October 2026',
+      de: 'Stand Oktober 2026',
+      es: 'Actualizado en octubre de 2026',
+      nl: 'Stand oktober 2026',
+      sv: 'Uppdaterad oktober 2026'
     } satisfies LocalizedText,
     "items": [
       {

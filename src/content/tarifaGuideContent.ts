@@ -201,11 +201,11 @@ const sharedEditorialNote = l(
 );
 
 const sharedUpdated = l(
-  'As of August 2026',
-  'Stand August 2026',
-  'Actualizado en agosto de 2026',
-  'Stand augustus 2026',
-  'Uppdaterad augusti 2026'
+  'As of October 2026',
+  'Stand Oktober 2026',
+  'Actualizado en octubre de 2026',
+  'Stand oktober 2026',
+  'Uppdaterad oktober 2026'
 );
 
 const officialBeachSource: TarifaGuideSource = {
@@ -840,11 +840,11 @@ const windEditorialNote = l(
 );
 
 const windUpdated = l(
-  'As of September 2026',
-  'Stand September 2026',
-  'Actualizado en septiembre de 2026',
-  'Stand september 2026',
-  'Uppdaterad september 2026'
+  'As of October 2026',
+  'Stand Oktober 2026',
+  'Actualizado en octubre de 2026',
+  'Stand oktober 2026',
+  'Uppdaterad oktober 2026'
 );
 
 const wind: TarifaGuideContent = {

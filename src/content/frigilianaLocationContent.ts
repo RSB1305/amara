@@ -249,7 +249,7 @@ export const frigilianaLocationCopy = {
     'Een plek om verliefd op te worden — wonen in het dorp, de bergen achter je en de zee tien minuten lager',
     'En plats att bli kär i — bo i byn, bergen i ryggen och havet tio minuter nedanför'
   ),
-  heroUpdated: text('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026'),
+  heroUpdated: text('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026'),
   heroNote: text(
     '',
     '',
