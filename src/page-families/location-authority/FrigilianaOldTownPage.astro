@@ -6,6 +6,8 @@ import EditorialClosingCta from '../../components/editorial/EditorialClosingCta.
 import EditorialFeatureGrid from '../../components/editorial/EditorialFeatureGrid.astro';
 import ExperienceContextNav from '../../components/experience/ExperienceContextNav.astro';
 import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
+import AmaraSection from '../../components/layout/AmaraSection.astro';
+import { ChevronLeft, ChevronRight, Pause, Play } from '@lucide/astro';
 import type { ImageMetadata } from 'astro';
 import historicVillageImage from '../../assets/images/content/frigiliana/frigiliana-historisches-foto-dorf-panorama.jpg';
 import elIngenioImage from '../../assets/images/content/frigiliana/frigiliana-el-ingenio-palast-zuckerrohrfabrik.jpg';
@@ -279,6 +281,7 @@ const visualAlts = {
     sv: 'Flygbild över Frigilianas tegeltak och en gränd med kiselmosaik'
   }
 } as const satisfies Record<string, LocalizedRow>;
+const doorPhotos = routeImages('frigiliana.experience.old-town', 'split', currentLang);
 const nightPhotos = routeImages('frigiliana.experience.old-town', 'gallery', currentLang);
 const eveningTitle = t({ en: 'Evenings in the old town', de: 'Abends in der Altstadt', es: 'La noche en el casco antiguo', nl: 'De oude kern in de avond', sv: 'Kvällar i gamla stan' });
 ---
@@ -380,6 +383,65 @@ const eveningTitle = t({ en: 'Evenings in the old town', de: 'Abends in der Alts
           }
         </div>
       </section>
+
+
+      <div class="mx-auto max-w-screen-2xl bg-surface px-6 md:px-12">
+        <AmaraSection id="doors" labelledby="doors-title" family="experience" class="scroll-mt-40">
+          <div class="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
+            <div class="max-w-xl">
+              <h2 id="doors-title" class="am-text-title italic text-on-surface mb-6">
+                {t(copy.doors.title)}
+              </h2>
+              <p class="am-text-subtitle text-on-surface-variant">
+                {t(copy.doors.intro)}
+              </p>
+            </div>
+            <div
+              class="am-door-slideshow mx-auto w-full max-w-md"
+              data-am-door-slideshow
+              data-pause-label={t(copy.doors.pause)}
+              data-play-label={t(copy.doors.play)}
+              role="group"
+              aria-labelledby="doors-title"
+            >
+              <div class="relative aspect-[3/4]" data-am-door-stage>
+                {doorPhotos.map((photo, index) => (
+                  <div
+                    class="am-door-slide absolute inset-0"
+                    data-am-door-slide
+                    data-active={String(index === 0)}
+                    aria-hidden={index !== 0}
+                  >
+                    <AmaraMediaFrame role="split" class="h-full">
+                      <AmaraImage
+                        {...photo}
+                        profile="gallery"
+                        class="h-full w-full object-cover"
+                        mediaRole="split"
+                      />
+                    </AmaraMediaFrame>
+                  </div>
+                ))}
+              </div>
+              <div class="mt-5 flex items-center justify-center gap-4" data-am-door-controls hidden>
+                <button type="button" class="am-door-control" data-am-door-previous aria-label={t(copy.doors.previous)}>
+                  <ChevronLeft class="h-5 w-5" stroke-width={1.4} aria-hidden="true" />
+                </button>
+                <span class="am-text-annotation tabular-nums text-on-surface-variant" data-am-door-counter aria-live="off">
+                  1 / {doorPhotos.length}
+                </span>
+                <button type="button" class="am-door-control" data-am-door-next aria-label={t(copy.doors.next)}>
+                  <ChevronRight class="h-5 w-5" stroke-width={1.4} aria-hidden="true" />
+                </button>
+                <button type="button" class="am-door-control" data-am-door-toggle aria-label={t(copy.doors.pause)}>
+                  <Pause class="am-door-pause h-5 w-5" stroke-width={1.4} aria-hidden="true" />
+                  <Play class="am-door-play h-5 w-5" stroke-width={1.4} aria-hidden="true" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </AmaraSection>
+      </div>
 
       <section id="history" class="am-section bg-surface-container-low">
         <div class="max-w-3xl mb-16">
@@ -556,7 +618,139 @@ const eveningTitle = t({ en: 'Evenings in the old town', de: 'Abends in der Alts
   </div>
 </LocationAuthorityLayout>
 
+<script>
+  (() => {
+    const slideshow = document.querySelector<HTMLElement>('[data-am-door-slideshow]');
+    if (!slideshow) return;
+    const slides = [...slideshow.querySelectorAll<HTMLElement>('[data-am-door-slide]')];
+    const stage = slideshow.querySelector<HTMLElement>('[data-am-door-stage]');
+    const controls = slideshow.querySelector<HTMLElement>('[data-am-door-controls]');
+    const previous = slideshow.querySelector<HTMLButtonElement>('[data-am-door-previous]');
+    const next = slideshow.querySelector<HTMLButtonElement>('[data-am-door-next]');
+    const toggle = slideshow.querySelector<HTMLButtonElement>('[data-am-door-toggle]');
+    const counter = slideshow.querySelector<HTMLElement>('[data-am-door-counter]');
+    if (!stage || !controls || !previous || !next || !toggle || !counter || slides.length < 2) return;
+
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let paused = motion.matches;
+    let visible = false;
+    let hovered = false;
+    let timer: number | undefined;
+
+    const show = (index: number) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.dataset.active = String(i === current);
+        slide.setAttribute('aria-hidden', String(i !== current));
+      });
+      counter.textContent = `${current + 1} / ${slides.length}`;
+    };
+
+    const syncPlayback = () => {
+      window.clearInterval(timer);
+      slideshow.dataset.paused = String(paused);
+      toggle.setAttribute('aria-label', (paused ? slideshow.dataset.playLabel : slideshow.dataset.pauseLabel) ?? '');
+      counter.setAttribute('aria-live', paused ? 'polite' : 'off');
+      if (!paused && visible && !hovered && !document.hidden) {
+        timer = window.setInterval(() => show(current + 1), 6000);
+      }
+    };
+
+    const step = (direction: number) => {
+      paused = true;
+      syncPlayback();
+      show(current + direction);
+    };
+
+    previous.addEventListener('click', () => step(-1));
+    next.addEventListener('click', () => step(1));
+    toggle.addEventListener('click', () => {
+      paused = !paused;
+      syncPlayback();
+    });
+    slideshow.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      step(event.key === 'ArrowLeft' ? -1 : 1);
+    });
+    slideshow.addEventListener('focusin', (event) => {
+      if (event.target === toggle) return;
+      paused = true;
+      syncPlayback();
+    });
+    stage.addEventListener('pointerenter', (event) => {
+      if (event.pointerType !== 'mouse') return;
+      hovered = true;
+      syncPlayback();
+    });
+    stage.addEventListener('pointerleave', () => {
+      hovered = false;
+      syncPlayback();
+    });
+
+    let touchStart: { x: number; y: number } | null = null;
+    stage.addEventListener('touchstart', (event) => {
+      const touch = event.touches[0];
+      touchStart = touch ? { x: touch.clientX, y: touch.clientY } : null;
+    }, { passive: true });
+    stage.addEventListener('touchend', (event) => {
+      const touch = event.changedTouches[0];
+      if (!touch || !touchStart) return;
+      const dx = touch.clientX - touchStart.x;
+      const dy = touch.clientY - touchStart.y;
+      touchStart = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) step(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      syncPlayback();
+    }, { threshold: 0.25 }).observe(stage);
+    document.addEventListener('visibilitychange', syncPlayback);
+    motion.addEventListener('change', () => {
+      if (motion.matches) paused = true;
+      syncPlayback();
+    });
+    controls.hidden = false;
+    syncPlayback();
+  })();
+</script>
+
 <style>
+  .am-door-slide {
+    opacity: 0;
+    transition: opacity 800ms ease;
+    pointer-events: none;
+  }
+
+  .am-door-slide[data-active='true'] { opacity: 1; }
+
+  [data-am-door-controls][hidden],
+  .am-door-play,
+  .am-door-slideshow[data-paused='true'] .am-door-pause { display: none; }
+
+  .am-door-slideshow[data-paused='true'] .am-door-play { display: block; }
+
+  .am-door-control {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 50%;
+    background: var(--color-surface-white);
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+
+  .am-door-control:hover { background: var(--color-surface-container-low); }
+  .am-door-control:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .am-door-slide { transition: none; }
+  }
+
   /* Sights without dedicated photography retain a typographic tile. */
   .am-oldtown-sight {
     display: flex;

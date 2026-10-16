@@ -16,7 +16,7 @@ export const frigilianaOldTownExternalLinks = {
 } as const;
 
 export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
-  version: '2026-09-14-frigiliana-old-town-v1.3-B',
+  version: '2026-10-15-frigiliana-old-town-v1.4-B',
   pageType: 'B',
   entityKey: 'amara-brand',
   /* og:image is emitted as an absolute URL, so it must stay inside the published image contract. */
@@ -24,7 +24,7 @@ export const frigilianaOldTownSeo: AmaraAuthoringSeo = {
     '/images/amara-frigiliana-pueblo/JPG_Frigiliana_Pueblo/2000px_72dpi_sRGB/02-frigiliana-pueblo.jpg',
   article: {
     datePublished: '2026-08-19',
-    dateModified: '2026-09-14',
+    dateModified: '2026-10-15',
     authorName: 'Robert Sebastian Böhmer',
     authorType: 'Person',
     authorRoute: 'about'
@@ -380,6 +380,26 @@ export const frigilianaOldTownCopy = {
         )
       }
     ]
+  },
+  doors: {
+    title: l(
+      'Frigiliana and its front doors',
+      'Frigiliana und seine Haustüren',
+      'Frigiliana y sus puertas',
+      'Frigiliana en zijn voordeuren',
+      'Frigiliana och dess dörrar'
+    ),
+    intro: l(
+      'Each with a story of its own.',
+      'Jede mit ihrer eigenen Geschichte.',
+      'Cada una con su propia historia.',
+      'Elke deur met een eigen verhaal.',
+      'Var och en med sin egen historia.'
+    ),
+    previous: l('Previous photo', 'Vorheriges Foto', 'Foto anterior', 'Vorige foto', 'Föregående bild'),
+    next: l('Next photo', 'Nächstes Foto', 'Foto siguiente', 'Volgende foto', 'Nästa bild'),
+    pause: l('Pause slideshow', 'Diashow pausieren', 'Pausar presentación', 'Diavoorstelling pauzeren', 'Pausa bildspelet'),
+    play: l('Play slideshow', 'Diashow abspielen', 'Reproducir presentación', 'Diavoorstelling afspelen', 'Spela bildspelet')
   },
   history: {
     title: l(
