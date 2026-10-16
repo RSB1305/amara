@@ -172,48 +172,6 @@ export const frigilianaExperienceOldTownImages = defineRouteImages({
     },
     {
       "role": "split",
-      "id": "door-mint-ironwork",
-      "src": "/images/frigiliana/tuer-mint-eisengitter-2026.webp",
-      "alt": {
-        "en": "Mint-green double door with black decorative ironwork above stone steps in Frigiliana",
-        "de": "Mintgrüne Doppeltür mit schwarzen Ziergittern über Steinstufen in Frigiliana",
-        "es": "Puerta doble verde menta con rejas negras decorativas sobre unos escalones de piedra en Frigiliana",
-        "nl": "Mintgroene dubbele deur met zwart sierwerk boven stenen treden in Frigiliana",
-        "sv": "Mintgrön pardörr med svarta dekorativa järngaller ovanför stentrappsteg i Frigiliana"
-      },
-      "takenAt": "2026-10-14",
-      "sizes": "(max-width: 495px) calc(100vw - 3rem), 448px"
-    },
-    {
-      "role": "split",
-      "id": "door-cobalt-flowers",
-      "src": "/images/frigiliana/tuer-kobaltblau-blumentoepfe-2026.webp",
-      "alt": {
-        "en": "Deep blue panelled door beside flowering pots in sunshine and shadow in Frigiliana",
-        "de": "Tiefblaue Kassettentür neben blühenden Pflanztöpfen in Sonne und Schatten in Frigiliana",
-        "es": "Puerta azul intenso con cuarterones junto a macetas en flor, entre sol y sombra, en Frigiliana",
-        "nl": "Diepblauwe paneeldeur naast bloeiende plantenpotten in zon en schaduw in Frigiliana",
-        "sv": "Djupblå spegeldörr bredvid blommande krukväxter i sol och skugga i Frigiliana"
-      },
-      "takenAt": "2026-10-14",
-      "sizes": "(max-width: 495px) calc(100vw - 3rem), 448px"
-    },
-    {
-      "role": "split",
-      "id": "door-pale-turquoise-studs",
-      "src": "/images/frigiliana/tuer-helltuerkis-nagelkoepfe-2026.webp",
-      "alt": {
-        "en": "Pale turquoise wooden door with black studs and a terracotta plant pot in Frigiliana",
-        "de": "Helltürkise Holztür mit schwarzen Nagelköpfen und Terrakottatopf in Frigiliana",
-        "es": "Puerta de madera turquesa claro con clavos negros y una maceta de barro en Frigiliana",
-        "nl": "Lichtturquoise houten deur met zwarte nagelkoppen en een terracotta plantenpot in Frigiliana",
-        "sv": "Ljust turkos trädörr med svarta spikhuvuden och en terrakottakruka i Frigiliana"
-      },
-      "takenAt": "2026-10-14",
-      "sizes": "(max-width: 495px) calc(100vw - 3rem), 448px"
-    },
-    {
-      "role": "split",
       "id": "door-grey-glass",
       "src": "/images/frigiliana/tuer-hellgrau-glas-stufen-2026.webp",
       "alt": {
@@ -228,20 +186,6 @@ export const frigilianaExperienceOldTownImages = defineRouteImages({
     },
     {
       "role": "split",
-      "id": "door-pastel-blue-pots",
-      "src": "/images/frigiliana/tuer-pastellblau-terracotta-2026.webp",
-      "alt": {
-        "en": "Pale blue double door with studs, two plant pots and a wall planter in Frigiliana",
-        "de": "Hellblaue Doppeltür mit Nagelköpfen, zwei Pflanztöpfen und einem Wandtopf in Frigiliana",
-        "es": "Puerta doble azul claro con clavos, dos macetas en el suelo y otra en la pared en Frigiliana",
-        "nl": "Lichtblauwe dubbele deur met nagelkoppen, twee plantenpotten en een wandpot in Frigiliana",
-        "sv": "Ljusblå pardörr med spikhuvuden, två växtkrukor och en väggkruka i Frigiliana"
-      },
-      "takenAt": "2026-10-14",
-      "sizes": "(max-width: 495px) calc(100vw - 3rem), 448px"
-    },
-    {
-      "role": "split",
       "id": "door-sage-olive",
       "src": "/images/frigiliana/tuer-salbeigruen-olivenbaum-2026.webp",
       "alt": {
@@ -250,34 +194,6 @@ export const frigilianaExperienceOldTownImages = defineRouteImages({
         "es": "Puerta doble verde salvia con cristales y un olivo en maceta en Frigiliana",
         "nl": "Saliegroene dubbele deur met ruitjes en een olijfboompje in een pot in Frigiliana",
         "sv": "Salviagrön pardörr med glasrutor och ett olivträd i kruka i Frigiliana"
-      },
-      "takenAt": "2026-10-14",
-      "sizes": "(max-width: 495px) calc(100vw - 3rem), 448px"
-    },
-    {
-      "role": "split",
-      "id": "door-turquoise-grilles",
-      "src": "/images/frigiliana/tuer-tuerkis-gitter-sonne-2026.webp",
-      "alt": {
-        "en": "Turquoise door with two black grilles above tiled steps in Frigiliana",
-        "de": "Türkise Tür mit zwei schwarzen Gittern über gefliesten Stufen in Frigiliana",
-        "es": "Puerta turquesa con dos rejas negras sobre escalones de baldosas en Frigiliana",
-        "nl": "Turquoise deur met twee zwarte roosters boven betegelde treden in Frigiliana",
-        "sv": "Turkos dörr med två svarta galler ovanför kaklade trappsteg i Frigiliana"
-      },
-      "takenAt": "2026-10-14",
-      "sizes": "(max-width: 495px) calc(100vw - 3rem), 448px"
-    },
-    {
-      "role": "split",
-      "id": "door-turquoise-lace",
-      "src": "/images/frigiliana/tuer-tuerkis-spitzenfenster-2026.webp",
-      "alt": {
-        "en": "Turquoise wooden double door with studs and a small lace-covered window in Frigiliana",
-        "de": "Türkise Doppeltür aus Holz mit Nagelköpfen und kleinem Fenster mit Spitze in Frigiliana",
-        "es": "Puerta doble de madera turquesa con clavos y una pequeña ventana con encaje en Frigiliana",
-        "nl": "Turquoise houten dubbele deur met nagelkoppen en een klein raam met kant in Frigiliana",
-        "sv": "Turkos pardörr av trä med spikhuvuden och ett litet fönster med spets i Frigiliana"
       },
       "takenAt": "2026-10-14",
       "sizes": "(max-width: 495px) calc(100vw - 3rem), 448px"
