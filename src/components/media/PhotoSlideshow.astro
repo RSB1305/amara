@@ -1,0 +1,200 @@
+---
+import AmaraImage from '../AmaraImage.astro';
+import AmaraMediaFrame from './AmaraMediaFrame.astro';
+import { ChevronLeft, ChevronRight, Pause, Play } from '@lucide/astro';
+import type { ResolvedRouteImage } from '../../lib/images/routeImages';
+import type { LocalizedText } from '../../types/content';
+import type { AmaraLanguage } from '../../types/seo';
+
+interface Props {
+  photos: ReadonlyArray<ResolvedRouteImage>;
+  lang: AmaraLanguage;
+  labelledby: string;
+}
+
+const { photos, lang, labelledby } = Astro.props;
+const imageSizes = '(max-width: 495px) calc(100vw - 3rem), 448px';
+const labels = {
+  previous: { en: 'Previous photo', de: 'Vorheriges Foto', es: 'Foto anterior', nl: 'Vorige foto', sv: 'Föregående bild' },
+  next: { en: 'Next photo', de: 'Nächstes Foto', es: 'Foto siguiente', nl: 'Volgende foto', sv: 'Nästa bild' },
+  pause: { en: 'Pause slideshow', de: 'Diashow pausieren', es: 'Pausar presentación', nl: 'Diavoorstelling pauzeren', sv: 'Pausa bildspelet' },
+  play: { en: 'Play slideshow', de: 'Diashow abspielen', es: 'Reproducir presentación', nl: 'Diavoorstelling afspelen', sv: 'Spela bildspelet' }
+} satisfies Record<string, LocalizedText>;
+---
+
+<div
+  class="am-photo-slideshow mx-auto w-full max-w-md"
+  data-am-photo-slideshow
+  data-pause-label={labels.pause[lang]}
+  data-play-label={labels.play[lang]}
+  role="group"
+  aria-labelledby={labelledby}
+>
+  <div class="relative aspect-[3/4]" data-am-photo-stage>
+    {photos.map((photo, index) => (
+      <div
+        class="am-photo-slide absolute inset-0"
+        data-am-photo-slide
+        data-active={String(index === 0)}
+        aria-hidden={index !== 0}
+      >
+        <AmaraMediaFrame role="split" class="h-full">
+          <AmaraImage
+            {...photo}
+            sizes={imageSizes}
+            profile="gallery"
+            class="h-full w-full object-cover"
+            mediaRole="split"
+          />
+        </AmaraMediaFrame>
+      </div>
+    ))}
+  </div>
+  <div class="mt-5 flex items-center justify-center gap-4" data-am-photo-controls hidden>
+    <button type="button" class="am-photo-control" data-am-photo-previous aria-label={labels.previous[lang]}>
+      <ChevronLeft class="h-5 w-5" stroke-width={1.4} aria-hidden="true" />
+    </button>
+    <span class="am-text-annotation tabular-nums text-on-surface-variant" data-am-photo-counter aria-live="off">
+      1 / {photos.length}
+    </span>
+    <button type="button" class="am-photo-control" data-am-photo-next aria-label={labels.next[lang]}>
+      <ChevronRight class="h-5 w-5" stroke-width={1.4} aria-hidden="true" />
+    </button>
+    <button type="button" class="am-photo-control" data-am-photo-toggle aria-label={labels.pause[lang]}>
+      <Pause class="am-photo-pause h-5 w-5" stroke-width={1.4} aria-hidden="true" />
+      <Play class="am-photo-play h-5 w-5" stroke-width={1.4} aria-hidden="true" />
+    </button>
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-am-photo-slideshow]').forEach((slideshow) => {
+    const slides = [...slideshow.querySelectorAll<HTMLElement>('[data-am-photo-slide]')];
+    const stage = slideshow.querySelector<HTMLElement>('[data-am-photo-stage]');
+    const controls = slideshow.querySelector<HTMLElement>('[data-am-photo-controls]');
+    const previous = slideshow.querySelector<HTMLButtonElement>('[data-am-photo-previous]');
+    const next = slideshow.querySelector<HTMLButtonElement>('[data-am-photo-next]');
+    const toggle = slideshow.querySelector<HTMLButtonElement>('[data-am-photo-toggle]');
+    const counter = slideshow.querySelector<HTMLElement>('[data-am-photo-counter]');
+    if (!stage || !controls || !previous || !next || !toggle || !counter || slides.length < 2) return;
+
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let current = 0;
+    let paused = motion.matches;
+    let visible = false;
+    let hovered = false;
+    let timer: number | undefined;
+
+    const show = (index: number) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        slide.dataset.active = String(i === current);
+        slide.setAttribute('aria-hidden', String(i !== current));
+      });
+      counter.textContent = `${current + 1} / ${slides.length}`;
+    };
+
+    const syncPlayback = () => {
+      window.clearInterval(timer);
+      slideshow.dataset.paused = String(paused);
+      toggle.setAttribute('aria-label', (paused ? slideshow.dataset.playLabel : slideshow.dataset.pauseLabel) ?? '');
+      counter.setAttribute('aria-live', paused ? 'polite' : 'off');
+      if (!paused && visible && !hovered && !document.hidden) {
+        timer = window.setInterval(() => show(current + 1), 6000);
+      }
+    };
+
+    const step = (direction: number) => {
+      paused = true;
+      syncPlayback();
+      show(current + direction);
+    };
+
+    previous.addEventListener('click', () => step(-1));
+    next.addEventListener('click', () => step(1));
+    toggle.addEventListener('click', () => {
+      paused = !paused;
+      syncPlayback();
+    });
+    slideshow.addEventListener('keydown', (event) => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      step(event.key === 'ArrowLeft' ? -1 : 1);
+    });
+    slideshow.addEventListener('focusin', (event) => {
+      if (event.target === toggle) return;
+      paused = true;
+      syncPlayback();
+    });
+    stage.addEventListener('pointerenter', (event) => {
+      if (event.pointerType !== 'mouse') return;
+      hovered = true;
+      syncPlayback();
+    });
+    stage.addEventListener('pointerleave', () => {
+      hovered = false;
+      syncPlayback();
+    });
+
+    let touchStart: { x: number; y: number } | null = null;
+    stage.addEventListener('touchstart', (event) => {
+      const touch = event.touches[0];
+      touchStart = touch ? { x: touch.clientX, y: touch.clientY } : null;
+    }, { passive: true });
+    stage.addEventListener('touchend', (event) => {
+      const touch = event.changedTouches[0];
+      if (!touch || !touchStart) return;
+      const dx = touch.clientX - touchStart.x;
+      const dy = touch.clientY - touchStart.y;
+      touchStart = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) step(dx < 0 ? 1 : -1);
+    }, { passive: true });
+
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      syncPlayback();
+    }, { threshold: 0.25 }).observe(stage);
+    document.addEventListener('visibilitychange', syncPlayback);
+    motion.addEventListener('change', () => {
+      if (motion.matches) paused = true;
+      syncPlayback();
+    });
+    controls.hidden = false;
+    syncPlayback();
+  });
+</script>
+
+<style>
+  .am-photo-slide {
+    opacity: 0;
+    transition: opacity 800ms ease;
+    pointer-events: none;
+  }
+
+  .am-photo-slide[data-active='true'] { opacity: 1; }
+
+  [data-am-photo-controls][hidden],
+  .am-photo-play,
+  .am-photo-slideshow[data-paused='true'] .am-photo-pause { display: none; }
+
+  .am-photo-slideshow[data-paused='true'] .am-photo-play { display: block; }
+
+  .am-photo-control {
+    display: inline-grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: 50%;
+    background: var(--color-surface-white);
+    color: var(--color-primary);
+    cursor: pointer;
+  }
+
+  .am-photo-control:hover { background: var(--color-surface-container-low); }
+  .am-photo-control:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .am-photo-slide { transition: none; }
+  }
+</style>

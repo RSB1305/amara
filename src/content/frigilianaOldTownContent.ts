@@ -396,10 +396,6 @@ export const frigilianaOldTownCopy = {
       'Elke deur met een eigen verhaal.',
       'Var och en med sin egen historia.'
     ),
-    previous: l('Previous photo', 'Vorheriges Foto', 'Foto anterior', 'Vorige foto', 'Föregående bild'),
-    next: l('Next photo', 'Nächstes Foto', 'Foto siguiente', 'Volgende foto', 'Nästa bild'),
-    pause: l('Pause slideshow', 'Diashow pausieren', 'Pausar presentación', 'Diavoorstelling pauzeren', 'Pausa bildspelet'),
-    play: l('Play slideshow', 'Diashow abspielen', 'Reproducir presentación', 'Diavoorstelling afspelen', 'Spela bildspelet')
   },
   history: {
     title: l(

@@ -1,6 +1,7 @@
 ---
 import InlineEmphasis from '../../components/text/InlineEmphasis.astro';
 import AmaraImage from '../../components/AmaraImage.astro';
+import AmaraMediaFrame from '../../components/media/AmaraMediaFrame.astro';
 import ExploreCampaignHero from '../../components/experience/ExploreCampaignHero.astro';
 import ExploreCampaignMediaSplit from '../../components/experience/ExploreCampaignMediaSplit.astro';
 import ExploreCampaignPlanningGrid from '../../components/experience/ExploreCampaignPlanningGrid.astro';
@@ -17,7 +18,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { createRequiredLinkResolver, type LabeledLink } from '../../lib/linkResolver';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import { requireRouteImage } from '../../lib/images/routeImages';
+import { requireRouteImage, routeImages } from '../../lib/images/routeImages';
 
 interface Props {
   lang?: string;
@@ -29,6 +30,7 @@ const hero = requireRouteImage('frigiliana.experience.weddings', 'hero', current
 const villageImage = requireRouteImage('frigiliana.experience.weddings', 'village', currentLang);
 const houseImage = requireRouteImage('frigiliana.experience.weddings', 'house', currentLang);
 const prepareImage = requireRouteImage('frigiliana.experience.weddings', 'prepare', currentLang);
+const churchPhotos = routeImages('frigiliana.experience.weddings', 'gallery', currentLang);
 const copy = frigilianaWeddingsContent[currentLang];
 const requiredLink = createRequiredLinkResolver(currentLang, 'Frigiliana weddings');
 
@@ -124,7 +126,7 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
             />
           </div>
           <div class="max-w-2xl lg:col-span-5 lg:col-start-8">
-            <h3 class="am-text-subtitle text-on-surface">
+            <h3 id="wedding-church-title" class="am-text-subtitle text-on-surface">
               {copy.nearChurch.title}
             </h3>
             <div class="mt-6 space-y-5">
@@ -141,6 +143,14 @@ const parishHref = 'https://diocesismalaga.es/parroquias/145/san-antonio-de-padu
               </p>
             </div>
           </div>
+        </div>
+
+        <div id="church-photos" class="mx-auto mt-12 grid max-w-4xl scroll-mt-28 gap-8 sm:grid-cols-2" role="group" aria-labelledby="wedding-church-title">
+          {churchPhotos.map((photo) => (
+            <AmaraMediaFrame role="split" class="self-start">
+              <AmaraImage {...photo} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
+            </AmaraMediaFrame>
+          ))}
         </div>
 
         <div class="mt-20 border-t border-outline-variant/10 pt-12">

@@ -144,8 +144,8 @@ const photos = routeImages('frigiliana.experience.old-town.san-antonio', 'galler
       </div>
     </section>
 
-    <div class="bg-surface px-6 pb-12 md:px-12 md:pb-16">
-      <div class="mx-auto grid max-w-screen-xl gap-8 sm:grid-cols-2">
+    <div id="church-photos" class="scroll-mt-28 bg-surface px-6 pb-12 md:px-12 md:pb-16">
+      <div class="mx-auto grid max-w-screen-xl gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {photos.map((photo) => (
           <AmaraMediaFrame role="split" caption={photo.caption} class="self-start">
             <AmaraImage {...photo} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
