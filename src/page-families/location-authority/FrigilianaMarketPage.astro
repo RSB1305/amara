@@ -17,7 +17,7 @@ import LocationAuthorityLayout from '../../layouts/LocationAuthorityLayout.astro
 import { buildOwnedLocalizedPath } from '../../lib/routeOwnership';
 import { normalizeLanguage } from '../../lib/seo/resolve-seo-head';
 import type { AmaraLanguage } from '../../types/seo';
-import { routeHero, requireRouteImage } from '../../lib/images/routeImages';
+import { routeHero, routeImages } from '../../lib/images/routeImages';
 import GuideClosingSection from './GuideClosingSection.astro';
 import GuestGuideBridge from '../../components/experience/GuestGuideBridge.astro';
 
@@ -92,7 +92,7 @@ const ingenioImage = {
   width: 2000,
   height: 1333
 };
-const honeyPhoto = requireRouteImage('frigiliana.experience.market', 'honey', currentLang);
+const marketPhotos = routeImages('frigiliana.experience.market', 'gallery', currentLang);
 ---
 
 <LocationAuthorityLayout
@@ -157,10 +157,12 @@ const honeyPhoto = requireRouteImage('frigiliana.experience.market', 'honey', cu
             </p>
           </div>
 
-          <div class="mb-16 max-w-xl">
-            <AmaraMediaFrame role="split" caption={honeyPhoto.caption}>
-              <AmaraImage {...honeyPhoto} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
-            </AmaraMediaFrame>
+          <div id="market-photos" class="mb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 scroll-mt-40">
+            {marketPhotos.map((photo) => (
+              <AmaraMediaFrame role="split" caption={photo.caption} class="self-start">
+                <AmaraImage {...photo} profile="gallery" class="aspect-[3/4] w-full object-cover" mediaRole="split" />
+              </AmaraMediaFrame>
+            ))}
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-16">
