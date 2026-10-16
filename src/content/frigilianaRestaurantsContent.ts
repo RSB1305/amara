@@ -184,7 +184,7 @@ export const frigilianaRestaurantsContent: Record<
           { id: 'frigiliana', label: 'Frigiliana', value: 'Village evenings you can walk home from' },
           { id: 'nerja', label: 'Nerja', value: 'Special menus, tapas and fresh fish' },
           { id: 'acebuchal', label: 'El Acebuchal', value: 'Lunch as a small outing' },
-          { id: 'reviewed', label: 'Reviewed', value: 'July 2026' }
+          { id: 'reviewed', label: 'Reviewed', value: 'October 2026' }
         ]
       }
     },
@@ -200,7 +200,7 @@ export const frigilianaRestaurantsContent: Record<
       title: 'Start with the evening you want',
       intro:
         'For the evening what counts is how it should feel: loud or quiet, short or long, in the village or by the sea.',
-      reviewed: 'As of July 2026',
+      reviewed: 'As of October 2026',
       items: [
         {
           title: 'Stay in Frigiliana',
@@ -381,7 +381,7 @@ export const frigilianaRestaurantsContent: Record<
           { id: 'frigiliana', label: 'Frigiliana', value: 'Abende im Dorf, zu Fuß nach Hause' },
           { id: 'nerja', label: 'Nerja', value: 'Besondere Menüs, Tapas und frischer Fisch' },
           { id: 'acebuchal', label: 'El Acebuchal', value: 'Mittagessen als kleiner Ausflug' },
-          { id: 'reviewed', label: 'Stand', value: 'Juli 2026' }
+          { id: 'reviewed', label: 'Stand', value: 'Oktober 2026' }
         ]
       }
     },
@@ -397,7 +397,7 @@ export const frigilianaRestaurantsContent: Record<
       title: 'Beginnt mit dem Abend, den ihr euch wünscht',
       intro:
         'Für den Abend zählt, wie er sich anfühlen soll: laut oder leise, kurz oder lang, im Dorf oder am Meer.',
-      reviewed: 'Stand Juli 2026',
+      reviewed: 'Stand Oktober 2026',
       items: [
         {
           title: 'In Frigiliana bleiben',
@@ -578,7 +578,7 @@ export const frigilianaRestaurantsContent: Record<
           { id: 'frigiliana', label: 'Frigiliana', value: 'Cenas en el pueblo, volvéis andando' },
           { id: 'nerja', label: 'Nerja', value: 'Menús especiales, tapas y pescado fresco' },
           { id: 'acebuchal', label: 'El Acebuchal', value: 'Comer como pequeña excursión' },
-          { id: 'reviewed', label: 'Revisado', value: 'Julio 2026' }
+          { id: 'reviewed', label: 'Revisado', value: 'Octubre de 2026' }
         ]
       }
     },
@@ -594,7 +594,7 @@ export const frigilianaRestaurantsContent: Record<
       title: 'Empieza por la velada que te apetece',
       intro:
         'Para la noche lo que cuenta es cómo queréis que sea: ruidosa o tranquila, corta o larga, en el pueblo o junto al mar.',
-      reviewed: 'Actualizado en julio de 2026',
+      reviewed: 'Actualizado en octubre de 2026',
       items: [
         {
           title: 'Quedarse en Frigiliana',
@@ -775,7 +775,7 @@ export const frigilianaRestaurantsContent: Record<
           { id: 'frigiliana', label: 'Frigiliana', value: 'Avonden in het dorp, lopend naar huis' },
           { id: 'nerja', label: 'Nerja', value: 'Speciale menu’s, tapas en verse vis' },
           { id: 'acebuchal', label: 'El Acebuchal', value: 'Lunch als klein uitstapje' },
-          { id: 'reviewed', label: 'Bijgewerkt', value: 'Juli 2026' }
+          { id: 'reviewed', label: 'Bijgewerkt', value: 'Oktober 2026' }
         ]
       }
     },
@@ -791,7 +791,7 @@ export const frigilianaRestaurantsContent: Record<
       title: 'Begin bij de avond waar je zin in hebt',
       intro:
         'Voor de avond telt hoe hij moet voelen: luid of stil, kort of lang, in het dorp of aan zee.',
-      reviewed: 'Stand juli 2026',
+      reviewed: 'Stand oktober 2026',
       items: [
         {
           title: 'Blijf in Frigiliana',
@@ -972,7 +972,7 @@ export const frigilianaRestaurantsContent: Record<
           { id: 'frigiliana', label: 'Frigiliana', value: 'Kvällar i byn, gå hem till fots' },
           { id: 'nerja', label: 'Nerja', value: 'Särskilda menyer, tapas och färsk fisk' },
           { id: 'acebuchal', label: 'El Acebuchal', value: 'Lunch som en liten utflykt' },
-          { id: 'reviewed', label: 'Uppdaterad', value: 'Juli 2026' }
+          { id: 'reviewed', label: 'Uppdaterad', value: 'Oktober 2026' }
         ]
       }
     },
@@ -988,7 +988,7 @@ export const frigilianaRestaurantsContent: Record<
       title: 'Börja med kvällen du längtar efter',
       intro:
         'För kvällen räknas hur den ska kännas: högljudd eller stilla, kort eller lång, i byn eller vid havet.',
-      reviewed: 'Uppdaterad juli 2026',
+      reviewed: 'Uppdaterad oktober 2026',
       items: [
         {
           title: 'Stanna i Frigiliana',

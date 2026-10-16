@@ -45,7 +45,7 @@ const hero = {
     'Zeg ons jullie aankomsttijd en we zeggen of de steegjes open zijn.',
     'Säg er ankomsttid så säger vi om gränderna är öppna.'
   ),
-  updated: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')
+  updated: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026')
 };
 
 const facts = [
@@ -189,7 +189,7 @@ const makeLocale = (lang: AmaraLanguage): ParkingGuideLocale => ({
     eyebrow: l('Explore further', 'Mehr erfahren', 'Explorar más', 'Meer ontdekken', 'Utforska mer')[lang],
     title: l('Where these details come from', 'Woher diese Angaben kommen', 'De dónde salen estos datos', 'Waar deze gegevens vandaan komen', 'Varifrån uppgifterna kommer')[lang],
     intro: l('Town map and traffic rules from the municipality; the rhythm of arrivals and the advice to walk from us.', 'Ortsplan und Verkehrsregeln von der Gemeinde; der Rhythmus der Ankünfte und der Rat, zu Fuß zu gehen, von uns.', 'Plano y normas de tráfico del ayuntamiento; el ritmo de las llegadas y el consejo de ir a pie, nuestros.', 'Plattegrond en verkeersregels van de gemeente; het ritme van de aankomsten en het advies om te lopen van ons.', 'Karta och trafikregler från kommunen; rytmen i ankomsterna och rådet att gå från oss.')[lang],
-    checked: l('As of August 2026', 'Stand August 2026', 'Actualizado en agosto de 2026', 'Stand augustus 2026', 'Uppdaterad augusti 2026')[lang],
+    checked: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026')[lang],
     links: sourceRows.map((row) => ({ label: row.label[lang], text: row.text[lang], href: row.href }))
   },
   closing: {

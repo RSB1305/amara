@@ -138,7 +138,7 @@ export const tarifaLocationContent: {
         subtitle: 'Atlantic to the west, the Strait to the east, the old town in between',
         standfirst: 'Tarifa is small enough that you reach everything on foot, and lively enough that nobody has to go to bed early. The Levante from the east and the Poniente off the Atlantic shape the day more than the season does. We live in La Marina: five minutes to Los Lances beach, ten to fifteen into the old town, the balcony facing west, where the sun drops into the sea in the evening.',
         note: '',
-        updated: 'As of August 2026'
+        updated: 'As of October 2026'
       },
       keyFigures: {
         figures: [
@@ -285,7 +285,7 @@ export const tarifaLocationContent: {
         subtitle: 'Atlantik im Westen, Meerenge im Osten, die Altstadt dazwischen',
         standfirst: 'Tarifa ist klein genug, dass ihr alles zu Fuß erreicht, und lebendig genug, dass keiner früh ins Bett muss. Der Levante aus Osten und der Poniente vom Atlantik bestimmen den Tag mehr als die Jahreszeit. Wir wohnen in La Marina: fünf Minuten zum Strand von Los Lances, zehn bis fünfzehn in die Altstadt, der Balkon nach Westen, wo abends die Sonne ins Meer fällt.',
         note: '',
-        updated: 'Stand August 2026'
+        updated: 'Stand Oktober 2026'
       },
       keyFigures: {
         figures: [
@@ -429,7 +429,7 @@ export const tarifaLocationContent: {
         subtitle: 'Atlántico al oeste, Estrecho al este, el casco antiguo en medio',
         standfirst: 'Tarifa es lo bastante pequeña para llegar a todo a pie, y lo bastante viva para que nadie tenga que irse pronto a la cama. El levante del este y el poniente del Atlántico marcan el día más que la estación. Nosotros estamos en La Marina: cinco minutos a la playa de Los Lances, diez o quince al casco antiguo, el balcón hacia el oeste, donde por la tarde el sol cae al mar.',
         note: '',
-        updated: 'Actualizado en agosto de 2026'
+        updated: 'Actualizado en octubre de 2026'
       },
       keyFigures: {
         figures: [
@@ -576,7 +576,7 @@ export const tarifaLocationContent: {
         subtitle: 'Atlantische Oceaan in het westen, Straat in het oosten, de oude stad ertussen',
         standfirst: 'Tarifa is klein genoeg om alles te voet te bereiken, en levendig genoeg dat niemand vroeg naar bed hoeft. De Levante uit het oosten en de Poniente vanaf de Atlantische Oceaan bepalen de dag meer dan het seizoen. Wij wonen in La Marina: vijf minuten naar het strand van Los Lances, tien tot vijftien naar de oude stad, het balkon op het westen, waar ’s avonds de zon in zee valt.',
         note: '',
-        updated: 'Stand augustus 2026'
+        updated: 'Stand oktober 2026'
       },
       keyFigures: {
         figures: [
@@ -723,7 +723,7 @@ export const tarifaLocationContent: {
         subtitle: 'Atlanten i väster, sundet i öster, gamla stan emellan',
         standfirst: 'Tarifa är litet nog för att ni ska nå allt till fots, och livligt nog för att ingen ska behöva gå i säng tidigt. Levante från öster och Poniente från Atlanten styr dagen mer än årstiden. Vi bor i La Marina: fem minuter till stranden Los Lances, tio till femton in till gamla stan, balkongen mot väster, där solen går ner i havet på kvällen.',
         note: '',
-        updated: 'Uppdaterad augusti 2026'
+        updated: 'Uppdaterad oktober 2026'
       },
       keyFigures: {
         figures: [

@@ -150,7 +150,7 @@ export const tarifaKitePartnerContent: TarifaKitePartnerContent = {
       'Tarifa heeft twee sterke partners die elkaar goed kennen: AMARA voor het verblijf, Tarifa Surf Club voor alles op het water. We delen deze pagina omdat we elkaar gasten sturen en omdat de vragen altijd dezelfde zijn. Waar leer ik het, wanneer is de beste tijd, wat kost het, waar slaap ik en hoe lees ik de wind. Hier vinden jullie de antwoorden voor beginners en voor wie al vaart — met het laagseizoen van half september tot half juni als onze eerlijke aanbeveling.',
       'Tarifa har två starka partner som känner varandra väl: AMARA för boendet, Tarifa Surf Club för allt på vattnet. Vi delar den här sidan eftersom vi skickar gäster till varandra och eftersom frågorna alltid är desamma. Var lär jag mig, när är bästa tiden, vad kostar det, var sover jag och hur läser jag vinden. Här finns svaren för nybörjare och för er som redan åker – med lågsäsongen från mitten av september till mitten av juni som vår ärliga rekommendation.'
     ),
-    updated: l('As of September 2026', 'Stand September 2026', 'Actualizado en septiembre de 2026', 'Stand september 2026', 'Uppdaterad september 2026'),
+    updated: l('As of October 2026', 'Stand Oktober 2026', 'Actualizado en octubre de 2026', 'Stand oktober 2026', 'Uppdaterad oktober 2026'),
     note: l('Tarifa Surf Club prices as of 3 September 2026.', 'Preise des Tarifa Surf Club, Stand 3. September 2026.', 'Precios del Tarifa Surf Club, actualizados el 3 de septiembre de 2026.', 'Prijzen van de Tarifa Surf Club, stand 3 september 2026.', 'Tarifa Surf Clubs priser per den 3 september 2026.')
   },
   partners: {

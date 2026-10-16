@@ -88,7 +88,7 @@ export const gettingToTarifaContent = {
       "Stuur ons je aankomsttijd, dan zeggen we wat er die dag geldt.",
       "Skicka oss er ankomsttid, så säger vi vad som gäller den dagen."
     ),
-    updated: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026")
+    updated: l("As of October 2026", "Stand Oktober 2026", "Actualizado en octubre de 2026", "Stand oktober 2026", "Uppdaterad oktober 2026")
   },
   facts: [
     {
@@ -323,7 +323,7 @@ export const gettingToTarifaContent = {
       "De routes en verbindingen komen van het toeristenbureau, de luchthavens en de busmaatschappijen — daar vind je actuele tijden en tickets. Het adres, de garage en de supermarkt ertegenover komen van ons.",
       "Rutter och förbindelser kommer från turistbyrån, flygplatserna och bussbolagen — dit går ni för aktuella tider och biljetter. Adressen, garaget och mataffären mitt emot kommer från oss."
     ),
-    checked: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026"),
+    checked: l("As of October 2026", "Stand Oktober 2026", "Actualizado en octubre de 2026", "Stand oktober 2026", "Uppdaterad oktober 2026"),
     links: [
       {
         label: l("Tarifa Tourism · how to arrive", "Tourismus Tarifa · Anreise", "Turismo de Tarifa · cómo llegar", "Toerisme Tarifa · bereikbaarheid", "Tarifas turistbyrå · resa hit"),

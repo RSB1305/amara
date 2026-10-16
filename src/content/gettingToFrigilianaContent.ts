@@ -658,11 +658,11 @@ export const gettingToFrigilianaCopy = {
       sv: 'Tidtabellerna finns hos Aena, ALSA och Frigilianas kommun.'
     } satisfies LocalizedText,
     checked: {
-      en: 'As of September 2026',
-      de: 'Stand September 2026',
-      es: 'Actualizado en septiembre de 2026',
-      nl: 'Stand september 2026',
-      sv: 'Uppdaterad september 2026'
+      en: 'As of October 2026',
+      de: 'Stand Oktober 2026',
+      es: 'Actualizado en octubre de 2026',
+      nl: 'Stand oktober 2026',
+      sv: 'Uppdaterad oktober 2026'
     } satisfies LocalizedText,
     links: [
       {

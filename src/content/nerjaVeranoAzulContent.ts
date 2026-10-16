@@ -94,7 +94,7 @@ export const nerjaVeranoAzulContent = {
     title: l("Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul", "Verano Azul"),
     standfirst: l("For a whole country Nerja was first a television image: the teenagers on their bikes, Chanquete and his boat La Dorada, the beach at Burriana. The series aired more than forty years ago; its places still stand.", "Für ein ganzes Land war Nerja zuerst ein Fernsehbild: die Jugendlichen auf ihren Rädern, Chanquete und sein Boot La Dorada, der Strand von Burriana. Die Serie lief vor über vierzig Jahren; ihre Orte stehen noch.", "Para todo un país Nerja fue primero una imagen de televisión: los jóvenes en sus bicicletas, Chanquete y su barco La Dorada, la playa de Burriana. La serie se emitió hace más de cuarenta años; sus lugares siguen ahí.", "Voor een heel land was Nerja eerst een televisiebeeld: de jongeren op hun fietsen, Chanquete en zijn boot La Dorada, het strand van Burriana. De serie liep meer dan veertig jaar geleden; haar plekken staan er nog.", "För ett helt land var Nerja först en tv-bild: ungdomarna på sina cyklar, Chanquete och hans båt La Dorada, stranden i Burriana. Serien gick för över fyrtio år sedan; dess platser står kvar."),
     note: l("Filming locations, statue and park are in the centre of Nerja.", "Drehorte, Statue und Park liegen im Zentrum von Nerja.", "Localizaciones, estatua y parque están en el centro de Nerja.", "Filmlocaties, standbeeld en park liggen in het centrum van Nerja.", "Inspelningsplatser, staty och park ligger i Nerjas centrum."),
-    updated: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026")
+    updated: l("As of October 2026", "Stand Oktober 2026", "Actualizado en octubre de 2026", "Stand oktober 2026", "Uppdaterad oktober 2026")
   },
   facts: [
     {
@@ -230,7 +230,7 @@ export const nerjaVeranoAzulContent = {
     eyebrow: l("Explore further", "Mehr erfahren", "Explorar más", "Meer ontdekken", "Utforska mer"),
     title: l("Links to look into it yourself", "Weiterführende Links", "Enlaces para saber más", "Links om zelf verder te kijken", "Länkar för att läsa vidare"),
     intro: l("Dates and locations from RTVE reports and announcements by the town of Nerja.", "Daten und Drehorte aus RTVE-Berichten und Mitteilungen der Stadt Nerja.", "Fechas y localizaciones a partir de reportajes de RTVE y comunicados del Ayuntamiento de Nerja.", "Data en locaties uit RTVE-berichten en mededelingen van de stad Nerja.", "Datum och platser ur RTVE-rapporter och meddelanden från Nerjas kommun."),
-    checked: l("As of August 2026", "Stand August 2026", "Actualizado en agosto de 2026", "Stand augustus 2026", "Uppdaterad augusti 2026"),
+    checked: l("As of October 2026", "Stand Oktober 2026", "Actualizado en octubre de 2026", "Stand oktober 2026", "Uppdaterad oktober 2026"),
     links: [
       {
         label: l("RTVE · Verano Azul archive page", "RTVE · Verano Azul-Übersicht", "RTVE · Ficha de Verano Azul", "RTVE · Verano Azul dossier", "RTVE · Verano Azul-översikt"),
