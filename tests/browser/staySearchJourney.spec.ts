@@ -443,6 +443,11 @@ test('mobile finder uses one month and results stay in a single column without o
   expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(MOBILE.width);
 
   const partialArrival = futureIso(2);
+  // The phone shows only the current month; in its last two days futureIso(2)
+  // falls into the next one, so page forward once before picking it.
+  if (partialArrival.slice(0, 7) !== futureIso(0).slice(0, 7)) {
+    await page.locator('[data-am-booking-calendar-next]').click();
+  }
   await page.locator('[data-am-booking-day="' + partialArrival + '"]').click();
   await expect(page.locator('[data-am-stay-search-arrival]')).toHaveValue(partialArrival);
   await page.mouse.click(5, 5);
