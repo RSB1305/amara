@@ -36,6 +36,32 @@ export const tarifaKitesurfingSchoolImages = defineRouteImages({
       }
     },
     {
+      role: 'gallery',
+      id: 'lesson',
+      src: '/images/tarifa/kite-school-lesson-beach-2026.webp',
+      focalPoint: '50% 55%',
+      alt: {
+        en: "Two kiters in wetsuits cheering on the beach, one holding the kite bar overhead",
+        de: "Zwei Kiter in Neopren jubeln am Strand, eine Person hält die Bar des Kites in die Höhe",
+        es: "Dos kiters con neopreno celebrando en la playa; uno sostiene en alto la barra de la cometa",
+        nl: "Twee kiters in wetsuits juichen op het strand, een van hen houdt de bar van de kite omhoog",
+        sv: "Två kiters i våtdräkt jublar på stranden, en håller kitens bar högt"
+      }
+    },
+    {
+      role: 'gallery',
+      id: 'flag',
+      src: '/images/tarifa/kite-school-flag-beach-2026.webp',
+      focalPoint: '50% 40%',
+      alt: {
+        en: "The red Tarifa Surf Club kite-school flag being planted in the sand",
+        de: "Die rote Kiteschul-Flagge des Tarifa Surf Club wird in den Sand gesteckt",
+        es: "Alguien clava en la arena la bandera roja de la escuela de kite de Tarifa Surf Club",
+        nl: "De rode kiteschoolvlag van Tarifa Surf Club wordt in het zand gezet",
+        sv: "Tarifa Surf Clubs röda kiteskoleflagga sätts ner i sanden"
+      }
+    },
+    {
       role: 'og',
       src: '/images/tarifa/mark-robert-tarifa-surf-club-beach.webp'
     }

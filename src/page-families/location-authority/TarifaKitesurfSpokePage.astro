@@ -16,7 +16,8 @@ import { resolveLocale, type LocalizedText } from '../../types/content';
 import type { AmaraLanguage } from '../../types/seo';
 import LocationModule from './LocationModule.astro';
 import LocationGuideIcon, { type LocationGuideIconName } from '../../components/location/LocationGuideIcon.astro';
-import { requireRouteImage } from '../../lib/images/routeImages';
+import LocationPhotoGallery from '../../components/location/LocationPhotoGallery.astro';
+import { requireRouteImage, routeImages } from '../../lib/images/routeImages';
 
 /**
  * Practical spokes of the co-branded Tarifa kitesurf cluster (school, camp,
@@ -65,6 +66,7 @@ const routeKey = ({ 'kite-school': 'tarifa.kitesurfing.school', kitecamp: 'tarif
 const heroPhoto = requireRouteImage(routeKey, 'hero', currentLang);
 const photo = requireRouteImage(routeKey, 'photo', currentLang);
 const markImage = requireRouteImage('tarifa.kitesurfing.surf-club', 'mark', currentLang);
+const galleryImages = routeImages(routeKey, 'gallery', currentLang);
 const footerHighlights: LabeledLink[] = [
   { token: 'tarifa_kitesurfing_hub', label: t(hubLabel) },
   ...content.related.slice(0, 3).map((item) => ({ token: item.token, label: item.label }))
@@ -195,6 +197,9 @@ const footerHighlights: LabeledLink[] = [
         </div>
       </LocationModule>
     )}
+
+    {/* First-hand photographs of the offer between the offer and its explanation; omitted while the route has none. */}
+    <LocationPhotoGallery images={galleryImages} />
 
     {content.sections.map((section, index) => (
       <LocationModule id={section.id} labelledby={`${section.id}-title`} surface={index % 2 === 0 ? 'tint' : 'white'} spacing="compact" data-am-topic="explanation">

@@ -66,6 +66,45 @@ export const tarifaKitesurfingSurfClubImages = defineRouteImages({
       }
     },
     {
+      role: 'gallery',
+      id: 'club-jump',
+      src: '/images/tarifa/kite-jump-turquoise-water-2026.webp',
+      focalPoint: '50% 35%',
+      alt: {
+        en: "A kiter high in the air above turquoise water, a green hill with wind turbines behind",
+        de: "Kiter hoch in der Luft über türkisem Wasser, dahinter ein grüner Hügel mit Windrädern",
+        es: "Un kiter muy alto en el aire sobre agua turquesa, con una colina verde con aerogeneradores detrás",
+        nl: "Een kiter hoog in de lucht boven turquoise water, met een groene heuvel met windturbines erachter",
+        sv: "En kiter högt i luften över turkost vatten, med en grön kulle med vindkraftverk bakom"
+      }
+    },
+    {
+      role: 'gallery',
+      id: 'club-beach-walk',
+      src: '/images/tarifa/kite-rider-town-beach-2026.webp',
+      focalPoint: '50% 50%',
+      alt: {
+        en: "A rider carrying board and kite bag along a wide beach, the town’s houses behind",
+        de: "Kiter trägt Board und Kitetasche über einen breiten Strand, dahinter die Häuser der Stadt",
+        es: "Un rider lleva la tabla y la bolsa del kite por una playa ancha, con las casas del pueblo detrás",
+        nl: "Een rider draagt board en kitetas over een breed strand, met de huizen van de stad erachter",
+        sv: "En rider bär bräda och kiteväska längs en bred strand, med stadens hus bakom"
+      }
+    },
+    {
+      role: 'gallery',
+      id: 'club-rider-board',
+      src: '/images/tarifa/surf-club-rider-board-2026.webp',
+      focalPoint: '50% 30%',
+      alt: {
+        en: "A rider in a Tarifa Surf Club neoprene top standing on the beach beside a Vaerial board",
+        de: "Kiter im Neoprenshirt des Tarifa Surf Club steht am Strand neben einem Vaerial-Board",
+        es: "Un rider con camiseta de neopreno de Tarifa Surf Club, de pie en la playa junto a una tabla Vaerial",
+        nl: "Een rider in een neopreen shirt van Tarifa Surf Club staat op het strand naast een Vaerial-board",
+        sv: "En rider i Tarifa Surf Clubs neoprentröja står på stranden bredvid en Vaerial-bräda"
+      }
+    },
+    {
       role: 'split',
       id: 'story',
       src: '/images/tarifa/mark-robert-tarifa-surf-club-promenade.webp',
